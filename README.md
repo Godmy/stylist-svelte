@@ -181,7 +181,7 @@ Run `yarn dev` and open the local app – the default route renders `<StoryRoot>
 
 ### Что уже покрыто playground
 
-- **Atoms:** Button, Input, Textarea, Select, Checkbox, Switch, RadioGroup, RangeSlider, Tag, Divider, Avatar, Badge, Spinner, Tooltip
+- **Atoms:** Button, Input, Textarea, Select, Checkbox, Avatar, Badge, Spinner, Tooltip
 - **Molecules:** SearchBar, CopyButton, EmptyState, FormFieldGroup, FormSection
 
 Каждый файл-история содержит `component`, `tags` и набор `controls`, поэтому кодогенератор, поисковая панель и контролы сразу готовы к работе. Дополнительные детали – в [ADR 0007](./docs/adr/0007-playground-story-architecture.md).
@@ -197,11 +197,11 @@ Basic building blocks:
 - Textarea
 - Select
 - Checkbox
-- Switch _(new)_
-- RadioGroup _(new)_
-- RangeSlider _(new)_
-- Tag _(new)_
-- Divider _(new)_
+
+
+
+
+
 - Avatar
 - Badge
 - Spinner
@@ -214,6 +214,12 @@ Composite components:
 - EmptyState
 - FormFieldGroup
 - FormSection
+
+
+
+
+
+
 
 ### Organisms
 Complex components:

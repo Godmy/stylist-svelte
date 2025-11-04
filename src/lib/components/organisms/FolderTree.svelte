@@ -1,270 +1,163 @@
-<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-
-  // Типы для узла дерева
+<script module lang="ts">
   export type FolderNode = {
-    id: number | string;
+    id: string | number;
     name: string;
     children?: FolderNode[];
-    expanded?: boolean;
-    icon?: string;
-    url?: string; // для навигации
-    count?: number; // количество элементов в папке
+    count?: number;
     disabled?: boolean;
   };
+</script>
 
-  // Типы для пропсов
-  type Props = {
+<script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
+  import type { FolderNode as FolderTreeNode } from './FolderTree.svelte';
+
+  type FolderNode = FolderTreeNode;
+
+  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+
+  type Props = RestProps & {
     nodes: FolderNode[];
     defaultExpanded?: boolean;
     onNodeClick?: (node: FolderNode) => void;
     onNodeToggle?: (node: FolderNode, expanded: boolean) => void;
-    loadChildren?: (nodeId: string | number) => Promise<FolderNode[]>;
-  } & HTMLAttributes<HTMLDivElement>;
+    class?: string;
+  };
 
-  let props: Props = $props();
+  let {
+    nodes,
+    defaultExpanded = false,
+    onNodeClick,
+    onNodeToggle,
+    class: hostClass = '',
+    ...restProps
+  }: Props = $props();
 
-  // Состояние развернутых узлов
-  let expandedNodes = $state<Set<string | number>>(new Set());
+  let expanded = $state<Set<string | number>>(new Set());
 
-  // Состояние загрузки для lazy loading
-  let loadingNodes = $state<Set<string | number>>(new Set());
-
-  // Lazy загруженные дети
-  let lazyLoadedChildren = $state<Record<string | number, FolderNode[]>>({});
-
-  // Обработка клика по узлу
-  function handleNodeClick(node: FolderNode) {
-    if (node.disabled) return;
-    
-    // Если узел имеет URL, переходим по нему
-    if (node.url) {
-      window.location.href = node.url;
-    }
-    
-    // Вызываем внешний обработчик
-    if (props.onNodeClick) {
-      props.onNodeClick(node);
-    }
-    
-    // Если у узла есть дети или есть функция loadChildren, переключаем его
-    if (node.children || props.loadChildren) {
-      toggleNode(node);
-    }
-  }
-
-  // Переключение состояния узла (развернут/свернут)
-  function toggleNode(node: FolderNode) {
-    if (node.disabled) return;
-    
-    const nodeId = node.id;
-    const isCurrentlyExpanded = expandedNodes.has(nodeId);
-    
-    if (isCurrentlyExpanded) {
-      expandedNodes.delete(nodeId);
-    } else {
-      expandedNodes.add(nodeId);
-      // Если есть функция загрузки и дети еще не загружены
-      if (props.loadChildren && !lazyLoadedChildren[nodeId]) {
-        loadChildrenForNode(nodeId);
+  function collectIds(list: FolderNode[], acc: Set<string | number>) {
+    for (const node of list) {
+      acc.add(node.id);
+      if (node.children?.length) {
+        collectIds(node.children, acc);
       }
     }
-    
-    // Вызываем внешний обработчик
-    if (props.onNodeToggle) {
-      props.onNodeToggle(node, !isCurrentlyExpanded);
-    }
   }
 
-  // Загрузка детей узла (lazy loading)
-  async function loadChildrenForNode(nodeId: string | number) {
-    if (!props.loadChildren) return;
-    
-    loadingNodes.add(nodeId);
-    try {
-      const children = await props.loadChildren(nodeId);
-      lazyLoadedChildren = {
-        ...lazyLoadedChildren,
-        [nodeId]: children
-      };
-    } catch (error) {
-      console.error(`Error loading children for node ${nodeId}:`, error);
-    } finally {
-      loadingNodes.delete(nodeId);
-    }
-  }
-
-  // Проверка, развернут ли узел
-  function isExpanded(nodeId: string | number): boolean {
-    return expandedNodes.has(nodeId);
-  }
-
-  // Проверка, загружаются ли дети узла
-  function isLoading(nodeId: string | number): boolean {
-    return loadingNodes.has(nodeId);
-  }
-
-  // Получение всех детей узла (как загруженных, так и lazy)
-  function getChildren(node: FolderNode): FolderNode[] {
-    const directChildren = node.children || [];
-    const lazyChildren = lazyLoadedChildren[node.id] || [];
-    return [...directChildren, ...lazyChildren];
-  }
-
-  // Установка начального состояния развернутых узлов
   $effect(() => {
-    if (props.defaultExpanded) {
-      const allNodeIds = collectAllNodeIds(props.nodes);
-      expandedNodes = new Set(allNodeIds);
+    if (defaultExpanded) {
+      const all = new Set<string | number>();
+      collectIds(nodes, all);
+      expanded = all;
+    } else {
+      expanded = new Set();
     }
   });
 
-  // Вспомогательная функция для сбора всех ID узлов
-  function collectAllNodeIds(nodes: FolderNode[]): Array<string | number> {
-    const ids: Array<string | number> = [];
-    for (const node of nodes) {
-      ids.push(node.id);
-      if (node.children) {
-        ids.push(...collectAllNodeIds(node.children));
-      }
+  function toggle(node: FolderNode) {
+    if (node.disabled || !node.children?.length) return;
+    const next = new Set(expanded);
+    if (next.has(node.id)) {
+      next.delete(node.id);
+      onNodeToggle?.(node, false);
+    } else {
+      next.add(node.id);
+      onNodeToggle?.(node, true);
     }
-    return ids;
+    expanded = next;
+  }
+
+  function handleClick(node: FolderNode) {
+    if (node.disabled) return;
+    onNodeClick?.(node);
+    if (node.children?.length) {
+      toggle(node);
+    }
+  }
+
+  function handleKeydown(node: FolderNode, event: KeyboardEvent) {
+    if (node.disabled) return;
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleClick(node);
+    } else if (event.key === 'ArrowRight' && node.children?.length && !expanded.has(node.id)) {
+      toggle(node);
+    } else if (event.key === 'ArrowLeft' && node.children?.length && expanded.has(node.id)) {
+      toggle(node);
+    }
   }
 </script>
 
-<div class="folder-tree {props.class || ''}" {...$restProps}>
+<div class={`folder-tree ${hostClass}`} {...restProps}>
   <ul role="tree" class="space-y-1">
-    {#each props.nodes as node}
-      <TreeNode 
-        {node}
-        {expandedNodes}
-        {loadingNodes}
-        {lazyLoadedChildren}
-        on:click={handleNodeClick}
-        on:toggle={toggleNode}
-      />
-    {/each}
+    {@render NodeList(nodes)}
   </ul>
 </div>
 
-<!-- Подкомпонент для узла дерева -->
-<script context="module">
-  type NodeProps = {
-    node: FolderNode;
-    expandedNodes: Set<string | number>;
-    loadingNodes: Set<string | number>;
-    lazyLoadedChildren: Record<string | number, FolderNode[]>;
-  };
-
-  let { node, expandedNodes, loadingNodes, lazyLoadedChildren }: NodeProps = $props();
-  
-  let hasChildren = $derived(!!(node.children?.length || lazyLoadedChildren[node.id]?.length || node.loadFunction));
-  let isExpanded = $derived(expandedNodes.has(node.id));
-  let isLoading = $derived(loadingNodes.has(node.id));
-  let allChildren = $derived([
-    ...(node.children || []),
-    ...(lazyLoadedChildren[node.id] || [])
-  ]);
-
-  function handleNodeClick() {
-    dispatchEvent(new CustomEvent('click', { detail: { node } }));
-  }
-
-  function handleToggle() {
-    dispatchEvent(new CustomEvent('toggle', { detail: { node } }));
-  }
-</script>
-
-<li role="treeitem" aria-expanded={hasChildren ? isExpanded : undefined} class="relative">
-  <div 
-    class="flex items-center py-2 px-3 rounded-md hover:bg-gray-100 cursor-pointer text-sm transition-colors"
-    class:opacity-50={node.disabled}
-    on:click={handleNodeClick}
-  >
-    {#if hasChildren}
-      <button
-        class="mr-1 flex items-center justify-center w-6 h-6 rounded hover:bg-gray-200 focus:outline-none"
-        on:click|stopPropagation={handleToggle}
-        aria-label={isExpanded ? 'Свернуть' : 'Развернуть'}
+{#snippet NodeList(items: FolderNode[])}
+  {#each items as node (node.id)}
+    {@const hasChildren = !!node.children?.length}
+    {@const isExpanded = expanded.has(node.id)}
+    <li role="treeitem" aria-expanded={hasChildren ? isExpanded : undefined} aria-selected="false" class="list-none">
+      <div
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-100 transition-colors cursor-pointer"
+        class:opacity-50={node.disabled}
+        role="button"
+        tabindex={node.disabled ? -1 : 0}
+        onclick={() => handleClick(node)}
+        onkeydown={(event) => handleKeydown(node, event)}
       >
-        <svg
-          class="w-4 h-4 transform transition-transform"
-          class:rotate-90={isExpanded}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"
-          />
-        </svg>
-      </button>
-    {:else}
-      <div class="w-6 mr-1"></div>
-    {/if}
+        {#if hasChildren}
+          <button
+            type="button"
+            class="flex h-5 w-5 items-center justify-center rounded hover:bg-gray-200 focus:outline-none"
+            aria-label={isExpanded ? `Свернуть ${node.name}` : `Развернуть ${node.name}`}
+            onclick={(event) => {
+              event.stopPropagation();
+              toggle(node);
+            }}
+          >
+            <svg
+              class="h-3.5 w-3.5 text-gray-600 transition-transform"
+              class:rotate-90={isExpanded}
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 6l6 4-6 4" />
+            </svg>
+          </button>
+        {:else}
+          <span class="w-5"></span>
+        {/if}
 
-    {#if isLoading}
-      <!-- Индикатор загрузки -->
-      <div class="w-4 h-4 mr-2 flex items-center justify-center">
-        <div class="animate-spin rounded-full h-3 w-3 border-b-2 border-gray-900"></div>
+        <span class="flex-1 truncate">{node.name}</span>
+
+        {#if node.count !== undefined}
+          <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">
+            {node.count}
+          </span>
+        {/if}
       </div>
-    {:else}
-      <!-- Иконка папки -->
-      <svg 
-        class="w-4 h-4 mr-2 text-gray-500 flex-shrink-0" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-      >
-        <path 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          stroke-width="2" 
-          d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z" 
-        />
-      </svg>
-    {/if}
 
-    <span class="truncate flex-1">{node.name}</span>
-    
-    {#if node.count !== undefined}
-      <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-        {node.count}
-      </span>
-    {/if}
-  </div>
+      {#if hasChildren && isExpanded}
+        <ul role="group" class="ml-6 space-y-1 mt-1">
+          {@render NodeList(node.children ?? [])}
+        </ul>
+      {/if}
+    </li>
+  {/each}
+{/snippet}
 
-  {#if isExpanded && allChildren.length > 0}
-    <ul role="group" class="ml-6 space-y-1 mt-1">
-      {#each allChildren as child}
-        <svelte:component 
-          this={import.meta.url.split('?')[0].replace('.svelte', '.svelte')}
-          node={child}
-          {expandedNodes}
-          {loadingNodes}
-          {lazyLoadedChildren}
-          on:click={(e) => dispatchEvent(new CustomEvent('click', e.detail))}
-          on:toggle={(e) => dispatchEvent(new CustomEvent('toggle', e.detail))}
-        />
-      {/each}
-    </ul>
-  {/if}
-</li>
 
 <style>
   .folder-tree {
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   }
-  
-  li[role="treeitem"] {
-    list-style: none;
-  }
-  
-  ul[role="tree"],
-  ul[role="group"] {
+
+  ul[role='tree'],
+  ul[role='group'] {
     padding-left: 0;
     margin: 0;
     list-style: none;
