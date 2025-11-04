@@ -1,10 +1,11 @@
 {
   "name": "stylist-svelte",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "A comprehensive Svelte 5 UI component library with Tailwind CSS",
   "type": "module",
   "author": "HumansOntology Team",
   "license": "MIT",
+  "packageManager": "yarn@4.5.1",
   "keywords": [
     "svelte",
     "svelte5",
@@ -13,7 +14,14 @@
     "tailwind",
     "design-system"
   ],
-  "packageManager": "yarn@4.5.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Godmy/stylist-svelte.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Godmy/stylist-svelte/issues"
+  },
+  "homepage": "https://github.com/Godmy/stylist-svelte#readme",
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-package && publint",
