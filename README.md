@@ -177,7 +177,14 @@ Create an interactive component playground in minutes:
 </Story>
 ```
 
-Run `yarn dev` and open the local app – the default route renders `<StoryRoot>` and automatically loads every `*.story.svelte` file from `src/lib/components/**`.
+Run `yarn dev` and open the local app – the default route renders `<StoryRoot>` и автоматически подхватывает все `*.story.svelte` из `src/lib/components/**`.
+
+### Что уже покрыто playground
+
+- **Atoms:** Button, Input, Textarea, Select, Checkbox, Avatar, Badge, Spinner, Tooltip
+- **Molecules:** SearchBar, CopyButton, EmptyState, FormFieldGroup, FormSection
+
+Каждый файл-история содержит `component`, `tags` и набор `controls`, поэтому кодогенератор, поисковая панель и контролы сразу готовы к работе. Дополнительные детали – в [ADR 0007](./docs/adr/0007-playground-story-architecture.md).
 
 📚 **[Read Playground Documentation](./PLAYGROUND.md)**
 
