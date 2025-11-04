@@ -1,4 +1,4 @@
-# 1. Initial Tailwind CSS and PostCSS Setup
+# ADR 0006: Implementation of Tailwind CSS and PostCSS Setup
 
 ## Context
 

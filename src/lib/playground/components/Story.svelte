@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount } from 'svelte';
   import { playgroundStore } from '../stores/playground.svelte';
   import type { StoryConfig, ControlConfig } from '../types';
 
   type Props = {
     id: string;
     title: string;
-    component?: any;
+    component: any;
     description?: string;
     category?: string;
     controls?: ControlConfig[];
+    tags?: string[];
     children?: any;
   };
 
@@ -20,34 +21,47 @@
     description,
     category = 'Components',
     controls = [],
+    tags = [],
     children
   }: Props = $props();
 
-  // Register story on mount
-  onMount(() => {
+  let controlValues = $derived(playgroundStore.controlValues);
+  let currentStoryId = $derived(playgroundStore.state.currentStoryId);
+  let isActive = $derived(currentStoryId === id);
+
+  function syncStory() {
     const storyConfig: StoryConfig = {
       id,
       title,
       component,
       description,
       category,
-      controls
+      controls,
+      tags
     };
 
     playgroundStore.registerStory(storyConfig);
+  }
+
+  let mounted = false;
+
+  onMount(() => {
+    mounted = true;
+    syncStory();
+
+    return () => {
+      playgroundStore.unregisterStory(id);
+    };
   });
 
-  // Unregister on destroy
-  onDestroy(() => {
-    playgroundStore.unregisterStory(id);
+  $effect(() => {
+    if (!mounted) return;
+    syncStory();
   });
-
-  // Get reactive control values
-  let controlValues = $derived(playgroundStore.controlValues);
 </script>
 
 <div class="w-full h-full">
-  {#if children}
+  {#if isActive && children}
     {@render children(controlValues)}
   {/if}
 </div>

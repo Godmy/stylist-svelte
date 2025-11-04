@@ -6,15 +6,14 @@
 
 ## Context
 
-The project consists of two packages:
-- `stylist-svelte` - Component library
-- `stylist` - Playground demo application
+The project is a single package containing:
+- `stylist-svelte` - Component library with integrated playground
 
-We need a monorepo tool to manage these packages.
+We use Yarn for package management and development workflows.
 
 ## Decision
 
-We will use **Yarn Workspaces** (Yarn v1) for monorepo management.
+We will use **Yarn** as the package manager for the single-package component library.
 
 ## Rationale
 
@@ -50,51 +49,40 @@ We will use **Yarn Workspaces** (Yarn v1) for monorepo management.
 
 ## Configuration
 
-### Root package.json
+### package.json
 ```json
 {
-  "name": "humans-ontology-monorepo",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "stylist-svelte",
+  "version": "0.5.0",
+  "packageManager": "yarn@4.5.1",
   "scripts": {
-    "build": "yarn workspaces run build",
-    "dev": "yarn workspace stylist dev",
-    "lib:build": "yarn workspace stylist-svelte build",
-    "lib:dev": "yarn workspace stylist-svelte dev"
+    "dev": "vite dev",
+    "build": "svelte-package && publint",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write ."
   }
 }
 ```
 
-### Package References
-```json
-// packages/stylist/package.json
-{
-  "dependencies": {
-    "stylist-svelte": "workspace:*"
-  }
-}
-```
-
-## Workspace Structure
+## Project Structure
 
 ```
 project-root/
-├── packages/
-│   ├── stylist-svelte/    # Component library
-│   │   ├── src/
-│   │   ├── package.json
-│   │   └── dist/          # Built output
-│   │
-│   └── stylist/           # Playground demo
-│       ├── src/
-│       ├── package.json
-│       └── .svelte-kit/
-│
-├── package.json           # Root workspace config
-├── yarn.lock             # Shared lock file
-└── node_modules/         # Hoisted dependencies
+├── src/
+│   ├── lib/              # Main library code
+│   │   ├── components/   # Component implementations
+│   │   ├── playground/   # Playground system
+│   │   ├── stores/       # Global state
+│   │   ├── types/        # Type definitions
+│   │   └── utils/        # Utility functions
+│   └── routes/           # SvelteKit routes (if needed)
+├── docs/                 # Documentation
+├── package.json          # Package configuration
+├── svelte.config.js      # Svelte compiler config
+├── vite.config.ts        # Build configuration
+└── tsconfig.json         # TypeScript configuration
 ```
 
 ## Workflows
@@ -102,177 +90,113 @@ project-root/
 ### Development
 
 ```bash
-# Install all dependencies
+# Install dependencies
 yarn install
 
 # Build library
-yarn lib:build
+yarn build
 
-# Run playground
+# Run development server
 yarn dev
 
-# Build everything
-yarn build
+# Run tests
+yarn test
 ```
 
 ### Adding Dependencies
 
 ```bash
-# Add to library
-yarn workspace stylist-svelte add lodash
+# Add dependencies
+yarn add package-name
 
-# Add to playground
-yarn workspace stylist add axios
-
-# Add to root (dev tools)
-yarn add -W -D eslint
+# Add dev dependencies
+yarn add -D package-name
 ```
-
-### Local Development Loop
-
-1. Make changes in `stylist-svelte`
-2. Run `yarn lib:build`
-3. Changes automatically available in `stylist`
-4. Test in playground
-5. Repeat
 
 ## Advantages
 
-### ✅ Shared Dependencies
+### ✅ Simple Package Management
 
-Only one copy of common dependencies:
+Single package approach:
 ```
 node_modules/
-├── svelte/              # Shared by both
-├── tailwindcss/         # Shared by both
-├── typescript/          # Shared by both
+├── svelte/
+├── typescript/
 └── ...
 ```
 
-### ✅ Local Linking
+### ✅ Straightforward Development
 
-No need for `npm link`:
-```json
-{
-  "dependencies": {
-    "stylist-svelte": "workspace:*"  // Auto-links
-  }
-}
-```
-
-### ✅ Consistent Versions
-
-Yarn ensures compatible versions:
-```bash
-yarn why svelte  # Shows which packages use what version
-```
+Simplified workflow for a single package:
+- No cross-package linking required
+- Single build process
+- Consistent configuration
 
 ### ✅ Fast Installs
 
+Yarn provides efficient dependency resolution:
 ```bash
-# Without workspaces
-cd stylist-svelte && npm install  # ~30s
-cd ../stylist && npm install       # ~30s
-# Total: ~60s
-
-# With workspaces
-yarn install  # ~20s (shared deps, single lock file)
+yarn install  # Single install for entire package
 ```
 
 ## Consequences
 
 ### Positive
 
-- ✅ Simple setup
+- ✅ Simple setup and maintenance
 - ✅ Fast installs
-- ✅ Easy local development
-- ✅ Shared tooling (ESLint, TypeScript)
+- ✅ Consistent tooling (ESLint, TypeScript)
 - ✅ Single lock file
 
 ### Negative
 
-- ⚠️ Must build library before use
-- ⚠️ Circular dependency risks
-- ⚠️ Root package.json can get cluttered
+- ⚠️ Single package may become large
+- ⚠️ Different concerns mixed in one package
 
 ### Mitigation
 
-- Document build order clearly
-- Use workspace scripts
-- Keep root package.json minimal
+- Use clear directory structure
+- Document architecture well
+- Consider monorepo if project grows significantly
 
 ## Scripts Organization
 
-### Root Scripts (package.json)
-```json
-{
-  "scripts": {
-    "dev": "yarn workspace stylist dev",
-    "build": "yarn workspaces run build",
-    "lib:build": "yarn workspace stylist-svelte build",
-    "lib:dev": "yarn workspace stylist-svelte dev",
-    "test": "yarn workspaces run test",
-    "lint": "yarn workspaces run lint",
-    "format": "yarn workspaces run format",
-    "clean": "yarn workspaces run clean && rm -rf node_modules"
-  }
-}
-```
-
-### Library Scripts (stylist-svelte/package.json)
+### Scripts (package.json)
 ```json
 {
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-package && publint",
+    "preview": "vite preview",
+    "package": "svelte-package",
+    "prepublishOnly": "npm run build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "vitest run",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "test:unit": "vitest run",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
-    "clean": "rm -rf dist .svelte-kit"
-  }
-}
-```
-
-### Playground Scripts (stylist/package.json)
-```json
-{
-  "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "clean": "rm -rf .svelte-kit build"
+    "clean": "rm -rf dist .svelte-kit node_modules/.vite"
   }
 }
 ```
 
 ## Alternatives Considered
 
-### 1. npm Workspaces
-**Pros:** Similar to Yarn, no extra tool
-**Cons:** Worse DX, slower, less features
-**Rejected:** Yarn is better
+### 1. npm
+**Pros:** Default with Node.js, widely used
+**Cons:** Less efficient dependency hoisting, slower installs
+**Rejected:** Yarn provides better DX
 
-### 2. pnpm Workspaces
-**Pros:** Fastest, most efficient
+### 2. pnpm
+**Pros:** Fastest, most efficient disk usage
 **Cons:** Less common, potential compatibility issues
 **Rejected:** Team preference for Yarn
 
-### 3. Lerna
-**Pros:** More features (versioning, publishing)
-**Cons:** Overkill, less maintained
-**Rejected:** Don't need advanced features
-
-### 4. Nx
-**Pros:** Powerful, build caching, monorepo tools
-**Cons:** Complex, steep learning curve
-**Rejected:** Too complex for 2 packages
-
-### 5. Separate Repositories
-**Pros:** Complete isolation
-**Cons:** Hard to develop together, version sync issues
-**Rejected:** Need tight coupling for playground
+### 3. Monorepo with Multiple Packages
+**Pros:** Clear separation of concerns
+**Cons:** More complex tooling and maintenance
+**Rejected:** Single package approach is simpler for current needs
 
 ## Migration Path
 
@@ -294,8 +218,8 @@ npm install
 
 ## References
 
-- [Yarn Workspaces Documentation](https://classic.yarnpkg.com/en/docs/workspaces/)
-- [Monorepo Tools Comparison](https://monorepo.tools/)
+- [Yarn Documentation](https://yarnpkg.com/)
+- [Package Manager Comparison](https://docs.npmjs.com/)
 
 ## Related ADRs
 

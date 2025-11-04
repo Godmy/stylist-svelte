@@ -29,13 +29,27 @@ npm install stylist-svelte
 Create a playground in your SvelteKit app:
 
 ```svelte
-<!-- src/routes/+layout.svelte -->
+<!-- src/routes/+page.svelte -->
 <script lang="ts">
   import { StoryRoot } from 'stylist-svelte/playground';
+
+  const modules = import.meta.glob('$lib/components/**/*.story.svelte', {
+    eager: true
+  });
+
+  const stories = Object.entries(modules)
+    .map(([path, module]) => ({
+      path,
+      component: module?.default
+    }))
+    .filter((entry) => entry.component)
+    .sort((a, b) => a.path.localeCompare(b.path));
 </script>
 
 <StoryRoot title="My Component Library">
-  <slot />
+  {#each stories as story (story.path)}
+    <svelte:component this={story.component} />
+  {/each}
 </StoryRoot>
 ```
 
@@ -44,18 +58,17 @@ Create a playground in your SvelteKit app:
 Create individual story pages:
 
 ```svelte
-<!-- src/routes/button/+page.svelte -->
+<!-- src/lib/components/atoms/Button.story.svelte -->
 <script lang="ts">
   import { Story } from 'stylist-svelte/playground';
-  import { Button } from 'stylist-svelte';
-</script>
+  import Button from './Button.svelte';
 
-<Story
-  id="button"
-  title="Button"
-  category="Atoms"
-  description="A versatile button component"
-  controls={[
+  const controls = [
+    {
+      name: 'label',
+      type: 'text',
+      defaultValue: 'Click me'
+    },
     {
       name: 'variant',
       type: 'select',
@@ -63,27 +76,35 @@ Create individual story pages:
       options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
     },
     {
-      name: 'size',
-      type: 'select',
-      defaultValue: 'md',
-      options: ['sm', 'md', 'lg']
+      name: 'loading',
+      type: 'boolean',
+      defaultValue: false
     },
     {
       name: 'disabled',
       type: 'boolean',
       defaultValue: false
-    },
-    {
-      name: 'loading',
-      type: 'boolean',
-      defaultValue: false
     }
-  ]}
+  ];
+</script>
+
+<Story
+  id="atoms-button"
+  title="Button"
+  component={Button}
+  category="Atoms"
+  description="A versatile button component"
+  tags={['action', 'form']}
+  controls={controls}
 >
   {#snippet children(props)}
-    <Button {...props}>
-      Click me
-    </Button>
+    {#snippet label()} {props.label} {/snippet}
+    <Button
+      variant={props.variant}
+      loading={props.loading}
+      disabled={props.disabled}
+      content={label}
+    />
   {/snippet}
 </Story>
 ```
@@ -105,9 +126,10 @@ Container for a component story.
 **Props:**
 - `id: string` - Unique story identifier
 - `title: string` - Story display title
-- `component?: any` - Component reference
+- `component: any` - Component reference used for code generation
 - `description?: string` - Story description
 - `category?: string` - Category for grouping (default: "Components")
+- `tags?: string[]` - Keywords used by navigation search
 - `controls?: ControlConfig[]` - Interactive controls
 - `children?: Snippet<[props: Record<string, any>]>` - Render function with props
 

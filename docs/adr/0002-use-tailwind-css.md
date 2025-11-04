@@ -15,7 +15,7 @@ We need to choose a styling solution for the UI component library. Options inclu
 
 ## Decision
 
-We will use **Tailwind CSS 4.x** as the primary styling solution with utility classes.
+We will use **Tailwind CSS utility classes** directly in our component implementations, with the expectation that consumers of this library will configure Tailwind CSS separately in their projects.
 
 ## Rationale
 
@@ -81,8 +81,8 @@ We will use **Tailwind CSS 4.x** as the primary styling solution with utility cl
 
 - ❌ HTML can become verbose with many classes
 - ❌ Learning curve for utility-first approach
-- ❌ Peer dependency on Tailwind CSS
-- ❌ Requires build step and configuration
+- ❌ Consumers must configure Tailwind CSS separately
+- ❌ Requires build step and configuration in consuming projects
 
 ### Mitigation
 

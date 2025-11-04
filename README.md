@@ -137,28 +137,17 @@ import './tailwind.css';
 Create an interactive component playground in minutes:
 
 ```svelte
-<!-- src/routes/+layout.svelte -->
-<script lang="ts">
-  import { StoryRoot } from 'stylist-svelte/playground';
-</script>
-
-<StoryRoot title="My Components">
-  <slot />
-</StoryRoot>
-```
-
-```svelte
-<!-- src/routes/button/+page.svelte -->
+<!-- src/lib/components/atoms/Button.story.svelte -->
 <script lang="ts">
   import { Story } from 'stylist-svelte/playground';
-  import { Button } from 'stylist-svelte';
-</script>
+  import Button from './Button.svelte';
 
-<Story
-  id="button"
-  title="Button"
-  category="Atoms"
-  controls={[
+  const controls = [
+    {
+      name: 'label',
+      type: 'text',
+      defaultValue: 'Click me'
+    },
     {
       name: 'variant',
       type: 'select',
@@ -170,13 +159,25 @@ Create an interactive component playground in minutes:
       type: 'boolean',
       defaultValue: false
     }
-  ]}
+  ];
+</script>
+
+<Story
+  id="atoms-button"
+  title="Button"
+  component={Button}
+  category="Atoms"
+  tags={['action', 'form']}
+  controls={controls}
 >
   {#snippet children(props)}
-    <Button {...props}>Click me</Button>
+    {#snippet label()} {props.label} {/snippet}
+    <Button variant={props.variant} disabled={props.disabled} content={label} />
   {/snippet}
 </Story>
 ```
+
+Run `yarn dev` and open the local app – the default route renders `<StoryRoot>` and automatically loads every `*.story.svelte` file from `src/lib/components/**`.
 
 📚 **[Read Playground Documentation](./PLAYGROUND.md)**
 

@@ -24,24 +24,61 @@ class PlaygroundStore {
 
   // Methods
   registerStory(story: StoryConfig) {
+    const wasEmpty = this.stories.size === 0;
+    const isSameStory = this.state.currentStoryId === story.id;
+
     this.stories.set(story.id, story);
+
+    if (wasEmpty || this.state.currentStoryId === null) {
+      this.setCurrentStory(story.id);
+      return;
+    }
+
+    if (isSameStory) {
+      this.setCurrentStory(story.id);
+    }
   }
 
   unregisterStory(id: string) {
     this.stories.delete(id);
+
+    if (this.state.currentStoryId === id) {
+      const next = this.stories.keys().next().value ?? null;
+      this.setCurrentStory(next ?? null);
+    }
   }
 
   setCurrentStory(id: string | null) {
+    const previousId = this.state.currentStoryId;
+    const previousValues = this.controlValues;
+
     this.state.currentStoryId = id;
-    // Reset control values when switching stories
-    if (id) {
-      const story = this.stories.get(id);
-      if (story?.controls) {
-        this.controlValues = story.controls.reduce((acc, control) => {
+
+    if (!id) {
+      this.controlValues = {};
+      return;
+    }
+
+    const story = this.stories.get(id);
+
+    if (!story) {
+      this.controlValues = {};
+      return;
+    }
+
+    if (story.controls && story.controls.length > 0) {
+      const mergedValues = story.controls.reduce((acc, control) => {
+        if (previousId === id && control.name in previousValues) {
+          acc[control.name] = previousValues[control.name];
+        } else {
           acc[control.name] = control.defaultValue;
-          return acc;
-        }, {} as Record<string, any>);
-      }
+        }
+        return acc;
+      }, {} as Record<string, any>);
+
+      this.controlValues = mergedValues;
+    } else {
+      this.controlValues = {};
     }
   }
 
@@ -84,7 +121,18 @@ class PlaygroundStore {
       categorized.set(category, list);
     });
 
-    return categorized;
+    const sorted = new Map<string, StoryConfig[]>();
+
+    [...categorized.entries()]
+      .sort(([a], [b]) => a.localeCompare(b))
+      .forEach(([category, stories]) => {
+        const orderedStories = [...stories].sort((a, b) =>
+          a.title.localeCompare(b.title)
+        );
+        sorted.set(category, orderedStories);
+      });
+
+    return sorted;
   }
 }
 
