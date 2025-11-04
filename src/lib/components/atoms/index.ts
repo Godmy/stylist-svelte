@@ -12,6 +12,11 @@ import Textarea from './Textarea.svelte';
 import Select from './Select.svelte';
 import Checkbox from './Checkbox.svelte';
 import Tooltip from './Tooltip.svelte';
+import Switch from './Switch.svelte';
+import RadioGroup from './RadioGroup.svelte';
+import RangeSlider from './RangeSlider.svelte';
+import Tag from './Tag.svelte';
+import Divider from './Divider.svelte';
 
 export {
   Button,
@@ -22,7 +27,12 @@ export {
   Textarea,
   Select,
   Checkbox,
-  Tooltip
+  Tooltip,
+  Switch,
+  RadioGroup,
+  RangeSlider,
+  Tag,
+  Divider
 };
 
 // Re-export types
