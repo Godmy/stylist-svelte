@@ -13,6 +13,7 @@
     "tailwind",
     "design-system"
   ],
+  "packageManager": "yarn@4.5.1",
   "scripts": {
     "dev": "vite dev",
     "build": "svelte-package && publint",
