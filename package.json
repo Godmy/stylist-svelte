@@ -1,42 +1,67 @@
 {
   "name": "stylist-svelte",
-  "version": "0.0.1",
-  "description": "Reusable Svelte components library for Svelte projects",
+  "version": "0.1.0",
+  "description": "A comprehensive Svelte 5 UI component library with Tailwind CSS",
+  "type": "module",
+  "author": "HumansOntology Team",
+  "license": "MIT",
   "keywords": [
     "svelte",
-    "components",
+    "svelte5",
     "ui",
-    "library",
+    "components",
+    "tailwind",
     "design-system"
   ],
-  "homepage": "https://github.com/Godmy/stylist-svelte#readme",
-  "bugs": {
-    "url": "https://github.com/Godmy/stylist-svelte/issues"
+  "scripts": {
+    "dev": "vite dev",
+    "build": "svelte-package && publint",
+    "preview": "vite preview",
+    "package": "svelte-package",
+    "prepublishOnly": "npm run build",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "test": "vitest",
+    "test:unit": "vitest run",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "clean": "rm -rf dist .svelte-kit node_modules/.vite"
   },
-  "license": "MIT",
-  "author": "Godmy",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Godmy/stylist-svelte.git"
-  },
-  "type": "module",
-  "svelte": "./dist/index.js",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js",
-      "default": "./dist/index.js"
+      "svelte": "./dist/index.js"
     },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "svelte": "./dist/components/index.js",
-      "default": "./dist/components/index.js"
+    "./components/atoms": {
+      "types": "./dist/components/atoms/index.d.ts",
+      "svelte": "./dist/components/atoms/index.js"
+    },
+    "./components/molecules": {
+      "types": "./dist/components/molecules/index.d.ts",
+      "svelte": "./dist/components/molecules/index.js"
+    },
+    "./components/organisms": {
+      "types": "./dist/components/organisms/index.d.ts",
+      "svelte": "./dist/components/organisms/index.js"
+    },
+    "./components/feedback": {
+      "types": "./dist/components/feedback/index.d.ts",
+      "svelte": "./dist/components/feedback/index.js"
     },
     "./utils": {
       "types": "./dist/utils/index.d.ts",
       "default": "./dist/utils/index.js"
+    },
+    "./stores": {
+      "types": "./dist/stores/index.d.ts",
+      "default": "./dist/stores/index.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts"
+    },
+    "./playground": {
+      "types": "./dist/playground/index.d.ts",
+      "svelte": "./dist/playground/index.js"
     }
   },
   "files": [
@@ -44,47 +69,37 @@
     "!dist/**/*.test.*",
     "!dist/**/*.spec.*"
   ],
-  "scripts": {
-    "dev": "histoire dev",
-    "build": "svelte-kit sync && svelte-package --input src --output dist && histoire build",
-    "preview": "histoire preview",
-    "check": "svelte-kit sync && svelte-check",
-    "check:watch": "svelte-kit sync && svelte-check --watch",
-    "lint": "eslint .",
-    "format": "prettier --plugin-search-dir . --write .",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "coverage": "vitest run --coverage"
-  },
   "peerDependencies": {
     "svelte": "^5.0.0"
   },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
   "devDependencies": {
-    "@histoire/plugin-svelte": "^1.0.0-alpha.1",
-    "@sveltejs/kit": "^2.0.0",
-    "@sveltejs/package": "^2.0.0",
-    "@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
-    "@types/eslint": "^8.56.0",
-    "@types/node": "^20.11.17",
-    "eslint": "^9.0.0",
-    "eslint-plugin-svelte": "^2.36.0",
-    "flexsearch": "^0.8.212",
-    "histoire": "^1.0.0-alpha.1",
-    "prettier": "^3.1.1",
-    "prettier-plugin-svelte": "^3.1.2",
-    "svelte": "^5.0.0",
-    "svelte-check": "^3.4.6",
-    "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.3",
-    "vitest": "^1.1.0",
-    "vscode-oniguruma": "^2.0.1",
-    "vscode-textmate": "^9.2.1"
+    "@sveltejs/kit": "^2.43.2",
+    "@sveltejs/package": "^2.3.10",
+    "@sveltejs/vite-plugin-svelte": "^6.2.0",
+    "@testing-library/svelte": "^5.2.8",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-svelte": "^3.12.4",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "publint": "^0.3.15",
+    "svelte": "^5.39.5",
+    "svelte-check": "^4.3.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.44.1",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
   },
-  "svelte-kit": {
-    "version": 2
+  "dependencies": {
+    "lucide-svelte": "^0.468.0"
   },
-  "publishConfig": {
-    "access": "public"
-  }
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }
