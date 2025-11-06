@@ -1,62 +1,61 @@
 <script lang="ts">
   import type { TreeNode } from '$lib/types';
-  import TreeNodeItem from './TreeNodeItem.svelte';
+  import VirtualTree from './VirtualTree.svelte';
   import { createEventDispatcher } from 'svelte';
   
   let { 
     tree = [],
     onSelectCallback = () => {},
-    secondaryIcon = undefined,
-    faIcon = false,
+    onToggleCallback = () => {},
+    itemHeight = 36,
+    visibleItemCount = 15,
     class: className = '',
     ...restProps
   }: { 
     tree?: TreeNode[]; 
     onSelectCallback?: (key: string | undefined) => void; 
-    secondaryIcon?: any; 
-    faIcon?: boolean;
+    onToggleCallback?: (key: string | undefined) => void;
+    itemHeight?: number;
+    visibleItemCount?: number;
     class?: string;
   } & Record<string, any> = $props();
-  
+
   const dispatch = createEventDispatcher();
 
-  // Define state for expanded nodes
-  let expandedNodes: Set<string> = $state(new Set());
-  
   // Handle node selection
   const handleSelect = (e: CustomEvent<{ node: TreeNode }>) => {
-    const node = e.detail.node;
-    if (node.key) {
-      onSelectCallback(node.key);
-      dispatch('select', { node });
-    }
+    dispatch('select', e.detail);
+    onSelectCallback(e.detail.node.key);
   };
   
   // Handle toggle events
-  const handleToggle = (e: CustomEvent<{ node: TreeNode }>) => {
-    const node = e.detail.node;
-    if (node.key) {
-      if (expandedNodes.has(node.key)) {
-        expandedNodes.delete(node.key);
-      } else {
-        expandedNodes.add(node.key);
-      }
+  const handleToggle = (key: string | undefined) => {
+    if (key) {
+      onToggleCallback(key);
     }
+  };
+  
+  // Handle expand/collapse
+  const handleExpand = (e: CustomEvent<{ node: TreeNode }>) => {
+    dispatch('expand', e.detail);
+  };
+  
+  const handleCollapse = (e: CustomEvent<{ node: TreeNode }>) => {
+    dispatch('collapse', e.detail);
   };
 </script>
 
 <div class="tree-viewer {className}" {...restProps}>
-  {#each tree as node (node.key || node.desc)}
-    <TreeNodeItem 
-      {node} 
-      {onSelectCallback}
-      {secondaryIcon} 
-      {faIcon}
-      {expandedNodes}
-      on:select={handleSelect}
-      on:toggle={handleToggle}
-    />
-  {/each}
+  <VirtualTree 
+    {tree}
+    {itemHeight}
+    {visibleItemCount}
+    onSelectCallback={onSelectCallback}
+    onToggleCallback={handleToggle}
+    on:select={handleSelect}
+    on:expand={handleExpand}
+    on:collapse={handleCollapse}
+  />
 </div>
 
 <style>
