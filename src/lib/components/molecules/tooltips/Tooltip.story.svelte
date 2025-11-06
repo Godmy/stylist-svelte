@@ -48,7 +48,9 @@
     {/snippet}
 
     <div class="flex items-center justify-center p-12 border border-dashed border-gray-300 rounded-lg bg-gray-50">
-      <Tooltip text={props.text} position={props.position} content={trigger} />
+      <Tooltip text={props.text} position={props.position}>
+      {@render trigger()}
+    </Tooltip>
     </div>
   {/snippet}
 </Story>

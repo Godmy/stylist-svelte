@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import Icon from '../../atoms/media/Icon.svelte';
 
   // Define types locally
   interface Position2D {

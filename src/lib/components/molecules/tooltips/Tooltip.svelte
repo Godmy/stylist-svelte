@@ -1,18 +1,23 @@
 <script lang="ts">
-  type Snippet = any; // Placeholder for now
+  import type { Snippet } from 'svelte';
 
+  /**
+   * Компонент тултипа
+   * Приоритет: если передан `children`, он будет отображен,
+   * иначе компонент будет пустым
+   */
   type Props = {
     text: string;
     position?: 'top' | 'bottom' | 'left' | 'right';
     class?: string;
-    content?: Snippet; // Add content prop
+    children?: Snippet; // Добавляем children для содержимого
   };
 
   let {
     text,
     position = 'top',
     class: className = '',
-    content // Destructure content
+    children
   }: Props = $props();
 
   let showTooltip = $state(false);
@@ -41,8 +46,8 @@
     tabindex="0"
     role="button"
   >
-    {#if content}
-      {@render content()}
+    {#if children}
+      {@render children()}
     {/if}
   </div>
 
