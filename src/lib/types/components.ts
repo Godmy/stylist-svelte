@@ -59,3 +59,43 @@ export interface Message {
   attachments?: Attachment[];
   isSystemMessage?: boolean;
 }
+
+// Types for kanban components
+export interface KanbanTask {
+  id: string;
+  title: string;
+  description?: string;
+  assignee?: User;
+  dueDate?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
+  priority: 'low' | 'medium' | 'high';
+  status: 'todo' | 'in-progress' | 'review' | 'done';
+  tags?: string[];
+}
+
+// Types for tree components
+export interface TreeNode {
+  key?: string;
+  desc: string;
+  child?: TreeNode[]; // Children nodes
+}
+
+
+
+// Types for ontology visualization
+export interface OntologyNode {
+  id: string;
+  name: string;
+  type: string;
+  properties?: Record<string, any>;
+  position?: { x: number; y: number };
+}
+
+export interface OntologyEdge {
+  id: string;
+  source: string;
+  target: string;
+  relationship: string;
+  properties?: Record<string, any>;
+}

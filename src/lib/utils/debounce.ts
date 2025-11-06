@@ -1,58 +1,21 @@
 /**
- * Debounce and throttle utilities
+ * Debounce utility function for Svelte 5
+ * Delays execution of a function until after a specified time interval
  */
 
 export function debounce<T extends (...args: any[]) => any>(
-	func: T,
-	wait: number
-): (...args: Parameters<T>) => void {
-	let timeout: ReturnType<typeof setTimeout> | null = null;
-
-	return function executedFunction(...args: Parameters<T>) {
-		const later = () => {
-			timeout = null;
-			func(...args);
-		};
-
-		if (timeout !== null) {
-			clearTimeout(timeout);
-		}
-		timeout = setTimeout(later, wait);
-	};
-}
-
-export function throttle<T extends (...args: any[]) => any>(
-	func: T,
-	limit: number
-): (...args: Parameters<T>) => void {
-	let inThrottle: boolean;
-
-	return function executedFunction(...args: Parameters<T>) {
-		if (!inThrottle) {
-			func(...args);
-			inThrottle = true;
-			setTimeout(() => {
-				inThrottle = false;
-			}, limit);
-		}
-	};
-}
-
-export async function debounceAsync<T extends (...args: unknown[]) => Promise<unknown>>(
-	func: T,
-	wait: number
-): Promise<(...args: Parameters<T>) => Promise<void>> {
-	let timeout: ReturnType<typeof setTimeout> | null = null;
-
-	return async function executedFunction(...args: Parameters<T>): Promise<void> {
-		const later = async () => {
-			timeout = null;
-			await func(...args);
-		};
-
-		if (timeout !== null) {
-			clearTimeout(timeout);
-		}
-		timeout = setTimeout(later, wait);
-	};
+  fn: T,
+  delay: number
+): T {
+  let timeoutId: number | null = null;
+  
+  return ((...args: any[]) => {
+    if (timeoutId) {
+      window.clearTimeout(timeoutId);
+    }
+    
+    timeoutId = window.setTimeout(() => {
+      fn(...args);
+    }, delay);
+  }) as T;
 }

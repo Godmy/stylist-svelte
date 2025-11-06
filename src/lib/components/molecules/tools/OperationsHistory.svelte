@@ -32,7 +32,7 @@
   
   // Filter operations based on search
   let filteredOperations = $derived(
-    operations.filter(op => 
+    operations.filter((op: any) => 
       !searchQuery || 
       op.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       op.query.toLowerCase().includes(searchQuery.toLowerCase())
