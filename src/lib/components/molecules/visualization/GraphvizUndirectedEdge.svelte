@@ -6,6 +6,8 @@
   // Props
   let { 
     id,
+    source = 'unknown',
+    target = 'unknown',
     sourceX = 0,
     sourceY = 0,
     targetX = 100,
@@ -18,6 +20,8 @@
     highlight = false
   }: {
     id: string;
+    source: string;
+    target: string;
     sourceX: number;
     sourceY: number;
     targetX: number;

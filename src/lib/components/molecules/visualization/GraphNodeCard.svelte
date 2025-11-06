@@ -20,26 +20,30 @@
   import Icon from '../../atoms/media/Icon.svelte';
   import { createEventDispatcher } from 'svelte';
 
+  import type { HTMLAttributes } from 'svelte/elements';
+
   // Props
   let { 
     node,
     expanded = false,
     showDetails = true,
     selected = false,
-    highlight = false
+    highlight = false,
+    ...restProps
   }: {
     node: GraphNode;
     expanded?: boolean;
     showDetails?: boolean;
     selected?: boolean;
     highlight?: boolean;
-  } = $props();
+  } & HTMLAttributes<HTMLDivElement> = $props();
 
   // Events
   const dispatch = createEventDispatcher<{
     toggleExpand: { node: GraphNode };
     viewDetails: { node: GraphNode };
     addField: { node: GraphNode };
+    fieldClick: { field: any };
   }>();
 
   // Local state
@@ -184,7 +188,7 @@
   }
 </style>
 
-<div class="node-card {nodeTypeClass(node.type)} {selected ? 'selected' : ''} {highlight ? 'highlight' : ''}">
+<div class="node-card {nodeTypeClass(node.type)} {selected ? 'selected' : ''} {highlight ? 'highlight' : ''}" {...restProps}>
   <div 
     class="node-header" 
     onclick={toggleExpanded}
@@ -213,7 +217,7 @@
       {#if node.fields && node.fields.length > 0}
         <div class="fields-list">
           {#each node.fields as field}
-            <div class="field-item">
+            <div class="field-item" onclick={() => dispatch('fieldClick', { field })}>
               <span class="field-name">
                 {field.name}
                 {#if field.isRequired}<span class="field-required">*</span>{/if}

@@ -69,7 +69,7 @@
     {height}
     {selected}
     {highlight}
-    onclick={onClick}
-    oncontextmenu={onContextMenu}
+    on:click={(e) => onClick?.(id)}
+    on:contextmenu={(e) => onContextMenu?.(id, e)}
   />
 </div>

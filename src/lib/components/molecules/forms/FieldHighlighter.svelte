@@ -113,7 +113,7 @@
       selected={selectedNode?.id === node.id}
       highlight={isNodeHighlighted(node)}
       onclick={() => handleNodeClick(node)}
-      onfieldClick={(e: CustomEvent<{field: any}>) => handleFieldClick(node, e.detail.field)}
+      on:fieldClick={(e: CustomEvent<{field: any}>) => handleFieldClick(node, e.detail.field)}
       style="position: absolute; left: {node.position?.x || 0}px; top: {node.position?.y || 0}px;"
     />
   {/each}

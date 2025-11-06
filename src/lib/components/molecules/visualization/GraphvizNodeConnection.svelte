@@ -110,11 +110,13 @@
     height={sourceHeight}
     selected={selected}
     highlight={highlight}
-    onclick={(e: MouseEvent) => onNodeClick?.(sourceId)}
+    on:click={(e) => onNodeClick?.(sourceId)}
   />
   
   <GraphvizEdge 
     id={edgeId}
+    source={sourceId}
+    target={targetId}
     sourceX={sourceWidth + 20}
     sourceY={sourceHeight / 2}
     targetX={-20}
@@ -127,7 +129,7 @@
     targetArrow={targetArrow}
     selected={selected}
     highlight={highlight}
-    onclick={(e: MouseEvent) => onEdgeClick?.(edgeId)}
+    on:click={(e) => onEdgeClick?.(edgeId)}
   />
   
   <GraphvizNode 
@@ -142,6 +144,6 @@
     height={targetHeight}
     selected={selected}
     highlight={highlight}
-    onclick={(e: MouseEvent) => onNodeClick?.(targetId)}
+    on:click={(e) => onNodeClick?.(targetId)}
   />
 </div>

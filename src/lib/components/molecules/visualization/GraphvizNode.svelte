@@ -14,6 +14,8 @@
 
   type NodeStyle = 'solid' | 'dashed' | 'dotted' | 'bold' | 'filled' | 'invisible' | 'diagonals' | 'rounded';
 
+  import type { HTMLAttributes } from 'svelte/elements';
+
   type Props = {
     id: string;
     label: string;
@@ -27,7 +29,7 @@
     selected?: boolean;
     highlight?: boolean;
     class?: string;
-  };
+  } & HTMLAttributes<SVGSVGElement>;
 
   let {
     id,
@@ -41,16 +43,17 @@
     height = 60,
     selected = false,
     highlight = false,
-    class: className = ''
+    class: className = '',
+    ...restProps
   }: Props = $props();
 </script>
 
 <div class="graphviz-node {className}">
-  <svg class="w-full h-full">
+  <svg class="w-full h-full" {...restProps}>
     {#if shape === 'ellipse'}
-      <ellipse cx="50" cy="30" rx="45" ry="25" fill={backgroundColor} stroke={color} />
+      <ellipse cx="50" cy="30" rx="45" ry="25" fill={fillColor} stroke={color} />
     {:else if shape === 'box'}
-      <rect x="5" y="5" width="90" height="50" rx="5" ry="5" fill={backgroundColor} stroke={color} />
+      <rect x="5" y="5" width="90" height="50" rx="5" ry="5" fill={fillColor} stroke={color} />
     {/if}
     <text x="50" y="35" text-anchor="middle" fill={color} font-size="12">
       {label}

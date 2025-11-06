@@ -31,43 +31,60 @@
     }>;
   }
 
+  import type { HTMLAttributes } from 'svelte/elements';
+
   type Props = {
     id: string;
     source: string;
     target: string;
+    sourceX?: number;
+    sourceY?: number;
+    targetX?: number;
+    targetY?: number;
     label?: string;
     style?: EdgeStyle;
     color?: string;
-    arrowhead?: ArrowType;
+    width?: number;
+    sourceArrow?: ArrowType;
+    targetArrow?: ArrowType;
     sourceNode?: GraphNode;
     targetNode?: GraphNode;
     highlight?: boolean;
+    selected?: boolean;
     class?: string;
-  };
+  } & HTMLAttributes<SVGSVGElement>;
 
   let {
     id,
     source,
     target,
+    sourceX = 0,
+    sourceY = 0,
+    targetX = 100,
+    targetY = 100,
     label = '',
     style = 'solid',
     color = '#000000',
-    arrowhead = 'normal',
+    width = 2,
+    sourceArrow = 'none',
+    targetArrow = 'normal',
     sourceNode,
     targetNode,
     highlight = false,
-    class: className = ''
+    selected = false,
+    class: className = '',
+    ...restProps
   }: Props = $props();
 </script>
 
 <!-- Temporary placeholder for GraphvizEdge -->
 <div class="graphviz-edge {className}">
-  <svg class="w-full h-full">
+  <svg class="w-full h-full" {...restProps}>
     <line 
-      x1="0" y1="50" 
-      x2="100" y2="50" 
+      x1={sourceX} y1={sourceY} 
+      x2={targetX} y2={targetY} 
       stroke={highlight ? '#3b82f6' : color} 
-      stroke-width={highlight ? '3' : '2'}
+      stroke-width={selected ? width * 2 : width}
       stroke-dasharray={style === 'dashed' ? '5,5' : style === 'dotted' ? '2,2' : 'none'}
     />
     {#if label}
