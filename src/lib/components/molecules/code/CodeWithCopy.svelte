@@ -115,8 +115,6 @@
         copyCode();
       }
     }}
-    role="button"
-    tabindex="0"
     aria-label={copied ? "Copied!" : "Copy code"}
     title={copied ? "Copied!" : "Copy code"}
   >

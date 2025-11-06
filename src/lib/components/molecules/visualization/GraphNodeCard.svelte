@@ -217,7 +217,18 @@
       {#if node.fields && node.fields.length > 0}
         <div class="fields-list">
           {#each node.fields as field}
-            <div class="field-item" onclick={() => dispatch('fieldClick', { field })}>
+            <div 
+              class="field-item" 
+              onclick={() => dispatch('fieldClick', { field })}
+              role="button"
+              tabindex="0"
+              onkeydown={(e: KeyboardEvent) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  dispatch('fieldClick', { field });
+                }
+              }}
+            >
               <span class="field-name">
                 {field.name}
                 {#if field.isRequired}<span class="field-required">*</span>{/if}

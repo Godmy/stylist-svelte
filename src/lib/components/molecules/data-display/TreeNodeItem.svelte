@@ -2,6 +2,7 @@
   import type { TreeNode } from '$lib/types';
   import { ChevronRight, ChevronDown } from 'lucide-svelte';
   import { createEventDispatcher } from 'svelte';
+  import Self from './TreeNodeItem.svelte'; // Self-import to replace deprecated svelte:self
   
   let { 
     node, 
@@ -81,7 +82,6 @@
             toggleExpand(e);
           }
         }}
-        role="button"
         tabindex="0"
         aria-label={expanded ? 'Collapse' : 'Expand'}
       >
@@ -110,7 +110,7 @@
   {#if hasChildren(node) && expanded}
     <div class="node-children" role="group">
       {#each node.child as child (child.key || child.desc)}
-        <svelte:self 
+        <Self 
           node={child}
           onSelectCallback={onSelectCallback}
           secondaryIcon={secondaryIcon}

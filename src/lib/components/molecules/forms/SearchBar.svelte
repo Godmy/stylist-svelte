@@ -90,9 +90,6 @@
     padding: 0 0.25rem;
   }
 
-  .search-btn {
-    padding: 0.5rem;
-  }
 </style>
 
 <div class="search-bar">

@@ -165,8 +165,9 @@
 
   <div class="tool-specific-options">
     <div class="option-group">
-      <label class="option-label">Line width:</label>
+      <label for="line-width" class="option-label">Line width:</label>
       <input 
+        id="line-width"
         type="range" 
         min="1" 
         max="20" 
@@ -178,8 +179,9 @@
     </div>
     
     <div class="option-group">
-      <label class="option-label">Color:</label>
+      <label for="color-picker" class="option-label">Color:</label>
       <input 
+        id="color-picker"
         type="color" 
         bind:value={currentOptions.strokeColor} 
         oninput={() => handleOptionsUpdate(currentOptions)}

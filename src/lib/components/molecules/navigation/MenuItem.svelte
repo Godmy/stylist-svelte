@@ -79,7 +79,7 @@
   <button 
     class={computedClass}
     disabled={disabled}
-    aria-pressed={active}
+    aria-current={active ? 'true' : undefined}
     role="menuitem"
     onclick={handleClick}
     {...restProps}

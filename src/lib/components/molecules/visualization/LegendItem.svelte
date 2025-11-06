@@ -86,7 +86,18 @@
   }
 </style>
 
-<div class="legend-item" class:active={active} onclick={onClick}>
+<div 
+  class={itemClasses}
+  onclick={onClick}
+  role={onClick ? "button" : undefined}
+  {...(onClick ? {tabindex: 0} : {})}
+  onkeydown={(e: KeyboardEvent) => {
+    if (onClick && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      onClick();
+    }
+  }}
+>
   <div class="legend-icon">
     <Icon name={getIconName(type)} size="sm" />
   </div>

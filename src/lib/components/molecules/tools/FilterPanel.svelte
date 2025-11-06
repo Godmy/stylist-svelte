@@ -128,10 +128,7 @@
     gap: 0.5rem;
   }
 
-  .reset-btn {
-    align-self: flex-start;
-    margin-top: 0.5rem;
-  }
+
 </style>
 
 <div class="filter-panel">
@@ -211,6 +208,7 @@
     variant="ghost" 
     size="sm" 
     class="reset-btn"
+    style="align-self: flex-start; margin-top: 0.5rem;"
     onclick={handleReset}
   >
     Reset Filters

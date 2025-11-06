@@ -33,7 +33,6 @@
   class="burger-menu relative flex flex-col justify-center items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded {className}" 
   aria-label={ariaLabel}
   aria-expanded={open}
-  role="button"
   tabindex="0"
   onclick={handleClick}
 >

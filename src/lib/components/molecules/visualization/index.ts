@@ -1,7 +1,6 @@
 export { default as GraphNodeCard } from './GraphNodeCard.svelte';
 export { default as GraphvizClusterWithTitle } from './GraphvizClusterWithTitle.svelte';
 export { default as GraphvizDirectedEdge } from './GraphvizDirectedEdge.svelte';
-export { default as GraphvizEdgeWithLabel } from './GraphvizEdgeWithLabel.svelte';
 export { default as GraphvizNodeConnection } from './GraphvizNodeConnection.svelte';
 export { default as GraphvizNodeWithLabel } from './GraphvizNodeWithLabel.svelte';
 export { default as GraphvizUndirectedEdge } from './GraphvizUndirectedEdge.svelte';

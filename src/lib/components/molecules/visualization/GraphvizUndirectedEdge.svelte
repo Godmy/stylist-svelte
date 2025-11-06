@@ -38,6 +38,8 @@
 <div class="undirected-edge-container" style="position: relative;">
   <GraphvizEdge 
     {id}
+    {source}
+    {target}
     {sourceX}
     {sourceY}
     {targetX}
