@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import SearchBar from './SearchBar.svelte';
+  import SearchBar from './search/SearchBar.svelte';
 
   const list = [
     'Dashboard overview',

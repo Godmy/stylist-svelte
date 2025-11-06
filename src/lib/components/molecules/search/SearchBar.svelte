@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { debounce } from '../../utils/debounce';
+  import { debounce } from '$lib/utils/debounce';
 
   type Props = {
     value: string;

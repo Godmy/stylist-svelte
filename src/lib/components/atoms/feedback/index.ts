@@ -1,6 +1,6 @@
 /**
- * Feedback - User feedback components
- * @module components/feedback
+ * Atom Feedback Components
+ * @module components/atoms/feedback
  */
 
 export { default as Alert } from './Alert.svelte';

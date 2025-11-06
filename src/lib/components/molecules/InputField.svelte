@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Input } from '../atoms';
-  import type { InputProps } from '../atoms/Input.svelte';
+  import type { InputProps } from '../atoms/forms/Input.svelte';
 
   type Props = InputProps & {
     helperText?: string;

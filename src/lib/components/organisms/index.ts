@@ -13,12 +13,12 @@ export { default as FolderTree } from './FolderTree.svelte';
 export { default as DataTable } from './DataTable.svelte';
 
 // Table components
-export { default as Table } from './Table.svelte';
-export { default as TableHeader } from './TableHeader.svelte';
-export { default as TableBody } from './TableBody.svelte';
-export { default as TableRow } from './TableRow.svelte';
-export { default as TableCell } from './TableCell.svelte';
-export { default as ExpandableTableRow } from './ExpandableTableRow.svelte';
+export { default as Table } from './tables/Table.svelte';
+export { default as TableHeader } from './tables/TableHeader.svelte';
+export { default as TableBody } from './tables/TableBody.svelte';
+export { default as TableRow } from './tables/TableRow.svelte';
+export { default as TableCell } from './tables/TableCell.svelte';
+export { default as ExpandableTableRow } from './tables/ExpandableTableRow.svelte';
 
 // Tabs components
 export * from './Tabs';

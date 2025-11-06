@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import FormFieldGroup from './FormFieldGroup.svelte';
-  import Input from '../atoms/Input.svelte';
+  import FormFieldGroup from './forms/FormFieldGroup.svelte';
+  import Input from '../atoms/forms/Input.svelte';
 
   type FormFieldGroupStoryProps = {
     label: string;

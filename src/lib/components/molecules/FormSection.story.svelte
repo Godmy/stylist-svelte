@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import FormSection from './FormSection.svelte';
-  import FormFieldGroup from './FormFieldGroup.svelte';
-  import Input from '../atoms/Input.svelte';
-  import Checkbox from '../atoms/Checkbox.svelte';
+  import FormSection from './forms/FormSection.svelte';
+  import FormFieldGroup from './forms/FormFieldGroup.svelte';
+  import Input from '../atoms/forms/Input.svelte';
+  import Checkbox from '../atoms/forms/Checkbox.svelte';
 
   type FormSectionStoryProps = {
     title: string;
