@@ -30,6 +30,34 @@ import GraphvizSubgraph from './graph/GraphvizSubgraph.svelte';
 // Search
 import SearchBar from './search/SearchBar.svelte';
 
+// Code
+import CodeWithCopy from './code/CodeWithCopy.svelte';
+import ResponseViewer from './code/ResponseViewer.svelte';
+import SyntaxHighlightedCode from './code/SyntaxHighlightedCode.svelte';
+
+
+
+// Navigation
+import Breadcrumb from './navigation/Breadcrumb.svelte';
+import BurgerMenu from './navigation/BurgerMenu.svelte';
+import DropdownMenu from './navigation/DropdownMenu.svelte';
+import MenuItem from './navigation/MenuItem.svelte';
+import QuickAccessButtons from './navigation/QuickAccessButtons.svelte';
+
+// Chat
+import AttachmentPreview from './chat/AttachmentPreview.svelte';
+import ChatHeader from './chat/ChatHeader.svelte';
+import MessageInput from './chat/MessageInput.svelte';
+import MessageMeta from './chat/MessageMeta.svelte';
+import UserStatus from './chat/UserStatus.svelte';
+
+// Canvas
+import CanvasToolbar from './canvas/canvas-tools/CanvasToolbar.svelte';
+
+// Tools
+import FilterPanel from './tools/FilterPanel.svelte';
+import VariablesEditor from './tools/VariablesEditor.svelte';
+
 export {
   EmptyState,
   CopyButton,
@@ -50,5 +78,26 @@ export {
   GraphvizNode,
   GraphvizSubgraph,
   // Search
-  SearchBar
+  SearchBar,
+  // Code
+  CodeWithCopy,
+  ResponseViewer,
+  SyntaxHighlightedCode,
+
+  // Navigation
+  Breadcrumb,
+  BurgerMenu,
+  MenuItem,
+  QuickAccessButtons,
+  // Chat
+  AttachmentPreview,
+  ChatHeader,
+  MessageInput,
+  MessageMeta,
+  UserStatus,
+  // Canvas
+  CanvasToolbar,
+  // Tools
+  FilterPanel,
+  VariablesEditor
 };

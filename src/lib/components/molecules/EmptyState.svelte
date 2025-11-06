@@ -1,6 +1,12 @@
 <script lang="ts">
-  type Snippet = any; // Placeholder for now
+  import type { Snippet } from 'svelte';
 
+  /**
+   * Компонент пустого состояния
+   * Приоритет: если передан `children`, он будет отображен,
+   * иначе используется `icon` проп, если он передан, 
+   * иначе используется иконка по умолчанию
+   */
   type Props = {
     title: string;
     description?: string;
@@ -10,14 +16,17 @@
     };
     class?: string;
     icon?: Snippet; // Add icon prop
+    children?: Snippet;
   };
 
-  let { title, description, action, class: className = '', icon }: Props = $props();
+  let { title, description, action, class: className = '', icon, children }: Props = $props();
 </script>
 
 <div class="text-center py-12 {className}">
   <!-- Custom icon slot or default icon -->
-  {#if icon}
+  {#if children}
+    {@render children()}
+  {:else if icon}
     {@render icon()}
   {:else}
     <svg
