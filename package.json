@@ -53,10 +53,7 @@
       "types": "./dist/components/organisms/index.d.ts",
       "svelte": "./dist/components/organisms/index.js"
     },
-    "./components/feedback": {
-      "types": "./dist/components/feedback/index.d.ts",
-      "svelte": "./dist/components/feedback/index.js"
-    },
+
     "./utils": {
       "types": "./dist/utils/index.d.ts",
       "default": "./dist/utils/index.js"
