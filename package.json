@@ -58,10 +58,7 @@
       "types": "./dist/utils/index.d.ts",
       "default": "./dist/utils/index.js"
     },
-    "./stores": {
-      "types": "./dist/stores/index.d.ts",
-      "default": "./dist/stores/index.js"
-    },
+
     "./types": {
       "types": "./dist/types/index.d.ts"
     },
