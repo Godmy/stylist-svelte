@@ -18,7 +18,7 @@ export { default as TableHeader } from './tables/TableHeader.svelte';
 export { default as TableBody } from './tables/TableBody.svelte';
 export { default as TableRow } from './tables/TableRow.svelte';
 export { default as TableCell } from './tables/TableCell.svelte';
-export { default as ExpandableTableRow } from './tables/ExpandableTableRow.svelte';
+
 
 // Tabs components
 export * from './Tabs';

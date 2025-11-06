@@ -24,7 +24,6 @@ import Label from './forms/Label.svelte';
 import Alert from './feedback/Alert.svelte';
 import ProgressBar from './feedback/ProgressBar.svelte';
 import Skeleton from './feedback/Skeleton.svelte';
-import CardSkeleton from './feedback/CardSkeleton.svelte';
 import TableSkeleton from './feedback/TableSkeleton.svelte';
 
 // Indicators
@@ -71,8 +70,6 @@ export {
   Alert,
   ProgressBar,
   Skeleton,
-  CardSkeleton,
-  TableSkeleton,
   // Indicators
   Spinner,
   ChatStatusIndicator,

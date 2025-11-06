@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
+  import { X } from 'lucide-svelte';
 
   type Snippet = any;
 
@@ -74,9 +75,7 @@
       disabled={disabled}
       aria-label="Удалить тег"
     >
-      <svg class="h-3 w-3" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 3l8 8M11 3l-8 8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
+      <X class="h-3 w-3" />
     </button>
   {/if}
 </span>

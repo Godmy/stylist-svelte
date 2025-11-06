@@ -1,5 +1,5 @@
 <script lang="ts">
-  type Snippet = any; // Placeholder for now
+  import type { Snippet } from 'svelte';
 
   type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info';
   type BadgeSize = 'sm' | 'md' | 'lg';
@@ -8,14 +8,14 @@
     variant?: BadgeVariant;
     size?: BadgeSize;
     class?: string;
-    content?: Snippet; // Add content prop
+    children?: Snippet;
   };
 
   let {
     variant = 'default',
     size = 'md',
     class: className = '',
-    content // Destructure content
+    children
   }: Props = $props();
 
   let variantClasses = $derived({
@@ -36,7 +36,7 @@
 </script>
 
 <span class={classes}>
-  {#if content}
-    {@render content()}
+  {#if children}
+    {@render children()}
   {/if}
 </span>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import { ChevronsUpDown, ChevronUp, ChevronDown } from 'lucide-svelte';
 
   export type ColumnConfig = {
     key: string;
@@ -73,9 +74,7 @@
       <div class="flex items-center justify-between p-3 hover:bg-gray-50">
         <div class="flex items-center gap-2">
           <span class="text-gray-400">
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0V20m0 0l4-4m-4 4l-4-4" />
-            </svg>
+            <ChevronsUpDown class="h-4 w-4" />
           </span>
 
           <input
@@ -98,9 +97,7 @@
             onclick={() => moveColumn(index, index - 1)}
             aria-label={`Переместить "${column.header}" вверх`}
           >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-            </svg>
+            <ChevronUp class="h-4 w-4" />
           </button>
           <button
             type="button"
@@ -109,9 +106,7 @@
             onclick={() => moveColumn(index, index + 1)}
             aria-label={`Переместить "${column.header}" вниз`}
           >
-            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            <ChevronDown class="h-4 w-4" />
           </button>
         </div>
       </div>

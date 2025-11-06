@@ -48,7 +48,9 @@
     {/snippet}
 
     <div class="flex flex-col gap-4">
-      <Badge variant={props.variant} size={props.size} content={badgeLabel} />
+      <Badge variant={props.variant} size={props.size}>
+        {@render badgeLabel()}
+      </Badge>
 
       <div class="grid gap-2 text-sm text-gray-600">
         <p>Variants demonstrate different semantic contexts.</p>

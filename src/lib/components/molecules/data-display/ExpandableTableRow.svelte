@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
+  import { ChevronDown, ChevronUp } from 'lucide-svelte';
 
   type Props = {
     expanded?: boolean;
@@ -49,9 +50,17 @@
         aria-label={isExpanded ? 'Collapse' : 'Expand'}
       >
         {#if isExpanded}
-          {@html collapseIcon || '<svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>'}
+          {#if collapseIcon}
+            {@html collapseIcon}
+          {:else}
+            <ChevronUp class="h-5 w-5 text-gray-500" />
+          {/if}
         {:else}
-          {@html expandIcon || '<svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>'}
+          {#if expandIcon}
+            {@html expandIcon}
+          {:else}
+            <ChevronDown class="h-5 w-5 text-gray-500" />
+          {/if}
         {/if}
       </button>
     </td>

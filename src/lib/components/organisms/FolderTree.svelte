@@ -11,6 +11,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { FolderNode as FolderTreeNode } from './FolderTree.svelte';
+  import { ChevronRight } from 'lucide-svelte';
 
   type FolderNode = FolderTreeNode;
 
@@ -117,15 +118,9 @@
               toggle(node);
             }}
           >
-            <svg
-              class="h-3.5 w-3.5 text-gray-600 transition-transform"
-              class:rotate-90={isExpanded}
-              viewBox="0 0 20 20"
-              fill="none"
-              stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 6l6 4-6 4" />
-            </svg>
+            <ChevronRight
+              class="h-3.5 w-3.5 text-gray-600 transition-transform {isExpanded ? 'rotate-90' : ''}"
+            />
           </button>
         {:else}
           <span class="w-5"></span>

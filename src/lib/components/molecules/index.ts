@@ -87,6 +87,7 @@ export {
   // Navigation
   Breadcrumb,
   BurgerMenu,
+  DropdownMenu,
   MenuItem,
   QuickAccessButtons,
   // Chat
@@ -101,3 +102,6 @@ export {
   FilterPanel,
   VariablesEditor
 };
+
+// Re-export from data-display subcategory
+export * from './data-display';

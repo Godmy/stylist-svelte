@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { ArrowUp, ArrowDown, Minus } from 'lucide-svelte';
 
   type Trend = 'up' | 'down' | 'neutral';
 
@@ -48,17 +49,11 @@
     {#if trendValue}
       <span class="inline-flex items-center gap-1 font-medium {trendClasses}">
         {#if trend === 'up'}
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.19l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3.75A.75.75 0 0110 3z" clip-rule="evenodd" />
-          </svg>
+          <ArrowUp class="h-4 w-4" />
         {:else if trend === 'down'}
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 17a.75.75 0 01-.75-.75V6.06L6.03 9.28a.75.75 0 11-1.06-1.06l4.5-4.5a.75.75 0 011.06 0l4.5 4.5a.75.75 0 11-1.06 1.06l-3.22-3.22v10.19a.75.75 0 01-.75.75z" clip-rule="evenodd" />
-          </svg>
+          <ArrowDown class="h-4 w-4" />
         {:else}
-          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M4 10h12v1.5H4z" />
-          </svg>
+          <Minus class="h-4 w-4" />
         {/if}
         {trendValue}
       </span>

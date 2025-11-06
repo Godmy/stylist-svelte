@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import { ArrowUp, ArrowDown, ArrowUpDown } from 'lucide-svelte';
 
   export type Column<T> = {
     key: string;
@@ -232,17 +233,13 @@
                     aria-label={`Сортировать по ${column.header}`}
                   >
                     {#if sortKey === column.key}
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                        {#if sortDirection === 'asc'}
-                          <path d="M10 5l-4 6h8l-4-6z" />
-                        {:else}
-                          <path d="M10 15l4-6H6l4 6z" />
-                        {/if}
-                      </svg>
+                      {#if sortDirection === 'asc'}
+                        <ArrowUp class="h-3.5 w-3.5" />
+                      {:else}
+                        <ArrowDown class="h-3.5 w-3.5" />
+                      {/if}
                     {:else}
-                      <svg class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M7 7h6l-3-4-3 4zm0 6l3 4 3-4H7z" />
-                      </svg>
+                      <ArrowUpDown class="h-3.5 w-3.5" />
                     {/if}
                   </button>
                 {/if}

@@ -133,8 +133,9 @@
                     variant={getStatusVariant(operation.status)} 
                     size="sm" 
                     class="ml-2"
-                    content={() => getStatusText(operation.status)}
-                  />
+                  >
+                    {getStatusText(operation.status)}
+                  </Badge>
                 </div>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
                   {operation.query.substring(0, 60)}{operation.query.length > 60 ? '...' : ''}

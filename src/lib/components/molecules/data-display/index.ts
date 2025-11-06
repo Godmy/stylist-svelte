@@ -1,8 +1,6 @@
 export { default as CardSkeleton } from './CardSkeleton.svelte';
-export { default as EmptyState } from './EmptyState.svelte';
 export { default as ExpandableTableRow } from './ExpandableTableRow.svelte';
 export { default as KanbanCard } from './KanbanCard.svelte';
-export { default as Pagination } from './Pagination.svelte';
 export { default as Rating } from './Rating.svelte';
 export { default as StatsCard } from './StatsCard.svelte';
 export { default as TableSkeleton } from './TableSkeleton.svelte';

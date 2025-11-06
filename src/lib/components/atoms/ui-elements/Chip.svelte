@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
+  import { X } from 'lucide-svelte';
 
   /**
    * Компонент Chip (небольшая метка/тег)
@@ -90,9 +91,7 @@
       aria-label="Закрыть"
       disabled={disabled}
     >
-      <svg class={`${closeBtnSizeClasses}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      <X class={closeBtnSizeClasses} />
     </button>
   {/if}
 </div>

@@ -44,7 +44,7 @@ export interface Chat {
   name?: string;
   participants: User[];
   isGroup: boolean;
-  lastMessage?: string;
+  lastMessage?: Message | string; // Support both string and Message object
   lastMessageTime?: Date;
   unreadCount?: number;
   avatar?: string;
@@ -58,6 +58,9 @@ export interface Message {
   status?: 'sent' | 'delivered' | 'read';
   attachments?: Attachment[];
   isSystemMessage?: boolean;
+  senderId?: string;  // Added for proper access
+  replyTo?: Message;  // Added for reply functionality
+  type?: 'text' | 'image' | 'file';  // Added for message type
 }
 
 // Types for kanban components
@@ -65,13 +68,26 @@ export interface KanbanTask {
   id: string;
   title: string;
   description?: string;
-  assignee?: User;
+  assignee?: User | string;
   dueDate?: Date;
   createdAt?: Date;
   updatedAt?: Date;
   priority: 'low' | 'medium' | 'high';
   status: 'todo' | 'in-progress' | 'review' | 'done';
   tags?: string[];
+}
+
+export interface KanbanColumnData {
+  id: string;
+  title: string;
+  description?: string;
+  cards: KanbanTask[];
+}
+
+export interface KanbanBoardData {
+  id?: string;
+  title?: string;
+  columns: KanbanColumnData[];
 }
 
 // Types for tree components

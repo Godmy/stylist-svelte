@@ -51,8 +51,9 @@
       <Badge 
         variant={getPriorityColor(card.priority) as any} 
         size="sm"
-        content={() => ({ $$render: () => card.priority })}
-      />
+      >
+        {card.priority}
+      </Badge>
     {/if}
   </div>
   
@@ -66,8 +67,9 @@
         <Badge 
           variant="default" 
           size="sm"
-          content={() => ({ $$render: () => tag })}
-        />
+        >
+          {tag}
+        </Badge>
       {/each}
     </div>
   {/if}
@@ -77,12 +79,21 @@
   <div class="flex justify-between items-center text-xs text-gray-500">
     {#if card.assignee}
       <div class="flex items-center">
-        <Avatar 
-          name={card.assignee.name}
-          size="sm" 
-          class="mr-2" 
-        />
-        <span>{card.assignee.name}</span>
+        {#if typeof card.assignee === 'object'}
+          <Avatar 
+            name={card.assignee.name}
+            size="sm" 
+            class="mr-2" 
+          />
+          <span>{card.assignee.name}</span>
+        {:else}
+          <Avatar 
+            name={card.assignee}
+            size="sm" 
+            class="mr-2" 
+          />
+          <span>{card.assignee}</span>
+        {/if}
       </div>
     {/if}
     
