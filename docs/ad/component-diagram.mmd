@@ -1,0 +1,108 @@
+```mermaid
+graph TD
+    %% Define node styles
+    classDef atomStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef moleculeStyle fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef organismStyle fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef templateStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+
+    %% Atoms - Basic UI elements
+    subgraph A["🧬 Atoms"]
+        A1[Button]
+        A2[Input]
+        A3[Checkbox]
+        A4[RadioGroup]
+        A5[Switch]
+        A6[Select]
+        A7[Tag]
+        A8[Avatar]
+        A9[Badge]
+        A10[Icon]
+        A11[Spinner]
+        A12[Skeleton]
+        A13[Divider]
+        A14[Alert]
+        A15[Chip]
+        A16[ProgressBar]
+        A17[RangeSlider]
+        A18[Textarea]
+        A19[Label]
+        A20[Tooltip]
+    end
+
+    %% Molecules - Combined atoms
+    subgraph M["🔬 Molecules"]
+        M1[InputField]
+        M2[FormFieldGroup]
+        M3[ButtonGroup]
+        M4[DropdownMenu]
+        M5[SearchBar]
+        M6[TagInput]
+        M7[FileUpload]
+        M8[Combobox]
+        M9[Rating Component]
+        M10[ChatHeader]
+        M11[MessageInput]
+        M12[MessageMeta]
+        M13[NotificationItem]
+        M14[StatsCard]
+        M15[CodeWithCopy]
+        M16[CopyButton]
+        M17[EmptyState]
+        M18[FormSection]
+        M19[InputGroup]
+    end
+
+    %% Organisms - Complex components
+    subgraph O["🦴 Organisms"]
+        O1[ChatWindow]
+        O2[ChatList]
+        O3[MessageList]
+        O4[MessageItem]
+        O5[DataTable]
+        O6[Table]
+        O7[KanbanBoard]
+        O8[KanbanColumn]
+        O9[KanbanCard]
+        O10[Modal]
+        O11[NavigationBar]
+        O12[Backlog]
+        O13[Pagination]
+        O14[GraphQLSchemaVisualizer]
+        O15[VisualizationCanvas]
+        O16[ControlPanel]
+        O17[SchemaExplorer]
+        O18[ExportPanel]
+        O19[ConfirmDialog]
+        O20[LegendPanel]
+    end
+
+    %% Relationships - demonstrating how atoms form molecules, and molecules/atoms form organisms
+    A1 --> M1
+    A2 --> M1
+    A19 --> M1
+    
+    A1 --> M3
+    A1 --> M10
+    A8 --> M10
+    
+    A1 --> M4
+    A1 --> M5
+    A2 --> M5
+    
+    A1 --> O1
+    A8 --> O1
+    A14 --> O1
+    
+    A1 --> O6
+    A13 --> O6
+    A19 --> O6
+    
+    A1 --> O7
+    M18 --> O7
+    
+    %% Apply styling
+    class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18,A19,A20 atomStyle
+    class M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,M17,M18,M19 moleculeStyle
+    class O1,O2,O3,O4,O5,O6,O7,O8,O9,O10,O11,O12,O13,O14,O15,O16,O17,O18,O19,20 organismStyle
+```
