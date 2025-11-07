@@ -1,10 +1,10 @@
 <script lang="ts">
   import KanbanCard from '../../molecules/data-display/KanbanCard.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
-  import Badge from '../../atoms/ui-elements/Badge.svelte';
-  import Input from '../../atoms/forms/Input.svelte';
-  import Select from '../../atoms/forms/Select.svelte';
-  import Textarea from '../../atoms/forms/Textarea.svelte'; // Added import for Textarea
+  import Button from '../../atoms/controls/Button.svelte';
+  import Badge from '../../atoms/typography/Badge.svelte';
+  import Input from '../../atoms/input/Input.svelte';
+  import Select from '../../atoms/controls/Select.svelte';
+  import Textarea from '../../atoms/input/Textarea.svelte'; // Added import for Textarea
   import { Plus, Calendar, User, Clock } from 'lucide-svelte';
   import { createEventDispatcher } from 'svelte';
 

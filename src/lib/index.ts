@@ -4,6 +4,9 @@
  * @packageDocumentation
  */
 
+// Styles
+import './styles/variables.css';
+
 // Types
 export * from './types';
 

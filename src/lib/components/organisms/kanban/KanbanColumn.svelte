@@ -4,8 +4,8 @@
   import { Plus } from 'lucide-svelte';
 
   import KanbanCard from '../../molecules/data-display/KanbanCard.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
-  import Badge from '../../atoms/ui-elements/Badge.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
+  import Badge from '../../atoms/typography/Badge.svelte';
 
   let { 
     column, 

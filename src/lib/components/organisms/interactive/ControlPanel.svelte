@@ -1,7 +1,7 @@
 <script lang="ts">
   import { SearchBar } from '../../molecules/forms';
   import { FilterPanel } from '../../molecules/tools';
-  import { Toolbar } from '../../molecules/navigation';
+  import { Toolbar } from '../../molecules/tools';
 
   // Props
   let { 

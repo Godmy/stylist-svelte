@@ -4,41 +4,46 @@
  */
 
 // Core UI Elements
-import Button from './ui-elements/Button.svelte';
-import Badge from './ui-elements/Badge.svelte';
-import Tag from './ui-elements/Tag.svelte';
-import Chip from './ui-elements/Chip.svelte';
-import Divider from './ui-elements/Divider.svelte';
-import Toggle from './ui-elements/Toggle.svelte';
+import Divider from './layout/Divider.svelte';
 
-// Forms
-import Input from './forms/Input.svelte';
-import Textarea from './forms/Textarea.svelte';
-import Select from './forms/Select.svelte';
-import Checkbox from './forms/Checkbox.svelte';
-import Switch from './forms/Switch.svelte';
-import RangeSlider from './forms/RangeSlider.svelte';
-import Label from './forms/Label.svelte';
-import Radio from './forms/Radio.svelte';
+// Controls
+import Button from './controls/Button.svelte';
+import Checkbox from './controls/Checkbox.svelte';
+import Toggle from './controls/Toggle.svelte';
+import Radio from './controls/Radio.svelte';
+import RangeSlider from './controls/RangeSlider.svelte';
+import Select from './controls/Select.svelte';
+import Switch from './controls/Switch.svelte';
+
+// Input
+import Input from './input/Input.svelte';
+import Textarea from './input/Textarea.svelte';
 
 // Feedback
 import Alert from './feedback/Alert.svelte';
-import ProgressBar from './feedback/ProgressBar.svelte';
-import Skeleton from './feedback/Skeleton.svelte';
-import TableSkeleton from './feedback/TableSkeleton.svelte';
 
-// Indicators
-import Spinner from './indicators/Spinner.svelte';
-import ChatStatusIndicator from './indicators/ChatStatusIndicator.svelte';
-import MessageStatus from './indicators/MessageStatus.svelte';
-import MessageTimestamp from './indicators/MessageTimestamp.svelte';
-import StatusIndicator from './indicators/StatusIndicator.svelte';
+// Placeholders
+import Skeleton from './placeholders/Skeleton.svelte';
+import TableSkeleton from './placeholders/TableSkeleton.svelte';
+
+// Process
+import Spinner from './process/Spinner.svelte';
+import ProgressBar from './process/ProgressBar.svelte';
+
+// Chat
+import ChatStatusIndicator from './chat/ChatStatusIndicator.svelte';
+import MessageStatus from './chat/MessageStatus.svelte';
+import MessageTimestamp from './chat/MessageTimestamp.svelte';
 
 // Typography
+import Badge from './typography/Badge.svelte';
+import Chip from './typography/Chip.svelte';
+import Label from './typography/Label.svelte';
 import Link from './typography/Link.svelte';
 import CodeBlock from './typography/CodeBlock.svelte';
 import InlineCode from './typography/InlineCode.svelte';
 import Kbd from './typography/Kbd.svelte';
+import Tag from './typography/Tag.svelte';
 
 // Media
 import Icon from './media/Icon.svelte';
@@ -48,37 +53,39 @@ import Avatar from './media/Avatar.svelte';
 import { NumberFlow } from './animation';
 
 export {
-  Button,
-  Badge,
-  Tag,
-  Chip,
   Divider,
+  // Controls
+  Button,
+  Checkbox,
   Toggle,
-  // Forms
+  Radio,
+  RangeSlider,
+  Select,
+  Switch,
+  // Input
   Input,
   Textarea,
-  Select,
-  Checkbox,
-  Switch,
-  RangeSlider,
-  Label,
-  Radio,
   // Feedback
   Alert,
-  ProgressBar,
+  // Placeholders
   Skeleton,
   TableSkeleton,
-  // Indicators
+  // Process
   Spinner,
+  ProgressBar,
+  // Chat
   ChatStatusIndicator,
   MessageStatus,
   MessageTimestamp,
-  StatusIndicator,
   // Typography
+  Badge,
+  Chip,
+  Label,
   Link,
   CodeBlock,
   InlineCode,
   Kbd,
+  Tag,
   // Media
   Icon,
   Avatar,
@@ -87,4 +94,4 @@ export {
 };
 
 // Re-export types
-export type { InputProps } from './forms/Input.svelte';
+export type { InputProps } from './input/Input.svelte';

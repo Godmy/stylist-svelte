@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Input from '../../atoms/forms/Input.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
+  import Input from '../../atoms/input/Input.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
   import type { HTMLInputAttributes } from 'svelte/elements';
   
   // Define the button variant type to exclude 'info' if it's not supported

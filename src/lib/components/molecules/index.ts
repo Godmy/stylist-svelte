@@ -8,11 +8,7 @@ import EmptyState from './EmptyState.svelte';
 import CopyButton from './CopyButton.svelte';
 
 // Forms
-import FormFieldGroup from './forms/FormFieldGroup.svelte';
-import FormSection from './forms/FormSection.svelte';
-
-// Forms
-import RadioGroup from './forms/RadioGroup.svelte';
+import { FormFieldGroup, FormSection, InputField, RadioGroup, SearchBar } from './forms';
 
 // Tooltips
 import Tooltip from './tooltips/Tooltip.svelte';
@@ -40,7 +36,6 @@ import Breadcrumb from './navigation/Breadcrumb.svelte';
 import BurgerMenu from './navigation/BurgerMenu.svelte';
 import DropdownMenu from './navigation/DropdownMenu.svelte';
 import MenuItem from './navigation/MenuItem.svelte';
-import QuickAccessButtons from './navigation/QuickAccessButtons.svelte';
 
 // Chat
 import AttachmentPreview from './chat/AttachmentPreview.svelte';
@@ -62,6 +57,8 @@ export {
   // Forms
   FormFieldGroup,
   FormSection,
+  InputField,
+  SearchBar,
   // Controls
   RadioGroup,
   // Tooltips
@@ -83,7 +80,6 @@ export {
   BurgerMenu,
   DropdownMenu,
   MenuItem,
-  QuickAccessButtons,
   // Chat
   AttachmentPreview,
   ChatHeader,

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Tag from '../../atoms/ui-elements/Tag.svelte';
+  import Tag from '../../atoms/typography/Tag.svelte';
 
   type Suggestion = {
     id: string;

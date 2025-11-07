@@ -39,13 +39,13 @@
   }: Props = $props();
 
   let variantClasses = $derived({
-    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white',
-    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800',
-    success: 'bg-green-600 hover:bg-green-700 text-white',
-    warning: 'bg-yellow-600 hover:bg-yellow-700 text-white',
-    danger: 'bg-red-600 hover:bg-red-700 text-white',
-    ghost: 'bg-transparent hover:bg-gray-100 text-gray-700 border border-gray-300',
-    link: 'bg-transparent hover:bg-gray-100 text-indigo-600 underline'
+    primary: 'bg-[--stylist-button-primary-bg] hover:bg-[--stylist-button-primary-hover-bg] text-[--stylist-button-primary-text]',
+    secondary: 'bg-[--stylist-button-secondary-bg] hover:bg-[--stylist-button-secondary-hover-bg] text-[--stylist-button-secondary-text]',
+    success: 'bg-[--stylist-button-success-bg] hover:bg-[--stylist-button-success-hover-bg] text-[--stylist-button-success-text]',
+    warning: 'bg-[--stylist-button-warning-bg] hover:bg-[--stylist-button-warning-hover-bg] text-[--stylist-button-warning-text]',
+    danger: 'bg-[--stylist-button-danger-bg] hover:bg-[--stylist-button-danger-hover-bg] text-[--stylist-button-danger-text]',
+    ghost: 'bg-[--stylist-button-ghost-bg] hover:bg-[--stylist-button-ghost-hover-bg] text-[--stylist-button-ghost-text] border border-[--stylist-button-ghost-border]',
+    link: 'bg-[--stylist-button-link-bg] hover:bg-[--stylist-button-link-hover-bg] text-[--stylist-button-link-text] underline'
   }[variant]);
 
   let sizeClasses = $derived({
@@ -60,7 +60,7 @@
 
   let blockClass = $derived(block ? 'w-full' : '');
 
-  let classes = $derived(`inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${className}`);
+  let classes = $derived(`inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[--stylist-button-focus-ring] focus:ring-offset-2 ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${className}`);
 </script>
 
 <button {...restProps} class={classes}>

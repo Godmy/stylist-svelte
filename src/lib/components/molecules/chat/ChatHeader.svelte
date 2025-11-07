@@ -20,7 +20,7 @@
   }
 
   import Avatar from '../../atoms/media/Avatar.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
   import Icon from '../../atoms/media/Icon.svelte';
   import UserStatus from '$lib/components/molecules/chat/UserStatus.svelte';
   import { createEventDispatcher } from 'svelte';

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Input from '../../atoms/forms/Input.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
+  import Input from '../../atoms/input/Input.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
   import { createEventDispatcher } from 'svelte';
   import { debounce } from '$lib/utils/debounce'; // Assuming we have a debounce utility
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story, type ControlConfig } from 'stylist-svelte/playground';
   import Label from './Label.svelte';
-  import Input from './Input.svelte';
+  import Input from '../input/Input.svelte';
 
   const controls: ControlConfig[] = [
     {

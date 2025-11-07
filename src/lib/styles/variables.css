@@ -1,0 +1,134 @@
+/**
+ * CSS Variables for Stylist Svelte
+ * Default theme values
+ */
+
+:root {
+  /* Button colors */
+  --stylist-button-primary-bg: #4f46e5;          /* indigo-600 */
+  --stylist-button-primary-hover-bg: #4338ca;    /* indigo-700 */
+  --stylist-button-primary-text: #ffffff;
+  
+  --stylist-button-secondary-bg: #e5e7eb;        /* gray-200 */
+  --stylist-button-secondary-hover-bg: #d1d5db;  /* gray-300 */
+  --stylist-button-secondary-text: #1f2937;      /* gray-800 */
+  
+  --stylist-button-success-bg: #22c55e;          /* green-600 */
+  --stylist-button-success-hover-bg: #16a34a;    /* green-700 */
+  --stylist-button-success-text: #ffffff;
+  
+  --stylist-button-warning-bg: #f59e0b;          /* yellow-600 */
+  --stylist-button-warning-hover-bg: #d97706;    /* yellow-700 */
+  --stylist-button-warning-text: #ffffff;
+  
+  --stylist-button-danger-bg: #ef4444;           /* red-600 */
+  --stylist-button-danger-hover-bg: #dc2626;     /* red-700 */
+  --stylist-button-danger-text: #ffffff;
+  
+  --stylist-button-ghost-bg: transparent;
+  --stylist-button-ghost-hover-bg: #f3f4f6;      /* gray-100 */
+  --stylist-button-ghost-text: #374151;          /* gray-700 */
+  --stylist-button-ghost-border: #d1d5db;        /* gray-300 */
+  
+  --stylist-button-link-bg: transparent;
+  --stylist-button-link-hover-bg: #f3f4f6;       /* gray-100 */
+  --stylist-button-link-text: #4f46e5;           /* indigo-600 */
+  
+  --stylist-button-focus-ring: #c7d2fe;          /* indigo-300 */
+  
+  /* Input colors */
+  --stylist-input-border: #d1d5db;               /* gray-300 */
+  --stylist-input-focus-ring: #818cf8;           /* indigo-500 */
+  --stylist-input-focus-border: #818cf8;         /* indigo-500 */
+  --stylist-input-error-border: #ef4444;         /* red-500 */
+  --stylist-input-error-focus-ring: #ef4444;     /* red-500 */
+  --stylist-input-error-focus-border: #ef4444;   /* red-500 */
+  --stylist-input-disabled-bg: #f9fafb;          /* gray-100 */
+  
+  /* Alert colors */
+  --stylist-alert-info-bg: #eff6ff;              /* blue-50 */
+  --stylist-alert-info-border: #3b82f6;          /* blue-500 */
+  --stylist-alert-info-text: #1e3a8a;            /* blue-900 */
+  --stylist-alert-info-icon: #60a5fa;            /* blue-400 */
+  
+  --stylist-alert-success-bg: #f0fdf4;           /* green-50 */
+  --stylist-alert-success-border: #22c55e;       /* green-500 */
+  --stylist-alert-success-text: #166534;         /* green-800 */
+  --stylist-alert-success-icon: #34d399;         /* green-400 */
+  
+  --stylist-alert-warning-bg: #fefce8;           /* yellow-50 */
+  --stylist-alert-warning-border: #f59e0b;       /* yellow-500 */
+  --stylist-alert-warning-text: #854d0e;         /* yellow-800 */
+  --stylist-alert-warning-icon: #fbbf24;         /* yellow-400 */
+  
+  --stylist-alert-error-bg: #fef2f2;             /* red-50 */
+  --stylist-alert-error-border: #ef4444;         /* red-500 */
+  --stylist-alert-error-text: #991b1b;           /* red-800 */
+  --stylist-alert-error-icon: #f87171;           /* red-400 */
+}
+
+/* Dark theme variables */
+[data-theme="dark"],
+.dark {
+  /* Button colors */
+  --stylist-button-primary-bg: #6366f1;          /* indigo-500 */
+  --stylist-button-primary-hover-bg: #4f46e5;    /* indigo-600 */
+  --stylist-button-primary-text: #f9fafb;        /* gray-50 */
+  
+  --stylist-button-secondary-bg: #374151;        /* gray-700 */
+  --stylist-button-secondary-hover-bg: #4b5563;  /* gray-600 */
+  --stylist-button-secondary-text: #f9fafb;      /* gray-50 */
+  
+  --stylist-button-success-bg: #34d399;          /* green-400 */
+  --stylist-button-success-hover-bg: #10b981;    /* green-500 */
+  --stylist-button-success-text: #0f172a;        /* gray-900 */
+  
+  --stylist-button-warning-bg: #fbbf24;          /* yellow-400 */
+  --stylist-button-warning-hover-bg: #f59e0b;    /* yellow-500 */
+  --stylist-button-warning-text: #0f172a;        /* gray-900 */
+  
+  --stylist-button-danger-bg: #f87171;           /* red-400 */
+  --stylist-button-danger-hover-bg: #ef4444;     /* red-500 */
+  --stylist-button-danger-text: #0f172a;         /* gray-900 */
+  
+  --stylist-button-ghost-bg: transparent;
+  --stylist-button-ghost-hover-bg: #4b5563;      /* gray-600 */
+  --stylist-button-ghost-text: #f3f4f6;          /* gray-100 */
+  --stylist-button-ghost-border: #4b5563;        /* gray-600 */
+  
+  --stylist-button-link-bg: transparent;
+  --stylist-button-link-hover-bg: #4b5563;       /* gray-600 */
+  --stylist-button-link-text: #818cf8;           /* indigo-400 */
+  
+  --stylist-button-focus-ring: #a5b4fc;          /* indigo-400 */
+  
+  /* Input colors */
+  --stylist-input-border: #4b5563;               /* gray-600 */
+  --stylist-input-focus-ring: #818cf8;           /* indigo-400 */
+  --stylist-input-focus-border: #818cf8;         /* indigo-400 */
+  --stylist-input-error-border: #f87171;         /* red-400 */
+  --stylist-input-error-focus-ring: #f87171;     /* red-400 */
+  --stylist-input-error-focus-border: #f87171;   /* red-400 */
+  --stylist-input-disabled-bg: #1f2937;          /* gray-800 */
+  
+  /* Alert colors */
+  --stylist-alert-info-bg: #1e3a8a;              /* blue-900/20 */
+  --stylist-alert-info-border: #1d4ed8;          /* blue-700 */
+  --stylist-alert-info-text: #93c5fd;            /* blue-300 */
+  --stylist-alert-info-icon: #60a5fa;            /* blue-400 */
+  
+  --stylist-alert-success-bg: #166534;           /* green-900/20 */
+  --stylist-alert-success-border: #15803d;       /* green-700 */
+  --stylist-alert-success-text: #86efac;         /* green-300 */
+  --stylist-alert-success-icon: #34d399;         /* green-400 */
+  
+  --stylist-alert-warning-bg: #854d0e;           /* yellow-900/20 */
+  --stylist-alert-warning-border: #b45309;       /* yellow-700 */
+  --stylist-alert-warning-text: #fde68a;         /* yellow-200 */
+  --stylist-alert-warning-icon: #fbbf24;         /* yellow-400 */
+  
+  --stylist-alert-error-bg: #991b1b;             /* red-900/20 */
+  --stylist-alert-error-border: #dc2626;         /* red-700 */
+  --stylist-alert-error-text: #fca5a5;           /* red-300 */
+  --stylist-alert-error-icon: #f87171;           /* red-400 */
+}

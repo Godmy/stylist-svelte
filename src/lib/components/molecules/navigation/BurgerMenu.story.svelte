@@ -1,6 +1,6 @@
 <script lang="ts">
   import BurgerMenu from './BurgerMenu.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
   
   let open = $state(false);
   

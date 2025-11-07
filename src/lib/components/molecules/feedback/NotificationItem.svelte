@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import Tag from '$lib/components/atoms/ui-elements/Tag.svelte';
+  import Tag from '$lib/components/atoms/typography/Tag.svelte';
 
   type Props = {
     title: string;

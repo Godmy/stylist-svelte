@@ -75,70 +75,75 @@ stylist-svelte/
 │   └── lib/                                                                # Основная библиотека
 │       ├── components/                                                     # Компоненты пользовательского интерфейса
 │       │   ├── atoms/                                                      # Атомарные компоненты (кнопки, инпуты, лейблы и т.д.)
-│       │   │   ├── ExampleAtom.svelte                                      # Пример простого атомарного компонента
-│       │   │   ├── TestButton.svelte                                       # Тестовый компонент кнопки
 │       │   │   ├── animation/                                              # Анимационные атомы
 │       │   │   │   ├── NumberFlow.svelte                                   # Анимированное отображение числовых значений
 │       │   │   │   ├── NumberFlow.story.svelte                             # Стори для NumberFlow
 │       │   │   │   └── index.ts                                            # Экспорт анимационных атомов
-│       │   │   ├── feedback/                                               # Компоненты обратной связи
-│       │   │   │   ├── Alert.svelte                                        # Компонент для отображения важных сообщений
-│       │   │   │   ├── ProgressBar.svelte                                  # Индикатор выполнения задачи
-│       │   │   │   ├── Skeleton.svelte                                     # Заглушка с анимацией для загрузки данных
-│       │   │   │   ├── TableSkeleton.svelte                                # Заглушка для таблицы
-│       │   │   │   └── index.ts                                            # Экспорт компонентов обратной связи
-│       │   │   ├── forms/                                                  # Компоненты форм
+│       │   │   ├── chat/                                                   # Компоненты для чата
+│       │   │   │   ├── ChatStatusIndicator.svelte                          # Индикатор статуса в чате
+│       │   │   │   ├── MessageStatus.svelte                                # Индикатор статуса сообщения
+│       │   │   │   ├── MessageTimestamp.svelte                             # Отображение временной метки сообщения
+│       │   │   │   └── index.ts                                            # Экспорт компонентов чата
+│       │   │   ├── controls/                                               # Контрольные элементы
+│       │   │   │   ├── Button.svelte                                       # Универсальная кнопка
+│       │   │   │   ├── Button.story.svelte                                 # Стори для Button
 │       │   │   │   ├── Checkbox.svelte                                     # Стандартный чекбокс
 │       │   │   │   ├── Checkbox.story.svelte                               # Стори для Checkbox
-│       │   │   │   ├── Input.svelte                                        # Поле для ввода текста
-│       │   │   │   ├── Input.story.svelte                                  # Стори для Input
-│       │   │   │   ├── Label.svelte                                        # Текстовая метка для элементов формы
-│       │   │   │   ├── Label.story.svelte                                  # Стори для Label
+│       │   │   │   ├── Radio.svelte                                        # Переключатель
+│       │   │   │   ├── Radio.story.svelte                                  # Стори для Radio
 │       │   │   │   ├── RangeSlider.svelte                                  # Ползунок для выбора значения в диапазоне
 │       │   │   │   ├── RangeSlider.story.svelte                            # Стори для RangeSlider
 │       │   │   │   ├── Select.svelte                                       # Выпадающий список
 │       │   │   │   ├── Select.story.svelte                                 # Стори для Select
 │       │   │   │   ├── Switch.svelte                                       # Переключатель
 │       │   │   │   ├── Switch.story.svelte                                 # Стори для Switch
+│       │   │   │   ├── Toggle.svelte                                       # Переключатель для включения/выключения состояния
+│       │   │   │   ├── Toggle.story.svelte                                 # Стори для Toggle
+│       │   │   │   └── index.ts                                            # Экспорт контрольных элементов
+│       │   │   ├── feedback/                                               # Компоненты обратной связи
+│       │   │   │   ├── Alert.svelte                                        # Компонент для отображения важных сообщений
+│       │   │   │   └── index.ts                                            # Экспорт компонентов обратной связи
+│       │   │   ├── input/                                                  # Компоненты ввода
+│       │   │   │   ├── Input.svelte                                        # Поле для ввода текста
+│       │   │   │   ├── Input.story.svelte                                  # Стори для Input
 │       │   │   │   ├── Textarea.svelte                                     # Многострочное поле ввода
 │       │   │   │   ├── Textarea.story.svelte                               # Стори для Textarea
-│       │   │   │   └── index.ts                                            # Экспорт компонентов форм
-│       │   │   ├── indicators/                                             # Индикаторы статуса
-│       │   │   │   ├── ChatStatusIndicator.svelte                          # Индикатор статуса в чате
-│       │   │   │   ├── MessageStatus.svelte                                # Индикатор статуса сообщения
-│       │   │   │   ├── MessageTimestamp.svelte                             # Отображение временной метки сообщения
-│       │   │   │   ├── Spinner.svelte                                      # Индикатор загрузки
-│       │   │   │   ├── Spinner.story.svelte                                # Стори для Spinner
-│       │   │   │   ├── StatusIndicator.svelte                              # Индикатор статуса с иконкой и текстом
-│       │   │   │   └── index.ts                                            # Экспорт индикаторов
+│       │   │   │   └── index.ts                                            # Экспорт компонентов ввода
+│       │   │   ├── layout/                                                 # Компоненты для макета
+│       │   │   │   ├── Divider.svelte                                      # Горизонтальный или вертикальный разделитель
+│       │   │   │   └── index.ts                                            # Экспорт компонентов макета
 │       │   │   ├── media/                                                  # Медиа компоненты
 │       │   │   │   ├── Avatar.svelte                                       # Отображение аватара пользователя
 │       │   │   │   ├── Avatar.story.svelte                                 # Стори для Avatar
 │       │   │   │   ├── Icon.svelte                                         # Отображение иконки
 │       │   │   │   ├── Icon.story.svelte                                   # Стори для Icon
 │       │   │   │   └── index.ts                                            # Экспорт медиа компонентов
+│       │   │   ├── placeholders/                                           # Компоненты-заполнители
+│       │   │   │   ├── Skeleton.svelte                                     # Заглушка с анимацией для загрузки данных
+│       │   │   │   ├── TableSkeleton.svelte                                # Заглушка для таблицы
+│       │   │   │   └── index.ts                                            # Экспорт компонентов-заполнителей
+│       │   │   ├── process/                                                # Компоненты процессов
+│       │   │   │   ├── ProgressBar.svelte                                  # Индикатор выполнения задачи
+│       │   │   │   ├── ProgressBar.story.svelte                            # Стори для ProgressBar
+│       │   │   │   ├── Spinner.svelte                                      # Индикатор загрузки
+│       │   │   │   ├── Spinner.story.svelte                                # Стори для Spinner
+│       │   │   │   └── index.ts                                            # Экспорт компонентов процессов
 │       │   │   ├── typography/                                             # Типографские компоненты
+│       │   │   │   ├── Badge.svelte                                        # Небольшой элемент для отображения статуса
+│       │   │   │   ├── Badge.story.svelte                                  # Стори для Badge
+│       │   │   │   ├── Chip.svelte                                         # Компактный элемент для отображения информации
+│       │   │   │   ├── Chip.story.svelte                                   # Стори для Chip
 │       │   │   │   ├── CodeBlock.svelte                                    # Блок для отображения форматированного кода
 │       │   │   │   ├── InlineCode.svelte                                   # Отображение кода внутри текста
 │       │   │   │   ├── Kbd.svelte                                          # Компонент для отображения клавиш клавиатуры
 │       │   │   │   ├── Kbd.story.svelte                                    # Стори для Kbd
+│       │   │   │   ├── Label.svelte                                        # Текстовая метка для элементов формы
+│       │   │   │   ├── Label.story.svelte                                  # Стори для Label
 │       │   │   │   ├── Link.svelte                                         # Ссылка
 │       │   │   │   ├── Link.story.svelte                                   # Стори для Link
-│       │   │   │   └── index.ts                                            # Экспорт типографских компонентов
-│       │   │   ├── ui-elements/                                            # Основные UI-элементы
-│       │   │   │   ├── Badge.svelte                                        # Небольшой элемент для отображения статуса
-│       │   │   │   ├── Badge.story.svelte                                  # Стори для Badge
-│       │   │   │   ├── Button.svelte                                       # Универсальная кнопка
-│       │   │   │   ├── Button.story.svelte                                 # Стори для Button
-│       │   │   │   ├── Chip.svelte                                         # Компактный элемент для отображения информации
-│       │   │   │   ├── Chip.story.svelte                                   # Стори для Chip
-│       │   │   │   ├── Divider.svelte                                      # Горизонтальный или вертикальный разделитель
-│       │   │   │   ├── Divider.story.svelte                                # Стори для Divider
 │       │   │   │   ├── Tag.svelte                                          # Тег для маркировки
 │       │   │   │   ├── Tag.story.svelte                                    # Стори для Tag
-│       │   │   │   ├── Toggle.svelte                                       # Переключатель для включения/выключения состояния
-│       │   │   │   ├── Toggle.story.svelte                                 # Стори для Toggle
-│       │   │   │   └── index.ts                                            # Экспорт UI-элементов
+│       │   │   │   └── index.ts                                            # Экспорт типографских компонентов
 │       │   │   └── index.ts                                                # Объединяющий экспорт всех атомов
 │       │   ├── molecules/                                                  # Составные компоненты (формы, карточки и т.д.)
 │       │   │   ├── CopyButton.svelte                                       # Кнопка для копирования текста
@@ -444,12 +449,15 @@ stylist-svelte/
 - **Назначение**: Атомарные компоненты - базовые строительные блоки интерфейса
 - **Содержимое**: 
   - `animation/`: Анимационные компоненты (например, NumberFlow)
-  - `feedback/`: Компоненты обратной связи (Alert, ProgressBar, Spinner)
-  - `forms/`: Компоненты форм (Input, Checkbox, Select)
-  - `indicators/`: Индикаторы и статусы (ChatStatusIndicator, MessageStatus)
+  - `chat/`: Компоненты для чата (ChatStatusIndicator, MessageStatus, MessageTimestamp)
+  - `controls/`: Контрольные элементы (Button, Checkbox, Radio, RangeSlider, Select, Switch, Toggle)
+  - `feedback/`: Компоненты обратной связи (Alert)
+  - `input/`: Компоненты ввода (Input, Textarea)
+  - `layout/`: Компоненты макета (Divider)
   - `media/`: Медиа компоненты (Avatar, Icon)
-  - `typography/`: Типографские компоненты (CodeBlock, Link)
-  - `ui-elements/`: Основные UI-элементы (Button, Badge, Divider)
+  - `placeholders/`: Компоненты-заполнители (Skeleton, TableSkeleton)
+  - `process/`: Компоненты процессов (ProgressBar, Spinner)
+  - `typography/`: Типографские компоненты (Badge, Chip, CodeBlock, InlineCode, Kbd, Label, Link, Tag)
 
 #### `molecules/`
 - **Назначение**: Молекулярные компоненты - комбинации атомов, работающие как единое целое

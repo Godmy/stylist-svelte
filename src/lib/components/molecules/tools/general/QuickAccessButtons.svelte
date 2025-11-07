@@ -4,8 +4,8 @@
     'data-testid'?: string;
   };
   
-  import Button from '../../atoms/ui-elements/Button.svelte';
-  import Icon from '../../atoms/media/Icon.svelte';
+  import Button from '../../../atoms/controls/Button.svelte';
+  import Icon from '../../../atoms/media/Icon.svelte';
   
   type QuickAction = {
     id: string;

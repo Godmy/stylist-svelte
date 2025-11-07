@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { KanbanBoardData, KanbanColumnData } from '$lib/types';
   import KanbanColumn from './KanbanColumn.svelte';
-  import Button from '../../atoms/ui-elements/Button.svelte';
+  import Button from '../../atoms/controls/Button.svelte';
   import { Plus } from 'lucide-svelte';
 
   let { 

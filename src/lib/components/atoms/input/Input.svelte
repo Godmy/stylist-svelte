@@ -69,9 +69,9 @@
     class="
       w-full px-3 py-2 border rounded-md shadow-sm
       {hasError
-        ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
-        : 'border-gray-300 focus:ring-indigo-500 focus:border-indigo-500'}
-      {disabled ? 'bg-gray-100 cursor-not-allowed' : ''}
+        ? 'border-[--stylist-input-error-border] focus:ring-[--stylist-input-error-focus-ring] focus:border-[--stylist-input-error-focus-border]'
+        : 'border-[--stylist-input-border] focus:ring-[--stylist-input-focus-ring] focus:border-[--stylist-input-focus-border]'}
+      {disabled ? 'bg-[--stylist-input-disabled-bg] cursor-not-allowed' : ''}
     "
     disabled={disabled}
     placeholder={placeholder}

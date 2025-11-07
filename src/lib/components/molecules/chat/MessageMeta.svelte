@@ -18,8 +18,8 @@
     isSystemMessage?: boolean;
   }
 
-  import MessageStatusAtom from '../../atoms/indicators/MessageStatus.svelte';
-  import MessageTimestamp from '../../atoms/indicators/MessageTimestamp.svelte';
+  import MessageStatusAtom from '../../atoms/chat/MessageStatus.svelte';
+  import MessageTimestamp from '../../atoms/chat/MessageTimestamp.svelte';
 
   // Props
   let { 

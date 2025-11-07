@@ -34,24 +34,24 @@
   }[variant]);
 
   let iconColor = $derived({
-    info: 'text-blue-400',
-    success: 'text-green-400',
-    warning: 'text-yellow-400',
-    error: 'text-red-400'
+    info: 'text-[--stylist-alert-info-icon]',
+    success: 'text-[--stylist-alert-success-icon]',
+    warning: 'text-[--stylist-alert-warning-icon]',
+    error: 'text-[--stylist-alert-error-icon]'
   }[variant]);
 
   let bgColor = $derived({
-    info: 'bg-blue-50 border-blue-200',
-    success: 'bg-green-50 border-green-200',
-    warning: 'bg-yellow-50 border-yellow-200',
-    error: 'bg-red-50 border-red-200'
+    info: 'bg-[--stylist-alert-info-bg] border-[--stylist-alert-info-border]',
+    success: 'bg-[--stylist-alert-success-bg] border-[--stylist-alert-success-border]',
+    warning: 'bg-[--stylist-alert-warning-bg] border-[--stylist-alert-warning-border]',
+    error: 'bg-[--stylist-alert-error-bg] border-[--stylist-alert-error-border]'
   }[variant]);
 
   let textColor = $derived({
-    info: 'text-blue-800',
-    success: 'text-green-800',
-    warning: 'text-yellow-800',
-    error: 'text-red-800'
+    info: 'text-[--stylist-alert-info-text]',
+    success: 'text-[--stylist-alert-success-text]',
+    warning: 'text-[--stylist-alert-warning-text]',
+    error: 'text-[--stylist-alert-error-text]'
   }[variant]);
 </script>
 

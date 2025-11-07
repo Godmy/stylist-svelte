@@ -2,7 +2,7 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
   import NotificationItem from './NotificationItem.svelte';
-  import Button from '$lib/components/atoms/ui-elements/Button.svelte';
+  import Button from '$lib/components/atoms/controls/Button.svelte';
 
   type NotificationStoryProps = {
     title: string;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Message, User } from '$lib/types';
   import { Avatar, Icon } from '$lib/components/atoms';
-  import MessageStatusAtom from '../../atoms/indicators/MessageStatus.svelte';
+  import MessageStatusAtom from '../../atoms/chat/MessageStatus.svelte';
   import MessageMeta from '../../molecules/chat/MessageMeta.svelte';
   import AttachmentPreview from '../../molecules/chat/AttachmentPreview.svelte';
   import { createEventDispatcher } from 'svelte';

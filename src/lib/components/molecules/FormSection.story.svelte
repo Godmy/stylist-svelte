@@ -3,8 +3,8 @@
   import type { ControlConfig } from '$lib/playground';
   import FormSection from './forms/FormSection.svelte';
   import FormFieldGroup from './forms/FormFieldGroup.svelte';
-  import Input from '../atoms/forms/Input.svelte';
-  import Checkbox from '../atoms/forms/Checkbox.svelte';
+  import Input from '../atoms/input/Input.svelte';
+  import Checkbox from '../atoms/controls/Checkbox.svelte';
 
   type FormSectionStoryProps = {
     title: string;
