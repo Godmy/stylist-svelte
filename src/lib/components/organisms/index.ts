@@ -8,9 +8,6 @@ export { default as Modal } from './Modal.svelte';
 export { default as Pagination } from './Pagination.svelte';
 export { default as Breadcrumbs } from './Breadcrumbs.svelte';
 export { default as ConfirmDialog } from './ConfirmDialog.svelte';
-export { default as ColumnManager } from './ColumnManager.svelte';
-export { default as FolderTree } from './FolderTree.svelte';
-export { default as DataTable } from './DataTable.svelte';
 
 // Table components
 export { default as Table } from './tables/Table.svelte';

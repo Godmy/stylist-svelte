@@ -1,5 +1,10 @@
 # stylist-svelte
 
+[![Version](https://img.shields.io/npm/v/stylist-svelte.svg)](https://www.npmjs.com/package/stylist-svelte)
+[![License](https://img.shields.io/github/license/Godmy/stylist-svelte.svg)](https://github.com/Godmy/stylist-svelte/blob/main/LICENSE)
+[![Svelte 5](https://img.shields.io/badge/Svelte-5-orange.svg)](https://svelte.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg)](https://www.typescriptlang.org)
+
 A comprehensive Svelte 5 UI component library with **built-in Playground** for interactive development and **full TypeScript support**.
 
 ## 🌟 Features
@@ -19,6 +24,8 @@ A comprehensive Svelte 5 UI component library with **built-in Playground** for i
 ### 🎨 Playground (NEW!)
 - **Interactive Development** - Test components with live prop controls
 - **Code Generation** - Auto-generate component code
+- **Syntax Highlighting** - Powered by Shiki for beautiful code rendering
+- **Keyboard Shortcuts** - Efficient navigation and editing (Cmd/Ctrl+K, Cmd/Ctrl+B, etc.)
 - **Dark Mode** - Built-in theme switching
 - **Responsive Views** - Mobile, tablet, desktop previews
 - **Zero Config** - Works out of the box with SvelteKit
@@ -373,6 +380,20 @@ yarn format
 yarn clean
 ```
 
+### Playground Development
+
+The Playground provides an interactive environment to test and develop components:
+
+1. The Playground automatically detects all `*.story.svelte` files in the components directory
+2. Run `yarn dev` to start the Playground server
+3. Use keyboard shortcuts for efficient navigation:
+   - `Cmd/Ctrl + K` - Search stories
+   - `Cmd/Ctrl + B` - Toggle sidebar
+   - `Cmd/Ctrl + D` - Toggle dark mode
+   - `Cmd/Ctrl + /` - Show help
+   - `Esc` - Close modals
+4. View syntax-highlighted code with Shiki integration
+
 ## 🧪 Playground Development
 
 The built-in Playground allows you to test components interactively:
@@ -428,6 +449,8 @@ For detailed documentation, component API references, and examples, visit:
 - [x] Organisms components (20+) ✅
 - [x] **Playground system** 🆕 ✅
 - [x] Full TypeScript support ✅
+- [x] Cleanup & deduplication of components ✅
+- [x] Stories coverage for all components ✅
 - [ ] Testing suite 🚧
 - [ ] CI/CD pipeline 🚧
 
@@ -440,8 +463,8 @@ For detailed documentation, component API references, and examples, visit:
 - [x] Dark mode ✅
 - [x] Responsive viewports ✅
 - [x] Search & navigation ✅
-- [ ] Syntax highlighting 🚧
-- [ ] Keyboard shortcuts 🚧
+- [x] Syntax highlighting ✅
+- [x] Keyboard shortcuts ✅
 
 ## 🤝 Contributing
 

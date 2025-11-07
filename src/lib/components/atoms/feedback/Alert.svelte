@@ -3,6 +3,16 @@
 
   type Snippet = any; // Placeholder for now
 
+  /**
+   * Alert component - Displays important messages to the user with different variants
+   * 
+   * @param variant - Visual style of the alert ('info' | 'success' | 'warning' | 'error')
+   * @param title - Title or header text for the alert
+   * @param closable - Whether the alert can be closed by the user
+   * @param icon - Whether to show the status icon
+   * @param content - Snippet content to display in the alert body
+   * @returns A styled alert component with proper icon and coloring based on variant
+   */
   type AlertVariant = 'info' | 'success' | 'warning' | 'error';
 
   type Props = {

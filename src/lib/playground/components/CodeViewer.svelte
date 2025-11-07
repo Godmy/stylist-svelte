@@ -1,10 +1,13 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { playgroundStore } from '../stores/playground.svelte';
   import { generateComponentCode } from '../utils/code-generator';
+  import { SyntaxHighlighter } from '../utils/syntax-highlighter';
 
   let currentStory = $derived(playgroundStore.getCurrentStory());
   let controlValues = $derived(playgroundStore.controlValues);
   let copied = $state(false);
+  let highlightedCode = $state('');
 
   let generatedCode = $derived(() => {
     if (!currentStory?.component) return '';
@@ -18,6 +21,22 @@
     });
   });
 
+  // Update highlighted code when generated code changes
+  $effect(() => {
+    if (generatedCode()) {
+      updateHighlightedCode();
+    }
+  });
+
+  async function updateHighlightedCode() {
+    // Use syntax highlighting for Svelte code
+    highlightedCode = await SyntaxHighlighter.highlight(
+      generatedCode(),
+      'svelte',
+      'github-dark'
+    );
+  }
+
   async function copyCode() {
     try {
       await navigator.clipboard.writeText(generatedCode());
@@ -29,14 +48,19 @@
       console.error('Failed to copy:', err);
     }
   }
+
+  // Initialize the highlighted code when component mounts
+  onMount(() => {
+    updateHighlightedCode();
+  });
 </script>
 
-<div class="bg-gray-900 text-gray-100">
-  <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700">
+<div class="bg-gray-900 text-gray-100 rounded-lg overflow-hidden shadow-lg">
+  <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700 bg-gray-800">
     <h3 class="text-sm font-semibold">Code</h3>
     <div class="flex items-center gap-2">
       <button
-        class="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-gray-800 transition-colors"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-gray-700 transition-colors text-gray-200"
         onclick={copyCode}
         title={copied ? 'Copied!' : 'Copy code'}
       >
@@ -53,7 +77,7 @@
       </button>
 
       <button
-        class="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-gray-800 transition-colors"
+        class="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm hover:bg-gray-700 transition-colors text-gray-200"
         onclick={() => playgroundStore.toggleCode()}
         title="Close code viewer"
       >
@@ -64,7 +88,7 @@
     </div>
   </div>
 
-  <div class="p-4 max-h-80 overflow-auto">
-    <pre class="text-sm font-mono"><code class="text-green-400">{generatedCode()}</code></pre>
+  <div class="p-4 max-h-80 overflow-auto bg-gray-900/50"> 
+    {@html highlightedCode}
   </div>
 </div>

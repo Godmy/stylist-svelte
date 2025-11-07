@@ -6,7 +6,6 @@
 // General
 import EmptyState from './EmptyState.svelte';
 import CopyButton from './CopyButton.svelte';
-import InputField from './InputField.svelte';
 
 // Forms
 import FormFieldGroup from './forms/FormFieldGroup.svelte';
@@ -21,13 +20,13 @@ import Tooltip from './tooltips/Tooltip.svelte';
 // Graph
 import GraphEdge from './graph/GraphEdge.svelte';
 import GraphNode from './graph/GraphNode.svelte';
-import GraphvizCluster from './graph/GraphvizCluster.svelte';
-import GraphvizEdge from './graph/GraphvizEdge.svelte';
-import GraphvizNode from './graph/GraphvizNode.svelte';
-import GraphvizSubgraph from './graph/GraphvizSubgraph.svelte';
+import GraphvizCluster from './visualization/GraphvizCluster.svelte';
+import GraphvizEdge from './visualization/GraphvizEdge.svelte';
+import GraphvizNode from './visualization/GraphvizNode.svelte';
+import GraphvizSubgraph from './visualization/GraphvizSubgraph.svelte';
 
 // Search
-import SearchBar from './search/SearchBar.svelte';
+
 
 // Code
 import CodeWithCopy from './code/CodeWithCopy.svelte';
@@ -60,7 +59,6 @@ import VariablesEditor from './tools/VariablesEditor.svelte';
 export {
   EmptyState,
   CopyButton,
-  InputField,
   // Forms
   FormFieldGroup,
   FormSection,
@@ -75,8 +73,6 @@ export {
   GraphvizEdge,
   GraphvizNode,
   GraphvizSubgraph,
-  // Search
-  SearchBar,
   // Code
   CodeWithCopy,
   ResponseViewer,

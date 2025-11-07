@@ -3,6 +3,7 @@ export { default as GraphvizClusterWithTitle } from './GraphvizClusterWithTitle.
 export { default as GraphvizDirectedEdge } from './GraphvizDirectedEdge.svelte';
 export { default as GraphvizNodeConnection } from './GraphvizNodeConnection.svelte';
 export { default as GraphvizNodeWithLabel } from './GraphvizNodeWithLabel.svelte';
+export { default as GraphvizSubgraph } from './GraphvizSubgraph.svelte';
 export { default as GraphvizUndirectedEdge } from './GraphvizUndirectedEdge.svelte';
 export { default as LegendItem } from './LegendItem.svelte';
 export { default as OntologyEdgeComponent } from './OntologyEdgeComponent.svelte';

@@ -3,9 +3,15 @@
   import type { Snippet } from 'svelte';
 
   /**
-   * Компонент блока кода с подсветкой синтаксиса
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе выводится пустой блок
+   * CodeBlock component - Displays formatted code with syntax highlighting
+   * 
+   * @param language - Language for syntax highlighting (default: 'text')
+   * @param variant - Visual variant ('default' | 'terminal' | 'diff')
+   * @param size - Size of the code block ('sm' | 'md' | 'lg')
+   * @param showLineNumbers - Whether to show line numbers
+   * @param startLineNumber - Starting line number (default: 1)
+   * @param children - Snippet containing the code content
+   * @returns A styled code block with syntax highlighting and optional line numbers
    */
   type CodeBlockVariant = 'default' | 'terminal' | 'diff';
   type CodeBlockSize = 'sm' | 'md' | 'lg';

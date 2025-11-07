@@ -30,3 +30,14 @@ export type {
 
 // Utils
 export { generateComponentCode } from './utils/code-generator';
+export { SyntaxHighlighter } from './utils/syntax-highlighter';
+export { 
+  registerShortcut, 
+  unregisterShortcut, 
+  getShortcuts, 
+  initKeyboardShortcuts, 
+  deinitKeyboardShortcuts,
+  isInputElement,
+  ShortcutHelpers,
+  type KeyboardShortcut
+} from './utils/keyboard';

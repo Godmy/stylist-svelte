@@ -4,6 +4,17 @@
 
   type Snippet = any; // Placeholder for now
 
+  /**
+   * Button component - A flexible button component with various styles and states
+   * 
+   * @param variant - Visual style of the button ('primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link')
+   * @param size - Size of the button ('sm' | 'md' | 'lg')
+   * @param disabled - Whether the button is disabled
+   * @param loading - Whether the button is in a loading state
+   * @param block - Whether the button should span the full width of its container
+   * @param content - Snippet content for the button (if not using default text content)
+   * @returns An accessible, styled button element
+   */
   type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
   type ButtonSize = 'sm' | 'md' | 'lg';
 

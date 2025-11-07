@@ -1,4 +1,16 @@
 <script lang="ts">
+  /**
+   * ProgressBar component - Visual indicator of task completion
+   * 
+   * @param value - Current progress value
+   * @param max - Maximum value (default: 100)
+   * @param label - Text label to display with the progress bar
+   * @param showPercentage - Whether to display the percentage value
+   * @param size - Size of the progress bar ('sm' | 'md' | 'lg')
+   * @param variant - Visual variant ('primary' | 'success' | 'warning' | 'danger')
+   * @param class - Additional CSS classes to apply to the component
+   * @returns A styled progress bar with customizable appearance and labeling
+   */
   type Props = {
     value: number;
     max?: number;

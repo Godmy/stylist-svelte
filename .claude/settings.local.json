@@ -1,7 +1,19 @@
 {
   "permissions": {
     "allow": [
-      "Bash(yarn add:*)"
+      "Bash(yarn add:*)",
+      "Bash(python analyze_errors.py:*)",
+      "Bash(tree:*)",
+      "Bash(chmod:*)",
+      "Bash(bash migrate_components.sh:*)",
+      "Bash(node update_index_files.js:*)",
+      "Bash(node update_index_files.cjs:*)",
+      "Bash(git mv:*)",
+      "Bash(bash reorganize_molecules.sh:*)",
+      "Bash(bash:*)",
+      "Bash(node fix_imports.cjs:*)",
+      "Bash(xargs ls:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

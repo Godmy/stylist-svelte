@@ -3,9 +3,14 @@
   import type { Snippet } from 'svelte';
   
   /**
-   * Компонент StatusIndicator
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе используется `label`, если он передан
+   * StatusIndicator component - Displays status with icon and optional text label
+   * 
+   * @param status - Status type ('default' | 'success' | 'warning' | 'error' | 'info' | 'primary' | 'secondary')
+   * @param size - Size of the indicator ('sm' | 'md' | 'lg')
+   * @param label - Text label to display next to the indicator
+   * @param showIcon - Whether to show the status icon
+   * @param children - Snippet content to display instead of label
+   * @returns A styled status indicator with appropriate icon and coloring
    */
   type StatusIndicatorProps = {
     status?: 'default' | 'success' | 'warning' | 'error' | 'info' | 'primary' | 'secondary';

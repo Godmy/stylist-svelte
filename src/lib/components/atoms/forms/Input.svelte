@@ -1,6 +1,22 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from 'svelte/elements';
 
+  /**
+   * Input component - A styled input field with label and error handling
+   * 
+   * @param id - Unique identifier for the input field (required)
+   * @param label - Label text for the input field (required)
+   * @param type - Input type ('text', 'email', 'password', etc.)
+   * @param value - Current value of the input (supports two-way binding)
+   * @param errors - Array of error messages to display
+   * @param required - Whether the field is required
+   * @param disabled - Whether the input is disabled
+   * @param placeholder - Placeholder text for the input
+   * @param min - Minimum value for numeric inputs
+   * @param max - Maximum value for numeric inputs
+   * @param step - Step increment for numeric inputs
+   * @returns A styled input field with label and error display
+   */
   export type InputProps = {
     id: string;
     label: string;
