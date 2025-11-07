@@ -12,9 +12,8 @@ import InputField from './InputField.svelte';
 import FormFieldGroup from './forms/FormFieldGroup.svelte';
 import FormSection from './forms/FormSection.svelte';
 
-// Controls
-import RadioGroup from './controls/RadioGroup.svelte';
-import NumberFlow from './controls/NumberFlow.svelte';
+// Forms
+import RadioGroup from './forms/RadioGroup.svelte';
 
 // Tooltips
 import Tooltip from './tooltips/Tooltip.svelte';
@@ -67,7 +66,6 @@ export {
   FormSection,
   // Controls
   RadioGroup,
-  NumberFlow,
   // Tooltips
   Tooltip,
   // Graph

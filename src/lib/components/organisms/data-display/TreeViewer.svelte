@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { TreeNode } from '$lib/types';
-  import VirtualTree from './VirtualTree.svelte';
+  import AdvancedVirtualTree from './AdvancedVirtualTree.svelte';
   import { createEventDispatcher } from 'svelte';
   
   let { 
@@ -9,6 +9,7 @@
     onToggleCallback = () => {},
     itemHeight = 36,
     visibleItemCount = 15,
+    bufferSize = 5,
     class: className = '',
     ...restProps
   }: { 
@@ -17,6 +18,7 @@
     onToggleCallback?: (key: string | undefined) => void;
     itemHeight?: number;
     visibleItemCount?: number;
+    bufferSize?: number;
     class?: string;
   } & Record<string, any> = $props();
 
@@ -46,10 +48,11 @@
 </script>
 
 <div class="tree-viewer {className}" {...restProps}>
-  <VirtualTree 
+  <AdvancedVirtualTree 
     {tree}
     {itemHeight}
     {visibleItemCount}
+    {bufferSize}
     onSelectCallback={onSelectCallback}
     onToggleCallback={handleToggle}
     on:select={handleSelect}

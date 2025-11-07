@@ -43,9 +43,8 @@ import Kbd from './typography/Kbd.svelte';
 import Icon from './media/Icon.svelte';
 import Avatar from './media/Avatar.svelte';
 
-
-
-
+// Animation
+import { NumberFlow } from './animation';
 
 // Other
 import ExampleAtom from './ExampleAtom.svelte';
@@ -84,6 +83,8 @@ export {
   // Media
   Icon,
   Avatar,
+  // Animation
+  NumberFlow,
 
   // Other
   ExampleAtom,
