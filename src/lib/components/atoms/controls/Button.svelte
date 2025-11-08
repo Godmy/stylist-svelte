@@ -39,13 +39,13 @@
   }: Props = $props();
 
   let variantClasses = $derived({
-    primary: 'bg-[--stylist-button-primary-bg] hover:bg-[--stylist-button-primary-hover-bg] text-[--stylist-button-primary-text]',
-    secondary: 'bg-[--stylist-button-secondary-bg] hover:bg-[--stylist-button-secondary-hover-bg] text-[--stylist-button-secondary-text]',
-    success: 'bg-[--stylist-button-success-bg] hover:bg-[--stylist-button-success-hover-bg] text-[--stylist-button-success-text]',
-    warning: 'bg-[--stylist-button-warning-bg] hover:bg-[--stylist-button-warning-hover-bg] text-[--stylist-button-warning-text]',
-    danger: 'bg-[--stylist-button-danger-bg] hover:bg-[--stylist-button-danger-hover-bg] text-[--stylist-button-danger-text]',
-    ghost: 'bg-[--stylist-button-ghost-bg] hover:bg-[--stylist-button-ghost-hover-bg] text-[--stylist-button-ghost-text] border border-[--stylist-button-ghost-border]',
-    link: 'bg-[--stylist-button-link-bg] hover:bg-[--stylist-button-link-hover-bg] text-[--stylist-button-link-text] underline'
+    primary: 'bg-[--color-primary-600] hover:bg-[--color-primary-700] text-[--color-text-inverse]',
+    secondary: 'bg-[--color-secondary-100] hover:bg-[--color-secondary-200] text-[--color-text-primary] dark:bg-[--color-secondary-700] dark:hover:bg-[--color-secondary-600] dark:text-[--color-text-inverse]',
+    success: 'bg-[--color-success-600] hover:bg-[--color-success-700] text-[--color-text-inverse]',
+    warning: 'bg-[--color-warning-500] hover:bg-[--color-warning-600] text-[--color-text-inverse]',
+    danger: 'bg-[--color-danger-600] hover:bg-[--color-danger-700] text-[--color-text-inverse]',
+    ghost: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-text-primary] border border-[--color-border-primary] dark:hover:bg-[--color-secondary-700] dark:text-[--color-text-inverse] dark:border-[--color-border-primary]',
+    link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline dark:hover:bg-[--color-secondary-700] dark:text-[--color-primary-400]'
   }[variant]);
 
   let sizeClasses = $derived({
@@ -60,7 +60,7 @@
 
   let blockClass = $derived(block ? 'w-full' : '');
 
-  let classes = $derived(`inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[--stylist-button-focus-ring] focus:ring-offset-2 ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${className}`);
+  let classes = $derived(`inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-2 ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${className}`);
 </script>
 
 <button {...restProps} class={classes}>

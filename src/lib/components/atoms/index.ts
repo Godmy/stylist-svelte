@@ -14,10 +14,18 @@ import Radio from './controls/Radio.svelte';
 import RangeSlider from './controls/RangeSlider.svelte';
 import Select from './controls/Select.svelte';
 import Switch from './controls/Switch.svelte';
+import InputAddon from './controls/InputAddon.svelte';
+import ColorSwatch from './controls/ColorSwatch.svelte';
+import SliderTick from './controls/SliderTick.svelte';
+import CloseButton from './controls/CloseButton.svelte';
 
 // Input
 import Input from './input/Input.svelte';
 import Textarea from './input/Textarea.svelte';
+import FormHelperText from './input/FormHelperText.svelte';
+import FormErrorMessage from './input/FormErrorMessage.svelte';
+import PinInputDigit from './input/PinInputDigit.svelte';
+import CharacterCount from './input/CharacterCount.svelte';
 
 // Feedback
 import Alert from './feedback/Alert.svelte';
@@ -25,6 +33,9 @@ import Alert from './feedback/Alert.svelte';
 // Placeholders
 import Skeleton from './placeholders/Skeleton.svelte';
 import TableSkeleton from './placeholders/TableSkeleton.svelte';
+import SkeletonText from './placeholders/SkeletonText.svelte';
+import SkeletonCircle from './placeholders/SkeletonCircle.svelte';
+import SkeletonRectangle from './placeholders/SkeletonRectangle.svelte';
 
 // Process
 import Spinner from './process/Spinner.svelte';
@@ -48,6 +59,10 @@ import Tag from './typography/Tag.svelte';
 // Media
 import Icon from './media/Icon.svelte';
 import Avatar from './media/Avatar.svelte';
+import Image from './media/Image.svelte';
+import Favicon from './media/Favicon.svelte';
+import CountryFlag from './media/CountryFlag.svelte';
+import IconWrapper from './media/IconWrapper.svelte';
 
 // Animation
 import { NumberFlow } from './animation';
@@ -62,14 +77,25 @@ export {
   RangeSlider,
   Select,
   Switch,
+  InputAddon,
+  ColorSwatch,
+  SliderTick,
+  CloseButton,
   // Input
   Input,
   Textarea,
+  FormHelperText,
+  FormErrorMessage,
+  PinInputDigit,
+  CharacterCount,
   // Feedback
   Alert,
   // Placeholders
   Skeleton,
   TableSkeleton,
+  SkeletonText,
+  SkeletonCircle,
+  SkeletonRectangle,
   // Process
   Spinner,
   ProgressBar,
@@ -89,6 +115,10 @@ export {
   // Media
   Icon,
   Avatar,
+  Image,
+  Favicon,
+  CountryFlag,
+  IconWrapper,
   // Animation
   NumberFlow
 };

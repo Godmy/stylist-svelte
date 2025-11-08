@@ -27,14 +27,14 @@ export function registerShortcut(shortcut: KeyboardShortcut): void {
  * Unregister a keyboard shortcut
  */
 export function unregisterShortcut(key: string, ctrl?: boolean, shift?: boolean, alt?: boolean, meta?: boolean): void {
-  const index = shortcuts.findIndex(s => 
-    s.key === key && 
-    s.ctrl === ctrl && 
-    s.shift === shift && 
-    s.alt === alt && 
+  const index = shortcuts.findIndex(s =>
+    s.key === key &&
+    s.ctrl === ctrl &&
+    s.shift === shift &&
+    s.alt === alt &&
     s.meta === meta
   );
-  
+
   if (index !== -1) {
     shortcuts.splice(index, 1);
   }
@@ -54,8 +54,8 @@ let isActive = false;
  * Initialize keyboard shortcuts handling
  */
 export function initKeyboardShortcuts(): void {
-  if (isActive) return;
-  
+  if (isActive || typeof document === 'undefined') return;
+
   document.addEventListener('keydown', handleKeyDown);
   isActive = true;
 }
@@ -64,6 +64,8 @@ export function initKeyboardShortcuts(): void {
  * Deinitialize keyboard shortcuts handling
  */
 export function deinitKeyboardShortcuts(): void {
+  if (typeof document === 'undefined') return;
+  
   document.removeEventListener('keydown', handleKeyDown);
   isActive = false;
 }
@@ -72,6 +74,9 @@ export function deinitKeyboardShortcuts(): void {
  * Handle keydown events
  */
 function handleKeyDown(event: KeyboardEvent): void {
+  // Only handle events in browser environment
+  if (typeof document === 'undefined') return;
+  
   // Find matching shortcut
   const matchingShortcut = shortcuts.find(shortcut => {
     return (
@@ -113,7 +118,7 @@ export const ShortcutHelpers = {
     description: 'Search stories',
     action
   }),
-  
+
   // Toggle sidebar: Cmd/Ctrl + B
   toggleSidebar: (action: () => void): KeyboardShortcut => ({
     key: 'b',
@@ -122,7 +127,7 @@ export const ShortcutHelpers = {
     description: 'Toggle sidebar',
     action
   }),
-  
+
   // Toggle dark mode: Cmd/Ctrl + D
   toggleDarkMode: (action: () => void): KeyboardShortcut => ({
     key: 'd',
@@ -131,7 +136,7 @@ export const ShortcutHelpers = {
     description: 'Toggle dark mode',
     action
   }),
-  
+
   // Show help: Cmd/Ctrl + /
   showHelp: (action: () => void): KeyboardShortcut => ({
     key: '/',
@@ -140,7 +145,7 @@ export const ShortcutHelpers = {
     description: 'Show help',
     action
   }),
-  
+
   // Close modals: Esc
   closeModal: (action: () => void): KeyboardShortcut => ({
     key: 'Escape',
