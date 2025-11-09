@@ -25,6 +25,7 @@
     loading?: boolean;
     block?: boolean;
     children?: Snippet;
+    onclick?: (event: MouseEvent) => void;
   } & HTMLButtonAttributes;
 
   let {

@@ -1,16 +1,19 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import type { Snippet } from 'svelte';
 
   type Status = 'online' | 'offline' | 'away' | 'busy';
 
   type Props = {
     status?: Status;
     label?: string;
+    children?: Snippet;
   } & HTMLAttributes<HTMLSpanElement>;
 
   let {
     status = 'online',
     label = status,
+    children,
     ...restProps
   }: Props = $props();
 
