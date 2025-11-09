@@ -3,19 +3,17 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let count = 5;
-  let maxCount = 99;
-  let showZero = false;
-  let status: 'success' | 'error' | 'warning' | 'info' | 'default' = 'default';
-  let size: 'sm' | 'md' | 'lg' = 'md';
-  let label = 'Example label';
+  let count = $state(5);
+  let maxCount = $state(99);
+  let showZero = $state(false);
+  let status = $state<'online' | 'offline' | 'away' | 'busy'>('online');
+  let label = $state('Example label');
 
   const controls: ControlConfig[] = [
     { name: 'count', type: 'number', defaultValue: 5, min: 0 },
     { name: 'maxCount', type: 'number', defaultValue: 99 },
     { name: 'showZero', type: 'boolean', defaultValue: false },
-    { name: 'status', type: 'select', options: ['success', 'error', 'warning', 'info', 'default'], defaultValue: 'default' },
-    { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    { name: 'status', type: 'select', options: ['online', 'offline', 'away', 'busy'], defaultValue: 'online' },
     { name: 'label', type: 'text', defaultValue: 'Example label' }
   ];
 </script>
@@ -24,7 +22,7 @@
 
 ## CountBadge
 
-<Story title="CountBadge" {controls}>
+<Story id="countbadge-story" title="CountBadge" component={CountBadge} {controls}>
   <div class="space-y-4 p-8">
     <CountBadge count={count} max={maxCount} showZero={showZero}>Уведомления</CountBadge>
 
@@ -46,7 +44,7 @@
 
 ## PageEllipsis
 
-<Story title="PageEllipsis">
+<Story id="pageellipsis-story" title="PageEllipsis" component={PageEllipsis}>
   <div class="space-y-4 p-8">
     <div class="flex items-center">
       <span>Стр. 1</span>
@@ -58,16 +56,11 @@
 
 ## StatusIndicator
 
-<Story title="StatusIndicator" {controls}>
-  <script>
-    let status: 'success' | 'error' | 'warning' | 'info' | 'default' = 'default';
-    let size: 'sm' | 'md' | 'lg' = 'md';
-    let label = 'Текст примера';
-  </script>
+<Story id="statusindicator-story" title="StatusIndicator" component={StatusIndicator} {controls}>
 
   <div class="space-y-4 p-8">
     <div class="flex items-center space-x-2">
-      <StatusIndicator status={status} size={size} />
+      <StatusIndicator status={status} />
       <span>{label}</span>
     </div>
 
@@ -76,22 +69,10 @@
         <label>
           Status:
           <select bind:value={status}>
-            <option value="success">Success</option>
-            <option value="error">Error</option>
-            <option value="warning">Warning</option>
-            <option value="info">Info</option>
-            <option value="default">Default</option>
-          </select>
-        </label>
-      </div>
-
-      <div>
-        <label>
-          Size: 
-          <select bind:value={size}>
-            <option value="sm">Small</option>
-            <option value="md">Medium</option>
-            <option value="lg">Large</option>
+            <option value="online">Online</option>
+            <option value="offline">Offline</option>
+            <option value="away">Away</option>
+            <option value="busy">Busy</option>
           </select>
         </label>
       </div>

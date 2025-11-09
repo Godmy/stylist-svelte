@@ -1,20 +1,21 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
+  import ColumnManager from './ColumnManager.svelte';
   import type { ControlConfig } from '$lib/playground';
-  // Since we don't have the actual ColumnManager component referenced in the original, 
-  // we'll create a placeholder for this example
+  
+  // Sample columns for the ColumnManager
+  let columns = $state([
+    { key: 'name', header: 'Name', visible: true, sortable: true },
+    { key: 'email', header: 'Email', visible: true, sortable: true },
+    { key: 'role', header: 'Role', visible: true, sortable: true },
+    { key: 'status', header: 'Status', visible: true, sortable: true }
+  ]);
 </script>
 
 # ColumnManager
 
-<Story title="ColumnManager">
+<Story id="columnmanager-story" title="ColumnManager" component={ColumnManager}>
   <div class="space-y-4 p-8">
-    <h3>Column Manager Component</h3>
-    <p>This component would manage table columns, but the actual implementation may vary.</p>
-    
-    <div class="border rounded p-4 bg-gray-50">
-      <p>Placeholder for ColumnManager component.</p>
-      <p>Actual implementation would allow users to manage which columns are visible in a table.</p>
-    </div>
+    <ColumnManager {columns} />
   </div>
 </Story>

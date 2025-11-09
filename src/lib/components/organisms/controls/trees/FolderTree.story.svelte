@@ -1,10 +1,10 @@
 <script lang="ts">
-  import FolderTree from './FolderTree.svelte'; // Путь к вашему компоненту FolderTree
   import { Story } from '$lib/playground';
+  import FolderTree from './FolderTree.svelte';
   import type { ControlConfig } from '$lib/playground';
 
-  let defaultExpanded = false;
-  let showCounts = true;
+  let defaultExpanded = $state(false);
+  let showCounts = $state(true);
 
   const controls: ControlConfig[] = [
     { name: 'defaultExpanded', type: 'boolean', defaultValue: false },
@@ -14,9 +14,8 @@
 
 # FolderTree
 
-<Story title="FolderTree" {controls}>
+<Story id="foldertree-story" title="FolderTree" component={FolderTree} {controls}>
   <div class="space-y-4 p-8">
-    <!-- Пример использования компонента FolderTree -->
     <div class="border rounded p-4 bg-gray-50 h-64 overflow-auto">
       <p>Folder Tree Component would be displayed here with the following settings:</p>
       <ul class="mt-2 space-y-1">

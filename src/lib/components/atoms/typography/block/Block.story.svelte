@@ -1,39 +1,39 @@
 <script lang="ts">
   import { Blockquote } from '$lib';
-  import type { Meta } from '@storybook/svelte';
+  import { Story } from '$lib/playground';
+  import type { ControlConfig } from '$lib/playground';
 
-  const meta: Meta = {
-    title: 'Atoms/Typography/Block',
-    tags: ['autodocs'],
-    argTypes: {
-      cite: { control: { type: 'text' } }
-    }
-  };
+  let text = 'Это цитата, которая используется для выделения чужой речи или важной мысли.';
+  let cite = 'Имя автора';
 
-  export default meta;
+  const controls: ControlConfig[] = [
+    { name: 'text', type: 'text', defaultValue: 'Это цитата, которая используется для выделения чужой речи или важной мысли.' },
+    { name: 'cite', type: 'text', defaultValue: 'Имя автора' }
+  ];
 </script>
 
 # Typography Block Elements
 
 ## Blockquote
 
-<ComponentStory>
-  <script>
-    let text = 'Это цитата, которая используется для выделения чужой речи или важной мысли.';
-    let cite = 'Имя автора';
-  </script>
-  
-  <div class="space-y-4">
+<Story id="blockquote-story" title="Blockquote" component={Blockquote} {controls}>
+
+  <div class="space-y-4 p-8">
     <Blockquote {cite}>{text}</Blockquote>
-    
+
     <div class="space-y-4">
       <div>
-        <label>Цитата: <textarea bind:value={text} rows={3} class="w-full p-2 border" /></label>
+        <label>Цитата: 
+          <textarea bind:value={text} rows={3} class="w-full p-2 border"></textarea>
+        </label>
       </div>
-      
+
       <div>
-        <label>Автор/источник: <input type="text" bind:value={cite} class="w-full p-2 border" /></label>
+        <label>Автор/источник: 
+          <input type="text" bind:value={cite} class="w-full p-2 border" />
+        </label>
       </div>
     </div>
   </div>
-</ComponentStory>
+
+</Story>

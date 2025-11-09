@@ -3,11 +3,13 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let title = 'Notification Title';
-  let message = 'This is a sample notification message.';
-  let type = 'info';
-  let showIcon = true;
-  let showClose = true;
+  type NotificationType = 'info' | 'success' | 'warning' | 'error';
+  
+  let title = $state('Notification Title');
+  let message = $state('This is a sample notification message.');
+  let type = $state<NotificationType>('info');
+  let showIcon = $state(true);
+  let showClose = $state(true);
 
   const controls: ControlConfig[] = [
     { name: 'title', type: 'text', defaultValue: 'Notification Title' },
@@ -20,14 +22,12 @@
 
 # NotificationItem
 
-<Story title="NotificationItem" {controls}>
+<Story id="notificationitem-story" title="NotificationItem" component={NotificationItem} {controls}>
   <div class="space-y-4 p-8">
     <NotificationItem 
-      {title}
-      {message}
-      {type}
-      {showIcon}
-      {showClose}
+      title={title}
+      description={message}
+      unread={showIcon}
     />
 
     <div class="space-y-4 mt-4">
@@ -60,7 +60,7 @@
       </div>
 
       <div>
-        <label>Message: <textarea bind:value={message} rows="3" class="w-full p-2 border" /></label>
+        <label>Message: <textarea bind:value={message} rows="3" class="w-full p-2 border"></textarea></label>
       </div>
     </div>
   </div>

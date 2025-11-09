@@ -3,10 +3,12 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let active = false;
-  let variant = 'default';
-  let disabled = false;
-  let text = 'Menu Item';
+  type MenuItemVariant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
+
+  let active = $state(false);
+  let variant = $state<MenuItemVariant>('default');
+  let disabled = $state(false);
+  let text = $state('Menu Item');
 
   const controls: ControlConfig[] = [
     { name: 'active', type: 'boolean', defaultValue: false },
@@ -17,7 +19,7 @@
 
 # MenuItem
 
-<Story title="MenuItem" {controls}>
+<Story id="menuitem-story" title="MenuItem" component={MenuItem} {controls}>
   <div class="space-y-4 p-8">
     <MenuItem active={active} variant={variant} disabled={disabled}>
       {text}

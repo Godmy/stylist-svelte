@@ -3,11 +3,11 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let accept = '.pdf,.doc,.docx,.xls,.xlsx,.txt';
-  let maxSize = 10 * 1024 * 1024; // 10MB
-  let multiple = false;
-  let disabled = false;
-  let uploadText = 'или перетащить сюда';
+  let accept = $state('.pdf,.doc,.docx,.xls,.xlsx,.txt');
+  let maxSize = $state(10 * 1024 * 1024); // 10MB
+  let multiple = $state(false);
+  let disabled = $state(false);
+  let uploadText = $state('или перетащить сюда');
 
   const controls: ControlConfig[] = [
     { name: 'accept', type: 'text', defaultValue: '.pdf,.doc,.docx,.xls,.xlsx,.txt' },
@@ -19,7 +19,7 @@
 
 # FileUpload
 
-<Story title="FileUpload" {controls}>
+<Story id="fileupload-story" title="FileUpload" component={FileUpload} {controls}>
   <div class="space-y-4 p-8">
     <FileUpload 
       {accept}

@@ -7,7 +7,7 @@
   type Props = {
     id: string;
     title: string;
-    component: any;
+    component?: any;
     description?: string;
     category?: string;
     controls?: ControlConfig[];
@@ -44,7 +44,9 @@
       docs
     };
 
-    playgroundStore.registerStory(storyConfig);
+    if (component) {
+      playgroundStore.registerStory(storyConfig);
+    }
   }
 
   let mounted = false;

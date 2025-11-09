@@ -7,7 +7,19 @@
 
 A comprehensive Svelte 5 UI component library with **full TypeScript support**.
 
-**Note**: This project is part of the Stylist ecosystem. For development and testing, use the dedicated [stylist-playground](../stylist-playground/README.md) application. See [ECOSYSTEM_ARCHITECTURE.md](../../ECOSYSTEM_ARCHITECTURE.md) for details on the architecture and responsibilities of each project.
+## About Stylist-svelte
+
+Stylist-svelte is a library of visual components for Svelte 5, built using runes. It is a key part of the infrastructure for the Stylist project, which belongs to the vibe-management conglomerate.
+
+The project's uniqueness lies in the fact that the library is developed by leading LLM models (such as Claude, Codex, Gemini, Qwen), organized according to the vibe-management role model. The author of Stylist-svelte is the collective intelligence Stylist-coder-model—a combined AI model specially trained to write code for Svelte 5 using runes.
+
+## Stylist-svelte mission
+
+Our mission is to create the world's largest library of visual components for Svelte 5 developers. Every release, including the upcoming version 0.7.0, expands this AI-curated collection of components, patterns, and stories, enabling teams to build consistent user interfaces faster.
+
+Note: This project is part of the Stylist ecosystem. For development and testing, use the dedicated stylist-playground application (in development). For details on the ecosystem architecture and the responsibilities of each project, see the ECOSYSTEM_ARCHITECTURE.md file.
+
+**Note**: This project is part of the Stylist ecosystem. For development and testing, use the dedicated [stylist-playground](../stylist-playground/README.md) application (in development). For details on the ecosystem architecture and the responsibilities of each project, see the [ECOSYSTEM_ARCHITECTURE.md](../../ECOSYSTEM_ARCHITECTURE.md) file.
 
 ## 🌟 Features
 

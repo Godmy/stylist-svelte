@@ -3,10 +3,14 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let size = 'md';
-  let weight = 'normal';
-  let text = 'Sample text';
-  let level = 1;
+  type TextSize = 'sm' | 'md' | 'lg';
+  type TextWeight = 'normal' | 'bold';
+  type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+  
+  let size = $state<TextSize>('md');
+  let weight = $state<TextWeight>('normal');
+  let text = $state('Sample text');
+  let level = $state<HeadingLevel>(1);
 
   const controls: ControlConfig[] = [
     { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
@@ -19,9 +23,9 @@
 
 ## Text
 
-<Story title="Text" {controls}>
+<Story id="text-story" title="Text" component={Text} {controls}>
   <div class="space-y-4 p-8">
-    <Text size={size} weight={weight}>{text}</Text>
+    <Text size={size} bold={weight === 'bold'}>{text}</Text>
 
     <div class="space-y-4">
       <div>
@@ -54,9 +58,9 @@
 
 ## Heading
 
-<Story title="Heading" {controls}>
+<Story id="heading-story" title="Heading" component={Heading} {controls}>
   <div class="space-y-4 p-8">
-    <Heading level={level} weight={weight}>{text}</Heading>
+    <Heading level={level}>{text}</Heading>
 
     <div class="space-y-4">
       <div>
@@ -74,16 +78,6 @@
       </div>
 
       <div>
-        <label>
-          Weight: 
-          <select bind:value={weight}>
-            <option value="normal">Normal</option>
-            <option value="bold">Bold</option>
-          </select>
-        </label>
-      </div>
-
-      <div>
         <label>Text: <input type="text" bind:value={text} class="w-full p-2 border" /></label>
       </div>
     </div>
@@ -92,7 +86,7 @@
 
 ## SectionHeading
 
-<Story title="SectionHeading">
+<Story id="sectionheading-story" title="SectionHeading" component={SectionHeading} {controls}>
   <div class="space-y-4 p-8">
     <SectionHeading level={level}>{text}</SectionHeading>
 
@@ -120,19 +114,19 @@
 
 ## Paragraph
 
-<Story title="Paragraph">
+<Story id="paragraph-story" title="Paragraph" component={Paragraph}>
   <div class="space-y-4 p-8">
     <Paragraph>{text}</Paragraph>
 
     <div>
-      <label>Text: <textarea bind:value={text} rows={3} class="w-full p-2 border" /></label>
+      <label>Text: <textarea bind:value={text} rows={3} class="w-full p-2 border"></textarea></label>
     </div>
   </div>
 </Story>
 
 ## Caption
 
-<Story title="Caption">
+<Story id="caption-story" title="Caption" component={Caption}>
   <div class="space-y-4 p-8">
     <Caption>{text}</Caption>
 
@@ -144,7 +138,7 @@
 
 ## Small
 
-<Story title="Small">
+<Story id="small-story" title="Small" component={Small}>
   <div class="space-y-4 p-8">
     <Small>{text}</Small>
 

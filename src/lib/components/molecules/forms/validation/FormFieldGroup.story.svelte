@@ -3,10 +3,10 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let label = 'Email Address';
-  let description = 'We\'ll never share your email with anyone else.';
-  let required = false;
-  let error = '';
+  let label = $state('Email Address');
+  let description = $state('We\'ll never share your email with anyone else.');
+  let required = $state(false);
+  let error = $state('');
 
   const controls: ControlConfig[] = [
     { name: 'label', type: 'text', defaultValue: 'Email Address' },
@@ -17,7 +17,7 @@
 
 # FormFieldGroup
 
-<Story title="FormFieldGroup" {controls}>
+<Story id="formfieldgroup-story" title="FormFieldGroup" component={FormFieldGroup} {controls}>
   <div class="space-y-4 p-8">
     <FormFieldGroup 
       {label} 

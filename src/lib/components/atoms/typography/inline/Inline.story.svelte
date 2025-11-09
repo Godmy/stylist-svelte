@@ -3,10 +3,10 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let title = 'Язык';
-  let text = 'Пример текста';
-  let term = 'Термин';
-  let description = 'Описание';
+  let title = $state('Язык');
+  let text = $state('Пример текста');
+  let term = $state('Термин');
+  let description = $state('Описание');
 
   const controls: ControlConfig[] = [
     { name: 'title', type: 'text', defaultValue: 'Язык' },
@@ -20,7 +20,7 @@
 
 ## Abbr
 
-<Story title="Abbr" {controls}>
+<Story id="abbr-story" title="Abbr" component={Abbr} {controls}>
   <div class="space-y-4 p-8">
     <p>Язык <Abbr title={title}>{text}</Abbr> используется для разметки веб-страниц.</p>
 
@@ -38,7 +38,7 @@
 
 ## DefinitionTerm and DefinitionDescription
 
-<Story title="DefinitionTerm and DefinitionDescription">
+<Story id="definitionterm-description-story" title="DefinitionTerm and DefinitionDescription" component={DefinitionTerm}>
   <div class="space-y-4 p-8">
     <dl>
       <DefinitionTerm>{term}</DefinitionTerm>
@@ -59,7 +59,7 @@
 
 ## Em
 
-<Story title="Em">
+<Story id="em-story" title="Em" component={Em}>
   <div class="space-y-4 p-8">
     <p>Этот текст содержит <Em>{text}</Em> слово.</p>
 
@@ -73,7 +73,7 @@
 
 ## Highlight
 
-<Story title="Highlight">
+<Story id="highlight-story" title="Highlight" component={Highlight}>
   <div class="space-y-4 p-8">
     <p>Этот текст содержит <Highlight>{text}</Highlight> фрагмент.</p>
 
@@ -87,7 +87,7 @@
 
 ## Strikethrough
 
-<Story title="Strikethrough">
+<Story id="strikethrough-story" title="Strikethrough" component={Strikethrough}>
   <div class="space-y-4 p-8">
     <p>Этот текст содержит <Strikethrough>{text}</Strikethrough> фрагмент.</p>
 
@@ -101,7 +101,7 @@
 
 ## Strong
 
-<Story title="Strong">
+<Story id="strong-story" title="Strong" component={Strong}>
   <div class="space-y-4 p-8">
     <p>Этот текст содержит <Strong>{text}</Strong> фрагмент.</p>
 
@@ -115,7 +115,7 @@
 
 ## Subscript
 
-<Story title="Subscript">
+<Story id="subscript-story" title="Subscript" component={Subscript}>
   <div class="space-y-4 p-8">
     <p>Формула воды: H<Subscript>{text}</Subscript>O</p>
 
@@ -129,7 +129,7 @@
 
 ## Superscript
 
-<Story title="Superscript">
+<Story id="superscript-story" title="Superscript" component={Superscript}>
   <div class="space-y-4 p-8">
     <p>Площадь квадрата: a<Superscript>{text}</Superscript></p>
 

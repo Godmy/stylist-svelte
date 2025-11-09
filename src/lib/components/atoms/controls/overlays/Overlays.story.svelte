@@ -16,7 +16,7 @@
 
 ## SimpleTooltip
 
-<Story title="SimpleTooltip" {controls}>
+<Story id="simpletooltip-story" title="SimpleTooltip" component={SimpleTooltip} {controls}>
   
   <div class="space-y-4 p-8">
     <div class="flex justify-center items-center h-32">

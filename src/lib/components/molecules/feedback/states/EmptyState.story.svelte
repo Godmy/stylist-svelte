@@ -3,10 +3,10 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let title = 'No Items Found';
-  let description = 'Try adjusting your search or filter to find what you\'re looking for.';
-  let showButton = true;
-  let buttonText = 'Reset Filters';
+  let title = $state('No Items Found');
+  let description = $state('Try adjusting your search or filter to find what you\'re looking for.');
+  let showButton = $state(true);
+  let buttonText = $state('Reset Filters');
 
   const controls: ControlConfig[] = [
     { name: 'title', type: 'text', defaultValue: 'No Items Found' },
@@ -18,19 +18,25 @@
 
 # EmptyState
 
-<Story title="EmptyState" {controls}>
+<Story id="emptystate-story" title="EmptyState" component={EmptyState} {controls}>
   <div class="space-y-4 p-8">
-    <EmptyState 
-      {title} 
-      {description} 
-      {showButton}
-    >
-      {#if showButton}
-        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          {buttonText}
-        </button>
-      {/if}
-    </EmptyState>
+    {#if showButton}
+      <EmptyState
+        {title}
+        {description}
+        action={{
+          label: buttonText,
+          onClick: () => console.log('Action button clicked')
+        }}
+      >
+      </EmptyState>
+    {:else}
+      <EmptyState
+        {title}
+        {description}
+      >
+      </EmptyState>
+    {/if}
 
     <div class="space-y-4 mt-4">
       <div>
@@ -44,7 +50,7 @@
       </div>
 
       <div>
-        <label>Description: <textarea bind:value={description} rows="3" class="w-full p-2 border" /></label>
+        <label>Description: <textarea bind:value={description} rows="3" class="w-full p-2 border"></textarea></label>
       </div>
 
       <div>
