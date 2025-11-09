@@ -4,9 +4,9 @@
     'data-testid'?: string;
   };
   
-  import Button from '../../atoms/controls/Button.svelte';
+  import Button from '../../atoms/controls/buttons/Button.svelte';
   import Icon from '../../atoms/media/Icon.svelte';
-  import Badge from '../../atoms/typography/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/Badge.svelte';
   
   type Operation = {
     id: string;

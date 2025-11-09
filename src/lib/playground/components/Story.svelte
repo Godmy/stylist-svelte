@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { playgroundStore } from '../stores/playground.svelte';
   import type { StoryConfig, ControlConfig } from '../types';
+  import MarkdownRenderer from './MarkdownRenderer.svelte';
 
   type Props = {
     id: string;
@@ -11,6 +12,7 @@
     category?: string;
     controls?: ControlConfig[];
     tags?: string[];
+    docs?: string;
     children?: any;
   };
 
@@ -22,6 +24,7 @@
     category = 'Components',
     controls = [],
     tags = [],
+    docs,
     children
   }: Props = $props();
 
@@ -37,7 +40,8 @@
       description,
       category,
       controls,
-      tags
+      tags,
+      docs
     };
 
     playgroundStore.registerStory(storyConfig);
@@ -61,7 +65,19 @@
 </script>
 
 <div class="w-full h-full">
-  {#if isActive && children}
-    {@render children(controlValues)}
+  {#if isActive}
+    <div class="space-y-6">
+      {#if docs}
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-700">
+          <MarkdownRenderer content={docs} />
+        </div>
+      {/if}
+
+      {#if children}
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+          {@render children(controlValues)}
+        </div>
+      {/if}
+    </div>
   {/if}
 </div>

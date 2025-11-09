@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Button from '../../atoms/controls/Button.svelte';
-  import Checkbox from '../../atoms/controls/Checkbox.svelte';
-  import Select from '../../atoms/controls/Select.svelte';
+  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import Checkbox from '../../atoms/controls/toggles/Checkbox.svelte';
+  import Select from '../../atoms/controls/selectors/Select.svelte';
   import { createEventDispatcher } from 'svelte';
 
   // Props

@@ -16,7 +16,7 @@
       description?: string;
     }>;
   }
-  import Button from '../../atoms/controls/Button.svelte';
+  import Button from '../../atoms/controls/buttons/Button.svelte';
   import Icon from '../../atoms/media/Icon.svelte';
   import { createEventDispatcher } from 'svelte';
 

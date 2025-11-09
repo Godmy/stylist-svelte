@@ -199,145 +199,144 @@ Run `yarn dev` and open the local app – the default route renders `<StoryRoot>
 Based on Atomic Design principles, our library is organized into:
 
 ### Atoms
-Basic building blocks (40+ components):
-- **Core UI Elements**: Button, Badge, Tag, Chip, Divider, Toggle
-- **Forms**: Input, Textarea, Select, Checkbox, Switch, RangeSlider, Label
-- **Feedback**: Alert, ProgressBar, Skeleton, CardSkeleton, TableSkeleton
-- **Indicators**: Spinner, ChatStatusIndicator, MessageStatus, MessageTimestamp, StatusIndicator
-- **Typography**: Link, CodeBlock, InlineCode, Kbd
-- **Media**: Icon, Avatar
+Basic building blocks (100+ components):
+- **Core UI Elements**: Buttons, Badges, Tags, Chips, Dividers, Toggles
+- **Forms**: Inputs, Textareas, Selects, Checkboxes, Switches, Sliders, Labels
+- **Feedback**: Alerts, Progress indicators, Skeletons, Spinners
+- **Indicators**: Status indicators, Chat status indicators, Message status indicators
+- **Typography**: Links, Code blocks, Inline code, Keyboard elements
+- **Media**: Icons, Avatars
 - **And more...** (see full list below)
 
 ### Molecules
-Composite components (70+ components):
-- **Forms**: FormFieldGroup, FormSection, InputGroup, ButtonGroup
-- **Navigation**: Breadcrumb, BurgerMenu, DropdownMenu, MenuItem
-- **Data Display**: DataTable, StatsCard, TableSkeleton, EmptyState
-- **Inputs**: SearchBar, CopyButton, FileUpload, TagInput
-- **Interactive**: Modal, ConfirmDialog, Pagination, Accordion
-- **Special Features**: CanvasToolbar, NumberFlow, GraphNode, KanbanCard
+Composite components (30+ components):
+- **Forms**: Field groups, Sections, Input groups, Button groups
+- **Navigation**: Breadcrumbs, Menus, Menu items
+- **Data Display**: Tables, Stats cards, Empty states
+- **Inputs**: Search bars, Copy buttons, File uploads
+- **Interactive**: Modals, Dialogs, Pagination
+- **Special Features**: Toolbars, Number flows, Graph components
 - **And more...** (see full list below)
 
 ### Organisms
-Complex components (20+ components):
-- **Navigation**: Tabs, Accordion, Breadcrumbs, FolderTree
-- **Data Tables**: Table, DataTable, ColumnManager
-- **Modals & Dialogs**: Modal, ConfirmDialog
+Complex components (10+ components):
+- **Navigation**: Tabs, Accordions, Breadcrumbs
+- **Data Displays**: Tables with controls, Data grids
+- **Modals & Dialogs**: Modals, Confirm dialogs
 - **And more...** (see full list below)
 
 ## 🧱 Complete Component List
 
-### Atoms (40+ components)
+### Atoms (100+ components)
+This section lists the most important atom components:
 
 | Component | Description |
 |----------|-------------|
-| `Alert` | Component for displaying important messages to the user with different variants (info, success, warning, error) and close capability |
-| `Avatar` | Displays a user avatar with status indication and initials support, with various sizes and statuses (online, offline, typing, etc.) |
+| `AccordionIcon` | Icon for accordion elements to indicate expand/collapse state |
+| `Abbr` | Abbreviation with tooltip support |
+| `Alert` | Component for displaying important messages to the user with different variants and close capability |
+| `AspectRatio` | Maintains a specific aspect ratio for content |
+| `Avatar` | Displays a user avatar with status indication and initials support |
 | `Badge` | Small element for displaying status or count with different variants and sizes |
-| `Button` | Universal button with various styles (primary, secondary, success, warning, danger, ghost, link), sizes, and states (loading, disabled) |
-| `CardSkeleton` | Skeleton for card used during data loading, with animation for better perception |
-| `ChatStatusIndicator` | Chat status indicator (online, offline, typing) showing conversation partner's activity |
-| `Checkbox` | Standard checkbox with label, description and error support for selecting one or multiple options |
-| `Chip` | Compact element for displaying small pieces of information (e.g., tags) with close capability |
-| `CodeBlock` | Block for displaying formatted code with syntax highlighting, supporting various programming languages |
-| `Divider` | Horizontal or vertical divider with optional text label |
-| `Icon` | Displays an icon from an icon set with various sizes and customizable properties |
-| `InlineCode` | Displays a small piece of code within text with appropriate styling |
-| `Input` | Text input field for entering text, numbers and other data with label, error support and various input types |
+| `BreadcrumbSeparator` | Separator element in breadcrumb navigation |
+| `Button` | Universal button with various styles, sizes, and states |
+| `Caption` | Caption text with appropriate styling |
+| `Checkbox` | Standard checkbox with label and error support |
+| `Chip` | Compact element for displaying small pieces of information |
+| `CodeBlock` | Block for displaying formatted code with syntax highlighting |
+| `ColorSwatch` | Visual representation of a color |
+| `Container` | Responsive container with consistent padding |
+| `CountBadge` | Badge with a count value |
+| `Counter` | Component for displaying numerical counts |
+| `DefinitionDescription` | Description part of a definition list |
+| `DefinitionTerm` | Term part of a definition list |
+| `Divider` | Horizontal or vertical divider with optional text |
+| `Dot` | Small dot indicator for various purposes |
+| `Em` | Emphasized text with italic style |
+| `Heading` | Heading element with proper semantic and styling |
+| `Highlight` | Component for highlighting text |
+| `Icon` | Displays an icon from an icon set |
+| `Image` | Image component with loading states |
+| `InlineCode` | Displays a small piece of code within text |
+| `Input` | Text input field with label and validation support |
+| `InputAddon` | Addon element for inputs (prefix/suffix) |
 | `Kbd` | Component for displaying keyboard keys in the UI |
-| `Label` | Text label for form elements ensuring accessibility and UI clarity |
-| `Link` | Link with various styling options (primary, secondary, success, warning, danger, ghost, underline) and sizes |
-| `MessageStatus` | Message status indicator (sent, delivered, read) as a check mark |
-| `MessageTimestamp` | Displays message timestamp in relative or absolute format (e.g., "10 minutes ago") |
-| `ProgressBar` | Progress indicator showing task completion in percentage |
-| `RangeSlider` | Slider for selecting a value in a given range with visual indication of current value |
-| `Select` | Dropdown list for selecting one of several options with error support and label |
-| `Skeleton` | Skeleton with animation used during data loading for better perception |
-| `Spinner` | Loading indicator as a spinning element with various sizes and variants |
-| `StatusIndicator` | Status indicator with icon and text (default, success, warning, error, info, primary, secondary) |
-| `Switch` | Toggle for enabling/disabling an option as a slider |
-| `TableSkeleton` | Skeleton for table used during data loading |
-| `Tag` | Tag for labeling or categorizing with various variants (neutral, primary, success, warning, error) |
-| `Textarea` | Multi-line text input field with label, character count support and error handling |
-| `Toggle` | Toggle for enabling/disabling state as a slider |
+| `Label` | Text label for form elements ensuring accessibility |
+| `Link` | Link with various styling options and sizes |
+| `ListItemMarker` | Marker for list items |
+| `NumberFlow` | Animated display of numeric values |
+| `PageEllipsis` | Ellipsis for pagination |
+| `Paragraph` | Paragraph text with appropriate styling |
+| `PinInputDigit` | Single digit input for PIN entry |
+| `SectionHeading` | Heading for sections |
+| `Separator` | Visual separator between elements |
+| `Small` | Small text with appropriate styling |
+| `Spacer` | Component for adding whitespace |
+| `Spinner` | Loading indicator |
+| `Stack` | Component for stacking elements with consistent spacing |
+| `StatusIndicator` | Status indicator with icon and text |
+| `Strikethrough` | Text with strikethrough styling |
+| `Strong` | Strong emphasis with bold styling |
+| `Subscript` | Subscript text |
+| `Superscript` | Superscript text |
+| `Textarea` | Multi-line text input field |
+| `Text` | Basic text element |
+| `Tag` | Tag for labeling or categorizing |
 
-### Molecules (70+ components)
+### Molecules (30+ components)
+This section lists the most important molecule components:
 
 | Component | Description |
 |----------|-------------|
 | `AttachmentPreview` | Component for previewing attached files |
 | `Breadcrumb` | Navigation element showing user location in hierarchy |
-| `BurgerMenu` | Hamburger menu button for opening/closing menu with size and color customization |
-| `ButtonGroup` | Group of related buttons displayed together for consistent UI |
-| `CanvasToolbar` | Toolbar for canvas containing editing tools and interaction elements |
-| `ChatHeader` | Chat header displaying conversation partner information and status |
-| `CodeWithCopy` | Component for displaying code with copy-to-clipboard capability |
-| `ConfirmDialog` | Confirmation dialog for confirming important user actions |
-| `CopyButton` | Button for copying text to clipboard with visual feedback |
-| `DataTable` | Table component with sorting, filtering, and pagination capabilities |
-| `DropdownMenu` | Dropdown menu for displaying options or actions |
-| `EmptyState` | Component displaying information when no data or results exist |
-| `ExpandableTableRow` | Expandable table row allowing additional information display when needed |
-| `FieldHighlighter` | Tool for highlighting form fields to help user focus on needed elements |
-| `FileUpload` | File upload component with drag-and-drop support and file type validation |
-| `FilterPanel` | Filter panel for configuring data display criteria |
-| `FormFieldGroup` | Grouping of related form fields for improved structure and organization |
-| `FormSection` | Form section for logical grouping of related fields and controls |
-| `GraphEdge` | Graph edge for visualizing relationships between nodes |
-| `GraphNode` | Graph node for data visualization |
-| `GraphNodeCard` | Graph node card with additional information and actions |
-| `GraphvizCluster` | Cluster for grouping nodes in Graphviz visualizations |
-| `GraphvizClusterWithTitle` | Cluster with title for grouping nodes in Graphviz visualizations |
-| `GraphvizDirectedEdge` | Directed edge for Graphviz visualizations |
-| `GraphvizEdge` | Edge for Graphviz visualizations |
-| `GraphvizNode` | Node for Graphviz visualizations |
-| `GraphvizNodeCard` | Node card for Graphviz visualizations |
-| `GraphvizNodeConnection` | Node connection in Graphviz visualizations |
-| `GraphvizNodeWithLabel` | Labeled node for Graphviz visualizations |
-| `GraphvizSubgraph` | Subgraph for grouping nodes in Graphviz visualizations |
-| `GraphvizUndirectedEdge` | Undirected edge for Graphviz visualizations |
-| `InputField` | Input field with additional help text and validation integration |
-| `InputGroup` | Group of input fields visually and functionally combined |
-| `KanbanCard` | Kanban board card with drag-and-drop and editing capabilities |
-| `LegendItem` | Legend item explaining symbols and colors on charts |
-| `MessageInput` | Message input field with attachment, emoji, and send buttons |
-| `MessageMeta` | Message metadata including timestamp and delivery status |
-| `MenuItem` | Menu item that can be a link or button with icon |
+| `BurgerMenu` | Hamburger menu button for mobile navigation |
+| `ButtonGroup` | Group of related buttons displayed together |
+| `CanvasDrawingSurface` | Surface for canvas-based drawing |
+| `ChatHeader` | Chat header displaying conversation information |
+| `CodeWithCopy` | Component for displaying code with copy capability |
+| `Combobox` | Combobox with text input and dropdown options |
+| `ConfirmDialog` | Confirmation dialog for confirming user actions |
+| `ControlPanel` | Control panel for UI customization |
+| `CopyButton` | Button for copying text to clipboard |
+| `DesignTokens` | Component for visualizing design tokens |
+| `Dialog` | Modal dialog for displaying content |
+| `DropdownMenu` | Dropdown menu for displaying options |
+| `EmptyState` | Component displaying information when no data exists |
+| `ExportPanel` | Panel for exporting data or settings |
+| `FileUpload` | File upload component with drag-and-drop support |
+| `FilterBar` | Bar for filtering and searching content |
+| `FilterPanel` | Panel for configuring filters |
+| `FormSection` | Section for organizing form fields |
+| `GraphNode` | Graph node for visualizing relationships |
+| `InputField` | Input field with additional help text and validation |
+| `MenuItem` | Menu item that can be a link or button |
 | `Modal` | Modal window for displaying content over main interface |
-| `NumberFlow` | Component for animated display of numeric values |
-| `OntologyEdgeComponent` | Edge component for ontology visualizations |
-| `OntologyNodeComponent` | Node component for ontology visualizations |
-| `OperationsHistory` | Operations history displaying performed actions and status |
+| `OperationsHistory` | History of performed operations |
 | `Pagination` | Component for navigating between data pages |
-| `QuickAccessButtons` | Set of buttons for quick access to frequently used functions |
-| `RadioGroup` | Group of radio buttons for selecting one of several options |
-| `Rating` | Rating component with star selection capability |
-| `ResponseViewer` | Component for viewing and formatting responses from API or other sources |
-| `SearchBar` | Search panel with query input and results display |
-| `SearchInput` | Search input field with autocomplete and suggestions |
-| `StatsCard` | Statistics card displaying key metrics and trends |
+| `QuickAccessButtons` | Set of buttons for quick access to functions |
+| `RadioGroup` | Group of radio buttons for selecting one option |
+| `ResponseViewer` | Component for viewing and formatting responses |
+| `SearchBar` | Search panel with query input |
+| `SearchInput` | Search input field with autocomplete |
+| `StatsCard` | Statistics card displaying key metrics |
 | `SyntaxHighlightedCode` | Component for displaying code with syntax highlighting |
-| `TagInput` | Tag input component with autocomplete |
+| `TagInput` | Input component for creating tags |
 | `Toolbar` | Toolbar with group of buttons and controls |
 | `Tooltip` | Tooltip displayed on element hover |
-| `TreeNodeItem` | Tree item with expand/collapse capability for nested nodes |
-| `UserStatus` | User status indicator (online, offline, busy, etc.) |
-| `VariablesEditor` | Variable editor for configuring and managing system variables |
 
-### Organisms (20+ components)
+### Organisms (10+ components)
+This section lists the most important organism components:
 
 | Component | Description |
 |----------|-------------|
 | `Accordion` | Interactive component allowing collapsing and expanding content sections |
-| `AccordionHeader` | Accordion section header used for toggling content visibility |
-| `AccordionItem` | Individual accordion item containing header and panel |
-| `AccordionPanel` | Accordion panel containing content that can be collapsed or expanded |
 | `Breadcrumbs` | Navigation component showing user path from root level to current page |
 | `ColumnManager` | Tool for managing column visibility and order in tables |
 | `DataTable` | Interactive table with sorting, filtering, and pagination capabilities |
-| `ExpandableTableRow` | Expandable table row allowing additional information display when needed |
-| `FolderTree` | Folder structure with expand/collapse capability for nested items |
-| `Modal` | Modal window for displaying content over main interface with close capability |
+| `ConfirmDialog` | Confirmation dialog for important user actions |
+| `FolderTree` | Folder structure with expand/collapse capability |
+| `Modal` | Modal window for displaying content over main interface |
 | `Pagination` | Component for navigating between data pages |
 | `Tab` | Tab in tab system containing title and associated content |
 | `TabList` | Tab list organizing visual representation of available tabs |
@@ -345,10 +344,7 @@ Complex components (20+ components):
 | `TabPanels` | Container for tab panels managing active panel display |
 | `Tabs` | Tab system component organizing content into separate sections |
 | `Table` | Basic table with styling and structure customization |
-| `TableBody` | Table body containing main data rows |
-| `TableCell` | Table cell used for displaying individual values |
-| `TableHeader` | Table header containing column titles |
-| `TableRow` | Table row containing one or more data cells |
+| `TreeViewer` | Viewer for tree structures |
 
 ## 🛠️ Development
 
@@ -446,16 +442,16 @@ For detailed documentation, component API references, and examples, visit:
 
 - [x] Project setup and configuration ✅
 - [x] Type definitions and utilities ✅
-- [x] Atoms components (40+) ✅
-- [x] Molecules components (70+) ✅
-- [x] Organisms components (20+) ✅
+- [x] Atoms components (100+) ✅
+- [x] Molecules components (30+) ✅
+- [x] Organisms components (10+) ✅
 - [x] Full TypeScript support ✅
 - [x] Cleanup & deduplication of components ✅
 - [x] Stories coverage for all components ✅
 - [ ] Testing suite 🚧
 - [ ] CI/CD pipeline 🚧
 
-**Total: 130+ production-ready components**
+**Total: 141+ production-ready components**
 
 ### Playground System
 

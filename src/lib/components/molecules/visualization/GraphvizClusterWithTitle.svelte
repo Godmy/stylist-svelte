@@ -1,6 +1,6 @@
 <script lang="ts">
   import GraphvizCluster from './GraphvizCluster.svelte';
-  import Label from '../../atoms/typography/Label.svelte';
+  import Label from '../../atoms/typography/elements/Label.svelte';
 
   type ClusterStyle = 'solid' | 'dashed' | 'dotted' | 'bold' | 'rounded';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Skeleton from '../../atoms/placeholders/Skeleton.svelte';
+  import Skeleton from '../../atoms/feedback/placeholders/Skeleton.svelte';
 
   type Props = {
     count?: number;

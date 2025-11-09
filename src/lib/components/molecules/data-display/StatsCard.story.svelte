@@ -23,6 +23,18 @@
   ];
 </script>
 
+{#snippet mainIcon()}
+  <BarChart2 class="h-5 w-5" />
+{/snippet}
+
+{#snippet churnIcon()}
+  <ArrowDownRight class="h-5 w-5" />
+{/snippet}
+
+{#snippet revenueIcon()}
+  <ArrowUpRight class="h-5 w-5" />
+{/snippet}
+
 <Story
   id="molecules-stats-card"
   title="StatsCard"
@@ -34,23 +46,14 @@
 >
   {#snippet children(props: StatsCardStoryProps)}
     <div class="grid gap-6 max-w-3xl sm:grid-cols-2">
-      {#if props.showIcon}
-        {#snippet mainIcon()}
-          <BarChart2 class="h-5 w-5" />
-        {/snippet}
-      {/if}
-
       <StatsCard
         label={props.label}
         value={props.value}
         trend={props.trend}
         trendValue={props.trendValue}
         description={props.description}
+        icon={props.showIcon ? mainIcon : undefined}
       />
-
-      {#snippet churnIcon()}
-        <ArrowDownRight class="h-5 w-5" />
-      {/snippet}
 
       <StatsCard
         label="Churn"
@@ -61,10 +64,6 @@
         icon={churnIcon}
         class="bg-rose-50/80 border-rose-100"
       />
-
-      {#snippet revenueIcon()}
-        <ArrowUpRight class="h-5 w-5" />
-      {/snippet}
 
       <StatsCard
         label="MRR"

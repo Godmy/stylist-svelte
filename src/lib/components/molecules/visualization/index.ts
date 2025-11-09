@@ -1,6 +1,10 @@
+// stylist-coder-model auto-generated exports for visualization
 export { default as GraphNodeCard } from './GraphNodeCard.svelte';
+export { default as GraphvizCluster } from './GraphvizCluster.svelte';
 export { default as GraphvizClusterWithTitle } from './GraphvizClusterWithTitle.svelte';
 export { default as GraphvizDirectedEdge } from './GraphvizDirectedEdge.svelte';
+export { default as GraphvizEdge } from './GraphvizEdge.svelte';
+export { default as GraphvizNode } from './GraphvizNode.svelte';
 export { default as GraphvizNodeConnection } from './GraphvizNodeConnection.svelte';
 export { default as GraphvizNodeWithLabel } from './GraphvizNodeWithLabel.svelte';
 export { default as GraphvizSubgraph } from './GraphvizSubgraph.svelte';

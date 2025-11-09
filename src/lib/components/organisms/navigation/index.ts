@@ -1,7 +1,3 @@
-/**
- * Organism Navigation Components
- * @module components/organisms/navigation
- */
-
-export { default as Breadcrumbs } from './Breadcrumbs.svelte';
-export { default as Pagination } from './Pagination.svelte';
+// stylist-coder-model auto-generated exports for navigation
+export * from './breadcrumbs';
+export * from './pagination';

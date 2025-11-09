@@ -1,22 +1,14 @@
-/**
- * stylist-svelte - A comprehensive Svelte 5 UI component library
- *
- * @packageDocumentation
- */
-
-// Styles
-import './styles/variables.css';
-
-// Types
-export * from './types';
-
-// Utils
-export * from './utils';
+// stylist-coder-model auto-generated main index for stylist-svelte
 
 // Components
-export * from './components/atoms';
-export * from './components/molecules';
-export * from './components/organisms';
+export * from './components';
 
-// Playground
+// Other exports
+export * from './styles';
+export * from './types';
+export * from './utils';
+// Playground components are available separately to avoid conflicts
+// Import from '$lib/playground' for Story, ControlPanel, etc.
+
+// Root exports
 export * from './playground';

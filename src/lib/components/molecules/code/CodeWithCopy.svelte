@@ -1,11 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
-  import CodeBlock from '../../atoms/typography/CodeBlock.svelte';
+  import SyntaxHighlightedCode from './SyntaxHighlightedCode.svelte';
   import { Check, Copy } from 'lucide-svelte';
+  import { createEventDispatcher } from 'svelte';
 
   type CodeWithCopyVariant = 'default' | 'terminal' | 'diff';
-  type CodeWithCopySize = 'sm' | 'md' | 'lg';
 
   type Props = {
     /**
@@ -16,10 +15,6 @@
      * Variant style
      */
     variant?: CodeWithCopyVariant;
-    /**
-     * Size of the code block
-     */
-    size?: CodeWithCopySize;
     /**
      * Whether to show line numbers
      */
@@ -37,91 +32,59 @@
      */
     copyErrorMessage?: string;
     /**
-     * Content for the code block
+     * Content to render inside the component
      */
-    children?: Snippet;
+    children: import('svelte').Snippet;
   } & HTMLAttributes<HTMLElement>;
 
   let {
     language = 'text',
     variant = 'default',
-    size = 'md',
     showLineNumbers = false,
     startLineNumber = 1,
-    copySuccessMessage = 'Code copied to clipboard!',
-    copyErrorMessage = 'Failed to copy code',
+    copySuccessMessage = 'Copied to clipboard!',
+    copyErrorMessage = 'Failed to copy',
     children,
-    class: className = '',
     ...restProps
   }: Props = $props();
 
   let copied = $state(false);
+  const dispatch = createEventDispatcher();
 
-  async function copyCode() {
-    const codeElement = document.querySelector('.code-content');
-    if (codeElement) {
-      try {
-        const codeText = (codeElement as HTMLElement).innerText || (codeElement as HTMLElement).textContent || '';
-        await navigator.clipboard.writeText(codeText);
-        copied = true;
-        
-        // Show a simple native notification instead of toast
-        if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification(copySuccessMessage);
-        } else {
-          // Fallback: we can show a simple alert or just rely on the UI feedback
-          console.log(copySuccessMessage);
-        }
-        
-        setTimeout(() => {
-          copied = false;
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy code:', err);
-        // Show error feedback
-        if ('Notification' in window && Notification.permission === 'granted') {
-          new Notification(copyErrorMessage);
-        } else {
-          console.log(copyErrorMessage);
-        }
-      }
+  async function copyToClipboard() {
+    const codeElement = document.querySelector<HTMLElement>('.code-content');
+    if (!codeElement) return;
+
+    try {
+      const code = codeElement.textContent || '';
+      await navigator.clipboard.writeText(code);
+      copied = true;
+      dispatch('copySuccess', { message: copySuccessMessage });
+      setTimeout(() => {
+        copied = false;
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy code:', err);
+      dispatch('copyError', { message: copyErrorMessage });
     }
   }
 </script>
 
-<div class="relative group">
-  <CodeBlock
-    {...restProps}
-    {language}
-    {variant}
-    {size}
-    {showLineNumbers}
-    {startLineNumber}
-    class={`pr-10 ${className}`}
-  >
-    <div class="code-content">
-      {#if children}
-        {@render children()}
-      {/if}
-    </div>
-  </CodeBlock>
-  
+<div {...restProps} class="relative group">
+  <div class="code-content">
+    {#if children}
+      {@render children()}
+    {/if}
+  </div>
   <button
-    class="absolute top-2 right-2 p-1.5 rounded-md bg-black/20 hover:bg-black/30 text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity focus:opacity-100 focus:outline-none"
-    onclick={copyCode}
-    onkeydown={(e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        copyCode();
-      }
-    }}
-    aria-label={copied ? "Copied!" : "Copy code"}
-    title={copied ? "Copied!" : "Copy code"}
+    class="absolute top-2 right-2 p-1.5 rounded-md bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 opacity-0 group-hover:opacity-100 transition-opacity"
+    aria-label="Copy code"
+    onclick={copyToClipboard}
   >
     {#if copied}
-      <Check size={16} />
+      <Check class="w-4 h-4 text-green-600" />
     {:else}
-      <Copy size={16} />
+      <Copy class="w-4 h-4" />
     {/if}
   </button>
 </div>

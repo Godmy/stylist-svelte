@@ -1,6 +1,2 @@
-/**
- * Molecule Search Components
- * @module components/molecules/search
- */
-
-export { default as SearchBar } from './SearchBar.svelte';
+// stylist-coder-model auto-generated exports for search
+export { default as SearchBarComponent } from './SearchBar.svelte';

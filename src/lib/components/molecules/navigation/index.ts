@@ -1,4 +1,4 @@
+// stylist-coder-model auto-generated exports for navigation
 export { default as Breadcrumb } from './Breadcrumb.svelte';
-export { default as BurgerMenu } from './BurgerMenu.svelte';
-export { default as DropdownMenu } from './DropdownMenu.svelte';
-export { default as MenuItem } from './MenuItem.svelte';
+export { default as BreadcrumbLink } from './BreadcrumbLink.svelte';
+export { default as PageButton } from './PageButton.svelte';

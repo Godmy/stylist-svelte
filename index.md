@@ -1,4 +1,3 @@
-
 # Полная структура проекта stylist-svelte
 
 Этот документ описывает полную структуру проекта `stylist-svelte`, включая все компоненты, утилиты, типы, документацию и вспомогательные файлы.
@@ -28,15 +27,28 @@
 stylist-svelte/
 ├── .claude/                                                                # Конфигурация для Claude AI
 │   └── settings.local.json                                                 # Локальные настройки Claude
-├── .gitignore                                                              # Файл исключений для Git
-├── .npmrc                                                                  # Конфигурационный файл для npm/yarn
-├── .prettierignore                                                         # Файлы и директории, игнорируемые Prettier
-├── .prettierrc                                                             # Конфигурация Prettier
-├── .yarnrc.yml                                                             # Конфигурация Yarn
-├── LICENSE                                                                 # Файл лицензии проекта
-├── QWEN.md                                                                 # Контекст для Qwen AI
-├── README.md                                                               # Основная документация проекта
-├── docs/                                                                   # Дополнительная документация проекта
+├── .git/                                                                   # Git метаданные
+├── .svelte-kit/                                                            # Временные файлы SvelteKit
+│   ├── ambient.d.ts                                                        # Типы SvelteKit
+│   ├── generated/                                                          # Сгенерированные файлы
+│   │   ├── client/                                                         # Клиентские сгенерированные файлы
+│   │   │   └── nodes/                                                      # Узлы роутинга
+│   │   │       ├── 0.js
+│   │   │       ├── 1.js
+│   │   │       └── 2.js
+│   │   ├── root.js
+│   │   ├── root.svelte
+│   │   └── server/                                                         # Серверные сгенерированные файлы
+│   │       └── internal.js
+│   ├── non-ambient.d.ts
+│   ├── tsconfig.json
+│   └── types/                                                              # Типы роутинга
+│       └── src/
+│           └── routes/
+│               └── $types.d.ts
+├── .yarn/                                                                  # Управление зависимостями Yarn
+├── dist/                                                                   # Собранные файлы
+├── docs/                                                                   # Дополнительная документация
 │   ├── ad/                                                                 # Документы по архитектуре Atomic Design
 │   │   ├── ATOMIC_DESIGN_GUIDE.md                                          # Руководство по атомическому дизайну
 │   │   ├── ATOMIC_DESIGN_GUIDE_RU.md                                       # Руководство по атомическому дизайну (рус)
@@ -67,9 +79,7 @@ stylist-svelte/
 │   └── cookbooks/                                                          # Руководства по исправлению кода и работе с проектом
 │       ├── COOKBOOK_AI_EN.md                                               # Руководство для AI (англ)
 │       └── COOKBOOK_HUMAN_RU.md                                            # Руководство для людей (рус)
-├── index.md                                                                # Основной индексный файл (этот файл)
-├── package.json                                                            # Основной файл зависимостей и скриптов
-├── package.tgz                                                             # Собранный пакет
+├── node_modules/                                                           # Зависимости проекта
 ├── src/                                                                    # Исходный код библиотеки компонентов
 │   ├── app.html                                                            # HTML-шаблон приложения
 │   └── lib/                                                                # Основная библиотека
@@ -79,282 +89,456 @@ stylist-svelte/
 │       │   │   │   ├── NumberFlow.svelte                                   # Анимированное отображение числовых значений
 │       │   │   │   ├── NumberFlow.story.svelte                             # Стори для NumberFlow
 │       │   │   │   └── index.ts                                            # Экспорт анимационных атомов
-│       │   │   ├── chat/                                                   # Компоненты для чата
-│       │   │   │   ├── ChatStatusIndicator.svelte                          # Индикатор статуса в чате
-│       │   │   │   ├── MessageStatus.svelte                                # Индикатор статуса сообщения
-│       │   │   │   ├── MessageTimestamp.svelte                             # Отображение временной метки сообщения
-│       │   │   │   └── index.ts                                            # Экспорт компонентов чата
 │       │   │   ├── controls/                                               # Контрольные элементы
-│       │   │   │   ├── Button.svelte                                       # Универсальная кнопка
-│       │   │   │   ├── Button.story.svelte                                 # Стори для Button
-│       │   │   │   ├── Checkbox.svelte                                     # Стандартный чекбокс
-│       │   │   │   ├── Checkbox.story.svelte                               # Стори для Checkbox
-│       │   │   │   ├── Radio.svelte                                        # Переключатель
-│       │   │   │   ├── Radio.story.svelte                                  # Стори для Radio
-│       │   │   │   ├── RangeSlider.svelte                                  # Ползунок для выбора значения в диапазоне
-│       │   │   │   ├── RangeSlider.story.svelte                            # Стори для RangeSlider
-│       │   │   │   ├── Select.svelte                                       # Выпадающий список
-│       │   │   │   ├── Select.story.svelte                                 # Стори для Select
-│       │   │   │   ├── Switch.svelte                                       # Переключатель
-│       │   │   │   ├── Switch.story.svelte                                 # Стори для Switch
-│       │   │   │   ├── Toggle.svelte                                       # Переключатель для включения/выключения состояния
-│       │   │   │   ├── Toggle.story.svelte                                 # Стори для Toggle
-│       │   │   │   └── index.ts                                            # Экспорт контрольных элементов
+│       │   │   │   ├── buttons/                                            # Кнопочные элементы
+│       │   │   │   │   ├── Button.svelte                                   # Универсальная кнопка
+│       │   │   │   │   ├── Button.story.svelte                             # Стори для Button
+│       │   │   │   │   ├── Buttons.story.svelte                            # Стори для нескольких кнопок
+│       │   │   │   │   ├── CloseButton.svelte                              # Кнопка закрытия
+│       │   │   │   │   ├── IconButton.svelte                               # Иконка-кнопка
+│       │   │   │   │   ├── index.ts                                        # Экспорт кнопочных элементов
+│       │   │   │   │   └── SplitButton.svelte                              # Раздельная кнопка
+│       │   │   │   ├── overlays/                                           # Элементы оверлея
+│       │   │   │   │   ├── index.ts                                        # Экспорт элементов оверлея
+│       │   │   │   │   ├── Overlays.story.svelte                           # Стори для оверлеев
+│       │   │   │   │   └── SimpleTooltip.svelte                            # Простой тултип
+│       │   │   │   ├── selectors/                                          # Элементы выбора
+│       │   │   │   │   ├── ColorSwatch.svelte                              # Цветовая палитра
+│       │   │   │   │   ├── index.ts                                        # Экспорт элементов выбора
+│       │   │   │   │   ├── InputAddon.svelte                               # Дополнение к инпуту
+│       │   │   │   │   ├── Select.svelte                                   # Выпадающий список
+│       │   │   │   │   ├── Select.story.svelte                             # Стори для Select
+│       │   │   │   │   └── Selectors.story.svelte                          # Стори для селекторов
+│       │   │   │   ├── sliders/                                            # Слайдерные элементы
+│       │   │   │   │   ├── index.ts                                        # Экспорт слайдерных элементов
+│       │   │   │   │   ├── RangeSlider.svelte                              # Слайдер диапазона
+│       │   │   │   │   ├── RangeSlider.story.svelte                        # Стори для RangeSlider
+│       │   │   │   │   └── Sliders.story.svelte                            # Стори для слайдеров
+│       │   │   │   └── toggles/                                            # Переключательные элементы
+│       │   │   │       ├── Checkbox.svelte                                 # Флажок
+│       │   │   │       ├── Checkbox.story.svelte                           # Стори для Checkbox
+│       │   │   │       ├── index.ts                                        # Экспорт переключательных элементов
+│       │   │   │       ├── Radio.svelte                                    # Радио-кнопка
+│       │   │   │       ├── Radio.story.svelte                              # Стори для Radio
+│       │   │   │       ├── Switch.svelte                                   # Переключатель
+│       │   │   │       ├── Switch.story.svelte                             # Стори для Switch
+│       │   │   │       ├── Toggle.svelte                                   # Переключатель
+│       │   │   │       └── Toggle.story.svelte                             # Стори для Toggle
 │       │   │   ├── feedback/                                               # Компоненты обратной связи
-│       │   │   │   ├── Alert.svelte                                        # Компонент для отображения важных сообщений
-│       │   │   │   └── index.ts                                            # Экспорт компонентов обратной связи
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов обратной связи
+│       │   │   │   └── placeholders/                                       # Заполнители
+│       │   │   │       ├── index.ts                                        # Экспорт заполнителей
+│       │   │   │       ├── Skeleton.svelte                                 # Заглушка с анимацией для загрузки данных
+│       │   │   │       ├── Skeleton.story.svelte                           # Стори для Skeleton
+│       │   │   │       ├── SkeletonCircle.svelte                           # Круглая заглушка
+│       │   │   │       ├── SkeletonRectangle.svelte                        # Прямоугольная заглушка
+│       │   │   │       ├── SkeletonText.svelte                             # Текстовая заглушка
+│       │   │   │       ├── TableSkeleton.svelte                            # Заглушка для таблицы
+│       │   │   │       └── TableSkeleton.story.svelte                      # Стори для TableSkeleton
 │       │   │   ├── input/                                                  # Компоненты ввода
-│       │   │   │   ├── Input.svelte                                        # Поле для ввода текста
-│       │   │   │   ├── Input.story.svelte                                  # Стори для Input
-│       │   │   │   ├── Textarea.svelte                                     # Многострочное поле ввода
-│       │   │   │   ├── Textarea.story.svelte                               # Стори для Textarea
-│       │   │   │   └── index.ts                                            # Экспорт компонентов ввода
-│       │   │   ├── layout/                                                 # Компоненты для макета
-│       │   │   │   ├── Divider.svelte                                      # Горизонтальный или вертикальный разделитель
-│       │   │   │   └── index.ts                                            # Экспорт компонентов макета
+│       │   │   │   ├── base/                                               # Базовые элементы ввода
+│       │   │   │   │   ├── index.ts                                        # Экспорт базовых элементов ввода
+│       │   │   │   │   ├── Input.svelte                                    # Поле для ввода текста
+│       │   │   │   │   ├── Input.story.svelte                              # Стори для Input
+│       │   │   │   │   ├── Textarea.svelte                                 # Многострочное поле ввода
+│       │   │   │   │   └── Textarea.story.svelte                           # Стори для Textarea
+│       │   │   │   ├── helpers/                                            # Вспомогательные элементы ввода
+│       │   │   │   │   ├── CharacterCount.svelte                           # Счетчик символов
+│       │   │   │   │   ├── FormErrorMessage.svelte                         # Сообщение об ошибке формы
+│       │   │   │   │   ├── FormHelperText.svelte                           # Вспомогательный текст формы
+│       │   │   │   │   ├── Helpers.story.svelte                            # Стори для вспомогательных элементов
+│       │   │   │   │   ├── index.ts                                        # Экспорт вспомогательных элементов ввода
+│       │   │   │   │   └── PinInputDigit.svelte                            # Цифра PIN-кода
+│       │   │   │   └── specialized/                                        # Специализированные элементы ввода
+│       │   │   │       ├── EmailInput.svelte                               # Ввод email
+│       │   │   │       ├── index.ts                                        # Экспорт специализированных элементов ввода
+│       │   │   │       ├── PasswordInput.svelte                            # Ввод пароля
+│       │   │   │       ├── PhoneNumberInput.svelte                         # Ввод номера телефона
+│       │   │   │       └── SpecializedInputs.story.svelte                  # Стори для специализированных элементов ввода
 │       │   │   ├── media/                                                  # Медиа компоненты
 │       │   │   │   ├── Avatar.svelte                                       # Отображение аватара пользователя
 │       │   │   │   ├── Avatar.story.svelte                                 # Стори для Avatar
+│       │   │   │   ├── CountryFlag.svelte                                  # Флаг страны
+│       │   │   │   ├── Favicon.svelte                                      # Фавикон
 │       │   │   │   ├── Icon.svelte                                         # Отображение иконки
 │       │   │   │   ├── Icon.story.svelte                                   # Стори для Icon
-│       │   │   │   └── index.ts                                            # Экспорт медиа компонентов
-│       │   │   ├── placeholders/                                           # Компоненты-заполнители
-│       │   │   │   ├── Skeleton.svelte                                     # Заглушка с анимацией для загрузки данных
-│       │   │   │   ├── TableSkeleton.svelte                                # Заглушка для таблицы
-│       │   │   │   └── index.ts                                            # Экспорт компонентов-заполнителей
+│       │   │   │   ├── IconWrapper.svelte                                  # Обертка иконки
+│       │   │   │   ├── Image.svelte                                        # Изображение
+│       │   │   │   ├── index.ts                                            # Экспорт медиа компонентов
+│       │   │   │   └── Media.story.svelte                                  # Стори для медиа компонентов
 │       │   │   ├── process/                                                # Компоненты процессов
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов процессов
+│       │   │   │   ├── Spinner.svelte                                      # Индикатор загрузки
+│       │   │   │   └── Spinner.story.svelte                                # Стори для Spinner
+│       │   │   ├── progress/                                               # Компоненты прогресса
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов прогресса
 │       │   │   │   ├── ProgressBar.svelte                                  # Индикатор выполнения задачи
 │       │   │   │   ├── ProgressBar.story.svelte                            # Стори для ProgressBar
-│       │   │   │   ├── Spinner.svelte                                      # Индикатор загрузки
-│       │   │   │   ├── Spinner.story.svelte                                # Стори для Spinner
-│       │   │   │   └── index.ts                                            # Экспорт компонентов процессов
-│       │   │   ├── typography/                                             # Типографские компоненты
-│       │   │   │   ├── Badge.svelte                                        # Небольшой элемент для отображения статуса
-│       │   │   │   ├── Badge.story.svelte                                  # Стори для Badge
-│       │   │   │   ├── Chip.svelte                                         # Компактный элемент для отображения информации
-│       │   │   │   ├── Chip.story.svelte                                   # Стори для Chip
-│       │   │   │   ├── CodeBlock.svelte                                    # Блок для отображения форматированного кода
-│       │   │   │   ├── InlineCode.svelte                                   # Отображение кода внутри текста
-│       │   │   │   ├── Kbd.svelte                                          # Компонент для отображения клавиш клавиатуры
-│       │   │   │   ├── Kbd.story.svelte                                    # Стори для Kbd
-│       │   │   │   ├── Label.svelte                                        # Текстовая метка для элементов формы
-│       │   │   │   ├── Label.story.svelte                                  # Стори для Label
-│       │   │   │   ├── Link.svelte                                         # Ссылка
-│       │   │   │   ├── Link.story.svelte                                   # Стори для Link
-│       │   │   │   ├── Tag.svelte                                          # Тег для маркировки
-│       │   │   │   ├── Tag.story.svelte                                    # Стори для Tag
-│       │   │   │   └── index.ts                                            # Экспорт типографских компонентов
-│       │   │   └── index.ts                                                # Объединяющий экспорт всех атомов
+│       │   │   │   ├── ProgressCircle.svelte                               # Круговой индикатор прогресса
+│       │   │   │   ├── ProgressCircle.story.svelte                         # Стори для ProgressCircle
+│       │   │   │   └── steps/                                              # Компоненты шагов
+│       │   │   │       ├── index.ts                                        # Экспорт компонентов шагов
+│       │   │   │       ├── StepConnector.svelte                            # Соединитель шагов
+│       │   │   │       ├── StepConnector.story.svelte                      # Стори для StepConnector
+│       │   │   │       ├── StepIcon.svelte                                 # Иконка шага
+│       │   │   │       └── StepIcon.story.svelte                           # Стори для StepIcon
+│       │   │   └── typography/                                             # Типографские компоненты
+│       │   │       ├── accordion/                                          # Компоненты аккордеона
+│       │   │       │   ├── AccordionIcon.svelte                            # Иконка аккордеона
+│       │   │       │   ├── AccordionIcon.story.svelte                      # Стори для иконки аккордеона
+│       │   │       │   ├── index.ts                                        # Экспорт компонентов аккордеона
+│       │   │       ├── animation/                                          # Анимационные компоненты
+│       │   │       │   ├── index.ts                                        # Экспорт анимационных компонентов
+│       │   │       │   ├── NumberFlow.svelte                               # Анимированное число
+│       │   │       │   └── NumberFlow.story.svelte                         # Стори для NumberFlow
+│       │   │       ├── block/                                              # Блочные компоненты
+│       │   │       │   ├── Block.svelte                                    # Блок
+│       │   │       │   ├── Block.story.svelte                              # Стори для блока
+│       │   │       │   ├── Blockquote.svelte                               # Цитата
+│       │   │       │   ├── index.ts                                        # Экспорт блочных компонентов
+│       │   │       ├── elements/                                           # Элементы типографики
+│       │   │       │   ├── Badge.svelte                                    # Значок
+│       │   │       │   ├── Badge.story.svelte                              # Стори для Badge
+│       │   │       │   ├── Chip.svelte                                     # Компактный элемент для отображения информации
+│       │   │       │   ├── Chip.story.svelte                               # Стори для Chip
+│       │   │       │   ├── CodeBlock.svelte                                # Блок для отображения форматированного кода
+│       │   │       │   ├── CodeBlock.story.svelte                          # Стори для CodeBlock
+│       │   │       │   ├── Elements.story.svelte                           # Стори для элементов типографики
+│       │   │       │   ├── index.ts                                        # Экспорт элементов типографики
+│       │   │       │   ├── Label.svelte                                    # Текстовая метка для элементов формы
+│       │   │       │   ├── Label.story.svelte                              # Стори для Label
+│       │   │       │   ├── Tag.svelte                                      # Тег для маркировки
+│       │   │       │   └── Tag.story.svelte                                # Стори для Tag
+│       │   │       ├── indicators/                                         # Индикаторы
+│       │   │       │   ├── BreadcrumbSeparator.svelte                      # Разделитель хлебных крошек
+│       │   │       │   ├── BreadcrumbSeparator.story.svelte                # Стори для разделителя хлебных крошек
+│       │   │       │   ├── CountBadge.svelte                               # Значок с числом
+│       │   │       │   ├── Counter.svelte                                  # Счетчик
+│       │   │       │   ├── Dot.svelte                                      # Точка
+│       │   │       │   ├── Dot.story.svelte                                # Стори для точки
+│       │   │       │   ├── index.ts                                        # Экспорт индикаторов
+│       │   │       │   ├── Indicators.story.svelte                         # Стори для индикаторов
+│       │   │       │   ├── ListItemMarker.svelte                           # Маркер элемента списка
+│       │   │       │   ├── ListItemMarker.story.svelte                     # Стори для маркера элемента списка
+│       │   │       │   ├── PageEllipsis.svelte                             # Эллипсис страницы
+│       │   │       │   ├── StatusIndicator.atom.svelte                     # Атомный индикатор статуса
+│       │   │       │   └── StatusIndicator.svelte                          # Индикатор статуса
+│       │   │       ├── inline/                                             # Встроенные элементы
+│       │   │       │   ├── Abbr.svelte                                     # Аббревиатура
+│       │   │       │   ├── Counter.story.svelte                            # Стори для счетчика
+│       │   │       │   ├── DefinitionDescription.svelte                    # Описание определения
+│       │   │       │   ├── DefinitionTerm.svelte                           # Термин определения
+│       │   │       │   ├── Divider.svelte                                  # Разделитель
+│       │   │       │   ├── Divider.story.svelte                            # Стори для Divider
+│       │   │       │   ├── Em.svelte                                       # Курсив
+│       │   │       │   ├── Highlight.svelte                                # Выделение
+│       │   │       │   ├── index.ts                                        # Экспорт встроенных элементов
+│       │   │       │   ├── Inline.story.svelte                             # Стори для встроенных элементов
+│       │   │       │   ├── InlineCode.svelte                               # Отображение кода внутри текста
+│       │   │       │   ├── InlineCode.story.svelte                         # Стори для InlineCode
+│       │   │       │   ├── Kbd.svelte                                      # Компонент для отображения клавиш клавиатуры
+│       │   │       │   ├── Kbd.story.svelte                                # Стори для Kbd
+│       │   │       │   ├── Link.svelte                                     # Ссылка
+│       │   │       │   ├── Link.story.svelte                               # Стори для Link
+│       │   │       │   ├── Separator.svelte                                # Разделитель
+│       │   │       │   ├── Separator.story.svelte                          # Стори для Separator
+│       │   │       │   ├── Spacer.svelte                                   # Отступ
+│       │   │       │   ├── Spacer.story.svelte                             # Стори для Spacer
+│       │   │       │   ├── Strikethrough.svelte                            # Зачеркивание
+│       │   │       │   ├── Strong.svelte                                   # Жирный текст
+│       │   │       │   ├── Subscript.svelte                                # Подстрочный текст
+│       │   │       │   └── Superscript.svelte                              # Надстрочный текст
+│       │   │       ├── tabs/                                               # Компоненты вкладок
+│       │   │       │   ├── index.ts                                        # Экспорт компонентов вкладок
+│       │   │       │   ├── TabIndicator.svelte                             # Индикатор вкладки
+│       │   │       │   └── TabIndicator.story.svelte                       # Стори для индикатора вкладки
+│       │   │       └── text/                                               # Текстовые компоненты
+│       │   │           ├── Caption.svelte                                  # Подпись
+│       │   │           ├── Heading.svelte                                  # Заголовок
+│       │   │           ├── index.ts                                        # Экспорт текстовых компонентов
+│       │   │           ├── Paragraph.svelte                                # Параграф
+│       │   │           ├── SectionHeading.svelte                           # Заголовок секции
+│       │   │           ├── Small.svelte                                    # Маленький текст
+│       │   │           ├── Text.svelte                                     # Текст
+│       │   │           └── Text.story.svelte                               # Стори для Text
 │       │   ├── molecules/                                                  # Составные компоненты (формы, карточки и т.д.)
-│       │   │   ├── CopyButton.svelte                                       # Кнопка для копирования текста
-│       │   │   ├── CopyButton.story.svelte                                 # Стори для CopyButton
-│       │   │   ├── EmptyState.svelte                                       # Компонент для отображения при отсутствии данных
-│       │   │   ├── EmptyState.story.svelte                                 # Стори для EmptyState
-│       │   │   ├── FormFieldGroup.story.svelte                             # Стори для FormFieldGroup
-│       │   │   ├── FormSection.story.svelte                                # Стори для FormSection
-│       │   │   ├── InputField.svelte                                       # Поле ввода с дополнительным текстом справки
-│       │   │   ├── SearchBar.story.svelte                                  # Стори для SearchBar
 │       │   │   ├── canvas/                                                 # Canvas-компоненты
-│       │   │   │   └── canvas-tools/                                       # Инструменты для canvas
-│       │   │   │       ├── CanvasToolbar.svelte                            # Панель инструментов для холста
-│       │   │   │       └── index.ts                                        # Экспорт инструментов для canvas
+│       │   │   │   ├── CanvasDrawingSurface.svelte                         # Поверхность рисования
+│       │   │   │   ├── CanvasToolbar.svelte                                # Панель инструментов для холста
+│       │   │   │   ├── ChartCanvas.svelte                                  # Холст для диаграмм
+│       │   │   │   ├── ImageEditorCanvas.svelte                            # Холст редактора изображений
 │       │   │   │   └── index.ts                                            # Экспорт canvas-компонентов
 │       │   │   ├── chat/                                                   # Компоненты чата
 │       │   │   │   ├── AttachmentPreview.svelte                            # Предварительный просмотр вложений
 │       │   │   │   ├── ChatHeader.svelte                                   # Заголовок чата
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов чата
 │       │   │   │   ├── MessageInput.svelte                                 # Поле ввода сообщения
 │       │   │   │   ├── MessageMeta.svelte                                  # Метаданные сообщения
-│       │   │   │   ├── UserStatus.svelte                                   # Индикатор статуса пользователя
-│       │   │   │   └── index.ts                                            # Экспорт компонентов чата
+│       │   │   │   └── UserStatus.svelte                                   # Индикатор статуса пользователя
+│       │   │   │   └── atoms/                                              # Атомы чата
+│       │   │   │       ├── ChatStatusIndicator.svelte                      # Индикатор статуса в чате
+│       │   │   │       ├── ChatStatusIndicator.story.svelte                # Стори для индикатора статуса чата
+│       │   │   │       ├── MessageStatus.svelte                            # Индикатор статуса сообщения
+│       │   │   │       ├── MessageStatus.story.svelte                      # Стори для индикатора статуса сообщения
+│       │   │   │       ├── MessageTimestamp.svelte                         # Отображение временной метки сообщения
+│       │   │   │       ├── MessageTimestamp.story.svelte                   # Стори для временной метки сообщения
+│       │   │   │       └── index.ts                                        # Экспорт атомов чата
 │       │   │   ├── code/                                                   # Компоненты для работы с кодом
 │       │   │   │   ├── CodeWithCopy.svelte                                 # Компонент кода с возможностью копирования
+│       │   │   │   ├── index.ts                                            # Экспорт кодовых компонентов
 │       │   │   │   ├── ResponseViewer.svelte                               # Компонент просмотра ответов
-│       │   │   │   ├── SyntaxHighlightedCode.svelte                        # Компонент с подсветкой синтаксиса
-│       │   │   │   └── index.ts                                            # Экспорт кодовых компонентов
+│       │   │   │   └── SyntaxHighlightedCode.svelte                        # Компонент с подсветкой синтаксиса
 │       │   │   ├── controls/                                               # Контролы
-│       │   │   │   ├── NumberFlow.svelte                                   # Анимированное отображение числовых значений
-│       │   │   │   ├── NumberFlow.story.svelte                             # Стори для NumberFlow
-│       │   │   │   ├── RadioGroup.svelte                                   # Группа переключателей
-│       │   │   │   ├── RadioGroup.story.svelte                             # Стори для RadioGroup
-│       │   │   │   └── index.ts                                            # Экспорт контрол-компонентов
+│       │   │   │   ├── copy/                                               # Контролы копирования
+│       │   │   │   │   ├── CodeWithCopy.svelte                             # Копирование кода
+│       │   │   │   │   ├── CopyButton.svelte                               # Кнопка копирования
+│       │   │   │   │   ├── CopyButton.story.svelte                         # Стори для кнопки копирования
+│       │   │   │   │   └── index.ts                                        # Экспорт контролей копирования
+│       │   │   │   ├── menus/                                              # Меню
+│       │   │   │   │   ├── BurgerMenu.svelte                               # Меню-бургер
+│       │   │   │   │   ├── BurgerMenu.story.svelte                         # Стори для меню-бургера
+│       │   │   │   │   ├── DropdownMenu.svelte                             # Выпадающее меню
+│       │   │   │   │   ├── index.ts                                        # Экспорт контролей меню
+│       │   │   │   │   ├── MenuItem.svelte                                 # Элемент меню
+│       │   │   │   │   └── MenuItem.story.svelte                           # Стори для элемента меню
+│       │   │   │   ├── toggles/                                            # Переключатели
+│       │   │   │   │   ├── index.ts                                        # Экспорт контролей переключателей
+│       │   │   │   │   ├── ToggleGroupItem.svelte                          # Элемент группы переключателей
+│       │   │   │   │   └── ToggleGroupRoot.svelte                          # Корень группы переключателей
+│       │   │   │   └── trees/                                              # Деревья
+│       │   │   │       ├── index.ts                                        # Экспорт контролей деревьев
+│       │   │   │       └── TreeNodeItem.svelte                             # Элемент узла дерева
 │       │   │   ├── data-display/                                           # Компоненты отображения данных
 │       │   │   │   ├── CardSkeleton.svelte                                 # Заглушка для карточки
 │       │   │   │   ├── ExpandableTableRow.svelte                           # Расширяемая строка таблицы
-│       │   │   │   ├── KanbanCard.svelte                                   # Карточка для доски Kanban
-│       │   │   │   ├── KanbanCard.story.svelte                             # Стори для KanbanCard
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов отображения данных
 │       │   │   │   ├── Rating.svelte                                       # Компонент оценки
 │       │   │   │   ├── Rating.story.svelte                                 # Стори для Rating
 │       │   │   │   ├── StatsCard.svelte                                    # Карточка статистики
-│       │   │   │   ├── StatsCard.story.svelte                              # Стори для StatsCard
-│       │   │   │   ├── TableSkeleton.svelte                                # Заглушка для таблицы
-│       │   │   │   ├── TreeNodeItem.svelte                                 # Элемент дерева
-│       │   │   │   └── index.ts                                            # Экспорт компонентов отображения данных
+│       │   │   │   └── StatsCard.story.svelte                              # Стори для StatsCard
+│       │   │   ├── dialogs/                                                # Диалоговые компоненты
 │       │   │   ├── feedback/                                               # Компоненты обратной связи
-│       │   │   │   ├── ErrorMessage.svelte                                 # Компонент ошибки
-│       │   │   │   ├── LoadingOverlay.svelte                               # Оверлей загрузки
-│       │   │   │   ├── NotificationItem.svelte                             # Элемент уведомления
-│       │   │   │   ├── NotificationItem.story.svelte                       # Стори для NotificationItem
-│       │   │   │   └── index.ts                                            # Экспорт компонентов обратной связи
+│       │   │   │   ├── alerts/                                             # Оповещения
+│       │   │   │   │   ├── Alert.svelte                                    # Оповещение
+│       │   │   │   │   ├── Alert.story.svelte                              # Стори для оповещения
+│       │   │   │   │   ├── ErrorMessage.svelte                             # Сообщение об ошибке
+│       │   │   │   │   └── index.ts                                        # Экспорт компонентов оповещений
+│       │   │   │   ├── overlays/                                           # Оверлеи
+│       │   │   │   │   ├── index.ts                                        # Экспорт компонентов оверлея
+│       │   │   │   │   └── LoadingOverlay.svelte                           # Оверлей загрузки
+│       │   │   │   ├── states/                                             # Состояния
+│       │   │   │   │   ├── EmptyState.svelte                               # Пустое состояние
+│       │   │   │   │   ├── EmptyState.story.svelte                         # Стори для пустого состояния
+│       │   │   │   │   └── index.ts                                        # Экспорт компонентов состояния
+│       │   │   │   └── toasts/                                             # Всплывающие уведомления
+│       │   │   │       ├── index.ts                                        # Экспорт компонентов всплывающих уведомлений
+│       │   │   │       ├── NotificationItem.svelte                         # Элемент уведомления
+│       │   │   │       ├── NotificationItem.story.svelte                   # Стори для элемента уведомления
+│       │   │   │       └── Toast.svelte                                    # Всплывающее уведомление
 │       │   │   ├── forms/                                                  # Форм-компоненты
-│       │   │   │   ├── FieldHighlighter.svelte                             # Инструмент для выделения полей формы
-│       │   │   │   ├── FileUpload.svelte                                   # Компонент загрузки файлов
-│       │   │   │   ├── FileUpload.story.svelte                             # Стори для FileUpload
-│       │   │   │   ├── FilterPanel.svelte                                  # Панель фильтров
-│       │   │   │   ├── FormFieldGroup.svelte                               # Группировка полей формы
-│       │   │   │   ├── FormFieldGroup.story.svelte                         # Стори для FormFieldGroup
-│       │   │   │   ├── FormSection.svelte                                  # Секция формы
-│       │   │   │   ├── FormSection.story.svelte                            # Стори для FormSection
-│       │   │   │   ├── InputField.svelte                                   # Поле ввода с дополнительной информацией
-│       │   │   │   ├── InputGroup.svelte                                   # Группа полей ввода
-│       │   │   │   ├── RadioGroup.svelte                                   # Группа переключателей
-│       │   │   │   ├── RadioGroup.story.svelte                             # Стори для RadioGroup
-│       │   │   │   ├── SearchBar.svelte                                    # Панель поиска
-│       │   │   │   ├── SearchBar.story.svelte                              # Стори для SearchBar
-│       │   │   │   ├── SearchInput.svelte                                  # Поле ввода поиска
-│       │   │   │   ├── SearchInput.story.svelte                            # Стори для SearchInput
-│       │   │   │   ├── TagInput.svelte                                     # Компонент ввода тегов
-│       │   │   │   ├── TagInput.story.svelte                               # Стори для TagInput
-│       │   │   │   └── index.ts                                            # Экспорт форм-компонентов
+│       │   │   │   ├── base/                                               # Базовые форм-компоненты
+│       │   │   │   │   ├── index.ts                                        # Экспорт базовых форм-компонентов
+│       │   │   │   │   ├── InputField.svelte                               # Поле ввода формы
+│       │   │   │   │   ├── InputGroup.svelte                               # Группа полей ввода
+│       │   │   │   │   ├── SearchBar.svelte                                # Панель поиска
+│       │   │   │   │   ├── SearchBar.story.svelte                          # Стори для панели поиска
+│       │   │   │   │   ├── SearchInput.svelte                              # Поле ввода поиска
+│       │   │   │   │   └── SearchInput.story.svelte                        # Стори для поля ввода поиска
+│       │   │   │   ├── composite/                                          # Композитные форм-компоненты
+│       │   │   │   │   ├── FileUpload.svelte                               # Загрузка файла
+│       │   │   │   │   ├── FileUpload.story.svelte                         # Стори для загрузки файла
+│       │   │   │   │   ├── FormSection.svelte                              # Секция формы
+│       │   │   │   │   ├── FormSection.story.svelte                        # Стори для секции формы
+│       │   │   │   │   ├── index.ts                                        # Экспорт композитных форм-компонентов
+│       │   │   │   │   ├── RadioGroup.svelte                               # Группа радио-кнопок
+│       │   │   │   │   ├── RadioGroup.story.svelte                         # Стори для группы радио-кнопок
+│       │   │   │   │   ├── TagInput.svelte                                 # Ввод тегов
+│       │   │   │   │   └── TagInput.story.svelte                           # Стори для ввода тегов
+│       │   │   │   └── validation/                                         # Компоненты валидации
+│       │   │   │       ├── FormFieldGroup.svelte                           # Группа полей формы
+│       │   │   │       ├── FormFieldGroup.story.svelte                     # Стори для группы полей формы
+│       │   │   │       └── index.ts                                        # Экспорт компонентов валидации
 │       │   │   ├── graph/                                                  # Графовые компоненты
 │       │   │   │   ├── GraphEdge.svelte                                    # Ребро графа
 │       │   │   │   ├── GraphNode.svelte                                    # Узел графа
-│       │   │   │   ├── GraphvizCluster.svelte                              # Кластер для Graphviz
-│       │   │   │   ├── GraphvizEdge.svelte                                 # Ребро для Graphviz
-│       │   │   │   ├── GraphvizNode.svelte                                 # Узел для Graphviz
-│       │   │   │   ├── GraphvizSubgraph.svelte                             # Подграф для Graphviz
 │       │   │   │   └── index.ts                                            # Экспорт графовых компонентов
+│       │   │   ├── input/                                                  # Компоненты ввода
+│       │   │   │   ├── base/                                               # Базовые компоненты ввода
+│       │   │   │   │   ├── index.ts                                        # Экспорт базовых компонентов ввода
+│       │   │   │   │   └── SearchInput.svelte                              # Поле ввода поиска
+│       │   │   │   ├── helpers/                                            # Вспомогательные компоненты ввода
+│       │   │   │   │   ├── FieldHighlighter.svelte                         # Выделитель полей
+│       │   │   │   │   └── index.ts                                        # Экспорт вспомогательных компонентов ввода
+│       │   │   │   ├── pickers/                                            # Компоненты выбора
+│       │   │   │   │   ├── ColorPicker.svelte                              # Выбор цвета
+│       │   │   │   │   ├── DatePicker.svelte                               # Выбор даты
+│       │   │   │   │   └── index.ts                                        # Экспорт компонентов выбора
+│       │   │   │   └── upload/                                             # Компоненты загрузки
+│       │   │   │       ├── FileInput.svelte                                # Поле загрузки файла
+│       │   │   │       └── index.ts                                        # Экспорт компонентов загрузки
+│       │   │   ├── layout/                                                 # Компоненты макета
+│       │   │   │   ├── AspectRatio.svelte                                  # Соотношение сторон
+│       │   │   │   ├── AspectRatio.story.svelte                            # Стори для соотношения сторон
+│       │   │   │   ├── Container.svelte                                    # Контейнер
+│       │   │   │   ├── Container.story.svelte                              # Стори для контейнера
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов макета
+│       │   │   │   ├── Stack.svelte                                        # Стек
+│       │   │   │   └── Stack.story.svelte                                  # Стори для стека
 │       │   │   ├── navigation/                                             # Навигационные компоненты
-│       │   │   │   ├── Breadcrumb.svelte                                   # Навигационная цепочка
-│       │   │   │   ├── Breadcrumb.story.svelte                             # Стори для Breadcrumb
-│       │   │   │   ├── BurgerMenu.svelte                                   # Кнопка-гамбургер для меню
-│       │   │   │   ├── BurgerMenu.story.svelte                             # Стори для BurgerMenu
-│       │   │   │   ├── DropdownMenu.svelte                                 # Выпадающее меню
-│       │   │   │   ├── MenuItem.svelte                                     # Элемент меню
-│       │   │   │   ├── MenuItem.story.svelte                               # Стори для MenuItem
-│       │   │   │   ├── QuickAccessButtons.svelte                           # Кнопки быстрого доступа
-│       │   │   │   ├── Toolbar.svelte                                      # Панель инструментов
-│       │   │   │   └── index.ts                                            # Экспорт навигационных компонентов
+│       │   │   │   ├── Breadcrumb.svelte                                   # Цепочка навигации
+│       │   │   │   ├── Breadcrumb.story.svelte                             # Стори для цепочки навигации
+│       │   │   │   ├── BreadcrumbLink.svelte                               # Ссылка в цепочке навигации
+│       │   │   │   ├── index.ts                                            # Экспорт навигационных компонентов
+│       │   │   │   └── PageButton.svelte                                   # Кнопка страницы
 │       │   │   ├── search/                                                 # Компоненты поиска
-│       │   │   │   ├── SearchBar.svelte                                    # Панель поиска
-│       │   │   │   └── index.ts                                            # Экспорт компонентов поиска
+│       │   │   │   ├── index.ts                                            # Экспорт компонентов поиска
+│       │   │   │   └── SearchBar.svelte                                    # Панель поиска
 │       │   │   ├── tools/                                                  # Инструменты
 │       │   │   │   ├── ButtonGroup.svelte                                  # Группа кнопок
+│       │   │   │   ├── DesignTokens.svelte                                 # Токены дизайна
 │       │   │   │   ├── FilterPanel.svelte                                  # Панель фильтров
+│       │   │   │   ├── index.ts                                            # Экспорт инструментов
 │       │   │   │   ├── OperationsHistory.svelte                            # История операций
 │       │   │   │   ├── Toolbar.svelte                                      # Панель инструментов
 │       │   │   │   ├── VariablesEditor.svelte                              # Редактор переменных
-│       │   │   │   └── index.ts                                            # Экспорт инструментов
+│       │   │   │   └── general/                                            # Общие инструменты
+│       │   │   │       ├── index.ts                                        # Экспорт общих инструментов
+│       │   │   │       ├── QuickAccessButtons.svelte                       # Кнопки быстрого доступа
+│       │   │   │       └── Toolbar.svelte                                  # Панель инструментов
 │       │   │   ├── tooltips/                                               # Подсказки
+│       │   │   │   ├── index.ts                                            # Экспорт подсказок
 │       │   │   │   ├── Tooltip.svelte                                      # Всплывающая подсказка
-│       │   │   │   ├── Tooltip.story.svelte                                # Стори для Tooltip
-│       │   │   │   └── index.ts                                            # Экспорт подсказок
-│       │   │   ├── visualization/                                          # Компоненты визуализации
-│       │   │   │   ├── GraphNodeCard.svelte                                # Карточка узла графа
-│       │   │   │   ├── GraphvizCluster.svelte                              # Кластер для Graphviz
-│       │   │   │   ├── GraphvizClusterWithTitle.svelte                     # Кластер с заголовком для Graphviz
-│       │   │   │   ├── GraphvizDirectedEdge.svelte                         # Направленное ребро для Graphviz
-│       │   │   │   ├── GraphvizEdge.svelte                                 # Ребро для Graphviz
-│       │   │   │   ├── GraphvizNode.svelte                                 # Узел для Graphviz
-│       │   │   │   ├── GraphvizNodeConnection.svelte                       # Соединение узлов в Graphviz
-│       │   │   │   ├── GraphvizNodeWithLabel.svelte                        # Узел с меткой для Graphviz
-│       │   │   │   ├── GraphvizUndirectedEdge.svelte                       # Ненаправленное ребро для Graphviz
-│       │   │   │   ├── LegendItem.svelte                                   # Элемент легенды
-│       │   │   │   ├── OntologyEdgeComponent.svelte                        # Компонент ребра для онтологий
-│       │   │   │   ├── OntologyNodeComponent.svelte                        # Компонент узла для онтологий
-│       │   │   │   └── index.ts                                            # Экспорт компонентов визуализации
-│       │   │   └── index.ts                                                # Объединяющий экспорт всех молекул
+│       │   │   │   └── Tooltip.story.svelte                                # Стори для подсказки
+│       │   │   └── visualization/                                          # Компоненты визуализации
+│       │   │       ├── GraphNodeCard.svelte                                # Карточка узла графа
+│       │   │       ├── GraphvizCluster.svelte                              # Кластер для Graphviz
+│       │   │       ├── GraphvizClusterWithTitle.svelte                     # Кластер с заголовком для Graphviz
+│       │   │       ├── GraphvizDirectedEdge.svelte                         # Направленное ребро для Graphviz
+│       │   │       ├── GraphvizEdge.svelte                                 # Ребро для Graphviz
+│       │   │       ├── GraphvizNode.svelte                                 # Узел для Graphviz
+│       │   │       ├── GraphvizNodeConnection.svelte                       # Соединение узлов для Graphviz
+│       │   │       ├── GraphvizNodeWithLabel.svelte                        # Узел с меткой для Graphviz
+│       │   │       ├── GraphvizSubgraph.svelte                             # Подграф для Graphviz
+│       │   │       ├── GraphvizUndirectedEdge.svelte                       # Ненаправленное ребро для Graphviz
+│       │   │       ├── index.ts                                            # Экспорт компонентов визуализации
+│       │   │       ├── LegendItem.svelte                                   # Элемент легенды
+│       │   │       ├── OntologyEdgeComponent.svelte                        # Компонент ребра для онтологий
+│       │   │       └── OntologyNodeComponent.svelte                        # Компонент узла для онтологий
 │       │   └── organisms/                                                  # Сложные структуры (навигация, таблицы и т.д.)
-│       │       ├── Accordion/                                              # Компоненты аккордеона
-│       │       │   ├── Accordion.svelte                                    # Аккордеон
-│       │       │   ├── AccordionHeader.svelte                              # Заголовок аккордеона
-│       │       │   ├── AccordionItem.svelte                                # Элемент аккордеона
-│       │       │   ├── AccordionPanel.svelte                               # Панель аккордеона
-│       │       │   └── index.ts                                            # Экспорт компонентов аккордеона
-│       │       ├── Breadcrumbs.svelte                                      # Навигационные хлебные крошки
-│       │       ├── ColumnManager.svelte                                    # Инструмент управления колонками таблицы
-│       │       ├── ConfirmDialog.svelte                                    # Диалог подтверждения
-│       │       ├── DataTable.svelte                                        # Интерактивная таблица
-│       │       ├── FolderTree.svelte                                       # Структура папок
-│       │       ├── Modal.svelte                                            # Модальное окно
-│       │       ├── Pagination.svelte                                       # Компонент навигации по страницам
-│       │       ├── Tabs/                                                   # Компоненты вкладок
-│       │       │   ├── Tab.svelte                                          # Вкладка
-│       │       │   ├── TabList.svelte                                      # Список вкладок
-│       │       │   ├── TabPanel.svelte                                     # Панель вкладки
-│       │       │   ├── TabPanels.svelte                                    # Контейнер панелей вкладок
-│       │       │   ├── Tabs.svelte                                         # Компонент системы вкладок
-│       │       │   └── index.ts                                            # Экспорт компонентов вкладок
-│       │       ├── agile/                                                  # Agile-компоненты
-│       │       │   ├── Backlog.svelte                                      # Бэклог
-│       │       │   ├── Backlog.story.svelte                                # Стори для Backlog
-│       │       │   ├── BurnDownChart.svelte                                # Диаграмма сгорания
-│       │       │   ├── BurnDownChart.story.svelte                          # Стори для BurnDownChart
-│       │       │   └── index.ts                                            # Экспорт Agile-компонентов
 │       │       ├── canvas/                                                 # Canvas-организмы
 │       │       │   ├── CanvasBoard.svelte                                  # Доска для рисования
 │       │       │   ├── EraserTool.svelte                                   # Инструмент ластик
-│       │       │   ├── PenTool.svelte                                      # Инструмент перо
-│       │       │   └── index.ts                                            # Экспорт Canvas-организмов
-│       │       ├── chat/                                                   # Чат-организмы
-│       │       │   ├── ChatItem.svelte                                     # Элемент чата
-│       │       │   ├── ChatList.svelte                                     # Список чатов
-│       │       │   ├── ChatWindow.svelte                                   # Окно чата
-│       │       │   ├── MessageItem.svelte                                  # Элемент сообщения
-│       │       │   ├── MessageList.svelte                                  # Список сообщений
-│       │       │   └── index.ts                                            # Экспорт чат-организмов
+│       │       │   ├── index.ts                                            # Экспорт Canvas-организмов
+│       │       │   └── PenTool.svelte                                      # Инструмент перо
 │       │       ├── code/                                                   # Код-организмы
 │       │       │   ├── CodeSection.svelte                                  # Секция кода
 │       │       │   ├── DocumentationBlock.svelte                           # Блок документации
 │       │       │   └── index.ts                                            # Экспорт код-организмов
-│       │       ├── data-display/                                           # Организмы отображения данных
-│       │       │   ├── ColumnManager.svelte                                # Менеджер колонок
-│       │       │   ├── DataTable.svelte                                    # Таблица данных
-│       │       │   ├── FlatTree.svelte                                     # Плоское дерево
-│       │       │   ├── FolderTree.svelte                                   # Дерево папок
-│       │       │   ├── Table.svelte                                        # Базовая таблица
-│       │       │   ├── TreeViewer.svelte                                   # Просмотр дерева
-│       │       │   ├── VirtualTree.svelte                                  # Виртуальное дерево
-│       │       │   └── index.ts                                            # Экспорт организмов отображения данных
-│       │       ├── interactive/                                            # Интерактивные компоненты
+│       │       ├── controls/                                               # Контрольные организмы
 │       │       │   ├── Combobox.svelte                                     # Комбинированный список
 │       │       │   ├── Combobox.story.svelte                               # Стори для Combobox
 │       │       │   ├── ControlPanel.svelte                                 # Панель управления
 │       │       │   ├── ExportPanel.svelte                                  # Панель экспорта
 │       │       │   ├── FilterBar.svelte                                    # Панель фильтра
 │       │       │   ├── FilterBar.story.svelte                              # Стори для FilterBar
-│       │       │   └── index.ts                                            # Экспорт интерактивных компонентов
-│       │       ├── kanban/                                                 # Kanban-компоненты
-│       │       │   ├── KanbanBoard.svelte                                  # Доска Kanban
-│       │       │   ├── KanbanBoard.story.svelte                            # Стори для KanbanBoard
-│       │       │   ├── KanbanColumn.svelte                                 # Колонка Kanban
-│       │       │   ├── KanbanColumn.story.svelte                           # Стори для KanbanColumn
-│       │       │   └── index.ts                                            # Экспорт Kanban-компонентов
-│       │       ├── tables/                                                 # Табличные компоненты
-│       │       │   ├── Table.svelte                                        # Таблица
-│       │       │   ├── TableBody.svelte                                    # Тело таблицы
-│       │       │   ├── TableCell.svelte                                    # Ячейка таблицы
-│       │       │   ├── TableHeader.svelte                                  # Заголовок таблицы
-│       │       │   ├── TableRow.svelte                                     # Строка таблицы
-│       │       │   └── index.ts                                            # Экспорт табличных компонентов
-│       │       └── index.ts                                                # Объединяющий экспорт всех организмов
+│       │       │   ├── index.ts                                            # Экспорт контрольных организмов
+│       │       │   ├── accordion/                                          # Аккордеонные контрольные элементы
+│       │       │   │   ├── Accordion.svelte                                # Аккордеон
+│       │       │   │   ├── AccordionHeader.svelte                          # Заголовок аккордеона
+│       │       │   │   ├── AccordionItem.svelte                            # Элемент аккордеона
+│       │       │   │   ├── AccordionPanel.svelte                           # Панель аккордеона
+│       │       │   │   └── index.ts                                        # Экспорт аккордеонных контрольных элементов
+│       │       │   ├── tables/                                             # Табличные контрольные элементы
+│       │       │   │   ├── ColumnManager.svelte                            # Менеджер колонок
+│       │       │   │   ├── ColumnManager.story.svelte                      # Стори для менеджера колонок
+│       │       │   │   ├── DataTable.svelte                                # Таблица данных
+│       │       │   │   ├── index.ts                                        # Экспорт табличных контрольных элементов
+│       │       │   │   ├── Table.svelte                                    # Таблица
+│       │       │   │   ├── TableBody.svelte                                # Тело таблицы
+│       │       │   │   ├── TableCell.svelte                                # Ячейка таблицы
+│       │       │   │   ├── TableHeader.svelte                              # Заголовок таблицы
+│       │       │   │   └── TableRow.svelte                                 # Строка таблицы
+│       │       │   ├── tabs/                                               # Табличные элементы вкладок
+│       │       │   │   ├── index.ts                                        # Экспорт табличных элементов вкладок
+│       │       │   │   ├── Tab.svelte                                      # Вкладка
+│       │       │   │   ├── TabList.svelte                                  # Список вкладок
+│       │       │   │   ├── TabPanel.svelte                                 # Панель вкладки
+│       │       │   │   ├── TabPanels.svelte                                # Контейнер панелей вкладок
+│       │       │   │   └── Tabs.svelte                                     # Компонент системы вкладок
+│       │       │   └── trees/                                              # Деревья контрольных элементов
+│       │       │       ├── AdvancedVirtualTree.svelte                      # Продвинутое виртуальное дерево
+│       │       │       ├── FlatTree.svelte                                 # Плоское дерево
+│       │       │       ├── FolderTree.svelte                               # Дерево папок
+│       │       │       ├── FolderTree.story.svelte                         # Стори для дерева папок
+│       │       │       ├── index.ts                                        # Экспорт деревьев контрольных элементов
+│       │       │       ├── TreeViewer.svelte                               # Просмотр дерева
+│       │       │       └── VirtualTree.svelte                              # Виртуальное дерево
+│       │       ├── dialogs/                                                # Диалоговые организмы
+│       │       │   ├── ConfirmDialog.svelte                                # Диалог подтверждения
+│       │       │   ├── index.ts                                            # Экспорт диалоговых организмов
+│       │       │   └── Modal.svelte                                        # Модальное окно
+│       │       ├── layout/                                                 # Организмы макета
+│       │       │   ├── index.ts                                            # Экспорт организмов макета
+│       │       │   ├── agile/                                              # Agile-организмы
+│       │       │   │   ├── Backlog.svelte                                  # Бэклог
+│       │       │   │   ├── Backlog.story.svelte                            # Стори для бэклога
+│       │       │   │   ├── BurnDownChart.svelte                            # Диаграмма сгорания
+│       │       │   │   ├── BurnDownChart.story.svelte                      # Стори для диаграммы сгорания
+│       │       │   │   └── index.ts                                        # Экспорт Agile-организмов
+│       │       │   ├── chat/                                               # Чат-организмы
+│       │       │   │   ├── ChatItem.svelte                                 # Элемент чата
+│       │       │   │   ├── ChatList.svelte                                 # Список чатов
+│       │       │   │   ├── ChatWindow.svelte                               # Окно чата
+│       │       │   │   ├── index.ts                                        # Экспорт чат-организмов
+│       │       │   │   ├── MessageItem.svelte                              # Элемент сообщения
+│       │       │   │   └── MessageList.svelte                              # Список сообщений
+│       │       │   └── kanban/                                             # Kanban-организмы
+│       │       │       ├── index.ts                                        # Экспорт Kanban-организмов
+│       │       │       ├── KanbanBoard.svelte                              # Доска Kanban
+│       │       │       ├── KanbanBoard.story.svelte                        # Стори для доски Kanban
+│       │       │       ├── KanbanColumn.svelte                             # Колонка Kanban
+│       │       │       ├── KanbanColumn.story.svelte                       # Стори для колонки Kanban
+│       │       │       └── molecules/                                      # Молекулы Kanban
+│       │       │           ├── index.ts                                    # Экспорт молекул Kanban
+│       │       │           ├── KanbanCard.svelte                           # Карточка Kanban
+│       │       │           └── KanbanCard.story.svelte                     # Стори для карточки Kanban
+│       │       └── navigation/                                             # Навигационные организмы
+│       │           ├── index.ts                                            # Экспорт навигационных организмов
+│       │           ├── breadcrumbs/                                        # Организмы хлебных крошек
+│       │           │   ├── Breadcrumbs.svelte                              # Хлебные крошки
+│       │           │   └── index.ts                                        # Экспорт организмов хлебных крошек
+│       │           └── pagination/                                         # Организмы пагинации
+│       │               ├── index.ts                                        # Экспорт организмов пагинации
+│       │               └── Pagination.svelte                               # Компонент навигации по страницам
 │       ├── playground/                                                     # Интерактивный playground для компонентов
 │       │   ├── components/                                                 # Компоненты интерфейса для playground
 │       │   │   ├── Canvas.svelte                                           # Canvas для playground
 │       │   │   ├── CodeViewer.svelte                                       # Просмотр кода в playground
 │       │   │   ├── ControlPanel.svelte                                     # Панель управления в playground
+│       │   │   ├── index.ts                                                # Экспорт компонентов интерфейса для playground
+│       │   │   ├── MarkdownRenderer.svelte                                 # Рендер Markdown в playground
 │       │   │   ├── Navigator.svelte                                        # Навигатор в playground
 │       │   │   ├── Story.svelte                                            # Компонент для отображения стори
 │       │   │   ├── StoryRoot.svelte                                        # Корневой компонент стори
-│       │   │   └── Toolbar.svelte                                          # Панель инструментов в playground
-│       │   ├── index.ts                                                    # Экспорт компонентов playground
+│       │   │   ├── Toolbar.svelte                                          # Панель инструментов в playground
+│       │   │   └── tree/                                                   # Компоненты дерева в playground
 │       │   ├── stores/                                                     # Хранилища состояния для playground
+│       │   │   ├── index.ts                                                # Экспорт хранилищ состояния для playground
 │       │   │   └── playground.svelte.ts                                    # Хранилище состояния playground
 │       │   ├── types/                                                      # Типы данных для playground
 │       │   │   └── index.ts                                                # Экспорт типов данных для playground
 │       │   └── utils/                                                      # Вспомогательные утилиты для playground
-│       │       └── code-generator.ts                                       # Генератор кода для playground
+│       │       ├── code-generator.ts                                       # Генератор кода для playground
+│       │       ├── index.ts                                                # Экспорт утилит для playground
+│       │       ├── keyboard.ts                                             # Утилиты клавиатуры для playground
+│       │       └── syntax-highlighter.ts                                   # Подсветчик синтаксиса для playground
+│       ├── styles/                                                         # Стили проекта
+│       │   ├── design-tokens.css                                           # Дизайн-токены
+│       │   ├── index.ts                                                    # Экспорт стилей проекта
+│       │   └── variables.css                                               # CSS переменные
 │       ├── types/                                                          # Определения типов TypeScript
 │       │   ├── components.ts                                               # Типы для компонентов
+│       │   ├── design-tokens.ts                                            # Типы для дизайн-токенов
 │       │   ├── form.ts                                                     # Типы для форм
 │       │   ├── index.ts                                                    # Экспорт типов
 │       │   └── table.ts                                                    # Типы для таблиц
@@ -365,6 +549,27 @@ stylist-svelte/
 │       └── index.ts                                                        # Главный файл экспорта библиотеки
 │   └── routes/                                                             # Маршруты SvelteKit
 │       └── +page.svelte                                                    # Главная страница
+├── .gitignore                                                              # Файл исключений для Git
+├── .npmrc                                                                  # Конфигурационный файл для npm/yarn
+├── .prettierignore                                                         # Файлы и директории, игнорируемые Prettier
+├── .prettierrc                                                             # Конфигурация Prettier
+├── .yarnrc.yml                                                             # Конфигурация Yarn
+├── all_atoms.txt                                                           # Список всех атомарных компонентов
+├── analyze_errors.py                                                       # Скрипт для анализа ошибок
+├── component_list.txt                                                      # Список всех компонентов
+├── CONTRIBUTING.md                                                         # Руководство для контрибьюторов
+├── dependencies-diagram.mmd                                                # Диаграмма зависимостей (Mermaid)
+├── full-dependencies-diagram.mmd                                           # Полная диаграмма зависимостей (Mermaid)
+├── index.md                                                                # Основной индексный файл (этот файл)
+├── LICENSE                                                                 # Файл лицензии проекта
+├── missing_stories.txt                                                     # Список компонентов без стори
+├── package.json                                                            # Основной файл зависимостей и скриптов
+├── package.tgz                                                             # Собранный пакет
+├── QWEN.md                                                                 # Контекст для Qwen AI
+├── README.md                                                               # Основная документация проекта
+├── simple-dependencies-diagram.mmd                                         # Простая диаграмма зависимостей (Mermaid)
+├── stories_count.txt                                                       # Количество стори
+├── story_list.txt                                                          # Список стори
 ├── stylist-svelte-v0.1.0.tgz                                               # Архив старой версии
 ├── svelte.config.js                                                        # Конфигурация компилятора Svelte
 ├── tsconfig.json                                                           # Конфигурация TypeScript
@@ -380,21 +585,118 @@ stylist-svelte/
 - **Назначение**: Локальные настройки для инструмента Claude AI
 - **Содержимое**: Конфигурация Claude AI для работы с проектом
 
+#### `.git/`
+- **Назначение**: Служебная директория Git
+- **Содержимое**: Содержит метаданные репозитория, историю коммитов, конфигурацию и другие служебные данные Git
+
+#### `.svelte-kit/`
+- **Назначение**: Временные файлы и артефакты, создаваемые SvelteKit при сборке и разработке
+- **Содержимое**: Генерируемые файлы, типы роутинга, вспомогательные скрипты для выполнения и отладки приложения
+
+#### `.yarn/`
+- **Назначение**: Директория для хранения зависимостей и кэша Yarn
+- **Содержимое**: Кэш пакетов, плагинов и внутренние файлы, используемые Yarn для управления зависимостями
+
+#### `dist/`
+- **Назначение**: Директория с собранными файлами библиотеки
+- **Содержимое**: Скомпилированные и минимизированные файлы, готовые к использованию в других проектах
+
+#### `docs/`
+- **Назначение**: Документация проекта
+- **Содержимое**:
+  - `ad/`: Документация по архитектуре Atomic Design
+  - `adr/`: Архитектурные решения (Architecture Decision Records)
+  - `cookbooks/`: Руководства по работе с проектом
+
+#### `node_modules/`
+- **Назначение**: Директория с установленными зависимостями проекта
+- **Содержимое**: Все зависимости, указанные в package.json, включая прямые и транзитивные зависимости
+
+#### `src/lib/components`
+- **Назначение**: Компоненты пользовательского интерфейса
+- **Содержимое**:
+  - `atoms/`: Атомарные компоненты - базовые строительные блоки интерфейса
+  - `molecules/`: Молекулярные компоненты - комбинации атомов, работающие как единое целое
+  - `organisms/`: Организменные компоненты - сложные структуры из атомов, молекул и других организмов
+
+#### `src/lib/playground`
+- **Назначение**: Интерактивный playground для компонентов
+- **Содержимое**:
+  - `components/`: Компоненты интерфейса для Playground
+  - `stores/`: Файлы с Svelte-хранилищами для управления состоянием Playground
+  - `types/`: TypeScript-типы, используемые в Playground
+  - `utils/`: Функции, используемые в Playground
+
+#### `src/lib/styles`
+- **Назначение**: Стили проекта
+- **Содержимое**: CSS-переменные, дизайн-токены и другие стили, используемые в проекте
+
+#### `src/lib/types`
+- **Назначение**: Определения типов TypeScript
+- **Содержимое**:
+  - `components.ts`: Типы для компонентов
+  - `design-tokens.ts`: Типы для дизайн-токенов
+  - `form.ts`: Типы для форм
+  - `table.ts`: Типы для таблиц
+  - `index.ts`: Объединяющий файл экспорта типов
+
+#### `src/lib/utils`
+- **Назначение**: Вспомогательные функции
+- **Содержимое**:
+  - `clipboard.ts`: Функции для работы с буфером обмена
+  - `debounce.ts`: Утилита для дебаунсинга
+  - `index.ts`: Объединяющий файл экспорта утилит
+
+#### `src/routes`
+- **Назначение**: Маршруты SvelteKit
+- **Содержимое**:
+  - `+page.svelte`: Главная страница приложения
+
+### Основные файлы в корне проекта
+
 #### `.gitignore`
 - **Назначение**: Определяет файлы и директории, которые не должны быть добавлены в репозиторий Git
 - **Содержимое**: Паттерны для игнорирования node_modules/, dist/, .svelte-kit/, .DS_Store и других временных файлов
 
 #### `.npmrc`, `.prettierrc`, `.prettierignore`, `.yarnrc.yml`
 - **Назначение**: Конфигурационные файлы для различных инструментов
-- **Содержимое**: 
+- **Содержимое**:
   - `.npmrc`: Настройки для менеджера пакетов npm/yarn
   - `.prettierrc`: Правила форматирования кода
   - `.prettierignore`: Файлы и директории, игнорируемые Prettier
   - `.yarnrc.yml`: Конфигурация менеджера пакетов Yarn
 
+#### `all_atoms.txt`, `component_list.txt`, `story_list.txt`, `missing_stories.txt`, `stories_count.txt`
+- **Назначение**: Файлы с информацией о компонентах и стори
+- **Содержимое**: Списки компонентов, стори и информации о них
+
+#### `analyze_errors.py`
+- **Назначение**: Скрипт для анализа ошибок
+- **Содержимое**: Python-скрипт для анализа и обработки ошибок в проекте
+
+#### `CONTRIBUTING.md`
+- **Назначение**: Руководство для контрибьюторов
+- **Содержимое**: Инструкции по внесению вклада в проект
+
+#### `dependencies-diagram.mmd`, `full-dependencies-diagram.mmd`, `simple-dependencies-diagram.mmd`
+- **Назначение**: Диаграммы зависимостей
+- **Содержимое**: Mermaid-диаграммы, показывающие зависимости в проекте
+
+#### `index.md`
+- **Назначение**: Основной индексный файл (этот файл)
+- **Содержимое**: Подробное описание структуры проекта
+
 #### `LICENSE`
 - **Назначение**: Лицензия проекта
 - **Содержимое**: Текст лицензии MIT
+
+#### `package.json`
+- **Назначение**: Основной файл зависимостей и скриптов
+- **Содержимое**: Определяет метаданные пакета, зависимости и команды для работы с проектом
+
+#### `package.tgz`, `stylist-svelte-v0.1.0.tgz`
+- **Назначение**: Архивы с собранным пакетом
+- **Содержимое**: Готовые к публикации версии библиотеки
 
 #### `QWEN.md`
 - **Назначение**: Инструкциональный контекст для Qwen AI
@@ -403,29 +705,6 @@ stylist-svelte/
 #### `README.md`
 - **Назначение**: Основная документация проекта
 - **Содержимое**: Информация о проекте, установке, использовании и вкладе
-
-#### `docs/`
-- **Назначение**: Документация проекта
-- **Содержимое**: 
-  - `ad/`: Документация по архитектуре Atomic Design
-  - `adr/`: Архитектурные решения (Architecture Decision Records)
-  - `cookbooks/`: Руководства по работе с проектом
-
-#### `package.json`
-- **Назначение**: Основной файл зависимостей и скриптов
-- **Содержимое**: Определяет метаданные пакета, зависимости и команды для работы с проектом
-
-#### `package.tgz`
-- **Назначение**: Собранный пакет
-- **Содержимое**: Архив с собранными файлами библиотеки
-
-#### `src/`
-- **Назначение**: Исходный код библиотеки компонентов
-- **Содержимое**: Все исходники проекта, включая компоненты, утилиты и типы
-
-#### `stylist-svelte-v0.1.0.tgz`
-- **Назначение**: Архив старой версии
-- **Содержимое**: Архив с версией 0.1.0 библиотеки
 
 #### `svelte.config.js`
 - **Назначение**: Конфигурация компилятора Svelte
@@ -442,94 +721,6 @@ stylist-svelte/
 #### `yarn.lock`
 - **Назначение**: Блокировка версий зависимостей
 - **Содержимое**: Файл с точными версиями всех зависимостей
-
-### Папка src/lib/components
-
-#### `atoms/`
-- **Назначение**: Атомарные компоненты - базовые строительные блоки интерфейса
-- **Содержимое**: 
-  - `animation/`: Анимационные компоненты (например, NumberFlow)
-  - `chat/`: Компоненты для чата (ChatStatusIndicator, MessageStatus, MessageTimestamp)
-  - `controls/`: Контрольные элементы (Button, Checkbox, Radio, RangeSlider, Select, Switch, Toggle)
-  - `feedback/`: Компоненты обратной связи (Alert)
-  - `input/`: Компоненты ввода (Input, Textarea)
-  - `layout/`: Компоненты макета (Divider)
-  - `media/`: Медиа компоненты (Avatar, Icon)
-  - `placeholders/`: Компоненты-заполнители (Skeleton, TableSkeleton)
-  - `process/`: Компоненты процессов (ProgressBar, Spinner)
-  - `typography/`: Типографские компоненты (Badge, Chip, CodeBlock, InlineCode, Kbd, Label, Link, Tag)
-
-#### `molecules/`
-- **Назначение**: Молекулярные компоненты - комбинации атомов, работающие как единое целое
-- **Содержимое**: 
-  - `canvas/`: Canvas-молекулы
-  - `chat/`: Компоненты для чата (ChatHeader, MessageInput)
-  - `code/`: Компоненты для работы с кодом (CodeWithCopy, SyntaxHighlightedCode)
-  - `controls/`: Контролы (NumberFlow, RadioGroup)
-  - `data-display/`: Компоненты отображения данных (DataTable, StatsCard)
-  - `feedback/`: Компоненты обратной связи
-  - `forms/`: Компоненты форм (FormFieldGroup, FormSection)
-  - `graph/`: Графовые компоненты
-  - `navigation/`: Навигационные компоненты (Breadcrumb, DropdownMenu)
-  - `search/`: Компоненты поиска (SearchBar)
-  - `tools/`: Инструменты (ButtonGroup, FilterPanel)
-  - `tooltips/`: Подсказки (Tooltip)
-  - `visualization/`: Компоненты визуализации
-
-#### `organisms/`
-- **Назначение**: Организменные компоненты - сложные структуры из атомов, молекул и других организмов
-- **Содержимое**: 
-  - `Accordion/`: Компоненты аккордеона
-  - `Tabs/`: Компоненты вкладок
-  - `agile/`: Agile-компоненты (Backlog, BurnDownChart)
-  - `canvas/`: Canvas-организмы
-  - `chat/`: Чат-организмы
-  - `code/`: Код-организмы
-  - `data-display/`: Компоненты отображения данных
-  - `interactive/`: Интерактивные компоненты
-  - `kanban/`: Kanban-компоненты
-  - `tables/`: Табличные компоненты
-
-### Папка src/lib/playground
-
-#### `components/`
-- **Назначение**: Компоненты интерфейса для Playground
-- **Содержимое**: Компоненты для интерактивного тестирования компонентов
-
-#### `stores/`
-- **Назначение**: Хранилища состояния для Playground
-- **Содержимое**: Файлы с Svelte-хранилищами для управления состоянием Playground
-
-#### `types/`
-- **Назначение**: Типы данных для Playground
-- **Содержимое**: TypeScript-типы, используемые в Playground
-
-#### `utils/`
-- **Назначение**: Вспомогательные утилиты для Playground
-- **Содержимое**: Функции, используемые в Playground (например, code-generator.ts)
-
-### Папка src/lib/types
-
-#### Назначение: Определения типов TypeScript
-- **Содержимое**: 
-  - `components.ts`: Типы для компонентов
-  - `form.ts`: Типы для форм
-  - `table.ts`: Типы для таблиц
-  - `index.ts`: Объединяющий файл экспорта типов
-
-### Папка src/lib/utils
-
-#### Назначение: Вспомогательные функции
-- **Содержимое**: 
-  - `clipboard.ts`: Функции для работы с буфером обмена
-  - `debounce.ts`: Утилита для дебаунсинга
-  - `index.ts`: Объединяющий файл экспорта утилит
-
-### Папка src/routes
-
-#### Назначение: Маршруты SvelteKit
-- **Содержимое**: 
-  - `+page.svelte`: Главная страница приложения
 
 ## Сборка и запуск проекта
 

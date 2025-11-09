@@ -20,7 +20,7 @@
 </script>
 
 <!-- Placeholder for graph edge implementation -->
-<div class="graph-edge" style={Object.entries(style).map(([key, value]) => `${key}:${value}`).join(';')}>
+<div class="graph-edge {directed ? 'directed' : ''}" style={Object.entries(style).map(([key, value]) => `${key}:${value}`).join(';')}>
   {fromNodeId} to {toNodeId}
 </div>
 

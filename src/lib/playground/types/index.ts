@@ -48,6 +48,7 @@ export interface StoryConfig {
   code?: string;
   category?: string;
   tags?: string[];
+  docs?: string; // Markdown documentation
 }
 
 export interface PlaygroundState {

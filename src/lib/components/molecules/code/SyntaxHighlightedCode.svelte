@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import CodeBlock from '../../atoms/typography/CodeBlock.svelte';
+  import CodeBlock from '../../atoms/typography/elements/CodeBlock.svelte';
 
   type SyntaxHighlightedCodeVariant = 'default' | 'terminal' | 'diff';
   type SyntaxHighlightedCodeSize = 'sm' | 'md' | 'lg';

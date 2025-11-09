@@ -1,7 +1,3 @@
-/**
- * Organism Dialog Components
- * @module components/organisms/dialogs
- */
-
-export { default as Modal } from './Modal.svelte';
+// stylist-coder-model auto-generated exports for dialogs
 export { default as ConfirmDialog } from './ConfirmDialog.svelte';
+export { default as Modal } from './Modal.svelte';

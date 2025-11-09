@@ -8,7 +8,7 @@
     lastSeen?: Date;
   }
 
-  import ChatStatusIndicator from '../../atoms/chat/ChatStatusIndicator.svelte';
+  import ChatStatusIndicator from './atoms/ChatStatusIndicator.svelte';
 
   // Props
   let { 
