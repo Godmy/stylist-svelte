@@ -4,9 +4,10 @@
 export * from './components';
 
 // Other exports
+export * from './playground';
 export * from './styles';
 export * from './types';
 export * from './utils';
 
-// Playground exports are provided under a namespace to avoid naming conflicts
-export * as Playground from './playground';
+// Root exports
+export * from './playground';

@@ -1,6 +1,6 @@
 // stylist-coder-model auto-generated exports for tables
 export { default as ColumnManager } from './ColumnManager.svelte';
-export { default as DataTable } from './DataTable.svelte';
+export { default as PaginationTable } from './PaginationTable.svelte';
 export { default as Table } from './Table.svelte';
 export { default as TableBody } from './TableBody.svelte';
 export { default as TableCell } from './TableCell.svelte';

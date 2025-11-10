@@ -1,7 +1,7 @@
 // Playground components for documentation and development
 export { default as Story } from './playground/components/Story.svelte';
-export { default as ControlPanel } from './playground/components/ControlPanel.svelte';
-export { default as Toolbar } from './playground/components/Toolbar.svelte';
+export { default as PlaygroundControlPanel } from './playground/components/PlaygroundControlPanel.svelte';
+export { default as PlaygroundToolbar } from './playground/components/PlaygroundToolbar.svelte';
 export { default as Canvas } from './playground/components/Canvas.svelte';
 export { default as CodeViewer } from './playground/components/CodeViewer.svelte';
 export { default as MarkdownRenderer } from './playground/components/MarkdownRenderer.svelte';

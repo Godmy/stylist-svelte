@@ -4,8 +4,8 @@
   import { registerShortcut, initKeyboardShortcuts, deinitKeyboardShortcuts, isInputElement, ShortcutHelpers } from '../utils/keyboard';
   import Navigator from './Navigator.svelte';
   import Canvas from './Canvas.svelte';
-  import Toolbar from './Toolbar.svelte';
-  import ControlPanel from './ControlPanel.svelte';
+  import PlaygroundToolbar from './PlaygroundToolbar.svelte';
+  import PlaygroundControlPanel from './PlaygroundControlPanel.svelte';
   import CodeViewer from './CodeViewer.svelte';
 
   type Props = {
@@ -89,7 +89,7 @@
         <h1 class="text-lg font-semibold">{title}</h1>
       </div>
 
-      <Toolbar />
+      <PlaygroundToolbar />
     </header>
 
     <div class="flex flex-1 overflow-hidden">
@@ -118,7 +118,7 @@
           {/if}
 
           {#if controlsOpen && !showCode}
-            <ControlPanel />
+            <PlaygroundControlPanel />
           {/if}
         </div>
       </main>

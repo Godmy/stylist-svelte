@@ -64,7 +64,7 @@
     }
     
     return lines;
-  })();
+  }) as () => DiffLine[];
 </script>
 
 <div class={`code-diff rounded-lg border border-gray-200 overflow-hidden ${hostClass}`} {...restProps}>
@@ -75,7 +75,7 @@
   <div class="flex">
     {#if showLineNumbers}
       <div class="w-16 bg-gray-100 text-right select-none text-gray-500 text-sm py-2">
-        {#each diffLines as line, index}
+        {#each diffLines() as line, index}
           <div class="pr-2">{line.lineNumber}</div>
         {/each}
       </div>
@@ -83,7 +83,7 @@
 
     <div class={`flex-1 overflow-x-auto ${contentClass}`}>
       <div class="text-sm">
-        {#each diffLines as line}
+        {#each diffLines() as line}
           {#if line.type === 'unchanged'}
             <div class="px-4 py-1 bg-white">
               <span class="text-gray-700">{line.original}</span>
