@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import SearchBar from './SearchBar.svelte';
+  import SearchBar from '../../search/SearchBar.svelte';
 
-  const list = [
+  const destinations = [
     'Dashboard overview',
     'Team members',
     'Billing settings',
@@ -24,7 +24,7 @@
     {
       name: 'placeholder',
       type: 'text',
-      defaultValue: 'Search settings…'
+      defaultValue: 'Search settings...'
     },
     {
       name: 'debounceMs',
@@ -39,13 +39,13 @@
   let query = $state('');
 
   const filtered = $derived(() => {
-    if (!query) return list;
+    if (!query) return destinations;
     const lower = query.toLowerCase();
-    return list.filter((item) => item.toLowerCase().includes(lower));
+    return destinations.filter((item) => item.toLowerCase().includes(lower));
   });
 
-  function handleSearch(query: string) {
-    // Update query state with the new search value
+  function handleSearch(value: string) {
+    query = value;
   }
 </script>
 
@@ -54,7 +54,7 @@
   title="SearchBar"
   component={SearchBar}
   category="Molecules"
-  description="Debounced search input with clear button."
+  description="Debounced search input with clear and submit actions."
   tags={['search', 'input', 'filter']}
   controls={controls}
 >
@@ -65,12 +65,12 @@
         bind:value={query}
         placeholder={props.placeholder}
         debounceMs={props.debounceMs}
-        on:search={(e) => handleSearch(e.detail.query)}
+        on:search={(event) => handleSearch(event.detail.query)}
       />
 
       <div class="rounded-lg border border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-700">
         <div class="px-4 py-2 border-b border-gray-200 dark:border-gray-700 text-sm text-gray-600 dark:text-gray-300">
-          {query ? `Results for “${query}”` : 'Recent destinations'}
+          {query ? `Results for "${query}"` : 'Recent destinations'}
         </div>
         <ul class="divide-y divide-gray-200 dark:divide-gray-800">
           {#if results.length > 0}

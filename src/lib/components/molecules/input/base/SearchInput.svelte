@@ -1,72 +1,177 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from 'svelte/elements';
+  import { Search, X } from 'lucide-svelte';
+  import { createEventDispatcher } from 'svelte';
+
+  type Size = 'sm' | 'md' | 'lg';
 
   type Props = {
-    value?: string;
     placeholder?: string;
+    value?: string;
+    loading?: boolean;
     disabled?: boolean;
+    size?: Size;
     clearable?: boolean;
-  } & HTMLInputAttributes;
+    class?: string;
+  } & Omit<HTMLInputAttributes, 'size'>;
 
   let {
-    value = '',
     placeholder = 'Search...',
+    value = $bindable(''),
+    loading = false,
     disabled = false,
+    size = 'md',
     clearable = true,
+    class: className = '',
     ...restProps
   }: Props = $props();
 
-  let internalValue = $state(value);
+  const dispatch = createEventDispatcher<{
+    input: { value: string };
+    change: { value: string };
+    clear: Record<string, never>;
+  }>();
 
-  // Update internal value when prop value changes
+  let internalValue = $state(value);
+  let focused = $state(false);
+
+  const sizeClasses: Record<Size, string> = {
+    sm: 'h-8 text-sm',
+    md: 'h-10 text-base',
+    lg: 'h-12 text-lg'
+  };
+
   $effect(() => {
-    internalValue = value || '';
+    if (value !== internalValue) {
+      internalValue = value ?? '';
+    }
   });
 
-  // Handle input change
-  function handleInput(e: Event) {
-    const target = e.target as HTMLInputElement;
+  function handleInput(event: Event) {
+    const target = event.target as HTMLInputElement;
     internalValue = target.value;
-    // Dispatch event to notify parent of change
-    const event = new CustomEvent('valueChange', { detail: { value: target.value } });
-    dispatchEvent(event);
+    value = internalValue;
+    dispatch('input', { value: internalValue });
+    dispatch('change', { value: internalValue });
   }
 
-  // Clear the input
   function clearInput() {
+    if (!clearable) return;
+
     internalValue = '';
-    // Dispatch event to notify parent of change
-    const event = new CustomEvent('valueChange', { detail: { value: '' } });
-    dispatchEvent(event);
+    value = '';
+    dispatch('input', { value: '' });
+    dispatch('change', { value: '' });
+    dispatch('clear', {});
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && internalValue) {
+      clearInput();
+    }
   }
 </script>
 
-<div class="relative">
+<div class={`search-input ${className} ${disabled ? 'is-disabled' : ''} ${focused ? 'is-focused' : ''}`}>
+  <div class="search-input__icon">
+    <Search class="h-4 w-4" aria-hidden="true" />
+  </div>
+
   <input
     type="text"
+    class={`search-input__field ${sizeClasses[size]}`}
     bind:value={internalValue}
-    oninput={handleInput}
     placeholder={placeholder}
     disabled={disabled}
-    class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+    oninput={handleInput}
+    onkeydown={handleKeydown}
+    onfocus={() => (focused = true)}
+    onblur={() => (focused = false)}
     {...restProps}
   />
-  <div class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-    <!-- Using a search icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-    </svg>
-  </div>
-  {#if clearable && internalValue && !disabled}
+
+  {#if loading}
+    <div class="search-input__spinner" aria-hidden="true"></div>
+  {:else if clearable && internalValue && !disabled}
     <button
       type="button"
-      class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+      class="search-input__clear"
       onclick={clearInput}
-      aria-label="Clear search"
+      aria-label="Clear search input"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-      </svg>
+      <X class="h-4 w-4" aria-hidden="true" />
     </button>
   {/if}
 </div>
+
+<style>
+  .search-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    background-color: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .search-input.is-focused {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+
+  .search-input.is-disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+  }
+
+  .search-input__icon {
+    display: flex;
+    align-items: center;
+    color: #94a3b8;
+  }
+
+  .search-input__field {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    color: inherit;
+  }
+
+  .search-input__field:focus {
+    outline: none;
+  }
+
+  .search-input__clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.125rem;
+    color: #94a3b8;
+    border-radius: 0.25rem;
+  }
+
+  .search-input__clear:hover {
+    color: #475569;
+    background-color: rgba(148, 163, 184, 0.15);
+  }
+
+  .search-input__spinner {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 9999px;
+    border: 2px solid #cbd5e1;
+    border-top-color: #6366f1;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

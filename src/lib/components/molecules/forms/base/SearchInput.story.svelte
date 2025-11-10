@@ -1,9 +1,7 @@
 <script lang="ts">
-  import SearchInput from './SearchInput.svelte';
-  import { onMount } from 'svelte';
+  import SearchInput from '../../input/base/SearchInput.svelte';
 
-  let searchValue = '';
-  let loading = false;
+  let searchValue = $state('');
 </script>
 
 <div class="p-4 space-y-6">
@@ -12,7 +10,7 @@
   <div class="space-y-4">
     <div>
       <h2 class="font-semibold mb-2">Default</h2>
-      <SearchInput value={searchValue} oninput={(e: Event) => searchValue = (e.target as HTMLInputElement).value} />
+      <SearchInput bind:value={searchValue} />
     </div>
     
     <div>
@@ -22,11 +20,7 @@
     
     <div>
       <h2 class="font-semibold mb-2">Loading State</h2>
-      <SearchInput
-        value={searchValue}
-        loading
-        oninput={(e: Event) => searchValue = (e.target as HTMLInputElement).value}
-      />
+      <SearchInput bind:value={searchValue} loading />
     </div>
     
     <div>

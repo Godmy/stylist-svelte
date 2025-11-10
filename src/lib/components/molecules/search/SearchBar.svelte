@@ -1,59 +1,146 @@
 <script lang="ts">
+  import Button from '$lib/components/atoms/controls/buttons/Button.svelte';
   import { debounce } from '$lib/utils/debounce';
+  import { createEventDispatcher } from 'svelte';
   import { Search, X } from 'lucide-svelte';
 
   type Props = {
-    value: string;
-    onchange: (value: string) => unknown;
     placeholder?: string;
+    value?: string;
+    disabled?: boolean;
     debounceMs?: number;
     class?: string;
   };
 
   let {
-    value = $bindable(),
-    onchange,
-    placeholder = 'Search...',
+    placeholder = 'Search nodes...',
+    value = $bindable(''),
+    disabled = false,
     debounceMs = 300,
     class: className = ''
   }: Props = $props();
 
-  const debouncedOnChange = debounce(onchange, debounceMs);
+  const dispatch = createEventDispatcher<{
+    search: { query: string };
+    clear: Record<string, never>;
+  }>();
 
-  function handleInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    value = target.value;
-    debouncedOnChange(target.value);
+  let searchTerm = $state(value);
+
+  $effect(() => {
+    if (value !== searchTerm) {
+      searchTerm = value ?? '';
+    }
+  });
+
+  const debouncedSearch = debounce((query: string) => {
+    dispatch('search', { query });
+  }, debounceMs);
+
+  function handleInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    searchTerm = target.value;
+    value = searchTerm;
+    debouncedSearch(searchTerm);
   }
 
-  function clearSearch() {
+  function handleClear() {
+    searchTerm = '';
     value = '';
-    onchange('');
+    dispatch('clear', {});
+    dispatch('search', { query: '' });
+  }
+
+  function triggerSearch() {
+    dispatch('search', { query: searchTerm });
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      triggerSearch();
+    }
+    if (event.key === 'Escape' && searchTerm) {
+      handleClear();
+    }
   }
 </script>
 
-<div class="relative {className}">
-  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    <Search class="h-5 w-5 text-gray-400" />
+<div class={`search-bar ${className}`}>
+  <div class="search-icon">
+    <Search class="h-5 w-5" aria-hidden="true" />
   </div>
+
   <input
-    type="search"
-    {value}
-    {placeholder}
-    class="block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+    id="search-bar-input"
+    type="text"
+    class="search-input"
+    bind:value={searchTerm}
+    placeholder={placeholder}
+    disabled={disabled}
     oninput={handleInput}
-    aria-label="Search"
+    onkeydown={handleKeydown}
+    aria-label="Search input"
   />
-  {#if value}
-    <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-      <button
-        type="button"
-        onclick={clearSearch}
-        class="text-gray-400 hover:text-gray-500 focus:outline-none"
+
+  <div class="search-controls">
+    {#if searchTerm && !disabled}
+      <Button
+        size="sm"
+        variant="ghost"
+        class="icon-button"
+        onclick={handleClear}
         aria-label="Clear search"
       >
-        <X class="h-5 w-5" />
-      </button>
-    </div>
-  {/if}
+        <X class="h-4 w-4" aria-hidden="true" />
+      </Button>
+    {/if}
+    <Button
+      size="sm"
+      variant="secondary"
+      class="icon-button"
+      onclick={triggerSearch}
+      disabled={disabled}
+    >
+      Search
+    </Button>
+  </div>
 </div>
+
+<style>
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+  }
+
+  .search-icon {
+    display: flex;
+    align-items: center;
+    color: #94a3b8;
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.4rem 0.25rem;
+    font-size: 0.9375rem;
+    background: transparent;
+  }
+
+  .search-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .icon-button :global(svg) {
+    width: 1rem;
+    height: 1rem;
+  }
+</style>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { SearchBar } from '../../molecules/forms';
+  import { SearchBar } from '../../molecules/search';
   import { FilterPanel } from '../../molecules/tools';
   import { Toolbar } from '../../molecules/tools';
 
