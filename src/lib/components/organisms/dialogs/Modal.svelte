@@ -20,7 +20,7 @@
    * @param {any} [footerContent] - Snippet content to render in the modal footer
    * @returns {HTMLElement} An accessible modal dialog with proper focus management
    */
-  type Snippet = any; // Placeholder for now
+  import type { Snippet } from 'svelte';
 
   type Props = {
     isOpen: boolean;

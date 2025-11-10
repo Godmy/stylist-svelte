@@ -13,6 +13,7 @@ export * from './dashboard';
 export * from './data-display';
 export * from './drag-drop';
 export * from './feedback';
+export * from './file-management';
 export * from './forms';
 export * from './graph';
 export * from './input';

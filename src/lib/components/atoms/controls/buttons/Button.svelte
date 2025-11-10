@@ -15,7 +15,7 @@
    * @param content - Snippet content for the button (if not using default text content)
    * @returns An accessible, styled button element
    */
-  type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
+  type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link' | 'outline';
   type ButtonSize = 'sm' | 'md' | 'lg';
 
   type Props = {
@@ -46,7 +46,8 @@
     warning: 'bg-[--color-warning-500] hover:bg-[--color-warning-600] text-[--color-text-inverse]',
     danger: 'bg-[--color-danger-600] hover:bg-[--color-danger-700] text-[--color-text-inverse]',
     ghost: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-text-primary] border border-[--color-border-primary] dark:hover:bg-[--color-secondary-700] dark:text-[--color-text-inverse] dark:border-[--color-border-primary]',
-    link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline dark:hover:bg-[--color-secondary-700] dark:text-[--color-primary-400]'
+    link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline dark:hover:bg-[--color-secondary-700] dark:text-[--color-primary-400]',
+    outline: 'bg-transparent border border-[--color-primary-600] text-[--color-primary-600] hover:bg-[--color-primary-50] dark:border-[--color-primary-400] dark:text-[--color-primary-400] dark:hover:bg-[--color-secondary-700]'
   }[variant]);
 
   let sizeClasses = $derived({
