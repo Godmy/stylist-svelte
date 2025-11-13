@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { AlertTriangle, RotateCcw } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { File, Folder, Archive, Download, Eye, Search, ChevronRight, ChevronDown, Copy, ExternalLink } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Input from '../../atoms/input/base/Input.svelte';
 
   type ZipEntryType = 'file' | 'directory';

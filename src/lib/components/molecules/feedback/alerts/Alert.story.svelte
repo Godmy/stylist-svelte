@@ -20,7 +20,7 @@
     icon: true,
   };
 
-  $: controls = {
+  const controls = {
     variant: {
       control: { type: 'select' },
       options: ['info', 'success', 'warning', 'error'],

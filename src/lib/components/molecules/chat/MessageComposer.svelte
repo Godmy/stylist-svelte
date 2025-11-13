@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Paperclip, Mic, Send } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import { createEventDispatcher } from 'svelte';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;

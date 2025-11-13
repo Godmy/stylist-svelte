@@ -3,8 +3,8 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let content = 'Это подсказка';
-  let position: 'top' | 'right' | 'bottom' | 'left' = 'top';
+  let content = $state('Это подсказка');
+  let position: 'top' | 'right' | 'bottom' | 'left' = $state('top');
 
   const controls: ControlConfig[] = [
     { name: 'content', type: 'text', defaultValue: 'Это подсказка' },

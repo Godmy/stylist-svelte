@@ -60,9 +60,34 @@
     };
   });
 
+  // Track props changes to detect if we need to re-sync
+  let lastProps = $state({
+    id, title, component, category,
+    controls: JSON.stringify(controls),
+    tags: JSON.stringify(tags),
+    docs
+  });
+
+  // Track dependencies manually to avoid infinite loop
   $effect(() => {
     if (!mounted) return;
-    syncStory();
+
+    // Check if any tracked props actually changed
+    const currentProps = {
+      id, title, component, category,
+      controls: JSON.stringify(controls),
+      tags: JSON.stringify(tags),
+      docs
+    };
+
+    const hasChanged = Object.keys(currentProps).some(
+      key => currentProps[key as keyof typeof currentProps] !== lastProps[key as keyof typeof lastProps]
+    );
+
+    if (hasChanged) {
+      lastProps = currentProps;
+      syncStory();
+    }
   });
 </script>
 

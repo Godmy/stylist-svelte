@@ -12,7 +12,7 @@
     class: '',
   };
 
-  $: controls = {
+  const controls = {
     orientation: {
       control: { type: 'select' },
       options: ['horizontal', 'vertical'],

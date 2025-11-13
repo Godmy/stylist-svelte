@@ -1,6 +1,6 @@
 <script lang="ts">
   import KanbanCard from '../kanban/molecules/KanbanCard.svelte';
-  import Button from '../../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Badge from '../../../atoms/typography/elements/Badge.svelte';
   import Input from '../../../atoms/input/base/Input.svelte';
   import Select from '../../../atoms/controls/selectors/Select.svelte';

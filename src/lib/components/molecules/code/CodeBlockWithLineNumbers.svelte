@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Copy, Check } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

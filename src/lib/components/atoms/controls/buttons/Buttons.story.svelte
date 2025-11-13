@@ -6,9 +6,9 @@
   type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
   type ButtonSize = 'sm' | 'md' | 'lg';
 
-  let variant: ButtonVariant = 'primary';
-  let size: ButtonSize = 'md';
-  let disabled = false;
+  let variant: ButtonVariant = $state('primary');
+  let size: ButtonSize = $state('md');
+  let disabled = $state(false);
 
   // Define controls for the playground
   const controls: ControlConfig[] = [

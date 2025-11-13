@@ -1,13 +1,13 @@
 // stylist-coder-model auto-generated exports for data-display
 export { default as AvatarGroup } from './AvatarGroup.svelte';
 export { default as BadgeGroup } from './BadgeGroup.svelte';
-export { default as Card } from './Card.svelte';
 export { default as CardSkeleton } from './CardSkeleton.svelte';
 export { default as CardWithImage } from './CardWithImage.svelte';
 export { default as ComparisonTable } from './ComparisonTable.svelte';
+export { default as DataDisplayCard } from './DataDisplayCard.svelte';
 export { default as DataTable } from './DataTable.svelte';
 export { default as ExpandableCard } from './ExpandableCard.svelte';
-export { default as ExpandableTableRow } from './ExpandableTableRow.svelte';
+export { default as AnimatedExpandableTableRow } from './AnimatedExpandableTableRow.svelte';
 export { default as ImageGallery } from './ImageGallery.svelte';
 export { default as ListWithAvatars } from './ListWithAvatars.svelte';
 export { default as ProgressBarWithLabel } from './ProgressBarWithLabel.svelte';

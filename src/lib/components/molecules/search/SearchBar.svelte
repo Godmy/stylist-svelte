@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from '$lib/components/atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import { debounce } from '$lib/utils/debounce';
   import { createEventDispatcher } from 'svelte';
   import { Search, X } from 'lucide-svelte';

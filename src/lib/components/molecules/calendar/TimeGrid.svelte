@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Clock, MapPin, User, MoreHorizontal, ChevronLeft, ChevronRight } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
 
   type CalendarEvent = {
     id: string;

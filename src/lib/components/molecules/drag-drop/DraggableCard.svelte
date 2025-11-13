@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { GripVertical, MoreHorizontal } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
-  import Card from '../data-display/Card.svelte';
+  import { Button } from '$lib/components/atoms';
+  import BaseCard from '../card/BaseCard.svelte';
 
   type CardData = {
     id: string;
@@ -96,7 +96,7 @@
   ondragend={handleDragEnd}
   {...restProps}
 >
-  <Card
+  <BaseCard
     bodyClass={bodyClass}
     headerClass={headerClass}
   >
@@ -143,5 +143,5 @@
         {/if}
       </div>
     {/if}
-  </Card>
+  </BaseCard>
 </div>

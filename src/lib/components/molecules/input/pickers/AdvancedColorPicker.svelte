@@ -100,7 +100,7 @@
 </script>
 
 <div class="relative inline-block" {...restProps}>
-  <button 
+  <button
     type="button"
     class="flex items-center border border-gray-300 rounded-md px-3 py-2 min-w-[140px] cursor-pointer"
     onclick={() => !disabled && (isOpen = !isOpen)}
@@ -113,14 +113,14 @@
     disabled={disabled}
     aria-label={disabled ? 'Color picker disabled' : 'Open color picker'}
   >
-    <div 
-      class="w-6 h-6 rounded border border-gray-300 mr-2" 
+    <div
+      class="w-6 h-6 rounded border border-gray-300 mr-2"
       style="background-color: {internalValue}"
     ></div>
     {#if showInput}
-      <input 
-        type="text" 
-        bind:value={internalValue} 
+      <input
+        type="text"
+        bind:value={internalValue}
         class="outline-none bg-transparent"
         disabled={disabled}
         onchange={() => handleValueChange(internalValue)}
@@ -131,7 +131,7 @@
   {#if isOpen && !disabled}
     <div class="absolute top-full left-0 mt-2 p-3 bg-white border border-gray-200 rounded-md shadow-lg z-20">
       <!-- Saturation/Lightness picker -->
-      <div 
+      <div
         class="w-48 h-32 rounded mb-2 relative border border-gray-200"
         style="background: linear-gradient(to right, #fff, hsl({hue}, 100%, 50%));"
         onmousedown={handleSatLightChange}
@@ -142,7 +142,7 @@
         aria-valuemax="100"
         aria-label="Saturation and lightness picker"
       >
-        <div 
+        <div
           class="absolute w-3 h-3 rounded-full border border-white cursor-pointer"
           style="
             background-color: {internalValue};
@@ -170,20 +170,20 @@
       </div>
 
       <!-- Hue slider -->
-      <input 
-        type="range" 
-        min="0" 
-        max="360" 
-        bind:value={hue} 
+      <input
+        type="range"
+        min="0"
+        max="360"
+        bind:value={hue}
         class="w-full h-3 accent-transparent cursor-pointer"
         style="
-          background: linear-gradient(to right, 
-          rgb(255, 0, 0) 0%, 
-          rgb(255, 255, 0) 17%, 
-          rgb(0, 255, 0) 33%, 
-          rgb(0, 255, 255) 50%, 
-          rgb(0, 0, 255) 67%, 
-          rgb(255, 0, 255) 83%, 
+          background: linear-gradient(to right,
+          rgb(255, 0, 0) 0%,
+          rgb(255, 255, 0) 17%,
+          rgb(0, 255, 0) 33%,
+          rgb(0, 255, 255) 50%,
+          rgb(0, 0, 255) 67%,
+          rgb(255, 0, 255) 83%,
           rgb(255, 0, 0) 100%);
         "
         oninput={handleHueChange}

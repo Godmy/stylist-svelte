@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { GripVertical } from 'lucide-svelte';
-  import Card from '../data-display/Card.svelte';
+  import BaseCard from '../card/BaseCard.svelte';
 
   type DragItem = {
     id: string;
@@ -118,7 +118,7 @@
         ondragend={handleDragEndEvent}
       >
         {#if variant === 'card'}
-          <Card 
+          <BaseCard 
             title={item.title}
             description={item.content}
             class="shadow-none border-0"
@@ -134,7 +134,7 @@
                 <!-- Item-specific actions could go here -->
               </div>
             </div>
-          </Card>
+          </BaseCard>
         {:else}
           <div class="flex items-center p-3">
             <GripVertical class="h-4 w-4 text-gray-400 cursor-move mr-2" />

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import Button from './Button.svelte';
+  import { Button } from '$lib/components/atoms';
 
   const variantOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'] as const;
   const sizeOptions = ['sm', 'md', 'lg'] as const;

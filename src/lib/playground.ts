@@ -7,9 +7,12 @@ export { default as CodeViewer } from './playground/components/CodeViewer.svelte
 export { default as MarkdownRenderer } from './playground/components/MarkdownRenderer.svelte';
 export { default as Navigator } from './playground/components/Navigator.svelte';
 export { default as StoryRoot } from './playground/components/StoryRoot.svelte';
+export { default as PlaygroundSidebar } from './playground/components/PlaygroundSidebar.svelte';
+export { default as BottomPanel } from './playground/components/BottomPanel.svelte';
+export { default as GenericCodeViewer } from './playground/components/GenericCodeViewer.svelte';
 
 // Types for playground
 export type { ControlConfig } from './playground/types/index';
 
 // Store and types for playground
-export { playgroundStore } from './playground/stores/playground.svelte';
+export { playgroundStore, type ViewportSize, type BackgroundType } from './playground/stores/playground.svelte';

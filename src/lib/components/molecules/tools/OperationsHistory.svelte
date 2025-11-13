@@ -4,7 +4,7 @@
     'data-testid'?: string;
   };
   
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Icon from '../../atoms/media/Icon.svelte';
   import Badge from '../../atoms/typography/elements/Badge.svelte';
   

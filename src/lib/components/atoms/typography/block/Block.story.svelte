@@ -3,8 +3,8 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
-  let text = 'Это цитата, которая используется для выделения чужой речи или важной мысли.';
-  let cite = 'Имя автора';
+  let text = $state('Это цитата, которая используется для выделения чужой речи или важной мысли.');
+  let cite = $state('Имя автора');
 
   const controls: ControlConfig[] = [
     { name: 'text', type: 'text', defaultValue: 'Это цитата, которая используется для выделения чужой речи или важной мысли.' },

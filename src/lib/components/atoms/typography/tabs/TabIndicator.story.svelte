@@ -17,7 +17,7 @@
 		{ name: 'color', type: 'select', defaultValue: 'primary', options: [...colorOptions] }
 	];
 
-	let activeTab = 0;
+	let activeTab = $state(0);
 	const tabs = [
 		{ label: 'Tab 1', width: '80px', left: '0px' },
 		{ label: 'Tab 2', width: '90px', left: '90px' },
@@ -43,7 +43,7 @@
 				{#each tabs as tab, i}
 					<button
 						class={`px-4 py-2 text-sm font-medium ${activeTab === i ? 'text-primary-600' : 'text-gray-600'}`}
-						on:click={() => handleClick(i)}
+						onclick={() => handleClick(i)}
 					>
 						{tab.label}
 					</button>

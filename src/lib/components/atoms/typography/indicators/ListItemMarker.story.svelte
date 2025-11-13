@@ -16,7 +16,7 @@
     class: '',
   };
 
-  $: controls = {
+  const controls = {
     type: {
       control: { type: 'select' },
       options: ['bullet', 'number', 'icon'],

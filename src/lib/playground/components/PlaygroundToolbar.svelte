@@ -1,90 +1,180 @@
 <script lang="ts">
-  import { playgroundStore } from '../stores/playground.svelte';
+  import { Monitor, Tablet, Smartphone, Maximize, Grid, Moon, Sun, Sidebar, Download, Copy, Settings } from 'lucide-svelte';
+  import { playgroundStore, type ViewportSize } from '../stores/playground.svelte';
+  import { formatShortcut } from '../utils/keyboard';
 
-  let state = $derived(playgroundStore.state);
-  let darkMode = $derived(state.darkMode);
-  let viewport = $derived(state.viewport);
-  let showCode = $derived(state.showCode);
-  let controlsOpen = $derived(state.controlsOpen);
+  interface Props {
+    componentName?: string;
+    category?: string;
+  }
+
+  let { componentName = '', category = '' }: Props = $props();
+
+  // Reactive state from store
+  let currentViewport = $derived(playgroundStore.state.viewport);
+  let showGrid = $derived(playgroundStore.uiState.showGrid);
+  let darkMode = $derived(playgroundStore.state.darkMode);
+
+  const viewportSizes: { size: ViewportSize; icon: any; label: string; width: string }[] = [
+    { size: 'mobile', icon: Smartphone, label: 'Mobile', width: '375px' },
+    { size: 'tablet', icon: Tablet, label: 'Tablet', width: '768px' },
+    { size: 'desktop', icon: Monitor, label: 'Desktop', width: '1440px' },
+    { size: 'fullscreen', icon: Maximize, label: 'Full', width: '100%' }
+  ];
+
+  function handleViewportChange(size: ViewportSize) {
+    console.log('Changing viewport to:', size);
+    playgroundStore.setViewport(size);
+    console.log('Current viewport:', playgroundStore.state.viewport);
+  }
+
+  function handleToggleGrid() {
+    console.log('Toggling grid. Current:', playgroundStore.uiState.showGrid);
+    playgroundStore.toggleGrid();
+    console.log('After toggle:', playgroundStore.uiState.showGrid);
+  }
+
+  function handleToggleDarkMode() {
+    console.log('Toggling dark mode. Current:', playgroundStore.state.darkMode);
+    playgroundStore.toggleDarkMode();
+    console.log('After toggle:', playgroundStore.state.darkMode);
+  }
+
+  function copyCode() {
+    console.log('Copy code');
+  }
+
+  function downloadScreenshot() {
+    console.log('Download screenshot');
+  }
 </script>
 
-<div class="flex items-center gap-2">
-  <!-- Viewport Controls -->
-  <div class="flex items-center gap-1">
+<div class="toolbar-container h-16 border-b border-gray-200/80 dark:border-gray-700/80 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 backdrop-blur-sm flex items-center justify-between px-6 shadow-sm">
+  <!-- Left: Component info -->
+  <div class="flex items-center gap-4">
     <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700 {viewport === 'mobile' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300' : ''}"
-      onclick={() => playgroundStore.setViewport('mobile')}
-      title="Mobile view"
+      onclick={() => playgroundStore.toggleSidebar()}
+      class="toolbar-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
+      title={`Toggle sidebar (${formatShortcut({ key: '/', ctrl: true })})`}
     >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
+      <Sidebar class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
     </button>
 
-    <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700 {viewport === 'tablet' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300' : ''}"
-      onclick={() => playgroundStore.setViewport('tablet')}
-      title="Tablet view"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    </button>
-
-    <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700 {viewport === 'desktop' ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300' : ''}"
-      onclick={() => playgroundStore.setViewport('desktop')}
-      title="Desktop view"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    </button>
+    {#if componentName}
+      <div class="flex flex-col animate-fade-in">
+        <h1 class="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+          {componentName}
+        </h1>
+        {#if category}
+          <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">
+            {category}
+          </p>
+        {/if}
+      </div>
+    {/if}
   </div>
 
-  <div class="w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
-
-  <!-- View Controls -->
-  <div class="flex items-center gap-1">
-    <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700 {showCode ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300' : ''}"
-      onclick={() => playgroundStore.toggleCode()}
-      title="Toggle code"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    </button>
-
-    <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700 {controlsOpen ? 'bg-indigo-50 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-300' : ''}"
-      onclick={() => playgroundStore.toggleControls()}
-      title="Toggle controls"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-      </svg>
-    </button>
+  <!-- Center: Viewport controls -->
+  <div class="viewport-controls flex items-center gap-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700 rounded-xl p-1.5 shadow-inner">
+    {#each viewportSizes as { size, icon: Icon, label, width }}
+      <button
+        onclick={() => handleViewportChange(size)}
+        class="viewport-button group relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 {currentViewport === size ? 'bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/50 text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-white/80 dark:hover:bg-gray-600/80'}"
+        title={`${label} (${width})`}
+      >
+        <Icon class="w-4 h-4 transition-transform group-hover:rotate-12" />
+        <span class="text-sm font-semibold hidden md:inline">{label}</span>
+        {#if currentViewport === size}
+          <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-400/20 to-purple-400/20 animate-pulse"></div>
+        {/if}
+      </button>
+    {/each}
   </div>
 
-  <div class="w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
-
-  <!-- Theme Toggle -->
-  <div class="flex items-center gap-1">
+  <!-- Right: Actions -->
+  <div class="flex items-center gap-2">
+    <!-- Grid toggle -->
     <button
-      class="p-2 rounded-md hover:bg-gray-100 transition-colors dark:hover:bg-gray-700"
-      onclick={() => playgroundStore.toggleDarkMode()}
-      title="Toggle theme"
+      onclick={handleToggleGrid}
+      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 {showGrid ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/50' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}"
+      title="Toggle grid"
+    >
+      <Grid class={`w-5 h-5 transition-transform group-hover:rotate-90 ${showGrid ? '' : 'text-gray-600 dark:text-gray-400'}`} />
+    </button>
+
+    <!-- Dark mode toggle -->
+    <button
+      onclick={handleToggleDarkMode}
+      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-amber-50 dark:hover:bg-amber-900/30"
+      title={`Toggle dark mode (${formatShortcut({ key: 'd', ctrl: true })})`}
     >
       {#if darkMode}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
+        <Sun class="w-5 h-5 text-amber-500 group-hover:text-amber-600 transition-all group-hover:rotate-180 group-hover:scale-110" />
       {:else}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
+        <Moon class="w-5 h-5 text-indigo-600 group-hover:text-indigo-700 transition-all group-hover:-rotate-12" />
       {/if}
+    </button>
+
+    <!-- Copy code -->
+    <button
+      onclick={copyCode}
+      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-green-50 dark:hover:bg-green-900/30"
+      title={`Copy code (${formatShortcut({ key: 'c', ctrl: true })})`}
+    >
+      <Copy class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors" />
+    </button>
+
+    <!-- Download screenshot -->
+    <button
+      onclick={downloadScreenshot}
+      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-blue-50 dark:hover:bg-blue-900/30"
+      title="Download screenshot"
+    >
+      <Download class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-all group-hover:translate-y-1" />
+    </button>
+
+    <!-- Settings -->
+    <button
+      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-purple-50 dark:hover:bg-purple-900/30"
+      title="Settings"
+    >
+      <Settings class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-all group-hover:rotate-90" />
     </button>
   </div>
 </div>
+
+<style>
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .toolbar-container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .toolbar-container::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  }
+
+  :global(.dark) .toolbar-container::after {
+    background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.2), transparent);
+  }
+</style>

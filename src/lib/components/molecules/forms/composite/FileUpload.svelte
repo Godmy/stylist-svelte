@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import Button from '$lib/components/atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Icon from '$lib/components/atoms/media/Icon.svelte';
   
   type UploadStatus = 'idle' | 'uploading' | 'success' | 'error';

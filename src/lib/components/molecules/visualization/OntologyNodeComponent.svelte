@@ -16,7 +16,7 @@
     attributes?: string[];
     properties?: Record<string, any>;
   }
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Icon from '../../atoms/media/Icon.svelte';
 
   type Props = {

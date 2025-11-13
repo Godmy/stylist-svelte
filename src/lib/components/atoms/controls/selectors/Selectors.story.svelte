@@ -5,11 +5,11 @@
 
   type ColorSwatchSize = number;
 
-  let color = '#3b82f6';
-  let size: ColorSwatchSize = 32;
-  let disabled = false;
-  let value = '';
-  let placeholder = 'Placeholder';
+  let color = $state('#3b82f6');
+  let size: ColorSwatchSize = $state(32);
+  let disabled = $state(false);
+  let value = $state('');
+  let placeholder = $state('Placeholder');
 
   const controls: ControlConfig[] = [
     { name: 'color', type: 'color', defaultValue: '#3b82f6' },

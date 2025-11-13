@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/atoms/media/Icon.svelte';
+	import { Icon } from '$lib/components/atoms';
 	type Status = 'pending' | 'active' | 'completed' | 'error';
 	type Size = 'sm' | 'md' | 'lg';
 

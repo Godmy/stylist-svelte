@@ -3,7 +3,13 @@
  * Using Svelte 5 runes for reactive state
  */
 
-import type { PlaygroundState, StoryConfig } from '../types';
+import type { PlaygroundState, StoryConfig, ControlConfig } from '../types';
+
+export type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
+export type BackgroundType = 'white' | 'gray' | 'dark' | 'transparent';
+
+// Re-export types for convenience
+export type { PlaygroundState, StoryConfig, ControlConfig };
 
 class PlaygroundStore {
   // Core state
@@ -13,7 +19,18 @@ class PlaygroundStore {
     sidebarOpen: true,
     viewport: 'desktop',
     showCode: false,
-    controlsOpen: true
+    controlsOpen: true,
+    bottomTab: 'controls',
+    sidebarTab: 'variants'
+  });
+
+  // Extended UI state for playground
+  uiState = $state({
+    background: 'white' as BackgroundType,
+    showGrid: false,
+    showRulers: false,
+    zoom: 1,
+    bottomPanelOpen: true
   });
 
   // Stories registry
@@ -26,15 +43,22 @@ class PlaygroundStore {
   registerStory(story: StoryConfig) {
     const wasEmpty = this.stories.size === 0;
     const isSameStory = this.state.currentStoryId === story.id;
+    const existingStory = this.stories.get(story.id);
 
-    this.stories.set(story.id, story);
+    // Check if story actually changed - compare stringified version to avoid deep comparison
+    const storyChanged = !existingStory || JSON.stringify(existingStory) !== JSON.stringify(story);
+
+    if (storyChanged) {
+      this.stories.set(story.id, story);
+    }
 
     if (wasEmpty || this.state.currentStoryId === null) {
       this.setCurrentStory(story.id);
       return;
     }
 
-    if (isSameStory) {
+    // Only re-set current story if it's the same story AND it actually changed
+    if (isSameStory && storyChanged) {
       this.setCurrentStory(story.id);
     }
   }
@@ -82,10 +106,6 @@ class PlaygroundStore {
     }
   }
 
-  toggleDarkMode() {
-    this.state.darkMode = !this.state.darkMode;
-  }
-
   toggleSidebar() {
     this.state.sidebarOpen = !this.state.sidebarOpen;
   }
@@ -104,6 +124,72 @@ class PlaygroundStore {
 
   updateControl(name: string, value: any) {
     this.controlValues[name] = value;
+  }
+
+  // Extended UI methods
+  setBackground(bg: BackgroundType) {
+    this.uiState.background = bg;
+  }
+
+  toggleGrid() {
+    this.uiState.showGrid = !this.uiState.showGrid;
+  }
+
+  toggleRulers() {
+    this.uiState.showRulers = !this.uiState.showRulers;
+  }
+
+  setZoom(zoom: number) {
+    this.uiState.zoom = Math.max(0.25, Math.min(2, zoom));
+  }
+
+  zoomIn() {
+    this.setZoom(this.uiState.zoom + 0.1);
+  }
+
+  zoomOut() {
+    this.setZoom(this.uiState.zoom - 0.1);
+  }
+
+  resetZoom() {
+    this.uiState.zoom = 1;
+  }
+
+  toggleBottomPanel() {
+    this.uiState.bottomPanelOpen = !this.uiState.bottomPanelOpen;
+  }
+
+  setBottomTab(tab: 'controls' | 'code' | 'tokens') {
+    this.state.bottomTab = tab;
+  }
+
+  setSidebarTab(tab: 'variants' | 'props' | 'docs' | 'code' | 'a11y') {
+    this.state.sidebarTab = tab;
+  }
+
+  toggleDarkMode() {
+    this.state.darkMode = !this.state.darkMode;
+    if (this.state.darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  init() {
+    // Check for saved theme or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      this.state.darkMode = true;
+      document.documentElement.classList.add('dark');
+    } else if (savedTheme === 'light' || !savedTheme) {
+      this.state.darkMode = false;
+      document.documentElement.classList.remove('dark');
+    }
   }
 
   getCurrentStory(): StoryConfig | undefined {

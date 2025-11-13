@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { Folder, File, Search, Grid, List, Download, Upload, MoreHorizontal, ChevronRight, ChevronDown } from 'lucide-svelte';
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import Input from '../../atoms/input/base/Input.svelte';
 
   type FileType = 'file' | 'folder';

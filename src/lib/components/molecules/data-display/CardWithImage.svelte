@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import Card from './Card.svelte';
+  import Card from './DataDisplayCard.svelte';
 
   type Props = {
     title?: string;

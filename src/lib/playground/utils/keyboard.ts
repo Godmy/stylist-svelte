@@ -153,3 +153,22 @@ export const ShortcutHelpers = {
     action
   })
 };
+
+/**
+ * Format shortcut for display (e.g., "Ctrl+D" or "⌘D" on Mac)
+ */
+export function formatShortcut(config: Omit<KeyboardShortcut, 'description' | 'action'>): string {
+  const isMac = typeof navigator !== 'undefined' && navigator.platform.includes('Mac');
+  const parts: string[] = [];
+
+  if (config.ctrl) parts.push(isMac ? '⌃' : 'Ctrl');
+  if (config.alt) parts.push(isMac ? '⌥' : 'Alt');
+  if (config.shift) parts.push(isMac ? '⇧' : 'Shift');
+  if (config.meta) parts.push(isMac ? '⌘' : 'Win');
+
+  // Capitalize key
+  const key = config.key.length === 1 ? config.key.toUpperCase() : config.key;
+  parts.push(key);
+
+  return parts.join('+');
+}

@@ -16,7 +16,7 @@
     errors: [],
   };
 
-  $: controls = {
+  const controls = {
     id: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
     type: { 

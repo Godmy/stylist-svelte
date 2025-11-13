@@ -58,6 +58,8 @@ export interface PlaygroundState {
   viewport: 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
   showCode: boolean;
   controlsOpen: boolean;
+  bottomTab?: 'controls' | 'code' | 'tokens';
+  sidebarTab?: 'variants' | 'props' | 'docs' | 'code' | 'a11y';
 }
 
 export interface NavigatorItem {

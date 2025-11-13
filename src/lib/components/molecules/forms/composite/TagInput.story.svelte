@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import TagInput from './TagInput.svelte';
+  import SuggestionsTagInput from './SuggestionsTagInput.svelte';
 
   type TagInputStoryProps = {
     label: string;
@@ -34,8 +34,8 @@
 
 <Story
   id="molecules-tag-input"
-  title="TagInput"
-  component={TagInput}
+  title="SuggestionsTagInput"
+  component={SuggestionsTagInput}
   category="Molecules"
   description="Поле для множественного выбора тегов с подсказками."
   tags={['input', 'tags']}
@@ -43,7 +43,7 @@
 >
   {#snippet children(props: TagInputStoryProps)}
     <div class="space-y-6 max-w-lg">
-      <TagInput
+      <SuggestionsTagInput
         id="tag-input-story"
         bind:value={tags}
         suggestions={suggestions}

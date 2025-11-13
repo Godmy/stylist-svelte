@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from '../../atoms/controls/buttons/Button.svelte';
+  import { Button } from '$lib/components/atoms';
   import { createEventDispatcher } from 'svelte';
 
   // Events
