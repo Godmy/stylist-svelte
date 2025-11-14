@@ -1,4 +1,7 @@
-<script module lang="ts">
+<script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
+  import { ChevronRight } from 'lucide-svelte';
+
   export type FolderNode = {
     id: string | number;
     name: string;
@@ -6,11 +9,6 @@
     count?: number;
     disabled?: boolean;
   };
-</script>
-
-<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-  import { ChevronRight } from 'lucide-svelte';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

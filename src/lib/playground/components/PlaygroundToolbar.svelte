@@ -1,19 +1,25 @@
 <script lang="ts">
-  import { Monitor, Tablet, Smartphone, Maximize, Grid, Moon, Sun, Sidebar, Download, Copy, Settings } from 'lucide-svelte';
+  import { Monitor, Tablet, Smartphone, Maximize, Grid, Moon, Sun, Sidebar, Download, Copy, Settings, ChevronRight, Home, ArrowLeft, Bot, Info } from 'lucide-svelte';
   import { playgroundStore, type ViewportSize } from '../stores/playground.svelte';
   import { formatShortcut } from '../utils/keyboard';
 
   interface Props {
     componentName?: string;
     category?: string;
+    subcategory?: string;
+    onInfoClick?: () => void;
   }
 
-  let { componentName = '', category = '' }: Props = $props();
+  let { componentName = '', category = '', subcategory = '', onInfoClick }: Props = $props();
 
   // Reactive state from store
   let currentViewport = $derived(playgroundStore.state.viewport);
   let showGrid = $derived(playgroundStore.uiState.showGrid);
   let darkMode = $derived(playgroundStore.state.darkMode);
+
+  // Get number of controls for current story
+  const currentStory = $derived(playgroundStore.getCurrentStory());
+  const controlsCount = $derived(currentStory?.controls?.length || 0);
 
   const viewportSizes: { size: ViewportSize; icon: any; label: string; width: string }[] = [
     { size: 'mobile', icon: Smartphone, label: 'Mobile', width: '375px' },
@@ -49,27 +55,78 @@
   }
 </script>
 
-<div class="toolbar-container h-16 border-b border-gray-200/80 dark:border-gray-700/80 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 backdrop-blur-sm flex items-center justify-between px-6 shadow-sm">
-  <!-- Left: Component info -->
-  <div class="flex items-center gap-4">
-    <button
-      onclick={() => playgroundStore.toggleSidebar()}
-      class="toolbar-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
-      title={`Toggle sidebar (${formatShortcut({ key: '/', ctrl: true })})`}
-    >
-      <Sidebar class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
-    </button>
+<div class="toolbar-container h-20 border-b border-gray-200/80 dark:border-gray-700/80 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 backdrop-blur-sm flex items-center justify-between px-6 shadow-sm">
+  <!-- Left: Component info with breadcrumbs -->
+  <div class="flex flex-col gap-2 flex-1 min-w-0">
+    <!-- Breadcrumb navigation -->
+    <div class="flex items-center gap-2 text-xs">
+      <button
+        onclick={() => window.history.back()}
+        class="group flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all hover:scale-105 active:scale-95"
+        title="Go back"
+      >
+        <ArrowLeft class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+        <span class="font-medium text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Back</span>
+      </button>
 
+      <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
+
+      <a href="/" class="group flex items-center gap-1 px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+        <Home class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400" />
+        <span class="font-medium text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Home</span>
+      </a>
+
+      {#if category}
+        <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
+        <span class="px-2 py-1 rounded-md font-medium text-gray-700 dark:text-gray-300">{category}</span>
+      {/if}
+
+      {#if subcategory}
+        <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
+        <span class="px-2 py-1 rounded-md font-medium text-gray-700 dark:text-gray-300">{subcategory}</span>
+      {/if}
+    </div>
+
+    <!-- Component name with badges -->
     {#if componentName}
-      <div class="flex flex-col animate-fade-in">
-        <h1 class="text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-          {componentName}
-        </h1>
-        {#if category}
-          <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">
-            {category}
-          </p>
-        {/if}
+      <div class="flex items-center gap-3 animate-fade-in">
+        <button
+          onclick={() => playgroundStore.toggleSidebar()}
+          class="toolbar-button group p-2 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
+          title={`Toggle sidebar (${formatShortcut({ key: '/', ctrl: true })})`}
+        >
+          <Sidebar class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+        </button>
+
+        <div class="flex items-center gap-2">
+          <!-- AI Badge -->
+          <div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border border-purple-200 dark:border-purple-800">
+            <Bot class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+            <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300">AI</span>
+          </div>
+
+          <!-- Component name -->
+          <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+            {componentName}
+          </h1>
+
+          <!-- Category badge -->
+          {#if category}
+            <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+              {category}
+            </span>
+          {/if}
+
+          <!-- Props count badge -->
+          {#if controlsCount > 0}
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-semibold bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800" title="{controlsCount} props available">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+              {controlsCount} {controlsCount === 1 ? 'prop' : 'props'}
+            </span>
+          {/if}
+        </div>
       </div>
     {/if}
   </div>
@@ -93,6 +150,17 @@
 
   <!-- Right: Actions -->
   <div class="flex items-center gap-2">
+    <!-- Component Info -->
+    {#if onInfoClick}
+      <button
+        onclick={onInfoClick}
+        class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
+        title="Component Info"
+      >
+        <Info class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+      </button>
+    {/if}
+
     <!-- Grid toggle -->
     <button
       onclick={handleToggleGrid}

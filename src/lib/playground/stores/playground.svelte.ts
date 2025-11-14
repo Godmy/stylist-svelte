@@ -159,7 +159,7 @@ class PlaygroundStore {
     this.uiState.bottomPanelOpen = !this.uiState.bottomPanelOpen;
   }
 
-  setBottomTab(tab: 'controls' | 'code' | 'tokens') {
+  setBottomTab(tab: 'controls' | 'code' | 'export' | 'shortcuts' | 'actions' | 'variants') {
     this.state.bottomTab = tab;
   }
 

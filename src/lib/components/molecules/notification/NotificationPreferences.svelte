@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Settings, Bell, Mail, Sms, Smartphone, Save, User, Shield } from 'lucide-svelte';
+  import { Settings, Bell, Mail, Smartphone, Save, User, Shield, MessageCircle } from 'lucide-svelte';
+
+  type NotificationChannel = 'email' | 'push' | 'sms' | 'in-app';
 
   type NotificationCategory = {
     id: string;
@@ -50,7 +52,7 @@
     channelClass = '',
     footerClass = '',
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   let prefs = $state<NotificationPreference[]>([...preferences]);
 
@@ -203,7 +205,7 @@
                       on:change={() => togglePreference(category.id, 'sms')}
                     />
                     <label for={`sms-${category.id}`} class="ml-3 text-sm font-medium text-gray-700 flex items-center">
-                      <MessageSquare class="h-4 w-4 mr-1" />
+                      <MessageCircle class="h-4 w-4 mr-1" />
                       SMS
                     </label>
                   </div>

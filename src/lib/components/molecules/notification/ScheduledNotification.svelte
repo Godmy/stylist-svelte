@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Clock, Calendar, Trash2, Edit3, Play, Pause, CheckCircle, AlertCircle } from 'lucide-svelte';
+  import { Clock, Calendar, Trash2, Edit3, Play, Pause, CheckCircle, AlertCircle, XCircle } from 'lucide-svelte';
 
   type ScheduledNotification = {
     id: string;
@@ -38,7 +38,7 @@
     notificationClass = '',
     footerClass = '',
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   // Get notification color based on type
   function getNotificationColor(type: string) {
@@ -65,7 +65,7 @@
   // Get status icon
   function getStatusIcon(status: string) {
     if (status === 'sent') return CheckCircle;
-    if (status === 'cancelled') return X;
+    if (status === 'cancelled') return XCircle;
     return Clock;
   }
 
@@ -104,10 +104,12 @@
         <div class={`p-4 ${isOverdue(notification) ? 'bg-red-50' : ''} ${notificationClass}`}>
           <div class="flex items-start">
             <div class="flex-shrink-0 mt-0.5">
-              {@const StatusIcon = getStatusIcon(notification.status)}
-              <StatusIcon class={`h-5 w-5 ${getStatusColor(notification.status)}`} />
+              {#if true}
+                {@const StatusIcon = getStatusIcon(notification.status)}
+                <StatusIcon class={`h-5 w-5 ${getStatusColor(notification.status)}`} />
+              {/if}
             </div>
-            
+
             <div class="ml-3 flex-1">
               <div class="flex items-baseline justify-between">
                 <h4 class="text-sm font-medium text-gray-900">{notification.title}</h4>
@@ -121,27 +123,27 @@
                   {#if isOverdue(notification)} (Overdue){/if}
                 </span>
               </div>
-              
+
               <p class="mt-1 text-sm text-gray-600">{notification.message}</p>
-              
+
               <div class="mt-2 flex items-center text-xs text-gray-500">
                 <Calendar class="h-3 w-3 mr-1" />
                 <span>{formatDateTime(notification.scheduledTime)}</span>
-                
+
                 {#if notification.repeat && notification.repeat !== 'none'}
                   <span class="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
                     Repeats: {notification.repeat.charAt(0).toUpperCase() + notification.repeat.slice(1)}
                   </span>
                 {/if}
               </div>
-              
+
               {#if notification.recipients && notification.recipients.length > 0}
                 <div class="mt-2 text-xs text-gray-500">
                   Recipients: {notification.recipients.length} user(s)
                 </div>
               {/if}
             </div>
-            
+
             {#if showActions}
               <div class="ml-4 flex-shrink-0 flex space-x-2">
                 {#if notification.status === 'scheduled' && !isOverdue(notification)}
@@ -154,7 +156,7 @@
                     <Play class="h-4 w-4" />
                   </button>
                 {/if}
-                
+
                 {#if notification.status === 'scheduled'}
                   <button
                     type="button"
@@ -165,7 +167,7 @@
                     <Pause class="h-4 w-4" />
                   </button>
                 {/if}
-                
+
                 <button
                   type="button"
                   class="text-gray-500 hover:text-gray-700"
@@ -174,7 +176,7 @@
                 >
                   <Edit3 class="h-4 w-4" />
                 </button>
-                
+
                 <button
                   type="button"
                   class="text-gray-500 hover:text-red-500"

@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { Sliders, Code, Palette, ChevronDown, ChevronUp } from 'lucide-svelte';
+  import { Sliders, Code, ChevronDown, ChevronUp, Zap, Layers, Download, Keyboard } from 'lucide-svelte';
   import { playgroundStore } from '../stores/playground.svelte';
   import type { Snippet } from 'svelte';
-
-  type BottomTab = 'controls' | 'code' | 'tokens';
+  import type { BottomTab } from '../types';
 
   interface Props {
     children?: Snippet;
@@ -14,7 +13,10 @@
   const tabs: { id: BottomTab; icon: any; label: string }[] = [
     { id: 'controls', icon: Sliders, label: 'Controls' },
     { id: 'code', icon: Code, label: 'Code' },
-    { id: 'tokens', icon: Palette, label: 'Design Tokens' }
+    { id: 'actions', icon: Zap, label: 'Actions' },
+    { id: 'variants', icon: Layers, label: 'Variants' },
+    { id: 'export', icon: Download, label: 'Export' },
+    { id: 'shortcuts', icon: Keyboard, label: 'Shortcuts' }
   ];
 </script>
 

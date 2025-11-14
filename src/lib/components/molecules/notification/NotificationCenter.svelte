@@ -48,7 +48,7 @@
     notificationClass = '',
     footerClass = '',
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   let activeFilter: FilterOption = $state('all');
   let isExpanded = $state(false);
@@ -198,13 +198,15 @@
           <li class={`p-3 ${!notification.read ? 'bg-blue-50' : ''} ${notificationClass}`}>
             <div class="flex">
               <div class={`flex-shrink-0 pt-0.5 ${getNotificationColor(notification.type)}`}>
-                {@const Icon = getNotificationIcon(notification.type)}
-                <Icon class={`h-5 w-5 ${
+                {#if true}
+                  {@const Icon = getNotificationIcon(notification.type)}
+                  <Icon class={`h-5 w-5 ${
                   notification.type === 'error' ? 'text-red-500' :
                   notification.type === 'warning' ? 'text-yellow-500' :
                   notification.type === 'success' ? 'text-green-500' : 'text-blue-500'
                 }`} />
-              </div>
+              {/if}
+            </div>
               <div class="ml-3 flex-1">
                 <p class={`text-sm font-medium ${
                   notification.read ? 'text-gray-700' : 'text-gray-900'
@@ -217,7 +219,7 @@
                 <div class="mt-2 flex items-center justify-between">
                   <p class="text-xs text-gray-500">{formatDate(notification.timestamp)}</p>
                   <div class="flex space-x-2">
-                    {!notification.read && 
+                    {#if !notification.read} 
                       <button
                         type="button"
                         class="text-xs font-medium text-blue-600 hover:text-blue-800"
@@ -225,7 +227,7 @@
                       >
                         Mark as read
                       </button>
-                    }
+                    {/if}
                     <button
                       type="button"
                       class="text-gray-400 hover:text-gray-600"

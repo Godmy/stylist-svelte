@@ -39,7 +39,7 @@
     contentClass = '',
     actionsClass = '',
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   let shouldAutoDismiss = $state(autoDismiss);
   let dismissed = $state(false);
@@ -57,7 +57,7 @@
 
   function handleDismiss() {
     dismissed = true;
-    
+
     if (onDismiss) {
       onDismiss();
     }
@@ -89,7 +89,7 @@
       default: return 'bg-blue-50 border-blue-200 text-blue-800';
     }
   }
-  
+
   // Get icon color based on type
   function getIconColor() {
     switch(type) {
@@ -100,6 +100,43 @@
       default: return 'text-blue-500';
     }
   }
+
+  // Get title color based on type
+  function getTitleColor() {
+    switch(type) {
+      case 'success': return 'text-green-800';
+      case 'warning': return 'text-yellow-800';
+      case 'error': return 'text-red-800';
+      case 'info':
+      default: return 'text-blue-800';
+    }
+  }
+
+  // Get close button color based on type
+  function getCloseButtonColor() {
+    switch(type) {
+      case 'success': return 'text-green-500 hover:text-green-700';
+      case 'warning': return 'text-yellow-500 hover:text-yellow-700';
+      case 'error': return 'text-red-500 hover:text-red-700';
+      case 'info':
+      default: return 'text-blue-500 hover:text-blue-700';
+    }
+  }
+
+  // Get close button hover color
+  function getCloseButtonHoverColor() {
+    switch(type) {
+      case 'success': return 'hover:bg-green-100';
+      case 'warning': return 'hover:bg-yellow-100';
+      case 'error': return 'hover:bg-red-100';
+      case 'info':
+      default: return 'hover:bg-blue-100';
+    }
+  }
+
+  function dismissNotification() {
+    handleDismiss();
+  }
 </script>
 
 {#if !dismissed}
@@ -107,18 +144,20 @@
     <div class="flex">
       {#if showIcon}
         <div class="flex-shrink-0 pt-0.5">
-          {@const Icon = getNotificationIcon()}
-          <Icon class={`h-5 w-5 ${getIconColor()}`} />
+          {#if true}
+            {@const Icon = getNotificationIcon()}
+            <Icon class={`h-5 w-5 ${getIconColor()}`} />
+          {/if}
         </div>
       {/if}
-      
+
       <div class="ml-3 flex-1">
         <div class={`flex items-start justify-between ${headerClass}`}>
           <div>
             <h3 class="text-sm font-medium">{title}</h3>
             <p class={`mt-1 text-sm ${contentClass}`}>{message}</p>
           </div>
-          
+
           {#if showCloseButton}
             <button
               type="button"
@@ -130,15 +169,15 @@
             </button>
           {/if}
         </div>
-        
+
         {#if actions.length > 0}
           <div class={`mt-3 flex space-x-2 ${actionsClass}`}>
             {#each actions as action}
               <button
                 type="button"
                 class={`inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded shadow-sm focus:outline-none ${
-                  action.primary 
-                    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                  action.primary
+                    ? 'bg-blue-600 text-white hover:bg-blue-700'
                     : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
                 }`}
                 on:click={() => handleAction(action)}

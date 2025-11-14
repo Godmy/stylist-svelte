@@ -25,6 +25,7 @@ export * from './layout';
 export * from './maps';
 export * from './media';
 export * from './navigation';
+export * from './notification';
 export * from './overlays';
 export * from './payments';
 export * from './performance';

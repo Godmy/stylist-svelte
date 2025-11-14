@@ -14,6 +14,14 @@ export type ControlType =
   | 'object'
   | 'array';
 
+export type ControlGroup =
+  | 'Layout'
+  | 'Style'
+  | 'Behavior'
+  | 'Content'
+  | 'Advanced'
+  | 'Other';
+
 export interface StoryMeta {
   title: string;
   component?: any;
@@ -36,6 +44,7 @@ export interface ControlConfig {
   min?: number;
   max?: number;
   step?: number;
+  group?: ControlGroup;
 }
 
 export interface StoryConfig {
@@ -51,15 +60,19 @@ export interface StoryConfig {
   docs?: string; // Markdown documentation
 }
 
+export type BottomTab = 'controls' | 'code' | 'export' | 'shortcuts' | 'actions' | 'variants';
+export type SidebarTab = 'variants' | 'props' | 'docs' | 'code' | 'a11y';
+export type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
+
 export interface PlaygroundState {
   currentStoryId: string | null;
   darkMode: boolean;
   sidebarOpen: boolean;
-  viewport: 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
+  viewport: ViewportSize;
   showCode: boolean;
   controlsOpen: boolean;
-  bottomTab?: 'controls' | 'code' | 'tokens';
-  sidebarTab?: 'variants' | 'props' | 'docs' | 'code' | 'a11y';
+  bottomTab?: BottomTab;
+  sidebarTab?: SidebarTab;
 }
 
 export interface NavigatorItem {

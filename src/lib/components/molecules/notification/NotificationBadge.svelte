@@ -24,7 +24,7 @@
     badgeClass = '',
     children,
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   // Determine position classes
   let positionClasses = '';
@@ -80,7 +80,7 @@
 {#if count > 0 || showZero || dot}
   <div class={`relative inline-block ${className}`} {...restProps}>
     {#if children}
-      {@render children}
+      {@render children()}
     {/if}
     
     <span class={`absolute ${positionClasses} flex items-center justify-center rounded-full text-xs font-bold ${
@@ -94,7 +94,7 @@
 {:else}
   <div class={`inline-block ${className}`} {...restProps}>
     {#if children}
-      {@render children}
+      {@render children()}
     {/if}
   </div>
 {/if}

@@ -1,12 +1,19 @@
 // stylist-coder-model auto-generated exports for components
+export { default as AccessibilityPanel } from './AccessibilityPanel.svelte';
+export { default as ActionsPanel } from './ActionsPanel.svelte';
 export { default as BottomPanel } from './BottomPanel.svelte';
 export { default as Canvas } from './Canvas.svelte';
 export { default as CodeViewer } from './CodeViewer.svelte';
+export { default as CommandPalette } from './CommandPalette.svelte';
+export { default as ComponentInfoCard } from './ComponentInfoCard.svelte';
+export { default as EnhancedExportPanel } from './EnhancedExportPanel.svelte';
 export { default as GenericCodeViewer } from './GenericCodeViewer.svelte';
 export { default as MarkdownRenderer } from './MarkdownRenderer.svelte';
 export { default as Navigator } from './Navigator.svelte';
 export { default as PlaygroundControlPanel } from './PlaygroundControlPanel.svelte';
 export { default as PlaygroundSidebar } from './PlaygroundSidebar.svelte';
 export { default as PlaygroundToolbar } from './PlaygroundToolbar.svelte';
+export { default as ShortcutsPanel } from './ShortcutsPanel.svelte';
 export { default as Story } from './Story.svelte';
 export { default as StoryRoot } from './StoryRoot.svelte';
+export { default as VariantsPanel } from './VariantsPanel.svelte';

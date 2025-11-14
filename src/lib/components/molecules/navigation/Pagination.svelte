@@ -29,7 +29,7 @@
     disabledButtonClass = '',
     onPageChange,
     ...restProps
-  }: Props = $props()>;
+  }: Props = $props();
 
   // Calculate visible page range
   function getVisiblePages() {
