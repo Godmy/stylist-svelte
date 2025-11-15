@@ -10,9 +10,12 @@ export { default as StoryRoot } from './playground/components/StoryRoot.svelte';
 export { default as PlaygroundSidebar } from './playground/components/PlaygroundSidebar.svelte';
 export { default as BottomPanel } from './playground/components/BottomPanel.svelte';
 export { default as GenericCodeViewer } from './playground/components/GenericCodeViewer.svelte';
+export { default as EnhancedExportPanel } from './playground/components/EnhancedExportPanel.svelte';
+export { default as ComponentTree } from './playground/components/ComponentTree.svelte';
 
 // Types for playground
 export type { ControlConfig } from './playground/types/index';
 
 // Store and types for playground
-export { playgroundStore, type ViewportSize, type BackgroundType } from './playground/stores/playground.svelte';
+export { playgroundStore, type BackgroundType } from './playground/stores/playground.svelte';
+export type { ViewportSize } from './playground/types';

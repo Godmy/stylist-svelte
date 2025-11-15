@@ -95,7 +95,7 @@
                   <button
                     type="button"
                     class="inline-flex items-center px-2.5 py-1 border border-transparent text-xs font-medium rounded shadow-sm focus:outline-none bg-blue-100 text-blue-700 hover:bg-blue-200"
-                    on:click={action.onClick}
+                    onclick={action.onClick}
                   >
                     {action.label}
                   </button>
@@ -108,7 +108,7 @@
             <button
               type="button"
               class="text-gray-400 hover:text-gray-500"
-              on:click={() => toast.onDismiss && toast.onDismiss()}
+              onclick={() => toast.onDismiss && toast.onDismiss()}
               aria-label="Dismiss toast"
             >
               <X class="h-5 w-5" />

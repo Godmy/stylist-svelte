@@ -1,9 +1,7 @@
 <script lang="ts">
   import type { Chat, User, Message } from '$lib/types';
-  import { ChatStatusIndicator, MessageStatus } from '../../../molecules/chat/atoms';
-  import Avatar from '../../../atoms/media/Avatar.svelte';
-  import Badge from '../../../atoms/typography/elements/Badge.svelte';
-  import MessageTimestamp from '../../../molecules/chat/atoms/MessageTimestamp.svelte';
+  import { Avatar, Badge } from '$lib/components/atoms';
+  import { ChatStatusIndicator, MessageStatus, MessageTimestamp } from '$lib/components/molecules';
   import { createEventDispatcher } from 'svelte';
 
   // Props

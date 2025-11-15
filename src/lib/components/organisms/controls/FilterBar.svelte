@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Switch from '$lib/components/atoms/controls/toggles/Switch.svelte';
-  import Tag from '$lib/components/atoms/typography/elements/Tag.svelte';
-  import RangeSlider from '$lib/components/atoms/controls/sliders/RangeSlider.svelte';
+  import Switch from '../../atoms/controls/toggles/Switch.svelte';
+  import Tag from '../../atoms/typography/elements/Tag.svelte';
+  import RangeSlider from '../../atoms/controls/sliders/RangeSlider.svelte';
 
   type ToggleFilter = {
     id: string;

@@ -1,7 +1,9 @@
 <script lang="ts">
   import { Monitor, Tablet, Smartphone, Maximize, Grid, Moon, Sun, Sidebar, Download, Copy, Settings, ChevronRight, Home, ArrowLeft, Bot, Info } from 'lucide-svelte';
-  import { playgroundStore, type ViewportSize } from '../stores/playground.svelte';
+  import { playgroundStore } from '../stores/playground.svelte';
+  import type { ViewportSize } from '../types';
   import { formatShortcut } from '../utils/keyboard';
+  import ShareButton from './ShareButton.svelte';
 
   interface Props {
     componentName?: string;
@@ -55,178 +57,79 @@
   }
 </script>
 
-<div class="toolbar-container h-20 border-b border-gray-200/80 dark:border-gray-700/80 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 backdrop-blur-sm flex items-center justify-between px-6 shadow-sm">
-  <!-- Left: Component info with breadcrumbs -->
-  <div class="flex flex-col gap-2 flex-1 min-w-0">
-    <!-- Breadcrumb navigation -->
-    <div class="flex items-center gap-2 text-xs">
-      <button
-        onclick={() => window.history.back()}
-        class="group flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-all hover:scale-105 active:scale-95"
-        title="Go back"
-      >
-        <ArrowLeft class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
-        <span class="font-medium text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Back</span>
-      </button>
+<div class="toolbar-container h-14 border-b border-gray-200/50 dark:border-gray-700/50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md flex items-center justify-between px-4 shadow-sm">
+  <!-- Left: Logo & Component name -->
+  <div class="flex items-center gap-3 flex-1 min-w-0">
+    <a href="/" class="flex items-center gap-2 flex-shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+        </svg>
+      </div>
+      <span class="text-lg font-bold text-gray-900 dark:text-white hidden md:block">STYLIST</span>
+    </a>
 
-      <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
-
-      <a href="/" class="group flex items-center gap-1 px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-        <Home class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400" />
-        <span class="font-medium text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Home</span>
-      </a>
-
-      {#if category}
-        <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
-        <span class="px-2 py-1 rounded-md font-medium text-gray-700 dark:text-gray-300">{category}</span>
-      {/if}
-
-      {#if subcategory}
-        <ChevronRight class="w-3.5 h-3.5 text-gray-400" />
-        <span class="px-2 py-1 rounded-md font-medium text-gray-700 dark:text-gray-300">{subcategory}</span>
-      {/if}
-    </div>
-
-    <!-- Component name with badges -->
     {#if componentName}
-      <div class="flex items-center gap-3 animate-fade-in">
-        <button
-          onclick={() => playgroundStore.toggleSidebar()}
-          class="toolbar-button group p-2 rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
-          title={`Toggle sidebar (${formatShortcut({ key: '/', ctrl: true })})`}
-        >
-          <Sidebar class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
-        </button>
-
-        <div class="flex items-center gap-2">
-          <!-- AI Badge -->
-          <div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 border border-purple-200 dark:border-purple-800">
-            <Bot class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-            <span class="text-[10px] font-bold text-purple-700 dark:text-purple-300">AI</span>
-          </div>
-
-          <!-- Component name -->
-          <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-            {componentName}
-          </h1>
-
-          <!-- Category badge -->
-          {#if category}
-            <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-[10px] font-bold bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
-              {category}
-            </span>
-          {/if}
-
-          <!-- Props count badge -->
-          {#if controlsCount > 0}
-            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-semibold bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800" title="{controlsCount} props available">
-              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-              </svg>
-              {controlsCount} {controlsCount === 1 ? 'prop' : 'props'}
-            </span>
-          {/if}
-        </div>
+      <div class="h-6 w-px bg-gray-300 dark:bg-gray-700"></div>
+      <div class="flex items-center gap-2 min-w-0">
+        <h1 class="text-base font-semibold text-gray-900 dark:text-white truncate">{componentName}</h1>
+        {#if category}
+          <span class="px-2 py-0.5 text-[10px] font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded">
+            {category}
+          </span>
+        {/if}
       </div>
     {/if}
   </div>
 
-  <!-- Center: Viewport controls -->
-  <div class="viewport-controls flex items-center gap-1 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 dark:from-gray-700 dark:via-gray-800 dark:to-gray-700 rounded-xl p-1.5 shadow-inner">
-    {#each viewportSizes as { size, icon: Icon, label, width }}
+  <!-- Center: Viewport controls (compact) -->
+  <div class="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-0.5">
+    {#each viewportSizes as { size, icon: Icon, label }}
       <button
         onclick={() => handleViewportChange(size)}
-        class="viewport-button group relative px-4 py-2 rounded-lg flex items-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 {currentViewport === size ? 'bg-gradient-to-r from-indigo-500 to-purple-500 shadow-lg shadow-indigo-500/50 text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-white/80 dark:hover:bg-gray-600/80'}"
-        title={`${label} (${width})`}
+        class="p-2 rounded transition-colors {currentViewport === size ? 'bg-orange-500 text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-white dark:hover:bg-gray-700'}"
+        title={label}
       >
-        <Icon class="w-4 h-4 transition-transform group-hover:rotate-12" />
-        <span class="text-sm font-semibold hidden md:inline">{label}</span>
-        {#if currentViewport === size}
-          <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-400/20 to-purple-400/20 animate-pulse"></div>
-        {/if}
+        <Icon class="w-4 h-4" />
       </button>
     {/each}
   </div>
 
-  <!-- Right: Actions -->
-  <div class="flex items-center gap-2">
-    <!-- Component Info -->
-    {#if onInfoClick}
-      <button
-        onclick={onInfoClick}
-        class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-indigo-50 dark:hover:bg-indigo-900/30"
-        title="Component Info"
-      >
-        <Info class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
-      </button>
-    {/if}
-
-    <!-- Grid toggle -->
+  <!-- Right: Essential actions only -->
+  <div class="flex items-center gap-1 flex-1 justify-end">
     <button
-      onclick={handleToggleGrid}
-      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 {showGrid ? 'bg-gradient-to-br from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/50' : 'hover:bg-gray-100 dark:hover:bg-gray-700'}"
-      title="Toggle grid"
+      onclick={() => playgroundStore.toggleSidebar()}
+      class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      title="Toggle sidebar"
     >
-      <Grid class={`w-5 h-5 transition-transform group-hover:rotate-90 ${showGrid ? '' : 'text-gray-600 dark:text-gray-400'}`} />
+      <Sidebar class="w-4 h-4" />
     </button>
 
-    <!-- Dark mode toggle -->
+    <button
+      onclick={handleToggleGrid}
+      class="p-2 rounded-lg transition-colors {showGrid ? 'bg-orange-500 text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'}"
+      title="Toggle grid"
+    >
+      <Grid class="w-4 h-4" />
+    </button>
+
     <button
       onclick={handleToggleDarkMode}
-      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-amber-50 dark:hover:bg-amber-900/30"
-      title={`Toggle dark mode (${formatShortcut({ key: 'd', ctrl: true })})`}
+      class="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      title="Toggle dark mode"
     >
       {#if darkMode}
-        <Sun class="w-5 h-5 text-amber-500 group-hover:text-amber-600 transition-all group-hover:rotate-180 group-hover:scale-110" />
+        <Sun class="w-4 h-4" />
       {:else}
-        <Moon class="w-5 h-5 text-indigo-600 group-hover:text-indigo-700 transition-all group-hover:-rotate-12" />
+        <Moon class="w-4 h-4" />
       {/if}
     </button>
 
-    <!-- Copy code -->
-    <button
-      onclick={copyCode}
-      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-green-50 dark:hover:bg-green-900/30"
-      title={`Copy code (${formatShortcut({ key: 'c', ctrl: true })})`}
-    >
-      <Copy class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors" />
-    </button>
-
-    <!-- Download screenshot -->
-    <button
-      onclick={downloadScreenshot}
-      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-blue-50 dark:hover:bg-blue-900/30"
-      title="Download screenshot"
-    >
-      <Download class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-all group-hover:translate-y-1" />
-    </button>
-
-    <!-- Settings -->
-    <button
-      class="toolbar-icon-button group p-2.5 rounded-lg transition-all duration-200 hover:scale-110 active:scale-95 hover:bg-purple-50 dark:hover:bg-purple-900/30"
-      title="Settings"
-    >
-      <Settings class="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-all group-hover:rotate-90" />
-    </button>
+    <ShareButton />
   </div>
 </div>
 
 <style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.3s ease-out;
-  }
-
   .toolbar-container {
     position: relative;
     z-index: 10;
@@ -239,10 +142,10 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.4), rgba(239, 68, 68, 0.4), transparent);
   }
 
   :global(.dark) .toolbar-container::after {
-    background: linear-gradient(90deg, transparent, rgba(129, 140, 248, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.3), rgba(248, 113, 113, 0.3), transparent);
   }
 </style>

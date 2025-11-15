@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { Button } from '$lib/components/atoms';
-  import Icon from '$lib/components/atoms/media/Icon.svelte';
+  import Icon from '$lib/components/atoms/media/Icon/Icon.svelte';
   
   interface CloseDropdownFunc {
     closeDropdown: () => void;

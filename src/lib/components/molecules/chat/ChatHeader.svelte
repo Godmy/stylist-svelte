@@ -19,10 +19,8 @@
     avatar?: string;
   }
 
-  import Avatar from '../../atoms/media/Avatar.svelte';
-  import { Button } from '$lib/components/atoms';
-  import Icon from '../../atoms/media/Icon.svelte';
-  import UserStatus from '$lib/components/molecules/chat/UserStatus.svelte';
+  import { Avatar, Button, Icon } from '$lib/components/atoms';
+  import { UserStatus } from '$lib/components/molecules';
   import { createEventDispatcher } from 'svelte';
 
   // Props

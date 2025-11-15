@@ -135,7 +135,7 @@
     <button 
       type="button" 
       class="text-gray-400 hover:text-gray-600"
-      on:click={() => isExpanded = !isExpanded}
+      onclick={() => isExpanded = !isExpanded}
       aria-label="Toggle notifications"
     >
       {#if isExpanded}
@@ -156,7 +156,7 @@
             ? 'text-blue-600 border-b-2 border-blue-600' 
             : 'text-gray-500 hover:text-gray-700'
         }`}
-        on:click={() => activeFilter = 'all'}
+        onclick={() => activeFilter = 'all'}
       >
         All
       </button>
@@ -167,7 +167,7 @@
             ? 'text-blue-600 border-b-2 border-blue-600' 
             : 'text-gray-500 hover:text-gray-700'
         }`}
-        on:click={() => activeFilter = 'unread'}
+        onclick={() => activeFilter = 'unread'}
       >
         Unread ({notifications.filter(n => !n.read).length})
       </button>
@@ -178,7 +178,7 @@
             ? 'text-blue-600 border-b-2 border-blue-600' 
             : 'text-gray-500 hover:text-gray-700'
         }`}
-        on:click={() => activeFilter = 'read'}
+        onclick={() => activeFilter = 'read'}
       >
         Read
       </button>
@@ -223,7 +223,7 @@
                       <button
                         type="button"
                         class="text-xs font-medium text-blue-600 hover:text-blue-800"
-                        on:click={() => markAsRead(notification.id)}
+                        onclick={() => markAsRead(notification.id)}
                       >
                         Mark as read
                       </button>
@@ -231,7 +231,7 @@
                     <button
                       type="button"
                       class="text-gray-400 hover:text-gray-600"
-                      on:click={() => onDelete && onDelete(notification.id)}
+                      onclick={() => onDelete && onDelete(notification.id)}
                     >
                       <Trash2 class="h-4 w-4" />
                     </button>
@@ -244,7 +244,7 @@
                       <button
                         type="button"
                         class="inline-flex items-center px-2.5 py-1 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
-                        on:click={action.onClick}
+                        onclick={action.onClick}
                       >
                         {action.label}
                       </button>
@@ -265,7 +265,7 @@
       <button
         type="button"
         class="text-sm font-medium text-blue-600 hover:text-blue-800"
-        on:click={markAllAsRead}
+        onclick={markAllAsRead}
       >
         Mark all as read
       </button>

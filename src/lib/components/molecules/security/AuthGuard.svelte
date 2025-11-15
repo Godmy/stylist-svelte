@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Lock, AlertCircle, User, ShieldAlert } from 'lucide-svelte';
   import type { Snippet } from 'svelte';
-  import Loader from '../../atoms/feedback/Loader.svelte';
+  import { Loader } from '$lib/components/atoms';
 
   type Props = {
     isAuthenticated?: boolean;

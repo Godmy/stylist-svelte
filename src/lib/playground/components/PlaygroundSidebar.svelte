@@ -14,30 +14,25 @@
   const tabs: { id: SidebarTab; icon: any; label: string }[] = [
     { id: 'variants', icon: Layers, label: 'Variants' },
     { id: 'props', icon: Sliders, label: 'Props' },
-    { id: 'docs', icon: FileText, label: 'Docs' },
-    { id: 'code', icon: Code, label: 'Code' },
-    { id: 'a11y', icon: Accessibility, label: 'A11y' }
+    { id: 'code', icon: Code, label: 'Code' }
   ];
 </script>
 
 {#if playgroundStore.state.sidebarOpen}
-  <div class="sidebar-container w-80 border-r border-gray-200/50 dark:border-gray-700/50 bg-gradient-to-b from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 flex flex-col shadow-lg">
-    <!-- Tabs -->
-    <div class="tabs-container flex items-center border-b border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
-      <div class="flex-1 flex overflow-x-auto">
+  <div class="sidebar-container w-64 border-r border-gray-200/50 dark:border-gray-700/50 bg-white dark:bg-gray-900 flex flex-col">
+    <!-- Tabs - compact -->
+    <div class="flex items-center border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-1">
+      <div class="flex-1 flex gap-1">
         {#each tabs as tab}
           <button
             onclick={() => playgroundStore.setSidebarTab(tab.id)}
-            class={`tab-button group relative flex items-center gap-2 px-5 py-4 border-b-3 transition-all duration-200 whitespace-nowrap hover:scale-105 ${(playgroundStore.state.sidebarTab === tab.id) ? 'border-indigo-500 text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20' : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'}`}
+            class={`flex items-center gap-1.5 px-3 py-1.5 rounded transition-colors ${(playgroundStore.state.sidebarTab === tab.id) ? 'bg-white dark:bg-gray-900 text-orange-600 dark:text-orange-400 shadow-sm' : 'text-gray-600 dark:text-gray-400 hover:bg-white/50 dark:hover:bg-gray-700'}`}
           >
             {#if tab.icon}
               {@const Icon = tab.icon}
-              <Icon class="w-4 h-4 transition-transform group-hover:scale-110" />
+              <Icon class="w-3.5 h-3.5" />
             {/if}
-            <span class="text-sm font-semibold">{tab.label}</span>
-            {#if playgroundStore.state.sidebarTab === tab.id}
-              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 animate-pulse"></div>
-            {/if}
+            <span class="text-xs font-medium">{tab.label}</span>
           </button>
         {/each}
       </div>
@@ -45,15 +40,15 @@
       <!-- Close button -->
       <button
         onclick={() => playgroundStore.toggleSidebar()}
-        class="close-button group p-2 m-2 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/30 transition-all hover:scale-110 active:scale-95"
+        class="p-1.5 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
         title="Close sidebar"
       >
-        <X class="w-4 h-4 text-gray-500 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors" />
+        <X class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
       </button>
     </div>
 
     <!-- Content -->
-    <div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-300 dark:scrollbar-thumb-indigo-700">
+    <div class="flex-1 overflow-y-auto">
       {#if children}
         {@render children()}
       {/if}

@@ -16,8 +16,7 @@
     attributes?: string[];
     properties?: Record<string, any>;
   }
-  import { Button } from '$lib/components/atoms';
-  import Icon from '../../atoms/media/Icon.svelte';
+  import { Button, Icon } from '$lib/components/atoms';
 
   type Props = {
     node: OntologyNode;

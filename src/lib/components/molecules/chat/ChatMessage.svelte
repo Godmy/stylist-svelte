@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import Avatar from '../../atoms/media/Avatar.svelte';
+  import { Avatar } from '$lib/components/atoms';
   import { Check, CheckCheck } from 'lucide-svelte';
 
   type MessageStatus = 'sent' | 'delivered' | 'read';

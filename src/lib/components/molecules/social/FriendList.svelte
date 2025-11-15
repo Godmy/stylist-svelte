@@ -11,7 +11,7 @@
     Search,
     Circle
   } from 'lucide-svelte';
-  import Avatar from '../../atoms/media/Avatar.svelte';
+  import { Avatar } from '$lib/components/atoms';
 
   type FriendStatus = 'online' | 'offline' | 'away' | 'busy';
 

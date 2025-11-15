@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from '$lib/components/atoms/media/Icon.svelte';
+  import Icon from '$lib/components/atoms/media/Icon/Icon.svelte';
   import { createEventDispatcher } from 'svelte';
 
   // Props

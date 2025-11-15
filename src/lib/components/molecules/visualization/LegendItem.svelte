@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Variant } from '$lib/types';
-  import Icon from '../../atoms/media/Icon.svelte';
+  import { Icon } from '$lib/components/atoms';
 
   // Props
   let { 

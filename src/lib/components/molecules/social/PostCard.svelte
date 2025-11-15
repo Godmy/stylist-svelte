@@ -14,8 +14,7 @@
     Users,
     Lock
   } from 'lucide-svelte';
-  import { Button } from '$lib/components/atoms';
-  import Avatar from '../../atoms/media/Avatar.svelte';
+  import { Avatar, Button } from '$lib/components/atoms';
 
   export type PostUser = {
     id: string;

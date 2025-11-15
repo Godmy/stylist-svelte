@@ -23,8 +23,7 @@
     Instagram,
     CheckCircle
   } from 'lucide-svelte';
-  import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge.svelte';
+  import { Badge, Button } from '$lib/components/atoms';
 
   type SocialLink = {
     type: 'twitter' | 'github' | 'linkedin' | 'website' | 'instagram';

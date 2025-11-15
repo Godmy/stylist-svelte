@@ -2,10 +2,9 @@
   import type { KanbanColumnData } from '$lib/types';
   import type { Snippet } from 'svelte';
   import { Plus } from 'lucide-svelte';
-
+  
+  import { Badge, Button } from '$lib/components/atoms';
   import KanbanCard from './molecules/KanbanCard.svelte';
-  import { Button } from '$lib/components/atoms';
-  import Badge from '../../../atoms/typography/elements/Badge.svelte';
 
   let { 
     column, 

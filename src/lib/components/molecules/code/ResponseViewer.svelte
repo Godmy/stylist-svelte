@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { Button } from '$lib/components/atoms';
-  import Icon from '../../atoms/media/Icon.svelte';
+  import { Button, Icon } from '$lib/components/atoms';
   
   type BaseComponentProps = {
     class?: string;

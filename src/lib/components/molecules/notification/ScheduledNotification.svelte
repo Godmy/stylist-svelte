@@ -150,7 +150,7 @@
                   <button
                     type="button"
                     class="text-blue-600 hover:text-blue-900"
-                    on:click={() => onSendNow && onSendNow(notification.id)}
+                    onclick={() => onSendNow && onSendNow(notification.id)}
                     title="Send now"
                   >
                     <Play class="h-4 w-4" />
@@ -161,7 +161,7 @@
                   <button
                     type="button"
                     class="text-gray-500 hover:text-gray-700"
-                    on:click={() => onCancel && onCancel(notification.id)}
+                    onclick={() => onCancel && onCancel(notification.id)}
                     title="Cancel"
                   >
                     <Pause class="h-4 w-4" />
@@ -171,7 +171,7 @@
                 <button
                   type="button"
                   class="text-gray-500 hover:text-gray-700"
-                  on:click={() => onEdit && onEdit(notification.id)}
+                  onclick={() => onEdit && onEdit(notification.id)}
                   title="Edit"
                 >
                   <Edit3 class="h-4 w-4" />
@@ -180,7 +180,7 @@
                 <button
                   type="button"
                   class="text-gray-500 hover:text-red-500"
-                  on:click={() => onCancel && onCancel(notification.id)}
+                  onclick={() => onCancel && onCancel(notification.id)}
                   title="Delete"
                 >
                   <Trash2 class="h-4 w-4" />

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { FileCode, Download, Copy, CheckCircle, Code2 } from 'lucide-svelte';
+  import { FileCode, Download, Copy, CheckCircle, Code2, ExternalLink, Package, Terminal } from 'lucide-svelte';
+  import { generateCode, type ExportFormat } from '../../utils/codeGenerator';
 
   interface Props {
     componentName?: string;
@@ -9,10 +10,9 @@
 
   let { componentName = '', svelteCode = '', props = {} }: Props = $props();
 
-  type ExportFormat = 'svelte' | 'react' | 'vue' | 'html' | 'typescript';
-
   let selectedFormat = $state<ExportFormat>('svelte');
   let copySuccess = $state(false);
+  let npmCopySuccess = $state(false);
 
   const formats: { id: ExportFormat; label: string; icon: string; color: string }[] = [
     { id: 'svelte', label: 'Svelte', icon: '⚡', color: 'from-orange-50 to-red-50 dark:from-orange-900/30 dark:to-red-900/30 border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300' },
@@ -22,73 +22,7 @@
     { id: 'typescript', label: 'TypeScript', icon: '🔷', color: 'from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300' }
   ];
 
-  // Generate code for different formats
-  function generateCode(format: ExportFormat): string {
-    const propsString = Object.entries(props)
-      .map(([key, value]) => {
-        if (typeof value === 'string') return `${key}="${value}"`;
-        if (typeof value === 'boolean') return value ? key : `${key}={false}`;
-        return `${key}={${JSON.stringify(value)}}`;
-      })
-      .join(' ');
-
-    switch (format) {
-      case 'svelte':
-        return svelteCode || `<script lang="ts">
-  import { ${componentName} } from '@stylist-svelte/components';
-</script>
-
-<${componentName} ${propsString} />`;
-
-      case 'react':
-        return `import React from 'react';
-import { ${componentName} } from '@stylist-react/components';
-
-export default function Example() {
-  return (
-    <${componentName} ${propsString} />
-  );
-}`;
-
-      case 'vue':
-        return `<template>
-  <${componentName} ${propsString} />
-</template>
-
-<script setup lang="ts">
-import { ${componentName} } from '@stylist-vue/components';
-</script>`;
-
-      case 'html':
-        return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${componentName} Example</title>
-  <script type="module" src="https://unpkg.com/@stylist-svelte/components"></script>
-</head>
-<body>
-  <${componentName.toLowerCase()} ${propsString}></${componentName.toLowerCase()}>
-</body>
-</html>`;
-
-      case 'typescript':
-        return `import type { ComponentProps } from 'svelte';
-import { ${componentName} } from '@stylist-svelte/components';
-
-type ${componentName}Props = ComponentProps<typeof ${componentName}>;
-
-const props: ${componentName}Props = ${JSON.stringify(props, null, 2)};
-
-export { props };`;
-
-      default:
-        return svelteCode;
-    }
-  }
-
-  const currentCode = $derived(generateCode(selectedFormat));
+  const currentCode = $derived(generateCode({ componentName, svelteCode, props }, selectedFormat));
 
   async function copyCode() {
     try {
@@ -121,24 +55,105 @@ export { props };`;
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+
+  async function copyNpmCommand() {
+    const command = 'npm install @stylist-svelte/components';
+    try {
+      await navigator.clipboard.writeText(command);
+      npmCopySuccess = true;
+      setTimeout(() => {
+        npmCopySuccess = false;
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  }
+
+  function openInCodeSandbox() {
+    function createAppContent(name: string, code: string) {
+      const lt = '<';
+      const gt = '>';
+      const slash = '/';
+      return lt + 'script>\n' +
+        '  import ' + name + ' from \'./\' + (name || \'Component\') + \'.svelte\';\n' +
+        lt + '/script>\n\n' +
+        lt + name + ' ' + slash + gt;
+    }
+
+    const parameters = {
+      files: {
+        'package.json': {
+          content: {
+            dependencies: {
+              svelte: 'latest',
+              '@stylist-svelte/components': 'latest'
+            }
+          }
+        },
+        [`${componentName || 'Component'}.svelte`]: {
+          content: currentCode
+        },
+        'App.svelte': {
+          content: createAppContent(componentName, currentCode)
+        }
+      }
+    };
+
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://codesandbox.io/api/v1/sandboxes/define';
+    form.target = '_blank';
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'parameters';
+    input.value = JSON.stringify(parameters);
+
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+  }
+
+  function openInStackBlitz() {
+    const projectConfig = {
+      title: componentName || 'Svelte Component',
+      description: `${componentName} from Stylist Svelte`,
+      template: 'node',
+      files: {
+        [`${componentName || 'Component'}.svelte`]: currentCode,
+        'package.json': JSON.stringify({
+          name: 'svelte-component',
+          version: '1.0.0',
+          dependencies: {
+            svelte: '^5.0.0',
+            '@stylist-svelte/components': 'latest'
+          }
+        }, null, 2)
+      }
+    };
+
+    const url = `https://stackblitz.com/fork/svelte?file=${componentName || 'Component'}.svelte`;
+    window.open(url, '_blank');
+  }
 </script>
 
 <div class="export-panel p-6 h-full overflow-auto bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
   <!-- Header -->
   <div class="mb-6">
-    <h3 class="text-base font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-2">
+    <h3 class="text-xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-purple-600 dark:from-orange-400 dark:via-red-400 dark:to-purple-400 bg-clip-text text-transparent mb-2">
       Export Component
     </h3>
     <p class="text-sm text-gray-600 dark:text-gray-400">
-      Choose a format and export your component code
+      Export to multiple formats, online editors, or install via npm
     </p>
   </div>
 
   <!-- Format selector -->
   <div class="mb-6">
-    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-3">
+    <h3 class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-3">
       Select Format
-    </label>
+    </h3>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
       {#each formats as format}
         <button
@@ -164,9 +179,9 @@ export { props };`;
   <!-- Code preview -->
   <div class="mb-6">
     <div class="flex items-center justify-between mb-3">
-      <label class="block text-xs font-bold text-gray-700 dark:text-gray-300">
+      <h3 class="block text-xs font-bold text-gray-700 dark:text-gray-300">
         Code Preview
-      </label>
+      </h3>
       <div class="flex gap-2">
         <button
           onclick={copyCode}
@@ -208,21 +223,92 @@ export { props };`;
     </div>
   </div>
 
-  <!-- Export options -->
+  <!-- Quick Actions -->
+  <div class="mb-6">
+    <h3 class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-3">
+      Quick Actions
+    </h3>
+    <div class="grid grid-cols-2 gap-3">
+      <!-- CodeSandbox -->
+      <button
+        onclick={openInCodeSandbox}
+        class="group p-4 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 hover:from-yellow-100 hover:to-amber-100 dark:hover:from-yellow-800/30 dark:hover:to-amber-800/30 rounded-xl border-2 border-yellow-200 dark:border-yellow-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-2xl">📦</div>
+          <ExternalLink class="w-4 h-4 text-yellow-600 dark:text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+        <div class="text-left">
+          <h4 class="text-sm font-bold text-yellow-900 dark:text-yellow-200 mb-1">
+            CodeSandbox
+          </h4>
+          <p class="text-xs text-yellow-700 dark:text-yellow-300">
+            Open in browser IDE
+          </p>
+        </div>
+      </button>
+
+      <!-- StackBlitz -->
+      <button
+        onclick={openInStackBlitz}
+        class="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 hover:from-blue-100 hover:to-cyan-100 dark:hover:from-blue-800/30 dark:hover:to-cyan-800/30 rounded-xl border-2 border-blue-200 dark:border-blue-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <div class="text-2xl">⚡</div>
+          <ExternalLink class="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
+        <div class="text-left">
+          <h4 class="text-sm font-bold text-blue-900 dark:text-blue-200 mb-1">
+            StackBlitz
+          </h4>
+          <p class="text-xs text-blue-700 dark:text-blue-300">
+            Instant dev environment
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- NPM Installation -->
+  <div class="mb-6">
+    <h3 class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-3">
+      NPM Installation
+    </h3>
+    <div class="flex gap-2">
+      <div class="flex-1 bg-gray-900 dark:bg-black rounded-lg border-2 border-gray-700 dark:border-gray-800 px-4 py-3 font-mono text-sm text-green-400 flex items-center gap-2 shadow-lg">
+        <Terminal class="w-4 h-4 flex-shrink-0" />
+        <code class="flex-1">npm install @stylist-svelte/components</code>
+      </div>
+      <button
+        onclick={copyNpmCommand}
+        class="px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-lg font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center gap-2"
+      >
+        {#if npmCopySuccess}
+          <CheckCircle class="w-4 h-4" />
+          Copied!
+        {:else}
+          <Copy class="w-4 h-4" />
+          Copy
+        {/if}
+      </button>
+    </div>
+  </div>
+
+  <!-- Features -->
   <div class="grid grid-cols-2 gap-4">
-    <div class="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800">
+    <div class="p-4 bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-800 shadow-sm">
       <div class="flex items-center gap-2 mb-2">
-        <Code2 class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-        <h4 class="text-xs font-bold text-indigo-900 dark:text-indigo-200">
+        <Code2 class="w-4 h-4 text-orange-600 dark:text-orange-400" />
+        <h4 class="text-xs font-bold text-orange-900 dark:text-orange-200">
           Framework Support
         </h4>
       </div>
-      <p class="text-xs text-indigo-700 dark:text-indigo-300">
+      <p class="text-xs text-orange-700 dark:text-orange-300">
         Export to Svelte, React, Vue, or plain HTML
       </p>
     </div>
 
-    <div class="p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">
+    <div class="p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border-2 border-green-200 dark:border-green-800 shadow-sm">
       <div class="flex items-center gap-2 mb-2">
         <FileCode class="w-4 h-4 text-green-600 dark:text-green-400" />
         <h4 class="text-xs font-bold text-green-900 dark:text-green-200">
@@ -236,9 +322,9 @@ export { props };`;
   </div>
 
   <!-- Pro tip -->
-  <div class="mt-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-    <p class="text-xs text-gray-600 dark:text-gray-400">
-      <strong class="text-gray-900 dark:text-white">Pro tip:</strong> The exported code includes all current prop values and can be used directly in your project.
+  <div class="mt-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-800 shadow-sm">
+    <p class="text-xs text-purple-700 dark:text-purple-300">
+      <strong class="text-purple-900 dark:text-purple-200">💡 Pro tip:</strong> The exported code includes all current prop values and can be used directly in your project!
     </p>
   </div>
 </div>

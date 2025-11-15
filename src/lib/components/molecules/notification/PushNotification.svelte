@@ -162,7 +162,7 @@
             <button
               type="button"
               class="ml-4 flex-shrink-0 text-gray-400 hover:text-gray-500"
-              on:click={handleDismiss}
+              onclick={handleDismiss}
               aria-label="Dismiss notification"
             >
               <X class="h-5 w-5" />
@@ -180,7 +180,7 @@
                     ? 'bg-blue-600 text-white hover:bg-blue-700'
                     : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
                 }`}
-                on:click={() => handleAction(action)}
+                onclick={() => handleAction(action)}
               >
                 {action.label}
               </button>

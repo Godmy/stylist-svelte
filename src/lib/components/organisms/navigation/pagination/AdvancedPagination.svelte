@@ -86,7 +86,7 @@
                     ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
                     : 'border-gray-300 bg-white text-gray-500 hover:bg-gray-50'
                 }`}
-                onclick={() => onPageChange(pageNumber)}
+                onclick={() => onPageChange(pageNumber as number)}
               >
                 {pageNumber}
               </button>

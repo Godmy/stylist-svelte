@@ -92,7 +92,7 @@
         } ${
           tab.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
         } ${tabClass}`}
-        on:click={() => changeTab(tab.id)}
+        onclick={() => changeTab(tab.id)}
         disabled={tab.disabled}
         aria-selected={currentTab === tab.id}
         role="tab"

@@ -141,7 +141,7 @@
               <button
                 type="button"
                 class="text-xs font-medium text-blue-600 hover:text-blue-900"
-                on:click={() => selectAllChannels(category.id, true)}
+                onclick={() => selectAllChannels(category.id, true)}
               >
                 Select All
               </button>
@@ -149,7 +149,7 @@
               <button
                 type="button"
                 class="text-xs font-medium text-blue-600 hover:text-blue-900"
-                on:click={() => selectAllChannels(category.id, false)}
+                onclick={() => selectAllChannels(category.id, false)}
               >
                 Clear All
               </button>
@@ -166,7 +166,7 @@
                       type="checkbox"
                       class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
                       checked={getPreference(category.id, 'email')}
-                      on:change={() => togglePreference(category.id, 'email')}
+                      onchange={() => togglePreference(category.id, 'email')}
                     />
                     <label for={`email-${category.id}`} class="ml-3 text-sm font-medium text-gray-700 flex items-center">
                       <Mail class="h-4 w-4 mr-1" />
@@ -184,7 +184,7 @@
                       type="checkbox"
                       class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
                       checked={getPreference(category.id, 'push')}
-                      on:change={() => togglePreference(category.id, 'push')}
+                      onchange={() => togglePreference(category.id, 'push')}
                     />
                     <label for={`push-${category.id}`} class="ml-3 text-sm font-medium text-gray-700 flex items-center">
                       <Bell class="h-4 w-4 mr-1" />
@@ -202,7 +202,7 @@
                       type="checkbox"
                       class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
                       checked={getPreference(category.id, 'sms')}
-                      on:change={() => togglePreference(category.id, 'sms')}
+                      onchange={() => togglePreference(category.id, 'sms')}
                     />
                     <label for={`sms-${category.id}`} class="ml-3 text-sm font-medium text-gray-700 flex items-center">
                       <MessageCircle class="h-4 w-4 mr-1" />
@@ -220,7 +220,7 @@
                       type="checkbox"
                       class="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
                       checked={getPreference(category.id, 'in-app')}
-                      on:change={() => togglePreference(category.id, 'in-app')}
+                      onchange={() => togglePreference(category.id, 'in-app')}
                     />
                     <label for={`inapp-${category.id}`} class="ml-3 text-sm font-medium text-gray-700 flex items-center">
                       <Smartphone class="h-4 w-4 mr-1" />
@@ -241,7 +241,7 @@
       <button
         type="button"
         class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
-        on:click={savePreferences}
+        onclick={savePreferences}
       >
         <Save class="h-4 w-4 mr-1" />
         Save Preferences

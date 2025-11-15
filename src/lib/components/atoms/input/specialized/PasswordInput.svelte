@@ -11,7 +11,7 @@
   } & HTMLInputAttributes;
 
   let {
-    value = '',
+    value = $bindable(),
     placeholder = 'Введите пароль',
     disabled = false,
     required = false,
@@ -20,20 +20,11 @@
     ...restProps
   }: Props = $props();
 
-  let internalValue = $state(value);
   let showPassword = $state(false);
-
-  // Update internal value when prop value changes
-  $effect(() => {
-    internalValue = value || '';
-  });
 
   function handleInput(e: Event) {
     const target = e.target as HTMLInputElement;
-    internalValue = target.value;
-    // Dispatch event to notify parent of change
-    const event = new CustomEvent('valueChange', { detail: { value: target.value } });
-    dispatchEvent(event);
+    // The $bindable() will handle setting the value prop automatically
   }
 
   function togglePasswordVisibility() {
@@ -44,14 +35,14 @@
 <div class="w-full relative">
   <input
     type={showPassword ? "text" : "password"}
-    bind:value={internalValue}
+    bind:value
     oninput={handleInput}
     placeholder={placeholder}
     disabled={disabled}
     required={required}
     class={`w-full px-3 py-2 pr-10 border ${
-      error 
-        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+      error
+        ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
         : 'border-gray-300 focus:ring-blue-500 focus:border-blue-500'
     } rounded-md shadow-sm focus:outline-none focus:ring-2`}
     {...restProps}
@@ -60,7 +51,7 @@
     type="button"
     class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
     onclick={togglePasswordVisibility}
-    aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
+    aria-label={showPassword ? "Hide password" : "Show password"}
   >
     {#if showPassword}
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

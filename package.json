@@ -28,7 +28,7 @@
     "preview": "vite preview",
     "package": "svelte-package",
     "prepublishOnly": "npm run build",
-    "check": "npx svelte-check --tsconfig ./tsconfig.json",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "vitest",
     "test:unit": "vitest run",

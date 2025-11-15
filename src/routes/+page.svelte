@@ -5,6 +5,7 @@
     default: any;
   };
 
+  // @ts-ignore: import.meta.glob might not be typed in this context
   const modules = import.meta.glob('$lib/components/**/*.story.svelte', {
     eager: true
   }) as Record<string, StoryModule>;

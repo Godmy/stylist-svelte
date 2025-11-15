@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Search, Command, X, Zap, Eye, Grid, Moon, Sun, Layers, Code, Download, Keyboard, FileCode } from 'lucide-svelte';
+  import { Search, Command as CommandIcon, X, Zap, Eye, Grid, Moon, Sun, Layers, Code, Download, Keyboard, FileCode, Star, Clock, Box, Smartphone } from 'lucide-svelte';
   import { playgroundStore } from '../stores/playground.svelte';
 
   interface Props {
@@ -12,7 +12,7 @@
 
   let searchQuery = $state('');
   let selectedIndex = $state(0);
-  let inputElement: HTMLInputElement;
+  let inputElement: HTMLInputElement | null = $state(null);
 
   interface Command {
     id: string;
@@ -134,6 +134,30 @@
       },
       category: 'Tabs'
     },
+    {
+      id: 'tab-presets',
+      title: 'Open Presets Tab',
+      description: 'Manage and load saved presets',
+      icon: Star,
+      action: () => {
+        playgroundStore.setBottomTab('presets');
+        if (!playgroundStore.uiState.bottomPanelOpen) playgroundStore.toggleBottomPanel();
+      },
+      category: 'Tabs',
+      keywords: ['favorites', 'saved']
+    },
+    {
+      id: 'sidebar-history',
+      title: 'Open History Sidebar',
+      description: 'View recent and most visited components',
+      icon: Clock,
+      action: () => {
+        playgroundStore.setSidebarTab('history');
+        if (!playgroundStore.state.sidebarOpen) playgroundStore.toggleSidebar();
+      },
+      category: 'Tabs',
+      keywords: ['recent', 'visited', 'tracking']
+    },
 
     // Viewport
     {
@@ -171,15 +195,98 @@
       action: () => playgroundStore.setViewport('fullscreen'),
       category: 'Viewport',
       keywords: ['full', 'responsive']
+    },
+
+    // Device Frame
+    {
+      id: 'toggle-device-frame',
+      title: 'Toggle Device Frame',
+      description: 'Show or hide realistic device frames',
+      icon: Smartphone,
+      action: () => playgroundStore.toggleDeviceFrame(),
+      category: 'View',
+      keywords: ['phone', 'mobile', 'tablet', 'mockup']
     }
   ];
 
+  // Dynamic commands from stories, presets, and history
+  const dynamicCommands = $derived.by(() => {
+    const dynamic: Command[] = [];
+
+    // Add stories/components
+    try {
+      const allStories = Array.from(playgroundStore.stories.values());
+      allStories.forEach((story) => {
+        if (story && story.id && story.title) {
+          dynamic.push({
+            id: `story-${story.id}`,
+            title: story.title,
+            description: story.description || `Open ${story.title} component`,
+            icon: Box,
+            action: () => playgroundStore.setCurrentStory(story.id),
+            category: 'Components',
+            keywords: [story.category || '', ...(story.tags || [])]
+          });
+        }
+      });
+    } catch (error) {
+      console.warn('Error loading stories for command palette:', error);
+    }
+
+    // Add favorite presets
+    try {
+      const favoritePresets = playgroundStore.getFavoritePresets();
+      favoritePresets.forEach((preset) => {
+        const story = playgroundStore.stories.get(preset.storyId);
+        if (story && preset.id && preset.name) {
+          dynamic.push({
+            id: `preset-${preset.id}`,
+            title: `Load Preset: ${preset.name}`,
+            description: `Apply preset for ${story.title}`,
+            icon: Star,
+            action: () => playgroundStore.loadPreset(preset.id),
+            category: 'Presets',
+            keywords: ['favorite', 'saved', story.title]
+          });
+        }
+      });
+    } catch (error) {
+      console.warn('Error loading presets for command palette:', error);
+    }
+
+    // Add recent history
+    try {
+      const recentHistory = playgroundStore.getRecentHistory(5);
+      recentHistory.forEach((entry) => {
+        const story = playgroundStore.stories.get(entry.storyId);
+        if (story && entry.storyId) {
+          dynamic.push({
+            id: `history-${entry.storyId}`,
+            title: `Recent: ${story.title}`,
+            description: `Visited ${formatRelativeTime(entry.timestamp)}`,
+            icon: Clock,
+            action: () => playgroundStore.setCurrentStory(entry.storyId),
+            category: 'Recent',
+            keywords: ['history', 'visited']
+          });
+        }
+      });
+    } catch (error) {
+      console.warn('Error loading history for command palette:', error);
+    }
+
+    return dynamic;
+  });
+
+  // Combined commands
+  const allCommands = $derived([...commands, ...dynamicCommands]);
+
   // Fuzzy search
   const filteredCommands = $derived.by(() => {
-    if (!searchQuery.trim()) return commands;
+    if (!searchQuery.trim()) return allCommands;
 
     const query = searchQuery.toLowerCase();
-    return commands.filter(cmd => {
+    return allCommands.filter(cmd => {
       const titleMatch = cmd.title.toLowerCase().includes(query);
       const descMatch = cmd.description.toLowerCase().includes(query);
       const categoryMatch = cmd.category.toLowerCase().includes(query);
@@ -188,6 +295,21 @@
       return titleMatch || descMatch || categoryMatch || keywordsMatch;
     });
   });
+
+  function formatRelativeTime(timestamp: number): string {
+    const now = Date.now();
+    const diff = now - timestamp;
+
+    const seconds = Math.floor(diff / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (days > 0) return `${days}d ago`;
+    if (hours > 0) return `${hours}h ago`;
+    if (minutes > 0) return `${minutes}m ago`;
+    return 'just now';
+  }
 
   // Group by category
   const groupedCommands = $derived.by(() => {
@@ -244,6 +366,10 @@
   <div
     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 animate-fade-in"
     onclick={onClose}
+    onkeydown={(e) => e.key === 'Escape' && onClose()}
+    role="button"
+    tabindex="0"
+    aria-label="Close command palette"
   ></div>
 
   <!-- Command Palette -->
@@ -251,9 +377,14 @@
     <div
       class="command-palette w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden pointer-events-auto animate-scale-in"
       onclick={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="command-palette-title"
+      tabindex="-1"
     >
       <!-- Search input -->
       <div class="flex items-center gap-3 p-4 border-b-2 border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+        <h2 class="sr-only" id="command-palette-title">Command Palette</h2>
         <Search class="w-5 h-5 text-gray-400" />
         <input
           bind:this={inputElement}
@@ -337,7 +468,7 @@
       <div class="flex items-center justify-between px-4 py-3 border-t-2 border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
           <div class="flex items-center gap-1">
-            <Command class="w-3 h-3" />
+            <CommandIcon class="w-3 h-3" />
             <span>+</span>
             <kbd class="px-1.5 py-0.5 font-mono bg-gray-100 dark:bg-gray-800 rounded border border-gray-300 dark:border-gray-600">K</kbd>
             <span class="ml-1">to toggle</span>

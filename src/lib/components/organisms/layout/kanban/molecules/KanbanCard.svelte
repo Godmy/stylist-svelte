@@ -2,9 +2,7 @@
   import type { KanbanTask as KanbanCardType, User } from '$lib/types';
   import type { Snippet } from 'svelte';
   import { GripVertical } from 'lucide-svelte';
-  import Badge from '../../../../atoms/typography/elements/Badge.svelte';
-  import Avatar from '../../../../atoms/media/Avatar.svelte';
-  import Divider from '../../../../atoms/typography/inline/Divider.svelte';
+  import { Avatar, Badge, Divider } from '$lib/components/atoms';
 
   let { 
     card,

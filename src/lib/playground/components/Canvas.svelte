@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { ComponentType } from 'svelte';
-  import { playgroundStore, type ViewportSize } from '../stores/playground.svelte';
-  import { ZoomIn, ZoomOut, RotateCcw, Move, Maximize2 } from 'lucide-svelte';
+  import { playgroundStore } from '../stores/playground.svelte';
+  import type { ViewportSize } from '../types';
+  import { ZoomIn, ZoomOut, RotateCcw, Move, Maximize2, Smartphone } from 'lucide-svelte';
+  import DeviceFrame from './DeviceFrame.svelte';
 
   interface Props {
     component?: ComponentType | null;
@@ -108,8 +110,8 @@
 <style>
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(99, 102, 241, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(99, 102, 241, 0.15) 1px, transparent 1px);
+      linear-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(249, 115, 22, 0.15) 1px, transparent 1px);
     background-size: 20px 20px;
     animation: grid-fade-in 0.3s ease-out;
   }
@@ -129,14 +131,14 @@
 
   .canvas-container {
     background:
-      radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.08) 0%, transparent 50%);
   }
 
   :global(.dark) .canvas-container {
     background:
-      radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%);
   }
 
   .canvas-frame {
@@ -145,14 +147,14 @@
 
   .canvas-frame:hover {
     box-shadow:
-      0 20px 25px -5px rgba(99, 102, 241, 0.1),
-      0 10px 10px -5px rgba(99, 102, 241, 0.04);
+      0 20px 25px -5px rgba(249, 115, 22, 0.15),
+      0 10px 10px -5px rgba(249, 115, 22, 0.08);
   }
 
   :global(.dark) .canvas-frame:hover {
     box-shadow:
-      0 20px 25px -5px rgba(99, 102, 241, 0.2),
-      0 10px 10px -5px rgba(99, 102, 241, 0.1);
+      0 20px 25px -5px rgba(249, 115, 22, 0.25),
+      0 10px 10px -5px rgba(249, 115, 22, 0.15);
   }
 
   .panning {
@@ -190,9 +192,9 @@
         class="p-2 rounded-md hover:bg-white dark:hover:bg-gray-600 transition-all hover:scale-110 active:scale-95 group"
         title="Zoom out (Ctrl + -)"
       >
-        <ZoomOut class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+        <ZoomOut class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors" />
       </button>
-      <span class="text-xs font-mono font-bold text-gray-700 dark:text-gray-300 min-w-[3.5rem] text-center px-2">
+      <span class="text-xs font-mono font-bold text-orange-700 dark:text-orange-300 min-w-[3.5rem] text-center px-2">
         {Math.round(playgroundStore.uiState.zoom * 100)}%
       </span>
       <button
@@ -200,7 +202,7 @@
         class="p-2 rounded-md hover:bg-white dark:hover:bg-gray-600 transition-all hover:scale-110 active:scale-95 group"
         title="Zoom in (Ctrl + +)"
       >
-        <ZoomIn class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+        <ZoomIn class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors" />
       </button>
     </div>
 
@@ -222,6 +224,35 @@
       </button>
     </div>
 
+    <!-- Viewport selector -->
+    <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg px-3 py-2 shadow-sm">
+      <span class="text-xs font-semibold text-gray-600 dark:text-gray-400">View:</span>
+      <select
+        value={playgroundStore.state.viewport}
+        onchange={(e) => playgroundStore.setViewport(e.currentTarget.value as any)}
+        class="text-xs bg-transparent border-none focus:outline-none text-gray-900 dark:text-white font-medium cursor-pointer"
+      >
+        <option value="mobile">Mobile</option>
+        <option value="tablet">Tablet</option>
+        <option value="desktop">Desktop</option>
+        <option value="fullscreen">Fullscreen</option>
+      </select>
+    </div>
+
+    <!-- Device Frame Toggle -->
+    {#if playgroundStore.state.viewport !== 'fullscreen'}
+      <button
+        onclick={() => playgroundStore.toggleDeviceFrame()}
+        class="flex items-center gap-2 px-3 py-2 rounded-lg shadow-sm transition-all {playgroundStore.uiState.showDeviceFrame
+          ? 'bg-orange-500 text-white'
+          : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400'}"
+        title="Toggle device frame"
+      >
+        <Smartphone class="w-4 h-4" />
+        <span class="text-xs font-medium">Device Frame</span>
+      </button>
+    {/if}
+
     <!-- Pan info (when panning) -->
     {#if panX !== 0 || panY !== 0}
       <div class="flex items-center gap-2 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 px-3 py-2 rounded-lg shadow-sm border border-blue-200/50 dark:border-blue-700/50">
@@ -234,9 +265,9 @@
 
     <!-- Viewport info -->
     {#if playgroundStore.state.viewport !== 'fullscreen'}
-      <div class="ml-auto flex items-center gap-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 px-3 py-2 rounded-lg shadow-sm border border-indigo-200/50 dark:border-indigo-700/50">
-        <div class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
-        <span class="text-xs font-mono font-bold text-indigo-700 dark:text-indigo-300">
+      <div class="ml-auto flex items-center gap-2 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/30 dark:to-red-900/30 px-3 py-2 rounded-lg shadow-sm border border-orange-200/50 dark:border-orange-700/50">
+        <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+        <span class="text-xs font-mono font-bold text-orange-700 dark:text-orange-300">
           {currentViewportWidth}
         </span>
       </div>
@@ -264,28 +295,52 @@
       class="canvas-zoom"
       style="transform: translate({panX}px, {panY}px) scale({playgroundStore.uiState.zoom}); transform-origin: center; transition: {isPanning ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'};"
     >
-      <div
-        class="canvas-frame rounded-2xl shadow-2xl relative {backgroundClass} border-2 border-gray-200/50 dark:border-gray-700/50 pointer-events-auto"
-        class:grid-overlay={playgroundStore.uiState.showGrid}
-        style="width: {currentViewportWidth}; min-height: 400px;"
-      >
-        <!-- Component render area -->
-        <div class="p-8">
-          {#if component}
-            {@const DynamicComponent = component}
-            <DynamicComponent {...props} />
-          {:else if children}
-            {@render children()}
-          {:else}
-            <div class="flex items-center justify-center h-64 text-gray-400 dark:text-gray-600">
-              <div class="text-center">
-                <p class="text-sm">No component loaded</p>
-                <p class="text-xs mt-1">Select a component from the sidebar</p>
-              </div>
+      {#if playgroundStore.uiState.showDeviceFrame && playgroundStore.state.viewport !== 'fullscreen'}
+        <!-- Device Frame Wrapper -->
+        <DeviceFrame device={playgroundStore.state.viewport}>
+          <div class="{backgroundClass}" class:grid-overlay={playgroundStore.uiState.showGrid}>
+            <div class="p-8">
+              {#if component}
+                {@const DynamicComponent = component}
+                <DynamicComponent {...props} />
+              {:else if children}
+                {@render children()}
+              {:else}
+                <div class="flex items-center justify-center h-64 text-gray-400 dark:text-gray-600">
+                  <div class="text-center">
+                    <p class="text-sm">No component loaded</p>
+                    <p class="text-xs mt-1">Select a component from the sidebar</p>
+                  </div>
+                </div>
+              {/if}
             </div>
-          {/if}
+          </div>
+        </DeviceFrame>
+      {:else}
+        <!-- Regular Canvas Frame -->
+        <div
+          class="canvas-frame rounded-2xl shadow-2xl relative {backgroundClass} border-2 border-gray-200/50 dark:border-gray-700/50 pointer-events-auto"
+          class:grid-overlay={playgroundStore.uiState.showGrid}
+          style="width: {currentViewportWidth}; min-height: 400px;"
+        >
+          <!-- Component render area -->
+          <div class="p-8">
+            {#if component}
+              {@const DynamicComponent = component}
+              <DynamicComponent {...props} />
+            {:else if children}
+              {@render children()}
+            {:else}
+              <div class="flex items-center justify-center h-64 text-gray-400 dark:text-gray-600">
+                <div class="text-center">
+                  <p class="text-sm">No component loaded</p>
+                  <p class="text-xs mt-1">Select a component from the sidebar</p>
+                </div>
+              </div>
+            {/if}
+          </div>
         </div>
-      </div>
+      {/if}
     </div>
   </div>
 </div>

@@ -17,7 +17,7 @@
     CheckCircle,
     Clock
   } from 'lucide-svelte';
-  import Avatar from '../../atoms/media/Avatar.svelte';
+  import { Avatar } from '$lib/components/atoms';
 
   type ActivityType = 
     | 'like' 

@@ -60,6 +60,10 @@
   <div
     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in"
     onclick={handleClose}
+    onkeydown={(e) => e.key === 'Escape' && handleClose()}
+    role="button"
+    tabindex="0"
+    aria-label="Close component info"
   ></div>
 
   <!-- Modal -->
@@ -67,6 +71,10 @@
     <div
       class="info-card-modal w-full max-w-2xl bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden pointer-events-auto animate-scale-in"
       onclick={(e) => e.stopPropagation()}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="component-info-title"
+      tabindex="-1"
     >
       <!-- Header -->
       <div class="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6">
@@ -75,7 +83,7 @@
           <div class="flex-1">
             <div class="flex items-center gap-2 mb-2">
               <Package class="w-5 h-5 text-white" />
-              <h2 class="text-2xl font-bold text-white">
+              <h2 id="component-info-title" class="text-2xl font-bold text-white">
                 {componentName || 'Component Info'}
               </h2>
             </div>

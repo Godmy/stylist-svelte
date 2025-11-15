@@ -94,7 +94,7 @@
     <button
       type="button"
       class="absolute top-4 left-4 z-50 p-2 rounded-md text-gray-700 lg:hidden"
-      on:click={toggleSidebar}
+      onclick={toggleSidebar}
     >
       {#if isSidebarOpen}
         <X class="h-6 w-6" />
@@ -108,7 +108,7 @@
   {#if isMobile && isSidebarOpen}
     <div
       class="fixed inset-0 z-40 bg-black bg-opacity-50 lg:hidden"
-      on:click={toggleSidebar}
+      onclick={toggleSidebar}
     ></div>
   {/if}
 
@@ -147,7 +147,10 @@
                 class={`flex items-center p-3 rounded-lg transition-colors ${
                   item.active ? activeItemClass : 'text-gray-700 hover:bg-gray-100'
                 } ${item.disabled ? disabledItemClass : 'cursor-pointer'} ${itemClass}`}
-                on:click|preventDefault={() => handleClick(item)}
+                onclick={(e) => {
+                  e.preventDefault();
+                  handleClick(item);
+                }}
                 aria-current={item.active ? 'page' : undefined}
               >
                 {#if item.icon && isSidebarOpen}

@@ -92,7 +92,7 @@
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed ' + disabledButtonClass 
             : 'text-gray-700 hover:bg-gray-100 ' + buttonClass
         }`}
-        on:click={goToFirst}
+        onclick={goToFirst}
         disabled={currentPage === 1}
         aria-label="First page"
       >
@@ -108,7 +108,7 @@
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed ' + disabledButtonClass 
             : 'text-gray-700 hover:bg-gray-100 ' + buttonClass
         }`}
-        on:click={goToPrev}
+        onclick={goToPrev}
         disabled={currentPage === 1}
         aria-label="Previous page"
       >
@@ -120,7 +120,7 @@
       <button
         type="button"
         class={`px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 ${buttonClass}`}
-        on:click={() => goToPage(1)}
+        onclick={() => goToPage(1)}
       >
         1
       </button>
@@ -137,7 +137,7 @@
             ? 'bg-blue-500 text-white ' + activeButtonClass 
             : 'text-gray-700 hover:bg-gray-100 ' + buttonClass
         }`}
-        on:click={() => goToPage(page)}
+        onclick={() => goToPage(page)}
         aria-current={page === currentPage ? 'page' : undefined}
       >
         {page}
@@ -151,7 +151,7 @@
       <button
         type="button"
         class={`px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 ${buttonClass}`}
-        on:click={() => goToPage(totalPages)}
+        onclick={() => goToPage(totalPages)}
       >
         {totalPages}
       </button>
@@ -165,7 +165,7 @@
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed ' + disabledButtonClass 
             : 'text-gray-700 hover:bg-gray-100 ' + buttonClass
         }`}
-        on:click={goToNext}
+        onclick={goToNext}
         disabled={currentPage === totalPages}
         aria-label="Next page"
       >
@@ -181,7 +181,7 @@
             ? 'bg-gray-100 text-gray-400 cursor-not-allowed ' + disabledButtonClass 
             : 'text-gray-700 hover:bg-gray-100 ' + buttonClass
         }`}
-        on:click={goToLast}
+        onclick={goToLast}
         disabled={currentPage === totalPages}
         aria-label="Last page"
       >

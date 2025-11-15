@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Story } from 'stylist-svelte/playground';
+  import { Story } from '$lib/playground';
   import Kbd from './Kbd.svelte';
 </script>
 
