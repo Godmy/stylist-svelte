@@ -60,8 +60,8 @@ export interface StoryConfig {
   docs?: string; // Markdown documentation
 }
 
-export type BottomTab = 'controls' | 'code' | 'export' | 'shortcuts' | 'actions' | 'variants';
-export type SidebarTab = 'variants' | 'props' | 'docs' | 'code' | 'a11y';
+export type BottomTab = 'controls' | 'code' | 'export' | 'shortcuts' | 'actions' | 'variants' | 'presets';
+export type SidebarTab = 'variants' | 'props' | 'docs' | 'code' | 'a11y' | 'history';
 export type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
 
 export interface PlaygroundState {

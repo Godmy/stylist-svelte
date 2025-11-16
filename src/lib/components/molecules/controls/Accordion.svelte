@@ -6,7 +6,7 @@
   type AccordionItem = {
     id: string;
     title: string;
-    content: Snippet;
+    content: Snippet | string;
     disabled?: boolean;
   };
 
@@ -79,7 +79,11 @@
         } ${contentClass}`}
       >
         <div class="p-4 border-t border-gray-200">
-          {@render item.content()}
+          {#if typeof item.content === 'function'}
+            {@render item.content()}
+          {:else}
+            {item.content}
+          {/if}
         </div>
       </div>
     </div>

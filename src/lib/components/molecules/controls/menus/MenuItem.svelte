@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import Icon from '$lib/components/atoms/media/Icon/Icon.svelte';
+  import { Icon } from '$lib/components/atoms';
 
   type Variant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
   

@@ -1,15 +1,15 @@
 type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
-type UserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';
+type AvatarUserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';
 
 export interface AvatarProps {
   src?: string;
   alt?: string;
   id?: string;
   name?: string;
-  status?: UserStatus;
+  status?: AvatarUserStatus;
   size?: AvatarSize;
   showStatus?: boolean;
   class?: string;
 }
 
-export type { AvatarSize, UserStatus };
+export type { AvatarSize, AvatarUserStatus };

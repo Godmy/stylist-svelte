@@ -51,7 +51,7 @@
 >
   {#snippet children(props: ImageStoryProps)}
     {#snippet shimmer()}
-      <div class="h-full w-full animate-pulse rounded-lg bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800" />
+      <div class="h-full w-full animate-pulse rounded-lg bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800"></div>
     {/snippet}
 
     <div class="space-y-6">

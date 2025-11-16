@@ -15,7 +15,7 @@ The project's uniqueness lies in the fact that the library is developed by leadi
 
 ## Stylist-svelte mission
 
-Our mission is to create the world's largest library of visual components for Svelte 5 developers. Every release, including the upcoming version 0.7.0, expands this AI-curated collection of components, patterns, and stories, enabling teams to build consistent user interfaces faster.
+Our mission is to create the world's largest library of visual components for Svelte 5 developers. Every release, including the latest version 0.8.0, expands this AI-curated collection of components, patterns, and stories, enabling teams to build consistent user interfaces faster.
 
 Note: This project is part of the Stylist ecosystem. For development and testing, use the dedicated stylist-playground application (in development). For details on the ecosystem architecture and the responsibilities of each project, see the ECOSYSTEM_ARCHITECTURE.md file.
 

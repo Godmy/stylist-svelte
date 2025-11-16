@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { FaviconProps } from './type';
   import { DEFAULT_FALLBACK_ICON, DEFAULT_FAVICON_SIZE, FAVICON_FILE_NAME } from './constant';
-  import { generateFaviconUrl, getFallbackClasses, getImageClasses } from './util';
+  import { generateFaviconUrl, getFallbackClasses, getFaviconImageClasses } from './util';
 
   const {
     url,
@@ -24,7 +24,7 @@
     src={faviconUrl}
     width={size}
     height={size}
-    class={getImageClasses(className)}
+    class={getFaviconImageClasses(className)}
     onerror={handleError}
     {...restProps}
   />

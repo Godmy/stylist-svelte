@@ -2,8 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { ChevronUp, ChevronDown, ChevronsUpDown, Search, Download, Settings } from 'lucide-svelte';
-  import { Button } from '$lib/components/atoms';
-  import Input from '../../atoms/input/base/Input.svelte';
+  import { Button, Input } from '$lib/components/atoms';
 
   type SortDirection = 'asc' | 'desc' | null;
 

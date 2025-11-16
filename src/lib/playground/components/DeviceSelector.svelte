@@ -114,7 +114,4 @@
 </div>
 
 <style>
-  .device-selector {
-    /* Custom styles if needed */
-  }
 </style>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { Button } from '$lib/components/atoms';
-  import Icon from '$lib/components/atoms/media/Icon/Icon.svelte';
+  import { Button, Icon } from '$lib/components/atoms';
 
   // Define local types
   interface Attachment {

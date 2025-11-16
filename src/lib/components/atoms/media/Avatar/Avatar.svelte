@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { AvatarProps } from './type';
-  import { getInitials, getStatusColor, getSizeClasses, getStatusSizeClasses } from './util';
+  import { getInitials, getStatusColor, getAvatarSizeClasses, getStatusSizeClasses } from './util';
   import { DEFAULT_AVATAR_CLASSES, STATUS_BORDER_CLASSES } from './constant';
 
   let {
@@ -17,7 +17,7 @@
 
   let initials = $derived(getInitials(name));
   let statusColor = $derived(getStatusColor(status));
-  let sizeClasses = $derived(getSizeClasses(size));
+  let sizeClasses = $derived(getAvatarSizeClasses(size));
   let statusSizeClasses = $derived(getStatusSizeClasses(size));
   let classes = $derived(`${DEFAULT_AVATAR_CLASSES} ${sizeClasses} ${className}`);
 </script>

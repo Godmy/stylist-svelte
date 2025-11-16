@@ -377,6 +377,12 @@
     <div
       class="command-palette w-full max-w-2xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden pointer-events-auto animate-scale-in"
       onclick={(e) => e.stopPropagation()}
+      onkeydown={(e) => {
+        if (e.key === 'Escape') {
+          e.stopPropagation();
+          onClose();
+        }
+      }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="command-palette-title"

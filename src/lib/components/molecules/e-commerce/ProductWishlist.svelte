@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Heart, ShoppingCart, X, Check, MoreHorizontal, Image as ImageIcon, Star } from 'lucide-svelte';
-  import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge.svelte';
+  import { Badge, Button } from '$lib/components/atoms';
 
   type Product = {
     id: string;

@@ -1,10 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { CreditCard, Banknote, Wallet, Shield, Info, Lock, ShieldCheck, Globe, CheckCircle } from 'lucide-svelte';
-  import Accordion from '$lib/components/molecules/controls/Accordion.svelte';
-  import AccordionItem from '$lib/components/organisms/controls/accordion/AccordionItem.svelte';
-  import AccordionHeader from '$lib/components/organisms/controls/accordion/AccordionHeader.svelte';
-  import AccordionPanel from '$lib/components/organisms/controls/accordion/AccordionPanel.svelte';
+  import { Accordion } from '$lib/components/molecules';
+  import { AccordionItem, AccordionHeader, AccordionPanel } from '$lib/components/organisms';
 
   type PaymentMethod = {
     id: string;
@@ -264,7 +262,7 @@
           items={faqs.map((faq, index) => ({
             id: `faq-${index}`,
             title: faq.question,
-            content: () => faq.answer
+            content: faq.answer
           }))}
           class="mt-4"
         />

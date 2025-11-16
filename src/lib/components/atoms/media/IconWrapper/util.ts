@@ -7,7 +7,7 @@ import { ICON_WRAPPER_SIZE_CLASSES, SHAPE_CLASSES, BASE_CLASSES } from './consta
  * @param size - The size of the icon wrapper
  * @returns The CSS classes string for the size
  */
-export function getSizeClasses(size: IconWrapperSize): string {
+export function getIconWrapperSizeClasses(size: IconWrapperSize): string {
   return ICON_WRAPPER_SIZE_CLASSES[size] || ICON_WRAPPER_SIZE_CLASSES.md;
 }
 
@@ -76,7 +76,7 @@ export function getCombinedClasses(
   color: IconColor,
   className: string = ''
 ): string {
-  const sizeClasses = getSizeClasses(size);
+  const sizeClasses = getIconWrapperSizeClasses(size);
   const shapeClasses = getShapeClasses(shape);
   const colorClasses = getColorClasses(variant, color);
 

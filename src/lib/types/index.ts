@@ -1,5 +1,5 @@
 // stylist-coder-model auto-generated exports for types
-export * from './components';
+export type * from './components';
 export * from './design-tokens';
-export * from './form';
-export * from './table';
+export type * from './form';
+export type * from './table';

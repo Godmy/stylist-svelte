@@ -30,7 +30,7 @@
     url: string;
   };
 
-  type UserStatus = 'online' | 'offline' | 'away' | 'busy';
+  type UserProfileStatus = 'online' | 'offline' | 'away' | 'busy';
 
   type UserProfile = {
     id: string;
@@ -49,7 +49,7 @@
       posts?: number;
     };
     tags?: string[];
-    status?: UserStatus;
+    status?: UserProfileStatus;
     isFollowing?: boolean;
     isFriend?: boolean;
     isVerified?: boolean;
@@ -133,8 +133,8 @@
     onSettingsClick?.(user);
   }
 
-  function getStatusColor(status: UserStatus) {
-    const colors: Record<UserStatus, string> = {
+  function getStatusColor(status: UserProfileStatus) {
+    const colors: Record<UserProfileStatus, string> = {
       'online': 'bg-green-500',
       'offline': 'bg-gray-400',
       'away': 'bg-yellow-500',

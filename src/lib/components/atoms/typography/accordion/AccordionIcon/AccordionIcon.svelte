@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Icon from '../../../media/Icon/Icon.svelte';
+  import { Icon } from '$lib/components/atoms';
   import type { AccordionIconProps } from './type';
   import { DEFAULT_IS_OPEN, DEFAULT_SIZE, ICON_NAME } from './constant';
   import { getContainerClasses } from './util';

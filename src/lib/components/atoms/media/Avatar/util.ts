@@ -1,4 +1,4 @@
-import type { UserStatus, AvatarSize } from './type';
+import type { AvatarUserStatus, AvatarSize } from './type';
 import { STATUS_COLORS, SIZE_CLASSES, STATUS_SIZE_CLASSES } from './constant';
 
 /**
@@ -11,14 +11,14 @@ export function getInitials(name?: string): string {
 /**
  * Gets the appropriate status color class based on status
  */
-export function getStatusColor(status?: UserStatus): string {
+export function getStatusColor(status?: AvatarUserStatus): string {
   return STATUS_COLORS[status || 'offline'] || STATUS_COLORS.offline;
 }
 
 /**
  * Gets the appropriate size classes based on size prop
  */
-export function getSizeClasses(size: AvatarSize): string {
+export function getAvatarSizeClasses(size: AvatarSize): string {
   return SIZE_CLASSES[size] || SIZE_CLASSES.md;
 }
 

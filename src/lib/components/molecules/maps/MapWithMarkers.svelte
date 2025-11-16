@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { MapPin, Navigation, Search, Plus, Minus, RotateCcw, Locate } from 'lucide-svelte';
-  import { Button } from '$lib/components/atoms';
-  import Input from '../../atoms/input/base/Input.svelte';
+  import { Button, Input } from '$lib/components/atoms';
 
   type MapMarker = {
     id: string;

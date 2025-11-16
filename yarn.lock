@@ -3954,6 +3954,7 @@ __metadata:
     eslint-plugin-svelte: "npm:^3.12.4"
     lucide-svelte: "npm:^0.468.0"
     marked: "npm:^17.0.0"
+    postcss: "npm:^8.4.49"
     prettier: "npm:^3.6.2"
     prettier-plugin-svelte: "npm:^3.4.0"
     publint: "npm:^0.3.15"

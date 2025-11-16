@@ -36,6 +36,6 @@ export function getFallbackClasses(size: number, additionalClasses: string = '')
  * @param additionalClasses - Additional CSS classes to append
  * @returns CSS class string
  */
-export function getImageClasses(additionalClasses: string = ''): string {
+export function getFaviconImageClasses(additionalClasses: string = ''): string {
   return `${FAVICON_IMAGE_CLASSES} ${additionalClasses}`.trim();
 }

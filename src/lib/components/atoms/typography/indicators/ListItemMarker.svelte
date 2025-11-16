@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Icon from '$lib/components/atoms/media/Icon/Icon.svelte';
+	import { Icon } from '$lib/components/atoms';	
 
 	export type MarkerType = 'bullet' | 'number' | 'icon';
 	export type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';

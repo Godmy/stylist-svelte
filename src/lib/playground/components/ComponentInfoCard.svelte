@@ -71,6 +71,12 @@
     <div
       class="info-card-modal w-full max-w-2xl bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden pointer-events-auto animate-scale-in"
       onclick={(e) => e.stopPropagation()}
+      onkeydown={(e) => {
+        if (e.key === 'Escape') {
+          e.stopPropagation();
+          handleClose();
+        }
+      }}
       role="dialog"
       aria-modal="true"
       aria-labelledby="component-info-title"

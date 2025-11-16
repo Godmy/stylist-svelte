@@ -10,4 +10,4 @@ export * from './types';
 export * from './utils';
 
 // Root exports
-export * from './playground';
+export type * from './playground';

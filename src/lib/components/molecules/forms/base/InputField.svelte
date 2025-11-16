@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Input from '../../../atoms/input/base/Input.svelte';
+  import { Input } from '$lib/components/atoms';
   import type { InputProps } from '../../../atoms/input/base/Input.svelte';
 
   /**

@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { MapPin, Search, List, Grid3X3, LocateFixed, Star } from 'lucide-svelte';
-  import Input from '../../atoms/input/base/Input.svelte';
-  import { Button } from '$lib/components/atoms';
+  import { Button, Input } from '$lib/components/atoms';
 
   type Location = {
     id: string;
