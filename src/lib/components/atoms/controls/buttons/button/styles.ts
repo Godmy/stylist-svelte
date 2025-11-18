@@ -47,7 +47,7 @@ export class ButtonStyleManager {
     const disabledClass = this.getDisabledClass(isDisabled, isLoading);
     const blockClass = this.getBlockClass(isBlock);
 
-    // Добавляем CSS переменные для лоадера
+    // Добавляем классы для лоадера
     const loaderClasses = this.getLoaderClasses(size);
 
     return `${baseClasses} ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${loaderClasses} ${className}`;
@@ -55,9 +55,9 @@ export class ButtonStyleManager {
 
   static getLoaderClasses(size: ButtonSize): string {
     const loaderSizeClasses: Record<ButtonSize, string> = {
-      sm: 'style="--button-loader-size: 0.75rem; --button-loader-margin-left: -0.1875rem;"',
-      md: 'style="--button-loader-size: 1rem; --button-loader-margin-left: -0.25rem;"',
-      lg: 'style="--button-loader-size: 1.25rem; --button-loader-margin-left: -0.3125rem;"'
+      sm: 'button-size-sm',
+      md: 'button-size-md',
+      lg: 'button-size-lg'
     };
 
     return `${loaderSizeClasses[size]}`;

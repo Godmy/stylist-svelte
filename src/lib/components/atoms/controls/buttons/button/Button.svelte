@@ -43,25 +43,6 @@
     block,
     className
   ));
-
-  // Определяем размеры лоадера в зависимости от размера кнопки
-  let loaderSize, marginLeft;
-  switch (size) {
-    case 'sm':
-      loaderSize = '0.75rem';
-      marginLeft = '-0.1875rem';
-      break;
-    case 'lg':
-      loaderSize = '1.25rem';
-      marginLeft = '-0.3125rem';
-      break;
-    case 'md':
-    default:
-      loaderSize = '1rem';
-      marginLeft = '-0.25rem';
-      break;
-  }
-  let loaderStyle = `width: ${loaderSize}; height: ${loaderSize}; margin-left: ${marginLeft}; margin-right: 0.5rem; display: inline-block;`;
 </script>
 
 <button
@@ -71,7 +52,7 @@
   disabled={disabled || loading}
 >
   {#if loading}
-    <Loader2 class="animate-spin" style={loaderStyle} aria-hidden="true" />
+    <Loader2 class="animate-spin button-loader" aria-hidden="true" />
   {/if}
 
   {#if children}

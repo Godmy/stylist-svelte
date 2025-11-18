@@ -9,30 +9,29 @@
 }
 
 /* Стили для лоадера в зависимости от размера кнопки */
-/* Будут уточняться в зависимости от классов кнопки */
-.button-sm .loader-icon {
+.button-size-sm .button-loader {
   width: var(--button-loader-size-sm);
   height: var(--button-loader-size-sm);
   margin-left: var(--button-loader-margin-left-sm);
   margin-right: 0.5rem;
 }
 
-.button-md .loader-icon {
+.button-size-md .button-loader {
   width: var(--button-loader-size-md);
   height: var(--button-loader-size-md);
   margin-left: var(--button-loader-margin-left-md);
   margin-right: 0.5rem;
 }
 
-.button-lg .loader-icon {
+.button-size-lg .button-loader {
   width: var(--button-loader-size-lg);
   height: var(--button-loader-size-lg);
   margin-left: var(--button-loader-margin-left-lg);
   margin-right: 0.5rem;
 }
 
-/* Если кнопка не имеет размера, используем md по умолчанию */
-.loader-icon {
+/* Если у кнопки нет класса размера, используем md по умолчанию */
+.button-loader {
   width: var(--button-loader-size-md);
   height: var(--button-loader-size-md);
   margin-left: var(--button-loader-margin-left-md);

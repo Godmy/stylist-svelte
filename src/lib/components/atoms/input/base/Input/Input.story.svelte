@@ -1,39 +1,31 @@
-<script>
+<script lang="ts">
   import { Story } from '$lib/playground';
+  import type { ControlConfig } from '$lib/playground';
   import Input from './Input.svelte';
 
-  // Define the meta information for the story
-  const meta = {
-    title: 'Atoms/Input/Base/Input',
-    component: Input,
-    tags: ['autodocs'],
-    parameters: {
-      layout: 'padded',
-      docs: {
-        description: {
-          component: 'An input component that provides a styled input field with label and error handling.'
-        }
-      }
-    }
-  };
-
   // Define controls for the story
-  const controls = [
-    { name: 'id', label: 'ID', type: 'text', defaultValue: 'input-1' },
-    { name: 'label', label: 'Label', type: 'text', defaultValue: 'Name' },
-    { name: 'type', label: 'Type', type: 'select', options: ['text', 'email', 'password', 'number'] },
-    { name: 'placeholder', label: 'Placeholder', type: 'text', defaultValue: 'Enter text...' },
-    { name: 'required', label: 'Required', type: 'boolean', defaultValue: false },
-    { name: 'disabled', label: 'Disabled', type: 'boolean', defaultValue: false },
-    { name: 'value', label: 'Value', type: 'text' },
-    { name: 'class', label: 'CSS Classes', type: 'text' }
+  const controls: ControlConfig[] = [
+    { name: 'id', description: 'ID', type: 'text', defaultValue: 'input-1' },
+    { name: 'label', description: 'Label', type: 'text', defaultValue: 'Name' },
+    { name: 'type', description: 'Type', type: 'select', options: ['text', 'email', 'password', 'number'] },
+    { name: 'placeholder', description: 'Placeholder', type: 'text', defaultValue: 'Enter text...' },
+    { name: 'required', description: 'Required', type: 'boolean', defaultValue: false },
+    { name: 'disabled', description: 'Disabled', type: 'boolean', defaultValue: false },
+    { name: 'value', description: 'Value', type: 'text' },
+    { name: 'class', description: 'CSS Classes', type: 'text' }
   ];
 </script>
 
 <Story
-  meta={meta}
-  {controls}
-  docs={'Default Input component with text type.'}
+  id="atoms-input-base-input"
+  title="Input"
+  component={Input}
+  category="Atoms/Input/Base"
+  description="An input component that provides a styled input field with label and error handling."
+  tags={[]}
+  controls={controls}
 >
-  <Input id="input-1" label="Name" />
+  {#snippet children(props: { id: string; label: string; type: string; placeholder: string; required: boolean; disabled: boolean; value: string; class: string; })}
+    <Input id={props.id} label={props.label} type={props.type} value={props.value} />
+  {/snippet}
 </Story>

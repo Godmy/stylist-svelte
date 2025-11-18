@@ -1,38 +1,30 @@
-<script>
+<script lang="ts">
   import { Story } from '$lib/playground';
+  import type { ControlConfig } from '$lib/playground';
   import EmailInput from '../EmailInput.svelte';
 
-  // Define the meta information for the story
-  const meta = {
-    title: 'Atoms/Input/Specialized/EmailInput',
-    component: EmailInput,
-    tags: ['autodocs'],
-    parameters: {
-      layout: 'padded',
-      docs: {
-        description: {
-          component: 'An email input component that provides a specialized input field for email addresses.'
-        }
-      }
-    }
-  };
-
   // Define controls for the story
-  const controls = [
-    { name: 'value', label: 'Value', type: 'text' },
-    { name: 'placeholder', label: 'Placeholder', type: 'text', defaultValue: 'Введите email' },
-    { name: 'disabled', label: 'Disabled', type: 'boolean', defaultValue: false },
-    { name: 'required', label: 'Required', type: 'boolean', defaultValue: false },
-    { name: 'error', label: 'Error', type: 'boolean', defaultValue: false },
-    { name: 'helpText', label: 'Help Text', type: 'text' },
-    { name: 'class', label: 'CSS Classes', type: 'text' }
+  const controls: ControlConfig[] = [
+    { name: 'value', description: 'Value', type: 'text' },
+    { name: 'placeholder', description: 'Placeholder', type: 'text', defaultValue: 'Введите email' },
+    { name: 'disabled', description: 'Disabled', type: 'boolean', defaultValue: false },
+    { name: 'required', description: 'Required', type: 'boolean', defaultValue: false },
+    { name: 'error', description: 'Error', type: 'boolean', defaultValue: false },
+    { name: 'helpText', description: 'Help Text', type: 'text' },
+    { name: 'class', description: 'CSS Classes', type: 'text' }
   ];
 </script>
 
 <Story
-  meta={meta}
-  {controls}
-  docs={'Default EmailInput component with placeholder text.'}
+  id="atoms-input-specialized-emailinput"
+  title="EmailInput"
+  component={EmailInput}
+  category="Atoms/Input/Specialized"
+  description="An email input component that provides a specialized input field for email addresses."
+  tags={[]}
+  controls={controls}
 >
-  <EmailInput />
+  {#snippet children(props: { value: string; placeholder: string; disabled: boolean; required: boolean; error: boolean; helpText: string; class: string; })}
+    <EmailInput value={props.value} placeholder={props.placeholder} />
+  {/snippet}
 </Story>
