@@ -226,8 +226,8 @@
           placeholder="Enter promo code"
           value={promoCode}
           class={`flex-1 mb-0 [&>label]:sr-only [&>input]:rounded-r-none ${inputClass}`}
-          oninput={(e) => promoCode = (e.target as HTMLInputElement).value}
-          onkeypress={(e) => e.key === 'Enter' && handleApplyCode()}
+          oninput={(e: Event) => promoCode = (e.target as HTMLInputElement).value}
+          onkeypress={(e: KeyboardEvent) => e.key === 'Enter' && handleApplyCode()}
         />
         <Button
           variant="secondary"

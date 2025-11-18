@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Image from './Image.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
+  import Image from './Image.svelte';
 
   type ImageStoryProps = {
     src: string;
@@ -9,7 +9,6 @@
     width: number;
     height: number;
     loading: 'lazy' | 'eager';
-    simulateError: boolean;
   };
 
   const primarySrc = 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=960&q=80&auto=format&fit=crop';
@@ -20,8 +19,7 @@
     { name: 'fallback', type: 'text', defaultValue: fallbackSrc },
     { name: 'width', type: 'number', defaultValue: 320, min: 160, max: 640, step: 20 },
     { name: 'height', type: 'number', defaultValue: 200, min: 120, max: 480, step: 20 },
-    { name: 'loading', type: 'select', defaultValue: 'lazy', options: ['lazy', 'eager'] },
-    { name: 'simulateError', type: 'boolean', defaultValue: false }
+    { name: 'loading', type: 'select', defaultValue: 'lazy', options: ['lazy', 'eager'] }
   ];
 
   const gallery = [
@@ -43,8 +41,8 @@
 <Story
   id="atoms-image"
   title="Image"
-  category="Atoms"
   component={Image}
+  category="Atoms/Media"
   description="Progressively loads responsive images with placeholder content and fallback handling."
   tags={['media', 'responsive', 'fallback']}
   controls={controls}
@@ -57,7 +55,7 @@
     <div class="space-y-6">
       <div class="rounded-2xl border border-gray-200/80 bg-gradient-to-br from-white to-gray-50 p-4 shadow-sm dark:from-gray-900 dark:to-gray-800 dark:border-gray-800">
         <Image
-          src={props.simulateError ? 'https://invalid-url.example.com/image.png' : props.src}
+          src={props.src}
           fallback={props.fallback}
           alt="Featured visual"
           loading={props.loading}
@@ -71,7 +69,7 @@
           <p>
             Source:
             <span class="font-medium text-gray-900 dark:text-white">
-              {props.simulateError ? 'Broken link (fallback demo)' : 'Remote image'}
+              Remote image
             </span>
           </p>
           <p>

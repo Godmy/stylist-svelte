@@ -384,7 +384,7 @@
                 placeholder="John"
                 value={billingAddress.firstName}
                 errors={errors.firstName ? [errors.firstName] : []}
-                oninput={(e) => handleInputChange('firstName', (e.target as HTMLInputElement).value)}
+                oninput={(e: Event) => handleInputChange('firstName', (e.target as HTMLInputElement).value)}
               />
             </div>
             
@@ -396,7 +396,7 @@
                 placeholder="Doe"
                 value={billingAddress.lastName}
                 errors={errors.lastName ? [errors.lastName] : []}
-                oninput={(e) => handleInputChange('lastName', (e.target as HTMLInputElement).value)}
+                oninput={(e: Event) => handleInputChange('lastName', (e.target as HTMLInputElement).value)}
               />
             </div>
             
@@ -408,7 +408,7 @@
                 placeholder="john@example.com"
                 value={billingAddress.email}
                 errors={errors.email ? [errors.email] : []}
-                oninput={(e) => handleInputChange('email', (e.target as HTMLInputElement).value)}
+                oninput={(e: Event) => handleInputChange('email', (e.target as HTMLInputElement).value)}
               />
             </div>
             
@@ -420,7 +420,7 @@
                 placeholder="(555) 123-4567"
                 value={billingAddress.phone}
                 errors={errors.phone ? [errors.phone] : []}
-                oninput={(e) => handleInputChange('phone', (e.target as HTMLInputElement).value)}
+                oninput={(e: Event) => handleInputChange('phone', (e.target as HTMLInputElement).value)}
               />
             </div>
           </div>
@@ -448,7 +448,7 @@
                     value={shippingAddress.address1}
                     errors={errors.address1 ? [errors.address1] : []}
                     disabled={sameAsBilling}
-                    oninput={(e) => handleInputChange('address1', (e.target as HTMLInputElement).value, true)}
+                    oninput={(e: Event) => handleInputChange('address1', (e.target as HTMLInputElement).value, true)}
                   />
                 </div>
                 
@@ -460,7 +460,7 @@
                     placeholder="Apt 1B"
                     value={shippingAddress.address2}
                     disabled={sameAsBilling}
-                    oninput={(e) => handleInputChange('address2', (e.target as HTMLInputElement).value, true)}
+                    oninput={(e: Event) => handleInputChange('address2', (e.target as HTMLInputElement).value, true)}
                   />
                 </div>
                 
@@ -473,7 +473,7 @@
                     value={shippingAddress.city}
                     errors={errors.city ? [errors.city] : []}
                     disabled={sameAsBilling}
-                    oninput={(e) => handleInputChange('city', (e.target as HTMLInputElement).value, true)}
+                    oninput={(e: Event) => handleInputChange('city', (e.target as HTMLInputElement).value, true)}
                   />
                 </div>
                 
@@ -486,7 +486,7 @@
                     placeholder="Select state"
                     errors={errors.state ? [errors.state] : []}
                     disabled={sameAsBilling}
-                    onchange={(e) => handleInputChange('state', (e.target as HTMLSelectElement).value, true)}
+                    onchange={(e: Event) => handleInputChange('state', (e.target as HTMLSelectElement).value, true)}
                   />
                 </div>
                 
@@ -499,7 +499,7 @@
                     value={shippingAddress.zipCode}
                     errors={errors.zipCode ? [errors.zipCode] : []}
                     disabled={sameAsBilling}
-                    oninput={(e) => handleInputChange('zipCode', (e.target as HTMLInputElement).value, true)}
+                    oninput={(e: Event) => handleInputChange('zipCode', (e.target as HTMLInputElement).value, true)}
                   />
                 </div>
                 
@@ -511,7 +511,7 @@
                     options={countries}
                     errors={errors.country ? [errors.country] : []}
                     disabled={sameAsBilling}
-                    onchange={(e) => handleInputChange('country', (e.target as HTMLSelectElement).value, true)}
+                    onchange={(e: Event) => handleInputChange('country', (e.target as HTMLSelectElement).value, true)}
                   />
                 </div>
               </div>
@@ -542,7 +542,7 @@
                       value={option.id}
                       class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                       checked={selectedShippingOption === option.id}
-                      onchange={(e) => selectedShippingOption = (e.target as HTMLInputElement).value}
+                      onchange={(e: Event) => selectedShippingOption = (e.target as HTMLInputElement).value}
                     />
                     <label for={`shipping-option-${option.id}`} class="ml-3 block text-sm font-medium text-gray-900">
                       {option.name}
@@ -596,7 +596,7 @@
                       value={cardInfo.number}
                       maxlength={19}
                       errors={errors.cardNumber ? [errors.cardNumber] : []}
-                      oninput={(e) => handleCardChange('number', formatCardNumber((e.target as HTMLInputElement).value))}
+                      oninput={(e: Event) => handleCardChange('number', formatCardNumber((e.target as HTMLInputElement).value))}
                     />
                   </div>
                   
@@ -610,7 +610,7 @@
                       value={cardInfo.expiry}
                       maxlength={5}
                         errors={errors.expiry ? [errors.expiry] : []}
-                        oninput={(e) => handleCardChange('expiry', formatExpiryDate((e.target as HTMLInputElement).value))}
+                        oninput={(e: Event) => handleCardChange('expiry', formatExpiryDate((e.target as HTMLInputElement).value))}
                       />
                     </div>
                     
@@ -623,7 +623,7 @@
                       value={cardInfo.cvv}
                       maxlength={4}
                         errors={errors.cvv ? [errors.cvv] : []}
-                        oninput={(e) => handleCardChange('cvv', (e.target as HTMLInputElement).value)}
+                        oninput={(e: Event) => handleCardChange('cvv', (e.target as HTMLInputElement).value)}
                       />
                     </div>
                   </div>
@@ -636,7 +636,7 @@
                       placeholder="John Doe"
                       value={cardInfo.name}
                       errors={errors.cardName ? [errors.cardName] : []}
-                      oninput={(e) => handleCardChange('name', (e.target as HTMLInputElement).value)}
+                      oninput={(e: Event) => handleCardChange('name', (e.target as HTMLInputElement).value)}
                     />
                   </div>
                 </div>
@@ -844,7 +844,7 @@
                 ? ['You must agree to the terms and conditions to continue.']
                 : []
             }
-            onchange={(e) => termsAccepted = (e.target as HTMLInputElement).checked}
+            onchange={(e: Event) => termsAccepted = (e.target as HTMLInputElement).checked}
           />
           <p class="text-sm text-gray-700">
             Read our <a href="/terms" class="text-blue-600 hover:text-blue-500">terms and conditions</a>

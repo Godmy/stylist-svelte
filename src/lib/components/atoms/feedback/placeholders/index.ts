@@ -1,6 +1,6 @@
 // stylist-coder-model auto-generated exports for placeholders
-export { default as Skeleton } from './Skeleton.svelte';
-export { default as SkeletonCircle } from './SkeletonCircle.svelte';
-export { default as SkeletonRectangle } from './SkeletonRectangle.svelte';
-export { default as SkeletonText } from './SkeletonText.svelte';
-export { default as TableSkeleton } from './TableSkeleton.svelte';
+export * from './skeleton';
+export * from './skeleton-circle';
+export * from './skeleton-rectangle';
+export * from './skeleton-table';
+export * from './skeleton-text';

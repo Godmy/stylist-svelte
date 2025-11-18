@@ -1,39 +1,63 @@
 <script lang="ts">
-  import type { FaviconProps } from './type';
-  import { DEFAULT_FALLBACK_ICON, DEFAULT_FAVICON_SIZE, FAVICON_FILE_NAME } from './constant';
-  import { generateFaviconUrl, getFallbackClasses, getFaviconImageClasses } from './util';
+  import type { HTMLImgAttributes } from 'svelte/elements';
+  import type { IFaviconProps } from './types';
+  import { FaviconStyleManager } from './styles';
 
-  const {
+  /**
+   * Favicon component - Displays a favicon for a given URL
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles favicon rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other favicon components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param url - URL to extract favicon from
+   * @param size - Size of the favicon in pixels
+   * @param class - Additional CSS classes
+   * @param content - Snippet content for fallback display
+   * @returns An accessible, styled favicon element
+   */
+  type Props = IFaviconProps & HTMLImgAttributes;
+
+  let {
     url,
-    size = DEFAULT_FAVICON_SIZE,
-    className = '',
+    size = 16,
+    class: className = '',
     content,
     ...restProps
-  }: FaviconProps = $props();
+  }: Props = $props();
 
-  const faviconUrl = generateFaviconUrl(url);
   let imageError = $state(false);
+
+  let faviconUrl = $derived(() => {
+    if (!url) return null;
+    return FaviconStyleManager.generateFaviconUrl(url);
+  });
+
+  let safeFaviconUrl = $derived(faviconUrl() || undefined);
 
   function handleError() {
     imageError = true;
   }
 </script>
 
-{#if faviconUrl && !imageError}
+{#if faviconUrl() && !imageError}
   <img
-    src={faviconUrl}
+    src={safeFaviconUrl}
     width={size}
     height={size}
-    class={getFaviconImageClasses(className)}
+    class={FaviconStyleManager.getImageClasses(className)}
     onerror={handleError}
     {...restProps}
   />
 {:else}
-  <div class={getFallbackClasses(size, className)}>
+  <div class={FaviconStyleManager.getFallbackClasses(size, className)}>
     {#if content}
       {@render content()}
     {:else}
-      {DEFAULT_FALLBACK_ICON}
+      ?
     {/if}
   </div>
 {/if}

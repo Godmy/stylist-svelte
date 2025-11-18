@@ -1,4 +1,4 @@
-import type { BadgeVariant, BadgeSize } from './type';
+import type { BadgeVariant, BadgeSize } from './types';
 import { VARIANT_CLASSES, SIZE_CLASSES, BASE_BADGE_CLASSES } from './constant';
 
 /**

@@ -12,7 +12,7 @@
     ChevronRight
   } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/badge/Badge.svelte';
 
   type Review = {
     id: string;

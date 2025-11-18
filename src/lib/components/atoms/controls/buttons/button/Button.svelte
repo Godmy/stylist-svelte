@@ -24,8 +24,6 @@
    * @param content - Snippet content for the button (if not using default text content)
    * @returns An accessible, styled button element
    */
-  type Props = IButtonProps & HTMLButtonAttributes;
-
   let {
     variant = 'primary',
     size = 'md',
@@ -35,16 +33,35 @@
     class: className = '',
     children,
     ...restProps
-  }: Props = $props();
+  }: IButtonProps & HTMLButtonAttributes = $props();
 
   let classes = $derived(ButtonStyleManager.getAllClasses(
-    variant, 
-    size, 
-    disabled, 
-    loading, 
-    block, 
+    variant,
+    size,
+    disabled,
+    loading,
+    block,
     className
   ));
+
+  // Определяем размеры лоадера в зависимости от размера кнопки
+  let loaderSize, marginLeft;
+  switch (size) {
+    case 'sm':
+      loaderSize = '0.75rem';
+      marginLeft = '-0.1875rem';
+      break;
+    case 'lg':
+      loaderSize = '1.25rem';
+      marginLeft = '-0.3125rem';
+      break;
+    case 'md':
+    default:
+      loaderSize = '1rem';
+      marginLeft = '-0.25rem';
+      break;
+  }
+  let loaderStyle = `width: ${loaderSize}; height: ${loaderSize}; margin-left: ${marginLeft}; margin-right: 0.5rem; display: inline-block;`;
 </script>
 
 <button
@@ -54,7 +71,7 @@
   disabled={disabled || loading}
 >
   {#if loading}
-    <Loader2 class="animate-spin -ml-1 mr-2 h-4 w-4" aria-hidden="true" />
+    <Loader2 class="animate-spin" style={loaderStyle} aria-hidden="true" />
   {/if}
 
   {#if children}

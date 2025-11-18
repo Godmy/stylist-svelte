@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { BadgeProps } from './type';
-  import { DEFAULT_VARIANT, DEFAULT_SIZE } from './constant';
+  import type { BadgeProps } from './types';
+  import { BADGE_DEFAULT_VARIANT, BADGE_DEFAULT_SIZE } from './constant';
   import { getBadgeClasses } from './util';
 
   let {
-    variant = DEFAULT_VARIANT,
-    size = DEFAULT_SIZE,
+    variant = BADGE_DEFAULT_VARIANT,
+    size = BADGE_DEFAULT_SIZE,
     class: className = '',
     children
   }: BadgeProps = $props();

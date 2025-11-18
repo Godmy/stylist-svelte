@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { DollarSign, TrendingDown, TrendingUp, Target, CheckCircle, AlertCircle, LoaderCircle, RefreshCw, ExternalLink, Star, Truck, XCircle } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/badge/Badge.svelte';
 
   type Competitor = {
     id: string;

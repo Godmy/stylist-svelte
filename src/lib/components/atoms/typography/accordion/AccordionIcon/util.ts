@@ -1,4 +1,4 @@
-import type { AccordionIconSize } from './type';
+import type { AccordionIconSize } from './types';
 import { BASE_CLASSES, ROTATED_CLASS } from './constant';
 
 /**

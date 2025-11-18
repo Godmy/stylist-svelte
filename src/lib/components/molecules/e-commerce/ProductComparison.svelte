@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { X, ArrowLeftRight, Check, X as XIcon, Star } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/badge/Badge.svelte';
 
   type ProductFeature = {
     name: string;

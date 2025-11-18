@@ -13,10 +13,10 @@ export const SHAPE_CLASSES = {
 } as const;
 
 // Base CSS classes
-export const BASE_CLASSES = 'inline-flex items-center justify-center';
+export const ICON_WRAPPER_BASE_CLASSES = 'inline-flex items-center justify-center';
 
 // Default values
-export const DEFAULT_SIZE: 'md' = 'md';
-export const DEFAULT_VARIANT: 'solid' = 'solid';
-export const DEFAULT_SHAPE: 'circle' = 'circle';
-export const DEFAULT_COLOR: 'primary' = 'primary';
+export const ICON_WRAPPER_DEFAULT_SIZE: 'md' = 'md';
+export const ICON_WRAPPER_DEFAULT_VARIANT: 'solid' = 'solid';
+export const ICON_WRAPPER_DEFAULT_SHAPE: 'circle' = 'circle';
+export const ICON_WRAPPER_DEFAULT_COLOR: 'primary' = 'primary';

@@ -64,7 +64,7 @@
   tags={['number', 'animation', 'formatting', 'intl']}
   controls={controls}
 >
-  {#snippet children(props: import('./type').NumberFlowProps)}
+  {#snippet children(props: import('./types').NumberFlowProps)}
     <NumberFlow
       value={props.value}
       prefix={props.prefix}

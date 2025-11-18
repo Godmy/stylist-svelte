@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Star, Heart, ShoppingCart, Eye, RotateCcw, ShieldCheck, Image as ImageIcon, Truck } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/badge/Badge.svelte';
 
   type Product = {
     id: string;

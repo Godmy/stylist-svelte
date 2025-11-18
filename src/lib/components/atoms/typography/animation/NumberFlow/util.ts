@@ -1,4 +1,4 @@
-import type { NumberFlowFormatOptions, TimingConfig } from './type';
+import type { NumberFlowFormatOptions, TimingConfig } from './types';
 import { 
   DEFAULT_FORMAT, 
   DEFAULT_LOCALES, 
@@ -14,8 +14,8 @@ import {
  * @returns The formatted number as a string
  */
 export function formatNumber(
-  value: number, 
-  locales: string | string[] = DEFAULT_LOCALES, 
+  value: number,
+  locales: string | string[] = DEFAULT_LOCALES,
   format: NumberFlowFormatOptions = DEFAULT_FORMAT
 ): string {
   const numberFormat = new Intl.NumberFormat(locales, format);

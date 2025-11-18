@@ -5,7 +5,7 @@
 
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
 
-	type Props = {
+	type AccordionIconStoryProps = {
 		isOpen: boolean;
 		size: (typeof sizeOptions)[number];
 	};
@@ -20,11 +20,12 @@
 	id="atoms-navigation-accordion-icon"
 	title="AccordionIcon"
 	component={AccordionIcon}
-	category="Atoms"
+	category="Atoms/Typography"
 	description="An icon that rotates to indicate the open/closed state of an accordion item."
+	tags={['icon', 'accordion', 'navigation']}
 	controls={controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: AccordionIconStoryProps)}
 		<div class="flex items-center space-x-4">
 			<AccordionIcon isOpen={props.isOpen} size={props.size} />
 			<span class="text-gray-700">{props.isOpen ? 'Open' : 'Closed'}</span>

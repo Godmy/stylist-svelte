@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Blockquote from './Blockquote.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
+  import Blockquote from './Blockquote.svelte';
 
   type BlockquoteStoryProps = {
     quote: string;
@@ -59,7 +59,7 @@
   id="atoms-blockquote"
   title="Blockquote"
   component={Blockquote}
-  category="Atoms"
+  category="Atoms/Typography"
   description="Typeset citations with optional accent border and background emphasis."
   tags={['typography', 'blockquote', 'content']}
   controls={controls}
@@ -71,7 +71,7 @@
           cite={props.cite}
           withBorder={props.withBorder}
           withBackground={props.withBackground}
-          className="text-gray-900 dark:text-gray-50 leading-relaxed"
+          class="text-gray-900 dark:text-gray-50 leading-relaxed"
         >
           {props.quote}
         </Blockquote>
@@ -87,7 +87,7 @@
               cite={example.cite}
               withBorder={example.border}
               withBackground={example.background}
-              className="text-sm text-gray-800 dark:text-gray-200"
+              class="text-sm text-gray-800 dark:text-gray-200"
             >
               {example.quote}
             </Blockquote>

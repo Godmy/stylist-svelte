@@ -40,6 +40,7 @@
   };
 
   const backgroundClass = $derived(backgroundClasses[playgroundStore.uiState.background]);
+  const showGrid = $derived(playgroundStore.uiState.showGrid);
 
   // Pan handlers
   function handlePointerDown(e: PointerEvent) {
@@ -170,22 +171,26 @@
   <!-- Canvas area -->
   <div
     bind:this={canvasContainer}
-    class="flex-1 overflow-hidden p-8 flex items-center justify-center relative"
+    class="flex-1 overflow-auto p-8 flex relative"
     class:panning={isPanning}
     onpointerdown={handlePointerDown}
     onpointermove={handlePointerMove}
     onpointerup={handlePointerUp}
     onwheel={handleWheel}
   >
-    <div
-      class="canvas-zoom"
-      style="transform: translate({panX}px, {panY}px) scale({playgroundStore.uiState.zoom}); transform-origin: center; transition: {isPanning ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'};"
-    >
+    <div class="w-full min-h-full flex items-center justify-center">
+      <div
+        class="canvas-zoom"
+        style="transform: translate({panX}px, {panY}px) scale({playgroundStore.uiState.zoom}); transform-origin: center; transition: {isPanning ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'};"
+      >
       {#if playgroundStore.uiState.showDeviceFrame && playgroundStore.state.viewport !== 'fullscreen'}
         <!-- Device Frame Wrapper -->
         <DeviceFrame device={playgroundStore.state.viewport}>
-          <div class="{backgroundClass}" class:grid-overlay={playgroundStore.uiState.showGrid}>
-            <div class="p-8">
+          <div class="relative w-full h-full {backgroundClass}">
+            {#if showGrid}
+              <div class="grid-overlay absolute inset-0 pointer-events-none rounded-[2.5rem]"></div>
+            {/if}
+            <div class="relative z-10 p-8">
               {#if component}
                 {@const DynamicComponent = component}
                 <DynamicComponent {...props} />
@@ -198,12 +203,14 @@
       {:else}
         <!-- Regular Canvas Frame -->
         <div
-          class="canvas-frame rounded-2xl shadow-2xl relative {backgroundClass} border-2 border-gray-200/50 dark:border-gray-700/50 pointer-events-auto"
-          class:grid-overlay={playgroundStore.uiState.showGrid}
+          class="canvas-frame rounded-2xl shadow-2xl relative overflow-hidden {backgroundClass} border-2 border-gray-200/50 dark:border-gray-700/50 pointer-events-auto"
           style="width: {currentViewportWidth}; min-height: 400px;"
         >
+          {#if showGrid}
+            <div class="grid-overlay absolute inset-0 pointer-events-none rounded-2xl"></div>
+          {/if}
           <!-- Component render area -->
-          <div class="p-8">
+          <div class="relative z-10 p-8">
             {#if component}
               {@const DynamicComponent = component}
               <DynamicComponent {...props} />
@@ -213,6 +220,7 @@
           </div>
         </div>
       {/if}
+      </div>
     </div>
   </div>
 </div>

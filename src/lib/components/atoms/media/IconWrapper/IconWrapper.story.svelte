@@ -1,8 +1,8 @@
 <script lang="ts">
-  import IconWrapper from './IconWrapper.svelte';
-  import Icon from '../Icon/Icon.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
+  import IconWrapper from './IconWrapper.svelte';
+  import Icon from '../Icon/Icon.svelte';
 
   type IconSize = 'sm' | 'md' | 'lg';
   type IconVariant = 'solid' | 'outline' | 'ghost';
@@ -17,12 +17,18 @@
     icon: 'search' | 'plus' | 'minus' | 'check' | 'x' | 'chevron-down' | 'chevron-up';
   };
 
+  const sizeOptions: IconSize[] = ['sm', 'md', 'lg'];
+  const variantOptions: IconVariant[] = ['solid', 'outline', 'ghost'];
+  const shapeOptions: IconShape[] = ['circle', 'square', 'rounded'];
+  const colorOptions: IconColor[] = ['primary', 'secondary', 'success', 'warning', 'danger'];
+  const iconOptions = ['search', 'plus', 'minus', 'check', 'x', 'chevron-down', 'chevron-up'] as const;
+
   const controls: ControlConfig[] = [
-    { name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
-    { name: 'variant', type: 'select', defaultValue: 'solid', options: ['solid', 'outline', 'ghost'] },
-    { name: 'shape', type: 'select', defaultValue: 'circle', options: ['circle', 'square', 'rounded'] },
-    { name: 'color', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger'] },
-    { name: 'icon', type: 'select', defaultValue: 'check', options: ['search', 'plus', 'minus', 'check', 'x', 'chevron-down', 'chevron-up'] }
+    { name: 'size', type: 'select', defaultValue: 'md', options: sizeOptions },
+    { name: 'variant', type: 'select', defaultValue: 'solid', options: variantOptions },
+    { name: 'shape', type: 'select', defaultValue: 'circle', options: shapeOptions },
+    { name: 'color', type: 'select', defaultValue: 'primary', options: colorOptions },
+    { name: 'icon', type: 'select', defaultValue: 'check', options: [...iconOptions] }
   ];
 </script>
 
@@ -49,8 +55,8 @@
 <Story
   id="atoms-icon-wrapper"
   title="IconWrapper"
-  category="Atoms"
   component={IconWrapper}
+  category="Atoms/Media"
   description="Styles any icon-sized content with consistent sizing, color tokens, and decorative variants."
   tags={['icon', 'badge', 'tokens']}
   controls={controls}
@@ -72,7 +78,7 @@
 
         <div class="text-sm text-gray-600 dark:text-gray-300">
           <p class="font-semibold text-gray-900 dark:text-white">Interactive preview</p>
-          <p>Variant: {props.variant}, Shape: {props.shape}</p>
+          <p>Size: {props.size}, Variant: {props.variant}, Shape: {props.shape}, Color: {props.color}</p>
         </div>
       </div>
 

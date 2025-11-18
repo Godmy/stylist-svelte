@@ -1,0 +1,41 @@
+/* CSS переменные для размеров лоадера в зависимости от размера кнопки */
+:root {
+  --button-loader-size-sm: 0.75rem;
+  --button-loader-size-md: 1rem;
+  --button-loader-size-lg: 1.25rem;
+  --button-loader-margin-left-sm: -0.1875rem;
+  --button-loader-margin-left-md: -0.25rem;
+  --button-loader-margin-left-lg: -0.3125rem;
+}
+
+/* Стили для лоадера в зависимости от размера кнопки */
+/* Будут уточняться в зависимости от классов кнопки */
+.button-sm .loader-icon {
+  width: var(--button-loader-size-sm);
+  height: var(--button-loader-size-sm);
+  margin-left: var(--button-loader-margin-left-sm);
+  margin-right: 0.5rem;
+}
+
+.button-md .loader-icon {
+  width: var(--button-loader-size-md);
+  height: var(--button-loader-size-md);
+  margin-left: var(--button-loader-margin-left-md);
+  margin-right: 0.5rem;
+}
+
+.button-lg .loader-icon {
+  width: var(--button-loader-size-lg);
+  height: var(--button-loader-size-lg);
+  margin-left: var(--button-loader-margin-left-lg);
+  margin-right: 0.5rem;
+}
+
+/* Если кнопка не имеет размера, используем md по умолчанию */
+.loader-icon {
+  width: var(--button-loader-size-md);
+  height: var(--button-loader-size-md);
+  margin-left: var(--button-loader-margin-left-md);
+  margin-right: 0.5rem;
+  display: inline-block;
+}

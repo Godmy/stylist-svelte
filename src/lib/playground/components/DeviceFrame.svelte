@@ -37,7 +37,7 @@
       <div
         class="mb-4 px-4 py-2 rounded-full bg-gradient-to-r {spec.color} text-white text-xs font-bold shadow-lg"
       >
-        {spec.name} · {spec.width}×{spec.height}
+        {spec.name} | {spec.width}px x {spec.height}px
       </div>
 
       <!-- Frame Container -->

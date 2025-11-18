@@ -1,17 +1,17 @@
 <script lang="ts">
   import { Input } from '$lib/components/atoms';
-  import type { InputProps } from '../../../atoms/input/base/Input.svelte';
+  import type { IInputProps } from '../../../atoms/input/base/Input/types';
 
   /**
    * Enhanced Input Field component with helper text and error handling
-   * 
-   * This component wraps the base Input component and adds support for 
+   *
+   * This component wraps the base Input component and adds support for
    * helper text that appears below the input when there are no errors.
-   * 
+   *
    * @param {string} [helperText] - Optional helper text to display below the input
    * @param {string[]} [errors] - Array of error messages to display
    * @param {string} id - Unique identifier for the input field (required)
-   * @param {string} label - Label text for the input field (required) 
+   * @param {string} label - Label text for the input field (required)
    * @param {string} [type='text'] - Input type ('text', 'email', 'password', etc.)
    * @param {string} [value] - Current value of the input (supports two-way binding)
    * @param {boolean} [required=false] - Whether the field is required
@@ -22,7 +22,7 @@
    * @param {number} [step] - Step increment for numeric inputs
    * @returns {HTMLElement} A styled input field with label, error display, and optional helper text
    */
-  type Props = InputProps & {
+  type Props = IInputProps & {
     helperText?: string;
   };
 

@@ -1,5 +1,5 @@
-import type { IconWrapperSize, IconVariant, IconShape, IconColor } from './type';
-import { ICON_WRAPPER_SIZE_CLASSES, SHAPE_CLASSES, BASE_CLASSES } from './constant';
+import type { IconWrapperSize, IconVariant, IconShape, IconColor } from './types';
+import { ICON_WRAPPER_SIZE_CLASSES, SHAPE_CLASSES, ICON_WRAPPER_BASE_CLASSES } from './constant';
 
 /**
  * Gets the size classes for a given icon size
@@ -80,5 +80,5 @@ export function getCombinedClasses(
   const shapeClasses = getShapeClasses(shape);
   const colorClasses = getColorClasses(variant, color);
 
-  return `${sizeClasses} ${BASE_CLASSES} ${shapeClasses} ${colorClasses} ${className}`.trim();
+  return `${sizeClasses} ${ICON_WRAPPER_BASE_CLASSES} ${shapeClasses} ${colorClasses} ${className}`.trim();
 }

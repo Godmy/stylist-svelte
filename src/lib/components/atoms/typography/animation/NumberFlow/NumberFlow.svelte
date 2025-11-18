@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { NumberFlowProps } from './type';
+  import type { NumberFlowProps } from './types';
+  import { NumberFlowStyleManager } from './styles';
   import {
     DEFAULT_VALUE,
     DEFAULT_FORMAT,
@@ -13,20 +14,12 @@
     DEFAULT_TRANSFORM_TIMING,
     DEFAULT_SPIN_TIMING,
     DEFAULT_OPACITY_TIMING,
-    NUMBER_FLOW_CLASS,
-    REDUCED_MOTION_CLASS,
-    ANIMATING_CLASS,
-    PREFIX_CLASS,
-    SUFFIX_CLASS,
-    DIGIT_CONTAINER_CLASS,
-    DIGIT_FACE_CLASS,
-    DIGIT_OLD_CLASS,
-    DIGIT_CURRENT_CLASS,
-    SR_ONLY_CLASS,
     ARIA_ROLE,
     ARIA_LIVE_POLITE,
     ARIA_LIVE_ASSERTIVE,
-    REDUCED_MOTION_MEDIA_QUERY
+    REDUCED_MOTION_MEDIA_QUERY,
+    DIGIT_CONTAINER_CLASS,
+    ANIMATING_CLASS
   } from './constant';
   import {
     formatNumber,
@@ -36,6 +29,25 @@
     calculateTotalAnimationDuration
   } from './util';
 
+  /**
+   * NumberFlow component - Animated number display component with smooth transitions
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles animated number rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other number display components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param value - The number value to display
+   * @param format - Format options for the number
+   * @param locales - Locale for number formatting
+   * @param prefix - Prefix string for the number
+   * @param suffix - Suffix string for the number
+   * @param animated - Whether to animate number changes
+   * @param class - Additional CSS classes
+   * @returns An accessible, animated number display element
+   */
   let {
     value = DEFAULT_VALUE,
     format = DEFAULT_FORMAT,
@@ -50,6 +62,7 @@
     spinTiming = DEFAULT_SPIN_TIMING,
     opacityTiming = DEFAULT_OPACITY_TIMING,
     willChange = DEFAULT_WILL_CHANGE,
+    class: className = '',
     onAnimationsStart = () => {},
     onAnimationsFinish = () => {}
   }: NumberFlowProps = $props();
@@ -135,33 +148,39 @@
   $effect(() => {
     animateValue();
   });
+
+  let containerClass = $derived(
+    NumberFlowStyleManager.getContainerClasses(
+      animated && !isReducedMotion && !numbersEqual(currentValue, oldValue),
+      isReducedMotion,
+      className ? className.toString() : ''
+    )
+  );
 </script>
 
 <div
-  class={NUMBER_FLOW_CLASS}
+  class={containerClass}
   bind:this={containerRef}
-  class:reduced-motion={isReducedMotion}
-  class:animating={animated && !isReducedMotion && !numbersEqual(currentValue, oldValue)}
   role={ARIA_ROLE}
   aria-live={ARIA_LIVE_POLITE}
 >
   {#if prefix}
-    <span class={PREFIX_CLASS} aria-hidden="true">{prefix}</span>
+    <span class={NumberFlowStyleManager.getPrefixClasses()} aria-hidden="true">{prefix}</span>
   {/if}
 
   {#each getFormattedDigits(formattedValue, formattedOldValue) as [currentDigit, oldDigit], i (i)}
-    <span class={DIGIT_CONTAINER_CLASS} aria-hidden="true">
-      <span class={`${DIGIT_FACE_CLASS} ${DIGIT_OLD_CLASS}`}>{oldDigit}</span>
-      <span class={`${DIGIT_FACE_CLASS} ${DIGIT_CURRENT_CLASS}`}>{currentDigit}</span>
+    <span class={NumberFlowStyleManager.getDigitContainerClasses()} aria-hidden="true">
+      <span class={`${NumberFlowStyleManager.getDigitFaceClasses()} ${NumberFlowStyleManager.getDigitOldClasses()}`}>{oldDigit}</span>
+      <span class={`${NumberFlowStyleManager.getDigitFaceClasses()} ${NumberFlowStyleManager.getDigitCurrentClasses()}`}>{currentDigit}</span>
     </span>
   {/each}
 
   {#if suffix}
-    <span class={SUFFIX_CLASS} aria-hidden="true">{suffix}</span>
+    <span class={NumberFlowStyleManager.getSuffixClasses()} aria-hidden="true">{suffix}</span>
   {/if}
 
   <!-- Screen reader content -->
-  <span class={SR_ONLY_CLASS} aria-live={ARIA_LIVE_ASSERTIVE}>
+  <span class={NumberFlowStyleManager.getScreenReaderClasses()} aria-live={ARIA_LIVE_ASSERTIVE}>
     {prefix}{formattedValue}{suffix}
   </span>
 </div>

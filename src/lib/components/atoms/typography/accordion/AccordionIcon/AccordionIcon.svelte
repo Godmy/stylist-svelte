@@ -1,16 +1,34 @@
 <script lang="ts">
   import { Icon } from '$lib/components/atoms';
-  import type { AccordionIconProps } from './type';
-  import { DEFAULT_IS_OPEN, DEFAULT_SIZE, ICON_NAME } from './constant';
-  import { getContainerClasses } from './util';
+  import type { HTMLAttributes } from 'svelte/elements';
+  import type { IAccordionIconProps } from './types';
+  import { AccordionIconStyleManager } from './styles';
+  import { DEFAULT_IS_OPEN, ACCORDION_DEFAULT_SIZE, ICON_NAME } from './constant';
 
-  const {
+  /**
+   * AccordionIcon component - An icon that indicates accordion open/close state
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles accordion icon rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other icon components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param isOpen - Whether the accordion is open (affects rotation)
+   * @param size - Size of the icon ('sm' | 'md' | 'lg')
+   * @param class - Additional CSS classes
+   * @returns An accessible, styled accordion icon element
+   */
+  type Props = IAccordionIconProps & HTMLAttributes<SVGSVGElement>;
+
+  let {
     isOpen = DEFAULT_IS_OPEN,
-    size = DEFAULT_SIZE,
+    size = ACCORDION_DEFAULT_SIZE,
     class: className = ''
-  }: AccordionIconProps = $props();
+  }: Props = $props();
 
-  const containerClass = getContainerClasses(isOpen, className);
+  let containerClass = $derived(AccordionIconStyleManager.getAllClasses(isOpen, className));
 </script>
 
 <span class={containerClass}>

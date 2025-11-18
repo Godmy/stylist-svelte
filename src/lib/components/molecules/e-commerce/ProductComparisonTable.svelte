@@ -3,7 +3,7 @@
   import { X, Check, ShoppingCart, Star, Copy, ArrowUpDown, Equal, Minus } from 'lucide-svelte';
   import { GitCompare as Compare } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Badge from '../../atoms/typography/elements/Badge/Badge.svelte';
+  import Badge from '../../atoms/typography/elements/badge/Badge.svelte';
 
   type ProductFeature = {
     name: string;

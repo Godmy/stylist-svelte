@@ -1,4 +1,4 @@
-import type { IconSize, IconName } from './type';
+import type { IconSize, IconName } from './types';
 import { ICON_PATHS, DEFAULT_ICON_PATH, ICON_SIZE_CLASSES } from './constant';
 
 /**

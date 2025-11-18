@@ -1,6 +1,6 @@
 // Default values
-export const DEFAULT_VARIANT: 'default' = 'default';
-export const DEFAULT_SIZE: 'md' = 'md';
+export const BADGE_DEFAULT_VARIANT: 'default' = 'default';
+export const BADGE_DEFAULT_SIZE: 'md' = 'md';
 
 // CSS classes
 export const BASE_BADGE_CLASSES = 'inline-flex items-center font-semibold rounded-full';

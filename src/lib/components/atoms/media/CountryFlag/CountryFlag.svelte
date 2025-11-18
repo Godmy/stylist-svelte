@@ -1,25 +1,57 @@
 <script lang="ts">
-  import type { CountryFlagProps } from './type';
-  import { DEFAULT_FALLBACK_FLAG, DEFAULT_FLAG_SIZE, FLAG_ELEMENT_CLASSES, FALLBACK_FLAG_CLASSES } from './constant';
-  import { countryCodeToFlagEmoji, isValidCountryCode, generateFlagStyle } from './util';
+  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ICountryFlagProps } from './types';
+  import { CountryFlagStyleManager } from './styles';
 
-  const {
+  /**
+   * CountryFlag component - Displays a country flag based on country code
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles country flag rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other flag components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param countryCode - Two-letter country code (e.g., 'US', 'FR')
+   * @param size - Size of the flag in pixels
+   * @param class - Additional CSS classes
+   * @param content - Snippet content for fallback display
+   * @returns An accessible, styled country flag element
+   */
+  type Props = ICountryFlagProps & HTMLAttributes<HTMLSpanElement>;
+
+  let {
     countryCode = '',
-    size = DEFAULT_FLAG_SIZE,
-    className = '',
+    size = 24,
+    class: className = '',
     content,
     ...restProps
-  }: CountryFlagProps = $props();
+  }: Props = $props();
 
-  const flagEmoji = countryCodeToFlagEmoji(countryCode);
-  const validCountryCode = isValidCountryCode(countryCode);
-  const flagStyle = generateFlagStyle(size, false);
-  const fallbackStyle = generateFlagStyle(size, true);
+  let flagEmoji = $derived(() => {
+    if (!countryCode || countryCode.length !== 2) return '';
+    // Convert country code to flag emoji
+    return countryCode
+      .toUpperCase()
+      .split('')
+      .map(char =>
+        char.match(/[A-Z]/)
+          ? String.fromCodePoint(127397 + char.charCodeAt(0) - 65)
+          : char
+      )
+      .join('');
+  });
+
+  let validCountryCode = $derived(countryCode && countryCode.length === 2);
+  let flagStyle = $derived(CountryFlagStyleManager.generateFlagStyle(size, false));
+  let fallbackStyle = $derived(CountryFlagStyleManager.generateFlagStyle(size, true));
+  let classes = $derived(CountryFlagStyleManager.getAllClasses(className));
 </script>
 
 {#if validCountryCode}
   <span
-    class={`${FLAG_ELEMENT_CLASSES} ${className}`}
+    class={classes}
     style={flagStyle}
     {...restProps}
   >
@@ -27,13 +59,13 @@
   </span>
 {:else}
   <div
-    class={`${FALLBACK_FLAG_CLASSES} ${className}`}
+    class={CountryFlagStyleManager.getFallbackClasses()}
     style={fallbackStyle}
   >
     {#if content}
       {@render content()}
     {:else}
-      {DEFAULT_FALLBACK_FLAG}
+      ?
     {/if}
   </div>
 {/if}

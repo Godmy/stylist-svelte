@@ -1,18 +1,16 @@
 <script lang="ts">
-  import Favicon from './Favicon.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
+  import Favicon from './Favicon.svelte';
 
   type FaviconStoryProps = {
     url: string;
     size: number;
-    showCustomContent: boolean;
   };
 
   const controls: ControlConfig[] = [
     { name: 'url', type: 'text', defaultValue: 'https://svelte.dev' },
-    { name: 'size', type: 'number', min: 16, max: 96, step: 4, defaultValue: 32 },
-    { name: 'showCustomContent', type: 'boolean', defaultValue: false }
+    { name: 'size', type: 'number', min: 16, max: 96, step: 4, defaultValue: 32 }
   ];
 
   const techSites = [
@@ -28,23 +26,18 @@
 <Story
   id="atoms-favicon"
   title="Favicon"
-  category="Atoms"
   component={Favicon}
+  category="Atoms/Media"
   description="Generates favicon previews directly from a site URL with optional custom placeholder."
   tags={['favicon', 'branding', 'preview']}
   controls={controls}
 >
   {#snippet children(props: FaviconStoryProps)}
-    {#snippet placeholderBadge()}
-      <span class="text-[10px] font-semibold uppercase tracking-wide text-white">APP</span>
-    {/snippet}
-
     <div class="space-y-6">
       <div class="flex items-center gap-4 rounded-xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40">
         <Favicon
           url={props.url}
           size={props.size}
-          content={props.showCustomContent ? placeholderBadge : undefined}
         />
 
         <div class="text-sm">

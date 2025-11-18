@@ -1,4 +1,4 @@
-import type { ImageState } from './type';
+import type { ImageState } from './types';
 import { IMAGE_CLASSES_BASE, IMAGE_CLASSES_LOADED, IMAGE_CLASSES_NOT_LOADED, IMAGE_TRANSITION_CLASSES } from './constant';
 
 /**
