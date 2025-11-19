@@ -15,6 +15,7 @@
     type: 'category' | 'folder' | 'component';
     children?: TreeNodeData[];
     story?: Story;
+    autoStory?: Story;
     path: string;
     count?: number;
   }
@@ -46,6 +47,7 @@
 
   const isExpanded = $derived(expandedNodes.has(node.path));
   const hasChildren = $derived(node.children && node.children.length > 0);
+  const isAutoSelectable = $derived(!!node.autoStory);
 
   // Get category config based on path
   const config = $derived.by(() => {
@@ -64,7 +66,8 @@
 
   // Determine if this component node is selected
   const isSelected = $derived(
-    node.type === 'component' && node.story?.id && node.story.id === selectedStoryId
+    (node.type === 'component' && node.story?.id && node.story.id === selectedStoryId) ||
+      (node.type === 'folder' && node.autoStory?.id && node.autoStory.id === selectedStoryId)
   );
 </script>
 
@@ -127,21 +130,40 @@
   <!-- Folder Node -->
   <div class="space-y-0.5">
     <button
-      onclick={() => onToggle(node.path)}
+      onclick={() => {
+        if (isAutoSelectable && node.autoStory) {
+          onComponentClick(node.autoStory);
+        } else {
+          onToggle(node.path);
+        }
+      }}
       style={leftPadding}
-      class="w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
+      class="folder-node w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
+      class:auto-selectable={isAutoSelectable}
+      class:auto-selected={isAutoSelectable && node.autoStory?.id === selectedStoryId}
+      aria-current={isAutoSelectable && node.autoStory?.id === selectedStoryId ? 'true' : undefined}
     >
       <!-- Chevron -->
-      <div class="flex-shrink-0 w-3.5 transition-transform duration-200 {isExpanded ? 'rotate-90' : ''}">
-        <ChevronRight class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
-      </div>
+      {#if !isAutoSelectable}
+        <div class="flex-shrink-0 w-3.5 transition-transform duration-200 {isExpanded ? 'rotate-90' : ''}">
+          <ChevronRight class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
+        </div>
+      {:else}
+        <div class="flex-shrink-0 w-3.5">
+          <span class="inline-flex w-2 h-2 rounded-full bg-[var(--playground-accent,#FF6B35)]"></span>
+        </div>
+      {/if}
 
       <!-- Folder Icon -->
       <div class="flex-shrink-0 w-3.5">
-        {#if isExpanded}
-          <FolderOpen class="w-3.5 h-3.5 {config.color} opacity-70" />
+        {#if isAutoSelectable}
+          <Folder class="w-3.5 h-3.5 text-[var(--playground-accent,#FF6B35)]" />
         {:else}
-          <Folder class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
+          {#if isExpanded}
+            <FolderOpen class="w-3.5 h-3.5 {config.color} opacity-70" />
+          {:else}
+            <Folder class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
+          {/if}
         {/if}
       </div>
 
@@ -157,7 +179,7 @@
     </button>
 
     <!-- Folder Children with border -->
-    {#if isExpanded && hasChildren}
+    {#if !isAutoSelectable && isExpanded && hasChildren}
       <div class="relative mt-0.5">
         <!-- Vertical border line -->
         <div class="absolute w-px bg-gray-200 dark:bg-gray-700 top-0 bottom-0" style="left: {level * 12 + 14}px"></div>
@@ -225,5 +247,22 @@
 
   .component-node.selected .component-indicator {
     background-color: var(--playground-accent, #FF6B35);
+  }
+
+  .folder-node.auto-selectable {
+    border: 1px solid transparent;
+  }
+
+  .folder-node.auto-selected {
+    background-color: var(--playground-accent-surface, rgba(255, 107, 53, 0.12));
+    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 30%, transparent);
+    color: var(--playground-accent, #FF6B35);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--playground-accent, #FF6B35) 12%, transparent),
+      0 10px 20px -6px var(--playground-accent-shadow, rgba(255, 107, 53, 0.18));
+  }
+
+  .folder-node.auto-selectable:hover {
+    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 25%, transparent);
   }
 </style>

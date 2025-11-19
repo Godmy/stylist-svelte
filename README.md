@@ -1,11 +1,11 @@
-# stylist-svelte
+# Stylist-Svelte
 
 [![Version](https://img.shields.io/npm/v/stylist-svelte.svg)](https://www.npmjs.com/package/stylist-svelte)
 [![License](https://img.shields.io/github/license/Godmy/stylist-svelte.svg)](https://github.com/Godmy/stylist-svelte/blob/main/LICENSE)
 [![Svelte 5](https://img.shields.io/badge/Svelte-5-orange.svg)](https://svelte.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg)](https://www.typescriptlang.org)
 
-A comprehensive Svelte 5 UI component library with **full TypeScript support**.
+A comprehensive Svelte 5 UI component library with **full TypeScript support** and **SAMO methodology**.
 
 ## About Stylist-svelte
 
@@ -17,6 +17,8 @@ The project's uniqueness lies in the fact that the library is developed by leadi
 
 Our mission is to create the world's largest library of visual components for Svelte 5 developers. Every release, including the latest version 0.8.0, expands this AI-curated collection of components, patterns, and stories, enabling teams to build consistent user interfaces faster.
 
+Our library follows the SAMO (SOLID, Atomic Design, Molecular Organization) methodology and features a centralized theme system that allows for easy customization and consistent styling across all components.
+
 Note: This project is part of the Stylist ecosystem. For development and testing, use the dedicated stylist-playground application (in development). For details on the ecosystem architecture and the responsibilities of each project, see the ECOSYSTEM_ARCHITECTURE.md file.
 
 **Note**: This project is part of the Stylist ecosystem. For development and testing, use the dedicated [stylist-playground](../stylist-playground/README.md) application (in development). For details on the ecosystem architecture and the responsibilities of each project, see the [ECOSYSTEM_ARCHITECTURE.md](../../ECOSYSTEM_ARCHITECTURE.md) file.
@@ -26,7 +28,8 @@ Note: This project is part of the Stylist ecosystem. For development and testing
 ### UI Components
 - **Svelte 5 Runes** - Built with the latest Svelte 5 syntax and runes for reactive programming
 - **TypeScript First** - Full TypeScript support with comprehensive type definitions
-- **Atomic Design Architecture** - Components organized according to atomic design principles (Atoms, Molecules, Organisms)
+- **SAMO Architecture** - Following SOLID, Atomic Design and Molecular Organization principles
+- **Centralized Theming** - Built-in theme system with light/dark mode support
 - **Tailwind CSS** - Styled with utility-first Tailwind CSS for maximum customization
 - **Accessibility** - ARIA attributes and keyboard navigation support
 - **Tree-shakeable** - Import only what you need
@@ -40,7 +43,7 @@ Note: This project is part of the Stylist ecosystem. For development and testing
 - **Code Generation** - Auto-generate component code
 - **Syntax Highlighting** - Powered by Shiki for beautiful code rendering
 - **Keyboard Shortcuts** - Efficient navigation and editing (Cmd/Ctrl+K, Cmd/Ctrl+B, etc.)
-- **Dark Mode** - Built-in theme switching
+- **Theme Support** - Integrated with centralized theme system supporting light/dark modes
 - **Responsive Views** - Mobile, tablet, desktop previews
 - **Zero Config** - Works out of the box with SvelteKit
 
@@ -208,33 +211,36 @@ Run `yarn dev` and open the local app – the default route renders `<StoryRoot>
 
 ## 🏗️ Component Categories
 
-Based on Atomic Design principles, our library is organized into:
+Based on SAMO (SOLID, Atomic Design, Molecular Organization) methodology with centralized theme system, our library is organized into:
 
 ### Atoms
-Basic building blocks (100+ components):
+Basic building blocks (100+ components) with centralized theme support:
 - **Core UI Elements**: Buttons, Badges, Tags, Chips, Dividers, Toggles
 - **Forms**: Inputs, Textareas, Selects, Checkboxes, Switches, Sliders, Labels
 - **Feedback**: Alerts, Progress indicators, Skeletons, Spinners
 - **Indicators**: Status indicators, Chat status indicators, Message status indicators
 - **Typography**: Links, Code blocks, Inline code, Keyboard elements
 - **Media**: Icons, Avatars
+- **All components follow theme system for consistent styling**
 - **And more...** (see full list below)
 
 ### Molecules
-Composite components (30+ components):
+Composite components (30+ components) with centralized theme integration:
 - **Forms**: Field groups, Sections, Input groups, Button groups
 - **Navigation**: Breadcrumbs, Menus, Menu items
 - **Data Display**: Tables, Stats cards, Empty states
 - **Inputs**: Search bars, Copy buttons, File uploads
 - **Interactive**: Modals, Dialogs, Pagination
 - **Special Features**: Toolbars, Number flows, Graph components
+- **All components utilize centralized theme system for cohesive styling**
 - **And more...** (see full list below)
 
 ### Organisms
-Complex components (10+ components):
+Advanced components (10+ components) with centralized theme application:
 - **Navigation**: Tabs, Accordions, Breadcrumbs
 - **Data Displays**: Tables with controls, Data grids
 - **Modals & Dialogs**: Modals, Confirm dialogs
+- **All components implement theme system for unified appearance**
 - **And more...** (see full list below)
 
 ## 🧱 Complete Component List
@@ -489,12 +495,13 @@ Contributions are welcome! Please read our contributing guidelines before submit
 8. Open a Pull Request
 
 When adding new components:
-1. Follow the Atomic Design principles
-2. Add proper TypeScript typing
-3. Include accessibility attributes
-4. Write component stories for the Playground
-5. Add the component to the appropriate index.ts file
-6. Update documentation if needed
+1. Follow the SAMO (SOLID, Atomic Design, Molecular Organization) methodology
+2. Integrate with the centralized theme system through appropriate style managers
+3. Add proper TypeScript typing
+4. Include accessibility attributes
+5. Write component stories for the Playground
+6. Add the component to the appropriate index.ts file
+7. Update documentation if needed
 
 ## 🏷️ Versioning
 

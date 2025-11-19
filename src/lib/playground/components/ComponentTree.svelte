@@ -21,6 +21,7 @@
     type: 'category' | 'folder' | 'component';
     children?: TreeNodeData[];
     story?: Story;
+    autoStory?: Story;
     path: string;
     count?: number;
   }
@@ -141,6 +142,7 @@
 
       // Sort children recursively
       sortTreeNode(categoryNode);
+      annotateAutoSelectable(categoryNode);
       tree.push(categoryNode);
     });
 
@@ -193,6 +195,17 @@
       expandedNodes.add(path);
     }
     expandedNodes = new Set(expandedNodes);
+  }
+
+  function annotateAutoSelectable(node: TreeNodeData) {
+    if (!node.children || node.children.length === 0) return;
+
+    node.children.forEach(annotateAutoSelectable);
+
+    if (node.type === 'folder' && node.children.length === 1 && node.children[0].type === 'component') {
+      node.autoStory = node.children[0].story;
+      node.children = [];
+    }
   }
 
   function handleComponentClick(story: Story) {
