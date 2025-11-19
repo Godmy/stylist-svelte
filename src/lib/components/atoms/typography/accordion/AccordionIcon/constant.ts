@@ -3,7 +3,7 @@ export const DEFAULT_IS_OPEN = false;
 export const ACCORDION_DEFAULT_SIZE: 'md' = 'md';
 
 // CSS classes
-export const BASE_CLASSES = 'inline-flex items-center justify-center transition-transform duration-200';
+export const ACCORDION_ICON_BASE_CLASSES = 'inline-flex items-center justify-center transition-transform duration-200';
 export const ROTATED_CLASS = 'rotate-180';
 
 // Icon properties

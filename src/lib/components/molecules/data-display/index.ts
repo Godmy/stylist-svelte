@@ -17,3 +17,6 @@ export { default as StatusIndicatorWithLabel } from './StatusIndicatorWithLabel.
 export { default as TableWithStripes } from './TableWithStripes.svelte';
 export { default as Timeline } from './Timeline.svelte';
 export { default as UserCard } from './UserCard.svelte';
+export * from './comparison-card';
+export * from './process-step';
+export * from './stat-card';

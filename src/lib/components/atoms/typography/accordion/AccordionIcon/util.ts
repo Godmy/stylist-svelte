@@ -1,5 +1,5 @@
 import type { AccordionIconSize } from './types';
-import { BASE_CLASSES, ROTATED_CLASS } from './constant';
+import { ACCORDION_ICON_BASE_CLASSES, ROTATED_CLASS } from './constant';
 
 /**
  * Gets the CSS classes for the accordion icon container
@@ -10,5 +10,5 @@ import { BASE_CLASSES, ROTATED_CLASS } from './constant';
  */
 export function getContainerClasses(isOpen: boolean, className: string = ''): string {
   const rotationClass = isOpen ? ROTATED_CLASS : '';
-  return `${BASE_CLASSES} ${rotationClass} ${className}`.trim();
+  return `${ACCORDION_ICON_BASE_CLASSES} ${rotationClass} ${className}`.trim();
 }

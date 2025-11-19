@@ -5,3 +5,4 @@ export { default as CodeWithCopy } from './CodeWithCopy.svelte';
 export { default as CopyableCodeBlock } from './CopyableCodeBlock.svelte';
 export { default as ResponseViewer } from './ResponseViewer.svelte';
 export { default as SyntaxHighlightedCode } from './SyntaxHighlightedCode.svelte';
+export * from './component-preview';

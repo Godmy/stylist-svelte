@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { BarChart3, Frown, Meh, Smile, Loader, AlertCircle } from 'lucide-svelte';
+  import { BarChart3, Frown, Meh, Smile, Loader2, AlertCircle } from 'lucide-svelte';
+  import { SentimentAnalysisStyleManager } from './SentimentAnalysis.styles';
 
   type SentimentResult = {
     score: number; // -1 to 1, where -1 is very negative and 1 is very positive
@@ -42,9 +43,6 @@
     ...restProps
   }: Props = $props();
 
-  // Определяем переменные, которые не являются пропсами
-  let unused = { ...restProps }; // Используем restProps, чтобы избежать предупреждения о неиспользуемых переменных
-
   let inputText = $state(text);
 
   function analyzeSentiment() {
@@ -61,39 +59,52 @@
     return Smile;
   }
 
-  // Get color based on sentiment
-  function getSentimentColor(score: number) {
-    if (score < -0.3) return 'text-red-500';
-    if (score < 0.3) return 'text-yellow-500';
-    return 'text-green-500';
-  }
-
-  // Get background color for score bar
-  function getScoreBarColor(score: number) {
-    if (score < -0.3) return 'bg-red-500';
-    if (score < 0.3) return 'bg-yellow-500';
-    return 'bg-green-500';
-  }
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(SentimentAnalysisStyleManager.getContainerClass(className));
+  const headerClassComputed = $derived(SentimentAnalysisStyleManager.getHeaderClass(headerClass));
+  const titleClass = $derived(SentimentAnalysisStyleManager.getTitleClass());
+  const contentClassComputed = $derived(SentimentAnalysisStyleManager.getContentClass(contentClass));
+  const inputLabelClass = $derived(SentimentAnalysisStyleManager.getInputLabelClass());
+  const inputAreaClass = $derived(SentimentAnalysisStyleManager.getInputAreaClass(inputClass));
+  const analyzeButtonClass = $derived(SentimentAnalysisStyleManager.getAnalyzeButtonClass(status === 'analyzing', !inputText.trim()));
+  const loadingSpinnerClass = $derived(SentimentAnalysisStyleManager.getLoadingSpinnerClass());
+  const errorMessageContainerClass = $derived(SentimentAnalysisStyleManager.getErrorMessageContainerClass());
+  const errorIconClass = $derived(SentimentAnalysisStyleManager.getErrorIconClass());
+  const errorMessageClass = $derived(SentimentAnalysisStyleManager.getErrorMessageClass());
+  const resultSectionClass = $derived(SentimentAnalysisStyleManager.getResultSectionClass(resultClass));
+  const sentimentIconContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentIconContainerClass());
+  const sentimentIconClass = $derived(SentimentAnalysisStyleManager.getSentimentIconClass(result?.score || 0));
+  const sentimentLabelClass = $derived(SentimentAnalysisStyleManager.getSentimentLabelClass());
+  const sentimentScoreClass = $derived(SentimentAnalysisStyleManager.getSentimentScoreClass(result?.score || 0));
+  const confidenceLabelClass = $derived(SentimentAnalysisStyleManager.getConfidenceLabelClass());
+  const breakdownHeaderClass = $derived(SentimentAnalysisStyleManager.getBreakdownHeaderClass());
+  const breakdownBarClass = $derived(SentimentAnalysisStyleManager.getBreakdownBarClass());
+  const negativeSegmentClass = $derived(SentimentAnalysisStyleManager.getNegativeSegmentClass());
+  const neutralSegmentClass = $derived(SentimentAnalysisStyleManager.getNeutralSegmentClass());
+  const positiveSegmentClass = $derived(SentimentAnalysisStyleManager.getPositiveSegmentClass());
+  const sentimentScaleContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentScaleContainerClass());
+  const gradientScaleClass = $derived(SentimentAnalysisStyleManager.getGradientScaleClass());
+  const scoreIndicatorClass = $derived(SentimentAnalysisStyleManager.getScoreIndicatorClass(result?.score || 0));
+  const scaleLabelsClass = $derived(SentimentAnalysisStyleManager.getScaleLabelsClass());
+  const footerClassComputed = $derived(SentimentAnalysisStyleManager.getFooterClass(footerClass));
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Header -->
-  <div class={`border-b px-4 py-3 flex items-center ${headerClass}`}>
-    <BarChart3 class="h-5 w-5 text-blue-500 mr-2" />
-    <h3 class="text-lg font-medium text-gray-900">Sentiment Analysis</h3>
+  <div class={headerClassComputed}>
+    <BarChart3 class="h-5 w-5 text-[--color-primary-500] mr-[--spacing-sm]" />
+    <h3 class={titleClass}>Sentiment Analysis</h3>
   </div>
 
   <!-- Content -->
-  <div class={`p-4 ${contentClass}`}>
-    <div class="mb-4">
-      <label for="sentiment-input" class="block text-sm font-medium text-gray-700 mb-1">
+  <div class={contentClassComputed}>
+    <div class="mb-[--spacing-md]">
+      <label for="sentiment-input" class={inputLabelClass}>
         Enter text to analyze
       </label>
       <textarea
         id="sentiment-input"
-        class={`w-full h-32 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
-          inputClass
-        }`}
+        class={inputAreaClass}
         bind:value={inputText}
         placeholder="Enter text to analyze for sentiment..."
       ></textarea>
@@ -101,16 +112,12 @@
 
     <button
       type="button"
-      class={`w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white ${
-        status === 'analyzing' 
-          ? 'bg-blue-400 cursor-not-allowed' 
-          : 'bg-blue-600 hover:bg-blue-700'
-      } focus:outline-none`}
+      class={SentimentAnalysisStyleManager.getAnalyzeButtonClass(status === 'analyzing', !inputText.trim())}
       onclick={analyzeSentiment}
       disabled={status === 'analyzing' || !inputText.trim()}
     >
       {#if status === 'analyzing'}
-        <Loader class="h-4 w-4 mr-2 animate-spin" />
+        <Loader2 class={loadingSpinnerClass} />
         Analyzing...
       {:else}
         Analyze Sentiment
@@ -118,63 +125,63 @@
     </button>
 
     {#if status === 'error' && errorMessage}
-      <div class="mt-4 p-3 bg-red-50 rounded-md flex items-center">
-        <AlertCircle class="h-5 w-5 text-red-500 mr-2" />
-        <span class="text-sm text-red-700">{errorMessage}</span>
+      <div class={errorMessageContainerClass}>
+        <AlertCircle class={errorIconClass} />
+        <span class={errorMessageClass}>{errorMessage}</span>
       </div>
     {/if}
 
     {#if status === 'completed' && result}
-      <div class={`mt-6 p-4 border rounded-lg ${resultClass}`}>
-        <div class="flex items-center justify-center mb-4">
+      <div class={resultSectionClass}>
+        <div class={sentimentIconContainerClass}>
           {#if result}
             {@const SentimentIcon = getSentimentIcon(result.score)}
-            <SentimentIcon class={`h-12 w-12 ${getSentimentColor(result.score)}`} />
+            <SentimentIcon class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
           {/if}
         </div>
 
-        <div class="text-center mb-4">
-          <h4 class="text-lg font-semibold text-gray-900 capitalize">{result.label}</h4>
-          <p class={`text-3xl font-bold ${getSentimentColor(result.score)}`}>
+        <div class="text-center mb-[--spacing-md]">
+          <h4 class={sentimentLabelClass}>{result.label}</h4>
+          <p class={SentimentAnalysisStyleManager.getSentimentScoreClass(result.score)}>
             {Math.round(result.score * 100)}%
           </p>
-          <p class="text-sm text-gray-500 mt-1">
+          <p class={confidenceLabelClass}>
             Confidence: {Math.round(result.confidence * 100)}%
           </p>
         </div>
 
-        <div class="mt-4">
-          <div class="flex justify-between text-sm text-gray-600 mb-1">
+        <div class="mt-[--spacing-md]">
+          <div class={breakdownHeaderClass}>
             <span>Negative</span>
             <span>Neutral</span>
             <span>Positive</span>
           </div>
-          <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden flex">
-            <div 
-              class="h-full bg-red-500" 
+          <div class={breakdownBarClass}>
+            <div
+              class={negativeSegmentClass}
               style={`width: ${result.breakdown ? result.breakdown.negative * 100 : 0}%`}
             ></div>
-            <div 
-              class="h-full bg-yellow-500" 
+            <div
+              class={neutralSegmentClass}
               style={`width: ${result.breakdown ? result.breakdown.neutral * 100 : 0}%`}
             ></div>
-            <div 
-              class="h-full bg-green-500" 
+            <div
+              class={positiveSegmentClass}
               style={`width: ${result.breakdown ? result.breakdown.positive * 100 : 0}%`}
             ></div>
           </div>
         </div>
 
-        <div class="mt-6">
+        <div class={sentimentScaleContainerClass}>
           <div class="flex items-center justify-center">
-            <div class="w-full h-4 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full relative">
-              <div 
-                class={`absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full ${getScoreBarColor(result.score)}`}
+            <div class={gradientScaleClass}>
+              <div
+                class={SentimentAnalysisStyleManager.getScoreIndicatorClass(result.score)}
                 style={`left: ${((result.score + 1) / 2) * 100}%`}
               ></div>
             </div>
           </div>
-          <div class="flex justify-between text-xs text-gray-500 mt-1">
+          <div class={scaleLabelsClass}>
             <span>Negative</span>
             <span>Neutral</span>
             <span>Positive</span>
@@ -185,7 +192,7 @@
   </div>
 
   <!-- Footer -->
-  <div class={`border-t px-4 py-3 text-xs text-gray-500 ${footerClass}`}>
+  <div class={footerClassComputed}>
     Sentiment analysis powered by AI. Results are estimates and may not reflect the true sentiment.
   </div>
 </div>

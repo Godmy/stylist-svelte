@@ -1,5 +1,5 @@
 import type { IAccordionIconStyleClasses } from './types';
-import { BASE_CLASSES, ROTATED_CLASS } from './constant';
+import { ACCORDION_ICON_BASE_CLASSES, ROTATED_CLASS } from './constant';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -8,7 +8,7 @@ import { BASE_CLASSES, ROTATED_CLASS } from './constant';
 export class AccordionIconStyleManager {
   static getContainerClasses(isOpen: boolean, className: string): string {
     const rotationClass = isOpen ? ROTATED_CLASS : '';
-    return `${BASE_CLASSES} ${rotationClass} ${className}`.trim();
+    return `${ACCORDION_ICON_BASE_CLASSES} ${rotationClass} ${className}`.trim();
   }
 
   static getAllClasses(isOpen: boolean, className: string): string {

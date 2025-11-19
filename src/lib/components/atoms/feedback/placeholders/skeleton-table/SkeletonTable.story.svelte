@@ -1,7 +1,7 @@
 <script lang="ts">
+  import TableSkeleton from './TableSkeleton.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import TableSkeleton from '../TableSkeleton.svelte';
 
   type TableSkeletonStoryProps = {
     rows: number;

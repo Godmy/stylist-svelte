@@ -1,4 +1,4 @@
-// stylist-coder-model auto-generated exports for Image
+// stylist-coder-model auto-generated exports for image
 export * from './constant';
 export { default as Image } from './Image.svelte';
 export * from './styles';

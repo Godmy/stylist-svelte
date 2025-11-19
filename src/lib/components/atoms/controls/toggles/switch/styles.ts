@@ -3,6 +3,7 @@ import type { SwitchSize } from './types';
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing Switch styling logic
+ * Uses CSS variables from the theme system
  */
 export class SwitchStyleManager {
   static getLabelClasses(disabled: boolean, className: string): string {
@@ -19,8 +20,10 @@ export class SwitchStyleManager {
       lg: 'w-14 h-7'
     };
 
-    const baseClasses = 'relative inline-flex flex-shrink-0 border-2 border-transparent rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500';
-    const colorClasses = checked ? 'bg-indigo-600' : 'bg-gray-200';
+    const baseClasses = 'relative inline-flex flex-shrink-0 border-2 border-transparent rounded-full transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2';
+    const colorClasses = checked
+      ? 'bg-[--color-primary-600] focus-visible:ring-[--color-primary-500]'
+      : 'bg-[--color-secondary-200] focus-visible:ring-[--color-primary-500]';
 
     return `${baseClasses} ${trackSizes[size]} ${colorClasses}`;
   }
@@ -50,7 +53,7 @@ export class SwitchStyleManager {
   }
 
   static getKnobClasses(size: SwitchSize, checked: boolean): string {
-    const baseClasses = 'inline-block rounded-full bg-white shadow transform ring-0 transition duration-200 ease-in-out';
+    const baseClasses = 'inline-block rounded-full bg-[--color-background-primary] shadow transform ring-0 transition duration-200 ease-in-out';
     const sizeClasses = this.getKnobSizes(size);
     const transformClasses = this.getKnobTransform(size, checked);
 
@@ -62,14 +65,14 @@ export class SwitchStyleManager {
   }
 
   static getLabelTitleClasses(): string {
-    return 'text-sm font-medium text-gray-900';
+    return 'text-sm font-medium text-[--color-text-primary]';
   }
 
   static getLabelDescriptionClasses(): string {
-    return 'text-sm text-gray-500';
+    return 'text-sm text-[--color-text-secondary]';
   }
 
   static getRequiredMarkerClasses(): string {
-    return 'text-red-500';
+    return 'text-[--color-danger-500]';
   }
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SkeletonText from '../SkeletonText.svelte';
+  import SkeletonText from './SkeletonText.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 

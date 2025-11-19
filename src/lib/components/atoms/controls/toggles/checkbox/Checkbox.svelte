@@ -68,7 +68,7 @@
       <label for={id} class={labelClasses}>
         {label}
         {#if required}
-          <span class="text-red-500">*</span>
+          <span class="text-[--color-danger-500]">*</span>
         {/if}
       </label>
       {#if description}

@@ -34,6 +34,13 @@ import {
   getHistoryStats,
   type HistoryEntry
 } from '../utils/history';
+import {
+  colorSchemes,
+  colorSchemeMap,
+  defaultColorSchemeId,
+  type ColorSchemeId,
+  type PlaygroundColorScheme
+} from '../utils/colorSchemes';
 
 export type BackgroundType = 'white' | 'gray' | 'dark' | 'transparent';
 
@@ -60,7 +67,8 @@ class PlaygroundStore {
     showRulers: false,
     zoom: 1,
     bottomPanelOpen: true,
-    showDeviceFrame: false
+    showDeviceFrame: false,
+    colorScheme: defaultColorSchemeId as ColorSchemeId
   });
 
   // Stories registry
@@ -217,6 +225,14 @@ class PlaygroundStore {
     }
   }
 
+  setColorScheme(id: ColorSchemeId) {
+    if (!colorSchemeMap.has(id)) return;
+    this.uiState.colorScheme = id;
+    this.applyColorScheme(id);
+    this.saveToLocalStorage();
+    localStorage.setItem('playground-color-scheme', id);
+  }
+
   init() {
     // Check for saved theme or system preference
     const savedTheme = localStorage.getItem('theme');
@@ -232,6 +248,12 @@ class PlaygroundStore {
 
     // Restore persisted state from localStorage
     this.restoreFromLocalStorage();
+    const persistedScheme =
+      localStorage.getItem('playground-color-scheme') as ColorSchemeId | null;
+    if (persistedScheme && colorSchemeMap.has(persistedScheme)) {
+      this.uiState.colorScheme = persistedScheme;
+    }
+    this.applyColorScheme(this.uiState.colorScheme);
 
     // Start auto-save
     this.startAutoSave();
@@ -256,7 +278,9 @@ class PlaygroundStore {
           background: this.uiState.background,
           showGrid: this.uiState.showGrid,
           zoom: this.uiState.zoom,
-          bottomPanelOpen: this.uiState.bottomPanelOpen
+          bottomPanelOpen: this.uiState.bottomPanelOpen,
+          colorScheme: this.uiState.colorScheme,
+          showDeviceFrame: this.uiState.showDeviceFrame
         },
         controlValues: this.controlValues,
         timestamp: Date.now()
@@ -322,6 +346,12 @@ class PlaygroundStore {
         if (parsed.uiState.bottomPanelOpen !== undefined) {
           this.uiState.bottomPanelOpen = parsed.uiState.bottomPanelOpen;
         }
+        if (parsed.uiState.colorScheme && colorSchemeMap.has(parsed.uiState.colorScheme)) {
+          this.uiState.colorScheme = parsed.uiState.colorScheme as ColorSchemeId;
+        }
+        if (parsed.uiState.showDeviceFrame !== undefined) {
+          this.uiState.showDeviceFrame = parsed.uiState.showDeviceFrame;
+        }
       }
 
       // Restore control values if no URL props
@@ -352,6 +382,7 @@ class PlaygroundStore {
         this.uiState.showGrid,
         this.uiState.zoom,
         this.uiState.bottomPanelOpen,
+        this.uiState.colorScheme,
         this.controlValues
       ];
 
@@ -364,6 +395,31 @@ class PlaygroundStore {
         this.saveToLocalStorage();
       }, 1000) as unknown as number;
     });
+  }
+
+  private applyColorScheme(id: ColorSchemeId) {
+    if (typeof document === 'undefined') return;
+
+    const scheme = colorSchemeMap.get(id) ?? colorSchemeMap.get(defaultColorSchemeId)!;
+    const root = document.documentElement;
+
+    root.style.setProperty('--playground-accent', scheme.accent);
+    root.style.setProperty('--playground-accent-strong', scheme.accentStrong);
+    root.style.setProperty('--playground-accent-contrast', scheme.accentContrast);
+    root.style.setProperty('--playground-accent-surface', scheme.surface);
+    root.style.setProperty('--playground-accent-surface-strong', scheme.surfaceStrong);
+    root.style.setProperty('--playground-accent-shadow', scheme.shadow);
+    root.style.setProperty('--playground-spinner-border', scheme.spinner);
+    root.style.setProperty('--playground-gradient-light-from', scheme.gradient.light.from);
+    root.style.setProperty('--playground-gradient-light-via', scheme.gradient.light.via);
+    root.style.setProperty('--playground-gradient-light-to', scheme.gradient.light.to);
+    root.style.setProperty('--playground-gradient-dark-from', scheme.gradient.dark.from);
+    root.style.setProperty('--playground-gradient-dark-via', scheme.gradient.dark.via);
+    root.style.setProperty('--playground-gradient-dark-to', scheme.gradient.dark.to);
+    root.style.setProperty('--playground-glow-light-1', scheme.glowLight[0]);
+    root.style.setProperty('--playground-glow-light-2', scheme.glowLight[1]);
+    root.style.setProperty('--playground-glow-dark-1', scheme.glowDark[0]);
+    root.style.setProperty('--playground-glow-dark-2', scheme.glowDark[1]);
   }
 
   clearLocalStorage() {
@@ -633,3 +689,12 @@ class PlaygroundStore {
 
 // Export singleton instance
 export const playgroundStore = new PlaygroundStore();
+
+// Re-export color scheme utilities
+export {
+  colorSchemes,
+  colorSchemeMap,
+  defaultColorSchemeId,
+  type ColorSchemeId,
+  type PlaygroundColorScheme
+} from '../utils/colorSchemes';

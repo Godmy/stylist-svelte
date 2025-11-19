@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Eye, EyeOff } from 'lucide-svelte';
+  import { AdvancedPasswordInputStyleManager } from './AdvancedPasswordInput.styles';
 
   type Props = {
     value?: string;
@@ -78,26 +79,25 @@
     }
   }
 
-  function getStrengthColor(): string {
-    const strength = getPasswordStrength();
-    switch (strength) {
-      case 0: return 'bg-gray-200';
-      case 1: return 'bg-red-500';
-      case 2: return 'bg-orange-500';
-      case 3: return 'bg-yellow-500';
-      case 4: return 'bg-green-500';
-      default: return 'bg-gray-200';
-    }
-  }
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(AdvancedPasswordInputStyleManager.getContainerClass(className));
+  const inputWrapperClass = $derived(AdvancedPasswordInputStyleManager.getInputWrapperClass());
+  const inputClassComputed = $derived(AdvancedPasswordInputStyleManager.getInputClass(disabled, inputClass));
+  const buttonClassComputed = $derived(AdvancedPasswordInputStyleManager.getToggleButtonClass(disabled, buttonClass));
+  const eyeIconClass = $derived(AdvancedPasswordInputStyleManager.getEyeIconClass());
+  const strengthMeterContainerClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterContainerClass());
+  const strengthLabelsContainerClass = $derived(AdvancedPasswordInputStyleManager.getStrengthLabelsContainerClass());
+  const strengthLabelClass = $derived(AdvancedPasswordInputStyleManager.getStrengthLabelClass());
+  const strengthValueClass = $derived(AdvancedPasswordInputStyleManager.getStrengthValueClass(getPasswordStrength()));
+  const strengthMeterBgClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterBackgroundClass());
+  const strengthMeterFillClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterFillClass(getPasswordStrength()));
 </script>
 
-<div class={`relative ${className}`}>
-  <div class="relative">
+<div class={containerClass}>
+  <div class={inputWrapperClass}>
     <input
       type={showPassword ? 'text' : 'password'}
-      class={`w-full px-3 py-2 pr-10 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
-        disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : ''
-      } ${inputClass}`}
+      class={inputClassComputed}
       bind:value={inputValue}
       placeholder={placeholder}
       disabled={disabled}
@@ -108,35 +108,29 @@
     />
     <button
       type="button"
-      class={`absolute inset-y-0 right-0 pr-3 flex items-center ${buttonClass} ${
-        disabled ? 'hidden' : 'block'
-      }`}
+      class={buttonClassComputed}
       onclick={() => showPassword = !showPassword}
       disabled={disabled}
     >
       {#if showPassword}
-        <EyeOff class="h-5 w-5 text-gray-500" />
+        <EyeOff class={eyeIconClass} />
       {:else}
-        <Eye class="h-5 w-5 text-gray-500" />
+        <Eye class={eyeIconClass} />
       {/if}
     </button>
   </div>
 
   {#if showStrengthMeter && inputValue}
-    <div class="mt-2">
-      <div class="flex items-center justify-between mb-1">
-        <span class="text-xs font-medium">Password strength:</span>
-        <span class={`text-xs font-medium ${
-          getPasswordStrength() < 2 ? 'text-red-600' :
-          getPasswordStrength() < 3 ? 'text-orange-600' :
-          getPasswordStrength() < 4 ? 'text-yellow-600' : 'text-green-600'
-        }`}>
+    <div class={strengthMeterContainerClass}>
+      <div class={strengthLabelsContainerClass}>
+        <span class={strengthLabelClass}>Password strength:</span>
+        <span class={strengthValueClass}>
           {getStrengthLabel()}
         </span>
       </div>
-      <div class="w-full bg-gray-200 rounded-full h-1.5">
+      <div class={strengthMeterBgClass}>
         <div
-          class={`h-1.5 rounded-full ${getStrengthColor()}`}
+          class={strengthMeterFillClass}
           style={`width: ${getPasswordStrength() * 25}%`}
         ></div>
       </div>

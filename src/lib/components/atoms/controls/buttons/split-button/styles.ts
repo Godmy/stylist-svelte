@@ -3,17 +3,18 @@ import type { SplitButtonVariant, SplitButtonSize, ISplitButtonStyleClasses, ISp
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing SplitButton styling logic
+ * Uses CSS variables from the theme system
  */
 export class SplitButtonStyleManager {
   static getVariantClasses(variant: SplitButtonVariant): string {
     const variantClasses: Record<SplitButtonVariant, string> = {
       primary: 'bg-[--color-primary-600] hover:bg-[--color-primary-700] text-[--color-text-inverse]',
-      secondary: 'bg-[--color-secondary-100] hover:bg-[--color-secondary-200] text-[--color-text-primary] dark:bg-[--color-secondary-700] dark:hover:bg-[--color-secondary-600] dark:text-[--color-text-inverse]',
+      secondary: 'bg-[--color-secondary-100] hover:bg-[--color-secondary-200] text-[--color-text-primary]',
       success: 'bg-[--color-success-600] hover:bg-[--color-success-700] text-[--color-text-inverse]',
       warning: 'bg-[--color-warning-500] hover:bg-[--color-warning-600] text-[--color-text-inverse]',
       danger: 'bg-[--color-danger-600] hover:bg-[--color-danger-700] text-[--color-text-inverse]',
-      ghost: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-text-primary] border border-[--color-border-primary] dark:hover:bg-[--color-secondary-700] dark:text-[--color-text-inverse] dark:border-[--color-border-primary]',
-      link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline dark:hover:bg-[--color-secondary-700] dark:text-[--color-primary-400]'
+      ghost: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-text-primary] border border-[--color-border-primary]',
+      link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline'
     };
 
     return variantClasses[variant];
@@ -54,18 +55,18 @@ export class SplitButtonStyleManager {
   }
 
   static getPrimaryButtonClasses(variantClasses: string, buttonSizeClasses: string, textSizeClasses: string): string {
-    return `relative inline-flex items-center rounded-l-md border border-r-0 ${variantClasses} ${buttonSizeClasses} ${textSizeClasses}`;
+    return `relative inline-flex items-center rounded-l-md border border-r-0 border-[--color-border-primary] ${variantClasses} ${buttonSizeClasses} ${textSizeClasses}`;
   }
 
   static getSecondaryButtonClasses(variantClasses: string, buttonSizeClasses: string, textSizeClasses: string): string {
-    return `relative inline-flex items-center rounded-r-md border ${variantClasses} ${buttonSizeClasses} ${textSizeClasses}`;
+    return `relative inline-flex items-center rounded-r-md border border-[--color-border-primary] ${variantClasses} ${buttonSizeClasses} ${textSizeClasses}`;
   }
 
   static getDropdownClasses(dropdownSizeClasses: string): string {
-    return `absolute z-10 mt-1 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${dropdownSizeClasses} dark:bg-gray-800`;
+    return `absolute z-10 mt-1 origin-top-right rounded-md bg-[--color-background-primary] shadow-lg border border-[--color-border-primary] focus:outline-none ${dropdownSizeClasses}`;
   }
 
   static getDropdownItemClasses(): string {
-    return 'text-left rounded px-3 py-1.5 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed';
+    return 'text-left rounded px-3 py-1.5 text-sm hover:bg-[--color-background-secondary] disabled:opacity-50 disabled:cursor-not-allowed';
   }
 }

@@ -1,7 +1,8 @@
 // stylist-coder-model auto-generated exports for media
-export * from './Avatar';
-export * from './CountryFlag';
-export * from './Favicon';
-export * from './Icon';
-export * from './IconWrapper';
-export * from './Image';
+export * from './avatar';
+export * from './country-flag';
+export * from './favicon';
+export * from './icon';
+export * from './icon-circle';
+export * from './icon-wrapper';
+export * from './image';

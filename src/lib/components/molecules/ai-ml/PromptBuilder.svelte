@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Plus, Trash2, Edit3, Play, Copy, Check, Loader } from 'lucide-svelte';
+  import { Plus, Trash2, Edit3, Play, Copy, Check, Loader2 } from 'lucide-svelte';
+  import { PromptBuilderStyleManager } from './PromptBuilder.styles';
 
   type PromptVariable = {
     id: string;
@@ -59,10 +60,6 @@
   let copied = $state(false);
   let running = $state(false);
 
-  function addTemplate() {
-    // Заглушка для добавления шаблона
-  }
-
   function addVariable() {
     const newVar: PromptVariable = {
       id: `var_${Date.now()}`,
@@ -75,7 +72,7 @@
   }
 
   function updateVariable(updatedVar: PromptVariable) {
-    currentVariables = currentVariables.map(v => 
+    currentVariables = currentVariables.map(v =>
       v.id === updatedVar.id ? updatedVar : v
     );
   }
@@ -97,19 +94,19 @@
 
   function handleRun() {
     if (!onRun) return;
-    
+
     running = true;
-    
+
     // Create a mapping of variable values
     const variableValues: Record<string, any> = {};
     currentVariables.forEach(v => {
       // In a real implementation, we would get actual values from input fields
       variableValues[v.id] = v.defaultValue || '';
     });
-    
+
     // Trigger the onRun callback with the prompt and variables
     onRun(prompt, variableValues);
-    
+
     setTimeout(() => {
       running = false;
     }, 1000); // Simulate processing time
@@ -128,7 +125,7 @@
       const endPos = textarea.selectionEnd;
       const before = prompt.substring(0, startPos);
       const after = prompt.substring(endPos, prompt.length);
-      
+
       prompt = before + `{{${variableId}}}` + after;
     }
   }
@@ -138,16 +135,63 @@
     copied = true;
     setTimeout(() => copied = false, 2000);
   }
+
+  function addTemplate() {
+    // This function doesn't make sense in the current implementation since
+    // templates are passed as props, so we'll just add a template to the local variable
+    // For the UI, we'll just select the first template for now
+    if (templates.length > 0) {
+      selectTemplate(templates[0].id);
+    }
+  }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(PromptBuilderStyleManager.getContainerClass(className));
+  const headerClassComputed = $derived(PromptBuilderStyleManager.getHeaderClass(headerClass));
+  const titleClass = $derived(PromptBuilderStyleManager.getTitleClass());
+  const headerButtonsClass = $derived(PromptBuilderStyleManager.getHeaderButtonsClass());
+  const copyButtonClass = $derived(PromptBuilderStyleManager.getCopyButtonClass(copied));
+  const runButtonClass = $derived(PromptBuilderStyleManager.getRunButtonClass(running));
+  const loadingSpinnerClass = $derived(PromptBuilderStyleManager.getLoadingSpinnerClass());
+  const mainLayoutClass = $derived(PromptBuilderStyleManager.getMainLayoutClass());
+  const templatesSidebarClass = $derived(PromptBuilderStyleManager.getTemplatesSidebarClass());
+  const templatesHeaderClass = $derived(PromptBuilderStyleManager.getTemplatesHeaderClass());
+  const templatesTitleClass = $derived(PromptBuilderStyleManager.getTemplatesTitleClass());
+  const addTemplateButtonClass = $derived(PromptBuilderStyleManager.getAddTemplateButtonClass());
+  const templatesListClass = $derived(PromptBuilderStyleManager.getTemplatesListClass());
+  const templateItemClass = (isSelected: boolean) => PromptBuilderStyleManager.getTemplateItemClass(isSelected);
+  const templateNameClass = $derived(PromptBuilderStyleManager.getTemplateNameClass());
+  const templateDescriptionClass = $derived(PromptBuilderStyleManager.getTemplateDescriptionClass());
+  const mainContentClass = $derived(PromptBuilderStyleManager.getMainContentClass());
+  const promptEditorSectionClass = $derived(PromptBuilderStyleManager.getPromptEditorSectionClass());
+  const promptEditorLabelClass = $derived(PromptBuilderStyleManager.getPromptEditorLabelClass());
+  const promptEditorClassComputed = $derived(PromptBuilderStyleManager.getPromptEditorClass(editorClass));
+  const variablesSectionClass = $derived(PromptBuilderStyleManager.getVariablesSectionClass());
+  const variablesHeaderClass = $derived(PromptBuilderStyleManager.getVariablesHeaderClass());
+  const variablesTitleClass = $derived(PromptBuilderStyleManager.getVariablesTitleClass());
+  const addVariableButtonClass = $derived(PromptBuilderStyleManager.getAddVariableButtonClass());
+  const variablesListClass = $derived(PromptBuilderStyleManager.getVariablesListClass());
+  const variableItemClassComputed = $derived(PromptBuilderStyleManager.getVariableItemClass(variablesClass));
+  const variableInfoContainerClass = $derived(PromptBuilderStyleManager.getVariableInfoContainerClass());
+  const variableNameClass = $derived(PromptBuilderStyleManager.getVariableNameClass());
+  const variableTypeBadgeClass = $derived(PromptBuilderStyleManager.getVariableTypeBadgeClass());
+  const requiredBadgeClass = $derived(PromptBuilderStyleManager.getRequiredBadgeClass());
+  const variableActionsClass = $derived(PromptBuilderStyleManager.getVariableActionsClass());
+  const variableActionButtonClass = $derived(PromptBuilderStyleManager.getVariableActionButtonClass());
+  const variableDescriptionClass = $derived(PromptBuilderStyleManager.getVariableDescriptionClass());
+  const footerClassComputed = $derived(PromptBuilderStyleManager.getFooterClass(footerClass));
+  const cancelButtonClass = $derived(PromptBuilderStyleManager.getCancelButtonClass());
+  const saveButtonClass = $derived(PromptBuilderStyleManager.getSaveButtonClass());
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Header -->
-  <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
-    <h3 class="text-lg font-medium text-gray-900">Prompt Builder</h3>
-    <div class="flex space-x-2">
+  <div class={headerClassComputed}>
+    <h3 class={titleClass}>Prompt Builder</h3>
+    <div class={headerButtonsClass}>
       <button
         type="button"
-        class="inline-flex items-center px-3 py-1 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+        class={copyButtonClass}
         onclick={copyToClipboard}
       >
         {#if copied}
@@ -160,12 +204,12 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center px-3 py-1 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+        class={runButtonClass}
         onclick={handleRun}
         disabled={running}
       >
         {#if running}
-          <Loader class="h-4 w-4 mr-1 animate-spin" />
+          <Loader2 class={loadingSpinnerClass} />
           Running...
         {:else}
           <Play class="h-4 w-4 mr-1" />
@@ -175,33 +219,29 @@
     </div>
   </div>
 
-  <div class="flex">
+  <div class={mainLayoutClass}>
     <!-- Templates sidebar -->
     {#if showTemplates && templates.length > 0}
-      <div class="w-64 border-r p-4">
-        <div class="flex items-center justify-between mb-4">
-          <h4 class="text-sm font-medium text-gray-900">Templates</h4>
+      <div class={templatesSidebarClass}>
+        <div class={templatesHeaderClass}>
+          <h4 class={templatesTitleClass}>Templates</h4>
           <button
             type="button"
-            class="text-gray-400 hover:text-gray-500"
+            class={addTemplateButtonClass}
             onclick={addTemplate}
           >
             <Plus class="h-4 w-4" />
           </button>
         </div>
-        <div class="space-y-2">
+        <div class={templatesListClass}>
           {#each templates as template}
             <button
               type="button"
-              class={`w-full text-left p-2 rounded-md text-sm ${
-                selectedTemplate === template.id 
-                  ? 'bg-blue-100 text-blue-800' 
-                  : 'hover:bg-gray-100'
-              }`}
+              class={templateItemClass(selectedTemplate === template.id)}
               onclick={() => selectTemplate(template.id)}
             >
-              <div class="font-medium">{template.name}</div>
-              <div class="text-xs text-gray-500 truncate">{template.description}</div>
+              <div class={templateNameClass}>{template.name}</div>
+              <div class={templateDescriptionClass}>{template.description}</div>
             </button>
           {/each}
         </div>
@@ -209,17 +249,15 @@
     {/if}
 
     <!-- Main content -->
-    <div class="flex-1 flex flex-col">
+    <div class={mainContentClass}>
       <!-- Prompt editor -->
-      <div class="flex-1 p-4">
-        <label for="prompt-editor" class="block text-sm font-medium text-gray-700 mb-1">
+      <div class={promptEditorSectionClass}>
+        <label for="prompt-editor" class={promptEditorLabelClass}>
           Prompt
         </label>
         <textarea
           id="prompt-editor"
-          class={`w-full h-48 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 font-mono text-sm ${
-            editorClass
-          }`}
+          class={promptEditorClassComputed}
           bind:value={prompt}
           placeholder="Enter your prompt here..."
         ></textarea>
@@ -227,12 +265,12 @@
 
       <!-- Variables section -->
       {#if showVariables}
-        <div class="border-t p-4">
-          <div class="flex items-center justify-between mb-3">
-            <h4 class="text-sm font-medium text-gray-900">Variables</h4>
+        <div class={variablesSectionClass}>
+          <div class={variablesHeaderClass}>
+            <h4 class={variablesTitleClass}>Variables</h4>
             <button
               type="button"
-              class="inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+              class={addVariableButtonClass}
               onclick={addVariable}
             >
               <Plus class="h-3 w-3 mr-1" />
@@ -240,25 +278,25 @@
             </button>
           </div>
 
-          <div class="space-y-3">
+          <div class={variablesListClass}>
             {#each currentVariables as variable}
-              <div class={`border rounded-md p-3 ${variablesClass}`}>
-                <div class="flex items-center justify-between">
+              <div class={variableItemClassComputed}>
+                <div class={variableInfoContainerClass}>
                   <div class="flex items-center">
-                    <span class="text-sm font-medium text-gray-900">{variable.name}</span>
-                    <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    <span class={variableNameClass}>{variable.name}</span>
+                    <span class={variableTypeBadgeClass}>
                       {variable.type}
                     </span>
                     {#if variable.required}
-                      <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                      <span class={requiredBadgeClass}>
                         Required
                       </span>
                     {/if}
                   </div>
-                  <div class="flex space-x-2">
+                  <div class={variableActionsClass}>
                     <button
                       type="button"
-                      class="text-gray-400 hover:text-gray-600"
+                      class={variableActionButtonClass}
                       onclick={() => insertVariableAtCursor(variable.id)}
                       title="Insert variable"
                     >
@@ -266,7 +304,7 @@
                     </button>
                     <button
                       type="button"
-                      class="text-gray-400 hover:text-gray-600"
+                      class={variableActionButtonClass}
                       onclick={() => removeVariable(variable.id)}
                       title="Remove variable"
                     >
@@ -274,7 +312,7 @@
                     </button>
                   </div>
                 </div>
-                <p class="mt-1 text-xs text-gray-500">{variable.description}</p>
+                <p class={variableDescriptionClass}>{variable.description}</p>
               </div>
             {/each}
           </div>
@@ -284,16 +322,16 @@
   </div>
 
   <!-- Footer -->
-  <div class={`border-t px-4 py-3 flex justify-end space-x-3 ${footerClass}`}>
+  <div class={footerClassComputed}>
     <button
       type="button"
-      class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+      class={cancelButtonClass}
     >
       Cancel
     </button>
     <button
       type="button"
-      class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+      class={saveButtonClass}
       onclick={handleSave}
     >
       Save Prompt

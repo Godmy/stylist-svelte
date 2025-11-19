@@ -28,12 +28,14 @@
   interface Props {
     onComponentSelect?: (storyId: string) => void;
     groupedStories?: GroupedStories;
+    selectedStoryId?: string | null;
   }
 
-  let { onComponentSelect, groupedStories = {} }: Props = $props();
+  let { onComponentSelect, groupedStories = {}, selectedStoryId = null }: Props = $props();
 
   // State for expanded nodes - Level 0 (categories) and Level 1 (first-level folders) open by default
   let expandedNodes = $state<Set<string>>(new Set());
+  const storyPathMap = new Map<string, string[]>();
 
   // Category configuration
   const categoryConfig: Record<string, {
@@ -64,6 +66,7 @@
 
   // Build tree structure from flat stories
   function buildTree(): TreeNodeData[] {
+    storyPathMap.clear();
     const tree: TreeNodeData[] = [];
 
     Object.keys(categoryConfig).forEach(category => {
@@ -99,6 +102,7 @@
           // Build nested folder structure
           let currentPath = category;
           let currentChildren = categoryNode.children!;
+          const segmentsToExpand = [categoryNode.path];
 
           segments.forEach((segment, index) => {
             const segmentPath = `${currentPath}/${segment}`;
@@ -119,6 +123,7 @@
             folderNode.count = (folderNode.count || 0) + 1;
             currentChildren = folderNode.children!;
             currentPath = segmentPath;
+            segmentsToExpand.push(segmentPath);
           });
 
           // Add component as leaf node
@@ -128,6 +133,7 @@
             path: `${currentPath}/${story.componentName}`,
             story
           });
+          storyPathMap.set(story.id, segmentsToExpand);
 
           categoryNode.count = (categoryNode.count || 0) + 1;
         });
@@ -194,6 +200,26 @@
       onComponentSelect(story.id);
     }
   }
+
+  $effect(() => {
+    if (!selectedStoryId) return;
+    const nodesToExpand = storyPathMap.get(selectedStoryId);
+    if (!nodesToExpand || nodesToExpand.length === 0) return;
+
+    const updated = new Set(expandedNodes);
+    let changed = false;
+
+    nodesToExpand.forEach(path => {
+      if (!updated.has(path)) {
+        updated.add(path);
+        changed = true;
+      }
+    });
+
+    if (changed) {
+      expandedNodes = updated;
+    }
+  });
 </script>
 
 <div class="tree-container bg-white dark:bg-gray-900 p-3">
@@ -206,6 +232,7 @@
         {categoryConfig}
         onToggle={toggleNode}
         onComponentClick={handleComponentClick}
+        {selectedStoryId}
       />
     {/each}
   </nav>

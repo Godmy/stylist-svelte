@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Accessibility, Contrast, Volume2, Eye, Minus, Plus, Type, Grid } from 'lucide-svelte';
+  import { AccessibilityToolbarStyleManager } from './AccessibilityToolbar.styles';
 
   type Props = {
     showContrastToggle?: boolean;
@@ -50,7 +51,7 @@
   // Toggle high contrast
   function toggleHighContrast() {
     highContrast = !highContrast;
-    
+
     if (highContrast) {
       document.body.classList.add('high-contrast-mode');
     } else {
@@ -61,8 +62,8 @@
   // Toggle screen reader mode
   function toggleScreenReaderMode() {
     screenReaderMode = !screenReaderMode;
-    alert(screenReaderMode ? 
-      "Screen reader mode activated. All visual elements will be described." : 
+    alert(screenReaderMode ?
+      "Screen reader mode activated. All visual elements will be described." :
       "Screen reader mode deactivated.");
   }
 
@@ -75,7 +76,7 @@
   // Toggle animations
   function toggleAnimations() {
     disableAnimations = !disableAnimations;
-    
+
     if (disableAnimations) {
       document.body.classList.add('reduce-motion');
       document.documentElement.style.setProperty('--animation-duration', '0.01ms');
@@ -86,16 +87,21 @@
       document.documentElement.style.removeProperty('--animation-iteration-count');
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(AccessibilityToolbarStyleManager.getContainerClass(className));
+  const toolbarClassComputed = $derived(AccessibilityToolbarStyleManager.getToolbarClass(toolbarClass));
+  const buttonClassComputed = $derived(AccessibilityToolbarStyleManager.getButtonClass(highContrast, buttonClass));
+  const deactivateButtonClass = $derived(AccessibilityToolbarStyleManager.getButtonClass(false, buttonClass));
+  const fontSizeDisplayClass = $derived(AccessibilityToolbarStyleManager.getFontSizeDisplayClass());
 </script>
 
-<div class={`fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-full p-2 z-50 ${className}`} {...restProps}>
-  <div class={`flex items-center space-x-1 p-1 ${toolbarClass}`}>
+<div class={containerClass} {...restProps}>
+  <div class={toolbarClassComputed}>
     {#if showContrastToggle}
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          highContrast ? 'bg-blue-500 text-white' : 'text-gray-700'
-        } ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(highContrast, buttonClass)}
         aria-label={highContrast ? "Disable high contrast" : "Enable high contrast"}
         aria-pressed={highContrast}
         onclick={toggleHighContrast}
@@ -107,18 +113,18 @@
     {#if showFontSizeControls}
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(false, buttonClass)}
         aria-label="Decrease font size"
         onclick={decreaseFontSize}
       >
         <Minus class="h-5 w-5" />
       </button>
-      
-      <span class="text-sm font-medium px-2 text-gray-700">{Math.round(fontSizeScale * 100)}%</span>
-      
+
+      <span class={fontSizeDisplayClass}>{Math.round(fontSizeScale * 100)}%</span>
+
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(false, buttonClass)}
         aria-label="Increase font size"
         onclick={increaseFontSize}
       >
@@ -129,9 +135,7 @@
     {#if showScreenReaderTester}
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          screenReaderMode ? 'bg-blue-500 text-white' : 'text-gray-700'
-        } ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(screenReaderMode, buttonClass)}
         aria-label={screenReaderMode ? "Disable screen reader tester" : "Enable screen reader tester"}
         aria-pressed={screenReaderMode}
         onclick={toggleScreenReaderMode}
@@ -143,9 +147,7 @@
     {#if showFocusIndicator}
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          focusIndicator ? 'bg-blue-500 text-white' : 'text-gray-700'
-        } ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(focusIndicator, buttonClass)}
         aria-label={focusIndicator ? "Hide focus indicators" : "Show focus indicators"}
         aria-pressed={focusIndicator}
         onclick={toggleFocusIndicator}
@@ -157,9 +159,7 @@
     {#if showAnimationsToggle}
       <button
         type="button"
-        class={`p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          disableAnimations ? 'bg-blue-500 text-white' : 'text-gray-700'
-        } ${buttonClass}`}
+        class={AccessibilityToolbarStyleManager.getButtonClass(disableAnimations, buttonClass)}
         aria-label={disableAnimations ? "Enable animations" : "Reduce animations"}
         aria-pressed={disableAnimations}
         onclick={toggleAnimations}
@@ -170,7 +170,7 @@
 
     <button
       type="button"
-      class="p-2 rounded-full text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      class={AccessibilityToolbarStyleManager.getButtonClass(false)}
       aria-label="Accessibility settings"
     >
       <Accessibility class="h-5 w-5" />

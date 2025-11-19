@@ -1,6 +1,7 @@
 /**
  * Style manager for ProgressCircle component
  * Follows the Single Responsibility Principle by managing only styling concerns
+ * Uses CSS variables from the theme system
  */
 export class ProgressCircleStyleManager {
   /**
@@ -15,12 +16,12 @@ export class ProgressCircleStyleManager {
       md: 'w-16 h-16 text-sm',
       lg: 'w-24 h-24 text-base'
     };
-    
+
     const baseClass = `relative inline-flex items-center justify-center ${sizeClasses[size]}`;
-    
+
     return customClass ? `${baseClass} ${customClass}`.trim() : baseClass;
   }
-  
+
   /**
    * Creates CSS class string for the progress circle SVG element
    * @returns CSS class string for the SVG element
@@ -28,15 +29,15 @@ export class ProgressCircleStyleManager {
   static generateSvgClass(): string {
     return 'h-full w-full';
   }
-  
+
   /**
    * Creates CSS class string for the background circle
    * @returns CSS class string for the background circle
    */
   static generateBackgroundCircleClass(): string {
-    return 'opacity-20 text-current';
+    return 'opacity-20 text-[--color-text-primary]';
   }
-  
+
   /**
    * Creates CSS class string for the progress circle
    * @param color - The color of the progress circle
@@ -44,23 +45,23 @@ export class ProgressCircleStyleManager {
    */
   static generateProgressCircleClass(color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray' = 'primary'): string {
     const colorClasses = {
-      primary: 'text-indigo-600',
-      secondary: 'text-gray-600',
-      success: 'text-green-600',
-      warning: 'text-yellow-600',
-      danger: 'text-red-600',
-      info: 'text-blue-600',
-      gray: 'text-gray-400'
+      primary: 'text-[--color-primary-600]',
+      secondary: 'text-[--color-secondary-600]',
+      success: 'text-[--color-success-600]',
+      warning: 'text-[--color-warning-600]',
+      danger: 'text-[--color-danger-600]',
+      info: 'text-[--color-primary-600]', // using primary as default for info
+      gray: 'text-[--color-text-secondary]'
     };
-    
+
     return `transition-all ease-out ${colorClasses[color]}`.trim();
   }
-  
+
   /**
    * Creates CSS class string for the percentage label
    * @returns CSS class string for the percentage label
    */
   static generateLabelClass(): string {
-    return 'absolute text-xs font-medium text-gray-700 dark:text-gray-300';
+    return 'absolute text-xs font-medium text-[--color-text-primary]';
   }
 }

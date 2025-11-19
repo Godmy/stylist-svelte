@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import { RadioButtonGroupStyleManager } from './RadioButtonGroup.styles';
 
   type Option = {
     value: string;
@@ -49,7 +50,7 @@
 
   function handleInput(optionValue: string) {
     selectedValue = optionValue;
-    
+
     if (onInput) {
       onInput(optionValue);
     }
@@ -57,26 +58,27 @@
 
   function handleChange(optionValue: string) {
     selectedValue = optionValue;
-    
+
     if (onChange) {
       onChange(optionValue);
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(RadioButtonGroupStyleManager.getContainerClass(orientation, className));
+  const radioClassUpdated = $derived(RadioButtonGroupStyleManager.getRadioClass(radioClass));
+  const optionLabelClass = $derived(RadioButtonGroupStyleManager.getOptionLabelClass(labelClass));
 </script>
 
-<div class={`space-y-2 ${className} ${orientation === 'horizontal' ? 'flex flex-row space-y-0 space-x-6' : ''}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   {#each options as option}
-    <label 
-      class={`flex items-center ${
-        option.disabled || disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
-      } ${optionClass} ${
-        orientation === 'horizontal' ? 'mr-6' : 'mb-2'
-      }`}
+    <label
+      class={RadioButtonGroupStyleManager.getOptionClass(orientation, option.disabled || disabled, optionClass)}
     >
       <input
         type="radio"
         name={name}
-        class={`h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500 ${radioClass}`}
+        class={radioClassUpdated}
         bind:group={selectedValue}
         value={option.value}
         oninput={() => handleInput(option.value)}
@@ -84,7 +86,7 @@
         disabled={option.disabled || disabled}
         required={required}
       />
-      <span class={`ml-2 block text-sm font-medium text-gray-700 ${labelClass}`}>
+      <span class={optionLabelClass}>
         {option.label}
       </span>
     </label>

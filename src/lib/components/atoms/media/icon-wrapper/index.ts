@@ -1,4 +1,4 @@
-// stylist-coder-model auto-generated exports for IconWrapper
+// stylist-coder-model auto-generated exports for icon-wrapper
 export * from './constant';
 export { default as IconWrapper } from './IconWrapper.svelte';
 export * from './styles';

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { BarChart3, TrendingUp, TrendingDown, Loader, AlertCircle } from 'lucide-svelte';
+  import { BarChart3, TrendingUp, TrendingDown, Loader2, AlertCircle } from 'lucide-svelte';
+  import { PredictionResultStyleManager } from './PredictionResult.styles';
 
   type Prediction = {
     label: string;
@@ -49,49 +50,79 @@
     actualValue || 0,
     predictedValue || 0
   );
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(PredictionResultStyleManager.getContainerClass(className));
+  const headerClassComputed = $derived(PredictionResultStyleManager.getHeaderClass(headerClass));
+  const statusIconClass = $derived(PredictionResultStyleManager.getStatusIconClass(status));
+  const titleClass = $derived(PredictionResultStyleManager.getTitleClass());
+  const modelTagClass = $derived(PredictionResultStyleManager.getModelTagClass());
+  const contentClassComputed = $derived(PredictionResultStyleManager.getContentClass(contentClass));
+  const descriptionClass = $derived(PredictionResultStyleManager.getDescriptionClass());
+  const centeredDisplayClass = $derived(PredictionResultStyleManager.getCenteredDisplayClass());
+  const retryButtonClass = $derived(PredictionResultStyleManager.getRetryButtonClass());
+  const predictionSummaryGridClass = $derived(PredictionResultStyleManager.getPredictionSummaryGridClass());
+  const confidenceSectionClass = $derived(PredictionResultStyleManager.getConfidenceSectionClass());
+  const confidenceLabelClass = $derived(PredictionResultStyleManager.getConfidenceLabelClass());
+  const confidencePercentageClass = $derived(PredictionResultStyleManager.getConfidencePercentageClass());
+  const confidenceBarContainerClass = $derived(PredictionResultStyleManager.getConfidenceBarContainerClass());
+  const confidenceBarFillClass = $derived(PredictionResultStyleManager.getConfidenceBarFillClass());
+  const breakdownHeaderClass = $derived(PredictionResultStyleManager.getBreakdownHeaderClass());
+  const predictionItemClass = $derived(PredictionResultStyleManager.getPredictionItemClass());
+  const predictionItemLabelClass = $derived(PredictionResultStyleManager.getPredictionItemLabelClass());
+  const predictionItemValueClass = $derived(PredictionResultStyleManager.getPredictionItemValueClass());
+  const chartBarContainerClass = $derived(PredictionResultStyleManager.getChartBarContainerClass());
+  const chartBarFillClass = $derived(PredictionResultStyleManager.getChartBarFillClass());
+  const footerClassComputed = $derived(PredictionResultStyleManager.getFooterClass(footerClass));
+  const positiveTrendIconClass = $derived(PredictionResultStyleManager.getTrendIndicatorClass(true));
+  const negativeTrendIconClass = $derived(PredictionResultStyleManager.getTrendIndicatorClass(false));
+  const positiveTrendDescriptionClass = $derived(PredictionResultStyleManager.getTrendDescriptionClass(true));
+  const negativeTrendDescriptionClass = $derived(PredictionResultStyleManager.getTrendDescriptionClass(false));
+  const predictionLabelClass = $derived(PredictionResultStyleManager.getPredictionLabelClass());
+  const predictionValueClass = $derived(PredictionResultStyleManager.getPredictionValueClass());
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Header -->
-  <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
+  <div class={headerClassComputed}>
     <div class="flex items-center">
       {#if status === 'loading'}
-        <Loader class="h-5 w-5 text-blue-500 animate-spin mr-2" />
+        <Loader2 class={PredictionResultStyleManager.getStatusIconClass('loading')} />
       {:else if status === 'error'}
-        <AlertCircle class="h-5 w-5 text-red-500 mr-2" />
+        <AlertCircle class={PredictionResultStyleManager.getStatusIconClass('error')} />
       {:else if status === 'warning'}
-        <AlertCircle class="h-5 w-5 text-yellow-500 mr-2" />
+        <AlertCircle class={PredictionResultStyleManager.getStatusIconClass('warning')} />
       {:else}
-        <BarChart3 class="h-5 w-5 text-blue-500 mr-2" />
+        <BarChart3 class={PredictionResultStyleManager.getStatusIconClass('success')} />
       {/if}
-      <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+      <h3 class={titleClass}>{title}</h3>
     </div>
     {#if modelUsed}
-      <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+      <span class={modelTagClass}>
         {modelUsed}
       </span>
     {/if}
   </div>
 
   <!-- Content -->
-  <div class={`p-4 ${contentClass}`}>
+  <div class={contentClassComputed}>
     {#if description}
-      <p class="text-sm text-gray-500 mb-4">{description}</p>
+      <p class={descriptionClass}>{description}</p>
     {/if}
 
     {#if status === 'loading'}
-      <div class="flex flex-col items-center justify-center py-8">
-        <Loader class="h-8 w-8 text-blue-500 animate-spin" />
-        <p class="mt-2 text-sm text-gray-500">Analyzing data...</p>
+      <div class={centeredDisplayClass}>
+        <Loader2 class="h-8 w-8 text-[--color-primary-500] animate-spin" />
+        <p class="mt-2 text-sm text-[--color-text-secondary]">Analyzing data...</p>
       </div>
     {:else if status === 'error'}
-      <div class="flex flex-col items-center justify-center py-8">
-        <AlertCircle class="h-8 w-8 text-red-500" />
-        <p class="mt-2 text-sm text-gray-500">Prediction failed</p>
+      <div class={centeredDisplayClass}>
+        <AlertCircle class="h-8 w-8 text-[--color-danger-500]" />
+        <p class="mt-2 text-sm text-[--color-text-secondary]">Prediction failed</p>
         {#if onRetry}
           <button
             type="button"
-            class="mt-4 px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none"
+            class={retryButtonClass}
             onclick={onRetry}
           >
             Retry
@@ -99,32 +130,32 @@
         {/if}
       </div>
     {:else}
-      <div class="space-y-4">
+      <div class="space-y-[--spacing-md]">
         <!-- Prediction summary -->
-        <div class="grid grid-cols-2 gap-4">
+        <div class={predictionSummaryGridClass}>
           {#if predictedValue !== undefined}
-            <div class="bg-blue-50 p-3 rounded-lg">
-              <p class="text-sm font-medium text-gray-500">Predicted</p>
-              <p class="text-2xl font-bold text-gray-900">{predictedValue}</p>
+            <div class={PredictionResultStyleManager.getPredictionBoxClass(true)}>
+              <p class={predictionLabelClass}>Predicted</p>
+              <p class={predictionValueClass}>{predictedValue}</p>
             </div>
           {/if}
           {#if actualValue !== undefined}
-            <div class="bg-green-50 p-3 rounded-lg">
-              <p class="text-sm font-medium text-gray-500">Actual</p>
-              <p class="text-2xl font-bold text-gray-900">{actualValue}</p>
+            <div class={PredictionResultStyleManager.getPredictionBoxClass(false)}>
+              <p class={predictionLabelClass}>Actual</p>
+              <p class={predictionValueClass}>{actualValue}</p>
             </div>
           {/if}
         </div>
 
         {#if confidence !== undefined}
-          <div>
-            <div class="flex items-center justify-between mb-1">
-              <p class="text-sm font-medium text-gray-700">Confidence</p>
-              <p class="text-sm font-medium text-gray-900">{Math.round(confidence * 100)}%</p>
+          <div class={confidenceSectionClass}>
+            <div class="flex items-center justify-between mb-[--spacing-xs]">
+              <p class={confidenceLabelClass}>Confidence</p>
+              <p class={confidencePercentageClass}>{Math.round(confidence * 100)}%</p>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div 
-                class="h-2 rounded-full bg-blue-600" 
+            <div class={confidenceBarContainerClass}>
+              <div
+                class={confidenceBarFillClass}
                 style={`width: ${confidence * 100}%`}
               ></div>
             </div>
@@ -133,25 +164,25 @@
 
         <!-- Prediction breakdown -->
         {#if predictions.length > 0}
-          <div class="mt-4">
-            <h4 class="text-sm font-medium text-gray-700 mb-2">Prediction Breakdown</h4>
-            <div class="space-y-2">
+          <div class="mt-[--spacing-md]">
+            <h4 class={breakdownHeaderClass}>Prediction Breakdown</h4>
+            <div class={predictionItemClass}>
               {#each predictions as prediction}
                 <div>
-                  <div class="flex justify-between text-sm mb-1">
-                    <span class="text-gray-600">{prediction.label}</span>
-                    <span class="text-gray-900 font-medium">
-                      {prediction.confidence !== undefined 
-                        ? `${Math.round(prediction.confidence * 100)}%` 
+                  <div class="flex justify-between text-sm mb-[--spacing-xs]">
+                    <span class={predictionItemLabelClass}>{prediction.label}</span>
+                    <span class={predictionItemValueClass}>
+                      {prediction.confidence !== undefined
+                        ? `${Math.round(prediction.confidence * 100)}%`
                         : prediction.value}
                     </span>
                   </div>
                   {#if showChart && maxValue > 0}
-                    <div class="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        class="h-2 rounded-full bg-blue-500" 
-                        style={`width: ${(prediction.confidence !== undefined 
-                          ? prediction.confidence 
+                    <div class={chartBarContainerClass}>
+                      <div
+                        class={chartBarFillClass}
+                        style={`width: ${(prediction.confidence !== undefined
+                          ? prediction.confidence
                           : prediction.value) / maxValue * 100}%`}
                       ></div>
                     </div>
@@ -167,20 +198,20 @@
 
   <!-- Footer -->
   {#if status === 'success' && predictedValue !== undefined && actualValue !== undefined}
-    <div class={`border-t px-4 py-3 ${footerClass}`}>
+    <div class={footerClassComputed}>
       <div class="flex items-center">
         {#if predictedValue > actualValue}
-          <TrendingUp class="h-5 w-5 text-green-500" />
-          <span class="ml-2 text-sm text-green-600">
+          <TrendingUp class={positiveTrendIconClass} />
+          <span class={positiveTrendDescriptionClass}>
             Prediction was {Math.abs(Math.round((predictedValue - actualValue) / actualValue * 100))}% higher than actual
           </span>
         {:else if predictedValue < actualValue}
-          <TrendingDown class="h-5 w-5 text-red-500" />
-          <span class="ml-2 text-sm text-red-600">
+          <TrendingDown class={negativeTrendIconClass} />
+          <span class={negativeTrendDescriptionClass}>
             Prediction was {Math.abs(Math.round((predictedValue - actualValue) / actualValue * 100))}% lower than actual
           </span>
         {:else}
-          <span class="text-sm text-gray-600">Prediction matches actual value</span>
+          <span class="text-sm text-[--color-text-secondary]">Prediction matches actual value</span>
         {/if}
       </div>
     </div>

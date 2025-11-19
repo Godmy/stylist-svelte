@@ -1,4 +1,4 @@
-// stylist-coder-model auto-generated exports for Favicon
+// stylist-coder-model auto-generated exports for favicon
 export * from './constant';
 export { default as Favicon } from './Favicon.svelte';
 export * from './styles';

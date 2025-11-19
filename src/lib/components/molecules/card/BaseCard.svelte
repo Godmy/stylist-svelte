@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import { BaseCardStyleManager } from './BaseCard.styles';
 
   type Props = {
     title?: string;
@@ -17,20 +18,27 @@
     bodyClass = '',
     ...restProps
   }: Props = $props();
+
+  // Generate CSS classes using the style manager
+  const cardClass = $derived(BaseCardStyleManager.getCardClass(className));
+  const headerClassComputed = $derived(BaseCardStyleManager.getHeaderClass(headerClass));
+  const titleClass = $derived(BaseCardStyleManager.getTitleClass());
+  const descriptionClass = $derived(BaseCardStyleManager.getDescriptionClass());
+  const bodyClassComputed = $derived(BaseCardStyleManager.getBodyClass(bodyClass));
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={cardClass} {...restProps}>
   {#if title || description}
-    <div class={`border-b ${headerClass}`}>
+    <div class={headerClassComputed}>
       {#if title}
-        <h3 class="p-4 text-lg font-medium text-gray-900">{title}</h3>
+        <h3 class={titleClass}>{title}</h3>
       {/if}
       {#if description}
-        <p class="px-4 pb-2 text-sm text-gray-500">{description}</p>
+        <p class={descriptionClass}>{description}</p>
       {/if}
     </div>
   {/if}
-  <div class={`p-4 ${bodyClass}`}>
+  <div class={bodyClassComputed}>
     <slot />
   </div>
 </div>

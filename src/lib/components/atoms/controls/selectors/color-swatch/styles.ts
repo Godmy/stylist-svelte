@@ -3,6 +3,7 @@ import type { IColorSwatchProps } from './types';
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing ColorSwatch styling logic
+ * Uses CSS variables from the theme system
  */
 export class ColorSwatchStyleManager {
   static getBaseClasses(className: string): string {

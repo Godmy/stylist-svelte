@@ -1,6 +1,7 @@
 /**
  * Style manager for StepIcon component
  * Follows the Single Responsibility Principle by managing only styling concerns
+ * Uses CSS variables from the theme system
  */
 export class StepIconStyleManager {
   /**
@@ -15,24 +16,24 @@ export class StepIconStyleManager {
     size: 'sm' | 'md' | 'lg' = 'md',
     customClass?: string
   ): string {
-    const baseClass = 'inline-flex items-center justify-center rounded-full font-medium';
-    
+    const baseClass = 'inline-flex items-center justify-center rounded-full font-medium border-2';
+
     const statusClasses = {
-      pending: 'bg-gray-200 text-gray-600 border-2 border-gray-200',
-      active: 'bg-primary-500 text-white border-2 border-primary-500',
-      completed: 'bg-green-500 text-white border-2 border-green-500',
-      error: 'bg-red-500 text-white border-2 border-red-500'
+      pending: 'bg-[--color-background-tertiary] text-[--color-text-secondary] border-[--color-background-tertiary]',
+      active: 'bg-[--color-primary-500] text-[--color-text-inverse] border-[--color-primary-500]',
+      completed: 'bg-[--color-success-500] text-[--color-text-inverse] border-[--color-success-500]',
+      error: 'bg-[--color-danger-500] text-[--color-text-inverse] border-[--color-danger-500]'
     };
-    
+
     const sizeClasses = {
       sm: 'w-6 h-6 text-xs',
       md: 'w-8 h-8 text-sm',
-      lg: 'w-10 w-10 text-base'
+      lg: 'w-10 h-10 text-base'
     };
-    
+
     const statusClass = statusClasses[status];
     const sizeClass = sizeClasses[size];
-    
+
     return customClass ? `${baseClass} ${statusClass} ${sizeClass} ${customClass}`.trim() : `${baseClass} ${statusClass} ${sizeClass}`.trim();
   }
 }

@@ -4,8 +4,10 @@
 export * from './components';
 
 // Other exports
+export * from './constants';
 export * from './playground';
 export * from './styles';
+export * from './themes';
 export * from './types';
 export * from './utils';
 

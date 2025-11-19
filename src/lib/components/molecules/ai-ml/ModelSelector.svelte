@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
+  import { ModelSelectorStyleManager } from './ModelSelector.styles';
 
   type Model = {
     id: string;
@@ -52,70 +53,85 @@
       onModelSelect(model.id);
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(ModelSelectorStyleManager.getContainerClass(className));
+  const dropdownButtonClass = $derived(ModelSelectorStyleManager.getDropdownButtonClass(dropdownClass));
+  const modelInfoContainerClass = $derived(ModelSelectorStyleManager.getModelInfoContainerClass());
+  const selectedModelNameClass = $derived(ModelSelectorStyleManager.getSelectedModelNameClass());
+  const selectedModelDescriptionClass = $derived(ModelSelectorStyleManager.getSelectedModelDescriptionClass());
+  const placeholderClass = $derived(ModelSelectorStyleManager.getPlaceholderClass());
+  const chevronClass = $derived(ModelSelectorStyleManager.getChevronClass(isOpen));
+  const dropdownMenuClass = $derived(ModelSelectorStyleManager.getDropdownMenuClass(dropdownClass));
+  const modelDetailsContainerClass = $derived(ModelSelectorStyleManager.getModelDetailsContainerClass());
+  const modelNameClass = $derived(ModelSelectorStyleManager.getModelNameClass());
+  const modelProviderVersionClass = $derived(ModelSelectorStyleManager.getModelProviderVersionClass());
+  const modelDescriptionClass = $derived(ModelSelectorStyleManager.getModelDescriptionClass());
+  const capabilitiesContainerClass = $derived(ModelSelectorStyleManager.getCapabilitiesContainerClass());
+  const capabilityTagClass = $derived(ModelSelectorStyleManager.getCapabilityTagClass());
+  const moreCapabilitiesTagClass = $derived(ModelSelectorStyleManager.getMoreCapabilitiesTagClass());
+  const tagsContainerClass = $derived(ModelSelectorStyleManager.getTagsContainerClass());
+  const tagClass = $derived(ModelSelectorStyleManager.getTagClass());
 </script>
 
-<div class={`relative ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <button
     type="button"
-    class={`w-full flex items-center justify-between px-4 py-2 text-left bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-      dropdownClass
-    }`}
+    class={dropdownButtonClass}
     onclick={() => isOpen = !isOpen}
   >
-    <div class="flex-1 min-w-0">
+    <div class={modelInfoContainerClass}>
       {#if selectedModelValue}
-        <span class="block truncate font-medium text-gray-900">{selectedModelValue.name}</span>
-        <span class="block text-sm truncate text-gray-500">{selectedModelValue.description}</span>
+        <span class={selectedModelNameClass}>{selectedModelValue.name}</span>
+        <span class={selectedModelDescriptionClass}>{selectedModelValue.description}</span>
       {:else}
-        <span class="block truncate text-gray-500">{placeholder}</span>
+        <span class={placeholderClass}>{placeholder}</span>
       {/if}
     </div>
-    <ChevronDown class={`h-5 w-5 text-gray-400 ml-2 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+    <ChevronDown class={chevronClass} />
   </button>
 
   {#if isOpen}
-    <div class={`absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm ${dropdownClass}`}>
+    <div class={dropdownMenuClass}>
       {#each models as model}
         <div
-          class={`flex items-start p-4 hover:bg-gray-50 cursor-pointer ${modelItemClass} ${
-            selectedModelValue?.id === model.id ? 'bg-blue-50' : ''
-          }`}
+          class={ModelSelectorStyleManager.getModelItemClass(selectedModelValue?.id === model.id, modelItemClass)}
           onclick={() => selectModel(model)}
           onkeydown={(e) => e.key === 'Enter' || e.key === ' ' ? selectModel(model) : null}
           role="button"
           tabindex="0"
         >
-          <div class="flex-1 min-w-0">
+          <div class={modelDetailsContainerClass}>
             <div class="flex items-baseline">
-              <p class="text-sm font-medium text-gray-900">{model.name}</p>
-              <p class="ml-2 text-xs text-gray-500">{model.provider} • v{model.version}</p>
+              <p class={modelNameClass}>{model.name}</p>
+              <p class={modelProviderVersionClass}>{model.provider} • v{model.version}</p>
             </div>
-            <p class="text-sm text-gray-500 mt-1">{model.description}</p>
-            
+            <p class={modelDescriptionClass}>{model.description}</p>
+
             {#if showCapabilities && model.capabilities.length > 0}
-              <div class="mt-2 flex flex-wrap gap-1">
+              <div class={capabilitiesContainerClass}>
                 {#each model.capabilities.slice(0, 3) as capability, i}
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                  <span class={capabilityTagClass}>
                     {capability}
                   </span>
                 {/each}
                 {#if model.capabilities.length > 3}
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                  <span class={moreCapabilitiesTagClass}>
                     +{model.capabilities.length - 3} more
                   </span>
                 {/if}
               </div>
             {/if}
-            
+
             {#if showTags && model.tags && model.tags.length > 0}
-              <div class="mt-2 flex flex-wrap gap-1">
+              <div class={tagsContainerClass}>
                 {#each model.tags.slice(0, 2) as tag}
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                  <span class={tagClass}>
                     #{tag}
                   </span>
                 {/each}
                 {#if model.tags.length > 2}
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                  <span class={tagClass}>
                     +{model.tags.length - 2} more
                   </span>
                 {/if}

@@ -2,7 +2,7 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
   import IconWrapper from './IconWrapper.svelte';
-  import Icon from '../Icon/Icon.svelte';
+  import Icon from '../icon/Icon.svelte';
 
   type IconSize = 'sm' | 'md' | 'lg';
   type IconVariant = 'solid' | 'outline' | 'ghost';

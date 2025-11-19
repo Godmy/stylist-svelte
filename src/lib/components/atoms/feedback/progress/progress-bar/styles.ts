@@ -1,6 +1,7 @@
 /**
  * Style manager for ProgressBar component
  * Follows the Single Responsibility Principle by managing only styling concerns
+ * Uses CSS variables from the theme system
  */
 export class ProgressBarStyleManager {
   /**
@@ -11,23 +12,23 @@ export class ProgressBarStyleManager {
   static generateContainerClass(customClass?: string): string {
     return customClass ? customClass : '';
   }
-  
+
   /**
    * Creates CSS class string for ProgressBar label wrapper
    * @returns CSS class string for the ProgressBar label wrapper
    */
   static generateLabelWrapperClass(): string {
-    return 'flex justify-between items-center mb-1';
+    return 'flex justify-between items-center mb-[--spacing-sm]';
   }
-  
+
   /**
    * Creates CSS class string for ProgressBar labels
    * @returns CSS class string for the ProgressBar labels
    */
   static generateLabelClass(): string {
-    return 'text-sm font-medium text-gray-700';
+    return 'text-sm font-medium text-[--color-text-primary]';
   }
-  
+
   /**
    * Creates CSS class string for ProgressBar background track
    * @param size - The size of the progress bar (sm, md, lg)
@@ -39,10 +40,10 @@ export class ProgressBarStyleManager {
       md: 'h-2',
       lg: 'h-3'
     };
-    
-    return `w-full bg-gray-200 rounded-full ${sizeClasses[size]} overflow-hidden`.trim();
+
+    return `w-full bg-[--color-background-tertiary] rounded-full ${sizeClasses[size]} overflow-hidden`.trim();
   }
-  
+
   /**
    * Creates CSS class string for ProgressBar fill
    * @param size - The size of the progress bar (sm, md, lg)
@@ -57,12 +58,12 @@ export class ProgressBarStyleManager {
     };
 
     const variantClasses = {
-      primary: 'bg-indigo-600',
-      success: 'bg-green-600',
-      warning: 'bg-yellow-600',
-      danger: 'bg-red-600'
+      primary: 'bg-[--color-primary-600]',
+      success: 'bg-[--color-success-600]',
+      warning: 'bg-[--color-warning-600]',
+      danger: 'bg-[--color-danger-600]'
     };
-    
+
     return `${sizeClasses[size]} ${variantClasses[variant]} rounded-full transition-all duration-300 ease-in-out`.trim();
   }
 }

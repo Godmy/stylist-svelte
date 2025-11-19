@@ -2,6 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { ChevronDown } from 'lucide-svelte';
+  import { AccordionStyleManager } from './Accordion.styles';
 
   type AccordionItem = {
     id: string;
@@ -46,26 +47,26 @@
   function isExpanded(id: string): boolean {
     return activeIds.includes(id);
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(AccordionStyleManager.getContainerClass(className));
+  const chevronClass = $derived(AccordionStyleManager.getChevronClass(isExpanded(items[0]?.id)));
 </script>
 
-<div class={`accordion-container ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   {#each items as item}
-    <div class={`accordion-item border border-gray-200 rounded-lg mb-2 ${itemClass}`}>
+    <div class={AccordionStyleManager.getItemClass(itemClass)}>
       <h3 class="m-0">
         <button
           type="button"
-          class={`w-full flex justify-between items-center p-4 text-left font-medium text-gray-900 hover:bg-gray-50 rounded-lg ${headerClass} ${
-            isExpanded(item.id) ? 'bg-gray-50' : ''
-          } ${item.disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+          class={AccordionStyleManager.getHeaderClass(isExpanded(item.id), item.disabled || false, headerClass)}
           onclick={() => !item.disabled && toggleAccordion(item.id)}
           aria-expanded={isExpanded(item.id)}
           aria-controls={`panel-${item.id}`}
         >
           <span>{item.title}</span>
           <ChevronDown
-            class={`w-5 h-5 transition-transform duration-200 ease-in-out ${
-              isExpanded(item.id) ? 'rotate-180' : ''
-            }`}
+            class={AccordionStyleManager.getChevronClass(isExpanded(item.id))}
           />
         </button>
       </h3>
@@ -74,11 +75,9 @@
         id={`panel-${item.id}`}
         role="region"
         aria-labelledby={`accordion-header-${item.id}`}
-        class={`overflow-hidden transition-all duration-200 ease-in-out ${
-          isExpanded(item.id) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        } ${contentClass}`}
+        class={AccordionStyleManager.getContentPanelClass(isExpanded(item.id), contentClass)}
       >
-        <div class="p-4 border-t border-gray-200">
+        <div class={AccordionStyleManager.getContentWrapperClass()}>
           {#if typeof item.content === 'function'}
             {@render item.content()}
           {:else}

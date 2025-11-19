@@ -3,6 +3,7 @@ import type { ToggleSize } from './types';
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing Toggle styling logic
+ * Uses CSS variables from the theme system
  */
 export class ToggleStyleManager {
   static getContainerClasses(className: string): string {
@@ -16,14 +17,14 @@ export class ToggleStyleManager {
   static getTrackClasses(checked: boolean, disabled: boolean, width: string, height: string): string {
     const baseClasses = 'relative rounded-full cursor-pointer transition-colors ease-in-out duration-200';
     const colorClasses = checked
-      ? (disabled ? 'bg-indigo-300' : 'bg-indigo-600')
-      : (disabled ? 'bg-gray-300' : 'bg-gray-300');
+      ? (disabled ? 'bg-[--color-primary-300]' : 'bg-[--color-primary-600]')
+      : (disabled ? 'bg-[--color-secondary-300]' : 'bg-[--color-secondary-300]');
 
     return `${baseClasses} ${width} ${height} ${colorClasses}`;
   }
 
   static getThumbClasses(checked: boolean, size: ToggleSize, thumb: string): string {
-    const baseClasses = 'absolute rounded-full bg-white shadow-md transform transition-transform ease-in-out duration-200 top-0.5';
+    const baseClasses = 'absolute rounded-full bg-[--color-background-primary] shadow-md transform transition-transform ease-in-out duration-200 top-0.5';
     const positionClasses = checked
       ? (size === 'sm' ? 'translate-x-4' : size === 'md' ? 'translate-x-5' : 'translate-x-7')
       : 'translate-x-0.5';

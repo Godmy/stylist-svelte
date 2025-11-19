@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
   import { Send, Bot, User, Settings, MoreVertical } from 'lucide-svelte';
+  import { ChatInterfaceStyleManager } from './ChatInterface.styles';
 
   type Message = {
     id: string;
@@ -50,15 +50,15 @@
     ...restProps
   }: Props = $props();
 
-  // Определяем переменные, которые не являются пропсами
-  let unused = { ...restProps }; // Используем restProps, чтобы избежать предупреждения о неиспользуемых переменных
+  // Define variables that are not props
+  let unused = { ...restProps }; // Using restProps to avoid unused variable warnings
 
   let newMessage = $state('');
   let selectedProvider = $state(currentProvider);
 
   function sendMessage() {
     if (newMessage.trim() === '' || !onSend) return;
-    
+
     onSend(newMessage.trim());
     newMessage = '';
   }
@@ -69,21 +69,37 @@
       sendMessage();
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(ChatInterfaceStyleManager.getContainerClass(className));
+  const headerClassComputed = $derived(ChatInterfaceStyleManager.getHeaderClass(headerClass));
+  const messageListContainerClass = $derived(ChatInterfaceStyleManager.getMessagesContainerClass(messageListClass));
+  const userMessageClass = $derived(ChatInterfaceStyleManager.getMessageClass(true, messageClass));
+  const aiMessageClass = $derived(ChatInterfaceStyleManager.getMessageClass(false, messageClass));
+  const messageContentWrapperClass = $derived(ChatInterfaceStyleManager.getMessageContentWrapperClass());
+  const botIconClass = $derived(ChatInterfaceStyleManager.getBotIconClass());
+  const userIconClass = $derived(ChatInterfaceStyleManager.getUserIconClass());
+  const timestampClass = $derived(ChatInterfaceStyleManager.getTimestampClass(false));
+  const userTimestampClass = $derived(ChatInterfaceStyleManager.getTimestampClass(true));
+  const inputAreaClass = $derived(ChatInterfaceStyleManager.getInputAreaClass(footerClass));
+  const messageInputClass = $derived(ChatInterfaceStyleManager.getMessageInputClass(inputClass));
+  const sendButtonClass = $derived(ChatInterfaceStyleManager.getSendButtonClass(!newMessage.trim()));
+  const sendIconClass = $derived(ChatInterfaceStyleManager.getSendIconClass());
 </script>
 
-<div class={`flex flex-col h-[600px] border border-gray-200 rounded-lg shadow ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Header -->
-  <div class={`flex items-center justify-between p-4 border-b ${headerClass}`}>
+  <div class={headerClassComputed}>
     <div class="flex items-center">
-      <Bot class="h-6 w-6 text-blue-500 mr-2" />
-      <h2 class="text-lg font-semibold text-gray-900">
+      <Bot class="h-6 w-6 text-[--color-primary-500] mr-2" />
+      <h2 class="text-lg font-semibold text-[--color-text-primary]">
         {aiProviders.find(p => p.id === selectedProvider)?.name || 'AI Assistant'}
       </h2>
     </div>
     <div class="flex items-center space-x-2">
       {#if showProviderSelector && aiProviders.length > 1}
         <select
-          class={`text-sm border border-gray-300 rounded-md px-2 py-1 ${inputClass}`}
+          class={`text-sm border border-[--color-border-primary] rounded-md px-2 py-1 ${inputClass}`}
           bind:value={selectedProvider}
         >
           {#each aiProviders as provider}
@@ -92,33 +108,33 @@
         </select>
       {/if}
       {#if showSettings}
-        <button type="button" class="text-gray-500 hover:text-gray-700">
+        <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
           <Settings class="h-5 w-5" />
         </button>
       {/if}
-      <button type="button" class="text-gray-500 hover:text-gray-700">
+      <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
         <MoreVertical class="h-5 w-5" />
       </button>
     </div>
   </div>
 
   <!-- Messages -->
-  <div class={`flex-1 overflow-y-auto p-4 space-y-4 ${messageListClass}`}>
+  <div class={messageListContainerClass}>
     {#each messages as message}
       <div class={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
         <div class={`max-w-[80%] rounded-lg p-3 ${
-          message.sender === 'user' 
-            ? 'bg-blue-500 text-white rounded-br-none' 
-            : 'bg-gray-100 text-gray-800 rounded-bl-none'
-        } ${messageClass}`}>
-          <div class="flex items-start space-x-2">
+          message.sender === 'user'
+            ? userMessageClass
+            : aiMessageClass
+        }`}>
+          <div class={messageContentWrapperClass}>
             {#if message.sender === 'ai'}
-              <Bot class="h-4 w-4 mt-0.5 text-gray-500 flex-shrink-0" />
+              <Bot class={botIconClass} />
             {/if}
             <div>
               <p>{message.content}</p>
               <div class={`text-xs mt-1 ${
-                message.sender === 'user' ? 'text-blue-200' : 'text-gray-500'
+                message.sender === 'user' ? userTimestampClass : timestampClass
               }`}>
                 {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 {#if message.status}
@@ -131,7 +147,7 @@
               </div>
             </div>
             {#if message.sender === 'user'}
-              <User class="h-4 w-4 mt-0.5 text-blue-200 flex-shrink-0" />
+              <User class={`h-4 w-4 mt-0.5 text-[--color-primary-200] flex-shrink-0`} />
             {/if}
           </div>
         </div>
@@ -140,11 +156,11 @@
   </div>
 
   <!-- Input Area -->
-  <div class={`border-t p-4 ${footerClass}`}>
+  <div class={inputAreaClass}>
     <div class="flex items-end space-x-2">
       <div class="flex-1 relative">
         <textarea
-          class={`w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+          class={`w-full border border-[--color-border-primary] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] ${
             inputClass
           }`}
           placeholder={placeholder}
@@ -155,13 +171,11 @@
       </div>
       <button
         type="button"
-        class={`flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-          !newMessage.trim() ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
+        class={sendButtonClass}
         onclick={sendMessage}
         disabled={!newMessage.trim()}
       >
-        <Send class="h-5 w-5" />
+        <Send class={sendIconClass} />
       </button>
     </div>
   </div>

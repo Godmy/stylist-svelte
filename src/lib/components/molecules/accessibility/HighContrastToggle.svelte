@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Contrast, Sun, Moon } from 'lucide-svelte';
+  import { HighContrastToggleStyleManager } from './HighContrastToggle.styles';
 
   type Props = {
     enabled?: boolean;
@@ -23,7 +24,7 @@
 
   function toggleContrast() {
     isHighContrast = !isHighContrast;
-    
+
     // Apply high contrast accessibility styles
     if (isHighContrast) {
       document.body.classList.add('high-contrast-mode');
@@ -38,7 +39,7 @@
       document.documentElement.style.removeProperty('--hc-border');
       document.documentElement.style.removeProperty('--hc-link');
     }
-    
+
     if (onToggle) {
       onToggle(isHighContrast);
     }
@@ -52,27 +53,29 @@
       document.body.classList.remove('high-contrast-mode');
     }
   });
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(HighContrastToggleStyleManager.getContainerClass(className));
+  const buttonClassComputed = $derived(HighContrastToggleStyleManager.getButtonClass(isHighContrast, theme, buttonClass));
+  const descriptionClass = $derived(HighContrastToggleStyleManager.getDescriptionClass());
+  const iconClass = $derived(HighContrastToggleStyleManager.getIconClass());
 </script>
 
-<div class={`flex items-center ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <button
     type="button"
-    class={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 ${
-      isHighContrast 
-        ? 'bg-yellow-600 hover:bg-yellow-700 focus:ring-yellow-500' 
-        : theme === 'dark' ? 'bg-gray-700 hover:bg-gray-800 focus:ring-gray-500' : 'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500'
-    } ${buttonClass}`}
+    class={buttonClassComputed}
     onclick={toggleContrast}
     aria-pressed={isHighContrast}
     aria-label={isHighContrast ? "Disable high contrast mode" : "Enable high contrast mode"}
   >
-    <Contrast class="h-4 w-4 mr-2" />
+    <Contrast class={iconClass} />
     {isHighContrast ? 'High Contrast On' : 'High Contrast Off'}
   </button>
-  
-  <span class="ml-3 text-sm text-gray-500">
-    {isHighContrast 
-      ? "High contrast mode is active. Colors have been adjusted for better visibility." 
+
+  <span class={descriptionClass}>
+    {isHighContrast
+      ? "High contrast mode is active. Colors have been adjusted for better visibility."
       : "High contrast mode is disabled. Colors are at standard contrast levels."}
   </span>
 </div>

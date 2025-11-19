@@ -3,6 +3,7 @@ import type { AvatarSize, AvatarUserStatus, IAvatarStyleClasses } from './types'
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing avatar styling logic
+ * Uses CSS variables from the theme system
  */
 export class AvatarStyleManager {
   static getSizeClasses(size: AvatarSize): string {
@@ -18,11 +19,11 @@ export class AvatarStyleManager {
 
   static getStatusClasses(status?: AvatarUserStatus): string {
     const statusClasses: Record<AvatarUserStatus, string> = {
-      online: 'bg-green-500',
-      away: 'bg-yellow-500',
-      offline: 'bg-gray-400',
-      typing: 'bg-blue-500',
-      idle: 'bg-orange-500'
+      online: 'bg-[--color-success-500]',
+      away: 'bg-[--color-warning-500]',
+      offline: 'bg-[--color-text-secondary]',
+      typing: 'bg-[--color-primary-500]',
+      idle: 'bg-[--color-warning-600]'
     };
 
     return statusClasses[status || 'offline'] || statusClasses.offline;
@@ -40,11 +41,11 @@ export class AvatarStyleManager {
   }
 
   static getBaseClasses(): string {
-    return 'inline-flex items-center justify-center rounded-full bg-gray-200 font-medium text-gray-700';
+    return 'inline-flex items-center justify-center rounded-full bg-[--color-background-tertiary] font-medium text-[--color-text-primary]';
   }
 
   static getStatusBorderClass(): string {
-    return 'absolute bottom-0 right-0 rounded-full border-2 border-white';
+    return 'absolute bottom-0 right-0 rounded-full border-2 border-[--color-background-primary]';
   }
 
   static getAllClasses(size: AvatarSize, className: string): string {

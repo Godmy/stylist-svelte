@@ -35,6 +35,7 @@ export * from './security';
 export * from './settings';
 export * from './social';
 export * from './tables';
+export * from './team';
 export * from './testing';
 export * from './tools';
 export * from './tooltips';

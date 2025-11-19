@@ -131,14 +131,14 @@
 
   .canvas-container {
     background:
-      radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.08) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, var(--playground-glow-light-1, rgba(249, 115, 22, 0.08)) 0%, transparent 55%),
+      radial-gradient(circle at 80% 80%, var(--playground-glow-light-2, rgba(239, 68, 68, 0.08)) 0%, transparent 55%);
   }
 
   :global(.dark) .canvas-container {
     background:
-      radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, var(--playground-glow-dark-1, rgba(249, 115, 22, 0.12)) 0%, transparent 55%),
+      radial-gradient(circle at 80% 80%, var(--playground-glow-dark-2, rgba(168, 85, 247, 0.12)) 0%, transparent 55%);
   }
 
   .canvas-frame {
@@ -147,14 +147,14 @@
 
   .canvas-frame:hover {
     box-shadow:
-      0 20px 25px -5px rgba(249, 115, 22, 0.15),
-      0 10px 10px -5px rgba(249, 115, 22, 0.08);
+      0 20px 25px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.15)),
+      0 10px 10px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.08));
   }
 
   :global(.dark) .canvas-frame:hover {
     box-shadow:
-      0 20px 25px -5px rgba(249, 115, 22, 0.25),
-      0 10px 10px -5px rgba(249, 115, 22, 0.15);
+      0 20px 25px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.25)),
+      0 10px 10px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.15));
   }
 
   .panning {
@@ -167,7 +167,7 @@
   }
 </style>
 
-<div class="flex-1 flex flex-col canvas-container bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 overflow-hidden">
+<div class="flex-1 flex flex-col canvas-container bg-gradient-to-br from-[var(--playground-gradient-light-from,#f9fafb)] via-[var(--playground-gradient-light-via,#f3f4f6)] to-[var(--playground-gradient-light-to,#f3f4f6)] dark:from-[var(--playground-gradient-dark-from,#111827)] dark:via-[var(--playground-gradient-dark-via,#0f172a)] dark:to-[var(--playground-gradient-dark-to,#111827)] overflow-hidden">
   <!-- Canvas area -->
   <div
     bind:this={canvasContainer}

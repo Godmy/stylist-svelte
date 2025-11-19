@@ -1,6 +1,7 @@
 /**
  * Style manager for Skeleton component
  * Follows the Single Responsibility Principle by managing only styling concerns
+ * Uses CSS variables from the theme system
  */
 export class SkeletonStyleManager {
   /**
@@ -10,19 +11,19 @@ export class SkeletonStyleManager {
    * @returns Combined CSS class string for the Skeleton component
    */
   static generateClass(variant: 'text' | 'circular' | 'rectangular' = 'text', customClass?: string): string {
-    const baseClass = 'animate-pulse bg-gray-200';
-    
+    const baseClass = 'animate-pulse bg-[--color-background-tertiary]';
+
     const variantClasses = {
       text: 'rounded',
       circular: 'rounded-full',
       rectangular: 'rounded-md'
     };
-    
+
     const variantClass = variantClasses[variant];
-    
+
     return customClass ? `${baseClass} ${variantClass} ${customClass}`.trim() : `${baseClass} ${variantClass}`.trim();
   }
-  
+
   /**
    * Gets the default height for the specified variant
    * @param variant - The skeleton variant
@@ -34,7 +35,7 @@ export class SkeletonStyleManager {
       circular: '2rem',
       rectangular: '4rem'
     };
-    
+
     return defaultHeights[variant];
   }
 }

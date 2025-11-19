@@ -31,9 +31,18 @@
     }>;
     onToggle: (path: string) => void;
     onComponentClick: (story: Story) => void;
+    selectedStoryId?: string | null;
   }
 
-  let { node, level, expandedNodes, categoryConfig, onToggle, onComponentClick }: Props = $props();
+  let {
+    node,
+    level,
+    expandedNodes,
+    categoryConfig,
+    onToggle,
+    onComponentClick,
+    selectedStoryId = null
+  }: Props = $props();
 
   const isExpanded = $derived(expandedNodes.has(node.path));
   const hasChildren = $derived(node.children && node.children.length > 0);
@@ -51,6 +60,11 @@
     node.type === 'component'
       ? `padding-left: ${level * 12 + 22}px`
       : `padding-left: ${level * 12}px`
+  );
+
+  // Determine if this component node is selected
+  const isSelected = $derived(
+    node.type === 'component' && node.story?.id && node.story.id === selectedStoryId
   );
 </script>
 
@@ -102,6 +116,7 @@
               {categoryConfig}
               {onToggle}
               {onComponentClick}
+              {selectedStoryId}
             />
           {/each}
         </div>
@@ -157,6 +172,7 @@
               {categoryConfig}
               {onToggle}
               {onComponentClick}
+              {selectedStoryId}
             />
           {/each}
         </div>
@@ -168,13 +184,46 @@
   <button
     onclick={() => onComponentClick(node.story!)}
     style={leftPadding}
-    class="w-full flex items-center gap-2 pr-2 py-1.5 text-xs rounded-md transition-all duration-150 hover:bg-orange-50 dark:hover:bg-orange-900/20 hover:text-orange-600 dark:hover:text-orange-400 group text-gray-600 dark:text-gray-400"
+    class="component-node w-full flex items-center gap-2 pr-2 pl-1 py-1.5 text-xs rounded-md border border-transparent transition-all duration-150 group text-gray-600 dark:text-gray-400"
+    class:selected={isSelected}
+    aria-current={isSelected ? 'true' : undefined}
   >
-    <div class="flex-shrink-0 w-3.5">
-      <FileCode class="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+    <span class="component-indicator" aria-hidden="true"></span>
+    <div class="flex items-center gap-2 flex-1 min-w-0">
+      <div class="flex-shrink-0 w-3.5">
+        <FileCode class="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span class="flex-1 text-left truncate font-medium min-w-0">
+        {node.name}
+      </span>
     </div>
-    <span class="flex-1 text-left truncate font-medium min-w-0">
-      {node.name}
-    </span>
   </button>
 {/if}
+
+<style>
+  .component-node {
+    position: relative;
+  }
+
+  .component-node.selected {
+    color: var(--playground-accent, #FF6B35);
+    background-color: var(--playground-accent-surface, rgba(255, 107, 53, 0.12));
+    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 45%, transparent);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--playground-accent, #FF6B35) 35%, transparent),
+      0 12px 25px var(--playground-accent-shadow, rgba(255, 107, 53, 0.2));
+  }
+
+  .component-indicator {
+    width: 0.35rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+    background-color: transparent;
+    transition: background-color 120ms ease;
+    flex-shrink: 0;
+  }
+
+  .component-node.selected .component-indicator {
+    background-color: var(--playground-accent, #FF6B35);
+  }
+</style>

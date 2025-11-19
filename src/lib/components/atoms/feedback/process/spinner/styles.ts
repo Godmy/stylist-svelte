@@ -1,6 +1,7 @@
 /**
  * Style manager for Spinner component
  * Follows the Single Responsibility Principle by managing only styling concerns
+ * Uses CSS variables from the theme system
  */
 export class SpinnerStyleManager {
   /**
@@ -10,10 +11,10 @@ export class SpinnerStyleManager {
    */
   static generateContainerClass(customClass?: string): string {
     const baseClass = 'flex items-center justify-center';
-    
+
     return customClass ? `${baseClass} ${customClass}`.trim() : baseClass;
   }
-  
+
   /**
    * Creates CSS class string for Spinner icon
    * @param size - The size of the spinner (sm, md, lg, xl)
@@ -29,14 +30,14 @@ export class SpinnerStyleManager {
     };
 
     const variantClasses = {
-      primary: 'text-indigo-600',
-      white: 'text-white',
-      gray: 'text-gray-600'
+      primary: 'text-[--color-primary-600]',
+      white: 'text-[--color-text-inverse]',
+      gray: 'text-[--color-text-secondary]'
     };
-    
+
     return `animate-spin ${sizeClasses[size]} ${variantClasses[variant]}`.trim();
   }
-  
+
   /**
    * Creates CSS class string for the screen reader label
    * @returns CSS class string for the screen reader label

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import Checkbox from '../../atoms/controls/toggles/Checkbox.svelte';
+  import { CheckboxGroupStyleManager } from './CheckboxGroup.styles';
 
   type Option = {
     id: string;
@@ -49,13 +50,13 @@
 
   function handleChange(optionValue: string, checked: boolean) {
     let newValues: string[];
-    
+
     if (checked) {
       newValues = [...selectedValues, optionValue];
     } else {
       newValues = selectedValues.filter(v => v !== optionValue);
     }
-    
+
     selectedValues = newValues;
     onInput?.(newValues);
     onChange?.(newValues);
@@ -66,23 +67,30 @@
       handleChange(optionValue, event.currentTarget.checked);
     };
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(CheckboxGroupStyleManager.getContainerClass(hostClass));
+  const legendClass = $derived(CheckboxGroupStyleManager.getLegendClass());
+  const descriptionClass = $derived(CheckboxGroupStyleManager.getDescriptionClass());
+  const optionsContainerClass = $derived(CheckboxGroupStyleManager.getOptionsContainerClass());
+  const requiredIndicatorClass = $derived(CheckboxGroupStyleManager.getRequiredIndicatorClass());
 </script>
 
-<fieldset class={`checkbox-group ${hostClass}`} {...restProps}>
+<fieldset class={containerClass} {...restProps}>
   {#if label}
-    <legend class="block text-sm font-medium text-gray-700 mb-2">
-      {label} {#if required}<span class="text-red-500">*</span>{/if}
+    <legend class={legendClass}>
+      {label} {#if required}<span class={requiredIndicatorClass}>*</span>{/if}
     </legend>
   {/if}
 
   {#if description}
-    <p class="text-sm text-gray-500 mb-3">{description}</p>
+    <p class={descriptionClass}>{description}</p>
   {/if}
 
-  <div class="space-y-3">
+  <div class={optionsContainerClass}>
     {#each options as option}
-      <div class={`flex items-start ${itemClass}`}>
-        <div class="flex items-center h-5">
+      <div class={CheckboxGroupStyleManager.getItemWrapperClass(itemClass)}>
+        <div class={CheckboxGroupStyleManager.getCheckboxContainerClass()}>
           <Checkbox
             id={option.id}
             name={name}
@@ -93,12 +101,12 @@
             label={option.label}
           />
         </div>
-        <div class="ml-3 text-sm">
-          <label for={option.id} class="font-medium text-gray-700">
+        <div class={CheckboxGroupStyleManager.getTextContainerClass()}>
+          <label for={option.id} class={CheckboxGroupStyleManager.getOptionLabelClass()}>
             {option.label}
           </label>
           {#if option.description}
-            <p class="text-gray-500">{option.description}</p>
+            <p class={CheckboxGroupStyleManager.getOptionDescriptionClass()}>{option.description}</p>
           {/if}
         </div>
       </div>
