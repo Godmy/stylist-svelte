@@ -9,7 +9,7 @@
  */
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info';
+export type BadgeVariant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info' | 'danger';
 export type BadgeSize = 'sm' | 'md' | 'lg';
 
 export interface IBadgeProps extends HTMLAttributes<HTMLSpanElement> {

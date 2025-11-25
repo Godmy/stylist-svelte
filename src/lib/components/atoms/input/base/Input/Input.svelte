@@ -26,7 +26,7 @@
     max,
     step,
     ...restProps
-  }: IInputProps = $props();
+  }: IInputProps & HTMLInputAttributes = $props();
 
   // Calculate derived values
   const hasError = $derived(errors.length > 0);

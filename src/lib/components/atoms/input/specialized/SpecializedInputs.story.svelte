@@ -30,12 +30,12 @@
     {
       name: 'placeholder',
       type: 'text',
-      defaultValue: ''
+      defaultValue: '' // Use empty string to allow individual inputs to use their own defaults
     },
     {
       name: 'helpText',
       type: 'text',
-      defaultValue: ''
+      defaultValue: '' // Use empty string to allow individual inputs to use their own defaults
     }
   ];
 </script>
@@ -54,33 +54,24 @@
       <div>
         <h2 class="text-lg font-semibold mb-4">Email Input</h2>
         <EmailInput
-          disabled={props.disabled}
-          required={props.required}
-          error={props.error}
+          {...props}
           placeholder={props.placeholder || 'Enter email'}
-          helpText={props.helpText}
         />
       </div>
 
       <div>
         <h2 class="text-lg font-semibold mb-4">Password Input</h2>
         <PasswordInput
-          disabled={props.disabled}
-          required={props.required}
-          error={props.error}
+          {...props}
           placeholder={props.placeholder || 'Enter password'}
-          helpText={props.helpText}
         />
       </div>
 
       <div>
         <h2 class="text-lg font-semibold mb-4">Phone Number Input</h2>
         <PhoneNumberInput
-          disabled={props.disabled}
-          required={props.required}
-          error={props.error}
+          {...props}
           placeholder={props.placeholder || '+7 (___) ___-__-__'}
-          helpText={props.helpText}
         />
       </div>
     </div>

@@ -3,6 +3,7 @@ export * from './avatar';
 export * from './country-flag';
 export * from './favicon';
 export * from './icon';
+export * from './icon-chevron';
 export * from './icon-circle';
 export * from './icon-wrapper';
 export * from './image';

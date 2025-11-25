@@ -1,97 +1,73 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { X } from 'lucide-svelte';
 
-  /**
-   * Компонент Chip (небольшая метка/тег)
-   *
-   * Компактный компонент для отображения небольших фрагментов информации
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе используется `label`, если он передан
-   *
-   * @param {string} [label=''] - Текст на чипе
-   * @param {'primary' | 'secondary' | 'success' | 'warning' | 'danger'} [variant='primary'] - Вариант цветовой схемы
-   * @param {'sm' | 'md' | 'lg'} [size='md'] - Размер чипа
-   * @param {boolean} [closable=false] - Возможность закрытия чипа
-   * @param {boolean} [disabled=false] - Отключенное состояние
-   * @param {string} [class=''] - Дополнительные CSS классы
-   * @param {Snippet} [children] - Содержимое чипа (альтернатива label)
-   */
-  // Define types for our props
-  type ChipVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-  type ChipSize = 'sm' | 'md' | 'lg';
+  import type { ChipProps } from './types';
+  import {
+    DEFAULT_CHIP_LABEL,
+    DEFAULT_CHIP_VARIANT,
+    DEFAULT_CHIP_SIZE,
+    DEFAULT_CHIP_CLOSABLE,
+    DEFAULT_CHIP_DISABLED
+  } from './constant';
+  import { ChipStyleManager } from './styles';
 
+  /**
+   * Chip component - A compact component for displaying small pieces of information.
+   * If `children` is provided, it will be rendered; otherwise, `label` will be used.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param label - Text content for the chip.
+   * @param variant - Color scheme variant of the chip.
+   * @param size - Size of the chip.
+   * @param closable - Whether the chip can be closed.
+   * @param disabled - Disabled state of the chip.
+   * @param class - Additional CSS classes.
+   * @param children - Slot content for the chip (alternative to label).
+   * @returns An accessible, styled chip element.
+   */
   let {
-    label = '',
-    variant = 'primary',
-    size = 'md',
-    closable = false,
-    disabled = false,
+    label = DEFAULT_CHIP_LABEL,
+    variant = DEFAULT_CHIP_VARIANT,
+    size = DEFAULT_CHIP_SIZE,
+    closable = DEFAULT_CHIP_CLOSABLE,
+    disabled = DEFAULT_CHIP_DISABLED,
     children,
     class: className = '',
     ...restProps
-  }: {
-    label?: string;
-    variant?: ChipVariant;
-    size?: ChipSize;
-    closable?: boolean;
-    disabled?: boolean;
-    children?: Snippet;
-    class?: string;
-  } & HTMLAttributes<any> = $props();
+  }: ChipProps = $props();
 
-  // Размеры
-  let sizeClasses = $derived({
-    sm: 'px-2 py-0.5 text-xs',
-    md: 'px-3 py-1 text-sm',
-    lg: 'px-4 py-1.5 text-base'
-  }[size as ChipSize]);
-
-  // Цветовые классы
-  let variantClasses = $derived({
-    primary: 'bg-indigo-100 text-indigo-800',
-    secondary: 'bg-gray-100 text-gray-800',
-    success: 'bg-green-100 text-green-800',
-    warning: 'bg-yellow-100 text-yellow-800',
-    danger: 'bg-red-100 text-red-800'
-  }[variant as ChipVariant]);
-  
-  // Классы для кнопки закрытия
-  let closeBtnVariantClasses = $derived({
-    primary: 'focus:ring-indigo-500 hover:bg-indigo-200',
-    secondary: 'focus:ring-gray-500 hover:bg-gray-200',
-    success: 'focus:ring-green-500 hover:bg-green-200',
-    warning: 'focus:ring-yellow-500 hover:bg-yellow-200',
-    danger: 'focus:ring-red-500 hover:bg-red-200'
-  }[variant as ChipVariant]);
-  
-  let closeBtnSizeClasses = $derived({
-    sm: 'w-3 h-3 ml-1',
-    md: 'w-3.5 h-3.5 ml-1',
-    lg: 'w-4 h-4 ml-1'
-  }[size as ChipSize]);
+  let chipClasses = $derived(
+    ChipStyleManager.getChipClasses(variant, size, disabled, className)
+  );
+  let closeButtonClasses = $derived(
+    ChipStyleManager.getCloseButtonClasses(variant, size, undefined)
+  );
+  let closeButtonIconClasses = $derived(
+    ChipStyleManager.getCloseButtonIconClasses(size)
+  );
 </script>
 
-<div 
-  class={`inline-flex items-center rounded-full font-medium ${sizeClasses} ${variantClasses} ${
-    disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-default'
-  } ${className}`}
-  {...restProps}
->
+<div class={chipClasses} {...restProps}>
   {#if children}
     {@render children()}
   {:else}
     {label}
   {/if}
-  
+
   {#if closable}
     <button
-      class={`ml-1 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 ${closeBtnVariantClasses}`}
+      class={closeButtonClasses}
       aria-label="Закрыть"
       disabled={disabled}
     >
-      <X class={closeBtnSizeClasses} />
+      <X class={closeButtonIconClasses} />
     </button>
   {/if}
 </div>

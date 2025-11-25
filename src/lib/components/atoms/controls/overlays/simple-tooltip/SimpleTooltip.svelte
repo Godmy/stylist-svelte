@@ -1,8 +1,7 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-
-  import type { ISimpleTooltipProps, TooltipPosition } from './types';
+  import type { ISimpleTooltipProps } from './types';
   import { SimpleTooltipStyleManager } from './styles';
+  import './SimpleTooltip.css';
 
   /**
    * SimpleTooltip component - A tooltip overlay that displays additional information
@@ -43,7 +42,7 @@
 </script>
 
 {#if internalVisible}
-  <div class={baseClasses} {...restProps}>
+  <div class={baseClasses} role="tooltip" {...restProps}>
     {content}
     <div class={arrowClasses}></div>
   </div>

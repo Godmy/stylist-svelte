@@ -1,2 +1,2 @@
 // stylist-coder-model auto-generated exports for block
-export * from './Blockquote';
+export * from './blockquote';

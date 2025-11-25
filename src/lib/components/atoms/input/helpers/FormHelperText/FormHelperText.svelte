@@ -13,22 +13,19 @@
    * Interface Segregation Principle: IFormHelperTextProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
-  const props = $props<{
-    text?: string;
-    variant?: 'default' | 'info' | 'success' | 'warning' | 'danger';
-    content?: any;
-  } & IFormHelperTextProps>();
-
-  // Set default values
-  const text = props.text ?? '';
-  const variant = props.variant ?? 'default';
-  const content = props.content;
+  let {
+    text = '',
+    variant = 'default',
+    content,
+    class: className = '',
+    ...restProps
+  }: IFormHelperTextProps = $props();
 
   // Generate the CSS class using the style manager
-  const combinedClass = $derived(FormHelperTextStyleManager.generateClass(variant, props.class));
+  const combinedClass = $derived(FormHelperTextStyleManager.generateClass(variant, className));
 </script>
 
-<p class={combinedClass} {...props}>
+<p class={combinedClass} {...restProps}>
   {#if content}
     {@render content()}
   {:else}

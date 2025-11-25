@@ -17,5 +17,13 @@ export { default as ComponentTree } from './playground/components/ComponentTree.
 export type { ControlConfig } from './playground/types/index';
 
 // Store and types for playground
-export { playgroundStore, type BackgroundType } from './playground/stores/playground.svelte';
+export {
+  playgroundStore,
+  colorSchemes,
+  colorSchemeMap,
+  defaultColorSchemeId,
+  type BackgroundType,
+  type ColorSchemeId,
+  type PlaygroundColorScheme
+} from './playground/stores/playground.svelte';
 export type { ViewportSize } from './playground/types';

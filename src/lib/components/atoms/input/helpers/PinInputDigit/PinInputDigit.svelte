@@ -13,16 +13,12 @@
    * Interface Segregation Principle: IPinInputDigitProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
-  const props = $props<{
-    value?: string;
-    focused?: boolean;
-    invalid?: boolean;
-  } & IPinInputDigitProps>();
-
-  // Set default values
-  const value = props.value ?? '';
-  const focused = props.focused ?? false;
-  const invalid = props.invalid ?? false;
+  let {
+    value = '',
+    focused = false,
+    invalid = false,
+    ...restProps
+  }: IPinInputDigitProps & HTMLInputAttributes = $props();
 
   // Generate the CSS class using the style manager
   const combinedClass = $derived(PinInputDigitStyleManager.generateClass(focused, invalid));

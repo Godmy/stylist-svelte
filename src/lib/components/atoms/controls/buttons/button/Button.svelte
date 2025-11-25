@@ -5,6 +5,7 @@
 
   import type { IButtonProps } from './types';
   import { ButtonStyleManager } from './styles';
+  import './Button.css';
 
   /**
    * Button component - A flexible button component with various styles and states

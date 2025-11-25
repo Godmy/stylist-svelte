@@ -1,5 +1,5 @@
 // stylist-coder-model auto-generated exports for buttons
 export * from './button';
-export * from './close-button';
-export * from './icon-button';
-export * from './split-button';
+export * from './button-close';
+export * from './button-icon';
+export * from './button-split';

@@ -1,0 +1,42 @@
+:root {
+  --range-slider-thumb-size: 1rem;
+  --range-slider-thumb-background: var(--color-background-primary);
+  --range-slider-thumb-border-color: var(--color-primary-500);
+  --range-slider-thumb-shadow: var(--shadow-sm);
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  appearance: none;
+  height: var(--range-slider-thumb-size);
+  width: var(--range-slider-thumb-size);
+  border-radius: var(--border-radius-full);
+  background-color: var(--range-slider-thumb-background);
+  border: 2px solid var(--range-slider-thumb-border-color);
+  box-shadow: var(--range-slider-thumb-shadow);
+  cursor: pointer;
+}
+
+.slider-thumb:disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.slider-thumb::-moz-range-thumb {
+  height: var(--range-slider-thumb-size);
+  width: var(--range-slider-thumb-size);
+  border-radius: var(--border-radius-full);
+  background-color: var(--range-slider-thumb-background);
+  border: 2px solid var(--range-slider-thumb-border-color);
+  box-shadow: var(--range-slider-thumb-shadow);
+  cursor: pointer;
+}
+
+.slider-thumb:disabled::-moz-range-thumb {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.slider-thumb::-moz-range-track,
+.slider-thumb::-webkit-slider-runnable-track {
+  background-color: transparent;
+}

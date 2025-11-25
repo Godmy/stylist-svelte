@@ -13,23 +13,20 @@
    * Interface Segregation Principle: IFormErrorMessageProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
-  const props = $props<{
-    text?: string;
-    visible?: boolean;
-    content?: any;
-  } & IFormErrorMessageProps>();
-
-  // Set default values
-  const text = props.text ?? '';
-  const visible = props.visible ?? true;
-  const content = props.content;
+  let {
+    text = '',
+    visible = true,
+    content,
+    class: className = '',
+    ...restProps
+  }: IFormErrorMessageProps = $props();
 
   // Generate the CSS class using the style manager
-  const combinedClass = $derived(FormErrorMessageStyleManager.generateClass(props.class));
+  const combinedClass = $derived(FormErrorMessageStyleManager.generateClass(className));
 </script>
 
 {#if visible}
-  <p class={combinedClass} {...props}>
+  <p class={combinedClass} {...restProps}>
     {#if content}
       {@render content()}
     {:else}

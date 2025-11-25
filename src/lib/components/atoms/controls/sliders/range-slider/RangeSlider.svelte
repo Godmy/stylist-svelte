@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { HTMLInputAttributes } from 'svelte/elements';
   import { createEventDispatcher } from 'svelte';
 
   import type { IRangeSliderProps } from './types';
   import { RangeSliderStyleManager } from './styles';
+  import './RangeSlider.css';
 
   /**
    * RangeSlider component - A slider with single or dual handles
@@ -191,34 +191,3 @@
     </p>
   {/if}
 </div>
-
-<style>
-  .slider-thumb::-webkit-slider-thumb {
-    appearance: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 9999px;
-    background-color: white;
-    border: 2px solid rgb(99 102 241);
-    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.2);
-    cursor: pointer;
-  }
-
-  .slider-thumb:disabled::-webkit-slider-thumb {
-    cursor: not-allowed;
-  }
-
-  .slider-thumb::-moz-range-thumb {
-    height: 16px;
-    width: 16px;
-    border-radius: 9999px;
-    background-color: white;
-    border: 2px solid rgb(99 102 241);
-    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.2);
-    cursor: pointer;
-  }
-
-  .slider-thumb:disabled::-moz-range-thumb {
-    cursor: not-allowed;
-  }
-</style>

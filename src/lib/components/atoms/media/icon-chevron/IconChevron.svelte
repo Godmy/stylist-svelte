@@ -1,0 +1,36 @@
+<script lang="ts">
+  import { Icon } from '$lib/components/atoms';
+  import type { HTMLAttributes } from 'svelte/elements';
+  import type { IIconChevronProps } from './types';
+  import { IconChevronStyleManager } from './styles';
+  import { DEFAULT_IS_OPEN, DEFAULT_COMPONENT_SIZE, ICON_NAME } from './constant';
+
+  /**
+   * IconChevron component - An icon that indicates accordion open/close state
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles accordion icon rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other icon components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param isOpen - Whether the accordion is open (affects rotation)
+   * @param size - Size of the icon ('sm' | 'md' | 'lg')
+   * @param class - Additional CSS classes
+   * @returns An accessible, styled accordion icon element
+   */
+  type Props = IIconChevronProps & HTMLAttributes<SVGSVGElement>;
+
+  let {
+    isOpen = DEFAULT_IS_OPEN,
+    size = DEFAULT_COMPONENT_SIZE,
+    class: className = ''
+  }: Props = $props();
+
+  let containerClass = $derived(IconChevronStyleManager.getAllClasses(isOpen, className));
+</script>
+
+<span class={containerClass}>
+	<Icon name={ICON_NAME} size={size} />
+</span>

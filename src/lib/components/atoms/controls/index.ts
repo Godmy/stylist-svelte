@@ -3,4 +3,5 @@ export * from './buttons';
 export * from './overlays';
 export * from './selectors';
 export * from './sliders';
+export * from './tabs';
 export * from './toggles';

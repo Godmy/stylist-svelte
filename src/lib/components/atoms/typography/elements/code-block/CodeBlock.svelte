@@ -1,72 +1,49 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
+
+  import type { CodeBlockProps } from './types';
+  import {
+    DEFAULT_LANGUAGE,
+    DEFAULT_CODE_BLOCK_VARIANT,
+    DEFAULT_CODE_BLOCK_SIZE,
+    DEFAULT_SHOW_LINE_NUMBERS,
+    DEFAULT_START_LINE_NUMBER
+  } from './constant';
+  import { CodeBlockStyleManager } from './styles';
 
   /**
    * CodeBlock component - Displays formatted code with syntax highlighting
-   * 
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
    * @param language - Language for syntax highlighting (default: 'text')
    * @param variant - Visual variant ('default' | 'terminal' | 'diff')
    * @param size - Size of the code block ('sm' | 'md' | 'lg')
    * @param showLineNumbers - Whether to show line numbers
    * @param startLineNumber - Starting line number (default: 1)
    * @param children - Snippet containing the code content
+   * @param class - Additional CSS classes
    * @returns A styled code block with syntax highlighting and optional line numbers
    */
-  type CodeBlockVariant = 'default' | 'terminal' | 'diff';
-  type CodeBlockSize = 'sm' | 'md' | 'lg';
-
-  type CodeBlockProps = {
-    /**
-     * Language for syntax highlighting
-     */
-    language?: string;
-    /**
-     * Variant style
-     */
-    variant?: CodeBlockVariant;
-    /**
-     * Size of the code block
-     */
-    size?: CodeBlockSize;
-    /**
-     * Whether to show line numbers
-     */
-    showLineNumbers?: boolean;
-    /**
-     * Starting line number
-     */
-    startLineNumber?: number;
-    /**
-     * Содержимое блока кода
-     */
-    children?: Snippet;
-  } & HTMLAttributes<HTMLElement>;
-
   let {
-    language = 'text',
-    variant = 'default',
-    size = 'md',
-    showLineNumbers = false,
-    startLineNumber = 1,
+    language = DEFAULT_LANGUAGE,
+    variant = DEFAULT_CODE_BLOCK_VARIANT,
+    size = DEFAULT_CODE_BLOCK_SIZE,
+    showLineNumbers = DEFAULT_SHOW_LINE_NUMBERS,
+    startLineNumber = DEFAULT_START_LINE_NUMBER,
     children,
     class: className = '',
     ...restProps
   }: CodeBlockProps = $props();
 
-  let variantClasses = $derived({
-    default: 'bg-gray-900 text-gray-100',
-    terminal: 'bg-black text-green-400 font-mono',
-    diff: 'bg-gray-50 text-gray-800'
-  }[variant]);
-
-  let sizeClasses = $derived({
-    sm: 'text-xs p-2',
-    md: 'text-sm p-4',
-    lg: 'text-base p-6'
-  }[size]);
-
-  let classes = $derived(`${variantClasses} ${sizeClasses} rounded-md overflow-x-auto font-mono ${className}`);
+  let classes = $derived(
+    CodeBlockStyleManager.getCodeBlockClasses(variant, size, className)
+  );
 
   // Function to generate line numbers
   function getLineNumbers(code: string): number[] {

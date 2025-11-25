@@ -24,7 +24,7 @@
     rows = 3,
     maxlength,
     ...restProps
-  }: ITextareaProps = $props();
+  }: ITextareaProps & import('svelte/elements').HTMLTextareaAttributes<HTMLTextAreaElement> = $props();
 
   // Calculate derived values
   const hasError = $derived(errors.length > 0);

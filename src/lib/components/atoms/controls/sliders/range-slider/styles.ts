@@ -47,12 +47,15 @@ export class RangeSliderStyleManager {
   }
 
   static getSingleSliderRangeStyle(minPercentage: number, maxPercentage: number): string {
+    const trackColor = 'var(--color-secondary-200)';
+    const activeColor = 'var(--color-primary-500)';
+
     return `background: linear-gradient(to right,
-      rgb(var(--color-secondary-200-rgb)) 0%,
-      rgb(var(--color-secondary-200-rgb)) ${minPercentage}%,
-      rgb(var(--color-primary-500-rgb)) ${minPercentage}%,
-      rgb(var(--color-primary-500-rgb)) ${maxPercentage}%,
-      rgb(var(--color-secondary-200-rgb)) ${maxPercentage}%,
-      rgb(var(--color-secondary-200-rgb)) 100%)`;
+      ${trackColor} 0%,
+      ${trackColor} ${minPercentage}%,
+      ${activeColor} ${minPercentage}%,
+      ${activeColor} ${maxPercentage}%,
+      ${trackColor} ${maxPercentage}%,
+      ${trackColor} 100%)`;
   }
 }

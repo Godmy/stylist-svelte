@@ -8,14 +8,14 @@ import type { ButtonVariant, ButtonSize, IButtonStyleClasses } from './types';
 export class ButtonStyleManager {
   static getVariantClasses(variant: ButtonVariant): string {
     const variantClasses: Record<ButtonVariant, string> = {
-      primary: 'bg-[--color-primary-600] hover:bg-[--color-primary-700] text-[--color-text-inverse]',
-      secondary: 'bg-[--color-secondary-100] hover:bg-[--color-secondary-200] text-[--color-text-primary]',
-      success: 'bg-[--color-success-600] hover:bg-[--color-success-700] text-[--color-text-inverse]',
-      warning: 'bg-[--color-warning-500] hover:bg-[--color-warning-600] text-[--color-text-inverse]',
-      danger: 'bg-[--color-danger-600] hover:bg-[--color-danger-700] text-[--color-text-inverse]',
-      outline: 'bg-transparent border border-[--color-border-primary] hover:bg-[--color-secondary-100] text-[--color-text-primary]',
-      ghost: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-text-primary] border border-[--color-border-primary]',
-      link: 'bg-transparent hover:bg-[--color-secondary-100] text-[--color-primary-600] underline'
+      primary: 'button-variant-primary',
+      secondary: 'button-variant-secondary',
+      success: 'button-variant-success',
+      warning: 'button-variant-warning',
+      danger: 'button-variant-danger',
+      outline: 'button-variant-outline',
+      ghost: 'button-variant-ghost',
+      link: 'button-variant-link'
     };
 
     return variantClasses[variant];
@@ -42,7 +42,7 @@ export class ButtonStyleManager {
   }
 
   static getAllClasses(variant: ButtonVariant, size: ButtonSize, isDisabled: boolean, isLoading: boolean, isBlock: boolean, className: string): string {
-    const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-2 border-0';
+    const baseClasses = 'button-base inline-flex items-center justify-center font-medium rounded-md transition-colors';
     const variantClasses = this.getVariantClasses(variant);
     const sizeClasses = this.getSizeClasses(size);
     const disabledClass = this.getDisabledClass(isDisabled, isLoading);

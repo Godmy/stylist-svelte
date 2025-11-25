@@ -1,21 +1,27 @@
-/**
- * Blockquote types and interfaces following SOLID principles
- */
-
 import type { HTMLBlockquoteAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
 export interface IBlockquoteProps {
-  children: Snippet;
+  /**
+   * Content of the blockquote
+   */
+  children?: Snippet;
+  /**
+   * Source URL for the quotation
+   */
   cite?: string;
+  /**
+   * Whether to include border styling
+   */
   withBorder?: boolean;
+  /**
+   * Whether to include background styling
+   */
   withBackground?: boolean;
+  /**
+   * Additional CSS classes
+   */
   class?: string;
-}
-
-export interface IBlockquoteStyleClasses {
-  blockquote: string;
-  footer: string;
 }
 
 export type BlockquoteProps = IBlockquoteProps & HTMLBlockquoteAttributes;

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { HTMLAttributes } from 'svelte/elements';
   import { CharacterCountStyleManager } from './styles';
   import type { ICharacterCountProps } from './types';
 
@@ -13,18 +14,14 @@
    * Interface Segregation Principle: ICharacterCountProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
-  const props = $props<{
-    current?: number;
-    max?: number;
-    showPercentage?: boolean;
-    content?: any;
-  } & ICharacterCountProps>();
-
-  // Set default values
-  const current = props.current ?? 0;
-  const max = props.max ?? 100;
-  const showPercentage = props.showPercentage ?? false;
-  const content = props.content;
+  let {
+    current = 0,
+    max = 100,
+    showPercentage = false,
+    content,
+    class: className = '',
+    ...restProps
+  }: ICharacterCountProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Calculate derived values
   const percentage = $derived(max > 0 ? Math.min(100, (current / max) * 100) : 0);
@@ -36,10 +33,10 @@
   );
 
   // Generate the CSS class using the style manager
-  const combinedClass = $derived(CharacterCountStyleManager.generateClass(ratio, props.class));
+  const combinedClass = $derived(CharacterCountStyleManager.generateClass(ratio, className));
 </script>
 
-<div class={combinedClass} {...props}>
+<div class={combinedClass} {...restProps}>
   {#if content}
     {@render content()}
   {:else}

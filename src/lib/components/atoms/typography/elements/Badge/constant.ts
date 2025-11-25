@@ -8,8 +8,11 @@ export const BASE_BADGE_CLASSES = 'inline-flex items-center font-semibold rounde
 // Variant classes
 export const VARIANT_CLASSES = {
   default: 'bg-[--color-background-secondary] text-[--color-text-primary]',
+  primary: 'bg-[--color-primary-100] text-[--color-primary-800]',
+  secondary: 'bg-[--color-secondary-100] text-[--color-secondary-800]',
   success: 'bg-[--color-success-100] text-[--color-success-800]',
   warning: 'bg-[--color-warning-100] text-[--color-warning-800]',
+  error: 'bg-[--color-danger-100] text-[--color-danger-800]',
   danger: 'bg-[--color-danger-100] text-[--color-danger-800]',
   info: 'bg-[--color-primary-100] text-[--color-primary-800]'
 } as const;

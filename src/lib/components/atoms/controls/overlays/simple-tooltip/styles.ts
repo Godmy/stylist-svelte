@@ -6,26 +6,36 @@ import type { TooltipPosition } from './types';
  */
 export class SimpleTooltipStyleManager {
   static getPositionClasses(position: TooltipPosition): string {
-    const classesMap: Record<TooltipPosition, string> = {
-      top: 'bottom-full left-1/2 transform -translate-x-1/2 mb-2',
-      right: 'top-1/2 left-full transform -translate-y-1/2 ml-2',
-      bottom: 'top-full left-1/2 transform -translate-x-1/2 mt-2',
-      left: 'top-1/2 right-full transform -translate-y-1/2 mr-2'
+    const alignment: Record<TooltipPosition, string> = {
+      top: 'bottom-full left-1/2 -translate-x-1/2 mb-3',
+      right: 'top-1/2 left-full -translate-y-1/2 ml-3',
+      bottom: 'top-full left-1/2 -translate-x-1/2 mt-3',
+      left: 'top-1/2 right-full -translate-y-1/2 mr-3'
     };
-    return classesMap[position];
+
+    const layout = 'simple-tooltip simple-tooltip--' + position;
+    const baseClasses = [
+      layout,
+      'absolute z-[70] max-w-xs whitespace-normal font-medium',
+      'select-none'
+    ].join(' ');
+
+    return `${baseClasses} ${alignment[position]}`.trim();
   }
 
   static getArrowClasses(position: TooltipPosition): string {
-    const classesMap: Record<TooltipPosition, string> = {
-      top: 'absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800',
-      right: 'absolute top-1/2 left-0 transform -translate-y-1/2 border-4 border-transparent border-r-gray-800',
-      bottom: 'absolute bottom-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-b-gray-800',
-      left: 'absolute top-1/2 right-0 transform -translate-y-1/2 border-4 border-transparent border-l-gray-800'
+    const positions: Record<TooltipPosition, string> = {
+      top: 'top-full left-1/2 -translate-x-1/2',
+      right: 'top-1/2 left-0 -translate-y-1/2',
+      bottom: 'bottom-full left-1/2 -translate-x-1/2',
+      left: 'top-1/2 right-0 -translate-y-1/2'
     };
-    return classesMap[position];
+
+    const base = `simple-tooltip__arrow simple-tooltip__arrow--${position} absolute`;
+    return `${base} ${positions[position]}`.trim();
   }
 
   static getBaseClasses(className: string): string {
-    return `absolute z-50 bg-gray-800 text-white text-xs rounded py-1 px-2 w-max max-w-xs break-words ${className}`;
+    return `${className}`.trim();
   }
 }

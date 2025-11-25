@@ -1,18 +1,21 @@
 <script lang="ts">
-  import PhoneNumberInput from '../PhoneNumberInput.svelte';
+  import PhoneNumberInput from './PhoneNumberInput.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
+  import type { IPhoneNumberInputProps } from './types';
+  import type { HTMLInputAttributes } from 'svelte/elements';
 
-  let phone = $state('79999999999');
-  let disabled = $state(false);
-  let error = $state(false);
-  let helper = $state('Supports Russian format +7 (XXX) XXX-XX-XX.');
+  type Props = IPhoneNumberInputProps & HTMLInputAttributes;
 
   const controls: ControlConfig[] = [
-    { name: 'disabled', type: 'boolean', defaultValue: false },
-    { name: 'error', type: 'boolean', defaultValue: false }
+    { name: 'value', type: 'text', defaultValue: '79999999999', description: 'Raw phone number digits' },
+    { name: 'placeholder', type: 'text', defaultValue: '+7 (___) ___-__-__', description: 'Placeholder text' },
+    { name: 'disabled', type: 'boolean', defaultValue: false, description: 'Whether the input is disabled' },
+    { name: 'required', type: 'boolean', defaultValue: false, description: 'Whether the input is required' },
+    { name: 'error', type: 'boolean', defaultValue: false, description: 'Whether the input has an error' },
+    { name: 'helpText', type: 'text', defaultValue: 'Supports Russian format +7 (XXX) XXX-XX-XX.', description: 'Help text to display' },
+    { name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
   ];
-
 </script>
 
 <Story
@@ -24,41 +27,9 @@
   tags={['input', 'phone']}
   controls={controls}
 >
-  {#snippet children()}
-    <div class="space-y-4 p-6">
-      <PhoneNumberInput
-        value={phone}
-        disabled={disabled}
-        error={error}
-        helpText={helper}
-      />
-
-      <div class="grid gap-3 text-sm md:grid-cols-2">
-        <label class="flex flex-col gap-1">
-          Raw digits
-          <input
-            type="text"
-            bind:value={phone}
-            class="rounded border border-gray-300 px-3 py-1 focus:border-blue-500 focus:outline-none"
-          />
-        </label>
-        <label class="flex flex-col gap-1">
-          Helper text
-          <input
-            type="text"
-            bind:value={helper}
-            class="rounded border border-gray-300 px-3 py-1 focus:border-blue-500 focus:outline-none"
-          />
-        </label>
-        <label class="flex items-center gap-2">
-          <input type="checkbox" bind:checked={disabled} />
-          Disabled
-        </label>
-        <label class="flex items-center gap-2">
-          <input type="checkbox" bind:checked={error} />
-          Error state
-        </label>
-      </div>
+  {#snippet children(props: Props)}
+    <div class="p-4">
+      <PhoneNumberInput {...props} />
     </div>
   {/snippet}
 </Story>

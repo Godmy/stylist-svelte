@@ -2,6 +2,10 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
   import Textarea from './Textarea.svelte';
+  import type { ITextareaProps } from './types';
+  import type { HTMLTextareaAttributes } from 'svelte/elements';
+
+  type Props = ITextareaProps & HTMLTextareaAttributes;
 
   // Define controls for the story
   const controls: ControlConfig[] = [
@@ -10,10 +14,11 @@
     { name: 'placeholder', description: 'Placeholder', type: 'text', defaultValue: 'Enter text...' },
     { name: 'required', description: 'Required', type: 'boolean', defaultValue: false },
     { name: 'disabled', description: 'Disabled', type: 'boolean', defaultValue: false },
-    { name: 'value', description: 'Value', type: 'text' },
+    { name: 'value', description: 'Value', type: 'text', defaultValue: '' },
+    { name: 'errors', description: 'Errors (comma-separated)', type: 'text', defaultValue: '' },
     { name: 'rows', description: 'Rows', type: 'number', defaultValue: 3 },
-    { name: 'maxlength', description: 'Max Length', type: 'number' },
-    { name: 'class', description: 'CSS Classes', type: 'text' }
+    { name: 'maxlength', description: 'Max Length', type: 'number', defaultValue: undefined },
+    { name: 'class', description: 'CSS Classes', type: 'text', defaultValue: '' }
   ];
 </script>
 
@@ -26,7 +31,10 @@
   tags={[]}
   controls={controls}
 >
-  {#snippet children(props: { id: string; label: string; placeholder: string; required: boolean; disabled: boolean; value: string; rows: number; maxlength: number; class: string; })}
-    <Textarea id={props.id} label={props.label} value={props.value} rows={props.rows} />
+  {#snippet children(props: Props)}
+    <Textarea
+      {...props}
+      errors={typeof props.errors === 'string' ? props.errors.split(',').map(s => s.trim()).filter(Boolean) : (props.errors || [])}
+    />
   {/snippet}
 </Story>
