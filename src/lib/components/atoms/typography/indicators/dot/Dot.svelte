@@ -1,34 +1,35 @@
 <script lang="ts">
-	type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
-	type Size = 'sm' | 'md' | 'lg';
+  import type { DotProps } from './types';
+  import {
+    DEFAULT_DOT_COLOR,
+    DEFAULT_DOT_SIZE
+  } from './constant';
+  import { DotStyleManager } from './styles';
 
-	type Props = {
-		color?: Color;
-		size?: Size;
-		class?: string;
-	};
+  /**
+   * Dot component - Displays a small colored dot, often used as an indicator.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param color - Color of the dot.
+   * @param size - Size of the dot.
+   * @param class - Additional CSS classes.
+   * @returns A styled dot element.
+   */
+  const {
+    color = DEFAULT_DOT_COLOR,
+    size = DEFAULT_DOT_SIZE,
+    class: className = ''
+  }: DotProps = $props();
 
-	const {
-		color = 'primary',
-		size = 'md',
-		class: className = ''
-	}: Props = $props();
-
-	const colorClasses: Record<Color, string> = {
-		primary: 'bg-indigo-600',
-		secondary: 'bg-gray-600',
-		success: 'bg-green-600',
-		warning: 'bg-yellow-600',
-		danger: 'bg-red-600',
-		info: 'bg-blue-600',
-		gray: 'bg-gray-400'
-	};
-
-	const sizeClasses: Record<Size, string> = {
-		sm: 'w-2 h-2',
-		md: 'w-3 h-3',
-		lg: 'w-4 h-4'
-	};
+  let classes = $derived(
+    DotStyleManager.getDotClasses(color, size, className)
+  );
 </script>
 
-<span class={`inline-block rounded-full ${colorClasses[color as Color]} ${sizeClasses[size as Size]} ${className}`}></span>
+<span class={classes}></span>

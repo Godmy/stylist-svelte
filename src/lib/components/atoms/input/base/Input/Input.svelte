@@ -1,6 +1,7 @@
 <script lang="ts">
   import { InputStyleManager } from './styles';
   import type { IInputProps } from './types';
+  import type { HTMLInputAttributes } from 'svelte/elements';
 
   /**
    * Input component - A styled input field with label and error handling

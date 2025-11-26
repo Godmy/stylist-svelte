@@ -1,26 +1,39 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type Props = {
-    children: Snippet;
-    className?: string;
-    ariaHidden?: boolean;
-  } & HTMLAttributes<HTMLElement>;
+  import type { StrikethroughProps } from './types';
+  import { DEFAULT_STRIKETHROUGH_ARIA_HIDDEN } from './constant';
+  import { StrikethroughStyleManager } from './styles';
 
-  const {
+  /**
+   * Strikethrough component - Renders text with a strikethrough effect.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content to display with strikethrough.
+   * @param class - Additional CSS classes.
+   * @param ariaHidden - Indicates that the element and all of its descendants are not visible or perceivable to any user.
+   * @returns An accessible, styled strikethrough text element.
+   */
+  let {
     children,
-    className = '',
-    ariaHidden = undefined,
+    class: className = '',
+    ariaHidden = DEFAULT_STRIKETHROUGH_ARIA_HIDDEN,
     ...restProps
-  }: Props = $props();
+  }: StrikethroughProps = $props();
 
-  // The aria-hidden attribute handles boolean values correctly.
-  // If undefined, the attribute will not be rendered.
-  const ariaHiddenValue = $derived(ariaHidden);
-
+  let classes = $derived(
+    StrikethroughStyleManager.getStrikethroughClasses(className)
+  );
 </script>
 
-<s class={`line-through ${className}`} aria-hidden={ariaHiddenValue} {...restProps}>
-  {@render children()}
+<s class={classes} aria-hidden={ariaHidden} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </s>

@@ -1,4 +1,3 @@
-import { twMerge } from 'tailwind-merge';
 import {
   DEFAULT_BLOCKQUOTE_CLASSES,
   BORDER_BLOCKQUOTE_CLASSES,
@@ -22,10 +21,14 @@ export class BlockquoteStyleManager {
       classes.push(BACKGROUND_BLOCKQUOTE_CLASSES);
     }
 
-    return twMerge(classes.join(' '), className);
+    if (className) {
+      classes.push(className);
+    }
+
+    return classes.filter(Boolean).join(' ');
   }
 
   static getFooterClasses(): string {
-    return twMerge(FOOTER_CLASSES);
+    return FOOTER_CLASSES;
   }
 }

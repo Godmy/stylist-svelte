@@ -1,21 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { SmallProps } from './types';
+  import { SmallStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    className?: string;
-  };
+  /**
+   * Small component - Renders text that represents side-comments and small print.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the small text.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled small text element.
+   */
+  let {
+    children,
+    class: className = '',
+    ...restProps
+  }: SmallProps = $props();
 
-  const props = $props();
-  const className = props.className ?? '';
-  const children = props.children;
-
-  const smallClasses = `text-sm text-gray-500 ${className}`;
+  let classes = $derived(
+    SmallStyleManager.getSmallClasses(className)
+  );
 </script>
 
-<small class={smallClasses} {...props}>
-  {@render children()}
+<small class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </small>

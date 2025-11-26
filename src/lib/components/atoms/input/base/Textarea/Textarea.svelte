@@ -1,6 +1,7 @@
 <script lang="ts">
   import { TextareaStyleManager } from './styles';
   import type { ITextareaProps } from './types';
+  import type { HTMLTextareaAttributes } from 'svelte/elements';
 
   /**
    * Textarea component - A styled textarea field with label and error handling
@@ -24,7 +25,7 @@
     rows = 3,
     maxlength,
     ...restProps
-  }: ITextareaProps & import('svelte/elements').HTMLTextareaAttributes<HTMLTextAreaElement> = $props();
+  }: ITextareaProps & HTMLTextareaAttributes = $props();
 
   // Calculate derived values
   const hasError = $derived(errors.length > 0);

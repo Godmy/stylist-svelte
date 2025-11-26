@@ -1,43 +1,35 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
+  import type { InlineCodeProps } from './types';
+  import { DEFAULT_INLINE_CODE_VARIANT } from './constant';
+  import { InlineCodeStyleManager } from './styles';
+
   /**
-   * Компонент для отображения встроенного кода
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе выводится пустой элемент
+   * InlineCode component - Displays inline code snippets.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param variant - Variant style.
+   * @param children - Content of the inline code.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled inline code element.
    */
-  type InlineCodeVariant = 'default' | 'accent' | 'success' | 'warning' | 'danger';
-
-  type InlineCodeProps = {
-    /**
-     * Variant style
-     */
-    variant?: InlineCodeVariant;
-    /**
-     * Содержимое встроенного кода
-     */
-    children?: Snippet;
-  } & HTMLAttributes<HTMLElement>;
-
   let {
-    variant = 'default',
+    variant = DEFAULT_INLINE_CODE_VARIANT,
     children,
     class: className = '',
     ...restProps
   }: InlineCodeProps = $props();
 
-  type VariantType = 'default' | 'accent' | 'success' | 'warning' | 'danger';
-
-  let variantClasses = $derived({
-    default: 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200',
-    accent: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200',
-    success: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-    danger: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-  }[variant as VariantType]);
-
-  let classes = $derived(`${variantClasses} px-2 py-1 rounded font-mono text-sm font-medium ${className}`);
+  let classes = $derived(
+    InlineCodeStyleManager.getInlineCodeClasses(variant, className)
+  );
 </script>
 
 {#if children}

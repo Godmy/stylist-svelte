@@ -1,33 +1,44 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type Props = {
-    level?: 1 | 2 | 3 | 4 | 5 | 6;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    children?: Snippet;
-  } & HTMLAttributes<HTMLHeadingElement>;
+  import type { SectionHeadingProps, SectionHeadingLevel } from './types';
+  import {
+    DEFAULT_SECTION_HEADING_LEVEL,
+    DEFAULT_SECTION_HEADING_SIZE
+  } from './constant';
+  import { SectionHeadingStyleManager } from './styles';
 
+  /**
+   * SectionHeading component - Renders a semantic HTML heading element for sections with consistent styling.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param level - Semantic level of the heading (1-6) for the HTML tag.
+   * @param size - Visual size of the heading ('sm' | 'md' | 'lg' | 'xl').
+   * @param children - The content of the section heading.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled section heading element.
+   */
   let {
-    level = 2,
-    size = 'lg',
+    level = DEFAULT_SECTION_HEADING_LEVEL,
+    size = DEFAULT_SECTION_HEADING_SIZE,
     children,
+    class: className = '',
     ...restProps
-  }: Props = $props();
+  }: SectionHeadingProps = $props();
 
   let Tag = $derived(`h${level}` as const);
 
-  let sizeClasses = $derived(() => {
-    const classesMap = {
-      sm: 'text-lg',
-      md: 'text-xl',
-      lg: 'text-2xl',
-      xl: 'text-3xl'
-    };
-    return classesMap[size];
-  });
+  let classes = $derived(
+    SectionHeadingStyleManager.getSectionHeadingClasses(size, className)
+  );
 </script>
 
-<svelte:element this={Tag} class={`font-semibold ${sizeClasses} text-gray-900`} {...restProps}>
+<svelte:element this={Tag} class={classes} {...restProps}>
   {@render children?.()}
 </svelte:element>

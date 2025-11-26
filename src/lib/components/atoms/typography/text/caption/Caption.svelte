@@ -1,21 +1,37 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type Props = {
-    muted?: boolean;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement>;
+  import type { CaptionProps } from './types';
+  import { DEFAULT_CAPTION_MUTED } from './constant';
+  import { CaptionStyleManager } from './styles';
 
+  /**
+   * Caption component - Displays a small, descriptive text, often for figures or tables.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param muted - If true, the caption text will be muted.
+   * @param children - The content of the caption.
+   * @param class - Additional CSS classes.
+   * @returns A styled caption element.
+   */
   let {
-    muted = false,
+    muted = DEFAULT_CAPTION_MUTED,
     children,
+    class: className = '',
     ...restProps
-  }: Props = $props();
+  }: CaptionProps = $props();
 
-  let mutedClass = muted ? 'text-gray-500' : 'text-gray-700';
+  let classes = $derived(
+    CaptionStyleManager.getCaptionClasses(muted, className)
+  );
 </script>
 
-<div class={`text-xs ${mutedClass}`} {...restProps}>
+<div class={classes} {...restProps}>
   {@render children?.()}
 </div>

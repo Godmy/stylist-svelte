@@ -1,4 +1,3 @@
-import { twMerge } from 'tailwind-merge';
 import type { LabelSize } from './types';
 import {
   BASE_LABEL_CLASSES,
@@ -16,8 +15,9 @@ export class LabelStyleManager {
     const classes = [
       BASE_LABEL_CLASSES,
       LABEL_SIZE_CLASSES[size],
-      disabled ? LABEL_DISABLED_CLASSES : LABEL_ENABLED_CLASSES
+      disabled ? LABEL_DISABLED_CLASSES : LABEL_ENABLED_CLASSES,
+      className
     ];
-    return twMerge(classes.join(' '), className);
+    return classes.filter(Boolean).join(' ');
   }
 }

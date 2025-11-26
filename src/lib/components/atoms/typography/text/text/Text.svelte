@@ -1,77 +1,73 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type TextType = 'p' | 'span' | 'div' | 'label';
-  type TextSize = 'sm' | 'md' | 'lg' | 'xl';
+  import type { TextProps, TextType } from './types';
+  import {
+    DEFAULT_TEXT_AS,
+    DEFAULT_TEXT_SIZE,
+    DEFAULT_TEXT_MUTED,
+    DEFAULT_TEXT_BOLD,
+    DEFAULT_TEXT_ITALIC
+  } from './constant';
+  import { TextStyleManager } from './styles';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
-
-  type Props = RestProps & {
-    children: Snippet;
-    as?: TextType;
-    size?: TextSize;
-    className?: string;
-    muted?: boolean;
-    bold?: boolean;
-    italic?: boolean;
-  };
-
+  /**
+   * Text component - A flexible component for rendering various text elements (p, span, div, label) with styling options.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the text element.
+   * @param as - HTML element to render the text as ('p', 'span', 'div', 'label').
+   * @param size - Size of the text.
+   * @param class - Additional CSS classes.
+   * @param muted - If true, the text will be muted.
+   * @param bold - If true, the text will be bold.
+   * @param italic - If true, the text will be italic.
+   * @returns An accessible, styled text element.
+   */
   const {
     children,
-    as = 'p',
-    size = 'md',
-    className = '',
-    muted = false,
-    bold = false,
-    italic = false,
+    as = DEFAULT_TEXT_AS,
+    size = DEFAULT_TEXT_SIZE,
+    class: className = '',
+    muted = DEFAULT_TEXT_MUTED,
+    bold = DEFAULT_TEXT_BOLD,
+    italic = DEFAULT_TEXT_ITALIC,
     ...restProps
-  }: Props = $props();
+  }: TextProps = $props();
 
-  // Определяем классы стилей на основе размера и свойств
-  const textClasses = $derived(() => {
-    let classes = '';
-
-    // Размеры
-    switch (size) {
-      case 'sm':
-        classes += ' text-sm';
-        break;
-      case 'lg':
-        classes += ' text-lg';
-        break;
-      case 'xl':
-        classes += ' text-xl';
-        break;
-      case 'md':
-      default:
-        classes += ' text-base';
-        break;
-    }
-
-    // Стили
-    if (bold) classes += ' font-bold';
-    if (italic) classes += ' italic';
-    if (muted) classes += ' text-gray-500';
-
-    return classes;
-  });
+  let classes = $derived(
+    TextStyleManager.getTextClasses(size, muted, bold, italic, className)
+  );
 </script>
 
 {#if as === 'p'}
-  <p class="{textClasses} {className}" {...restProps}>
-    {@render children()}
+  <p class={classes} {...restProps}>
+    {#if children}
+      {@render children()}
+    {/if}
   </p>
 {:else if as === 'span'}
-  <span class="{textClasses} {className}" {...restProps}>
-    {@render children()}
+  <span class={classes} {...restProps}>
+    {#if children}
+      {@render children()}
+    {/if}
   </span>
 {:else if as === 'div'}
-  <div class="{textClasses} {className}" {...restProps}>
-    {@render children()}
+  <div class={classes} {...restProps}>
+    {#if children}
+      {@render children()}
+    {/if}
   </div>
 {:else if as === 'label'}
-  <label class="{textClasses} {className}" {...restProps}>
-    {@render children()}
+  <label class={classes} {...restProps}>
+    {#if children}
+      {@render children()}
+    {/if}
   </label>
 {/if}

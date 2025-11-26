@@ -1,21 +1,39 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { AbbrProps } from './types';
+  import { DEFAULT_ABBR_TITLE } from './constant';
+  import { AbbrStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    title?: string;
-    className?: string;
-  };
+  /**
+   * Abbr component - Represents an abbreviation or an acronym.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the abbreviation.
+   * @param title - The full description of the abbreviation, shown on hover.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled abbreviation element.
+   */
+  let {
+    children,
+    title = DEFAULT_ABBR_TITLE,
+    class: className = '',
+    ...restProps
+  }: AbbrProps = $props();
 
-  const props = $props();
-  const title = props.title ?? '';
-  const className = props.className ?? '';
-  const children = props.children;
+  let classes: string = $derived(
+    AbbrStyleManager.getAbbrClasses(className)
+  );
 </script>
 
-<abbr class={`no-underline border-b border-dotted border-gray-400 cursor-help ${className}`} title={title} {...props}>
-  {@render children()}
+<abbr class={classes} title={title} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </abbr>

@@ -1,21 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { HighlightProps } from './types';
+  import { HighlightStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    className?: string;
-  };
+  /**
+   * Highlight component - Renders text with a highlight effect.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content to highlight.
+   * @param class - Additional CSS classes.
+   * @returns A styled highlighted text element.
+   */
+  let {
+    children,
+    class: className = '',
+    ...restProps
+  }: HighlightProps = $props();
 
-  const props = $props();
-  const className = props.className ?? '';
-  const children = props.children;
-
-  const highlightClasses = `bg-yellow-100 text-yellow-800 p-1 rounded ${className}`;
+  let classes: string = $derived(
+    HighlightStyleManager.getHighlightClasses(className)
+  );
 </script>
 
-<mark class={highlightClasses} {...props}>
-  {@render children()}
+<mark class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </mark>

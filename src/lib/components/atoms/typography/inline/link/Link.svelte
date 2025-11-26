@@ -1,72 +1,56 @@
 <script lang="ts">
-  import type { HTMLAnchorAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
+  import type { LinkProps } from './types';
+  import {
+    DEFAULT_LINK_VARIANT,
+    DEFAULT_LINK_SIZE,
+    DEFAULT_LINK_DISABLED,
+    DEFAULT_LINK_UNDERLINE
+  } from './constant';
+  import { LinkStyleManager } from './styles';
+
   /**
-   * Компонент ссылки с различными вариантами стиля
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе используется `text`, если он передан
+   * Link component - A styled hyperlink with various style options.
+   * If `children` is provided, it will be rendered; otherwise, `text` will be used.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param variant - Style variant of the link.
+   * @param size - Size of the link.
+   * @param disabled - Disabled state of the link.
+   * @param underline - Whether to underline the link.
+   * @param href - URL for the link.
+   * @param target - Target window/frame for the link.
+   * @param text - Text content of the link.
+   * @param children - Slot content for the link (alternative to `text`).
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled link element.
    */
-  type LinkVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'underline';
-  type LinkSize = 'sm' | 'md' | 'lg';
-
-  type Props = {
-    variant?: LinkVariant;
-    size?: LinkSize;
-    disabled?: boolean;
-    underline?: boolean;
-    href?: string;
-    target?: '_blank' | '_self' | '_parent' | '_top';
-    text?: string;
-    children?: Snippet;
-  } & HTMLAnchorAttributes;
-
   let {
-    variant = 'primary',
-    size = 'md',
-    disabled = false,
-    underline = true,
+    variant = DEFAULT_LINK_VARIANT,
+    size = DEFAULT_LINK_SIZE,
+    disabled = DEFAULT_LINK_DISABLED,
+    underline = DEFAULT_LINK_UNDERLINE,
     href,
     target,
     text,
     children,
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: LinkProps = $props();
 
-  let variantClasses = $derived({
-    primary: 'text-indigo-600 hover:text-indigo-800',
-    secondary: 'text-gray-600 hover:text-gray-800',
-    success: 'text-green-600 hover:text-green-800',
-    warning: 'text-yellow-600 hover:text-yellow-800',
-    danger: 'text-red-600 hover:text-red-800',
-    ghost: 'text-gray-700 hover:bg-gray-100',
-    underline: 'text-indigo-600 hover:text-indigo-800'
-  }[variant]);
-
-  let sizeClasses = $derived({
-    sm: 'text-sm',
-    md: 'text-base',
-    lg: 'text-lg'
-  }[size]);
-
-  let disabledClass = $derived(disabled
-    ? 'opacity-50 cursor-not-allowed pointer-events-none'
-    : '');
-
-  let underlineClass = $derived(underline
-    ? 'underline hover:no-underline'
-    : 'no-underline');
-
-  let classes = $derived(`font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${variantClasses} ${sizeClasses} ${disabledClass} ${underlineClass} ${className}`);
+  let classes = $derived(
+    LinkStyleManager.getLinkClasses(variant, size, disabled, underline, className)
+  );
 </script>
 
-<a
-  href={href}
-  class={classes}
-  target={target}
-  {...restProps}
->
+<a href={href} class={classes} target={target} {...restProps}>
   {#if children}
     {@render children()}
   {:else if text}

@@ -1,21 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { EmProps } from './types';
+  import { EmStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    className?: string;
-  };
+  /**
+   * Em component - Represents emphasized text.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the emphasized text.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled emphasized text element.
+   */
+  let {
+    children,
+    class: className = '',
+    ...restProps
+  }: EmProps = $props();
 
-  const props = $props();
-  const className = props.className ?? '';
-  const children = props.children;
-
-  const emClasses = `italic ${className}`;
+  let classes: string = $derived(
+    EmStyleManager.getEmClasses(className)
+  );
 </script>
 
-<em class={emClasses} {...props}>
-  {@render children()}
+<em class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </em>

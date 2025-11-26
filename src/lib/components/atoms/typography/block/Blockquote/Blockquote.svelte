@@ -21,24 +21,24 @@
    * @param class - Additional CSS classes
    * @returns An accessible, styled blockquote element
    */
-  type Props = IBlockquoteProps & HTMLBlockquoteAttributes;
-
   let {
     cite = '',
     withBorder = DEFAULT_WITH_BORDER,
     withBackground = DEFAULT_WITH_BACKGROUND,
     class: className = '',
     children
-  }: Props = $props();
+  }: IBlockquoteProps & HTMLBlockquoteAttributes = $props();
 
-  let blockquoteClasses = $derived(
+  let blockquoteClasses: string = $derived(
     BlockquoteStyleManager.getBlockquoteClasses(withBorder, withBackground, className)
   );
-  let footerClasses = $derived(BlockquoteStyleManager.getFooterClasses());
+  let footerClasses: string = $derived(BlockquoteStyleManager.getFooterClasses());
 </script>
 
 <blockquote class={blockquoteClasses} cite={cite}>
-  {@render children()}
+  {#if children}
+    {@render children()}
+  {/if}
   {#if cite}
     <footer class={footerClasses}>
       {FOOTER_PREFIX}{cite}

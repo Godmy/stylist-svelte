@@ -1,21 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { DefinitionTermProps } from './types';
+  import { DefinitionTermStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    className?: string;
-  };
+  /**
+   * DefinitionTerm component - Represents the term part of a definition list.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the definition term.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled definition term element.
+   */
+  let {
+    children,
+    class: className = '',
+    ...restProps
+  }: DefinitionTermProps = $props();
 
-  const props = $props();
-  const className = props.className ?? '';
-  const children = props.children;
-
-  const dtClasses = `font-bold text-gray-900 ${className}`;
+  let classes: string = $derived(
+    DefinitionTermStyleManager.getDefinitionTermClasses(className)
+  );
 </script>
 
-<dt class={dtClasses} {...props}>
-  {@render children()}
+<dt class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </dt>

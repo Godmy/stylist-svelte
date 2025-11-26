@@ -1,55 +1,43 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-  type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+  import type { HeadingProps, HeadingSize, HeadingLevel } from './types';
+  import { DEFAULT_HEADING_SIZE } from './constant';
+  import { HeadingStyleManager } from './styles';
 
-  type RestProps = Omit<HTMLAttributes<HTMLHeadingElement>, 'class'>;
-
-  type Props = RestProps & {
-    children: Snippet;
-    size?: HeadingSize;
-    level?: HeadingLevel;
-    className?: string;
-  };
-
-  const {
+  /**
+   * Heading component - Renders semantic HTML heading elements (h1-h6) with consistent styling.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the heading.
+   * @param size - Visual size of the heading (h1-h6), used for styling if `level` is not specified.
+   * @param level - Semantic level of the heading (1-6), used for the HTML tag.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled heading element.
+   */
+  let {
     children,
-    size = 'h1',
+    size = DEFAULT_HEADING_SIZE,
     level,
-    className = '',
+    class: className = '',
     ...restProps
-  }: Props = $props();
+  }: HeadingProps = $props();
 
-  // Определяем тег на основе size или level
-  const headingTag = $derived(level ? `h${level}` : size);
+  const headingTag = $derived(HeadingStyleManager.getHeadingTag(size, level));
 
-  // Определяем классы стилей на основе размера
-  const headingClasses = $derived((() => {
-    const baseClasses = 'font-bold';
-    // Use `size` for styling, `headingTag` for semantics
-    const styleTag = size || headingTag;
-
-    switch (styleTag) {
-      case 'h1':
-        return `${baseClasses} text-4xl md:text-5xl leading-tight`;
-      case 'h2':
-        return `${baseClasses} text-3xl md:text-4xl leading-tight`;
-      case 'h3':
-        return `${baseClasses} text-2xl md:text-3xl leading-snug`;
-      case 'h4':
-        return `${baseClasses} text-xl md:text-2xl leading-snug`;
-      case 'h5':
-        return `${baseClasses} text-lg md:text-xl leading-normal`;
-      case 'h6':
-        return `${baseClasses} text-base md:text-lg leading-normal`;
-      default:
-        return baseClasses;
-    }
-  })());
+  let classes = $derived(
+    HeadingStyleManager.getHeadingClasses(size, level, className)
+  );
 </script>
 
-<svelte:element this={headingTag} class={`${headingClasses} ${className}`} {...restProps}>
-  {@render children()}
+<svelte:element this={headingTag} class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </svelte:element>

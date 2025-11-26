@@ -1,4 +1,3 @@
-import { twMerge } from 'tailwind-merge';
 import type { ChipVariant, ChipSize } from './types';
 import {
   BASE_CHIP_CLASSES,
@@ -22,9 +21,10 @@ export class ChipStyleManager {
       BASE_CHIP_CLASSES,
       CHIP_SIZE_CLASSES[size],
       CHIP_VARIANT_CLASSES[variant],
-      disabled ? DISABLED_CHIP_CLASSES : ENABLED_CHIP_CLASSES
+      disabled ? DISABLED_CHIP_CLASSES : ENABLED_CHIP_CLASSES,
+      className
     ];
-    return twMerge(classes.join(' '), className);
+    return classes.filter(Boolean).join(' ');
   }
 
   static getCloseButtonClasses(
@@ -34,9 +34,10 @@ export class ChipStyleManager {
   ): string {
     const classes = [
       BASE_CLOSE_BUTTON_CLASSES,
-      CLOSE_BUTTON_VARIANT_CLASSES[variant]
+      CLOSE_BUTTON_VARIANT_CLASSES[variant],
+      className
     ];
-    return twMerge(classes.join(' '), className);
+    return classes.filter(Boolean).join(' ');
   }
 
   static getCloseButtonIconClasses(size: ChipSize): string {

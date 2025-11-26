@@ -1,0 +1,8 @@
+.step-connector {
+  /* Base styles will be applied via the style manager */
+}
+
+.step-connector:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary-500);
+}

@@ -1,25 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  /**
-   * Компонент для отображения клавиш клавиатуры
-   * Приоритет: если передан `children`, он будет отображен,
-   * иначе выводится пустой элемент
-   */
-  type KbdProps = {
-    children?: Snippet;
-  } & HTMLAttributes<HTMLElement>;
+  import type { KbdProps } from './types';
+  import { KbdStyleManager } from './styles';
 
-  let { 
+  /**
+   * Kbd component - Displays keyboard input.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the keyboard input.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled keyboard input element.
+   */
+  let {
     children,
     class: className = '',
     ...restProps
   }: KbdProps = $props();
+
+  let classes = $derived(
+    KbdStyleManager.getKbdClasses(className)
+  );
 </script>
 
 {#if children}
-  <kbd class={`inline-flex items-center justify-center px-2 py-1 text-xs font-medium text-gray-800 bg-gray-100 border border-gray-200 rounded-md ${className}`} {...restProps}>
+  <kbd class={classes} {...restProps}>
     {@render children()}
   </kbd>
 {/if}

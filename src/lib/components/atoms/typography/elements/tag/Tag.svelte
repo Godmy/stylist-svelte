@@ -2,47 +2,62 @@
   import { createEventDispatcher } from 'svelte';
   import { X } from 'lucide-svelte';
 
-  type Snippet = any;
+  import type { Snippet } from 'svelte';
+  import type { TagProps } from './types';
+  import {
+    DEFAULT_TAG_VARIANT,
+    DEFAULT_TAG_SIZE,
+    DEFAULT_TAG_CLOSABLE,
+    DEFAULT_TAG_DISABLED
+  } from './constant';
+  import { TagStyleManager } from './styles';
 
-  type Variant = 'neutral' | 'primary' | 'success' | 'warning' | 'danger';
-  type Size = 'sm' | 'md';
-
-  type Props = {
-    text?: string;
-    variant?: Variant;
-    size?: Size;
-    closable?: boolean;
-    disabled?: boolean;
-    icon?: Snippet;
-    content?: Snippet;
-    class?: string;
-  };
-
+  /**
+   * Tag component - A compact component for displaying small pieces of information, often with a close button.
+   * If `content` is provided, it will be rendered; otherwise, `text` will be used.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param text - Text content for the tag.
+   * @param variant - Color scheme variant of the tag.
+   * @param size - Size of the tag.
+   * @param closable - Whether the tag can be closed.
+   * @param disabled - Disabled state of the tag.
+   * @param icon - Icon to display before the tag text.
+   * @param content - Slot content for the tag (alternative to text).
+   * @param class - Additional CSS classes.
+   * @fires close - Dispatched when the close button is clicked.
+   * @returns An accessible, styled tag element.
+   */
   const dispatch = createEventDispatcher<{ close: void }>();
 
   let {
     text,
-    variant = 'neutral',
-    size = 'md',
-    closable = false,
-    disabled = false,
+    variant = DEFAULT_TAG_VARIANT,
+    size = DEFAULT_TAG_SIZE,
+    closable = DEFAULT_TAG_CLOSABLE,
+    disabled = DEFAULT_TAG_DISABLED,
     icon,
     content,
     class: className = ''
-  }: Props = $props();
+  }: TagProps = $props();
 
-  const variantClasses: Record<Variant, string> = {
-    neutral: 'bg-gray-100 text-gray-700 border-gray-200',
-    primary: 'bg-indigo-100 text-indigo-700 border-indigo-200',
-    success: 'bg-emerald-100 text-emerald-700 border-emerald-200',
-    warning: 'bg-amber-100 text-amber-700 border-amber-200',
-    danger: 'bg-rose-100 text-rose-700 border-rose-200'
-  };
+  let tagClasses = $derived(
+    TagStyleManager.getTagClasses(variant, size, disabled, className)
+  );
 
-  const sizeClasses: Record<Size, string> = {
-    sm: 'text-xs px-2 py-0.5 gap-1',
-    md: 'text-sm px-3 py-1 gap-1.5'
-  };
+  let closeButtonClasses = $derived(
+    TagStyleManager.getCloseButtonClasses(disabled)
+  );
+
+  let closeButtonIconClasses = $derived(
+    TagStyleManager.getCloseButtonIconClasses()
+  );
 
   function handleClose() {
     if (disabled) return;
@@ -50,9 +65,7 @@
   }
 </script>
 
-<span
-  class="inline-flex items-center border rounded-full font-medium {variantClasses[variant]} {sizeClasses[size]} {disabled ? 'opacity-60 cursor-not-allowed' : ''} {className}"
->
+<span class={tagClasses}>
   {#if icon}
     <span class="flex items-center" aria-hidden="true">
       {@render icon()}
@@ -70,12 +83,12 @@
   {#if closable}
     <button
       type="button"
-      class="ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-white/60 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500 disabled:opacity-50"
+      class={closeButtonClasses}
       onclick={handleClose}
       disabled={disabled}
       aria-label="Удалить тег"
     >
-      <X class="h-3 w-3" />
+      <X class={closeButtonIconClasses} />
     </button>
   {/if}
 </span>

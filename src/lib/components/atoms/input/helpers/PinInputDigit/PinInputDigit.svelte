@@ -1,6 +1,7 @@
 <script lang="ts">
   import { PinInputDigitStyleManager } from './styles';
   import type { IPinInputDigitProps } from './types';
+  import type { HTMLInputAttributes } from 'svelte/elements';
 
   /**
    * PinInputDigit component - displays a single digit input for PIN codes
@@ -28,5 +29,5 @@
   class={combinedClass}
   maxLength={1}
   value={value}
-  {...props}
+  {...restProps}
 />

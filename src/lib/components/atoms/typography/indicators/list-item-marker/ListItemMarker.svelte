@@ -1,53 +1,53 @@
 <script lang="ts">
-	import { Icon } from '$lib/components/atoms';	
+  import { Icon } from '$lib/components/atoms';
+  import type { ListItemMarkerProps } from './types';
+  import {
+    DEFAULT_MARKER_TYPE,
+    DEFAULT_MARKER_VALUE,
+    DEFAULT_MARKER_COLOR,
+    DEFAULT_MARKER_SIZE
+  } from './constant';
+  import { ListItemMarkerStyleManager } from './styles';
 
-	export type MarkerType = 'bullet' | 'number' | 'icon';
-	export type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
-	export type Size = 'sm' | 'md' | 'lg';
+  /**
+   * ListItemMarker component - Displays a marker for list items, supporting bullets, numbers, or icons.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param type - Type of the list marker ('bullet' | 'number' | 'icon').
+   * @param value - Value for the marker (e.g., number for ordered list or icon name).
+   * @param color - Color of the marker.
+   * @param size - Size of the marker.
+   * @param class - Additional CSS classes.
+   * @returns A styled list item marker element.
+   */
+  const {
+    type = DEFAULT_MARKER_TYPE,
+    value = DEFAULT_MARKER_VALUE,
+    color = DEFAULT_MARKER_COLOR,
+    size = DEFAULT_MARKER_SIZE,
+    class: className = ''
+  }: ListItemMarkerProps = $props();
 
-	type Props = {
-		type?: MarkerType;
-		value?: string | number;
-		color?: Color;
-		size?: Size;
-		class?: string;
-	};
-
-	const {
-		type = 'bullet',
-		value = '',
-		color = 'gray',
-		size = 'md',
-		class: className = ''
-	}: Props = $props();
-
-	const baseClasses = 'inline-flex items-center justify-center flex-shrink-0';
-
-	const colorClasses: Record<Color, string> = {
-		primary: 'text-[--color-primary-500]',
-		secondary: 'text-[--color-secondary-500]',
-		success: 'text-[--color-success-500]',
-		warning: 'text-[--color-warning-500]',
-		danger: 'text-[--color-danger-500]',
-		info: 'text-[--color-info-500]',
-		gray: 'text-[--color-text-tertiary]'
-	};
-
-	const sizeClasses: Record<Size, string> = {
-		sm: 'h-4 w-4 text-xs',
-		md: 'h-5 w-5 text-sm',
-		lg: 'h-6 w-6 text-base'
-	};
-
-	const bulletClasses = 'rounded-full bg-current';
+  let markerClasses = $derived(
+    ListItemMarkerStyleManager.getMarkerClasses(color, size, className)
+  );
+  let bulletClasses = $derived(
+    ListItemMarkerStyleManager.getBulletClasses(size)
+  );
 </script>
 
-<span class={`${baseClasses} ${colorClasses[color as Color]} ${sizeClasses[size as Size]} ${className}`}>
-	{#if type === 'bullet'}
-		<span class={`${bulletClasses} ${size === 'sm' ? 'h-1.5 w-1.5' : size === 'md' ? 'h-2 w-2' : 'h-2.5 w-2.5'}`}></span>
-	{:else if type === 'number'}
-		{value}
-	{:else if type === 'icon' && typeof value === 'string'}
-		<Icon name={value} size={size} />
-	{/if}
+<span class={markerClasses}>
+  {#if type === 'bullet'}
+    <span class={bulletClasses}></span>
+  {:else if type === 'number'}
+    {value}
+  {:else if type === 'icon' && typeof value === 'string'}
+    <Icon name={value} size={size} />
+  {/if}
 </span>

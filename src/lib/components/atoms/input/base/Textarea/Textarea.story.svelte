@@ -5,7 +5,9 @@
   import type { ITextareaProps } from './types';
   import type { HTMLTextareaAttributes } from 'svelte/elements';
 
-  type Props = ITextareaProps & HTMLTextareaAttributes;
+  type Props = Omit<ITextareaProps, 'errors'> & {
+    errors?: string | string[];
+  } & HTMLTextareaAttributes;
 
   // Define controls for the story
   const controls: ControlConfig[] = [
@@ -32,9 +34,17 @@
   controls={controls}
 >
   {#snippet children(props: Props)}
+    {@const normalizedErrors =
+      typeof props.errors === 'string'
+        ? props.errors
+            .split(',')
+            .map((segment: string) => segment.trim())
+            .filter((segment: string): segment is string => segment.length > 0)
+        : props.errors ?? []}
+
     <Textarea
       {...props}
-      errors={typeof props.errors === 'string' ? props.errors.split(',').map(s => s.trim()).filter(Boolean) : (props.errors || [])}
+      errors={normalizedErrors}
     />
   {/snippet}
 </Story>

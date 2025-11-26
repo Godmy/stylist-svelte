@@ -1,19 +1,36 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  import type { SubscriptProps } from './types';
+  import { SubscriptStyleManager } from './styles';
 
-  type Props = RestProps & {
-    children: Snippet;
-    className?: string;
-  };
+  /**
+   * Subscript component - Renders subscript text.
+   *
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state.
+   * - Open/Closed: Extendable through properties but closed for modification.
+   * - Liskov Substitution: Can be substituted with other similar components.
+   * - Interface Segregation: Small focused interface.
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions.
+   *
+   * @param children - The content of the subscript text.
+   * @param class - Additional CSS classes.
+   * @returns An accessible, styled subscript text element.
+   */
+  let {
+    children,
+    class: className = '',
+    ...restProps
+  }: SubscriptProps = $props();
 
-  const props = $props();
-  const className = props.className ?? '';
-  const children = props.children;
+  let classes = $derived(
+    SubscriptStyleManager.getSubscriptClasses(className)
+  );
 </script>
 
-<sub class={`text-xs align-sub ${className}`} {...props}>
-  {@render children()}
+<sub class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
 </sub>

@@ -1,51 +1,51 @@
 <script lang="ts">
-  import { Icon } from '$lib/components/atoms';
+  import type { HTMLAttributes } from 'svelte/elements';
+  import { Check } from 'lucide-svelte';
+  import type { Snippet } from 'svelte';
+
   import type { IStepIconProps } from './types';
   import { StepIconStyleManager } from './styles';
+  import './StepIcon.css';
 
   /**
-   * StepIcon component - renders a circular status indicator within a stepper.
+   * StepIcon component - Represents the icon for a step in a progress indicator
    *
-   * Displays either a custom icon, a provided step number, or a fallback symbol
-   * that depends on the current status.
+   * Following SOLID principles:
+   * - Single Responsibility: Only handles component rendering and state
+   * - Open/Closed: Extendable through properties but closed for modification
+   * - Liskov Substitution: Can be substituted with other icon components
+   * - Interface Segregation: Small focused interface
+   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
+   *
+   * @param status - Status of the step icon ('pending' | 'active' | 'completed' | 'error')
+   * @param size - Size of the step icon ('sm' | 'md' | 'lg')
+   * @param stepNumber - Step number to display when no icon is specified
+   * @param iconName - Name of the icon to display
+   * @param children - Snippet content for the icon (if not using default number or icon)
+   * @returns An accessible, styled step icon element
    */
-  const {
+  let {
     status = 'pending',
     size = 'md',
     stepNumber,
     iconName,
     class: className = '',
+    children,
     ...restProps
-  }: IStepIconProps = $props();
+  }: IStepIconProps & HTMLAttributes<HTMLSpanElement> = $props();
 
-  const iconSizeMap = {
-    sm: 'sm',
-    md: 'md',
-    lg: 'lg'
-  } as const;
-
-  const fallbackSymbol = $derived(() => {
-    switch (status) {
-      case 'completed':
-        return '✓';
-      case 'error':
-        return '!';
-      default:
-        return '•';
-    }
-  });
-
-  const containerClass = $derived(
-    StepIconStyleManager.generateClass(status, size, className)
-  );
+  let classes = $derived(StepIconStyleManager.generateClass(status, size, className));
 </script>
 
-<span class={containerClass} {...restProps}>
-  {#if iconName}
-    <Icon name={iconName} size={iconSizeMap[size]} aria-hidden="true" />
-  {:else if stepNumber !== undefined && stepNumber !== null}
+<span
+  {...restProps}
+  class={classes}
+>
+  {#if children}
+    {@render children()}
+  {:else if status === 'completed'}
+    <Check size={size === 'sm' ? 12 : size === 'md' ? 16 : 20} class="step-icon-check" />
+  {:else if stepNumber !== undefined}
     {stepNumber}
-  {:else}
-    {fallbackSymbol}
   {/if}
 </span>

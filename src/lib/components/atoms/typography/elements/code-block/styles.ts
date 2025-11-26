@@ -1,4 +1,3 @@
-import { twMerge } from 'tailwind-merge';
 import type { CodeBlockVariant, CodeBlockSize } from './types';
 import {
   BASE_CODE_BLOCK_CLASSES,
@@ -15,8 +14,9 @@ export class CodeBlockStyleManager {
     const classes = [
       BASE_CODE_BLOCK_CLASSES,
       CODE_BLOCK_VARIANT_CLASSES[variant],
-      CODE_BLOCK_SIZE_CLASSES[size]
+      CODE_BLOCK_SIZE_CLASSES[size],
+      className
     ];
-    return twMerge(classes.join(' '), className);
+    return classes.filter(Boolean).join(' ');
   }
 }
