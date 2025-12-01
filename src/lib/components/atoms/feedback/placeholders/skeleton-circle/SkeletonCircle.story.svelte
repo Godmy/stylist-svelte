@@ -1,31 +1,25 @@
-<script lang="ts">
-  import SkeletonCircle from '../SkeletonCircle.svelte';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
-
-  let size = $state(48);
-  let showContent = $state(false);
-
-  const controls: ControlConfig[] = [
-    { name: 'size', type: 'number', min: 16, max: 120, step: 4, defaultValue: 48 },
-    { name: 'showContent', type: 'boolean', defaultValue: false }
-  ];
+<script context="module">
+  export const title = "SkeletonCircle";
+  export const category = "Atoms/Feedback/Placeholders";
 </script>
 
-<Story
-  id="atoms-skeleton-circle"
-  title="SkeletonCircle"
-  component={SkeletonCircle}
-  category="Atoms"
-  description="Circular skeleton placeholder for avatar or badge loading states."
-  tags={['loading', 'placeholder']}
-  controls={controls}
->
-  {#snippet children()}
-    {#snippet initials()}
-      <span class="text-xs font-semibold text-white drop-shadow">UI</span>
-    {/snippet}
+<script>
+  import SkeletonCircle from "./SkeletonCircle.svelte";
 
+  // State variables
+  let size = 48;
+  let showContent = false;
+
+  // Content placeholder (initials)
+  const initials = "<span class=\"text-xs font-semibold text-white drop-shadow\">UI</span>";
+</script>
+
+<div class="story-container">
+  <h2>{title}</h2>
+  <p>Circular skeleton placeholder for avatar or badge loading states.</p>
+
+  <!-- Interactive Demo -->
+  <div class="interactive-demo">
     <div class="space-y-6 p-6">
       <div class="flex items-center gap-4">
         <SkeletonCircle size={size} content={showContent ? initials : undefined} />
@@ -33,17 +27,74 @@
           Adjust the diameter to mimic avatars, chips or compact media previews.
         </div>
       </div>
-
-      <div class="grid gap-3 sm:grid-cols-2">
-        <label class="flex flex-col gap-1 text-sm">
-          Size ({size}px)
-          <input type="range" min="16" max="120" step="4" bind:value={size} />
-        </label>
-        <label class="flex items-center gap-2 text-sm">
-          <input type="checkbox" bind:checked={showContent} />
-          Show initials placeholder
-        </label>
-      </div>
     </div>
-  {/snippet}
-</Story>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls-demo">
+    <h3>Controls</h3>
+    <div class="grid gap-3 sm:grid-cols-2">
+      <label class="flex flex-col gap-1 text-sm">
+        Size ({size}px)
+        <input type="range" min="16" max="120" step="4" bind:value={size} />
+      </label>
+      <label class="flex items-center gap-2 text-sm">
+        <input type="checkbox" bind:checked={showContent} />
+        Show initials placeholder
+      </label>
+    </div>
+  </div>
+
+  <!-- Tags (optional) -->
+  <div class="tags">
+    <span class="tag">loading</span>
+    <span class="tag">placeholder</span>
+  </div>
+</div>
+
+<style>
+  .story-container {
+    padding: 20px;
+    max-width: 100%;
+    font-family: sans-serif;
+  }
+
+  h2, h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .interactive-demo {
+    margin: 1.5rem 0;
+  }
+
+  .controls-demo {
+    margin-top: 2rem;
+  }
+
+  .controls-demo .grid {
+    display: grid;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .controls-demo label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tags {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #f0f0f0;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+</style>

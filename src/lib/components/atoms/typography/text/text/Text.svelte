@@ -46,28 +46,8 @@
   );
 </script>
 
-{#if as === 'p'}
-  <p class={classes} {...restProps}>
-    {#if children}
-      {@render children()}
-    {/if}
-  </p>
-{:else if as === 'span'}
-  <span class={classes} {...restProps}>
-    {#if children}
-      {@render children()}
-    {/if}
-  </span>
-{:else if as === 'div'}
-  <div class={classes} {...restProps}>
-    {#if children}
-      {@render children()}
-    {/if}
-  </div>
-{:else if as === 'label'}
-  <label class={classes} {...restProps}>
-    {#if children}
-      {@render children()}
-    {/if}
-  </label>
-{/if}
+<svelte:element this={as} class={classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
+</svelte:element>

@@ -18,7 +18,7 @@
   const groupedControls = $derived.by(() => {
     const groups = new Map<ControlGroup, ControlConfig[]>();
 
-    controls.forEach((control) => {
+    controls.forEach((control: ControlConfig) => {
       const group = control.group || 'Other';
       if (!groups.has(group)) {
         groups.set(group, []);
@@ -69,7 +69,7 @@
   function resetToDefaults() {
     const story = playgroundStore.getCurrentStory();
     if (story?.controls) {
-      story.controls.forEach(control => {
+      story.controls.forEach((control: ControlConfig) => {
         playgroundStore.updateControl(control.name, control.defaultValue);
       });
     }

@@ -27,6 +27,6 @@ export const TAG_SIZE_CLASSES: Record<TagSize, string> = {
 };
 
 // Close button classes
-export const BASE_CLOSE_BUTTON_CLASSES = 'ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-white/60 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500';
-export const DISABLED_CLOSE_BUTTON_CLASSES = 'opacity-50';
-export const CLOSE_BUTTON_ICON_CLASSES = 'h-3 w-3';
+export const TAG_CLOSE_BUTTON_CLASSES = 'ml-1 inline-flex h-4 w-4 items-center justify-center rounded-full hover:bg-white/60 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500';
+export const TAG_DISABLED_CLOSE_BUTTON_CLASSES = 'opacity-50';
+export const TAG_CLOSE_BUTTON_ICON_CLASSES = 'h-3 w-3';

@@ -1,0 +1,45 @@
+/* Base dropdown styles */
+.dropdown-base {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+}
+
+.dropdown-menu-base {
+  min-width: 14rem;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.dropdown-position-left {
+  left: 0;
+}
+
+.dropdown-position-right {
+  right: 0;
+}
+
+.dropdown-position-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.dropdown-content {
+  padding: 0.25rem 0;
+}
+
+.dropdown-chevron {
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-chevron.rotated {
+  transform: rotate(180deg);
+}

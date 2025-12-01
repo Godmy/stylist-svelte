@@ -3,6 +3,8 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
+  let variant = 'primary';
+
   let title = $state('Personal Information');
   let description = $state('Please provide your personal details.');
   let collapsed = $state(false);

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SkeletonRectangle from '../SkeletonRectangle.svelte';
+  import SkeletonRectangle from './SkeletonRectangle.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 

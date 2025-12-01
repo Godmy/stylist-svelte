@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { CountBadge, PageEllipsis, StatusIndicator } from '$lib';
+  import { atoms } from '$lib';
   import { Story } from '$lib/playground';
+
+  const { CountBadge, PageEllipsis, StatusIndicator } = atoms;
   import type { ControlConfig } from '$lib/playground';
 
   let count = $state(5);

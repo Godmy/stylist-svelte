@@ -25,7 +25,7 @@
 
   let {
     name,
-    value = $bindable<string | undefined>(),
+    value,
     options,
     label,
     description,
@@ -36,6 +36,16 @@
     class: className = '',
     ...restProps
   }: GroupProps = $props();
+
+  // State for managing the radio group value
+  let internalValue = $state(value || '');
+
+  // Update internal value when prop changes
+  $effect(() => {
+    if (value !== undefined) {
+      internalValue = value;
+    }
+  });
 
   const layoutClass =
     orientation === 'horizontal'

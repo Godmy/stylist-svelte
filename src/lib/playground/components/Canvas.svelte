@@ -3,6 +3,7 @@
   import { playgroundStore } from '../stores/playground.svelte';
   import type { ViewportSize } from '../types';
   import DeviceFrame from './DeviceFrame.svelte';
+  import ErrorBoundary from './ErrorBoundary.svelte';
 
   interface Props {
     component?: ComponentType | null;
@@ -29,7 +30,7 @@
   };
 
   // Get current viewport width
-  const currentViewportWidth = $derived(viewportSizes[playgroundStore.state.viewport]);
+  const currentViewportWidth = $derived(viewportSizes[playgroundStore.state.viewport as ViewportSize]);
 
   // Background classes
   const backgroundClasses: Record<string, string> = {
@@ -41,6 +42,14 @@
 
   const backgroundClass = $derived(backgroundClasses[playgroundStore.uiState.background]);
   const showGrid = $derived(playgroundStore.uiState.showGrid);
+
+  // Debug effect to check reactivity
+  $effect(() => {
+    console.log('[Canvas] Viewport changed:', playgroundStore.state.viewport);
+    console.log('[Canvas] Show device frame:', playgroundStore.uiState.showDeviceFrame);
+    console.log('[Canvas] Show grid:', playgroundStore.uiState.showGrid);
+    console.log('[Canvas] Zoom:', playgroundStore.uiState.zoom);
+  });
 
   // Pan handlers
   function handlePointerDown(e: PointerEvent) {
@@ -191,12 +200,11 @@
               <div class="grid-overlay absolute inset-0 pointer-events-none rounded-[2.5rem]"></div>
             {/if}
             <div class="relative z-10 p-8">
-              {#if component}
-                {@const DynamicComponent = component}
-                <DynamicComponent {...props} />
-              {:else if children}
-                {@render children()}
-              {/if}
+              <ErrorBoundary {component} {props}>
+                {#if children}
+                  {@render children()}
+                {/if}
+              </ErrorBoundary>
             </div>
           </div>
         </DeviceFrame>
@@ -211,12 +219,11 @@
           {/if}
           <!-- Component render area -->
           <div class="relative z-10 p-8">
-            {#if component}
-              {@const DynamicComponent = component}
-              <DynamicComponent {...props} />
-            {:else if children}
-              {@render children()}
-            {/if}
+            <ErrorBoundary {component} {props}>
+              {#if children}
+                {@render children()}
+              {/if}
+            </ErrorBoundary>
           </div>
         </div>
       {/if}

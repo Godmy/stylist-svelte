@@ -1,5 +1,5 @@
 // stylist-coder-model auto-generated exports for canvas
-export { default as CanvasDrawingSurface } from './CanvasDrawingSurface.svelte';
-export { default as CanvasToolbar } from './CanvasToolbar.svelte';
-export { default as ChartCanvas } from './ChartCanvas.svelte';
-export { default as ImageEditorCanvas } from './ImageEditorCanvas.svelte';
+export * from './canvas-drawing-surface';
+export * from './canvas-toolbar';
+export * from './charts';
+export * from './ontology';

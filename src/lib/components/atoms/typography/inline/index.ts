@@ -8,3 +8,4 @@ export * from './inline-code';
 export * from './kbd';
 export * from './link';
 export * from './separator';
+export * from './syntax-highlighted-code';

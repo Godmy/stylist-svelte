@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { PasswordInputStyleManager } from './styles';
   import type { IPasswordInputProps } from './types';
+  import { getPasswordInputContainerClass, getPasswordInputClass, getPasswordInputToggleButtonClass, getPasswordInputHelpTextClass } from './styles';
 
   /**
    * PasswordInput component - displays a password input field with visibility toggle
@@ -11,7 +11,7 @@
    * Open/Closed Principle: The component is closed for modification but open for extension via CSS classes.
    * Liskov Substitution Principle: PasswordInput can be substituted with other password input components without breaking functionality.
    * Interface Segregation Principle: IPasswordInputProps provides a focused interface for the component.
-   * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
+   * Dependency Inversion Principle: Component depends on abstractions (types) rather than concretions.
    */
   let {
     value = $bindable<string>(),
@@ -20,17 +20,16 @@
     required = false,
     error = false,
     helpText,
+    showPassword = false,
+    onTogglePassword,
     ...restProps
-  }: IPasswordInputProps = $props();
+  }: IPasswordInputProps & { showPassword?: boolean; onTogglePassword?: () => void; } = $props();
 
-  // State for password visibility
-  let showPassword = $state(false);
-
-  // Generate the CSS classes using the style manager
-  const containerClass = $derived(PasswordInputStyleManager.generateContainerClass());
-  const inputClass = $derived(PasswordInputStyleManager.generateInputClass(error));
-  const toggleButtonClass = $derived(PasswordInputStyleManager.generateToggleButtonClass());
-  const helpTextClass = $derived(PasswordInputStyleManager.generateHelpTextClass(error));
+  // Generate CSS classes using utility classes
+  const containerClass = $derived(getPasswordInputContainerClass(error));
+  const inputClass = $derived(getPasswordInputClass(error, disabled));
+  const toggleButtonClass = $derived(getPasswordInputToggleButtonClass(disabled));
+  const helpTextClass = $derived(getPasswordInputHelpTextClass(error));
 
   function handleInput(e: Event) {
     const target = e.target as HTMLInputElement;
@@ -38,7 +37,9 @@
   }
 
   function togglePasswordVisibility() {
-    showPassword = !showPassword;
+    if (onTogglePassword) {
+      onTogglePassword();
+    }
   }
 </script>
 
@@ -58,6 +59,7 @@
     class={toggleButtonClass}
     onclick={togglePasswordVisibility}
     aria-label={showPassword ? "Hide password" : "Show password"}
+    disabled={disabled}
   >
     {#if showPassword}
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { playgroundStore } from '../stores/playground.svelte';
+  import type { StoryConfig } from '../types';
 
   let storiesByCategory = $derived(playgroundStore.getStoriesByCategory());
   let currentStoryId = $derived(playgroundStore.state.currentStoryId);
@@ -15,8 +16,8 @@
     const filtered = new Map();
     const query = searchQuery.toLowerCase();
 
-    storiesByCategory.forEach((stories, category) => {
-      const matchedStories = stories.filter(story =>
+    storiesByCategory.forEach((stories: StoryConfig[], category: string) => {
+      const matchedStories = stories.filter((story: StoryConfig) =>
         story.title.toLowerCase().includes(query) ||
         category.toLowerCase().includes(query)
       );

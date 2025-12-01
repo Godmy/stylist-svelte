@@ -1,0 +1,27 @@
+/* Base toggle group item styles */
+.toggle-group-item-base {
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.toggle-group-item-base:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary-500);
+}
+
+/* Active state styles */
+.toggle-group-item-active {
+  background-color: var(--color-background-primary) !important;
+  color: var(--color-text-primary) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Inactive state styles */
+.toggle-group-item-inactive {
+  color: var(--color-text-secondary) !important;
+}
+
+.toggle-group-item-inactive:hover {
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-secondary-100) !important;
+}

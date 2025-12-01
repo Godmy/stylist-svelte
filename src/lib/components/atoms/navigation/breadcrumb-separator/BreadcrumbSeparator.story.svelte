@@ -1,46 +1,58 @@
 <script lang="ts">
-	import { Story } from '$lib/playground';
-	import type { ControlConfig } from '$lib/playground';
-	import BreadcrumbSeparator from '../BreadcrumbSeparator.svelte';
+  import { Story } from '$lib/playground';
+  import type { ControlConfig } from '$lib/playground';
 
-	type Props = {
-		separator: string;
-	};
+  import BreadcrumbSeparator from './BreadcrumbSeparator.svelte';
 
-	const controls: ControlConfig[] = [
-		{ name: 'separator', type: 'text', defaultValue: '/' }
-	];
+  // Define the type for props passed to the children snippet
+  type Props = {
+    children?: string;
+  };
+
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'children', type: 'text', defaultValue: '/' }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 </script>
 
 <Story
-	id="atoms-navigation-breadcrumb-separator"
-	title="BreadcrumbSeparator"
-	component={BreadcrumbSeparator}
-	category="Atoms"
-	description="A visual separator used between items in a breadcrumb navigation."
-	controls={controls}
+  {id}
+  {title}
+  {description}
+  component={BreadcrumbSeparator}
+  category="Atoms"
+  controls={controls}
 >
-	{#snippet children(props: Props)}
-		<div class="flex items-center text-sm">
-			<span class="text-blue-600 hover:underline cursor-pointer">Home</span>
-			<BreadcrumbSeparator separator={props.separator} />
-			<span class="text-blue-600 hover:underline cursor-pointer">Category</span>
-			<BreadcrumbSeparator separator={props.separator} />
-			<span class="text-gray-700">Current Page</span>
-		</div>
+  {#snippet children(props: Props)}
+    <div class="flex items-center text-sm">
+      <span class="text-blue-600 hover:underline cursor-pointer">Home</span>
+      <BreadcrumbSeparator>{props?.children ?? '/'}</BreadcrumbSeparator>
+      <span class="text-blue-600 hover:underline cursor-pointer">Category</span>
+      <BreadcrumbSeparator>{props?.children ?? '/'}</BreadcrumbSeparator>
+      <span class="text-gray-700">Current Page</span>
+    </div>
 
-		<h3 class="mt-8 mb-4 text-lg font-bold">Different Separator Characters</h3>
-		<div class="flex flex-col gap-4">
-			<div class="flex items-center text-sm">
-				<span>Item 1</span>
-				<BreadcrumbSeparator separator=">" />
-				<span>Item 2</span>
-			</div>
-			<div class="flex items-center text-sm">
-				<span>Item A</span>
-				<BreadcrumbSeparator separator="-" />
-				<span>Item B</span>
-			</div>
-		</div>
-	{/snippet}
+    <h3 class="mt-8 mb-4 text-lg font-bold">Different Separator Characters</h3>
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center text-sm">
+        <span>Item 1</span>
+        <BreadcrumbSeparator>&gt;</BreadcrumbSeparator>
+        <span>Item 2</span>
+      </div>
+      <div class="flex items-center text-sm">
+        <span>Item A</span>
+        <BreadcrumbSeparator>-</BreadcrumbSeparator>
+        <span>Item B</span>
+      </div>
+    </div>
+  {/snippet}
 </Story>

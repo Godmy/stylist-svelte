@@ -1,0 +1,69 @@
+<script lang="ts">
+  import type { ITimeSlotProps } from './TimeSlot.types';
+  import { TimeSlotStyleManager } from './TimeSlot.styles';
+
+  // Component props
+  let props: ITimeSlotProps = $props();
+
+  // Destructure props
+  let {
+    start,
+    end,
+    timeLabel,
+    available = true,
+    selected = false,
+    active = false,
+    events = [],
+    class: hostClass = '',
+    onClick,
+    onKeyDown
+  } = $state(props);
+
+  // Computed values
+  const wrapperClasses = $derived(
+    TimeSlotStyleManager.getTimeSlotClasses(available, selected, active, hostClass)
+  );
+
+  function handleClick() {
+    onClick?.({
+      start,
+      end,
+      timeLabel,
+      available,
+      selected,
+      active,
+      events,
+      class: hostClass
+    });
+  }
+
+  function handleKeyDown(e: KeyboardEvent) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleClick();
+    }
+    onKeyDown?.(e);
+  }
+</script>
+
+<!--
+Base TimeSlot component that displays a time interval
+Can be used by various calendar components
+-->
+<div
+  class={wrapperClasses}
+  role="button"
+  tabindex="0"
+  onclick={handleClick}
+  onkeydown={handleKeyDown}
+  aria-label={`Time slot from ${start.toLocaleTimeString()} to ${end.toLocaleTimeString()}, ${available ? 'available' : 'not available'}`}
+>
+  <div class={TimeSlotStyleManager.getTimeLabelClasses()}>
+    {timeLabel}
+  </div>
+  {#if events && events.length > 0}
+    <div class={TimeSlotStyleManager.getEventCountClasses()}>
+      {events.length} {events.length === 1 ? 'event' : 'events'}
+    </div>
+  {/if}
+</div>

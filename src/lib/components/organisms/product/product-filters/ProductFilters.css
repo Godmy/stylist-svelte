@@ -1,0 +1,27 @@
+.product-filters-base {
+  @apply p-4 border rounded-lg bg-gray-50;
+}
+
+.filter-section {
+  @apply mb-4;
+}
+
+.filter-header {
+  @apply font-medium mb-2;
+}
+
+.filter-options {
+  @apply space-y-1;
+}
+
+.filter-controls {
+  @apply flex space-x-2 mt-4;
+}
+
+.filter-apply-button {
+  @apply px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600;
+}
+
+.filter-reset-button {
+  @apply px-4 py-2 border border-gray-300 rounded hover:bg-gray-100;
+}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Story from '$lib/playground/components/Story.svelte';
+  import { Story } from '$lib/playground';
   import NumberFlow from './NumberFlow.svelte';
   import type { ControlConfig } from '$lib/playground';
 
@@ -39,7 +39,7 @@
       options: ['decimal', 'currency', 'percent', 'compact']
     }
   ];
-  
+
   // Helper to convert format string to Intl.NumberFormat options
   const getFormatOptions = (format: string) => {
     switch(format) {

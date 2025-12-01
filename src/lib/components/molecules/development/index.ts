@@ -1,6 +1,11 @@
 // stylist-coder-model auto-generated exports for development
-export { default as CodeEditor } from './CodeEditor.svelte';
-export { default as DebugConsole } from './DebugConsole.svelte';
-export { default as DevelopmentErrorBoundary } from './DevelopmentErrorBoundary.svelte';
-export { default as LoadingBoundary } from './LoadingBoundary.svelte';
-export { default as MockDataSelector } from './MockDataSelector.svelte';
+export * from './code-block-with-line-numbers';
+export * from './code-diff';
+export * from './code-editor';
+export * from './code-section';
+export * from './code-with-copy';
+export * from './component-preview';
+export * from './copyable-code-block';
+export * from './documentation-block';
+export * from './playground';
+export * from './privacy-settings';

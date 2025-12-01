@@ -1,0 +1,31 @@
+.real-time-presence-base {
+  @apply flex items-center space-x-2;
+}
+
+.presence-user {
+  @apply flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-50;
+}
+
+.presence-avatar {
+  @apply w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center;
+}
+
+.presence-status-indicator {
+  @apply w-3 h-3 rounded-full;
+}
+
+.presence-status-online {
+  @apply bg-green-500;
+}
+
+.presence-status-away {
+  @apply bg-yellow-500;
+}
+
+.presence-status-offline {
+  @apply bg-gray-400;
+}
+
+.presence-user-name {
+  @apply text-sm font-medium;
+}

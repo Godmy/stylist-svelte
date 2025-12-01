@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import CodeBlock from '../CodeBlock.svelte';
+  import CodeBlock from './CodeBlock.svelte';
 
   type CodeBlockStoryProps = {
     language: string;

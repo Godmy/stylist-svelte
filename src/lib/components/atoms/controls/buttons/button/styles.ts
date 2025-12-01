@@ -1,9 +1,8 @@
-import type { ButtonVariant, ButtonSize, IButtonStyleClasses } from './types';
+import type { ButtonVariant, ButtonSize } from './types';
 
 /**
- * Style utility class following Single Responsibility Principle
- * Responsible only for managing button styling logic
- * Uses CSS variables from the theme system
+ * Style utility class following Single Responsibility Principle.
+ * Responsible only for managing button styling logic using theme CSS variables.
  */
 export class ButtonStyleManager {
   static getVariantClasses(variant: ButtonVariant): string {
@@ -41,19 +40,6 @@ export class ButtonStyleManager {
     return isBlock ? 'w-full' : '';
   }
 
-  static getAllClasses(variant: ButtonVariant, size: ButtonSize, isDisabled: boolean, isLoading: boolean, isBlock: boolean, className: string): string {
-    const baseClasses = 'button-base inline-flex items-center justify-center font-medium rounded-md transition-colors';
-    const variantClasses = this.getVariantClasses(variant);
-    const sizeClasses = this.getSizeClasses(size);
-    const disabledClass = this.getDisabledClass(isDisabled, isLoading);
-    const blockClass = this.getBlockClass(isBlock);
-
-    // Добавляем классы для лоадера
-    const loaderClasses = this.getLoaderClasses(size);
-
-    return `${baseClasses} ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${loaderClasses} ${className}`;
-  }
-
   static getLoaderClasses(size: ButtonSize): string {
     const loaderSizeClasses: Record<ButtonSize, string> = {
       sm: 'button-size-sm',
@@ -61,6 +47,24 @@ export class ButtonStyleManager {
       lg: 'button-size-lg'
     };
 
-    return `${loaderSizeClasses[size]}`;
+    return loaderSizeClasses[size];
+  }
+
+  static getAllClasses(
+    variant: ButtonVariant,
+    size: ButtonSize,
+    isDisabled: boolean,
+    isLoading: boolean,
+    isBlock: boolean,
+    className: string
+  ): string {
+    const baseClasses = 'button-base inline-flex items-center justify-center font-medium rounded-md transition-colors';
+    const variantClasses = this.getVariantClasses(variant);
+    const sizeClasses = this.getSizeClasses(size);
+    const disabledClass = this.getDisabledClass(isDisabled, isLoading);
+    const blockClass = this.getBlockClass(isBlock);
+    const loaderClasses = this.getLoaderClasses(size);
+
+    return `${baseClasses} ${variantClasses} ${sizeClasses} ${disabledClass} ${blockClass} ${loaderClasses} ${className}`;
   }
 }

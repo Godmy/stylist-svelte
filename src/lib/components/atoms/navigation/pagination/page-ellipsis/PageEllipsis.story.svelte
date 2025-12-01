@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PageEllipsis from '../PageEllipsis.svelte';
+  import PageEllipsis from './PageEllipsis.svelte';
   import { Story } from '$lib/playground';
 
   const pagination = [1, 2, 3, 4, 5, 6, 7];

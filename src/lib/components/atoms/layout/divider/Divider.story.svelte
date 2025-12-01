@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
-  import Divider from '../Divider.svelte';
+  import Divider from './Divider.svelte';
 
   type DividerStoryProps = {
     orientation: 'horizontal' | 'vertical';

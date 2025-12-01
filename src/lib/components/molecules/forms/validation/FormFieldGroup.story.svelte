@@ -3,6 +3,8 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
+  let variant = 'primary';
+
   let label = $state('Email Address');
   let description = $state('We\'ll never share your email with anyone else.');
   let required = $state(false);

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$lib/playground';
 	import type { ControlConfig } from '$lib/playground';
-	import Spacer from '../Spacer.svelte';
+	import Spacer from './Spacer.svelte';
 
 	const axisOptions = ['vertical', 'horizontal'] as const;
 

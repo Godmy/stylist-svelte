@@ -1,2 +1,3 @@
 // stylist-coder-model auto-generated exports for trees
-export { default as TreeNodeItem } from './TreeNodeItem.svelte';
+export * from './tree-node-item';
+export * from './tree-viewer';

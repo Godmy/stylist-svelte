@@ -3,6 +3,8 @@
   import type { ControlConfig } from '$lib/playground';
   import SuggestionsTagInput from './SuggestionsTagInput.svelte';
 
+  let variant = 'primary';
+
   type TagInputStoryProps = {
     label: string;
     placeholder: string;

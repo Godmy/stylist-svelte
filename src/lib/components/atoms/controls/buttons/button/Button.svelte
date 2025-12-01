@@ -28,13 +28,23 @@
   let {
     variant = 'primary',
     size = 'md',
+    ariaLabel = '',
+    loadingLabel = 'Loading...',
     disabled = false,
     loading = false,
     block = false,
     class: className = '',
+    type = 'button',
     children,
     ...restProps
   }: IButtonProps & HTMLButtonAttributes = $props();
+
+  const computedAriaLabel = $derived(
+    ariaLabel ||
+      (typeof (restProps as Record<string, unknown>)['aria-label'] === 'string'
+        ? (restProps as Record<string, string>)['aria-label']
+        : '')
+  );
 
   let classes = $derived(ButtonStyleManager.getAllClasses(
     variant,
@@ -48,12 +58,16 @@
 
 <button
   {...restProps}
+  type={type}
   class={classes}
   aria-busy={loading}
+  aria-live={loading ? 'polite' : undefined}
+  aria-label={computedAriaLabel || undefined}
   disabled={disabled || loading}
 >
   {#if loading}
     <Loader2 class="animate-spin button-loader" aria-hidden="true" />
+    <span class="sr-only">{loadingLabel}</span>
   {/if}
 
   {#if children}

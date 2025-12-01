@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$lib/playground';
 	import type { ControlConfig } from '$lib/playground';
-	import Counter from '$lib/components/atoms/typography/indicators/counter/Counter.svelte';
+	import Counter from './Counter.svelte';
 
 	const variantOptions = ['primary', 'secondary', 'danger', 'success', 'warning', 'info'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;

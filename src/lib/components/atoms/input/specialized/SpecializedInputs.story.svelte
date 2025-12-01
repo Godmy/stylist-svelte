@@ -1,7 +1,10 @@
 <script lang="ts">
   import { Story } from '$lib/playground';
-  import { EmailInput, PasswordInput, PhoneNumberInput } from '$lib';
+  import { atoms, molecules } from '$lib';
   import type { ControlConfig } from '$lib/playground';
+
+  const { EmailInput, PasswordInput } = atoms;
+  const { PhoneNumberInput } = molecules;
 
   type Props = {
     disabled: boolean;

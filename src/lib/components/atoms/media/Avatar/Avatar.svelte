@@ -41,17 +41,20 @@
   let statusColor = $derived(AvatarStyleManager.getStatusClasses(status));
   let statusSizeClasses = $derived(AvatarStyleManager.getStatusSizeClasses(size));
   let classes = $derived(AvatarStyleManager.getAllClasses(size, className));
+  let containerClasses = $derived(`${AvatarStyleManager.getStatusContainerClasses()} ${classes}`);
+  let imageClasses = $derived(AvatarStyleManager.getImageClasses());
+  let fallbackClasses = $derived(AvatarStyleManager.getFallbackClasses());
 </script>
 
-<div class={classes} {...restProps}>
+<div class={containerClasses} {...restProps}>
   {#if src}
     <img
       src={src}
       alt={alt || name || 'Avatar'}
-      class="w-full h-full object-cover rounded-full"
+      class={imageClasses}
     />
   {:else}
-    <div class="w-full h-full flex items-center justify-center">
+    <div class={fallbackClasses}>
       {initials}
     </div>
   {/if}

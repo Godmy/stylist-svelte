@@ -10,17 +10,12 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 export interface IButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  ariaLabel?: string;
+  loadingLabel?: string;
   disabled?: boolean;
   loading?: boolean;
   block?: boolean;
   class?: string;
   children?: Snippet;
   onclick?: (event: MouseEvent) => void;
-}
-
-export interface IButtonStyleClasses {
-  variant: string;
-  size: string;
-  disabled: string;
-  block: string;
 }

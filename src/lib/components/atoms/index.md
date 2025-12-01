@@ -1,92 +1,182 @@
-﻿# Атомы (Atoms)
+# atoms
 
-## Обзор
-Каталог `stylist-svelte/src/lib/components/atoms` содержит примитивы, из которых собираются молекулы и организмы. После реорганизации структура стала пятиуровневой:
-
-1. `controls/` — интерактивные элементы (кнопки, переключатели и т.д.).
-2. `input/` — базовые поля ввода и их вспомогательные части.
-3. `feedback/` — состояния загрузки, прогресс и процессы.
-4. `media/` — графика, аватары, иконки.
-5. `typography/` — текстовые и декоративные элементы (включая анимации/индикаторы).
-
-Каждый раздел имеет собственный `index.ts` и подкаталоги; stories хранятся рядом с компонентами. Ниже приведены подробности.
-
----
-
-## Controls
-`atoms/controls` делится на пять подпапок:
-
-- **buttons/** — `Button`, `IconButton`, `SplitButton`, `CloseButton`.
-- **selectors/** — `Select`, `ColorSwatch` и прочие выпадающие списки.
-- **sliders/** — `RangeSlider`, `SliderTick` (вспомогательная шкала).
-- **toggles/** — `Checkbox`, `Radio`, `Switch`, `Toggle`.
-- **overlays/** — `SimpleTooltip` и другие лёгкие оверлеи (если появятся).
-
-Такое деление упрощает поиск нужного примитива и даёт точные импорты, например:
-```ts
-import { Button, IconButton } from '@stylist/atoms/controls/buttons';
-```
-
----
-
-## Input
-`atoms/input` теперь структурирован следующим образом:
-
-- **base/** — базовые поля (`Input`, `Textarea`).
-- **helpers/** — `FormHelperText`, `FormErrorMessage`, `CharacterCount`, `PinInputDigit`.
-- **specialized/** — поля с дополнительной логикой (например, `EmailInput`).
-
-Это помогает быстро расширять линейку полей, добавляя новые файлы в нужную подпапку и автоматически реэкспортируя их через общий `index.ts`.
-
----
-
-## Feedback
-Ответственных за состояние компонентов теперь три подпапки:
-
-- **placeholders/** — все skeleton-состояния (`Skeleton`, `SkeletonText`, `TableSkeleton`).
-- **process/** — процессы/ожидание (`Spinner`).
-- **progress/** — индикаторы прогресса (`ProgressBar`, `ProgressCircle`), плюс вложенная папка `progress/steps/` для `StepIcon` и `StepConnector`.
-
----
-
-## Media
-`atoms/media` хранит визуальные аватары и обёртки: `Avatar`, `Image`, `Icon`, `IconWrapper`, `CountryFlag`, `Favicon`. Все они экспортируются через единый `index.ts`.
-
----
-
-## Typography
-Текстовые атомы разбиты на несколько тематических подпапок:
-
-- **animation/** — эффект `NumberFlow` (цифровая анимация).
-- **block/** — блочные элементы (`Blockquote`).
-- **elements/** — бейджи, метки (`Badge`, `Chip`, `Label`, `Tag`).
-- **indicators/** — `CountBadge`, `StatusIndicator` и т.д.
-- **inline/** — `Link`, `InlineCode`, `Abbr`, `Strikethrough`, `Highlight` и другие.
-- **tabs/**, **accordion/** — декоративные индикаторы (`TabIndicator`, `AccordionIcon`).
-- **text/** — базовые единицы текста (`Heading`, `Paragraph`, `Text`, `Small`).
-
-Такое дробление позволяет поддерживать иконки/индикаторы рядом с их UX-контекстом, не смешивая их с контролами.
-
----
-
-## Импорт и автогенерация
-Корневой `atoms/index.ts` просто реэкспортирует все подпапки:
-```ts
-export * from './controls';
-export * from './input';
-export * from './feedback';
-export * from './media';
-export * from './typography';
-```
-
-Каждая папка имеет свой `index.ts`, который генерируется скриптом (`tools/generate-atom-index.mjs`). Это гарантирует, что добавление нового файла автоматически делает его доступным потребителям пакета.
-
----
-
-## Правила добавления атомов
-1. Выберите подходящую подпапку (например, новая иконка → `typography/indicators`).
-2. Создайте компонент и story рядом друг с другом (`Component.svelte` + `Component.story.svelte`).
-3. Запустите генератор индексов или добавьте экспорт вручную, если скрипт отсутствует.
-4. Если компонент выходит за рамки атома (например, `ColorPicker` с popover), рассмотрите уровень молекулы.
-
-При необходимости новых категорий придерживайтесь существующего паттерна: папка → `index.ts` → README с описанием.
+Ошибок в папке: 0
+Дерево компонентов проекта
+[0000   002]    [canvas](canvas\index.md)
+[0000   003]     +---[graph](graph\index.md)
+[0000   004]         +---[graph-edge](graph-edge\index.md)
+[0000   005]         +---[graph-node](graph-node\index.md)
+[0000   006]    [communictions](communictions\index.md)
+[0000   007]     +---[chat](chat\index.md)
+[0000   008]         +---[chat-list](chat-list\index.md)
+[0000   009]         +---[chat-preview](chat-preview\index.md)
+[0000   010]     +---[messages](messages\index.md)
+[0000   011]         +---[message-input](message-input\index.md)
+[0000   012]         +---[message-thread](message-thread\index.md)
+[0000   013]    [controls](controls\index.md)
+[0000   014]     +---[accordion](accordion\index.md)
+[0000   015]         +---[accordion-complex](accordion-complex\index.md)
+[0000   016]         +---[accordion-header](accordion-header\index.md)
+[0000   017]         +---[accordion-header-double](accordion-header-double\index.md)
+[0000   018]         +---[accordion-item](accordion-item\index.md)
+[0000   019]         +---[accordion-panel](accordion-panel\index.md)
+[0000   020]     +---[action-segmented-control](action-segmented-control\index.md)
+[0000   021]     +---[buttons](buttons\index.md)
+[0000   022]         +---[action-button](action-button\index.md)
+[0000   023]         +---[button](button\index.md)
+[0000   024]         +---[button-close](button-close\index.md)
+[0000   025]         +---[button-copy](button-copy\index.md)
+[0000   026]         +---[button-group](button-group\index.md)
+[0000   027]         +---[button-icon](button-icon\index.md)
+[0000   028]         +---[button-split](button-split\index.md)
+[0000   029]         +---[page-button](page-button\index.md)
+[0000   030]         +---[quick-access-buttons](quick-access-buttons\index.md)
+[0000   031]     +---[overlays](overlays\index.md)
+[0000   032]         +---[simple-tooltip](simple-tooltip\index.md)
+[0000   033]     +---[sliders](sliders\index.md)
+[0000   034]         +---[slider-tick](slider-tick\index.md)
+[0000   035]     +---[tables](tables\index.md)
+[0000   036]         +---[table](table\index.md)
+[0000   037]         +---[table-body](table-body\index.md)
+[0000   038]         +---[table-cell](table-cell\index.md)
+[0000   039]         +---[table-header](table-header\index.md)
+[0000   040]         +---[table-pagination](table-pagination\index.md)
+[0000   041]         +---[table-row](table-row\index.md)
+[0000   042]     +---[tabs](tabs\index.md)
+[0000   043]         +---[tab](tab\index.md)
+[0000   044]         +---[tab-indicator](tab-indicator\index.md)
+[0000   045]         +---[tab-list](tab-list\index.md)
+[0000   046]         +---[tab-panel](tab-panel\index.md)
+[0000   047]         +---[tab-panels](tab-panels\index.md)
+[0000   048]         +---[tabs](tabs\index.md)
+[0000   049]     +---[toggles](toggles\index.md)
+[0000   050]         +---[advanced-toggle](advanced-toggle\index.md)
+[0000   051]         +---[checkbox](checkbox\index.md)
+[0000   052]         +---[dark-mode-toggle](dark-mode-toggle\index.md)
+[0000   053]         +---[radio](radio\index.md)
+[0000   054]         +---[radio-button-group](radio-button-group\index.md)
+[0000   055]         +---[switch](switch\index.md)
+[0000   056]         +---[toggle](toggle\index.md)
+[0000   057]         +---[toggle-group-item](toggle-group-item\index.md)
+[0000   058]         +---[toggle-group-root](toggle-group-root\index.md)
+[0000   059]    [data-display](data-display\index.md)
+[0000   060]     +---[animated-number](animated-number\index.md)
+[0000   061]     +---[charts](charts\index.md)
+[0000   062]         +---[chart-pie](chart-pie\index.md)
+[0000   063]     +---[color-swatch](color-swatch\index.md)
+[0000   064]     +---[npm-badge](npm-badge\index.md)
+[0000   065]     +---[number-flow](number-flow\index.md)
+[0000   066]    [development](development\index.md)
+[0000   067]     +---[stack](stack\index.md)
+[0000   068]    [feedback](feedback\index.md)
+[0000   069]     +---[alerts](alerts\index.md)
+[0000   070]     +---[loader](loader\index.md)
+[0000   071]     +---[loading-spinner](loading-spinner\index.md)
+[0000   072]     +---[notification](notification\index.md)
+[0000   073]         +---[alert-panel](alert-panel\index.md)
+[0000   074]         +---[notification-badge](notification-badge\index.md)
+[0000   075]     +---[placeholders](placeholders\index.md)
+[0000   076]         +---[card-skeleton](card-skeleton\index.md)
+[0000   077]         +---[skeleton](skeleton\index.md)
+[0000   078]         +---[skeleton-circle](skeleton-circle\index.md)
+[0000   079]         +---[skeleton-rectangle](skeleton-rectangle\index.md)
+[0000   080]         +---[skeleton-table](skeleton-table\index.md)
+[0000   081]         +---[skeleton-text](skeleton-text\index.md)
+[0000   082]     +---[process](process\index.md)
+[0000   083]         +---[spinner](spinner\index.md)
+[0000   084]     +---[progress](progress\index.md)
+[0000   085]         +---[account-progress-tracker](account-progress-tracker\index.md)
+[0000   086]         +---[animated-progress](animated-progress\index.md)
+[0000   087]         +---[progress-bar](progress-bar\index.md)
+[0000   088]         +---[progress-bar-with-label](progress-bar-with-label\index.md)
+[0000   089]         +---[progress-circle](progress-circle\index.md)
+[0000   090]         +---[steps](steps\index.md)
+[0000   091]             +---[StepConnector](StepConnector\index.md)
+[0000   092]             +---[StepIcon](StepIcon\index.md)
+[0000   093]    [input](input\index.md)
+[0000   094]     +---[advanced-input](advanced-input\index.md)
+[0000   095]     +---[base](base\index.md)
+[0000   096]         +---[Input](Input\index.md)
+[0000   097]         +---[Textarea](Textarea\index.md)
+[0000   098]         +---[input-field](input-field\index.md)
+[0000   099]         +---[input-group](input-group\index.md)
+[0000   100]     +---[helpers](helpers\index.md)
+[0000   101]         +---[CharacterCount](CharacterCount\index.md)
+[0000   102]         +---[FormErrorMessage](FormErrorMessage\index.md)
+[0000   103]         +---[FormHelperText](FormHelperText\index.md)
+[0000   104]         +---[PinInputDigit](PinInputDigit\index.md)
+[0000   105]         +---[input-addon](input-addon\index.md)
+[0000   106]     +---[specialized](specialized\index.md)
+[0000   107]         +---[EmailInput](EmailInput\index.md)
+[0000   108]         +---[PasswordInput](PasswordInput\index.md)
+[0000   109]     +---[upload](upload\index.md)
+[0000   110]         +---[file-input](file-input\index.md)
+[0000   111]    [layout](layout\index.md)
+[0000   112]     +---[aspect-ratio](aspect-ratio\index.md)
+[0000   113]     +---[container](container\index.md)
+[0000   114]     +---[divider](divider\index.md)
+[0000   115]     +---[grid-layout](grid-layout\index.md)
+[0000   116]     +---[horizontal-layout](horizontal-layout\index.md)
+[0000   117]     +---[spacer](spacer\index.md)
+[0000   118]    [media](media\index.md)
+[0000   119]     +---[announcement-banner](announcement-banner\index.md)
+[0000   120]     +---[avatar](avatar\index.md)
+[0000   121]     +---[canvas](canvas\index.md)
+[0000   122]     +---[country-flag](country-flag\index.md)
+[0000   123]     +---[favicon](favicon\index.md)
+[0000   124]     +---[icon](icon\index.md)
+[0000   125]     +---[icon-chevron](icon-chevron\index.md)
+[0000   126]     +---[icon-circle](icon-circle\index.md)
+[0000   127]     +---[icon-wrapper](icon-wrapper\index.md)
+[0000   128]     +---[image](image\index.md)
+[0000   129]     +---[image-with-caption](image-with-caption\index.md)
+[0000   130]     +---[picture-toolbar](picture-toolbar\index.md)
+[0000   131]    [navigation](navigation\index.md)
+[0000   132]     +---[breadcrumb](breadcrumb\index.md)
+[0000   133]     +---[breadcrumb-link](breadcrumb-link\index.md)
+[0000   134]     +---[breadcrumb-separator](breadcrumb-separator\index.md)
+[0000   135]     +---[breadcrumbs](breadcrumbs\index.md)
+[0000   136]     +---[pagination](pagination\index.md)
+[0000   137]         +---[page-ellipsis](page-ellipsis\index.md)
+[0000   138]    [product](product\index.md)
+[0000   139]     +---[product-sort](product-sort\index.md)
+[0000   140]    [typography](typography\index.md)
+[0000   141]     +---[block](block\index.md)
+[0000   142]         +---[blockquote](blockquote\index.md)
+[0000   143]     +---[elements](elements\index.md)
+[0000   144]         +---[badge](badge\index.md)
+[0000   145]         +---[badge-group](badge-group\index.md)
+[0000   146]         +---[chip](chip\index.md)
+[0000   147]         +---[code-block](code-block\index.md)
+[0000   148]         +---[label](label\index.md)
+[0000   149]         +---[tag](tag\index.md)
+[0000   150]     +---[indicators](indicators\index.md)
+[0000   151]         +---[count-badge](count-badge\index.md)
+[0000   152]         +---[counter](counter\index.md)
+[0000   153]         +---[dot](dot\index.md)
+[0000   154]         +---[list-item-marker](list-item-marker\index.md)
+[0000   155]         +---[message-status](message-status\index.md)
+[0000   156]         +---[status-indicator](status-indicator\index.md)
+[0000   157]         +---[status-indicator-with-label](status-indicator-with-label\index.md)
+[0000   158]     +---[inline](inline\index.md)
+[0000   159]         +---[abbr](abbr\index.md)
+[0000   160]         +---[definition-description](definition-description\index.md)
+[0000   161]         +---[definition-term](definition-term\index.md)
+[0000   162]         +---[em](em\index.md)
+[0000   163]         +---[highlight](highlight\index.md)
+[0000   164]         +---[inline-code](inline-code\index.md)
+[0000   165]         +---[kbd](kbd\index.md)
+[0000   166]         +---[link](link\index.md)
+[0000   167]         +---[separator](separator\index.md)
+[0000   168]         +---[syntax-highlighted-code](syntax-highlighted-code\index.md)
+[0000   169]     +---[text](text\index.md)
+[0000   170]         +---[caption](caption\index.md)
+[0000   171]         +---[heading](heading\index.md)
+[0000   172]         +---[paragraph](paragraph\index.md)
+[0000   173]         +---[section-heading](section-heading\index.md)
+[0000   174]         +---[small](small\index.md)
+[0000   175]         +---[strike-throught](strike-throught\index.md)
+[0000   176]         +---[strong](strong\index.md)
+[0000   177]         +---[subscript](subscript\index.md)
+[0000   178]         +---[superscript](superscript\index.md)
+[0000   179]         +---[text](text\index.md)

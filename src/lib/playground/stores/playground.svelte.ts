@@ -3,7 +3,14 @@
  * Using Svelte 5 runes for reactive state
  */
 
-import type { PlaygroundState, StoryConfig, ControlConfig, ViewportSize } from '../types';
+import type {
+  PlaygroundState,
+  StoryConfig,
+  ControlConfig,
+  ViewportSize,
+  Notification,
+  NotificationType
+} from '../types';
 import {
   deserializeFromURL,
   updateBrowserURL,
@@ -45,7 +52,16 @@ import {
 export type BackgroundType = 'white' | 'gray' | 'dark' | 'transparent';
 
 // Re-export types for convenience
-export type { PlaygroundState, StoryConfig, ControlConfig, URLState, Preset, HistoryEntry };
+export type {
+  PlaygroundState,
+  StoryConfig,
+  ControlConfig,
+  URLState,
+  Preset,
+  HistoryEntry,
+  Notification,
+  NotificationType
+};
 
 class PlaygroundStore {
   // Core state
@@ -68,8 +84,18 @@ class PlaygroundStore {
     zoom: 1,
     bottomPanelOpen: true,
     showDeviceFrame: false,
-    colorScheme: defaultColorSchemeId as ColorSchemeId
+    colorScheme: defaultColorSchemeId as ColorSchemeId,
+    // Visibility for panels, centralized from layout/page components
+    componentTreeOpen: true,
+    aiPanelOpen: false,
+    // Search and filter state from navigation.ts
+    searchQuery: '',
+    typeFilter: null as string | null
   });
+
+  // Notification state
+  notifications = $state<Notification[]>([]);
+  #notificationIdCounter = 0;
 
   // Stories registry
   stories = $state<Map<string, StoryConfig>>(new Map());
@@ -214,6 +240,36 @@ class PlaygroundStore {
     this.state.sidebarTab = tab;
   }
 
+  // New methods for centralized panel visibility
+  toggleComponentTree() {
+    this.uiState.componentTreeOpen = !this.uiState.componentTreeOpen;
+    // Ensure AI panel is closed if component tree is opened
+    if (this.uiState.componentTreeOpen && this.uiState.aiPanelOpen) {
+      this.uiState.aiPanelOpen = false;
+    }
+  }
+
+  toggleAIPanel() {
+    this.uiState.aiPanelOpen = !this.uiState.aiPanelOpen;
+    // Ensure component tree is closed if AI panel is opened
+    if (this.uiState.aiPanelOpen && this.uiState.componentTreeOpen) {
+      this.uiState.componentTreeOpen = false;
+    }
+  }
+
+  // New methods for centralized navigation state
+  setSearchQuery(query: string) {
+    this.uiState.searchQuery = query;
+  }
+
+  clearSearch() {
+    this.uiState.searchQuery = '';
+  }
+
+  toggleTypeFilter(type: string) {
+    this.uiState.typeFilter = this.uiState.typeFilter === type.toLowerCase() ? null : type.toLowerCase();
+  }
+
   toggleDarkMode() {
     this.state.darkMode = !this.state.darkMode;
     if (this.state.darkMode) {
@@ -259,6 +315,44 @@ class PlaygroundStore {
     this.startAutoSave();
   }
 
+  // Notification Methods
+  addNotification(message: string, type: NotificationType = 'info', duration: number = 3000) {
+    const id = `notification-${Date.now()}-${this.#notificationIdCounter++}`;
+    const notification: Notification = { id, message, type, duration };
+
+    this.notifications = [...this.notifications, notification];
+
+    if (duration > 0) {
+      setTimeout(() => this.removeNotification(id), duration);
+    }
+    return id;
+  }
+
+  removeNotification(id: string) {
+    this.notifications = this.notifications.filter(item => item.id !== id);
+  }
+
+  clearNotifications() {
+    this.notifications = [];
+  }
+
+  success(message: string, duration?: number) {
+    return this.addNotification(message, 'success', duration);
+  }
+
+  error(message: string, duration?: number) {
+    return this.addNotification(message, 'error', duration);
+  }
+
+  warning(message: string, duration?: number) {
+    return this.addNotification(message, 'warning', duration);
+  }
+
+  info(message: string, duration?: number) {
+    return this.addNotification(message, 'info', duration);
+  }
+
+
   // localStorage Persistence Methods
 
   private saveToLocalStorage() {
@@ -280,7 +374,12 @@ class PlaygroundStore {
           zoom: this.uiState.zoom,
           bottomPanelOpen: this.uiState.bottomPanelOpen,
           colorScheme: this.uiState.colorScheme,
-          showDeviceFrame: this.uiState.showDeviceFrame
+          showDeviceFrame: this.uiState.showDeviceFrame,
+          // Persist new UI states
+          componentTreeOpen: this.uiState.componentTreeOpen,
+          aiPanelOpen: this.uiState.aiPanelOpen,
+          searchQuery: this.uiState.searchQuery,
+          typeFilter: this.uiState.typeFilter
         },
         controlValues: this.controlValues,
         timestamp: Date.now()
@@ -352,6 +451,19 @@ class PlaygroundStore {
         if (parsed.uiState.showDeviceFrame !== undefined) {
           this.uiState.showDeviceFrame = parsed.uiState.showDeviceFrame;
         }
+        // Restore new UI states
+        if (parsed.uiState.componentTreeOpen !== undefined) {
+          this.uiState.componentTreeOpen = parsed.uiState.componentTreeOpen;
+        }
+        if (parsed.uiState.aiPanelOpen !== undefined) {
+          this.uiState.aiPanelOpen = parsed.uiState.aiPanelOpen;
+        }
+        if (parsed.uiState.searchQuery) {
+          this.uiState.searchQuery = parsed.uiState.searchQuery;
+        }
+        if (parsed.uiState.typeFilter) {
+          this.uiState.typeFilter = parsed.uiState.typeFilter;
+        }
       }
 
       // Restore control values if no URL props
@@ -383,7 +495,13 @@ class PlaygroundStore {
         this.uiState.zoom,
         this.uiState.bottomPanelOpen,
         this.uiState.colorScheme,
-        this.controlValues
+        this.controlValues,
+        // track new state
+        this.uiState.componentTreeOpen,
+        this.uiState.aiPanelOpen,
+        this.uiState.searchQuery,
+        this.uiState.typeFilter,
+        this.notifications
       ];
 
       // Debounce save
@@ -420,6 +538,12 @@ class PlaygroundStore {
     root.style.setProperty('--playground-glow-light-2', scheme.glowLight[1]);
     root.style.setProperty('--playground-glow-dark-1', scheme.glowDark[0]);
     root.style.setProperty('--playground-glow-dark-2', scheme.glowDark[1]);
+
+    if (scheme.componentTokens?.primary) {
+      Object.entries(scheme.componentTokens.primary).forEach(([scale, value]) => {
+        root.style.setProperty(`--color-primary-${scale}`, value);
+      });
+    }
   }
 
   clearLocalStorage() {

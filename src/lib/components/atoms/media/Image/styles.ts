@@ -1,4 +1,3 @@
-import type { IImageStyleClasses } from './types';
 import {
   CONTAINER_CLASSES,
   IMAGE_WRAPPER_CLASSES,

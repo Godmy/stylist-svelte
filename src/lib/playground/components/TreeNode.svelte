@@ -33,6 +33,7 @@
     onToggle: (path: string) => void;
     onComponentClick: (story: Story) => void;
     selectedStoryId?: string | null;
+    focusedPath?: string | null;
   }
 
   let {
@@ -42,7 +43,8 @@
     categoryConfig,
     onToggle,
     onComponentClick,
-    selectedStoryId = null
+    selectedStoryId = null,
+    focusedPath = null
   }: Props = $props();
 
   const isExpanded = $derived(expandedNodes.has(node.path));
@@ -69,6 +71,9 @@
     (node.type === 'component' && node.story?.id && node.story.id === selectedStoryId) ||
       (node.type === 'folder' && node.autoStory?.id && node.autoStory.id === selectedStoryId)
   );
+
+  // Determine if this node is focused (for keyboard navigation)
+  const isFocused = $derived(focusedPath === node.path);
 </script>
 
 {#if node.type === 'category'}
@@ -77,6 +82,7 @@
     <button
       onclick={() => onToggle(node.path)}
       class="w-full flex items-center gap-2 pr-2 py-2 rounded-lg transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 group"
+      class:focused={isFocused}
       style="padding-left: 0px"
     >
       <!-- Chevron -->
@@ -120,6 +126,7 @@
               {onToggle}
               {onComponentClick}
               {selectedStoryId}
+              {focusedPath}
             />
           {/each}
         </div>
@@ -141,6 +148,7 @@
       class="folder-node w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
       class:auto-selectable={isAutoSelectable}
       class:auto-selected={isAutoSelectable && node.autoStory?.id === selectedStoryId}
+      class:focused={isFocused}
       aria-current={isAutoSelectable && node.autoStory?.id === selectedStoryId ? 'true' : undefined}
     >
       <!-- Chevron -->
@@ -195,6 +203,7 @@
               {onToggle}
               {onComponentClick}
               {selectedStoryId}
+              {focusedPath}
             />
           {/each}
         </div>
@@ -208,6 +217,7 @@
     style={leftPadding}
     class="component-node w-full flex items-center gap-2 pr-2 pl-1 py-1.5 text-xs rounded-md border border-transparent transition-all duration-150 group text-gray-600 dark:text-gray-400"
     class:selected={isSelected}
+    class:focused={isFocused}
     aria-current={isSelected ? 'true' : undefined}
   >
     <span class="component-indicator" aria-hidden="true"></span>
@@ -264,5 +274,17 @@
 
   .folder-node.auto-selectable:hover {
     border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 25%, transparent);
+  }
+
+  /* Keyboard navigation focus styles */
+  button.focused {
+    background-color: rgba(59, 130, 246, 0.1);
+    outline: 2px solid rgba(59, 130, 246, 0.5);
+    outline-offset: -2px;
+  }
+
+  :global(.dark) button.focused {
+    background-color: rgba(59, 130, 246, 0.15);
+    outline-color: rgba(59, 130, 246, 0.6);
   }
 </style>

@@ -1,2 +1,2 @@
 // stylist-coder-model auto-generated exports for pagination
-export { default as AdvancedPagination } from './AdvancedPagination.svelte';
+export { default as Pagination } from './Pagination.svelte';

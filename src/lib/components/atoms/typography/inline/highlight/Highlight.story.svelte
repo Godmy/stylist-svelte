@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Highlight from '../Highlight.svelte';
+  import Highlight from './Highlight.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
@@ -32,7 +32,7 @@
   {#snippet children(props: HighlightStoryProps)}
     <div class="space-y-6">
       <p class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 text-gray-800 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-100">
-        Product reviews surfaced <Highlight className={`${variantClasses[props.variant]} px-1 rounded`}>
+        Product reviews surfaced <Highlight class={`${variantClasses[props.variant]} px-1 rounded`}>
           {props.text}
         </Highlight>
         we almost missed.
@@ -41,7 +41,7 @@
       <div class="grid gap-3 text-sm">
         {#each Object.entries(variantClasses) as [variant, classes]}
           <p class="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 dark:border-gray-800 dark:bg-gray-900">
-            <Highlight className={`${classes} px-1 rounded`}>{variant} marker</Highlight>
+            <Highlight class={`${classes} px-1 rounded`}>{variant} marker</Highlight>
           </p>
         {/each}
       </div>

@@ -2,10 +2,11 @@
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { Loader2 } from 'lucide-svelte';
   import type { Snippet } from 'svelte';
-
   import type { IIconButtonProps } from './types';
-  import { IconButtonStyleManager } from './styles';
-  import './IconButton.css';
+  import {
+    getIconButtonAllClasses,
+    getIconButtonCombinedLoaderClasses
+  } from './styles';
 
   /**
    * IconButton component - A button that primarily displays an icon
@@ -26,8 +27,6 @@
    * @param class - Additional CSS classes
    * @returns An accessible, styled icon button element
    */
-  type Props = IIconButtonProps;
-
   let {
     variant = 'ghost',
     size = 'md',
@@ -37,26 +36,21 @@
     ariaLabel = '',
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: IIconButtonProps = $props();
 
-  let classes = $derived(IconButtonStyleManager.getAllClasses(
-    variant,
-    size,
-    disabled,
-    loading,
-    className
-  ));
+  let buttonClasses = $derived(getIconButtonAllClasses(variant, size, disabled, loading, className));
+  let loaderClasses = $derived(getIconButtonCombinedLoaderClasses(size));
 </script>
 
 <button
   {...restProps}
-  class={classes}
+  class={buttonClasses}
   aria-label={ariaLabel}
   aria-busy={loading}
   disabled={disabled || loading}
 >
   {#if loading}
-    <Loader2 class="animate-spin iconbutton-loader" aria-hidden="true" />
+    <Loader2 class={loaderClasses} aria-hidden="true" />
   {:else if icon !== undefined && icon !== null}
     {@render icon()}
   {/if}

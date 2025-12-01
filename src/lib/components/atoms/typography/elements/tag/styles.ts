@@ -5,9 +5,9 @@ import {
   ENABLED_TAG_CLASSES,
   TAG_VARIANT_CLASSES,
   TAG_SIZE_CLASSES,
-  BASE_CLOSE_BUTTON_CLASSES,
-  DISABLED_CLOSE_BUTTON_CLASSES,
-  CLOSE_BUTTON_ICON_CLASSES
+  TAG_CLOSE_BUTTON_CLASSES,
+  TAG_DISABLED_CLOSE_BUTTON_CLASSES,
+  TAG_CLOSE_BUTTON_ICON_CLASSES
 } from './constant';
 
 export class TagStyleManager {
@@ -29,13 +29,13 @@ export class TagStyleManager {
 
   static getCloseButtonClasses(disabled: boolean): string {
     const classes = [
-      BASE_CLOSE_BUTTON_CLASSES,
-      disabled ? DISABLED_CLOSE_BUTTON_CLASSES : ''
+      TAG_CLOSE_BUTTON_CLASSES,
+      disabled ? TAG_DISABLED_CLOSE_BUTTON_CLASSES : ''
     ];
     return classes.filter(Boolean).join(' ');
   }
 
   static getCloseButtonIconClasses(): string {
-    return CLOSE_BUTTON_ICON_CLASSES;
+    return TAG_CLOSE_BUTTON_ICON_CLASSES;
   }
 }

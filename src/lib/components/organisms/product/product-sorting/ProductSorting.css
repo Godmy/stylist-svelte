@@ -1,0 +1,11 @@
+.product-sorting-base {
+  @apply flex items-center space-x-2;
+}
+
+.product-sort-select {
+  @apply px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.product-sort-label {
+  @apply font-medium;
+}

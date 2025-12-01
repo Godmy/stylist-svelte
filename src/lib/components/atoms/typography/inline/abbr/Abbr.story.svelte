@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Abbr from '../Abbr.svelte';
+  import Abbr from './Abbr.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
@@ -36,7 +36,7 @@
       <div class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40">
         <p class="text-base text-gray-700 dark:text-gray-200 leading-relaxed">
           Build brilliant experiences by connecting your
-          <Abbr title={props.title} className={props.emphasize ? 'text-indigo-600 font-semibold' : ''}>
+          <Abbr title={props.title} class={props.emphasize ? 'text-indigo-600 font-semibold' : ''}>
             {props.label}
           </Abbr>
           with product storytelling. Hover or focus the abbreviation to reveal the expansion.
@@ -47,7 +47,7 @@
         <p class="mb-3 text-sm font-semibold text-gray-600 dark:text-gray-300">Glossary</p>
         <div class="flex flex-wrap gap-4 text-sm text-gray-700 dark:text-gray-200">
           {#each glossary as term}
-            <Abbr title={term.title} className="px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800">
+            <Abbr title={term.title} class="px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800">
               {term.label}
             </Abbr>
           {/each}

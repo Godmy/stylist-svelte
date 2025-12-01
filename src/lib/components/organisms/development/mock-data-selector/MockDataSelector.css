@@ -1,0 +1,11 @@
+.mock-data-selector-base {
+  @apply flex flex-col;
+}
+
+.mock-data-select {
+  @apply w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.mock-data-option {
+  @apply p-1 hover:bg-gray-100;
+}

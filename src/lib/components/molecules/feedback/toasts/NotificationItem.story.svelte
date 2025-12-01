@@ -4,7 +4,7 @@
   import type { ControlConfig } from '$lib/playground';
 
   type NotificationType = 'info' | 'success' | 'warning' | 'error';
-  
+
   let title = $state('Notification Title');
   let message = $state('This is a sample notification message.');
   let type = $state<NotificationType>('info');

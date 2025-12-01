@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { Badge, Chip, CodeBlock, Label, Tag } from '$lib';
+  import { atoms } from '$lib';
   import { Story } from '$lib/playground';
+
+  const { Badge, Chip, CodeBlock, Label, Tag } = atoms;
   import type { ControlConfig } from '$lib/playground';
 
   type BadgeVariant = 'default' | 'success' | 'warning' | 'danger' | 'info';

@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { Abbr, DefinitionDescription, DefinitionTerm, Em, Highlight, Strikethrough, Strong, Subscript, Superscript } from '$lib';
+  import { atoms } from '$lib';
   import { Story } from '$lib/playground';
+
+  const { Abbr, DefinitionDescription, DefinitionTerm, Em, Highlight, Strikethrough, Strong, Subscript, Superscript } = atoms;
   import type { ControlConfig } from '$lib/playground';
 
   let title = $state('Язык');

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Em from '../Em.svelte';
+  import Em from './Em.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
@@ -37,7 +37,7 @@
   {#snippet children(props: EmStoryProps)}
     <div class="space-y-6">
       <p class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 text-base text-gray-700 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-200">
-        Ship confidently by carving time for <Em className={toneClass(props.tone)}>{props.text}</Em> before launch.
+        Ship confidently by carving time for <Em class={toneClass(props.tone)}>{props.text}</Em> before launch.
       </p>
 
       <p class="text-sm text-gray-500 dark:text-gray-400">

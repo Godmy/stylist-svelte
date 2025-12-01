@@ -1,673 +1,2393 @@
-.
-    |   .gitignore
-    |   .npmrc
-    |   .prettierignore
-    |   .prettierrc
-    |   .yarnrc.yml
-    |   CONTRIBUTING.md
-    |   index.md
-    |   LICENSE
-    |   map.md
-    |   nul
-    |   package.json
-    |   package.tgz
-    |   QWEN.md
-    |   README.md
-    |   stylist-svelte-v0.1.0.tgz
-    |   svelte.config.js
-    |   tailwind.config.js
-    |   tsconfig.json
-    |   vite.config.ts
-    |   yarn.lock
-    +---.claude
-        |   settings.local.json
-    +---.yarn
-        |   install-state.gz
-    +---docs
-        +---ad
-            |   ATOMIC_DESIGN_GUIDE.md
-            |   ATOMIC_DESIGN_GUIDE_RU.md
-            |   CanvasComponents.md
-            |   component-diagram.mmd
-            |   GRAPHQL_VISUALIZER_PLAN.md
-            |   GRAPHVIZ_VISUALIZER_PLAN.md
-            |   IMPLEMENTATION_DOCS.md
-            |   PLAYGROUND.md
-        +---adr
-            |   0001-use-svelte-5-runes.md
-            |   0002-use-tailwind-css.md
-            |   0003-build-playground-system.md
-            |   0004-component-architecture.md
-            |   0005-yarn-workspaces.md
-            |   0006-tailwind-postcss-implementation.md
-            |   0007-design-system-types.md
-            |   0007-playground-story-architecture.md
-            |   0008-new-atoms-switch-radio-slider.md
-            |   0008-slot-usage-guidelines.md
-            |   0008-utility-functions-implementation.md
-            |   0009-form-handling-architecture.md
-            |   0009-new-molecules-suite.md
-            |   0010-table-component-architecture.md
-            |   0011-error-types-and-solutions.md
-            |   0012-component-library-error-fixes.md
-            |   0012-error-types-and-solutions.md
-        +---backlog
-            +---errors
-        +---cookbooks
-            |   COOKBOOK_AI_EN.md
-            |   COOKBOOK_HUMAN_RU.md
-        +---source
-            +---yarn
-                +---check
-    +---src
-        |   app.css
-        |   app.html
-        +---lib
-            |   index.ts
-            |   playground.ts
-            +---components
-                |   index.ts
-                +---atoms
-                    |   Card.svelte
-                    |   index.md
-                    |   index.ts
-                    +---controls
-                        |   index.ts
-                        +---buttons
-                            |   Button.story.svelte
-                            |   Button.svelte
-                            |   Buttons.story.svelte
-                            |   CloseButton.svelte
-                            |   IconButton.svelte
-                            |   index.ts
-                            |   SplitButton.svelte
-                        +---overlays
-                            |   index.ts
-                            |   Overlays.story.svelte
-                            |   SimpleTooltip.svelte
-                        +---selectors
-                            |   ColorSwatch.svelte
-                            |   index.ts
-                            |   InputAddon.svelte
-                            |   Select.story.svelte
-                            |   Select.svelte
-                            |   Selectors.story.svelte
-                        +---sliders
-                            |   index.ts
-                            |   RangeSlider.story.svelte
-                            |   RangeSlider.svelte
-                            |   SliderTick.svelte
-                        +---toggles
-                            |   Checkbox.story.svelte
-                            |   Checkbox.svelte
-                            |   index.ts
-                            |   Radio.story.svelte
-                            |   Radio.svelte
-                            |   Switch.story.svelte
-                            |   Switch.svelte
-                            |   Toggle.story.svelte
-                            |   Toggle.svelte
-                    +---feedback
-                        |   index.ts
-                        |   Loader.svelte
-                        +---placeholders
-                            |   index.ts
-                            |   Skeleton.story.svelte
-                            |   Skeleton.svelte
-                            |   SkeletonCircle.svelte
-                            |   SkeletonRectangle.svelte
-                            |   SkeletonText.svelte
-                            |   TableSkeleton.story.svelte
-                            |   TableSkeleton.svelte
-                        +---process
-                            |   index.ts
-                            |   Spinner.story.svelte
-                            |   Spinner.svelte
-                        +---progress
-                            |   index.ts
-                            |   ProgressBar.story.svelte
-                            |   ProgressBar.svelte
-                            |   ProgressCircle.story.svelte
-                            |   ProgressCircle.svelte
-                            +---steps
-                                |   index.ts
-                                |   StepConnector.story.svelte
-                                |   StepConnector.svelte
-                                |   StepIcon.story.svelte
-                                |   StepIcon.svelte
-                    +---input
-                        |   index.ts
-                        +---base
-                            |   index.ts
-                            |   Input.story.svelte
-                            |   Input.svelte
-                            |   Textarea.story.svelte
-                            |   Textarea.svelte
-                        +---helpers
-                            |   CharacterCount.svelte
-                            |   FormErrorMessage.svelte
-                            |   FormHelperText.svelte
-                            |   index.ts
-                            |   PinInputDigit.svelte
-                        +---specialized
-                            |   EmailInput.svelte
-                            |   index.ts
-                            |   PasswordInput.svelte
-                            |   PhoneNumberInput.svelte
-                            |   SpecializedInputs.story.svelte
-                    +---media
-                        |   Avatar.story.svelte
-                        |   Avatar.svelte
-                        |   CountryFlag.svelte
-                        |   Favicon.svelte
-                        |   Icon.story.svelte
-                        |   Icon.svelte
-                        |   IconWrapper.svelte
-                        |   Image.svelte
-                        |   index.ts
-                    +---typography
-                        |   index.ts
-                        +---accordion
-                            |   AccordionIcon.story.svelte
-                            |   AccordionIcon.svelte
-                            |   index.ts
-                        +---animation
-                            |   index.ts
-                            |   NumberFlow.story.svelte
-                            |   NumberFlow.svelte
-                        +---block
-                            |   Block.story.svelte
-                            |   Blockquote.svelte
-                            |   index.ts
-                        +---elements
-                            |   Badge.story.svelte
-                            |   Badge.svelte
-                            |   Chip.story.svelte
-                            |   Chip.svelte
-                            |   CodeBlock.story.svelte
-                            |   CodeBlock.svelte
-                            |   Elements.story.svelte
-                            |   index.ts
-                            |   Label.story.svelte
-                            |   Label.svelte
-                            |   Tag.story.svelte
-                            |   Tag.svelte
-                        +---indicators
-                            |   BreadcrumbSeparator.story.svelte
-                            |   BreadcrumbSeparator.svelte
-                            |   CountBadge.svelte
-                            |   Counter.svelte
-                            |   Dot.story.svelte
-                            |   Dot.svelte
-                            |   index.ts
-                            |   Indicators.story.svelte
-                            |   ListItemMarker.story.svelte
-                            |   ListItemMarker.svelte
-                            |   PageEllipsis.svelte
-                            |   StatusIndicator.svelte
-                        +---inline
-                            |   Abbr.svelte
-                            |   Counter.story.svelte
-                            |   DefinitionDescription.svelte
-                            |   DefinitionTerm.svelte
-                            |   Divider.story.svelte
-                            |   Divider.svelte
-                            |   Em.svelte
-                            |   Highlight.svelte
-                            |   index.ts
-                            |   Inline.story.svelte
-                            |   InlineCode.story.svelte
-                            |   InlineCode.svelte
-                            |   Kbd.story.svelte
-                            |   Kbd.svelte
-                            |   Link.story.svelte
-                            |   Link.svelte
-                            |   Separator.story.svelte
-                            |   Separator.svelte
-                            |   Spacer.story.svelte
-                            |   Spacer.svelte
-                            |   Strikethrough.svelte
-                            |   Strong.svelte
-                            |   Subscript.svelte
-                            |   Superscript.svelte
-                        +---tabs
-                            |   index.ts
-                            |   TabIndicator.story.svelte
-                            |   TabIndicator.svelte
-                        +---text
-                            |   Caption.svelte
-                            |   Heading.svelte
-                            |   index.ts
-                            |   Paragraph.svelte
-                            |   SectionHeading.svelte
-                            |   Small.svelte
-                            |   Text.story.svelte
-                            |   Text.svelte
+components
+    +---index.ts
+    +---atoms
+        +---index.md
+        +---index.ts
+        +---controls
+            +---index.ts
+            +---buttons
+                +---index.ts
+                +---button
+                    +---Button.css
+                    +---Button.story.svelte
+                    +---Button.svelte
+                    +---index.ts
+                    +---readme.md
+                    +---styles.ts
+                    +---types.ts
+                +---button-close
+                    +---CloseButton.css
+                    +---CloseButton.story.svelte
+                    +---CloseButton.svelte
+                    +---index.ts
+                    +---readme.md
+                    +---styles.ts
+                    +---types.ts
+                +---button-icon
+                    +---IconButton.css
+                    +---IconButton.story.svelte
+                    +---IconButton.svelte
+                    +---index.ts
+                    +---readme.md
+                    +---styles.ts
+                    +---types.ts
+                +---button-split
+                    +---SplitButton.css
+                    +---SplitButton.story.svelte
+                    +---SplitButton.svelte
+                    +---index.ts
+                    +---readme.md
+                    +---styles.ts
+                    +---types.ts
+            +---overlays
+                +---index.ts
+                +---simple-tooltip
+                    +---SimpleTooltip.css
+                    +---SimpleTooltip.story.svelte
+                    +---SimpleTooltip.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---selectors
+                +---index.ts
+                +---select
+                    +---Select.css
+                    +---Select.story.svelte
+                    +---Select.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---sliders
+                +---index.ts
+                +---range-slider
+                    +---RangeSlider.css
+                    +---RangeSlider.story.svelte
+                    +---RangeSlider.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---slider-tick
+                    +---SliderTick.story.svelte
+                    +---SliderTick.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---tabs
+                +---index.ts
+                +---tab-indicator
+                    +---TabIndicator.story.svelte
+                    +---TabIndicator.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---toggles
+                +---index.ts
+                +---checkbox
+                    +---Checkbox.story.svelte
+                    +---Checkbox.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---radio
+                    +---Radio.story.svelte
+                    +---Radio.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---switch
+                    +---Switch.story.svelte
+                    +---Switch.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---toggle
+                    +---Toggle.story.svelte
+                    +---Toggle.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+        +---data-display
+            +---index.ts
+            +---animated-number
+                +---AnimatedNumber.story.svelte
+                +---AnimatedNumber.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---color-swatch
+                +---ColorSwatch.story.svelte
+                +---ColorSwatch.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---npm-badge
+                +---NPMBadge.story.svelte
+                +---NPMBadge.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---number-flow
+                +---NumberFlow.story.svelte
+                +---NumberFlow.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+        +---feedback
+            +---index.ts
+            +---loader
+                +---Loader.story.svelte
+                +---Loader.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---placeholders
+                +---index.ts
+                +---skeleton
+                    +---Skeleton.story.svelte
+                    +---Skeleton.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---skeleton-circle
+                    +---SkeletonCircle.story.svelte
+                    +---SkeletonCircle.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---skeleton-rectangle
+                    +---SkeletonRectangle.story.svelte
+                    +---SkeletonRectangle.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---skeleton-table
+                    +---SkeletonTable.story.svelte
+                    +---SkeletonTable.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---skeleton-text
+                    +---SkeletonText.story.svelte
+                    +---SkeletonText.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---process
+                +---index.ts
+                +---spinner
+                    +---Spinner.story.svelte
+                    +---Spinner.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---progress
+                +---index.ts
+                +---progress-bar
+                    +---ProgressBar.story.svelte
+                    +---ProgressBar.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---progress-circle
+                    +---ProgressCircle.story.svelte
+                    +---ProgressCircle.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---steps
+                    +---index.ts
+                    +---StepConnector
+                        +---StepConnector.css
+                        +---StepConnector.story.svelte
+                        +---StepConnector.svelte
+                        +---index.ts
+                        +---styles.ts
+                        +---types.ts
+                    +---StepIcon
+                        +---StepIcon.css
+                        +---StepIcon.story.svelte
+                        +---StepIcon.svelte
+                        +---index.ts
+                        +---styles.ts
+                        +---types.ts
+        +---input
+            +---index.ts
+            +---base
+                +---index.ts
+                +---Input
+                    +---Input.story.svelte
+                    +---Input.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---Textarea
+                    +---Textarea.story.svelte
+                    +---Textarea.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---helpers
+                +---index.ts
+                +---CharacterCount
+                    +---CharacterCount.story.svelte
+                    +---CharacterCount.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---FormErrorMessage
+                    +---FormErrorMessage.story.svelte
+                    +---FormErrorMessage.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---FormHelperText
+                    +---FormHelperText.story.svelte
+                    +---FormHelperText.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---input-addon
+                    +---InputAddon.story.svelte
+                    +---InputAddon.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---PinInputDigit
+                    +---PinInputDigit.story.svelte
+                    +---PinInputDigit.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---specialized
+                +---SpecializedInputs.story.svelte
+                +---index.ts
+                +---EmailInput
+                    +---EmailInput.story.svelte
+                    +---EmailInput.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---PasswordInput
+                    +---PasswordInput.story.svelte
+                    +---PasswordInput.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---PhoneNumberInput
+                    +---PhoneNumberInput.story.svelte
+                    +---PhoneNumberInput.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+        +---layout
+            +---index.ts
+            +---divider
+                +---Divider.story.svelte
+                +---Divider.svelte
+                +---index.ts
+            +---spacer
+                +---Spacer.story.svelte
+                +---Spacer.svelte
+                +---index.ts
+        +---media
+            +---index.ts
+            +---avatar
+                +---Avatar.story.svelte
+                +---Avatar.svelte
+                +---constant.ts
+                +---index.d.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---country-flag
+                +---CountryFlag.story.svelte
+                +---CountryFlag.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---favicon
+                +---Favicon.story.svelte
+                +---Favicon.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---icon
+                +---Icon.story.svelte
+                +---Icon.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---icon-chevron
+                +---IconChevron.story.svelte
+                +---IconChevron.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---icon-circle
+                +---IconCircle.story.svelte
+                +---IconCircle.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---icon-wrapper
+                +---IconWrapper.story.svelte
+                +---IconWrapper.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+            +---image
+                +---Image.story.svelte
+                +---Image.svelte
+                +---constant.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+                +---util.ts
+        +---navigation
+            +---index.ts
+            +---breadcrumb-separator
+                +---BreadcrumbSeparator.story.svelte
+                +---BreadcrumbSeparator.svelte
+                +---index.ts
+            +---pagination
+                +---index.ts
+                +---page-ellipsis
+                    +---PageEllipsis.story.svelte
+                    +---PageEllipsis.svelte
+                    +---index.ts
+        +---typography
+            +---index.ts
+            +---block
+                +---Block.story.svelte
+                +---index.ts
+                +---blockquote
+                    +---Blockquote.story.svelte
+                    +---Blockquote.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                    +---util.ts
+            +---elements
+                +---Elements.story.svelte
+                +---index.ts
+                +---badge
+                    +---Badge.story.svelte
+                    +---Badge.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---types.ts
+                    +---util.ts
+                +---chip
+                    +---Chip.story.svelte
+                    +---Chip.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---code-block
+                    +---CodeBlock.story.svelte
+                    +---CodeBlock.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---label
+                    +---Label.story.svelte
+                    +---Label.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---tag
+                    +---Tag.story.svelte
+                    +---Tag.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---indicators
+                +---Indicators.story.svelte
+                +---index.ts
+                +---count-badge
+                    +---CountBadge.story.svelte
+                    +---CountBadge.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---counter
+                    +---Counter.story.svelte
+                    +---Counter.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---dot
+                    +---Dot.story.svelte
+                    +---Dot.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---list-item-marker
+                    +---ListItemMarker.story.svelte
+                    +---ListItemMarker.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---status-indicator
+                    +---StatusIndicator.story.svelte
+                    +---StatusIndicator.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---inline
+                +---Inline.story.svelte
+                +---index.ts
+                +---abbr
+                    +---Abbr.story.svelte
+                    +---Abbr.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---definition-description
+                    +---DefinitionDescription.story.svelte
+                    +---DefinitionDescription.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---definition-term
+                    +---DefinitionTerm.story.svelte
+                    +---DefinitionTerm.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---em
+                    +---Em.story.svelte
+                    +---Em.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---highlight
+                    +---Highlight.story.svelte
+                    +---Highlight.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---inline-code
+                    +---InlineCode.story.svelte
+                    +---InlineCode.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---kbd
+                    +---Kbd.story.svelte
+                    +---Kbd.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---link
+                    +---Link.story.svelte
+                    +---Link.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---separator
+                    +---Separator.story.svelte
+                    +---Separator.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---text
+                +---index.ts
+                +---caption
+                    +---Caption.story.svelte
+                    +---Caption.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---heading
+                    +---Heading.story.svelte
+                    +---Heading.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---paragraph
+                    +---Paragraph.story.svelte
+                    +---Paragraph.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---section-heading
+                    +---SectionHeading.story.svelte
+                    +---SectionHeading.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---small
+                    +---Small.story.svelte
+                    +---Small.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---strike-throught
+                    +---Strikethrough.story.svelte
+                    +---Strikethrough.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---strong
+                    +---Strong.story.svelte
+                    +---Strong.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---subscript
+                    +---Subscript.story.svelte
+                    +---Subscript.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---superscript
+                    +---Superscript.story.svelte
+                    +---Superscript.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+                +---text
+                    +---Text.story.svelte
+                    +---Text.svelte
+                    +---constant.ts
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+    +---molecules
+        +---index.ts
+        +---temp_svelte_files.txt
+        +---abtest-configurator
+            +---ABTestConfigurator.story.svelte
+            +---ABTestConfigurator.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---accessibility-checkbox
+            +---AccessibilityCheckbox.story.svelte
+            +---AccessibilityCheckbox.svelte
+            +---index.ts
+        +---accessibility-toolbar
+            +---AccessibilityToolbar.story.svelte
+            +---AccessibilityToolbar.svelte
+            +---index.ts
+            +---styles.ts
+        +---accordion
+            +---Accordion.story.svelte
+            +---Accordion.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---account-progress-tracker
+            +---AccountProgressTracker.story.svelte
+            +---AccountProgressTracker.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---account-settings-form
+            +---AccountSettingsForm.story.svelte
+            +---AccountSettingsForm.svelte
+            +---ValidationService.ts
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---action-button
+            +---ActionButton.story.svelte
+            +---ActionButton.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---action-segmented-control
+            +---ActionSegmentedControl.story.svelte
+            +---ActionSegmentedControl.svelte
+            +---index.ts
+        +---address-form
+            +---AddressForm.story.svelte
+            +---AddressForm.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---advanced-accordion
+            +---AdvancedAccordion.story.svelte
+            +---AdvancedAccordion.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---advanced-input
+            +---AdvancedInput.story.svelte
+            +---AdvancedInput.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---advanced-password-input
+            +---AdvancedPasswordInput.story.svelte
+            +---AdvancedPasswordInput.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---advanced-toggle
+            +---AdvancedToggle.story.svelte
+            +---AdvancedToggle.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---ai-ml
+            +---index.ts
+            +---chat-interface
+                +---ChatInterface.story.svelte
+                +---ChatInterface.svelte
+                +---index.ts
+                +---styles.ts
+            +---model-selector
+                +---ModelSelector.story.svelte
+                +---ModelSelector.svelte
+                +---index.ts
+                +---styles.ts
+            +---prediction-result
+                +---PredictionResult.story.svelte
+                +---PredictionResult.svelte
+                +---index.ts
+                +---styles.ts
+            +---prompt-builder
+                +---PromptBuilder.story.svelte
+                +---PromptBuilder.svelte
+                +---index.ts
+                +---styles.ts
+            +---sentiment-analysis
+                +---SentimentAnalysis.story.svelte
+                +---SentimentAnalysis.svelte
+                +---index.ts
+                +---styles.ts
+        +---ai-result-card
+            +---AiResultCard.story.svelte
+            +---AiResultCard.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---alert-card
+            +---AlertCard.story.svelte
+            +---AlertCard.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---alert-panel
+            +---AlertPanel.story.svelte
+            +---AlertPanel.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---analytics
+            +---Analytics.story.svelte
+            +---index.ts
+            +---analytics-chart
+                +---AnalyticsChart.story.svelte
+                +---AnalyticsChart.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---conversion-funnel
+                +---ConversionFunnel.story.svelte
+                +---ConversionFunnel.svelte
+                +---index.ts
+            +---performance-dashboard
+                +---PerformanceDashboard.story.svelte
+                +---PerformanceDashboard.svelte
+                +---index.ts
+            +---traffic-analytics
+                +---TrafficAnalytics.story.svelte
+                +---TrafficAnalytics.svelte
+                +---index.ts
+            +---user-behavior-metrics
+                +---UserBehaviorMetrics.story.svelte
+                +---UserBehaviorMetrics.svelte
+                +---index.ts
+        +---animated-expandable-table-row
+            +---AnimatedExpandableTableRow.story.svelte
+            +---AnimatedExpandableTableRow.svelte
+            +---index.ts
+        +---animated-progress
+            +---AnimatedProgress.story.svelte
+            +---AnimatedProgress.svelte
+            +---index.ts
+        +---announcement-banner
+            +---AnnouncementBanner.story.svelte
+            +---AnnouncementBanner.svelte
+            +---index.ts
+        +---appearance-settings
+            +---AppearanceSettings.story.svelte
+            +---AppearanceSettings.svelte
+            +---index.ts
+        +---article-card
+            +---ArticleCard.story.svelte
+            +---ArticleCard.svelte
+            +---index.ts
+        +---aspect-ratio
+            +---AspectRatio.story.svelte
+            +---AspectRatio.svelte
+            +---index.ts
+        +---attachment-preview
+            +---AttachmentPreview.story.svelte
+            +---AttachmentPreview.svelte
+            +---index.ts
+        +---audio-player
+            +---AudioPlayer.story.svelte
+            +---AudioPlayer.svelte
+            +---index.ts
+        +---audio-slider
+            +---AudioSlider.story.svelte
+            +---AudioSlider.svelte
+            +---index.ts
+        +---audio-visualizer
+            +---AudioVisualizer.story.svelte
+            +---AudioVisualizer.svelte
+            +---index.ts
+        +---auth-guard
+            +---AuthGuard.story.svelte
+            +---AuthGuard.svelte
+            +---index.ts
+        +---auto-complete
+            +---AutoComplete.story.svelte
+            +---AutoComplete.svelte
+            +---index.ts
+        +---auto-search
+            +---AutoSearch.story.svelte
+            +---AutoSearch.svelte
+            +---index.ts
+        +---autocomplete-dropdown
+            +---AutocompleteDropdown.story.svelte
+            +---AutocompleteDropdown.svelte
+            +---index.ts
+        +---avatar-group
+            +---AvatarGroup.story.svelte
+            +---AvatarGroup.svelte
+            +---index.ts
+        +---avatar-selector
+            +---AvatarSelector.story.svelte
+            +---AvatarSelector.svelte
+            +---index.ts
+        +---badge-group
+            +---BadgeGroup.story.svelte
+            +---BadgeGroup.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---bar-chart
+            +---BarChart.story.svelte
+            +---BarChart.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---billing-summary
+            +---BillingSummary.story.svelte
+            +---BillingSummary.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---breadcrumb
+            +---Breadcrumb.story.svelte
+            +---Breadcrumb.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---breadcrumb-link
+            +---BreadcrumbLink.story.svelte
+            +---BreadcrumbLink.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---bulk-order-form
+            +---BulkOrderForm.story.svelte
+            +---BulkOrderForm.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---button-group
+            +---ButtonGroup.story.svelte
+            +---ButtonGroup.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---calendar
+            +---Calendar.story.svelte
+            +---index.ts
+            +---types.ts
+            +---calendar-view
+                +---CalendarView.story.svelte
+                +---CalendarView.svelte
+                +---index.ts
+            +---event-calendar
+                +---EventCalendar.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---mini-calendar
+                +---MiniCalendar.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---schedule-calendar
+                +---ScheduleCalendar.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---time-grid
+                +---TimeGrid.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---canvas
+            +---index.ts
+            +---canvas-chart
+                +---CanvasChart.svelte
+                +---index.ts
+            +---canvas-drawing-surface
+                +---CanvasDrawingSurface.svelte
+                +---index.ts
+            +---canvas-image-editor
+                +---CanvasImageEditor.svelte
+                +---index.ts
+            +---canvas-toolbar
+                +---CanvasToolbar.svelte
+                +---index.ts
+        +---card
+            +---Card.story.svelte
+            +---index.ts
+            +---base
+                +---BaseCard.styles.ts
+                +---BaseCard.svelte
+                +---index.ts
+        +---card-skeleton
+            +---CardSkeleton.story.svelte
+            +---CardSkeleton.svelte
+            +---index.ts
+        +---card-with-image
+            +---CardWithImage.story.svelte
+            +---CardWithImage.svelte
+            +---DataDisplayCard.svelte
+            +---index.ts
+        +---cart-summary
+            +---CartSummary.story.svelte
+            +---CartSummary.svelte
+            +---index.ts
+        +---chat
+            +---index.ts
+            +---atoms
+                +---ChatStatusIndicator.story.svelte
+                +---ChatStatusIndicator.svelte
+                +---MessageStatus.story.svelte
+                +---MessageStatus.svelte
+                +---MessageTimestamp.story.svelte
+                +---MessageTimestamp.svelte
+                +---index.ts
+            +---chat-header
+                +---ChatHeader.svelte
+                +---index.ts
+            +---chat-message
+                +---ChatMessage.svelte
+                +---index.ts
+            +---chat-preview
+                +---ChatPreview.story.svelte
+                +---ChatPreview.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---chat-room
+                +---ChatRoom.svelte
+                +---index.ts
+            +---message-bubble
+                +---MessageBubble.story.svelte
+                +---MessageBubble.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---checkbox-group
+            +---CheckboxGroup.story.svelte
+            +---CheckboxGroup.styles.ts
+            +---CheckboxGroup.svelte
+            +---index.ts
+        +---checkout-form
+            +---CheckoutForm.story.svelte
+            +---CheckoutForm.svelte
+            +---index.ts
+        +---code
+            +---index.ts
+            +---code-editor
+                +---CodeEditor.story.svelte
+                +---CodeEditor.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---component-preview
+                +---ComponentPreview.story.svelte
+                +---ComponentPreview.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---code-block-with-line-numbers
+            +---CodeBlockWithLineNumbers.story.svelte
+            +---CodeBlockWithLineNumbers.svelte
+            +---index.ts
+        +---code-diff
+            +---CodeDiff.story.svelte
+            +---CodeDiff.svelte
+            +---index.ts
+        +---code-editor
+            +---CodeEditor.svelte
+            +---index.ts
+        +---code-with-copy
+            +---CodeWithCopy.story.svelte
+            +---CodeWithCopy.svelte
+            +---index.ts
+        +---collaborative-editor
+            +---CollaborativeEditor.story.svelte
+            +---CollaborativeEditor.svelte
+            +---index.ts
+        +---color-palette
+            +---ColorPalette.story.svelte
+            +---ColorPalette.svelte
+            +---index.ts
+        +---color-picker
+            +---ColorPicker.story.svelte
+            +---ColorPicker.svelte
+            +---index.ts
+        +---comment-system
+            +---CommentSystem.story.svelte
+            +---CommentSystem.svelte
+            +---index.ts
+        +---comment-thread
+            +---CommentThread.story.svelte
+            +---CommentThread.svelte
+            +---index.ts
+        +---comparison-table
+            +---ComparisonTable.story.svelte
+            +---ComparisonTable.svelte
+            +---index.ts
+        +---confirmation-dialog
+            +---ConfirmationDialog.story.svelte
+            +---ConfirmationDialog.svelte
+            +---index.ts
+        +---container
+            +---Container.story.svelte
+            +---Container.svelte
+            +---index.ts
+        +---content-editor
+            +---ContentEditor.story.svelte
+            +---ContentEditor.svelte
+            +---index.ts
+        +---controls
+            +---index.ts
+            +---accordion
+                +---index.ts
+                +---accordion-header
+                    +---AccordionHeader.story.svelte
+                    +---AccordionHeader.svelte
+                    +---index.ts
+                    +---styles.ts
+                    +---types.ts
+            +---copy
+                +---CopyButton.story.svelte
+                +---CopyButton.svelte
+                +---index.ts
+            +---menus
+                +---BurgerMenu.story.svelte
+                +---BurgerMenu.svelte
+                +---DropdownMenu.svelte
+                +---MenuItem.story.svelte
+                +---MenuItem.svelte
+                +---index.ts
+            +---toggles
+                +---ToggleGroupItem.svelte
+                +---ToggleGroupRoot.svelte
+                +---index.ts
+            +---trees
+                +---TreeNodeItem.svelte
+                +---index.ts
+        +---copyable-code-block
+            +---CopyableCodeBlock.story.svelte
+            +---CopyableCodeBlock.svelte
+            +---index.ts
+        +---cross-sell
+            +---CrossSell.story.svelte
+            +---CrossSell.svelte
+            +---ProductCard.svelte
+            +---index.ts
+        +---currency-converter
+            +---CurrencyConverter.story.svelte
+            +---CurrencyConverter.svelte
+            +---index.ts
+        +---dark-mode-toggle
+            +---DarkModeToggle.story.svelte
+            +---DarkModeToggle.svelte
+            +---index.ts
+        +---dashboard-card
+            +---DashboardCard.story.svelte
+            +---DashboardCard.svelte
+            +---DashboardCardAlt.story.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---dashboard-layout
+            +---DashboardLayout.story.svelte
+            +---DashboardLayout.svelte
+            +---index.ts
+        +---data-display
+            +---index.ts
+            +---comparison-card
+                +---ComparisonCard.story.svelte
+                +---ComparisonCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---metric-card
+                +---MetricCard.story.svelte
+                +---MetricCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---process-step
+                +---ProcessStep.story.svelte
+                +---ProcessStep.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---stat-card
+                +---StatCard.story.svelte
+                +---StatCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---data-display-card
+            +---DataDisplayCard.story.svelte
+            +---DataDisplayCard.svelte
+            +---index.ts
+        +---data-exporter
+            +---DataExporter.story.svelte
+            +---DataExporter.svelte
+            +---index.ts
+        +---data-table
+            +---DataTable.story.svelte
+            +---DataTable.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---data-table-advanced
+            +---DataTableAdvanced.story.svelte
+            +---DataTableAdvanced.svelte
+            +---index.ts
+        +---date-range-picker
+            +---DateRangePicker.story.svelte
+            +---DateRangePicker.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---date-time-picker
+            +---DateTimePicker.story.svelte
+            +---DateTimePicker.svelte
+            +---index.ts
+        +---date-time-range-picker
+            +---DateTimeRangePicker.story.svelte
+            +---DateTimeRangePicker.svelte
+            +---index.ts
+        +---debug-console
+            +---DebugConsole.story.svelte
+            +---DebugConsole.svelte
+            +---index.ts
+        +---design-tokens
+            +---DesignTokens.story.svelte
+            +---DesignTokens.svelte
+            +---index.ts
+        +---development-error-boundary
+            +---DevelopmentErrorBoundary.story.svelte
+            +---DevelopmentErrorBoundary.svelte
+            +---index.ts
+        +---dialog
+            +---Dialog.story.svelte
+            +---Dialog.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---discount-applier
+            +---DiscountApplier.story.svelte
+            +---DiscountApplier.svelte
+            +---index.ts
+        +---document-preview
+            +---DocumentPreview.story.svelte
+            +---DocumentPreview.svelte
+            +---index.ts
+        +---drag-and-drop-list
+            +---DragAndDropList.story.svelte
+            +---DragAndDropList.svelte
+            +---index.ts
+        +---drag-drop-file-upload
+            +---DragDropFileUpload.story.svelte
+            +---DragDropFileUpload.svelte
+            +---index.ts
+        +---draggable-card
+            +---DraggableCard.story.svelte
+            +---DraggableCard.svelte
+            +---index.ts
+        +---drawer
+            +---Drawer.story.svelte
+            +---Drawer.svelte
+            +---index.ts
+        +---drop-zone
+            +---DropZone.story.svelte
+            +---DropZone.svelte
+            +---index.ts
+        +---effects
+            +---Effects.story.svelte
+            +---index.ts
+            +---gradient-background
+                +---GradientBackground.story.svelte
+                +---GradientBackground.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---error-boundary
+            +---ErrorBoundary.story.svelte
+            +---ErrorBoundary.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---expandable-card
+            +---ExpandableCard.story.svelte
+            +---ExpandableCard.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---expandable-table-row
+            +---ExpandableTableRow.story.svelte
+            +---ExpandableTableRow.svelte
+            +---index.ts
+        +---feature-toggle
+            +---FeatureToggle.story.svelte
+            +---FeatureToggle.svelte
+            +---index.ts
+        +---feedback
+            +---index.ts
+            +---alerts
+                +---Alert.story.svelte
+                +---Alert.svelte
+                +---ErrorMessage.story.svelte
+                +---ErrorMessage.styles.ts
+                +---ErrorMessage.svelte
+                +---ErrorMessage.types.ts
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---overlays
+                +---LoadingOverlay.styles.ts
+                +---LoadingOverlay.svelte
+                +---LoadingOverlay.types.ts
+                +---index.ts
+            +---states
+                +---EmptyState.story.svelte
+                +---EmptyState.svelte
+                +---index.ts
+            +---toasts
+                +---NotificationItem.story.svelte
+                +---NotificationItem.svelte
+                +---Toast.svelte
+                +---index.ts
+        +---file-browser
+            +---FileBrowser.story.svelte
+            +---FileBrowser.svelte
+            +---index.ts
+        +---file-explorer
+            +---FileExplorer.story.svelte
+            +---FileExplorer.svelte
+            +---index.ts
+        +---file-list-item
+            +---FileListItem.story.svelte
+            +---FileListItem.svelte
+            +---index.ts
+        +---file-management
+            +---index.ts
+            +---download-card
+                +---DownloadCard.story.svelte
+                +---DownloadCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---filter-panel
+            +---FilterPanel.story.svelte
+            +---FilterPanel.svelte
+            +---index.ts
+        +---follow-button
+            +---FollowButton.story.svelte
+            +---FollowButton.svelte
+            +---index.ts
+        +---form-date-picker
+            +---FormDatePicker.story.svelte
+            +---FormDatePicker.svelte
+            +---index.ts
+        +---form-footer
+            +---FormFooter.story.svelte
+            +---FormFooter.svelte
+            +---index.ts
+        +---form-header
+            +---FormHeader.story.svelte
+            +---FormHeader.svelte
+            +---index.ts
+        +---form-with-validation
+            +---FormWithValidation.story.svelte
+            +---FormWithValidation.svelte
+            +---index.ts
+        +---forms
+            +---index.ts
+            +---base
+                +---InputField.svelte
+                +---InputGroup.svelte
+                +---SearchBar.story.svelte
+                +---SearchInput.story.svelte
+                +---index.ts
+            +---composite
+                +---FileUpload.story.svelte
+                +---FileUpload.svelte
+                +---FormSection.story.svelte
+                +---FormSection.svelte
+                +---RadioGroup.story.svelte
+                +---RadioGroup.svelte
+                +---SuggestionsTagInput.svelte
+                +---TagInput.story.svelte
+                +---index.ts
+            +---validation
+                +---FormFieldGroup.story.svelte
+                +---FormFieldGroup.svelte
+                +---index.ts
+        +---friend-list
+            +---FriendList.story.svelte
+            +---FriendList.svelte
+            +---index.ts
+        +---geo-jsonviewer
+            +---GeoJSONViewer.story.svelte
+            +---GeoJSONViewer.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---geo-location-picker
+            +---GeoLocationPicker.story.svelte
+            +---GeoLocationPicker.svelte
+            +---GeoLocationPickerAdvanced.story.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---graph-edge
+            +---GraphEdge.story.svelte
+            +---GraphEdge.svelte
+            +---GraphEdgeAdvanced.story.svelte
+            +---index.ts
+        +---graph-node
+            +---GraphNode.story.svelte
+            +---GraphNode.svelte
+            +---GraphNodeAdvanced.story.svelte
+            +---index.ts
+        +---graph-node-card
+            +---GraphNodeCard.story.svelte
+            +---GraphNodeCard.svelte
+            +---index.ts
+        +---graphviz-cluster
+            +---GraphvizCluster.story.svelte
+            +---GraphvizCluster.svelte
+            +---GraphvizClusterWithTitle.svelte
+            +---index.ts
+        +---graphviz-cluster-with-title
+            +---GraphvizClusterWithTitle.story.svelte
+        +---graphviz-directed-edge
+            +---GraphvizDirectedEdge.story.svelte
+            +---GraphvizDirectedEdge.svelte
+            +---index.ts
+        +---graphviz-edge
+            +---GraphvizEdge.story.svelte
+            +---GraphvizEdge.svelte
+            +---GraphvizEdgeExtra.story.svelte
+            +---index.ts
+        +---graphviz-node
+            +---GraphvizNode.story.svelte
+            +---GraphvizNode.svelte
+            +---GraphvizNodeConnection.svelte
+            +---GraphvizNodeWithLabel.svelte
+            +---index.ts
+        +---graphviz-node-connection
+            +---GraphvizNodeConnection.story.svelte
+        +---graphviz-node-with-label
+            +---GraphvizNodeWithLabel.story.svelte
+            +---GraphvizNodeWithLabelExtra.story.svelte
+        +---graphviz-subgraph
+            +---GraphvizSubgraph.story.svelte
+            +---GraphvizSubgraph.svelte
+            +---GraphvizSubgraphExtra.story.svelte
+            +---index.ts
+        +---graphviz-undirected-edge
+            +---GraphvizUndirectedEdge.story.svelte
+            +---GraphvizUndirectedEdge.svelte
+            +---GraphvizUndirectedEdgeExtra.story.svelte
+            +---index.ts
+        +---grid
+            +---Grid.story.svelte
+            +---Grid.svelte
+            +---GridLayout.svelte
+            +---index.ts
+        +---grid-layout
+            +---GridLayout.story.svelte
+            +---GridLayoutAdvanced.story.svelte
+        +---heatmap
+            +---Heatmap.story.svelte
+            +---Heatmap.svelte
+            +---index.ts
+            +---Heatmap
+                +---Heatmap.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---high-contrast-toggle
+            +---HighContrastToggle.story.svelte
+            +---HighContrastToggle.styles.ts
+            +---HighContrastToggle.svelte
+            +---index.ts
+            +---HighContrastToggle
+                +---index.ts
+                +---types.ts
+        +---horizontal-layout
+            +---HorizontalLayout.story.svelte
+            +---HorizontalLayout.svelte
+            +---index.ts
+        +---icon-picker
+            +---IconPicker.story.svelte
+            +---IconPicker.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---image-gallery
+            +---ImageGallery.story.svelte
+            +---ImageGallery.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---image-with-caption
+            +---ImageWithCaption.story.svelte
+            +---ImageWithCaption.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---input
+            +---index.ts
+            +---base
+                +---SearchInput.svelte
+                +---index.ts
+            +---helpers
+                +---FieldHighlighter.svelte
+                +---index.ts
+            +---pickers
+                +---AdvancedColorPicker.svelte
+                +---DatePicker.svelte
+                +---index.ts
+            +---upload
+                +---FileInput.svelte
+                +---index.ts
+        +---inventory-tracker
+            +---InventoryTracker.story.svelte
+            +---InventoryTracker.svelte
+            +---index.ts
+        +---kpiindicator
+            +---KPIIndicator.story.svelte
+            +---KPIIndicator.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---language-selector
+            +---LanguageSelector.story.svelte
+            +---LanguageSelector.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---lazy-loader
+            +---LazyLoader.story.svelte
+            +---LazyLoader.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---legend-item
+            +---LegendItem.story.svelte
+            +---LegendItem.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---line-chart
+            +---LineChart.story.svelte
+            +---LineChart.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---list-with-avatars
+            +---ListWithAvatars.story.svelte
+            +---ListWithAvatars.svelte
+            +---index.ts
+        +---loading-boundary
+            +---LoadingBoundary.story.svelte
+            +---LoadingBoundary.svelte
+            +---index.ts
+        +---loading-spinner
+            +---LoadingSpinner.story.svelte
+            +---LoadingSpinner.svelte
+            +---index.ts
+        +---locale-switcher
+            +---LocaleSwitcher.story.svelte
+            +---LocaleSwitcher.svelte
+            +---index.ts
+        +---location-picker
+            +---LocationPicker.story.svelte
+            +---LocationPicker.svelte
+            +---index.ts
+        +---location-selector
+            +---LocationSelector.story.svelte
+            +---LocationSelector.svelte
+            +---index.ts
+        +---login-form
+            +---LoginForm.css
+            +---LoginForm.story.svelte
+            +---LoginForm.styles.ts
+            +---LoginForm.svelte
+            +---index.ts
+            +---readme.md
+            +---types.ts
+        +---map-marker
+            +---MapMarker.css
+            +---MapMarker.story.svelte
+            +---MapMarker.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---map-selector
+            +---MapSelector.css
+            +---MapSelector.story.svelte
+            +---MapSelector.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---map-with-markers
+            +---MapWithMarkers.css
+            +---MapWithMarkers.story.svelte
+            +---MapWithMarkers.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---media-library
+            +---MediaLibrary.css
+            +---MediaLibrary.story.svelte
+            +---MediaLibrary.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---message-composer
+            +---MessageComposer.css
+            +---MessageComposer.story.svelte
+            +---MessageComposer.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---message-input
+            +---MessageInput.css
+            +---MessageInput.story.svelte
+            +---MessageInput.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---message-meta
+            +---MessageMeta.css
+            +---MessageMeta.story.svelte
+            +---MessageMeta.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---message-thread
+            +---MessageThread.css
+            +---MessageThread.story.svelte
+            +---MessageThread.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---metric-card
+            +---MetricCard.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---mock-data-selector
+            +---MockDataSelector.css
+            +---MockDataSelector.story.svelte
+            +---MockDataSelector.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---multi-select
+            +---MultiSelect.css
+            +---MultiSelect.story.svelte
+            +---MultiSelect.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---navigation
+            +---Navigation.story.svelte
+            +---index.ts
+            +---category-card
+                +---CategoryCard.story.svelte
+                +---CategoryCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---link-card
+                +---LinkCard.story.svelte
+                +---LinkCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---notification
+            +---Notification.story.svelte
+            +---Notification.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---notification-badge
+            +---NotificationBadge.story.svelte
+            +---NotificationBadge.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---notification-center
+            +---NotificationCenter.story.svelte
+            +---NotificationCenter.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---notification-list
+            +---NotificationList.story.svelte
+            +---NotificationList.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---notification-preferences
+            +---NotificationPreferences.story.svelte
+            +---NotificationPreferences.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---notification-settings
+            +---NotificationSettings.story.svelte
+            +---NotificationSettings.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---number-input
+            +---NumberInput.story.svelte
+            +---NumberInput.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---ontology-edge-component
+            +---OntologyEdgeComponent.story.svelte
+            +---OntologyEdgeComponent.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---ontology-node-component
+            +---OntologyNodeComponent.story.svelte
+            +---OntologyNodeComponent.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---operations-history
+            +---OperationsHistory.story.svelte
+            +---OperationsHistory.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---order-confirmation
+            +---OrderConfirmation.story.svelte
+            +---OrderConfirmation.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---order-history
+            +---OrderHistory.story.svelte
+            +---OrderHistory.svelte
+            +---index.ts
+        +---order-tracking
+            +---OrderTracking.story.svelte
+            +---OrderTracking.svelte
+            +---index.ts
+        +---page-builder
+            +---PageBuilder.md
+            +---PageBuilder.story.svelte
+            +---PageBuilder.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---page-button
+            +---PageButton.story.svelte
+            +---PageButton.svelte
+            +---index.ts
+        +---pagination
+            +---Pagination.story.svelte
+            +---Pagination.svelte
+            +---index.ts
+        +---payment-info
+            +---PaymentInfo.story.svelte
+            +---PaymentInfo.svelte
+            +---index.ts
+        +---payment-method-selector
+            +---PaymentMethodSelector.story.svelte
+            +---PaymentMethodSelector.svelte
+            +---index.ts
+        +---payment-summary
+            +---PaymentSummary.story.svelte
+            +---PaymentSummary.svelte
+            +---index.ts
+        +---performance-monitor
+            +---PerformanceMonitor.story.svelte
+            +---PerformanceMonitor.svelte
+            +---index.ts
+        +---permission-gate
+            +---PermissionGate.story.svelte
+            +---PermissionGate.svelte
+            +---index.ts
+        +---picture-toolbar
+            +---PictureToolbar.story.svelte
+            +---PictureToolbar.svelte
+            +---index.ts
+        +---pie-chart
+            +---PieChart.story.svelte
+            +---PieChart.svelte
+            +---index.ts
+        +---playground
+            +---index.ts
+            +---props-editor
+                +---PropsEditor.story.svelte
+                +---PropsEditor.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---popover
+            +---Popover.story.svelte
+            +---Popover.svelte
+            +---index.ts
+        +---post-card
+            +---PostCard.story.svelte
+            +---PostCard.svelte
+            +---index.ts
+        +---price-alert
+            +---PriceAlert.story.svelte
+            +---PriceAlert.svelte
+            +---index.ts
+        +---price-filter
+            +---PriceFilter.story.svelte
+            +---PriceFilter.svelte
+            +---index.ts
+        +---price-history
+            +---PriceHistory.story.svelte
+            +---PriceHistory.svelte
+            +---index.ts
+        +---price-match
+            +---PriceMatch.story.svelte
+            +---PriceMatch.svelte
+            +---index.ts
+        +---pricing-table
+            +---PricingTable.story.svelte
+            +---PricingTable.svelte
+            +---index.ts
+        +---privacy-settings
+            +---PrivacySettings.story.svelte
+            +---PrivacySettings.svelte
+            +---index.ts
+        +---product-availability
+            +---ProductAvailability.story.svelte
+            +---ProductAvailability.svelte
+            +---index.ts
+        +---product-card
+            +---ProductCard.story.svelte
+            +---ProductCard.svelte
+            +---index.ts
+        +---product-card-compact
+            +---ProductCardCompact.story.svelte
+            +---ProductCardCompact.svelte
+            +---index.ts
+        +---product-card-extended
+            +---ProductCardExtended.story.svelte
+            +---ProductCardExtended.svelte
+            +---index.ts
+        +---product-card-with-actions
+            +---ProductCardWithActions.story.svelte
+            +---ProductCardWithActions.svelte
+            +---index.ts
+        +---product-carousel
+            +---ProductCarousel.story.svelte
+            +---ProductCarousel.svelte
+            +---index.ts
+        +---product-catalog
+            +---ProductCatalog.story.svelte
+            +---ProductCatalog.svelte
+            +---index.ts
+        +---product-comparison
+            +---ProductComparison.story.svelte
+            +---ProductComparison.svelte
+            +---index.ts
+        +---product-comparison-table
+            +---ProductComparisonTable.story.svelte
+            +---ProductComparisonTable.svelte
+            +---index.ts
+        +---product-demo
+            +---ProductDemo.story.svelte
+            +---ProductDemo.svelte
+            +---index.ts
+        +---product-filter
+            +---ProductFilter.story.svelte
+            +---ProductFilter.svelte
+            +---ProductFilters.svelte
+            +---index.ts
+            +---types.ts
+        +---product-filters
+            +---ProductFilters.css
+            +---ProductFilters.story.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---product-gallery
+            +---ProductGallery.story.svelte
+            +---ProductGallery.svelte
+            +---index.ts
+        +---product-recommendation
+            +---ProductRecommendation.story.svelte
+            +---ProductRecommendation.svelte
+            +---index.ts
+        +---product-reviews
+            +---ProductReviews.story.svelte
+            +---ProductReviews.svelte
+            +---index.ts
+        +---product-search
+            +---ProductSearch.story.svelte
+            +---ProductSearch.svelte
+            +---index.ts
+        +---product-sort
+            +---ProductSort.story.svelte
+            +---ProductSort.svelte
+            +---ProductSorting.svelte
+            +---index.ts
+            +---types.ts
+        +---product-sorting
+            +---ProductSorting.css
+            +---ProductSorting.story.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---product-tour
+            +---ProductTour.story.svelte
+            +---ProductTour.svelte
+            +---index.ts
+        +---product-wishlist
+            +---ProductWishlist.story.svelte
+            +---ProductWishlist.svelte
+            +---index.ts
+        +---progress-bar-with-label
+            +---ProgressBarWithLabel.story.svelte
+            +---ProgressBarWithLabel.svelte
+            +---index.ts
+        +---promo-banner
+            +---PromoBanner.story.svelte
+            +---PromoBanner.svelte
+            +---index.ts
+        +---push-notification
+            +---PushNotification.story.svelte
+            +---PushNotification.svelte
+            +---index.ts
+        +---quantity-selector
+            +---QuantitySelector.story.svelte
+            +---QuantitySelector.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---quote-request
+            +---QuoteRequest.css
+            +---QuoteRequest.story.svelte
+            +---QuoteRequest.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---radio-button-group
+            +---RadioButtonGroup.css
+            +---RadioButtonGroup.story.svelte
+            +---RadioButtonGroup.styles.ts
+            +---RadioButtonGroup.svelte
+            +---index.ts
+            +---readme.md
+            +---types.ts
+        +---range-input
+            +---RangeInput.css
+            +---RangeInput.story.svelte
+            +---RangeInput.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---rating
+            +---Rating.story.svelte
+            +---Rating.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---reaction-picker
+            +---ReactionPicker.css
+            +---ReactionPicker.story.svelte
+            +---ReactionPicker.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---real-time-presence
+            +---RealTimePresence.css
+            +---RealTimePresence.story.svelte
+            +---RealTimePresence.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---resource-optimizer
+            +---ResourceOptimizer.css
+            +---ResourceOptimizer.story.svelte
+            +---ResourceOptimizer.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---response-viewer
+            +---ResponseViewer.css
+            +---ResponseViewer.story.svelte
+            +---ResponseViewer.svelte
+            +---index.ts
+            +---readme.md
+            +---styles.ts
+            +---types.ts
+        +---return-policy
+            +---ReturnPolicy.svelte
+            +---index.ts
+        +---rfqform
+            +---RFQForm.svelte
+            +---index.ts
+        +---rich-text-editor
+            +---RichTextEditor.svelte
+            +---index.ts
+        +---route-planner
+            +---RoutePlanner.svelte
+            +---index.ts
+        +---scatter-plot
+            +---ScatterPlot.story.svelte
+            +---ScatterPlot.svelte
+            +---index.ts
+        +---scheduled-notification
+            +---ScheduledNotification.story.svelte
+            +---ScheduledNotification.svelte
+            +---index.ts
+        +---screen-reader
+            +---ScreenReaderTester.story.svelte
+            +---ScreenReaderTester.styles.ts
+            +---ScreenReaderTester.svelte
+            +---index.ts
+        +---search-bar
+            +---SearchBar.story.svelte
+            +---SearchBar.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---search-form
+            +---SearchForm.story.svelte
+            +---SearchForm.svelte
+            +---index.ts
+        +---search-results
+            +---SearchResults.story.svelte
+            +---SearchResults.svelte
+            +---index.ts
+        +---search-suggestion
+            +---SearchSuggestion.story.svelte
+            +---SearchSuggestion.svelte
+            +---index.ts
+        +---secure-form
+            +---SecureForm.story.svelte
+            +---SecureForm.svelte
+            +---index.ts
+        +---security-settings
+            +---SecuritySettings.story.svelte
+            +---SecuritySettings.svelte
+            +---index.ts
+        +---session-manager
+            +---SessionManager.story.svelte
+            +---SessionManager.svelte
+            +---index.ts
+        +---shared-canvas
+            +---SharedCanvas.story.svelte
+            +---SharedCanvas.svelte
+            +---index.ts
+        +---shipping-calculator
+            +---ShippingCalculator.story.svelte
+            +---ShippingCalculator.svelte
+            +---index.ts
+        +---shipping-info
+            +---ShippingInfo.story.svelte
+            +---ShippingInfo.svelte
+            +---index.ts
+        +---side-by-side-layout
+            +---SideBySideLayout.story.svelte
+            +---SideBySideLayout.svelte
+            +---index.ts
+        +---sidebar
+            +---Sidebar.story.svelte
+            +---Sidebar.svelte
+            +---index.ts
+        +---simple-modal
+            +---SimpleModal.story.svelte
+            +---SimpleModal.svelte
+            +---index.ts
+        +---simple-payment-selector
+            +---SimplePaymentSelector.story.svelte
+            +---SimplePaymentSelector.svelte
+            +---index.ts
+        +---slider-with-input
+            +---SliderWithInput.story.svelte
+            +---SliderWithInput.svelte
+            +---index.ts
+        +---social-activity-feed
+            +---SocialActivityFeed.story.svelte
+            +---SocialActivityFeed.svelte
+            +---index.ts
+        +---social-feed
+            +---SocialFeed.story.svelte
+            +---SocialFeed.svelte
+            +---index.ts
+        +---social-login
+            +---SocialLogin.story.svelte
+            +---SocialLogin.svelte
+            +---index.ts
+        +---social-share
+            +---SocialShare.story.svelte
+            +---SocialShare.svelte
+            +---index.ts
+        +---sortable-grid
+            +---SortableGrid.story.svelte
+            +---SortableGrid.svelte
+            +---index.ts
+        +---sortable-list
+            +---SortableList.story.svelte
+            +---SortableList.svelte
+            +---index.ts
+        +---sortable-table-header
+            +---SortableTableHeader.story.svelte
+            +---SortableTableHeader.svelte
+            +---index.ts
+        +---split-layout
+            +---SplitLayout.story.svelte
+            +---SplitLayout.svelte
+            +---index.ts
+        +---stack
+            +---Stack.story.svelte
+            +---Stack.svelte
+            +---StackedLayout.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---stack.story
+            +---Stack.story.svelte
+        +---stacked-layout
+            +---StackedLayout.story.svelte
+        +---stats-card
+            +---StatsCard.story.svelte
+            +---StatsCard.svelte
+            +---index.ts
+        +---status-dashboard
+            +---StatusDashboard.story.svelte
+            +---StatusDashboard.svelte
+            +---index.ts
+        +---status-indicator-with-label
+            +---StatusIndicatorWithLabel.story.svelte
+            +---StatusIndicatorWithLabel.svelte
+            +---index.ts
+        +---stepper
+            +---Stepper.story.svelte
+            +---Stepper.svelte
+            +---index.ts
+        +---store-locator
+            +---StoreLocator.story.svelte
+            +---StoreLocator.svelte
+            +---index.ts
+        +---subscription-manager
+            +---SubscriptionManager.story.svelte
+            +---SubscriptionManager.svelte
+            +---index.ts
+        +---success-message
+            +---SuccessMessage.story.svelte
+            +---SuccessMessage.svelte
+            +---index.ts
+        +---switch-with-label
+            +---SwitchWithLabel.story.svelte
+            +---SwitchWithLabel.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---syntax-highlighted-code
+            +---SyntaxHighlightedCode.story.svelte
+            +---SyntaxHighlightedCode.svelte
+            +---index.ts
+        +---tab-group
+            +---TabGroup.story.svelte
+            +---TabGroup.svelte
+            +---TabGroupAdvanced.story.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---table-with-filters
+            +---TableWithFilters.story.svelte
+            +---TableWithFilters.svelte
+            +---index.ts
+            +---types.ts
+        +---table-with-grouping
+            +---TableWithGrouping.story.svelte
+            +---TableWithGrouping.svelte
+            +---index.ts
+        +---table-with-stripes
+            +---TableWithStripes.story.svelte
+            +---TableWithStripes.svelte
+            +---index.ts
+        +---tag-input
+            +---TagInput.story.svelte
+            +---TagInput.svelte
+            +---index.ts
+        +---tax-calculator
+            +---TaxCalculator.story.svelte
+            +---TaxCalculator.svelte
+            +---index.ts
+        +---team
+            +---index.ts
+            +---team-member-card
+                +---TeamMemberCard.story.svelte
+                +---TeamMemberCard.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---team-avatar-stack
+            +---TeamAvatarStack.story.svelte
+            +---TeamAvatarStack.svelte
+            +---index.ts
+        +---test-results-viewer
+            +---TestResultsViewer.story.svelte
+            +---TestResultsViewer.svelte
+            +---index.ts
+        +---theme-switcher
+            +---ThemeSwitcher.story.svelte
+            +---ThemeSwitcher.svelte
+            +---index.ts
+        +---time-picker
+            +---TimePicker.story.svelte
+            +---TimePicker.svelte
+            +---TimePickerAdvanced.story.svelte
+            +---index.ts
+        +---timeline
+            +---Timeline.story.svelte
+            +---Timeline.svelte
+            +---index.ts
+        +---toast-stack
+            +---ToastStack.story.svelte
+            +---ToastStack.svelte
+            +---index.ts
+        +---toggle-button-group
+            +---ToggleButtonGroup.story.svelte
+            +---ToggleButtonGroup.svelte
+            +---index.ts
+        +---toggle-with-description
+            +---ToggleWithDescription.story.svelte
+            +---ToggleWithDescription.svelte
+            +---index.ts
+        +---toolbar
+            +---Toolbar.story.svelte
+            +---Toolbar.svelte
+            +---index.ts
+        +---tools
+            +---index.ts
+            +---general
+                +---GeneralToolbar.story.svelte
+                +---GeneralToolbar.svelte
+                +---QuickAccessButtons.story.svelte
+                +---QuickAccessButtons.svelte
+                +---index.ts
+        +---tooltip
+            +---Tooltip.story.svelte
+            +---Tooltip.svelte
+            +---index.ts
+        +---tooltip-with-arrow
+            +---TooltipWithArrow.svelte
+            +---index.ts
+        +---translation-editor
+            +---TranslationEditor.story.svelte
+            +---TranslationEditor.svelte
+            +---index.ts
+        +---upload-progress
+            +---UploadProgress.story.svelte
+            +---UploadProgress.svelte
+            +---index.ts
+            +---styles.ts
+            +---types.ts
+        +---upsell
+            +---Upsell.story.svelte
+            +---Upsell.svelte
+            +---UpsellAdvanced.story.svelte
+            +---UpsellExtra.story.svelte
+            +---UpsellVariation2.story.svelte
+            +---UpsellVariation3.story.svelte
+            +---index.ts
+            +---types.ts
+            +---stories
+                +---UpsellStoryShowcase.svelte
+                +---types.ts
+        +---user-card
+            +---UserCard.story.svelte
+            +---UserCard.svelte
+            +---UserCardAdvanced.story.svelte
+            +---UserCardExtra.story.svelte
+            +---UserCardVariation2.story.svelte
+            +---UserCardVariation3.story.svelte
+            +---index.ts
+            +---stories
+                +---UserCardStoryShowcase.svelte
+                +---types.ts
+        +---user-profile-card
+            +---UserProfileCard.story.svelte
+            +---UserProfileCard.svelte
+            +---UserProfileCardAdvanced.story.svelte
+            +---UserProfileCardExtra.story.svelte
+            +---UserProfileCardVariation2.story.svelte
+            +---UserProfileCardVariation3.story.svelte
+            +---index.ts
+            +---stories
+                +---UserProfileStoryShowcase.svelte
+                +---types.ts
+        +---user-status
+            +---UserStatus.story.svelte
+            +---UserStatus.svelte
+            +---UserStatusAdvanced.story.svelte
+            +---UserStatusExtra.story.svelte
+            +---UserStatusVariation2.story.svelte
+            +---UserStatusVariation3.story.svelte
+            +---index.ts
+            +---stories
+                +---UserStatusStoryShowcase.svelte
+                +---types.ts
+        +---variables-editor
+            +---VariablesEditor.story.svelte
+            +---VariablesEditor.svelte
+            +---index.ts
+        +---vertical-layout
+            +---VerticalLayout.story.svelte
+            +---VerticalLayout.svelte
+            +---index.ts
+        +---video-player
+            +---VideoPlayer.story.svelte
+            +---VideoPlayer.svelte
+            +---index.ts
+        +---warning-message
+            +---WarningMessage.svelte
+            +---index.ts
+        +---warranty-info
+            +---WarrantyInfo.svelte
+            +---index.ts
+        +---widget-container
+            +---WidgetContainer.svelte
+            +---index.ts
+        +---wishlist-button
+            +---WishlistButton.svelte
+            +---index.ts
+        +---zip-viewer
+            +---ZipViewer.story.svelte
+            +---ZipViewer.svelte
+            +---index.ts
+        +---zoom-controls
+            +---ZoomControls.svelte
+            +---index.ts
+        +---zoom-toolbar
+            +---ZoomToolbar.svelte
+            +---index.ts
+    +---organisms
+        +---index.ts
+        +---canvas
+            +---CanvasBoard.story.svelte
+            +---CanvasBoard.svelte
+            +---EraserTool.svelte
+            +---PenTool.svelte
+            +---index.ts
+        +---code
+            +---CodeSection.svelte
+            +---DocumentationBlock.svelte
+            +---index.ts
+        +---controls
+            +---Combobox.story.svelte
+            +---Combobox.svelte
+            +---ControlPanel.svelte
+            +---ExportPanel.svelte
+            +---FilterBar.story.svelte
+            +---FilterBar.svelte
+            +---index.ts
+            +---accordion
+                +---AccordionHeader.svelte
+                +---AccordionItem.svelte
+                +---AccordionPanel.svelte
+                +---ComplexAccordion.svelte
+                +---index.ts
+            +---tables
+                +---ColumnManager.story.svelte
+                +---ColumnManager.svelte
+                +---PaginationTable.svelte
+                +---Table.svelte
+                +---TableBody.svelte
+                +---TableCell.svelte
+                +---TableHeader.svelte
+                +---TableRow.svelte
+                +---index.ts
+            +---tabs
+                +---Tab.svelte
+                +---TabList.svelte
+                +---TabPanel.svelte
+                +---TabPanels.svelte
+                +---Tabs.svelte
+                +---index.ts
+            +---trees
+                +---AdvancedVirtualTree.svelte
+                +---FlatTree.svelte
+                +---FolderTree.story.svelte
+                +---FolderTree.svelte
+                +---TreeViewer.svelte
+                +---VirtualTree.svelte
+                +---index.ts
+        +---dialogs
+            +---ConfirmDialog.svelte
+            +---Modal.svelte
+            +---index.ts
+        +---layout
+            +---index.ts
+            +---agile
+                +---Backlog.story.svelte
+                +---Backlog.svelte
+                +---BurnDownChart.story.svelte
+                +---BurnDownChart.svelte
+                +---index.ts
+            +---chat
+                +---ChatItem.svelte
+                +---ChatList.svelte
+                +---ChatWindow.svelte
+                +---MessageItem.svelte
+                +---MessageList.svelte
+                +---index.ts
+                +---types.ts
+            +---hero
+                +---Hero.story.svelte
+                +---Hero.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---kanban
+                +---KanbanBoard.story.svelte
+                +---KanbanBoard.svelte
+                +---KanbanColumn.story.svelte
+                +---KanbanColumn.svelte
+                +---index.ts
                 +---molecules
-                    |   index.ts
-                    +---accessibility
-                        |   AccessibilityToolbar.svelte
-                        |   HighContrastToggle.svelte
-                        |   index.ts
-                        |   ScreenReaderTester.svelte
-                        |   ZoomControls.svelte
-                    +---ai-ml
-                        |   ChatInterface.svelte
-                        |   index.ts
-                        |   ModelSelector.svelte
-                        |   PredictionResult.svelte
-                        |   PromptBuilder.svelte
-                        |   SentimentAnalysis.svelte
-                    +---analytics
-                        |   AnalyticsChart.svelte
-                        |   ConversionFunnel.svelte
-                        |   index.ts
-                        |   PerformanceDashboard.svelte
-                        |   TrafficAnalytics.svelte
-                        |   UserBehaviorMetrics.svelte
-                    +---calendar
-                        |   CalendarView.svelte
-                        |   EventCalendar.svelte
-                        |   index.ts
-                        |   MiniCalendar.svelte
-                        |   ScheduleCalendar.svelte
-                        |   TimeGrid.svelte
-                    +---canvas
-                        |   CanvasDrawingSurface.svelte
-                        |   CanvasToolbar.svelte
-                        |   ChartCanvas.svelte
-                        |   ImageEditorCanvas.svelte
-                        |   index.ts
-                    +---charts
-                        |   BarChart.svelte
-                        |   Heatmap.svelte
-                        |   index.ts
-                        |   LineChart.svelte
-                        |   PieChart.svelte
-                        |   ScatterPlot.svelte
-                    +---chat
-                        |   AttachmentPreview.svelte
-                        |   ChatHeader.svelte
-                        |   ChatMessage.svelte
-                        |   ChatRoom.svelte
-                        |   index.ts
-                        |   MessageComposer.svelte
-                        |   MessageInput.svelte
-                        |   MessageMeta.svelte
-                        |   MessageThread.svelte
-                        |   UserStatus.svelte
-                        +---atoms
-                            |   ChatStatusIndicator.story.svelte
-                            |   ChatStatusIndicator.svelte
-                            |   index.ts
-                            |   MessageStatus.story.svelte
-                            |   MessageStatus.svelte
-                            |   MessageTimestamp.story.svelte
-                            |   MessageTimestamp.svelte
-                    +---code
-                        |   CodeBlockWithLineNumbers.svelte
-                        |   CodeDiff.svelte
-                        |   CodeWithCopy.svelte
-                        |   CopyableCodeBlock.svelte
-                        |   index.ts
-                        |   ResponseViewer.svelte
-                        |   SyntaxHighlightedCode.svelte
-                    +---collaboration
-                        |   CollaborativeEditor.svelte
-                        |   CommentThread.svelte
-                        |   index.ts
-                        |   RealTimePresence.svelte
-                        |   SharedCanvas.svelte
-                        |   TeamAvatarStack.svelte
-                    +---controls
-                        |   index.ts
-                        +---copy
-                            |   CopyButton.story.svelte
-                            |   CopyButton.svelte
-                            |   index.ts
-                        +---menus
-                            |   BurgerMenu.story.svelte
-                            |   BurgerMenu.svelte
-                            |   DropdownMenu.svelte
-                            |   index.ts
-                            |   MenuItem.story.svelte
-                            |   MenuItem.svelte
-                        +---toggles
-                            |   index.ts
-                            |   ToggleGroupItem.svelte
-                            |   ToggleGroupRoot.svelte
-                        +---trees
-                            |   index.ts
-                            |   TreeNodeItem.svelte
-                    +---dashboard
-                        |   DashboardCard.svelte
-                        |   index.ts
-                        |   KPIIndicator.svelte
-                        |   MetricCard.svelte
-                        |   StatusDashboard.svelte
-                        |   WidgetContainer.svelte
-                    +---data-display
-                        |   AvatarGroup.svelte
-                        |   BadgeGroup.svelte
-                        |   Card.svelte
-                        |   CardSkeleton.svelte
-                        |   CardWithImage.svelte
-                        |   ComparisonTable.svelte
-                        |   DataTable.svelte
-                        |   ExpandableCard.svelte
-                        |   ExpandableTableRow.svelte
-                        |   ImageGallery.svelte
-                        |   index.ts
-                        |   ListWithAvatars.svelte
-                        |   ProgressBarWithLabel.svelte
-                        |   Rating.story.svelte
-                        |   Rating.svelte
-                        |   StatsCard.story.svelte
-                        |   StatsCard.svelte
-                        |   StatusIndicatorWithLabel.svelte
-                        |   TableWithStripes.svelte
-                        |   Timeline.svelte
-                        |   UserCard.svelte
-                    +---development
-                        |   CodeEditor.svelte
-                        |   DebugConsole.svelte
-                        |   ErrorBoundary.svelte
-                        |   index.ts
-                        |   LoadingBoundary.svelte
-                        |   MockDataSelector.svelte
-                    +---drag-drop
-                        |   DragAndDropList.svelte
-                        |   DraggableCard.svelte
-                        |   DropZone.svelte
-                        |   index.ts
-                        |   SortableGrid.svelte
-                        |   SortableList.svelte
-                    +---feedback
-                        |   ConfirmationDialog.svelte
-                        |   ErrorBoundary.svelte
-                        |   index.ts
-                        |   LoadingSpinner.svelte
-                        |   SuccessMessage.svelte
-                        |   WarningMessage.svelte
-                        +---alerts
-                            |   Alert.story.svelte
-                            |   Alert.svelte
-                            |   ErrorMessage.svelte
-                            |   index.ts
-                        +---overlays
-                            |   index.ts
-                            |   LoadingOverlay.svelte
-                        +---states
-                            |   EmptyState.story.svelte
-                            |   EmptyState.svelte
-                            |   index.ts
-                        +---toasts
-                            |   index.ts
-                            |   NotificationItem.story.svelte
-                            |   NotificationItem.svelte
-                            |   Toast.svelte
-                    +---file-management
-                        |   FileBrowser.svelte
-                        |   FileExplorer.svelte
-                        |   FileListItem.svelte
-                        |   index.ts
-                        |   UploadProgress.svelte
-                        |   ZipViewer.svelte
-                    +---forms
-                        |   AddressForm.svelte
-                        |   CheckboxGroup.svelte
-                        |   DateRangePicker.svelte
-                        |   DateTimeRangePicker.svelte
-                        |   FormFooter.svelte
-                        |   FormHeader.svelte
-                        |   FormWithValidation.svelte
-                        |   index.ts
-                        |   LoginForm.svelte
-                        |   RadioButtonGroup.svelte
-                        |   SearchForm.svelte
-                        +---base
-                            |   index.ts
-                            |   InputField.svelte
-                            |   InputGroup.svelte
-                            |   SearchBar.story.svelte
-                            |   SearchInput.story.svelte
-                        +---composite
-                            |   FileUpload.story.svelte
-                            |   FileUpload.svelte
-                            |   FormSection.story.svelte
-                            |   FormSection.svelte
-                            |   index.ts
-                            |   RadioGroup.story.svelte
-                            |   RadioGroup.svelte
-                            |   TagInput.story.svelte
-                            |   TagInput.svelte
-                        +---validation
-                            |   FormFieldGroup.story.svelte
-                            |   FormFieldGroup.svelte
-                            |   index.ts
-                    +---graph
-                        |   GraphEdge.svelte
-                        |   GraphNode.svelte
-                        |   index.ts
-                    +---input
-                        |   index.ts
-                        +---base
-                            |   index.ts
-                            |   SearchInput.svelte
-                        +---helpers
-                            |   FieldHighlighter.svelte
-                            |   index.ts
-                        +---pickers
-                            |   ColorPicker.svelte
-                            |   DatePicker.svelte
-                            |   index.ts
-                        +---upload
-                            |   FileInput.svelte
-                            |   index.ts
-                    +---internationalization
-                        |   index.ts
-                        |   LanguageSelector.svelte
-                        |   LocaleSwitcher.svelte
-                        |   TranslationEditor.svelte
-                    +---layout
-                        |   AspectRatio.story.svelte
-                        |   AspectRatio.svelte
-                        |   Container.story.svelte
-                        |   Container.svelte
-                        |   index.ts
-                        |   Stack.story.svelte
-                        |   Stack.svelte
-                    +---media
-                        |   AudioPlayer.svelte
-                        |   ImageWithCaption.svelte
-                        |   index.ts
-                        |   VideoPlayer.svelte
-                    +---navigation
-                        |   Breadcrumb.story.svelte
-                        |   Breadcrumb.svelte
-                        |   BreadcrumbLink.svelte
-                        |   index.ts
-                        |   PageButton.svelte
-                    +---search
-                        |   index.ts
-                        |   SearchBar.svelte
-                    +---security
-                        |   AuthGuard.svelte
-                        |   index.ts
-                        |   PermissionGate.svelte
-                        |   SecureForm.svelte
-                        |   SessionManager.svelte
-                    +---settings
-                        |   AccountSettingsForm.svelte
-                        |   AppearanceSettings.svelte
-                        |   index.ts
-                        |   NotificationSettings.svelte
-                        |   PrivacySettings.svelte
-                        |   SecuritySettings.svelte
-                    +---testing
-                        |   ABTestConfigurator.svelte
-                        |   FeatureToggle.svelte
-                        |   index.ts
-                        |   TestResultsViewer.svelte
-                    +---tools
-                        |   ButtonGroup.svelte
-                        |   ColorPalette.svelte
-                        |   DesignTokens.svelte
-                        |   FilterPanel.svelte
-                        |   IconPicker.svelte
-                        |   index.ts
-                        |   OperationsHistory.svelte
-                        |   PictureToolbar.svelte
-                        |   ThemeSwitcher.svelte
-                        |   Toolbar.svelte
-                        |   VariablesEditor.svelte
-                        |   ZoomToolbar.svelte
-                        +---general
-                            |   index.ts
-                            |   QuickAccessButtons.svelte
-                            |   Toolbar.svelte
-                    +---tooltips
-                        |   index.ts
-                        |   Tooltip.story.svelte
-                        |   Tooltip.svelte
-                    +---visualization
-                        |   GraphNodeCard.svelte
-                        |   GraphvizCluster.svelte
-                        |   GraphvizClusterWithTitle.svelte
-                        |   GraphvizDirectedEdge.svelte
-                        |   GraphvizEdge.svelte
-                        |   GraphvizNode.svelte
-                        |   GraphvizNodeConnection.svelte
-                        |   GraphvizNodeWithLabel.svelte
-                        |   GraphvizSubgraph.svelte
-                        |   GraphvizUndirectedEdge.svelte
-                        |   index.ts
-                        |   LegendItem.svelte
-                        |   OntologyEdgeComponent.svelte
-                        |   OntologyNodeComponent.svelte
-                +---organisms
-                    |   index.ts
-                    +---canvas
-                        |   CanvasBoard.svelte
-                        |   EraserTool.svelte
-                        |   index.ts
-                        |   PenTool.svelte
-                    +---code
-                        |   CodeSection.svelte
-                        |   DocumentationBlock.svelte
-                        |   index.ts
-                    +---controls
-                        |   Combobox.story.svelte
-                        |   Combobox.svelte
-                        |   ControlPanel.svelte
-                        |   ExportPanel.svelte
-                        |   FilterBar.story.svelte
-                        |   FilterBar.svelte
-                        |   index.ts
-                        +---accordion
-                            |   Accordion.svelte
-                            |   AccordionHeader.svelte
-                            |   AccordionItem.svelte
-                            |   AccordionPanel.svelte
-                            |   index.ts
-                        +---tables
-                            |   ColumnManager.story.svelte
-                            |   ColumnManager.svelte
-                            |   index.ts
-                            |   PaginationTable.svelte
-                            |   Table.svelte
-                            |   TableBody.svelte
-                            |   TableCell.svelte
-                            |   TableHeader.svelte
-                            |   TableRow.svelte
-                        +---tabs
-                            |   index.ts
-                            |   Tab.svelte
-                            |   TabList.svelte
-                            |   TabPanel.svelte
-                            |   TabPanels.svelte
-                            |   Tabs.svelte
-                        +---trees
-                            |   AdvancedVirtualTree.svelte
-                            |   FlatTree.svelte
-                            |   FolderTree.story.svelte
-                            |   FolderTree.svelte
-                            |   index.ts
-                            |   TreeViewer.svelte
-                            |   VirtualTree.svelte
-                    +---dialogs
-                        |   ConfirmDialog.svelte
-                        |   index.ts
-                        |   Modal.svelte
-                    +---layout
-                        |   index.ts
-                        +---agile
-                            |   Backlog.story.svelte
-                            |   Backlog.svelte
-                            |   BurnDownChart.story.svelte
-                            |   BurnDownChart.svelte
-                            |   index.ts
-                        +---chat
-                            |   ChatItem.svelte
-                            |   ChatList.svelte
-                            |   ChatWindow.svelte
-                            |   index.ts
-                            |   MessageItem.svelte
-                            |   MessageList.svelte
-                        +---kanban
-                            |   index.ts
-                            |   KanbanBoard.story.svelte
-                            |   KanbanBoard.svelte
-                            |   KanbanColumn.story.svelte
-                            |   KanbanColumn.svelte
-                            +---molecules
-                                |   index.ts
-                                |   KanbanCard.story.svelte
-                                |   KanbanCard.svelte
-                    +---navigation
-                        |   index.ts
-                        +---breadcrumbs
-                            |   Breadcrumbs.svelte
-                            |   index.ts
-                        +---pagination
-                            |   index.ts
-                            |   Pagination.svelte
-            +---playground
-                |   index.ts
-                +---components
-                    |   Canvas.svelte
-                    |   CodeViewer.svelte
-                    |   index.ts
-                    |   MarkdownRenderer.svelte
-                    |   Navigator.svelte
-                    |   PlaygroundControlPanel.svelte
-                    |   PlaygroundToolbar.svelte
-                    |   Story.svelte
-                    |   StoryRoot.svelte
-                +---stores
-                    |   index.ts
-                    |   playground.svelte.ts
-                +---types
-                    |   index.ts
-                +---utils
-                    |   code-generator.ts
-                    |   index.ts
-                    |   keyboard.ts
-                    |   syntax-highlighter.ts
-            +---styles
-                |   design-tokens.css
-                |   index.ts
-                |   variables.css
-            +---types
-                |   components.ts
-                |   design-tokens.ts
-                |   form.ts
-                |   index.ts
-                |   table.ts
-            +---utils
-                |   clipboard.ts
-                |   debounce.ts
-                |   index.ts
-        +---routes
-            |   +layout.svelte
-            |   +page.svelte
+                    +---KanbanCard.story.svelte
+                    +---KanbanCard.svelte
+                    +---index.ts
+        +---marketing
+            +---index.ts
+            +---cta-banner
+                +---CTABanner.story.svelte
+                +---CTABanner.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+        +---navigation
+            +---breadcrumb.types.ts
+            +---index.ts
+            +---breadcrumbs
+                +---Breadcrumbs.story.svelte
+                +---Breadcrumbs.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---page-header
+                +---PageHeader.story.svelte
+                +---PageHeader.svelte
+                +---index.ts
+                +---styles.ts
+                +---types.ts
+            +---pagination
+                +---AdvancedPagination.svelte
+                +---index.ts
+    +---output
+        +---index.ts
+        +---notification
+            +---Notification.styles.ts
+            +---Notification.svelte
+            +---Notification.types.ts
+            +---index.ts
+        +---time-slot
+            +---TimeSlot.adapters.ts
+            +---TimeSlot.styles.ts
+            +---TimeSlot.svelte
+            +---TimeSlot.types.ts
+            +---index.ts

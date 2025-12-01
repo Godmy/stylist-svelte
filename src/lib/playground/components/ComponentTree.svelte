@@ -38,6 +38,10 @@
   let expandedNodes = $state<Set<string>>(new Set());
   const storyPathMap = new Map<string, string[]>();
 
+  // Keyboard navigation state
+  let focusedPath = $state<string | null>(null);
+  let treeContainer: HTMLDivElement;
+
   // Category configuration
   const categoryConfig: Record<string, {
     icon: any;
@@ -195,6 +199,7 @@
       expandedNodes.add(path);
     }
     expandedNodes = new Set(expandedNodes);
+    focusedPath = path; // Update focus when toggling
   }
 
   function annotateAutoSelectable(node: TreeNodeData) {
@@ -212,7 +217,119 @@
     if (onComponentSelect) {
       onComponentSelect(story.id);
     }
+    // Update focus to the clicked component
+    const storyPath = Array.from(storyPathMap.entries()).find(([id]) => id === story.id)?.[1];
+    if (storyPath && storyPath.length > 0) {
+      focusedPath = storyPath[storyPath.length - 1];
+    }
   }
+
+  // Build flat list of visible nodes for keyboard navigation
+  function buildFlatNodeList(): string[] {
+    const flatList: string[] = [];
+
+    function traverse(node: TreeNodeData) {
+      flatList.push(node.path);
+
+      // Only traverse children if node is expanded
+      if (expandedNodes.has(node.path) && node.children && node.children.length > 0) {
+        node.children.forEach(traverse);
+      }
+    }
+
+    tree.forEach(traverse);
+    return flatList;
+  }
+
+  const flatNodeList = $derived(buildFlatNodeList());
+
+  // Handle keyboard navigation
+  function handleKeyDown(event: KeyboardEvent) {
+    const handledKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' '];
+    if (!handledKeys.includes(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const currentIndex = focusedPath ? flatNodeList.indexOf(focusedPath) : -1;
+
+    // Arrow Up/Down: Navigate through visible nodes
+    if (event.key === 'ArrowDown') {
+      const nextIndex = currentIndex < flatNodeList.length - 1 ? currentIndex + 1 : currentIndex;
+      if (nextIndex !== currentIndex || currentIndex === -1) {
+        focusedPath = flatNodeList[nextIndex];
+      }
+    } else if (event.key === 'ArrowUp') {
+      const nextIndex = currentIndex > 0 ? currentIndex - 1 : 0;
+      if (nextIndex !== currentIndex || currentIndex === -1) {
+        focusedPath = flatNodeList[nextIndex];
+      }
+    }
+
+    // Arrow Left/Right and Enter/Space: Interact with focused node
+    if (focusedPath) {
+      const focusedNode = findNodeByPath(tree, focusedPath);
+      if (!focusedNode) return;
+
+      if (event.key === 'ArrowRight') {
+        // Expand node if it's a folder/category and collapsed
+        if ((focusedNode.type === 'folder' || focusedNode.type === 'category') &&
+            !expandedNodes.has(focusedPath)) {
+          toggleNode(focusedPath);
+        }
+      } else if (event.key === 'ArrowLeft') {
+        // Collapse node if it's a folder/category and expanded
+        if ((focusedNode.type === 'folder' || focusedNode.type === 'category') &&
+            expandedNodes.has(focusedPath)) {
+          toggleNode(focusedPath);
+        }
+      } else if (event.key === 'Enter' || event.key === ' ') {
+        // Activate the focused node
+        if (focusedNode.type === 'component' && focusedNode.story) {
+          handleComponentClick(focusedNode.story);
+        } else if (focusedNode.type === 'folder' && focusedNode.autoStory) {
+          handleComponentClick(focusedNode.autoStory);
+        } else {
+          toggleNode(focusedPath);
+        }
+      }
+    }
+  }
+
+  // Helper to find node by path
+  function findNodeByPath(nodes: TreeNodeData[], path: string): TreeNodeData | null {
+    for (const node of nodes) {
+      if (node.path === path) return node;
+      if (node.children) {
+        const found = findNodeByPath(node.children, path);
+        if (found) return found;
+      }
+    }
+    return null;
+  }
+
+  // Initialize focus on first item
+  $effect(() => {
+    if (flatNodeList.length > 0 && !focusedPath) {
+      focusedPath = flatNodeList[0];
+    }
+  });
+
+  // Auto-scroll to focused element
+  $effect(() => {
+    if (!focusedPath || !treeContainer) return;
+
+    // Find the focused button element
+    const focusedElement = treeContainer.querySelector(`button.focused`);
+    if (focusedElement) {
+      focusedElement.scrollIntoView({
+        block: 'nearest',
+        behavior: 'smooth'
+      });
+    }
+  });
 
   $effect(() => {
     if (!selectedStoryId) return;
@@ -235,7 +352,14 @@
   });
 </script>
 
-<div class="tree-container bg-white dark:bg-gray-900 p-3">
+<div
+  bind:this={treeContainer}
+  class="tree-container bg-white dark:bg-gray-900 p-3"
+  tabindex="0"
+  onkeydown={handleKeyDown}
+  role="tree"
+  aria-label="Component tree"
+>
   <nav class="space-y-1">
     {#each tree as categoryNode}
       <TreeNode
@@ -246,6 +370,7 @@
         onToggle={toggleNode}
         onComponentClick={handleComponentClick}
         {selectedStoryId}
+        {focusedPath}
       />
     {/each}
   </nav>
@@ -258,6 +383,10 @@
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .tree-container:focus {
+    outline: none;
   }
 
   /* Custom scrollbar */

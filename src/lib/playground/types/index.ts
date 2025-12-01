@@ -81,3 +81,12 @@ export interface NavigatorItem {
   category?: string;
   children?: NavigatorItem[];
 }
+
+export type NotificationType = 'success' | 'error' | 'warning' | 'info';
+
+export interface Notification {
+  id: string;
+  message: string;
+  type: NotificationType;
+  duration?: number;
+}

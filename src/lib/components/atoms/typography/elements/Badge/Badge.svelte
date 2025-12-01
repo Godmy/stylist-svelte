@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { BadgeProps } from './types';
   import { BADGE_DEFAULT_VARIANT, BADGE_DEFAULT_SIZE } from './constant';
-  import { getBadgeClasses } from './util';
+  import { BadgeStyleManager } from './styles';
 
   let {
     variant = BADGE_DEFAULT_VARIANT,
@@ -10,7 +10,7 @@
     children
   }: BadgeProps = $props();
 
-  const classes = getBadgeClasses(variant, size, className);
+  const classes = BadgeStyleManager.getBadgeClasses(variant, size, className);
 </script>
 
 <span class={classes}>

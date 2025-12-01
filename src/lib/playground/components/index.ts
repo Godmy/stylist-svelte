@@ -10,6 +10,7 @@ export { default as ComponentTree } from './ComponentTree.svelte';
 export { default as DeviceFrame } from './DeviceFrame.svelte';
 export { default as DeviceSelector } from './DeviceSelector.svelte';
 export { default as EnhancedExportPanel } from './EnhancedExportPanel.svelte';
+export { default as ErrorBoundary } from './ErrorBoundary.svelte';
 export { default as GenericCodeViewer } from './GenericCodeViewer.svelte';
 export { default as HistoryPanel } from './HistoryPanel.svelte';
 export { default as MarkdownRenderer } from './MarkdownRenderer.svelte';

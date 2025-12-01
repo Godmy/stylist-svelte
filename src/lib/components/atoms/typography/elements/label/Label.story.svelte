@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story, type ControlConfig } from '$lib/playground';
-  import Label from '../Label.svelte';
-  import Input from '../../input/base/Input.svelte';
+  import Label from './Label.svelte';
+  import { Input } from '../../../input/base/Input';
 
   const controls: ControlConfig[] = [
     {

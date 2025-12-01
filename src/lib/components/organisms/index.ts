@@ -1,7 +1,22 @@
-// stylist-coder-model auto-generated exports for organisms
-export * from './canvas';
-export * from './code';
-export * from './controls';
-export * from './dialogs';
-export * from './layout';
-export * from './navigation';
+// stylist-coder-model auto-generated exports for organisms (namespaced to avoid collisions)
+export * as calendar from './calendar';
+export * as canvas from './canvas';
+export * as card from './card';
+export * as commerce from './commerce';
+export * as communication from './communication';
+export * as communictions from './communictions';
+export * as content from './content';
+export * as controls from './controls';
+export * as dashboards from './dashboards';
+export * as development from './development';
+export * as dialogs from './dialogs';
+export * as feedback from './feedback';
+export * as files from './files';
+export * as forms from './forms';
+export * as geo from './geo';
+export * as input from './input';
+export * as layout from './layout';
+export * as marketing from './marketing';
+export * as media from './media';
+export * as navigation from './navigation';
+export * as product from './product';

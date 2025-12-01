@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$lib/playground';
 	import type { ControlConfig } from '$lib/playground';
-	import Dot from '../Dot.svelte';
+	import Dot from './Dot.svelte';
 
 	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'gray'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;

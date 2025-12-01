@@ -3,6 +3,8 @@
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
+  let variant = 'primary';
+
   let accept = $state('.pdf,.doc,.docx,.xls,.xlsx,.txt');
   let maxSize = $state(10 * 1024 * 1024); // 10MB
   let multiple = $state(false);

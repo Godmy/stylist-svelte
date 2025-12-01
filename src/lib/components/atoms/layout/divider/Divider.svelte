@@ -1,14 +1,5 @@
 <script lang="ts">
-  type Orientation = 'horizontal' | 'vertical';
-  type Align = 'start' | 'center' | 'end';
-
-  type Props = {
-    orientation?: Orientation;
-    label?: string;
-    align?: Align;
-    dashed?: boolean;
-    class?: string;
-  };
+  import type { IDividerProps, DividerOrientation, DividerAlign } from './types';
 
   let {
     orientation = 'horizontal',
@@ -16,12 +7,12 @@
     align = 'center',
     dashed = false,
     class: className = ''
-  }: Props = $props();
+  }: IDividerProps = $props();
 
   const isHorizontal = $derived(orientation === 'horizontal');
 
 const baseLineClass = $derived(
-  dashed ? 'border-dashed border-gray-300' : 'border-solid border-gray-200'
+  dashed ? 'border-dashed border-[--color-border-secondary]' : 'border-solid border-[--color-border-secondary]'
 );
 
 const leftLineFlex = $derived(
@@ -34,10 +25,10 @@ const rightLineFlex = $derived(
 </script>
 
 {#if isHorizontal}
-  <div class="flex items-center text-sm text-gray-500 {className}">
+  <div class="flex items-center text-sm text-[--color-text-secondary] {className}">
     <span class="{leftLineFlex} border-t {baseLineClass}"></span>
     {#if label}
-      <span class="px-3 uppercase tracking-widest text-xs font-medium">{label}</span>
+      <span class="px-3 uppercase tracking-widest text-xs font-medium text-[--color-text-tertiary]">{label}</span>
     {/if}
     <span class="{rightLineFlex} border-t {baseLineClass}"></span>
   </div>

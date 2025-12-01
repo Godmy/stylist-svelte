@@ -54,4 +54,16 @@ export class AvatarStyleManager {
 
     return `${baseClasses} ${sizeClasses} ${className}`;
   }
+
+  static getImageClasses(): string {
+    return "w-full h-full object-cover rounded-full";
+  }
+
+  static getFallbackClasses(): string {
+    return "w-full h-full flex items-center justify-center";
+  }
+
+  static getStatusContainerClasses(): string {
+    return "relative";
+  }
 }

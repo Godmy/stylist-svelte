@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from 'svelte/elements';
-
-  import type { ISwitchProps, SwitchSize } from './types';
+  import type { ISwitchProps } from './types';
   import { SwitchStyleManager } from './styles';
 
   /**
@@ -24,8 +23,6 @@
    * @param class - Additional CSS classes
    * @returns A toggle switch with optional label and description
    */
-  type Props = ISwitchProps;
-
   let {
     id,
     label,
@@ -36,16 +33,15 @@
     required = false,
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: ISwitchProps = $props();
 
-  let labelClasses = $derived(SwitchStyleManager.getLabelClasses(disabled, className));
-  let trackClasses = $derived(SwitchStyleManager.getTrackClasses(size, checked));
-  let inputClasses = $derived(SwitchStyleManager.getInputClasses());
-  let knobClasses = $derived(SwitchStyleManager.getKnobClasses(size, checked));
-  let labelTextClasses = $derived(SwitchStyleManager.getLabelTextClasses());
-  let labelTitleClasses = $derived(SwitchStyleManager.getLabelTitleClasses());
-  let labelDescriptionClasses = $derived(SwitchStyleManager.getLabelDescriptionClasses());
-  let requiredMarkerClasses = $derived(SwitchStyleManager.getRequiredMarkerClasses());
+  const labelClasses = SwitchStyleManager.getLabelClasses(disabled, className);
+  const trackClasses = SwitchStyleManager.getTrackClasses(size, checked);
+  const knobClasses = SwitchStyleManager.getKnobClasses(size, checked);
+  const labelTextClasses = SwitchStyleManager.getLabelTextClasses();
+  const labelTitleClasses = SwitchStyleManager.getLabelTitleClasses();
+  const labelDescriptionClasses = SwitchStyleManager.getLabelDescriptionClasses();
+  const requiredMarkerClasses = SwitchStyleManager.getRequiredMarkerClasses();
 </script>
 
 <label class={labelClasses}>
@@ -53,7 +49,7 @@
     <input
       id={id}
       type="checkbox"
-      class={inputClasses}
+      class={SwitchStyleManager.getInputClasses()}
       bind:checked
       disabled={disabled}
       required={required}

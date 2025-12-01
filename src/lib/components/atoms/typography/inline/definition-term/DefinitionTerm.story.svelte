@@ -1,6 +1,6 @@
 <script lang="ts">
-  import DefinitionTerm from '../DefinitionTerm.svelte';
-  import DefinitionDescription from '../DefinitionDescription.svelte';
+  import DefinitionTerm from './DefinitionTerm.svelte';
+  import { DefinitionDescription } from '../../../typography/inline/definition-description';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 
@@ -48,10 +48,10 @@
   {#snippet children(props: DefinitionTermStoryProps)}
     <div class="space-y-6">
       <dl class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40">
-        <DefinitionTerm className={props.highlight ? 'text-indigo-600' : ''}>
+        <DefinitionTerm class={props.highlight ? 'text-indigo-600' : ''}>
           {props.term}
         </DefinitionTerm>
-        <DefinitionDescription className="text-sm leading-relaxed">
+        <DefinitionDescription class="text-sm leading-relaxed">
           {props.description}
         </DefinitionDescription>
       </dl>

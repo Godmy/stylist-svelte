@@ -1,10 +1,12 @@
 <script lang="ts">
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { X, Loader2 } from 'lucide-svelte';
-
   import type { ICloseButtonProps } from './types';
-  import { CloseButtonStyleManager } from './styles';
-  import './CloseButton.css';
+  import {
+    getCloseButtonCombinedClasses,
+    getLoaderClasses,
+    getIconClasses
+  } from './styles';
 
   /**
    * CloseButton component - A standardized close button (X icon)
@@ -23,8 +25,6 @@
    * @param class - Additional CSS classes
    * @returns A standardized close button with X icon
    */
-  type Props = ICloseButtonProps;
-
   let {
     size = 'md',
     variant = 'ghost',
@@ -32,27 +32,23 @@
     loading = false,
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: ICloseButtonProps = $props();
 
-  let classes = $derived(CloseButtonStyleManager.getAllClasses(
-    size,
-    variant,
-    disabled,
-    loading,
-    className
-  ));
+  let buttonClasses = $derived(getCloseButtonCombinedClasses(size, variant, disabled, loading, className));
+  let loaderClasses = $derived(getLoaderClasses(size));
+  let iconClasses = $derived(getIconClasses());
 </script>
 
 <button
   {...restProps}
-  class={classes}
+  class={buttonClasses}
   aria-label="Close"
   aria-busy={loading}
   disabled={disabled || loading}
 >
   {#if loading}
-    <Loader2 class="animate-spin closebutton-loader" aria-hidden="true" />
+    <Loader2 class={loaderClasses} aria-hidden="true" />
   {:else}
-    <X class="w-full h-full" />
+    <X class={iconClasses} />
   {/if}
 </button>

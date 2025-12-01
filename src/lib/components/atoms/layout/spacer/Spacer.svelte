@@ -9,13 +9,11 @@
 		class?: string;
 	}>();
 
-	const width = axis === 'horizontal' ? (typeof size === 'number' ? `${size}px` : size) : '1px';
-	const height = axis === 'vertical' ? (typeof size === 'number' ? `${size}px` : size) : '1px';
+	const sizeValue = typeof size === 'number' ? `${size}px` : size;
 </script>
 
 <div
-	style:width={width}
-	style:height={height}
-	class={`inline-block flex-shrink-0 ${className}`}
+	class={`inline-block flex-shrink-0 ${axis === 'horizontal' ? 'w-[--spacer-size]' : 'h-[--spacer-size]'} ${className}`}
+	style="--spacer-size: {sizeValue}"
 	aria-hidden="true"
 ></div>

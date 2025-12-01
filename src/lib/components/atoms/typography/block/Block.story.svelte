@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { Blockquote } from '$lib';
+  import { atoms } from '$lib';
   import { Story } from '$lib/playground';
+
+  const { Blockquote } = atoms;
   import type { ControlConfig } from '$lib/playground';
 
   let text = $state('Это цитата, которая используется для выделения чужой речи или важной мысли.');

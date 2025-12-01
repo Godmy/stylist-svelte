@@ -1,6 +1,8 @@
 <script lang="ts">
-  import { Caption, Heading, Paragraph, SectionHeading, Small, Text } from '$lib';
+  import { atoms } from '$lib';
   import { Story } from '$lib/playground';
+
+  const { Caption, Heading, Paragraph, SectionHeading, Small, Text } = atoms;
   import type { ControlConfig } from '$lib/playground';
 
   type TextSize = 'sm' | 'md' | 'lg';

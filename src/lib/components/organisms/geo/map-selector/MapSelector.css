@@ -1,0 +1,11 @@
+.map-selector-base {
+  @apply flex flex-col;
+}
+
+.map-selector-container {
+  @apply w-full h-96 rounded-lg border border-gray-300 overflow-hidden;
+}
+
+.map-selector-controls {
+  @apply mt-4 flex space-x-2;
+}

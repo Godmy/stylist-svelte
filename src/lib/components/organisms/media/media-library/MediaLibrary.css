@@ -1,0 +1,19 @@
+.media-library-base {
+  @apply flex flex-col;
+}
+
+.media-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 p-4;
+}
+
+.media-item {
+  @apply rounded-lg overflow-hidden border bg-white hover:shadow-md transition-shadow cursor-pointer;
+}
+
+.media-item.selected {
+  @apply ring-2 ring-blue-500;
+}
+
+.media-upload {
+  @apply border-2 border-dashed border-gray-300 rounded-lg p-6 text-center cursor-pointer hover:bg-gray-50;
+}

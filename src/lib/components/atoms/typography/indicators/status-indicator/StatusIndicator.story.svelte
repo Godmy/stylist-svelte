@@ -1,5 +1,5 @@
 <script lang="ts">
-  import StatusIndicator from '../StatusIndicator.svelte';
+  import StatusIndicator from './StatusIndicator.svelte';
   import { Story } from '$lib/playground';
   import type { ControlConfig } from '$lib/playground';
 

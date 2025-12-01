@@ -1,14 +1,13 @@
 <script lang="ts">
   import type { HTMLImgAttributes } from 'svelte/elements';
   import type { IImageProps } from './types';
-  import { ImageStyleManager } from './styles';
   import { DEFAULT_LOADING_STRATEGY } from './constant';
 
   /**
    * Image component - A flexible image component with fallback and loading states
    *
    * Following SOLID principles:
-   * - Single Responsibility: Only handles image rendering and state
+   * - Single Responsibility: Only handles image rendering
    * - Open/Closed: Extendable through properties but closed for modification
    * - Liskov Substitution: Can be substituted with other image components
    * - Interface Segregation: Small focused interface
@@ -22,9 +21,18 @@
    * @param height - Height of the image
    * @param class - Additional CSS classes
    * @param content - Snippet content to show while loading
+   * @param loaded - Whether the image has loaded
+   * @param error - Whether there was an error loading the image
+   * @param onLoad - Callback when image loads
+   * @param onError - Callback when image errors
    * @returns An accessible, styled image element
    */
-  type Props = IImageProps & HTMLImgAttributes;
+  type Props = IImageProps & HTMLImgAttributes & {
+    loaded?: boolean;
+    error?: boolean;
+    onLoad?: () => void;
+    onError?: () => void;
+  };
 
   let {
     src,
@@ -35,31 +43,35 @@
     height,
     class: className = '',
     content,
+    loaded = false,
+    error = false,
+    onLoad,
+    onError,
     ...restProps
   }: Props = $props();
 
-  let imageError = $state(false);
-  let imageLoaded = $state(false);
-
   function handleError() {
-    if (fallback && !imageError) {
-      imageError = true;
+    if (onError) {
+      onError();
     }
   }
 
   function handleLoad() {
-    imageLoaded = true;
+    if (onLoad) {
+      onLoad();
+    }
   }
 
-  let imageSource = $derived(imageError && fallback ? fallback : src);
+  let imageSource = $derived(error && fallback ? fallback : src);
 
-  let imageClass = $derived(ImageStyleManager.getAllClasses(className, imageLoaded));
-  let containerClass = $derived(ImageStyleManager.getContainerClasses());
-  let wrapperClass = $derived(ImageStyleManager.getWrapperClasses());
+  // Generate CSS classes using utility classes
+  let imageClass = $derived(`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`);
+  let containerClass = $derived('relative inline-block');
+  let wrapperClass = $derived('absolute inset-0 flex items-center justify-center');
 </script>
 
 <div class={containerClass}>
-  {#if content && !imageLoaded && !imageError}
+  {#if content && !loaded && !error}
     <div class={wrapperClass}>
       {@render content()}
     </div>

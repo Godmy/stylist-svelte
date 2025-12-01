@@ -1,17 +1,20 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Check } from 'lucide-svelte';
+  import { Check, X } from 'lucide-svelte';
   import type { Snippet } from 'svelte';
 
   import type { IStepIconProps } from './types';
-  import { StepIconStyleManager } from './styles';
+  import {
+    getStepContent,
+    getStepIconClasses
+  } from './styles';
   import './StepIcon.css';
 
   /**
    * StepIcon component - Represents the icon for a step in a progress indicator
    *
    * Following SOLID principles:
-   * - Single Responsibility: Only handles component rendering and state
+   * - Single Responsibility: Only handles component rendering
    * - Open/Closed: Extendable through properties but closed for modification
    * - Liskov Substitution: Can be substituted with other icon components
    * - Interface Segregation: Small focused interface
@@ -34,7 +37,8 @@
     ...restProps
   }: IStepIconProps & HTMLAttributes<HTMLSpanElement> = $props();
 
-  let classes = $derived(StepIconStyleManager.generateClass(status, size, className));
+  let classes = $derived(getStepIconClasses(status, size, className));
+  let content = getStepContent(status, stepNumber, size);
 </script>
 
 <span
@@ -43,9 +47,11 @@
 >
   {#if children}
     {@render children()}
-  {:else if status === 'completed'}
-    <Check size={size === 'sm' ? 12 : size === 'md' ? 16 : 20} class="step-icon-check" />
-  {:else if stepNumber !== undefined}
-    {stepNumber}
+  {:else if content.type === 'icon' && content.icon === 'Check'}
+    <Check size={content.size} />
+  {:else if content.type === 'icon' && content.icon === 'X'}
+    <X size={content.size} />
+  {:else if content.type === 'number' && content.value !== undefined}
+    {content.value}
   {/if}
 </span>

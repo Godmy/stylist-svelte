@@ -1,11 +1,9 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { Props } from './types';
 
-  type Props = {} & HTMLAttributes<HTMLDivElement>;
-
-  let {}: Props = $props();
+  let { class: className = '' }: Props = $props();
 </script>
 
-<div class="flex items-center px-3 py-2 text-sm font-medium text-gray-700">
+<div class={`flex items-center px-3 py-2 text-sm font-medium text-gray-700 ${className}`}>
   <span>…</span>
 </div>
