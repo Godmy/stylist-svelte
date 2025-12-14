@@ -1,13 +1,18 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { getThemeContext } from '../themes/context';
+  import { getThemeContext } from '../design-system';
 
   type Props = {
-    children: Snippet<[{ theme: any }]>;
+    children: Snippet<[{ theme: any; themeName: string; setTheme: (name: any) => void }]>;
   };
 
   let { children }: Props = $props();
-  let { theme } = $state(getThemeContext());
+
+  const context = getThemeContext();
 </script>
 
-{@render children({ theme })}
+{@render children({
+  theme: context.theme,
+  themeName: context.themeName,
+  setTheme: context.setTheme
+})}

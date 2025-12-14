@@ -3,6 +3,12 @@ import { sveltekit } from '@sveltejs/kit/vite';
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	server: {
+		fs: {
+			// Разрешаем доступ к файлам корневого каталога проекта, включая package.json
+			allow: ['./src', './', '../..']
+		}
+	},
 
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
