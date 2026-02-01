@@ -1,21 +1,31 @@
 /**
- * Theme Context for Svelte
- * Provides theme access throughout the component tree
+ * Контекст темы для Svelte
+ * Обеспечивает доступ к теме по всему дереву компонентов
  */
 
 import { getContext, setContext } from 'svelte';
 import type { Theme, ThemeName } from './types';
 
+/**
+ * Ключ контекста темы
+ */
 export const THEME_CONTEXT_KEY = Symbol('stylist-theme');
 
+/**
+ * Интерфейс контекста темы
+ */
 export interface ThemeContext {
-  theme: Theme;
-  themeName: ThemeName;
-  setTheme: (themeName: ThemeName) => void;
+  theme: Theme;                     // Текущая тема
+  themeName: ThemeName;             // Имя текущей темы
+  setTheme: (themeName: ThemeName) => void;  // Функция для изменения темы
 }
 
 /**
- * Set the theme context
+ * Устанавливает контекст темы
+ * @param theme Объект темы
+ * @param themeName Имя темы
+ * @param setThemeFn Функция для изменения темы
+ * @returns Контекст темы
  */
 export function setThemeContext(theme: Theme, themeName: ThemeName, setThemeFn: (name: ThemeName) => void): ThemeContext {
   const context: ThemeContext = {
@@ -29,8 +39,8 @@ export function setThemeContext(theme: Theme, themeName: ThemeName, setThemeFn: 
 }
 
 /**
- * Get the theme context
- * @throws Error if theme context is not found
+ * Получает контекст темы
+ * @throws Error если контекст темы не найден
  */
 export function getThemeContext(): ThemeContext {
   const context = getContext<ThemeContext>(THEME_CONTEXT_KEY);
@@ -45,7 +55,8 @@ export function getThemeContext(): ThemeContext {
 }
 
 /**
- * Get the theme context (optional - returns undefined if not found)
+ * Получает контекст темы (опционально - возвращает undefined, если не найден)
+ * @returns Контекст темы или undefined
  */
 export function getThemeContextOptional(): ThemeContext | undefined {
   return getContext<ThemeContext>(THEME_CONTEXT_KEY);

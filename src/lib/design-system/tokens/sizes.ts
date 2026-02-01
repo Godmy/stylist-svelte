@@ -1,28 +1,28 @@
 /**
- * Component Size Scales
- * Defines size scales for different component types and their associated spacing
+ * Шкалы размеров компонентов
+ * Определяет шкалы размеров для различных типов компонентов и их связанную размерную информацию
  */
 
 /**
- * Standard component size scale - used by most interactive components
+ * Стандартная шкала размеров компонентов - используется большинством интерактивных компонентов
  */
 export const COMPONENT_SIZE_SCALE = ['sm', 'md', 'lg', 'xl'] as const;
 export type ComponentSize = typeof COMPONENT_SIZE_SCALE[number];
 
 /**
- * Compact size scale - for components that need less size options
+ * Компактная шкала размеров - для компонентов, которым требуется меньше вариантов размеров
  */
 export const COMPACT_SIZE_SCALE = ['sm', 'md', 'lg'] as const;
 export type CompactSize = typeof COMPACT_SIZE_SCALE[number];
 
 /**
- * Extended size scale - for components needing more granular control
+ * Расширенная шкала размеров - для компонентов, требующих более детального контроля размеров
  */
 export const EXTENDED_SIZE_SCALE = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 export type ExtendedSize = typeof EXTENDED_SIZE_SCALE[number];
 
 /**
- * All size scales
+ * Все шкалы размеров
  */
 export const SIZE_SCALES = {
   component: COMPONENT_SIZE_SCALE,
@@ -31,8 +31,8 @@ export const SIZE_SCALES = {
 } as const;
 
 /**
- * Padding mappings for component sizes
- * Used for buttons, inputs, and other interactive elements
+ * Сопоставления внутренних отступов для размеров компонентов
+ * Используется для кнопок, полей ввода и других интерактивных элементов
  */
 export const PADDING_SIZES: Record<ComponentSize, string> = {
   sm: 'px-3 py-1.5',
@@ -42,7 +42,7 @@ export const PADDING_SIZES: Record<ComponentSize, string> = {
 };
 
 /**
- * Text size mappings aligned with component sizes
+ * Сопоставления размеров текста, согласованные с размерами компонентов
  */
 export const TEXT_SIZES: Record<ComponentSize, string> = {
   sm: 'text-sm',
@@ -52,7 +52,7 @@ export const TEXT_SIZES: Record<ComponentSize, string> = {
 };
 
 /**
- * Icon/loader size mappings
+ * Сопоставления размеров иконок/загрузчиков
  */
 export const ICON_SIZES: Record<ComponentSize, string> = {
   sm: 'w-3 h-3',
@@ -62,8 +62,8 @@ export const ICON_SIZES: Record<ComponentSize, string> = {
 };
 
 /**
- * Combined size classes - padding + text
- * Ready-to-use for component sizing
+ * Комбинированные классы размеров - внутренние отступы + размер текста
+ * Готовые к использованию для размерного форматирования компонентов
  */
 export const SIZE_CLASSES: Record<ComponentSize, string> = {
   sm: `${PADDING_SIZES.sm} ${TEXT_SIZES.sm}`,

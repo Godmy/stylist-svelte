@@ -1,14 +1,14 @@
 /**
- * Theme Type Definitions
+ * Определения типов темы
  */
 
 import type { ColorScale } from '../tokens/colors';
 
 /**
- * Semantic color mappings for a theme
+ * Семантические сопоставления цветов для темы
  */
 export interface ThemeColors {
-  // Semantic color scales
+  // Семантические цветовые шкалы
   primary: ColorScale;
   secondary: ColorScale;
   success: ColorScale;
@@ -16,47 +16,47 @@ export interface ThemeColors {
   danger: ColorScale;
   neutral: ColorScale;
 
-  // Surface colors
+  // Цвета поверхностей
   background: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
+    primary: string;    // Основной фон
+    secondary: string;  // Вторичный фон
+    tertiary: string;   // Третичный фон
   };
 
-  // Text colors
+  // Цвета текста
   text: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-    inverse: string;
+    primary: string;    // Основной текст
+    secondary: string;  // Вторичный текст
+    tertiary: string;   // Третичный текст
+    inverse: string;    // Инвертированный текст (на темном фоне)
   };
 
-  // Border colors
+  // Цвета границ
   border: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
+    primary: string;    // Основная граница
+    secondary: string;  // Вторичная граница
+    tertiary: string;   // Третичная граница
   };
 }
 
 /**
- * Complete theme structure
+ * Полная структура темы
  */
 export interface Theme {
-  name: string;
-  colors: ThemeColors;
-  spacing: Record<string, string>;
+  name: string;                             // Имя темы
+  colors: ThemeColors;                      // Цвета темы
+  spacing: Record<string, string>;          // Отступы темы
   typography: {
-    fontFamily: string;
-    fontSize: Record<string, string>;
-    fontWeight: Record<string, string>;
-    lineHeight: Record<string, string>;
+    fontFamily: string;                     // Семейство шрифтов
+    fontSize: Record<string, string>;       // Размеры шрифта
+    fontWeight: Record<string, string>;     // Насыщенность шрифта
+    lineHeight: Record<string, string>;     // Высота строк
   };
-  borderRadius: Record<string, string>;
-  boxShadow: Record<string, string>;
+  borderRadius: Record<string, string>;     // Скругления границ
+  boxShadow: Record<string, string>;        // Тени
 }
 
 /**
- * Theme names
+ * Названия тем
  */
 export type ThemeName = 'light' | 'dark';

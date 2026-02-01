@@ -1,10 +1,91 @@
-# Themes
+# Themes (Темы)
 
-Theme definitions and helpers (framework-agnostic):
-- light.ts, dark.ts: theme objects.
-- types.ts: Theme interfaces.
-- context.ts: Svelte-agnostic context helpers (keys/get/set).
+Слой тем предоставляет полную настройку внешнего вида дизайн-системы с возможностью переключения между различными режимами оформления (например, светлая и темная темы).
 
-Usage:
-- ThemeProvider/Consumer live outside design-system; they should call applyThemeToDOM/themeToCSSVars from utils.
-- Import Theme/ThemeName from design-system when typing components.
+## Структура тем
+
+```
+themes/
+├── light.ts          # Определение светлой темы
+├── dark.ts           # Определение темной темы
+├── types.ts          # Типы для тем и цветов
+├── context.ts        # Вспомогательные функции для работы с контекстом (Svelte-агностичные)
+└── index.ts          # Единая точка экспорта
+```
+
+## Архитектура тем
+
+Каждая тема представляет собой объект со следующими свойствами:
+
+### 1. Цвета (colors)
+- **Семантические цвета**: primary, secondary, success, warning, danger, neutral
+- **Поверхности**: background.primary, background.secondary, background.tertiary
+- **Текст**: text.primary, text.secondary, text.tertiary, text.inverse
+- **Бордеры**: border.primary, border.secondary, border.tertiary
+
+### 2. Прочие токены
+- **Отступы** (spacing): те же значения из tokens/spacing
+- **Типографика** (typography): шрифты, размеры, вес, высота строк
+- **Радиусы** (borderRadius): скругления из tokens/radius
+- **Тени** (boxShadow): тени из tokens/shadows
+
+## Реализованные темы
+
+### Светлая тема (light.ts)
+- Основные цвета: blue (primary), slate (secondary), green (success), и т.д.
+- Светлые фоны (white, light grays)
+- Темный текст для контраста
+
+### Темная тема (dark.ts)
+- Основные цвета: blue (primary), slate (secondary), teal (success для лучшего контраста)
+- Темные фоны (dark grays)
+- Светлый текст для контраста
+
+## Типы и интерфейсы
+
+Файл `types.ts` определяет:
+- `Theme`: Полный интерфейс темы
+- `ThemeColors`: Структура цветов темы
+- `ThemeName`: Доступные имена тем ('light' | 'dark')
+
+## Контекст тем
+
+Файл `context.ts` содержит Svelte-агностичные функции для работы с контекстом тем:
+- `THEME_CONTEXT_KEY`: Ключ для хранения темы в контексте
+- `setThemeContext`, `getThemeContext`, `getThemeContextOptional`: Функции для установки/получения контекста темы
+
+## Использование
+
+### Прямое использование тем
+```ts
+import { lightTheme, darkTheme } from '$stylist/design-system/themes';
+
+// Переключение тем через утилиты
+import { applyThemeToDOM } from '$stylist/design-system/utils';
+applyThemeToDOM(darkTheme);
+```
+
+### Типизация компонентов
+```ts
+import type { Theme, ThemeName } from '$stylist/design-system/themes';
+
+// Использование типов в компонентах
+function MyComponent({ theme }: { theme: Theme }) {
+  // ...
+}
+```
+
+## Интеграция с другими слоями
+
+- **Токены**: Темы используют токены для построения своих значений
+- **Утилиты**: Функции для применения тем к DOM
+- **Интеракция**: Компоненты могут зависеть от текущей темы через CSS переменные
+
+## Принципы использования
+
+1. **Консистентность**: Все компоненты должны опираться на текущую тему
+2. **Агностичность**: Темы не должны зависеть от конкретного фреймворка
+3. **Гибкость**: Легкое добавление новых тем по аналогии с текущими
+4. **Доступность**: Темы учитывают требования доступности
+
+Темы обеспечивают гибкий способ адаптации интерфейса под различные предпочтения пользователей и условия использования.

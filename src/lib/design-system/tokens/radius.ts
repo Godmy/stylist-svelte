@@ -1,7 +1,11 @@
 /**
- * Border Radius Tokens - Rounded corner values
+ * Токены скругления границ - Значения скругления углов
  */
 
+/**
+ * Объект, содержащий значения скругления границ
+ * Используется для обеспечения последовательности скруглений углов по всему интерфейсу
+ */
 export const borderRadius = {
   none: '0',
   sm: '0.125rem',     // 2px
@@ -14,4 +18,8 @@ export const borderRadius = {
   full: '9999px'
 } as const;
 
+/**
+ * Тип, представляющий возможные ключи скругления границ
+ * Используется для типизации при работе со скруглением границ
+ */
 export type BorderRadiusKey = keyof typeof borderRadius;

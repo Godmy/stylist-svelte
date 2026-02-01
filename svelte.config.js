@@ -23,7 +23,7 @@ const config = {
 
 	kit: {
 		alias: {
-			$lib: path.resolve(__dirname, './src/lib')
+			$stylist: path.resolve(__dirname, './src/lib')
 		}
 	}
 };

@@ -1,5 +1,5 @@
 /**
- * Preset factory for interactive components (design-system layer)
+ * Фабрика пресетов для интерактивных компонентов (слой дизайн-системы)
  */
 import type { Preset } from './preset';
 import type { ComponentSize, InteractiveVariant } from '../tokens';
@@ -18,11 +18,28 @@ import {
   DEFAULT_FLAGS
 } from '../tokens/classes';
 
+/**
+ * Создает пресет для интерактивного компонента с заданной конфигурацией
+ * @param config Конфигурация пресета (опционально)
+ * @returns Пресет с заданными или стандартными значениями
+ */
 export function createPreset(
   config: Partial<{
+    /**
+     * Доступные варианты компонента
+     */
     variants: readonly string[];
+    /**
+     * Доступные размеры компонента
+     */
     sizes: readonly string[];
+    /**
+     * Переопределения значений по умолчанию
+     */
     defaults: Partial<Preset<any, any>['defaults']>;
+    /**
+     * Переопределения CSS классов
+     */
     classes: Partial<Preset<any, any>['classes']>;
   }> = {}
 ): Preset<InteractiveVariant, ComponentSize> {

@@ -11,6 +11,7 @@ export { fontFamily, fontSize, fontWeight, lineHeight, typography } from './typo
 export { ALL_VARIANTS, APPEARANCE_STYLES, FLOW_VARIANTS, NEUTRAL_VARIANTS, SEMANTIC_VARIANTS, STATE_VARIANTS, VARIANT_TO_PALETTE } from './variants';
 export type { AccessibilityClass, BaseClass, StateClass, TransitionClass } from './classes';
 export type { ColorPaletteName } from './colors';
+export type { ControlType } from './controls';
 export type { InteractiveVariant } from './interaction';
 export type { Alignment, Justification, Orientation, Placement, Position } from './layout';
 export type { BorderRadiusKey } from './radius';
@@ -18,6 +19,7 @@ export type { BoxShadowKey } from './shadows';
 export type { CompactSize, ComponentSize, ExtendedSize } from './sizes';
 export type { SpacingKey } from './spacing';
 export type { FontFamilyKey, FontSizeKey, FontWeightKey, LineHeightKey } from './typography';
-export type { AllVariants, AppearanceStyle, FlowVariant, NeutralVariant, SemanticVariant, StateVariant, VariantPaletteName, VariantWithAppearance } from './variants';
+export type { AllVariants, AppearanceStyle, DefaultVariants, FlowVariant, NeutralVariant, SemanticVariant, StateVariant, VariantPaletteName, VariantWithAppearance } from './variants';
 export type { ColorScale } from './colors';
+export type { ControlConfig } from './controls';
 export type { Position2D } from './layout';

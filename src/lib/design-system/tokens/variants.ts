@@ -1,73 +1,76 @@
 /**
- * Semantic Variants and Appearance Styles
- * Single source of truth for component variants across the design system
+ * Семантические варианты и стили внешнего вида
+ * Единый источник истины для вариантов компонентов в дизайн-системе
  */
 
 /**
- * Core semantic variants - represent the purpose/role of a component
- * These map to specific color palettes and convey meaning
+ * Основные семантические варианты - представляют назначение/роль компонента
+ * Эти варианты сопоставляются с конкретными цветовыми палитрами и передают смысл
  */
 export const SEMANTIC_VARIANTS = [
-  'primary',    // Primary action or emphasis (maps to blue)
-  'secondary',  // Secondary action or less emphasis (maps to slate)
-  'success',    // Successful completion or positive state (maps to green)
-  'warning',    // Warning or caution (maps to amber)
-  'danger',     // Dangerous action or error state (maps to red)
-  'info'        // Informational message (maps to teal)
+  'primary',    // Основное действие или акцент (сопоставляется с синим)
+  'secondary',  // Второстепенное действие или меньший акцент (сопоставляется с серым)
+  'success',    // Успешное завершение или положительное состояние (сопоставляется с зеленым)
+  'warning',    // Предупреждение или осторожность (сопоставляется с оранжевым)
+  'danger',     // Опасное действие или состояние ошибки (сопоставляется с красным)
+  'info'        // Информационное сообщение (сопоставляется с бирюзовым)
 ] as const;
 
 export type SemanticVariant = typeof SEMANTIC_VARIANTS[number];
 
 /**
- * Visual appearance styles - represent how a component looks
- * These define the visual treatment independent of semantic meaning
+ * Стили визуального внешнего вида - определяют, как выглядит компонент
+ * Эти стили определяют визуальное оформление независимо от семантического значения
  */
 export const APPEARANCE_STYLES = [
-  'solid',      // Filled background
-  'outline',    // Border only
-  'ghost',      // Transparent, shows on hover
-  'link',       // Styled like a hyperlink
-  'subtle'      // Muted, low contrast
+  'solid',      // Заполненный фон
+  'outline',    // Только граница
+  'ghost',      // Прозрачный, показывается при наведении
+  'link',       // Стилизован как гиперссылка
+  'subtle'      // Приглушенный, низкий контраст
 ] as const;
 
 export type AppearanceStyle = typeof APPEARANCE_STYLES[number];
 
+export type DefaultVariants = SemanticVariant | AppearanceStyle;
+
+
 /**
- * Neutral variants - non-semantic, general purpose
+ * Нейтральные варианты - без семантики, общего назначения
  */
 export const NEUTRAL_VARIANTS = [
-  'default',    // Default/neutral state
-  'neutral'     // Explicitly neutral (for badges, status)
+  'default',    // Состояние по умолчанию/нейтральное
+  'neutral'     // Явно нейтральный (для значков, статусов)
 ] as const;
 
 export type NeutralVariant = typeof NEUTRAL_VARIANTS[number];
 
 /**
- * State-based variants - for form elements and inputs
+ * Состоянные варианты - для элементов форм и полей ввода
  */
 export const STATE_VARIANTS = [
-  'error',      // Error state for inputs
-  'valid',      // Valid/success state for inputs
-  'disabled'    // Disabled state
+  'error',      // Состояние ошибки для полей ввода
+  'valid',      // Состояние корректности/успеха для полей ввода
+  'disabled'    // Состояние отключения
 ] as const;
 
 export type StateVariant = typeof STATE_VARIANTS[number];
 
 /**
- * Progress/Flow variants - for steppers, progress indicators
+ * Варианты прогресса/потока - для пошаговых индикаторов, прогресса
  */
 export const FLOW_VARIANTS = [
-  'completed',  // Completed step/stage
-  'current',    // Current/active step
-  'upcoming',   // Future/pending step
-  'skipped'     // Skipped step
+  'completed',  // Завершенный шаг/этап
+  'current',    // Текущий/активный шаг
+  'upcoming',   // Будущий/ожидаемый шаг
+  'skipped'     // Пропущенный шаг
 ] as const;
 
 export type FlowVariant = typeof FLOW_VARIANTS[number];
 
 /**
- * Mapping of semantic variants to color palettes
- * This creates the connection between meaning and visual design
+ * Сопоставление семантических вариантов с цветовыми палитрами
+ * Создает связь между смыслом и визуальным дизайном
  */
 export const VARIANT_TO_PALETTE = {
   primary: 'blue',
@@ -81,8 +84,8 @@ export const VARIANT_TO_PALETTE = {
 export type VariantPaletteName = typeof VARIANT_TO_PALETTE[keyof typeof VARIANT_TO_PALETTE];
 
 /**
- * All available variants combined
- * Use this when a component needs access to all variant types
+ * Все доступные варианты, объединенные
+ * Используется, когда компоненту требуется доступ ко всем типам вариантов
  */
 export const ALL_VARIANTS = [
   ...SEMANTIC_VARIANTS,
@@ -92,7 +95,7 @@ export const ALL_VARIANTS = [
 export type AllVariants = typeof ALL_VARIANTS[number];
 
 /**
- * Helper type for components that support both semantic variants and appearances
+ * Вспомогательный тип для компонентов, поддерживающих как семантические варианты, так и стили
  */
 export type VariantWithAppearance = {
   variant?: SemanticVariant | NeutralVariant;

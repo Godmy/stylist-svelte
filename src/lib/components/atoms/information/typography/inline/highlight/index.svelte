@@ -1,0 +1,20 @@
+﻿<script lang="ts">
+  import type { HighlightProps } from '$stylist/design-system/typography/inline/highlight';
+  import { createHighlightState } from '../../state.svelte';
+
+  let props: HighlightProps = $props();
+
+  const state = createHighlightState(props);
+  const children = $derived(props.children);
+
+  const restProps = $derived((() => {
+    const { class: _class, children: _children, ...rest } = props;
+    return rest;
+  })());
+</script>
+
+<mark class={state.classes} {...restProps}>
+  {#if children}
+    {@render children()}
+  {/if}
+</mark>

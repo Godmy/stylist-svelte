@@ -1,14 +1,18 @@
 /**
- * CSS Variables Generator
- * Automatically generates CSS custom properties from theme objects
+ * Генератор CSS переменных
+ * Автоматически создает CSS кастомные свойства из объектов тем
  */
 
 import type { Theme } from '../../themes/types';
 import type { ColorScale } from '../../tokens/colors';
 
 /**
- * Flattens a nested object into CSS variable format
- * Example: { colors: { primary: { 500: '#000' } } } => '--color-primary-500: #000'
+ * Сглаживает вложенный объект в формат CSS переменных
+ * Пример: { colors: { primary: { 500: '#000' } } } => '--color-primary-500: #000'
+ * @param obj Объект для преобразования
+ * @param prefix Префикс для ключей (опционально)
+ * @param result Результирующий объект для накопления (опционально)
+ * @returns Объект с плоской структурой переменных CSS
  */
 function flattenObject(
   obj: any,
@@ -29,64 +33,66 @@ function flattenObject(
 }
 
 /**
- * Converts a theme object to CSS variables object
+ * Преобразует объект темы в объект CSS переменных
+ * @param theme Объект темы для преобразования
+ * @returns Объект с CSS переменными, сгенерированными из темы
  */
 export function themeToCSSVars(theme: Theme): Record<string, string> {
   const vars: Record<string, string> = {};
 
-  // Process colors
-  // Primary scale
+  // Обработка цветов
+  // Основная палитра
   Object.entries(theme.colors.primary).forEach(([shade, color]) => {
     vars[`color-primary-${shade}`] = color;
   });
 
-  // Secondary scale
+  // Вторичная палитра
   Object.entries(theme.colors.secondary).forEach(([shade, color]) => {
     vars[`color-secondary-${shade}`] = color;
   });
 
-  // Success scale
+  // Палитра успеха
   Object.entries(theme.colors.success).forEach(([shade, color]) => {
     vars[`color-success-${shade}`] = color;
   });
 
-  // Warning scale
+  // Палитра предупреждения
   Object.entries(theme.colors.warning).forEach(([shade, color]) => {
     vars[`color-warning-${shade}`] = color;
   });
 
-  // Danger scale
+  // Палитра опасности
   Object.entries(theme.colors.danger).forEach(([shade, color]) => {
     vars[`color-danger-${shade}`] = color;
   });
 
-  // Neutral scale
+  // Нейтральная палитра
   Object.entries(theme.colors.neutral).forEach(([shade, color]) => {
     vars[`color-neutral-${shade}`] = color;
   });
 
-  // Background colors
-  vars['color-bg-primary'] = theme.colors.background.primary;
-  vars['color-bg-secondary'] = theme.colors.background.secondary;
-  vars['color-bg-tertiary'] = theme.colors.background.tertiary;
+  // Цвета фона
+  vars['color-bg-primary'] = theme.colors.background.primary;   // Основной фон
+  vars['color-bg-secondary'] = theme.colors.background.secondary; // Вторичный фон
+  vars['color-bg-tertiary'] = theme.colors.background.tertiary;   // Третичный фон
 
-  // Text colors
-  vars['color-text-primary'] = theme.colors.text.primary;
-  vars['color-text-secondary'] = theme.colors.text.secondary;
-  vars['color-text-tertiary'] = theme.colors.text.tertiary;
-  vars['color-text-inverse'] = theme.colors.text.inverse;
+  // Цвета текста
+  vars['color-text-primary'] = theme.colors.text.primary;     // Основной текст
+  vars['color-text-secondary'] = theme.colors.text.secondary;   // Вторичный текст
+  vars['color-text-tertiary'] = theme.colors.text.tertiary;     // Третичный текст
+  vars['color-text-inverse'] = theme.colors.text.inverse;       // Инвертированный текст
 
-  // Border colors
-  vars['color-border-primary'] = theme.colors.border.primary;
-  vars['color-border-secondary'] = theme.colors.border.secondary;
-  vars['color-border-tertiary'] = theme.colors.border.tertiary;
+  // Цвета границ
+  vars['color-border-primary'] = theme.colors.border.primary;   // Основная граница
+  vars['color-border-secondary'] = theme.colors.border.secondary; // Вторичная граница
+  vars['color-border-tertiary'] = theme.colors.border.tertiary;   // Третичная граница
 
-  // Spacing
+  // Отступы
   Object.entries(theme.spacing).forEach(([key, value]) => {
     vars[`spacing-${key}`] = value;
   });
 
-  // Typography
+  // Типографика
   Object.entries(theme.typography.fontSize).forEach(([key, value]) => {
     vars[`font-size-${key}`] = value;
   });
@@ -99,14 +105,14 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
     vars[`line-height-${key}`] = value;
   });
 
-  vars['font-family-sans'] = theme.typography.fontFamily;
+  vars['font-family-sans'] = theme.typography.fontFamily;      // Семейство шрифтов
 
-  // Border radius
+  // Скругления границ
   Object.entries(theme.borderRadius).forEach(([key, value]) => {
     vars[`radius-${key}`] = value;
   });
 
-  // Box shadows
+  // Тени
   Object.entries(theme.boxShadow).forEach(([key, value]) => {
     vars[`shadow-${key}`] = value;
   });
@@ -115,7 +121,9 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
 }
 
 /**
- * Applies CSS variables to a DOM element
+ * Применяет CSS переменные к DOM элементу
+ * @param element DOM элемент для применения переменных
+ * @param vars Объект с CSS переменными в формате --имя: значение
  */
 export function applyCSSVars(element: HTMLElement, vars: Record<string, string>): void {
   Object.entries(vars).forEach(([key, value]) => {
@@ -124,7 +132,9 @@ export function applyCSSVars(element: HTMLElement, vars: Record<string, string>)
 }
 
 /**
- * Removes CSS variables from a DOM element
+ * Удаляет CSS переменные из DOM элемента
+ * @param element DOM элемент для удаления переменных
+ * @param varNames Массив имен переменных для удаления (без префикса --)
  */
 export function removeCSSVars(element: HTMLElement, varNames: string[]): void {
   varNames.forEach((name) => {
@@ -133,18 +143,23 @@ export function removeCSSVars(element: HTMLElement, varNames: string[]): void {
 }
 
 /**
- * Applies a theme to the document root
+ * Применяет тему к корневому элементу документа
+ * @param theme Объект темы для применения
+ * @param element Целевой DOM элемент (по умолчанию document.documentElement)
  */
 export function applyThemeToDOM(theme: Theme, element: HTMLElement = document.documentElement): void {
   const vars = themeToCSSVars(theme);
   applyCSSVars(element, vars);
 
-  // Set data attribute for CSS selectors
+  // Устанавливает атрибут данных для CSS селекторов
   element.setAttribute('data-theme', theme.name);
 }
 
 /**
- * Generates CSS string from theme (for static CSS generation)
+ * Генерирует CSS строку из темы (для статической генерации CSS)
+ * @param theme Объект темы для генерации CSS
+ * @param selector CSS селектор для применения переменных (по умолчанию :root)
+ * @returns Строка CSS с переменными темы
  */
 export function generateThemeCSS(theme: Theme, selector = ':root'): string {
   const vars = themeToCSSVars(theme);

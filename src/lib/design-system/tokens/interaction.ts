@@ -2,16 +2,17 @@ import { APPEARANCE_STYLES, SEMANTIC_VARIANTS } from './variants';
 
 /**
  * Комбинированные варианты для интерактивных компонентов (семантика + внешний вид)
+ * Объединяет семантические варианты и стили внешнего вида для создания единой системы вариантов
  */
 export const INTERACTIVE_VARIANTS = [...SEMANTIC_VARIANTS, ...APPEARANCE_STYLES] as const;
 export type InteractiveVariant = (typeof INTERACTIVE_VARIANTS)[number];
 
 /**
- * Mapping вариант → utility-классы на CSS-переменных темы.
- * Строится в design-system, чтобы компоненты не тянули кастомные constants.
+ * Сопоставление вариантов с utility-классами на основе CSS-переменных темы
+ * Создается в дизайн-системе, чтобы компоненты не импортировали пользовательские константы
  */
 export const VARIANT_CLASSES: Record<InteractiveVariant, string> = {
-  // Semantic variants
+  // Семантические варианты
   primary:
     'bg-[var(--color-primary-600,#2563eb)] text-[var(--color-text-inverse,#ffffff)] ' +
     'border border-transparent hover:bg-[var(--color-primary-700,#1d4ed8)]',
@@ -31,7 +32,7 @@ export const VARIANT_CLASSES: Record<InteractiveVariant, string> = {
     'bg-[var(--color-primary-500,#3b82f6)] text-[var(--color-text-inverse,#ffffff)] ' +
     'border border-transparent hover:bg-[var(--color-primary-600,#2563eb)]',
 
-  // Appearance styles
+  // Стили внешнего вида
   solid:
     'bg-[var(--color-primary-600,#2563eb)] text-[var(--color-text-inverse,#ffffff)] ' +
     'border border-transparent hover:bg-[var(--color-primary-700,#1d4ed8)]',

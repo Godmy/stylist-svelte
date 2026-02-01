@@ -1,10 +1,10 @@
 /**
- * CSS Class Tokens
- * Reusable CSS class patterns used across components
+ * Токены CSS классов
+ * Повторно используемые шаблоны CSS классов, применяемые в компонентах
  */
 
 /**
- * Component state CSS classes
+ * CSS классы состояний компонентов
  */
 export const STATE_CLASSES = {
   disabled: 'opacity-50 cursor-not-allowed pointer-events-none',
@@ -19,7 +19,7 @@ export const STATE_CLASSES = {
 export type StateClass = keyof typeof STATE_CLASSES;
 
 /**
- * Accessibility CSS classes
+ * CSS классы доступности
  */
 export const ACCESSIBILITY_CLASSES = {
   srOnly: 'sr-only',
@@ -32,7 +32,7 @@ export const ACCESSIBILITY_CLASSES = {
 export type AccessibilityClass = keyof typeof ACCESSIBILITY_CLASSES;
 
 /**
- * Base component classes - common patterns
+ * Базовые классы компонентов - общие шаблоны
  */
 export const BASE_CLASSES = {
   interactive: 'inline-flex items-center justify-center font-medium rounded-md transition-colors',
@@ -46,7 +46,7 @@ export const BASE_CLASSES = {
 export type BaseClass = keyof typeof BASE_CLASSES;
 
 /**
- * Transition classes
+ * Классы переходов
  */
 export const TRANSITION_CLASSES = {
   all: 'transition-all duration-200',
@@ -60,7 +60,7 @@ export const TRANSITION_CLASSES = {
 export type TransitionClass = keyof typeof TRANSITION_CLASSES;
 
 /**
- * Default flags for component states
+ * Флаги по умолчанию для состояний компонентов
  */
 export const DEFAULT_FLAGS = {
   disabled: false,

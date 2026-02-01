@@ -1,7 +1,11 @@
 /**
- * Shadow Tokens - Box shadow values
+ * Токены теней - Значения теней для элементов
  */
 
+/**
+ * Объект, содержащий значения теней
+ * Используется для задания теней элементам в интерфейсе
+ */
 export const boxShadow = {
   none: 'none',
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -13,4 +17,8 @@ export const boxShadow = {
   inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)'
 } as const;
 
+/**
+ * Тип, представляющий возможные ключи теней
+ * Используется для типизации при работе с тенями элементов
+ */
 export type BoxShadowKey = keyof typeof boxShadow;

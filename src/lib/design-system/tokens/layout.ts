@@ -1,34 +1,34 @@
 /**
- * Layout Primitives
- * Common layout-related types and values used across components
+ * Примитивы компоновки
+ * Общие типы и значения, связанные с компоновкой, используемые в компонентах
  */
 
 /**
- * Position values for absolute/relative positioning
+ * Значения позиции для абсолютного/относительного позиционирования
  */
 export const POSITIONS = ['top', 'bottom', 'left', 'right'] as const;
 export type Position = typeof POSITIONS[number];
 
 /**
- * Orientation for components that can be laid out in two directions
+ * Ориентация для компонентов, которые могут быть расположены в двух направлениях
  */
 export const ORIENTATIONS = ['horizontal', 'vertical'] as const;
 export type Orientation = typeof ORIENTATIONS[number];
 
 /**
- * Alignment options
+ * Варианты выравнивания
  */
 export const ALIGNMENTS = ['start', 'center', 'end', 'stretch'] as const;
 export type Alignment = typeof ALIGNMENTS[number];
 
 /**
- * Justification options
+ * Варианты justification (распределения пространства)
  */
 export const JUSTIFICATIONS = ['start', 'center', 'end', 'between', 'around', 'evenly'] as const;
 export type Justification = typeof JUSTIFICATIONS[number];
 
 /**
- * 2D position interface for coordinate-based positioning
+ * Интерфейс 2D позиции для координатного позиционирования
  */
 export interface Position2D {
   x: number;
@@ -36,7 +36,7 @@ export interface Position2D {
 }
 
 /**
- * Placement options combining position with alignment
+ * Варианты размещения, объединяющие позицию с выравниванием
  */
 export type Placement =
   | 'top-start' | 'top' | 'top-end'

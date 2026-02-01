@@ -1,6 +1,7 @@
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
 import type { Preset } from '$stylist/design-system/interaction/preset';
+import { twJoin, twMerge, cn } from './types';
 
 /**
  * Merge multiple class strings, filtering out falsy values
@@ -54,3 +55,5 @@ export function buildClasses<V extends string, S extends string>(
     .filter(Boolean)
     .join(' ');
 }
+
+export { twJoin, twMerge, cn };

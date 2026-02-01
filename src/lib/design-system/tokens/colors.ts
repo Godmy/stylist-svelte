@@ -1,8 +1,12 @@
 /**
- * Color Palettes - Atomic color values
- * Single source of truth for all color values in the design system
+ * Цветовые палитры - Атомарные цветовые значения
+ * Единый источник истины для всех цветовых значений в дизайн-системе
  */
 
+/**
+ * Интерфейс цветовой шкалы
+ * Определяет структуру цветовой палитры с 10 оттенками от 50 до 900
+ */
 export interface ColorScale {
   50: string;
   100: string;
@@ -17,7 +21,8 @@ export interface ColorScale {
 }
 
 /**
- * Blue palette - Primary color
+ * Синяя палитра - Основной цвет
+ * Используется для первичных действий и акцентов
  */
 export const blue: ColorScale = {
   50: '#eff6ff',
@@ -33,7 +38,8 @@ export const blue: ColorScale = {
 };
 
 /**
- * Slate palette - Secondary/neutral colors
+ * Серо-голубая палитра - Вторичные/нейтральные цвета
+ * Используется для вторичных действий и фона
  */
 export const slate: ColorScale = {
   50: '#f8fafc',
@@ -49,7 +55,8 @@ export const slate: ColorScale = {
 };
 
 /**
- * Green palette - Success color
+ * Зеленая палитра - Цвет успеха
+ * Используется для обозначения успешных действий и положительных результатов
  */
 export const green: ColorScale = {
   50: '#f0fdf4',
@@ -65,7 +72,8 @@ export const green: ColorScale = {
 };
 
 /**
- * Amber palette - Warning color
+ * Оранжево-желтая палитра - Цвет предупреждения
+ * Используется для обозначения предупреждений и ситуаций, требующих внимания
  */
 export const amber: ColorScale = {
   50: '#fffbeb',
@@ -81,7 +89,8 @@ export const amber: ColorScale = {
 };
 
 /**
- * Red palette - Danger/error color
+ * Красная палитра - Цвет опасности/ошибки
+ * Используется для обозначения ошибок, удалений и критических ситуаций
  */
 export const red: ColorScale = {
   50: '#fef2f2',
@@ -97,7 +106,8 @@ export const red: ColorScale = {
 };
 
 /**
- * Neutral palette - Gray colors
+ * Нейтральная палитра - Серые цвета
+ * Используется для вспомогательных элементов и фона
  */
 export const neutral: ColorScale = {
   50: '#fafafa',
@@ -113,7 +123,8 @@ export const neutral: ColorScale = {
 };
 
 /**
- * Teal palette - Alternative success/info color
+ * Бирюзовая палитра - Альтернативный цвет успеха/информации
+ * Используется как альтернатива зеленому цвету для обозначения успеха или информации
  */
 export const teal: ColorScale = {
   50: '#f0fdf9',
@@ -129,7 +140,8 @@ export const teal: ColorScale = {
 };
 
 /**
- * All color palettes
+ * Все цветовые палитры
+ * Объект, содержащий все доступные цветовые палитры
  */
 export const colorPalettes = {
   blue,
@@ -141,4 +153,8 @@ export const colorPalettes = {
   teal
 } as const;
 
+/**
+ * Тип, представляющий возможные имена цветовых палитр
+ * Используется для типизации при работе с цветовыми палитрами
+ */
 export type ColorPaletteName = keyof typeof colorPalettes;

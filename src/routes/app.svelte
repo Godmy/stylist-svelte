@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { ThemeProvider } from '$lib';
-  import { Button } from '$lib/components/atoms';
+  import { ThemeProvider } from '$stylist';
+  import { Button } from '$stylist/components/atoms';
 
   let selectedTheme: 'light' | 'dark' = 'light';
 
