@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { ToggleProps } from '$stylist/design-system/interaction/controls/toggles/toggle';
+<script lang="ts">
+  import type { ToggleProps } from '$stylist/design-system/attributes';
   import { createToggleState } from '../../state.svelte';
 
   let props: ToggleProps = $props();
@@ -13,7 +13,7 @@
     }
   });
 
-  const state = createToggleState(props);
+  const toggleState = createToggleState(props);
 
   const restProps = $derived((() => {
     const { checked: _checked, disabled: _disabled, toggleSize: _toggleSize, class: _class, ...rest } = props;
@@ -21,16 +21,16 @@
   })());
 </script>
 
-<div class={state.containerClasses}>
+<div class={toggleState.containerClasses}>
   <input
     type="checkbox"
     bind:checked={checked}
-    disabled={state.disabled}
-    class={state.inputClasses}
+    disabled={toggleState.disabled}
+    class={toggleState.inputClasses}
     {...restProps}
   />
 
-  <div class={state.trackClasses} class:opacity-50={state.disabledClass}>
-    <div class={state.thumbClasses}></div>
+  <div class={toggleState.trackClasses} class:opacity-50={toggleState.disabledClass}>
+    <div class={toggleState.thumbClasses}></div>
   </div>
 </div>

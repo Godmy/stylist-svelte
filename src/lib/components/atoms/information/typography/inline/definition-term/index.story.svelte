@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import DefinitionTerm from './DefinitionTerm.svelte';
   import { DefinitionDescription } from '../../../typography/inline/definition-description';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   type DefinitionTermStoryProps = {
     term: string;

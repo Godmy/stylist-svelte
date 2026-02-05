@@ -1,18 +1,10 @@
 <script lang="ts">
-  import { Home, Settings, User } from 'lucide-svelte';
   import IconButton from './index.svelte';
-
-  const icons = {
-    home: Home,
-    settings: Settings,
-    user: User
-  } as const;
 
   let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link' = 'ghost';
   let size: 'sm' | 'md' | 'lg' = 'md';
   let disabled = false;
   let loading = false;
-  let selectedIcon: keyof typeof icons = 'home';
 </script>
 
 <div class="p-4">
@@ -27,7 +19,6 @@
         disabled={disabled}
         loading={loading}
         ariaLabel="Icon button"
-        icon={icons[selectedIcon]}
       />
       <p class="text-sm text-gray-500">Use icon-only buttons for compact toolbars and quick actions.</p>
     </div>
@@ -55,15 +46,6 @@
         </select>
       </div>
 
-      <div>
-        <label for="icon-select" class="block text-sm mb-1">Icon:</label>
-        <select id="icon-select" bind:value={selectedIcon} class="border rounded p-1">
-          <option value="home">Home</option>
-          <option value="settings">Settings</option>
-          <option value="user">User</option>
-        </select>
-      </div>
-
       <div class="flex items-end gap-4">
         <label for="icon-disabled" class="flex items-center gap-1">
           <input id="icon-disabled" type="checkbox" bind:checked={disabled} />
@@ -81,31 +63,31 @@
     <h2 class="text-md font-semibold mb-2">All Variants</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
       <div class="flex flex-col items-center">
-        <IconButton variant="primary" icon={Home} ariaLabel="Home" />
+        <IconButton variant="primary" ariaLabel="Home" />
         <span class="text-xs mt-1">Primary</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="secondary" icon={Settings} ariaLabel="Settings" />
+        <IconButton variant="secondary" ariaLabel="Settings" />
         <span class="text-xs mt-1">Secondary</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="success" icon={User} ariaLabel="Success" />
+        <IconButton variant="success" ariaLabel="Success" />
         <span class="text-xs mt-1">Success</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="warning" icon={Home} ariaLabel="Warning" />
+        <IconButton variant="warning" ariaLabel="Warning" />
         <span class="text-xs mt-1">Warning</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="danger" icon={Settings} ariaLabel="Danger" />
+        <IconButton variant="danger" ariaLabel="Danger" />
         <span class="text-xs mt-1">Danger</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="ghost" icon={User} ariaLabel="Ghost" />
+        <IconButton variant="ghost" ariaLabel="Ghost" />
         <span class="text-xs mt-1">Ghost</span>
       </div>
       <div class="flex flex-col items-center">
-        <IconButton variant="link" icon={Home} ariaLabel="Link" />
+        <IconButton variant="link" ariaLabel="Link" />
         <span class="text-xs mt-1">Link</span>
       </div>
     </div>
@@ -114,9 +96,9 @@
   <div class="p-4 border rounded">
     <h2 class="text-md font-semibold mb-2">All Sizes</h2>
     <div class="flex items-center gap-4">
-      <IconButton size="sm" variant="ghost" icon={icons[selectedIcon]} ariaLabel="Small icon" />
-      <IconButton size="md" variant="ghost" icon={icons[selectedIcon]} ariaLabel="Medium icon" />
-      <IconButton size="lg" variant="ghost" icon={icons[selectedIcon]} ariaLabel="Large icon" />
+      <IconButton size="sm" variant="ghost" ariaLabel="Small icon" />
+      <IconButton size="md" variant="ghost" ariaLabel="Medium icon" />
+      <IconButton size="lg" variant="ghost" ariaLabel="Large icon" />
     </div>
   </div>
 </div>

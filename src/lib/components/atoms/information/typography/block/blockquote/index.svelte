@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { BlockquoteProps } from '$stylist/design-system/typography/block/blockquote';
+<script lang="ts">
+  import type { BlockquoteProps } from '$stylist/design-system';
   import { createBlockquoteState } from '../../state.svelte';
 
   let props: BlockquoteProps = $props();

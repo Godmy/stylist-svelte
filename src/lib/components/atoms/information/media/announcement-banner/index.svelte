@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AnnouncementBannerProps } from '$stylist/design-system/media';
+  import type { AnnouncementBannerProps } from '$stylist/design-system';
   import { createAnnouncementBannerState } from '../state.svelte';
 
   let props: AnnouncementBannerProps = $props();

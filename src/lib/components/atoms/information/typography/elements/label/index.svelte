@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { LabelProps } from '$stylist/design-system/typography/elements/label';
+<script lang="ts">
+  import type { LabelProps } from '$stylist/design-system';
   import { createLabelState } from '../../state.svelte';
 
   let props: LabelProps = $props();

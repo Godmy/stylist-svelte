@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { StrongProps } from '$stylist/design-system/typography';
+  import type { StrongProps } from '$stylist/design-system/attributes';
 
   /**
    * Strong component - Displays bold text with various styles.

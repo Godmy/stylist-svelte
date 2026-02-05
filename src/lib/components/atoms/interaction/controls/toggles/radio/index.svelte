@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { RadioProps } from '$stylist/design-system/interaction/controls/toggles/radio';
+<script lang="ts">
+  import type { RadioProps } from '$stylist/design-system/attributes';
   import { createRadioState } from '../../state.svelte';
 
   let props: RadioProps = $props();
@@ -48,3 +48,4 @@
     </label>
   {/if}
 </div>
+

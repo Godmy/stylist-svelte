@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { SkeletonRectangleStyleManager } from '$stylist/design-system/interaction/feedback/placeholders/skeleton-rectangle';
-  import type { ISkeletonRectangleProps } from '$stylist/design-system/interaction/feedback/placeholders/skeleton-rectangle';
+  import { SkeletonStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { ISkeletonProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * SkeletonRectangle component - displays a rectangular loading placeholder
@@ -17,7 +17,7 @@
     width?: number;
     height?: number;
     content?: any;
-  } & ISkeletonRectangleProps>();
+  } & ISkeletonProps>();
 
   // Set default values
   const width = props.width ?? 120;
@@ -25,7 +25,7 @@
   const content = props.content;
 
   // Generate the CSS class using the style manager
-  const combinedClass = $derived(SkeletonRectangleStyleManager.generateClass(props.class));
+  const combinedClass = $derived(SkeletonStyleManager.generateClass(props.class));
   
   // Calculate style
   const style = $derived(`width: ${width}px; height: ${height}px;`);

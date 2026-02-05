@@ -34,7 +34,6 @@ export type AppearanceStyle = typeof APPEARANCE_STYLES[number];
 
 export type DefaultVariants = SemanticVariant | AppearanceStyle;
 
-
 /**
  * Нейтральные варианты - без семантики, общего назначения
  */
@@ -93,6 +92,54 @@ export const ALL_VARIANTS = [
 ] as const;
 
 export type AllVariants = typeof ALL_VARIANTS[number];
+
+/**
+ * Варианты для полей ввода - расширенный набор, включающий стили и состояния
+ * Объединяет APPEARANCE_STYLES с дополнительными вариантами, специфичными для полей ввода
+ */
+export const INPUT_VARIANTS_EXTENDED = [
+  ...APPEARANCE_STYLES,
+  'filled',     // Заполненный стиль (для полей ввода)
+  'outlined',   // Обведенный стиль (для полей ввода)
+  ...SEMANTIC_VARIANTS,  // Семантические варианты также могут использоваться в полях ввода
+  ...STATE_VARIANTS      // Состояния также могут использоваться в полях ввода
+] as const;
+
+export const INPUT_VARIANTS = INPUT_VARIANTS_EXTENDED;
+
+export type InputVariant = typeof INPUT_VARIANTS_EXTENDED[number];
+
+/**
+ * Общие цветовые варианты - для компонентов, использующих семантические цвета
+ * Объединяет семантические варианты с дополнительными цветами
+ */
+export const COLOR_VARIANTS = [
+  ...SEMANTIC_VARIANTS,
+  'gray'        // Дополнительный цвет, часто используемый для нейтральных элементов
+] as const;
+
+export type ColorVariant = typeof COLOR_VARIANTS[number];
+
+/**
+ * Общие размеры компонентов - стандартные размеры для большинства интерактивных элементов
+ */
+export const COMMON_SIZES = [
+  'sm',         // Маленький
+  'md',         // Средний
+  'lg'          // Большой
+] as const;
+
+export type CommonSize = typeof COMMON_SIZES[number];
+
+/**
+ * Расширенные размеры - включая дополнительные размеры
+ */
+export const EXTENDED_SIZES = [
+  ...COMMON_SIZES,
+  'xl'          // Очень большой
+] as const;
+
+export type VariantExtendedSize = typeof EXTENDED_SIZES[number];
 
 /**
  * Вспомогательный тип для компонентов, поддерживающих как семантические варианты, так и стили

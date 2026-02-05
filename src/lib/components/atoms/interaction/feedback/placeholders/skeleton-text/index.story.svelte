@@ -1,7 +1,7 @@
 <script lang="ts">
   import SkeletonText from './index.svelte';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   let lines = $state(3);
   let width = $state(80);
@@ -15,12 +15,7 @@
 </script>
 
 <Story
-  id="atoms-skeleton-text"
-  title="SkeletonText"
   component={SkeletonText}
-  category="Atoms"
-  description="Animated placeholder bar for text content."
-  tags={['loading', 'placeholder']}
   controls={controls}
 >
   <div class="space-y-4 p-6">

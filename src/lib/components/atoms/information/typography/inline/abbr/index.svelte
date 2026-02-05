@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { AbbrProps } from '$stylist/design-system/typography/inline/abbr';
+<script lang="ts">
+  import type { AbbrProps } from '$stylist/design-system';
   import { createAbbrState } from '../../state.svelte';
 
   let props: AbbrProps = $props();

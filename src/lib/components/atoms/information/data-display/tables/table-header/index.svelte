@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TableHeaderProps } from '$stylist/design-system/data-display';
+  import type { TableHeaderProps } from '$stylist/design-system';
   import { createTableHeaderState } from '../state.svelte';
 
   let props: TableHeaderProps = $props();

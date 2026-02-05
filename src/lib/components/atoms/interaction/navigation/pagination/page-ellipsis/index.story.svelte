@@ -1,6 +1,6 @@
 <script lang="ts">
-  import PageEllipsis from '../index.sveltes/page-ellipsis/index.svelte';
-  import { Story } from '$lib/playground';
+  import PageEllipsis from './index.svelte';
+  import { Story } from '$stylist/design-system/playground';
 
   const pagination = [1, 2, 3, 4, 5, 6, 7];
   let currentPage = $state(4);
@@ -11,12 +11,7 @@
 </script>
 
 <Story
-  id="atoms-page-ellipsis"
-  title="PageEllipsis"
   component={PageEllipsis}
-  category="Atoms"
-  description="Static typography token used to indicate condensed pagination ranges."
-  tags={['pagination', 'indicator']}
 >
   {#snippet children()}
     <div class="rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40">

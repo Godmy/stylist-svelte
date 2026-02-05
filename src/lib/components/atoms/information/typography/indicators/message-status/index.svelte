@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Check, CheckCheck } from 'lucide-svelte';
-  import type { MessageStatusProps } from '$stylist/design-system/typography/indicators/message-status';
+  import type { MessageStatusProps } from '$stylist/design-system';
   import { createMessageStatusState } from '../../state.svelte';
 
   let props: MessageStatusProps = $props();

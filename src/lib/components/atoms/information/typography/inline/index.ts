@@ -12,4 +12,4 @@ export { SyntaxHighlightedCode } from './syntax-highlighted-code';
 
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-// Placeholder for inline typography components
+﻿

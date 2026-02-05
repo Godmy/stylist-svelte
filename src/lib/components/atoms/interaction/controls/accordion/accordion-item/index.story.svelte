@@ -1,10 +1,10 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
-  import { ComplexAccordion } from '../accordion-complex/index.svelte';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import ComplexAccordion from '../accordion-complex/index.svelte';
   import AccordionItem from './AccordionItem.svelte';
-  import { AccordionHeader } from '../accordion-header/index.svelte';
-  import { AccordionPanel } from '../accordion-panel/index.svelte';
+  import AccordionHeader from '../accordion-header/index.svelte';
+  import AccordionPanel from '../accordion-panel/index.svelte';
 
   let {
     id = '',

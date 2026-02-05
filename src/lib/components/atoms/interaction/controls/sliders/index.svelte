@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { SliderTickProps } from '$stylist/design-system/interaction/controls/sliders/slider-tick';
+<script lang="ts">
+  import type { SliderTickProps } from '$stylist/design-system/attributes';
   import { createSliderTickState } from '../state.svelte';
 
   let props: SliderTickProps = $props();

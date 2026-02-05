@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { INotificationBadgeProps } from '$stylist/design-system/interaction/feedback/notification/notification-badge';
-  import { NotificationBadgeStyleManager } from '$stylist/design-system/interaction/feedback/notification/notification-badge';
+  import type { INotificationBadgeProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import { NotificationBadgeStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * NotificationBadge component - A badge component to display notifications count or status

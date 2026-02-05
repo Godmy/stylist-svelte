@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { X } from 'lucide-svelte';
-  import type { ChipProps } from '$stylist/design-system/interaction/controls/chip';
+  import type { ChipProps } from '$stylist/design-system/attributes';
   import { createChipState } from '../state.svelte';
 
   let props: ChipProps = $props();

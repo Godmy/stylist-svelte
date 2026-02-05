@@ -1,8 +1,8 @@
-﻿<script lang="ts">
-  import type { EmProps } from '$stylist/design-system/typography/inline/em';
+<script lang="ts">
+  import type { InlineBaseProps } from '$stylist/design-system/attributes';
   import { createEmState } from '../../state.svelte';
 
-  let props: EmProps = $props();
+  let props: InlineBaseProps<HTMLElement> = $props();
 
   const state = createEmState(props);
   const children = $derived(props.children);

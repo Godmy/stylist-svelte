@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductSort from './product-sort/index.svelte';
 
   type ProductSortStoryProps = {
@@ -18,19 +18,14 @@
 </script>
 
 <Story
-  id="molecules-product-sort"
-  title="ProductSort"
   component={ProductSort}
-  category="Molecules"
-  description="A component for sorting products."
-  tags={['sort', 'product', 'controls']}
   controls={controls}
 >
-  {#snippet children(props: ProductSortStoryProps)}
+  {#snippet children()}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductSort Story</h2>
       <ProductSort
-        selectedOption={props.selectedOption}
+        selectedOption="featured"
         options={[
           { value: 'featured', label: 'Featured' },
           { value: 'newest', label: 'Newest' },
@@ -38,7 +33,7 @@
           { value: 'price-high', label: 'Price: High to Low' },
           { value: 'rating', label: 'Top Rated' }
         ]}
-        onSortChange={(option) => console.log('Sort changed to:', option)}
+        onSortChange={(option: string) => console.log('Sort changed to:', option)}
       />
     </div>
   {/snippet}

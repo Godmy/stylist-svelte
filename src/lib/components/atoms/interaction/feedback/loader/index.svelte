@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { LoaderStyleManager } from '$stylist/design-system/interaction/feedback/loader';
-  import type { ILoaderProps } from '$stylist/design-system/interaction/feedback/loader';
+  import { LoaderStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { ILoaderProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * Loader component - displays a loading spinner

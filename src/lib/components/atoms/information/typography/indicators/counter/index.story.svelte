@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-	import { Story } from '$lib/playground';
-	import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Counter from './Counter.svelte';
 
 	const variantOptions = ['primary', 'secondary', 'danger', 'success', 'warning', 'info'] as const;

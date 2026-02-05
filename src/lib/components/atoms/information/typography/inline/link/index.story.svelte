@@ -1,5 +1,6 @@
-﻿<script lang="ts">
-  import { Story, type ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Link from './Link.svelte';
 
   const controls: ControlConfig[] = [
@@ -39,7 +40,7 @@
     {
       name: 'text',
       type: 'text',
-      defaultValue: 'РџРµСЂРµР№С‚Рё РїРѕ СЃСЃС‹Р»РєРµ'
+      defaultValue: 'Перейти по ссылке'
     }
   ];
 </script>
@@ -49,7 +50,7 @@
   title="Link"
   category="Atoms"
   component={Link}
-  description="РЎСЃС‹Р»РєР° СЃ СЂР°Р·Р»РёС‡РЅС‹РјРё РІР°СЂРёР°РЅС‚Р°РјРё СЃС‚РёР»СЏ"
+  description="Ссылка с различными вариантами стиля"
   tags={['navigation', 'link', 'anchor']}
   controls={controls}
 >

@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { SwitchProps } from '$stylist/design-system/interaction/controls/toggles/switch';
+<script lang="ts">
+  import type { SwitchProps } from '$stylist/design-system/attributes';
   import { createSwitchState } from '../../state.svelte';
 
   let props: SwitchProps = $props();
@@ -13,7 +13,7 @@
     }
   });
 
-  const state = createSwitchState(props);
+  const switchState = createSwitchState(props);
 
   const restProps = $derived((() => {
     const {
@@ -31,33 +31,33 @@
   })());
 </script>
 
-<label class={state.labelClasses}>
-  <span class={state.trackClasses}>
+<label class={switchState.labelClasses}>
+  <span class={switchState.trackClasses}>
     <input
       id={props.id}
       type="checkbox"
-      class={state.inputClasses}
+      class={switchState.inputClasses}
       bind:checked={checked}
-      disabled={state.disabled}
-      required={state.required}
+      disabled={switchState.disabled}
+      required={switchState.required}
       aria-describedby={props.description ? `${props.id}-description` : undefined}
       {...restProps}
     />
-    <span aria-hidden="true" class={state.knobClasses}></span>
+    <span aria-hidden="true" class={switchState.knobClasses}></span>
   </span>
 
   {#if props.label || props.description}
-    <span class={state.labelTextClasses}>
+    <span class={switchState.labelTextClasses}>
       {#if props.label}
-        <span class={state.labelTitleClasses}>
+        <span class={switchState.labelTitleClasses}>
           {props.label}
-          {#if state.required}
-            <span class={state.requiredMarkerClasses} aria-hidden="true">*</span>
+          {#if switchState.required}
+            <span class={switchState.requiredMarkerClasses} aria-hidden="true">*</span>
           {/if}
         </span>
       {/if}
       {#if props.description}
-        <span id={`${props.id}-description`} class={state.labelDescriptionClasses}>
+        <span id={`${props.id}-description`} class={switchState.labelDescriptionClasses}>
           {props.description}
         </span>
       {/if}

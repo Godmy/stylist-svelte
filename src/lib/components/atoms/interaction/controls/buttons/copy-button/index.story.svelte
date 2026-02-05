@@ -13,8 +13,8 @@
     statusType = 'success';
   }
 
-  function handleError(message: string) {
-    status = message;
+  function handleError(error: Error) {
+    status = error.message;
     statusType = 'error';
   }
 </script>

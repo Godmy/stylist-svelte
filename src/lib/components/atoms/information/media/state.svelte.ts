@@ -1,11 +1,88 @@
-import type { AnnouncementBannerProps, CountryFlagProps, CountryFlagSize, FaviconProps, IconChevronProps, IconChevronSize, IconCircleProps, IconCircleSize, IconCircleVariant, IconWrapperProps, IconWrapperColor, IconWrapperShape, IconWrapperSize, IconWrapperVariant, ImageWithCaptionProps } from '$stylist/design-system/media';
-import { getAnnouncementBannerChildrenContainerClasses, getAnnouncementBannerContainerClasses, getAnnouncementBannerContentClasses, getAnnouncementBannerDescriptionClasses, getAnnouncementBannerFlexContainerClasses, getAnnouncementBannerIconClasses, getAnnouncementBannerTitleClasses, getCountryFlagClasses, getCountryFlagEmoji, getCountryFlagFallbackClasses, getCountryFlagStyle, getFaviconClasses, getFaviconUrl, getIconChevronClasses, ICON_CHEVRON_DEFAULTS, getIconCircleClasses, ICON_CIRCLE_DEFAULTS, getIconWrapperClasses, ICON_WRAPPER_DEFAULTS, getImageWithCaptionHostClasses, getImageWithCaptionImageClasses, getImageWithCaptionTextClasses } from '$stylist/design-system/media';
+import type { AnnouncementBannerProps, ImageWithCaptionProps } from '$stylist/design-system/attributes';
+import {
+  ICON_CHEVRON_DEFAULTS,
+  ICON_CIRCLE_DEFAULTS,
+  ICON_WRAPPER_DEFAULTS,
+  getAnnouncementBannerChildrenContainerClasses,
+  getAnnouncementBannerContainerClasses,
+  getAnnouncementBannerContentClasses,
+  getAnnouncementBannerDescriptionClasses,
+  getAnnouncementBannerFlexContainerClasses,
+  getCountryFlagClasses,
+  getCountryFlagFallbackClasses,
+  getCountryFlagStyle,
+  getFaviconClasses,
+  getFaviconUrl,
+  getAnnouncementBannerIconClasses,
+  getAnnouncementBannerTitleClasses,
+  getIconChevronClasses,
+  getIconCircleClasses,
+  getIconWrapperClasses,
+  getImageWithCaptionHostClasses,
+  getImageWithCaptionImageClasses,
+  getImageWithCaptionTextClasses,
+  type CountryFlagSize,
+  type IconChevronSize,
+  type IconCircleVariant,
+  type IconWrapperShape,
+  type IconWrapperSize,
+  type IconWrapperVariant
+} from '$stylist/design-system/presets/information';
+import type { CommonSize, ColorVariant } from '$stylist/design-system/tokens/variants';
+import { getCountryFlagEmoji } from '$stylist/utils';
+
+interface IconChevronProps {
+  isOpen?: boolean;
+  size?: IconChevronSize;
+  direction?: 'up' | 'down' | 'left' | 'right';
+  variant?: 'default' | IconCircleVariant;
+  disabled?: boolean;
+  class?: string;
+}
+
+interface IconCircleProps {
+  variant?: IconCircleVariant;
+  size?: CommonSize;
+  filled?: boolean;
+  disabled?: boolean;
+  class?: string;
+}
+
+interface IconWrapperProps {
+  size?: IconWrapperSize;
+  variant?: IconWrapperVariant;
+  shape?: IconWrapperShape;
+  color?: ColorVariant;
+  disabled?: boolean;
+  class?: string;
+}
+
+interface CountryFlagProps {
+  countryCode?: string;
+  size?: CountryFlagSize;
+  class?: string;
+}
+
+interface FaviconProps {
+  size?: number;
+  url?: string;
+  class?: string;
+}
 
 export function createIconChevronState(props: IconChevronProps) {
   const isOpen = $derived(props.isOpen ?? ICON_CHEVRON_DEFAULTS.isOpen);
   const size = $derived((props.size ?? ICON_CHEVRON_DEFAULTS.size) as IconChevronSize);
   const className = $derived(props.class ?? '');
-  const classes = $derived(getIconChevronClasses(isOpen, className));
+  const classes = $derived(
+    getIconChevronClasses(
+      isOpen,
+      size,
+      props.direction ?? 'down',
+      props.variant ?? 'default',
+      props.disabled ?? false,
+      className
+    )
+  );
 
   return {
     get isOpen() {
@@ -22,10 +99,11 @@ export function createIconChevronState(props: IconChevronProps) {
 
 export function createIconCircleState(props: IconCircleProps) {
   const variant = $derived((props.variant ?? ICON_CIRCLE_DEFAULTS.variant) as IconCircleVariant);
-  const size = $derived((props.size ?? ICON_CIRCLE_DEFAULTS.size) as IconCircleSize);
-  const gradient = $derived(props.gradient ?? ICON_CIRCLE_DEFAULTS.gradient);
+  const size = $derived((props.size ?? ICON_CIRCLE_DEFAULTS.size) as CommonSize);
   const className = $derived(props.class ?? '');
-  const classes = $derived(getIconCircleClasses(variant, size, gradient, className));
+  const classes = $derived(
+    getIconCircleClasses(variant, size, props.filled ?? false, props.disabled ?? false, className)
+  );
 
   return {
     get variant() {
@@ -44,9 +122,11 @@ export function createIconWrapperState(props: IconWrapperProps) {
   const size = $derived((props.size ?? ICON_WRAPPER_DEFAULTS.size) as IconWrapperSize);
   const variant = $derived((props.variant ?? ICON_WRAPPER_DEFAULTS.variant) as IconWrapperVariant);
   const shape = $derived((props.shape ?? ICON_WRAPPER_DEFAULTS.shape) as IconWrapperShape);
-  const color = $derived((props.color ?? ICON_WRAPPER_DEFAULTS.color) as IconWrapperColor);
+  const color = $derived((props.color ?? ICON_WRAPPER_DEFAULTS.color) as ColorVariant);
   const className = $derived(props.class ?? '');
-  const classes = $derived(getIconWrapperClasses(size, shape, variant, color, className));
+  const classes = $derived(
+    getIconWrapperClasses(size, variant, shape, color, props.disabled ?? false, className)
+  );
 
   return {
     get size() {
@@ -109,7 +189,11 @@ export function createFaviconState(props: FaviconProps) {
   const size = $derived(props.size ?? 16);
   const url = $derived(props.url);
   const faviconUrl = $derived(getFaviconUrl(url));
-  const classes = $derived(getFaviconClasses(size, props.class ?? ''));
+  const baseClasses = $derived(getFaviconClasses(size, props.class ?? ''));
+
+  // Define individual classes for different elements
+  const imageClasses = $derived(`w-${size} h-${size} ${baseClasses}`);
+  const fallbackClasses = $derived(`w-${size} h-${size} flex items-center justify-center bg-gray-200 text-gray-500 text-xs`);
 
   return {
     get size() {
@@ -119,7 +203,10 @@ export function createFaviconState(props: FaviconProps) {
       return faviconUrl;
     },
     get classes() {
-      return classes;
+      return {
+        image: imageClasses,
+        fallback: fallbackClasses
+      };
     }
   };
 }

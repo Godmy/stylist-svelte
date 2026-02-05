@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Preset } from '$stylist/design-system/interaction/preset';
-import type { Props } from '$stylist/design-system/interaction';
+import type { Props } from '$stylist/design-system/attributes';
+import type { Preset } from '$stylist/design-system/presets';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { ICON_SIZES } from '$stylist/design-system';
@@ -18,11 +18,11 @@ export function createState<V extends string, S extends string>(
   preset: Preset<V, S> & { loaderSize?: Record<string, string> },
   props: Props & HTMLButtonAttributes
 ) {
-  const variant = $derived((props.variant as V) ?? preset.defaults.variant);
-  const size = $derived((props.size as S) ?? preset.defaults.size);
+  const variant = $derived(((props as any).variant as V) ?? preset.defaults.variant);
+  const size = $derived(((props as any).size as S) ?? preset.defaults.size);
   const disabled = $derived(props.disabled ?? preset.defaults.disabled);
-  const loading = $derived(props.loading ?? false);
-  const block = $derived(props.block ?? preset.defaults.block);
+  const loading = $derived(((props as any).loading) ?? false);
+  const block = $derived(((props as any).block) ?? preset.defaults.block);
 
   const classes = $derived(
     buildClasses(preset, {
@@ -36,7 +36,7 @@ export function createState<V extends string, S extends string>(
   );
 
   const ariaLabel = $derived(
-    computeAriaLabel(props.ariaLabel, props as Record<string, unknown>, '')
+    computeAriaLabel(((props as any).ariaLabel), props as Record<string, unknown>, '')
   );
 
   const loaderClasses = $derived.by(() => {
@@ -88,3 +88,4 @@ export function createState<V extends string, S extends string>(
     }
   };
 }
+

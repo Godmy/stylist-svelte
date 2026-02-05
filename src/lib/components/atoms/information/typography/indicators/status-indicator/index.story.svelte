@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
   import StatusIndicator from './StatusIndicator.svelte';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   type Status = 'online' | 'offline' | 'away' | 'busy';
 
@@ -26,7 +26,7 @@
 
   const team = [
     { name: 'Maya Patel', role: 'Product Design', status: 'online' },
-    { name: 'Jonas MГјller', role: 'Frontend', status: 'busy' },
+    { name: 'Jonas Müller', role: 'Frontend', status: 'busy' },
     { name: 'Luna Chen', role: 'Research', status: 'away' },
     { name: 'Diego Alvarez', role: 'Infrastructure', status: 'offline' }
   ] satisfies Array<{ name: string; role: string; status: Status }>;

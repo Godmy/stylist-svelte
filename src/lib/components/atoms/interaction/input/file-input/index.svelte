@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+  import { createInputState } from '../state.svelte';
+  import { getFileSelectionLabel } from '$stylist/utils/input';
+  import { createEventDispatcher } from 'svelte';
   import type { HTMLInputAttributes } from 'svelte/elements';
 
   type Props = {
@@ -6,31 +10,34 @@
     multiple?: boolean;
     accept?: string;
     disabled?: boolean;
+    variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
+    size?: (typeof INPUT_FIELD_PRESET.sizes)[number];
     placeholder?: string;
-  } & HTMLInputAttributes;
+    class?: string;
+  } & Omit<HTMLInputAttributes, 'size'>;
 
   let {
     value,
     multiple = false,
     accept = '',
     disabled = false,
+    variant = INPUT_FIELD_PRESET.defaults.variant,
+    size = INPUT_FIELD_PRESET.defaults.size,
     placeholder = 'Choose file(s)...',
+    class: className = '',
     ...restProps
   }: Props = $props();
+  const dispatch = createEventDispatcher<{ fileChange: { files: File | File[] | null } }>();
+  const state = $derived(createInputState({ variant, size, disabled, class: className }));
+  let inputElement = $state<HTMLInputElement | null>(null);
 
   let internalValue: File | File[] | null = $state(null);
   let fileName = $state('');
 
   // Update internal value when prop value changes
   $effect(() => {
-    if (value) {
-      internalValue = value;
-      if (Array.isArray(value)) {
-        fileName = value.length > 0 ? `${value.length} file(s) selected` : '';
-      } else {
-        fileName = value?.name || '';
-      }
-    }
+    internalValue = value ?? null;
+    fileName = getFileSelectionLabel(internalValue);
   });
 
   // Handle file change
@@ -48,16 +55,11 @@
         fileName = file.name;
       }
       
-      // Dispatch event to notify parent of change
-      const event = new CustomEvent('fileChange', { detail: { files: multiple ? Array.from(target.files) : target.files[0] } });
-      dispatchEvent(event);
+      dispatch('fileChange', { files: multiple ? Array.from(target.files) : target.files[0] });
     } else {
       internalValue = null;
       fileName = '';
-      
-      // Dispatch event to notify parent of change
-      const event = new CustomEvent('fileChange', { detail: { files: null } });
-      dispatchEvent(event);
+      dispatch('fileChange', { files: null });
     }
   }
 
@@ -66,12 +68,8 @@
     internalValue = null;
     fileName = '';
     
-    // Dispatch event to notify parent of change
-    const event = new CustomEvent('fileChange', { detail: { files: null } });
-    dispatchEvent(event);
-    
-    // Reset the actual input element
-    const inputElement = document.querySelector('input[type="file"]') as HTMLInputElement;
+    dispatch('fileChange', { files: null });
+
     if (inputElement) {
       inputElement.value = '';
     }
@@ -79,8 +77,9 @@
 </script>
 
 <div class="relative">
-  <label class="flex items-center justify-center w-full h-10 px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+  <label class={`flex items-center justify-center cursor-pointer ${state.classes}`.trim()}>
     <input
+      bind:this={inputElement}
       type="file"
       multiple={multiple}
       accept={accept}

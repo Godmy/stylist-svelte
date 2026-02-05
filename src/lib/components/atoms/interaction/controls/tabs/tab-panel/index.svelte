@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext } from 'svelte';
-  import type { TabPanelProps } from '$stylist/design-system/interaction/controls/tabs/tab-panel';
+  import type { TabPanelProps } from '$stylist/design-system/attributes';
   import { createTabPanelState } from '../../state.svelte';
 
   let props: TabPanelProps = $props();
@@ -14,7 +14,7 @@
   let tabId = $derived(`tab-${context.tabsId}-${props.id}`);
   let panelId = $derived(`panel-${context.tabsId}-${props.id}`);
 
-  const state = createTabPanelState(props, isSelected);
+  const state = createTabPanelState(props);
 
   const restProps = $derived((() => {
     const { id: _id, disabled: _disabled, class: _class, children: _children, ...rest } = props;

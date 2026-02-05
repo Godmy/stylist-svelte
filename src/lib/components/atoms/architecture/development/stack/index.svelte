@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { StackProps } from '$stylist/design-system/development/stack';
+  import type { StackProps } from '$stylist/design-system';
   import { createStackState } from '../state.svelte';
 
   let props: StackProps = $props();

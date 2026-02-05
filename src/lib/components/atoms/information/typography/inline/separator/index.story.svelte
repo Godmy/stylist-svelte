@@ -1,7 +1,5 @@
 ﻿<script lang="ts">
-  import { atoms } from '$lib';
-
-  const { Separator } = atoms;
+  import Separator from './index.svelte';
 
   // More on args: https://storybook.js.org/docs/7.0/svelte/writing-stories/args
   const args: {

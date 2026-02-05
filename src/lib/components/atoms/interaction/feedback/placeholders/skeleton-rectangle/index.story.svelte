@@ -1,7 +1,7 @@
 <script lang="ts">
   import SkeletonRectangle from './skeleton-rectangle/index.svelte';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   let width = $state(180);
   let height = $state(32);
@@ -15,12 +15,7 @@
 </script>
 
 <Story
-  id="atoms-skeleton-rectangle"
-  title="SkeletonRectangle"
   component={SkeletonRectangle}
-  category="Atoms"
-  description="Rectangular skeleton for titles, cards or media placeholders."
-  tags={['loading', 'placeholder']}
   controls={controls}
 >
   {#snippet children()}

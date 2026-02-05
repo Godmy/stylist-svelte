@@ -1,20 +1,10 @@
 <script lang="ts">
   import { InputText } from '$stylist/components/atoms';
-  import type { IInputProps } from '../input-text/types';
-
-  export interface IInputFieldProps extends IInputProps {
-    helperText?: string;
-    errors?: string[];
-    value?: string;
-  }
-
-  export const getInputFieldContainerClasses = () => {
-    return "space-y-1";
-  };
-
-  export const getInputFieldHelperTextClasses = () => {
-    return "text-xs text-gray-500";
-  };
+  import {
+    getInputFieldContainerClasses,
+    getInputFieldHelperTextClasses
+  } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { IInputFieldProps } from '$stylist/design-system/attributes';
 
   /**
    * Enhanced Input Field component with helper text and error handling
@@ -58,5 +48,3 @@
     <p class={helperTextClasses}>{helperText}</p>
   {/if}
 </div>
-
-

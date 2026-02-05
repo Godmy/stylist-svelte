@@ -2,7 +2,7 @@
   import PasswordInput from './index.svelte';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { HTMLInputAttributes } from 'svelte/elements';
-  import type { InputProps } from '$stylist/design-system/input';
+  import type { InputProps } from '$stylist/design-system/attributes';
 
   type Props = InputProps & Omit<HTMLInputAttributes, 'size'> & {
     value?: string;

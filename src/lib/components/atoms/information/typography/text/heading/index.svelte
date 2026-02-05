@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { HeadingProps } from '$stylist/design-system/typography';
+  import type { HeadingProps } from '$stylist/design-system/attributes';
   import { buildClasses } from '$stylist/utils/classes';
   import { computeAriaLabel } from '$stylist/utils/aria';
 

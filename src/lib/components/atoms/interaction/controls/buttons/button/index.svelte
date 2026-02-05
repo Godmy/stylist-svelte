@@ -1,13 +1,10 @@
 <script lang="ts">
   import { Loader2 } from 'lucide-svelte';
   import type { HTMLButtonAttributes } from 'svelte/elements';
+  import type { ButtonProps } from '$stylist/design-system/attributes';
+  import { BUTTON_PRESET } from '$stylist/design-system/presets';
+  import { createState } from '../state.svelte';
 
-  import { INTERACTION_TOKENS } from '$stylist/design-system/interaction/tokens';
-  import type { Preset } from '$stylist/design-system/interaction/preset';
-  import type { ButtonProps } from '$stylist/design-system/interaction/controls/buttons/button';
-  import type { ComponentSize } from '$stylist/design-system/tokens/sizes';
-  import type { DefaultVariants } from '$stylist/design-system/tokens/variants';
-  
   /**
    * Button component - A flexible button component with various styles and states
    *
@@ -18,104 +15,41 @@
    * @param block - Whether the button should span the full width of its container
    * @param content - Snippet content for the button (if not using default text content)
    * @returns An accessible, styled button element
-   */  
+   */
 
-  const {
-    INTERACTIVE_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INTERACTIVE_BASE_CLASS,
-    ACCESSIBILITY_CLASSES,
-    VARIANT_CLASSES
-  } = INTERACTION_TOKENS;
+  let props: ButtonProps & HTMLButtonAttributes = $props();
 
-  const BUTTON_PRESET: Preset<DefaultVariants, ComponentSize> & {
-  loaderSize: Record<ComponentSize, string>;
-} = {
-  variants: INTERACTIVE_VARIANTS,
-  sizes: COMPONENT_SIZE_SCALE,
-  defaults: {
-    variant: 'primary',
-    size: 'md',
-    disabled: DEFAULT_FLAGS.disabled,
-    block: false
-  },
-  classes: {
-    base: INTERACTIVE_BASE_CLASS,
-    size: {
-      sm: 'px-3 py-1.5 text-sm',
-      md: 'px-4 py-2 text-base',
-      lg: 'px-6 py-3 text-lg',
-      xl: 'px-7 py-3.5 text-xl'
-    },
-    state: STATE_CLASSES,
-    variant: VARIANT_CLASSES,
-    focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-  },
-  loaderSize: {
-    sm: 'w-3 h-3',
-    md: 'w-4 h-4',
-    lg: 'w-5 h-5',
-    xl: 'w-6 h-6'
-  }
-};
+  // Use centralized state management
+  let state = createState(BUTTON_PRESET, props);
 
+  // Extract rest props manually to avoid $$restProps in runes mode
   let {
-    variant = BUTTON_PRESET.defaults.variant,
-    size = BUTTON_PRESET.defaults.size,
-    ariaLabel = '',
-    loadingLabel = 'Loading...',
-    disabled = false,
-    loading = false,
-    block = false,
-    class: className = '',
-    type = 'button',
+    variant,
+    size,
+    disabled,
+    loading,
+    block,
+    loadingLabel,
     children,
+    class: classProp,
     ...restProps
-  }: ButtonProps & HTMLButtonAttributes = $props();
-
-  const computedAriaLabel = $derived(
-    ariaLabel ||
-      (typeof (restProps as Record<string, unknown>)['aria-label'] === 'string'
-        ? (restProps as Record<string, string>)['aria-label']
-        : '')
-  );
-
-  let classes = $derived(
-    [
-      BUTTON_PRESET.classes.base,
-      variant ? BUTTON_PRESET.classes.variant[variant] : '',
-      size ? BUTTON_PRESET.classes.size[size] : '',
-      disabled || loading ? BUTTON_PRESET.classes.state.disabled : '',
-      block ? BUTTON_PRESET.classes.state.block : '',
-      className
-    ]
-      .filter(Boolean)
-      .join(' ')
-  );
-
-  let loaderClasses = $derived(`animate-spin ${BUTTON_PRESET.loaderSize[size]}`);
+  } = props;
 </script>
 
 <button
   {...restProps}
-  type={type}
-  class={classes}
-  aria-busy={loading}
-  aria-live={loading ? 'polite' : undefined}
-  aria-label={computedAriaLabel || undefined}
-  disabled={disabled || loading}
+  type={props.type ?? 'button'}
+  class={state.classes}
+  {...state.attrs}
 >
-  {#if loading}
-    <Loader2 class={loaderClasses} aria-hidden="true" />
-    <span class="sr-only">{loadingLabel}</span>
+  {#if state.loading}
+    <Loader2 class={state.loaderClasses} aria-hidden="true" />
+    <span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
   {/if}
 
-  {#if children}
-    {@render children()}
-  {:else if loading}
-    {loadingLabel}
+  {#if props.children}
+    {@render props.children()}
+  {:else if state.loading}
+    {props.loadingLabel ?? 'Loading...'}
   {/if}
 </button>
-

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { SkeletonTextStyleManager } from '$stylist/design-system/interaction/feedback/placeholders/skeleton-text';
-  import type { ISkeletonTextProps } from '$stylist/design-system/interaction/feedback/placeholders/skeleton-text';
+  import { SkeletonStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { ISkeletonProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * SkeletonText component - displays a text-like loading placeholder
@@ -16,14 +16,14 @@
   const props = $props<{
     width?: string;
     content?: any;
-  } & ISkeletonTextProps>();
+  } & ISkeletonProps>();
 
   // Set default values
   const width = props.width ?? '100%';
   const content = props.content;
 
   // Generate the CSS class using the style manager
-  const combinedClass = $derived(SkeletonTextStyleManager.generateClass(props.class));
+  const combinedClass = $derived(SkeletonStyleManager.generateClass(props.class));
   
   // Calculate style
   const style = $derived(`width: ${width};`);

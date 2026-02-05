@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-  import type { ProductSortProps } from '$stylist/design-system/interaction/controls/product-sort';
-  import { createProductSortState } from '../state';
+<script lang="ts">
+  import type { ProductSortProps } from '$stylist/design-system/attributes';
+  import { createProductSortState } from './state';
 
   let props: ProductSortProps = $props();
 

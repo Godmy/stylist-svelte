@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { GraphEdgeProps } from '$stylist/design-system/graph';
+  import type { GraphEdgeProps } from '$stylist/design-system';
   import { createGraphEdgeState } from '../state.svelte';
 
   let props: GraphEdgeProps = $props();

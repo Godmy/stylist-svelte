@@ -1,8 +1,8 @@
-﻿<script lang="ts">
-  import type { KbdProps } from '$stylist/design-system/typography/inline/kbd';
+<script lang="ts">
+  import type { InlineBaseProps } from '$stylist/design-system/attributes';
   import { createKbdState } from '../../state.svelte';
 
-  let props: KbdProps = $props();
+  let props: InlineBaseProps<HTMLElement> = $props();
 
   const state = createKbdState(props);
   const children = $derived(props.children);

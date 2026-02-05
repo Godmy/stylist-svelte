@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext } from 'svelte';
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
-  import type { AccordionHeaderProps } from '$stylist/design-system/interaction/controls/accordion/accordion-header';
-  import { createAccordionHeaderState } from '../../state.svelte';
+  import type { AccordionHeaderProps } from '$stylist/design-system/attributes';
+  import { createAccordionHeaderState } from '../state.svelte';
 
   type Props = AccordionHeaderProps & HTMLButtonAttributes;
 
@@ -17,7 +17,7 @@
 
   let isOpen = $derived(context.isPanelOpen(props.value));
 
-  const state = createAccordionHeaderState(props, isOpen);
+  const state = createAccordionHeaderState(props);
 
   function handleClick() {
     context.handleValueChange(props.value);

@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { InlineCodeProps } from '$stylist/design-system/typography/inline/inline-code';
+<script lang="ts">
+  import type { InlineCodeProps } from '$stylist/design-system';
   import { createInlineCodeState } from '../../state.svelte';
 
   let props: InlineCodeProps = $props();

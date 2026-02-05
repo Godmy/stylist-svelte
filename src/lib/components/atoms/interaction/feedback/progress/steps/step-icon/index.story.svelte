@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { Story } from '$lib/playground';
-  import StepIcon from './step-icon/index.svelte';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import StepIcon from './index.svelte';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { IStepIconProps } from '$stylist/design-system/attributes';
 
   let {
     id = '',
@@ -28,7 +29,7 @@
   category="Atoms"
   controls={controls}
 >
-  {#snippet children(props: import('./types').IStepIconProps)}
+  {#snippet children(props: IStepIconProps)}
     <StepIcon
       status={props.status}
       size={props.size}
@@ -36,4 +37,3 @@
     />
   {/snippet}
 </Story>
-

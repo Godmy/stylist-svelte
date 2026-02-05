@@ -1,15 +1,10 @@
-import type { TabPanelProps } from '$stylist/design-system/interaction/controls/tabs/tab-panel';
+import type { TabPanelProps } from '$stylist/design-system/attributes';
+import { getTabPanelClasses } from '../helpers';
 
-export function createTabPanelState(props: TabPanelProps) {
-  const classes = $derived(
-    `p-4 border border-t-0 rounded-b-lg ${
-      props.class ?? ''
-    }`.trim()
-  );
-
+export const createTabPanelState = (props: TabPanelProps) => {
+  const selected = false;
+  const disabled = props.disabled ?? false;
   return {
-    get classes() {
-      return classes;
-    }
+    classes: getTabPanelClasses(selected, disabled, props.class)
   };
-}
+};

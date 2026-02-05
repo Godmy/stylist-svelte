@@ -1,5 +1,5 @@
-import type { GraphEdgeProps, GraphEdgeType, GraphNodeProps, GraphNodeSize } from '$stylist/design-system/graph';
-import { getGraphEdgeClasses, getGraphEdgeStyles, getGraphNodePositionStyle, getGraphNodeSizeClasses } from '$stylist/design-system/graph';
+import type { GraphEdgeProps, GraphEdgeType, GraphNodeProps, GraphNodeSize } from '$stylist/design-system/attributes';
+import { getGraphEdgeClasses, getGraphEdgeStyles, getGraphNodePositionStyle, getGraphNodeSizeClasses } from '$stylist/design-system/presets';
 
 export function createGraphEdgeState(props: GraphEdgeProps) {
   const directed = $derived(props.directed ?? true);

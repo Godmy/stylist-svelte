@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { CounterProps } from '$stylist/design-system/typography/indicators/counter';
+<script lang="ts">
+  import type { CounterProps } from '$stylist/design-system';
   import { createCounterState } from '../../state.svelte';
 
   let props: CounterProps = $props();

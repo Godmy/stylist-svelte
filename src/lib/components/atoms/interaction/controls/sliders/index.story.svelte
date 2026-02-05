@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SliderTick from './SliderTick.svelte';
   import { createRawSnippet } from 'svelte';
 
@@ -55,7 +55,7 @@
   const contentSnippet = createRawSnippet(() => ({
     render() {
       return `<div class="flex flex-col items-center text-[10px] font-semibold text-[--color-text-primary]">
-        <span>рџ“Ќ</span>
+        <span>📍</span>
         <span>Milestone</span>
       </div>`;
     }

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { NumberFlowProps } from '$stylist/design-system/data-display';
+  import type { NumberFlowProps } from '$stylist/design-system';
   import { createNumberFlowState } from '../state.svelte';
 
   type Props = NumberFlowProps & HTMLAttributes<HTMLDivElement>;

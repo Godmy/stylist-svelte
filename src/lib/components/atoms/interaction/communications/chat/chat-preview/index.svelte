@@ -1,8 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Avatar } from '$stylist/components/atoms';
   import { Check, CheckCheck } from 'lucide-svelte';
 
-  import type { ChatPreviewProps } from '$stylist/design-system/interaction/communications/chat-preview';
   import {
     DEFAULT_CHAT_MESSAGE_VARIANT,
     getChatMessageAlignmentClass,
@@ -10,8 +9,9 @@
     getChatMessageFooterClasses,
     getChatMessageHeaderClasses,
     getChatMessageStatusIconClasses
-  } from '$stylist/design-system/interaction/communications/chat-message';
-  import { createChatPreviewState } from '../../state.svelte';
+  } from '../../helpers';
+  import { createChatPreviewState } from '../state.svelte';
+  import type { ChatPreviewProps } from '../state.svelte';
 
   let props: ChatPreviewProps = $props();
 

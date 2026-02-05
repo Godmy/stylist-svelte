@@ -2,8 +2,8 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { IStepConnectorProps } from '$stylist/design-system/interaction/feedback/progress/steps/step-connector';
-  import { StepConnectorStyleManager } from '$stylist/design-system/interaction/feedback/progress/steps/step-connector';
+  import type { IStepConnectorProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import { StepConnectorStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
   /**
    * StepConnector component - Connects steps in a progress indicator
    *
@@ -23,9 +23,17 @@
     class: className = '',
     children,
     ...restProps
-  }: IStepConnectorProps & HTMLAttributes<HTMLDivElement> = $props();
+  } = $props<{
+    status?: 'pending' | 'active' | 'completed' | 'error';
+    class?: string;
+    children?: Snippet;
+  } & HTMLAttributes<HTMLDivElement>>();
 
-  let classes = $derived(StepConnectorStyleManager.generateClass(status, className));
+  let classes = $derived(StepConnectorStyleManager.generateClass(
+    status === 'active',
+    status === 'completed',
+    className
+  ));
 </script>
 
 <div

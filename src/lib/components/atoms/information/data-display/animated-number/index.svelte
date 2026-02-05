@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AnimatedNumberProps } from '$stylist/design-system/data-display';
+  import type { AnimatedNumberProps } from '$stylist/design-system';
   import { createAnimatedNumberState } from '../state.svelte';
 
   let props: AnimatedNumberProps = $props();

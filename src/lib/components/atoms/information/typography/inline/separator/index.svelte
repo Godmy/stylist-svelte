@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { SeparatorProps } from '$stylist/design-system/typography/inline/separator';
+<script lang="ts">
+  import type { SeparatorProps } from '$stylist/design-system';
   import { createSeparatorState } from '../../state.svelte';
 
   let props: SeparatorProps = $props();

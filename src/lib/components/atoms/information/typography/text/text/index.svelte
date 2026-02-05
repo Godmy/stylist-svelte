@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { TextProps } from '$stylist/design-system/typography';
+  import type { TextProps } from '$stylist/design-system/attributes';
 
   /**
    * Text component - Displays regular text with various styles.

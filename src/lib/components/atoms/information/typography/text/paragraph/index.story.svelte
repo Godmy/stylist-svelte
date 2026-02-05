@@ -1,38 +1,36 @@
 <script lang="ts">
-  import type { Meta, StoryFn } from '@storybook/svelte';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Paragraph from './index.svelte';
 
-  export let meta: Meta<Paragraph> = {
-    component: Paragraph,
-    title: 'Atoms/Information/Typography/Paragraph',
-    tags: ['autodocs'],
-    argTypes: {
-      variant: {
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
-      },
-      size: {
-        control: { type: 'select' },
-        options: ['sm', 'md', 'lg'],
-      },
-      disabled: {
-        control: { type: 'boolean' },
-      },
-      block: {
-        control: { type: 'boolean' },
-      },
-      class: {
-        control: { type: 'text' },
-      },
+  const controls: ControlConfig[] = [
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'primary',
+      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
     },
-  };
-
-  const Template: StoryFn<Paragraph> = ({ ...args }) => ({
-    Component: Paragraph,
-    props: args,
-  });
+    {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'md',
+      options: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false
+    },
+    {
+      name: 'block',
+      type: 'boolean',
+      defaultValue: false
+    }
+  ];
 </script>
 
+<Story component={Paragraph} controls={controls}>
+  {#snippet children()}
 <div class="space-y-4 p-4">
   <h3 class="text-lg font-semibold">Paragraph Variants</h3>
   
@@ -59,3 +57,5 @@
     <Paragraph block>Block Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Paragraph>
   </div>
 </div>
+  {/snippet}
+</Story>

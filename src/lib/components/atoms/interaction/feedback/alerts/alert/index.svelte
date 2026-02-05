@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IAlertProps } from '$stylist/design-system/interaction/feedback/alerts/alert';
-  import { AlertStyleManager } from '$stylist/design-system/interaction/feedback/alerts/alert';
+  import type { Snippet } from 'svelte';
+  import { AlertStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
   import { Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-svelte';
 
   /**
@@ -22,7 +22,15 @@
     content,
     children,
     ...restProps
-  }: IAlertProps = $props();
+  } = $props<{
+    variant?: 'info' | 'success' | 'warning' | 'error' | 'primary' | 'secondary' | 'danger';
+    title?: string;
+    closable?: boolean;
+    icon?: boolean;
+    content?: Snippet;
+    children?: Snippet;
+    class?: string;
+  }>();
 
   let open = $state(true);
 
@@ -30,7 +38,10 @@
     info: Info,
     success: CheckCircle,
     warning: AlertTriangle,
-    error: XCircle
+    error: XCircle,
+    danger: XCircle,
+    primary: Info,
+    secondary: Info
   }[variant]);
 
   // Вычисляем стили с использованием AlertStyleManager
@@ -93,4 +104,3 @@
     </div>
   </div>
 {/if}
-

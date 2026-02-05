@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { SmallProps } from '$stylist/design-system/typography';
+  import type { SmallProps } from '$stylist/design-system/attributes';
 
   /**
    * Small component - Displays small text with various styles.

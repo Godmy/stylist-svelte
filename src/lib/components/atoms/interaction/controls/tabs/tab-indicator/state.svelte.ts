@@ -1,15 +1,14 @@
-import type { TabIndicatorProps } from '$stylist/design-system/interaction/controls/tabs/tab-indicator';
+import type { TabIndicatorProps } from '$stylist/design-system/attributes';
+import { getTabIndicatorClasses, getTabIndicatorStyle } from '../helpers';
 
-export function createTabIndicatorState(props: TabIndicatorProps) {
-  const classes = $derived(
-    `absolute bottom-0 h-0.5 bg-blue-600 ${
-      props.class ?? ''
-    }`.trim()
-  );
+export const createTabIndicatorState = (props: TabIndicatorProps) => {
+  const color = props.color ?? 'primary';
+  const disabled = props.disabled ?? false;
+  const width = `${props.width ?? 0}px`;
+  const left = `${props.left ?? 0}px`;
 
   return {
-    get classes() {
-      return classes;
-    }
+    classes: getTabIndicatorClasses(color, disabled, props.class),
+    style: getTabIndicatorStyle(width, left)
   };
-}
+};

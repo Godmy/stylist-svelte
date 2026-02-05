@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext, onDestroy, onMount } from 'svelte';
-  import type { TabProps } from '$stylist/design-system/interaction/controls/tabs/tab';
+  import type { TabProps } from '$stylist/design-system/attributes';
   import { createTabState } from '../../state.svelte';
 
   let props: TabProps = $props();
@@ -34,8 +34,7 @@
       variant: props.variant ?? context.variant,
       size: props.size ?? context.size,
       disabled: props.disabled ?? context.disabled
-    },
-    isSelected
+    }
   );
 
   function handleClick() {

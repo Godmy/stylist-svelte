@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PictureToolbar from './PictureToolbar.svelte';
 
   type Props = {
@@ -18,15 +18,10 @@
 </script>
 
 <Story
-  id="molecules-picture-toolbar"
-  title="PictureToolbar"
   component={PictureToolbar}
-  category="Molecules"
-  description="A toolbar for picture editing."
-  tags={['picture', 'toolbar', 'editing']}
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children()}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PictureToolbar Story</h2>
       <PictureToolbar
@@ -36,8 +31,8 @@
           { id: 'zoom', label: 'Zoom' },
           { id: 'filter', label: 'Filter' }
         ]}
-        activeTool={props.activeTool}
-        onToolSelect={(toolId) => console.log('Tool selected:', toolId)}
+        activeTool="crop"
+        onToolSelect={(toolId: string) => console.log('Tool selected:', toolId)}
       />
     </div>
   {/snippet}

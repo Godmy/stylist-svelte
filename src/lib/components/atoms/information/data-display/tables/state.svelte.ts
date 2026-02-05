@@ -1,6 +1,29 @@
-import type { AnimatedNumberProps, ColorSwatchProps, NpmBadgeProps, NumberFlowProps, PieChartProps, TableBodyProps, TableCellProps, TableHeaderProps, TableProps, TableRowProps } from '$stylist/design-system/data-display';
-import { formatAnimatedValue, formatNumberFlowValue, getCaptionClasses, getColorSwatchClasses, getColorSwatchStyle, getNumberFlowClasses, getNpmBadgeClasses, getNpmBadgeLabel, getNpmBadgeLinkClasses, getPieChartContainerClass, getPieChartSvgClass, getTableBodyClasses, getTableCellClasses, getTableClasses, getTableHeaderClasses, getTableRowClasses } from '$stylist/design-system/data-display';
+import type { AnimatedNumberProps, NumberFlowProps, ColorSwatchProps, PieChartProps, TableBodyProps, TableCellProps, TableHeaderProps, TableProps, TableRowProps } from '$stylist/design-system/attributes';
+import {
+  formatAnimatedValue,
+  formatNumberFlowValue,
+  getColorSwatchClasses,
+  getColorSwatchStyle,
+  getNpmBadgeClasses,
+  getNpmBadgeLabel,
+  getNpmBadgeLinkClasses,
+  getNumberFlowClasses,
+  getPieChartContainerClasses,
+  getPieChartSvgClasses,
+  getTableBodyClasses,
+  getTableCaptionClasses,
+  getTableCellClasses,
+  getTableClasses,
+  getTableHeaderClasses,
+  getTableRowClasses
+} from '$stylist/design-system/presets/information';
 import { cn } from '$stylist/utils/classes';
+
+interface NpmBadgeProps {
+  type: Parameters<typeof getNpmBadgeLabel>[0];
+  label?: string;
+  class?: string;
+}
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
   const type = $derived(props.type);
@@ -111,8 +134,8 @@ export function createColorSwatchState(props: ColorSwatchProps) {
 }
 
 export function createPieChartState(props: PieChartProps) {
-  const containerClasses = $derived(getPieChartContainerClass(cn(props.class)));
-  const svgClasses = $derived(getPieChartSvgClass());
+  const containerClasses = $derived(getPieChartContainerClasses(cn(props.class)));
+  const svgClasses = $derived(getPieChartSvgClasses());
 
   return {
     get containerClasses() {
@@ -128,7 +151,7 @@ export function createPieChartState(props: PieChartProps) {
 
 export function createTableState(props: TableProps) {
   const classes = $derived(getTableClasses(cn(props.class)));
-  const captionClasses = $derived(getCaptionClasses());
+  const captionClasses = $derived(getTableCaptionClasses());
 
   return {
     get classes() {

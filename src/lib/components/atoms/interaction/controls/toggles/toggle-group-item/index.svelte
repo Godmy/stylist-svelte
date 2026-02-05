@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext } from 'svelte';
-  import type { ToggleGroupItemProps } from '$stylist/design-system/interaction/controls/toggles/toggle-group-item';
-  import { getToggleGroupItemClasses } from '$stylist/design-system/interaction/controls/toggles/toggle-group-item';
+  import type { ToggleGroupItemProps } from '$stylist/design-system/attributes';
+  import { getToggleGroupItemClasses } from '$stylist/design-system/presets';
 
   let props: ToggleGroupItemProps = $props();
 
@@ -45,3 +45,6 @@
 >
   {@render props.children?.()}
 </button>
+
+
+

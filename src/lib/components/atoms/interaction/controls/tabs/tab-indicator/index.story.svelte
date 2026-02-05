@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Story } from '$lib/playground';
-	import type { ControlConfig } from '$lib/playground';
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import TabIndicator from './index.svelte';
 
 	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'gray'] as const;

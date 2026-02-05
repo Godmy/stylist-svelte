@@ -1,11 +1,8 @@
 <script lang="ts">
   import { Button, InputText } from '$stylist/components/atoms';
-  import type { IInputGroupProps } from '$stylist/design-system/interaction/input/field/input-group';
+  import type { IInputGroupProps } from '$stylist/design-system/attributes';
+  import { createInputGroupState } from '../state.svelte';
   import { createEventDispatcher } from 'svelte';
-  import { getInputGroupContainerClasses, getInputGroupInputClasses, getInputGroupButtonClasses } from '$stylist/design-system/interaction/input/field/input-group';
-
-  // Define the button variant type to exclude 'info' if it's not supported
-  type ButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
 
   let {
     id = '',
@@ -16,7 +13,7 @@
     buttonLabel = '',
     buttonVariant = 'primary',
     buttonDisabled = false,
-    className = '',
+    class: className = '',
     onButtonClick = () => {}
   }: IInputGroupProps = $props();
 
@@ -39,9 +36,10 @@
     }
   }
 
-  let containerClasses = $derived(getInputGroupContainerClasses());
-  let inputClasses = $derived(getInputGroupInputClasses(className));
-  let buttonClasses = $derived(getInputGroupButtonClasses());
+  const state = $derived(createInputGroupState(className));
+  let containerClasses = $derived(state.containerClasses);
+  let inputClasses = $derived(state.inputClasses);
+  let buttonClasses = $derived(state.buttonClasses);
 </script>
 
 <div class={containerClasses}>
@@ -62,5 +60,4 @@
     {buttonLabel}
   </Button>
 </div>
-
 

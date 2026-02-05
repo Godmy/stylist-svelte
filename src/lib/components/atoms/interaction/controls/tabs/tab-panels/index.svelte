@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { TabPanelsProps } from '$stylist/design-system/interaction/controls/tabs/tab-panels';
+<script lang="ts">
+  import type { TabPanelsProps } from '$stylist/design-system/attributes';
   import { createTabPanelsState } from '../../state.svelte';
 
   let props: TabPanelsProps = $props();

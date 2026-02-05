@@ -1,10 +1,10 @@
-import type { TabProps } from '$stylist/design-system/interaction/controls/tabs/tab';
+import type { TabProps } from '$stylist/design-system/attributes';
 
 export function createTabState(props: TabProps) {
   const variant = $derived(props.variant ?? 'default');
   const size = $derived(props.size ?? 'md');
   const disabled = $derived(props.disabled ?? false);
-  const isSelected = $derived(props.isSelected ?? false);
+  const isSelected = $derived(props.selected ?? false);
   const classes = $derived(
     `px-4 py-2 text-sm font-medium rounded-t-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
       isSelected 

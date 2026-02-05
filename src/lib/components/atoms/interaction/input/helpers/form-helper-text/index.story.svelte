@@ -4,7 +4,7 @@
 
   type Props = {
     text?: string;
-    variant?: 'default' | 'info' | 'success' | 'warning' | 'danger';
+    variant?: 'default' | 'warning' | 'danger' | 'filled' | 'ghost';
     content?: () => any;
     class?: string;
   };
@@ -14,7 +14,7 @@
     {
       name: 'variant',
       type: 'select',
-      options: ['default', 'info', 'success', 'warning', 'danger'],
+      options: ['default', 'warning', 'danger', 'filled', 'ghost'],
       defaultValue: 'default',
       description: 'Visual variant of the helper text'
     },

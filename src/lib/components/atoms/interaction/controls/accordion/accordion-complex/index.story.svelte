@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
   import ComplexAccordion from './ComplexAccordion.svelte';
-  import { AccordionItem } from '../accordion-item/index.svelte';
-  import { AccordionHeader } from '../accordion-header/index.svelte';
-  import { AccordionPanel } from '../accordion-panel/index.svelte';
+  import AccordionItem from '../accordion-item/index.svelte';
+  import AccordionHeader from '../accordion-header/index.svelte';
+  import AccordionPanel from '../accordion-panel/index.svelte';
 
   let multiple: boolean = true;
   let defaultValue: string[] = [];
@@ -72,7 +72,7 @@
       <h2 class="text-md font-semibold mb-2">Single Selection Accordion</h2>
       <ComplexAccordion
         multiple={false}
-        onValueChange={(values) => console.log('Single selection:', values)}
+        onValueChange={(values: string[]) => console.log('Single selection:', values)}
       >
         {#snippet content()}
           <AccordionItem value="single-1">
@@ -96,7 +96,7 @@
       <h2 class="text-md font-semibold mb-2">Multiple Selection Accordion</h2>
       <ComplexAccordion
         multiple={true}
-        onValueChange={(values) => console.log('Multiple selection:', values)}
+        onValueChange={(values: string[]) => console.log('Multiple selection:', values)}
       >
         {#snippet content()}
           <AccordionItem value="multi-1">
@@ -121,7 +121,7 @@
       <ComplexAccordion
         multiple={true}
         defaultValue={['default-open']}
-        onValueChange={(values) => console.log('Default open:', values)}
+        onValueChange={(values: string[]) => console.log('Default open:', values)}
       >
         {#snippet content()}
           <AccordionItem value="default-open">

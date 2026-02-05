@@ -1,32 +1,40 @@
 <script lang="ts">
-  import type { IAlertPanelProps } from '$stylist/design-system/interaction/feedback/notification/alert-panel';
-  import { AlertPanelStyleManager } from '$stylist/design-system/interaction/feedback/notification/alert-panel';
+  import { AlertStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   let {
     title = '',
     description = '',
-    status = 'info',
+    variant = 'info',
     showIcon = true,
     class: className = ''
-  }: IAlertPanelProps = $props();
+  } = $props<{
+    title?: string;
+    description?: string;
+    variant?: 'info' | 'success' | 'warning' | 'error' | 'primary' | 'secondary' | 'danger';
+    showIcon?: boolean;
+    class?: string;
+  }>();
 
-  const statusIcons: Record<'info' | 'success' | 'warning' | 'error', string> = {
+  const statusIcons: Record<string, string> = {
     info: 'ℹ',
     success: '✓',
     warning: '⚠',
-    error: '✕'
+    error: '✕',
+    primary: '●',
+    secondary: '◆',
+    danger: '▲'
   };
 </script>
 
-<div class={AlertPanelStyleManager.getContainerClass(status, className)}>
-  <div class={AlertPanelStyleManager.getContentWrapperClass()}>
+<div class={AlertStyleManager.getBaseClasses(variant) + ' ' + className}>
+  <div class={AlertStyleManager.getContentWrapperClass()}>
     {#if showIcon}
-      <span class={AlertPanelStyleManager.getIconClass()}>{statusIcons[status]}</span>
+      <span class={AlertStyleManager.getIconClasses(variant)}>{statusIcons[variant]}</span>
     {/if}
-    <div class={AlertPanelStyleManager.getTextContentWrapperClass()}>
-      <h3 class={AlertPanelStyleManager.getTitleClass()}>{title}</h3>
+    <div class={AlertStyleManager.getTextContentWrapperClass()}>
+      <h3 class={AlertStyleManager.getTitleClasses()}>{title}</h3>
       {#if description}
-        <p class={AlertPanelStyleManager.getDescriptionClass()}>{description}</p>
+        <p class={AlertStyleManager.getContentContainerClasses()}>{description}</p>
       {/if}
     </div>
   </div>

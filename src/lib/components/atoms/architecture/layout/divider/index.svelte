@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DividerProps } from '$stylist/design-system/layout/divider';
+  import type { DividerProps } from '$stylist/design-system';
   import { createDividerState } from '../state.svelte';
 
   let props: DividerProps = $props();

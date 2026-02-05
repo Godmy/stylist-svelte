@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NpmBadgeProps } from '$stylist/design-system/data-display';
+  import type { NpmBadgeProps } from '$stylist/design-system';
   import { createNpmBadgeState } from '../state.svelte';
 
   let props: NpmBadgeProps = $props();

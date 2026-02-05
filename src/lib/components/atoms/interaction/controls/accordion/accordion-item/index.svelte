@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { AccordionItemProps } from '$stylist/design-system/interaction/controls/accordion/accordion-item';
-  import { createAccordionItemState } from '../../state.svelte';
+  import type { AccordionItemProps } from '$stylist/design-system/attributes';
+  import { createAccordionItemState } from '../state.svelte';
 
   type Props = AccordionItemProps & HTMLAttributes<HTMLDivElement>;
 

@@ -1,9 +1,9 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
-  import { ComplexAccordion } from '../accordion-complex';
-  import { AccordionItem } from '../accordion-item';
-  import { AccordionHeader } from '../accordion-header';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import ComplexAccordion from '../accordion-complex';
+  import AccordionItem from '../accordion-item';
+  import AccordionHeader from '../accordion-header';
   import AccordionPanel from './AccordionPanel.svelte';
 
   let {

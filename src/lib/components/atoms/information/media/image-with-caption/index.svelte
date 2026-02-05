@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ImageWithCaptionProps } from '$stylist/design-system/media';
+  import type { ImageWithCaptionProps } from '$stylist/design-system';
   import { createImageWithCaptionState } from '../state.svelte';
 
   let props: ImageWithCaptionProps = $props();

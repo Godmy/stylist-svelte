@@ -1,38 +1,36 @@
 <script lang="ts">
-  import type { Meta, StoryFn } from '@storybook/svelte';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import StrikeThrough from './index.svelte';
 
-  export let meta: Meta<StrikeThrough> = {
-    component: StrikeThrough,
-    title: 'Atoms/Information/Typography/StrikeThrough',
-    tags: ['autodocs'],
-    argTypes: {
-      variant: {
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
-      },
-      size: {
-        control: { type: 'select' },
-        options: ['sm', 'md', 'lg'],
-      },
-      disabled: {
-        control: { type: 'boolean' },
-      },
-      block: {
-        control: { type: 'boolean' },
-      },
-      class: {
-        control: { type: 'text' },
-      },
+  const controls: ControlConfig[] = [
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'primary',
+      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
     },
-  };
-
-  const Template: StoryFn<StrikeThrough> = ({ ...args }) => ({
-    Component: StrikeThrough,
-    props: args,
-  });
+    {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'md',
+      options: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false
+    },
+    {
+      name: 'block',
+      type: 'boolean',
+      defaultValue: false
+    }
+  ];
 </script>
 
+<Story component={StrikeThrough} controls={controls}>
+  {#snippet children()}
 <div class="space-y-4 p-4">
   <h3 class="text-lg font-semibold">Strike Through Text Variants</h3>
   
@@ -59,3 +57,5 @@
     <StrikeThrough block>Block Strike Through Text</StrikeThrough>
   </div>
 </div>
+  {/snippet}
+</Story>

@@ -1,126 +1,22 @@
-﻿import type { BlockquoteProps } from '$stylist/design-system/typography/block/blockquote';
-import {
-  BLOCKQUOTE_CLASSES,
-  DEFAULT_WITH_BACKGROUND,
-  DEFAULT_WITH_BORDER,
-  FOOTER_PREFIX,
-  getBlockquoteClasses
-} from '$stylist/design-system/typography/block/blockquote';
-import type { BadgeProps } from '$stylist/design-system/typography/elements/badge';
-import {
-  BADGE_DEFAULT_SIZE,
-  BADGE_DEFAULT_VARIANT,
-  getBadgeClasses
-} from '$stylist/design-system/typography/elements/badge';
-import type { BadgeGroupProps } from '$stylist/design-system/typography/elements/badge-group';
-import {
-  getBadgeGroupContainerClasses,
-  getBadgeGroupOverflowClasses
-} from '$stylist/design-system/typography/elements/badge-group';
-import type { CodeBlockProps } from '$stylist/design-system/typography/elements/code-block';
-import {
-  DEFAULT_CODE_BLOCK_SIZE,
-  DEFAULT_CODE_BLOCK_VARIANT,
-  DEFAULT_LANGUAGE,
-  DEFAULT_SHOW_LINE_NUMBERS,
-  DEFAULT_START_LINE_NUMBER,
-  getCodeBlockClasses
-} from '$stylist/design-system/typography/elements/code-block';
-import type { LabelProps } from '$stylist/design-system/typography/elements/label';
-import {
-  DEFAULT_LABEL_DISABLED,
-  DEFAULT_LABEL_REQUIRED,
-  DEFAULT_LABEL_SIZE,
-  getLabelClasses,
-  getRequiredIndicatorClasses
-} from '$stylist/design-system/typography/elements/label';
-import type { CountBadgeProps } from '$stylist/design-system/typography/indicators/count-badge';
-import {
-  DEFAULT_COUNT_BADGE_COUNT,
-  DEFAULT_COUNT_BADGE_MAX,
-  DEFAULT_COUNT_BADGE_SHOW_ZERO,
-  getCountBadgeClasses
-} from '$stylist/design-system/typography/indicators/count-badge';
-import type { CounterProps } from '$stylist/design-system/typography/indicators/counter';
-import {
-  DEFAULT_COUNTER_COUNT,
-  DEFAULT_COUNTER_MAX,
-  DEFAULT_COUNTER_SIZE,
-  DEFAULT_COUNTER_VARIANT,
-  getCounterClasses
-} from '$stylist/design-system/typography/indicators/counter';
-import type { DotProps } from '$stylist/design-system/typography/indicators/dot';
-import {
-  DEFAULT_DOT_COLOR,
-  DEFAULT_DOT_SIZE,
-  getDotClasses
-} from '$stylist/design-system/typography/indicators/dot';
-import type { ListItemMarkerProps } from '$stylist/design-system/typography/indicators/list-item-marker';
-import {
-  DEFAULT_MARKER_COLOR,
-  DEFAULT_MARKER_SIZE,
-  DEFAULT_MARKER_TYPE,
-  DEFAULT_MARKER_VALUE,
-  getBulletClasses,
-  getMarkerClasses
-} from '$stylist/design-system/typography/indicators/list-item-marker';
-import type { MessageStatusProps } from '$stylist/design-system/typography/indicators/message-status';
-import {
-  getMessageStatusContainerClasses,
-  getMessageStatusIconClasses
-} from '$stylist/design-system/typography/indicators/message-status';
-import type { StatusIndicatorProps } from '$stylist/design-system/typography/indicators/status-indicator';
-import {
-  DEFAULT_STATUS_INDICATOR_STATUS,
-  getStatusIndicatorContainerClasses,
-  getStatusIndicatorDotClasses,
-  getStatusIndicatorLabel
-} from '$stylist/design-system/typography/indicators/status-indicator';
-import type { StatusIndicatorWithLabelProps } from '$stylist/design-system/typography/indicators/status-indicator-with-label';
-import {
-  getStatusIndicatorWithLabelContainerClasses,
-  getStatusIndicatorWithLabelIndicatorClasses,
-  getStatusIndicatorWithLabelLabelClasses,
-  getStatusIndicatorWithLabelSizeClasses
-} from '$stylist/design-system/typography/indicators/status-indicator-with-label';
-import type { AbbrProps } from '$stylist/design-system/typography/inline/abbr';
-import { DEFAULT_ABBR_TITLE, getAbbrClasses } from '$stylist/design-system/typography/inline/abbr';
-import type { DefinitionDescriptionProps } from '$stylist/design-system/typography/inline/definition-description';
-import { getDefinitionDescriptionClasses } from '$stylist/design-system/typography/inline/definition-description';
-import type { DefinitionTermProps } from '$stylist/design-system/typography/inline/definition-term';
-import { getDefinitionTermClasses } from '$stylist/design-system/typography/inline/definition-term';
-import type { EmProps } from '$stylist/design-system/typography/inline/em';
-import { getEmClasses } from '$stylist/design-system/typography/inline/em';
-import type { HighlightProps } from '$stylist/design-system/typography/inline/highlight';
-import { getHighlightClasses } from '$stylist/design-system/typography/inline/highlight';
-import type { InlineCodeProps } from '$stylist/design-system/typography/inline/inline-code';
-import {
-  DEFAULT_INLINE_CODE_VARIANT,
-  getInlineCodeClasses
-} from '$stylist/design-system/typography/inline/inline-code';
-import type { KbdProps } from '$stylist/design-system/typography/inline/kbd';
-import { getKbdClasses } from '$stylist/design-system/typography/inline/kbd';
-import type { LinkProps } from '$stylist/design-system/typography/inline/link';
-import {
-  DEFAULT_LINK_DISABLED,
-  DEFAULT_LINK_SIZE,
-  DEFAULT_LINK_UNDERLINE,
-  DEFAULT_LINK_VARIANT,
-  getLinkClasses
-} from '$stylist/design-system/typography/inline/link';
-import type { SeparatorProps } from '$stylist/design-system/typography/inline/separator';
-import {
-  DEFAULT_SEPARATOR_DECORATIVE,
-  DEFAULT_SEPARATOR_ORIENTATION,
-  getSeparatorClasses
-} from '$stylist/design-system/typography/inline/separator';
-import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/typography/inline/syntax-highlighted-code';
-import {
-  DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE,
-  DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT,
-  getSyntaxHighlightedCodeClasses,
-  getSyntaxHighlightedCodeContainerClasses
-} from '$stylist/design-system/typography/inline/syntax-highlighted-code';
+﻿import type { BlockquoteProps } from '$stylist/design-system/attributes';
+import { BLOCKQUOTE_CLASSES, DEFAULT_WITH_BACKGROUND, DEFAULT_WITH_BORDER, FOOTER_PREFIX } from '$stylist/design-system';
+import { getBlockquoteClasses } from '$stylist/design-system/presets';
+import type { BadgeProps, BadgeGroupProps, CodeBlockProps, LabelProps } from '$stylist/design-system/attributes';
+import { BADGE_DEFAULT_SIZE, BADGE_DEFAULT_VARIANT, BADGE_GROUP_CONTAINER_CLASSES, BADGE_GROUP_OVERFLOW_CLASSES, DEFAULT_CODE_BLOCK_SIZE, DEFAULT_CODE_BLOCK_VARIANT, DEFAULT_LANGUAGE, DEFAULT_SHOW_LINE_NUMBERS, DEFAULT_START_LINE_NUMBER, DEFAULT_LABEL_DISABLED, DEFAULT_LABEL_REQUIRED, DEFAULT_LABEL_SIZE, REQUIRED_INDICATOR_CLASSES } from '$stylist/design-system';
+import { getBadgeClasses, getCodeBlockClasses, getLabelClasses } from '$stylist/design-system/presets';
+import type { CountBadgeProps, CounterProps, DotProps, ListItemMarkerProps, StatusIndicatorProps, StatusIndicatorWithLabelProps } from '$stylist/design-system/attributes';
+import type { MessageStatusType } from '$stylist/design-system';
+import type { CommonSize } from '$stylist/design-system/tokens/variants';
+import { BASE_COUNT_BADGE_CLASSES, BASE_COUNTER_CLASSES, BASE_DOT_CLASSES, BASE_MARKER_CLASSES, BULLET_CLASSES, BULLET_SIZE_CLASSES, COUNTER_SIZE_CLASSES, COUNTER_VARIANT_CLASSES, DEFAULT_COUNT_BADGE_COUNT, DEFAULT_COUNT_BADGE_MAX, DEFAULT_COUNT_BADGE_SHOW_ZERO, DEFAULT_COUNTER_COUNT, DEFAULT_COUNTER_MAX, DEFAULT_COUNTER_SIZE, DEFAULT_COUNTER_VARIANT, DEFAULT_DOT_COLOR, DEFAULT_DOT_SIZE, DEFAULT_MARKER_COLOR, DEFAULT_MARKER_SIZE, DEFAULT_MARKER_TYPE, DEFAULT_MARKER_VALUE, DEFAULT_STATUS_INDICATOR_STATUS, DOT_COLOR_CLASSES, DOT_SIZE_CLASSES, getStatusIndicatorLabel, MARKER_COLOR_CLASSES, MARKER_SIZE_CLASSES, MESSAGE_STATUS_COLORS, MESSAGE_STATUS_SIZE_CLASSES, STATUS_INDICATOR_CONTAINER_CLASSES, STATUS_INDICATOR_DOT_BASE_CLASSES, STATUS_INDICATOR_STATUS_CLASSES, STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES, STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES } from '$stylist/design-system';
+import type { AbbrProps, InlineBaseProps, InlineCodeProps, LinkProps } from '$stylist/design-system/attributes';
+import type { SeparatorProps, SyntaxHighlightedCodeProps } from '$stylist/design-system/attributes';
+import { DEFAULT_ABBR_TITLE, DEFAULT_INLINE_CODE_VARIANT, DEFAULT_LINK_DISABLED, DEFAULT_LINK_SIZE, DEFAULT_LINK_UNDERLINE, DEFAULT_LINK_VARIANT, DEFAULT_SEPARATOR_DECORATIVE, DEFAULT_SEPARATOR_ORIENTATION, DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE, DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT } from '$stylist/design-system';
+import { getAbbrClasses, getDefinitionDescriptionClasses, getDefinitionTermClasses, getEmClasses, getHighlightClasses, getInlineCodeClasses, getKbdClasses, getLinkClasses, getSeparatorClasses, getSyntaxHighlightedCodeClasses, getSyntaxHighlightedCodeContainerClasses } from '$stylist/design-system/presets/information';
+
+interface MessageStatusProps {
+  status?: MessageStatusType;
+  size?: CommonSize;
+}
 
 export function createBlockquoteState(props: BlockquoteProps) {
   const cite = $derived(props.cite ?? '');
@@ -175,8 +71,8 @@ export function createBadgeGroupState(props: BadgeGroupProps) {
   const showOverflow = $derived(props.showOverflow ?? true);
   const badgeClass = $derived(props.badgeClass ?? '');
   const overflowClass = $derived(props.overflowClass ?? '');
-  const containerClasses = $derived(getBadgeGroupContainerClasses(props.class ?? ''));
-  const overflowClasses = $derived(getBadgeGroupOverflowClasses(overflowClass));
+  const containerClasses = $derived(props.class ? `${BADGE_GROUP_CONTAINER_CLASSES} ${props.class}` : BADGE_GROUP_CONTAINER_CLASSES);
+  const overflowClasses = $derived(overflowClass ? `${BADGE_GROUP_OVERFLOW_CLASSES} ${overflowClass}` : BADGE_GROUP_OVERFLOW_CLASSES);
   const visibleBadges = $derived(badges.slice(0, maxVisible));
   const overflowCount = $derived(Math.max(0, badges.length - maxVisible));
 
@@ -248,7 +144,7 @@ export function createLabelState(props: LabelProps) {
   const htmlFor = $derived(props.htmlFor);
   const text = $derived(props.text);
   const classes = $derived(getLabelClasses(size, disabled, props.class ?? ''));
-  const requiredIndicatorClasses = $derived(getRequiredIndicatorClasses());
+  const requiredIndicatorClasses = $derived(REQUIRED_INDICATOR_CLASSES);
 
   return {
     get size() {
@@ -279,7 +175,7 @@ export function createCountBadgeState(props: CountBadgeProps) {
   const count = $derived(props.count ?? DEFAULT_COUNT_BADGE_COUNT);
   const max = $derived(props.max ?? DEFAULT_COUNT_BADGE_MAX);
   const showZero = $derived(props.showZero ?? DEFAULT_COUNT_BADGE_SHOW_ZERO);
-  const classes = $derived(getCountBadgeClasses(props.class ?? ''));
+  const classes = $derived(props.class ? `${BASE_COUNT_BADGE_CLASSES} ${props.class}` : BASE_COUNT_BADGE_CLASSES);
   const displayCount = $derived(count > max ? `${max}+` : count);
 
   return {
@@ -306,7 +202,7 @@ export function createCounterState(props: CounterProps) {
   const max = $derived(props.max ?? DEFAULT_COUNTER_MAX);
   const variant = $derived(props.variant ?? DEFAULT_COUNTER_VARIANT);
   const size = $derived(props.size ?? DEFAULT_COUNTER_SIZE);
-  const classes = $derived(getCounterClasses(variant, size, props.class ?? ''));
+  const classes = $derived(`${BASE_COUNTER_CLASSES} ${COUNTER_VARIANT_CLASSES[variant]} ${COUNTER_SIZE_CLASSES[size]} ${props.class ?? ''}`.trim());
   const displayCount = $derived(count > max ? `${max}+` : count);
 
   return {
@@ -334,7 +230,7 @@ export function createCounterState(props: CounterProps) {
 export function createDotState(props: DotProps) {
   const color = $derived(props.color ?? DEFAULT_DOT_COLOR);
   const size = $derived(props.size ?? DEFAULT_DOT_SIZE);
-  const classes = $derived(getDotClasses(color, size, props.class ?? ''));
+  const classes = $derived([BASE_DOT_CLASSES, DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], props.class].filter(Boolean).join(' '));
 
   return {
     get color() {
@@ -354,8 +250,8 @@ export function createListItemMarkerState(props: ListItemMarkerProps) {
   const value = $derived(props.value ?? DEFAULT_MARKER_VALUE);
   const color = $derived(props.color ?? DEFAULT_MARKER_COLOR);
   const size = $derived(props.size ?? DEFAULT_MARKER_SIZE);
-  const classes = $derived(getMarkerClasses(color, size, props.class ?? ''));
-  const bulletClasses = $derived(getBulletClasses(size));
+  const classes = $derived([BASE_MARKER_CLASSES, MARKER_COLOR_CLASSES[color], MARKER_SIZE_CLASSES[size], props.class].filter(Boolean).join(' '));
+  const bulletClasses = $derived([BULLET_CLASSES, BULLET_SIZE_CLASSES[size]].filter(Boolean).join(' '));
 
   return {
     get type() {
@@ -382,8 +278,8 @@ export function createListItemMarkerState(props: ListItemMarkerProps) {
 export function createMessageStatusState(props: MessageStatusProps) {
   const status = $derived(props.status ?? 'sent');
   const size = $derived(props.size ?? 'sm');
-  const containerClasses = $derived(getMessageStatusContainerClasses(status));
-  const iconClasses = $derived(getMessageStatusIconClasses(size));
+  const containerClasses = $derived(`inline-flex items-center justify-center ${MESSAGE_STATUS_COLORS[status as MessageStatusType]}`);
+  const iconClasses = $derived(MESSAGE_STATUS_SIZE_CLASSES[size as CommonSize]);
   const isDoubleCheck = $derived(status === 'read');
 
   return {
@@ -408,8 +304,8 @@ export function createMessageStatusState(props: MessageStatusProps) {
 export function createStatusIndicatorState(props: StatusIndicatorProps) {
   const status = $derived(props.status ?? DEFAULT_STATUS_INDICATOR_STATUS);
   const label = $derived(getStatusIndicatorLabel(status, props.label));
-  const classes = $derived(getStatusIndicatorContainerClasses(props.class ?? ''));
-  const dotClasses = $derived(getStatusIndicatorDotClasses(status));
+  const classes = $derived(props.class ? `${STATUS_INDICATOR_CONTAINER_CLASSES} ${props.class}` : STATUS_INDICATOR_CONTAINER_CLASSES);
+  const dotClasses = $derived([STATUS_INDICATOR_DOT_BASE_CLASSES, STATUS_INDICATOR_STATUS_CLASSES[status]].filter(Boolean).join(' '));
 
   return {
     get status() {
@@ -435,12 +331,16 @@ export function createStatusIndicatorWithLabelState(props: StatusIndicatorWithLa
   const showLabel = $derived(props.showLabel ?? true);
   const indicatorClass = $derived(props.indicatorClass ?? '');
   const labelClass = $derived(props.labelClass ?? '');
-  const containerClasses = $derived(getStatusIndicatorWithLabelContainerClasses(props.class ?? ''));
-  const indicatorSizeClasses = $derived(getStatusIndicatorWithLabelSizeClasses(size));
+  const containerClasses = $derived(props.class ? `${STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES.join(' ')} ${props.class}` : STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES.join(' '));
+  const indicatorSizeClasses = $derived(STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size]);
   const indicatorStatusClasses = $derived(
-    getStatusIndicatorWithLabelIndicatorClasses(status, customColor, indicatorClass)
+    ['inline-block', 'rounded-full', 'mr-2',
+      status === 'custom' && customColor ? `bg-[${customColor}]` :
+      status !== 'custom' ? STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status] : 'bg-gray-500',
+      indicatorClass
+    ].filter(Boolean).join(' ')
   );
-  const labelClasses = $derived(getStatusIndicatorWithLabelLabelClasses(labelClass));
+  const labelClasses = $derived(labelClass);
 
   return {
     get status() {
@@ -493,7 +393,7 @@ export function createAbbrState(props: AbbrProps) {
   };
 }
 
-export function createDefinitionDescriptionState(props: DefinitionDescriptionProps) {
+export function createDefinitionDescriptionState(props: InlineBaseProps) {
   const classes = $derived(getDefinitionDescriptionClasses(props.class ?? ''));
 
   return {
@@ -503,7 +403,7 @@ export function createDefinitionDescriptionState(props: DefinitionDescriptionPro
   };
 }
 
-export function createDefinitionTermState(props: DefinitionTermProps) {
+export function createDefinitionTermState(props: InlineBaseProps) {
   const classes = $derived(getDefinitionTermClasses(props.class ?? ''));
 
   return {
@@ -513,7 +413,7 @@ export function createDefinitionTermState(props: DefinitionTermProps) {
   };
 }
 
-export function createEmState(props: EmProps) {
+export function createEmState(props: InlineBaseProps) {
   const classes = $derived(getEmClasses(props.class ?? ''));
 
   return {
@@ -523,7 +423,7 @@ export function createEmState(props: EmProps) {
   };
 }
 
-export function createHighlightState(props: HighlightProps) {
+export function createHighlightState(props: InlineBaseProps) {
   const classes = $derived(getHighlightClasses(props.class ?? ''));
 
   return {
@@ -535,7 +435,7 @@ export function createHighlightState(props: HighlightProps) {
 
 export function createInlineCodeState(props: InlineCodeProps) {
   const variant = $derived(props.variant ?? DEFAULT_INLINE_CODE_VARIANT);
-  const classes = $derived(getInlineCodeClasses(variant, props.class ?? ''));
+  const classes = $derived(getInlineCodeClasses(variant as any, props.class ?? ''));
 
   return {
     get variant() {
@@ -547,7 +447,7 @@ export function createInlineCodeState(props: InlineCodeProps) {
   };
 }
 
-export function createKbdState(props: KbdProps) {
+export function createKbdState(props: InlineBaseProps) {
   const classes = $derived(getKbdClasses(props.class ?? ''));
 
   return {
@@ -565,7 +465,7 @@ export function createLinkState(props: LinkProps) {
   const href = $derived(props.href);
   const target = $derived(props.target);
   const text = $derived(props.text);
-  const classes = $derived(getLinkClasses(variant, size, disabled, underline, props.class ?? ''));
+  const classes = $derived(getLinkClasses(variant as any, size as any, disabled, underline, props.class ?? ''));
 
   return {
     get variant() {

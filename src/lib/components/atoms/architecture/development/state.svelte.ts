@@ -1,5 +1,13 @@
-import type { StackAlign, StackDirection, StackJustify, StackProps } from '$stylist/design-system/development/stack';
-import { getStackClasses, getStackGap } from '$stylist/design-system/development/stack';
+import type { StackAlign, StackDirection, StackJustify } from '$stylist/design-system/presets';
+import { getStackClasses, getStackGap } from '$stylist/design-system/presets';
+
+interface StackProps {
+  direction?: StackDirection;
+  spacing?: string | number;
+  align?: StackAlign;
+  justify?: StackJustify;
+  class?: string;
+}
 
 export function createStackState(props: StackProps) {
   const direction = $derived((props.direction ?? 'vertical') as StackDirection);

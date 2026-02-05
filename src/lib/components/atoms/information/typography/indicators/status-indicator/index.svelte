@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { StatusIndicatorProps } from '$stylist/design-system/typography/indicators/status-indicator';
+<script lang="ts">
+  import type { StatusIndicatorProps } from '$stylist/design-system';
   import { createStatusIndicatorState } from '../../state.svelte';
 
   let props: StatusIndicatorProps = $props();

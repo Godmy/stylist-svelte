@@ -1,8 +1,8 @@
-﻿<script lang="ts">
-  import type { HighlightProps } from '$stylist/design-system/typography/inline/highlight';
+<script lang="ts">
+  import type { InlineBaseProps } from '$stylist/design-system/attributes';
   import { createHighlightState } from '../../state.svelte';
 
-  let props: HighlightProps = $props();
+  let props: InlineBaseProps<HTMLElement> = $props();
 
   const state = createHighlightState(props);
   const children = $derived(props.children);

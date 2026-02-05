@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SimpleTooltip from './simple-tooltip/index.svelte';
 
   const controls: ControlConfig[] = [

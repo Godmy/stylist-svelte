@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IconCircleProps } from '$stylist/design-system/media';
+  import type { IconCircleProps } from '$stylist/design-system';
   import { createIconCircleState } from '../state.svelte';
 
   let props: IconCircleProps = $props();

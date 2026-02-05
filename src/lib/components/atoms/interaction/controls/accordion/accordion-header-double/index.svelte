@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
-  import type { AccordionHeaderDoubleProps } from '$stylist/design-system/interaction/controls/accordion/accordion-header-double';
-  import { createAccordionHeaderDoubleState } from '../../state.svelte';
+  import type { AccordionHeaderDoubleProps } from '$stylist/design-system/attributes';
+  import { createAccordionHeaderDoubleState } from '../state.svelte';
 
   type Props = AccordionHeaderDoubleProps & HTMLButtonAttributes;
 

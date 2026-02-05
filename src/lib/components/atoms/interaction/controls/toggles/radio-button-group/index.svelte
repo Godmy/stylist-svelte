@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { RadioButtonGroupProps } from '$stylist/design-system/interaction/controls/toggles/radio-button-group';
+<script lang="ts">
+  import type { RadioButtonGroupProps } from '$stylist/design-system/attributes';
   import { createRadioButtonGroupState } from '../../state.svelte';
 
   let props: RadioButtonGroupProps = $props();
@@ -62,3 +62,4 @@
     </label>
   {/each}
 </div>
+

@@ -2,8 +2,8 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { CaptionProps } from '$stylist/design-system/typography';
-  import { getCaptionClasses } from '$stylist/design-system/typography';
+  import type { CaptionProps } from '$stylist/design-system/attributes';
+  import { getCaptionClasses } from '$stylist/design-system/presets';
   import { buildClasses } from '$stylist/utils/classes';
   import { computeAriaLabel } from '$stylist/utils/aria';
 

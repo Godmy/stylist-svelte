@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { PictureToolbarProps } from '$stylist/design-system/interaction/controls/picture-toolbar';
+<script lang="ts">
+  import type { PictureToolbarProps } from '$stylist/design-system/attributes';
   import { createPictureToolbarState } from '../state.svelte';
 
   let props: PictureToolbarProps = $props();

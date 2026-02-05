@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ISimpleTooltipProps } from '$stylist/design-system/interaction/feedback/notification/simple-tooltip';
+  import type { ISimpleTooltipProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * SimpleTooltip component - A tooltip overlay that displays additional information
@@ -21,8 +21,8 @@
 
   let {
     position = 'top',
-    visible = false,
-    content = '',
+    show = false,
+    text = '',
     class: className = '',
     ...restProps
   }: Props = $props();
@@ -55,9 +55,9 @@
   );
 </script>
 
-{#if visible}
+{#if show}
   <div class={baseClasses} role="tooltip" {...restProps}>
-    {content}
+    {text}
     <div class={arrowClasses}></div>
   </div>
 {/if}

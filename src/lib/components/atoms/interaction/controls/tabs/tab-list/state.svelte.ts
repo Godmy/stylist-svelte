@@ -1,15 +1,9 @@
-import type { TabListProps } from '$stylist/design-system/interaction/controls/tabs/tab-list';
+import type { TabListProps } from '$stylist/design-system/attributes';
+import { getTabListClasses } from '../helpers';
 
-export function createTabListState(props: TabListProps) {
-  const classes = $derived(
-    `flex border-b ${
-      props.class ?? ''
-    }`.trim()
-  );
-
+export const createTabListState = (props: TabListProps) => {
+  const disabled = props.disabled ?? false;
   return {
-    get classes() {
-      return classes;
-    }
+    classes: getTabListClasses(disabled, props.class)
   };
-}
+};

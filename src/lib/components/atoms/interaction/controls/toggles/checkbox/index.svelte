@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { CheckboxProps } from '$stylist/design-system/interaction/controls/toggles/checkbox';
+<script lang="ts">
+  import type { CheckboxProps } from '$stylist/design-system/attributes';
   import { createCheckboxState } from '../../state.svelte';
 
   let {
@@ -54,3 +54,4 @@
     </p>
   {/if}
 </div>
+

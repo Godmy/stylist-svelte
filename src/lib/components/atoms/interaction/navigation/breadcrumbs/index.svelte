@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Slash } from 'lucide-svelte';
-  import type { IBreadcrumbsProps } from '$stylist/design-system/interaction/navigation/breadcrumbs';
-  import { BreadcrumbsStyleManager } from '$stylist/design-system/interaction/navigation/breadcrumbs';
+  import type { IBreadcrumbsProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import { BreadcrumbsStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   let { crumbs }: IBreadcrumbsProps = $props();
 

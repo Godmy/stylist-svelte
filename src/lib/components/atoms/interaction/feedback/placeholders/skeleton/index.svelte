@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { SkeletonStyleManager } from '$stylist/design-system/interaction/feedback/placeholders/skeleton';
-  import type { ISkeletonProps } from '$stylist/design-system/interaction/feedback/placeholders/skeleton';
+  import { SkeletonStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { ISkeletonProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * Skeleton component - displays a loading placeholder

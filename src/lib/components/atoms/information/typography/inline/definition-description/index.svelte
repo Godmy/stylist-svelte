@@ -1,8 +1,8 @@
-﻿<script lang="ts">
-  import type { DefinitionDescriptionProps } from '$stylist/design-system/typography/inline/definition-description';
+<script lang="ts">
+  import type { InlineBaseProps } from '$stylist/design-system/attributes';
   import { createDefinitionDescriptionState } from '../../state.svelte';
 
-  let props: DefinitionDescriptionProps = $props();
+  let props: InlineBaseProps<HTMLElement> = $props();
 
   const state = createDefinitionDescriptionState(props);
   const children = $derived(props.children);

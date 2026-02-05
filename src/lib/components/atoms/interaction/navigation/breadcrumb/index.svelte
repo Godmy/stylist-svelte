@@ -13,8 +13,8 @@
    */
 
   import { ChevronRight } from 'lucide-svelte';
-  import { BreadcrumbStyleManager } from '$stylist/design-system/interaction/navigation/breadcrumb';
-  import type { IBreadcrumbProps } from '$stylist/design-system/interaction/navigation/breadcrumb';
+  import { BreadcrumbStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { IBreadcrumbProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   let { items, class: className = '' }: IBreadcrumbProps = $props();
 </script>
@@ -35,4 +35,3 @@
     </div>
   {/each}
 </nav>
-

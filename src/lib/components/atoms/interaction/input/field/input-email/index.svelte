@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { INPUT_TOKENS } from '$stylist/design-system/input';
+  import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+  import { createInputFieldState } from '../state.svelte';
   import type { HTMLInputAttributes } from 'svelte/elements';
-  import type { InputProps } from '$stylist/design-system/input';
+  import type { IInputProps } from '$stylist/design-system/attributes';
 
   /**
    * EmailInput component - displays an email input field
@@ -12,73 +13,37 @@
    * @returns An accessible, styled email input
    */
 
-  const {
-    INPUT_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INPUT_BASE_CLASS,
-    ACCESSIBILITY_CLASSES,
-    INPUT_VARIANT_CLASSES,
-    INPUT_ERROR_CLASS
-  } = INPUT_TOKENS;
-
-  const EMAIL_INPUT_PRESET = {
-    variants: INPUT_VARIANTS,
-    sizes: COMPONENT_SIZE_SCALE,
-    defaults: {
-      variant: 'default' as const,
-      size: 'md' as const,
-      disabled: DEFAULT_FLAGS.disabled,
-      error: false
-    },
-    classes: {
-      base: INPUT_BASE_CLASS,
-      size: {
-        sm: 'px-3 py-1.5 text-sm',
-        md: 'px-4 py-2 text-base',
-        lg: 'px-6 py-3 text-lg'
-      },
-      state: STATE_CLASSES,
-      variant: INPUT_VARIANT_CLASSES,
-      focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-    }
-  };
+  type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
+  type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
   type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
-  type EmailInputProps = InputProps & {
-    helpText?: string;
-    value?: string;
-  };
 
   let {
-    variant = EMAIL_INPUT_PRESET.defaults.variant,
-    size = EMAIL_INPUT_PRESET.defaults.size,
-    disabled = false,
-    error = false,
+    id,
+    label,
+    errors,
     class: className = '',
     placeholder = 'Enter email',
     required = false,
     helpText,
     value = $bindable<string>(),
+    variant = INPUT_FIELD_PRESET.defaults.variant,
+    size = INPUT_FIELD_PRESET.defaults.size,
+    disabled = false,
+    error = false,
     ...restProps
-  }: EmailInputProps & InputAttributes = $props();
+  }: IInputProps & {
+    variant?: InputVariant;
+    size?: InputSize;
+    error?: boolean;
+    helpText?: string;
+    value?: string;
+  } & InputAttributes = $props();
 
-  let classes = $derived(
-    [
-      EMAIL_INPUT_PRESET.classes.base,
-      EMAIL_INPUT_PRESET.classes.variant[variant],
-      EMAIL_INPUT_PRESET.classes.size[size],
-      error ? INPUT_ERROR_CLASS : '',
-      disabled ? EMAIL_INPUT_PRESET.classes.state.disabled : '',
-      className
-    ]
-      .filter(Boolean)
-      .join(' ')
-  );
+  const state = $derived(createInputFieldState({ variant, size, disabled, error, class: className }));
+  let classes = $derived(state.classes);
 
-  function handleInput(e: Event) {
-    const target = e.target as HTMLInputElement;
+  function handleInput(_: Event) {
     // The $bindable() will handle setting the value prop automatically
   }
 </script>
@@ -100,4 +65,3 @@
     </p>
   {/if}
 </div>
-

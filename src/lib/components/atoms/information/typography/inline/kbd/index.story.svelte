@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
   import Kbd from './Kbd.svelte';
 </script>
 
@@ -8,7 +8,7 @@
   title="Kbd"
   category="Atoms"
   component={Kbd}
-  description="РљРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєР»Р°РІРёС€ РєР»Р°РІРёР°С‚СѓСЂС‹"
+  description="Компонент для отображения клавиш клавиатуры"
   tags={['keyboard', 'shortcut', 'ui']}
 >
   {#snippet children(props: Record<string, any>)}

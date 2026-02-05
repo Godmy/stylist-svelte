@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { DarkModeToggleProps } from '$stylist/design-system/interaction/controls/toggles/dark-mode-toggle';
+<script lang="ts">
+  import type { DarkModeToggleProps } from '$stylist/design-system/attributes';
   import { createDarkModeToggleState } from '../../state.svelte';
 
   let props: DarkModeToggleProps = $props();
@@ -37,3 +37,4 @@
 >
   {localDarkMode ? 'Moon' : 'Sun'}
 </button>
+

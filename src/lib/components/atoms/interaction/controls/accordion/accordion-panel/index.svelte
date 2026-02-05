@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { getContext } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { AccordionPanelProps } from '$stylist/design-system/interaction/controls/accordion/accordion-panel';
-  import { createAccordionPanelState } from '../../state.svelte';
+  import type { AccordionPanelProps } from '$stylist/design-system/attributes';
+  import { createAccordionPanelState } from '../state.svelte';
 
   type Props = AccordionPanelProps & HTMLAttributes<HTMLDivElement>;
 
@@ -16,7 +16,7 @@
 
   let isOpen = $derived(context.isPanelOpen(props.value));
 
-  const state = createAccordionPanelState(props, isOpen);
+  const state = createAccordionPanelState(props);
 
   const content = $derived(props.content);
   const children = $derived(props.children);

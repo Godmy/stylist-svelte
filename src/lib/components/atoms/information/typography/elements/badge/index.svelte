@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { BadgeProps } from '$stylist/design-system/typography/elements/badge';
+<script lang="ts">
+  import type { BadgeProps } from '$stylist/design-system';
   import { createBadgeState } from '../../state.svelte';
 
   let props: BadgeProps = $props();

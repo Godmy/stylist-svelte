@@ -1,5 +1,6 @@
 ﻿<script lang="ts">
-  import { Story, type ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Chip from './Chip.svelte';
 
   const controls: ControlConfig[] = [

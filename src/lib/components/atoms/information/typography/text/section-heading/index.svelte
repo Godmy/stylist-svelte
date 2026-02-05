@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { HeadingProps } from '$stylist/design-system/typography';
+  import type { HeadingProps } from '$stylist/design-system/attributes';
 
   /**
    * SectionHeading component - Displays a section heading text with various levels and styles.

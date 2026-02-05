@@ -1,38 +1,36 @@
 <script lang="ts">
-  import type { Meta, StoryFn } from '@storybook/svelte';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Caption from './index.svelte';
 
-  export let meta: Meta<Caption> = {
-    component: Caption,
-    title: 'Atoms/Information/Typography/Caption',
-    tags: ['autodocs'],
-    argTypes: {
-      variant: {
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
-      },
-      size: {
-        control: { type: 'select' },
-        options: ['sm', 'md', 'lg'],
-      },
-      disabled: {
-        control: { type: 'boolean' },
-      },
-      block: {
-        control: { type: 'boolean' },
-      },
-      class: {
-        control: { type: 'text' },
-      },
+  const controls: ControlConfig[] = [
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'primary',
+      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
     },
-  };
-
-  const Template: StoryFn<Caption> = ({ ...args }) => ({
-    Component: Caption,
-    props: args,
-  });
+    {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'md',
+      options: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false
+    },
+    {
+      name: 'block',
+      type: 'boolean',
+      defaultValue: false
+    }
+  ];
 </script>
 
+<Story component={Caption} controls={controls}>
+  {#snippet children()}
 <div class="space-y-4 p-4">
   <h3 class="text-lg font-semibold">Caption Variants</h3>
   
@@ -59,3 +57,5 @@
     <Caption block>Block Caption</Caption>
   </div>
 </div>
+  {/snippet}
+</Story>

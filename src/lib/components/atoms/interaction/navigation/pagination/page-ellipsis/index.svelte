@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Props } from '$stylist/design-system/interaction/navigation/pagination/page-ellipsis';
+  import type { PageEllipsisProps } from '$stylist/design-system/attributes';
 
-  let { class: className = '' }: Props = $props();
+  let { class: className = '' }: PageEllipsisProps = $props();
 </script>
 
 <div class={`flex items-center px-3 py-2 text-sm font-medium text-gray-700 ${className}`}>

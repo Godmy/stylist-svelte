@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { CountBadgeProps } from '$stylist/design-system/typography/indicators/count-badge';
+<script lang="ts">
+  import type { CountBadgeProps } from '$stylist/design-system';
   import { createCountBadgeState } from '../../state.svelte';
 
   let props: CountBadgeProps = $props();

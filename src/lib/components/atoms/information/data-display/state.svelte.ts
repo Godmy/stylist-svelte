@@ -1,5 +1,18 @@
-import type { AnimatedNumberProps, PieChartProps, ColorSwatchProps, NpmBadgeProps, NumberFlowProps } from '$stylist/design-system/data-display';
-import { formatAnimatedValue, formatNumberFlowValue, getNpmBadgeClasses, getNpmBadgeLabel, getNpmBadgeLinkClasses, getNumberFlowClasses } from '$stylist/design-system/data-display';
+import type { AnimatedNumberProps, NumberFlowProps, PieChartProps, ColorSwatchProps } from '$stylist/design-system/attributes';
+import {
+  formatAnimatedValue,
+  formatNumberFlowValue,
+  getNpmBadgeClasses,
+  getNpmBadgeLabel,
+  getNpmBadgeLinkClasses,
+  getNumberFlowClasses
+} from '$stylist/design-system/presets/information';
+
+interface NpmBadgeProps {
+  type: Parameters<typeof getNpmBadgeLabel>[0];
+  label?: string;
+  class?: string;
+}
 
 export function createAnimatedNumberState(props: AnimatedNumberProps) {
   const value = props.value;
@@ -66,7 +79,7 @@ export function createNumberFlowState(props: NumberFlowProps) {
   const format = props.format;
   const prefix = props.prefix ?? '';
   const suffix = props.suffix ?? '';
-  const classes = getNumberFlowClasses(props.class ?? '');
+  const baseClasses = getNumberFlowClasses(props.class ?? '');
   const formattedValue = formatNumberFlowValue(value, locales, format);
 
   return {
@@ -74,6 +87,6 @@ export function createNumberFlowState(props: NumberFlowProps) {
     prefix,
     suffix,
     formattedValue,
-    classes
+    classes: baseClasses
   };
 }

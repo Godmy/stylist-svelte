@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { TextareaStyleManager } from '$stylist/design-system/interaction/input/field/text-area';
-  import type { ITextareaProps } from '$stylist/design-system/interaction/input/field/text-area';
+  import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+  import { createInputFieldState } from '../state.svelte';
+  import type { ITextareaProps } from '$stylist/design-system/attributes';
   import type { HTMLTextareaAttributes } from 'svelte/elements';
 
   /**
@@ -14,6 +15,9 @@
    * Interface Segregation Principle: ITextareaProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
+  type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
+  type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+
   let {
     id,
     label,
@@ -21,26 +25,39 @@
     errors = [],
     required = false,
     disabled = false,
+    error = false,
+    variant = INPUT_FIELD_PRESET.defaults.variant,
+    size = INPUT_FIELD_PRESET.defaults.size,
+    class: className = '',
     placeholder,
     rows = 3,
     maxlength,
     ...restProps
-  }: ITextareaProps & HTMLTextareaAttributes = $props();
+  }: ITextareaProps & {
+    error?: boolean;
+    variant?: InputVariant;
+    size?: InputSize;
+  } & HTMLTextareaAttributes = $props();
 
   // Calculate derived values
-  const hasError = $derived(errors.length > 0);
+  const hasError = $derived(error || errors.length > 0);
   const errorId = $derived(`${id}-error`);
   const length = $derived(value?.length || 0);
   const showCounter = $derived(maxlength !== undefined);
+  const state = $derived(createInputFieldState({
+    variant,
+    size,
+    disabled,
+    error: hasError,
+    class: className
+  }));
 
-  // Generate the CSS classes using the style manager
-  const containerClass = $derived(TextareaStyleManager.generateContainerClass(restProps.class));
-  const labelWrapperClass = $derived(TextareaStyleManager.generateLabelWrapperClass());
-  const labelClass = $derived(TextareaStyleManager.generateLabelClass());
-  const counterClass = $derived(TextareaStyleManager.generateCounterClass());
-  const textareaClass = $derived(TextareaStyleManager.generateTextareaClass(hasError, disabled));
-  const errorClass = $derived(TextareaStyleManager.generateErrorClass());
-  const requiredClass = $derived(TextareaStyleManager.generateRequiredClass());
+  const containerClass = 'mb-[--spacing-md]';
+  const labelWrapperClass = 'flex justify-between';
+  const labelClass = 'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]';
+  const counterClass = 'text-sm text-[--color-text-secondary]';
+  const errorClass = 'mt-[--spacing-xs] text-sm text-[--color-danger-600]';
+  const requiredClass = 'text-[--color-danger-500]';
 </script>
 
 <div class={containerClass}>
@@ -65,7 +82,7 @@
   <textarea
     id={id}
     bind:value
-    class={textareaClass}
+    class={state.classes}
     disabled={disabled}
     placeholder={placeholder}
     required={required}

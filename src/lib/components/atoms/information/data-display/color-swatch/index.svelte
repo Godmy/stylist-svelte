@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ColorSwatchProps } from '$stylist/design-system/data-display';
+  import type { ColorSwatchProps } from '$stylist/design-system';
   import { createColorSwatchState } from '../state.svelte';
 
   let props: ColorSwatchProps = $props();

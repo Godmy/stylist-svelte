@@ -3,11 +3,11 @@
   import { Check, X } from 'lucide-svelte';
   import type { Snippet } from 'svelte';
 
-  import type { IStepIconProps } from '$stylist/design-system/interaction/feedback/progress/steps/step-icon';
+  import type { IStepIconProps } from '$stylist/design-system/presets/interaction/interaction-presets';
   import {
     getStepContent,
     getStepIconClasses
-  } from '$stylist/design-system/interaction/feedback/progress/steps/step-icon';
+  } from '$stylist/design-system/presets/interaction/interaction-presets';
   /**
    * StepIcon component - Represents the icon for a step in a progress indicator
    *

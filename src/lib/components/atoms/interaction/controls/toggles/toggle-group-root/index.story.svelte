@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import ToggleGroupRoot from './index.svelte';
   import ToggleGroupItem from '../toggle-group-item/index.svelte';
@@ -59,7 +59,7 @@
             <ToggleGroupRoot
               type={props.type}
               disabled={props.disabled}
-              onvalueChange={handleValueChange}
+              onValueChange={handleValueChange}
             >
               <ToggleGroupItem value="option1">Option 1</ToggleGroupItem>
               <ToggleGroupItem value="option2">Option 2</ToggleGroupItem>
@@ -74,7 +74,7 @@
             <ToggleGroupRoot
               type="multiple"
               disabled={props.disabled}
-              onvalueChange={handleValueChange}
+              onValueChange={handleValueChange}
             >
               <ToggleGroupItem value="multi1">Multi 1</ToggleGroupItem>
               <ToggleGroupItem value="multi2">Multi 2</ToggleGroupItem>

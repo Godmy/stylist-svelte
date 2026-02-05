@@ -1,38 +1,36 @@
 <script lang="ts">
-  import type { Meta, StoryFn } from '@storybook/svelte';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Small from './index.svelte';
 
-  export let meta: Meta<Small> = {
-    component: Small,
-    title: 'Atoms/Information/Typography/Small',
-    tags: ['autodocs'],
-    argTypes: {
-      variant: {
-        control: { type: 'select' },
-        options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
-      },
-      size: {
-        control: { type: 'select' },
-        options: ['sm', 'md', 'lg'],
-      },
-      disabled: {
-        control: { type: 'boolean' },
-      },
-      block: {
-        control: { type: 'boolean' },
-      },
-      class: {
-        control: { type: 'text' },
-      },
+  const controls: ControlConfig[] = [
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'primary',
+      options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
     },
-  };
-
-  const Template: StoryFn<Small> = ({ ...args }) => ({
-    Component: Small,
-    props: args,
-  });
+    {
+      name: 'size',
+      type: 'select',
+      defaultValue: 'md',
+      options: ['sm', 'md', 'lg']
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false
+    },
+    {
+      name: 'block',
+      type: 'boolean',
+      defaultValue: false
+    }
+  ];
 </script>
 
+<Story component={Small} controls={controls}>
+  {#snippet children()}
 <div class="space-y-4 p-4">
   <h3 class="text-lg font-semibold">Small Text Variants</h3>
   
@@ -59,3 +57,5 @@
     <Small block>Block Small Text</Small>
   </div>
 </div>
+  {/snippet}
+</Story>

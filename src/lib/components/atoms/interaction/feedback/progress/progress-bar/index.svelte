@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { ProgressBarStyleManager } from '$stylist/design-system/interaction/feedback/progress/progress-bar';
-  import type { IProgressBarProps } from '$stylist/design-system/interaction/feedback/progress/progress-bar';
+  import { ProgressBarStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { IProgressBarProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * ProgressBar component - Visual indicator of task completion

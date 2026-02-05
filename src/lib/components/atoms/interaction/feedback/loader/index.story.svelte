@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Loader from './loader/index.svelte';
 
   // Define the meta information for the story
@@ -20,18 +20,13 @@
 
   // Define controls for the story
   const controls: ControlConfig[] = [
-    { name: 'class', description: 'CSS Classes', type: 'text' },
-    { name: 'role', description: 'ARIA Role', type: 'select', options: ['status', 'progressbar', 'alert', 'alertdialog'] }
+    { name: 'class', type: 'text' },
+    { name: 'role', type: 'select', options: ['status', 'progressbar', 'alert', 'alertdialog'] }
   ];
 </script>
 
 <Story
-  id="atoms-feedback-loader"
-  title="Loader"
   component={Loader}
-  category="Atoms/Feedback"
-  description="A loading spinner component that indicates an ongoing process."
-  tags={[]}
   controls={controls}
 >
   {#snippet children()}

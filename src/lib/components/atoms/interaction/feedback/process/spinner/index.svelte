@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { SpinnerStyleManager } from '$stylist/design-system/interaction/feedback/process/spinner';
+  import { SpinnerStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
   import { Loader2 } from 'lucide-svelte';
-  import type { ISpinnerProps } from '$stylist/design-system/interaction/feedback/process/spinner';
+  import type { ISpinnerProps } from '$stylist/design-system/presets/interaction/interaction-presets';
 
   /**
    * Spinner component - displays a rotating loading indicator

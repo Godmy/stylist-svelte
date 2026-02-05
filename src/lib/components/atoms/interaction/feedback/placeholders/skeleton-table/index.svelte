@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ITableSkeletonProps } from '$stylist/design-system/interaction/feedback/placeholders/skeleton-table';
+  import type { ITableSkeletonProps } from '$stylist/design-system/attributes';
 
   /**
    * TableSkeleton component - displays a table loading placeholder

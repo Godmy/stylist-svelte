@@ -1,15 +1,15 @@
-import type { TabsProps } from '$stylist/design-system/interaction/controls/tabs/tabs';
+import type { TabsProps } from '$stylist/design-system/attributes';
+import { getTabsClasses } from '../helpers';
 
-export function createTabsState(props: TabsProps) {
-  const classes = $derived(
-    `w-full ${
-      props.class ?? ''
-    }`.trim()
-  );
+export const createTabsState = (props: TabsProps) => {
+  const variant = props.variant ?? 'default';
+  const size = props.size ?? 'md';
+  const disabled = props.disabled ?? false;
 
   return {
-    get classes() {
-      return classes;
-    }
+    classes: getTabsClasses(disabled, props.class),
+    variant,
+    size,
+    disabled
   };
-}
+};

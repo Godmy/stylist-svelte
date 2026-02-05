@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { setContext } from 'svelte';
-  import type { TabsProps } from '$stylist/design-system/interaction/controls/tabs/tabs';
+  import type { TabsProps } from '$stylist/design-system/attributes';
   import { createTabsState } from '../../state.svelte';
 
   let props: TabsProps = $props();

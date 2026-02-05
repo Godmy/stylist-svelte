@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AspectRatioProps } from '$stylist/design-system/layout/aspect-ratio';
+  import type { AspectRatioProps } from '$stylist/design-system';
   import { createAspectRatioState } from '../state.svelte';
 
   let props: AspectRatioProps = $props();

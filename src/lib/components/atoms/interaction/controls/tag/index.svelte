@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { X } from 'lucide-svelte';
 
-  import type { TagProps } from '$stylist/design-system/interaction/controls/tag';
+  import type { TagProps } from '$stylist/design-system/attributes';
   import { createTagState } from '../state.svelte';
 
   const dispatch = createEventDispatcher<{ close: void }>();

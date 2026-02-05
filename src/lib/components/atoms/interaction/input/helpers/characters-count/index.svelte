@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { INPUT_TOKENS } from '$stylist/design-system/input';
+  import { CHARACTER_COUNT_PRESET } from '$stylist/design-system/presets';
+  import { createCharacterCountState } from '../state.svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 
   /**
@@ -12,59 +13,29 @@
    * @returns Accessible, styled character count indicator
    */
 
-  const {
-    INPUT_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INPUT_BASE_CLASS,
-    ACCESSIBILITY_CLASSES
-  } = INPUT_TOKENS;
-
-  const CHARACTER_COUNT_PRESET = {
-    variants: INPUT_VARIANTS,
-    sizes: COMPONENT_SIZE_SCALE,
-    defaults: {
-      variant: 'default',
-      size: 'md',
-      disabled: DEFAULT_FLAGS.disabled,
-      error: false
-    },
-    classes: {
-      base: 'text-xs mt-1',
-      size: {
-        sm: 'text-xs',
-        md: 'text-sm',
-        lg: 'text-base'
-      },
-      state: STATE_CLASSES,
-      variant: {
-        default: 'text-gray-500',
-        info: 'text-blue-500',
-        success: 'text-green-500',
-        warning: 'text-yellow-500',
-        danger: 'text-red-500'
-      },
-      focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-    }
-  };
+  type CharacterCountVariant = (typeof CHARACTER_COUNT_PRESET.variants)[number];
 
   type CharacterCountProps = {
     current?: number;
     max?: number;
     showPercentage?: boolean;
     content?: () => any;
-    class?: string | null;
+    class?: string;
   };
 
   let {
     current = 0,
     max = 100,
+    variant = CHARACTER_COUNT_PRESET.defaults.variant,
+    size = CHARACTER_COUNT_PRESET.defaults.size,
     showPercentage = false,
     content,
     class: className = '',
     ...restProps
-  }: CharacterCountProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: CharacterCountProps & {
+    variant?: CharacterCountVariant;
+    size?: 'sm' | 'md' | 'lg';
+  } & HTMLAttributes<HTMLDivElement> = $props();
 
   // Calculate derived values
   const percentage = $derived(max > 0 ? Math.min(100, (current / max) * 100) : 0);
@@ -75,18 +46,13 @@
     : `${current}/${max}`
   );
 
-  // Determine color based on ratio
-  let colorClass = $derived(() => {
-    if (ratio >= 0.9) return 'text-red-500';
-    if (ratio >= 0.8) return 'text-yellow-500';
-    return 'text-gray-500';
-  });
+  const state = $derived(createCharacterCountState(ratio, { variant, size, class: className }));
+  let colorClass = $derived(state.colorClass);
 
   let classes = $derived(
     [
-      CHARACTER_COUNT_PRESET.classes.base,
+      state.classes,
       colorClass,
-      className
     ]
       .filter(Boolean)
       .join(' ')
@@ -100,5 +66,4 @@
     {message}
   {/if}
 </div>
-
 

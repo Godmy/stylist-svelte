@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { TabListProps } from '$stylist/design-system/interaction/controls/tabs/tab-list';
+<script lang="ts">
+  import type { TabListProps } from '$stylist/design-system/attributes';
   import { createTabListState } from '../../state.svelte';
 
   let props: TabListProps = $props();

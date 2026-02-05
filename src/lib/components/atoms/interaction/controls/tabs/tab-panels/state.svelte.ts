@@ -1,15 +1,9 @@
-import type { TabPanelsProps } from '$stylist/design-system/interaction/controls/tabs/tab-panels';
+import type { TabPanelsProps } from '$stylist/design-system/attributes';
+import { getTabPanelsClasses } from '../helpers';
 
-export function createTabPanelsState(props: TabPanelsProps) {
-  const classes = $derived(
-    `mt-2 ${
-      props.class ?? ''
-    }`.trim()
-  );
-
+export const createTabPanelsState = (props: TabPanelsProps) => {
+  const disabled = props.disabled ?? false;
   return {
-    get classes() {
-      return classes;
-    }
+    classes: getTabPanelsClasses(disabled, props.class)
   };
-}
+};

@@ -1,6 +1,6 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import ToggleGroupItem from './index.svelte';
   import ToggleGroupRoot from '../toggle-group-root/index.svelte';
@@ -45,7 +45,7 @@
             <p class="text-sm font-medium text-[--color-text-primary] mb-3">Within Toggle Group (Single Selection):</p>
             <ToggleGroupRoot
               type="single"
-              onvalueChange={(e: CustomEvent<{ value: string | string[] | null }>) => value = Array.isArray(e.detail.value) ? e.detail.value[0] : e.detail.value}
+              onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) => value = Array.isArray(e.detail.value) ? e.detail.value[0] : e.detail.value}
             >
               <ToggleGroupItem value="option1" disabled={props.disabled}>
                 Option 1
@@ -65,7 +65,7 @@
             <p class="text-sm font-medium text-[--color-text-primary] mb-3">Within Toggle Group (Multiple Selection):</p>
             <ToggleGroupRoot
               type="multiple"
-              onvalueChange={(e: CustomEvent<{ value: string | string[] | null }>) => console.log('Multiple selection:', e.detail.value)}
+              onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) => console.log('Multiple selection:', e.detail.value)}
             >
               <ToggleGroupItem value="multi1" disabled={props.disabled}>
                 Multi 1

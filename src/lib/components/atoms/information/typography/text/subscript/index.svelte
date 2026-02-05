@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { SubscriptProps } from '$stylist/design-system/typography';
+  import type { SubscriptProps } from '$stylist/design-system/attributes';
 
   /**
    * Subscript component - Displays subscript text with various styles.

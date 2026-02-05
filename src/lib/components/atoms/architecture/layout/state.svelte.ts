@@ -2,14 +2,11 @@ import type {
   AspectRatioProps,
   ContainerMaxWidth,
   ContainerProps,
-  DividerAlign,
-  DividerOrientation,
   DividerProps,
   GridLayoutProps,
   HorizontalLayoutProps,
-  SpacerAxis,
   SpacerProps
-} from '$stylist/design-system/layout';
+} from '$stylist/design-system/attributes';
 import {
   getAspectRatioClasses,
   getContainerClasses,
@@ -21,7 +18,11 @@ import {
   getHorizontalLayoutClasses,
   getSpacerClasses,
   getSpacerSize
-} from '$stylist/design-system/layout';
+} from '$stylist/design-system/presets';
+
+type DividerOrientation = 'horizontal' | 'vertical';
+type DividerAlign = 'start' | 'center' | 'end';
+type SpacerAxis = 'horizontal' | 'vertical';
 
 export function createAspectRatioState(props: AspectRatioProps) {
   const ratio = $derived(props.ratio ?? 1);

@@ -6,4 +6,4 @@ export { Label } from './label';
 
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-// Placeholder for elements typography components
+﻿

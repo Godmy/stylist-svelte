@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from 'svelte/elements';
-  import { INTERACTION_TOKENS } from '$stylist/design-system/interaction';
+  import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+  import { createInputState } from '../state.svelte';
 
   /**
    * AdvancedInput component - A flexible input component with various styles and states
@@ -14,11 +15,8 @@
    * @returns An accessible, styled input element
    */
 
-  const {
-    INTERACTIVE_BASE_CLASS,
-    STATE_CLASSES,
-    ACCESSIBILITY_CLASSES
-  } = INTERACTION_TOKENS;
+  type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
+  type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
   type AdvancedInputProps = {
     label?: string;
@@ -26,7 +24,10 @@
     placeholder?: string;
     type?: string;
     disabled?: boolean;
-    class?: string | null;
+    error?: boolean;
+    variant?: InputVariant;
+    size?: InputSize;
+    class?: string;
   } & Omit<HTMLInputAttributes, 'size'>;
 
   let {
@@ -35,9 +36,13 @@
     placeholder = '',
     type = 'text',
     disabled = false,
+    error = false,
+    variant = INPUT_FIELD_PRESET.defaults.variant,
+    size = INPUT_FIELD_PRESET.defaults.size,
     class: className = '',
     ...restProps
   }: AdvancedInputProps = $props();
+  const state = $derived(createInputState({ variant, size, disabled, error }));
 
   // Calculate derived values
   const containerClass = $derived(
@@ -52,21 +57,13 @@
   const labelClass = $derived(
     [
       'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]',
-      disabled ? STATE_CLASSES.disabled : ''
+      state.isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
     ]
       .filter(Boolean)
       .join(' ')
   );
 
-  const inputClass = $derived(
-    [
-      'w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500]',
-      disabled ? 'bg-[--color-background-tertiary] text-[--color-text-secondary]' : 'bg-[--color-background-primary]',
-      disabled ? STATE_CLASSES.disabled : ''
-    ]
-      .filter(Boolean)
-      .join(' ')
-  );
+  const inputClass = $derived(state.classes);
 </script>
 
 <div class={containerClass}>
@@ -83,5 +80,3 @@
     {...restProps}
   />
 </div>
-
-

@@ -1,7 +1,8 @@
-﻿<script lang="ts">
-  import { Story } from '$lib/playground';
-  import Switch from './Switch.svelte';
-  import type { ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import Switch from './index.svelte';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { SwitchProps } from '$stylist/design-system/attributes';
 
   let {
     id = '',
@@ -33,7 +34,7 @@
   category="Atoms"
   controls={controls}
 >
-  {#snippet children(props: import('./types').ISwitchProps)}
+  {#snippet children(props: SwitchProps)}
     <Switch
       id={switchId}
       label={props.label}
@@ -44,3 +45,4 @@
     />
   {/snippet}
 </Story>
+

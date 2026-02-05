@@ -1,9 +1,9 @@
-import type { ProductSortProps } from '$stylist/design-system/interaction/controls/product-sort';
+import type { ProductSortProps } from '$stylist/design-system/attributes';
 
 export function createProductSortState(props: ProductSortProps) {
   const options = $derived(props.options);
   const selectedOption = $derived(props.selectedOption ?? '');
-  const onSortChange = $derived(() => props.onSortChange || (() => {}));
+  const onSortChange = $derived(() => props.onSortChange || ((option: string) => {}));
   const containerClasses = $derived(
     `flex items-center ${props.class ?? ''}`.trim()
   );
@@ -19,7 +19,7 @@ export function createProductSortState(props: ProductSortProps) {
     get selectedOption() {
       return selectedOption;
     },
-    get containerClasses() {
+    get classes() {
       return containerClasses;
     },
     get labelClasses() {
@@ -29,7 +29,8 @@ export function createProductSortState(props: ProductSortProps) {
       return selectClasses;
     },
     handleSortChange(option: string) {
-      onSortChange(option);
+      const sortChangeFn = onSortChange();
+      sortChangeFn(option);
     }
   };
 }

@@ -1,12 +1,9 @@
 <script lang="ts">
   import type { HTMLButtonAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
-
-  import { INTERACTION_TOKENS } from '$stylist/design-system/interaction/tokens';
-  import type { Preset } from '$stylist/design-system/interaction/preset';
-  import type { SplitButtonProps } from '$stylist/design-system/interaction/controls/buttons/split-button';
-  import type { ComponentSize } from '$stylist/design-system/tokens/sizes';
-  import type { DefaultVariants } from '$stylist/design-system/tokens/variants';
+  import type { SplitButtonProps } from '$stylist/design-system/attributes';
+  import { SPLIT_BUTTON_PRESET } from '$stylist/design-system/presets';
+  import { createState } from '../state.svelte';
 
   type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -20,39 +17,6 @@
       items: ISplitButtonItem[];
       primaryAction: () => void;
       primaryLabel?: string;
-  };
-
-  const {
-    INTERACTIVE_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INTERACTIVE_BASE_CLASS,
-    ACCESSIBILITY_CLASSES,
-    VARIANT_CLASSES
-  } = INTERACTION_TOKENS;
-
-  const SPLIT_BUTTON_PRESET: Preset<DefaultVariants, ComponentSize> = {
-    variants: INTERACTIVE_VARIANTS,
-    sizes: COMPONENT_SIZE_SCALE,
-    defaults: {
-      variant: 'primary',
-      size: 'md',
-      disabled: DEFAULT_FLAGS.disabled,
-      block: false
-    },
-    classes: {
-      base: INTERACTIVE_BASE_CLASS,
-      size: {
-        sm: 'px-3 py-1.5 text-sm',
-        md: 'px-4 py-2 text-base',
-        lg: 'px-6 py-3 text-lg',
-        xl: 'px-7 py-3.5 text-xl'
-      },
-      variant: VARIANT_CLASSES,
-      state: STATE_CLASSES,
-      focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-    }
   };
 
   /**
@@ -69,32 +33,17 @@
    * @param class - Additional CSS classes
    * @returns A split button with primary action and dropdown menu
    */
-  let {
-    variant = SPLIT_BUTTON_PRESET.defaults.variant,
-    size = SPLIT_BUTTON_PRESET.defaults.size,
-    disabled = false,
-    loading = false,
-    ariaLabel = '',
-    block = false,
-    items = [],
-    primaryAction,
-    primaryLabel = 'Action',
-    class: className = '',
-    type = 'button',
-    children,
-    ...restProps
-  }: ISplitButtonProps = $props();
+  let props: ISplitButtonProps = $props();
 
-  const variantClasses: Record<DefaultVariants, string> = SPLIT_BUTTON_PRESET.classes.variant as Record<DefaultVariants, string>;
-  const sizeClasses: Record<ComponentSize, string> = SPLIT_BUTTON_PRESET.classes.size as Record<ComponentSize, string>;
+  // Use centralized state management for base button properties
+  let state = createState(SPLIT_BUTTON_PRESET, {
+    ...props,
+    class: `${props.class ?? ''} split-button__button`.trim()
+  });
 
   const baseButtonClasses = $derived(
     [
-      SPLIT_BUTTON_PRESET.classes.base,
-      variantClasses[variant],
-      sizeClasses[size],
-      disabled || loading ? SPLIT_BUTTON_PRESET.classes.state.disabled : '',
-      block ? SPLIT_BUTTON_PRESET.classes.state.block : '',
+      state.classes,
       'split-button__button'
     ]
       .filter(Boolean)
@@ -104,19 +53,12 @@
   const primaryButtonClasses = $derived(`${baseButtonClasses} rounded-r-none border-r-0`.trim());
   const toggleButtonClasses = $derived(`${baseButtonClasses} rounded-l-none border-l-0`.trim());
   const wrapperClasses = $derived(
-    `relative inline-flex items-center rounded-md overflow-hidden ${className}`.trim()
-  );
-
-  const primaryAriaLabel = $derived(
-    ariaLabel ||
-      (typeof (restProps as Record<string, unknown>)['aria-label'] === 'string'
-        ? (restProps as Record<string, string>)['aria-label']
-        : primaryLabel)
+    `relative inline-flex items-center rounded-md overflow-hidden ${props.class ?? ''}`.trim()
   );
 
   // Extract div-specific attributes to avoid type conflicts
   let divAttributes = $derived.by(() => {
-    const { id, class: cls, ...others } = restProps as any;
+    const { id, class: cls, ...others } = props as any;
     return { id, class: cls, ...others };
   });
 
@@ -138,7 +80,7 @@
   });
 
   const toggleDropdown = () => {
-    if (!disabled) {
+    if (!props.disabled) {
       isOpen = !isOpen;
     }
   };
@@ -167,23 +109,23 @@
 
 <div class={wrapperClasses} id={buttonId} {...divAttributes}>
   <button
-    type={type}
-    disabled={disabled}
-    aria-busy={loading}
-    aria-live={loading ? 'polite' : undefined}
+    type={props.type ?? 'button'}
+    disabled={props.disabled}
+    aria-busy={props.loading}
+    aria-live={props.loading ? 'polite' : undefined}
     class={primaryButtonClasses}
-    aria-label={primaryAriaLabel || undefined}
-    onclick={primaryAction}
+    aria-label={props.ariaLabel || props.primaryLabel || undefined}
+    onclick={props.primaryAction}
   >
-    {#if children}
-      {@render children()}
+    {#if props.children}
+      {@render props.children()}
     {:else}
-      {primaryLabel}
+      {props.primaryLabel ?? 'Action'}
     {/if}
   </button>
   <button
-    type={type}
-    disabled={disabled || loading}
+    type={props.type ?? 'button'}
+    disabled={props.disabled || props.loading}
     class={toggleButtonClasses}
     onclick={toggleDropdown}
     aria-haspopup="true"
@@ -196,7 +138,7 @@
   {#if isOpen}
     <div class={menuClasses} role="menu" aria-orientation="vertical" tabindex="-1">
       <div class="flex flex-col gap-1 p-1" role="none">
-        {#each items as item, i}
+        {#each props.items as item, i}
           <button
             class={`${menuItemBaseClasses} ${item.disabled ? menuItemDisabledClasses : ''}`.trim()}
             onclick={() => {

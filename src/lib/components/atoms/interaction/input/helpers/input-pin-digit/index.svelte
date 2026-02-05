@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { INPUT_TOKENS } from '$stylist/design-system/input';
+  import { PIN_INPUT_DIGIT_PRESET } from '$stylist/design-system/presets';
+  import { createPinInputDigitState } from '../state.svelte';
   import type { HTMLInputAttributes } from 'svelte/elements';
-  import type { InputProps } from '$stylist/design-system/input';
+  import type { IInputProps } from '$stylist/design-system/attributes';
 
   /**
    * PinInputDigit component - displays a single digit input for PIN codes
@@ -12,64 +13,43 @@
    * @returns An accessible, styled single digit input
    */
 
-  const {
-    INPUT_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INPUT_BASE_CLASS,
-    ACCESSIBILITY_CLASSES,
-    INPUT_VARIANT_CLASSES,
-    INPUT_ERROR_CLASS
-  } = INPUT_TOKENS;
-
-  const PIN_INPUT_DIGIT_PRESET = {
-    variants: INPUT_VARIANTS,
-    sizes: COMPONENT_SIZE_SCALE,
-    defaults: {
-      variant: 'default' as const,
-      size: 'md' as const,
-      disabled: DEFAULT_FLAGS.disabled,
-      error: false
-    },
-    classes: {
-      base: INPUT_BASE_CLASS,
-      size: {
-        sm: 'w-8 h-8 text-sm',
-        md: 'w-10 h-10 text-base',
-        lg: 'w-12 h-12 text-lg'
-      },
-      state: STATE_CLASSES,
-      variant: INPUT_VARIANT_CLASSES,
-      focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-    }
-  };
+  type PinInputVariant = (typeof PIN_INPUT_DIGIT_PRESET.variants)[number];
+  type PinInputSize = (typeof PIN_INPUT_DIGIT_PRESET.sizes)[number];
 
   type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
-  type PinInputDigitProps = InputProps & {
-    focused?: boolean;
-    invalid?: boolean;
-    value?: string;
-  };
 
   let {
-    variant = PIN_INPUT_DIGIT_PRESET.defaults.variant,
-    size = PIN_INPUT_DIGIT_PRESET.defaults.size,
+    id,
+    label,
+    errors,
     focused = false,
     invalid = false,
     class: className = '',
+    variant = PIN_INPUT_DIGIT_PRESET.defaults.variant,
+    size = PIN_INPUT_DIGIT_PRESET.defaults.size,
     value = '',
+    onChange,
+    onFocus,
+    onBlur,
+    onKeyDown,
     ...restProps
-  }: PinInputDigitProps & InputAttributes = $props();
+  }: IInputProps & {
+    focused?: boolean;
+    invalid?: boolean;
+    value?: string;
+    variant?: PinInputVariant;
+    size?: PinInputSize;
+    onChange?: (value: string, index: number) => void;
+    onFocus?: (index: number) => void;
+    onBlur?: () => void;
+    onKeyDown?: (e: KeyboardEvent, index: number) => void;
+  } & InputAttributes = $props();
+  const state = $derived(createPinInputDigitState({ variant, size, error: invalid, class: className }));
 
   let classes = $derived(
     [
-      PIN_INPUT_DIGIT_PRESET.classes.base,
-      PIN_INPUT_DIGIT_PRESET.classes.variant[variant],
-      PIN_INPUT_DIGIT_PRESET.classes.size[size],
+      state.classes,
       focused ? 'ring-2 ring-blue-500' : '',
-      invalid ? INPUT_ERROR_CLASS : '',
-      className
     ]
       .filter(Boolean)
       .join(' ')
@@ -82,4 +62,3 @@
   value={value}
   {...restProps}
 />
-

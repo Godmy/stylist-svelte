@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Avatar } from '$stylist/components/atoms';
   import { Check, CheckCheck } from 'lucide-svelte';
 
-  import type { MessageThreadProps } from '$stylist/design-system/interaction/communications/message-thread';
+  import type { MessageThreadProps } from '../../state.svelte';
   import {
     DEFAULT_CHAT_MESSAGE_VARIANT,
     getChatMessageAlignmentClass,
@@ -11,7 +11,7 @@
     getChatMessageFooterClasses,
     getChatMessageHeaderClasses,
     getChatMessageStatusIconClasses
-  } from '$stylist/design-system/interaction/communications/chat-message';
+  } from '../../helpers';
   import { createMessageThreadState } from '../../state.svelte';
 
   type Props = MessageThreadProps & HTMLAttributes<HTMLDivElement>;

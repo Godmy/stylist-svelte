@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/typography/inline/syntax-highlighted-code';
+<script lang="ts">
+  import type { SyntaxHighlightedCodeProps } from '$stylist/design-system';
   import { createSyntaxHighlightedCodeState } from '../../state.svelte';
   import CodeBlock from '../../elements/code-block/index.svelte';
 

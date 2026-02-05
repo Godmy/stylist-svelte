@@ -9,3 +9,7 @@ export { IconCircle } from './icon-circle';
 export { IconWrapper } from './icon-wrapper';
 export { Image } from './image';
 export { ImageWithCaption } from './image-with-caption';
+
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
+﻿

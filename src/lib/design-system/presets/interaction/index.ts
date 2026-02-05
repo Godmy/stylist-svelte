@@ -1,0 +1,5 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { BUTTON_PRESET, CHARACTER_COUNT_PRESET, CLOSE_BUTTON_PRESET, COPY_BUTTON_PRESET, FORM_ERROR_MESSAGE_PRESET, FORM_HELPER_TEXT_PRESET, ICON_BUTTON_PRESET, INPUT_ADDON_PRESET, INPUT_FIELD_PRESET, INPUT_HELPER_PRESET, PAGE_BUTTON_PRESET, PIN_INPUT_DIGIT_PRESET, SPLIT_BUTTON_PRESET } from './interaction-canonical-adapter';
+export { INTERACTION_PRESETS, getInputGroupButtonClasses, getInputGroupContainerClasses, getInputGroupInputClasses, getSwitchInputClasses, getSwitchKnobClasses, getSwitchTrackClasses, getToggleContainerClasses, getToggleDisabledClass, getToggleGroupItemClasses, getToggleSizeClasses, getToggleThumbClasses, getToggleTrackClasses } from './interaction-presets';
+export type { InputSize } from './interaction-presets';
+export type { InputPreset, InputStateOptions, Preset } from './interaction-presets';

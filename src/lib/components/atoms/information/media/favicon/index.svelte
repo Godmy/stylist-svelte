@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLImgAttributes } from 'svelte/elements';
-  import type { FaviconProps } from '$stylist/design-system/media';
+  import type { FaviconProps } from '$stylist/design-system';
   import { createFaviconState } from '../state.svelte';
 
   type Props = FaviconProps & HTMLImgAttributes;

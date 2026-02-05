@@ -1,18 +1,35 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+﻿import { clsx } from 'clsx';
+import { twMerge as twMergeLib } from 'tailwind-merge';
+import type { Preset } from '$stylist/design-system/presets/interaction/interaction-presets';
 
-import type { Preset } from '$stylist/design-system/interaction/preset';
-import { twJoin, twMerge, cn } from './types';
+export type ClassValue =
+  | string
+  | number
+  | bigint
+  | null
+  | undefined
+  | boolean
+  | { [key: string]: boolean }
+  | Iterable<ClassValue>;
 
-/**
- * Merge multiple class strings, filtering out falsy values
- */
+export function twJoin(...inputs: ClassValue[]): string {
+  return clsx(inputs);
+}
+
+export function twMerge(...inputs: ClassValue[]): string {
+  return twMergeLib(clsx(inputs));
+}
+
+export function cn(...inputs: ClassValue[]): string {
+  return twMergeLib(clsx(inputs));
+}
+
+/** Merge multiple class strings, filtering out falsy values. */
 export function mergeClasses(...classes: Array<string | undefined | false | null>): string {
   return classes.filter(Boolean).join(' ');
 }
 
-/**
- * Conditionally add classes based on conditions
- */
+/** Conditionally add classes based on conditions. */
 export function conditionalClasses(
   baseClasses: string,
   conditionalClasses: Record<string, string | undefined>
@@ -25,9 +42,7 @@ export function conditionalClasses(
   return mergeClasses(baseClasses, ...additional);
 }
 
-/**
- * Build CSS classes from preset configuration for interactive components
- */
+/** Build CSS classes from preset configuration for interactive components. */
 export function buildClasses<V extends string, S extends string>(
   preset: Preset<V, S>,
   options: {
@@ -55,5 +70,3 @@ export function buildClasses<V extends string, S extends string>(
     .filter(Boolean)
     .join(' ');
 }
-
-export { twJoin, twMerge, cn };

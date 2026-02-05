@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { LinkProps } from '$stylist/design-system/typography/inline/link';
+<script lang="ts">
+  import type { LinkProps } from '$stylist/design-system';
   import { createLinkState } from '../../state.svelte';
 
   let props: LinkProps = $props();

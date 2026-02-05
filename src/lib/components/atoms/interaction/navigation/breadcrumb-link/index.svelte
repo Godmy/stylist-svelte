@@ -14,8 +14,8 @@
 
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { BreadcrumbLinkStyleManager } from '$stylist/design-system/interaction/navigation/breadcrumb-link';
-  import type { IBreadcrumbLinkProps } from '$stylist/design-system/interaction/navigation/breadcrumb-link';
+  import { BreadcrumbLinkStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+  import type { IBreadcrumbLinkProps } from '$stylist/design-system/attributes';
 
   let {
     current = false,

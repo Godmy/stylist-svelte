@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { InputStyleManager } from '$stylist/design-system/interaction/input/field/input-text';
-  import type { IInputProps } from '$stylist/design-system/interaction/input/field/input-text';
+  import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+  import { createInputFieldState } from '../state.svelte';
+  import type { IInputProps } from '$stylist/design-system/attributes';
   import type { HTMLInputAttributes } from 'svelte/elements';
 
   /**
@@ -14,6 +15,9 @@
    * Interface Segregation Principle: IInputProps provides a focused interface for the component.
    * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
    */
+  type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
+  type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+
   let {
     id,
     label,
@@ -22,23 +26,36 @@
     errors = [],
     required = false,
     disabled = false,
+    error = false,
+    variant = INPUT_FIELD_PRESET.defaults.variant,
+    size = INPUT_FIELD_PRESET.defaults.size,
+    class: className = '',
     placeholder,
     min,
     max,
     step,
     ...restProps
-  }: IInputProps & HTMLInputAttributes = $props();
+  }: IInputProps & {
+    error?: boolean;
+    variant?: InputVariant;
+    size?: InputSize;
+  } & HTMLInputAttributes = $props();
 
   // Calculate derived values
-  const hasError = $derived(errors.length > 0);
+  const hasError = $derived(error || errors.length > 0);
   const errorId = $derived(`${id}-error`);
+  const state = $derived(createInputFieldState({
+    variant,
+    size,
+    disabled,
+    error: hasError,
+    class: className
+  }));
 
-  // Generate the CSS classes using the style manager
-  const containerClass = $derived(InputStyleManager.generateContainerClass(restProps.class));
-  const labelClass = $derived(InputStyleManager.generateLabelClass());
-  const inputClass = $derived(InputStyleManager.generateInputClass(hasError, disabled));
-  const errorClass = $derived(InputStyleManager.generateErrorClass());
-  const requiredClass = $derived(InputStyleManager.generateRequiredClass());
+  const containerClass = 'mb-[--spacing-md]';
+  const labelClass = 'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]';
+  const errorClass = 'mt-[--spacing-xs] text-sm text-[--color-danger-600]';
+  const requiredClass = 'text-[--color-danger-500]';
 </script>
 
 <div class={containerClass}>
@@ -56,7 +73,7 @@
     id={id}
     type={type}
     bind:value={value}
-    class={inputClass}
+    class={state.classes}
     disabled={disabled}
     placeholder={placeholder}
     required={required}

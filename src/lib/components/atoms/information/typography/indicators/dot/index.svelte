@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { DotProps } from '$stylist/design-system/typography/indicators/dot';
+<script lang="ts">
+  import type { DotProps } from '$stylist/design-system';
   import { createDotState } from '../../state.svelte';
 
   let props: DotProps = $props();

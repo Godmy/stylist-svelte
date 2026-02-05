@@ -1,4 +1,4 @@
-import type { CheckboxProps } from '$stylist/design-system/interaction/controls/toggles/checkbox';
+import type { CheckboxProps } from '$stylist/design-system/attributes';
 
 export function createCheckboxState(props: CheckboxProps) {
   const id = $derived(props.id);

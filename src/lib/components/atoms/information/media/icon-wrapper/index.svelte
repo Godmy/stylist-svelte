@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { IconWrapperProps } from '$stylist/design-system/media';
+  import type { IconWrapperProps } from '$stylist/design-system';
   import { createIconWrapperState } from '../state.svelte';
 
   type Props = IconWrapperProps & HTMLAttributes<HTMLDivElement>;

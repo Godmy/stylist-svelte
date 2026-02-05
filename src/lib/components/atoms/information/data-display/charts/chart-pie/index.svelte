@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PieChartProps } from '$stylist/design-system/data-display';
+  import type { PieChartProps } from '$stylist/design-system';
   import { createPieChartState } from '../../state.svelte';
 
   let props: PieChartProps = $props();

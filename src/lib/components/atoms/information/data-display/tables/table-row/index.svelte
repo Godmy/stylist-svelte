@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TableRowProps } from '$stylist/design-system/data-display';
+  import type { TableRowProps } from '$stylist/design-system';
   import { createTableRowState } from '../state.svelte';
 
   let props: TableRowProps = $props();

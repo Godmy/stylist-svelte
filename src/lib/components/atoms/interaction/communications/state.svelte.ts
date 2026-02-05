@@ -1,177 +1,106 @@
-import type { MessageInputProps } from '$stylist/design-system/interaction/communications/message-input';
+import {
+  DEFAULT_MESSAGE_INPUT_DISABLED,
+  DEFAULT_MESSAGE_INPUT_PLACEHOLDER,
+  DEFAULT_MESSAGE_INPUT_SHOW_ATTACHMENT,
+  DEFAULT_MESSAGE_INPUT_SHOW_EMOJI,
+  DEFAULT_MESSAGE_INPUT_SHOW_SEND,
+  getMessageInputActionButtonClasses,
+  getMessageInputActionButtonsClasses,
+  getMessageInputContainerClasses,
+  getMessageInputFieldClasses,
+  getMessageInputSendButtonClasses
+} from './helpers';
+import {
+  DEFAULT_MESSAGE_THREAD_MESSAGE_VARIANT,
+  DEFAULT_MESSAGE_THREAD_VARIANT,
+  getMessageThreadContainerClasses,
+  getMessageThreadHeaderClasses,
+  getMessageThreadHostClasses,
+  getMessageThreadLoadingClasses,
+  getMessageThreadMessageContainerClasses,
+  getMessageThreadSpinnerClasses,
+  getMessageThreadVariantClass
+} from './helpers';
+import type { ChatMessageStatus, ChatMessageVariant } from './helpers';
+import type { MessageThreadMessage, MessageThreadVariant } from './helpers';
 
-export function createMessageInputState(props: MessageInputProps) {
-  const placeholder = $derived(props.placeholder ?? 'Type a message...');
-  const disabled = $derived(props.disabled ?? false);
-  const showAttachmentButton = $derived(props.showAttachmentButton ?? true);
-  const showEmojiButton = $derived(props.showEmojiButton ?? true);
-  const showSendButton = $derived(props.showSendButton ?? true);
-  const containerClasses = $derived(
-    `flex items-end gap-2 p-3 rounded-xl border border-slate-200 bg-white ${
-      props.class ?? ''
-    }`.trim()
-  );
-  const inputContainerClasses = $derived('flex-1 relative');
-  const inputClasses = $derived(
-    'w-full border-none resize-none px-4 py-2 rounded-full bg-slate-50 max-h-40 overflow-y-auto focus:outline-none focus:ring-2 focus:ring-blue-500'
-  );
-  const actionButtonsClasses = $derived('flex gap-1');
-  const actionButtonClasses = $derived(
-    'flex items-center justify-center w-10 h-10 rounded-full bg-transparent border-none cursor-pointer text-slate-500 hover:bg-slate-100 hover:text-slate-600 disabled:opacity-50 disabled:cursor-not-allowed'
-  );
-  const sendButtonClasses = $derived(
-    'flex items-center justify-center w-10 h-10 rounded-full bg-blue-500 text-white hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed'
-  );
+export type MessageInputProps = {
+  class?: string;
+  disabled?: boolean;
+  placeholder?: string;
+  showAttachment?: boolean;
+  showEmoji?: boolean;
+  showSend?: boolean;
+};
 
-  return {
-    get placeholder() {
-      return placeholder;
-    },
-    get disabled() {
-      return disabled;
-    },
-    get showAttachmentButton() {
-      return showAttachmentButton;
-    },
-    get showEmojiButton() {
-      return showEmojiButton;
-    },
-    get showSendButton() {
-      return showSendButton;
-    },
-    get containerClasses() {
-      return containerClasses;
-    },
-    get inputContainerClasses() {
-      return inputContainerClasses;
-    },
-    get inputClasses() {
-      return inputClasses;
-    },
-    get actionButtonsClasses() {
-      return actionButtonsClasses;
-    },
-    get actionButtonClasses() {
-      return actionButtonClasses;
-    },
-    get sendButtonClasses() {
-      return sendButtonClasses;
-    }
-  };
-}
+export type MessageThreadProps = {
+  class?: string;
+  title?: string;
+  messages?: MessageThreadMessage[];
+  containerClass?: string;
+  messageContainerClass?: string;
+  headerClass?: string;
+  loading?: boolean;
+  variant?: MessageThreadVariant;
+  messageVariant?: ChatMessageVariant;
+};
 
-export function createChatPreviewState(props: import('$stylist/design-system/interaction/communications').ChatPreviewProps) {
-  const title = $derived(props.title ?? '');
-  const participants = $derived(props.participants ?? []);
-  const maxMessages = $derived(props.maxMessages ?? 3);
-  const showAvatars = $derived(props.showAvatars ?? true);
-  const classes = $derived(
-    `flex flex-col gap-2 p-4 rounded-lg border border-gray-200 bg-white ${
-      props.class ?? ''
-    }`.trim()
-  );
-  const headerClasses = $derived('flex items-center justify-between mb-2');
-  const chatInfoClasses = $derived('flex-1');
-  const titleClasses = $derived('text-lg font-semibold truncate');
-  const participantsClasses = $derived('text-sm text-gray-500 truncate');
-  const messagesContainerClasses = $derived('space-y-2 max-h-60 overflow-y-auto');
-  const displayMessages = $derived(props.messages?.slice(0, maxMessages) ?? []);
+export type ChatMessageProps = {
+  id: string;
+  text: string;
+  sender: string;
+  senderAvatar?: string;
+  timestamp: string;
+  status?: ChatMessageStatus;
+  isOwn: boolean;
+};
+
+export const createMessageInputState = (props: MessageInputProps) => {
+  const disabled = props.disabled ?? DEFAULT_MESSAGE_INPUT_DISABLED;
+  const placeholder = props.placeholder ?? DEFAULT_MESSAGE_INPUT_PLACEHOLDER;
+  const showAttachment = props.showAttachment ?? DEFAULT_MESSAGE_INPUT_SHOW_ATTACHMENT;
+  const showEmoji = props.showEmoji ?? DEFAULT_MESSAGE_INPUT_SHOW_EMOJI;
+  const showSend = props.showSend ?? DEFAULT_MESSAGE_INPUT_SHOW_SEND;
 
   return {
-    get title() {
-      return title;
-    },
-    get participants() {
-      return participants;
-    },
-    get maxMessages() {
-      return maxMessages;
-    },
-    get showAvatars() {
-      return showAvatars;
-    },
-    get classes() {
-      return classes;
-    },
-    get headerClasses() {
-      return headerClasses;
-    },
-    get chatInfoClasses() {
-      return chatInfoClasses;
-    },
-    get titleClasses() {
-      return titleClasses;
-    },
-    get participantsClasses() {
-      return participantsClasses;
-    },
-    get messagesContainerClasses() {
-      return messagesContainerClasses;
-    },
-    get displayMessages() {
-      return displayMessages;
-    }
+    disabled,
+    placeholder,
+    showAttachment, // Keep original for backward compatibility
+    showEmoji,      // Keep original for backward compatibility
+    showSend,       // Keep original for backward compatibility
+    showAttachmentButton: showAttachment, // New property name as used in component
+    showEmojiButton: showEmoji,           // New property name as used in component
+    showSendButton: showSend,             // New property name as used in component
+    containerClasses: getMessageInputContainerClasses(props.class),
+    fieldClasses: getMessageInputFieldClasses(),
+    actionButtonsClasses: getMessageInputActionButtonsClasses(),
+    actionButtonClasses: getMessageInputActionButtonClasses(), // New property as used in component
+    attachmentButtonClasses: getMessageInputActionButtonClasses(),
+    emojiButtonClasses: getMessageInputActionButtonClasses(),
+    sendButtonClasses: getMessageInputSendButtonClasses(),
+    inputContainerClasses: getMessageInputFieldClasses(), // New property as used in component
+    inputClasses: getMessageInputFieldClasses()            // New property as used in component
   };
-}
+};
 
-export function createMessageThreadState(props: import('$stylist/design-system/interaction/communications').MessageThreadProps) {
-  const variant = $derived(props.variant ?? 'default');
-  const title = $derived(props.title ?? '');
-  const messages = $derived(props.messages ?? []);
-  const loading = $derived(props.loading ?? false);
-  const classes = $derived(
-    `flex flex-col gap-4 p-4 rounded-lg ${
-      variant === 'compact' ? 'p-2' : 'p-4'
-    } ${props.class ?? ''}`.trim()
-  );
-  const hostClasses = $derived(`flex flex-col gap-4 ${props.class ?? ''}`.trim());
-  const headerClasses = $derived('mb-4');
-  const containerClasses = $derived('flex-1 overflow-y-auto');
-  const variantClass = $derived(variant === 'compact' ? 'gap-2' : 'gap-4');
-  const loadingClasses = $derived('flex justify-center items-center py-4');
-  const spinnerClasses = $derived('animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500');
-  const messageContainerClasses = $derived('space-y-3');
-  const messageVariant = $derived(props.messageVariant);
+export const createMessageThreadState = (props: MessageThreadProps) => {
+  const loading = props.loading ?? false;
+  const variant = props.variant ?? DEFAULT_MESSAGE_THREAD_VARIANT;
+  const messageVariant = props.messageVariant ?? DEFAULT_MESSAGE_THREAD_MESSAGE_VARIANT;
+  const messages = props.messages ?? [];
 
   return {
-    get variant() {
-      return variant;
-    },
-    get title() {
-      return title;
-    },
-    get classes() {
-      return classes;
-    },
-    get hostClasses() {
-      return hostClasses;
-    },
-    get headerClasses() {
-      return headerClasses;
-    },
-    get containerClasses() {
-      return containerClasses;
-    },
-    get variantClass() {
-      return variantClass;
-    },
-    get loading() {
-      return loading;
-    },
-    get loadingClasses() {
-      return loadingClasses;
-    },
-    get spinnerClasses() {
-      return spinnerClasses;
-    },
-    get messageContainerClasses() {
-      return messageContainerClasses;
-    },
-    get messages() {
-      return messages;
-    },
-    get messageVariant() {
-      return messageVariant;
-    }
+    loading,
+    title: props.title,
+    messages,
+    variant,
+    messageVariant,
+    hostClasses: getMessageThreadHostClasses(props.class),
+    headerClasses: getMessageThreadHeaderClasses(props.headerClass),
+    containerClasses: getMessageThreadContainerClasses(props.containerClass),
+    messageContainerClasses: getMessageThreadMessageContainerClasses(props.messageContainerClass),
+    loadingClasses: getMessageThreadLoadingClasses(),
+    spinnerClasses: getMessageThreadSpinnerClasses(),
+    variantClass: getMessageThreadVariantClass(variant)
   };
-}
+};

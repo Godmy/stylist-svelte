@@ -1,7 +1,8 @@
-﻿<script lang="ts">
-  import { Story, type ControlConfig } from '$lib/playground';
+<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Label from './Label.svelte';
-  import { Input } from '../../../input/base/Input';
+  import Input from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
 
   const controls: ControlConfig[] = [
     {
@@ -23,7 +24,7 @@
     {
       name: 'text',
       type: 'text',
-      defaultValue: 'Р”РµРјРѕ РјРµС‚РєР°'
+      defaultValue: 'Демо метка'
     }
   ];
 </script>
@@ -33,7 +34,7 @@
   title="Label"
   category="Atoms"
   component={Label}
-  description="РЇСЂР»С‹Рє РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ С„РѕСЂРјС‹"
+  description="Ярлык для элементов формы"
   tags={['form', 'label', 'input']}
   controls={controls}
 >
@@ -49,7 +50,7 @@
       <Input
         id="demo-input"
         label=""
-        placeholder="Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ"
+        placeholder="Введите значение"
         disabled={props.disabled}
       />
     </div>

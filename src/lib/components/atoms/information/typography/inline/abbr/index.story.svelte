@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
   import Abbr from './Abbr.svelte';
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   type AbbrStoryProps = {
     label: string;

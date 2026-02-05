@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { INPUT_TOKENS } from '$stylist/design-system/input';
+  import { FORM_HELPER_TEXT_PRESET } from '$stylist/design-system/presets';
+  import { createFormHelperTextState } from '../state.svelte';
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { InputVariant } from '$stylist/design-system/input';
   import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 
   /**
@@ -13,49 +13,13 @@
    * @returns Accessible, styled helper text for form fields
    */
 
-  const {
-    INPUT_VARIANTS,
-    COMPONENT_SIZE_SCALE,
-    DEFAULT_FLAGS,
-    STATE_CLASSES,
-    INPUT_BASE_CLASS,
-    ACCESSIBILITY_CLASSES
-  } = INPUT_TOKENS;
-
-  const FORM_HELPER_TEXT_PRESET = {
-    variants: INPUT_VARIANTS,
-    sizes: COMPONENT_SIZE_SCALE,
-    defaults: {
-      variant: 'default' as const,
-      size: 'md' as const,
-      disabled: DEFAULT_FLAGS.disabled,
-      error: false
-    },
-    classes: {
-      base: 'text-sm mt-1',
-      size: {
-        sm: 'text-xs',
-        md: 'text-sm',
-        lg: 'text-base'
-      },
-      state: STATE_CLASSES,
-      variant: {
-        default: 'text-gray-500',
-        info: 'text-blue-500',
-        success: 'text-green-500',
-        warning: 'text-yellow-500',
-        danger: 'text-red-500'
-      },
-      focusVisible: ACCESSIBILITY_CLASSES.focusVisible
-    }
-  };
-
+  type FormHelperVariant = (typeof FORM_HELPER_TEXT_PRESET.variants)[number];
   type FormHelperTextProps = {
-    variant?: InputVariant;
+    variant?: FormHelperVariant;
     size?: CompactSize;
     text?: string;
     content?: () => any;
-    class?: string | null;
+    class?: string;
   };
 
   let {
@@ -66,16 +30,11 @@
     class: className = '',
     ...restProps
   }: FormHelperTextProps & HTMLAttributes<HTMLParagraphElement> = $props();
-
-  const variantClasses = FORM_HELPER_TEXT_PRESET.classes.variant;
-  const resolvedVariant =
-    (variant in variantClasses ? variant : 'default') as keyof typeof variantClasses;
+  const state = $derived(createFormHelperTextState({ variant, size, class: className }));
 
   let classes = $derived(
     [
-      FORM_HELPER_TEXT_PRESET.classes.base,
-      variantClasses[resolvedVariant],
-      className
+      state.classes
     ]
       .filter(Boolean)
       .join(' ')
@@ -89,5 +48,3 @@
     {text}
   {/if}
 </p>
-
-

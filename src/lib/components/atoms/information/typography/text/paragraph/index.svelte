@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { ParagraphProps } from '$stylist/design-system/typography';
+  import type { ParagraphProps } from '$stylist/design-system/attributes';
 
   /**
    * Paragraph component - Displays a paragraph text with various styles.
