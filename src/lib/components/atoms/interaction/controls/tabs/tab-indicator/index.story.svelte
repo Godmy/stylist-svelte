@@ -35,7 +35,7 @@
 	component={TabIndicator}
 	category="Atoms"
 	description="A visual indicator for the active tab in a tab navigation."
-	controls={controls}
+	{controls}
 >
 	{#snippet children(props: Props)}
 		<div class="relative w-full max-w-md border-b border-gray-200">
@@ -49,11 +49,7 @@
 					</button>
 				{/each}
 			</div>
-			<TabIndicator
-				width={tabs[activeTab].width}
-				left={tabs[activeTab].left}
-				color={props.color}
-			/>
+			<TabIndicator width={tabs[activeTab].width} left={tabs[activeTab].left} color={props.color} />
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Customizable Indicator</h3>
@@ -67,7 +63,3 @@
 		</div>
 	{/snippet}
 </Story>
-
-
-
-

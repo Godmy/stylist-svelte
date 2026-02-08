@@ -14,11 +14,11 @@
  * @returns The appropriate CSS classes
  */
 export const getVariantClasses = (
-  variant: string,
-  variantClassesMap: Record<string, string>,
-  defaultVariantClass: string = ''
+	variant: string,
+	variantClassesMap: Record<string, string>,
+	defaultVariantClass: string = ''
 ): string => {
-  return variantClassesMap[variant] || defaultVariantClass;
+	return variantClassesMap[variant] || defaultVariantClass;
 };
 
 /**
@@ -29,21 +29,21 @@ export const getVariantClasses = (
  * @returns The appropriate CSS classes
  */
 export const getSizeClasses = (
-  size: string,
-  sizeClassesMap: Record<string, string>,
-  defaultSizeClass: string = ''
+	size: string,
+	sizeClassesMap: Record<string, string>,
+	defaultSizeClass: string = ''
 ): string => {
-  return sizeClassesMap[size] || defaultSizeClass;
+	return sizeClassesMap[size] || defaultSizeClass;
 };
 
 /**
  * Type definition for component state classes
  */
 export type ComponentStateClasses = {
-  disabled?: string;
-  loading?: string;
-  block?: string;
-  readonly?: string;
+	disabled?: string;
+	loading?: string;
+	block?: string;
+	readonly?: string;
 };
 
 /**
@@ -54,35 +54,35 @@ export type ComponentStateClasses = {
  * @returns The appropriate CSS classes
  */
 export const getStateClasses = (
-  stateFlags: {
-    disabled?: boolean;
-    loading?: boolean;
-    error?: boolean;
-    readonly?: boolean;
-    block?: boolean;
-    [key: string]: any;
-  },
-  customStateClasses?: Record<string, string>,
-  stateClasses?: ComponentStateClasses
+	stateFlags: {
+		disabled?: boolean;
+		loading?: boolean;
+		error?: boolean;
+		readonly?: boolean;
+		block?: boolean;
+		[key: string]: any;
+	},
+	customStateClasses?: Record<string, string>,
+	stateClasses?: ComponentStateClasses
 ): string => {
-  const classes: string[] = [];
+	const classes: string[] = [];
 
-  // Add standard state classes with fallback defaults
-  if (stateFlags.disabled) classes.push(stateClasses?.disabled || 'opacity-50 cursor-not-allowed');
-  if (stateFlags.loading) classes.push(stateClasses?.loading || 'opacity-70');
-  if (stateFlags.block) classes.push(stateClasses?.block || 'block w-full');
-  if (stateFlags.readonly) classes.push(stateClasses?.readonly || 'bg-gray-100');
+	// Add standard state classes with fallback defaults
+	if (stateFlags.disabled) classes.push(stateClasses?.disabled || 'opacity-50 cursor-not-allowed');
+	if (stateFlags.loading) classes.push(stateClasses?.loading || 'opacity-70');
+	if (stateFlags.block) classes.push(stateClasses?.block || 'block w-full');
+	if (stateFlags.readonly) classes.push(stateClasses?.readonly || 'bg-gray-100');
 
-  // Add custom state classes
-  if (customStateClasses) {
-    Object.entries(stateFlags).forEach(([key, value]) => {
-      if (value && customStateClasses[key]) {
-        classes.push(customStateClasses[key]);
-      }
-    });
-  }
+	// Add custom state classes
+	if (customStateClasses) {
+		Object.entries(stateFlags).forEach(([key, value]) => {
+			if (value && customStateClasses[key]) {
+				classes.push(customStateClasses[key]);
+			}
+		});
+	}
 
-  return classes.join(' ');
+	return classes.join(' ');
 };
 
 /**
@@ -99,33 +99,33 @@ export const getStateClasses = (
  * @returns The combined CSS classes
  */
 export const getComponentClasses = (
-  baseClass: string,
-  variant?: string,
-  size?: string,
-  stateFlags: { [key: string]: any } = {},
-  variantClassesMap?: Record<string, string>,
-  sizeClassesMap?: Record<string, string>,
-  customStateClasses?: Record<string, string>,
-  additionalClass: string = '',
-  stateClasses?: ComponentStateClasses
+	baseClass: string,
+	variant?: string,
+	size?: string,
+	stateFlags: { [key: string]: any } = {},
+	variantClassesMap?: Record<string, string>,
+	sizeClassesMap?: Record<string, string>,
+	customStateClasses?: Record<string, string>,
+	additionalClass: string = '',
+	stateClasses?: ComponentStateClasses
 ): string => {
-  const classes: string[] = [baseClass];
+	const classes: string[] = [baseClass];
 
-  if (variant && variantClassesMap) {
-    classes.push(getVariantClasses(variant, variantClassesMap));
-  }
+	if (variant && variantClassesMap) {
+		classes.push(getVariantClasses(variant, variantClassesMap));
+	}
 
-  if (size && sizeClassesMap) {
-    classes.push(getSizeClasses(size, sizeClassesMap));
-  }
+	if (size && sizeClassesMap) {
+		classes.push(getSizeClasses(size, sizeClassesMap));
+	}
 
-  if (Object.keys(stateFlags).length > 0) {
-    classes.push(getStateClasses(stateFlags, customStateClasses, stateClasses));
-  }
+	if (Object.keys(stateFlags).length > 0) {
+		classes.push(getStateClasses(stateFlags, customStateClasses, stateClasses));
+	}
 
-  if (additionalClass) {
-    classes.push(additionalClass);
-  }
+	if (additionalClass) {
+		classes.push(additionalClass);
+	}
 
-  return classes.filter(Boolean).join(' ');
+	return classes.filter(Boolean).join(' ');
 };

@@ -15,9 +15,9 @@ export const THEME_CONTEXT_KEY = Symbol('stylist-theme');
  * Интерфейс контекста темы
  */
 export interface ThemeContext {
-  theme: Theme;                     // Текущая тема
-  themeName: ThemeName;             // Имя текущей темы
-  setTheme: (themeName: ThemeName) => void;  // Функция для изменения темы
+	theme: Theme; // Текущая тема
+	themeName: ThemeName; // Имя текущей темы
+	setTheme: (themeName: ThemeName) => void; // Функция для изменения темы
 }
 
 /**
@@ -27,15 +27,19 @@ export interface ThemeContext {
  * @param setThemeFn Функция для изменения темы
  * @returns Контекст темы
  */
-export function setThemeContext(theme: Theme, themeName: ThemeName, setThemeFn: (name: ThemeName) => void): ThemeContext {
-  const context: ThemeContext = {
-    theme,
-    themeName,
-    setTheme: setThemeFn
-  };
+export function setThemeContext(
+	theme: Theme,
+	themeName: ThemeName,
+	setThemeFn: (name: ThemeName) => void
+): ThemeContext {
+	const context: ThemeContext = {
+		theme,
+		themeName,
+		setTheme: setThemeFn
+	};
 
-  setContext(THEME_CONTEXT_KEY, context);
-  return context;
+	setContext(THEME_CONTEXT_KEY, context);
+	return context;
 }
 
 /**
@@ -43,15 +47,15 @@ export function setThemeContext(theme: Theme, themeName: ThemeName, setThemeFn: 
  * @throws Error если контекст темы не найден
  */
 export function getThemeContext(): ThemeContext {
-  const context = getContext<ThemeContext>(THEME_CONTEXT_KEY);
+	const context = getContext<ThemeContext>(THEME_CONTEXT_KEY);
 
-  if (!context) {
-    throw new Error(
-      'Theme context not found. Make sure to wrap your component with <ThemeProvider>.'
-    );
-  }
+	if (!context) {
+		throw new Error(
+			'Theme context not found. Make sure to wrap your component with <ThemeProvider>.'
+		);
+	}
 
-  return context;
+	return context;
 }
 
 /**
@@ -59,5 +63,5 @@ export function getThemeContext(): ThemeContext {
  * @returns Контекст темы или undefined
  */
 export function getThemeContextOptional(): ThemeContext | undefined {
-  return getContext<ThemeContext>(THEME_CONTEXT_KEY);
+	return getContext<ThemeContext>(THEME_CONTEXT_KEY);
 }

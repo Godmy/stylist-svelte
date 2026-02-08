@@ -1,65 +1,65 @@
 <script lang="ts">
-  import type { ActionSegmentedControlProps } from '$stylist/design-system/attributes';
+	import type { ActionSegmentedControlProps } from '$stylist/design-system/attributes';
 
-  export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
-    const items = $derived(props.items);
-    const selectedIndex = $derived(props.selectedIndex ?? 0);
-    const onChange = $derived(props.onChange || (() => {}));
-    const containerClasses = $derived(`flex rounded-lg border ${props.class ?? ''}`.trim());
+	export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
+		const items = $derived(props.items);
+		const selectedIndex = $derived(props.selectedIndex ?? 0);
+		const onChange = $derived(props.onChange || (() => {}));
+		const containerClasses = $derived(`flex rounded-lg border ${props.class ?? ''}`.trim());
 
-    return {
-      get items() {
-        return items;
-      },
-      get selectedIndex() {
-        return selectedIndex;
-      },
-      get containerClasses() {
-        return containerClasses;
-      },
-      get classes() {
-        return containerClasses;
-      },
-      get handleChange() {
-        return (index: number) => onChange(index);
-      },
-      get getItemClasses() {
-        return (index: number, isSelected: boolean) => {
-          const totalItems = items.length;
-          const roundedClass =
-            index === 0 ? 'rounded-l-lg' : index === totalItems - 1 ? 'rounded-r-lg' : '';
-          const stateClass = isSelected
-            ? 'bg-blue-500 text-white'
-            : 'bg-white text-gray-700 hover:bg-gray-100';
+		return {
+			get items() {
+				return items;
+			},
+			get selectedIndex() {
+				return selectedIndex;
+			},
+			get containerClasses() {
+				return containerClasses;
+			},
+			get classes() {
+				return containerClasses;
+			},
+			get handleChange() {
+				return (index: number) => onChange(index);
+			},
+			get getItemClasses() {
+				return (index: number, isSelected: boolean) => {
+					const totalItems = items.length;
+					const roundedClass =
+						index === 0 ? 'rounded-l-lg' : index === totalItems - 1 ? 'rounded-r-lg' : '';
+					const stateClass = isSelected
+						? 'bg-blue-500 text-white'
+						: 'bg-white text-gray-700 hover:bg-gray-100';
 
-          return `px-4 py-2 rounded-lg transition-colors ${roundedClass} ${stateClass}`.trim();
-        };
-      }
-    };
-  };
+					return `px-4 py-2 rounded-lg transition-colors ${roundedClass} ${stateClass}`.trim();
+				};
+			}
+		};
+	}
 
-  let props: ActionSegmentedControlProps = $props();
+	let props: ActionSegmentedControlProps = $props();
 
-  const controlState = createActionSegmentedControlState(props);
-  let localSelectedIndex = $state(controlState.selectedIndex);
+	const controlState = createActionSegmentedControlState(props);
+	let localSelectedIndex = $state(controlState.selectedIndex);
 
-  $effect(() => {
-    localSelectedIndex = controlState.selectedIndex;
-  });
+	$effect(() => {
+		localSelectedIndex = controlState.selectedIndex;
+	});
 
-  const handleClick = (index: number) => {
-    localSelectedIndex = index;
-    props.onChange?.(index);
-  };
+	const handleClick = (index: number) => {
+		localSelectedIndex = index;
+		props.onChange?.(index);
+	};
 </script>
 
 <div class={controlState.classes}>
-  {#each controlState.items as item, i}
-    <button
-      class={controlState.getItemClasses(i, localSelectedIndex === i)}
-      onclick={() => handleClick(i)}
-    >
-      {item}
-    </button>
-  {/each}
+	{#each controlState.items as item, i}
+		<button
+			class={controlState.getItemClasses(i, localSelectedIndex === i)}
+			onclick={() => handleClick(i)}
+		>
+			{item}
+		</button>
+	{/each}
 </div>

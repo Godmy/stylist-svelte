@@ -16,30 +16,34 @@ import { getGraphEdgeClasses, getGraphEdgeStyles, graphEdgeCSS } from './graph-s
 import { getAspectRatioClasses } from './layout-aspect-ratio';
 import { getContainerClasses } from './layout-container';
 import { getDividerLineClasses, getDividerLineFlexClasses } from './layout-divider';
-import { getGridLayoutContainerClasses, getGridLayoutItemClasses, getGridLayoutStyle } from './layout-grid-layout';
+import {
+	getGridLayoutContainerClasses,
+	getGridLayoutItemClasses,
+	getGridLayoutStyle
+} from './layout-grid-layout';
 import { getHorizontalLayoutClasses } from './layout-horizontal-layout';
 import { getSpacerClasses, getSpacerSize } from './layout-spacer';
 
 export const ARCHITECTURE_PRESETS = {
-  development: { getStackClasses, getStackGap },
-  graph: {
-    getGraphNodePositionStyle,
-    getGraphNodeSizeClasses,
-    graphNodeCSS,
-    getGraphEdgeClasses,
-    getGraphEdgeStyles,
-    graphEdgeCSS
-  },
-  layout: {
-    getAspectRatioClasses,
-    getContainerClasses,
-    getDividerLineClasses,
-    getDividerLineFlexClasses,
-    getGridLayoutContainerClasses,
-    getGridLayoutItemClasses,
-    getGridLayoutStyle,
-    getHorizontalLayoutClasses,
-    getSpacerClasses,
-    getSpacerSize
-  }
+	development: { getStackClasses, getStackGap },
+	graph: {
+		getGraphNodePositionStyle,
+		getGraphNodeSizeClasses,
+		graphNodeCSS,
+		getGraphEdgeClasses,
+		getGraphEdgeStyles,
+		graphEdgeCSS
+	},
+	layout: {
+		getAspectRatioClasses,
+		getContainerClasses,
+		getDividerLineClasses,
+		getDividerLineFlexClasses,
+		getGridLayoutContainerClasses,
+		getGridLayoutItemClasses,
+		getGridLayoutStyle,
+		getHorizontalLayoutClasses,
+		getSpacerClasses,
+		getSpacerSize
+	}
 } as const;

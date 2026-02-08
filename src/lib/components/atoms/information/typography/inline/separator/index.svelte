@@ -1,20 +1,22 @@
 <script lang="ts">
-  import type { SeparatorProps } from '$stylist/design-system';
-  import { createSeparatorState } from '../../state.svelte';
+	import type { SeparatorProps } from '$stylist/design-system';
+	import { createSeparatorState } from '../../state.svelte';
 
-  let props: SeparatorProps = $props();
+	let props: SeparatorProps = $props();
 
-  const state = createSeparatorState(props);
+	const state = createSeparatorState(props);
 
-  const restProps = $derived((() => {
-    const { class: _class, orientation: _orientation, decorative: _decorative, ...rest } = props;
-    return rest;
-  })());
+	const restProps = $derived(
+		(() => {
+			const { class: _class, orientation: _orientation, decorative: _decorative, ...rest } = props;
+			return rest;
+		})()
+	);
 </script>
 
 <hr
-  class={state.classes}
-  aria-orientation={state.orientation}
-  role={state.decorative ? 'presentation' : 'separator'}
-  {...restProps}
+	class={state.classes}
+	aria-orientation={state.orientation}
+	role={state.decorative ? 'presentation' : 'separator'}
+	{...restProps}
 />

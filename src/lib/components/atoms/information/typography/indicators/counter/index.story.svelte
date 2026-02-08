@@ -27,7 +27,7 @@
 	component={Counter}
 	category="Atoms"
 	description="A small badge to display numerical counts, often used for notifications."
-	controls={controls}
+	{controls}
 >
 	{#snippet children(props: Props)}
 		<div class="flex items-center space-x-4">
@@ -45,4 +45,3 @@
 		</div>
 	{/snippet}
 </Story>
-

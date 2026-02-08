@@ -3,7 +3,15 @@
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Dot from './Dot.svelte';
 
-	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'gray'] as const;
+	const colorOptions = [
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+		'danger',
+		'info',
+		'gray'
+	] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
 
 	type Props = {
@@ -23,7 +31,7 @@
 	component={Dot}
 	category="Atoms"
 	description="A small, colored dot indicator for statuses or notifications."
-	controls={controls}
+	{controls}
 >
 	{#snippet children(props: Props)}
 		<div class="flex items-center space-x-4">
@@ -54,4 +62,3 @@
 		</div>
 	{/snippet}
 </Story>
-

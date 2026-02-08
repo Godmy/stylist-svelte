@@ -1,19 +1,21 @@
 <script lang="ts">
-  import type { CountBadgeProps } from '$stylist/design-system';
-  import { createCountBadgeState } from '../../state.svelte';
+	import type { CountBadgeProps } from '$stylist/design-system';
+	import { createCountBadgeState } from '../../state.svelte';
 
-  let props: CountBadgeProps = $props();
+	let props: CountBadgeProps = $props();
 
-  const state = createCountBadgeState(props);
+	const state = createCountBadgeState(props);
 
-  const restProps = $derived((() => {
-    const { class: _class, count: _count, max: _max, showZero: _showZero, ...rest } = props;
-    return rest;
-  })());
+	const restProps = $derived(
+		(() => {
+			const { class: _class, count: _count, max: _max, showZero: _showZero, ...rest } = props;
+			return rest;
+		})()
+	);
 </script>
 
 {#if state.showZero || state.count > 0}
-  <span class={state.classes} {...restProps}>
-    {state.displayCount}
-  </span>
+	<span class={state.classes} {...restProps}>
+		{state.displayCount}
+	</span>
 {/if}

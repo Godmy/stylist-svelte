@@ -9,7 +9,3 @@ export { Kbd } from './kbd';
 export { Link } from './link';
 export { Separator } from './separator';
 export { SyntaxHighlightedCode } from './syntax-highlighted-code';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-﻿

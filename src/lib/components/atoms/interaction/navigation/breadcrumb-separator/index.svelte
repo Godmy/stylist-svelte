@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	let { class: className = '', children = undefined } = $props<{ class?: string; children?: Snippet }>();
+	let { class: className = '', children = undefined } = $props<{
+		class?: string;
+		children?: Snippet;
+	}>();
 
 	// This component is automatically the default export in Svelte
 </script>

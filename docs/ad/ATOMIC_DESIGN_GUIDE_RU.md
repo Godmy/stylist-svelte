@@ -237,7 +237,7 @@ src/lib/components/organisms/
 #### Пример организма:
 ```svelte
 <script lang="ts">
-  import type { Chat, User, Message } from '$lib/types';
+  import type { Chat, User, Message } from '$stylist/types';
   import { MessageList, MessageInput, ChatHeader } from '../organisms';
 
   // Props

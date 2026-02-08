@@ -5,7 +5,3 @@ export { Divider } from './divider';
 export { GridLayout } from './grid-layout';
 export { HorizontalLayout } from './horizontal-layout';
 export { Spacer } from './spacer';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-﻿

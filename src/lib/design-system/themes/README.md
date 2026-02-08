@@ -18,12 +18,14 @@ themes/
 Каждая тема представляет собой объект со следующими свойствами:
 
 ### 1. Цвета (colors)
+
 - **Семантические цвета**: primary, secondary, success, warning, danger, neutral
 - **Поверхности**: background.primary, background.secondary, background.tertiary
 - **Текст**: text.primary, text.secondary, text.tertiary, text.inverse
 - **Бордеры**: border.primary, border.secondary, border.tertiary
 
 ### 2. Прочие токены
+
 - **Отступы** (spacing): те же значения из tokens/spacing
 - **Типографика** (typography): шрифты, размеры, вес, высота строк
 - **Радиусы** (borderRadius): скругления из tokens/radius
@@ -32,11 +34,13 @@ themes/
 ## Реализованные темы
 
 ### Светлая тема (light.ts)
+
 - Основные цвета: blue (primary), slate (secondary), green (success), и т.д.
 - Светлые фоны (white, light grays)
 - Темный текст для контраста
 
 ### Темная тема (dark.ts)
+
 - Основные цвета: blue (primary), slate (secondary), teal (success для лучшего контраста)
 - Темные фоны (dark grays)
 - Светлый текст для контраста
@@ -44,6 +48,7 @@ themes/
 ## Типы и интерфейсы
 
 Файл `types.ts` определяет:
+
 - `Theme`: Полный интерфейс темы
 - `ThemeColors`: Структура цветов темы
 - `ThemeName`: Доступные имена тем ('light' | 'dark')
@@ -51,12 +56,14 @@ themes/
 ## Контекст тем
 
 Файл `context.ts` содержит Svelte-агностичные функции для работы с контекстом тем:
+
 - `THEME_CONTEXT_KEY`: Ключ для хранения темы в контексте
 - `setThemeContext`, `getThemeContext`, `getThemeContextOptional`: Функции для установки/получения контекста темы
 
 ## Использование
 
 ### Прямое использование тем
+
 ```ts
 import { lightTheme, darkTheme } from '$stylist/design-system/themes';
 
@@ -66,12 +73,13 @@ applyThemeToDOM(darkTheme);
 ```
 
 ### Типизация компонентов
+
 ```ts
 import type { Theme, ThemeName } from '$stylist/design-system/themes';
 
 // Использование типов в компонентах
 function MyComponent({ theme }: { theme: Theme }) {
-  // ...
+	// ...
 }
 ```
 

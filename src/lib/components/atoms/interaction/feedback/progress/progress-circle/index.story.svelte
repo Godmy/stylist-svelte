@@ -4,7 +4,15 @@
 	import ProgressCircle from './progress-circle/index.svelte';
 
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
-	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'gray'] as const;
+	const colorOptions = [
+		'primary',
+		'secondary',
+		'success',
+		'warning',
+		'danger',
+		'info',
+		'gray'
+	] as const;
 
 	type Props = {
 		progress: number;
@@ -27,7 +35,7 @@
 	component={ProgressCircle}
 	category="Atoms"
 	description="A circular progress indicator to show completion percentage."
-	controls={controls}
+	{controls}
 >
 	{#snippet children(props: Props)}
 		<div class="flex items-center space-x-4">
@@ -49,4 +57,3 @@
 		</div>
 	{/snippet}
 </Story>
-

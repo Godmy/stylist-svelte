@@ -1,4 +1,3 @@
-
 import type { SemanticVariant, NeutralVariant, CommonSize } from './variants';
 import type { Orientation } from './layout';
 

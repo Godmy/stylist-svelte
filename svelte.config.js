@@ -13,10 +13,7 @@ const config = {
 		vitePreprocess(),
 		sveltePreprocess({
 			postcss: {
-				plugins: [
-					tailwindcss(),
-					autoprefixer()
-				]
+				plugins: [tailwindcss(), autoprefixer()]
 			}
 		})
 	],

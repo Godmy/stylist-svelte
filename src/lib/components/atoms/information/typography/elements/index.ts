@@ -3,7 +3,3 @@ export { Badge } from './badge';
 export { BadgeGroup } from './badge-group';
 export { CodeBlock } from './code-block';
 export { Label } from './label';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-﻿

@@ -14,14 +14,13 @@
  * @returns Computed aria-label value
  */
 export function computeAriaLabel(
-  ariaLabel: string | undefined,
-  restProps: Record<string, unknown>,
-  fallback = ''
+	ariaLabel: string | undefined,
+	restProps: Record<string, unknown>,
+	fallback = ''
 ): string {
-  const fromRest = typeof restProps['aria-label'] === 'string'
-    ? (restProps['aria-label'] as string)
-    : '';
-  return ariaLabel || fromRest || fallback;
+	const fromRest =
+		typeof restProps['aria-label'] === 'string' ? (restProps['aria-label'] as string) : '';
+	return ariaLabel || fromRest || fallback;
 }
 
 /**
@@ -31,41 +30,41 @@ export function computeAriaLabel(
  * @returns Object with aria attributes
  */
 export function generateAriaAttributes(options: {
-  ariaLabel?: string;
-  loading?: boolean;
-  disabled?: boolean;
-  expanded?: boolean;
-  controls?: string;
-  describedBy?: string;
+	ariaLabel?: string;
+	loading?: boolean;
+	disabled?: boolean;
+	expanded?: boolean;
+	controls?: string;
+	describedBy?: string;
 }) {
-  const attrs: Record<string, string | boolean | undefined> = {};
+	const attrs: Record<string, string | boolean | undefined> = {};
 
-  if (options.ariaLabel) {
-    attrs['aria-label'] = options.ariaLabel;
-  }
+	if (options.ariaLabel) {
+		attrs['aria-label'] = options.ariaLabel;
+	}
 
-  if (options.loading !== undefined) {
-    attrs['aria-busy'] = options.loading;
-    if (options.loading) {
-      attrs['aria-live'] = 'polite';
-    }
-  }
+	if (options.loading !== undefined) {
+		attrs['aria-busy'] = options.loading;
+		if (options.loading) {
+			attrs['aria-live'] = 'polite';
+		}
+	}
 
-  if (options.disabled) {
-    attrs['aria-disabled'] = true;
-  }
+	if (options.disabled) {
+		attrs['aria-disabled'] = true;
+	}
 
-  if (options.expanded !== undefined) {
-    attrs['aria-expanded'] = options.expanded;
-  }
+	if (options.expanded !== undefined) {
+		attrs['aria-expanded'] = options.expanded;
+	}
 
-  if (options.controls) {
-    attrs['aria-controls'] = options.controls;
-  }
+	if (options.controls) {
+		attrs['aria-controls'] = options.controls;
+	}
 
-  if (options.describedBy) {
-    attrs['aria-describedby'] = options.describedBy;
-  }
+	if (options.describedBy) {
+		attrs['aria-describedby'] = options.describedBy;
+	}
 
-  return attrs;
+	return attrs;
 }

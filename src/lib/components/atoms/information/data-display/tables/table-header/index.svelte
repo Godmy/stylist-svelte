@@ -1,13 +1,13 @@
 <script lang="ts">
-  import type { TableHeaderProps } from '$stylist/design-system';
-  import { createTableHeaderState } from '../state.svelte';
+	import type { TableHeaderProps } from '$stylist/design-system';
+	import { createTableHeaderState } from '../state.svelte';
 
-  let props: TableHeaderProps = $props();
-  const state = createTableHeaderState(props);
+	let props: TableHeaderProps = $props();
+	const state = createTableHeaderState(props);
 </script>
 
 <thead {...props} class={state.classes}>
-  {#if props.content}
-    {@render props.content()}
-  {/if}
+	{#if props.content}
+		{@render props.content()}
+	{/if}
 </thead>

@@ -20,6 +20,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 ## How Can I Contribute?
 
 ### Reporting Bugs
+
 - Check the [Issues](https://github.com/Godmy/stylist-svelte/issues) to see if the bug has already been reported
 - If not, create a new issue providing:
   - Clear title and description
@@ -28,6 +29,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
   - Environment details (Svelte version, browser, etc.)
 
 ### Suggesting Features
+
 - Check the [Issues](https://github.com/Godmy/stylist-svelte/issues) to see if the feature has already been suggested
 - If not, create a new issue describing:
   - The feature you'd like to see
@@ -35,6 +37,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
   - Potential implementation approaches
 
 ### Adding Components
+
 - Follow Atomic Design principles (Atoms, Molecules, Organisms)
 - Ensure proper TypeScript typing
 - Include accessibility attributes
@@ -42,12 +45,14 @@ This project and everyone participating in it is governed by our [Code of Conduc
 - Add proper documentation
 
 ### Improving Documentation
+
 - Fix typos and grammatical errors
 - Add missing documentation
 - Improve existing explanations
 - Add usage examples
 
 ### Submitting Code Changes
+
 - Fix bugs
 - Add new features
 - Improve performance
@@ -56,6 +61,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 ## Development Setup
 
 ### Prerequisites
+
 - Node.js 18+
 - yarn package manager
 
@@ -90,6 +96,7 @@ This project and everyone participating in it is governed by our [Code of Conduc
 ## Component Guidelines
 
 ### Structure
+
 Components are organized according to Atomic Design principles:
 
 - **Atoms** - Basic building blocks (buttons, inputs, labels)
@@ -99,22 +106,24 @@ Components are organized according to Atomic Design principles:
 ### Creating Components
 
 1. Place components in the appropriate directory:
+
    ```bash
    src/lib/components/atoms/    # Basic building blocks
-   src/lib/components/molecules/ # Composite components  
+   src/lib/components/molecules/ # Composite components
    src/lib/components/organisms/ # Complex structures
    ```
 
 2. Use proper TypeScript typing:
+
    ```svelte
    <script lang="ts">
-     type Props = {
-       label: string;
-       disabled?: boolean;
-       onClick?: () => void;
-     };
-     
-     let { label, disabled = false, onClick }: Props = $props();
+   	type Props = {
+   		label: string;
+   		disabled?: boolean;
+   		onClick?: () => void;
+   	};
+
+   	let { label, disabled = false, onClick }: Props = $props();
    </script>
    ```
 
@@ -139,56 +148,52 @@ Create stories for new components to be used in the Playground:
 
 ```svelte
 <script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
-  import MyComponent from './MyComponent.svelte';
+	import { Story } from '$stylist/playground';
+	import type { ControlConfig } from '$stylist/playground';
+	import MyComponent from './MyComponent.svelte';
 
-  type MyComponentStoryProps = {
-    variant: 'primary' | 'secondary';
-    size: 'sm' | 'md' | 'lg';
-    label: string;
-  };
+	type MyComponentStoryProps = {
+		variant: 'primary' | 'secondary';
+		size: 'sm' | 'md' | 'lg';
+		label: string;
+	};
 
-  const variantOptions = ['primary', 'secondary'];
-  const sizeOptions = ['sm', 'md', 'lg'];
+	const variantOptions = ['primary', 'secondary'];
+	const sizeOptions = ['sm', 'md', 'lg'];
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'variant',
-      type: 'select',
-      defaultValue: 'primary',
-      options: variantOptions
-    },
-    {
-      name: 'size',
-      type: 'select',
-      defaultValue: 'md',
-      options: sizeOptions
-    },
-    {
-      name: 'label',
-      type: 'text',
-      defaultValue: 'My Component'
-    }
-  ];
+	const controls: ControlConfig[] = [
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: variantOptions
+		},
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: sizeOptions
+		},
+		{
+			name: 'label',
+			type: 'text',
+			defaultValue: 'My Component'
+		}
+	];
 </script>
 
 <Story
-  id="my-component"
-  title="MyComponent"
-  component={MyComponent}
-  category="Atoms"
-  description="Description of what this component does."
-  tags={['ui', 'button', 'interactive']}
-  controls={controls}
+	id="my-component"
+	title="MyComponent"
+	component={MyComponent}
+	category="Atoms"
+	description="Description of what this component does."
+	tags={['ui', 'button', 'interactive']}
+	{controls}
 >
-  {#snippet children(props: MyComponentStoryProps)}
-    <MyComponent
-      variant={props.variant}
-      size={props.size}
-      label={props.label}
-    />
-  {/snippet}
+	{#snippet children(props: MyComponentStoryProps)}
+		<MyComponent variant={props.variant} size={props.size} label={props.label} />
+	{/snippet}
 </Story>
 ```
 
@@ -200,29 +205,30 @@ Add JSDoc-style comments to components and functions:
 
 ```svelte
 <script lang="ts">
-  /**
-   * MyComponent - A component that does something
-   * 
-   * @param variant - Visual style of the component ('primary' | 'secondary')
-   * @param size - Size of the component ('sm' | 'md' | 'lg')
-   * @param label - Text label for the component
-   * @param onClick - Callback for click events
-   * @returns A styled component element
-   */
-  type Props = {
-    variant: 'primary' | 'secondary';
-    size: 'sm' | 'md' | 'lg';
-    label: string;
-    onClick?: () => void;
-  };
-  
-  let { variant, size, label, onClick }: Props = $props();
+	/**
+	 * MyComponent - A component that does something
+	 *
+	 * @param variant - Visual style of the component ('primary' | 'secondary')
+	 * @param size - Size of the component ('sm' | 'md' | 'lg')
+	 * @param label - Text label for the component
+	 * @param onClick - Callback for click events
+	 * @returns A styled component element
+	 */
+	type Props = {
+		variant: 'primary' | 'secondary';
+		size: 'sm' | 'md' | 'lg';
+		label: string;
+		onClick?: () => void;
+	};
+
+	let { variant, size, label, onClick }: Props = $props();
 </script>
 ```
 
 ### Readme Updates
 
 When adding significant features, update the README with:
+
 - New functionality description
 - Usage examples
 - API documentation
@@ -257,12 +263,14 @@ yarn test:coverage
 4. Run `yarn check` and `yarn test` to ensure everything works
 5. Run `yarn lint` and `yarn format` to ensure code quality
 6. Commit your changes with a clear message:
+
    ```
    feat: add amazing new component
-   
+
    - Include detailed description of changes
    - Add any relevant information
    ```
+
 7. Push to your branch (`git push origin feature/amazing-feature`)
 8. Open a Pull Request with:
    - Clear title and description
@@ -281,6 +289,7 @@ yarn test:coverage
 ## Style Guide
 
 ### Code Style
+
 - Use TypeScript for type safety
 - Follow Svelte 5 runes syntax conventions
 - Use 2-space indentation
@@ -289,12 +298,14 @@ yarn test:coverage
 - Add JSDoc comments for exported functions and components
 
 ### Git Commit Messages
+
 - Use the present tense ("Add feature" not "Added feature")
 - Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
 - Limit the first line to 72 characters or less
 - Reference issues and pull requests after the first line
 
 ### File Naming
+
 - Component files: `ComponentName.svelte`
 - Story files: `ComponentName.story.svelte`
 - Test files: `ComponentName.test.ts`
@@ -302,6 +313,7 @@ yarn test:coverage
 - Style files: `styles.css` or `styles.module.css`
 
 ### Component Structure
+
 - Place script tag first in Svelte components
 - Follow with style tag if needed
 - End with markup

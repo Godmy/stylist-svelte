@@ -1,16 +1,16 @@
 import type { GraphEdgeType } from '$stylist/design-system/attributes';
 
 export const getGraphEdgeClasses = (directed: boolean, type: GraphEdgeType) => {
-  const baseClasses = 'graph-edge';
-  const directionalClass = directed ? 'directed' : '';
+	const baseClasses = 'graph-edge';
+	const directionalClass = directed ? 'directed' : '';
 
-  return `${baseClasses} ${directionalClass}`.trim();
+	return `${baseClasses} ${directionalClass}`.trim();
 };
 
 export const getGraphEdgeStyles = (style: Record<string, string>) => {
-  return Object.entries(style)
-    .map(([key, value]) => `${key}:${value}`)
-    .join(';');
+	return Object.entries(style)
+		.map(([key, value]) => `${key}:${value}`)
+		.join(';');
 };
 
 export const graphEdgeCSS = `

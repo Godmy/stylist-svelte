@@ -31,14 +31,15 @@ design-system/
 import { createPreset } from '$stylist/design-system';
 
 const BUTTON_PRESET = createPreset({
-  defaults: { variant: 'primary', size: 'md' },
-  classes: {
-    base: 'inline-flex items-center gap-2'
-  }
+	defaults: { variant: 'primary', size: 'md' },
+	classes: {
+		base: 'inline-flex items-center gap-2'
+	}
 });
 ```
 
 `Preset<V,S>` определяет:
+
 - Варианты (variants) и размеры (sizes) для компонента
 - Значения по умолчанию
 - CSS классы для всех состояний компонента
@@ -56,16 +57,19 @@ const BUTTON_PRESET = createPreset({
 ## Ключевые возможности
 
 ### Управление темами
+
 - Поддержка светлой и темной тем
 - Возможность переключения тем через `applyThemeToDOM`
 - Генерация CSS переменных из объектов тем
 
 ### Интерактивные компоненты
+
 - Единый паттерн для всех интерактивных компонентов
 - Поддержка различных вариантов (primary, secondary, success и т.д.)
 - Автоматическая обработка состояний (disabled, loading, focused)
 
 ### Управление стилями
+
 - Все стили основаны на CSS переменных
 - Автоматическое применение тем к DOM
 - Поддержка статической генерации CSS
@@ -73,6 +77,7 @@ const BUTTON_PRESET = createPreset({
 ## Публичное API
 
 Доступ через `$stylist/design-system`:
+
 - Основные экспорт: `INTERACTION_TOKENS`, `createPreset`, `THEME_CONTEXT_KEY`, `lightTheme`, `darkTheme`
 - Токены: цвета, отступы, размеры, классы и т.д.
 - Утилиты: `applyThemeToDOM`, `themeToCSSVars`, `generateThemeCSS`

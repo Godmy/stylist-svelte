@@ -6,5 +6,5 @@ type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
 type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
 export const createInputState = (
-  props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
+	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
 ) => createBaseInputState(INPUT_FIELD_PRESET, props);
