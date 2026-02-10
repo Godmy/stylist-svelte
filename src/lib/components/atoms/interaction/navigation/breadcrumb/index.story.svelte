@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Breadcrumb from './breadcrumb/index.svelte';
+	import Breadcrumb from './index.svelte';
 
 	type Props = {
 		currentPage: string;

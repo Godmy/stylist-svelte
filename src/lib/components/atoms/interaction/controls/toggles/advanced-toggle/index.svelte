@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AdvancedToggleProps } from '$stylist/design-system/attributes';
-	import { createAdvancedToggleState } from '../../state.svelte';
+	import { createAdvancedToggleState } from './state.svelte';
 
 	let props: AdvancedToggleProps = $props();
 

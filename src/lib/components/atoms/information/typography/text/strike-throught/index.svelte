@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { StrikethroughProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/attributes';
 
 	/**
 	 * StrikeThrough component - Displays text with a strikethrough effect and various styles.
@@ -15,7 +15,7 @@
 	 * @returns An accessible, styled strike-through text element
 	 */
 
-	let props: StrikethroughProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TypographyTextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');

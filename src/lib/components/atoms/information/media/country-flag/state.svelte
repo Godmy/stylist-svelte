@@ -7,9 +7,15 @@
 		const classes = $derived(cn('country-flag', props.class));
 
 		return {
-			classes,
-			countryCode: props.countryCode,
-			size: props.size ?? 24
+			get classes() {
+				return classes;
+			},
+			get countryCode() {
+				return props.countryCode;
+			},
+			get size() {
+				return props.size ?? 24;
+			}
 		};
 	}
 </script>

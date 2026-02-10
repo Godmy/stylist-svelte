@@ -1,4 +1,4 @@
-import type {
+﻿import type {
 	GraphNodeProps,
 	GraphNodeSize,
 	GraphNodeType
@@ -20,7 +20,7 @@ export const getGraphNodePositionStyle = (x: number, y: number) => {
 
 export const graphNodeCSS = `
 .graph-node {
-  background-color: var(--color, #3b82f6);
+  background-color: var(--color);
   border: 2px solid #94a3b8;
   border-radius: 50%;
   display: flex;
@@ -34,3 +34,4 @@ export const graphNodeCSS = `
 `;
 
 export type { GraphNodeProps, GraphNodeSize, GraphNodeType };
+

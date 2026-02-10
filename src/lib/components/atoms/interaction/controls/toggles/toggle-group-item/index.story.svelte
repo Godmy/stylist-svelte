@@ -2,8 +2,8 @@
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
-	import ToggleGroupItem from './index.svelte';
-	import ToggleGroupRoot from '../toggle-group-root/index.svelte';
+import ToggleGroupItem from './index.svelte';
+import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/toggles/toggle-group-root';
 
 	let {
 		id = '',

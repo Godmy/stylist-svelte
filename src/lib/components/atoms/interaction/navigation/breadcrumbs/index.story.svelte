@@ -1,5 +1,5 @@
 <script>
-	import Breadcrumbs from './breadcrumbs/index.svelte';
+	import Breadcrumbs from './index.svelte';
 
 	// Определение данных для примера
 	let crumbs = [

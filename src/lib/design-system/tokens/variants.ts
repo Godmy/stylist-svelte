@@ -3,6 +3,8 @@
  * Единый источник истины для вариантов компонентов в дизайн-системе
  */
 
+import type { CompactSize, ComponentSize } from './sizes';
+
 /**
  * Основные семантические варианты - представляют назначение/роль компонента
  * Эти варианты сопоставляются с конкретными цветовыми палитрами и передают смысл
@@ -32,7 +34,7 @@ export const APPEARANCE_STYLES = [
 
 export type AppearanceStyle = (typeof APPEARANCE_STYLES)[number];
 
-export type DefaultVariants = SemanticVariant | AppearanceStyle;
+export type DefaultVariants = SemanticVariant | AppearanceStyle | NeutralVariant;
 
 /**
  * Нейтральные варианты - без семантики, общего назначения
@@ -50,7 +52,9 @@ export type NeutralVariant = (typeof NEUTRAL_VARIANTS)[number];
 export const STATE_VARIANTS = [
 	'error', // Состояние ошибки для полей ввода
 	'valid', // Состояние корректности/успеха для полей ввода
-	'disabled' // Состояние отключения
+	'disabled', // Состояние отключения
+	'readonly', // Состояние поля только для чтения без ввода
+	'loading' // Состояние загрузки
 ] as const;
 
 export type StateVariant = (typeof STATE_VARIANTS)[number];
@@ -94,7 +98,7 @@ export type AllVariants = (typeof ALL_VARIANTS)[number];
  * Варианты для полей ввода - расширенный набор, включающий стили и состояния
  * Объединяет APPEARANCE_STYLES с дополнительными вариантами, специфичными для полей ввода
  */
-export const INPUT_VARIANTS_EXTENDED = [
+export const INPUT_VARIANTS = [
 	...APPEARANCE_STYLES,
 	'filled', // Заполненный стиль (для полей ввода)
 	'outlined', // Обведенный стиль (для полей ввода)
@@ -102,9 +106,7 @@ export const INPUT_VARIANTS_EXTENDED = [
 	...STATE_VARIANTS // Состояния также могут использоваться в полях ввода
 ] as const;
 
-export const INPUT_VARIANTS = INPUT_VARIANTS_EXTENDED;
-
-export type InputVariant = (typeof INPUT_VARIANTS_EXTENDED)[number];
+export type InputVariant = (typeof INPUT_VARIANTS)[number];
 
 /**
  * Общие цветовые варианты - для компонентов, использующих семантические цвета
@@ -118,25 +120,15 @@ export const COLOR_VARIANTS = [
 export type ColorVariant = (typeof COLOR_VARIANTS)[number];
 
 /**
- * Общие размеры компонентов - стандартные размеры для большинства интерактивных элементов
+ * Общий размер компонентов - стандартные размеры для большинства элементов
+ * Использует те же значения, что и COMPACT_SIZE_SCALE из sizes.ts
  */
-export const COMMON_SIZES = [
-	'sm', // Маленький
-	'md', // Средний
-	'lg' // Большой
-] as const;
-
-export type CommonSize = (typeof COMMON_SIZES)[number];
+export type CommonSize = CompactSize;
 
 /**
- * Расширенные размеры - включая дополнительные размеры
+ * Расширенный размер для компонентов - включает стандартные размеры и дополнительные
  */
-export const EXTENDED_SIZES = [
-	...COMMON_SIZES,
-	'xl' // Очень большой
-] as const;
-
-export type VariantExtendedSize = (typeof EXTENDED_SIZES)[number];
+export type VariantExtendedSize = ComponentSize | 'xl';
 
 /**
  * Вспомогательный тип для компонентов, поддерживающих как семантические варианты, так и стили
@@ -145,3 +137,31 @@ export type VariantWithAppearance = {
 	variant?: SemanticVariant | NeutralVariant;
 	appearance?: AppearanceStyle;
 };
+
+/**
+ * Варианты бейджей - определяют визуальное оформление бейджей
+ */
+export const BADGE_VARIANTS = [
+	'default',  // Нейтральный стиль
+	'primary',  // Основной акцентный стиль
+	'secondary', // Второстепенный стиль
+	'success',  // Стиль успеха
+	'warning',  // Стиль предупреждения
+	'danger',   // Стиль опасности/ошибки
+	'error',    // Стиль ошибки (альтернатива danger)
+	'info',     // Информационный стиль
+	'gray'      // Нейтральный серый стиль
+] as const;
+
+export type BadgeVariant = (typeof BADGE_VARIANTS)[number];
+
+/**
+ * Варианты для блоков кода - определяют визуальное представление кода
+ */
+export const CODE_BLOCK_VARIANTS = [
+	'default',  // Стандартный вид блока кода
+	'terminal', // Терминальный стиль (обычно черный фон с зеленым текстом)
+	'diff'      // Стиль для отображения различий (обычно с цветовой индикацией изменений)
+] as const;
+
+export type CodeBlockVariant = (typeof CODE_BLOCK_VARIANTS)[number];

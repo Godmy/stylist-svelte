@@ -16,12 +16,24 @@
 		);
 
 		return {
-			classes,
-			size: props.size ?? 'md',
-			variant: props.variant ?? 'default',
-			shape: props.shape ?? 'circle',
-			color: props.color,
-			disabled: props.disabled ?? false
+			get classes() {
+				return classes;
+			},
+			get size() {
+				return props.size ?? 'md';
+			},
+			get variant() {
+				return props.variant ?? 'default';
+			},
+			get shape() {
+				return props.shape ?? 'circle';
+			},
+			get color() {
+				return props.color;
+			},
+			get disabled() {
+				return props.disabled ?? false;
+			}
 		};
 	}
 </script>

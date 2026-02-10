@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import ComplexAccordion from '../accordion-complex';
+	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
 	import AccordionItem from '../accordion-item';
 	import AccordionHeader from '../accordion-header';
-	import AccordionPanel from './AccordionPanel.svelte';
+	import AccordionPanel from './index.svelte';
 
 	let {
 		id = '',

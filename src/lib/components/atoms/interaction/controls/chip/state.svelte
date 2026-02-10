@@ -16,15 +16,33 @@
 		);
 
 		return {
-			classes,
-			variant: props.variant ?? 'default',
-			size: props.size ?? 'md',
-			closable: props.closable ?? false,
-			disabled: props.disabled ?? false,
-			label: props.label,
-			text: props.text,
-			icon: props.icon,
-			content: props.content
+			get classes() {
+				return classes;
+			},
+			get variant() {
+				return props.variant ?? 'default';
+			},
+			get size() {
+				return props.size ?? 'md';
+			},
+			get closable() {
+				return props.closable ?? false;
+			},
+			get disabled() {
+				return props.disabled ?? false;
+			},
+			get label() {
+				return props.label;
+			},
+			get text() {
+				return props.text;
+			},
+			get icon() {
+				return props.icon;
+			},
+			get content() {
+				return props.content;
+			}
 		};
 	}
 </script>

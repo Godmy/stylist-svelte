@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import AccordionHeader from './AccordionHeader.svelte';
+	import AccordionHeader from './index.svelte';
 
 	let isOpen: boolean = false;
 	let isDisabled: boolean = false;

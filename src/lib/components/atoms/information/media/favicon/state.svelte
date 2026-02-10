@@ -7,9 +7,15 @@
 		const classes = $derived(cn('favicon', props.class));
 
 		return {
-			classes,
-			size: props.size ?? 16,
-			url: props.url
+			get classes() {
+				return classes;
+			},
+			get size() {
+				return props.size ?? 16;
+			},
+			get url() {
+				return props.url;
+			}
 		};
 	}
 </script>

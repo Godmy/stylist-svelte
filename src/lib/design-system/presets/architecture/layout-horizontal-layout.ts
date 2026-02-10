@@ -1,10 +1,11 @@
 import { cn } from '$stylist/design-system/utils/classnames';
-import type { Alignment, Justification, HorizontalGap } from '$stylist/design-system/tokens';
+import type { Alignment, Justification } from '$stylist/design-system/tokens';
+import type { HorizontalGap } from '$stylist/design-system/classes';
 import {
 	HORIZONTAL_ALIGN_ITEMS_CLASSES,
 	HORIZONTAL_GAP_CLASSES,
 	HORIZONTAL_JUSTIFY_CONTENT_CLASSES
-} from '$stylist/design-system/tokens';
+} from '$stylist/design-system/classes';
 
 export const getHorizontalLayoutClasses = (
 	gap: HorizontalGap,

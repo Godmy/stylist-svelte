@@ -4,10 +4,7 @@
 	import type { Snippet } from 'svelte';
 
 	import type { IStepIconProps } from '$stylist/design-system/presets/interaction/interaction-presets';
-	import {
-		getStepContent,
-		getStepIconClasses
-	} from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 	/**
 	 * StepIcon component - Represents the icon for a step in a progress indicator
 	 *
@@ -35,8 +32,21 @@
 		...restProps
 	}: IStepIconProps & HTMLAttributes<HTMLSpanElement> = $props();
 
-	let classes = $derived(getStepIconClasses(status, size, className));
-	let content = getStepContent(status, stepNumber, size);
+	const iconSize = $derived(size === 'sm' ? 14 : size === 'lg' ? 22 : 18);
+	let classes = $derived(
+		mergeClasses('step-icon', `status-${status}`, `size-${size}`, className)
+	);
+	let content = $derived(
+		(() => {
+			if (status === 'completed') {
+				return { type: 'icon', icon: 'Check', size: iconSize };
+			}
+			if (status === 'error') {
+				return { type: 'icon', icon: 'X', size: iconSize };
+			}
+			return { type: 'number', value: stepNumber };
+		})()
+	);
 </script>
 
 <span {...restProps} class={classes}>

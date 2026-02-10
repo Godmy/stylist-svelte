@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Spinner from './spinner/index.svelte';
+	import Spinner from './index.svelte';
 
 	// Define controls for the story
 	const controls: ControlConfig[] = [

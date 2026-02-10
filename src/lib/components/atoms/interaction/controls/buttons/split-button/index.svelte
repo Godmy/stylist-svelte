@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
-	import type { SplitButtonProps } from '$stylist/design-system/attributes';
+	import type { ButtonElementProps } from '$stylist/design-system/attributes';
 	import { SPLIT_BUTTON_PRESET } from '$stylist/design-system/presets';
 	import { createState } from '../state.svelte';
 
@@ -13,7 +13,7 @@
 		disabled?: boolean;
 	}
 
-	export type ISplitButtonProps = SplitButtonProps &
+	export type ISplitButtonElementProps = ButtonElementProps &
 		ButtonAttributes & {
 			items: ISplitButtonItem[];
 			primaryAction: () => void;
@@ -34,13 +34,13 @@
 	 * @param class - Additional CSS classes
 	 * @returns A split button with primary action and dropdown menu
 	 */
-	let props: ISplitButtonProps = $props();
+	let props: ISplitButtonElementProps = $props();
 
 	// Use centralized state management for base button properties
 	let state = createState(SPLIT_BUTTON_PRESET, {
 		...props,
 		class: `${props.class ?? ''} split-button__button`.trim()
-	});
+	} as any);
 
 	const baseButtonClasses = $derived(
 		[state.classes, 'split-button__button'].filter(Boolean).join(' ')
@@ -54,8 +54,14 @@
 
 	// Extract div-specific attributes to avoid type conflicts
 	let divAttributes = $derived.by(() => {
-		const { id, class: cls, ...others } = props as any;
-		return { id, class: cls, ...others };
+		const {
+			// Exclude button-specific attributes that don't apply to div
+			variant, size, disabled, loading, block, loadingLabel, children,
+			items, primaryAction, primaryLabel, type, ariaLabel,
+			// Extract only the generic HTML attributes
+			...others
+		} = props;
+		return others;
 	});
 
 	let isOpen = $state(false);
@@ -89,21 +95,21 @@
 		[
 			'split-button-menu',
 			'absolute z-10 mt-1 w-48 rounded-md',
-			'border border-[var(--color-border-primary,#e5e7eb)]',
-			'bg-[var(--color-surface,#ffffff)] text-[var(--color-text-primary,#111827)]',
+			'border border-[var(--color-border-primary)]',
+			'bg-[var(--color-surface)] text-[var(--color-text-primary)]',
 			'shadow-[0_10px_15px_-3px_rgba(0,0,0,0.2),0_4px_6px_-2px_rgba(0,0,0,0.12)]',
 			'outline-none'
 		].join(' ')
 	);
 
 	const menuItemBaseClasses =
-		'split-button-menu__item w-full px-4 py-2 text-sm text-left rounded-md bg-transparent text-[inherit] transition-colors duration-150 focus-visible:outline-none hover:bg-[var(--color-secondary-100,#f3f4f6)] focus-visible:bg-[var(--color-secondary-100,#f3f4f6)]';
+		'split-button-menu__item w-full px-4 py-2 text-sm text-left rounded-md bg-transparent text-[inherit] transition-colors duration-150 focus-visible:outline-none hover:bg-[var(--color-secondary-100)] focus-visible:bg-[var(--color-secondary-100)]';
 
 	const menuItemDisabledClasses =
 		'split-button-menu__item--disabled opacity-50 cursor-not-allowed pointer-events-none';
 </script>
 
-<div class={wrapperClasses} id={buttonId} {...divAttributes}>
+<div {...divAttributes} class={wrapperClasses} id={buttonId}>
 	<button
 		type={props.type ?? 'button'}
 		disabled={props.disabled}
@@ -151,3 +157,4 @@
 		</div>
 	{/if}
 </div>
+

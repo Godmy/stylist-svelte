@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { IErrorMessageProps } from './ErrorMessage.types';
-	import { ErrorMessageStyleManager } from './ErrorMessage.styles';
 
 	/**
 	 * Компонент ErrorMessage - отображает сообщения об ошибках с возможностью повторной попытки
@@ -34,12 +33,15 @@
 		}
 	});
 
-	// Вычисляем стили с использованием ErrorMessageStyleManager
-	const baseClasses = $derived(ErrorMessageStyleManager.getBaseClasses());
-	const titleClasses = $derived(ErrorMessageStyleManager.getTitleClasses());
-	const textClasses = $derived(ErrorMessageStyleManager.getTextClasses());
-	const buttonClasses = $derived(ErrorMessageStyleManager.getRetryButtonClasses());
-	const buttonContainerClasses = $derived(ErrorMessageStyleManager.getButtonContainerClasses());
+	const baseClasses = $derived(
+		'flex items-start gap-2 p-3 text-red-600 bg-red-50 rounded-lg border border-red-200'
+	);
+	const titleClasses = $derived('font-semibold text-red-700 mb-1');
+	const textClasses = $derived('text-sm font-medium');
+	const buttonClasses = $derived(
+		'mt-2 px-3 py-1.5 bg-red-100 text-red-700 rounded-md hover:bg-red-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2'
+	);
+	const buttonContainerClasses = $derived('mt-2 flex justify-end');
 </script>
 
 {#if errorMessage}

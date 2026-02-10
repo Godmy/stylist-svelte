@@ -4,9 +4,9 @@
  *
  * @example
  * ```ts
- * import { COMPONENT_SIZE_SCALE, SIZE_CLASSES } from '$stylist/design-system/tokens';
+ * import { COMPONENT_SIZE_SCALE } from '$stylist/design-system/tokens';
  *
- * const sizeClasses = SIZE_CLASSES.md; // 'px-4 py-2 text-base'
+ * const scale = COMPONENT_SIZE_SCALE; // ['sm', 'md', 'lg', 'xl']
  * ```
  */
 
@@ -33,6 +33,28 @@ export const COMPACT_SIZE_SCALE = ['sm', 'md', 'lg'] as const;
 export type CompactSize = (typeof COMPACT_SIZE_SCALE)[number];
 
 /**
+ * Шкала размеров для блоков кода - содержит ограниченный набор размеров
+ *
+ * @example
+ * ```ts
+ * const codeScale = CODE_BLOCK_SIZE_SCALE; // ['sm', 'md', 'lg']
+ * ```
+ */
+export const CODE_BLOCK_SIZE_SCALE = ['sm', 'md', 'lg'] as const;
+export type CodeBlockSize = (typeof CODE_BLOCK_SIZE_SCALE)[number];
+
+/**
+ * Шкала размеров для меток - содержит ограниченный набор размеров
+ *
+ * @example
+ * ```ts
+ * const labelScale = LABEL_SIZE_SCALE; // ['sm', 'md', 'lg']
+ * ```
+ */
+export const LABEL_SIZE_SCALE = ['sm', 'md', 'lg'] as const;
+export type LabelSize = (typeof LABEL_SIZE_SCALE)[number];
+
+/**
  * Расширенная шкала размеров - для компонентов, требующих более детального контроля размеров
  *
  * @example
@@ -54,67 +76,7 @@ export type ExtendedSize = (typeof EXTENDED_SIZE_SCALE)[number];
 export const SIZE_SCALES = {
 	component: COMPONENT_SIZE_SCALE,
 	compact: COMPACT_SIZE_SCALE,
+	codeBlock: CODE_BLOCK_SIZE_SCALE,
+	label: LABEL_SIZE_SCALE,
 	extended: EXTENDED_SIZE_SCALE
 } as const;
-
-/**
- * Сопоставления внутренних отступов для размеров компонентов
- * Используется для кнопок, полей ввода и других интерактивных элементов
- *
- * @example
- * ```ts
- * const padding = PADDING_SIZES.md; // 'px-4 py-2'
- * ```
- */
-export const PADDING_SIZES: Record<ComponentSize, string> = {
-	sm: 'px-3 py-1.5',
-	md: 'px-4 py-2',
-	lg: 'px-6 py-3',
-	xl: 'px-7 py-3.5'
-};
-
-/**
- * Сопоставления размеров текста, согласованные с размерами компонентов
- *
- * @example
- * ```ts
- * const textSize = TEXT_SIZES.md; // 'text-base'
- * ```
- */
-export const TEXT_SIZES: Record<ComponentSize, string> = {
-	sm: 'text-sm',
-	md: 'text-base',
-	lg: 'text-lg',
-	xl: 'text-xl'
-};
-
-/**
- * Сопоставления размеров иконок/загрузчиков
- *
- * @example
- * ```ts
- * const iconSize = ICON_SIZES.md; // 'w-4 h-4'
- * ```
- */
-export const ICON_SIZES: Record<ComponentSize, string> = {
-	sm: 'w-3 h-3',
-	md: 'w-4 h-4',
-	lg: 'w-5 h-5',
-	xl: 'w-6 h-6'
-};
-
-/**
- * Комбинированные классы размеров - внутренние отступы + размер текста
- * Готовые к использованию для размерного форматирования компонентов
- *
- * @example
- * ```ts
- * const sizeClass = SIZE_CLASSES.md; // 'px-4 py-2 text-base'
- * ```
- */
-export const SIZE_CLASSES: Record<ComponentSize, string> = {
-	sm: `${PADDING_SIZES.sm} ${TEXT_SIZES.sm}`,
-	md: `${PADDING_SIZES.md} ${TEXT_SIZES.md}`,
-	lg: `${PADDING_SIZES.lg} ${TEXT_SIZES.lg}`,
-	xl: `${PADDING_SIZES.xl} ${TEXT_SIZES.xl}`
-};

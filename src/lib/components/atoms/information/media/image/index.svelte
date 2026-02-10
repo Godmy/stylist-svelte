@@ -1,11 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLImgAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	// Импортируем токены из системы дизайна
-	import { TRANSITION_CLASSES } from '$stylist/design-system';
+	// РРјРїРѕСЂС‚РёСЂСѓРµРј С‚РѕРєРµРЅС‹ РёР· СЃРёСЃС‚РµРјС‹ РґРёР·Р°Р№РЅР°
+	import { TRANSITION_CLASSES } from '$stylist/design-system/classes';
 
-	// Типы для изображения
+	// РўРёРїС‹ РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
 	export type ImageSize = 'sm' | 'md' | 'lg' | 'xl';
 	export type ImageProps = {
 		variant?: 'default';
@@ -36,7 +36,7 @@
 	const content = $derived(props.content);
 	const children = $derived(props.children);
 
-	// Исключаем уже используемые props
+	// РСЃРєР»СЋС‡Р°РµРј СѓР¶Рµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ props
 	const {
 		src: _src,
 		alt: _alt,
@@ -54,7 +54,7 @@
 		...imgProps
 	} = props;
 
-	// Размеры для изображений
+	// Р Р°Р·РјРµСЂС‹ РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№
 	const SIZE_CLASSES: Record<ImageSize, string> = {
 		sm: 'max-w-[200px] h-auto',
 		md: 'max-w-[400px] h-auto',
@@ -79,10 +79,10 @@
 		}
 	}
 
-	// Определяем, какой источник использовать
+	// РћРїСЂРµРґРµР»СЏРµРј, РєР°РєРѕР№ РёСЃС‚РѕС‡РЅРёРє РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
 	const imageSource = $derived(hasError && fallback ? fallback : src);
 
-	// Генерируем CSS классы
+	// Р“РµРЅРµСЂРёСЂСѓРµРј CSS РєР»Р°СЃСЃС‹
 	const baseClasses = 'block max-w-full h-auto object-cover';
 	const loadedClass = $derived(isLoaded ? 'opacity-100' : 'opacity-0');
 	const transitionClass = TRANSITION_CLASSES.opacity;
@@ -91,9 +91,9 @@
 	);
 
 	const containerClass =
-		'relative inline-block overflow-clip bg-[var(--color-background-secondary,#f9fafb)] rounded-md';
+		'relative inline-block overflow-clip bg-[var(--color-background-secondary)] rounded-md';
 	const wrapperClass =
-		'flex items-center justify-center w-full h-full min-h-[100px] text-[var(--color-text-secondary,#475569)]';
+		'flex items-center justify-center w-full h-full min-h-[100px] text-[var(--color-text-secondary)]';
 </script>
 
 <div class={containerClass}>
@@ -115,3 +115,4 @@
 		onload={handleLoad}
 	/>
 </div>
+

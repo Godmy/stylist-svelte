@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	// Типы для аватара
+	// РўРёРїС‹ РґР»СЏ Р°РІР°С‚Р°СЂР°
 	export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
 	export type AvatarUserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';
 
@@ -25,10 +25,10 @@
 	const showStatus = $derived(props.showStatus ?? false);
 	const children = $derived(props.children);
 
-	// Вычисляем инициалы
+	// Р’С‹С‡РёСЃР»СЏРµРј РёРЅРёС†РёР°Р»С‹
 	const initials = $derived(name ? name.charAt(0).toUpperCase() : '?');
 
-	// Размеры для аватаров
+	// Р Р°Р·РјРµСЂС‹ РґР»СЏ Р°РІР°С‚Р°СЂРѕРІ
 	const SIZE_CLASSES: Record<AvatarSize, string> = {
 		sm: 'w-6 h-6 text-sm',
 		md: 'w-8 h-8 text-base',
@@ -39,17 +39,17 @@
 	const size = $derived((props.size ?? 'md') as AvatarSize);
 	const sizeClasses = $derived(SIZE_CLASSES[size]);
 	const avatarClasses = $derived(
-		`inline-flex items-center justify-center rounded-full bg-[var(--color-background-secondary,#f9fafb)] text-[var(--color-text-primary,#0f172a)] overflow-hidden ${sizeClasses} ${props.class ?? ''}`
+		`inline-flex items-center justify-center rounded-full bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] overflow-hidden ${sizeClasses} ${props.class ?? ''}`
 	);
 
-	// Вспомогательные функции для стилей
+	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ СЃС‚РёР»РµР№
 	function getStatusClasses(status?: AvatarUserStatus): string {
 		const statusClasses: Record<AvatarUserStatus, string> = {
-			online: 'bg-[var(--color-success-500,#22c55e)]',
-			away: 'bg-[var(--color-warning-500,#f59e0b)]',
-			offline: 'bg-[var(--color-text-secondary,#475569)]',
-			typing: 'bg-[var(--color-primary-500,#3b82f6)]',
-			idle: 'bg-[var(--color-warning-600,#d97706)]'
+			online: 'bg-[var(--color-success-500)]',
+			away: 'bg-[var(--color-warning-500)]',
+			offline: 'bg-[var(--color-text-secondary)]',
+			typing: 'bg-[var(--color-primary-500)]',
+			idle: 'bg-[var(--color-warning-600)]'
 		};
 		return statusClasses[status || 'offline'] || statusClasses.offline;
 	}
@@ -69,10 +69,10 @@
 	const statusColor = $derived(getStatusClasses(status));
 	const statusSizeClasses = $derived(getStatusSizeClasses(size));
 	const statusIndicatorClasses = $derived(
-		`absolute bottom-0 right-0 rounded-full border-2 border-[var(--color-background-primary,#ffffff)] ${statusColor} ${statusSizeClasses}`
+		`absolute bottom-0 right-0 rounded-full border-2 border-[var(--color-background-primary)] ${statusColor} ${statusSizeClasses}`
 	);
 
-	// Создаем отдельную переменную для DOM-атрибутов, чтобы избежать конфликта с $props()
+	// РЎРѕР·РґР°РµРј РѕС‚РґРµР»СЊРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ РґР»СЏ DOM-Р°С‚СЂРёР±СѓС‚РѕРІ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РєРѕРЅС„Р»РёРєС‚Р° СЃ $props()
 	const {
 		src,
 		alt,
@@ -99,3 +99,4 @@
 		<span class={statusIndicatorClasses}></span>
 	{/if}
 </div>
+

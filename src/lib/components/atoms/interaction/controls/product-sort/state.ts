@@ -1,10 +1,10 @@
 import type { ProductSortProps } from '$stylist/design-system/attributes';
-import { INPUT_BASE_CLASS } from '$stylist/design-system/tokens/input-tokens';
+import { INPUT_BASE_CLASS } from '$stylist/design-system/classes';
 import {
 	BASE_LABEL_CLASSES,
 	LABEL_ENABLED_CLASSES,
 	LABEL_SIZE_CLASSES
-} from '$stylist/design-system/tokens/typography-elements';
+} from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 
 export function createProductSortState(props: ProductSortProps) {

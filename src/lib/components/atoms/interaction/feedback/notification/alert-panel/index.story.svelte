@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import AlertPanel from './alert-panel/index.svelte';
+	import AlertPanel from './index.svelte';
 
 	type Props = {
 		title?: string;

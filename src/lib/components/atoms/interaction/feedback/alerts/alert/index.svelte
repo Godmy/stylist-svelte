@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { AlertStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import { Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-svelte';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * Компонент Alert - отображает важные сообщения пользователю с разными вариантами
@@ -21,6 +21,7 @@
 		icon = true,
 		content,
 		children,
+		class: className = '',
 		...restProps
 	} = $props<{
 		variant?: 'info' | 'success' | 'warning' | 'error' | 'primary' | 'secondary' | 'danger';
@@ -43,19 +44,20 @@
 			danger: XCircle,
 			primary: Info,
 			secondary: Info
-		}[variant]
+	}[variant]
 	);
 
-	// Вычисляем стили с использованием AlertStyleManager
-	const alertClasses = $derived(AlertStyleManager.getBaseClasses(variant));
-	const iconContainerClasses = $derived(AlertStyleManager.getIconContainerClasses());
-	const iconClasses = $derived(AlertStyleManager.getIconClasses(variant));
-	const textContainerClasses = $derived(AlertStyleManager.getTextContainerClasses());
-	const titleClasses = $derived(AlertStyleManager.getTitleClasses());
-	const contentContainerClasses = $derived(AlertStyleManager.getContentContainerClasses());
-	const mainContainerClasses = $derived(AlertStyleManager.getMainContainerClasses());
-	const closeButtonContainerClasses = $derived(AlertStyleManager.getCloseButtonContainerClasses());
-	const closeButtonClasses = $derived(AlertStyleManager.getCloseButtonClasses(variant));
+	const alertClasses = $derived(
+		mergeClasses('alert-container', `variant-${variant}`, className)
+	);
+	const iconContainerClasses = $derived('alert-icon');
+	const iconClasses = $derived(mergeClasses('alert-icon', `variant-${variant}`));
+	const textContainerClasses = $derived('alert-content');
+	const titleClasses = $derived('alert-title');
+	const contentContainerClasses = $derived('alert-description');
+	const mainContainerClasses = $derived('alert-content');
+	const closeButtonContainerClasses = $derived('alert-content');
+	const closeButtonClasses = $derived(mergeClasses('alert-icon', `variant-${variant}`));
 
 	// Функция для закрытия алерта
 	function handleClose() {

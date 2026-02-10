@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SkeletonStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { ISkeletonProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * SkeletonRectangle component - displays a rectangular loading placeholder
@@ -27,7 +27,9 @@
 	const content = props.content;
 
 	// Generate the CSS class using the style manager
-	const combinedClass = $derived(SkeletonStyleManager.generateClass(props.class));
+	const combinedClass = $derived(
+		mergeClasses('skeleton-container', 'variant-rectangular', props.class)
+	);
 
 	// Calculate style
 	const style = $derived(`width: ${width}px; height: ${height}px;`);

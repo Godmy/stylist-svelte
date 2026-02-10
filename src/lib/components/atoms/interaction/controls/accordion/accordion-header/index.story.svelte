@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
-	import ComplexAccordion from '../accordion-complex/ComplexAccordion.svelte';
-	import AccordionItem from '../accordion-item/AccordionItem.svelte';
-	import AccordionHeader from './AccordionHeader.svelte';
-	import AccordionPanel from '../accordion-panel/AccordionPanel.svelte';
+	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
+	import AccordionItem from '../accordion-item/index.svelte';
+	import AccordionHeader from './index.svelte';
+	import AccordionPanel from '../accordion-panel/index.svelte';
 
 	let multiple: boolean = false;
 	let openValues: string[] = [];

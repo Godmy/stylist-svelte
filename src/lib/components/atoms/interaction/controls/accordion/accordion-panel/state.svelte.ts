@@ -1,9 +1,15 @@
 import type { AccordionPanelProps } from '$stylist/design-system/attributes';
-import { getAccordionPanelClasses, getAccordionPanelContentClasses } from '../helpers';
+import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAccordionPanelState = (props: AccordionPanelProps) => {
+	const classes = $derived(mergeClasses('overflow-hidden text-sm transition-all', props.class));
+	const contentClasses = $derived('pb-4 pt-0');
 	return {
-		classes: getAccordionPanelClasses(props.class),
-		contentClasses: getAccordionPanelContentClasses()
+		get classes() {
+			return classes;
+		},
+		get contentClasses() {
+			return contentClasses;
+		}
 	};
 };

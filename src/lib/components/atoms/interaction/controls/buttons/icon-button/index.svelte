@@ -20,14 +20,28 @@
 	 */
 	let props: IconButtonProps & HTMLButtonAttributes = $props();
 
+	// Extract rest props manually to avoid $$restProps in runes mode
+	let {
+		variant,
+		size,
+		disabled,
+		loading,
+		block,
+		loadingLabel,
+		children,
+		icon,
+		class: classProp,
+		...restProps
+	} = props;
+
 	// Use centralized state management
 	let state = createState(ICON_BUTTON_PRESET, {
 		...props,
 		class: `${props.class ?? ''} icon-button`.trim()
-	});
+	} as any);
 </script>
 
-<button {...$$restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
+<button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
 	{#if state.loading}
 		<Loader2 class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import Checkbox from './Checkbox.svelte';
+	import Checkbox from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
 	// Define CheckboxProps type locally

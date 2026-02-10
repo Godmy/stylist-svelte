@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Copy, Check } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
@@ -27,7 +27,7 @@
 	let buttonState = createState(COPY_BUTTON_PRESET, {
 		...props,
 		class: `${props.class ?? ''} copy-button`.trim()
-	});
+	} as any);
 
 	async function handleCopy() {
 		if (props.disabled || props.loading) return;
@@ -47,7 +47,7 @@
 
 	let iconClasses = $derived(
 		`copy-button-icon transition-colors duration-150 ${
-			copied ? 'text-[var(--color-success-600,#16a34a)]' : 'text-current'
+			copied ? 'text-[var(--color-success-600)]' : 'text-current'
 		}`.trim()
 	);
 </script>
@@ -69,3 +69,4 @@
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
+

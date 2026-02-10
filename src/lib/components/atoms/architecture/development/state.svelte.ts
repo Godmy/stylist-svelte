@@ -18,23 +18,11 @@ export function createStackState(props: StackProps) {
 	const classes = $derived(getStackClasses(direction, align, justify, props.class ?? ''));
 
 	return {
-		get direction() {
-			return direction;
-		},
-		get spacing() {
-			return spacing;
-		},
-		get align() {
-			return align;
-		},
-		get justify() {
-			return justify;
-		},
-		get gap() {
-			return gap;
-		},
-		get classes() {
-			return classes;
-		}
+		direction,
+		spacing,
+		align,
+		justify,
+		gap,
+		classes
 	};
 }

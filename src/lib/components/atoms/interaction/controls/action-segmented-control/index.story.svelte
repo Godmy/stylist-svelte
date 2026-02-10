@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import ActionSegmentedControl from './ActionSegmentedControl.svelte';
+	import ActionSegmentedControl from './index.svelte';
 
 	type Props = {
 		items: string[];

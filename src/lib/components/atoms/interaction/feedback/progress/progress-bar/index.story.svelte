@@ -1,5 +1,5 @@
 <script lang="ts">
-	import ProgressBar from './progress-bar/index.svelte';
+	import ProgressBar from './index.svelte';
 
 	let value = $state(50);
 	let max = $state(100);

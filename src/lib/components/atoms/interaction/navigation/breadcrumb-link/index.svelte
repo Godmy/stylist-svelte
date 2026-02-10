@@ -14,18 +14,22 @@
 
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import { BreadcrumbLinkStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { IBreadcrumbLinkProps } from '$stylist/design-system/attributes';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	let { current = false, href, children, ...restProps }: IBreadcrumbLinkProps = $props();
+
+	const linkClass = $derived(
+		mergeClasses('breadcrumb-link', current ? 'current' : 'not-current')
+	);
 </script>
 
 {#if current}
-	<span class={BreadcrumbLinkStyleManager.getLinkClasses(current)} {...restProps}>
+	<span class={linkClass} {...restProps}>
 		{@render children?.()}
 	</span>
 {:else}
-	<a {href} class={BreadcrumbLinkStyleManager.getLinkClasses(current)} {...restProps}>
+	<a {href} class={linkClass} {...restProps}>
 		{@render children?.()}
 	</a>
 {/if}

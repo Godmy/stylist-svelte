@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Loader from './loader/index.svelte';
+	import Loader from './index.svelte';
 
 	// Define the meta information for the story
 	const meta = {

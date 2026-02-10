@@ -1,9 +1,4 @@
 import { createInputState as createBaseInputState } from '$stylist/design-system/factory/interaction/input-factory';
-import {
-	getInputGroupButtonClasses,
-	getInputGroupContainerClasses,
-	getInputGroupInputClasses
-} from '$stylist/design-system/presets';
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
 import type { InputStateOptions } from '$stylist/design-system/presets';
 
@@ -15,7 +10,7 @@ export const createInputFieldState = (
 ) => createBaseInputState(INPUT_FIELD_PRESET, props);
 
 export const createInputGroupState = (className = '') => ({
-	containerClasses: getInputGroupContainerClasses(),
-	inputClasses: getInputGroupInputClasses(className),
-	buttonClasses: getInputGroupButtonClasses()
+	containerClasses: 'flex rounded-md shadow-sm',
+	inputClasses: `rounded-none rounded-l-md focus:z-10 border-r-0 ${className}`.trim(),
+	buttonClasses: 'rounded-none rounded-r-md -ml-px'
 });

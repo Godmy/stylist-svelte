@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Badge from './Badge.svelte';
+	import Badge from './index.svelte';
 
 	const variantOptions = ['default', 'success', 'warning', 'danger', 'info'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;

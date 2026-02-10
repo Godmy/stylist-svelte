@@ -7,7 +7,7 @@ import { blue, slate, green, amber, red, neutral } from '../tokens/colors';
 import { spacing } from '../tokens/spacing';
 import { fontSize, fontWeight, lineHeight, fontFamily } from '../tokens/typography';
 import { borderRadius } from '../tokens/radius';
-import { boxShadow } from '../tokens/shadows';
+import { shadow } from '../tokens/shadows';
 import type { Theme } from './types';
 
 /**
@@ -59,5 +59,5 @@ export const lightTheme: Theme = {
 	},
 
 	borderRadius: borderRadius as Record<string, string>, // Скругления границ
-	boxShadow: boxShadow as Record<string, string> // Тени
+	boxShadow: shadow as Record<string, string> // Тени
 };

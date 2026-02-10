@@ -1,5 +1,5 @@
 import type { SpacerProps } from '$stylist/design-system/attributes';
-import { SPACER_AXIS_CLASSES } from '$stylist/design-system/tokens';
+import { SPACER_AXIS_CLASSES } from '$stylist/design-system/classes';
 
 export type SpacerAxis = NonNullable<SpacerProps['axis']>;
 

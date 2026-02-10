@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { SuperscriptProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/attributes';
 
 	/**
 	 * Superscript component - Displays superscript text with various styles.
@@ -15,7 +15,7 @@
 	 * @returns An accessible, styled superscript text element
 	 */
 
-	let props: SuperscriptProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TypographyTextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'sm');

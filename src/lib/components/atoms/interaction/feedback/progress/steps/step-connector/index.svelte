@@ -3,7 +3,7 @@
 	import type { Snippet } from 'svelte';
 
 	import type { IStepConnectorProps } from '$stylist/design-system/presets/interaction/interaction-presets';
-	import { StepConnectorStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 	/**
 	 * StepConnector component - Connects steps in a progress indicator
 	 *
@@ -32,7 +32,12 @@
 	>();
 
 	let classes = $derived(
-		StepConnectorStyleManager.generateClass(status === 'active', status === 'completed', className)
+		mergeClasses(
+			'step-connector',
+			status === 'active' ? 'active' : '',
+			status === 'completed' ? 'completed' : '',
+			className
+		)
 	);
 </script>
 

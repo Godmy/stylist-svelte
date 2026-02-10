@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonProps } from '$stylist/design-system/attributes';
+	import type { ButtonElementProps } from '$stylist/design-system/attributes';
 	import { BUTTON_PRESET } from '$stylist/design-system/presets';
 	import { createState } from '../state.svelte';
 
@@ -17,10 +17,10 @@
 	 * @returns An accessible, styled button element
 	 */
 
-	let props: ButtonProps & HTMLButtonAttributes = $props();
+	let props: ButtonElementProps & HTMLButtonAttributes = $props();
 
 	// Use centralized state management
-	let state = createState(BUTTON_PRESET, props);
+	let state = createState(BUTTON_PRESET, props as any);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let {

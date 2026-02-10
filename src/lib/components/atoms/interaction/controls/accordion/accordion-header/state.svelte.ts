@@ -1,8 +1,16 @@
 import type { AccordionHeaderProps } from '$stylist/design-system/attributes';
-import { getAccordionHeaderClasses } from '../helpers';
+import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAccordionHeaderState = (props: AccordionHeaderProps) => {
+	const classes = $derived(
+		mergeClasses(
+			'flex w-full items-center justify-between py-3 text-left text-sm font-medium',
+			props.class
+		)
+	);
 	return {
-		classes: getAccordionHeaderClasses(props.class)
+		get classes() {
+			return classes;
+		}
 	};
 };

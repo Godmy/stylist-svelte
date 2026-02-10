@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Em from './Em.svelte';
+	import Em from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 

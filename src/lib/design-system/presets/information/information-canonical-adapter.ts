@@ -1,8 +1,6 @@
 import {
 	ABBR_CLASSES,
 	ANNOUNCEMENT_BANNER_CLASSES,
-	BADGE_DEFAULT_SIZE,
-	BADGE_DEFAULT_VARIANT,
 	BADGE_GROUP_CONTAINER_CLASSES,
 	BADGE_GROUP_OVERFLOW_CLASSES,
 	BADGE_SIZE_CLASSES,
@@ -21,46 +19,11 @@ import {
 	CODE_BLOCK_VARIANT_CLASSES,
 	COUNTER_SIZE_CLASSES,
 	COUNTER_VARIANT_CLASSES,
-	DEFAULT_ABBR_TITLE,
-	DEFAULT_CODE_BLOCK_SIZE,
-	DEFAULT_CODE_BLOCK_VARIANT,
-	DEFAULT_COUNTER_COUNT,
-	DEFAULT_COUNTER_MAX,
-	DEFAULT_COUNTER_SIZE,
-	DEFAULT_COUNTER_VARIANT,
-	DEFAULT_COUNT_BADGE_COUNT,
-	DEFAULT_COUNT_BADGE_MAX,
-	DEFAULT_COUNT_BADGE_SHOW_ZERO,
-	DEFAULT_DOT_COLOR,
-	DEFAULT_DOT_SIZE,
-	DEFAULT_INLINE_CODE_VARIANT,
-	DEFAULT_LABEL_DISABLED,
-	DEFAULT_LABEL_REQUIRED,
-	DEFAULT_LABEL_SIZE,
-	DEFAULT_LANGUAGE,
-	DEFAULT_LINK_DISABLED,
-	DEFAULT_LINK_SIZE,
-	DEFAULT_LINK_UNDERLINE,
-	DEFAULT_LINK_VARIANT,
-	DEFAULT_MARKER_COLOR,
-	DEFAULT_MARKER_SIZE,
-	DEFAULT_MARKER_TYPE,
-	DEFAULT_MARKER_VALUE,
-	DEFAULT_SEPARATOR_DECORATIVE,
-	DEFAULT_SEPARATOR_ORIENTATION,
-	DEFAULT_SHOW_LINE_NUMBERS,
-	DEFAULT_START_LINE_NUMBER,
-	DEFAULT_STATUS_INDICATOR_STATUS,
-	DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE,
-	DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT,
-	DEFAULT_WITH_BACKGROUND,
-	DEFAULT_WITH_BORDER,
 	DEFINITION_DESCRIPTION_CLASSES,
 	DEFINITION_TERM_CLASSES,
 	DOT_COLOR_CLASSES,
 	DOT_SIZE_CLASSES,
 	EM_CLASSES,
-	FOOTER_PREFIX,
 	HIGHLIGHT_CLASSES,
 	IMAGE_WITH_CAPTION_CLASSES,
 	INLINE_CODE_BASE_CLASSES,
@@ -79,7 +42,6 @@ import {
 	MESSAGE_STATUS_COLORS,
 	MESSAGE_STATUS_SIZE_CLASSES,
 	NPM_BADGE_BASE_CLASSES,
-	NPM_BADGE_LABELS,
 	NPM_BADGE_TYPE_CLASSES,
 	REQUIRED_INDICATOR_CLASSES,
 	SEPARATOR_CLASSES,
@@ -93,78 +55,86 @@ import {
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,
 	TABLE_ALIGNMENT_CLASSES,
 	TABLE_CLASSES,
-	TOKEN_ICON_CHEVRON_DEFAULTS,
-	TOKEN_ICON_CIRCLE_DEFAULTS,
 	TOKEN_ICON_DIRECTION_ROTATION_CLASSES,
 	TOKEN_ICON_SIZE_CLASSES,
 	TOKEN_ICON_VARIANT_CLASSES,
 	TOKEN_ICON_WRAPPER_COLOR_CLASSES,
-	TOKEN_ICON_WRAPPER_DEFAULTS,
 	TOKEN_ICON_WRAPPER_PADDING_CLASSES,
 	TOKEN_ICON_WRAPPER_SHAPE_CLASSES
-} from '$stylist/design-system/tokens';
+} from '$stylist/design-system/classes';
 import type {
 	ColorVariant,
 	CommonSize,
-	IndicatorStatus,
-	TokenIconChevronSize,
-	TokenIconCircleVariant,
-	TokenIconWrapperShape,
-	TokenIconWrapperSize,
-	TokenIconWrapperVariant
+	DefaultVariants
 } from '$stylist/design-system/tokens';
+import type { IndicatorStatus } from '$stylist/design-system/tokens/indicators';
+import type { IconWrapperShape } from '$stylist/design-system/tokens/shapes';
+import type { ExtendedSize } from '$stylist/design-system/tokens/sizes';
 import { cn } from '$stylist/design-system/utils/classnames';
 
-export {
-	BADGE_DEFAULT_SIZE,
-	BADGE_DEFAULT_VARIANT,
-	BLOCKQUOTE_CLASSES,
-	DEFAULT_ABBR_TITLE,
-	DEFAULT_CODE_BLOCK_SIZE,
-	DEFAULT_CODE_BLOCK_VARIANT,
-	DEFAULT_COUNTER_COUNT,
-	DEFAULT_COUNTER_MAX,
-	DEFAULT_COUNTER_SIZE,
-	DEFAULT_COUNTER_VARIANT,
-	DEFAULT_COUNT_BADGE_COUNT,
-	DEFAULT_COUNT_BADGE_MAX,
-	DEFAULT_COUNT_BADGE_SHOW_ZERO,
-	DEFAULT_DOT_COLOR,
-	DEFAULT_DOT_SIZE,
-	DEFAULT_INLINE_CODE_VARIANT,
-	DEFAULT_LABEL_DISABLED,
-	DEFAULT_LABEL_REQUIRED,
-	DEFAULT_LABEL_SIZE,
-	DEFAULT_LANGUAGE,
-	DEFAULT_LINK_DISABLED,
-	DEFAULT_LINK_SIZE,
-	DEFAULT_LINK_UNDERLINE,
-	DEFAULT_LINK_VARIANT,
-	DEFAULT_MARKER_COLOR,
-	DEFAULT_MARKER_SIZE,
-	DEFAULT_MARKER_TYPE,
-	DEFAULT_MARKER_VALUE,
-	DEFAULT_SEPARATOR_DECORATIVE,
-	DEFAULT_SEPARATOR_ORIENTATION,
-	DEFAULT_SHOW_LINE_NUMBERS,
-	DEFAULT_START_LINE_NUMBER,
-	DEFAULT_STATUS_INDICATOR_STATUS,
-	DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE,
-	DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT,
-	DEFAULT_WITH_BACKGROUND,
-	DEFAULT_WITH_BORDER,
-	FOOTER_PREFIX
-} from '$stylist/design-system/tokens';
+// Default values for various components
+export const BADGE_DEFAULT_SIZE: keyof typeof BADGE_SIZE_CLASSES = 'md';
+export const BADGE_DEFAULT_VARIANT: keyof typeof BADGE_VARIANT_CLASSES = 'default';
+export const DEFAULT_ABBR_TITLE = 'Abbreviation';
+export const DEFAULT_CODE_BLOCK_SIZE: keyof typeof CODE_BLOCK_SIZE_CLASSES = 'md';
+export const DEFAULT_CODE_BLOCK_VARIANT: keyof typeof CODE_BLOCK_VARIANT_CLASSES = 'default';
+export const DEFAULT_COUNTER_COUNT = 0;
+export const DEFAULT_COUNTER_MAX = 99;
+export const DEFAULT_COUNTER_SIZE: keyof typeof COUNTER_SIZE_CLASSES = 'md';
+export const DEFAULT_COUNTER_VARIANT: keyof typeof COUNTER_VARIANT_CLASSES = 'primary';
+export const DEFAULT_COUNT_BADGE_COUNT = 0;
+export const DEFAULT_COUNT_BADGE_MAX = 99;
+export const DEFAULT_COUNT_BADGE_SHOW_ZERO = false;
+export const DEFAULT_DOT_COLOR: keyof typeof DOT_COLOR_CLASSES = 'primary';
+export const DEFAULT_DOT_SIZE: keyof typeof DOT_SIZE_CLASSES = 'md';
+export const DEFAULT_INLINE_CODE_VARIANT: keyof typeof INLINE_CODE_CLASSES = 'default';
+export const DEFAULT_LABEL_DISABLED = false;
+export const DEFAULT_LABEL_REQUIRED = false;
+export const DEFAULT_LABEL_SIZE: keyof typeof LABEL_SIZE_CLASSES = 'md';
+export const DEFAULT_LANGUAGE = 'en';
+export const DEFAULT_LINK_DISABLED = false;
+export const DEFAULT_LINK_SIZE: keyof typeof LINK_SIZE_CLASSES = 'md';
+export const DEFAULT_LINK_UNDERLINE = true;
+export const DEFAULT_LINK_VARIANT: keyof typeof LINK_VARIANT_CLASSES = 'default';
+export const DEFAULT_MARKER_COLOR = 'primary';
+export const DEFAULT_MARKER_SIZE: keyof typeof MARKER_SIZE_CLASSES = 'md';
+export const DEFAULT_MARKER_TYPE: 'dot' | 'number' | 'letter' | 'check' | 'x' = 'dot';
+export const DEFAULT_MARKER_VALUE = 1;
+export const DEFAULT_SEPARATOR_DECORATIVE = true;
+export const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
+export const DEFAULT_SHOW_LINE_NUMBERS = false;
+export const DEFAULT_START_LINE_NUMBER = 1;
+export const DEFAULT_STATUS_INDICATOR_STATUS: IndicatorStatus = 'online';
+export const DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE: keyof typeof CODE_BLOCK_SIZE_CLASSES = 'md';
+export const DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT: keyof typeof CODE_BLOCK_VARIANT_CLASSES = 'default';
+export const DEFAULT_WITH_BACKGROUND = false;
+export const DEFAULT_WITH_BORDER = true;
+export const FOOTER_PREFIX = '©';
+export const TOKEN_ICON_CHEVRON_DEFAULTS = {
+	isOpen: false,
+	size: 'md' as const
+};
+export const TOKEN_ICON_CIRCLE_DEFAULTS = {
+	variant: 'default' as const,
+	size: 'md' as const
+};
+export const TOKEN_ICON_WRAPPER_DEFAULTS = {
+	size: 'md' as const,
+	variant: 'default' as const,
+	shape: 'circle' as const,
+	color: 'primary' as const
+};
+
+export { BLOCKQUOTE_CLASSES } from '$stylist/design-system/classes';
 
 export const ICON_CHEVRON_DEFAULTS = TOKEN_ICON_CHEVRON_DEFAULTS;
 export const ICON_CIRCLE_DEFAULTS = TOKEN_ICON_CIRCLE_DEFAULTS;
 export const ICON_WRAPPER_DEFAULTS = TOKEN_ICON_WRAPPER_DEFAULTS;
 
-export type IconChevronSize = TokenIconChevronSize;
-export type IconCircleVariant = TokenIconCircleVariant;
-export type IconWrapperShape = TokenIconWrapperShape;
-export type IconWrapperSize = TokenIconWrapperSize;
-export type IconWrapperVariant = TokenIconWrapperVariant;
+export type IconChevronSize = ExtendedSize;
+export type IconCircleVariant = DefaultVariants;
+export type IconWrapperSize = ExtendedSize;
+export type IconWrapperVariant = IconWrapperShape;
 export type CountryFlagSize = number;
 
 export interface AnimatedNumberProps {
@@ -209,8 +179,8 @@ export const getBadgeGroupContainerClasses = (className = '') =>
 export const getBadgeGroupOverflowClasses = (className = '') =>
 	cn(BADGE_GROUP_OVERFLOW_CLASSES, className);
 export const getCodeBlockClasses = (
-	variant = DEFAULT_CODE_BLOCK_VARIANT,
-	size = DEFAULT_CODE_BLOCK_SIZE,
+	variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = DEFAULT_CODE_BLOCK_VARIANT as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
+	size: keyof typeof CODE_BLOCK_SIZE_CLASSES = DEFAULT_CODE_BLOCK_SIZE as keyof typeof CODE_BLOCK_SIZE_CLASSES,
 	className = ''
 ) =>
 	cn(
@@ -220,7 +190,7 @@ export const getCodeBlockClasses = (
 		className
 	);
 export const getLabelClasses = (
-	size = DEFAULT_LABEL_SIZE,
+	size: keyof typeof LABEL_SIZE_CLASSES = DEFAULT_LABEL_SIZE as keyof typeof LABEL_SIZE_CLASSES,
 	disabled = DEFAULT_LABEL_DISABLED,
 	className = ''
 ) =>
@@ -233,36 +203,36 @@ export const getLabelClasses = (
 	);
 
 export const getDotClasses = (
-	color: ColorVariant = DEFAULT_DOT_COLOR,
-	size: CommonSize = DEFAULT_DOT_SIZE,
+	color: keyof typeof DOT_COLOR_CLASSES = DEFAULT_DOT_COLOR as keyof typeof DOT_COLOR_CLASSES,
+	size: keyof typeof DOT_SIZE_CLASSES = DEFAULT_DOT_SIZE as keyof typeof DOT_SIZE_CLASSES,
 	className = ''
 ) => cn(BASE_DOT_CLASSES, DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], className);
 export const getCounterClasses = (
-	variant = DEFAULT_COUNTER_VARIANT,
-	size = DEFAULT_COUNTER_SIZE,
+	variant: keyof typeof COUNTER_VARIANT_CLASSES = DEFAULT_COUNTER_VARIANT as keyof typeof COUNTER_VARIANT_CLASSES,
+	size: keyof typeof COUNTER_SIZE_CLASSES = DEFAULT_COUNTER_SIZE as keyof typeof COUNTER_SIZE_CLASSES,
 	className = ''
 ) =>
 	cn(BASE_COUNTER_CLASSES, COUNTER_VARIANT_CLASSES[variant], COUNTER_SIZE_CLASSES[size], className);
 export const getCountBadgeClasses = (className = '') => cn(BASE_COUNT_BADGE_CLASSES, className);
 export const getMarkerClasses = (
-	color = DEFAULT_MARKER_COLOR,
-	size = DEFAULT_MARKER_SIZE,
+	color: keyof typeof MARKER_COLOR_CLASSES = DEFAULT_MARKER_COLOR,
+	size: keyof typeof MARKER_SIZE_CLASSES = DEFAULT_MARKER_SIZE,
 	className = ''
 ) => cn(BASE_MARKER_CLASSES, MARKER_COLOR_CLASSES[color], MARKER_SIZE_CLASSES[size], className);
-export const getBulletClasses = (size: CommonSize = 'md') =>
+export const getBulletClasses = (size: keyof typeof BULLET_SIZE_CLASSES = 'md') =>
 	cn(BULLET_CLASSES, BULLET_SIZE_CLASSES[size]);
 export const getMessageStatusContainerClasses = (status: keyof typeof MESSAGE_STATUS_COLORS) =>
 	MESSAGE_STATUS_COLORS[status];
-export const getMessageStatusIconClasses = (size: CommonSize = 'md') =>
+export const getMessageStatusIconClasses = (size: keyof typeof MESSAGE_STATUS_SIZE_CLASSES = 'md') =>
 	MESSAGE_STATUS_SIZE_CLASSES[size];
 
 export const getStatusIndicatorWithLabelContainerClasses = (className = '') =>
 	cn(...STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, className);
-export const getStatusIndicatorWithLabelSizeClasses = (size: 'sm' | 'md' | 'lg' = 'md') =>
+export const getStatusIndicatorWithLabelSizeClasses = (size: keyof typeof STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES = 'md') =>
 	STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size];
 export const getStatusIndicatorWithLabelIndicatorClasses = (
 	status: 'success' | 'warning' | 'error' | 'info' | 'neutral' | 'custom',
-	size: 'sm' | 'md' | 'lg' = 'md',
+	size: keyof typeof STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES = 'md',
 	customColor?: string,
 	indicatorClass = ''
 ) =>
@@ -290,12 +260,12 @@ export const getDefinitionDescriptionClasses = (className = '') =>
 export const getDefinitionTermClasses = (className = '') => cn(DEFINITION_TERM_CLASSES, className);
 export const getEmClasses = (className = '') => cn(EM_CLASSES, className);
 export const getHighlightClasses = (className = '') => cn(HIGHLIGHT_CLASSES, className);
-export const getInlineCodeClasses = (variant = DEFAULT_INLINE_CODE_VARIANT, className = '') =>
+export const getInlineCodeClasses = (variant: keyof typeof INLINE_CODE_CLASSES = DEFAULT_INLINE_CODE_VARIANT as keyof typeof INLINE_CODE_CLASSES, className = '') =>
 	cn(INLINE_CODE_BASE_CLASSES, INLINE_CODE_CLASSES[variant], className);
 export const getKbdClasses = (className = '') => cn(KBD_CLASSES, className);
 export const getLinkClasses = (
-	variant = DEFAULT_LINK_VARIANT,
-	size = DEFAULT_LINK_SIZE,
+	variant: keyof typeof LINK_VARIANT_CLASSES = DEFAULT_LINK_VARIANT as keyof typeof LINK_VARIANT_CLASSES,
+	size: keyof typeof LINK_SIZE_CLASSES = DEFAULT_LINK_SIZE as keyof typeof LINK_SIZE_CLASSES,
 	disabled = DEFAULT_LINK_DISABLED,
 	underline = DEFAULT_LINK_UNDERLINE,
 	className = ''
@@ -308,11 +278,11 @@ export const getLinkClasses = (
 		underline && LINK_UNDERLINE_CLASSES,
 		className
 	);
-export const getSeparatorClasses = (orientation = DEFAULT_SEPARATOR_ORIENTATION, className = '') =>
+export const getSeparatorClasses = (orientation: keyof typeof SEPARATOR_CLASSES = DEFAULT_SEPARATOR_ORIENTATION as keyof typeof SEPARATOR_CLASSES, className = '') =>
 	cn(SEPARATOR_CLASSES[orientation], className);
 export const getSyntaxHighlightedCodeContainerClasses = (
-	variant = DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT,
-	size = DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE,
+	variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
+	size: keyof typeof CODE_BLOCK_SIZE_CLASSES = DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE as keyof typeof CODE_BLOCK_SIZE_CLASSES,
 	className = ''
 ) =>
 	cn(
@@ -359,8 +329,8 @@ export const getNpmBadgeClasses = (
 	type: keyof typeof NPM_BADGE_TYPE_CLASSES = 'version',
 	className = ''
 ) => cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className);
-export const getNpmBadgeLabel = (type: keyof typeof NPM_BADGE_LABELS = 'version', label?: string) =>
-	label ?? NPM_BADGE_LABELS[type];
+export const getNpmBadgeLabel = (type: 'version' | 'downloads' | 'license' = 'version', label?: string) =>
+	label ?? (type === 'version' ? 'version' : type);
 export const getNpmBadgeLinkClasses = (className = '') =>
 	cn('inline-flex items-center gap-1 hover:opacity-80', className);
 export const getTableClasses = (className = '') => cn(...TABLE_CLASSES.table, className);
@@ -408,7 +378,7 @@ export const getBaseIconClasses = (
 export const getIconClasses = getBaseIconClasses;
 export const getIconChevronClasses = (
 	isOpen = ICON_CHEVRON_DEFAULTS.isOpen,
-	size: IconChevronSize = ICON_CHEVRON_DEFAULTS.size,
+	size: keyof typeof TOKEN_ICON_SIZE_CLASSES = ICON_CHEVRON_DEFAULTS.size,
 	direction: keyof typeof TOKEN_ICON_DIRECTION_ROTATION_CLASSES = 'down',
 	variant: 'default' | IconCircleVariant = 'default',
 	disabled = false,
@@ -423,8 +393,8 @@ export const getIconChevronClasses = (
 		className
 	);
 export const getIconCircleClasses = (
-	variant: IconCircleVariant = ICON_CIRCLE_DEFAULTS.variant,
-	size: CommonSize = ICON_CIRCLE_DEFAULTS.size,
+	variant: keyof typeof TOKEN_ICON_VARIANT_CLASSES = ICON_CIRCLE_DEFAULTS.variant,
+	size: keyof typeof TOKEN_ICON_SIZE_CLASSES = ICON_CIRCLE_DEFAULTS.size,
 	filled = false,
 	disabled = false,
 	className = ''
@@ -437,10 +407,10 @@ export const getIconCircleClasses = (
 		className
 	);
 export const getIconWrapperClasses = (
-	size: IconWrapperSize = ICON_WRAPPER_DEFAULTS.size,
-	variant: IconWrapperVariant = ICON_WRAPPER_DEFAULTS.variant,
-	shape: IconWrapperShape = ICON_WRAPPER_DEFAULTS.shape,
-	color: ColorVariant = ICON_WRAPPER_DEFAULTS.color,
+	size: keyof typeof TOKEN_ICON_WRAPPER_PADDING_CLASSES = ICON_WRAPPER_DEFAULTS.size,
+	variant: keyof typeof TOKEN_ICON_VARIANT_CLASSES = ICON_WRAPPER_DEFAULTS.variant,
+	shape: keyof typeof TOKEN_ICON_WRAPPER_SHAPE_CLASSES = ICON_WRAPPER_DEFAULTS.shape,
+	color: keyof typeof TOKEN_ICON_WRAPPER_COLOR_CLASSES = ICON_WRAPPER_DEFAULTS.color,
 	disabled = false,
 	className = ''
 ) =>

@@ -24,17 +24,14 @@ type DividerOrientation = 'horizontal' | 'vertical';
 type DividerAlign = 'start' | 'center' | 'end';
 type SpacerAxis = 'horizontal' | 'vertical';
 
+// Inline default values and simplify functions
 export function createAspectRatioState(props: AspectRatioProps) {
 	const ratio = $derived(props.ratio ?? 1);
 	const classes = $derived(getAspectRatioClasses(props.class ?? ''));
 
 	return {
-		get ratio() {
-			return ratio;
-		},
-		get classes() {
-			return classes;
-		}
+		ratio,
+		classes
 	};
 }
 
@@ -43,12 +40,8 @@ export function createContainerState(props: ContainerProps) {
 	const classes = $derived(getContainerClasses(maxWidth, props.class ?? ''));
 
 	return {
-		get maxWidth() {
-			return maxWidth;
-		},
-		get classes() {
-			return classes;
-		}
+		maxWidth,
+		classes
 	};
 }
 
@@ -62,27 +55,13 @@ export function createDividerState(props: DividerProps) {
 	const isHorizontal = $derived(orientation === 'horizontal');
 
 	return {
-		get orientation() {
-			return orientation;
-		},
-		get align() {
-			return align;
-		},
-		get dashed() {
-			return dashed;
-		},
-		get baseLineClass() {
-			return baseLineClass;
-		},
-		get leftLineFlex() {
-			return leftLineFlex;
-		},
-		get rightLineFlex() {
-			return rightLineFlex;
-		},
-		get isHorizontal() {
-			return isHorizontal;
-		}
+		orientation,
+		align,
+		dashed,
+		baseLineClass,
+		leftLineFlex,
+		rightLineFlex,
+		isHorizontal
 	};
 }
 
@@ -94,21 +73,11 @@ export function createGridLayoutState(props: GridLayoutProps) {
 	const itemClass = $derived(props.itemClass ?? '');
 
 	return {
-		get columns() {
-			return columns;
-		},
-		get gap() {
-			return gap;
-		},
-		get containerClass() {
-			return containerClass;
-		},
-		get containerStyle() {
-			return containerStyle;
-		},
-		get itemClass() {
-			return itemClass;
-		}
+		columns,
+		gap,
+		containerClass,
+		containerStyle,
+		itemClass
 	};
 }
 
@@ -122,21 +91,11 @@ export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
 	);
 
 	return {
-		get gap() {
-			return gap;
-		},
-		get alignItems() {
-			return alignItems;
-		},
-		get justifyContent() {
-			return justifyContent;
-		},
-		get wrap() {
-			return wrap;
-		},
-		get classes() {
-			return classes;
-		}
+		gap,
+		alignItems,
+		justifyContent,
+		wrap,
+		classes
 	};
 }
 
@@ -146,14 +105,8 @@ export function createSpacerState(props: SpacerProps) {
 	const classes = $derived(getSpacerClasses(axis, props.class ?? ''));
 
 	return {
-		get axis() {
-			return axis;
-		},
-		get sizeValue() {
-			return sizeValue;
-		},
-		get classes() {
-			return classes;
-		}
+		axis,
+		sizeValue,
+		classes
 	};
 }

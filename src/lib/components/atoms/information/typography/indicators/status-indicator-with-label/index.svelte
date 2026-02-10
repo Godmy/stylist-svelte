@@ -25,7 +25,7 @@
 </script>
 
 <div class={state.containerClasses} {...restProps}>
-	<span class={`${state.indicatorStatusClasses} ${state.indicatorSizeClasses}`}></span>
+	<span class={state.indicatorClasses} style={state.indicatorStyle}></span>
 	{#if state.showLabel}
 		<span class={state.labelClasses}>{state.label}</span>
 	{/if}

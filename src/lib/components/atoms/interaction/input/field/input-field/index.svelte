@@ -1,9 +1,5 @@
 <script lang="ts">
 	import { InputText } from '$stylist/components/atoms';
-	import {
-		getInputFieldContainerClasses,
-		getInputFieldHelperTextClasses
-	} from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { IInputFieldProps } from '$stylist/design-system/attributes';
 
 	/**
@@ -33,8 +29,8 @@
 		...rest
 	}: IInputFieldProps = $props();
 
-	let containerClasses = $derived(getInputFieldContainerClasses());
-	let helperTextClasses = $derived(getInputFieldHelperTextClasses());
+	let containerClasses = $derived('input-field-container');
+	let helperTextClasses = $derived('input-field-helper-text');
 </script>
 
 <div class={containerClasses}>

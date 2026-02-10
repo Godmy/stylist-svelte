@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { AlertStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	let {
 		title = '',
@@ -26,15 +26,15 @@
 	};
 </script>
 
-<div class={AlertStyleManager.getBaseClasses(variant) + ' ' + className}>
-	<div class={AlertStyleManager.getContentWrapperClass()}>
+<div class={mergeClasses('alert-container', `variant-${variant}`, className)}>
+	<div class="alert-content">
 		{#if showIcon}
-			<span class={AlertStyleManager.getIconClasses(variant)}>{statusIcons[variant]}</span>
+			<span class={mergeClasses('alert-icon', `variant-${variant}`)}>{statusIcons[variant]}</span>
 		{/if}
-		<div class={AlertStyleManager.getTextContentWrapperClass()}>
-			<h3 class={AlertStyleManager.getTitleClasses()}>{title}</h3>
+		<div class="alert-content">
+			<h3 class="alert-title">{title}</h3>
 			{#if description}
-				<p class={AlertStyleManager.getContentContainerClasses()}>{description}</p>
+				<p class="alert-description">{description}</p>
 			{/if}
 		</div>
 	</div>

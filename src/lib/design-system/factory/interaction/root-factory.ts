@@ -2,18 +2,15 @@
 import { buildClasses } from '$stylist/utils/classes';
 import { resolveOption } from '$stylist/utils/input';
 import type { Preset } from '../../presets/interaction/interaction-presets';
-import {
-	ACCESSIBILITY_CLASSES,
-	BASE_CLASSES,
-	DEFAULT_FLAGS,
-	STATE_CLASSES
-} from '../../tokens/classes';
-import type { InteractiveVariant } from '../../tokens/interaction';
-import { INTERACTIVE_VARIANTS, VARIANT_CLASSES } from '../../tokens/interaction';
+import { ACCESSIBILITY_CLASSES, BASE_CLASSES, STATE_CLASSES } from '../../classes/classes';
+import { DEFAULT_FLAGS } from '../../tokens/flags';
+import { INTERACTIVE_VARIANTS } from '../../classes/interaction';
+import { VARIANT_CLASSES } from '../../classes/interaction';
 import type { ComponentSize } from '../../tokens/sizes';
-import { COMPONENT_SIZE_SCALE, SIZE_CLASSES } from '../../tokens/sizes';
+import { COMPONENT_SIZE_SCALE } from '../../tokens/sizes';
+import { SIZE_CLASSES } from '../../classes/sizes';
 
-type InteractivePreset = Preset<InteractiveVariant, ComponentSize>;
+type InteractivePreset = Preset<string, ComponentSize>;
 
 type ComponentStateOptions<V extends string, S extends string> = {
 	variant?: V;
@@ -44,7 +41,7 @@ type ComponentStateResult<V extends string, S extends string> = {
 
 export function createPreset(
 	config: Partial<{
-		variants: readonly InteractiveVariant[];
+		variants: readonly string[];
 		sizes: readonly ComponentSize[];
 		defaults: Partial<InteractivePreset['defaults']>;
 		classes: Partial<InteractivePreset['classes']>;
@@ -54,7 +51,7 @@ export function createPreset(
 		variants: config.variants ?? INTERACTIVE_VARIANTS,
 		sizes: config.sizes ?? COMPONENT_SIZE_SCALE,
 		defaults: {
-			variant: 'primary' as InteractiveVariant,
+			variant: 'primary' as string,
 			size: 'md' as ComponentSize,
 			disabled: DEFAULT_FLAGS.disabled,
 			block: false,

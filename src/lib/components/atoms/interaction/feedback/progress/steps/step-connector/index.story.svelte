@@ -1,5 +1,5 @@
 <script lang="ts">
-	import StepConnector from './step-connector/index.svelte';
+	import StepConnector from './index.svelte';
 </script>
 
 <div class="p-4">

@@ -24,7 +24,7 @@
 		{...restProps}
 	/>
 {:else}
-	<div class={state.classes.fallback}>
+	<div class={state.classes.fallback} style={state.sizeStyle}>
 		{#if content}
 			{@render content()}
 		{:else}

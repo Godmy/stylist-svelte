@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { LoaderStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { ILoaderProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * Loader component - displays a loading spinner
@@ -20,7 +20,7 @@
 	>();
 
 	// Generate the CSS class using the style manager
-	const combinedClass = $derived(LoaderStyleManager.generateClass(props.class));
+	const combinedClass = $derived(mergeClasses('loader-container', props.class));
 
 	// Default accessibility properties
 	const role = 'status';

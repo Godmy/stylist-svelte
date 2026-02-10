@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { StrongProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/attributes';
 
 	/**
 	 * Strong component - Displays bold text with various styles.
@@ -15,7 +15,7 @@
 	 * @returns An accessible, styled strong text element
 	 */
 
-	let props: StrongProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TypographyTextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');

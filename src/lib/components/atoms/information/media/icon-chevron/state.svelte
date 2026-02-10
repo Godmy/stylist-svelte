@@ -15,12 +15,24 @@
 		);
 
 		return {
-			classes,
-			isOpen: props.isOpen ?? false,
-			size: props.size ?? 'md',
-			direction: props.direction ?? 'down',
-			variant: props.variant ?? 'default',
-			disabled: props.disabled ?? false
+			get classes() {
+				return classes;
+			},
+			get isOpen() {
+				return props.isOpen ?? false;
+			},
+			get size() {
+				return props.size ?? 'md';
+			},
+			get direction() {
+				return props.direction ?? 'down';
+			},
+			get variant() {
+				return props.variant ?? 'default';
+			},
+			get disabled() {
+				return props.disabled ?? false;
+			}
 		};
 	}
 </script>

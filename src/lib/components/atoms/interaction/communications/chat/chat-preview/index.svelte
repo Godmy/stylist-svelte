@@ -2,20 +2,44 @@
 	import { Avatar } from '$stylist/components/atoms';
 	import { Check, CheckCheck } from 'lucide-svelte';
 
-	import {
-		DEFAULT_CHAT_MESSAGE_VARIANT,
-		getChatMessageAlignmentClass,
-		getChatMessageBubbleClasses,
-		getChatMessageFooterClasses,
-		getChatMessageHeaderClasses,
-		getChatMessageStatusIconClasses
-	} from '../../helpers';
-	import { createChatPreviewState } from '../state.svelte';
-	import type { ChatPreviewProps } from '../state.svelte';
+	import { createChatPreviewState } from './state.svelte';
+	import type { ChatPreviewProps } from './state.svelte';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	let props: ChatPreviewProps = $props();
 
 	const state = createChatPreviewState(props);
+
+	const getChatMessageAlignmentClass = (isOwn: boolean) =>
+		isOwn ? 'justify-end' : 'justify-start';
+
+	const getChatMessageBubbleClasses = (
+		isOwn: boolean,
+		variant: 'default' | 'primary' | 'secondary',
+		className = ''
+	) => {
+		const base = ['rounded-lg px-4 py-2 text-sm'];
+		if (isOwn) base.push('bg-blue-500 text-white rounded-br-none');
+		else {
+			const variantClasses: Record<typeof variant, string> = {
+				default: 'bg-gray-100 text-gray-800 rounded-bl-none',
+				primary: 'bg-blue-100 text-blue-800 rounded-bl-none',
+				secondary: 'bg-gray-200 text-gray-900 rounded-bl-none'
+			};
+			base.push(variantClasses[variant]);
+		}
+		if (className) base.push(className);
+		return base.join(' ');
+	};
+
+	const getChatMessageHeaderClasses = (className = '') =>
+		mergeClasses('flex items-center mb-1 text-xs font-semibold text-gray-600', className);
+
+	const getChatMessageFooterClasses = (className = '') =>
+		mergeClasses('flex items-center justify-end mt-1 text-xs text-gray-500', className);
+
+	const getChatMessageStatusIconClasses = (status: string) =>
+		mergeClasses('ml-1 h-3 w-3', status === 'read' ? 'text-blue-500' : 'text-gray-400');
 </script>
 
 <div class={state.classes} role="region" aria-label={`Chat preview: ${state.title}`}>
@@ -44,7 +68,7 @@
 						</div>
 					{/if}
 
-					<div class={getChatMessageBubbleClasses(!!message.isOwn, DEFAULT_CHAT_MESSAGE_VARIANT)}>
+					<div class={getChatMessageBubbleClasses(!!message.isOwn, 'default')}>
 						<p class="text-sm">{message.text}</p>
 					</div>
 

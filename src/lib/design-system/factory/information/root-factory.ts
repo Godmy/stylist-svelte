@@ -1,12 +1,9 @@
-export interface InformationPreset {
-	base?: string;
-	classes?: Record<string, string>;
-}
+import type { FactoryPreset } from '../shared/types';
 
 export function createInformationPreset(
-	base: InformationPreset,
-	override: Partial<InformationPreset> = {}
-): InformationPreset {
+	base: FactoryPreset,
+	override: Partial<FactoryPreset> = {}
+): FactoryPreset {
 	return {
 		...base,
 		...override,

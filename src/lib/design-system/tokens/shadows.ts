@@ -3,9 +3,9 @@
  *
  * @example
  * ```ts
- * import { boxShadow } from '$stylist/design-system/tokens';
+ * import { shadow } from '$stylist/design-system/tokens';
  *
- * const elementShadow = boxShadow.md; // '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
+ * const elementShadow = shadow.md; // '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
  * ```
  */
 
@@ -22,7 +22,7 @@
  * @property {string} 2xl - Огромная тень
  * @property {string} inner - Внутренняя тень
  */
-export const boxShadow = {
+export const shadow = {
 	none: 'none',
 	sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
 	base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
@@ -37,4 +37,4 @@ export const boxShadow = {
  * Тип, представляющий возможные ключи теней
  * Используется для типизации при работе с тенями элементов
  */
-export type BoxShadowKey = keyof typeof boxShadow;
+export type ShadowKey = keyof typeof shadow;

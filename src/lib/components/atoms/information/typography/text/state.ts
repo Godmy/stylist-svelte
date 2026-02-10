@@ -1,6 +1,6 @@
 import type { TextProps } from '$stylist/design-system/attributes';
-import { BASE_CLASSES, STATE_CLASSES } from '$stylist/design-system/tokens/classes';
-import { TEXT_SIZES } from '$stylist/design-system/tokens/sizes';
+import { BASE_CLASSES, STATE_CLASSES } from '$stylist/design-system/classes';
+import { TEXT_SIZES } from '$stylist/design-system/classes';
 import { VARIANT_TO_PALETTE } from '$stylist/design-system/tokens/variants';
 import { cn } from '$stylist/utils/classes';
 

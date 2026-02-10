@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DefinitionTerm from './DefinitionTerm.svelte';
+	import DefinitionTerm from './index.svelte';
 	import { DefinitionDescription } from '../../../typography/inline/definition-description';
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';

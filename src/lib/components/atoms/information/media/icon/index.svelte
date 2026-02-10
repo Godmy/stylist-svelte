@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { SVGAttributes } from 'svelte/elements';
 
-	// Типы для иконки
+	// РўРёРїС‹ РґР»СЏ РёРєРѕРЅРєРё
 	export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	export type IconName =
 		| 'search'
@@ -28,7 +28,7 @@
 	const strokeWidth = $derived(props.strokeWidth ?? 1.5);
 	const children = $derived(props.children);
 
-	// Размеры для иконок
+	// Р Р°Р·РјРµСЂС‹ РґР»СЏ РёРєРѕРЅРѕРє
 	const SIZE_CLASSES: Record<IconSize, string> = {
 		xs: 'w-4 h-4',
 		sm: 'w-6 h-6',
@@ -40,13 +40,13 @@
 	const size = $derived((props.size ?? 'md') as IconSize);
 	const sizeClasses = $derived(SIZE_CLASSES[size]);
 	const iconClasses = $derived(
-		`inline-block text-[var(--color-text-primary,#0f172a)] ${sizeClasses} ${props.class ?? ''}`
+		`inline-block text-[var(--color-text-primary)] ${sizeClasses} ${props.class ?? ''}`
 	);
 
-	// Получаем путь иконки
+	// РџРѕР»СѓС‡Р°РµРј РїСѓС‚СЊ РёРєРѕРЅРєРё
 	const iconPath = $derived(getIconPath(name));
 
-	// Константы для SVG
+	// РљРѕРЅСЃС‚Р°РЅС‚С‹ РґР»СЏ SVG
 	const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 	const SVG_VIEWBOX = '0 0 24 24';
 	const SVG_FILL = 'none';
@@ -54,7 +54,7 @@
 	const SVG_STROKE_LINECAP = 'round';
 	const SVG_STROKE_LINEJOIN = 'round';
 
-	// Вспомогательные функции
+	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
 	function getIconPath(name: IconName): string {
 		const iconPaths: Record<string, string> = {
 			search: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
@@ -84,3 +84,4 @@
 >
 	<path d={iconPath} />
 </svg>
+

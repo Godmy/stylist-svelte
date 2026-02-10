@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import DarkModeToggle from './DarkModeToggle.svelte';
+	import DarkModeToggle from './index.svelte';
 
 	type DarkModeToggleStoryProps = {
 		darkMode: boolean;

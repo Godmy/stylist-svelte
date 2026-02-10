@@ -16,7 +16,7 @@
 
 	<AspectRatio {ratio}>
 		{#snippet children()}
-			<div class="h-full w-full bg-slate-200" />
+			<div class="h-full w-full bg-slate-200"></div>
 		{/snippet}
 	</AspectRatio>
 </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import StatusIndicatorWithLabel from './StatusIndicatorWithLabel.svelte';
+	import StatusIndicatorWithLabel from './index.svelte';
 
 	type Status = 'success' | 'warning' | 'error' | 'info' | 'neutral' | 'custom';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ProgressCircleStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { IProgressCircleProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * ProgressCircle component - Circular indicator of task completion
@@ -34,15 +34,15 @@
 	const strokeDashoffset = $derived(circumference - (normalizedProgress / 100) * circumference);
 
 	// Generate the CSS classes using the style manager
-	const containerClass = $derived(ProgressCircleStyleManager.generateContainerClass(props.class));
-	const svgClass = $derived(ProgressCircleStyleManager.generateSvgClass());
+	const containerClass = $derived(mergeClasses('progress-circle-container', props.class));
+	const svgClass = $derived('progress-circle-svg');
 	const backgroundCircleClass = $derived(
-		ProgressCircleStyleManager.generateCircleClass(strokeWidth, color)
+		mergeClasses('progress-circle', `stroke-[${strokeWidth}px]`, `variant-${color}`)
 	);
 	const progressCircleClass = $derived(
-		ProgressCircleStyleManager.generateProgressCircleClass(strokeWidth, color)
+		mergeClasses('progress-circle-fill', `stroke-[${strokeWidth}px]`, `variant-${color}`)
 	);
-	const labelClass = $derived(ProgressCircleStyleManager.generateLabelClass());
+	const labelClass = $derived('progress-circle-label');
 </script>
 
 <div class={containerClass} {...props}>

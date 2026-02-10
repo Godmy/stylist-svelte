@@ -23,18 +23,10 @@ export function createGraphEdgeState(props: GraphEdgeProps) {
 	const styles = $derived(getGraphEdgeStyles(style));
 
 	return {
-		get directed() {
-			return directed;
-		},
-		get type() {
-			return type;
-		},
-		get classes() {
-			return classes;
-		},
-		get styles() {
-			return styles;
-		}
+		directed,
+		type,
+		classes,
+		styles
 	};
 }
 
@@ -46,14 +38,8 @@ export function createGraphNodeState(props: GraphNodeProps) {
 	const style = $derived(`${positionStyle}; --color: ${color};`);
 
 	return {
-		get size() {
-			return size;
-		},
-		get sizeClasses() {
-			return sizeClasses;
-		},
-		get style() {
-			return style;
-		}
+		size,
+		sizeClasses,
+		style
 	};
 }

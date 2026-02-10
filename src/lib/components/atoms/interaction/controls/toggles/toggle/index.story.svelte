@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Toggle from './Toggle.svelte';
+	import Toggle from './index.svelte';
 
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
 

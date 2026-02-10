@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import ProgressBarWithLabel from './progress-bar-with-label/index.svelte';
+	import ProgressBarWithLabel from './index.svelte';
 
 	const colorOptions = ['blue', 'green', 'red', 'yellow', 'purple'] as const;
 

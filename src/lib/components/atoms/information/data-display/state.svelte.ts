@@ -1,97 +1,160 @@
 import type {
 	AnimatedNumberProps,
+	ColorSwatchProps,
+	NpmBadgeProps,
 	NumberFlowProps,
-	PieChartProps,
-	ColorSwatchProps
+	PieChartProps
 } from '$stylist/design-system/attributes';
-import {
-	formatAnimatedValue,
-	formatNumberFlowValue,
-	getNpmBadgeClasses,
-	getNpmBadgeLabel,
-	getNpmBadgeLinkClasses,
-	getNumberFlowClasses
-} from '$stylist/design-system/presets/information';
+import { NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES } from '$stylist/design-system/classes';
+import { NPM_BADGE_LABELS } from '$stylist/design-system/tokens';
+import { cn } from '$stylist/utils/classes';
 
-interface NpmBadgeProps {
-	type: Parameters<typeof getNpmBadgeLabel>[0];
-	label?: string;
-	class?: string;
-}
+const formatAnimatedValue = (
+	value: number,
+	options: { format?: AnimatedNumberProps['format']; separator?: string; decimals?: number } = {}
+) => {
+	const decimals = options.decimals ?? 0;
+	const separator = options.separator ?? ',';
+	return value
+		.toLocaleString('en-US', {
+			minimumFractionDigits: decimals,
+			maximumFractionDigits: decimals
+		})
+		.replace(/,/g, separator);
+};
 
 export function createAnimatedNumberState(props: AnimatedNumberProps) {
-	const value = props.value;
-	const prefix = props.prefix ?? '';
-	const suffix = props.suffix ?? '';
-	const separator = props.separator ?? ',';
-	const decimals = props.decimals ?? 0;
-	const classes = `${props.class ?? ''} font-mono`.trim();
+	const value = $derived(props.value);
+	const prefix = $derived(props.prefix ?? '');
+	const suffix = $derived(props.suffix ?? '');
+	const separator = $derived(props.separator ?? ',');
+	const decimals = $derived(props.decimals ?? 0);
+	const classes = $derived(cn(props.class, 'font-mono'));
 
-	const formattedValue = formatAnimatedValue(value, {
-		format: props.format,
-		separator,
-		decimals
-	});
+	const formattedValue = $derived(
+		formatAnimatedValue(value, {
+			format: props.format,
+			separator,
+			decimals
+		})
+	);
 
 	return {
-		value,
-		prefix,
-		suffix,
-		formattedValue,
-		classes
+		get value() {
+			return value;
+		},
+		get prefix() {
+			return prefix;
+		},
+		get suffix() {
+			return suffix;
+		},
+		get formattedValue() {
+			return formattedValue;
+		},
+		get classes() {
+			return classes;
+		}
 	};
 }
 
 export function createPieChartState(props: PieChartProps) {
-	const containerClasses = props.class || '';
-	const svgClasses = '';
+	const containerClasses = $derived(
+		cn('relative inline-flex items-center justify-center', props.class)
+	);
+	const svgClasses = $derived('block');
 
 	return {
-		containerClasses,
-		svgClasses
+		get containerClasses() {
+			return containerClasses;
+		},
+		get svgClasses() {
+			return svgClasses;
+		}
 	};
 }
 
 export function createColorSwatchState(props: ColorSwatchProps) {
-	const color = props.color ?? '#0ea5e9';
-	const size = props.size ?? 32;
-	const classes = props.class || '';
-	const style = `background-color: ${color}; width: ${size}px; height: ${size}px;`;
+	const color = $derived(props.color ?? '#0ea5e9');
+	const size = $derived(props.size ?? 32);
+	const style = $derived(
+		`background-color: ${color}; width: ${size}px; height: ${size}px;`
+	);
+	const classes = $derived(
+		cn('inline-block rounded border border-[--color-border-secondary]', props.class)
+	);
 
 	return {
-		classes,
-		style
+		get color() {
+			return color;
+		},
+		get size() {
+			return size;
+		},
+		get style() {
+			return style;
+		},
+		get classes() {
+			return classes;
+		}
 	};
 }
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
-	const type = props.type;
-	const label = getNpmBadgeLabel(type, props.label);
-	const classes = getNpmBadgeClasses(type, props.class ?? '');
-	const linkClasses = getNpmBadgeLinkClasses();
+	const type = $derived(props.type);
+	const className = $derived(cn(props.class));
+	const label = $derived(props.label ?? NPM_BADGE_LABELS[type]);
+	const classes = $derived(
+		cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className)
+	);
+	const linkClasses = $derived('inline-flex items-center gap-1 hover:opacity-80');
 
 	return {
-		type,
-		label,
-		classes,
-		linkClasses
+		get type() {
+			return type;
+		},
+		get label() {
+			return label;
+		},
+		get classes() {
+			return classes;
+		},
+		get linkClasses() {
+			return linkClasses;
+		}
 	};
 }
 
 export function createNumberFlowState(props: NumberFlowProps) {
-	const value = props.value ?? 0;
-	const locales = props.locales ?? 'en-US';
-	const format = props.format;
-	const prefix = props.prefix ?? '';
-	const suffix = props.suffix ?? '';
-	const baseClasses = getNumberFlowClasses(props.class ?? '');
-	const formattedValue = formatNumberFlowValue(value, locales, format);
+	const value = $derived(props.value ?? 0);
+	const locales = $derived(props.locales ?? 'en-US');
+	const format = $derived(props.format);
+	const prefix = $derived(props.prefix ?? '');
+	const suffix = $derived(props.suffix ?? '');
+	const containerClass = $derived(cn('flex items-center', props.class));
+	const classes = $derived({
+		container: containerClass,
+		prefix: 'mr-1',
+		suffix: 'ml-1',
+		srOnly: 'sr-only'
+	});
+	const formattedValue = $derived(new Intl.NumberFormat(locales, format).format(value));
 
 	return {
-		value,
-		prefix,
-		suffix,
-		formattedValue,
-		classes: baseClasses
+		get value() {
+			return value;
+		},
+		get prefix() {
+			return prefix;
+		},
+		get suffix() {
+			return suffix;
+		},
+		get formattedValue() {
+			return formattedValue;
+		},
+		get classes() {
+			return classes;
+		}
 	};
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { SpinnerStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import { Loader2 } from 'lucide-svelte';
 	import type { ISpinnerProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * Spinner component - displays a rotating loading indicator
@@ -28,9 +28,11 @@
 	const label = props.label ?? 'Loading...';
 
 	// Generate the CSS classes using the style manager
-	const containerClass = $derived(SpinnerStyleManager.generateContainerClass(props.class));
-	const iconClass = $derived(SpinnerStyleManager.generateIconClass(size, variant));
-	const labelClass = $derived(SpinnerStyleManager.generateLabelClass());
+	const containerClass = $derived(mergeClasses('spinner-container', props.class));
+	const iconClass = $derived(
+		mergeClasses('spinner-icon', size ? `size-${size}` : '', variant ? `variant-${variant}` : '')
+	);
+	const labelClass = $derived('spinner-label');
 </script>
 
 <div class={containerClass} role="status" aria-live="polite">

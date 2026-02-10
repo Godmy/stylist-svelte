@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LoadingSpinner from './loading-spinner/index.svelte';
+	import LoadingSpinner from './index.svelte';
 
 	let size: 'sm' | 'md' | 'lg' = 'md';
 	let color: 'blue' | 'gray' | 'green' | 'red' | 'yellow' | string = 'blue';

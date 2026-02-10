@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import ChatPreview from './ChatPreview.svelte';
+	import ChatPreview from './index.svelte';
 
 	// Example data for ChatPreview
 	const chatPreviewData = {

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { X, Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { CloseButtonProps } from '$stylist/design-system/attributes';
+	import type { ButtonElementProps } from '$stylist/design-system/attributes';
 	import { CLOSE_BUTTON_PRESET } from '$stylist/design-system/presets';
 	import { createState } from '../state.svelte';
 
@@ -16,10 +16,10 @@
 	 * @param class - Additional CSS classes
 	 * @returns A standardized close button with X icon
 	 */
-	let props: CloseButtonProps & HTMLButtonAttributes = $props();
+	let props: ButtonElementProps & HTMLButtonAttributes = $props();
 
 	// Use centralized state management
-	let state = createState(CLOSE_BUTTON_PRESET, props);
+	let state = createState(CLOSE_BUTTON_PRESET, props as any);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let {

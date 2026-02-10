@@ -1,4 +1,4 @@
-import { BASE_CLASSES } from '$stylist/design-system/tokens';
+import { BASE_CLASSES } from '$stylist/design-system/classes';
 import type { GridItem, GridItemContent } from '$stylist/design-system/attributes';
 
 export const getGridLayoutContainerClass = (className = '') => {
@@ -12,8 +12,5 @@ export const getGridLayoutItemClass = (className = '', itemClass = '') => {
 export const getGridLayoutStyle = (columns: string, gap: string) => {
 	return `grid-template-columns: ${columns}; gap: ${gap};`;
 };
-
-export const getGridLayoutContainerClasses = getGridLayoutContainerClass;
-export const getGridLayoutItemClasses = getGridLayoutItemClass;
 
 export type { GridItem, GridItemContent };

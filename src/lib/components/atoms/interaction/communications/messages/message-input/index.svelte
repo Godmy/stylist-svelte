@@ -2,8 +2,8 @@
 	import { Icon } from '$stylist/components/atoms';
 	import { createEventDispatcher } from 'svelte';
 
-	import { createMessageInputState } from '../../state.svelte';
-	import type { MessageInputProps } from '../../state.svelte';
+	import { createMessageInputState } from '../state.svelte';
+	import type { MessageInputProps } from '../state.svelte';
 
 	let props: MessageInputProps = $props();
 

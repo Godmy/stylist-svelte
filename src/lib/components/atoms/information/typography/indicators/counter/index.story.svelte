@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import Counter from './Counter.svelte';
+	import Counter from './index.svelte';
 
 	const variantOptions = ['primary', 'secondary', 'danger', 'success', 'warning', 'info'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;

@@ -16,11 +16,21 @@
 		);
 
 		return {
-			classes,
-			variant: props.variant ?? 'default',
-			size: props.size ?? 'md',
-			filled: props.filled ?? false,
-			disabled: props.disabled ?? false
+			get classes() {
+				return classes;
+			},
+			get variant() {
+				return props.variant ?? 'default';
+			},
+			get size() {
+				return props.size ?? 'md';
+			},
+			get filled() {
+				return props.filled ?? false;
+			},
+			get disabled() {
+				return props.disabled ?? false;
+			}
 		};
 	}
 </script>

@@ -5,8 +5,8 @@ export { getGraphNodePositionStyle, getGraphNodeSizeClasses, graphNodeCSS } from
 export { getGraphEdgeClasses, getGraphEdgeStyles, graphEdgeCSS } from './graph-styles';
 export { getAspectRatioClasses } from './layout-aspect-ratio';
 export { getContainerClasses } from './layout-container';
-export { getDividerLineClass, getDividerLineClasses, getDividerLineFlexClass, getDividerLineFlexClasses } from './layout-divider';
-export { getGridLayoutContainerClass, getGridLayoutContainerClasses, getGridLayoutItemClass, getGridLayoutItemClasses, getGridLayoutStyle } from './layout-grid-layout';
+export { getDividerLineClass, getDividerLineFlexClass } from './layout-divider';
+export { getGridLayoutContainerClass, getGridLayoutItemClass, getGridLayoutStyle } from './layout-grid-layout';
 export { getHorizontalLayoutClasses } from './layout-horizontal-layout';
 export { getSpacerClasses, getSpacerSize } from './layout-spacer';
 export type { StackAlign, StackDirection, StackJustify } from './development-stack';

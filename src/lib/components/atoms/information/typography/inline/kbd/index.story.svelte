@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import Kbd from './Kbd.svelte';
+	import Kbd from './index.svelte';
 </script>
 
 <Story

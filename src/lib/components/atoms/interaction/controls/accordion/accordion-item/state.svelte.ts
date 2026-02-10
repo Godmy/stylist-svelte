@@ -1,8 +1,11 @@
 import type { AccordionItemProps } from '$stylist/design-system/attributes';
-import { getAccordionItemClasses } from '../helpers';
+import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAccordionItemState = (props: AccordionItemProps) => {
+	const classes = $derived(mergeClasses('border-b border-[--color-border-muted]', props.class));
 	return {
-		classes: getAccordionItemClasses(props.class)
+		get classes() {
+			return classes;
+		}
 	};
 };

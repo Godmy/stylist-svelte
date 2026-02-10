@@ -15,10 +15,10 @@ import { getGraphNodePositionStyle, getGraphNodeSizeClasses, graphNodeCSS } from
 import { getGraphEdgeClasses, getGraphEdgeStyles, graphEdgeCSS } from './graph-styles';
 import { getAspectRatioClasses } from './layout-aspect-ratio';
 import { getContainerClasses } from './layout-container';
-import { getDividerLineClasses, getDividerLineFlexClasses } from './layout-divider';
+import { getDividerLineClass, getDividerLineFlexClass } from './layout-divider';
 import {
-	getGridLayoutContainerClasses,
-	getGridLayoutItemClasses,
+	getGridLayoutContainerClass,
+	getGridLayoutItemClass,
 	getGridLayoutStyle
 } from './layout-grid-layout';
 import { getHorizontalLayoutClasses } from './layout-horizontal-layout';
@@ -37,10 +37,10 @@ export const ARCHITECTURE_PRESETS = {
 	layout: {
 		getAspectRatioClasses,
 		getContainerClasses,
-		getDividerLineClasses,
-		getDividerLineFlexClasses,
-		getGridLayoutContainerClasses,
-		getGridLayoutItemClasses,
+		getDividerLineClass,
+		getDividerLineFlexClass,
+		getGridLayoutContainerClass,
+		getGridLayoutItemClass,
 		getGridLayoutStyle,
 		getHorizontalLayoutClasses,
 		getSpacerClasses,

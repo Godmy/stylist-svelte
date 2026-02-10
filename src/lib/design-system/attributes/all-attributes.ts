@@ -1,31 +1,46 @@
 /* AUTO-CONSOLIDATED ATTRIBUTE TYPES. */
-import type { TokenContainerMaxWidth } from '$stylist/design-system/tokens/layout-classes';
-import type { SyntaxHighlightedCodeVariant } from '$stylist/design-system/tokens/typography-inline';
+import type { TokenContainerMaxWidth } from '$stylist/design-system/classes/layout-classes';
 import type { Snippet } from 'svelte';
+import type {
+	ButtonElementBaseProps,
+	ChildrenProp,
+	ClassProp,
+	ContentProp,
+	ToolbarFieldProps,
+	ToolbarInteractiveProps,
+	ToolbarVariant
+} from './shared-attributes';
+export type {
+	ButtonElementBaseProps,
+	ChildrenProp,
+	ClassProp,
+	ContentProp,
+	ToolbarFieldProps,
+	ToolbarInteractiveProps,
+	ToolbarVariant,
+	TypographyTextProps
+} from './shared-attributes';
 import type {
 	HTMLAttributes,
 	HTMLBlockquoteAttributes,
 	HTMLButtonAttributes,
 	HTMLInputAttributes
 } from 'svelte/elements';
-import type { DataDisplayTableCellAlign } from '../tokens/data-display';
-import type { InteractiveVariant } from '../tokens/interaction';
 import type { Alignment, Justification, Orientation } from '../tokens/layout';
-import type { HorizontalGap } from '../tokens/layout-classes';
+import type { HorizontalGap } from '../classes/layout-classes';
 import type { CompactSize, ComponentSize } from '../tokens/sizes';
-import type { TabSize, TabVariant } from '../tokens/tabs';
 import type {
 	BadgeVariant,
 	CodeBlockSize,
 	CodeBlockVariant,
 	LabelSize
-} from '../tokens/typography-elements';
+} from '../tokens';
 import type {
 	CounterVariant,
 	IndicatorStatus,
 	MarkerType,
 	StatusIndicatorLabelStatus
-} from '../tokens/typography-indicators';
+} from '../tokens/indicators';
 import type {
 	AllVariants,
 	AppearanceStyle,
@@ -129,41 +144,16 @@ export interface BlockquoteProps extends BlockquoteAttributesBase {
 // ===== END: blockquote-attributes.ts =====
 
 // ===== BEGIN: button-attributes.ts =====
-export interface ButtonClassAttr {
-	class?: string;
-}
-
-export interface ButtonChildrenAttr {
-	children?: Snippet;
-}
-
 export interface ButtonAttributesBase
 	extends Omit<HTMLButtonAttributes, 'class'>,
-		ButtonClassAttr {}
+		ClassProp {}
 
-export interface ButtonAttributesWithoutClass
-	extends Omit<HTMLButtonAttributes, 'class'>,
-		ButtonClassAttr {}
-
-export interface ButtonAttributesWithChildren extends ButtonAttributesBase, ButtonChildrenAttr {}
+export interface ButtonAttributesWithChildren extends ButtonAttributesBase, ChildrenProp {}
 
 type ButtonDomProps = Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'onclick'>;
 type ButtonCoreProps = Omit<Props, 'class'>;
 
-export interface ButtonBaseProps extends Omit<ButtonCoreProps, 'children'>, ButtonDomProps {
-	class?: string;
-	children?: Snippet;
-}
-
-export interface ButtonProps extends Omit<ButtonCoreProps, 'children'>, ButtonDomProps {
-	class?: string;
-	children?: Snippet;
-}
-
-export interface CloseButtonProps extends Omit<ButtonCoreProps, 'children'>, ButtonDomProps {
-	class?: string;
-	children?: Snippet;
-}
+export type ButtonElementProps = ButtonElementBaseProps<ButtonCoreProps, ButtonDomProps>;
 
 export interface CopyButtonProps
 	extends Omit<
@@ -198,10 +188,6 @@ export interface PageButtonProps
 	children?: Snippet;
 }
 
-export interface SplitButtonProps extends Omit<ButtonCoreProps, 'children'>, ButtonDomProps {
-	class?: string;
-	children?: Snippet;
-}
 
 export interface ButtonControlProps extends ButtonAttributesBase {
 	variant?: string;
@@ -215,8 +201,8 @@ export interface ButtonControlProps extends ButtonAttributesBase {
 export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'onclick'> {
 	id: string;
 	selected?: boolean;
-	variant?: TabVariant;
-	size?: TabSize;
+	variant?: string;
+	size?: string;
 	class?: string;
 	children?: Snippet;
 	ariaLabel?: string;
@@ -261,33 +247,17 @@ export interface AccordionHeaderDoubleProps
 // ===== END: button-attributes.ts =====
 
 // ===== BEGIN: html-attributes.ts =====
-export interface HtmlClassAttr {
-	class?: string;
-}
-
-export interface HtmlChildrenAttr {
-	children?: Snippet;
-}
-
-export interface HtmlContentAttr {
-	content?: Snippet;
-}
-
 export interface HtmlAttributesBase<T extends EventTarget = HTMLElement>
 	extends Omit<HTMLAttributes<T>, 'class'>,
-		HtmlClassAttr {}
-
-export interface HtmlAttributesWithoutClass<T extends EventTarget = HTMLElement>
-	extends Omit<HTMLAttributes<T>, 'class'>,
-		HtmlClassAttr {}
+		ClassProp {}
 
 export interface HtmlAttributesWithChildren<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesBase<T>,
-		HtmlChildrenAttr {}
+		ChildrenProp {}
 
 export interface HtmlAttributesWithContent<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesBase<T>,
-		HtmlContentAttr {}
+		ContentProp {}
 
 export interface HtmlStateAttr {
 	disabled?: boolean;
@@ -301,7 +271,7 @@ export interface HtmlVariantSizeAttr {
 	size?: string;
 }
 
-export interface HorizontalLayoutProps extends HtmlAttributesWithoutClass<HTMLDivElement> {
+export interface HorizontalLayoutProps extends HtmlAttributesBase<HTMLDivElement> {
 	children: Snippet;
 	gap?: HorizontalGap;
 	alignItems?: Alignment;
@@ -467,12 +437,11 @@ export interface NumberFlowProps {
 	class?: string;
 }
 
-export interface MediaHtmlProps<T extends HTMLElement = HTMLElement>
-	extends HtmlAttributesWithoutClass<T> {}
+export interface MediaHtmlProps<T extends HTMLElement = HTMLElement> extends HtmlAttributesBase<T> {}
 
 export interface MediaHtmlChildrenProps<T extends HTMLElement = HTMLElement>
 	extends MediaHtmlProps<T>,
-		HtmlChildrenAttr {}
+		ChildrenProp {}
 
 export interface MediaContentProps {
 	class?: string;
@@ -676,11 +645,7 @@ export interface TabIndicatorProps extends HtmlAttributesBase<HTMLDivElement> {
 	left?: string;
 	width?: string;
 	color?: TabIndicatorColor;
-	size?: TabSize;
-	disabled?: boolean;
-}
-
-export interface TabListProps extends HtmlAttributesWithChildren<HTMLDivElement> {
+	size?: string;
 	disabled?: boolean;
 }
 
@@ -689,19 +654,15 @@ export interface TabPanelProps extends HtmlAttributesWithChildren<HTMLDivElement
 	disabled?: boolean;
 }
 
-export interface TabPanelsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
-	disabled?: boolean;
-}
+export type TabContainerProps = HtmlAttributesWithChildren<HTMLDivElement> & IDisableable;
 
 export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	selectedId?: string;
 	onTabChange?: (id: string) => void;
-	variant?: TabVariant;
-	size?: TabSize;
+	variant?: string;
+	size?: string;
 	disabled?: boolean;
 }
-
-export type ToolbarVariant = 'default' | SemanticVariant | NeutralVariant | 'dark' | 'light';
 
 export interface ToolbarProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
@@ -713,13 +674,8 @@ export interface ToolbarProps<T extends EventTarget = HTMLElement>
 	collapsed?: boolean;
 }
 
-export interface ToolbarItemProps<T extends EventTarget = HTMLElement>
-	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: CommonSize | 'xl';
-	active?: boolean;
-	disabled?: boolean;
-}
+export type ToolbarInteractiveItemProps<T extends EventTarget = HTMLElement> =
+	HtmlAttributesWithChildren<T> & ToolbarInteractiveProps;
 
 export interface ToolbarGroupProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
@@ -733,35 +689,8 @@ export interface ToolbarSeparatorProps<T extends EventTarget = HTMLElement>
 	orientation?: Orientation;
 }
 
-export interface ToolbarButtonProps<T extends EventTarget = HTMLElement>
-	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: CommonSize | 'xl';
-	active?: boolean;
-	disabled?: boolean;
-}
-
-export interface ToolbarSelectProps<T extends EventTarget = HTMLElement>
-	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: CommonSize | 'xl';
-	disabled?: boolean;
-}
-
-export interface ToolbarInputProps<T extends EventTarget = HTMLElement>
-	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: CommonSize | 'xl';
-	disabled?: boolean;
-}
-
-export interface ToolbarIconProps<T extends EventTarget = HTMLElement>
-	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: CommonSize | 'xl';
-	active?: boolean;
-	disabled?: boolean;
-}
+export type ToolbarFieldItemProps<T extends EventTarget = HTMLElement> =
+	HtmlAttributesWithChildren<T> & ToolbarFieldProps;
 
 export interface AccordionBaseProps {
 	value: string;
@@ -885,15 +814,13 @@ export interface ITableSkeletonProps extends HtmlAttributesBase<HTMLTableElement
 
 export interface InputHelperProps<T extends HTMLElement = HTMLElement>
 	extends Omit<HTMLAttributes<T>, 'class'>,
-		HtmlClassAttr {
-	content?: Snippet;
-}
+		ClassProp,
+		ContentProp {}
 
 export interface InputHelperChildrenProps<T extends HTMLElement = HTMLElement>
 	extends Omit<HTMLAttributes<T>, 'class'>,
-		HtmlClassAttr {
-	children?: Snippet;
-}
+		ClassProp,
+		ChildrenProp {}
 
 export interface IFormErrorMessageProps extends InputHelperProps<HTMLParagraphElement> {
 	text?: string;
@@ -925,7 +852,7 @@ export interface IInputGroupProps extends HtmlAttributesBase<HTMLDivElement> {
 	placeholder?: string;
 	disabled?: boolean;
 	buttonLabel?: string;
-	buttonVariant?: InteractiveVariant;
+	buttonVariant?: string;
 	buttonDisabled?: boolean;
 	onButtonClick?: () => void;
 }
@@ -1037,7 +964,7 @@ export interface SeparatorProps {
 export interface SyntaxHighlightedCodeProps {
 	language?: string;
 	code?: string;
-	variant?: SyntaxHighlightedCodeVariant;
+	variant?: CodeBlockVariant;
 	size?: CompactSize;
 	showLineNumbers?: boolean;
 	startLineNumber?: number;
@@ -1046,7 +973,7 @@ export interface SyntaxHighlightedCodeProps {
 // ===== END: information/typography-inline.ts =====
 
 // ===== BEGIN: information/typography-indicators-message-status.ts =====
-import type { MessageStatusType } from '../tokens/typography-indicators';
+import type { MessageStatusType } from '../tokens/indicators';
 
 export interface MessageStatusProps {
 	status?: MessageStatusType;
@@ -1054,93 +981,9 @@ export interface MessageStatusProps {
 }
 // ===== END: information/typography-indicators-message-status.ts =====
 
-// ===== BEGIN: information/typography-text-caption.ts =====
-export interface CaptionProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-caption.ts =====
-
-// ===== BEGIN: information/typography-text-heading.ts =====
-export interface HeadingProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-heading.ts =====
-
-// ===== BEGIN: information/typography-text-paragraph.ts =====
-export interface ParagraphProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-paragraph.ts =====
-
-// ===== BEGIN: information/typography-text-small.ts =====
-export interface SmallProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-small.ts =====
-
-// ===== BEGIN: information/typography-text-strikethrough.ts =====
-export interface StrikethroughProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-strikethrough.ts =====
-
-// ===== BEGIN: information/typography-text-strong.ts =====
-export interface StrongProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-strong.ts =====
-
-// ===== BEGIN: information/typography-text-subscript.ts =====
-export interface SubscriptProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-subscript.ts =====
-
-// ===== BEGIN: information/typography-text-superscript.ts =====
-export interface SuperscriptProps {
-	variant?: string;
-	size?: CommonSize;
-	disabled?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-// ===== END: information/typography-text-superscript.ts =====
+// ===== BEGIN: information/typography-text-shared.ts =====
+// NOTE: TypographyTextProps is defined in shared-attributes.ts
+// ===== END: information/typography-text-shared.ts =====
 
 // ===== BEGIN: information/data-display-npm-badge.ts =====
 // NOTE: NpmBadgeProps is defined later in the file to avoid duplicate interface errors
@@ -1157,12 +1000,7 @@ export interface IAlertProps {
 // ===== END: interaction/feedback/alerts/alert.ts =====
 
 // ===== BEGIN: interaction/feedback/loader/loader.ts =====
-export interface ILoaderProps {
-	size?: string;
-	variant?: string;
-	label?: string;
-	class?: string;
-}
+// NOTE: ILoaderProps is defined earlier in the file
 // ===== END: interaction/feedback/loader/loader.ts =====
 
 // ===== BEGIN: interaction/feedback/notification/notification-badge.ts =====
@@ -1170,12 +1008,7 @@ export interface ILoaderProps {
 // ===== END: interaction/feedback/notification/notification-badge.ts =====
 
 // ===== BEGIN: interaction/feedback/notification/simple-tooltip.ts =====
-export interface ISimpleTooltipProps {
-	text: string;
-	position?: 'top' | 'right' | 'bottom' | 'left';
-	show?: boolean;
-	class?: string;
-}
+// NOTE: ISimpleTooltipProps is defined earlier in the file
 // ===== END: interaction/feedback/notification/simple-tooltip.ts =====
 
 // ===== BEGIN: interaction/feedback/placeholders/skeleton.ts =====
@@ -1187,13 +1020,7 @@ export interface ISimpleTooltipProps {
 // ===== END: interaction/feedback/process/spinner.ts =====
 
 // ===== BEGIN: interaction/feedback/progress/account-progress-tracker.ts =====
-export interface IAccountProgressTrackerProps {
-	currentStep: number;
-	totalSteps?: number;
-	completedSteps?: number[];
-	steps?: string[];
-	class?: string;
-}
+// NOTE: IAccountProgressTrackerProps is defined earlier in the file
 // ===== END: interaction/feedback/progress/account-progress-tracker.ts =====
 
 // ===== BEGIN: interaction/feedback/progress/progress-bar.ts =====
@@ -1235,10 +1062,10 @@ export interface IBreadcrumbsProps {
 // ===== END: information/typography-text-text.ts =====
 
 // ===== BEGIN: information/data-display-npm-badge.ts =====
-import type { NpmBadgeType } from '../tokens/data-display';
+import type { BadgeType } from '../tokens/badge';
 
 export interface NpmBadgeProps {
-	type: NpmBadgeType;
+	type: BadgeType;
 	label?: string;
 	class?: string;
 	value?: string;
@@ -1247,15 +1074,7 @@ export interface NpmBadgeProps {
 // ===== END: information/data-display-npm-badge.ts =====
 
 // ===== BEGIN: input-attributes.ts =====
-export interface InputClassAttr {
-	class?: string;
-}
-
-export interface InputAttributesBase extends Omit<HTMLInputAttributes, 'class'>, InputClassAttr {}
-
-export interface InputAttributesWithoutClass
-	extends Omit<HTMLInputAttributes, 'class'>,
-		InputClassAttr {}
+export interface InputAttributesBase extends Omit<HTMLInputAttributes, 'class'>, ClassProp {}
 
 export interface TextInputBaseProps extends InputAttributesBase {
 	value?: string;
@@ -1560,45 +1379,34 @@ export interface TableElementAttributesBase<T extends EventTarget = HTMLElement>
 	class?: string;
 }
 
-export interface TableContentAttr {
-	content?: Snippet;
-}
-
-export interface TableProps extends TableAttributesBase, TableContentAttr {
+export interface TableProps extends TableAttributesBase, ContentProp {
 	caption?: string;
 	striped?: boolean;
 	bordered?: boolean;
 	hoverable?: boolean;
 }
 
-export interface TableHeaderProps
-	extends TableElementAttributesBase<HTMLTableSectionElement>,
-		TableContentAttr {}
-
-export interface TableBodyProps
-	extends TableElementAttributesBase<HTMLTableSectionElement>,
-		TableContentAttr {}
+export type TableSectionProps = TableElementAttributesBase<HTMLTableSectionElement> &
+	ContentProp;
 
 export interface TableRowProps
 	extends TableElementAttributesBase<HTMLTableRowElement>,
-		TableContentAttr {
+		ContentProp {
 	striped?: boolean;
 	active?: boolean;
 }
 
 export type TableCellVariant = 'header' | 'data';
-export type TableCellAlign = DataDisplayTableCellAlign;
+export type TableCellAlign = string;
 
 export interface TableCellProps
 	extends TableElementAttributesBase<HTMLTableCellElement>,
-		TableContentAttr {
+		ContentProp {
 	variant?: TableCellVariant;
 	align?: TableCellAlign;
 }
 // ===== END: table-attributes.ts =====
 
 // ===== BEGIN: typography-text-props.ts =====
-// NOTE: CaptionProps, HeadingProps, ParagraphProps, SmallProps, StrongProps,
-// StrikethroughProps, SubscriptProps, SuperscriptProps, and TextProps are defined
-// earlier in the file to avoid duplicate interface errors
+// NOTE: TypographyTextProps and TextProps are defined earlier in the file
 // ===== END: typography-text-props.ts =====

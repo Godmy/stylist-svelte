@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BreadcrumbLink from './breadcrumb-link/index.svelte';
+	import BreadcrumbLink from './index.svelte';
 </script>
 
 <svelte:head>

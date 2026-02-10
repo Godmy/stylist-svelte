@@ -1,12 +1,9 @@
-export interface ArchitecturePreset {
-	base?: string;
-	classes?: Record<string, string>;
-}
+import type { FactoryPreset } from '../shared/types';
 
 export function createArchitecturePreset(
-	base: ArchitecturePreset,
-	override: Partial<ArchitecturePreset> = {}
-): ArchitecturePreset {
+	base: FactoryPreset,
+	override: Partial<FactoryPreset> = {}
+): FactoryPreset {
 	return {
 		...base,
 		...override,

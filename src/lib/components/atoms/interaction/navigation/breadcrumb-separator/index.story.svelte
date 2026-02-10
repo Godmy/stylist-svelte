@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
-	import BreadcrumbSeparator from './breadcrumb-separator/index.svelte';
+	import BreadcrumbSeparator from './index.svelte';
 
 	// Define the type for props passed to the children snippet
 	type Props = {

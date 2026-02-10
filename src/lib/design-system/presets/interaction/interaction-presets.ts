@@ -10,7 +10,7 @@ import {
 	TOKEN_TOGGLE_HANDLE_SIZE_CLASSES,
 	TOKEN_TOGGLE_SIZE_CLASSES,
 	type TokenToggleSize
-} from '../../tokens/toggles';
+} from '../../classes/toggles';
 import type { CompactSize } from '../../tokens/sizes';
 import type { InputVariant } from '../../tokens/variants';
 

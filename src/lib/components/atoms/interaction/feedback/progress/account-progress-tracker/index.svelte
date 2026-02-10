@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { IAccountProgressTrackerProps } from '$stylist/design-system/presets/interaction/interaction-presets';
-	import { AccountProgressTrackerStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	let {
 		steps = [],
@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class={AccountProgressTrackerStyleManager.generateContainerClass(className)}>
+<div class={mergeClasses('account-progress-tracker-container', className)}>
 	{#each steps as step, i}
 		<div class="flex items-center">
 			<div
@@ -34,7 +34,7 @@
 			{/if}
 		</div>
 	{/each}
-	<div class={AccountProgressTrackerStyleManager.generateProgressTextClass()}>
+	<div class="account-progress-tracker-progress">
 		<p>Step {localCurrentStep + 1} of {steps.length}: {steps[localCurrentStep]}</p>
 	</div>
 </div>

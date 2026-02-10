@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Highlight from './Highlight.svelte';
+	import Highlight from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 

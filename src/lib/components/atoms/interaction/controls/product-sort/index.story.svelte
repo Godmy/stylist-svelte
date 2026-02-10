@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import ProductSort from './product-sort/index.svelte';
+	import ProductSort from './index.svelte';
 
 	type ProductSortStoryProps = {
 		selectedOption: string;

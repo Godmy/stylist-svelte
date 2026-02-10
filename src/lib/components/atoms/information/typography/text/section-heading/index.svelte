@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { HeadingProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/attributes';
 
 	/**
 	 * SectionHeading component - Displays a section heading text with various levels and styles.
@@ -15,7 +15,7 @@
 	 * @returns An accessible, styled section heading element
 	 */
 
-	let props: HeadingProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TypographyTextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'lg');

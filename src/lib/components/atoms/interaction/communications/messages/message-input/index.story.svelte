@@ -1,5 +1,5 @@
 ﻿<script>
-	import MessageInput from './MessageInput.svelte';
+	import MessageInput from './index.svelte';
 </script>
 
 <div class="p-4">

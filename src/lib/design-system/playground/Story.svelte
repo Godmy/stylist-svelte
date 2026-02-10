@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 	import type { ControlConfig } from '../tokens/controls';
 
 	export let controls: ControlConfig[] = [];
@@ -9,8 +9,8 @@
 	export let category: string | undefined = undefined;
 	export let description: string | undefined = undefined;
 	export let tags: string[] | undefined = undefined;
-	export let children: Snippet<[any]> | Snippet<[]> | undefined = undefined;
-	const controlValues: Record<string, any> = {};
+export let children: Snippet<[Record<string, unknown>]> | undefined = undefined;
+const controlValues: Record<string, unknown> = {};
 	$: for (const control of controls) {
 		if (!(control.name in controlValues)) {
 			controlValues[control.name] = control.defaultValue;
@@ -18,7 +18,7 @@
 	}
 
 	// Function to handle control changes
-	function handleChange(controlName: string, value: any) {
+	function handleChange(controlName: string, value: unknown) {
 		controlValues[controlName] = value;
 	}
 </script>
@@ -33,7 +33,7 @@
 >
 	<div class="component-preview">
 		{#if children}
-			{@render (children as any)(controlValues)}
+			{@render children(controlValues)}
 		{:else if component}
 			{component}
 		{/if}
@@ -57,7 +57,7 @@
 					<input
 						id="control-{control.name}"
 						type="checkbox"
-						bind:checked={controlValues[control.name]}
+						bind:checked={controlValues[control.name] as boolean}
 						on:change={(e: Event) => {
 							const target = e.target as HTMLInputElement;
 							handleChange(control.name, target ? target.checked : false);

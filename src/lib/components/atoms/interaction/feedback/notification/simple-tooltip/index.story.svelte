@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import SimpleTooltip from './simple-tooltip/index.svelte';
+	import SimpleTooltip from './index.svelte';
 
 	const controls: ControlConfig[] = [
 		{

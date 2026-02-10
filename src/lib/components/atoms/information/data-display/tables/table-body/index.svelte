@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { TableBodyProps } from '$stylist/design-system';
+	import type { TableSectionProps } from '$stylist/design-system';
 	import { createTableBodyState } from '../state.svelte';
 
-	let props: TableBodyProps = $props();
+	let props: TableSectionProps = $props();
 	const state = createTableBodyState(props);
 </script>
 

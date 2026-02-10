@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import SyntaxHighlightedCode from './SyntaxHighlightedCode.svelte';
+	import SyntaxHighlightedCode from './index.svelte';
 
 	type Props = {
 		code?: string;

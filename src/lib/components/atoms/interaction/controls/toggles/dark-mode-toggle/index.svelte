@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DarkModeToggleProps } from '$stylist/design-system/attributes';
-	import { createDarkModeToggleState } from '../../state.svelte';
+	import { createDarkModeToggleState } from './state.svelte.ts';
 
 	let props: DarkModeToggleProps = $props();
 

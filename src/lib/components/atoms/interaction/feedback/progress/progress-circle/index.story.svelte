@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import ProgressCircle from './progress-circle/index.svelte';
+	import ProgressCircle from './index.svelte';
 
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
 	const colorOptions = [

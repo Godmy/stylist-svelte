@@ -15,7 +15,7 @@ type InputSize = (typeof INPUT_HELPER_PRESET.sizes)[number];
 
 export const createInputHelpersState = (
 	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
-) => createBaseInputState(INPUT_HELPER_PRESET as any, props);
+) => createBaseInputState(INPUT_HELPER_PRESET, props);
 
 type InputAddonVariant = Extract<(typeof INPUT_ADDON_PRESET.variants)[number], string>;
 type FormHelperVariant = Extract<(typeof FORM_HELPER_TEXT_PRESET.variants)[number], string>;

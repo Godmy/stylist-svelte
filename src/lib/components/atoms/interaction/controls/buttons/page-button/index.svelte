@@ -23,17 +23,32 @@
 	let actualVariant = $derived(props.isActive ? 'primary' : props.variant);
 	let actualDisabled = $derived(props.disabled || props.isActive);
 
+	// Extract rest props manually to avoid $$restProps in runes mode
+	let {
+		variant,
+		size,
+		disabled,
+		loading,
+		block,
+		loadingLabel,
+		children,
+		class: classProp,
+		page,
+		isActive,
+		...restProps
+	} = props;
+
 	// Use centralized state management with adjusted props
 	let state = createState(PAGE_BUTTON_PRESET, {
 		...props,
 		variant: actualVariant,
 		disabled: actualDisabled,
 		class: `${props.class ?? ''} page-button`.trim()
-	});
+	} as any);
 </script>
 
 <button
-	{...$$restProps}
+	{...restProps}
 	type={props.type ?? 'button'}
 	class={state.classes}
 	{...state.attrs}

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { SkeletonStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { ISkeletonProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * Skeleton component - displays a loading placeholder
@@ -28,10 +28,14 @@
 	const height = props.height;
 
 	// Generate the CSS class using the style manager
-	let combinedClass = $derived(SkeletonStyleManager.generateClass(variant, props.class));
+	let combinedClass = $derived(
+		mergeClasses('skeleton-container', variant ? `variant-${variant}` : '', props.class)
+	);
 
 	// Calculate dimensions
-	const defaultHeight = $derived(SkeletonStyleManager.getDefaultHeight(variant));
+	const defaultHeight = $derived(
+		variant === 'text' ? '1rem' : variant === 'circular' ? '2.5rem' : '3rem'
+	);
 	const computedHeight = $derived(height || defaultHeight);
 	const computedWidth = $derived(variant === 'circular' ? computedHeight : width);
 

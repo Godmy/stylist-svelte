@@ -2,8 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { CaptionProps } from '$stylist/design-system/attributes';
-	import { getCaptionClasses } from '$stylist/design-system/presets';
+	import type { TypographyTextProps } from '$stylist/design-system/attributes';
 	import { buildClasses } from '$stylist/utils/classes';
 	import { computeAriaLabel } from '$stylist/utils/aria';
 
@@ -18,7 +17,7 @@
 	 * @returns An accessible, styled caption element
 	 */
 
-	let props: CaptionProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TypographyTextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
@@ -26,7 +25,9 @@
 	const block = $derived(props.block ?? false);
 	const children = $derived(props.children);
 
-	const classes = $derived(getCaptionClasses(props.class ?? ''));
+	const classes = $derived(
+		`${'text-sm text-[--color-text-secondary]'} ${props.class ?? ''}`.trim()
+	);
 
 	const ariaLabel = $derived(
 		computeAriaLabel(props.ariaLabel, props as Record<string, unknown>, '')

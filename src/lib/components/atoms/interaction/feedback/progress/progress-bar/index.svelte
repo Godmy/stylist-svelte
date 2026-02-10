@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ProgressBarStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { IProgressBarProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**
 	 * ProgressBar component - Visual indicator of task completion
@@ -36,11 +36,13 @@
 	const percentage = $derived(Math.min(Math.max((value / max) * 100, 0), 100));
 
 	// Generate the CSS classes using the style manager
-	const containerClass = $derived(ProgressBarStyleManager.generateContainerClass(props.class));
-	const labelWrapperClass = $derived(ProgressBarStyleManager.generateLabelWrapperClass());
-	const labelClass = $derived(ProgressBarStyleManager.generateLabelClass());
-	const trackClass = $derived(ProgressBarStyleManager.generateTrackClass(size));
-	const fillClass = $derived(ProgressBarStyleManager.generateFillClass(size, variant));
+	const containerClass = $derived(mergeClasses('progress-bar-container', props.class));
+	const labelWrapperClass = $derived('progress-bar-label-wrapper');
+	const labelClass = $derived('progress-bar-label');
+	const trackClass = $derived(mergeClasses('progress-bar-track', `size-${size}`));
+	const fillClass = $derived(
+		mergeClasses('progress-bar-fill', `size-${size}`, `variant-${variant}`)
+	);
 	const fillStyle = $derived(`width: ${percentage}%`);
 </script>
 

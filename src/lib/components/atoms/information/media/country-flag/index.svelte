@@ -17,7 +17,7 @@
 {:else}
 	<div class={state.fallbackClasses} style={state.fallbackStyle}>
 		{#if content}
-			{@render content()}
+			{content}
 		{:else}
 			?
 		{/if}

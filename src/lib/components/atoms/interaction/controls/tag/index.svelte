@@ -3,7 +3,7 @@
 	import { X } from 'lucide-svelte';
 
 	import type { TagProps } from '$stylist/design-system/attributes';
-	import { createTagState } from '../state.svelte';
+	import { createTagState } from './state.svelte';
 
 	const dispatch = createEventDispatcher<{ close: void }>();
 

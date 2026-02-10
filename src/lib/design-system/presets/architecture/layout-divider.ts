@@ -11,6 +11,3 @@ export const getDividerLineFlexClass = (align: Alignment, side: 'left' | 'right'
 	if (side === 'right' && align === 'end') return 'flex-none w-4';
 	return 'flex-1';
 };
-
-export const getDividerLineClasses = getDividerLineClass;
-export const getDividerLineFlexClasses = getDividerLineFlexClass;

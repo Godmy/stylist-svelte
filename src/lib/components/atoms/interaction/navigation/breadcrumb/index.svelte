@@ -13,21 +13,28 @@
 	 */
 
 	import { ChevronRight } from 'lucide-svelte';
-	import { BreadcrumbStyleManager } from '$stylist/design-system/presets/interaction/interaction-presets';
 	import type { IBreadcrumbProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import { mergeClasses } from '$stylist/utils/classes';
 
 	let { items, class: className = '' }: IBreadcrumbProps = $props();
+
+	const containerClass = $derived(mergeClasses('breadcrumb-container', className));
+	const getItemClass = (current: boolean) =>
+		mergeClasses('breadcrumb-item', current ? 'current' : 'not-current');
+	const separatorClass = 'breadcrumb-separator';
+	const getLinkClass = (current: boolean) =>
+		mergeClasses('breadcrumb-link', current ? 'current' : 'not-current');
 </script>
 
-<nav aria-label="Breadcrumb" class={BreadcrumbStyleManager.getContainerClasses(className)}>
+<nav aria-label="Breadcrumb" class={containerClass}>
 	{#each items as item, i}
-		<div class={BreadcrumbStyleManager.getItemClasses(i === items.length - 1)}>
+		<div class={getItemClass(i === items.length - 1)}>
 			{#if i > 0}
-				<ChevronRight class={BreadcrumbStyleManager.getSeparatorClasses()} aria-hidden="true" />
+				<ChevronRight class={separatorClass} aria-hidden="true" />
 			{/if}
 			<a
 				href={item.href}
-				class={BreadcrumbStyleManager.getLinkClasses(i === items.length - 1)}
+				class={getLinkClass(i === items.length - 1)}
 				aria-current={i === items.length - 1 ? 'page' : undefined}
 			>
 				{item.label}
