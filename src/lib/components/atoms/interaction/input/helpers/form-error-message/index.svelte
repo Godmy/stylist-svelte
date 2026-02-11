@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FORM_ERROR_MESSAGE_PRESET } from '$stylist/design-system/presets';
+	import { FORM_ERROR_MESSAGE_PRESET } from '$stylist/design-system/classes/input';
 	import { createFormErrorMessageState } from '../state.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
@@ -13,28 +13,33 @@
 	 * @returns Accessible, styled error message for form fields
 	 */
 
-	type FormErrorVariant = (typeof FORM_ERROR_MESSAGE_PRESET.variants)[number];
+	import type { InputVariant } from '$stylist/design-system';
+	type FormErrorVariant = InputVariant;
 	type FormErrorMessageProps = {
-		variant?: FormErrorVariant;
+		variant?: (typeof FORM_ERROR_MESSAGE_PRESET.variants)[number];
 		size?: CompactSize;
 		visible?: boolean;
 		text?: string;
-		content?: () => any;
+		content?: import('svelte').Snippet;
 		class?: string;
 	};
 
 	let {
 		visible = true,
-		variant = FORM_ERROR_MESSAGE_PRESET.defaults.variant,
+		variant = 'error',
 		size = FORM_ERROR_MESSAGE_PRESET.defaults.size,
 		text = '',
 		content,
 		class: className = '',
 		...restProps
 	}: FormErrorMessageProps & HTMLAttributes<HTMLParagraphElement> = $props();
-	const state = $derived(createFormErrorMessageState({ variant, size, class: className }));
+	const formErrorState = $derived(createFormErrorMessageState({ 
+		variant: variant as FormErrorVariant, 
+		size,
+		class: className 
+	}));
 
-	let classes = $derived([state.classes].filter(Boolean).join(' '));
+	let classes = $derived([formErrorState.classes].filter(Boolean).join(' '));
 </script>
 
 {#if visible}

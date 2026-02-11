@@ -34,7 +34,7 @@
 	tags={['inline', 'annotation']}
 	{controls}
 >
-	{#snippet children(props: HighlightStoryProps)}
+	{#snippet children(props)}
 		<div class="space-y-6">
 			<p
 				class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 text-gray-800 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-100"

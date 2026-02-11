@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { INPUT_ADDON_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_ADDON_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputAddonState } from '../state.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
@@ -14,29 +14,33 @@
 	 * @returns Wrapper to add content to an input field
 	 */
 
-	type InputAddonVariant = (typeof INPUT_ADDON_PRESET.variants)[number];
+	import type { InputVariant } from '$stylist/design-system';
 	type InputAddonProps = {
 		position?: 'left' | 'right';
-		variant?: InputAddonVariant;
+		variant?: (typeof INPUT_ADDON_PRESET.variants)[number];
 		size?: CompactSize;
 		class?: string;
-		children?: () => any;
+		children?: import('svelte').Snippet;
 	};
 
 	let {
 		position = 'left',
-		variant = INPUT_ADDON_PRESET.defaults.variant,
+		variant = 'default',
 		size = INPUT_ADDON_PRESET.defaults.size,
 		class: className = '',
 		children,
 		...restProps
 	}: InputAddonProps & HTMLAttributes<HTMLDivElement> = $props();
 
-	const state = $derived(createInputAddonState({ variant, size, class: className }));
+	const inputAddonState = $derived(createInputAddonState({
+		variant,
+		size,
+		class: className
+	}));
 
 	let classes = $derived(
 		[
-			state.classes,
+			inputAddonState.classes,
 			position === 'left'
 				? 'rounded-l-md border-r border-r-transparent'
 				: 'rounded-r-md border-l border-l-transparent'

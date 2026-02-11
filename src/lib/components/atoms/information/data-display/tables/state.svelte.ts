@@ -3,7 +3,7 @@ import type {
 	TableProps,
 	TableRowProps,
 	TableSectionProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 import { TABLE_ALIGNMENT_CLASSES, TABLE_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 
@@ -78,3 +78,4 @@ export function createTableCellState(props: TableCellProps) {
 		}
 	};
 }
+

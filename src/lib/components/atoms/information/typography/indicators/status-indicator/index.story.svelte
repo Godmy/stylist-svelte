@@ -41,7 +41,7 @@
 	tags={['presence', 'status', 'indicator']}
 	{controls}
 >
-	{#snippet children(props: StatusIndicatorStoryProps)}
+	{#snippet children(props)}
 		<div class="space-y-8">
 			<div
 				class="flex items-center justify-between rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"

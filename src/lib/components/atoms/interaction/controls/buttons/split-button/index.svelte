@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
-	import type { ButtonElementProps } from '$stylist/design-system/attributes';
-	import { SPLIT_BUTTON_PRESET } from '$stylist/design-system/presets';
+	import type { ButtonElementProps } from '$stylist/design-system/props';
+	import { SPLIT_BUTTON_PRESET } from '$stylist/design-system/classes/button';
 	import { createState } from '../state.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
@@ -37,13 +37,13 @@
 	let props: ISplitButtonElementProps = $props();
 
 	// Use centralized state management for base button properties
-	let state = createState(SPLIT_BUTTON_PRESET, {
+	let buttonState = createState(SPLIT_BUTTON_PRESET, {
 		...props,
 		class: `${props.class ?? ''} split-button__button`.trim()
 	} as any);
 
 	const baseButtonClasses = $derived(
-		[state.classes, 'split-button__button'].filter(Boolean).join(' ')
+		[buttonState.classes, 'split-button__button'].filter(Boolean).join(' ')
 	);
 
 	const primaryButtonClasses = $derived(`${baseButtonClasses} rounded-r-none border-r-0`.trim());
@@ -54,14 +54,33 @@
 
 	// Extract div-specific attributes to avoid type conflicts
 	let divAttributes = $derived.by(() => {
-		const {
-			// Exclude button-specific attributes that don't apply to div
-			variant, size, disabled, loading, block, loadingLabel, children,
-			items, primaryAction, primaryLabel, type, ariaLabel,
-			// Extract only the generic HTML attributes
-			...others
-		} = props;
-		return others;
+		const allProps = props as Record<string, any>;
+		const divCompatibleProps: Record<string, any> = {};
+		
+		// List of attributes that are compatible with div elements
+		const divAllowedAttrs = [
+			'id', 'class', 'style', 'title', 'role', 'tabindex', 'hidden',
+			'data-*', 'aria-*' // wildcard patterns would be handled separately
+		];
+		
+		// Copy only the div-compatible attributes
+		for (const [key, value] of Object.entries(allProps)) {
+			// Include standard div attributes and data/aria attributes
+			if (
+				key.startsWith('data-') || 
+				key.startsWith('aria-') || 
+				![
+					'variant', 'size', 'disabled', 'loading', 'block', 'loadingLabel', 'children',
+					'items', 'primaryAction', 'primaryLabel', 'type', 'ariaLabel',
+					'onclick', 'onfocus', 'onblur', 'onkeydown', 'onkeyup', 'onmousedown', 'onmouseup',
+					'onmouseenter', 'onmouseleave', 'onsubmit', 'onreset'
+				].includes(key)
+			) {
+				divCompatibleProps[key] = value;
+			}
+		}
+		
+		return divCompatibleProps;
 	});
 
 	let isOpen = $state(false);
@@ -109,7 +128,7 @@
 		'split-button-menu__item--disabled opacity-50 cursor-not-allowed pointer-events-none';
 </script>
 
-<div {...divAttributes} class={wrapperClasses} id={buttonId}>
+<div {...(divAttributes as Record<string, any>)} class={wrapperClasses} id={buttonId}>
 	<button
 		type={props.type ?? 'button'}
 		disabled={props.disabled}
@@ -157,4 +176,5 @@
 		</div>
 	{/if}
 </div>
+
 

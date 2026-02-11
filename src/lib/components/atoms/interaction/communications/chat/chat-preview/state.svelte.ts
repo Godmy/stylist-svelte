@@ -1,4 +1,4 @@
-import type { ChatMessageStatus } from '$stylist/design-system/attributes';
+import type { ChatMessageStatus } from '$stylist/design-system/props';
 
 export type ChatPreviewMessage = {
 	text: string;
@@ -74,3 +74,4 @@ export const createChatPreviewState = (props: ChatPreviewProps) => {
 		}
 	};
 };
+

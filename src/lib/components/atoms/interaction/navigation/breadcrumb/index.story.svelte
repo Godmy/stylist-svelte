@@ -25,7 +25,7 @@
 	tags={['navigation', 'path', 'hierarchy']}
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props)}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Breadcrumb</h2>
 			<div class="mx-auto max-w-2xl">

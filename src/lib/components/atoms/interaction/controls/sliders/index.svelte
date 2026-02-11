@@ -1,37 +1,24 @@
 <script lang="ts">
-	import type { SliderTickProps } from '$stylist/design-system/attributes';
-	import { createSliderTickState } from './state.svelte.ts';
+	import type { HTMLAttributes } from 'svelte/elements';
+	import type { SliderProps } from '$stylist/design-system/props';
+	import { createSliderState } from './state';
 
-	let props: SliderTickProps = $props();
+	type Props = SliderProps & HTMLAttributes<HTMLDivElement>;
 
-	const state = createSliderTickState(props);
+	let props: Props = $props();
 
-	const content = $derived(props.content);
+	const state = createSliderState(props);
 
 	const restProps = $derived(
 		(() => {
-			const {
-				value: _value,
-				position: _position,
-				active: _active,
-				label: _label,
-				class: _class,
-				content: _content,
-				...rest
-			} = props;
+			const { class: _class, value: _value, min: _min, max: _max, step: _step, disabled: _disabled, ...rest } = props;
 			return rest;
 		})()
 	);
 </script>
 
-<div class={state.classes} style={state.style} {...restProps}>
-	{#if state.label || content}
-		<div class={state.labelContainerClasses}>
-			{#if content}
-				{@render content()}
-			{:else}
-				{state.label || state.value}
-			{/if}
-		</div>
-	{/if}
+<div class={state.containerClasses} {...restProps}>
+	<div class={state.trackClasses}>
+		<div class={state.thumbClasses} style={`left: ${state.position}%`}></div>
+	</div>
 </div>

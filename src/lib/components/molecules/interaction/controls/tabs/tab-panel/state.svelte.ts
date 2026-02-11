@@ -1,4 +1,4 @@
-import type { TabPanelProps } from '$stylist/design-system/attributes';
+import type { TabPanelProps } from '$stylist/design-system/props';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createTabPanelState = (props: TabPanelProps, selected: boolean) => {
@@ -20,3 +20,4 @@ export const createTabPanelState = (props: TabPanelProps, selected: boolean) => 
 		}
 	};
 };
+

@@ -42,13 +42,13 @@
 	tags={['status', 'label']}
 	{controls}
 >
-	{#snippet children(props: BadgeStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
 		{#snippet badgeLabel()}
-			{props.label || 'New'}
+			{(props as BadgeStoryProps).label || 'New'}
 		{/snippet}
 
 		<div class="flex flex-col gap-4">
-			<Badge variant={props.variant} size={props.size}>
+			<Badge variant={(props as BadgeStoryProps).variant} size={(props as BadgeStoryProps).size}>
 				{@render badgeLabel()}
 			</Badge>
 

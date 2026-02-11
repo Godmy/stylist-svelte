@@ -13,12 +13,12 @@
 	}
 
 	// Define sample content for the accordion panels
-	const panelContent1 = () => `<div>
+	const panelContent1 = `<div>
     <p>This is the content of the first accordion panel.</p>
     <p>You can put any content here - text, images, forms, etc.</p>
   </div>`;
 
-	const panelContent2 = () => `<div>
+	const panelContent2 = `<div>
     <p>This is the content of the second accordion panel.</p>
     <ul class="list-disc pl-5 mt-2">
       <li>Item 1</li>
@@ -27,7 +27,7 @@
     </ul>
   </div>`;
 
-	const panelContent3 = () => `<div>
+	const panelContent3 = `<div>
     <p>This is the content of the third accordion panel.</p>
     <p>It can contain complex content like forms:</p>
     <form class="mt-2">
@@ -61,17 +61,17 @@
 				{#snippet content()}
 					<AccordionItem value="item-1">
 						<AccordionHeader value="item-1">Accordion Header 1</AccordionHeader>
-						<AccordionPanel value="item-1" content={panelContent1} />
+						<AccordionPanel value="item-1">{panelContent1}</AccordionPanel>
 					</AccordionItem>
 
 					<AccordionItem value="item-2">
 						<AccordionHeader value="item-2">Accordion Header 2</AccordionHeader>
-						<AccordionPanel value="item-2" content={panelContent2} />
+						<AccordionPanel value="item-2">{panelContent2}</AccordionPanel>
 					</AccordionItem>
 
 					<AccordionItem value="item-3">
 						<AccordionHeader value="item-3">Accordion Header 3</AccordionHeader>
-						<AccordionPanel value="item-3" content={panelContent3} />
+						<AccordionPanel value="item-3">{panelContent3}</AccordionPanel>
 					</AccordionItem>
 				{/snippet}
 			</ComplexAccordion>
@@ -94,12 +94,12 @@
 				{#snippet content()}
 					<AccordionItem value="single-1">
 						<AccordionHeader value="single-1">Single Accordion 1</AccordionHeader>
-						<AccordionPanel value="single-1" content={panelContent1} />
+						<AccordionPanel value="single-1">{panelContent1}</AccordionPanel>
 					</AccordionItem>
 
 					<AccordionItem value="single-2">
 						<AccordionHeader value="single-2">Single Accordion 2</AccordionHeader>
-						<AccordionPanel value="single-2" content={panelContent2} />
+						<AccordionPanel value="single-2">{panelContent2}</AccordionPanel>
 					</AccordionItem>
 				{/snippet}
 			</ComplexAccordion>
@@ -111,12 +111,12 @@
 				{#snippet content()}
 					<AccordionItem value="multi-1">
 						<AccordionHeader value="multi-1">Multi Accordion 1</AccordionHeader>
-						<AccordionPanel value="multi-1" content={panelContent1} />
+						<AccordionPanel value="multi-1">{panelContent1}</AccordionPanel>
 					</AccordionItem>
 
 					<AccordionItem value="multi-2">
 						<AccordionHeader value="multi-2">Multi Accordion 2</AccordionHeader>
-						<AccordionPanel value="multi-2" content={panelContent2} />
+						<AccordionPanel value="multi-2">{panelContent2}</AccordionPanel>
 					</AccordionItem>
 				{/snippet}
 			</ComplexAccordion>
@@ -129,7 +129,7 @@
 			{#snippet content()}
 				<AccordionItem value="default-1">
 					<AccordionHeader value="default-1">Default Accordion Header</AccordionHeader>
-					<AccordionPanel value="default-1" content={panelContent1} />
+					<AccordionPanel value="default-1">{panelContent1}</AccordionPanel>
 				</AccordionItem>
 			{/snippet}
 		</ComplexAccordion>

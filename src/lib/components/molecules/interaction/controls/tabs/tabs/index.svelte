@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { TabsProps } from '$stylist/design-system/attributes';
+	import type { TabsProps } from '$stylist/design-system/props';
 	import { createTabsState } from './state.svelte';
 
 	let props: TabsProps = $props();
@@ -68,3 +68,4 @@
 <div {...restProps} class={tabsState.classes}>
 	{@render props.children?.()}
 </div>
+

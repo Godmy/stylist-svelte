@@ -1,8 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { State } from './accordion';
+export { AccordionHeader, AccordionHeaderDouble, AccordionItem, AccordionPanel } from './accordion';
 export { ActionSegmentedControl } from './action-segmented-control';
 export { Button, CloseButton, CopyButton, IconButton, PageButton, SplitButton } from './buttons';
-export { Chip } from './chip';
+export { Chip, State } from './chip';
 export { ProductSort } from './product-sort';
 export { Sliders } from './sliders';
 export { Tag } from './tag';

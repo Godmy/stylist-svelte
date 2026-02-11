@@ -1,4 +1,4 @@
-import type { AccordionHeaderDoubleProps } from '$stylist/design-system/attributes';
+import type { AccordionHeaderDoubleProps } from '$stylist/design-system/props';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAccordionHeaderDoubleState = (props: AccordionHeaderDoubleProps) => {
@@ -9,6 +9,7 @@ export const createAccordionHeaderDoubleState = (props: AccordionHeaderDoublePro
 		'h-4 w-4 transition-transform data-[state=open]:rotate-180'
 	);
 	return {
+		...props,
 		get classes() {
 			return classes;
 		},
@@ -17,3 +18,4 @@ export const createAccordionHeaderDoubleState = (props: AccordionHeaderDoublePro
 		}
 	};
 };
+

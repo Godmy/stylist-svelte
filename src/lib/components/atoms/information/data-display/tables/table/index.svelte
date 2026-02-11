@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TableProps } from '$stylist/design-system/attributes';
+	import type { TableProps } from '$stylist/design-system/props';
 	import { createTableState } from '../state.svelte';
 
 	let props: TableProps = $props();
@@ -14,3 +14,4 @@
 		{@render props.content()}
 	{/if}
 </table>
+

@@ -2,8 +2,8 @@
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
-	import AccordionItem from '../accordion-item';
-	import AccordionHeader from '../accordion-header';
+	import AccordionItem from '../accordion-item/index.svelte';
+	import AccordionHeader from '../accordion-header/index.svelte';
 	import AccordionPanel from './index.svelte';
 
 	let {
@@ -75,7 +75,7 @@
 </script>
 
 <Story {id} {title} {description} component={AccordionPanel} category="Atoms" {controls}>
-	{#snippet children(props: {})}
+	{#snippet children(props)}
 		<div class="p-4">
 			<div class="mb-6 rounded border p-4">
 				<h2 class="text-md mb-2 font-semibold">Interactive AccordionPanel</h2>

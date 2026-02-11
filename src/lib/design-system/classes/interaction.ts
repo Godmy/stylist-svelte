@@ -45,7 +45,13 @@ export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 		'border border-transparent hover:bg-[var(--color-neutral-200)]',
 	neutral:
 		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] ' +
-		'border border-[var(--color-neutral-300)] hover:bg-[var(--color-neutral-200)]'
+		'border border-[var(--color-neutral-300)] hover:bg-[var(--color-neutral-200)]',
+	dark:
+		'bg-[var(--color-neutral-800)] text-[var(--color-text-inverse)] ' +
+		'border border-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-700)]',
+	light:
+		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] ' +
+		'border border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-200)]'
 };
 
 // Define the actual interactive variants for the tokens
@@ -63,3 +69,49 @@ export const INTERACTION_TOKENS = {
 	SIZE_CLASSES,
 	ICON_SIZES
 } as const;
+
+export interface Preset<V extends string, S extends string> {
+	variants: readonly V[];
+	sizes: readonly S[];
+	defaults: {
+		variant: V;
+		size: S;
+		disabled: boolean;
+		block?: boolean;
+	};
+	classes: {
+		base: string;
+		size: Record<S, string>;
+		variant: Record<V, string>;
+		state: Record<string, string>;
+		focusVisible?: string;
+	};
+	loaderSize?: Record<S, string>;
+}
+
+export const createBasePreset = <V extends string, S extends string>(
+	variants: readonly V[],
+	sizes: readonly S[],
+	defaults: { variant: V; size: S }
+): Preset<V, S> => ({
+	variants,
+	sizes,
+	defaults: { ...defaults, disabled: false, block: false },
+	classes: {
+		base: 'inline-flex items-center justify-center rounded-md transition-colors',
+		focusVisible: 'focus-visible:outline-none focus-visible:ring-2',
+		size: Object.fromEntries(
+			sizes.map((s) => [
+				s,
+				s === 'sm' ? 'h-8 px-3 text-xs' : s === 'lg' ? 'h-11 px-6 text-base' : 'h-9 px-4 text-sm'
+			])
+		) as Record<S, string>,
+		variant: Object.fromEntries(
+			variants.map((v) => [v, v === 'outline' ? 'border bg-transparent' : 'bg-primary text-white'])
+		) as Record<V, string>,
+		state: { disabled: 'opacity-50 cursor-not-allowed', block: 'w-full' }
+	},
+	loaderSize: Object.fromEntries(
+		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
+	) as Record<S, string>
+});

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { InputText } from '$stylist/components/atoms';
-	import type { IInputFieldProps } from '$stylist/design-system/attributes';
+	import type { IInputFieldProps } from '$stylist/design-system/props';
 
 	/**
 	 * Enhanced Input Field component with helper text and error handling
@@ -40,3 +40,4 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+

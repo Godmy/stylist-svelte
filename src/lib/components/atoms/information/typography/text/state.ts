@@ -1,4 +1,4 @@
-import type { TextProps } from '$stylist/design-system/attributes';
+import type { TextProps } from '$stylist/design-system/props';
 import { BASE_CLASSES, STATE_CLASSES } from '$stylist/design-system/classes';
 import { TEXT_SIZES } from '$stylist/design-system/classes';
 import { VARIANT_TO_PALETTE } from '$stylist/design-system/tokens/variants';
@@ -49,3 +49,4 @@ export function createTypographyState(props: TextProps) {
 		}
 	};
 }
+

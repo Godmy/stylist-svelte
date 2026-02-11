@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { TypographyTextProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/props';
 
 	/**
 	 * Strong component - Displays bold text with various styles.
@@ -33,3 +33,4 @@
 		{@render children()}
 	{/if}
 </strong>
+

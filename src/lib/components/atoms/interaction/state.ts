@@ -1,5 +1,6 @@
-import type { ComponentStateProps } from '$stylist/design-system/attributes';
+import type { ComponentStateProps } from '$stylist/design-system/props';
 
 export const createInteractionState = (props: ComponentStateProps = {}) => ({
 	...props
 });
+

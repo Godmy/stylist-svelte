@@ -3,9 +3,12 @@
 	import { createIconCircleState } from '../state.svelte';
 
 	let props: IconCircleProps = $props();
-	const state = createIconCircleState(props);
+	// Cast to avoid type mismatch
+	const state = createIconCircleState(props as any);
 </script>
 
 <div class={state.classes}>
-	{props.icon}
+	{#if props.icon}
+		{@render props.icon()}
+	{/if}
 </div>

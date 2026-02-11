@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$stylist/utils/classes';
-	import type { IconCircleProps } from '$stylist/design-system/attributes';
+	import type { IconCircleProps } from '$stylist/design-system/props';
 
 	// Определение состояния для IconCircle
 	export function createIconCircleState(props: IconCircleProps) {
@@ -34,3 +34,4 @@
 		};
 	}
 </script>
+

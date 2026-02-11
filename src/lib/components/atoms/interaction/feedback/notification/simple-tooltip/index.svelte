@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ISimpleTooltipProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import type { ISimpleTooltipProps } from '$stylist/design-system/props';
 
 	/**
 	 * SimpleTooltip component - A tooltip overlay that displays additional information

@@ -1,6 +1,6 @@
 ﻿import { clsx } from 'clsx';
 import { twMerge as twMergeLib } from 'tailwind-merge';
-import type { Preset } from '$stylist/design-system/presets/interaction/interaction-presets';
+import type { Preset } from '$stylist/design-system/classes/interaction';
 
 export type ClassValue =
 	| string

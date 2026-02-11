@@ -7,7 +7,8 @@
 
 	let { class: className, ...restProps }: Props = $props();
 
-	const state = createIconWrapperState({ ...restProps, class: className });
+	// Cast to avoid type mismatch
+	const state = createIconWrapperState({ ...restProps, class: className } as any);
 </script>
 
 <div class={state.classes} {...restProps}>

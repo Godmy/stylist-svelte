@@ -34,7 +34,7 @@ export const APPEARANCE_STYLES = [
 
 export type AppearanceStyle = (typeof APPEARANCE_STYLES)[number];
 
-export type DefaultVariants = SemanticVariant | AppearanceStyle | NeutralVariant;
+export type DefaultVariants = SemanticVariant | AppearanceStyle | NeutralVariant | 'dark' | 'light';
 
 /**
  * Нейтральные варианты - без семантики, общего назначения
@@ -103,7 +103,8 @@ export const INPUT_VARIANTS = [
 	'filled', // Заполненный стиль (для полей ввода)
 	'outlined', // Обведенный стиль (для полей ввода)
 	...SEMANTIC_VARIANTS, // Семантические варианты также могут использоваться в полях ввода
-	...STATE_VARIANTS // Состояния также могут использоваться в полях ввода
+	...STATE_VARIANTS, // Состояния также могут использоваться в полях ввода
+	...NEUTRAL_VARIANTS // Нейтральные варианты также могут использоваться в полях ввода
 ] as const;
 
 export type InputVariant = (typeof INPUT_VARIANTS)[number];
@@ -165,3 +166,21 @@ export const CODE_BLOCK_VARIANTS = [
 ] as const;
 
 export type CodeBlockVariant = (typeof CODE_BLOCK_VARIANTS)[number];
+
+/**
+ * Варианты компоновки потока сообщений.
+ */
+export const MESSAGE_THREAD_VARIANTS = ['default', 'compact', 'spacious'] as const;
+export type MessageThreadVariant = (typeof MESSAGE_THREAD_VARIANTS)[number];
+
+/**
+ * Варианты скелетона.
+ */
+export const SKELETON_VARIANTS = ['text', 'circular', 'rectangular'] as const;
+export type SkeletonVariant = (typeof SKELETON_VARIANTS)[number];
+
+/**
+ * Варианты ячейки таблицы.
+ */
+export const TABLE_CELL_VARIANTS = ['header', 'data'] as const;
+export type TableCellVariant = (typeof TABLE_CELL_VARIANTS)[number];

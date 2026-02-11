@@ -1,18 +1,16 @@
 import type {
 	GraphEdgeProps,
-	GraphEdgeType,
 	GraphNodeProps,
 	GraphNodeSize
-} from '$stylist/design-system/attributes';
-import { ARCHITECTURE_PRESETS } from '$stylist/design-system/presets';
-import { blue } from '$stylist/design-system/tokens';
-
-const {
+} from '$stylist/design-system/props';
+import type { GraphEdgeType } from '$stylist/design-system/tokens';
+import {
 	getGraphEdgeClasses,
 	getGraphEdgeStyles,
 	getGraphNodePositionStyle,
 	getGraphNodeSizeClasses
-} = ARCHITECTURE_PRESETS.graph;
+} from '$stylist/design-system/classes/graph';
+import { blue } from '$stylist/design-system/tokens';
 
 export function createGraphEdgeState(props: GraphEdgeProps) {
 	const directed = $derived(props.directed ?? true);
@@ -43,3 +41,4 @@ export function createGraphNodeState(props: GraphNodeProps) {
 		style
 	};
 }
+

@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Props } from '$stylist/design-system/attributes';
-import type { Preset } from '$stylist/design-system/presets';
+import type { Props } from '$stylist/design-system/props';
+import type { Preset } from '$stylist/design-system/classes/interaction';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { ICON_SIZES } from '$stylist/design-system/classes';
@@ -91,3 +91,4 @@ export function createState<V extends string, S extends string>(
 		}
 	};
 }
+

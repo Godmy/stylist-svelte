@@ -35,17 +35,18 @@
 
 	let open = $state(true);
 
-	let IconComponent = $derived(
-		{
-			info: Info,
-			success: CheckCircle,
-			warning: AlertTriangle,
-			error: XCircle,
-			danger: XCircle,
-			primary: Info,
-			secondary: Info
-	}[variant]
-	);
+	// Define the icon mapping with proper typing
+	const iconMap = {
+		info: Info,
+		success: CheckCircle,
+		warning: AlertTriangle,
+		error: XCircle,
+		danger: XCircle,
+		primary: Info,
+		secondary: Info
+	} as const;
+
+	let IconComponent = $derived(iconMap[variant as keyof typeof iconMap]);
 
 	const alertClasses = $derived(
 		mergeClasses('alert-container', `variant-${variant}`, className)

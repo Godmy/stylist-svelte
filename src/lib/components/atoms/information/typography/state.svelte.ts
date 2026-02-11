@@ -16,7 +16,7 @@ import type {
 	StatusIndicatorProps,
 	StatusIndicatorWithLabelProps,
 	SyntaxHighlightedCodeProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 import {
 	ABBR_CLASSES,
 	BADGE_GROUP_CONTAINER_CLASSES,
@@ -69,11 +69,14 @@ import {
 	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES
 } from '$stylist/design-system/classes';
-import type { InlineCodeVariant, LinkVariant } from '$stylist/design-system/tokens/typography-inline';
-import type { MessageStatusType } from '$stylist/design-system/tokens/typography-indicators';
 import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 import type { CommonSize } from '$stylist/design-system/tokens/variants';
 import { cn } from '$stylist/utils/classes';
+
+type InlineCodeVariant = keyof typeof INLINE_CODE_CLASSES;
+type LinkVariant = keyof typeof LINK_VARIANT_CLASSES;
+type MessageStatusType = keyof typeof MESSAGE_STATUS_COLORS;
+type StatusIndicatorWithLabelStatus = keyof typeof STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES;
 
 interface MessageStatusProps {
 	status?: MessageStatusType;
@@ -432,7 +435,7 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 }
 
 export function createStatusIndicatorWithLabelState(props: StatusIndicatorWithLabelProps) {
-	const status = $derived(props.status ?? 'neutral');
+	const status = $derived((props.status ?? 'neutral') as StatusIndicatorWithLabelStatus);
 	const label = $derived(props.label ?? 'Status');
 	const customColor = $derived(props.customColor);
 	const size = $derived(props.size ?? 'md');
@@ -450,7 +453,7 @@ export function createStatusIndicatorWithLabelState(props: StatusIndicatorWithLa
 				? customColor
 					? `bg-[${customColor}]`
 					: 'bg-gray-500'
-				: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status as any],
+				: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status],
 			indicatorClass
 		)
 	);
@@ -696,3 +699,4 @@ export function createSyntaxHighlightedCodeState(props: SyntaxHighlightedCodePro
 		}
 	};
 }
+

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AdvancedToggleProps } from '$stylist/design-system/attributes';
+	import type { AdvancedToggleProps } from '$stylist/design-system/props';
 	import { createAdvancedToggleState } from './state.svelte';
 
 	let props: AdvancedToggleProps = $props();
@@ -36,3 +36,4 @@
 		<span class={toggleState.labelTextClasses}>{toggleState.label}</span>
 	</label>
 </div>
+

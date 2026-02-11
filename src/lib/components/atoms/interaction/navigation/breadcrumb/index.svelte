@@ -13,7 +13,7 @@
 	 */
 
 	import { ChevronRight } from 'lucide-svelte';
-	import type { IBreadcrumbProps } from '$stylist/design-system/presets/interaction/interaction-presets';
+	import type { IBreadcrumbProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let { items, class: className = '' }: IBreadcrumbProps = $props();
@@ -27,18 +27,20 @@
 </script>
 
 <nav aria-label="Breadcrumb" class={containerClass}>
-	{#each items as item, i}
-		<div class={getItemClass(i === items.length - 1)}>
-			{#if i > 0}
-				<ChevronRight class={separatorClass} aria-hidden="true" />
-			{/if}
-			<a
-				href={item.href}
-				class={getLinkClass(i === items.length - 1)}
-				aria-current={i === items.length - 1 ? 'page' : undefined}
-			>
-				{item.label}
-			</a>
-		</div>
-	{/each}
+	{#if items}
+		{#each items as item, i}
+			<div class={getItemClass(i === items.length - 1)}>
+				{#if i > 0}
+					<ChevronRight class={separatorClass} aria-hidden="true" />
+				{/if}
+				<a
+					href={item.href}
+					class={getLinkClass(i === items.length - 1)}
+					aria-current={i === items.length - 1 ? 'page' : undefined}
+				>
+					{item.label}
+				</a>
+			</div>
+		{/each}
+	{/if}
 </nav>

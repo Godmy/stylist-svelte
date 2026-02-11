@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ToggleProps } from '$stylist/design-system/attributes';
-	import { createToggleState } from '../../state.svelte';
+	import type { ToggleProps } from '$stylist/design-system/props';
+	import { createToggleState } from './state.svelte';
 
 	let props: ToggleProps = $props();
 
@@ -13,32 +13,34 @@
 		}
 	});
 
-	const toggleState = createToggleState(props);
+	const toggleComponentState = createToggleState(props);
 
-	const restProps = $derived(
-		(() => {
-			const {
-				checked: _checked,
-				disabled: _disabled,
-				toggleSize: _toggleSize,
-				class: _class,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+	// Extract only HTML-compatible props for the input element
+	let htmlProps = $state({});
+	$effect(() => {
+		const {
+			checked: _checked,
+			disabled: _disabled,
+			toggleSize: _toggleSize,
+			class: _class,
+			size: _size, // Exclude custom size prop to avoid conflict with HTML size attribute
+			...filteredProps
+		} = props;
+		htmlProps = filteredProps;
+	});
 </script>
 
-<div class={toggleState.containerClasses}>
+<div class={toggleComponentState.containerClasses}>
 	<input
 		type="checkbox"
 		bind:checked
-		disabled={toggleState.disabled}
-		class={toggleState.inputClasses}
-		{...restProps}
+		disabled={toggleComponentState.disabled}
+		class={toggleComponentState.inputClasses}
+		{...htmlProps}
 	/>
 
-	<div class={toggleState.trackClasses} class:opacity-50={toggleState.disabledClass}>
-		<div class={toggleState.thumbClasses}></div>
+	<div class={toggleComponentState.trackClasses} class:opacity-50={toggleComponentState.disabledClass}>
+		<div class={toggleComponentState.thumbClasses}></div>
 	</div>
 </div>
+

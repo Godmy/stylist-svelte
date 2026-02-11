@@ -1,4 +1,4 @@
-import type { ProductSortProps } from '$stylist/design-system/attributes';
+import type { ProductSortProps } from '$stylist/design-system/props';
 import { INPUT_BASE_CLASS } from '$stylist/design-system/classes';
 import {
 	BASE_LABEL_CLASSES,
@@ -41,3 +41,4 @@ export function createProductSortState(props: ProductSortProps) {
 		}
 	};
 }
+

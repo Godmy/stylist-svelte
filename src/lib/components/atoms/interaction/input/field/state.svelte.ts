@@ -1,6 +1,16 @@
-import { createInputState as createBaseInputState } from '$stylist/design-system/factory/interaction/input-factory';
-import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
-import type { InputStateOptions } from '$stylist/design-system/presets';
+import { createInputState as createBaseInputState } from '$stylist/design-system/state/input';
+import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
+
+type InputStateOptions<V extends string, S extends string> = {
+	variant?: V;
+	size?: S;
+	disabled?: boolean;
+	loading?: boolean;
+	error?: boolean;
+	block?: boolean;
+	class?: string;
+	ariaLabel?: string;
+};
 
 type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
 type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];

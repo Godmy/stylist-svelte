@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { ToggleGroupItemProps } from '$stylist/design-system/attributes';
+	import type { ToggleGroupItemProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let props: ToggleGroupItemProps = $props();
@@ -51,3 +51,4 @@
 <button class={classes} disabled={itemDisabled} onclick={handleClick} type="button" {...restProps}>
 	{@render props.children?.()}
 </button>
+

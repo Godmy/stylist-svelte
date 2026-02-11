@@ -2,7 +2,7 @@
 	import PinInputDigit from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { InputProps } from '$stylist/design-system/attributes';
+	import type { InputProps } from '$stylist/design-system/props';
 
 	type Props = InputProps &
 		Omit<HTMLInputAttributes, 'size'> & {
@@ -32,10 +32,16 @@
 	const props: Props = {
 		label: 'Digit',
 		id: 'pin-input-digit', // id is always a string
-		type: 'text'
+		type: 'text',
+		min: 0,
+		max: 9,
+		value: '',
+		focused: false,
+		invalid: false
 	};
 </script>
 
 <div class="flex justify-center p-4">
 	<PinInputDigit {...props} />
 </div>
+

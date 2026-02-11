@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { AccordionItemProps } from '$stylist/design-system/attributes';
+	import type { AccordionItemProps } from '$stylist/design-system/props';
 	import { createAccordionItemState } from '../state.svelte';
 
 	type Props = AccordionItemProps & HTMLAttributes<HTMLDivElement>;
@@ -29,3 +29,4 @@
 <div {...restProps} id={uniqueId} class={state.classes}>
 	{@render props.children?.()}
 </div>
+

@@ -31,7 +31,7 @@
 	tags={['typography', 'content', 'a11y']}
 	{controls}
 >
-	{#snippet children(props: AbbrStoryProps)}
+	{#snippet children(props)}
 		<div class="space-y-6">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"

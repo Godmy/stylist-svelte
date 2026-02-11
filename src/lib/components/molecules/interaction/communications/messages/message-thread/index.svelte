@@ -3,7 +3,8 @@
 	import { Avatar } from '$stylist/components/atoms';
 	import { Check, CheckCheck } from 'lucide-svelte';
 
-	import type { MessageThreadProps } from '../state.svelte';
+	import type { MessageThreadProps } from '$stylist/design-system/props';
+	import { createMessageThreadState } from './state.svelte';
 	import {
 		DEFAULT_CHAT_MESSAGE_VARIANT,
 		getChatMessageAlignmentClass,
@@ -11,8 +12,7 @@
 		getChatMessageFooterClasses,
 		getChatMessageHeaderClasses,
 		getChatMessageStatusIconClasses
-	} from '$stylist/design-system/presets';
-	import { createMessageThreadState } from '../state.svelte';
+	} from '$stylist/design-system/classes/chat';
 
 	type Props = MessageThreadProps & HTMLAttributes<HTMLDivElement>;
 
@@ -96,3 +96,4 @@
 		{/if}
 	</div>
 </div>
+

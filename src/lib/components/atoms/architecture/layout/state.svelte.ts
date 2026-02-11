@@ -6,7 +6,7 @@ import type {
 	GridLayoutProps,
 	HorizontalLayoutProps,
 	SpacerProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 import {
 	getAspectRatioClasses,
 	getContainerClasses,
@@ -18,7 +18,7 @@ import {
 	getHorizontalLayoutClasses,
 	getSpacerClasses,
 	getSpacerSize
-} from '$stylist/design-system/presets';
+} from '$stylist/design-system/classes/layout';
 
 type DividerOrientation = 'horizontal' | 'vertical';
 type DividerAlign = 'start' | 'center' | 'end';
@@ -110,3 +110,4 @@ export function createSpacerState(props: SpacerProps) {
 		classes
 	};
 }
+

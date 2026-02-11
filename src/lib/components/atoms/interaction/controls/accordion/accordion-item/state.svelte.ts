@@ -1,4 +1,4 @@
-import type { AccordionItemProps } from '$stylist/design-system/attributes';
+import type { AccordionItemProps } from '$stylist/design-system/props';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAccordionItemState = (props: AccordionItemProps) => {
@@ -9,3 +9,4 @@ export const createAccordionItemState = (props: AccordionItemProps) => {
 		}
 	};
 };
+

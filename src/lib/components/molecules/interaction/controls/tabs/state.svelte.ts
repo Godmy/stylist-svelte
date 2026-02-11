@@ -1,5 +1,4 @@
-import type { TabProps } from '$stylist/design-system/attributes';
-import type { TabVariant } from '$stylist/design-system/tokens/tabs';
+import type { TabProps } from '$stylist/design-system/props';
 import {
 	DISABLED_CLASSES,
 	TAB_ACTIVE_CLASSES,
@@ -10,6 +9,9 @@ import {
 } from '$stylist/design-system/classes';
 import { mergeClasses } from '$stylist/utils/classes';
 
+type TabVariant = keyof typeof TAB_VARIANT_CLASSES;
+type TabSize = keyof typeof TAB_SIZE_CLASSES;
+
 export function createTabState(props: TabProps) {
 	const variant = $derived(props.variant ?? 'primary');
 	const size = $derived(props.size ?? 'md');
@@ -18,7 +20,7 @@ export function createTabState(props: TabProps) {
 	const classes = $derived(
 		mergeClasses(
 			TAB_BASE_CLASSES,
-			TAB_SIZE_CLASSES[size as 'sm' | 'md' | 'lg'],
+			TAB_SIZE_CLASSES[size as TabSize],
 			TAB_VARIANT_CLASSES[variant as TabVariant],
 			isSelected ? TAB_ACTIVE_CLASSES : TAB_INACTIVE_CLASSES,
 			disabled ? DISABLED_CLASSES : '',
@@ -44,3 +46,4 @@ export function createTabState(props: TabProps) {
 		}
 	};
 }
+

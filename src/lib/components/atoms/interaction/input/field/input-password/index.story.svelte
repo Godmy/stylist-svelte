@@ -2,7 +2,7 @@
 	import PasswordInput from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { InputProps } from '$stylist/design-system/attributes';
+	import type { InputProps } from '$stylist/design-system/props';
 
 	type Props = InputProps &
 		Omit<HTMLInputAttributes, 'size'> & {
@@ -57,9 +57,22 @@
 		{ name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
 	];
 
-	const props: Props = {};
+	const props: Props = {
+		label: 'Password',
+		id: 'password-input',
+		name: 'password',
+		type: 'password',
+		value: 'Secret#123',
+		placeholder: 'Введите пароль',
+		disabled: false,
+		required: true,
+		error: false,
+		helpText: 'Must contain 8+ characters, number and symbol.',
+		class: ''
+	};
 </script>
 
 <div class="p-4">
 	<PasswordInput {...props} />
 </div>
+

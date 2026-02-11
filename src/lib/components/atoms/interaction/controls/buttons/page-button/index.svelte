@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { PageButtonProps } from '$stylist/design-system/attributes';
-	import { PAGE_BUTTON_PRESET } from '$stylist/design-system/presets';
+	import type { PageButtonProps } from '$stylist/design-system/props';
+	import { PAGE_BUTTON_PRESET } from '$stylist/design-system/classes/button';
 	import { createState } from '../state.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
@@ -39,12 +39,12 @@
 	} = props;
 
 	// Use centralized state management with adjusted props
-	let state = createState(PAGE_BUTTON_PRESET, {
+	let state = $derived(createState(PAGE_BUTTON_PRESET, {
 		...props,
 		variant: actualVariant,
 		disabled: actualDisabled,
 		class: `${props.class ?? ''} page-button`.trim()
-	} as any);
+	} as any));
 </script>
 
 <button
@@ -63,3 +63,4 @@
 		{props.page}
 	{/if}
 </button>
+

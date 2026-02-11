@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputFieldState } from '../state.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/attributes';
+	import type { IInputProps } from '$stylist/design-system/props';
 
 	/**
 	 * PasswordInput component - displays a password input field with visibility toggle
@@ -116,3 +116,4 @@
 		</p>
 	{/if}
 </div>
+

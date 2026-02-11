@@ -14,7 +14,7 @@
 
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import type { IBreadcrumbLinkProps } from '$stylist/design-system/attributes';
+	import type { IBreadcrumbLinkProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let { current = false, href, children, ...restProps }: IBreadcrumbLinkProps = $props();
@@ -33,3 +33,4 @@
 		{@render children?.()}
 	</a>
 {/if}
+

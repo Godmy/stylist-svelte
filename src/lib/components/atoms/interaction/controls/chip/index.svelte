@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte';
-	import type { ChipProps } from '$stylist/design-system/attributes';
-	import { createChipState } from './state.svelte.ts';
+	import type { ChipProps } from '$stylist/design-system/props';
+	import { createChipState } from './state';
 
 	let props: ChipProps = $props();
 
@@ -38,3 +38,4 @@
 		</button>
 	{/if}
 </div>
+

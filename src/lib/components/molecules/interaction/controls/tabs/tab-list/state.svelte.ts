@@ -1,4 +1,4 @@
-import type { TabContainerProps } from '$stylist/design-system/attributes';
+import type { TabContainerProps } from '$stylist/design-system/props';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createTabListState = (props: TabContainerProps) => {
@@ -15,3 +15,4 @@ export const createTabListState = (props: TabContainerProps) => {
 		}
 	};
 };
+

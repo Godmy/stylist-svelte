@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { IconButtonProps } from '$stylist/design-system/attributes';
-	import { ICON_BUTTON_PRESET } from '$stylist/design-system/presets';
+	import type { IconButtonProps } from '$stylist/design-system/props';
+	import { ICON_BUTTON_PRESET } from '$stylist/design-system/classes/button';
 	import { createState } from '../state.svelte';
 
 	/**
@@ -52,3 +52,4 @@
 		{@render props.children()}
 	{/if}
 </button>
+

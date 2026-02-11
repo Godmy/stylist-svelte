@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ActionSegmentedControlProps } from '$stylist/design-system/attributes';
+	import type { ActionSegmentedControlProps } from '$stylist/design-system/props';
 
 	export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
 		const items = $derived(props.items);
@@ -63,3 +63,4 @@
 		</button>
 	{/each}
 </div>
+

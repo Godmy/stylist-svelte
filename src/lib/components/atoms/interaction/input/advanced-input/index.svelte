@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputState } from '../state.svelte';
 
 	/**

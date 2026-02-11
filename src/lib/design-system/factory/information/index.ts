@@ -1,2 +1,17 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createInformationPreset } from './root-factory';
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
+import type { FactoryPreset } from '../factory-types';
+
+export function createInformationPreset(
+	base: FactoryPreset,
+	override: Partial<FactoryPreset> = {}
+): FactoryPreset {
+	return {
+		...base,
+		...override,
+		classes: {
+			...(base.classes ?? {}),
+			...(override.classes ?? {})
+		}
+	};
+}

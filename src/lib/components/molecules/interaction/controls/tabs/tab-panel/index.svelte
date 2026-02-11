@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { TabPanelProps } from '$stylist/design-system/attributes';
+	import type { TabPanelProps } from '$stylist/design-system/props';
 	import { createTabPanelState } from './state.svelte';
 
 	let props: TabPanelProps = $props();
@@ -27,3 +27,4 @@
 <div {...restProps} id={panelId} role="tabpanel" aria-labelledby={tabId} class={state.classes}>
 	{@render props.children?.()}
 </div>
+

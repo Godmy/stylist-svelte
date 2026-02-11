@@ -3,7 +3,7 @@
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
 import ToggleGroupItem from './index.svelte';
-import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/toggles/toggle-group-root';
+import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/toggles/toggle-group-root/index.svelte';
 
 	let {
 		id = '',
@@ -22,7 +22,7 @@ import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/
 </script>
 
 <Story {id} {title} {description} component={ToggleGroupItem} category="Molecules" {controls}>
-	{#snippet children(props: { disabled?: boolean })}
+	{#snippet children(props)}
 		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
 			<div
 				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"

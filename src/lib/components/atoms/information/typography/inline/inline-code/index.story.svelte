@@ -28,7 +28,7 @@
 	tags={['code', 'syntax', 'highlighting', 'inline']}
 	{controls}
 >
-	{#snippet children(props: InlineCodeStoryProps)}
+	{#snippet children(props)}
 		<div>
 			This is an example of <InlineCode variant={props.variant}>inline code</InlineCode> styling.
 		</div>

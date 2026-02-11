@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import Switch from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import type { SwitchProps } from '$stylist/design-system/attributes';
+	import type { SwitchProps } from '$stylist/design-system/props';
 
 	let {
 		id = '',
@@ -27,14 +27,15 @@
 </script>
 
 <Story {id} {title} {description} component={Switch} category="Atoms" {controls}>
-	{#snippet children(props: SwitchProps)}
+	{#snippet children(props)}
 		<Switch
 			id={switchId}
-			label={props.label}
-			description={props.description}
-			size={props.size}
-			disabled={props.disabled}
-			required={props.required}
+			label={props.label ?? 'Enable notifications'}
+			description={props.description ?? 'Receive email notifications'}
+			size={props.size ?? 'md'}
+			disabled={props.disabled ?? false}
+			required={props.required ?? false}
 		/>
 	{/snippet}
 </Story>
+

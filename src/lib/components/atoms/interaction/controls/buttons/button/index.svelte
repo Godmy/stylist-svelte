@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonElementProps } from '$stylist/design-system/attributes';
-	import { BUTTON_PRESET } from '$stylist/design-system/presets';
+	import type { ButtonElementProps } from '$stylist/design-system/props';
+	import { BUTTON_PRESET } from '$stylist/design-system/classes/button';
 	import { createState } from '../state.svelte';
 
 	/**
@@ -48,3 +48,4 @@
 		{props.loadingLabel ?? 'Loading...'}
 	{/if}
 </button>
+

@@ -64,7 +64,7 @@
 	tags={['typography', 'blockquote', 'content']}
 	{controls}
 >
-	{#snippet children(props: BlockquoteStoryProps)}
+	{#snippet children(props)}
 		<div class="space-y-8">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/30"

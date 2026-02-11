@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { TabIndicatorProps } from '$stylist/design-system/attributes';
-	import { createTabIndicatorState } from './state.svelte.ts';
+	import type { TabIndicatorProps } from '$stylist/design-system/props';
+	import { createTabIndicatorState } from './state';
 
 	let props: TabIndicatorProps = $props();
 
@@ -29,3 +29,4 @@
 	aria-hidden="true"
 	{...restProps}
 ></div>
+

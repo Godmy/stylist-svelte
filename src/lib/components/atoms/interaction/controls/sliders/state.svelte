@@ -1,17 +1,67 @@
 <script lang="ts">
 	import { cn } from '$stylist/utils/classes';
-	import type { SliderTickProps } from '$stylist/design-system/attributes';
+	import type { SliderProps } from '$stylist/design-system/props';
 
-	// Определение состояния для SliderTick
-	export function createSliderTickState(props: SliderTickProps) {
-		const classes = $derived(cn('slider-tick', props.active ? 'active' : '', props.class));
+	// Определение состояния для Slider
+	export function createSliderState(props: SliderProps) {
+		const min = props.min ?? 0;
+		const max = props.max ?? 100;
+		const value = props.value ?? min;
+		
+		// Calculate position as percentage
+		const position = $derived<number>(() => {
+			if (max <= min) return 0;
+			return ((value - min) / (max - min)) * 100;
+		});
+
+		const containerClasses = $derived(
+			cn(
+				'slider-container',
+				props.disabled ? 'disabled' : '',
+				props.class
+			)
+		);
+
+		const trackClasses = $derived(
+			cn(
+				'slider-track',
+				'w-full h-2 bg-[var(--color-border-primary)] rounded-full relative'
+			)
+		);
+
+		const thumbClasses = $derived(
+			cn(
+				'slider-thumb',
+				'absolute top-1/2 transform -translate-y-1/2 w-5 h-5 bg-[var(--color-primary-500)] rounded-full cursor-pointer',
+				props.disabled ? 'cursor-not-allowed opacity-50' : ''
+			)
+		);
 
 		return {
-			classes,
-			value: props.value,
-			position: props.position,
-			active: props.active,
-			label: props.label
+			get position() {
+				return position;
+			},
+			get containerClasses() {
+				return containerClasses;
+			},
+			get trackClasses() {
+				return trackClasses;
+			},
+			get thumbClasses() {
+				return thumbClasses;
+			},
+			get value() {
+				return value;
+			},
+			get min() {
+				return min;
+			},
+			get max() {
+				return max;
+			},
+			get disabled() {
+				return props.disabled ?? false;
+			}
 		};
 	}
 </script>

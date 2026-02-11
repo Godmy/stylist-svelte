@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext, onDestroy, onMount } from 'svelte';
-	import type { TabProps } from '$stylist/design-system/attributes';
+	import type { TabProps } from '$stylist/design-system/props';
 	import { createTabState } from '../state.svelte';
 
 	let props: TabProps = $props();
@@ -72,3 +72,4 @@
 >
 	{@render props.children?.()}
 </button>
+

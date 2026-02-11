@@ -1,4 +1,4 @@
-import type { TabsProps } from '$stylist/design-system/attributes';
+import type { TabsProps } from '$stylist/design-system/props';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createTabsState = (props: TabsProps) => {
@@ -24,3 +24,4 @@ export const createTabsState = (props: TabsProps) => {
 		}
 	};
 };
+

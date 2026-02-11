@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export * from './notification';
+export { NotificationBadge } from './notification';

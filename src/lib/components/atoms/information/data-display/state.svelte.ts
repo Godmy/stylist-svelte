@@ -4,9 +4,9 @@ import type {
 	NpmBadgeProps,
 	NumberFlowProps,
 	PieChartProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 import { NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES } from '$stylist/design-system/classes';
-import { NPM_BADGE_LABELS } from '$stylist/design-system/tokens';
+import { BADGE_LABELS } from '$stylist/design-system/tokens';
 import { cn } from '$stylist/utils/classes';
 
 const formatAnimatedValue = (
@@ -103,7 +103,7 @@ export function createColorSwatchState(props: ColorSwatchProps) {
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);
 	const className = $derived(cn(props.class));
-	const label = $derived(props.label ?? NPM_BADGE_LABELS[type]);
+	const label = $derived(props.label ?? BADGE_LABELS[type]);
 	const classes = $derived(
 		cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className)
 	);
@@ -158,3 +158,4 @@ export function createNumberFlowState(props: NumberFlowProps) {
 		}
 	};
 }
+

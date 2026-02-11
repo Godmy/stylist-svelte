@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Tab, TabIndicator, TabList, TabPanel, TabPanels, Tabs } from './interaction';
+export { AccordionComplex, MessageThread, NotificationBadge, PictureToolbar, RadioButtonGroup, State, Tab, TabIndicator, TabList, TabPanel, TabPanels, Tabs, ToggleGroupRoot } from './interaction';
 
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 

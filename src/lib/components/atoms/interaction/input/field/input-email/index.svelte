@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputFieldState } from '../state.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/attributes';
+	import type { IInputProps } from '$stylist/design-system/props';
 
 	/**
 	 * EmailInput component - displays an email input field
@@ -67,3 +67,4 @@
 		</p>
 	{/if}
 </div>
+

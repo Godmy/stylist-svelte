@@ -32,7 +32,7 @@
 	tags={['indicator', 'counter', 'notifications']}
 	{controls}
 >
-	{#snippet children(props: CountBadgeStoryProps)}
+	{#snippet children(props)}
 		<div class="space-y-8">
 			<div
 				class="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"

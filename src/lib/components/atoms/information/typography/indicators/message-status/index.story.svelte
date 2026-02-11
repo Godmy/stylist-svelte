@@ -36,7 +36,7 @@
 	tags={['indicator', 'message', 'status']}
 	{controls}
 >
-	{#snippet children(props: MessageStatusStoryProps)}
+	{#snippet children(props)}
 		<div class="flex items-center space-x-2">
 			<span>Message Status:</span>
 			<MessageStatus status={props.status} size={props.size} />

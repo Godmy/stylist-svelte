@@ -2,7 +2,7 @@ import type {
 	ChatMessageProps,
 	MessageInputProps,
 	MessageThreadProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 
 const DEFAULT_MESSAGE_INPUT_PLACEHOLDER = 'Type a message...';
 const DEFAULT_MESSAGE_INPUT_DISABLED = false;
@@ -18,7 +18,7 @@ export type {
 	MessageInputProps,
 	MessageThreadMessage,
 	MessageThreadProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 
 export const createMessageInputState = (props: MessageInputProps) => {
 	const disabled = $derived(props.disabled ?? DEFAULT_MESSAGE_INPUT_DISABLED);
@@ -162,3 +162,4 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 		}
 	};
 };
+

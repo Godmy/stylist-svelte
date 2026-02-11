@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { RadioButtonGroupProps } from '$stylist/design-system/attributes';
-	import { createRadioButtonGroupState } from './state.svelte.ts';
+	import type { RadioButtonGroupProps } from '$stylist/design-system/props';
+	import { createRadioButtonGroupState } from './state.svelte';
 
 	let props: RadioButtonGroupProps = $props();
 
@@ -24,29 +24,82 @@
 		props.onChange?.(optionValue);
 	}
 
-	const restProps = $derived(
-		(() => {
-			const {
-				options: _options,
-				value: _value,
-				name: _name,
-				disabled: _disabled,
-				required: _required,
-				orientation: _orientation,
-				class: _class,
-				optionClass: _optionClass,
-				labelClass: _labelClass,
-				radioClass: _radioClass,
-				onInput: _onInput,
-				onChange: _onChange,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+	// Extract only HTML-compatible props for the container div
+	const htmlProps = $derived((() => {
+		const {
+			// Component-specific props (exclude from HTML element)
+			options: _options,
+			value: _value,
+			name: _name,
+			disabled: _disabled,
+			required: _required,
+			orientation: _orientation,
+			class: _class,
+			optionClass: _optionClass,
+			labelClass: _labelClass,
+			radioClass: _radioClass,
+			oninput: _oninput,
+			onchange: _onchange,
+			// Svelte-specific attributes that shouldn't go on div
+			color: _color,
+			hidden: _hidden,
+			children: _children,
+			accesskey: _accesskey,
+			autocapitalize: _autocapitalize,
+			autocomplete: _autocomplete,
+			autofocus: _autofocus,
+			disable: _disable,  // Note: this might be a typo for disabled
+			form: _form,
+			// Add other props that shouldn't be spread to div
+			// Input-specific attributes
+			accept: _accept,
+			alt: _alt,
+			checked: _checked,
+			dirname: _dirname,
+			for: _for,
+			height: _height,
+			lang: _lang,
+			list: _list,
+			max: _max,
+			maxlength: _maxlength,
+			min: _min,
+			minlength: _minlength,
+			multiple: _multiple,
+			pattern: _pattern,
+			placeholder: _placeholder,
+			readonly: _readonly,
+			rel: _rel,
+			src: _src,
+			step: _step,
+			tabindex: _tabindex,
+			title: _title,
+			width: _width,
+			// Event handlers that don't apply to div
+			onblur: _onblur,
+			onfocus: _onfocus,
+			onchange: _onchange2,
+			oninput: _oninput2,
+			onkeydown: _onkeydown,
+			onkeypress: _onkeypress,
+			onkeyup: _onkeyup,
+			onmousedown: _onmousedown,
+			onmouseenter: _onmouseenter,
+			onmouseleave: _onmouseleave,
+			onmousemove: _onmousemove,
+			onmouseout: _onmouseout,
+			onmouseover: _onmouseover,
+			onmouseup: _onmouseup,
+			// More attributes that don't belong on div
+			...filteredProps
+		} = {
+			// Include all props from the original object
+			...props
+		};
+		return filteredProps;
+	})());
 </script>
 
-<div class={radioGroupState.containerClass} {...restProps}>
+<div class={radioGroupState.containerClass} {...htmlProps}>
 	{#each radioGroupState.options as option}
 		<label class={radioGroupState.getOptionClass(!!option.disabled)}>
 			<input
@@ -64,3 +117,4 @@
 		</label>
 	{/each}
 </div>
+

@@ -1,29 +1,19 @@
 <script lang="ts">
 	import { Button, InputText } from '$stylist/components/atoms';
-	import type { IInputGroupProps } from '$stylist/design-system/attributes';
+	import type { IInputGroupProps } from '$stylist/design-system/props';
 	import { createInputGroupState } from '../state.svelte';
 	import { createEventDispatcher } from 'svelte';
 
-	let {
-		id = '',
-		label = '',
-		value = $bindable<string>(),
-		placeholder = '',
-		disabled = false,
-		buttonLabel = '',
-		buttonVariant = 'primary',
-		buttonDisabled = false,
-		class: className = '',
-		onButtonClick = () => {}
-	}: IInputGroupProps = $props();
+	let props: IInputGroupProps = $props();
+	let value = $state(props.value ?? '');
 
 	const dispatch = createEventDispatcher();
 
 	// Track value changes to dispatch events
-	let previousValue = $state(value);
+	let previousValue = $state(props.value ?? '');
 
 	$effect(() => {
-		if (previousValue !== value && previousValue !== undefined) {
+		if (previousValue !== value) {
 			dispatch('input', { value });
 			dispatch('change', { value });
 		}
@@ -31,25 +21,42 @@
 	});
 
 	function handleClick() {
-		if (!buttonDisabled) {
-			onButtonClick();
+		if (!(props.buttonDisabled ?? false)) {
+			props.onButtonClick?.();
 		}
 	}
 
-	const state = $derived(createInputGroupState(className));
-	let containerClasses = $derived(state.containerClasses);
-	let inputClasses = $derived(state.inputClasses);
-	let buttonClasses = $derived(state.buttonClasses);
+	const inputGroupState = $derived(createInputGroupState(props.class ?? ''));
+	let containerClasses = $derived(inputGroupState.containerClasses);
+	let inputClasses = $derived(inputGroupState.inputClasses);
+	let buttonClasses = $derived(inputGroupState.buttonClasses);
 </script>
 
 <div class={containerClasses}>
-	<InputText {id} {label} bind:value {placeholder} {disabled} class={inputClasses} />
+	<InputText
+		id={props.id}
+		{...(props.label ? { label: props.label } : {})}
+		{...(props.placeholder ? { placeholder: props.placeholder } : {})}
+		value={value}
+		on:input={(e) => {
+			const target = e.currentTarget as HTMLInputElement;
+			value = target.value;
+			dispatch('input', { value });
+		}}
+		on:change={(e) => {
+			const target = e.currentTarget as HTMLInputElement;
+			dispatch('change', { value: target.value });
+		}}
+		disabled={props.disabled}
+		class={inputClasses}
+	/>
 	<Button
-		variant={buttonVariant}
-		disabled={buttonDisabled}
+		variant={props.buttonVariant ?? 'primary'}
+		disabled={props.buttonDisabled}
 		class={buttonClasses}
 		onclick={handleClick}
 	>
-		{buttonLabel}
+		{props.buttonLabel}
 	</Button>
 </div>
+

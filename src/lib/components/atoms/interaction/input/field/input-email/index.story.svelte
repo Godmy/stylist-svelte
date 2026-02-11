@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import EmailInput from './index.svelte';
-	import type { InputProps } from '$stylist/design-system/attributes';
+	import type { InputProps } from '$stylist/design-system/props';
 
 	type Props = Omit<InputProps, 'variant' | 'size'> & {
 		label: string;
 		id: string;
 		name: string;
-		type: string;
+		type?: string;
 		value?: string;
 		placeholder?: string;
 		disabled?: boolean;
@@ -64,3 +64,4 @@
 <div class="p-4">
 	<EmailInput {...props} />
 </div>
+

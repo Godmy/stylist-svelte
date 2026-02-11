@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$stylist/utils/classes';
-	import type { IconWrapperProps } from '$stylist/design-system/attributes';
+	import type { IconWrapperProps } from '$stylist/design-system/props';
 
 	// Определение состояния для IconWrapper
 	export function createIconWrapperState(props: IconWrapperProps) {
@@ -37,3 +37,4 @@
 		};
 	}
 </script>
+

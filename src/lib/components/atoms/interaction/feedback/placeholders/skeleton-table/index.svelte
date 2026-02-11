@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ITableSkeletonProps } from '$stylist/design-system/attributes';
+	import type { ITableSkeletonProps } from '$stylist/design-system/props';
 
 	/**
 	 * TableSkeleton component - displays a table loading placeholder
@@ -64,3 +64,4 @@
 		</tbody>
 	</table>
 </div>
+

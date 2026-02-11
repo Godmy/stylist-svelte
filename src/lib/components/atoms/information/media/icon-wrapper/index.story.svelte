@@ -2,7 +2,7 @@
 	import IconWrapper from './index.svelte';
 
 	let size: 'sm' | 'md' | 'lg' = 'md';
-	let variant: 'solid' | 'outline' | 'ghost' = 'solid';
+	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'default' | 'neutral' | 'dark' | 'light' = 'primary';
 	let shape: 'circle' | 'square' | 'rounded' = 'circle';
 	let color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'primary';
 </script>
@@ -23,9 +23,16 @@
 		<label class="flex items-center gap-2">
 			<span class="text-sm">Variant</span>
 			<select bind:value={variant} class="rounded border p-1">
-				<option value="solid">Solid</option>
-				<option value="outline">Outline</option>
-				<option value="ghost">Ghost</option>
+				<option value="primary">Primary</option>
+				<option value="secondary">Secondary</option>
+				<option value="success">Success</option>
+				<option value="warning">Warning</option>
+				<option value="danger">Danger</option>
+				<option value="info">Info</option>
+				<option value="default">Default</option>
+				<option value="neutral">Neutral</option>
+				<option value="dark">Dark</option>
+				<option value="light">Light</option>
 			</select>
 		</label>
 

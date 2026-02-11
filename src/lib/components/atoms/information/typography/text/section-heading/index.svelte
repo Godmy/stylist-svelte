@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { TypographyTextProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/props';
 
 	/**
 	 * SectionHeading component - Displays a section heading text with various levels and styles.
@@ -33,3 +33,4 @@
 		{@render children()}
 	{/if}
 </h1>
+

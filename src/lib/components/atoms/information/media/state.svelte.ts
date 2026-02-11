@@ -1,7 +1,7 @@
 import type {
 	AnnouncementBannerProps,
 	ImageWithCaptionProps
-} from '$stylist/design-system/attributes';
+} from '$stylist/design-system/props';
 import {
 	ANNOUNCEMENT_BANNER_CLASSES,
 	IMAGE_WITH_CAPTION_CLASSES,
@@ -12,14 +12,9 @@ import {
 	TOKEN_ICON_WRAPPER_PADDING_CLASSES,
 	TOKEN_ICON_WRAPPER_SHAPE_CLASSES
 } from '$stylist/design-system/classes';
-import type {
-	TokenIconChevronSize,
-	TokenIconCircleVariant,
-	TokenIconWrapperShape,
-	TokenIconWrapperSize,
-	TokenIconWrapperVariant
-} from '$stylist/design-system/tokens/icons';
-import type { CommonSize, ColorVariant } from '$stylist/design-system/tokens/variants';
+import type { IconWrapperShape } from '$stylist/design-system/tokens/shapes';
+import type { ExtendedSize } from '$stylist/design-system/tokens/sizes';
+import type { CommonSize, ColorVariant, DefaultVariants } from '$stylist/design-system/tokens/variants';
 import { cn } from '$stylist/utils/classes';
 
 const resolveCountryFlagEmoji = (code = '') => {
@@ -37,6 +32,14 @@ const getFaviconUrl = (url?: string) => {
 		return null;
 	}
 };
+
+type TokenIconChevronSize = ExtendedSize;
+type TokenIconSize = ExtendedSize;
+type TokenIconCircleVariant = DefaultVariants;
+type TokenIconVariant = DefaultVariants;
+type TokenIconWrapperSize = ExtendedSize;
+type TokenIconWrapperVariant = DefaultVariants;
+type TokenIconWrapperShape = IconWrapperShape;
 
 interface IconChevronProps {
 	isOpen?: boolean;
@@ -319,3 +322,4 @@ export function createAnnouncementBannerState(props: AnnouncementBannerProps) {
 		}
 	};
 }
+

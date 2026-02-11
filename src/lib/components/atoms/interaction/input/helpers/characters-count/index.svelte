@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CHARACTER_COUNT_PRESET } from '$stylist/design-system/presets';
+	import { CHARACTER_COUNT_PRESET } from '$stylist/design-system/classes/input';
 	import { createCharacterCountState } from '../state.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
@@ -13,14 +13,14 @@
 	 * @returns Accessible, styled character count indicator
 	 */
 
-	type CharacterCountVariant = (typeof CHARACTER_COUNT_PRESET.variants)[number];
-
 	type CharacterCountProps = {
 		current?: number;
 		max?: number;
 		showPercentage?: boolean;
-		content?: () => any;
+		content?: import('svelte').Snippet;
 		class?: string;
+		variant?: (typeof CHARACTER_COUNT_PRESET.variants)[number];
+		size?: 'sm' | 'md' | 'lg';
 	};
 
 	let {
@@ -32,10 +32,7 @@
 		content,
 		class: className = '',
 		...restProps
-	}: CharacterCountProps & {
-		variant?: CharacterCountVariant;
-		size?: 'sm' | 'md' | 'lg';
-	} & HTMLAttributes<HTMLDivElement> = $props();
+	}: CharacterCountProps & HTMLAttributes<HTMLDivElement> = $props();
 
 	// Calculate derived values
 	const percentage = $derived(max > 0 ? Math.min(100, (current / max) * 100) : 0);
@@ -45,10 +42,14 @@
 		showPercentage ? `${Math.round(percentage)}% (${current}/${max})` : `${current}/${max}`
 	);
 
-	const state = $derived(createCharacterCountState(ratio, { variant, size, class: className }));
-	let colorClass = $derived(state.colorClass);
+	const charCountState = $derived(createCharacterCountState(ratio, { 
+		variant,
+		size,
+		class: className 
+	}));
+	let colorClass = $derived(charCountState.colorClass);
 
-	let classes = $derived([state.classes, colorClass].filter(Boolean).join(' '));
+	let classes = $derived([charCountState.classes, colorClass].filter(Boolean).join(' '));
 </script>
 
 <div class={classes} {...restProps}>

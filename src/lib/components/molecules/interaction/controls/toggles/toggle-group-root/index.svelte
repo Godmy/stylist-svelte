@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
-	import type { ToggleGroupRootProps } from '$stylist/design-system/attributes';
-	import { createToggleGroupRootState } from '../../state.svelte';
+	import type { ToggleGroupRootProps } from '$stylist/design-system/props';
+	import { createToggleGroupRootState } from './state.svelte';
 
 	let props: ToggleGroupRootProps = $props();
 
@@ -41,22 +41,23 @@
 		disabled: toggleGroupState.disabled
 	});
 
-	const restProps = $derived(
-		(() => {
-			const {
-				value: _value,
-				type: _type,
-				disabled: _disabled,
-				children: _children,
-				onvalueChange: _onvalueChange,
-				class: _class,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+	// Create a filtered object for HTML attributes only
+	let htmlProps = $state({});
+	$effect(() => {
+		const {
+			value: _value,
+			type: _type,
+			disabled: _disabled,
+			children: _children,
+			onvalueChange: _onvalueChange,
+			class: _class,
+			...filteredProps
+		} = props;
+		htmlProps = filteredProps;
+	});
 </script>
 
-<div class={toggleGroupState.classes} role="group" {...restProps}>
+<div class={toggleGroupState.classes} role="group" {...htmlProps}>
 	{@render props.children?.()}
 </div>
+

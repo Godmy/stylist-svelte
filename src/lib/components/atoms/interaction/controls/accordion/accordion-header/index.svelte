@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
-	import type { AccordionHeaderProps } from '$stylist/design-system/attributes';
+	import type { AccordionHeaderProps } from '$stylist/design-system/props';
 	import { createAccordionHeaderState } from '../state.svelte';
 
 	type Props = AccordionHeaderProps & HTMLButtonAttributes;
@@ -48,3 +48,4 @@
 	<span>{@render props.children?.()}</span>
 	<ChevronDown class={state.chevronClasses} />
 </button>
+

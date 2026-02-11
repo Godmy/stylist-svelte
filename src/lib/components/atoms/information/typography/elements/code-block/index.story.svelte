@@ -55,7 +55,7 @@
 	tags={['code', 'syntax', 'highlighting', 'block']}
 	{controls}
 >
-	{#snippet children(props: CodeBlockStoryProps)}
+	{#snippet children(props)}
 		<CodeBlock
 			language={props.language}
 			variant={props.variant}

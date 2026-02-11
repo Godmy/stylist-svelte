@@ -27,7 +27,7 @@
 		<span class={state.bulletClasses}></span>
 	{:else if state.type === 'number'}
 		{state.value}
-	{:else if state.type === 'icon' && typeof state.value === 'string'}
+	{:else if typeof state.value === 'string'}
 		<Icon name={state.value} size={state.size} />
 	{/if}
 </span>

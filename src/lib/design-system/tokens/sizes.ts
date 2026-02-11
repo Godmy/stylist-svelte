@@ -66,6 +66,12 @@ export const EXTENDED_SIZE_SCALE = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as cons
 export type ExtendedSize = (typeof EXTENDED_SIZE_SCALE)[number];
 
 /**
+ * Размеры для флага страны (в пикселях).
+ * Используется как числовое значение, без ограниченной шкалы.
+ */
+export type CountryFlagSize = number;
+
+/**
  * Все шкалы размеров
  *
  * @example

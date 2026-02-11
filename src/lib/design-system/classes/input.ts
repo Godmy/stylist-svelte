@@ -2,6 +2,15 @@ import { ACCESSIBILITY_CLASSES, BASE_CLASSES, STATE_CLASSES } from './classes';
 import { DEFAULT_FLAGS } from '../tokens/flags';
 import { COMPACT_SIZE_SCALE } from '../tokens/sizes';
 import { INPUT_VARIANTS } from '../tokens/variants';
+import type { CompactSize } from '../tokens/sizes';
+import { createBasePreset, type Preset } from './interaction';
+import {
+	getInputGroupButtonClass,
+	getInputGroupContainerClass,
+	getInputGroupInputClass,
+	getInputFieldContainerClass,
+	getInputFieldHelperTextClass
+} from '../utils/input';
 
 export const INPUT_BASE_CLASS = BASE_CLASSES.input;
 
@@ -48,3 +57,49 @@ export const INPUT_TOKENS = {
 	INPUT_ERROR_CLASS,
 	ACCESSIBILITY_CLASSES
 } as const;
+
+export const getInputFieldContainerClasses = () => getInputFieldContainerClass();
+export const getInputFieldHelperTextClasses = () => getInputFieldHelperTextClass();
+
+export const getInputGroupContainerClasses = () => getInputGroupContainerClass();
+export const getInputGroupInputClasses = (className = '') => getInputGroupInputClass(className);
+export const getInputGroupButtonClasses = () => getInputGroupButtonClass();
+
+export type InputSize = CompactSize;
+
+export interface InputPreset<V extends string = (typeof INPUT_VARIANTS)[number], S extends string = InputSize>
+	extends Preset<V, S> {
+	classes: Preset<V, S>['classes'] & {
+		error?: string;
+	};
+}
+
+export interface InputStateOptions<V extends string = (typeof INPUT_VARIANTS)[number], S extends string = InputSize> {
+	variant?: V;
+	size?: S;
+	disabled?: boolean;
+	loading?: boolean;
+	error?: boolean;
+	block?: boolean;
+	class?: string;
+	ariaLabel?: string;
+}
+
+const INPUT_SIZES = ['sm', 'md', 'lg'] as const;
+
+const inputBase = createBasePreset(INPUT_VARIANTS, INPUT_SIZES, { variant: 'default', size: 'md' });
+
+export const INPUT_FIELD_PRESET: InputPreset = {
+	...inputBase,
+	classes: {
+		...inputBase.classes,
+		error: 'border-red-500'
+	}
+} as const;
+
+export const INPUT_HELPER_PRESET = INPUT_FIELD_PRESET;
+export const INPUT_ADDON_PRESET = INPUT_FIELD_PRESET;
+export const FORM_HELPER_TEXT_PRESET = INPUT_FIELD_PRESET;
+export const FORM_ERROR_MESSAGE_PRESET = INPUT_FIELD_PRESET;
+export const CHARACTER_COUNT_PRESET = INPUT_FIELD_PRESET;
+export const PIN_INPUT_DIGIT_PRESET = INPUT_FIELD_PRESET;

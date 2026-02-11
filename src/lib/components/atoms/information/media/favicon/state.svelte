@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { cn } from '$stylist/utils/classes';
-	import type { FaviconProps } from '$stylist/design-system/attributes';
+	import type { FaviconProps } from '$stylist/design-system/props';
 
 	// Определение состояния для Favicon
 	export function createFaviconState(props: FaviconProps) {
@@ -19,3 +19,4 @@
 		};
 	}
 </script>
+

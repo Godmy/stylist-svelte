@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ProductSortProps } from '$stylist/design-system/attributes';
+	import type { ProductSortProps } from '$stylist/design-system/props';
 	import { createProductSortState } from './state';
 
 	let props: ProductSortProps = $props();
@@ -24,3 +24,4 @@
 		{/each}
 	</select>
 </div>
+

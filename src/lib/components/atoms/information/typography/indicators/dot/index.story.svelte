@@ -33,7 +33,7 @@
 	description="A small, colored dot indicator for statuses or notifications."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props)}
 		<div class="flex items-center space-x-4">
 			<Dot color={props.color} size={props.size} />
 			<span class="text-gray-700">Status Indicator</span>

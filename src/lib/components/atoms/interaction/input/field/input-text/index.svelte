@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputFieldState } from '../state.svelte';
-	import type { IInputProps } from '$stylist/design-system/attributes';
+	import type { IInputProps } from '$stylist/design-system/props';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	/**
@@ -19,38 +19,30 @@
 	type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
 	let {
-		id,
 		label,
-		type = 'text',
 		value = $bindable<string>(),
-		errors = [],
-		required = false,
-		disabled = false,
-		error = false,
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
-		class: className = '',
-		placeholder,
-		min,
-		max,
-		step,
+		error,
+		variant,
+		size,
 		...restProps
-	}: IInputProps & {
+	} = $props<Omit<IInputProps, 'label' | 'value'> & {
+		label?: string;
+		value?: string;
 		error?: boolean;
 		variant?: InputVariant;
 		size?: InputSize;
-	} & HTMLInputAttributes = $props();
+	} & HTMLInputAttributes>();
 
 	// Calculate derived values
-	const hasError = $derived(error || errors.length > 0);
-	const errorId = $derived(`${id}-error`);
-	const state = $derived(
+	const hasError = $derived((error ?? false) || (restProps.errors?.length ?? 0) > 0);
+	const errorId = $derived(`${restProps.id}-error`);
+	const inputState = $derived(
 		createInputFieldState({
-			variant,
-			size,
-			disabled,
+			variant: variant ?? INPUT_FIELD_PRESET.defaults.variant,
+			size: size ?? INPUT_FIELD_PRESET.defaults.size,
+			disabled: restProps.disabled ?? false,
 			error: hasError,
-			class: className
+			class: restProps.class ?? ''
 		})
 	);
 
@@ -61,35 +53,36 @@
 </script>
 
 <div class={containerClass}>
-	<label for={id} class={labelClass}>
+	<label for={restProps.id} class={labelClass}>
 		{label}
-		{#if required}
+		{#if restProps.required}
 			<span class={requiredClass}>*</span>
 		{/if}
 	</label>
 
 	<input
-		{id}
-		{type}
+		id={restProps.id}
+		type={restProps.type ?? 'text'}
 		bind:value
-		class={state.classes}
-		{disabled}
-		{placeholder}
-		{required}
-		{min}
-		{max}
-		{step}
+		class={inputState.classes}
+		disabled={restProps.disabled}
+		placeholder={restProps.placeholder}
+		required={restProps.required}
+		min={restProps.min}
+		max={restProps.max}
+		step={restProps.step}
 		aria-describedby={hasError ? errorId : undefined}
 		aria-invalid={hasError}
-		aria-required={required}
+		aria-required={restProps.required}
 		{...restProps}
 	/>
 
 	{#if hasError}
 		<p id={errorId} class={errorClass}>
-			{#each errors as error, i}
-				{error}{i < errors.length - 1 ? ' ' : ''}
+			{#each restProps.errors || [] as error_msg, i}
+				{error_msg}{i < (restProps.errors?.length ?? 0) - 1 ? ' ' : ''}
 			{/each}
 		</p>
 	{/if}
 </div>
+

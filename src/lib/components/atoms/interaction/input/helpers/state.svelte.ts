@@ -1,14 +1,17 @@
-import { createInputState as createBaseInputState } from '$stylist/design-system/factory/interaction/input-factory';
-import {
-	CHARACTER_COUNT_PRESET,
-	FORM_ERROR_MESSAGE_PRESET,
-	FORM_HELPER_TEXT_PRESET,
-	INPUT_ADDON_PRESET,
-	INPUT_HELPER_PRESET,
-	PIN_INPUT_DIGIT_PRESET
-} from '$stylist/design-system/presets';
-import type { InputStateOptions } from '$stylist/design-system/presets';
+import { createInputState as createBaseInputState } from '$stylist/design-system/state/input';
 import { getCharacterCountState } from '$stylist/utils/input';
+import { INPUT_FIELD_PRESET, INPUT_HELPER_PRESET, INPUT_ADDON_PRESET, FORM_HELPER_TEXT_PRESET, FORM_ERROR_MESSAGE_PRESET, CHARACTER_COUNT_PRESET, PIN_INPUT_DIGIT_PRESET } from '$stylist/design-system/classes/input';
+
+type InputStateOptions<V extends string, S extends string> = {
+	variant?: V;
+	size?: S;
+	disabled?: boolean;
+	loading?: boolean;
+	error?: boolean;
+	block?: boolean;
+	class?: string;
+	ariaLabel?: string;
+};
 
 type InputVariant = (typeof INPUT_HELPER_PRESET.variants)[number];
 type InputSize = (typeof INPUT_HELPER_PRESET.sizes)[number];
@@ -17,11 +20,11 @@ export const createInputHelpersState = (
 	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
 ) => createBaseInputState(INPUT_HELPER_PRESET, props);
 
-type InputAddonVariant = Extract<(typeof INPUT_ADDON_PRESET.variants)[number], string>;
-type FormHelperVariant = Extract<(typeof FORM_HELPER_TEXT_PRESET.variants)[number], string>;
-type FormErrorVariant = Extract<(typeof FORM_ERROR_MESSAGE_PRESET.variants)[number], string>;
-type CharacterCountVariant = Extract<(typeof CHARACTER_COUNT_PRESET.variants)[number], string>;
-type PinDigitVariant = Extract<(typeof PIN_INPUT_DIGIT_PRESET.variants)[number], string>;
+type InputAddonVariant = (typeof INPUT_ADDON_PRESET.variants)[number];
+type FormHelperVariant = (typeof FORM_HELPER_TEXT_PRESET.variants)[number];
+type FormErrorVariant = (typeof FORM_ERROR_MESSAGE_PRESET.variants)[number];
+type CharacterCountVariant = (typeof CHARACTER_COUNT_PRESET.variants)[number];
+type PinDigitVariant = (typeof PIN_INPUT_DIGIT_PRESET.variants)[number];
 
 export const createInputAddonState = (
 	props: InputStateOptions<InputAddonVariant, InputSize> & Record<string, unknown>

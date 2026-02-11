@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { FORM_HELPER_TEXT_PRESET } from '$stylist/design-system/presets';
+	import { FORM_HELPER_TEXT_PRESET } from '$stylist/design-system/classes/input';
 	import { createFormHelperTextState } from '../state.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
@@ -13,12 +13,13 @@
 	 * @returns Accessible, styled helper text for form fields
 	 */
 
-	type FormHelperVariant = (typeof FORM_HELPER_TEXT_PRESET.variants)[number];
+	import type { InputVariant } from '$stylist/design-system';
+	type FormHelperVariant = InputVariant;
 	type FormHelperTextProps = {
-		variant?: FormHelperVariant;
+		variant?: (typeof FORM_HELPER_TEXT_PRESET.variants)[number];
 		size?: CompactSize;
 		text?: string;
-		content?: () => any;
+		content?: import('svelte').Snippet;
 		class?: string;
 	};
 
@@ -30,9 +31,13 @@
 		class: className = '',
 		...restProps
 	}: FormHelperTextProps & HTMLAttributes<HTMLParagraphElement> = $props();
-	const state = $derived(createFormHelperTextState({ variant, size, class: className }));
+	const formHelperState = $derived(createFormHelperTextState({ 
+		variant: variant as FormHelperVariant, 
+		size,
+		class: className 
+	}));
 
-	let classes = $derived([state.classes].filter(Boolean).join(' '));
+	let classes = $derived([formHelperState.classes].filter(Boolean).join(' '));
 </script>
 
 <p class={classes} {...restProps}>

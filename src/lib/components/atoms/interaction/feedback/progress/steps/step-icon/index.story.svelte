@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import StepIcon from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import type { IStepIconProps } from '$stylist/design-system/attributes';
+	import type { IStepIconProps } from '$stylist/design-system/props';
 
 	let {
 		id = '',
@@ -27,7 +27,12 @@
 </script>
 
 <Story {id} {title} {description} component={StepIcon} category="Atoms" {controls}>
-	{#snippet children(props: IStepIconProps)}
-		<StepIcon status={props.status} size={props.size} stepNumber={props.stepNumber} />
+	{#snippet children(props)}
+		<StepIcon 
+			status={props.status ?? 'pending'} 
+			size={props.size ?? 'md'} 
+			stepNumber={props.stepNumber ?? 1} 
+		/>
 	{/snippet}
 </Story>
+

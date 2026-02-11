@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputState } from '../state.svelte';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
 	import { createEventDispatcher } from 'svelte';
@@ -28,8 +28,8 @@
 		...restProps
 	}: Props = $props();
 	const dispatch = createEventDispatcher<{ fileChange: { files: File | File[] | null } }>();
-	const state = $derived(createInputState({ variant, size, disabled, class: className }));
-	let inputElement = $state<HTMLInputElement | null>(null);
+	const inputState = $derived(createInputState({ variant, size, disabled, class: className }));
+	let inputElement: HTMLInputElement | null = $state(null);
 
 	let internalValue: File | File[] | null = $state(null);
 	let fileName = $state('');
@@ -77,7 +77,7 @@
 </script>
 
 <div class="relative">
-	<label class={`flex cursor-pointer items-center justify-center ${state.classes}`.trim()}>
+	<label class={`flex cursor-pointer items-center justify-center ${inputState.classes}`.trim()}>
 		<input
 			bind:this={inputElement}
 			type="file"

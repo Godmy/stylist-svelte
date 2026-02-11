@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PictureToolbarProps } from '$stylist/design-system/attributes';
-	import { createPictureToolbarState } from './state.svelte.ts';
+	import type { PictureToolbarProps } from '$stylist/design-system/props';
+	import { createPictureToolbarState } from './state';
 
 	let props: PictureToolbarProps = $props();
 
@@ -31,3 +31,4 @@
 		</button>
 	{/each}
 </div>
+

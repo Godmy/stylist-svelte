@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { TypographyTextProps } from '$stylist/design-system/attributes';
+	import type { TypographyTextProps } from '$stylist/design-system/props';
 	import { buildClasses } from '$stylist/utils/classes';
 	import { computeAriaLabel } from '$stylist/utils/aria';
 
@@ -43,3 +43,4 @@
 		{@render children()}
 	{/if}
 </div>
+
