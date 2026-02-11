@@ -7,6 +7,7 @@
 ## Context
 
 We need to choose a state management approach for the component library. Svelte offers multiple options:
+
 - Svelte 4 stores (writable, readable, derived)
 - Svelte 5 runes ($state, $derived, $effect)
 - External state management libraries (Zustand, Pinia, etc.)
@@ -47,23 +48,25 @@ We will use **Svelte 5 runes** as the primary state management solution for both
 ### Example Comparison
 
 **Svelte 4 Stores:**
+
 ```typescript
 import { writable, derived } from 'svelte/store';
 
 const count = writable(0);
-const doubled = derived(count, $count => $count * 2);
+const doubled = derived(count, ($count) => $count * 2);
 
-count.subscribe(value => console.log(value));
-count.update(n => n + 1);
+count.subscribe((value) => console.log(value));
+count.update((n) => n + 1);
 ```
 
 **Svelte 5 Runes:**
+
 ```typescript
 let count = $state(0);
 let doubled = $derived(count * 2);
 
 $effect(() => {
-  console.log(count);
+	console.log(count);
 });
 count++;
 ```
@@ -94,16 +97,19 @@ count++;
 ## Alternatives Considered
 
 ### 1. Continue with Svelte 4 Stores
+
 **Pros:** Stable, well-documented, wider compatibility
 **Cons:** Outdated, worse DX, performance overhead
 **Rejected:** Not future-proof
 
 ### 2. External State Management (Zustand, etc.)
+
 **Pros:** Framework-agnostic, powerful features
 **Cons:** Additional dependency, overkill for component library
 **Rejected:** Unnecessary complexity
 
 ### 3. Hybrid Approach (Stores + Runes)
+
 **Pros:** Flexibility, gradual migration
 **Cons:** Inconsistent codebase, confusing patterns
 **Rejected:** Maintenance nightmare

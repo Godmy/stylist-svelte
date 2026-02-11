@@ -7,6 +7,7 @@
 ## Context
 
 The project is a single package containing:
+
 - `stylist-svelte` - Component library with integrated playground
 
 We use Yarn for package management and development workflows.
@@ -50,19 +51,20 @@ We will use **Yarn** as the package manager for the single-package component lib
 ## Configuration
 
 ### package.json
+
 ```json
 {
-  "name": "stylist-svelte",
-  "version": "0.5.0",
-  "packageManager": "yarn@4.5.1",
-  "scripts": {
-    "dev": "vite dev",
-    "build": "svelte-package && publint",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "test": "vitest",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write ."
-  }
+	"name": "stylist-svelte",
+	"version": "0.5.0",
+	"packageManager": "yarn@4.5.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "svelte-package && publint",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"test": "vitest",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
+	}
 }
 ```
 
@@ -118,6 +120,7 @@ yarn add -D package-name
 ### ✅ Simple Package Management
 
 Single package approach:
+
 ```
 node_modules/
 ├── svelte/
@@ -128,6 +131,7 @@ node_modules/
 ### ✅ Straightforward Development
 
 Simplified workflow for a single package:
+
 - No cross-package linking required
 - Single build process
 - Consistent configuration
@@ -135,6 +139,7 @@ Simplified workflow for a single package:
 ### ✅ Fast Installs
 
 Yarn provides efficient dependency resolution:
+
 ```bash
 yarn install  # Single install for entire package
 ```
@@ -162,38 +167,42 @@ yarn install  # Single install for entire package
 ## Scripts Organization
 
 ### Scripts (package.json)
+
 ```json
 {
-  "scripts": {
-    "dev": "vite dev",
-    "build": "svelte-package && publint",
-    "preview": "vite preview",
-    "package": "svelte-package",
-    "prepublishOnly": "npm run build",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "vitest",
-    "test:unit": "vitest run",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
-    "clean": "rm -rf dist .svelte-kit node_modules/.vite"
-  }
+	"scripts": {
+		"dev": "vite dev",
+		"build": "svelte-package && publint",
+		"preview": "vite preview",
+		"package": "svelte-package",
+		"prepublishOnly": "npm run build",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"test": "vitest",
+		"test:unit": "vitest run",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"clean": "rm -rf dist .svelte-kit node_modules/.vite"
+	}
 }
 ```
 
 ## Alternatives Considered
 
 ### 1. npm
+
 **Pros:** Default with Node.js, widely used
 **Cons:** Less efficient dependency hoisting, slower installs
 **Rejected:** Yarn provides better DX
 
 ### 2. pnpm
+
 **Pros:** Fastest, most efficient disk usage
 **Cons:** Less common, potential compatibility issues
 **Rejected:** Team preference for Yarn
 
 ### 3. Monorepo with Multiple Packages
+
 **Pros:** Clear separation of concerns
 **Cons:** More complex tooling and maintenance
 **Rejected:** Single package approach is simpler for current needs
@@ -203,6 +212,7 @@ yarn install  # Single install for entire package
 If needed to switch package managers:
 
 ### To pnpm:
+
 ```bash
 rm -rf node_modules yarn.lock
 npm install -g pnpm
@@ -211,6 +221,7 @@ pnpm install
 ```
 
 ### To npm:
+
 ```bash
 rm -rf node_modules yarn.lock
 npm install

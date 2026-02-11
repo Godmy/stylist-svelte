@@ -40,14 +40,22 @@ We will create a set of shared type definitions in a central location (`src/lib/
 
 ```typescript
 // src/lib/types/components.ts
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
+export type Variant =
+	| 'primary'
+	| 'secondary'
+	| 'success'
+	| 'warning'
+	| 'danger'
+	| 'info'
+	| 'ghost'
+	| 'link';
 export type Size = 'sm' | 'md' | 'lg' | 'xl';
 export type Position = 'top' | 'bottom' | 'left' | 'right';
 export type Orientation = 'horizontal' | 'vertical';
 
 export interface BaseComponentProps {
-  class?: string;
-  'data-testid'?: string;
+	class?: string;
+	'data-testid'?: string;
 }
 ```
 
@@ -75,16 +83,19 @@ export interface BaseComponentProps {
 ## Alternatives Considered
 
 ### 1. Inline Types in Each Component
+
 **Pros:** Component-specific flexibility
 **Cons:** Inconsistencies, maintenance overhead
 **Rejected:** Would create inconsistencies
 
 ### 2. CSS Custom Properties Only
+
 **Pros:** Pure CSS approach
 **Cons:** No TypeScript support, harder to maintain
 **Rejected:** Would lack type safety
 
 ### 3. Separate Files per Type
+
 **Pros:** More granular control
 **Cons:** More files to maintain
 **Rejected:** Unnecessary complexity for basic types

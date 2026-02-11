@@ -7,6 +7,7 @@
 ## Context
 
 We need to choose a styling solution for the UI component library. Options include:
+
 - Tailwind CSS (utility-first)
 - CSS Modules
 - Styled Components / Emotion
@@ -55,15 +56,15 @@ We will use **Tailwind CSS utility classes** directly in our component implement
 
 ```svelte
 <button
-  class="
-    px-4 py-2 rounded-md
-    bg-indigo-600 hover:bg-indigo-700
-    text-white font-medium
-    transition-colors
-    focus:outline-none focus:ring-2 focus:ring-indigo-500
+	class="
+    rounded-md bg-indigo-600 px-4
+    py-2 font-medium
+    text-white transition-colors
+    hover:bg-indigo-700
+    focus:ring-2 focus:ring-indigo-500 focus:outline-none
   "
 >
-  Click me
+	Click me
 </button>
 ```
 
@@ -94,24 +95,26 @@ We will use **Tailwind CSS utility classes** directly in our component implement
 ## Configuration Strategy
 
 ### 1. Tailwind Config Export
+
 ```javascript
 // tailwind.config.js
 export default {
-  content: [
-    './src/**/*.{html,js,svelte,ts}',
-    './node_modules/stylist-svelte/**/*.{html,js,svelte,ts}'
-  ],
-  theme: {
-    extend: {
-      colors: {
-        // Custom colors
-      }
-    }
-  }
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/stylist-svelte/**/*.{html,js,svelte,ts}'
+	],
+	theme: {
+		extend: {
+			colors: {
+				// Custom colors
+			}
+		}
+	}
 };
 ```
 
 ### 2. Customization Points
+
 - Theme colors and spacing
 - Custom component variants
 - Dark mode support
@@ -120,21 +123,25 @@ export default {
 ## Alternatives Considered
 
 ### 1. CSS Modules
+
 **Pros:** Scoped styles, no class conflicts
 **Cons:** More boilerplate, harder to theme
 **Rejected:** Slower development, less flexible
 
 ### 2. Styled Components
+
 **Pros:** CSS-in-JS, dynamic styles
 **Cons:** Runtime overhead, larger bundle
 **Rejected:** Not ideal for component library
 
 ### 3. Plain CSS/SCSS
+
 **Pros:** Simple, no dependencies
 **Cons:** No design system, naming complexity
 **Rejected:** Harder to maintain consistency
 
 ### 4. Vanilla Extract
+
 **Pros:** Zero-runtime CSS-in-JS, type-safe
 **Cons:** More complex setup, smaller ecosystem
 **Rejected:** Tailwind has better DX
@@ -145,26 +152,24 @@ Tailwind provides built-in design tokens:
 
 ```javascript
 // Colors
-colors.indigo[500]  // Primary
-colors.gray[100]    // Light backgrounds
-colors.red[600]     // Danger
+colors.indigo[500]; // Primary
+colors.gray[100]; // Light backgrounds
+colors.red[600]; // Danger
 
 // Spacing
-spacing[4]  // 1rem
-spacing[8]  // 2rem
+spacing[4]; // 1rem
+spacing[8]; // 2rem
 
 // Typography
-fontSize.sm   // 0.875rem
-fontSize.base // 1rem
+fontSize.sm; // 0.875rem
+fontSize.base; // 1rem
 ```
 
 ## Dark Mode Support
 
 ```svelte
 <div class="bg-white dark:bg-gray-900">
-  <h1 class="text-gray-900 dark:text-white">
-    Title
-  </h1>
+	<h1 class="text-gray-900 dark:text-white">Title</h1>
 </div>
 ```
 

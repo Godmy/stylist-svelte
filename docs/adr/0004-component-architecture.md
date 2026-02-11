@@ -11,6 +11,7 @@ We need to organize 38+ UI components in a maintainable and scalable way.
 ## Decision
 
 We will use **Atomic Design methodology** with four tiers:
+
 - **Atoms** - Basic building blocks
 - **Molecules** - Simple composite components
 - **Organisms** - Complex composite components
@@ -84,122 +85,129 @@ src/lib/components/
 ### 1. Atoms
 
 **Rules:**
+
 - ✅ No dependencies on other components
 - ✅ Single responsibility
 - ✅ Highly reusable
 - ✅ Minimal props
 
 **Example:**
+
 ```svelte
 <!-- Button.svelte -->
 <script lang="ts">
-  type Props = {
-    variant?: 'primary' | 'secondary';
-    size?: 'sm' | 'md' | 'lg';
-    disabled?: boolean;
-  };
+	type Props = {
+		variant?: 'primary' | 'secondary';
+		size?: 'sm' | 'md' | 'lg';
+		disabled?: boolean;
+	};
 
-  let { variant = 'primary', size = 'md', disabled = false }: Props = $props();
+	let { variant = 'primary', size = 'md', disabled = false }: Props = $props();
 </script>
 
 <button class="btn {variant} {size}" {disabled}>
-  <slot />
+	<slot />
 </button>
 ```
 
 ### 2. Molecules
 
 **Rules:**
+
 - ✅ Compose 2-3 atoms
 - ✅ Single purpose
 - ✅ Some logic allowed
 - ✅ Reusable in organisms
 
 **Example:**
+
 ```svelte
 <!-- SearchBar.svelte -->
 <script lang="ts">
-  import { Input } from '../atoms';
-  import { debounce } from '$lib/utils';
+	import { Input } from '../atoms';
+	import { debounce } from '$stylist/utils';
 
-  let { value, onSearch }: Props = $props();
-  const debouncedSearch = debounce(onSearch, 300);
+	let { value, onSearch }: Props = $props();
+	const debouncedSearch = debounce(onSearch, 300);
 </script>
 
-<Input
-  bind:value
-  oninput={() => debouncedSearch(value)}
-  placeholder="Search..."
-/>
+<Input bind:value oninput={() => debouncedSearch(value)} placeholder="Search..." />
 ```
 
 ### 3. Organisms
 
 **Rules:**
+
 - ✅ Complex compositions
 - ✅ Business logic allowed
 - ✅ May have state
 - ✅ Feature-complete
 
 **Example:**
+
 ```svelte
 <!-- Modal.svelte -->
 <script lang="ts">
-  import { Button } from '../atoms';
+	import { Button } from '../atoms';
 
-  let { isOpen, onClose, title }: Props = $props();
+	let { isOpen, onClose, title }: Props = $props();
 </script>
 
 {#if isOpen}
-  <div class="modal-overlay" onclick={onClose}>
-    <div class="modal-content">
-      <h2>{title}</h2>
-      <slot />
-      <Button onclick={onClose}>Close</Button>
-    </div>
-  </div>
+	<div class="modal-overlay" onclick={onClose}>
+		<div class="modal-content">
+			<h2>{title}</h2>
+			<slot />
+			<Button onclick={onClose}>Close</Button>
+		</div>
+	</div>
 {/if}
 ```
 
 ### 4. Feedback
 
 **Rules:**
+
 - ✅ User feedback purpose
 - ✅ Visual indicators
 - ✅ Can be any complexity
 - ✅ Separate category for clarity
 
 **Example:**
+
 ```svelte
 <!-- Alert.svelte -->
 <script lang="ts">
-  let { variant = 'info', closable = false }: Props = $props();
-  let open = $state(true);
+	let { variant = 'info', closable = false }: Props = $props();
+	let open = $state(true);
 </script>
 
 {#if open}
-  <div class="alert {variant}">
-    <slot />
-    {#if closable}
-      <button onclick={() => open = false}>×</button>
-    {/if}
-  </div>
+	<div class="alert {variant}">
+		<slot />
+		{#if closable}
+			<button onclick={() => (open = false)}>×</button>
+		{/if}
+	</div>
 {/if}
 ```
 
 ## Naming Conventions
 
 ### Component Names
+
 - PascalCase: `Button.svelte`
 - Descriptive: `ConfirmDialog.svelte`
 - Specific: `TableHeader.svelte`, not `Header.svelte`
 
 ### Props
+
 - camelCase: `onClick`, `isDisabled`
 - Boolean prefix: `is`, `has`, `should`
 - Event handlers: `on` prefix
 
 ### Files
+
 ```
 Button.svelte           # Component
 Button.test.ts          # Tests
@@ -210,18 +218,21 @@ index.ts                # Exports
 ## Props Patterns
 
 ### 1. Variant Props
+
 ```typescript
 type Variant = 'primary' | 'secondary' | 'danger';
 variant?: Variant = 'primary';
 ```
 
 ### 2. Size Props
+
 ```typescript
 type Size = 'sm' | 'md' | 'lg';
 size?: Size = 'md';
 ```
 
 ### 3. State Props
+
 ```typescript
 disabled?: boolean = false;
 loading?: boolean = false;
@@ -229,12 +240,14 @@ error?: boolean = false;
 ```
 
 ### 4. Event Props
+
 ```typescript
 onclick?: () => void;
 onchange?: (value: string) => void;
 ```
 
 ### 5. Style Props
+
 ```typescript
 class?: string = '';
 style?: string = '';
@@ -243,6 +256,7 @@ style?: string = '';
 ## Export Strategy
 
 ### Category Exports
+
 ```typescript
 // components/atoms/index.ts
 export { default as Button } from './Button.svelte';
@@ -257,7 +271,9 @@ export * from './components/feedback';
 ```
 
 ### Tree Shaking
+
 Users can import specific categories:
+
 ```typescript
 // Import all atoms
 import { Button, Input } from 'stylist-svelte/components/atoms';
@@ -269,43 +285,43 @@ import { Button } from 'stylist-svelte';
 ## Component Composition
 
 ### Good Example
+
 ```svelte
 <!-- FormSection uses FormFieldGroup -->
 <FormSection title="User Info">
-  <FormFieldGroup label="Name">
-    <Input id="name" />
-  </FormFieldGroup>
+	<FormFieldGroup label="Name">
+		<Input id="name" />
+	</FormFieldGroup>
 
-  <FormFieldGroup label="Email">
-    <Input id="email" type="email" />
-  </FormFieldGroup>
+	<FormFieldGroup label="Email">
+		<Input id="email" type="email" />
+	</FormFieldGroup>
 </FormSection>
 ```
 
 ### Bad Example (Anti-pattern)
+
 ```svelte
 <!-- Atom depending on Organism - WRONG! -->
 <Button>
-  <Modal /> <!-- Atoms shouldn't contain Organisms -->
+	<Modal />
+	<!-- Atoms shouldn't contain Organisms -->
 </Button>
 ```
 
 ## Accessibility
 
 All components must:
+
 - ✅ Include ARIA attributes
 - ✅ Support keyboard navigation
 - ✅ Have proper focus management
 - ✅ Include screen reader text
 
 ```svelte
-<button
-  aria-label="Close modal"
-  aria-pressed={isOpen}
-  onclick={toggle}
->
-  <span aria-hidden="true">×</span>
-  <span class="sr-only">Close</span>
+<button aria-label="Close modal" aria-pressed={isOpen} onclick={toggle}>
+	<span aria-hidden="true">×</span>
+	<span class="sr-only">Close</span>
 </button>
 ```
 

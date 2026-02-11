@@ -7,6 +7,7 @@
 ## Context
 
 We need a tool for developing, testing, and documenting UI components. Options include:
+
 - Storybook
 - Histoire
 - Custom solution
@@ -21,6 +22,7 @@ We will build a **custom Playground system** natively integrated into the compon
 ### Why NOT Existing Tools?
 
 #### Storybook
+
 - ❌ Heavy and slow
 - ❌ Complex configuration
 - ❌ Poor Svelte 5 runes support
@@ -28,6 +30,7 @@ We will build a **custom Playground system** natively integrated into the compon
 - ❌ Framework-agnostic (not optimized for Svelte)
 
 #### Histoire
+
 - ❌ **No Svelte 5 support**
 - ❌ Uses Svelte 4 stores
 - ❌ Abandoned/slow development
@@ -90,17 +93,17 @@ Uses Svelte 5 runes for reactive state:
 
 ```typescript
 class PlaygroundStore {
-  state = $state<PlaygroundState>({
-    currentStoryId: null,
-    darkMode: false,
-    sidebarOpen: true,
-    viewport: 'desktop',
-    showCode: false,
-    controlsOpen: true
-  });
+	state = $state<PlaygroundState>({
+		currentStoryId: null,
+		darkMode: false,
+		sidebarOpen: true,
+		viewport: 'desktop',
+		showCode: false,
+		controlsOpen: true
+	});
 
-  stories = $state<Map<string, StoryConfig>>(new Map());
-  controlValues = $state<Record<string, any>>({});
+	stories = $state<Map<string, StoryConfig>>(new Map());
+	controlValues = $state<Record<string, any>>({});
 }
 ```
 
@@ -110,26 +113,26 @@ Simple, declarative API:
 
 ```svelte
 <Story
-  id="button"
-  title="Button"
-  category="Atoms"
-  controls={[
-    {
-      name: 'variant',
-      type: 'select',
-      defaultValue: 'primary',
-      options: ['primary', 'secondary', 'success']
-    },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
-    }
-  ]}
+	id="button"
+	title="Button"
+	category="Atoms"
+	controls={[
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success']
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			defaultValue: false
+		}
+	]}
 >
-  {#snippet children(props)}
-    <Button {...props}>Click me</Button>
-  {/snippet}
+	{#snippet children(props)}
+		<Button {...props}>Click me</Button>
+	{/snippet}
 </Story>
 ```
 
@@ -203,19 +206,20 @@ Simple, declarative API:
 
 ## Comparison with Alternatives
 
-| Feature | Storybook | Histoire | Custom |
-|---------|-----------|----------|--------|
-| Svelte 5 Support | ⚠️ Partial | ❌ No | ✅ Full |
-| Configuration | ❌ Complex | ⚠️ Medium | ✅ Zero |
-| Bundle Size | ❌ Large | ⚠️ Medium | ✅ Small |
-| Customization | ⚠️ Limited | ⚠️ Limited | ✅ Full |
-| TypeScript | ✅ Yes | ✅ Yes | ✅ Yes |
-| Learning Curve | ❌ Steep | ✅ Easy | ✅ Easy |
-| Maintenance | ✅ Active | ❌ Slow | ⚠️ DIY |
+| Feature          | Storybook  | Histoire   | Custom   |
+| ---------------- | ---------- | ---------- | -------- |
+| Svelte 5 Support | ⚠️ Partial | ❌ No      | ✅ Full  |
+| Configuration    | ❌ Complex | ⚠️ Medium  | ✅ Zero  |
+| Bundle Size      | ❌ Large   | ⚠️ Medium  | ✅ Small |
+| Customization    | ⚠️ Limited | ⚠️ Limited | ✅ Full  |
+| TypeScript       | ✅ Yes     | ✅ Yes     | ✅ Yes   |
+| Learning Curve   | ❌ Steep   | ✅ Easy    | ✅ Easy  |
+| Maintenance      | ✅ Active  | ❌ Slow    | ⚠️ DIY   |
 
 ## Implementation Timeline
 
 ### Phase 1: Core (Completed ✅)
+
 - StoryRoot layout
 - Navigator with search
 - Canvas with viewports
@@ -223,12 +227,14 @@ Simple, declarative API:
 - Code generation
 
 ### Phase 2: Enhancements (Future)
+
 - Syntax highlighting
 - Keyboard shortcuts
 - Advanced controls (object, array)
 - Props documentation table
 
 ### Phase 3: Advanced (Future)
+
 - MDX support
 - Visual regression
 - A11y testing

@@ -45,18 +45,18 @@ export * from './clipboard';
 
 // src/lib/utils/debounce.ts
 export function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
+	func: T,
+	wait: number
 ): (...args: Parameters<T>) => void;
 
 export function throttle<T extends (...args: any[]) => any>(
-  func: T,
-  limit: number
+	func: T,
+	limit: number
 ): (...args: Parameters<T>) => void;
 
 export async function debounceAsync<T extends (...args: unknown[]) => Promise<unknown>>(
-  func: T,
-  wait: number
+	func: T,
+	wait: number
 ): Promise<(...args: Parameters<T>) => Promise<void>>;
 
 // src/lib/utils/clipboard.ts
@@ -88,16 +88,19 @@ export function readFromClipboard(): Promise<string>;
 ## Alternatives Considered
 
 ### 1. Third-Party Libraries
+
 **Pros:** Well-tested, feature-rich, maintained
 **Cons:** Additional dependencies, potential bloat
 **Rejected:** Want to minimize external dependencies
 
 ### 2. Component-Specific Utilities
+
 **Pros:** Only include what's needed
 **Cons:** Potential code duplication
 **Rejected:** Would create inconsistencies
 
 ### 3. No Utilities (Inline Implementation)
+
 **Pros:** No additional abstraction
 **Cons:** Code duplication, inconsistent behavior
 **Rejected:** Would hurt maintainability
@@ -105,16 +108,19 @@ export function readFromClipboard(): Promise<string>;
 ## Implementation Guidelines
 
 ### Debouncing
+
 - Use for UI interactions that trigger expensive operations
 - Provide both sync and async versions
 - Clear cancellation of pending operations
 
 ### Throttling
+
 - Use for events that fire frequently (scroll, resize)
 - Consistent time interval between executions
 - Immediate execution on first call
 
 ### Clipboard
+
 - Handle both read and write operations
 - Include proper error handling
 - Follow security best practices

@@ -41,30 +41,30 @@ We will define form-related types in `src/lib/types/form.ts` and implement form 
 ```typescript
 // src/lib/types/form.ts
 export interface FormField {
-  name: string;
-  value: any;
-  error?: string;
-  touched: boolean;
-  valid: boolean;
+	name: string;
+	value: any;
+	error?: string;
+	touched: boolean;
+	valid: boolean;
 }
 
 export interface FormState {
-  fields: Record<string, FormField>;
-  errors: Record<string, string>;
-  isValid: boolean;
-  isSubmitting: boolean;
-  isSubmitted: boolean;
+	fields: Record<string, FormField>;
+	errors: Record<string, string>;
+	isValid: boolean;
+	isSubmitting: boolean;
+	isSubmitted: boolean;
 }
 
 export interface FormValidationRule {
-  rule: (value: any) => boolean;
-  message: string;
+	rule: (value: any) => boolean;
+	message: string;
 }
 
 export interface FormConfig {
-  validateOn: 'blur' | 'change' | 'submit';
-  showErrors: boolean;
-  submitHandler: (data: Record<string, any>) => Promise<void> | void;
+	validateOn: 'blur' | 'change' | 'submit';
+	showErrors: boolean;
+	submitHandler: (data: Record<string, any>) => Promise<void> | void;
 }
 ```
 
@@ -92,16 +92,19 @@ export interface FormConfig {
 ## Form Component Patterns
 
 ### 1. Controlled Components
+
 - Form state managed at parent level
 - Svelte 5 runes for reactive state
 - Clear data flow and predictability
 
 ### 2. Validation
+
 - Declarative validation rules
 - Real-time validation feedback
 - Support for custom validation functions
 
 ### 3. Error Display
+
 - Consistent error message format
 - Integration with form components
 - Clear visual feedback
@@ -109,16 +112,19 @@ export interface FormConfig {
 ## Alternatives Considered
 
 ### 1. Third-Party Form Libraries
+
 **Pros:** Feature-rich, well-tested
 **Cons:** Additional dependencies, potential bloat
 **Rejected:** Want to maintain consistency with Svelte 5 approach
 
 ### 2. Prop-Driven Validation
+
 **Pros:** Simple implementation
 **Cons:** Limited flexibility, inconsistent patterns
 **Rejected:** Would create inconsistent user experience
 
 ### 3. No Standardized Approach
+
 **Pros:** Maximum flexibility
 **Cons:** Inconsistent user experience, maintenance issues
 **Rejected:** Would hurt maintainability

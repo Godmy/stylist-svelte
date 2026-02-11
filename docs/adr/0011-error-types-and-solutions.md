@@ -19,8 +19,9 @@ We decided to systematically categorize and fix the different error types that e
 **Error Type:** `on:event` syntax being deprecated in favor of `on{event}` syntax (`on:click` → `onclick`, `on:change` → `onchange`, etc.)
 
 **Solution:** Replace all instances of `on:EVENT` with `onEVENT`:
+
 - `on:click` → `onclick`
-- `on:change` → `onchange`  
+- `on:change` → `onchange`
 - `on:input` → `oninput`
 - `on:focus` → `onfocus`
 - `on:blur` → `onblur`
@@ -40,7 +41,8 @@ We decided to systematically categorize and fix the different error types that e
 
 **Error Type:** Generic types without type arguments: `HTMLAttributes<T>` requires 1 argument
 
-**Solution:** 
+**Solution:**
+
 - Use `HTMLAttributes<any>` when type isn't critical
 - Define specific types like `type SomeSize = 'sm' | 'md' | 'lg'` and use `size as SomeSize` when indexing objects
 - Properly define and import types instead of using generic imports
@@ -49,7 +51,8 @@ We decided to systematically categorize and fix the different error types that e
 
 **Error Type:** Missing module dependencies like 'date-fns'
 
-**Solution:** 
+**Solution:**
+
 - Replace external dependencies with native implementations when possible
 - Add missing dependencies to package.json if they are critical
 - Create utility functions to replace external libraries for basic functionality
@@ -59,6 +62,7 @@ We decided to systematically categorize and fix the different error types that e
 **Error Type:** Component props mismatch (e.g., passing properties that don't exist on component interfaces)
 
 **Solution:**
+
 - Ensure all required props are provided to child components
 - Add missing required props to parent components
 - Align component interfaces to ensure compatibility
@@ -68,6 +72,7 @@ We decided to systematically categorize and fix the different error types that e
 **Error Type:** Form labels not associated with controls, missing keyboard handlers, etc.
 
 **Solution:**
+
 - Add proper `id` and `label` associations for form controls
 - Implement proper ARIA attributes
 - Add keyboard event handlers alongside mouse events where appropriate

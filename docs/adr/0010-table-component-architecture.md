@@ -41,27 +41,27 @@ We will create a table component system with multiple parts (Table, TableHeader,
 ```typescript
 // src/lib/types/table.ts
 export interface TableColumn<T = any> {
-  key: string;
-  title: string;
-  sortable?: boolean;
-  render?: (value: any, item: T) => string;
-  class?: string;
+	key: string;
+	title: string;
+	sortable?: boolean;
+	render?: (value: any, item: T) => string;
+	class?: string;
 }
 
 export interface TableState<T = any> {
-  data: T[];
-  columns: TableColumn<T>[];
-  sortBy?: string;
-  sortDirection: 'asc' | 'desc';
-  currentPage: number;
-  itemsPerPage: number;
+	data: T[];
+	columns: TableColumn<T>[];
+	sortBy?: string;
+	sortDirection: 'asc' | 'desc';
+	currentPage: number;
+	itemsPerPage: number;
 }
 
 export interface TableRowProps {
-  item: any;
-  index: number;
-  isSelected?: boolean;
-  isExpandable?: boolean;
+	item: any;
+	index: number;
+	isSelected?: boolean;
+	isExpandable?: boolean;
 }
 ```
 
@@ -89,6 +89,7 @@ export interface TableRowProps {
 ## Table Component Structure
 
 ### 1. Composable Design
+
 - Table: Container component
 - TableHeader: Header row with sorting
 - TableBody: Container for rows
@@ -96,6 +97,7 @@ export interface TableRowProps {
 - TableCell: Cell with formatting options
 
 ### 2. Features
+
 - Sorting by column
 - Pagination
 - Row selection
@@ -103,6 +105,7 @@ export interface TableRowProps {
 - Responsive layout
 
 ### 3. Styling
+
 - Consistent with Tailwind CSS classes
 - Theme support
 - Responsive behavior
@@ -110,16 +113,19 @@ export interface TableRowProps {
 ## Alternatives Considered
 
 ### 1. Simple HTML Table
+
 **Pros:** Minimal code, standard semantics
 **Cons:** Limited functionality, manual implementation of features
 **Rejected:** Would require too much work for consumers
 
 ### 2. Third-Party Table Libraries
+
 **Pros:** Feature-rich, well-tested
 **Cons:** Additional dependencies, less control over styling
 **Rejected:** Would break consistency with design system
 
 ### 3. Render Props Pattern
+
 **Pros:** Maximum flexibility
 **Cons:** Complex API, harder to use
 **Rejected:** Would create inconsistent experience

@@ -11,6 +11,7 @@
 ## Проблема
 
 Компоненты Link и Label генерировали предупреждения при проверке типов:
+
 ```
 Using `<slot>` to render parent content is deprecated. Use `{@render ...}` tags instead
 ```
@@ -25,39 +26,41 @@ Using `<slot>` to render parent content is deprecated. Use `{@render ...}` tags 
 ### Пример реализации:
 
 Вместо:
+
 ```svelte
 <!-- Не рекомендуется в Svelte 5 -->
 <script lang="ts">
-  import type { HTMLAnchorAttributes } from 'svelte/elements';
-  // ... другие импорты
+	import type { HTMLAnchorAttributes } from 'svelte/elements';
+	// ... другие импорты
 </script>
 
 <a>
-  <slot />
+	<slot />
 </a>
 ```
 
 Рекомендуется:
+
 ```svelte
 <!-- Рекомендуется для Svelte 5 -->
 <script lang="ts">
-  import type { HTMLAnchorAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
+	import type { HTMLAnchorAttributes } from 'svelte/elements';
+	import type { Snippet } from 'svelte';
 
-  type Props = {
-    text?: string;
-    children?: Snippet;
-  } & HTMLAnchorAttributes;
+	type Props = {
+		text?: string;
+		children?: Snippet;
+	} & HTMLAnchorAttributes;
 
-  let { text, children, ...restProps }: Props = $props();
+	let { text, children, ...restProps }: Props = $props();
 </script>
 
 <a {...restProps}>
-  {#if children}
-    {@render children()}
-  {:else if text}
-    {text}
-  {/if}
+	{#if children}
+		{@render children()}
+	{:else if text}
+		{text}
+	{/if}
 </a>
 ```
 
