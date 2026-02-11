@@ -34,8 +34,11 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as Partial<Props>}
+		{@const color = storyProps.color ?? 'primary'}
+		{@const size = storyProps.size ?? 'md'}
 		<div class="flex items-center space-x-4">
-			<Dot color={props.color as (typeof colorOptions)[number]} size={props.size as (typeof sizeOptions)[number]} />
+			<Dot {color} {size} />
 			<span class="text-gray-700">Status Indicator</span>
 		</div>
 

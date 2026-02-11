@@ -40,11 +40,12 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as EmStoryProps}
 		<div class="space-y-6">
 			<p
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 text-base text-gray-700 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-200"
 			>
-				Ship confidently by carving time for <Em class={toneClass(props.tone as EmStoryProps['tone'])}>{props.text as string}</Em> before
+				Ship confidently by carving time for <Em class={toneClass(storyProps.tone)}>{storyProps.text}</Em> before
 				launch.
 			</p>
 

@@ -4,10 +4,10 @@
 	import InlineCode from './index.svelte';
 
 	type InlineCodeStoryProps = {
-		variant: 'default' | 'accent' | 'success' | 'warning' | 'danger';
+		variant: 'default' | 'success' | 'warning' | 'danger';
 	};
 
-	const variantOptions = ['default', 'accent', 'success', 'warning', 'danger'];
+	const variantOptions = ['default', 'success', 'warning', 'danger'];
 
 	const controls: ControlConfig[] = [
 		{
@@ -29,8 +29,9 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const variant = (props.variant as InlineCodeStoryProps['variant']) ?? 'default'}
 		<div>
-			This is an example of <InlineCode variant={props.variant as 'default' | 'accent' | 'success' | 'warning' | 'danger'}>inline code</InlineCode> styling.
+			This is an example of <InlineCode {variant}>inline code</InlineCode> styling.
 		</div>
 	{/snippet}
 </Story>

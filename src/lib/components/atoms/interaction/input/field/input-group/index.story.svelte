@@ -1,5 +1,5 @@
 <script lang="ts">
-	import InputGroup from './index.svelte';
+	import { InputGroup } from '.';
 
 	type ButtonVariant =
 		| 'primary'

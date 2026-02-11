@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import SliderTick from './index.svelte';
+	import SliderTick from './tick/index.svelte';
 	import { createRawSnippet } from 'svelte';
 
 	type SliderTickStoryProps = {
@@ -71,7 +71,12 @@
 	tags={['display', 'slider', 'tick', 'range']}
 	{controls}
 >
-	{#snippet children(props: SliderTickStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const value = typeof props.value === 'number' ? props.value : 50}
+		{@const position = typeof props.position === 'number' ? props.position : 50}
+		{@const active = typeof props.active === 'boolean' ? props.active : true}
+		{@const label = typeof props.label === 'string' ? props.label : '50%'}
+		{@const withContent = typeof props.withContent === 'boolean' ? props.withContent : false}
 		<section class="space-y-10">
 			<div
 				class="rounded-3xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm"
@@ -84,11 +89,11 @@
 						class="absolute top-1/2 left-0 h-1 w-full -translate-y-1/2 rounded-full bg-[--color-border-primary]"
 					></div>
 					<SliderTick
-						value={props.value}
-						position={props.position}
-						active={props.active}
-						label={props.label}
-						content={props.withContent ? contentSnippet : undefined}
+						{value}
+						{position}
+						{active}
+						{label}
+						children={withContent ? contentSnippet : undefined}
 					/>
 				</div>
 			</div>
@@ -121,7 +126,7 @@
 							position={tick.position}
 							active={tick.active ?? tick.position <= 75}
 							label={tick.label}
-							content={index === milestoneTicks.length - 1
+							children={index === milestoneTicks.length - 1
 								? createRawSnippet(() => ({
 										render: () =>
 											`<div class="rounded-full border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-1 text-[10px] font-semibold">${tick.label}</div>`

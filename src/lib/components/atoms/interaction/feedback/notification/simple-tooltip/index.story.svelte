@@ -10,21 +10,21 @@
 			defaultValue: 'top',
 			options: ['top', 'right', 'bottom', 'left']
 		},
-		{ name: 'visible', type: 'boolean', defaultValue: true },
-		{ name: 'content', type: 'text', defaultValue: 'Elegant contextual hint with theming support' }
+		{ name: 'show', type: 'boolean', defaultValue: true },
+		{ name: 'text', type: 'text', defaultValue: 'Elegant contextual hint with theming support' }
 	];
 
 	type Props = {
 		position: 'top' | 'right' | 'bottom' | 'left';
-		visible: boolean;
-		content: string;
+		show: boolean;
+		text: string;
 	};
 
 	const positionPresets: Array<Props & { label: string }> = [
-		{ label: 'Top', position: 'top', visible: true, content: 'Appears above the element' },
-		{ label: 'Right', position: 'right', visible: true, content: 'Follows the right edge' },
-		{ label: 'Bottom', position: 'bottom', visible: true, content: 'Sits comfortably below' },
-		{ label: 'Left', position: 'left', visible: true, content: 'Anchored to the left side' }
+		{ label: 'Top', position: 'top', show: true, text: 'Appears above the element' },
+		{ label: 'Right', position: 'right', show: true, text: 'Follows the right edge' },
+		{ label: 'Bottom', position: 'bottom', show: true, text: 'Sits comfortably below' },
+		{ label: 'Left', position: 'left', show: true, text: 'Anchored to the left side' }
 	];
 </script>
 
@@ -36,7 +36,12 @@
 	description="Subtle, theme-aware tooltip used for brief contextual hints."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const position =
+			typeof props.position === 'string' ? (props.position as Props['position']) : 'top'}
+		{@const show = typeof props.show === 'boolean' ? props.show : true}
+		{@const text =
+			typeof props.text === 'string' ? props.text : 'Elegant contextual hint with theming support'}
 		<section class="grid w-full gap-8 lg:grid-cols-[1.2fr_1fr]">
 			<div
 				class="relative isolate flex h-72 flex-col items-center justify-center overflow-hidden rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] px-6 text-center shadow-sm"
@@ -48,7 +53,7 @@
 					>
 						Stylish Button
 					</button>
-					<SimpleTooltip {...props} />
+					<SimpleTooltip {position} {show} {text} />
 				</div>
 				<p class="mt-8 max-w-xs text-xs text-[--color-text-secondary]">
 					Use the controls to explore each anchor direction, toggle visibility, or customize the
@@ -83,8 +88,8 @@
 									</span>
 									<SimpleTooltip
 										position={preset.position}
-										show={preset.visible}
-										content={preset.content}
+										show={preset.show}
+										text={preset.text}
 									/>
 								</div>
 							</div>

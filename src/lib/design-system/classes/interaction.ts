@@ -103,11 +103,16 @@ export const createBasePreset = <V extends string, S extends string>(
 		size: Object.fromEntries(
 			sizes.map((s) => [
 				s,
-				s === 'sm' ? 'h-8 px-3 text-xs' : s === 'lg' ? 'h-11 px-6 text-base' : 'h-9 px-4 text-sm'
+				SIZE_CLASSES[s as keyof typeof SIZE_CLASSES] ??
+					(s === 'sm' ? 'h-8 px-3 text-xs' : s === 'lg' ? 'h-11 px-6 text-base' : 'h-9 px-4 text-sm')
 			])
 		) as Record<S, string>,
 		variant: Object.fromEntries(
-			variants.map((v) => [v, v === 'outline' ? 'border bg-transparent' : 'bg-primary text-white'])
+			variants.map((v) => [
+				v,
+				VARIANT_CLASSES[v as keyof typeof VARIANT_CLASSES] ??
+					(v === 'outline' ? 'border bg-transparent' : PRIMARY_SOLID_CLASSES)
+			])
 		) as Record<V, string>,
 		state: { disabled: 'opacity-50 cursor-not-allowed', block: 'w-full' }
 	},

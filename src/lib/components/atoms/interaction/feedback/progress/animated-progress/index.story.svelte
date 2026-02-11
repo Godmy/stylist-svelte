@@ -51,7 +51,7 @@
 	description="A progress bar component with animated value display."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">AnimatedProgress Story</h2>
 			<AnimatedProgress {...props} />

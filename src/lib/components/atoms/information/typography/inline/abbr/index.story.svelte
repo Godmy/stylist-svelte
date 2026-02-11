@@ -32,14 +32,15 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as AbbrStoryProps}
 		<div class="space-y-6">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
 			>
 				<p class="text-base leading-relaxed text-gray-700 dark:text-gray-200">
 					Build brilliant experiences by connecting your
-					<Abbr title={props.title as string} class={props.emphasize as boolean ? 'font-semibold text-indigo-600' : ''}>
-						{props.label as string}
+					<Abbr title={storyProps.title} class={storyProps.emphasize ? 'font-semibold text-indigo-600' : ''}>
+						{storyProps.label}
 					</Abbr>
 					with product storytelling. Hover or focus the abbreviation to reveal the expansion.
 				</p>

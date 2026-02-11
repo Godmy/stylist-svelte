@@ -61,16 +61,24 @@
 	tags={['progress', 'bar', 'indicator']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const value = typeof props.value === 'number' ? props.value : 75}
+		{@const max = typeof props.max === 'number' ? props.max : 100}
+		{@const label = typeof props.label === 'string' ? props.label : 'Upload Progress'}
+		{@const showPercentage =
+			typeof props.showPercentage === 'boolean' ? props.showPercentage : true}
+		{@const color =
+			typeof props.color === 'string' ? (props.color as ProgressBarWithLabelStoryProps['color']) : 'blue'}
+		{@const height = typeof props.height === 'string' ? props.height : 'h-2'}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">ProgressBarWithLabel Story</h2>
 			<ProgressBarWithLabel
-				value={props?.value ?? 75}
-				max={props?.max ?? 100}
-				label={props?.label ?? 'Upload Progress'}
-				showPercentage={props?.showPercentage ?? true}
-				color={props?.color ?? 'blue'}
-				height={props?.height ?? 'h-2'}
+				{value}
+				{max}
+				{label}
+				{showPercentage}
+				{color}
+				{height}
 			/>
 		</div>
 	{/snippet}

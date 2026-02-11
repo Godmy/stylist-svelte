@@ -42,6 +42,7 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as StatusIndicatorStoryProps}
 		<div class="space-y-8">
 			<div
 				class="flex items-center justify-between rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
@@ -53,8 +54,8 @@
 					</p>
 				</div>
 				<StatusIndicator
-					status={props.status as Status}
-					label={props.label as string}
+					status={storyProps.status}
+					label={storyProps.label}
 					class="text-sm font-medium text-gray-800 dark:text-gray-100"
 				/>
 			</div>

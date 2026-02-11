@@ -63,7 +63,7 @@ export interface RadioProps extends ToggleInputProps {
 
 export interface RadioButtonGroupProps
 	extends Omit<
-		HtmlAttributesWithChildren<HTMLInputElement>,
+		HtmlAttributesWithChildren<HTMLDivElement>,
 		'size' | 'class' | 'onchange' | 'oninput'
 	> {
 	value?: string;
@@ -76,8 +76,8 @@ export interface RadioButtonGroupProps
 	name?: string;
 	class?: string;
 	required?: boolean;
-	onChange?: (value: string) => void;
-	onInput?: (value: string) => void;
+	onchange?: (value: string) => void;
+	oninput?: (value: string) => void;
 }
 
 export interface ActionSegmentedControlProps {

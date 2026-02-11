@@ -28,7 +28,7 @@
 	description="A control that allows users to select one option from a set of mutually exclusive options."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">ActionSegmentedControl Story</h2>
 			<ActionSegmentedControl {...props} items={['Option 1', 'Option 2', 'Option 3']} />

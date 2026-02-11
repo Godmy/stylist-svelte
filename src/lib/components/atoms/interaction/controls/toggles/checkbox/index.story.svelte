@@ -33,13 +33,19 @@
 </script>
 
 <Story {id} {title} {description} component={Checkbox} category="Atoms" {controls}>
-	{#snippet children(props: CheckboxProps)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const label =
+			typeof props.label === 'string' ? props.label : 'Accept terms and conditions'}
+		{@const required = typeof props.required === 'boolean' ? props.required : false}
+		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
+		{@const description =
+			typeof props.description === 'string' ? props.description : 'Please read and accept our terms'}
 		<Checkbox
 			id={checkboxId}
-			label={props.label}
-			required={props.required}
-			disabled={props.disabled}
-			description={props.description}
+			{label}
+			{required}
+			{disabled}
+			{description}
 		/>
 	{/snippet}
 </Story>

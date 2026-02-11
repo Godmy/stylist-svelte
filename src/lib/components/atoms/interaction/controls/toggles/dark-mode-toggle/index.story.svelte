@@ -31,10 +31,12 @@
 	tags={['theme', 'toggle', 'dark-mode']}
 	{controls}
 >
-	{#snippet children(props: DarkModeToggleStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const darkMode = typeof props.darkMode === 'boolean' ? props.darkMode : false}
+		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">DarkModeToggle Story</h2>
-			<DarkModeToggle darkMode={props.darkMode} disabled={props.disabled} />
+			<DarkModeToggle {darkMode} {disabled} />
 		</div>
 	{/snippet}
 </Story>

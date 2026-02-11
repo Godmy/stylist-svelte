@@ -37,23 +37,24 @@
 	description="A circular progress indicator to show completion percentage."
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as Partial<Props>}
 		<div class="flex items-center space-x-4">
 			<ProgressCircle
-				progress={props?.progress ?? 60}
-				size={props?.size ?? 'md'}
-				strokeWidth={props?.strokeWidth ?? 4}
-				color={props?.color ?? 'primary'}
+				value={storyProps.progress ?? 60}
+				progress={storyProps.progress ?? 60}
+				strokeWidth={storyProps.strokeWidth ?? 4}
+				color={storyProps.color ?? 'primary'}
 			/>
 			<span class="text-gray-700">Task Progress</span>
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Different Progress Values and Sizes</h3>
 		<div class="flex flex-wrap items-center gap-4">
-			<ProgressCircle progress={25} size={props?.size ?? "sm"} color="danger" />
-			<ProgressCircle progress={50} size={props?.size ?? "md"} color="warning" />
-			<ProgressCircle progress={75} size={props?.size ?? "lg"} color="success" />
-			<ProgressCircle progress={100} size={props?.size ?? "md"} color="primary">Done!</ProgressCircle>
+			<ProgressCircle value={25} progress={25} color="danger" />
+			<ProgressCircle value={50} progress={50} color="warning" />
+			<ProgressCircle value={75} progress={75} color="success" />
+			<ProgressCircle value={100} progress={100} color="primary">Done!</ProgressCircle>
 		</div>
 	{/snippet}
 </Story>

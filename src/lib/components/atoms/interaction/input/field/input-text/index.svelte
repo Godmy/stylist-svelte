@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
 	import { createInputFieldState } from '../state.svelte';
-	import type { IInputProps } from '$stylist/design-system/props';
+	import type { InputFieldBaseProps, InputValueProps, InputValidationProps, InputAttributesBase, IInputProps } from '$stylist/design-system/props';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	/**

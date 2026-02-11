@@ -34,10 +34,12 @@
 	tags={['form', 'input', 'toggle', 'switch']}
 	{controls}
 >
-	{#snippet children(props: ToggleStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const size = typeof props.size === 'string' ? (props.size as ToggleStoryProps['size']) : 'md'}
+		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
 		<div class="flex flex-col gap-4">
 			<div class="flex items-center gap-4">
-				<Toggle size={props.size} disabled={props.disabled} />
+				<Toggle {size} {disabled} />
 				<span>Toggle switch</span>
 			</div>
 		</div>

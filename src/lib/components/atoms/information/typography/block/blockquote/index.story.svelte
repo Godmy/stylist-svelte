@@ -64,25 +64,25 @@
 	tags={['typography', 'blockquote', 'content']}
 	{controls}
 >
-	{#snippet children(props: BlockquoteStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="space-y-8">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/30"
 			>
 				<Blockquote
-					cite={props.cite}
-					withBorder={props.withBorder}
-					withBackground={props.withBackground}
+					cite={props.cite as string ?? ''}
+					withBorder={props.withBorder as boolean ?? true}
+					withBackground={props.withBackground as boolean ?? true}
 					class="leading-relaxed text-gray-900 dark:text-gray-50"
 				>
-					{props.quote}
+					{props.quote as string ?? 'Design is the silent ambassador of your brand.'}
 				</Blockquote>
 				<p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
 					Toggle border/background to preview different emphasis treatments while keeping the same
 					content.
 				</p>
 				<p class="text-sm text-gray-600 dark:text-gray-300">
-					Current values: quote="{props.quote}", cite="{props.cite}"
+					Current values: quote="{props.quote as string ?? 'Design is the silent ambassador of your brand.'}", cite="{props.cite as string ?? ''}"
 				</p>
 			</div>
 

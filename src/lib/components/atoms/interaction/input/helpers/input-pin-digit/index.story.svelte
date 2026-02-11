@@ -1,17 +1,15 @@
 <script lang="ts">
 	import PinInputDigit from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { InputProps } from '$stylist/design-system/props';
+	import type { IInputProps, PinInputVariant } from '$stylist/design-system/props';
 
-	type Props = InputProps &
-		Omit<HTMLInputAttributes, 'size'> & {
-			id: string;
-			value?: string;
-			focused?: boolean;
-			invalid?: boolean;
-			label: string;
-		};
+	type Props = IInputProps & {
+		id: string;
+		value?: string;
+		focused?: boolean;
+		invalid?: boolean;
+		variant?: PinInputVariant;
+	};
 
 	const controls: ControlConfig[] = [
 		{ name: 'value', type: 'text', defaultValue: '', description: 'Current digit value' },
@@ -33,8 +31,6 @@
 		label: 'Digit',
 		id: 'pin-input-digit', // id is always a string
 		type: 'text',
-		min: 0,
-		max: 9,
 		value: '',
 		focused: false,
 		invalid: false
@@ -44,4 +40,3 @@
 <div class="flex justify-center p-4">
 	<PinInputDigit {...props} />
 </div>
-

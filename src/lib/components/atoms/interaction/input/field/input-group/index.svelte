@@ -33,15 +33,43 @@
 </script>
 
 <div class={containerClasses}>
-	<InputText
-		id={props.id}
-		{...(props.label != null && props.label !== '' ? { label: props.label as string } : {})}
-		value={value}
-		on:input={(e: Event) => value = (e.target as HTMLInputElement).value}
-		{...(props.placeholder != null && props.placeholder !== '' ? { placeholder: props.placeholder as string } : {})}
-		disabled={props.disabled}
-		class={inputClasses}
-	/>
+	{#if props.label != null && props.label !== ''}
+		{#if props.placeholder != null && props.placeholder !== ''}
+			<InputText
+				label={props.label}
+				placeholder={props.placeholder}
+				id={props.id ?? ''}
+				bind:value
+				disabled={props.disabled}
+				class={inputClasses}
+			/>
+		{:else}
+			<InputText
+				label={props.label}
+				id={props.id ?? ''}
+				bind:value
+				disabled={props.disabled}
+				class={inputClasses}
+			/>
+		{/if}
+	{:else}
+		{#if props.placeholder != null && props.placeholder !== ''}
+			<InputText
+				placeholder={props.placeholder}
+				id={props.id ?? ''}
+				bind:value
+				disabled={props.disabled}
+				class={inputClasses}
+			/>
+		{:else}
+			<InputText
+				id={props.id ?? ''}
+				bind:value
+				disabled={props.disabled}
+				class={inputClasses}
+			/>
+		{/if}
+	{/if}
 	<Button
 		variant={props.buttonVariant ?? 'primary'}
 		disabled={props.buttonDisabled}
@@ -51,4 +79,3 @@
 		{props.buttonLabel}
 	</Button>
 </div>
-

@@ -32,7 +32,7 @@
 	tags={['indicator', 'counter', 'notifications']}
 	{controls}
 >
-	{#snippet children(props: CountBadgeStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="space-y-8">
 			<div
 				class="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
@@ -40,11 +40,15 @@
 				<button class="relative rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white">
 					Messages
 					<span class="absolute -top-2 -right-2">
-						<CountBadge count={props.count} max={props.max} showZero={props.showZero} />
+						<CountBadge 
+							count={props.count as number ?? 12} 
+							max={props.max as number ?? 99} 
+							showZero={props.showZero as boolean ?? false} 
+						/>
 					</span>
 				</button>
 				<p class="text-sm text-gray-600 dark:text-gray-300">
-					Play with the controls to see how overflow (`{props.max}+`) and zero visibility behave.
+					Play with the controls to see how overflow (`{props.max as number ?? 99}+`) and zero visibility behave.
 				</p>
 			</div>
 
@@ -57,9 +61,9 @@
 						<li class="flex items-center justify-between py-3">
 							<span class="text-gray-700 dark:text-gray-200">{view.label}</span>
 							<CountBadge
-								count={view.label === 'Inbox' ? props.count : view.count}
-								max={props.max}
-								showZero={props.showZero}
+								count={view.label === 'Inbox' ? (props.count as number ?? 12) : view.count}
+								max={props.max as number ?? 99}
+								showZero={props.showZero as boolean ?? false}
 							/>
 						</li>
 					{/each}

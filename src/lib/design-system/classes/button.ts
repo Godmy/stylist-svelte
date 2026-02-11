@@ -1,6 +1,22 @@
 import { createBasePreset } from './interaction';
 
-const BUTTON_VARIANTS = ['primary', 'secondary', 'outline', 'ghost', 'danger'] as const;
+const BUTTON_VARIANTS = [
+	'default',
+	'primary',
+	'secondary',
+	'success',
+	'warning',
+	'danger',
+	'info',
+	'solid',
+	'outline',
+	'ghost',
+	'link',
+	'subtle',
+	'neutral',
+	'dark',
+	'light'
+] as const;
 const BUTTON_SIZES = ['sm', 'md', 'lg'] as const;
 
 export const BUTTON_PRESET = createBasePreset(BUTTON_VARIANTS, BUTTON_SIZES, {

@@ -16,11 +16,16 @@
 
 <Story component={SkeletonRectangle} {controls}>
 	{#snippet children()}
+		{@const widthValue = `${Math.round(width)}px`}
+		{@const heightValue = `${Math.round(height)}px`}
+		{@const compactWidthValue = `${Math.round(width * 0.6)}px`}
+		{@const tallWidthValue = `${Math.round(width * 0.9)}px`}
+		{@const tallHeightValue = `${Math.round(height * 2)}px`}
 		<div class="space-y-6 p-6">
 			<div class="flex flex-col gap-3">
-				<SkeletonRectangle {width} {height} class={animate ? '' : '!animate-none'} />
-				<SkeletonRectangle width={width * 0.6} {height} class="opacity-80" />
-				<SkeletonRectangle width={width * 0.9} height={height * 2} class="opacity-90" />
+				<SkeletonRectangle {...({ width: widthValue, height: heightValue, class: animate ? '' : '!animate-none' } as any)} />
+				<SkeletonRectangle {...({ width: compactWidthValue, height: heightValue, class: 'opacity-80' } as any)} />
+				<SkeletonRectangle {...({ width: tallWidthValue, height: tallHeightValue, class: 'opacity-90' } as any)} />
 			</div>
 
 			<div class="grid gap-4 sm:grid-cols-2">

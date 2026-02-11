@@ -42,7 +42,11 @@
 	tags={['badge', 'count', 'notification']}
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as Partial<Props>}
+		{@const count = typeof storyProps.count === 'number' ? storyProps.count : 3}
+		{@const maxCount = typeof storyProps.maxCount === 'number' ? storyProps.maxCount : 99}
+		{@const variant = storyProps.variant ?? 'number'}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Notification Badge</h2>
 			<div class="flex items-center justify-center space-x-8">
@@ -51,9 +55,9 @@
 						Icon
 					</div>
 					<NotificationBadge
-						count={props.count}
-						maxCount={props.maxCount}
-						variant={props.variant}
+						{count}
+						{maxCount}
+						{variant}
 					/>
 				</div>
 
@@ -61,7 +65,7 @@
 					<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-300">
 						Button
 					</div>
-					<NotificationBadge count={props.count} maxCount={props.maxCount} variant="dot" />
+					<NotificationBadge {count} {maxCount} variant="dot" />
 				</div>
 			</div>
 		</div>

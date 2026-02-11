@@ -25,7 +25,8 @@
 	tags={['navigation', 'path', 'hierarchy']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as Props}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Breadcrumb</h2>
 			<div class="mx-auto max-w-2xl">
@@ -34,7 +35,7 @@
 						{ label: 'Home', href: '/' },
 						{ label: 'Products', href: '/products' },
 						{ label: 'Category', href: '/products/category' },
-						{ label: props.currentPage, href: '#' }
+						{ label: storyProps.currentPage, href: '#' }
 					]}
 				/>
 			</div>

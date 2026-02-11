@@ -27,12 +27,13 @@
 </script>
 
 <Story {id} {title} {description} component={StepIcon} category="Atoms" {controls}>
-	{#snippet children(props)}
-		<StepIcon 
-			status={props?.status ?? 'pending'} 
-			size={props?.size ?? 'md'} 
-			stepNumber={props?.stepNumber ?? 1} 
-		/>
+	{#snippet children(props: Record<string, unknown>)}
+		{@const status =
+			props.status === 'active' || props.status === 'completed' || props.status === 'error'
+				? props.status
+				: 'pending'}
+		{@const size = props.size === 'sm' || props.size === 'lg' ? props.size : 'md'}
+		{@const stepNumber = typeof props.stepNumber === 'number' ? props.stepNumber : 1}
+		<StepIcon {status} {size} {stepNumber} />
 	{/snippet}
 </Story>
-

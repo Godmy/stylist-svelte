@@ -37,12 +37,16 @@
 	description="Display important messages to users with different severity levels."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const variant =
+			typeof props.variant === 'string' ? (props.variant as NonNullable<Props['variant']>) : 'info'}
+		{@const title = typeof props.title === 'string' ? props.title : 'Sample Alert'}
+		{@const closable = typeof props.closable === 'boolean' ? props.closable : false}
 		<div class="max-w-md p-4">
-			<Alert variant={props.variant} title={props.title} closable={props.closable}>
+			<Alert {variant} {title} {closable}>
 				{#snippet children()}
 					<p class="text-sm">
-						{props.variant === 'success'
+						{variant === 'success'
 							? 'Everything looks good! Keep monitoring for anomalies.'
 							: 'Add remediation steps or contextual information inside the slot.'}
 					</p>

@@ -41,12 +41,18 @@
 	description="Syntax highlighted code component for displaying code with syntax highlighting"
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const code =
+			typeof props.code === 'string' && props.code.trim().length > 0 ? props.code : sampleCode}
+		{@const language =
+			typeof props.language === 'string' ? (props.language as Props['language']) : undefined}
+		{@const showLineNumbers =
+			typeof props.showLineNumbers === 'boolean' ? props.showLineNumbers : undefined}
 		<div class="p-4">
 			<SyntaxHighlightedCode
-				code={props.code || sampleCode}
-				language={props.language}
-				showLineNumbers={props.showLineNumbers}
+				{code}
+				{language}
+				{showLineNumbers}
 			/>
 		</div>
 	{/snippet}

@@ -138,6 +138,33 @@ Components are organized according to Atomic Design principles:
    - `$props()` for component props
    - `$bindable()` for two-way binding
 
+### State & Preset Rules
+
+Use these rules for `state.svelte.ts` and component state to keep the library consistent and scalable:
+
+1. Source of truth:
+   - Prefer `design-system` presets/tokens/classes for styling and logic.
+   - Avoid duplicating `get*Classes` logic inside components when a preset exists.
+
+2. Reactivity:
+   - Use `$derived()` for any value depending on props or other reactive values.
+   - Expose computed values via getters to avoid stale captures.
+
+3. Types:
+   - Do not use `any` in state logic.
+   - Align component props with preset generics; prefer explicit helper types over casts.
+
+4. Structure:
+   - One `state.svelte.ts` per feature folder, no duplicates with different behavior.
+   - Keep state focused: do not place unrelated component state in another feature’s folder.
+
+5. Tailwind classes:
+   - Avoid dynamic class names like `w-${size}` or `bg-[${color}]` unless a safelist exists.
+   - Use inline styles or tokenized classes for dynamic values.
+
+6. If you move or remove state files, regenerate barrels:
+   - Run `python -u "d:\\2026\\code\\template\\stylist\\components\\cli.py"` per AGENTS.md.
+
 ### Component Stories
 
 Create stories for new components to be used in the Playground:

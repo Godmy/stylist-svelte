@@ -3,8 +3,8 @@
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import StatusIndicatorWithLabel from './index.svelte';
 
-	type Status = 'success' | 'warning' | 'error' | 'info' | 'neutral' | 'custom';
-
+	type Status = 'success' | 'warning' | 'info' | 'neutral' | 'custom';
+	
 	type Props = {
 		status: Status;
 		label: string;
@@ -17,8 +17,8 @@
 		{
 			name: 'status',
 			type: 'select',
-			options: ['success', 'warning', 'error', 'info', 'neutral', 'custom'],
-			defaultValue: 'neutral'
+			options: ['success', 'warning', 'info', 'default', 'custom'],
+			defaultValue: 'default'
 		},
 		{
 			name: 'label',
@@ -44,7 +44,11 @@
 >
 	{#snippet children(props: Record<string, unknown>)}
 		<div class="p-4">
-			<StatusIndicatorWithLabel status={props.status as Status} label={props.label as string} size={props.size as 'sm' | 'md' | 'lg'} />
+			<StatusIndicatorWithLabel 
+				status={props.status as Status ?? 'neutral'} 
+				label={props.label as string ?? 'Active'} 
+				size={props.size as 'sm' | 'md' | 'lg' ?? 'md'} 
+			/>
 		</div>
 	{/snippet}
 </Story>

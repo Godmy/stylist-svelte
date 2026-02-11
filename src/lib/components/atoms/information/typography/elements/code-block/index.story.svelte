@@ -55,13 +55,13 @@
 	tags={['code', 'syntax', 'highlighting', 'block']}
 	{controls}
 >
-	{#snippet children(props: CodeBlockStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
 		<CodeBlock
-			language={props.language}
-			variant={props.variant}
-			size={props.size}
-			showLineNumbers={props.showLineNumbers}
-			startLineNumber={props.startLineNumber}
+			language={props.language as string ?? 'javascript'}
+			variant={props.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
+			size={props.size as 'sm' | 'md' | 'lg' ?? 'md'}
+			showLineNumbers={props.showLineNumbers as boolean ?? false}
+			startLineNumber={props.startLineNumber as number ?? 1}
 		>
 			{`function example() {
   console.log("This is an example code block");

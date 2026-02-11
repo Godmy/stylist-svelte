@@ -33,7 +33,7 @@
 	tags={['badge', 'tag', 'label']}
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Badge Group</h2>
 			<div class="mx-auto max-w-md">
@@ -46,8 +46,8 @@
 						{ id: '5', label: 'Danger', variant: 'danger', size: 'md' },
 						{ id: '6', label: 'Info', variant: 'info', size: 'md' }
 					]}
-					maxVisible={props.maxVisible}
-					showOverflow={props.showOverflow}
+					maxVisible={props.maxVisible as number ?? 5}
+					showOverflow={props.showOverflow as boolean ?? true}
 				/>
 			</div>
 		</div>

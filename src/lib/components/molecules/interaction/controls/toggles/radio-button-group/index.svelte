@@ -16,80 +16,38 @@
 
 	function handleInput(optionValue: string) {
 		selectedValue = optionValue;
-		props.onInput?.(optionValue);
+		props.oninput?.(optionValue);
 	}
 
 	function handleChange(optionValue: string) {
 		selectedValue = optionValue;
-		props.onChange?.(optionValue);
+		props.onchange?.(optionValue);
 	}
 
 	// Extract only HTML-compatible props for the container div
-	const htmlProps = $derived((() => {
-		const {
-			options: _options,
-			value: _value,
-			name: _name,
-			disabled: _disabled,
-			required: _required,
-			orientation: _orientation,
-			class: _class,
-			optionClass: _optionClass,
-			labelClass: _labelClass,
-			radioClass: _radioClass,
-			onInput: _onInput,
-			onChange: _onChange,
-			// Exclude attributes that don't belong on div elements
-			// Input-specific attributes
-			accept: _accept,
-			alt: _alt,
-			autocomplete: _autocomplete,
-			autofocus: _autofocus,
-			capture: _capture,
-			checked: _checked,
-			crossorigin: _crossorigin,
-			files: _files,
-			form: _form,
-			formaction: _formaction,
-			formenctype: _formenctype,
-			formmethod: _formmethod,
-			formnovalidate: _formnovalidate,
-			formtarget: _formtarget,
-			height: _height,
-			inputmode: _inputmode,
-			list: _list,
-			max: _max,
-			maxlength: _maxlength,
-			min: _min,
-			minlength: _minlength,
-			multiple: _multiple,
-			pattern: _pattern,
-			placeholder: _placeholder,
-			readonly: _readonly,
-			selectionDirection: _selectionDirection,
-			selectionEnd: _selectionEnd,
-			selectionStart: _selectionStart,
-			size: _size,
-			src: _src,
-			step: _step,
-			type: _type,
-			useMap: _useMap,
-			width: _width,
-			wrap: _wrap,
-			// Event handlers that are specific to inputs
-			onBeforeInput: _onBeforeInput,
-			onInvalid: _onInvalid,
-			onSelect: _onSelect,
-			// Clipboard event handlers
-			onCopy: _onCopy,
-			onCut: _onCut,
-			onPaste: _onPaste,
-			...filteredProps
-		} = {
-			...props
-		};
-		return filteredProps;
-	})());
+	// Create a new object with only the safe properties by picking them explicitly
+	const htmlProps = $derived(() => {
+		const result = {} as Record<string, any>;
+		
+		// Manually copy only the properties that are safe to use on a div element
+		for (const [key, value] of Object.entries(props)) {
+			// Skip properties that are specific to input elements or that cause type conflicts
+			if (![
+				'options', 'value', 'name', 'disabled', 'required', 'orientation', 
+				'class', 'optionClass', 'labelClass', 'radioClass', 'oninput', 'onchange',
+				'accept', 'alt', 'autocomplete', 'autofocus', 'capture', 'checked', 
+				'crossOrigin', 'files', 'form', 'formAction', 'formEncType', 'formMethod', 
+				'formNoValidate', 'formTarget', 'height', 'inputMode', 'list', 'max', 
+				'maxLength', 'min', 'minLength', 'multiple', 'pattern', 'placeholder', 
+				'readOnly', 'selectionDirection', 'selectionEnd', 'selectionStart', 'size', 
+				'src', 'step', 'type', 'useMap', 'width', 'wrap'
+			].includes(key)) {
+				result[key] = value;
+			}
+		}
+		
+		return result;
+	});
 </script>
 
 <div class={radioGroupState.containerClass} {...htmlProps}>

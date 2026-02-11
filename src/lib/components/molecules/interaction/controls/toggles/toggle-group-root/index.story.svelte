@@ -37,7 +37,9 @@
 </script>
 
 <Story {id} {title} {description} component={ToggleGroupRoot} category="Molecules" {controls}>
-	{#snippet children(props: { type?: 'single' | 'multiple'; disabled?: boolean })}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const type = props.type === 'multiple' ? 'multiple' : 'single'}
+		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
 		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
 			<div
 				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"
@@ -54,8 +56,8 @@
 					<div>
 						<p class="mb-3 text-sm font-medium text-[--color-text-primary]">Single Selection:</p>
 						<ToggleGroupRoot
-							type={props.type}
-							disabled={props.disabled}
+							{type}
+							{disabled}
 							onvalueChange={handleValueChange}
 						>
 							<ToggleGroupItem value="option1">Option 1</ToggleGroupItem>
@@ -72,7 +74,7 @@
 						<p class="mb-3 text-sm font-medium text-[--color-text-primary]">Multiple Selection:</p>
 						<ToggleGroupRoot
 							type="multiple"
-							disabled={props.disabled}
+							{disabled}
 							onvalueChange={handleValueChange}
 						>
 							<ToggleGroupItem value="multi1">Multi 1</ToggleGroupItem>

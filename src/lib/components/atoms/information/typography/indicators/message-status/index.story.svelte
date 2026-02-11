@@ -37,9 +37,10 @@
 	{controls}
 >
 	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as MessageStatusStoryProps}
 		<div class="flex items-center space-x-2">
 			<span>Message Status:</span>
-			<MessageStatus status={props.status as 'sent' | 'delivered' | 'read'} size={props.size as 'sm' | 'md'} />
+			<MessageStatus status={storyProps.status} size={storyProps.size} />
 		</div>
 	{/snippet}
 </Story>

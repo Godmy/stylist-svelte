@@ -37,7 +37,11 @@
 	description="A visual indicator for the active tab in a tab navigation."
 	{controls}
 >
-	{#snippet children(props: Props)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as Partial<Props>}
+		{@const color = storyProps.color ?? 'primary'}
+		{@const width = typeof storyProps.width === 'string' ? storyProps.width : '50px'}
+		{@const left = typeof storyProps.left === 'string' ? storyProps.left : '0px'}
 		<div class="relative w-full max-w-md border-b border-gray-200">
 			<div class="flex">
 				{#each tabs as tab, i}
@@ -49,7 +53,7 @@
 					</button>
 				{/each}
 			</div>
-			<TabIndicator width={tabs[activeTab].width} left={tabs[activeTab].left} color={props.color} />
+			<TabIndicator width={tabs[activeTab].width} left={tabs[activeTab].left} {color} />
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Customizable Indicator</h3>
@@ -59,7 +63,7 @@
 				<button class="px-4 py-2 text-sm font-medium text-gray-600">Item B</button>
 				<button class="px-4 py-2 text-sm font-medium text-gray-600">Item C</button>
 			</div>
-			<TabIndicator width={props.width} left={props.left} color={props.color} />
+			<TabIndicator {width} {left} {color} />
 		</div>
 	{/snippet}
 </Story>

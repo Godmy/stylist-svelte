@@ -62,9 +62,9 @@ import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/
 							onvalueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
 								console.log('Multiple selection:', e.detail.value)}
 						>
-							<ToggleGroupItem value="multi1" disabled={props.disabled}>Multi 1</ToggleGroupItem>
-							<ToggleGroupItem value="multi2" disabled={props.disabled}>Multi 2</ToggleGroupItem>
-							<ToggleGroupItem value="multi3" disabled={props.disabled}>Multi 3</ToggleGroupItem>
+							<ToggleGroupItem value="multi1" disabled={props.disabled as boolean}>Multi 1</ToggleGroupItem>
+							<ToggleGroupItem value="multi2" disabled={props.disabled as boolean}>Multi 2</ToggleGroupItem>
+							<ToggleGroupItem value="multi3" disabled={props.disabled as boolean}>Multi 3</ToggleGroupItem>
 						</ToggleGroupRoot>
 					</div>
 				</div>

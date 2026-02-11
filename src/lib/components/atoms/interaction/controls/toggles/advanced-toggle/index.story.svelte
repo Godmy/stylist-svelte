@@ -37,10 +37,15 @@
 	tags={['form', 'input', 'switch']}
 	{controls}
 >
-	{#snippet children(props: AdvancedToggleStoryProps)}
+	{#snippet children(props: Record<string, unknown>)}
+		{@const storyProps = props as AdvancedToggleStoryProps}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">AdvancedToggle Story</h2>
-			<AdvancedToggle label={props.label} checked={props.checked} disabled={props.disabled} />
+			<AdvancedToggle
+				label={storyProps.label}
+				checked={storyProps.checked}
+				disabled={storyProps.disabled}
+			/>
 		</div>
 	{/snippet}
 </Story>

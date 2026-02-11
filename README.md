@@ -21,13 +21,13 @@ npm install stylist-svelte
 
 ```svelte
 <script>
-  import { ThemeProvider, Button, Input } from 'stylist-svelte';
+	import { ThemeProvider, Button, Input } from 'stylist-svelte';
 </script>
 
 <ThemeProvider initialTheme="light">
-  <h2>Welcome to Stylist-Svelte</h2>
-  <Input placeholder="Enter your name" />
-  <Button variant="primary">Get Started</Button>
+	<h2>Welcome to Stylist-Svelte</h2>
+	<Input placeholder="Enter your name" />
+	<Button variant="primary">Get Started</Button>
 </ThemeProvider>
 ```
 

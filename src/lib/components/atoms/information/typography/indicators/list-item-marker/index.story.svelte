@@ -3,13 +3,13 @@
 
 	// More on args: https://storybook.js.org/docs/7.0/svelte/writing-stories/args
 	const args: {
-		type: 'bullet' | 'number' | 'icon';
+		type: 'dot' | 'number' | 'letter' | 'check' | 'x' | 'arrow' | 'star';
 		value: string;
 		color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
 		size: 'sm' | 'md' | 'lg';
 		class: string;
 	} = {
-		type: 'bullet',
+		type: 'dot',
 		value: '',
 		color: 'gray',
 		size: 'md',
@@ -19,7 +19,7 @@
 	const controls = {
 		type: {
 			control: { type: 'select' },
-			options: ['bullet', 'number', 'icon']
+			options: ['dot', 'number', 'letter', 'check', 'x', 'arrow', 'star']
 		},
 		value: { control: { type: 'text' } },
 		color: {
@@ -47,11 +47,11 @@
 
 <!-- Different marker types -->
 <div class="space-y-4 p-4">
-	<h3 class="text-lg font-medium">Bullet Marker</h3>
+	<h3 class="text-lg font-medium">Dot Marker</h3>
 	<div class="flex items-center space-x-2">
-		<ListItemMarker type="bullet" color="gray" size="sm" />
-		<ListItemMarker type="bullet" color="gray" size="md" />
-		<ListItemMarker type="bullet" color="gray" size="lg" />
+		<ListItemMarker type="dot" color="gray" size="sm" />
+		<ListItemMarker type="dot" color="gray" size="md" />
+		<ListItemMarker type="dot" color="gray" size="lg" />
 	</div>
 </div>
 
@@ -65,23 +65,26 @@
 </div>
 
 <div class="space-y-4 p-4">
-	<h3 class="text-lg font-medium">Icon Marker</h3>
+	<h3 class="text-lg font-medium">Check/X Markers</h3>
 	<div class="flex items-center space-x-2">
-		<ListItemMarker type="icon" value="check" color="success" size="sm" />
-		<ListItemMarker type="icon" value="check" color="success" size="md" />
-		<ListItemMarker type="icon" value="check" color="success" size="lg" />
+		<ListItemMarker type="check" value="check" color="success" size="sm" />
+		<ListItemMarker type="check" value="check" color="success" size="md" />
+		<ListItemMarker type="check" value="check" color="success" size="lg" />
+		<ListItemMarker type="x" value="x" color="danger" size="sm" />
+		<ListItemMarker type="x" value="x" color="danger" size="md" />
+		<ListItemMarker type="x" value="x" color="danger" size="lg" />
 	</div>
 </div>
 
 <div class="space-y-4 p-4">
 	<h3 class="text-lg font-medium">Color Variations</h3>
 	<div class="flex items-center space-x-2">
-		<ListItemMarker type="bullet" color="primary" size="md" />
-		<ListItemMarker type="bullet" color="secondary" size="md" />
-		<ListItemMarker type="bullet" color="success" size="md" />
-		<ListItemMarker type="bullet" color="warning" size="md" />
-		<ListItemMarker type="bullet" color="danger" size="md" />
-		<ListItemMarker type="bullet" color="info" size="md" />
-		<ListItemMarker type="bullet" color="gray" size="md" />
+		<ListItemMarker type="dot" color="primary" size="md" />
+		<ListItemMarker type="dot" color="secondary" size="md" />
+		<ListItemMarker type="dot" color="success" size="md" />
+		<ListItemMarker type="dot" color="warning" size="md" />
+		<ListItemMarker type="dot" color="danger" size="md" />
+		<ListItemMarker type="dot" color="info" size="md" />
+		<ListItemMarker type="dot" color="gray" size="md" />
 	</div>
 </div>

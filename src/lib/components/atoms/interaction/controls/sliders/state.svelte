@@ -9,12 +9,10 @@
 		const value = props.value ?? min;
 		
 		// Calculate position as percentage
-		const position = $derived<number>(
-			(() => {
-				if (max <= min) return 0;
-				return ((value - min) / (max - min)) * 100;
-			})()
-		);
+		const position = $derived.by(() => {
+			if (max <= min) return 0;
+			return ((value - min) / (max - min)) * 100;
+		});
 
 		const containerClasses = $derived(
 			cn(

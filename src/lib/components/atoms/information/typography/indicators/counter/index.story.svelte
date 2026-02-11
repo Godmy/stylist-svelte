@@ -2,6 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Counter from './index.svelte';
+	import type { Snippet } from 'svelte';
 
 	const variantOptions = ['primary', 'secondary', 'danger', 'success', 'warning', 'info'] as const;
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
@@ -19,6 +20,9 @@
 		{ name: 'variant', type: 'select', defaultValue: 'primary', options: [...variantOptions] },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: [...sizeOptions] }
 	];
+
+	// Define the snippet type to match expected signature
+	type StoryChildren = Snippet<[Record<string, unknown>]>;
 </script>
 
 <Story
@@ -31,7 +35,12 @@
 >
 	{#snippet children(props: Record<string, unknown>)}
 		<div class="flex items-center space-x-4">
-			<Counter count={props.count as number} max={props.max as number} variant={props.variant as (typeof variantOptions)[number]} size={props.size as (typeof sizeOptions)[number]} />
+			<Counter 
+				count={props.count as number ?? 5} 
+				max={props.max as number ?? 99} 
+				variant={props.variant as (typeof variantOptions)[number] ?? 'primary'} 
+				size={props.size as (typeof sizeOptions)[number] ?? 'md'} 
+			/>
 			<span class="text-gray-700">Notifications</span>
 		</div>
 
