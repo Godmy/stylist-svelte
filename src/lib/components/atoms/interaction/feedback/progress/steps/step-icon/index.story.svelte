@@ -29,9 +29,9 @@
 <Story {id} {title} {description} component={StepIcon} category="Atoms" {controls}>
 	{#snippet children(props)}
 		<StepIcon 
-			status={props.status ?? 'pending'} 
-			size={props.size ?? 'md'} 
-			stepNumber={props.stepNumber ?? 1} 
+			status={props?.status ?? 'pending'} 
+			size={props?.size ?? 'md'} 
+			stepNumber={props?.stepNumber ?? 1} 
 		/>
 	{/snippet}
 </Story>

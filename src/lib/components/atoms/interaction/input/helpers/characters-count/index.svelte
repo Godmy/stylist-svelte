@@ -13,6 +13,7 @@
 	 * @returns Accessible, styled character count indicator
 	 */
 
+	
 	type CharacterCountProps = {
 		current?: number;
 		max?: number;

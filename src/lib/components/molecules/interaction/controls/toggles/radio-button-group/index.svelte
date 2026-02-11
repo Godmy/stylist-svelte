@@ -27,7 +27,6 @@
 	// Extract only HTML-compatible props for the container div
 	const htmlProps = $derived((() => {
 		const {
-			// Component-specific props (exclude from HTML element)
 			options: _options,
 			value: _value,
 			name: _name,
@@ -38,27 +37,26 @@
 			optionClass: _optionClass,
 			labelClass: _labelClass,
 			radioClass: _radioClass,
-			oninput: _oninput,
-			onchange: _onchange,
-			// Svelte-specific attributes that shouldn't go on div
-			color: _color,
-			hidden: _hidden,
-			children: _children,
-			accesskey: _accesskey,
-			autocapitalize: _autocapitalize,
-			autocomplete: _autocomplete,
-			autofocus: _autofocus,
-			disable: _disable,  // Note: this might be a typo for disabled
-			form: _form,
-			// Add other props that shouldn't be spread to div
+			onInput: _onInput,
+			onChange: _onChange,
+			// Exclude attributes that don't belong on div elements
 			// Input-specific attributes
 			accept: _accept,
 			alt: _alt,
+			autocomplete: _autocomplete,
+			autofocus: _autofocus,
+			capture: _capture,
 			checked: _checked,
-			dirname: _dirname,
-			for: _for,
+			crossorigin: _crossorigin,
+			files: _files,
+			form: _form,
+			formaction: _formaction,
+			formenctype: _formenctype,
+			formmethod: _formmethod,
+			formnovalidate: _formnovalidate,
+			formtarget: _formtarget,
 			height: _height,
-			lang: _lang,
+			inputmode: _inputmode,
 			list: _list,
 			max: _max,
 			maxlength: _maxlength,
@@ -68,31 +66,26 @@
 			pattern: _pattern,
 			placeholder: _placeholder,
 			readonly: _readonly,
-			rel: _rel,
+			selectionDirection: _selectionDirection,
+			selectionEnd: _selectionEnd,
+			selectionStart: _selectionStart,
+			size: _size,
 			src: _src,
 			step: _step,
-			tabindex: _tabindex,
-			title: _title,
+			type: _type,
+			useMap: _useMap,
 			width: _width,
-			// Event handlers that don't apply to div
-			onblur: _onblur,
-			onfocus: _onfocus,
-			onchange: _onchange2,
-			oninput: _oninput2,
-			onkeydown: _onkeydown,
-			onkeypress: _onkeypress,
-			onkeyup: _onkeyup,
-			onmousedown: _onmousedown,
-			onmouseenter: _onmouseenter,
-			onmouseleave: _onmouseleave,
-			onmousemove: _onmousemove,
-			onmouseout: _onmouseout,
-			onmouseover: _onmouseover,
-			onmouseup: _onmouseup,
-			// More attributes that don't belong on div
+			wrap: _wrap,
+			// Event handlers that are specific to inputs
+			onBeforeInput: _onBeforeInput,
+			onInvalid: _onInvalid,
+			onSelect: _onSelect,
+			// Clipboard event handlers
+			onCopy: _onCopy,
+			onCut: _onCut,
+			onPaste: _onPaste,
 			...filteredProps
 		} = {
-			// Include all props from the original object
 			...props
 		};
 		return filteredProps;

@@ -1,14 +1,14 @@
-import type { Alignment, Justification } from '../tokens';
+﻿import type { Alignment, Justification } from '../tokens';
 import { cn } from '../utils/classnames';
 import { BASE_CLASSES } from './classes';
-import type { ContainerMaxWidth, SpacerAxis } from '../props/all-props';
+import type { ContainerMaxWidth, SpacerAxis } from '../props';
 
 export const getAspectRatioClasses = (className = '') => {
 	return `relative w-full [aspect-ratio:var(--aspect-ratio)] ${className}`.trim();
 };
 
 export const getContainerClasses = (maxWidth: ContainerMaxWidth, className = '') => {
-	const maxWidthClass = CONTAINER_MAX_WIDTH_CLASSES[maxWidth] || CONTAINER_MAX_WIDTH_CLASSES.full;
+	const maxWidthClass = CONTAINER_MAX_WIDTH_CLASSES[maxWidth as keyof typeof CONTAINER_MAX_WIDTH_CLASSES] || CONTAINER_MAX_WIDTH_CLASSES.full;
 	return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
 };
 
@@ -112,3 +112,4 @@ export const SPACER_AXIS_CLASSES: Record<SpacerAxis, string> = {
 	horizontal: 'w-[var(--spacer-size)]',
 	vertical: 'h-[var(--spacer-size)]'
 } as const;
+

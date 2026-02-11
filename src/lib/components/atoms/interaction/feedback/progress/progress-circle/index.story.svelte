@@ -40,20 +40,20 @@
 	{#snippet children(props)}
 		<div class="flex items-center space-x-4">
 			<ProgressCircle
-				progress={props.progress ?? 60}
-				size={props.size ?? 'md'}
-				strokeWidth={props.strokeWidth ?? 4}
-				color={props.color ?? 'primary'}
+				progress={props?.progress ?? 60}
+				size={props?.size ?? 'md'}
+				strokeWidth={props?.strokeWidth ?? 4}
+				color={props?.color ?? 'primary'}
 			/>
 			<span class="text-gray-700">Task Progress</span>
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Different Progress Values and Sizes</h3>
 		<div class="flex flex-wrap items-center gap-4">
-			<ProgressCircle progress={25} size={props.size ?? "sm"} color="danger" />
-			<ProgressCircle progress={50} size={props.size ?? "md"} color="warning" />
-			<ProgressCircle progress={75} size={props.size ?? "lg"} color="success" />
-			<ProgressCircle progress={100} size={props.size ?? "md"} color="primary">Done!</ProgressCircle>
+			<ProgressCircle progress={25} size={props?.size ?? "sm"} color="danger" />
+			<ProgressCircle progress={50} size={props?.size ?? "md"} color="warning" />
+			<ProgressCircle progress={75} size={props?.size ?? "lg"} color="success" />
+			<ProgressCircle progress={100} size={props?.size ?? "md"} color="primary">Done!</ProgressCircle>
 		</div>
 	{/snippet}
 </Story>

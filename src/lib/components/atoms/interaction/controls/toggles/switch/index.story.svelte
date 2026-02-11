@@ -27,14 +27,14 @@
 </script>
 
 <Story {id} {title} {description} component={Switch} category="Atoms" {controls}>
-	{#snippet children(props)}
+	{#snippet children(props: SwitchProps)}
 		<Switch
 			id={switchId}
-			label={props.label ?? 'Enable notifications'}
-			description={props.description ?? 'Receive email notifications'}
-			size={props.size ?? 'md'}
-			disabled={props.disabled ?? false}
-			required={props.required ?? false}
+			label={props?.label ?? 'Enable notifications'}
+			description={props?.description ?? 'Receive email notifications'}
+			size={props?.size ?? 'md'}
+			disabled={props?.disabled ?? false}
+			required={props?.required ?? false}
 		/>
 	{/snippet}
 </Story>

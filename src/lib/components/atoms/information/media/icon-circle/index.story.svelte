@@ -2,7 +2,7 @@
 	import IconCircle from './index.svelte';
 	import type { Snippet } from 'svelte';
 
-	let icon: Snippet<[], string> = () => '★';
+	let icon: Snippet = () => '★';
 	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' = 'primary';
 	let size: 'sm' | 'md' | 'lg' = 'md'; // Changed xl to lg since the component only supports sm/md/lg
 	let gradient = false;
@@ -40,6 +40,6 @@
 	</div>
 
 	<div class="inline-flex items-center rounded border p-4">
-		<IconCircle icon={icon} {variant} {size} {gradient} />
+		<IconCircle {icon} {variant} {size} {gradient} />
 	</div>
 </div>

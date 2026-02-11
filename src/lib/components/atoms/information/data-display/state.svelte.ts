@@ -103,7 +103,7 @@ export function createColorSwatchState(props: ColorSwatchProps) {
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);
 	const className = $derived(cn(props.class));
-	const label = $derived(props.label ?? BADGE_LABELS[type]);
+	const label = $derived(props.label ?? BADGE_LABELS[type as keyof typeof BADGE_LABELS]);
 	const classes = $derived(
 		cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className)
 	);

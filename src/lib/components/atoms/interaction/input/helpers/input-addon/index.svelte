@@ -3,6 +3,7 @@
 	import { createInputAddonState } from '../state.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
+	import type { InputAddonVariant } from '$stylist/design-system/props';
 
 	/**
 	 * InputAddon component - Prefix or suffix for an input field (icon, text)
@@ -14,10 +15,9 @@
 	 * @returns Wrapper to add content to an input field
 	 */
 
-	import type { InputVariant } from '$stylist/design-system';
 	type InputAddonProps = {
 		position?: 'left' | 'right';
-		variant?: (typeof INPUT_ADDON_PRESET.variants)[number];
+		variant?: InputAddonVariant;
 		size?: CompactSize;
 		class?: string;
 		children?: import('svelte').Snippet;
@@ -33,7 +33,7 @@
 	}: InputAddonProps & HTMLAttributes<HTMLDivElement> = $props();
 
 	const inputAddonState = $derived(createInputAddonState({
-		variant,
+		variant: variant satisfies InputAddonVariant,
 		size,
 		class: className
 	}));

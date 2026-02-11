@@ -35,18 +35,10 @@
 <div class={containerClasses}>
 	<InputText
 		id={props.id}
-		{...(props.label ? { label: props.label } : {})}
-		{...(props.placeholder ? { placeholder: props.placeholder } : {})}
+		{...(props.label != null && props.label !== '' ? { label: props.label as string } : {})}
 		value={value}
-		on:input={(e) => {
-			const target = e.currentTarget as HTMLInputElement;
-			value = target.value;
-			dispatch('input', { value });
-		}}
-		on:change={(e) => {
-			const target = e.currentTarget as HTMLInputElement;
-			dispatch('change', { value: target.value });
-		}}
+		on:input={(e: Event) => value = (e.target as HTMLInputElement).value}
+		{...(props.placeholder != null && props.placeholder !== '' ? { placeholder: props.placeholder as string } : {})}
 		disabled={props.disabled}
 		class={inputClasses}
 	/>

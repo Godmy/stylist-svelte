@@ -1,4 +1,4 @@
-import type { ChatMessageStatus, ChatMessageVariant } from '../props/all-props';
+﻿import type { ChatMessageStatus, ChatMessageVariant } from '../props/chat';
 
 export const DEFAULT_CHAT_MESSAGE_VARIANT: ChatMessageVariant = 'default';
 
@@ -41,3 +41,4 @@ export const getChatMessageFooterClasses = (className = '') =>
 
 export const getChatMessageStatusIconClasses = (status: ChatMessageStatus) =>
 	`ml-1 h-3 w-3 ${status === 'read' ? 'text-blue-500' : 'text-gray-400'}`.trim();
+

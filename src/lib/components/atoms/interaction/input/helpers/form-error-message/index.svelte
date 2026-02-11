@@ -33,10 +33,11 @@
 		class: className = '',
 		...restProps
 	}: FormErrorMessageProps & HTMLAttributes<HTMLParagraphElement> = $props();
-	const formErrorState = $derived(createFormErrorMessageState({ 
-		variant: variant as FormErrorVariant, 
+
+	const formErrorState = $derived(createFormErrorMessageState({
+		variant: variant satisfies FormErrorVariant,
 		size,
-		class: className 
+		class: className
 	}));
 
 	let classes = $derived([formErrorState.classes].filter(Boolean).join(' '));

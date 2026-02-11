@@ -47,9 +47,10 @@ export const INPUT_VARIANT_CLASSES = {
 export const INPUT_ERROR_CLASS =
 	'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]';
 
+export { INPUT_VARIANTS };
 export const INPUT_TOKENS = {
 	INPUT_VARIANTS,
-	COMPONENT_SIZE_SCALE: COMPACT_SIZE_SCALE,
+	COMPACT_SIZE_SCALE: COMPACT_SIZE_SCALE,
 	DEFAULT_FLAGS,
 	STATE_CLASSES,
 	INPUT_BASE_CLASS,

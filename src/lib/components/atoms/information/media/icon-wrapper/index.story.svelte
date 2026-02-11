@@ -1,10 +1,12 @@
 <script lang="ts">
 	import IconWrapper from './index.svelte';
+	import type { Snippet } from 'svelte';
 
 	let size: 'sm' | 'md' | 'lg' = 'md';
 	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'default' | 'neutral' | 'dark' | 'light' = 'primary';
 	let shape: 'circle' | 'square' | 'rounded' = 'circle';
 	let color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'primary';
+	let content: Snippet = () => '★';
 </script>
 
 <div class="p-4">
@@ -58,6 +60,6 @@
 	</div>
 
 	<div class="inline-flex items-center rounded border p-4">
-		<IconWrapper {size} {variant} {shape} {color} content={() => '★'} />
+		<IconWrapper {size} {variant} {shape} {color} {content} />
 	</div>
 </div>

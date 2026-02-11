@@ -6,7 +6,7 @@
 	const state = createPieChartState(props);
 	const data = $derived(props.data ?? []);
 
-	const total = $derived(data.reduce((sum, item) => sum + item.value, 0));
+	const total = $derived(data.reduce((sum: number, item: { value: number }) => sum + item.value, 0));
 	const center = 100;
 	const radius = 90;
 	const startAngle = 0;
@@ -22,7 +22,7 @@
 					? startAngle
 					: data
 							.slice(0, i)
-							.reduce((sum, d) => sum + (total === 0 ? 0 : (d.value / total) * 360), startAngle)}
+							.reduce((sum: number, d: { value: number }) => sum + (total === 0 ? 0 : (d.value / total) * 360), startAngle)}
 			{@const currentSliceEndAngle = currentSliceStartAngle + sliceAngle}
 
 			{@const startRad = (currentSliceStartAngle * Math.PI) / 180}

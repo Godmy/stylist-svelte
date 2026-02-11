@@ -33,7 +33,7 @@
 	tags={['badge', 'tag', 'label']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Props)}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Badge Group</h2>
 			<div class="mx-auto max-w-md">

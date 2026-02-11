@@ -29,9 +29,9 @@
 	description="A small badge to display numerical counts, often used for notifications."
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="flex items-center space-x-4">
-			<Counter count={props.count} max={props.max} variant={props.variant} size={props.size} />
+			<Counter count={props.count as number} max={props.max as number} variant={props.variant as (typeof variantOptions)[number]} size={props.size as (typeof sizeOptions)[number]} />
 			<span class="text-gray-700">Notifications</span>
 		</div>
 

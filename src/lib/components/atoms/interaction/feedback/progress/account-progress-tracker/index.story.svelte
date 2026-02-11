@@ -33,8 +33,8 @@
 			<h2 class="mb-4 text-xl font-bold">AccountProgressTracker Story</h2>
 			<AccountProgressTracker
 				steps={['Account Info', 'Verification', 'Preferences', 'Complete']}
-				currentStep={props.currentStep ?? 0}
-				class={props.class}
+				currentStep={props?.currentStep ?? 0}
+				class={props?.class}
 			/>
 		</div>
 	{/snippet}

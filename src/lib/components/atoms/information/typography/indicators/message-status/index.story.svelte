@@ -36,10 +36,10 @@
 	tags={['indicator', 'message', 'status']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="flex items-center space-x-2">
 			<span>Message Status:</span>
-			<MessageStatus status={props.status} size={props.size} />
+			<MessageStatus status={props.status as 'sent' | 'delivered' | 'read'} size={props.size as 'sm' | 'md'} />
 		</div>
 	{/snippet}
 </Story>

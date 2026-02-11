@@ -1,5 +1,5 @@
-import type { GraphEdgeType } from '../tokens';
-import type { GraphNodeSize } from '../props/all-props';
+﻿import type { GraphEdgeType } from '../tokens';
+import type { GraphNodeSize } from '../props';
 
 const GRAPH_NODE_SIZE_CLASSES: Record<GraphNodeSize, string> = {
 	sm: 'w-6 h-6',
@@ -54,3 +54,4 @@ export const graphEdgeCSS = `
   marker-end: url(#arrowhead);
 }
 `;
+

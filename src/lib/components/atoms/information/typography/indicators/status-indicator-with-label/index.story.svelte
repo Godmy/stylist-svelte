@@ -42,9 +42,9 @@
 	description="Status indicator with label component"
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="p-4">
-			<StatusIndicatorWithLabel status={props.status} label={props.label} size={props.size} />
+			<StatusIndicatorWithLabel status={props.status as Status} label={props.label as string} size={props.size as 'sm' | 'md' | 'lg'} />
 		</div>
 	{/snippet}
 </Story>

@@ -83,7 +83,7 @@
 									</span>
 									<SimpleTooltip
 										position={preset.position}
-										visible={preset.visible}
+										show={preset.visible}
 										content={preset.content}
 									/>
 								</div>

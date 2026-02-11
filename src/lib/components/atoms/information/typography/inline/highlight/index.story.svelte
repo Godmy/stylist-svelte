@@ -34,13 +34,13 @@
 	tags={['inline', 'annotation']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="space-y-6">
 			<p
 				class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 text-gray-800 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-100"
 			>
-				Product reviews surfaced <Highlight class={`${variantClasses[props.variant]} rounded px-1`}>
-					{props.text}
+				Product reviews surfaced <Highlight class={`${variantClasses[props.variant as HighlightStoryProps['variant']]} rounded px-1`}>
+					{props.text as string}
 				</Highlight>
 				we almost missed.
 			</p>

@@ -2,8 +2,8 @@
 export { AccordionHeader, AccordionHeaderDouble, AccordionItem, AccordionPanel } from './accordion';
 export { ActionSegmentedControl } from './action-segmented-control';
 export { Button, CloseButton, CopyButton, IconButton, PageButton, SplitButton } from './buttons';
-export { Chip, State } from './chip';
+export { Chip } from './chip';
 export { ProductSort } from './product-sort';
-export { Sliders } from './sliders';
+export { Sliders, State } from './sliders';
 export { Tag } from './tag';
 export { AdvancedToggle, Checkbox, DarkModeToggle, Radio, Switch, Toggle, ToggleGroupItem } from './toggles';

@@ -64,7 +64,7 @@
 	tags={['typography', 'blockquote', 'content']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: BlockquoteStoryProps)}
 		<div class="space-y-8">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/30"
@@ -80,6 +80,9 @@
 				<p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
 					Toggle border/background to preview different emphasis treatments while keeping the same
 					content.
+				</p>
+				<p class="text-sm text-gray-600 dark:text-gray-300">
+					Current values: quote="{props.quote}", cite="{props.cite}"
 				</p>
 			</div>
 

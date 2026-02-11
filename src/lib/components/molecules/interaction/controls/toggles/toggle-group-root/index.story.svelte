@@ -56,7 +56,7 @@
 						<ToggleGroupRoot
 							type={props.type}
 							disabled={props.disabled}
-							onValueChange={handleValueChange}
+							onvalueChange={handleValueChange}
 						>
 							<ToggleGroupItem value="option1">Option 1</ToggleGroupItem>
 							<ToggleGroupItem value="option2">Option 2</ToggleGroupItem>
@@ -73,7 +73,7 @@
 						<ToggleGroupRoot
 							type="multiple"
 							disabled={props.disabled}
-							onValueChange={handleValueChange}
+							onvalueChange={handleValueChange}
 						>
 							<ToggleGroupItem value="multi1">Multi 1</ToggleGroupItem>
 							<ToggleGroupItem value="multi2">Multi 2</ToggleGroupItem>

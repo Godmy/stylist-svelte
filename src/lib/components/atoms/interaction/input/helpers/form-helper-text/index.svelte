@@ -31,10 +31,11 @@
 		class: className = '',
 		...restProps
 	}: FormHelperTextProps & HTMLAttributes<HTMLParagraphElement> = $props();
-	const formHelperState = $derived(createFormHelperTextState({ 
-		variant: variant as FormHelperVariant, 
+
+	const formHelperState = $derived(createFormHelperTextState({
+		variant,
 		size,
-		class: className 
+		class: className
 	}));
 
 	let classes = $derived([formHelperState.classes].filter(Boolean).join(' '));

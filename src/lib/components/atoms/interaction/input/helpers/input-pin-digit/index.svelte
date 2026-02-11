@@ -2,7 +2,7 @@
 	import { PIN_INPUT_DIGIT_PRESET } from '$stylist/design-system/classes/input';
 	import { createPinInputDigitState } from '../state.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/props';
+	import type { IInputProps, PinInputVariant } from '$stylist/design-system/props';
 
 	/**
 	 * PinInputDigit component - displays a single digit input for PIN codes
@@ -13,8 +13,6 @@
 	 * @returns An accessible, styled single digit input
 	 */
 
-	import type { InputVariant } from '$stylist/design-system';
-	type PinInputVariant = InputVariant;
 	type PinInputSize = (typeof PIN_INPUT_DIGIT_PRESET.sizes)[number];
 
 	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
@@ -46,11 +44,11 @@
 		onKeyDown?: (e: KeyboardEvent, index: number) => void;
 	} & InputAttributes = $props();
 	const pinInputState = $derived(
-		createPinInputDigitState({ 
-			variant: variant as PinInputVariant, 
+		createPinInputDigitState({
+			variant: variant satisfies PinInputVariant,
 			size,
 			error: invalid,
-			class: className 
+			class: className
 		})
 	);
 

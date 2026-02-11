@@ -31,15 +31,15 @@
 	tags={['typography', 'content', 'a11y']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: Record<string, unknown>)}
 		<div class="space-y-6">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
 			>
 				<p class="text-base leading-relaxed text-gray-700 dark:text-gray-200">
 					Build brilliant experiences by connecting your
-					<Abbr title={props.title} class={props.emphasize ? 'font-semibold text-indigo-600' : ''}>
-						{props.label}
+					<Abbr title={props.title as string} class={props.emphasize as boolean ? 'font-semibold text-indigo-600' : ''}>
+						{props.label as string}
 					</Abbr>
 					with product storytelling. Hover or focus the abbreviation to reveal the expansion.
 				</p>

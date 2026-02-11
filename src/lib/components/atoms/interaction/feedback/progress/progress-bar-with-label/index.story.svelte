@@ -65,12 +65,12 @@
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">ProgressBarWithLabel Story</h2>
 			<ProgressBarWithLabel
-				value={props.value ?? 75}
-				max={props.max ?? 100}
-				label={props.label ?? 'Upload Progress'}
-				showPercentage={props.showPercentage ?? true}
-				color={props.color ?? 'blue'}
-				height={props.height ?? 'h-2'}
+				value={props?.value ?? 75}
+				max={props?.max ?? 100}
+				label={props?.label ?? 'Upload Progress'}
+				showPercentage={props?.showPercentage ?? true}
+				color={props?.color ?? 'blue'}
+				height={props?.height ?? 'h-2'}
 			/>
 		</div>
 	{/snippet}

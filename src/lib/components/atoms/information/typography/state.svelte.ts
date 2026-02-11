@@ -125,8 +125,8 @@ export function createBadgeState(props: BadgeProps) {
 	const classes = $derived(
 		cn(
 			BASE_BADGE_CLASSES,
-			BADGE_VARIANT_CLASSES[variant],
-			BADGE_SIZE_CLASSES[size],
+			BADGE_VARIANT_CLASSES[variant as keyof typeof BADGE_VARIANT_CLASSES],
+			BADGE_SIZE_CLASSES[size as keyof typeof BADGE_SIZE_CLASSES],
 			props.class ?? ''
 		)
 	);
@@ -195,8 +195,8 @@ export function createCodeBlockState(props: CodeBlockProps) {
 	const classes = $derived(
 		cn(
 			BASE_CODE_BLOCK_CLASSES,
-			CODE_BLOCK_VARIANT_CLASSES[variant],
-			CODE_BLOCK_SIZE_CLASSES[size],
+			CODE_BLOCK_VARIANT_CLASSES[variant as keyof typeof CODE_BLOCK_VARIANT_CLASSES],
+			CODE_BLOCK_SIZE_CLASSES[size as keyof typeof CODE_BLOCK_SIZE_CLASSES],
 			props.class ?? ''
 		)
 	);
@@ -298,8 +298,8 @@ export function createCounterState(props: CounterProps) {
 	const classes = $derived(
 		cn(
 			BASE_COUNTER_CLASSES,
-			COUNTER_VARIANT_CLASSES[variant],
-			COUNTER_SIZE_CLASSES[size],
+			COUNTER_VARIANT_CLASSES[variant as keyof typeof COUNTER_VARIANT_CLASSES],
+			COUNTER_SIZE_CLASSES[size as keyof typeof COUNTER_SIZE_CLASSES],
 			props.class ?? ''
 		)
 	);
@@ -654,8 +654,8 @@ export function createSyntaxHighlightedCodeState(props: SyntaxHighlightedCodePro
 	const containerClasses = $derived(
 		cn(
 			SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,
-			CODE_BLOCK_VARIANT_CLASSES[variant],
-			CODE_BLOCK_SIZE_CLASSES[size],
+			CODE_BLOCK_VARIANT_CLASSES[variant as keyof typeof CODE_BLOCK_VARIANT_CLASSES],
+			CODE_BLOCK_SIZE_CLASSES[size as keyof typeof CODE_BLOCK_SIZE_CLASSES],
 			props.class ?? ''
 		)
 	);
