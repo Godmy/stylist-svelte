@@ -192,6 +192,40 @@ const css = generateThemeCSS(lightTheme, ':root');
 5. Экспортируйте наружу через `index.ts` (автогенерация индексов).
 6. Проверьте, что потребители получают новый API через `$stylist/design-system`.
 
+## Карта модулей
+
+Каждая папка внутри `design-system` обслуживает отдельную ответственность; в идеале изменения идут по цепочке `tokens→themes→classes→styles→state`:
+
+```
+tokens/       — атомарные значения (цвета, spacing, sizes, variants)
+themes/       — композиции токенов (light/dark, контекст темы, overrides)
+classes/      — карты классов и preset для доменов
+styles/       — StyleManager'ы, которые собирают CSS-классы и aria/attrs
+factory/      — генераторы/настройщики пресетов (architecture, cards, tables)
+props/        — доменные контракты компонентов
+state/        — runtime state („classes“, „attrs“, aria, disabled/loading)
+playground/    — layer для story/snippet, helper-компоненты
+utils/        — утилиты для theme, css-vars, class merges, token helpers
+index.ts      — публичный barrel всех слоев
+```
+
+Рекомендуется держать изменения компонента в пределах одного домена (например, `tokens/button` → `styles/button`), чтобы система оставалась состыкованной.
+
+## Как использовать систему
+
+- `tokens` + `themes` — источник правды по значениями; новые цвета/варианты лучше добавлять здесь.
+- `classes` и `styles` переводят токены в конкретные наборы классов; пользуйтесь соответствующими `StyleManager`.
+- `props` задают строгие контракты; импортируйте доменные типы, а не создавайте ad-hoc интерфейсы.
+- `state` объединяет `preset + props` в `{ classes, attrs }` и добавляет aria/disabled.
+- `factory` позволяет сконфигурировать пресеты для групп компонентов (например, `cardPreset` для карточек).
+- `playground` с `Story.svelte` и Snippet API показывает, как выглядит компонент в разных сценариях.
+
+## Как изучать `design-system`
+
+1. Читайте этот README, чтобы получить представление о слоях.
+2. Для конкретного компонента переходите в его домен: сначала `props/...`, затем `styles/...`, после — `classes/...`.
+3. Документируйте новые сценарии через `playground/Story.svelte` и `Snippet`.
+
 ## Стабильность и совместимость
 
 - Design System остается основным публичным контрактом библиотеки.
