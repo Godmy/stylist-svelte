@@ -5,6 +5,12 @@
 	let props: PieChartProps = $props();
 	const state = createPieChartState(props);
 	const data = $derived(props.data ?? []);
+	const restProps = $derived(
+		(() => {
+			const { class: _class, data: _data, ...rest } = props;
+			return rest;
+		})()
+	);
 
 	const total = $derived(data.reduce((sum: number, item: { value: number }) => sum + item.value, 0));
 	const center = 100;
@@ -12,7 +18,7 @@
 	const startAngle = 0;
 </script>
 
-<div class={state.containerClasses}>
+<div class={state.containerClasses} {...restProps}>
 	<svg width="200" height="200" class={state.svgClasses}>
 		{#each data as item, i (i)}
 			{@const value = item.value}

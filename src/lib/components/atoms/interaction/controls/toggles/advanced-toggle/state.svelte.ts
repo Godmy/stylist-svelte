@@ -1,8 +1,5 @@
 import type { AdvancedToggleProps } from '$stylist/design-system/props';
-import {
-	TOKEN_TOGGLE_HANDLE_SIZE_CLASSES,
-	TOKEN_TOGGLE_SIZE_CLASSES
-} from '$stylist/design-system/classes/toggles';
+import { TogglesStyleManager } from '$stylist/design-system/styles/toggles';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
@@ -12,27 +9,19 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	const label = $derived(props.label ?? '');
 
 	const containerClasses = $derived(
-		mergeClasses('relative inline-flex items-center', props.class)
+		TogglesStyleManager.getToggleContainerClasses(props.class)
 	);
 	const labelWrapperClasses = $derived(
 		mergeClasses('flex items-center space-x-2')
 	);
 	const toggleContainerClasses = $derived(
-		mergeClasses('relative inline-flex items-center', props.class)
+		TogglesStyleManager.getToggleContainerClasses(props.class)
 	);
 	const trackClasses = $derived(
-		mergeClasses(
-			'relative inline-flex h-6 w-11 cursor-pointer rounded-full transition-colors duration-200 ease-in-out',
-			checked ? 'bg-[--color-primary]' : 'bg-[--color-border-primary]',
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
-		)
+		TogglesStyleManager.getToggleTrackClasses(disabled, checked)
 	);
 	const thumbClasses = $derived(
-		mergeClasses(
-			'pointer-events-none inline-block transform rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition duration-200 ease-in-out',
-			TOKEN_TOGGLE_HANDLE_SIZE_CLASSES.md,
-			checked ? 'translate-x-5' : 'translate-x-0.5'
-		)
+		TogglesStyleManager.getToggleThumbClasses('md', disabled, checked)
 	);
 	const hiddenInputClasses = $derived(
 		mergeClasses(
@@ -42,8 +31,8 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	);
 	const toggleBackgroundClasses = $derived(trackClasses);
 	const toggleHandleClasses = $derived(thumbClasses);
-	const sizeClasses = $derived(TOKEN_TOGGLE_SIZE_CLASSES[size]);
-	const disabledClass = $derived(disabled ? 'opacity-50 cursor-not-allowed' : '');
+	const sizeClasses = $derived(TogglesStyleManager.getToggleSizeClasses(size));
+	const disabledClass = $derived(TogglesStyleManager.getToggleDisabledClass(disabled));
 	const labelTextClasses = $derived(
 		mergeClasses('text-sm font-medium', disabled ? 'text-gray-400' : 'text-gray-700')
 	);

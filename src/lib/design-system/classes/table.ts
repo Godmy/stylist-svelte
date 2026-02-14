@@ -1,5 +1,3 @@
-import { cn } from '../utils/classnames';
-
 export const TABLE_CLASSES = {
 	table: ['min-w-full', 'divide-y', 'divide-[var(--color-border-secondary)]'] as const,
 	caption: [
@@ -46,25 +44,3 @@ export const TABLE_ALIGNMENT_CLASSES: Record<string, string[]> = {
 	center: ['text-center'],
 	right: ['text-right']
 };
-
-export const getTableClasses = (className = '') => cn(...TABLE_CLASSES.table, className);
-export const getTableCaptionClasses = (className = '') => cn(...TABLE_CLASSES.caption, className);
-export const getTableHeaderClasses = (className = '') => cn(...TABLE_CLASSES.header, className);
-export const getTableBodyClasses = (className = '') => cn(...TABLE_CLASSES.body, className);
-export const getTableRowClasses = (striped = false, active = false, className = '') =>
-	cn(
-		...(striped ? TABLE_CLASSES.row.striped : TABLE_CLASSES.row.normal),
-		active && TABLE_CLASSES.row.active,
-		className
-	);
-export const getTableCellClasses = (
-	variant: 'header' | 'data' = 'data',
-	align: keyof typeof TABLE_ALIGNMENT_CLASSES = 'left',
-	className = ''
-) =>
-	cn(
-		...TABLE_CLASSES.cell.base,
-		...(variant === 'header' ? TABLE_CLASSES.cell.header : TABLE_CLASSES.cell.data),
-		...TABLE_ALIGNMENT_CLASSES[align],
-		className
-	);

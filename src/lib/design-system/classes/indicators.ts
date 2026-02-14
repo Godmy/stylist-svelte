@@ -1,11 +1,9 @@
-import type { ColorVariant, CommonSize, DefaultVariants } from '../tokens/variants';
+import type { ColorVariant, CommonSize } from '../tokens/variants';
 import type {
 	CounterVariant,
 	IndicatorStatus,
-	MessageStatusType,
-	StatusIndicatorLabelStatus
+	MessageStatusType
 } from '../tokens/indicators';
-import { cn } from '../utils/classnames';
 
 export const BASE_DOT_CLASSES = 'inline-block rounded-full';
 export const DOT_COLOR_CLASSES: Record<ColorVariant, string> = {
@@ -132,69 +130,3 @@ export const STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES: Record<'success' | 'warn
 	neutral: 'bg-gray-500',
 	custom: 'bg-gray-500' // fallback for custom
 };
-
-export const getDotClasses = (
-	color: keyof typeof DOT_COLOR_CLASSES = DEFAULT_DOT_COLOR as keyof typeof DOT_COLOR_CLASSES,
-	size: keyof typeof DOT_SIZE_CLASSES = DEFAULT_DOT_SIZE as keyof typeof DOT_SIZE_CLASSES,
-	className = ''
-) => cn(BASE_DOT_CLASSES, DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], className);
-
-export const getCounterClasses = (
-	variant: keyof typeof COUNTER_VARIANT_CLASSES = DEFAULT_COUNTER_VARIANT as keyof typeof COUNTER_VARIANT_CLASSES,
-	size: keyof typeof COUNTER_SIZE_CLASSES = DEFAULT_COUNTER_SIZE as keyof typeof COUNTER_SIZE_CLASSES,
-	className = ''
-) =>
-	cn(BASE_COUNTER_CLASSES, COUNTER_VARIANT_CLASSES[variant], COUNTER_SIZE_CLASSES[size], className);
-
-export const getCountBadgeClasses = (className = '') => cn(BASE_COUNT_BADGE_CLASSES, className);
-
-export const getMarkerClasses = (
-	color: keyof typeof MARKER_COLOR_CLASSES = DEFAULT_MARKER_COLOR,
-	size: keyof typeof MARKER_SIZE_CLASSES = DEFAULT_MARKER_SIZE,
-	className = ''
-) => cn(BASE_MARKER_CLASSES, MARKER_COLOR_CLASSES[color], MARKER_SIZE_CLASSES[size], className);
-
-export const getBulletClasses = (size: keyof typeof BULLET_SIZE_CLASSES = 'md') =>
-	cn(BULLET_CLASSES, BULLET_SIZE_CLASSES[size]);
-
-export const getMessageStatusContainerClasses = (status: keyof typeof MESSAGE_STATUS_COLORS) =>
-	MESSAGE_STATUS_COLORS[status];
-
-export const getMessageStatusIconClasses = (size: keyof typeof MESSAGE_STATUS_SIZE_CLASSES = 'md') =>
-	MESSAGE_STATUS_SIZE_CLASSES[size];
-
-export const getStatusIndicatorWithLabelContainerClasses = (className = '') =>
-	cn(...STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, className);
-
-export const getStatusIndicatorWithLabelSizeClasses = (
-	size: keyof typeof STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES = 'md'
-) => STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size];
-
-export const getStatusIndicatorWithLabelIndicatorClasses = (
-	status: 'success' | 'warning' | 'error' | 'info' | 'neutral' | 'custom',
-	size: keyof typeof STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES = 'md',
-	customColor?: string,
-	indicatorClass = ''
-) =>
-	cn(
-		'inline-block rounded-full mr-2',
-		STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size],
-		status === 'custom'
-			? customColor
-				? `bg-[${customColor}]`
-				: 'bg-gray-500'
-			: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status],
-		indicatorClass
-	);
-
-export const getStatusIndicatorWithLabelLabelClasses = (labelClass = '') =>
-	cn('text-sm', labelClass);
-
-export const getStatusIndicatorContainerClasses = (className = '') =>
-	cn(STATUS_INDICATOR_CONTAINER_CLASSES, className);
-
-export const getStatusIndicatorDotClasses = (status: IndicatorStatus) =>
-	cn(STATUS_INDICATOR_DOT_BASE_CLASSES, STATUS_INDICATOR_STATUS_CLASSES[status]);
-
-export const getStatusIndicatorLabel = (status: IndicatorStatus, label?: string) =>
-	label ?? STATUS_INDICATOR_STATUS_TEXT[status];

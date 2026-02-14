@@ -42,6 +42,20 @@
 	const iconClasses = $derived(
 		`inline-block text-[var(--color-text-primary)] ${sizeClasses} ${props.class ?? ''}`
 	);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				variant: _variant,
+				size: _size,
+				name: _name,
+				strokeWidth: _strokeWidth,
+				children: _children,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// РџРѕР»СѓС‡Р°РµРј РїСѓС‚СЊ РёРєРѕРЅРєРё
 	const iconPath = $derived(getIconPath(name));
@@ -80,7 +94,7 @@
 	stroke-width={strokeWidth}
 	stroke-linecap={SVG_STROKE_LINECAP}
 	stroke-linejoin={SVG_STROKE_LINEJOIN}
-	{...props}
+	{...restProps}
 >
 	<path d={iconPath} />
 </svg>

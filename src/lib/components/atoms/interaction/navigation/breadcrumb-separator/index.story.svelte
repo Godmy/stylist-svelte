@@ -23,12 +23,12 @@
 </script>
 
 <Story {id} {title} {description} component={BreadcrumbSeparator} category="Atoms" {controls}>
-	{#snippet children(props)}
+	{#snippet children(props: any)}
 		<div class="flex items-center text-sm">
 			<span class="cursor-pointer text-blue-600 hover:underline">Home</span>
-			<BreadcrumbSeparator>{props?.children ?? '/'}</BreadcrumbSeparator>
+			<BreadcrumbSeparator />
 			<span class="cursor-pointer text-blue-600 hover:underline">Category</span>
-			<BreadcrumbSeparator>{props?.children ?? '/'}</BreadcrumbSeparator>
+			<BreadcrumbSeparator />
 			<span class="text-gray-700">Current Page</span>
 		</div>
 
@@ -36,14 +36,15 @@
 		<div class="flex flex-col gap-4">
 			<div class="flex items-center text-sm">
 				<span>Item 1</span>
-				<BreadcrumbSeparator>&gt;</BreadcrumbSeparator>
+				<BreadcrumbSeparator />
 				<span>Item 2</span>
 			</div>
 			<div class="flex items-center text-sm">
 				<span>Item A</span>
-				<BreadcrumbSeparator>-</BreadcrumbSeparator>
+				<BreadcrumbSeparator />
 				<span>Item B</span>
 			</div>
 		</div>
 	{/snippet}
 </Story>
+

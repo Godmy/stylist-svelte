@@ -72,21 +72,28 @@
 		`absolute bottom-0 right-0 rounded-full border-2 border-[var(--color-background-primary)] ${statusColor} ${statusSizeClasses}`
 	);
 
-	// РЎРѕР·РґР°РµРј РѕС‚РґРµР»СЊРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ РґР»СЏ DOM-Р°С‚СЂРёР±СѓС‚РѕРІ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РєРѕРЅС„Р»РёРєС‚Р° СЃ $props()
-	const {
-		src,
-		alt,
-		id,
-		name: propName,
-		status: propStatus,
-		showStatus: propShowStatus,
-		children: propChildren,
-		class: propClass,
-		...domProps
-	} = props;
+	const src = $derived(props.src);
+	const alt = $derived(props.alt);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				variant: _variant,
+				size: _size,
+				src: _src,
+				alt: _alt,
+				name: _name,
+				status: _status,
+				showStatus: _showStatus,
+				children: _children,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 </script>
 
-<div {...domProps} class={avatarClasses}>
+<div {...restProps} class={avatarClasses}>
 	{#if src}
 		<img {src} alt={alt || name || 'Avatar'} class={imageClasses} />
 	{:else}

@@ -45,7 +45,7 @@
 	tags={['typography', 'glossary']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(props: any)}
 		<div class="space-y-6">
 			<dl
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
@@ -71,3 +71,4 @@
 		</div>
 	{/snippet}
 </Story>
+

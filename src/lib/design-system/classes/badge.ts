@@ -1,7 +1,7 @@
 import type { ComponentSize } from '../tokens/sizes';
 import type { CodeBlockVariant } from '../tokens/variants';
 import type { BadgeVariant, CodeBlockSize } from '../tokens';
-import { cn } from '../utils/classnames';
+import { createDefaultValues } from './component-utils';
 
 export const BASE_BADGE_CLASSES = 'inline-flex items-center font-semibold rounded-full';
 export const BADGE_VARIANT_CLASSES: Record<BadgeVariant, string> = {
@@ -21,12 +21,15 @@ export const BADGE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	lg: 'text-base px-3 py-1',
 	xl: 'text-lg px-3.5 py-1.5'
 };
+
 export const BADGE_GROUP_CONTAINER_CLASSES = 'flex flex-wrap items-center gap-2';
 export const BADGE_GROUP_OVERFLOW_CLASSES =
 	'inline-flex items-center rounded-full text-xs font-medium bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] px-2.5 py-0.5';
 
-export const BADGE_DEFAULT_SIZE: keyof typeof BADGE_SIZE_CLASSES = 'md';
-export const BADGE_DEFAULT_VARIANT: keyof typeof BADGE_VARIANT_CLASSES = 'default';
+export const BADGE_DEFAULTS = createDefaultValues<
+	keyof typeof BADGE_VARIANT_CLASSES,
+	keyof typeof BADGE_SIZE_CLASSES
+>('default', 'md');
 
 export const BASE_CODE_BLOCK_CLASSES = 'rounded-md overflow-x-auto font-mono';
 export const CODE_BLOCK_VARIANT_CLASSES: Record<CodeBlockVariant, string> = {
@@ -40,33 +43,13 @@ export const CODE_BLOCK_SIZE_CLASSES: Record<CodeBlockSize, string> = {
 	lg: 'text-base p-6'
 };
 
-export const DEFAULT_CODE_BLOCK_SIZE: keyof typeof CODE_BLOCK_SIZE_CLASSES = 'md';
-export const DEFAULT_CODE_BLOCK_VARIANT: keyof typeof CODE_BLOCK_VARIANT_CLASSES = 'default';
-export const DEFAULT_SYNTAX_HIGHLIGHTED_CODE_SIZE: keyof typeof CODE_BLOCK_SIZE_CLASSES = 'md';
-export const DEFAULT_SYNTAX_HIGHLIGHTED_CODE_VARIANT: keyof typeof CODE_BLOCK_VARIANT_CLASSES = 'default';
+export const CODE_BLOCK_DEFAULTS = createDefaultValues<
+	keyof typeof CODE_BLOCK_VARIANT_CLASSES,
+	keyof typeof CODE_BLOCK_SIZE_CLASSES
+>('default', 'md');
+
 export const DEFAULT_SHOW_LINE_NUMBERS = false;
 export const DEFAULT_START_LINE_NUMBER = 1;
 
-export const getBadgeClasses = (
-	variant: keyof typeof BADGE_VARIANT_CLASSES = BADGE_DEFAULT_VARIANT,
-	size: keyof typeof BADGE_SIZE_CLASSES = BADGE_DEFAULT_SIZE,
-	className = ''
-) => cn(BASE_BADGE_CLASSES, BADGE_VARIANT_CLASSES[variant], BADGE_SIZE_CLASSES[size], className);
 
-export const getBadgeGroupContainerClasses = (className = '') =>
-	cn(BADGE_GROUP_CONTAINER_CLASSES, className);
 
-export const getBadgeGroupOverflowClasses = (className = '') =>
-	cn(BADGE_GROUP_OVERFLOW_CLASSES, className);
-
-export const getCodeBlockClasses = (
-	variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = DEFAULT_CODE_BLOCK_VARIANT as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
-	size: keyof typeof CODE_BLOCK_SIZE_CLASSES = DEFAULT_CODE_BLOCK_SIZE as keyof typeof CODE_BLOCK_SIZE_CLASSES,
-	className = ''
-) =>
-	cn(
-		BASE_CODE_BLOCK_CLASSES,
-		CODE_BLOCK_VARIANT_CLASSES[variant],
-		CODE_BLOCK_SIZE_CLASSES[size],
-		className
-	);

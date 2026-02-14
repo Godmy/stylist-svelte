@@ -5,12 +5,20 @@
 
 	type Props = NumberFlowProps & HTMLAttributes<HTMLDivElement>;
 
-	let { class: className, ...restProps }: Props = $props();
+	let {
+		class: className,
+		value,
+		locales,
+		format,
+		prefix,
+		suffix,
+		...restProps
+	}: Props = $props();
 
-	const state = createNumberFlowState({ ...restProps, class: className });
+	const state = createNumberFlowState({ value, locales, format, prefix, suffix, class: className });
 </script>
 
-<div class={state.classes.container} role="status" aria-live="polite">
+<div class={state.classes.container} role="status" aria-live="polite" {...restProps}>
 	{#if state.prefix}
 		<span class={state.classes.prefix} aria-hidden="true">{state.prefix}</span>
 	{/if}

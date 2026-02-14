@@ -1,31 +1,28 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
 import type { Alignment, Justification, Orientation } from '../tokens/layout';
 import type { TokenContainerMaxWidth, HorizontalGap } from '../classes/layout';
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
 export type SpacerAxis = Orientation;
 
 export type ContainerMaxWidth = TokenContainerMaxWidth;
 
-export interface AspectRatioProps {
+export interface AspectRatioProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
 	ratio?: number;
-	class?: string;
 }
 
-export interface ContainerProps {
+export interface ContainerProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
 	maxWidth?: ContainerMaxWidth;
-	class?: string;
 }
 
-export interface DividerProps {
+export interface DividerProps extends HtmlAttributesBase<HTMLDivElement> {
 	orientation?: Orientation;
 	label?: string;
 	align?: Alignment;
 	dashed?: boolean;
-	class?: string;
 }
 
 export interface SpacerProps {

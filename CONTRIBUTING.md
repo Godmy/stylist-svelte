@@ -175,8 +175,8 @@ Create stories for new components to be used in the Playground:
 
 ```svelte
 <script lang="ts">
-	import { Story } from '$stylist/playground';
-	import type { ControlConfig } from '$stylist/playground';
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/playground';
 	import MyComponent from './MyComponent.svelte';
 
 	type MyComponentStoryProps = {

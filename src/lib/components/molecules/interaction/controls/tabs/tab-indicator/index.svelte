@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TabIndicatorProps } from '$stylist/design-system/props';
-	import { createTabIndicatorState } from './state';
+	import { createTabIndicatorState } from '$stylist/utils/molecules/tab-indicator-state';
 
 	let props: TabIndicatorProps = $props();
 

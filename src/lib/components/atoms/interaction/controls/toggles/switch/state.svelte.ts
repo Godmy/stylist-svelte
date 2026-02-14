@@ -1,5 +1,5 @@
 import type { SwitchProps } from '$stylist/design-system/props';
-import { TOKEN_TOGGLE_HANDLE_SIZE_CLASSES } from '$stylist/design-system/classes/toggles';
+import { TogglesStyleManager } from '$stylist/design-system/styles/toggles';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createSwitchState = (props: SwitchProps) => {
@@ -8,18 +8,17 @@ export const createSwitchState = (props: SwitchProps) => {
 	const className = props.class ?? '';
 
 	const trackClasses = mergeClasses(
-		'relative inline-flex h-6 w-11 rounded-full transition-colors',
-		props.checked ? 'bg-[--color-primary-500]' : 'bg-[--color-border-primary]',
-		disabled ? 'opacity-50 cursor-not-allowed' : '',
+		TogglesStyleManager.getSwitchTrackClasses('md', disabled, props.checked),
 		className
 	);
 	const knobClasses = mergeClasses(
-		'pointer-events-none block rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition-transform',
-		TOKEN_TOGGLE_HANDLE_SIZE_CLASSES.md,
-		props.checked ? 'translate-x-5' : 'translate-x-0.5'
+		TogglesStyleManager.getToggleThumbClasses('md', disabled, props.checked)
 	);
-	const inputClasses = 'peer sr-only';
-	const containerClasses = mergeClasses('flex items-center', props.label || props.description ? 'space-x-3' : '');
+	const inputClasses = TogglesStyleManager.getSwitchInputClasses(disabled);
+	const containerClasses = mergeClasses(
+		'flex items-center',
+		props.label || props.description ? 'space-x-3' : ''
+	);
 	const labelTextClasses = 'flex flex-col';
 	const labelTitleClasses = 'text-sm font-medium leading-5';
 	const requiredMarkerClasses = 'text-[--color-danger-500] ml-1';
@@ -39,4 +38,3 @@ export const createSwitchState = (props: SwitchProps) => {
 		labelDescriptionClasses
 	};
 };
-

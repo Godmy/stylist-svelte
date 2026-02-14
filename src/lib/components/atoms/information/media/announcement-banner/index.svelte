@@ -4,9 +4,22 @@
 
 	let props: AnnouncementBannerProps = $props();
 	const state = createAnnouncementBannerState(props);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				children: _children,
+				title: _title,
+				description: _description,
+				icon: _icon,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 </script>
 
-<div class={state.containerClasses}>
+<div class={state.containerClasses} {...restProps}>
 	<div class={state.flexClasses}>
 		{#if props.icon}
 			<img src={props.icon} alt="" class={state.iconClasses} />

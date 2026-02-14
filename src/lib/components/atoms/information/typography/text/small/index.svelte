@@ -22,13 +22,27 @@
 	const disabled = $derived(props.disabled ?? false);
 	const block = $derived(props.block ?? false);
 	const children = $derived(props.children);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				variant: _variant,
+				size: _size,
+				disabled: _disabled,
+				block: _block,
+				children: _children,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const classes = $derived(
 		`text-sm ${disabled ? 'text-gray-400' : 'text-gray-600'} ${block ? 'block' : ''} ${props.class ?? ''}`.trim()
 	);
 </script>
 
-<small {...props} class={classes}>
+<small {...restProps} class={classes}>
 	{#if children}
 		{@render children()}
 	{/if}

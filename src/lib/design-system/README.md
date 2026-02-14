@@ -15,7 +15,7 @@ Design System в `src/lib/design-system` - это контрактный сло�
 
 ```text
 design-system/
-├─ classes/      # Карты классов, пресеты, style-managers, class builders
+├─ classes/      # Карты классов и константы доменов
 ├─ factory/      # Фабрики пресетов (architecture/information/interaction)
 ├─ playground/   # Story-слой и demo-точки
 ├─ props/        # Типы пропсов, разбитые по доменам компонентов
@@ -23,6 +23,7 @@ design-system/
 ├─ themes/       # Тема, типы темы, light/dark, Svelte context
 ├─ tokens/       # Дизайн-токены (цвета, размеры, spacing, variants и т.д.)
 ├─ utils/        # Утилиты (css vars, class merge, input helpers)
+├─ styles/       # StyleManager-слой для сборки классов
 └─ index.ts      # Главный публичный barrel
 ```
 
@@ -32,11 +33,12 @@ design-system/
 
 1. `tokens` задают атомарные значения и словарь допустимых вариантов.
 2. `themes` собирают токены в согласованные наборы (light/dark).
-3. `classes` описывают как вариант/размер/состояние превращаются в CSS-классы.
-4. `factory` создает/кастомизирует пресеты для групп компонентов.
-5. `props` задают строгий контракт входных параметров.
-6. `state` вычисляет итоговый runtime state (`classes`, `attrs`, disabled/loading/aria).
-7. `utils` применяют тему и CSS variables к DOM.
+3. `classes` описывают токены и карты классов для домена.
+4. `styles` (StyleManager) собирают итоговые CSS-классы для компонентов.
+5. `factory` создает/кастомизирует пресеты для групп компонентов.
+6. `props` задают строгий контракт входных параметров.
+7. `state` вычисляет итоговый runtime state (`classes`, `attrs`, disabled/loading/aria).
+8. `utils` применяют тему и CSS variables к DOM.
 
 Итог: любой компонент собирается по одному паттерну и ведет себя единообразно.
 
@@ -46,9 +48,9 @@ design-system/
 
 ```ts
 import {
-  // classes
+  // classes + style managers
   BUTTON_PRESET,
-  getLinkClasses,
+  LinkStyleManager,
 
   // state
   createState,
@@ -90,9 +92,9 @@ export type Props = ButtonElementProps;
 ### 2) Получить классы по правилам системы
 
 ```ts
-import { getLinkClasses } from '$stylist/design-system';
+import { LinkStyleManager } from '$stylist/design-system';
 
-const classes = getLinkClasses(
+const classes = LinkStyleManager.getLinkClasses(
   'primary', // variant
   'md',      // size
   false,     // disabled

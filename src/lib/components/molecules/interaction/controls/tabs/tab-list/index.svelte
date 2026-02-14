@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TabContainerProps } from '$stylist/design-system/props';
-	import { createTabListState } from './state.svelte';
+	import { createTabListState } from '$stylist/utils/molecules/tab-list-state.svelte';
 
 	let props: TabContainerProps = $props();
 

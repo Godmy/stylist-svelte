@@ -8,17 +8,3 @@ export const BLOCKQUOTE_CLASSES = {
 export const DEFAULT_WITH_BACKGROUND = false;
 export const DEFAULT_WITH_BORDER = true;
 export const FOOTER_PREFIX = '©';
-
-export const getBlockquoteClasses = (
-	withBackground = DEFAULT_WITH_BACKGROUND,
-	withBorder = DEFAULT_WITH_BORDER,
-	className = ''
-) =>
-	[
-		BLOCKQUOTE_CLASSES.base,
-		withBackground ? BLOCKQUOTE_CLASSES.background : '',
-		withBorder ? BLOCKQUOTE_CLASSES.border : '',
-		className
-	]
-		.filter(Boolean)
-		.join(' ');

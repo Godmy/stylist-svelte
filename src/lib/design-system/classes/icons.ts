@@ -1,7 +1,6 @@
 import type { ColorVariant, DefaultVariants } from '../tokens/variants';
 import type { ExtendedSize } from '../tokens/sizes';
 import type { IconWrapperShape } from '../tokens/shapes';
-import { cn } from '../utils/classnames';
 
 export const TOKEN_ICON_SIZE_CLASSES: Record<ExtendedSize, string> = {
 	xs: 'w-3 h-3',
@@ -80,57 +79,3 @@ export const TOKEN_ICON_WRAPPER_DEFAULTS = {
 export const ICON_CHEVRON_DEFAULTS = TOKEN_ICON_CHEVRON_DEFAULTS;
 export const ICON_CIRCLE_DEFAULTS = TOKEN_ICON_CIRCLE_DEFAULTS;
 export const ICON_WRAPPER_DEFAULTS = TOKEN_ICON_WRAPPER_DEFAULTS;
-
-export const getBaseIconClasses = (
-	size: keyof typeof TOKEN_ICON_SIZE_CLASSES = 'md',
-	variant: keyof typeof TOKEN_ICON_VARIANT_CLASSES = 'default',
-	className = ''
-) => cn(TOKEN_ICON_SIZE_CLASSES[size], TOKEN_ICON_VARIANT_CLASSES[variant], className);
-export const getIconClasses = getBaseIconClasses;
-export const getIconChevronClasses = (
-	isOpen = ICON_CHEVRON_DEFAULTS.isOpen,
-	size: keyof typeof TOKEN_ICON_SIZE_CLASSES = ICON_CHEVRON_DEFAULTS.size,
-	direction: keyof typeof TOKEN_ICON_DIRECTION_ROTATION_CLASSES = 'down',
-	variant: 'default' | DefaultVariants = 'default',
-	disabled = false,
-	className = ''
-) =>
-	cn(
-		TOKEN_ICON_SIZE_CLASSES[size],
-		TOKEN_ICON_DIRECTION_ROTATION_CLASSES[direction],
-		variant !== 'default' ? TOKEN_ICON_VARIANT_CLASSES[variant] : '',
-		isOpen ? '' : '',
-		disabled ? 'opacity-50' : '',
-		className
-	);
-export const getIconCircleClasses = (
-	variant: keyof typeof TOKEN_ICON_VARIANT_CLASSES = ICON_CIRCLE_DEFAULTS.variant,
-	size: keyof typeof TOKEN_ICON_SIZE_CLASSES = ICON_CIRCLE_DEFAULTS.size,
-	filled = false,
-	disabled = false,
-	className = ''
-) =>
-	cn(
-		TOKEN_ICON_VARIANT_CLASSES[variant],
-		TOKEN_ICON_SIZE_CLASSES[size],
-		filled ? 'fill-current' : '',
-		disabled ? 'opacity-50' : '',
-		className
-	);
-export const getIconWrapperClasses = (
-	size: keyof typeof TOKEN_ICON_WRAPPER_PADDING_CLASSES = ICON_WRAPPER_DEFAULTS.size,
-	variant: keyof typeof TOKEN_ICON_VARIANT_CLASSES = ICON_WRAPPER_DEFAULTS.variant,
-	shape: keyof typeof TOKEN_ICON_WRAPPER_SHAPE_CLASSES = ICON_WRAPPER_DEFAULTS.shape,
-	color: keyof typeof TOKEN_ICON_WRAPPER_COLOR_CLASSES = ICON_WRAPPER_DEFAULTS.color,
-	disabled = false,
-	className = ''
-) =>
-	cn(
-		'inline-flex items-center justify-center',
-		TOKEN_ICON_WRAPPER_PADDING_CLASSES[size],
-		TOKEN_ICON_WRAPPER_SHAPE_CLASSES[shape],
-		variant !== 'default' ? TOKEN_ICON_VARIANT_CLASSES[variant] : '',
-		TOKEN_ICON_WRAPPER_COLOR_CLASSES[color],
-		disabled ? 'opacity-50' : '',
-		className
-	);

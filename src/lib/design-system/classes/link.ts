@@ -1,6 +1,5 @@
 import type { CompactSize } from '../tokens/sizes';
 import type { DefaultVariants } from '../tokens/variants';
-import { cn } from '../utils/classnames';
 
 export const ABBR_CLASSES = 'underline decoration-dotted cursor-help';
 export const DEFINITION_DESCRIPTION_CLASSES = 'text-sm text-[var(--color-text-secondary)]';
@@ -51,30 +50,3 @@ export const DEFAULT_LINK_UNDERLINE = true;
 export const DEFAULT_LINK_VARIANT: keyof typeof LINK_VARIANT_CLASSES = 'default';
 
 export const DEFAULT_ABBR_TITLE = 'Abbreviation';
-
-export const getAbbrClasses = (className = '') => cn(ABBR_CLASSES, className);
-export const getDefinitionDescriptionClasses = (className = '') =>
-	cn(DEFINITION_DESCRIPTION_CLASSES, className);
-export const getDefinitionTermClasses = (className = '') => cn(DEFINITION_TERM_CLASSES, className);
-export const getEmClasses = (className = '') => cn(EM_CLASSES, className);
-export const getHighlightClasses = (className = '') => cn(HIGHLIGHT_CLASSES, className);
-export const getInlineCodeClasses = (
-	variant: keyof typeof INLINE_CODE_CLASSES = DEFAULT_INLINE_CODE_VARIANT as keyof typeof INLINE_CODE_CLASSES,
-	className = ''
-) => cn(INLINE_CODE_BASE_CLASSES, INLINE_CODE_CLASSES[variant], className);
-export const getKbdClasses = (className = '') => cn(KBD_CLASSES, className);
-export const getLinkClasses = (
-	variant: keyof typeof LINK_VARIANT_CLASSES = DEFAULT_LINK_VARIANT as keyof typeof LINK_VARIANT_CLASSES,
-	size: keyof typeof LINK_SIZE_CLASSES = DEFAULT_LINK_SIZE as keyof typeof LINK_SIZE_CLASSES,
-	disabled = DEFAULT_LINK_DISABLED,
-	underline = DEFAULT_LINK_UNDERLINE,
-	className = ''
-) =>
-	cn(
-		LINK_VARIANT_CLASSES[variant],
-		LINK_SIZE_CLASSES[size],
-		disabled && LINK_DISABLED_CLASSES,
-		!disabled && LINK_HOVER_CLASSES,
-		underline && LINK_UNDERLINE_CLASSES,
-		className
-	);

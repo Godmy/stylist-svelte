@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { Slash } from 'lucide-svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IBreadcrumbsProps } from '$stylist/design-system/props';
 
-	let { crumbs }: IBreadcrumbsProps = $props();
+	type Props = IBreadcrumbsProps & HTMLAttributes<HTMLElement>;
+
+	let { crumbs = [], class: className = '', ...restProps }: Props = $props();
 
 	// Подсчитываем количество крошек для правильного отображения сепараторов
 	const totalCrumbs = $derived(crumbs?.length || 0);
@@ -22,7 +25,7 @@
   - ISP (Interface Segregation Principle): Использует минимально необходимый интерфейс IBreadcrumbsProps
   - DIP (Dependency Inversion Principle): Зависит от абстракций (типов и стилей), а не от конкретных реализаций
 -->
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class={className} {...restProps}>
 	<ol class={listClass}>
 		{#each crumbs as crumb, i}
 			<li class={itemClass}>

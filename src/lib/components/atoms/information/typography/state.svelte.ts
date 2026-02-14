@@ -18,65 +18,57 @@ import type {
 	SyntaxHighlightedCodeProps
 } from '$stylist/design-system/props';
 import {
-	ABBR_CLASSES,
 	BADGE_GROUP_CONTAINER_CLASSES,
 	BADGE_GROUP_OVERFLOW_CLASSES,
 	BADGE_SIZE_CLASSES,
 	BADGE_VARIANT_CLASSES,
 	BASE_BADGE_CLASSES,
 	BASE_CODE_BLOCK_CLASSES,
-	BASE_COUNT_BADGE_CLASSES,
-	BASE_COUNTER_CLASSES,
-	BASE_DOT_CLASSES,
 	BASE_LABEL_CLASSES,
-	BASE_MARKER_CLASSES,
 	BLOCKQUOTE_CLASSES,
-	BULLET_CLASSES,
-	BULLET_SIZE_CLASSES,
 	CODE_BLOCK_SIZE_CLASSES,
 	CODE_BLOCK_VARIANT_CLASSES,
-	COUNTER_SIZE_CLASSES,
-	COUNTER_VARIANT_CLASSES,
-	DEFINITION_DESCRIPTION_CLASSES,
-	DEFINITION_TERM_CLASSES,
-	DOT_COLOR_CLASSES,
-	DOT_SIZE_CLASSES,
-	EM_CLASSES,
-	HIGHLIGHT_CLASSES,
-	INLINE_CODE_BASE_CLASSES,
-	INLINE_CODE_CLASSES,
-	KBD_CLASSES,
 	LABEL_DISABLED_CLASSES,
 	LABEL_ENABLED_CLASSES,
 	LABEL_SIZE_CLASSES,
-	LINK_DISABLED_CLASSES,
-	LINK_HOVER_CLASSES,
-	LINK_SIZE_CLASSES,
-	LINK_UNDERLINE_CLASSES,
-	LINK_VARIANT_CLASSES,
-	MARKER_COLOR_CLASSES,
-	MARKER_SIZE_CLASSES,
-	MESSAGE_STATUS_COLORS,
-	MESSAGE_STATUS_SIZE_CLASSES,
 	REQUIRED_INDICATOR_CLASSES,
 	SEPARATOR_CLASSES,
-	STATUS_INDICATOR_CONTAINER_CLASSES,
-	STATUS_INDICATOR_DOT_BASE_CLASSES,
-	STATUS_INDICATOR_STATUS_CLASSES,
-	STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES,
-	STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES,
-	STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES
 } from '$stylist/design-system/classes';
+import { IndicatorsStyleManager } from '$stylist/design-system/styles/indicators';
+import { LinkStyleManager } from '$stylist/design-system/styles/link';
 import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 import type { CommonSize } from '$stylist/design-system/tokens/variants';
 import { cn } from '$stylist/utils/classes';
 
-type InlineCodeVariant = keyof typeof INLINE_CODE_CLASSES;
-type LinkVariant = keyof typeof LINK_VARIANT_CLASSES;
-type MessageStatusType = keyof typeof MESSAGE_STATUS_COLORS;
-type StatusIndicatorWithLabelStatus = keyof typeof STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES;
+type InlineCodeVariant = 'default' | 'subtle';
+type LinkVariant =
+	| 'default'
+	| 'primary'
+	| 'secondary'
+	| 'success'
+	| 'warning'
+	| 'danger'
+	| 'info'
+	| 'solid'
+	| 'outline'
+	| 'ghost'
+	| 'link'
+	| 'subtle'
+	| 'neutral'
+	| 'gray'
+	| 'muted'
+	| 'dark'
+	| 'light';
+type MessageStatusType = 'sent' | 'delivered' | 'read';
+type StatusIndicatorWithLabelStatus =
+	| 'success'
+	| 'warning'
+	| 'error'
+	| 'info'
+	| 'neutral'
+	| 'custom';
 
 interface MessageStatusProps {
 	status?: MessageStatusType;
@@ -268,7 +260,7 @@ export function createCountBadgeState(props: CountBadgeProps) {
 	const count = $derived(props.count ?? 0);
 	const max = $derived(props.max ?? 99);
 	const showZero = $derived(props.showZero ?? false);
-	const classes = $derived(cn(BASE_COUNT_BADGE_CLASSES, props.class ?? ''));
+	const classes = $derived(IndicatorsStyleManager.getCountBadgeClasses(props.class ?? ''));
 	const displayCount = $derived(count > max ? `${max}+` : count);
 
 	return {
@@ -296,10 +288,9 @@ export function createCounterState(props: CounterProps) {
 	const variant = $derived(props.variant ?? 'primary');
 	const size = $derived(props.size ?? 'md');
 	const classes = $derived(
-		cn(
-			BASE_COUNTER_CLASSES,
-			COUNTER_VARIANT_CLASSES[variant as keyof typeof COUNTER_VARIANT_CLASSES],
-			COUNTER_SIZE_CLASSES[size as keyof typeof COUNTER_SIZE_CLASSES],
+		IndicatorsStyleManager.getCounterClasses(
+			variant as Parameters<typeof IndicatorsStyleManager.getCounterClasses>[0],
+			size as Parameters<typeof IndicatorsStyleManager.getCounterClasses>[1],
 			props.class ?? ''
 		)
 	);
@@ -331,7 +322,11 @@ export function createDotState(props: DotProps) {
 	const color = $derived(props.color ?? 'primary');
 	const size = $derived(props.size ?? 'md');
 	const classes = $derived(
-		cn(BASE_DOT_CLASSES, DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], props.class ?? '')
+		IndicatorsStyleManager.getDotClasses(
+			color as Parameters<typeof IndicatorsStyleManager.getDotClasses>[0],
+			size as Parameters<typeof IndicatorsStyleManager.getDotClasses>[1],
+			props.class ?? ''
+		)
 	);
 
 	return {
@@ -353,14 +348,17 @@ export function createListItemMarkerState(props: ListItemMarkerProps) {
 	const color = $derived(props.color ?? 'gray');
 	const size = $derived(props.size ?? 'md');
 	const classes = $derived(
-		cn(
-			BASE_MARKER_CLASSES,
-			MARKER_COLOR_CLASSES[color],
-			MARKER_SIZE_CLASSES[size],
+		IndicatorsStyleManager.getMarkerClasses(
+			color as Parameters<typeof IndicatorsStyleManager.getMarkerClasses>[0],
+			size as Parameters<typeof IndicatorsStyleManager.getMarkerClasses>[1],
 			props.class ?? ''
 		)
 	);
-	const bulletClasses = $derived(cn(BULLET_CLASSES, BULLET_SIZE_CLASSES[size]));
+	const bulletClasses = $derived(
+		IndicatorsStyleManager.getBulletClasses(
+			size as Parameters<typeof IndicatorsStyleManager.getBulletClasses>[0]
+		)
+	);
 
 	return {
 		get type() {
@@ -387,8 +385,14 @@ export function createListItemMarkerState(props: ListItemMarkerProps) {
 export function createMessageStatusState(props: MessageStatusProps) {
 	const status = $derived(props.status ?? 'sent');
 	const size = $derived(props.size ?? 'sm');
-	const containerClasses = $derived(MESSAGE_STATUS_COLORS[status as MessageStatusType]);
-	const iconClasses = $derived(MESSAGE_STATUS_SIZE_CLASSES[size as CommonSize]);
+	const containerClasses = $derived(
+		IndicatorsStyleManager.getMessageStatusContainerClasses(status as MessageStatusType)
+	);
+	const iconClasses = $derived(
+		IndicatorsStyleManager.getMessageStatusIconClasses(
+			size as Parameters<typeof IndicatorsStyleManager.getMessageStatusIconClasses>[0]
+		)
+	);
 	const isDoubleCheck = $derived(status === 'read');
 
 	return {
@@ -413,9 +417,11 @@ export function createMessageStatusState(props: MessageStatusProps) {
 export function createStatusIndicatorState(props: StatusIndicatorProps) {
 	const status = $derived(props.status ?? 'online');
 	const label = $derived(props.label ?? status);
-	const classes = $derived(cn(STATUS_INDICATOR_CONTAINER_CLASSES, props.class ?? ''));
+	const classes = $derived(IndicatorsStyleManager.getStatusIndicatorContainerClasses(props.class ?? ''));
 	const dotClasses = $derived(
-		cn(STATUS_INDICATOR_DOT_BASE_CLASSES, STATUS_INDICATOR_STATUS_CLASSES[status])
+		IndicatorsStyleManager.getStatusIndicatorDotClasses(
+			status as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorDotClasses>[0]
+		)
 	);
 
 	return {
@@ -443,24 +449,22 @@ export function createStatusIndicatorWithLabelState(props: StatusIndicatorWithLa
 	const indicatorClass = $derived(props.indicatorClass ?? '');
 	const labelClass = $derived(props.labelClass ?? '');
 	const containerClasses = $derived(
-		cn(...STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, props.class ?? '')
+		IndicatorsStyleManager.getStatusIndicatorWithLabelContainerClasses(props.class ?? '')
 	);
 	const indicatorClasses = $derived(
-		cn(
-			'inline-block rounded-full mr-2',
-			STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size],
-			status === 'custom'
-				? customColor
-					? `bg-[${customColor}]`
-					: 'bg-gray-500'
-				: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status],
+		IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses(
+			status,
+			size as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses>[1],
+			customColor,
 			indicatorClass
 		)
 	);
 	const indicatorStyle = $derived(
 		status === 'custom' && customColor ? `background-color: ${customColor};` : ''
 	);
-	const labelClasses = $derived(cn('text-sm', labelClass));
+	const labelClasses = $derived(
+		IndicatorsStyleManager.getStatusIndicatorWithLabelLabelClasses(labelClass)
+	);
 
 	return {
 		get status() {
@@ -501,7 +505,7 @@ export function createStatusIndicatorWithLabelState(props: StatusIndicatorWithLa
 
 export function createAbbrState(props: AbbrProps) {
 	const title = $derived(props.title ?? '');
-	const classes = $derived(cn(ABBR_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getAbbrClasses(props.class ?? ''));
 
 	return {
 		get title() {
@@ -514,7 +518,7 @@ export function createAbbrState(props: AbbrProps) {
 }
 
 export function createDefinitionDescriptionState(props: InlineBaseProps) {
-	const classes = $derived(cn(DEFINITION_DESCRIPTION_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getDefinitionDescriptionClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -524,7 +528,7 @@ export function createDefinitionDescriptionState(props: InlineBaseProps) {
 }
 
 export function createDefinitionTermState(props: InlineBaseProps) {
-	const classes = $derived(cn(DEFINITION_TERM_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getDefinitionTermClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -534,7 +538,7 @@ export function createDefinitionTermState(props: InlineBaseProps) {
 }
 
 export function createEmState(props: InlineBaseProps) {
-	const classes = $derived(cn(EM_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getEmClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -544,7 +548,7 @@ export function createEmState(props: InlineBaseProps) {
 }
 
 export function createHighlightState(props: InlineBaseProps) {
-	const classes = $derived(cn(HIGHLIGHT_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getHighlightClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -555,9 +559,7 @@ export function createHighlightState(props: InlineBaseProps) {
 
 export function createInlineCodeState(props: InlineCodeProps) {
 	const variant = $derived(props.variant ?? 'default');
-	const classes = $derived(
-		cn(INLINE_CODE_BASE_CLASSES, INLINE_CODE_CLASSES[variant as InlineCodeVariant] ?? '', props.class ?? '')
-	);
+	const classes = $derived(LinkStyleManager.getInlineCodeClasses(variant as InlineCodeVariant, props.class ?? ''));
 
 	return {
 		get variant() {
@@ -570,7 +572,7 @@ export function createInlineCodeState(props: InlineCodeProps) {
 }
 
 export function createKbdState(props: InlineBaseProps) {
-	const classes = $derived(cn(KBD_CLASSES, props.class ?? ''));
+	const classes = $derived(LinkStyleManager.getKbdClasses(props.class ?? ''));
 
 	return {
 		get classes() {
@@ -588,12 +590,11 @@ export function createLinkState(props: LinkProps) {
 	const target = $derived(props.target);
 	const text = $derived(props.text);
 	const classes = $derived(
-		cn(
-			LINK_VARIANT_CLASSES[variant as LinkVariant],
-			LINK_SIZE_CLASSES[size as CompactSize],
-			disabled && LINK_DISABLED_CLASSES,
-			!disabled && LINK_HOVER_CLASSES,
-			underline && LINK_UNDERLINE_CLASSES,
+		LinkStyleManager.getLinkClasses(
+			variant as LinkVariant,
+			size as CompactSize,
+			disabled,
+			underline,
 			props.class ?? ''
 		)
 	);
@@ -699,4 +700,3 @@ export function createSyntaxHighlightedCodeState(props: SyntaxHighlightedCodePro
 		}
 	};
 }
-

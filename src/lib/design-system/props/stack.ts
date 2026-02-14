@@ -1,13 +1,12 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
 import type { Justification, Orientation } from '../tokens/layout';
-import type { StackAlign } from './common';
+import type { StackAlign, HtmlAttributesWithChildren } from './common';
 
-export interface StackProps {
+export interface StackProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	direction?: Orientation;
 	spacing?: string | number;
 	align?: StackAlign;
 	justify?: Justification;
-	class?: string;
 	children?: Snippet;
 }

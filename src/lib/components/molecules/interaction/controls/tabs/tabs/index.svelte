@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import type { TabsProps } from '$stylist/design-system/props';
-	import { createTabsState } from './state.svelte';
+	import { createTabsState } from '$stylist/utils/molecules/tabs-state.svelte';
 
 	let props: TabsProps = $props();
 

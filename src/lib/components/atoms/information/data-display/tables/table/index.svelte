@@ -4,9 +4,23 @@
 
 	let props: TableProps = $props();
 	const state = createTableState(props);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				content: _content,
+				caption: _caption,
+				striped: _striped,
+				bordered: _bordered,
+				hoverable: _hoverable,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 </script>
 
-<table {...props} class={state.classes}>
+<table {...restProps} class={state.classes}>
 	{#if props.caption}
 		<caption class={state.captionClasses}>{props.caption}</caption>
 	{/if}

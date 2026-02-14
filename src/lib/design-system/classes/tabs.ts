@@ -1,5 +1,6 @@
 import { STATE_CLASSES } from './classes';
 import type { CommonSize } from '../tokens/variants';
+import { createDefaultValues } from './component-utils';
 
 export const TAB_BASE_CLASSES =
 	'inline-flex items-center justify-center rounded-md transition-colors';
@@ -37,3 +38,9 @@ export const TAB_INDICATOR_BASE_CLASSES =
 
 export const TAB_PANEL_VISIBLE_CLASS = 'block';
 export const TAB_PANEL_HIDDEN_CLASS = STATE_CLASSES.hidden;
+
+export const TAB_DEFAULTS = createDefaultValues<keyof typeof TAB_VARIANT_CLASSES, CommonSize>(
+	'primary',
+	'md'
+);
+

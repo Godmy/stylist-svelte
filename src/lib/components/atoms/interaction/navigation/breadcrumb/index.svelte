@@ -13,10 +13,13 @@
 	 */
 
 	import { ChevronRight } from 'lucide-svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IBreadcrumbProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
-	let { items, class: className = '' }: IBreadcrumbProps = $props();
+	type Props = IBreadcrumbProps & HTMLAttributes<HTMLElement>;
+
+	let { items, class: className = '', ...restProps }: Props = $props();
 
 	const containerClass = $derived(mergeClasses('breadcrumb-container', className));
 	const getItemClass = (current: boolean) =>
@@ -26,7 +29,7 @@
 		mergeClasses('breadcrumb-link', current ? 'current' : 'not-current');
 </script>
 
-<nav aria-label="Breadcrumb" class={containerClass}>
+<nav aria-label="Breadcrumb" class={containerClass} {...restProps}>
 	{#if items}
 		{#each items as item, i}
 			<div class={getItemClass(i === items.length - 1)}>

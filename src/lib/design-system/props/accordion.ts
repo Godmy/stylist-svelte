@@ -1,4 +1,4 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 import type { ContentProp, HtmlAttributesWithContent } from './common';
@@ -46,4 +46,27 @@ export interface AccordionPanelProps
 	borderClass?: string;
 	bgClass?: string;
 	open?: boolean;
+}
+
+/**
+ * Типы для компонента Accordion
+ * Следует принципам SOLID и архитектуре SAMO
+ */
+
+/** Элемент аккордеона */
+type AccordionDataItem = {
+  id: string;
+  title: string;
+  content: Snippet | string;
+  disabled?: boolean;
+};
+
+/** Пропсы компонента Accordion */
+export interface IAccordionProps {
+  items: AccordionDataItem[];
+  multiple?: boolean;
+  class?: string;
+  itemClass?: string;
+  headerClass?: string;
+  contentClass?: string;
 }

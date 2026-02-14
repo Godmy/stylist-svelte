@@ -6,6 +6,50 @@ export type ChatMessageStatus = 'sent' | 'delivered' | 'read';
 
 export type ChatMessageVariant = SemanticVariant | NeutralVariant;
 
+export interface User {
+	id: string;
+	name: string;
+	avatar?: string;
+	status?: 'online' | 'offline' | 'away' | 'typing' | 'idle';
+}
+
+export interface MessageAttachment {
+	id?: string;
+	name?: string;
+	url?: string;
+	type?: string;
+	size?: number | string;
+}
+
+export interface MessageReaction {
+	emoji: string;
+	count?: number;
+	users?: string[];
+}
+
+export interface Message {
+	id: string;
+	senderId: string;
+	content: string;
+	timestamp: Date;
+	type?: 'text' | 'image' | 'file' | string;
+	status?: ChatMessageStatus | string;
+	replyTo?: string;
+	attachments?: MessageAttachment[];
+	reactions?: MessageReaction[];
+}
+
+export interface Chat {
+	id: string;
+	name?: string;
+	participants: User[];
+	isGroup: boolean;
+	lastMessage?: Message | string;
+	lastMessageTime?: Date;
+	unreadCount?: number;
+	avatar?: string;
+}
+
 export interface ChatMessageProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	text?: string;
 	sender?: string;

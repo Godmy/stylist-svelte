@@ -5,23 +5,8 @@ import type {
 	NumberFlowProps,
 	PieChartProps
 } from '$stylist/design-system/props';
-import { NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES } from '$stylist/design-system/classes';
+import { DataDisplayStyleManager } from '$stylist/design-system/styles/data-display';
 import { BADGE_LABELS } from '$stylist/design-system/tokens';
-import { cn } from '$stylist/utils/classes';
-
-const formatAnimatedValue = (
-	value: number,
-	options: { format?: AnimatedNumberProps['format']; separator?: string; decimals?: number } = {}
-) => {
-	const decimals = options.decimals ?? 0;
-	const separator = options.separator ?? ',';
-	return value
-		.toLocaleString('en-US', {
-			minimumFractionDigits: decimals,
-			maximumFractionDigits: decimals
-		})
-		.replace(/,/g, separator);
-};
 
 export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const value = $derived(props.value);
@@ -29,10 +14,10 @@ export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const suffix = $derived(props.suffix ?? '');
 	const separator = $derived(props.separator ?? ',');
 	const decimals = $derived(props.decimals ?? 0);
-	const classes = $derived(cn(props.class, 'font-mono'));
+	const classes = $derived(DataDisplayStyleManager.getAnimatedNumberClasses(props.class));
 
 	const formattedValue = $derived(
-		formatAnimatedValue(value, {
+		DataDisplayStyleManager.formatAnimatedValue(value, {
 			format: props.format,
 			separator,
 			decimals
@@ -59,10 +44,8 @@ export function createAnimatedNumberState(props: AnimatedNumberProps) {
 }
 
 export function createPieChartState(props: PieChartProps) {
-	const containerClasses = $derived(
-		cn('relative inline-flex items-center justify-center', props.class)
-	);
-	const svgClasses = $derived('block');
+	const containerClasses = $derived(DataDisplayStyleManager.getPieChartContainerClasses(props.class));
+	const svgClasses = $derived(DataDisplayStyleManager.getPieChartSvgClasses());
 
 	return {
 		get containerClasses() {
@@ -77,12 +60,8 @@ export function createPieChartState(props: PieChartProps) {
 export function createColorSwatchState(props: ColorSwatchProps) {
 	const color = $derived(props.color ?? '#0ea5e9');
 	const size = $derived(props.size ?? 32);
-	const style = $derived(
-		`background-color: ${color}; width: ${size}px; height: ${size}px;`
-	);
-	const classes = $derived(
-		cn('inline-block rounded border border-[--color-border-secondary]', props.class)
-	);
+	const style = $derived(DataDisplayStyleManager.getColorSwatchStyle(color, size));
+	const classes = $derived(DataDisplayStyleManager.getColorSwatchClasses(props.class));
 
 	return {
 		get color() {
@@ -102,12 +81,9 @@ export function createColorSwatchState(props: ColorSwatchProps) {
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);
-	const className = $derived(cn(props.class));
 	const label = $derived(props.label ?? BADGE_LABELS[type as keyof typeof BADGE_LABELS]);
-	const classes = $derived(
-		cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className)
-	);
-	const linkClasses = $derived('inline-flex items-center gap-1 hover:opacity-80');
+	const classes = $derived(DataDisplayStyleManager.getNpmBadgeClasses(type, props.class));
+	const linkClasses = $derived(DataDisplayStyleManager.getNpmBadgeLinkClasses());
 
 	return {
 		get type() {
@@ -131,14 +107,9 @@ export function createNumberFlowState(props: NumberFlowProps) {
 	const format = $derived(props.format);
 	const prefix = $derived(props.prefix ?? '');
 	const suffix = $derived(props.suffix ?? '');
-	const containerClass = $derived(cn('flex items-center', props.class));
-	const classes = $derived({
-		container: containerClass,
-		prefix: 'mr-1',
-		suffix: 'ml-1',
-		srOnly: 'sr-only'
-	});
-	const formattedValue = $derived(new Intl.NumberFormat(locales, format).format(value));
+	const containerClass = $derived(DataDisplayStyleManager.getNumberFlowContainerClasses(props.class));
+	const classes = $derived(DataDisplayStyleManager.getNumberFlowClasses(containerClass));
+	const formattedValue = $derived(DataDisplayStyleManager.formatNumberFlowValue(value, locales, format));
 
 	return {
 		get value() {
@@ -158,4 +129,3 @@ export function createNumberFlowState(props: NumberFlowProps) {
 		}
 	};
 }
-

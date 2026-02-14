@@ -1,11 +1,11 @@
 export const DEFAULT_LANGUAGE = 'en';
 
-export const getNumberFlowClasses = (className = '') => ({
-	container: `flex items-center ${className}`,
+export const NUMBER_FLOW_BASE_CLASSES = {
+	container: 'flex items-center',
 	prefix: 'mr-1',
 	suffix: 'ml-1',
 	srOnly: 'sr-only'
-});
+} as const;
 
 export const formatNumberFlowValue = (
 	value: number,

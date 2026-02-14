@@ -1,4 +1,5 @@
 import { createBasePreset } from './interaction';
+import { createDefaultValues } from './component-utils';
 
 const BUTTON_VARIANTS = [
 	'default',
@@ -18,6 +19,11 @@ const BUTTON_VARIANTS = [
 	'light'
 ] as const;
 const BUTTON_SIZES = ['sm', 'md', 'lg'] as const;
+
+export const BUTTON_DEFAULTS = createDefaultValues<(typeof BUTTON_VARIANTS)[number], (typeof BUTTON_SIZES)[number]>(
+	'primary',
+	'md'
+);
 
 export const BUTTON_PRESET = createBasePreset(BUTTON_VARIANTS, BUTTON_SIZES, {
 	variant: 'primary',
@@ -43,3 +49,4 @@ export const SPLIT_BUTTON_PRESET = createBasePreset(BUTTON_VARIANTS, BUTTON_SIZE
 	variant: 'primary',
 	size: 'md'
 });
+

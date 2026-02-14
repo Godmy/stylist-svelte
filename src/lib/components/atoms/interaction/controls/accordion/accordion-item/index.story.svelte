@@ -66,7 +66,7 @@
 </script>
 
 <Story {id} {title} {description} component={AccordionItem} category="Atoms" {controls}>
-	{#snippet children(props)}
+	{#snippet children(props: any)}
 		<div class="p-4">
 			<div class="mb-6 rounded border p-4">
 				<h2 class="text-md mb-2 font-semibold">Interactive AccordionItem</h2>
@@ -146,3 +146,4 @@
 		</div>
 	{/snippet}
 </Story>
+

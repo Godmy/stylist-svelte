@@ -1,19 +1,15 @@
-﻿import type { GraphEdgeType } from '../tokens';
+import type { GraphEdgeType } from '../tokens';
 import type { GraphNodeSize } from '../props';
 
-const GRAPH_NODE_SIZE_CLASSES: Record<GraphNodeSize, string> = {
+export const GRAPH_NODE_SIZE_CLASSES: Record<GraphNodeSize, string> = {
 	sm: 'w-6 h-6',
 	md: 'w-8 h-8',
 	lg: 'w-10 h-10'
 };
 
-export const getGraphNodeSizeClasses = (size: GraphNodeSize) => {
-	return GRAPH_NODE_SIZE_CLASSES[size];
-};
-
-export const getGraphNodePositionStyle = (x: number, y: number) => {
-	return `position: absolute; left: ${x}px; top: ${y}px`;
-};
+export const GRAPH_EDGE_BASE_CLASS = 'graph-edge';
+export const GRAPH_EDGE_DIRECTED_CLASS = 'directed';
+export const GRAPH_EDGE_TYPES: GraphEdgeType[] = ['line', 'curve', 'polyline'];
 
 export const graphNodeCSS = `
 .graph-node {
@@ -30,19 +26,6 @@ export const graphNodeCSS = `
 }
 `;
 
-export const getGraphEdgeClasses = (directed: boolean, type: GraphEdgeType) => {
-	const baseClasses = 'graph-edge';
-	const directionalClass = directed ? 'directed' : '';
-	void type;
-	return `${baseClasses} ${directionalClass}`.trim();
-};
-
-export const getGraphEdgeStyles = (style: Record<string, string>) => {
-	return Object.entries(style)
-		.map(([key, value]) => `${key}:${value}`)
-		.join(';');
-};
-
 export const graphEdgeCSS = `
 .graph-edge {
   stroke: #94a3b8;
@@ -54,4 +37,3 @@ export const graphEdgeCSS = `
   marker-end: url(#arrowhead);
 }
 `;
-

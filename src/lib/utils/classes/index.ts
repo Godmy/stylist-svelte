@@ -1,5 +1,5 @@
-﻿import { clsx } from 'clsx';
-import { twMerge as twMergeLib } from 'tailwind-merge';
+import { clsx } from 'clsx';
+import { cn as cnBase } from '$stylist/design-system/utils/cn';
 import type { Preset } from '$stylist/design-system/classes/interaction';
 
 export type ClassValue =
@@ -17,11 +17,11 @@ export function twJoin(...inputs: ClassValue[]): string {
 }
 
 export function twMerge(...inputs: ClassValue[]): string {
-	return twMergeLib(clsx(inputs));
+	return cnBase(...inputs);
 }
 
 export function cn(...inputs: ClassValue[]): string {
-	return twMergeLib(clsx(inputs));
+	return cnBase(...inputs);
 }
 
 /** Merge multiple class strings, filtering out falsy values. */

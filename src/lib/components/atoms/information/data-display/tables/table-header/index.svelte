@@ -4,9 +4,15 @@
 
 	let props: TableSectionProps = $props();
 	const state = createTableHeaderState(props);
+	const restProps = $derived(
+		(() => {
+			const { class: _class, content: _content, ...rest } = props;
+			return rest;
+		})()
+	);
 </script>
 
-<thead {...props} class={state.classes}>
+<thead {...restProps} class={state.classes}>
 	{#if props.content}
 		{@render props.content()}
 	{/if}

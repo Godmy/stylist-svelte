@@ -1,13 +1,16 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
 import type { CommonSize } from '../tokens/variants';
 import type { GraphEdgeType } from './common';
+import type { HtmlAttributesBase } from './common';
 
 export type GraphNodeSize = CommonSize;
 
 export type GraphNodeType = string;
 
-export interface GraphEdgeProps {
+type GraphEdgeHtmlProps = Omit<HtmlAttributesBase<HTMLDivElement>, 'style'>;
+
+export interface GraphEdgeProps extends GraphEdgeHtmlProps {
 	fromNodeId: string;
 	toNodeId: string;
 	directed?: boolean;
@@ -15,7 +18,7 @@ export interface GraphEdgeProps {
 	style?: Record<string, string>;
 }
 
-export interface GraphNodeProps {
+export interface GraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
 	id: string;
 	x: number;
 	y: number;

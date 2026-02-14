@@ -37,22 +37,27 @@
 	const children = $derived(props.children);
 
 	// РСЃРєР»СЋС‡Р°РµРј СѓР¶Рµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ props
-	const {
-		src: _src,
-		alt: _alt,
-		fallback: _fallback,
-		loading: _loading,
-		width: _width,
-		height: _height,
-		content: _content,
-		onLoad: _onLoad,
-		onError: _onError,
-		children: _children,
-		class: _class,
-		variant: _variant,
-		size: _size,
-		...imgProps
-	} = props;
+	const restProps = $derived(
+		(() => {
+			const {
+				src: _src,
+				alt: _alt,
+				fallback: _fallback,
+				loading: _loading,
+				width: _width,
+				height: _height,
+				content: _content,
+				onLoad: _onLoad,
+				onError: _onError,
+				children: _children,
+				class: _class,
+				variant: _variant,
+				size: _size,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Р Р°Р·РјРµСЂС‹ РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№
 	const SIZE_CLASSES: Record<ImageSize, string> = {
@@ -104,7 +109,7 @@
 	{/if}
 
 	<img
-		{...imgProps}
+		{...restProps}
 		src={imageSource}
 		alt={props.alt ?? ''}
 		loading={loadingProp}
