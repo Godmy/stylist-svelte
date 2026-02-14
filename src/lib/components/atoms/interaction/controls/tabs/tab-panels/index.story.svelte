@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Tabs from '../tabs/index.svelte';
 	import TabList from '../tab-list/index.svelte';
 	import { Tab } from '$stylist/components/atoms/interaction/controls/tabs/tab';

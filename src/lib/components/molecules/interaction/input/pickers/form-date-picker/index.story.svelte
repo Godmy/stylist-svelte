@@ -24,8 +24,8 @@
         {minDate}
         {maxDate}
         {placeholder}
-        onInput={(newValue) => value = newValue}
-        onChange={(newValue) => console.log('Date changed:', newValue)}
+        onValueInput={(newValue) => value = newValue}
+        onValueChange={(newValue) => console.log('Date changed:', newValue)}
       />
     </div>
 

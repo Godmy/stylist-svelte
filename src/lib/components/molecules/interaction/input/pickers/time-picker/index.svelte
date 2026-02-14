@@ -9,6 +9,10 @@
     class?: string;
     dropdownClass?: string;
     showSeconds?: boolean;
+    onValueInput?: (time: string) => void;
+    onValueChange?: (time: string) => void;
+    /** @deprecated use onValueChange */
+    onChange?: (time: string) => void;
   } & HTMLAttributes<HTMLInputElement>;
 
   const dispatch = createEventDispatcher<{ change: { time: string } }>();
@@ -19,6 +23,9 @@
     class: className = '',
     dropdownClass = '',
     showSeconds = false,
+    onValueInput,
+    onValueChange,
+    onChange,
     ...restProps
   }: Props = $props();
 
@@ -34,6 +41,9 @@
   }
 
   function updateValue() {
+    onValueInput?.(selectedTime);
+    onValueChange?.(selectedTime);
+    onChange?.(selectedTime);
     dispatch('change', { time: selectedTime });
     const event = new CustomEvent('change', { 
       detail: { time: selectedTime },

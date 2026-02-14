@@ -54,7 +54,18 @@ export interface ITimeSlot {
  */
 export interface ITimeSlotProps extends ITimeSlot {
   /**
-   * Callback fired when the time slot is clicked
+   * Canonical callback fired when the time slot receives value interaction
+   */
+  onValueInput?: (slot: ITimeSlot) => void;
+
+  /**
+   * Canonical callback fired when the time slot value is changed/selected
+   */
+  onValueChange?: (slot: ITimeSlot) => void;
+
+  /**
+   * Legacy callback fired when the time slot is clicked
+   * @deprecated use onValueChange
    */
   onClick?: (slot: ITimeSlot) => void;
 

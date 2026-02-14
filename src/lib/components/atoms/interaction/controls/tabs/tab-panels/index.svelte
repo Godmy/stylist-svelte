@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { TabContainerProps } from '$stylist/design-system/props';
 	import { createTabPanelsState } from '$stylist/design-system/models/tab-panels.svelte';
 

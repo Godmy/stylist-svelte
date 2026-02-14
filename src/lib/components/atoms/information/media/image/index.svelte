@@ -1,11 +1,11 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLImgAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	// РРјРїРѕСЂС‚РёСЂСѓРµРј С‚РѕРєРµРЅС‹ РёР· СЃРёСЃС‚РµРјС‹ РґРёР·Р°Р№РЅР°
+	// Импортируем токены из системы дизайна
 	import { TRANSITION_CLASSES } from '$stylist/design-system/classes';
 
-	// РўРёРїС‹ РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёСЏ
+	// Типы для изображения
 	export type ImageSize = 'sm' | 'md' | 'lg' | 'xl';
 	export type ImageProps = {
 		variant?: 'default';
@@ -36,7 +36,7 @@
 	const content = $derived(props.content);
 	const children = $derived(props.children);
 
-	// РСЃРєР»СЋС‡Р°РµРј СѓР¶Рµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ props
+	// Исключаем уже используемые props
 	const restProps = $derived(
 		(() => {
 			const {
@@ -59,7 +59,7 @@
 		})()
 	);
 
-	// Р Р°Р·РјРµСЂС‹ РґР»СЏ РёР·РѕР±СЂР°Р¶РµРЅРёР№
+	// Размеры для изображений
 	const SIZE_CLASSES: Record<ImageSize, string> = {
 		sm: 'max-w-[200px] h-auto',
 		md: 'max-w-[400px] h-auto',
@@ -84,10 +84,10 @@
 		}
 	}
 
-	// РћРїСЂРµРґРµР»СЏРµРј, РєР°РєРѕР№ РёСЃС‚РѕС‡РЅРёРє РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
+	// Определяем, какой источник использовать
 	const imageSource = $derived(hasError && fallback ? fallback : src);
 
-	// Р“РµРЅРµСЂРёСЂСѓРµРј CSS РєР»Р°СЃСЃС‹
+	// Генерируем CSS классы
 	const baseClasses = 'block max-w-full h-auto object-cover';
 	const loadedClass = $derived(isLoaded ? 'opacity-100' : 'opacity-0');
 	const transitionClass = TRANSITION_CLASSES.opacity;

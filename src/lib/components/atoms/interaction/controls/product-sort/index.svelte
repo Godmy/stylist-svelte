@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ProductSortProps } from '$stylist/design-system/props';
 	import { createProductSortState } from '$stylist/design-system/models/product-sort.svelte';
@@ -12,7 +12,6 @@
 				options: _options,
 				selectedOption: _selectedOption,
 				onValueChange: _onValueChange,
-				onSortChange: _onSortChange,
 				...rest
 			} = props;
 			return rest;
@@ -32,8 +31,7 @@
 	<select
 		bind:value={localSelectedOption}
 		onchange={() => {
-			props.onValueChange?.(localSelectedOption);
-			props.onSortChange?.(localSelectedOption);
+			sortState.handleSortChange(localSelectedOption);
 		}}
 		class={sortState.selectClasses}
 	>

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { setContext } from 'svelte';
 	import type { ToggleGroupRootProps } from '$stylist/design-system/props';
 	import { createToggleGroupRootState } from '$stylist/design-system/models/toggle-group-root.svelte';
@@ -31,7 +31,6 @@
 		internalValue = newValueState;
 		const event = new CustomEvent('valueChange', { detail: { value: newValueState } });
 		props.onValueChange?.(event);
-		props.onvalueChange?.(event);
 	}
 
 	setContext('toggleGroup', {
@@ -51,7 +50,6 @@
 			disabled: _disabled,
 			children: _children,
 			onValueChange: _onValueChange,
-			onvalueChange: _onvalueChange,
 			class: _class,
 			...filteredProps
 		} = props;

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
 	import AccordionItem from '../accordion-item/index.svelte';
 	import AccordionHeader from './index.svelte';

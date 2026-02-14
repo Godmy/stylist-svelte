@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ButtonPage from './index.svelte';
 
 	let page = 1;

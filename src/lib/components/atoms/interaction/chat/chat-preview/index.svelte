@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Avatar } from '$stylist/components/atoms';
 	import { Check, CheckCheck } from 'lucide-svelte';

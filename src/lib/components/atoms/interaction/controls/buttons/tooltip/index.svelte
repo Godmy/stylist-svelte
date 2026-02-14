@@ -1,16 +1,16 @@
-п»ї<script lang="ts">
+<script lang="ts">
   import type { Snippet } from 'svelte';
 
   /**
-   * РљРѕРјРїРѕРЅРµРЅС‚ С‚СѓР»С‚РёРїР°
-   * РџСЂРёРѕСЂРёС‚РµС‚: РµСЃР»Рё РїРµСЂРµРґР°РЅ `children`, РѕРЅ Р±СѓРґРµС‚ РѕС‚РѕР±СЂР°Р¶РµРЅ,
-   * РёРЅР°С‡Рµ РєРѕРјРїРѕРЅРµРЅС‚ Р±СѓРґРµС‚ РїСѓСЃС‚С‹Рј
+   * Компонент тултипа
+   * Приоритет: если передан `children`, он будет отображен,
+   * иначе компонент будет пустым
    */
   type Props = {
     text: string;
     position?: 'top' | 'bottom' | 'left' | 'right';
     class?: string;
-    children?: Snippet; // Р”РѕР±Р°РІР»СЏРµРј children РґР»СЏ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
+    children?: Snippet; // Добавляем children для содержимого
   };
 
   let {

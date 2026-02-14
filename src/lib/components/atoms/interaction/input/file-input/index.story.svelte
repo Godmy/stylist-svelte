@@ -1,7 +1,7 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import FileInput from './index.svelte';
 
-	let placeholder = 'РџСЂРёРєСЂРµРїРёС‚СЊ С„Р°Р№Р»';
+	let placeholder = 'Прикрепить файл';
 	let accept = '.png,.jpg,.pdf';
 	let multiple = false;
 	let disabled = false;
@@ -24,7 +24,7 @@
 
 				<div>
 					<label class="text-sm font-medium text-[--color-text-secondary]" for="accept">
-						Р”РѕРїСѓСЃС‚РёРјС‹Рµ С„РѕСЂРјР°С‚С‹ (comma separated)
+						Допустимые форматы (comma separated)
 					</label>
 					<input
 						id="accept"
@@ -38,11 +38,11 @@
 				>
 					<label class="flex items-center gap-2">
 						<input type="checkbox" bind:checked={multiple} />
-						РњРЅРѕР¶РµСЃС‚РІРµРЅРЅС‹Р№ РІС‹Р±РѕСЂ
+						Множественный выбор
 					</label>
 					<label class="mt-2 flex items-center gap-2">
 						<input type="checkbox" bind:checked={disabled} />
-						РќРµРґРѕСЃС‚СѓРїРЅРѕ
+						Недоступно
 					</label>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 					<FileInput {placeholder} {accept} {multiple} {disabled} />
 				</div>
 				<p class="mt-3 text-sm text-[--color-text-secondary]">
-					РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РІС‹Р±СЂР°РЅРЅС‹Рµ С„Р°Р№Р»С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё Р±Р»Р°РіРѕРґР°СЂСЏ РІСЃС‚СЂРѕРµРЅРЅРѕРјСѓ СЃРѕСЃС‚РѕСЏРЅРёСЋ.
+					Компонент отображает выбранные файлы автоматически благодаря встроенному состоянию.
 				</p>
 			</div>
 		</div>
@@ -66,23 +66,23 @@
 	<section
 		class="rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6"
 	>
-		<h2 class="text-base font-semibold text-[--color-text-primary]">РЁР°Р±Р»РѕРЅС‹ Р·Р°РіСЂСѓР·РєРё</h2>
+		<h2 class="text-base font-semibold text-[--color-text-primary]">Шаблоны загрузки</h2>
 		<p class="text-sm text-[--color-text-secondary]">
-			РСЃРїРѕР»СЊР·СѓР№С‚Рµ СЂР°Р·РЅС‹Рµ placeholder Рё РЅР°Р±РѕСЂС‹ С‚РёРїРѕРІ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СЃС†РµРЅР°СЂРёСЏ.
+			Используйте разные placeholder и наборы типов в зависимости от сценария.
 		</p>
 
 		<div class="mt-4 grid gap-4 md:grid-cols-3">
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">Р”РёР·Р°Р№РЅ-СЂРµСЃСѓСЂСЃС‹</p>
-				<FileInput placeholder="Р”РѕР±Р°РІРёС‚СЊ РјР°РєРµС‚С‹" accept=".fig,.sketch,.pdf" multiple={true} />
+				<p class="text-sm font-semibold text-[--color-text-primary]">Дизайн-ресурсы</p>
+				<FileInput placeholder="Добавить макеты" accept=".fig,.sketch,.pdf" multiple={true} />
 			</div>
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">Р¤РѕС‚Рѕ РєРѕРјР°РЅРґС‹</p>
-				<FileInput placeholder="Р—Р°РіСЂСѓР·РёС‚СЊ С„РѕС‚Рѕ" accept=".png,.jpg" multiple={false} />
+				<p class="text-sm font-semibold text-[--color-text-primary]">Фото команды</p>
+				<FileInput placeholder="Загрузить фото" accept=".png,.jpg" multiple={false} />
 			</div>
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">Р”РѕРєСѓРјРµРЅС‚С‹</p>
-				<FileInput placeholder="РџСЂРёРєСЂРµРїРёС‚СЊ PDF" accept=".pdf" multiple={true} />
+				<p class="text-sm font-semibold text-[--color-text-primary]">Документы</p>
+				<FileInput placeholder="Прикрепить PDF" accept=".pdf" multiple={true} />
 			</div>
 		</div>
 	</section>

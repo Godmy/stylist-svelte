@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { CheckboxProps } from '$stylist/design-system/props';
 	import { createCheckboxState } from '$stylist/design-system/models/checkbox.svelte';
 

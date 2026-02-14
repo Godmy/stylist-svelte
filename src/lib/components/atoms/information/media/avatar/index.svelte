@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	// РўРёРїС‹ РґР»СЏ Р°РІР°С‚Р°СЂР°
+	// Типы для аватара
 	export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
 	export type AvatarUserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';
 
@@ -25,10 +25,10 @@
 	const showStatus = $derived(props.showStatus ?? false);
 	const children = $derived(props.children);
 
-	// Р’С‹С‡РёСЃР»СЏРµРј РёРЅРёС†РёР°Р»С‹
+	// Вычисляем инициалы
 	const initials = $derived(name ? name.charAt(0).toUpperCase() : '?');
 
-	// Р Р°Р·РјРµСЂС‹ РґР»СЏ Р°РІР°С‚Р°СЂРѕРІ
+	// Размеры для аватаров
 	const SIZE_CLASSES: Record<AvatarSize, string> = {
 		sm: 'w-6 h-6 text-sm',
 		md: 'w-8 h-8 text-base',
@@ -42,7 +42,7 @@
 		`inline-flex items-center justify-center rounded-full bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] overflow-hidden ${sizeClasses} ${props.class ?? ''}`
 	);
 
-	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ СЃС‚РёР»РµР№
+	// Вспомогательные функции для стилей
 	function getStatusClasses(status?: AvatarUserStatus): string {
 		const statusClasses: Record<AvatarUserStatus, string> = {
 			online: 'bg-[var(--color-success-500)]',

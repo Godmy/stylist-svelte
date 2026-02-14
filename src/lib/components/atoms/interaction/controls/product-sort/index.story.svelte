@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ProductSort from './index.svelte';
@@ -30,7 +30,7 @@
 					{ value: 'price-high', label: 'Price: High to Low' },
 					{ value: 'rating', label: 'Top Rated' }
 				]}
-				onSortChange={(option: string) => console.log('Sort changed to:', option)}
+				onValueChange={(option: string) => console.log('Sort changed to:', option)}
 			/>
 		</div>
 	{/snippet}

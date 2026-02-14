@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ButtonClose from './index.svelte';
 
 	let size: 'sm' | 'md' | 'lg' = 'md';

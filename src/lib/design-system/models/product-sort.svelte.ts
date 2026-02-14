@@ -10,7 +10,7 @@ import { cn } from '$stylist/utils/classes';
 export function createProductSortState(props: ProductSortProps) {
 	const options = $derived(props.options);
 	const selectedOption = $derived(props.selectedOption ?? '');
-	const onSortChange = $derived(() => props.onSortChange || ((option: string) => {}));
+	const onValueChange = $derived(() => props.onValueChange || ((option: string) => {}));
 	const containerClasses = $derived(`flex items-center ${props.class ?? ''}`.trim());
 	const labelClasses = $derived(
 		cn('mr-2', BASE_LABEL_CLASSES, LABEL_SIZE_CLASSES.sm, LABEL_ENABLED_CLASSES)
@@ -36,8 +36,8 @@ export function createProductSortState(props: ProductSortProps) {
 			return selectClasses;
 		},
 		handleSortChange(option: string) {
-			const sortChangeFn = onSortChange();
-			sortChangeFn(option);
+			const valueChangeFn = onValueChange();
+			valueChangeFn(option);
 		}
 	};
 }

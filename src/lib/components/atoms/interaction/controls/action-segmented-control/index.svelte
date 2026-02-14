@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ActionSegmentedControlProps } from '$stylist/design-system/props';
 

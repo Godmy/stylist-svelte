@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
 
   type SearchSuggestion = {
@@ -18,7 +18,8 @@
     class?: string;
     suggestionClass?: string;
     headerClass?: string;
-    onSuggestionClick?: (suggestion: SearchSuggestion) => void;
+    onValueInput?: (suggestion: SearchSuggestion) => void;
+    onValueChange?: (suggestion: SearchSuggestion) => void;
     maxSuggestions?: number;
   };
 
@@ -29,7 +30,8 @@
     class: hostClass = '',
     suggestionClass = '',
     headerClass = '',
-    onSuggestionClick,
+    onValueInput,
+    onValueChange,
     maxSuggestions = 5,
     ...restProps
   }: Props = $props();
@@ -37,7 +39,8 @@
   let displayedSuggestions = $derived(suggestions.slice(0, maxSuggestions));
 
   function handleSuggestionClick(suggestion: SearchSuggestion) {
-    onSuggestionClick?.(suggestion);
+    onValueInput?.(suggestion);
+    onValueChange?.(suggestion);
   }
 </script>
 

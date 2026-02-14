@@ -10,7 +10,7 @@
             content: any; // Snippet type
         }>;
         activeTab?: string;
-        onChange?: (tabId: string) => void;
+        onValueChange?: (tabId: string) => void;
     };
 
     const complexTabs = [
@@ -47,7 +47,7 @@
             <TabGroup
                 tabs={props.tabs || complexTabs}
                 activeTab={props.activeTab || 'dashboard'}
-                onChange={handleTabChange}
+                onValueChange={handleTabChange}
             />
         </div>
     {/snippet}

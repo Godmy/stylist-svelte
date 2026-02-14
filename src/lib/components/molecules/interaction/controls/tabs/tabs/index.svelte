@@ -14,7 +14,6 @@
 	function handleTabChange(id: string) {
 		selectedTabId = id;
 		props.onValueChange?.(id);
-		props.onTabChange?.(id);
 	}
 
 	function registerTab(id: string) {
@@ -54,7 +53,6 @@
 			const {
 				selectedId: _selectedId,
 				onValueChange: _onValueChange,
-				onTabChange: _onTabChange,
 				variant: _variant,
 				size: _size,
 				class: _class,

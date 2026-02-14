@@ -1,9 +1,9 @@
 <script lang="ts">
   import TreeViewer from './index.svelte';
-  import type { TreeNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
 
   // Create sample tree data
-  const createSampleTree = (): TreeNode[] => [
+  const createSampleTree = (): TreeNodeItemNode[] => [
     {
       key: 'root-1',
       desc: 'System Architecture',
@@ -108,7 +108,7 @@
     }
   ];
 
-  let treeData: TreeNode[] = $state(createSampleTree());
+  let treeData: TreeNodeItemNode[] = $state(createSampleTree());
   let selectedKey: string | undefined = $state(undefined);
 
   function handleSelectCallback(key: string | undefined) {

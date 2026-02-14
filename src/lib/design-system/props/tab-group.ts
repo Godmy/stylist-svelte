@@ -24,6 +24,9 @@ export interface ITabGroupProps extends HTMLAttributes<HTMLDivElement> {
   activeTabClass?: string;
   inactiveTabClass?: string;
   panelClass?: string;
+  onValueInput?: (tabId: string) => void;
+  onValueChange?: (tabId: string) => void;
+  /** @deprecated use onValueChange */
   onChange?: (tabId: string) => void;
 }
 

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { RadioProps } from '$stylist/design-system/props';
 	import { createRadioState } from '$stylist/design-system/models/radio.svelte';
 

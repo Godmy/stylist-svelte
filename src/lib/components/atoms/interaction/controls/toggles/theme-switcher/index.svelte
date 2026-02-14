@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Sun, Moon, Laptop } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';

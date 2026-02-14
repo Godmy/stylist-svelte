@@ -15,7 +15,11 @@
     minDate?: string;
     maxDate?: string;
     placeholder?: string;
+    onValueInput?: (value: string, event?: Event) => void;
+    onValueChange?: (value: string, event?: Event) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (value: string, event?: Event) => void;
+    /** @deprecated use onValueChange */
     onChange?: (value: string, event?: Event) => void;
   };
 
@@ -30,6 +34,8 @@
     minDate,
     maxDate,
     placeholder = 'Select date',
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -45,12 +51,15 @@
   function handleInput(event: Event) {
     const target = event.target as HTMLInputElement;
     selectedDate = target.value;
+    onValueInput?.(selectedDate, event);
+    onValueChange?.(selectedDate, event);
     onInput?.(selectedDate, event);
   }
 
   function handleChange(event: Event) {
     const target = event.target as HTMLInputElement;
     selectedDate = target.value;
+    onValueChange?.(selectedDate, event);
     onChange?.(selectedDate, event);
     showCalendar = false;
   }

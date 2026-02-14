@@ -27,7 +27,7 @@
       {description}
       {disabled}
       {required}
-      onInput={(newValues) => value = newValues}
+      onValueChange={(newValues) => value = newValues}
     />
 
     <div class="mt-4 flex flex-wrap gap-2">

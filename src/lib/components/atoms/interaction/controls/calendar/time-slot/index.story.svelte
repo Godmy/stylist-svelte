@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -99,7 +99,7 @@
             available={props.available ?? primaryScenario.available}
             selected={props.selected ?? primaryScenario.selected}
             active={props.active ?? primaryScenario.active}
-            onClick={handleTimeSlotClick}
+            onValueChange={handleTimeSlotClick}
           />
         </div>
       </div>
@@ -119,7 +119,7 @@
               </div>
               <TimeSlot
                 {...scenario}
-                onClick={handleTimeSlotClick}
+                onValueChange={handleTimeSlotClick}
               />
             </article>
           {/each}

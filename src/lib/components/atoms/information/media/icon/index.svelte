@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { SVGAttributes } from 'svelte/elements';
 
-	// РўРёРїС‹ РґР»СЏ РёРєРѕРЅРєРё
+	// Типы для иконки
 	export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	export type IconName =
 		| 'search'
@@ -28,7 +28,7 @@
 	const strokeWidth = $derived(props.strokeWidth ?? 1.5);
 	const children = $derived(props.children);
 
-	// Р Р°Р·РјРµСЂС‹ РґР»СЏ РёРєРѕРЅРѕРє
+	// Размеры для иконок
 	const SIZE_CLASSES: Record<IconSize, string> = {
 		xs: 'w-4 h-4',
 		sm: 'w-6 h-6',
@@ -57,10 +57,10 @@
 		})()
 	);
 
-	// РџРѕР»СѓС‡Р°РµРј РїСѓС‚СЊ РёРєРѕРЅРєРё
+	// Получаем путь иконки
 	const iconPath = $derived(getIconPath(name));
 
-	// РљРѕРЅСЃС‚Р°РЅС‚С‹ РґР»СЏ SVG
+	// Константы для SVG
 	const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 	const SVG_VIEWBOX = '0 0 24 24';
 	const SVG_FILL = 'none';
@@ -68,7 +68,7 @@
 	const SVG_STROKE_LINECAP = 'round';
 	const SVG_STROKE_LINEJOIN = 'round';
 
-	// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
+	// Вспомогательные функции
 	function getIconPath(name: IconName): string {
 		const iconPaths: Record<string, string> = {
 			search: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',

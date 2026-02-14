@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import { Search } from 'lucide-svelte';
 	import InputAddon from './index.svelte';

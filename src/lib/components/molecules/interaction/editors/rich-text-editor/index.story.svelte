@@ -66,6 +66,8 @@
           placeholder={placeholder}
           {showToolbar}
           {toolbarPosition}
+          onValueInput={handleInput}
+          onValueChange={handleChange}
           onInput={handleInput}
           onChange={handleChange}
         />
@@ -75,7 +77,7 @@
         <div class="flex items-center justify-between">
           <h2 class="text-lg font-semibold text-gray-900">Предпросмотр HTML</h2>
           <span class="text-sm text-gray-500">
-            {savedContent ? 'Показывается сохранённая версия' : 'Черновик (onInput)'}
+            {savedContent ? 'Показывается сохранённая версия' : 'Черновик (onValueInput)'}
           </span>
         </div>
         <div class="mt-3 rounded-md bg-white p-4 prose prose-sm max-w-none">

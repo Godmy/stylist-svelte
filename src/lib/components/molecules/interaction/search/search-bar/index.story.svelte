@@ -94,11 +94,8 @@
       {disabled}
       {debounceMs}
       class={className}
-      onsearch={(e) => {
-        const customEvent = e as CustomEvent<{ query: string }>;
-        handleSearch(customEvent.detail.query);
-      }}
-      onclear={() => handleClear()}
+      onSearch={handleSearch}
+      onClear={handleClear}
     />
   </div>
 </div>

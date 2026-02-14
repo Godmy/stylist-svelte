@@ -1,8 +1,7 @@
 <script lang="ts">
   import type { Message, User } from '$stylist/design-system/props/chat';
   import { Avatar, Icon } from '$stylist/components/atoms';
-  import MessageStatusAtom from '$stylist/components/atoms/information/typography/indicators/message-status/index.svelte';
-  import MessageMeta from '../message-meta/index.svelte';
+  import MessageMeta from '$stylist/components/atoms/information/messages/message-meta/index.svelte';
   import AttachmentPreview from '../../preview/attachment-preview/index.svelte';
   import { createEventDispatcher } from 'svelte';
 
@@ -212,3 +211,5 @@
     {/if}
   </div>
 </div>
+
+

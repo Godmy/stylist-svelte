@@ -8,7 +8,7 @@
     lastSeen?: Date;
   }
 
-  import ChatStatusIndicator from '../atoms/chat-status-indicator/index.svelte';
+  import ChatStatusIndicator from '$stylist/components/atoms/interaction/chat/atoms/chat-status-indicator/index.svelte';
 
   // Props
   let { 
@@ -82,3 +82,5 @@
     </div>
   {/if}
 </div>
+
+

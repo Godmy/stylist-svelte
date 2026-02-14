@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import ColorPalette from './index.svelte';
 
   let colors = [
@@ -29,7 +29,7 @@
       {showLabels}
       {showValues}
       {columns}
-      onColorSelect={(color) => console.log('Selected color:', color)}
+      onValueChange={(color) => console.log('Selected color:', color)}
     />
 
     <div class="mt-4 flex flex-wrap gap-2">

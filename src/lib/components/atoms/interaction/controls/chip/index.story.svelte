@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Chip from './index.svelte';
@@ -7,7 +7,7 @@
 		{
 			name: 'label',
 			type: 'text',
-			defaultValue: 'РџСЂРёРјРµСЂ С‡РёРїР°'
+			defaultValue: 'Пример чипа'
 		},
 		{
 			name: 'variant',
@@ -39,7 +39,7 @@
 	title="Chip"
 	category="Atoms"
 	component={Chip}
-	description="РљРѕРјРїР°РєС‚РЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅРµР±РѕР»СЊС€РёС… С„СЂР°РіРјРµРЅС‚РѕРІ РёРЅС„РѕСЂРјР°С†РёРё"
+	description="Компактный компонент для отображения небольших фрагментов информации"
 	tags={['tag', 'label', 'badge', 'chip']}
 	{controls}
 >

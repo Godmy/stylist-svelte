@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AccordionPanelProps } from '$stylist/design-system/props';

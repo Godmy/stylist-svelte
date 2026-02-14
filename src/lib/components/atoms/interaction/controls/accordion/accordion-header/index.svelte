@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';

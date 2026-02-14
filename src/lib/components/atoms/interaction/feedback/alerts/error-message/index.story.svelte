@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ErrorMessage from './index.svelte';
 
 	let { error = 'Something went wrong', title = 'Error occurred', showRetry = true } = $props();

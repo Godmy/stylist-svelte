@@ -35,8 +35,6 @@ export type TabContainerProps = HtmlAttributesWithChildren<HTMLDivElement> & IDi
 export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	selectedId?: string;
 	onValueChange?: (id: string) => void;
-	/** @deprecated use onValueChange */
-	onTabChange?: (id: string) => void;
 	variant?: DefaultVariants;
 	size?: ComponentSize;
 	disabled?: boolean;

@@ -11,7 +11,7 @@
         value?: string;
         size?: 'sm' | 'md' | 'lg';
         disabled?: boolean;
-        onChange?: (value: string | string[]) => void;
+        onValueChange?: (value: string | string[]) => void;
     };
 
     const defaultOptions = [
@@ -59,7 +59,7 @@
                 value={props.value || 'medium'}
                 size={props.size}
                 disabled={props.disabled}
-                onChange={handleValueChange}
+                onValueChange={handleValueChange}
             />
         </div>
     {/snippet}

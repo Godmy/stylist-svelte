@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TreeNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
   import AdvancedVirtualTree from './index.svelte';
   import { createEventDispatcher } from 'svelte';
   
@@ -13,7 +13,7 @@
     class: className = '',
     ...restProps
   }: { 
-    tree?: TreeNode[]; 
+    tree?: TreeNodeItemNode[]; 
     onSelectCallback?: (key: string | undefined) => void; 
     onToggleCallback?: (key: string | undefined) => void;
     itemHeight?: number;
@@ -25,7 +25,7 @@
   const dispatch = createEventDispatcher();
 
   // Handle node selection
-  const handleSelect = (e: CustomEvent<{ node: TreeNode }>) => {
+  const handleSelect = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
     dispatch('select', e.detail);
     onSelectCallback(e.detail.node.key);
   };
@@ -38,11 +38,11 @@
   };
   
   // Handle expand/collapse
-  const handleExpand = (e: CustomEvent<{ node: TreeNode }>) => {
+  const handleExpand = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
     dispatch('expand', e.detail);
   };
   
-  const handleCollapse = (e: CustomEvent<{ node: TreeNode }>) => {
+  const handleCollapse = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
     dispatch('collapse', e.detail);
   };
 </script>

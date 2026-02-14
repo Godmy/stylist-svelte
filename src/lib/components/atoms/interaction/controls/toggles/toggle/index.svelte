@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { ToggleProps } from '$stylist/design-system/props';
 	import { createToggleState } from '$stylist/design-system/models/toggle.svelte';
 

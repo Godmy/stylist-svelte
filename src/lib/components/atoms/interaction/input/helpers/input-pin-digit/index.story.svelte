@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import PinInputDigit from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import type { IInputProps, PinInputVariant } from '$stylist/design-system/props';

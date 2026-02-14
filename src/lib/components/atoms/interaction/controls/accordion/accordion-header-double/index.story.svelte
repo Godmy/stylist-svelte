@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import AccordionHeader from './index.svelte';
 
 	let isOpen: boolean = false;

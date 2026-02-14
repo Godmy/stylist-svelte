@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { createPinInputDigitState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-pin-digit.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputProps, PinInputVariant } from '$stylist/design-system/props';

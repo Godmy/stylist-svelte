@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { IPhoneNumberInputProps } from '$stylist/design-system/props/phone-number-input';
   import {
     createPhoneNumberInputState,

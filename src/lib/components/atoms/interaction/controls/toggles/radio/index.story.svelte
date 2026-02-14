@@ -1,4 +1,4 @@
-﻿<script context="module">
+<script context="module">
 	export const title = 'Radio';
 	export const category = 'Atoms/Controls/Toggles';
 </script>

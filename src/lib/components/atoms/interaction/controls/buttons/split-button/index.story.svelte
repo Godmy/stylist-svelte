@@ -1,4 +1,4 @@
-﻿<script context="module">
+<script context="module">
 	export const title = 'SplitButton';
 	export const category = 'Atoms/Controls/Buttons';
 </script>

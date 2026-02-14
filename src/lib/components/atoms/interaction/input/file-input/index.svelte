@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { createFileInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/file-input.svelte';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';

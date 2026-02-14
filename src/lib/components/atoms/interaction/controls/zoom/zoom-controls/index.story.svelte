@@ -1,4 +1,4 @@
-п»ї<script lang="ts">
+<script lang="ts">
   import ZoomControls from './index.svelte';
 
   let initialValue = 100;
@@ -45,8 +45,8 @@
   <div>
     <h1 class="text-2xl font-semibold text-gray-900">ZoomControls</h1>
     <p class="text-gray-600">
-      РџР»Р°РІР°СЋС‰РёРµ РєРѕРЅС‚СЂРѕР»С‹ РјР°СЃС€С‚Р°Р±Р°, РїСЂРёРІРµРґС‘РЅРЅС‹Рµ Рє РЅРѕРІРѕРјСѓ С„РѕСЂРјР°С‚Сѓ СЃС‚РѕСЂРёР·. РљРѕРјРїРѕРЅРµРЅС‚ Р·Р°РєСЂРµРїР»С‘РЅ РІРЅСѓС‚СЂРё РґРµРјРѕРЅСЃС‚СЂР°С†РёРѕРЅРЅРѕРіРѕ РѕРєРЅР° Рё
-      СЃРѕРѕР±С‰Р°РµС‚ РёСЃС‚РѕСЂРёСЋ РёР·РјРµРЅРµРЅРёР№.
+      Плавающие контролы масштаба, приведённые к новому формату сториз. Компонент закреплён внутри демонстрационного окна и
+      сообщает историю изменений.
     </p>
   </div>
 
@@ -54,7 +54,7 @@
     <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm space-y-4">
       <div class="relative min-h-[260px] rounded-lg border border-dashed border-gray-300 p-6">
         <p class="text-sm text-gray-500">
-          Р­С‚Р° РѕР±Р»Р°СЃС‚СЊ РёРјРёС‚РёСЂСѓРµС‚ РґРёР·Р°Р№РЅ-С…РѕР»СЃС‚. РљРЅРѕРїРєРё РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ СЂР°Р·РјРµС‰РµРЅС‹ РІ РїСЂР°РІРѕРј РЅРёР¶РЅРµРј СѓРіР»Сѓ РєРѕРЅС‚РµР№РЅРµСЂР°, Р° РЅРµ СЌРєСЂР°РЅР°.
+          Эта область имитирует дизайн-холст. Кнопки масштабирования размещены в правом нижнем углу контейнера, а не экрана.
         </p>
         <ZoomControls
           {initialValue}
@@ -65,12 +65,12 @@
           {controlsClass}
           {indicatorClass}
           class="static mt-6"
-          onChange={handleZoomChange}
+          onValueChange={handleZoomChange}
         />
       </div>
 
       <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
-        <h3 class="text-sm font-semibold text-gray-800">РСЃС‚РѕСЂРёСЏ РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёСЏ</h3>
+        <h3 class="text-sm font-semibold text-gray-800">История масштабирования</h3>
         {#if zoomHistory.length > 0}
           <ul class="mt-2 flex gap-2 text-sm text-gray-700">
             {#each zoomHistory as value}
@@ -78,16 +78,16 @@
             {/each}
           </ul>
         {:else}
-          <p class="mt-2 text-sm text-gray-500">РќР°Р¶РјРёС‚Рµ РЅР° РєРЅРѕРїРєРё, С‡С‚РѕР±С‹ СѓРІРёРґРµС‚СЊ РїРѕСЃР»РµРґРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ.</p>
+          <p class="mt-2 text-sm text-gray-500">Нажмите на кнопки, чтобы увидеть последние значения.</p>
         {/if}
       </div>
     </div>
 
     <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-      <h2 class="text-lg font-semibold text-gray-900">РќР°СЃС‚СЂРѕР№РєРё</h2>
+      <h2 class="text-lg font-semibold text-gray-900">Настройки</h2>
 
       <div>
-        <label for="zoom-initial" class="block text-sm font-medium text-gray-700">РЎС‚Р°СЂС‚РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ</label>
+        <label for="zoom-initial" class="block text-sm font-medium text-gray-700">Стартовое значение</label>
         <input
           id="zoom-initial"
           name="zoom-initial"
@@ -101,7 +101,7 @@
 
       <div class="grid gap-3 sm:grid-cols-2">
         <div>
-          <label for="zoom-min" class="block text-sm font-medium text-gray-700">РњРёРЅРёРјСѓРј</label>
+          <label for="zoom-min" class="block text-sm font-medium text-gray-700">Минимум</label>
           <input
             id="zoom-min"
             name="zoom-min"
@@ -113,7 +113,7 @@
           />
         </div>
         <div>
-          <label for="zoom-max" class="block text-sm font-medium text-gray-700">РњР°РєСЃРёРјСѓРј</label>
+          <label for="zoom-max" class="block text-sm font-medium text-gray-700">Максимум</label>
           <input
             id="zoom-max"
             name="zoom-max"
@@ -127,7 +127,7 @@
       </div>
 
       <div>
-        <label for="zoom-step" class="block text-sm font-medium text-gray-700">РЁР°Рі</label>
+        <label for="zoom-step" class="block text-sm font-medium text-gray-700">Шаг</label>
         <input
           id="zoom-step"
           name="zoom-step"
@@ -141,11 +141,11 @@
 
       <label class="flex items-center gap-2 text-sm text-gray-700">
         <input type="checkbox" bind:checked={showPercentage} class="rounded border-gray-300" />
-        РџРѕРєР°Р·С‹РІР°С‚СЊ РїСЂРѕС†РµРЅС‚
+        Показывать процент
       </label>
 
       <div>
-        <h3 class="text-sm font-semibold text-gray-800">РЎС†РµРЅР°СЂРёРё</h3>
+        <h3 class="text-sm font-semibold text-gray-800">Сценарии</h3>
         <div class="mt-2 flex flex-wrap gap-2">
           <button
             type="button"

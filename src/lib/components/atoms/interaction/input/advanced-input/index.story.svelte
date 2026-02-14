@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import AdvancedInput from './index.svelte';
 
 	let label: string = 'Username';

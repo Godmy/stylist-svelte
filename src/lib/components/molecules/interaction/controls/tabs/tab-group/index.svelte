@@ -37,6 +37,8 @@
     activeTabClass = '',
     inactiveTabClass = '',
     panelClass = '',
+    onValueInput,
+    onValueChange,
     onChange,
     ...restProps
   }: ITabGroupProps = $props();
@@ -53,9 +55,9 @@
     const tab = tabs.find(t => t.id === tabId);
     if (tab && !tab.disabled) {
       currentTab = tabId;
-      if (onChange) {
-        onChange(tabId);
-      }
+      onValueInput?.(tabId);
+      onValueChange?.(tabId);
+      onChange?.(tabId);
     }
   }
 

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import CardSkeleton from './index.svelte';
 
 	let count: number = 3;

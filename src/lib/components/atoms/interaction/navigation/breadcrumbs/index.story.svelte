@@ -1,7 +1,7 @@
-п»ї<script>
+<script>
 	import Breadcrumbs from './index.svelte';
 
-	// РћРїСЂРµРґРµР»РµРЅРёРµ РґР°РЅРЅС‹С… РґР»СЏ РїСЂРёРјРµСЂР°
+	// Определение данных для примера
 	let crumbs = [
 		{ label: 'Home', href: '/' },
 		{ label: 'Products', href: '/products' },

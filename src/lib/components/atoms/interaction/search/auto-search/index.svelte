@@ -2,11 +2,17 @@
   let {
     value = '',
     placeholder = 'Search...',
+    onValueInput,
+    onValueChange,
+    /** @deprecated use onValueInput/onValueChange */
     onInput = (value: string) => {},
     class: className = ''
   } = $props<{
     value?: string;
     placeholder?: string;
+    onValueInput?: (value: string) => void;
+    onValueChange?: (value: string) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (value: string) => void;
     class?: string;
   }>();
@@ -20,6 +26,8 @@
   const handleInput = (e: Event) => {
     const target = e.target as HTMLInputElement;
     localValue = target.value;
+    onValueInput?.(localValue);
+    onValueChange?.(localValue);
     onInput(localValue);
   };
 </script>

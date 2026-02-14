@@ -33,6 +33,26 @@ export interface ISearchBarProps {
    * Additional CSS classes to apply to the search bar
    */
   class?: string;
+
+  /**
+   * Called when input value changes.
+   */
+  onValueInput?: (value: string) => void;
+
+  /**
+   * Called when value is committed/changed.
+   */
+  onValueChange?: (value: string) => void;
+
+  /**
+   * Called when search is executed.
+   */
+  onSearch?: (query: string) => void;
+
+  /**
+   * Called when value is cleared.
+   */
+  onClear?: () => void;
 }
 
 /** Events interface for SearchBar component */

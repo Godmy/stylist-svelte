@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Copy, Check } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';

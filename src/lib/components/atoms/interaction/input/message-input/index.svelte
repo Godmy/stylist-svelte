@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Icon } from '$stylist/components/atoms';
 	import type { MessageInputProps } from '$stylist/design-system/props/chat';

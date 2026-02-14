@@ -1,5 +1,5 @@
-п»ї<script lang="ts">
-  import EmptyState from './index.svelte'; // РџСѓС‚СЊ Рє РІР°С€РµРјСѓ РєРѕРјРїРѕРЅРµРЅС‚Сѓ EmptyState
+<script lang="ts">
+  import EmptyState from './index.svelte'; // Путь к вашему компоненту EmptyState
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 

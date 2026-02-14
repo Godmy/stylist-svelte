@@ -12,7 +12,11 @@
     class?: string;
     sliderClass?: string;
     inputClass?: string;
+    onValueInput?: (value: number) => void;
+    onValueChange?: (value: number) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (value: number) => void;
+    /** @deprecated use onValueChange */
     onChange?: (value: number) => void;
   } & HTMLAttributes<HTMLDivElement>;
 
@@ -27,6 +31,8 @@
     class: className = '',
     sliderClass = '',
     inputClass = '',
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -46,9 +52,9 @@
     const newValue = parseFloat(target.value);
     currentValue = newValue;
     
-    if (onInput) {
-      onInput(newValue);
-    }
+    onValueInput?.(newValue);
+    onValueChange?.(newValue);
+    onInput?.(newValue);
   }
 
   function handleInputChange(e: Event) {
@@ -59,9 +65,9 @@
     const clampedValue = Math.min(Math.max(newValue, min), max);
     currentValue = clampedValue;
     
-    if (onInput) {
-      onInput(clampedValue);
-    }
+    onValueInput?.(clampedValue);
+    onValueChange?.(clampedValue);
+    onInput?.(clampedValue);
   }
 
   function handleInputBlur(e: FocusEvent) {
@@ -82,9 +88,8 @@
       currentValue = clampedValue;
       target.value = clampedValue.toString();
       
-      if (onChange) {
-        onChange(clampedValue);
-      }
+      onValueChange?.(clampedValue);
+      onChange?.(clampedValue);
     }
   }
 </script>
@@ -101,9 +106,9 @@
     bind:value={currentValue}
     oninput={handleSliderChange}
     onchange={(e) => {
-      if (onChange) {
-        onChange(parseFloat((e.target as HTMLInputElement).value));
-      }
+      const nextValue = parseFloat((e.target as HTMLInputElement).value);
+      onValueChange?.(nextValue);
+      onChange?.(nextValue);
     }}
     disabled={disabled}
   />

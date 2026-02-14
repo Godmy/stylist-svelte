@@ -9,7 +9,7 @@
         class?: string;
         dropdownClass?: string;
         showSeconds?: boolean;
-        onChange?: (time: string) => void; // Added for story's on:change
+        onValueChange?: (time: string) => void;
     };
 
     const controls: ControlConfig[] = [
@@ -49,11 +49,7 @@
                 value={props.value || '14:30'}
                 showSeconds={props.showSeconds}
                 disabled={props.disabled}
-                on:change={(e: CustomEvent<{time: string}>) => {
-                    if (e.detail && e.detail.time) {
-                        handleTimeChange(e.detail.time);
-                    }
-                }}
+                onValueChange={handleTimeChange}
             />
         </div>
     {/snippet}

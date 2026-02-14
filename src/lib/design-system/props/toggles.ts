@@ -13,8 +13,6 @@ export interface ToggleGroupRootProps
 	type?: ToggleGroupType;
 	class?: string;
 	onValueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
-	/** @deprecated use onValueChange */
-	onvalueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
 }
 
 export interface ToggleGroupItemProps extends Omit<HTMLButtonAttributes, 'class'> {
@@ -78,8 +76,8 @@ export interface RadioButtonGroupProps
 	name?: string;
 	class?: string;
 	required?: boolean;
-	onchange?: (value: string) => void;
-	oninput?: (value: string) => void;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 }
 
 export interface ActionSegmentedControlProps {

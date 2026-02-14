@@ -4,19 +4,19 @@
 
   type Dataset = 'support' | 'growth' | 'ops';
 
-  let title = 'Operations overview';
-  let subtitle = 'Живые метрики отдела сопровождения';
-  let collapsible = true;
-  let initiallyCollapsed = false;
-  let resizable = true;
-  let draggable = true;
-  let maximizable = true;
-  let size: 'sm' | 'md' | 'lg' = 'md';
-  let showActions = true;
-  let selectedDataset: Dataset = 'support';
-  let ticketVolume = 128;
-  let sla = 92;
-  let trend = 12;
+  let title = $state('Operations overview');
+  let subtitle = $state('Живые метрики отдела сопровождения');
+  let collapsible = $state(true);
+  let initiallyCollapsed = $state(false);
+  let resizable = $state(true);
+  let draggable = $state(true);
+  let maximizable = $state(true);
+  let size = $state<'sm' | 'md' | 'lg'>('md');
+  let showActions = $state(true);
+  let selectedDataset = $state<Dataset>('support');
+  let ticketVolume = $state(128);
+  let sla = $state(92);
+  let trend = $state(12);
 
   let contentSnippet = $derived.by(() => createRawSnippet(() => {
     const dataset = selectedDataset.toUpperCase();
@@ -197,3 +197,4 @@
     </div>
   </div>
 </div>
+

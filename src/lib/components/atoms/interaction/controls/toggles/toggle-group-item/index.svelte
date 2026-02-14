@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import type { ToggleGroupItemProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';

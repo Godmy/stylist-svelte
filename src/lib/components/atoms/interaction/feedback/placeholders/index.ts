@@ -1,6 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { CardSkeleton } from './card-skeleton';
-export { Skeleton } from './skeleton';
 export { SkeletonCircle } from './skeleton-circle';
 export { SkeletonRectangle } from './skeleton-rectangle';
 export { SkeletonTable } from './skeleton-table';

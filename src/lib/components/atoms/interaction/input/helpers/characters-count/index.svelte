@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { createCharacterCountState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/characters-count.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import SliderTick from './tick/index.svelte';
@@ -55,7 +55,7 @@
 	const contentSnippet = createRawSnippet(() => ({
 		render() {
 			return `<div class="flex flex-col items-center text-[10px] font-semibold text-[--color-text-primary]">
-        <span>📍</span>
+        <span>??</span>
         <span>Milestone</span>
       </div>`;
 		}

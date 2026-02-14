@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import HighContrastToggle from './index.svelte';
 
   let enabled: boolean = false;

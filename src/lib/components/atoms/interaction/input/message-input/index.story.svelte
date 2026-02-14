@@ -1,4 +1,4 @@
-﻿<script>
+<script>
 	import MessageInput from './index.svelte';
 </script>
 

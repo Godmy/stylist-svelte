@@ -12,7 +12,11 @@
     label?: string;
     helperText?: string;
     error?: string;
+    onValueInput?: (value: string, event?: Event) => void;
+    onValueChange?: (value: string, event?: Event) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (value: string, event?: Event) => void;
+    /** @deprecated use onValueChange */
     onChange?: (value: string, event?: Event) => void;
   };
 
@@ -24,6 +28,8 @@
     label,
     helperText,
     error,
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -38,12 +44,15 @@
   function handleInput(event: Event) {
     const target = event.target as HTMLInputElement;
     selectedColor = target.value;
+    onValueInput?.(selectedColor, event);
+    onValueChange?.(selectedColor, event);
     onInput?.(selectedColor, event);
   }
 
   function handleChange(event: Event) {
     const target = event.target as HTMLInputElement;
     selectedColor = target.value;
+    onValueChange?.(selectedColor, event);
     onChange?.(selectedColor, event);
   }
 </script>

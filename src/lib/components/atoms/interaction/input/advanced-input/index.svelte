@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { createAdvancedInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/advanced-input.svelte';
 

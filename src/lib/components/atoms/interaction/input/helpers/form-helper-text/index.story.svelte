@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import FormHelperText from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 

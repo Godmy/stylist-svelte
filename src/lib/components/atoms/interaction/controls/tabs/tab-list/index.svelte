@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { TabContainerProps } from '$stylist/design-system/props';
 	import { createTabListState } from '$stylist/design-system/models/tab-list.svelte';
 

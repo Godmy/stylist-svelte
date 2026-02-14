@@ -23,7 +23,11 @@
     disabled?: boolean;
     required?: boolean;
     name?: string;
+    onValueInput?: (values: string[]) => void;
+    onValueChange?: (values: string[]) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (values: string[]) => void;
+    /** @deprecated use onValueChange */
     onChange?: (values: string[]) => void;
   };
 
@@ -37,6 +41,8 @@
     disabled = false,
     required = false,
     name,
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -58,6 +64,8 @@
     }
 
     selectedValues = newValues;
+    onValueInput?.(newValues);
+    onValueChange?.(newValues);
     onInput?.(newValues);
     onChange?.(newValues);
   }

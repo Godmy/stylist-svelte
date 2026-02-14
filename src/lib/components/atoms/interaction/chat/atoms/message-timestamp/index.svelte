@@ -1,4 +1,4 @@
-ï»¿<script lang="ts">
+<script lang="ts">
   // Props
   let { 
     timestamp,
@@ -18,10 +18,10 @@
       const hours = Math.floor(diff / 3600000);
       const days = Math.floor(diff / 86400000);
 
-      if (minutes < 1) return 'Ð¢Ð¾Ð»ÑŒÐºÐ¾ Ñ‡Ñ‚Ð¾';
-      if (minutes < 60) return `${minutes} Ð¼`;
-      if (hours < 24) return `${hours} Ñ‡`;
-      if (days < 7) return `${days} Ð´`;
+      if (minutes < 1) return 'Òîëüêî ÷òî';
+      if (minutes < 60) return `${minutes} ì`;
+      if (hours < 24) return `${hours} ÷`;
+      if (days < 7) return `${days} ä`;
     }
 
     switch (formatStyle) {
@@ -46,7 +46,7 @@
         if (isToday) {
           return timestamp.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
         } else if (isYesterday) {
-          return `Ð’Ñ‡ÐµÑ€Ð°, ${timestamp.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
+          return `Â÷åðà, ${timestamp.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })}`;
         } else {
           const dateStr = timestamp.toLocaleDateString('ru-RU', { day: '2-digit', month: 'short' });
           const timeStr = timestamp.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });

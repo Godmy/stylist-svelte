@@ -1,4 +1,4 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import { InputGroup } from '.';
 
 	type ButtonVariant =
@@ -52,7 +52,7 @@
 
 				<div>
 					<label for="button-label" class="text-sm font-medium text-[--color-text-secondary]">
-						РќР°РґРїРёСЃСЊ РєРЅРѕРїРєРё
+						Надпись кнопки
 					</label>
 					<input
 						id="button-label"
@@ -63,7 +63,7 @@
 
 				<div>
 					<label for="variant-select" class="text-sm font-medium text-[--color-text-secondary]">
-						Р’Р°СЂРёР°РЅС‚ РєРЅРѕРїРєРё
+						Вариант кнопки
 					</label>
 					<select
 						id="variant-select"
@@ -123,25 +123,25 @@
 		class="rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6"
 	>
 		<h2 class="text-base font-semibold text-[--color-text-primary]">
-			РџРѕРІС‚РѕСЂРЅРѕ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ РїР°С‚С‚РµСЂРЅС‹
+			Повторно используемые паттерны
 		</h2>
 		<p class="text-sm text-[--color-text-secondary]">
-			РќРµСЃРєРѕР»СЊРєРѕ РїСЂРёРјРµСЂРѕРІ РґРµРјРѕРЅСЃС‚СЂРёСЂСѓСЋС‚ СЂР°Р·РЅС‹Рµ РєРѕРјР±РёРЅР°С†РёРё РїРѕР»СЏ Рё РєРЅРѕРїРєРё.
+			Несколько примеров демонстрируют разные комбинации поля и кнопки.
 		</p>
 
 		<div class="mt-4 grid gap-4 md:grid-cols-2">
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">РџРѕРёСЃРє</p>
+				<p class="text-sm font-semibold text-[--color-text-primary]">Поиск</p>
 				<InputGroup
 					id="search-group"
 					label="Find template"
-					placeholder="РџРѕРёСЃРєвЂ¦"
+					placeholder="Поиск…"
 					buttonLabel="Search"
 					buttonVariant="secondary"
 				/>
 			</div>
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">URL СЃ РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµРј</p>
+				<p class="text-sm font-semibold text-[--color-text-primary]">URL с подтверждением</p>
 				<InputGroup
 					id="url-group"
 					label="Webhook URL"

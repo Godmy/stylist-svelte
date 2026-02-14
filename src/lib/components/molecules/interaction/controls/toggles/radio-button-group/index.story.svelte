@@ -1,4 +1,4 @@
-﻿<script>
+<script>
 	import RadioButtonGroup from './index.svelte';
 
 	const options = [

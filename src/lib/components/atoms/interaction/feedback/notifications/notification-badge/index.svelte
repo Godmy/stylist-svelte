@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { INotificationBadgeProps } from '$stylist/design-system/props';
 	import { NotificationBadgeStyleManager } from '$stylist/design-system/styles/feedback';

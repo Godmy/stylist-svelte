@@ -16,12 +16,12 @@
 
 	function handleInput(optionValue: string) {
 		selectedValue = optionValue;
-		props.oninput?.(optionValue);
+		props.onValueInput?.(optionValue);
 	}
 
 	function handleChange(optionValue: string) {
 		selectedValue = optionValue;
-		props.onchange?.(optionValue);
+		props.onValueChange?.(optionValue);
 	}
 
 	// Extract only HTML-compatible props for the container div
@@ -34,7 +34,7 @@
 			// Skip properties that are specific to input elements or that cause type conflicts
 			if (![
 				'options', 'value', 'name', 'disabled', 'required', 'orientation', 
-				'class', 'optionClass', 'labelClass', 'radioClass', 'oninput', 'onchange',
+				'class', 'optionClass', 'labelClass', 'radioClass', 'onValueInput', 'onValueChange',
 				'accept', 'alt', 'autocomplete', 'autofocus', 'capture', 'checked', 
 				'crossOrigin', 'files', 'form', 'formAction', 'formEncType', 'formMethod', 
 				'formNoValidate', 'formTarget', 'height', 'inputMode', 'list', 'max', 
@@ -68,4 +68,3 @@
 		</label>
 	{/each}
 </div>
-

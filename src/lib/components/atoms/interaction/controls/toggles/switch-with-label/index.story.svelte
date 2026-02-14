@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import SwitchWithLabel from './index.svelte';
   import type { ISwitchWithLabelProps } from '$stylist/design-system/props/switch-with-label';
 

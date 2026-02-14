@@ -1,4 +1,4 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import EmailInput from './index.svelte';
 	import type { InputProps } from '$stylist/design-system/props';
@@ -27,7 +27,7 @@
 			name: 'placeholder',
 			description: 'Placeholder text',
 			type: 'text',
-			defaultValue: 'Р’РІРµРґРёС‚Рµ email'
+			defaultValue: 'Введите email'
 		},
 		{
 			name: 'disabled',
@@ -57,7 +57,7 @@
 		name: 'email',
 		type: 'email',
 		value: '',
-		placeholder: 'Р’РІРµРґРёС‚Рµ email'
+		placeholder: 'Введите email'
 	};
 </script>
 

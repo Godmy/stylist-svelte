@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SliderProps } from '$stylist/design-system/props';
 	import { createSliderState } from '$stylist/design-system/models/sliders.svelte';

@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccordionHeader, AccordionHeaderDouble, AccordionItem, AccordionPanel } from './accordion';
 export { ActionSegmentedControl } from './action-segmented-control';
-export { Button, CloseButton, CopyButton, FollowButton, IconButton, PageButton, SplitButton, Tooltip } from './buttons';
+export { Button, CloseButton, CopyButton, FollowButton, IconButton, PageButton, SplitButton } from './buttons';
 export { TimeSlot } from './calendar';
 export { Chip } from './chip';
 export { BurgerMenu, MenuItem } from './menus';

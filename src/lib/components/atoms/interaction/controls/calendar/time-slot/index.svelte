@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { ITimeSlotProps } from '$stylist/design-system/props/time-slot';
   import { TimeSlotStyleManager } from '$stylist/design-system/styles/time-slot';
 
@@ -15,6 +15,8 @@
     active = false,
     events = [],
     class: hostClass = '',
+    onValueInput,
+    onValueChange,
     onClick,
     onKeyDown
   } = $state(props);
@@ -25,7 +27,7 @@
   );
 
   function handleClick() {
-    onClick?.({
+    const slot = {
       start,
       end,
       timeLabel,
@@ -34,7 +36,10 @@
       active,
       events,
       class: hostClass
-    });
+    };
+    onValueInput?.(slot);
+    onValueChange?.(slot);
+    onClick?.(slot);
   }
 
   function handleKeyDown(e: KeyboardEvent) {

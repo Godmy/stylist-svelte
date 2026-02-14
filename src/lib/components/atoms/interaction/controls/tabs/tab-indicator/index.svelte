@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { TabIndicatorProps } from '$stylist/design-system/props';
 	import { createTabIndicatorState } from '$stylist/design-system/models/tab-indicator.svelte';
 

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { getContext } from 'svelte';
 	import type { TabPanelProps } from '$stylist/design-system/props';
 	import { createTabPanelState } from '$stylist/design-system/models/tab-panel.svelte';

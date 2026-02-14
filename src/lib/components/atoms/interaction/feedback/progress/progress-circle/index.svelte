@@ -1,4 +1,4 @@
-ï»¿<script lang="ts">
+<script lang="ts">
 	import type { IProgressCircleProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -60,7 +60,7 @@
 
 <div class={containerClass} {...restProps}>
 	<svg class={svgClass} viewBox="0 0 100 100">
-		<!-- Ð¤Ð¾Ð½Ð¾Ð²Ñ‹Ð¹ ÐºÑ€ÑƒÐ³ -->
+		<!-- Ôîíîâûé êðóã -->
 		<circle
 			cx="50"
 			cy="50"
@@ -70,7 +70,7 @@
 			stroke-width={strokeWidth}
 			class={backgroundCircleClass}
 		/>
-		<!-- ÐŸÑ€Ð¾Ð³Ñ€ÐµÑÑ-ÐºÑ€ÑƒÐ³ -->
+		<!-- Ïðîãðåññ-êðóã -->
 		<circle
 			cx="50"
 			cy="50"

@@ -17,8 +17,8 @@
       {label}
       {helperText}
       {error}
-      onInput={(newValue) => value = newValue}
-      onChange={(newValue) => console.log('Color changed:', newValue)}
+      onValueInput={(newValue) => value = newValue}
+      onValueChange={(newValue) => console.log('Color changed:', newValue)}
     />
 
     <div class="mt-4 flex flex-wrap gap-2">

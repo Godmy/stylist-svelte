@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ListItemMarker from './index.svelte';
 
 	// More on args: https://storybook.js.org/docs/7.0/svelte/writing-stories/args

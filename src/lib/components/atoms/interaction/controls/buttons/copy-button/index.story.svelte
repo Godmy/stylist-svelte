@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import CopyButton from './index.svelte';
 
 	let text = 'npm install stylist-svelte';

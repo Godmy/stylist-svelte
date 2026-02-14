@@ -1,4 +1,4 @@
-﻿<script context="module">
+<script context="module">
 	export const title = 'TableSkeleton';
 	export const category = 'Atoms/Feedback/Placeholders';
 </script>

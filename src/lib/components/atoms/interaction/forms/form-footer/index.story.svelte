@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import FormFooter from './index.svelte';
 
   let primaryButtonLabel: string = 'Submit';

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { Icon } from '$stylist/components/atoms';
@@ -17,6 +17,9 @@
     icon?: string;
     disabled?: boolean;
     external?: boolean;
+    onValueInput?: (event: MouseEvent) => void;
+    onValueChange?: (event: MouseEvent) => void;
+    /** @deprecated use onValueChange */
     onClick?: (event: MouseEvent) => void;
     children?: Snippet;
   } & HTMLAttributes<HTMLElement>;
@@ -30,6 +33,8 @@
     external = false,
     children,
     class: className = '',
+    onValueInput,
+    onValueChange,
     onClick = (event: MouseEvent) => {},
     ...restProps
   }: Props = $props();
@@ -50,6 +55,8 @@
       return;
     }
     
+    onValueInput?.(e);
+    onValueChange?.(e);
     onClick(e);
   };
 </script>

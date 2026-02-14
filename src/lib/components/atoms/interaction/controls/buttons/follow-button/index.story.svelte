@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import FollowButton from './index.svelte';
 
   let isFollowing: boolean = false;

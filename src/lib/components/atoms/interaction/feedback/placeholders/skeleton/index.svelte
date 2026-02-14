@@ -1,4 +1,4 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import type { ISkeletonProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -51,7 +51,7 @@
 	const computedHeight = $derived(height || defaultHeight);
 	const computedWidth = $derived(variant === 'circular' ? computedHeight : width);
 
-	// Р”РѕР±Р°РІР»СЏРµРј width Рё height РєР°Рє CSS РїРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РєР»Р°СЃСЃР°С…
+	// Добавляем width и height как CSS переменные для использования в классах
 	const styleVars = $derived(
 		`--skeleton-width: ${computedWidth}; --skeleton-height: ${computedHeight};`
 	);

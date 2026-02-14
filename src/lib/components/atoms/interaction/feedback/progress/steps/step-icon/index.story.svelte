@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import StepIcon from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';

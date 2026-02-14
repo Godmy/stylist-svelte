@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import ChatPreview from './index.svelte';
 
 	// Example data for ChatPreview

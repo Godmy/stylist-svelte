@@ -1,4 +1,4 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import PasswordInput from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import type { IInputProps } from '$stylist/design-system/props';
@@ -25,7 +25,7 @@
 		{
 			name: 'placeholder',
 			type: 'text',
-			defaultValue: 'Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ',
+			defaultValue: 'Введите пароль',
 			description: 'Placeholder text'
 		},
 		{
@@ -61,7 +61,7 @@
 		name: 'password',
 		type: 'password',
 		value: 'Secret#123',
-		placeholder: 'Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ',
+		placeholder: 'Введите пароль',
 		disabled: false,
 		required: true,
 		error: false,

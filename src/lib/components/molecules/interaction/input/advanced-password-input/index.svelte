@@ -34,6 +34,8 @@
     inputClass = '',
     buttonClass = '',
     showStrengthMeter = false,
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -49,6 +51,7 @@
     if (onInput) {
       onInput(inputValue);
     }
+    onValueInput?.(inputValue);
   }
 
   function handleChange(e: Event) {
@@ -58,6 +61,7 @@
     if (onChange) {
       onChange(inputValue);
     }
+    onValueChange?.(inputValue);
   }
 
   // Calculate password strength (0-4 scale)

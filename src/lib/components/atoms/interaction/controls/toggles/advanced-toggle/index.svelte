@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AdvancedToggleProps } from '$stylist/design-system/props';
 	import { createAdvancedToggleState } from '$stylist/design-system/models/advanced-toggle.svelte';

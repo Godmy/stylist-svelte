@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { createAccessibilityCheckboxState } from '$stylist/design-system/models/accessibility-checkbox.svelte';
 
   let {

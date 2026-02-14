@@ -3,12 +3,18 @@
     options = [],
     value = '',
     placeholder = 'Select...',
+    onValueInput,
+    onValueChange,
+    /** @deprecated use onValueInput/onValueChange */
     onChange = (value: string) => {},
     class: className = ''
   }: {
     options: Array<{ label: string; value: string }>;
     value?: string;
     placeholder?: string;
+    onValueInput?: (value: string) => void;
+    onValueChange?: (value: string) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onChange?: (value: string) => void;
     class?: string;
   } = $props();
@@ -24,6 +30,8 @@
 
   const handleSelect = (option: { label: string; value: string }) => {
     localValue = option.value;
+    onValueInput?.(option.value);
+    onValueChange?.(option.value);
     onChange(option.value);
     isOpen = false;
   };

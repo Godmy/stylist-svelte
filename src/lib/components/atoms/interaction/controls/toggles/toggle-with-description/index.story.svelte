@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
     import ToggleWithDescription from './index.svelte';
 
     let isChecked = false;

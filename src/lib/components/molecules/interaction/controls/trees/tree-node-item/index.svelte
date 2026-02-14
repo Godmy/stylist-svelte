@@ -2,7 +2,7 @@
   import type { ITreeNodeItemProps } from '$stylist/design-system/props/tree-node-item';
   import { TreeNodeItemStyleManager } from '$stylist/design-system/styles/tree-node-item';
   import { ChevronRight, ChevronDown, type Component } from 'lucide-svelte';
-  import type { TreeNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
   import Self from './index.svelte';
 
   /**
@@ -64,7 +64,7 @@
   };
 
   // Function to check if node has children
-  const hasChildren = (node: TreeNode): boolean => {
+  const hasChildren = (node: TreeNodeItemNode): boolean => {
     return node.child !== undefined && node.child.length > 0;
   };
 

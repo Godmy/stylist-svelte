@@ -15,5 +15,8 @@ export interface INumberInputProps extends HTMLAttributes<HTMLInputElement> {
   inputClass?: string;
   buttonClass?: string;
   buttonWrapperClass?: string;
+  onValueInput?: (value: number) => void;
+  onValueChange?: (value: number) => void;
+  /** @deprecated use onValueChange */
   onChange?: (value: number) => void;
 }

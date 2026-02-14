@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Minus, Plus } from 'lucide-svelte';
   import { createNumberInputState } from '$stylist/design-system/models/number-input.svelte';

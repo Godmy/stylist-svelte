@@ -1,16 +1,16 @@
-п»ї<script lang="ts">
+<script lang="ts">
 	import InputField from './index.svelte';
 
 	const errorVariants = {
 		none: [],
-		required: ['РџРѕР»Рµ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕ'],
-		email: ['Р’РІРµРґРёС‚Рµ РєРѕСЂСЂРµРєС‚РЅС‹Р№ email'],
-		custom: ['РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚', 'РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°']
+		required: ['Поле обязательно'],
+		email: ['Введите корректный email'],
+		custom: ['Неверный формат', 'Попробуйте снова']
 	};
 
 	let label = 'Work email';
 	let placeholder = 'designer@figtree.com';
-	let helperText = 'РњС‹ РѕС‚РїСЂР°РІРёРј Р°РїРґРµР№С‚С‹ РµР¶РµРЅРµРґРµР»СЊРЅРѕ.';
+	let helperText = 'Мы отправим апдейты еженедельно.';
 	let id = 'input-field';
 	let type = 'email';
 	let value = 'jade@figtree.com';
@@ -59,7 +59,7 @@
 
 				<div>
 					<label for="type-select" class="text-sm font-medium text-[--color-text-secondary]"
-						>РўРёРї РІРІРѕРґР°</label
+						>Тип ввода</label
 					>
 					<select
 						id="type-select"
@@ -75,7 +75,7 @@
 
 				<div>
 					<label for="error-select" class="text-sm font-medium text-[--color-text-secondary]">
-						РћС€РёР±РєРё
+						Ошибки
 					</label>
 					<select
 						id="error-select"
@@ -91,7 +91,7 @@
 				<div class="grid grid-cols-2 gap-2 text-sm text-[--color-text-secondary]">
 					<label class="flex items-center gap-2">
 						<input type="checkbox" bind:checked={required} />
-						РћР±СЏР·Р°С‚РµР»СЊРЅРѕРµ
+						Обязательное
 					</label>
 					<label class="flex items-center gap-2">
 						<input type="checkbox" bind:checked={disabled} />
@@ -129,39 +129,39 @@
 	<section
 		class="rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6"
 	>
-		<h2 class="text-base font-semibold text-[--color-text-primary]">РЎРѕСЃС‚РѕСЏРЅРёСЏ</h2>
+		<h2 class="text-base font-semibold text-[--color-text-primary]">Состояния</h2>
 		<p class="text-sm text-[--color-text-secondary]">
-			РљР°СЂС‚РѕС‡РєРё РЅРёР¶Рµ РґРµРјРѕРЅСЃС‚СЂРёСЂСѓСЋС‚ Р±С‹СЃС‚СЂС‹Рµ РєРµР№СЃС‹: СѓСЃРїРµС€РЅРѕРµ Р·Р°РїРѕР»РЅРµРЅРёРµ, РѕС€РёР±РєРё, РѕС‚РєР»СЋС‡РµРЅРёРµ.
+			Карточки ниже демонстрируют быстрые кейсы: успешное заполнение, ошибки, отключение.
 		</p>
 
 		<div class="mt-4 grid gap-4 md:grid-cols-3">
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</p>
+				<p class="text-sm font-semibold text-[--color-text-primary]">По умолчанию</p>
 				<InputField
 					id="default-state"
 					label="Project name"
-					placeholder="РќР°РїСЂРёРјРµСЂ, Skyline"
-					helperText="РќР°Р·РІР°РЅРёРµ РјРѕР¶РЅРѕ РїРѕРјРµРЅСЏС‚СЊ РїРѕР·Р¶Рµ."
+					placeholder="Например, Skyline"
+					helperText="Название можно поменять позже."
 				/>
 			</div>
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">РћС€РёР±РєР°</p>
+				<p class="text-sm font-semibold text-[--color-text-primary]">Ошибка</p>
 				<InputField
 					id="error-state"
 					label="Budget"
 					type="number"
 					value="-100"
-					errors={['Р—РЅР°С‡РµРЅРёРµ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рј']}
+					errors={['Значение должно быть положительным']}
 				/>
 			</div>
 			<div class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-				<p class="text-sm font-semibold text-[--color-text-primary]">РќРµРґРѕСЃС‚СѓРїРЅРѕ</p>
+				<p class="text-sm font-semibold text-[--color-text-primary]">Недоступно</p>
 				<InputField
 					id="disabled-state"
 					label="API token"
-					value="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў"
+					value="••••••••"
 					disabled={true}
-					helperText="РўРѕРєРµРЅ РІС‹РґР°С‘С‚СЃСЏ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё."
+					helperText="Токен выдаётся автоматически."
 				/>
 			</div>
 		</div>

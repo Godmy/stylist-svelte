@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
 
   type ColorItem = {
@@ -18,7 +18,8 @@
     class?: string;
     itemClass?: string;
     headerClass?: string;
-    onColorSelect?: (color: ColorItem) => void;
+    onValueInput?: (color: ColorItem) => void;
+    onValueChange?: (color: ColorItem) => void;
   };
 
   let {
@@ -30,7 +31,8 @@
     class: hostClass = '',
     itemClass = '',
     headerClass = '',
-    onColorSelect,
+    onValueInput,
+    onValueChange,
     ...restProps
   }: Props = $props();
 
@@ -43,7 +45,8 @@
   }[columns] || 'grid-cols-5');
 
   function handleColorClick(color: ColorItem) {
-    onColorSelect?.(color);
+    onValueInput?.(color);
+    onValueChange?.(color);
   }
 </script>
 

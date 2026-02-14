@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import FormHeader from './index.svelte';
 
   let title: string = 'Personal Information';

@@ -9,6 +9,9 @@
     size?: 'sm' | 'md' | 'lg';
     color?: string;
     activeColor?: string;
+    onValueInput?: (event: MouseEvent) => void;
+    onValueChange?: (event: MouseEvent) => void;
+    /** @deprecated use onValueChange */
     onClick?: (event: MouseEvent) => void;
   };
 
@@ -18,6 +21,8 @@
     color = 'currentColor', 
     activeColor = 'currentColor',
     class: className = '',
+    onValueInput,
+    onValueChange,
     onClick = (event: MouseEvent) => {}
   }: Props = $props();
   
@@ -25,6 +30,8 @@
   let buttonSize = $derived(size === 'sm' ? 'h-5 w-5' : size === 'lg' ? 'h-7 w-7' : 'h-6 w-6');
   
   const handleClick = (e: MouseEvent) => {
+    onValueInput?.(e);
+    onValueChange?.(e);
     onClick(e);
   };
 </script>

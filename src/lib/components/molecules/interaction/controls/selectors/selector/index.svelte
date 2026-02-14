@@ -173,8 +173,7 @@
 }
 
 .select-option,
-.select-native option,
-.select-native optgroup {
+.select-native option {
   background-color: var(--select-option-bg);
   color: var(--select-option-color);
   font-weight: 500;

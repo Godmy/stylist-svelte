@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Contrast, Sun, Moon } from 'lucide-svelte';
   import { HighContrastToggleStyleManager } from '$stylist/design-system/styles/high-contrast-toggle';

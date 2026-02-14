@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { InputText } from '$stylist/components/atoms';
 	import type { IInputFieldProps } from '$stylist/design-system/props';
 

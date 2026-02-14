@@ -1,4 +1,4 @@
-﻿<script context="module">
+<script context="module">
 	export const title = 'Input';
 	export const category = 'Atoms/Controls/Input';
 </script>

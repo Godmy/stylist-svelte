@@ -1,4 +1,4 @@
-﻿<script>
+<script>
 	import MessageThread from './index.svelte';
 
 	const messages = [

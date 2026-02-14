@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SliderTickProps } from '$stylist/design-system/props';
 	import { createSliderTickState } from '$stylist/design-system/models/tick.svelte';

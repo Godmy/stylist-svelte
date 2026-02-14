@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { ISimpleTooltipProps } from '$stylist/design-system/props';
 
 	/**

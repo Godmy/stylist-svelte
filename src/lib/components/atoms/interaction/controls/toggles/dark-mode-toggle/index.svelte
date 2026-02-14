@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { DarkModeToggleProps } from '$stylist/design-system/props';
 	import { createDarkModeToggleState } from '$stylist/design-system/models/dark-mode-toggle.svelte';

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -18,13 +18,13 @@
 	} & HTMLAttributes<HTMLDivElement>>();
 
 	const statusIcons: Record<string, string> = {
-		info: 'ℹ',
-		success: '✓',
-		warning: '⚠',
-		error: '✕',
-		primary: '●',
-		secondary: '◆',
-		danger: '▲'
+		info: '?',
+		success: '?',
+		warning: '?',
+		error: '?',
+		primary: '?',
+		secondary: '?',
+		danger: '^'
 	};
 </script>
 

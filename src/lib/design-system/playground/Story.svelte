@@ -1,5 +1,4 @@
 <script lang="ts">
-import type { Snippet } from 'svelte';
 	import type { ControlConfig } from '../tokens/controls';
 
 	export let controls: ControlConfig[] = [];
@@ -9,7 +8,8 @@ import type { Snippet } from 'svelte';
 	export let category: string | undefined = undefined;
 	export let description: string | undefined = undefined;
 	export let tags: string[] | undefined = undefined;
-export let children: Snippet<[Record<string, unknown>]> | undefined = undefined;
+// Keep this intentionally broad to support heterogeneous story snippets.
+export let children: any = undefined;
 const controlValues: Record<string, unknown> = {};
 	$: for (const control of controls) {
 		if (!(control.name in controlValues)) {

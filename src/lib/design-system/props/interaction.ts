@@ -39,6 +39,9 @@ export interface ControlProps<T extends EventTarget = HTMLElement>
 		HtmlStateAttr,
 		HtmlVariantSizeAttr {
 	value?: unknown;
+	onValueInput?: ValueChangeHandler<unknown>;
+	onValueChange?: ValueChangeHandler<unknown>;
+	/** @deprecated use onValueChange */
 	onChange?: ValueChangeHandler<unknown>;
 	onFocus?: () => void;
 	onBlur?: () => void;
@@ -55,6 +58,9 @@ export interface InputControlProps
 	value?: string;
 	placeholder?: string;
 	type?: string;
+	onValueInput?: ValueChangeHandler<string>;
+	onValueChange?: ValueChangeHandler<string>;
+	/** @deprecated use onValueChange */
 	onChange?: ValueChangeHandler<string>;
 	onFocus?: () => void;
 	onBlur?: () => void;
@@ -70,6 +76,9 @@ export interface TextAreaControlProps
 	placeholder?: string;
 	rows?: number;
 	cols?: number;
+	onValueInput?: ValueChangeHandler<string>;
+	onValueChange?: ValueChangeHandler<string>;
+	/** @deprecated use onValueChange */
 	onChange?: ValueChangeHandler<string>;
 	onFocus?: () => void;
 	onBlur?: () => void;
@@ -83,6 +92,9 @@ export interface SelectControlProps
 	name?: string;
 	value?: string;
 	options?: Array<{ value: string; label: string }>;
+	onValueInput?: ValueChangeHandler<string>;
+	onValueChange?: ValueChangeHandler<string>;
+	/** @deprecated use onValueChange */
 	onChange?: ValueChangeHandler<string>;
 	onFocus?: () => void;
 	onBlur?: () => void;
@@ -117,8 +129,6 @@ export interface SortProps extends SelectProps {
 export interface ProductSortProps extends SortProps {
 	selectedOption?: string;
 	onValueChange?: (option: string) => void;
-	/** @deprecated use onValueChange */
-	onSortChange?: (option: string) => void;
 }
 
 export interface SliderTickProps extends HtmlAttributesWithChildren<HTMLDivElement> {

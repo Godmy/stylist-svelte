@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-svelte';
 
@@ -12,7 +12,8 @@
     currentSortKey?: string;
     currentSortDirection?: SortDirection;
     class?: string;
-    onSort?: (key: string) => void;
+    onValueInput?: (key: string) => void;
+    onValueChange?: (key: string) => void;
   };
 
   let {
@@ -21,7 +22,8 @@
     currentSortKey,
     currentSortDirection = null,
     class: hostClass = '',
-    onSort,
+    onValueInput,
+    onValueChange,
     ...restProps
   }: Props = $props();
 
@@ -34,7 +36,8 @@
 
   function handleClick() {
     if (sortKey) {
-      onSort?.(sortKey);
+      onValueInput?.(sortKey);
+      onValueChange?.(sortKey);
     }
   }
 </script>

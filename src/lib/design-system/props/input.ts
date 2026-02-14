@@ -106,6 +106,9 @@ export interface IAdvancedInputProps {
 	placeholder?: string;
 	type?: string;
 	disabled?: boolean;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
+	/** @deprecated use onValueInput */
 	onInput?: (value: string) => void;
 	class?: string;
 }

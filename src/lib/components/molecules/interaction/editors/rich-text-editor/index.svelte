@@ -21,7 +21,11 @@
   type Props = {
     value?: string;
     placeholder?: string;
+    onValueInput?: (content: string) => void;
+    onValueChange?: (content: string) => void;
+    /** @deprecated use onValueInput */
     onInput?: (content: string) => void;
+    /** @deprecated use onValueChange */
     onChange?: (content: string) => void;
     showToolbar?: boolean;
     toolbarPosition?: 'top' | 'bottom';
@@ -33,6 +37,8 @@
   let {
     value = '',
     placeholder = 'Write something amazing...',
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     showToolbar = true,
@@ -58,6 +64,7 @@
 
   function updateContent() {
     content = editorRef?.innerHTML || '';
+    onValueInput?.(content);
     if (onInput) {
       onInput(content);
     }
@@ -68,6 +75,7 @@
   }
 
   function handleChange() {
+    onValueChange?.(content);
     if (onChange) {
       onChange(content);
     }

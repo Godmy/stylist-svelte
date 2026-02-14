@@ -18,7 +18,11 @@
     buttonClass?: string;
     activeButtonClass?: string;
     inactiveButtonClass?: string;
+    onValueInput?: (value: string | string[]) => void;
+    onValueChange?: (value: string | string[]) => void;
+    /** @deprecated use onValueInput/onValueChange */
     onInput?: (value: string | string[]) => void;
+    /** @deprecated use onValueChange */
     onChange?: (value: string | string[]) => void;
   } & HTMLAttributes<HTMLDivElement>;
 
@@ -32,6 +36,8 @@
     buttonClass = '',
     activeButtonClass = '',
     inactiveButtonClass = '',
+    onValueInput,
+    onValueChange,
     onInput,
     onChange,
     ...restProps
@@ -67,12 +73,11 @@
     selectedValues = newValues;
     
     // Notify parent component
-    if (onInput) {
-      onInput(multiple ? newValues : newValues[0] || '');
-    }
-    if (onChange) {
-      onChange(multiple ? newValues : newValues[0] || '');
-    }
+    const nextValue = multiple ? newValues : newValues[0] || '';
+    onValueInput?.(nextValue);
+    onValueChange?.(nextValue);
+    onInput?.(nextValue);
+    onChange?.(nextValue);
   }
 
   let sizeClasses = $derived(() => {

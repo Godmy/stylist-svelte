@@ -10,18 +10,13 @@
    */
   import { Button } from '$stylist/components/atoms';
   import { debounce } from '$stylist/utils/debounce';
-  import { createEventDispatcher } from 'svelte';
   import { Search, X } from 'lucide-svelte';
   import { SearchBarStyleManager } from '$stylist/design-system/styles/search-bar';
-  import type { ISearchBarProps, ISearchBarEvents } from '$stylist/design-system/props/search-bar';
+  import type { ISearchBarProps } from '$stylist/design-system/props/search-bar';
 
   import type { HTMLAttributes } from 'svelte/elements';
 
-  type Props = ISearchBarProps & {
-    onsearch?: (event: CustomEvent<{ query: string }>) => void;
-    onclear?: (event: CustomEvent<Record<string, never>>) => void;
-    oninput?: (event: CustomEvent<{ value: string }>) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  type Props = ISearchBarProps & HTMLAttributes<HTMLDivElement>;
 
   let {
     placeholder = 'Search nodes...',
@@ -29,9 +24,10 @@
     disabled = false,
     debounceMs = 300,
     class: className = '',
-    onsearch,
-    onclear,
-    oninput,
+    onValueInput,
+    onValueChange,
+    onSearch,
+    onClear,
     ...restProps
   }: Props = $props();
 
@@ -44,7 +40,7 @@
   });
 
   const debouncedSearch = debounce((query: string) => {
-    onsearch?.(new CustomEvent('search', { detail: { query } }));
+    onSearch?.(query);
   }, debounceMs);
 
   function handleInput(event: Event) {
@@ -52,7 +48,8 @@
     searchTerm = target.value;
 
     // Dispatch input event to allow parent to handle binding
-    oninput?.(new CustomEvent('input', { detail: { value: searchTerm } }));
+    onValueInput?.(searchTerm);
+    onValueChange?.(searchTerm);
 
     debouncedSearch(searchTerm);
   }
@@ -61,14 +58,15 @@
     searchTerm = '';
 
     // Dispatch input event to allow parent to handle binding
-    oninput?.(new CustomEvent('input', { detail: { value: '' } }));
+    onValueInput?.('');
+    onValueChange?.('');
 
-    onclear?.(new CustomEvent('clear', { detail: {} }));
-    onsearch?.(new CustomEvent('search', { detail: { query: '' } }));
+    onClear?.();
+    onSearch?.('');
   }
 
   function triggerSearch() {
-    onsearch?.(new CustomEvent('search', { detail: { query: searchTerm } }));
+    onSearch?.(searchTerm);
   }
 
   function handleKeydown(event: KeyboardEvent) {

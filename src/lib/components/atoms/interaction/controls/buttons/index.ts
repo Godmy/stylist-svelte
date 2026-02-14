@@ -6,4 +6,3 @@ export { FollowButton } from './follow-button';
 export { IconButton } from './icon-button';
 export { PageButton } from './page-button';
 export { SplitButton } from './split-button';
-export { Tooltip } from './tooltip';

@@ -6,7 +6,7 @@
 <script lang="ts">
   import TreeNodeItem from "./index.svelte";
   import type { ITreeNodeItemProps } from '$stylist/design-system/props/tree-node-item';
-  import type { TreeNode } from "$stylist/design-system/props/tree-node-item";
+  import type { TreeNodeItemNode } from "$stylist/design-system/props/tree-node-item";
 
   // Sample tree node data
   const sampleTreeData: TreeNode = {
