@@ -1,21 +1,38 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { Button, InputText } from '$stylist/components/atoms';
 	import type { IInputGroupProps } from '$stylist/design-system/props';
-	import { createInputGroupState } from '../state.svelte';
-	import { createEventDispatcher } from 'svelte';
+	import { createInputGroupState } from '$stylist/design-system/models/input-group.svelte';
 
-	let props: IInputGroupProps = $props();
+	type Props = IInputGroupProps & HTMLAttributes<HTMLDivElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				id: _id,
+				label: _label,
+				placeholder: _placeholder,
+				value: _value,
+				disabled: _disabled,
+				buttonLabel: _buttonLabel,
+				buttonDisabled: _buttonDisabled,
+				buttonVariant: _buttonVariant,
+				onButtonClick: _onButtonClick,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 	let value = $state(props.value ?? '');
 
-	const dispatch = createEventDispatcher();
-
-	// Track value changes to dispatch events
+	// Track value changes and invoke typed callbacks
 	let previousValue = $state(props.value ?? '');
 
 	$effect(() => {
 		if (previousValue !== value) {
-			dispatch('input', { value });
-			dispatch('change', { value });
+			props.onValueInput?.(value);
+			props.onValueChange?.(value);
 		}
 		previousValue = value;
 	});
@@ -32,7 +49,7 @@
 	let buttonClasses = $derived(inputGroupState.buttonClasses);
 </script>
 
-<div class={containerClasses}>
+<div class={containerClasses} {...restProps}>
 	{#if props.label != null && props.label !== ''}
 		{#if props.placeholder != null && props.placeholder !== ''}
 			<InputText
@@ -79,3 +96,6 @@
 		{props.buttonLabel}
 	</Button>
 </div>
+
+
+

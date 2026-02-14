@@ -1,40 +1,40 @@
 ﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { Icon } from '$stylist/components/atoms';
 	import type { MessageInputProps } from '$stylist/design-system/props/chat';
-	import { createEventDispatcher } from 'svelte';
+	import { createMessageInputState } from '$stylist/design-system/models/message-input.svelte';
 
-	let props: MessageInputProps = $props();
+	type Props = MessageInputProps & HTMLAttributes<HTMLDivElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				disabled: _disabled,
+				placeholder: _placeholder,
+				showAttachment: _showAttachment,
+				showEmoji: _showEmoji,
+				showSend: _showSend,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
-	const messageState = $derived({
-		disabled: props.disabled ?? false,
-		placeholder: props.placeholder ?? 'Type a message...',
-		showAttachmentButton: props.showAttachment ?? true,
-		showEmojiButton: props.showEmoji ?? true,
-		showSendButton: props.showSend ?? true,
-		containerClasses: 'flex items-end gap-2 border-t border-gray-200 bg-white p-3',
-		actionButtonsClasses: 'flex items-center gap-1',
-		actionButtonClasses:
-			'inline-flex h-9 w-9 items-center justify-center rounded-md text-gray-500 hover:bg-gray-100 disabled:opacity-50',
-		inputContainerClasses: 'flex-1',
-		inputClasses:
-			'w-full resize-none rounded-md border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 disabled:opacity-50',
-		sendButtonClasses:
-			'inline-flex h-9 w-9 items-center justify-center rounded-md bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50'
-	});
-
-	const dispatch = createEventDispatcher<{
-		send: { content: string };
-		attach: {};
-		emoji: {};
-	}>();
+	const messageState = $derived(createMessageInputState(props));
 
 	let messageContent = $state('');
 
 	function handleSend() {
 		if (messageContent.trim()) {
-			dispatch('send', { content: messageContent });
+			props.onSendMessage?.(messageContent);
 			messageContent = '';
 		}
+	}
+
+	function handleInput(e: Event) {
+		const target = e.target as HTMLTextAreaElement;
+		props.onMessageInput?.(target.value);
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
@@ -45,15 +45,15 @@
 	}
 
 	function handleAttach() {
-		dispatch('attach', {});
+		props.onAttachClick?.();
 	}
 
 	function handleEmoji() {
-		dispatch('emoji', {});
+		props.onEmojiClick?.();
 	}
 </script>
 
-<div class={messageState.containerClasses}>
+<div class={messageState.containerClasses} {...restProps}>
 	<div class={messageState.actionButtonsClasses}>
 		{#if messageState.showAttachmentButton}
 			<button
@@ -84,6 +84,7 @@
 			bind:value={messageContent}
 			placeholder={messageState.placeholder}
 			disabled={messageState.disabled}
+			oninput={handleInput}
 			onkeydown={handleKeydown}
 			rows={1}
 		></textarea>
@@ -100,3 +101,6 @@
 		</button>
 	{/if}
 </div>
+
+
+

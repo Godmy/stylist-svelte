@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SeparatorProps } from '$stylist/design-system';
-	import { createSeparatorState } from '../../state.svelte';
+	import { createSeparatorState } from '$stylist/design-system/models/separator.svelte';
 
 	let props: SeparatorProps = $props();
 

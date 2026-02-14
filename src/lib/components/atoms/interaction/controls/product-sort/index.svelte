@@ -1,8 +1,23 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ProductSortProps } from '$stylist/design-system/props';
-	import { createProductSortState } from './state';
+	import { createProductSortState } from '$stylist/design-system/models/product-sort.svelte';
 
-	let props: ProductSortProps = $props();
+	type Props = ProductSortProps & HTMLAttributes<HTMLDivElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				options: _options,
+				selectedOption: _selectedOption,
+				onValueChange: _onValueChange,
+				onSortChange: _onSortChange,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const sortState = createProductSortState(props);
 	let localSelectedOption = $state(sortState.selectedOption);
@@ -12,11 +27,14 @@
 	});
 </script>
 
-<div class={sortState.classes}>
+<div class={sortState.classes} {...restProps}>
 	<span class={sortState.labelClasses}>Sort by:</span>
 	<select
 		bind:value={localSelectedOption}
-		onchange={() => props.onSortChange?.(localSelectedOption)}
+		onchange={() => {
+			props.onValueChange?.(localSelectedOption);
+			props.onSortChange?.(localSelectedOption);
+		}}
 		class={sortState.selectClasses}
 	>
 		{#each sortState.options as option}
@@ -24,4 +42,7 @@
 		{/each}
 	</select>
 </div>
+
+
+
 

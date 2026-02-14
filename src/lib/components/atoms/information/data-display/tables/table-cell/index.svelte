@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableCellProps } from '$stylist/design-system';
-	import { createTableCellState } from '../state.svelte';
+	import { createTableCellState } from '$stylist/design-system/models/table-cell.svelte';
 
 	let props: TableCellProps = $props();
 	const state = createTableCellState(props);

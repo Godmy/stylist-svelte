@@ -1,17 +1,19 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { Skeleton } from '../skeleton';
 
 	type Props = {
 		count?: number;
 		showAvatar?: boolean;
-	};
+		class?: string;
+	} & HTMLAttributes<HTMLDivElement>;
 
-	let { count = 3, showAvatar = false }: Props = $props();
+	let { count = 3, showAvatar = false, class: className = '', ...restProps }: Props = $props();
 
 	const cards = Array.from({ length: count }, (_, i) => i);
 </script>
 
-<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+<div class={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ${className}`} {...restProps}>
 	{#each cards as _}
 		<div class="overflow-hidden rounded-lg bg-white p-6 shadow">
 			<div class="flex items-center space-x-4">
@@ -31,3 +33,6 @@
 		</div>
 	{/each}
 </div>
+
+
+

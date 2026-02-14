@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { IProgressCircleProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -21,6 +21,19 @@
 			strokeWidth?: number;
 		} & IProgressCircleProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				progress: _progress,
+				size: _size,
+				color: _color,
+				strokeWidth: _strokeWidth,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const progress = props.progress ?? 0;
@@ -45,7 +58,7 @@
 	const labelClass = $derived('progress-circle-label');
 </script>
 
-<div class={containerClass} {...props}>
+<div class={containerClass} {...restProps}>
 	<svg class={svgClass} viewBox="0 0 100 100">
 		<!-- Фоновый круг -->
 		<circle
@@ -77,3 +90,6 @@
 		{normalizedProgress}%
 	</span>
 </div>
+
+
+

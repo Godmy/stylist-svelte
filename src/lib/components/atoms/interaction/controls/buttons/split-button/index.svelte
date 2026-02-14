@@ -1,9 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
 	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { SPLIT_BUTTON_PRESET } from '$stylist/design-system/classes/button';
-	import { createState } from '../state.svelte';
+	import { createState, SPLIT_BUTTON_PRESET } from '$stylist/design-system/models/split-button.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -82,6 +81,7 @@
 		
 		return divCompatibleProps;
 	});
+	const restProps = $derived(divAttributes);
 
 	let isOpen = $state(false);
 	let buttonId = `split-button-${Math.random().toString(36).substr(2, 9)}`;
@@ -128,7 +128,7 @@
 		'split-button-menu__item--disabled opacity-50 cursor-not-allowed pointer-events-none';
 </script>
 
-<div {...(divAttributes as Record<string, any>)} class={wrapperClasses} id={buttonId}>
+<div {...restProps} class={wrapperClasses} id={buttonId}>
 	<button
 		type={props.type ?? 'button'}
 		disabled={props.disabled}
@@ -176,5 +176,7 @@
 		</div>
 	{/if}
 </div>
+
+
 
 

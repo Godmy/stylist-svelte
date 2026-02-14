@@ -1,13 +1,28 @@
-<script lang="ts">
-	import { createEventDispatcher } from 'svelte';
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { X } from 'lucide-svelte';
 
 	import type { TagProps } from '$stylist/design-system/props';
-	import { createTagState } from './state.svelte';
+	import { createTagState } from '$stylist/design-system/models/tag.svelte';
 
-	const dispatch = createEventDispatcher<{ close: void }>();
-
-	let props: TagProps = $props();
+	type Props = TagProps & HTMLAttributes<HTMLSpanElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				text: _text,
+				variant: _variant,
+				size: _size,
+				closable: _closable,
+				disabled: _disabled,
+				icon: _icon,
+				content: _content,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const state = createTagState(props);
 	const icon = $derived(props.icon);
@@ -15,11 +30,11 @@
 
 	function handleClose() {
 		if (state.disabled) return;
-		dispatch('close');
+		props.onClose?.();
 	}
 </script>
 
-<span class={state.classes}>
+<span class={state.classes} {...restProps}>
 	{#if icon}
 		<span class="flex items-center" aria-hidden="true">
 			{@render icon()}
@@ -46,4 +61,6 @@
 		</button>
 	{/if}
 </span>
+
+
 

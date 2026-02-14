@@ -1,9 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { IconButtonProps } from '$stylist/design-system/props';
-	import { ICON_BUTTON_PRESET } from '$stylist/design-system/classes/button';
-	import { createState } from '../state.svelte';
+	import { createState, ICON_BUTTON_PRESET } from '$stylist/design-system/models/icon-button.svelte';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -52,4 +51,8 @@
 		{@render props.children()}
 	{/if}
 </button>
+
+
+
+
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import FileInput from './index.svelte';
 
 	let placeholder = 'Прикрепить файл';
@@ -87,3 +87,6 @@
 		</div>
 	</section>
 </div>
+
+
+

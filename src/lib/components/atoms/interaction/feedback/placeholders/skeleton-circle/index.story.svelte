@@ -1,4 +1,4 @@
-<script context="module">
+﻿<script context="module">
 	export const title = 'SkeletonCircle';
 	export const category = 'Atoms/Feedback/Placeholders';
 </script>
@@ -99,3 +99,6 @@
 		font-size: 0.875rem;
 	}
 </style>
+
+
+

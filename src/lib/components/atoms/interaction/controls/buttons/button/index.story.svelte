@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Button from './index.svelte';
 
 	let label: string = 'Click me';
@@ -130,3 +130,6 @@
 		</div>
 	</div>
 </div>
+
+
+

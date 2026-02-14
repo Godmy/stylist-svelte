@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CodeBlockProps } from '$stylist/design-system';
-	import { createCodeBlockState } from '../../state.svelte';
+	import { createCodeBlockState } from '$stylist/design-system/models/code-block.svelte';
 
 	let props: CodeBlockProps = $props();
 

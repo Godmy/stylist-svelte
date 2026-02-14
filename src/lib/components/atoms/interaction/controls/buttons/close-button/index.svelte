@@ -1,9 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { X, Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { CLOSE_BUTTON_PRESET } from '$stylist/design-system/classes/button';
-	import { createState } from '../state.svelte';
+	import { createState, CLOSE_BUTTON_PRESET } from '$stylist/design-system/models/close-button.svelte';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)
@@ -43,4 +42,8 @@
 		<X class="h-4 w-4" />
 	{/if}
 </button>
+
+
+
+
 

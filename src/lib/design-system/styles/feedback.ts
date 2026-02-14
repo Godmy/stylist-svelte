@@ -1,9 +1,8 @@
 import { cn } from '../utils/cn';
-import {
-	STEP_ICON_BASE_CLASS,
-	STEP_SIZE_CLASS_PREFIX,
-	STEP_STATUS_CLASS_PREFIX
-} from '../classes/feedback';
+
+const STEP_ICON_BASE_CLASS = 'step-icon';
+const STEP_STATUS_CLASS_PREFIX = 'status-';
+const STEP_SIZE_CLASS_PREFIX = 'size-';
 
 export interface AlertStyleManagerInterface {
 	getContainerClass: (variant?: string, disabled?: boolean, className?: string) => string;

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import InputField from './index.svelte';
 
 	const errorVariants = {
@@ -167,3 +167,6 @@
 		</div>
 	</section>
 </div>
+
+
+

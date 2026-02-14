@@ -75,7 +75,3 @@ export const TOKEN_ICON_WRAPPER_DEFAULTS = {
 	shape: 'circle' as const,
 	color: 'primary' as const
 };
-
-export const ICON_CHEVRON_DEFAULTS = TOKEN_ICON_CHEVRON_DEFAULTS;
-export const ICON_CIRCLE_DEFAULTS = TOKEN_ICON_CIRCLE_DEFAULTS;
-export const ICON_WRAPPER_DEFAULTS = TOKEN_ICON_WRAPPER_DEFAULTS;

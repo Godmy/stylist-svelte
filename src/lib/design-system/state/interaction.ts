@@ -1,18 +1,8 @@
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { buildClasses } from '$stylist/utils/classes';
 import { resolveOption } from '$stylist/utils/input';
-import type { Preset } from '../classes/interaction';
-
-type ComponentStateOptions<V extends string, S extends string> = {
-	variant?: V;
-	size?: S;
-	disabled?: boolean;
-	loading?: boolean;
-	block?: boolean;
-	class?: string;
-	className?: string;
-	ariaLabel?: string;
-};
+import type { ComponentStateOptions } from './defaults';
+import type { Preset } from './preset';
 
 type ComponentStateResult<V extends string, S extends string> = {
 	variant: V;
@@ -32,7 +22,7 @@ type ComponentStateResult<V extends string, S extends string> = {
 
 export function createState<V extends string, S extends string>(
 	preset: Preset<V, S>,
-	props: ComponentStateOptions<V, S> & Record<string, unknown>
+	props: ComponentStateOptions<V, S> & { className?: string } & Record<string, unknown>
 ): ComponentStateResult<V, S> {
 	const variant = resolveOption(props.variant, preset.variants, preset.defaults.variant);
 	const size = resolveOption(props.size, preset.sizes, preset.defaults.size);

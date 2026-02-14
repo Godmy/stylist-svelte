@@ -103,7 +103,7 @@
           text={tagLabel}
           variant="primary"
           closable={!disabled}
-          on:close={() => removeTag(tagId)}
+          onClose={() => removeTag(tagId)}
         />
       {/each}
 

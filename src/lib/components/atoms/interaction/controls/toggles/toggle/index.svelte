@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ToggleProps } from '$stylist/design-system/props';
-	import { createToggleState } from './state.svelte';
+	import { createToggleState } from '$stylist/design-system/models/toggle.svelte';
 
 	let props: ToggleProps = $props();
 
@@ -43,4 +43,7 @@
 		<div class={toggleComponentState.thumbClasses}></div>
 	</div>
 </div>
+
+
+
 

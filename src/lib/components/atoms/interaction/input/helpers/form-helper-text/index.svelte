@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { FORM_HELPER_TEXT_PRESET } from '$stylist/design-system/classes/input';
-	import { createFormHelperTextState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createFormHelperTextState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/form-helper-text.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 
@@ -16,7 +15,7 @@
 	import type { InputVariant } from '$stylist/design-system';
 	type FormHelperVariant = InputVariant;
 	type FormHelperTextProps = {
-		variant?: (typeof FORM_HELPER_TEXT_PRESET.variants)[number];
+		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
 		size?: CompactSize;
 		text?: string;
 		content?: import('svelte').Snippet;
@@ -25,7 +24,7 @@
 
 	let {
 		variant = 'default',
-		size = FORM_HELPER_TEXT_PRESET.defaults.size,
+		size = INPUT_FIELD_PRESET.defaults.size,
 		text = '',
 		content,
 		class: className = '',
@@ -48,3 +47,8 @@
 		{text}
 	{/if}
 </p>
+
+
+
+
+

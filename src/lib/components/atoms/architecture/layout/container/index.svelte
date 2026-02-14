@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ContainerProps } from '$stylist/design-system';
-	import { createContainerState } from '../state.svelte';
+	import { createContainerState } from '$stylist/design-system/models/container.svelte';
 
 	let props: ContainerProps = $props();
 	const state = createContainerState(props);

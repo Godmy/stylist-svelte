@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LinkProps } from '$stylist/design-system';
-	import { createLinkState } from '../../state.svelte';
+	import { createLinkState } from '$stylist/design-system/models/link.svelte';
 
 	let props: LinkProps = $props();
 

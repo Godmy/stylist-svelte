@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Tabs from './index.svelte';
 	import TabList from '../tab-list/index.svelte';
-	import { Tab } from '../tab';
+	import { Tab } from '$stylist/components/atoms/interaction/controls/tabs/tab';
 	import TabPanel from '../tab-panel/index.svelte';
 	import TabPanels from '../tab-panels/index.svelte';
 
@@ -19,7 +19,7 @@
 	<div class="mb-6 rounded border p-4">
 		<h2 class="text-md mb-2 font-semibold">Interactive Tabs</h2>
 		<div class="flex flex-col gap-4">
-			<Tabs selectedId={selectedTabId} onTabChange={handleTabChange} class="w-full">
+			<Tabs selectedId={selectedTabId} onValueChange={handleTabChange} class="w-full">
 				<TabList>
 					<Tab id="tab1">Getting Started</Tab>
 					<Tab id="tab2">Documentation</Tab>
@@ -64,7 +64,7 @@
 			<h2 class="text-md mb-2 font-semibold">Tabs with Controlled State</h2>
 			<Tabs
 				selectedId="controlled-tab2"
-				onTabChange={(id: string) => console.log('Controlled tabs changed to:', id)}
+				onValueChange={(id: string) => console.log('Controlled tabs changed to:', id)}
 			>
 				<TabList>
 					<Tab id="controlled-tab1">Home</Tab>
@@ -101,7 +101,7 @@
 			<h2 class="text-md mb-2 font-semibold">Tabs with Custom Styling</h2>
 			<Tabs
 				selectedId="custom-tab1"
-				onTabChange={(id: string) => console.log('Custom tabs changed:', id)}
+				onValueChange={(id: string) => console.log('Custom tabs changed:', id)}
 				class="rounded-lg border-2 border-blue-200"
 			>
 				<TabList class="rounded-t-lg bg-blue-100">
@@ -162,3 +162,4 @@
 		</Tabs>
 	</div>
 </div>
+

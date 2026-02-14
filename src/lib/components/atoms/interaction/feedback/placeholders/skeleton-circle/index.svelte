@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ISkeletonProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -19,6 +19,17 @@
 			content?: any;
 		} & ISkeletonProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				size: _size,
+				content: _content,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const size = props.size ?? 40;
@@ -33,8 +44,11 @@
 	const style = $derived(`width: ${size}px; height: ${size}px;`);
 </script>
 
-<div class={combinedClass} {style} {...props}>
+<div class={combinedClass} {style} {...restProps}>
 	{#if content}
 		{@render content()}
 	{/if}
 </div>
+
+
+

@@ -1,10 +1,11 @@
-import { CODE_BLOCK_DEFAULTS, CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../classes/badge';
+import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../classes/badge';
 import {
 	DEFAULT_SEPARATOR_ORIENTATION,
 	SEPARATOR_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES
 } from '../classes/separator';
+import { CODE_BLOCK_DEFAULTS } from '../state/badge';
 import { cn } from '../utils/cn';
 
 export class SeparatorStyleManager {

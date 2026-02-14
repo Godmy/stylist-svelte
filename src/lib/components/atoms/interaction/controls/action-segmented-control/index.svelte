@@ -1,10 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ActionSegmentedControlProps } from '$stylist/design-system/props';
 
-	export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
+export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
 		const items = $derived(props.items);
 		const selectedIndex = $derived(props.selectedIndex ?? 0);
-		const onChange = $derived(props.onChange || (() => {}));
+		const onValueChange = $derived(props.onValueChange || props.onChange || (() => {}));
 		const containerClasses = $derived(`flex rounded-lg border ${props.class ?? ''}`.trim());
 
 		return {
@@ -21,7 +22,7 @@
 				return containerClasses;
 			},
 			get handleChange() {
-				return (index: number) => onChange(index);
+				return (index: number) => onValueChange(index);
 			},
 			get getItemClasses() {
 				return (index: number, isSelected: boolean) => {
@@ -38,7 +39,23 @@
 		};
 	}
 
-	let props: ActionSegmentedControlProps = $props();
+	type Props = ActionSegmentedControlProps & HTMLAttributes<HTMLDivElement>;
+
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				items: _items,
+				selectedIndex: _selectedIndex,
+				onValueInput: _onValueInput,
+				onValueChange: _onValueChange,
+				onChange: _onChange,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const controlState = createActionSegmentedControlState(props);
 	let localSelectedIndex = $state(controlState.selectedIndex);
@@ -49,11 +66,13 @@
 
 	const handleClick = (index: number) => {
 		localSelectedIndex = index;
+		props.onValueInput?.(index);
+		props.onValueChange?.(index);
 		props.onChange?.(index);
 	};
 </script>
 
-<div class={controlState.classes}>
+<div class={controlState.classes} {...restProps}>
 	{#each controlState.items as item, i}
 		<button
 			class={controlState.getItemClasses(i, localSelectedIndex === i)}
@@ -63,4 +82,7 @@
 		</button>
 	{/each}
 </div>
+
+
+
 

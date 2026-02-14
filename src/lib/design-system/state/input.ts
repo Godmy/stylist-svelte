@@ -1,7 +1,7 @@
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { buildClasses } from '$stylist/utils/classes';
 import { resolveOption } from '$stylist/utils/input';
-import type { InputPreset, InputStateOptions } from '../classes/input';
+import type { InputPreset, InputStateOptions } from './input-preset';
 
 type StateResult<V extends string, S extends string> = {
 	variant: V;

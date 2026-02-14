@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import EmailInput from './index.svelte';
 	import type { InputProps } from '$stylist/design-system/props';
@@ -64,4 +64,7 @@
 <div class="p-4">
 	<EmailInput {...props} />
 </div>
+
+
+
 

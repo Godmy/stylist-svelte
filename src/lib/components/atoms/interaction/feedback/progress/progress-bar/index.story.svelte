@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import ProgressBar from './index.svelte';
 
 	let value = $state(50);
@@ -104,3 +104,6 @@
 		</div>
 	</div>
 </div>
+
+
+

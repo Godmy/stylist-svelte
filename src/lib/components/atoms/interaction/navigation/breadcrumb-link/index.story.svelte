@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import BreadcrumbLink from './index.svelte';
 </script>
 
@@ -18,3 +18,6 @@
 	<h2 class="mt-4 mb-2 text-lg font-semibold">With Children Snippet</h2>
 	<BreadcrumbLink href="/about">About Us</BreadcrumbLink>
 </div>
+
+
+

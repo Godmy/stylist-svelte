@@ -61,6 +61,8 @@ export interface IInputGroupProps
 	buttonVariant?: DefaultVariants;
 	buttonDisabled?: boolean;
 	onButtonClick?: () => void;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 }
 
 export interface IInputProps

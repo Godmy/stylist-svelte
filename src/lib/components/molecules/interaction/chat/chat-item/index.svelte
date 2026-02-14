@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Chat, User } from '$stylist/design-system/props/chat';
   import { Avatar, Badge } from '$stylist/components/atoms';
-  import { MessageTimestamp } from '$stylist/components/molecules';
+  import { MessageTimestamp } from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp';
   import { createEventDispatcher } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 

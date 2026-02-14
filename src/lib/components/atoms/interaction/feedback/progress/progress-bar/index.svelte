@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { IProgressBarProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -23,6 +23,21 @@
 			variant?: 'primary' | 'success' | 'warning' | 'danger';
 		} & IProgressBarProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				value: _value,
+				max: _max,
+				label: _label,
+				showPercentage: _showPercentage,
+				size: _size,
+				variant: _variant,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const value = props.value;
@@ -46,7 +61,7 @@
 	const fillStyle = $derived(`width: ${percentage}%`);
 </script>
 
-<div class={containerClass}>
+<div class={containerClass} {...restProps}>
 	{#if label || showPercentage}
 		<div class={labelWrapperClass}>
 			{#if label}
@@ -69,3 +84,6 @@
 		></div>
 	</div>
 </div>
+
+
+

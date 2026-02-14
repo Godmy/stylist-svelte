@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CountBadgeProps } from '$stylist/design-system';
-	import { createCountBadgeState } from '../../state.svelte';
+	import { createCountBadgeState } from '$stylist/design-system/models/count-badge.svelte';
 
 	let props: CountBadgeProps = $props();
 

@@ -1,4 +1,5 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ITableSkeletonProps } from '$stylist/design-system/props';
 
 	/**
@@ -17,8 +18,14 @@
 			rows?: number;
 			columns?: number;
 			class?: string;
-		} & ITableSkeletonProps
+		} & ITableSkeletonProps & HTMLAttributes<HTMLDivElement>
 	>();
+	const restProps = $derived(
+		(() => {
+			const { class: _class, rows: _rows, columns: _columns, ...rest } = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const rows = props.rows ?? 5;
@@ -37,7 +44,7 @@
 	const columnArray = Array.from({ length: columns }, (_, i) => i);
 </script>
 
-<div class={containerClass}>
+<div class={containerClass} {...restProps}>
 	<table class={tableClass}>
 		<thead class={headerClass}>
 			<tr>
@@ -64,4 +71,7 @@
 		</tbody>
 	</table>
 </div>
+
+
+
 

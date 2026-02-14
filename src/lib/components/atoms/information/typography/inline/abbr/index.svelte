@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AbbrProps } from '$stylist/design-system';
-	import { createAbbrState } from '../../state.svelte';
+	import { createAbbrState } from '$stylist/design-system/models/abbr.svelte';
 
 	let props: AbbrProps = $props();
 

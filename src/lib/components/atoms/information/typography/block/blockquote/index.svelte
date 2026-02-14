@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BlockquoteProps } from '$stylist/design-system';
-	import { createBlockquoteState } from '../../state.svelte';
+	import { createBlockquoteState } from '$stylist/design-system/models/blockquote.svelte';
 
 	let props: BlockquoteProps = $props();
 

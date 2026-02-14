@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import CharacterCount from './index.svelte';
 
@@ -27,3 +27,6 @@
 </script>
 
 <CharacterCount {...props} />
+
+
+

@@ -1,4 +1,5 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	let {
 		value = 0,
 		max = 100,
@@ -6,7 +7,8 @@
 		showPercentage = true,
 		color = 'blue',
 		height = 'h-2',
-		class: className = ''
+		class: className = '',
+		...restProps
 	} = $props<{
 		value?: number;
 		max?: number;
@@ -15,7 +17,7 @@
 		color?: string;
 		height?: string;
 		class?: string;
-	}>();
+	} & HTMLAttributes<HTMLDivElement>>();
 
 	let percentage = $derived(Math.round((value / max) * 100));
 
@@ -28,7 +30,7 @@
 	};
 </script>
 
-<div class={`${className}`}>
+<div class={`${className}`} {...restProps}>
 	{#if label}
 		<div class="mb-1 flex justify-between">
 			<span class="text-sm font-medium">{label}</span>
@@ -50,3 +52,6 @@
 		</div>
 	{/if}
 </div>
+
+
+

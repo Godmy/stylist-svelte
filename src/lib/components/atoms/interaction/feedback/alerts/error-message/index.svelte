@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { IErrorMessageProps } from './ErrorMessage.types';
 
 	/**
@@ -55,3 +55,6 @@
 		{/if}
 	</div>
 {/if}
+
+
+

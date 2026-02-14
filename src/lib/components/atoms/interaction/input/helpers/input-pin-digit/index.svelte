@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { PIN_INPUT_DIGIT_PRESET } from '$stylist/design-system/classes/input';
-	import { createPinInputDigitState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createPinInputDigitState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-pin-digit.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputProps, PinInputVariant } from '$stylist/design-system/props';
 
@@ -13,7 +12,7 @@
 	 * @returns An accessible, styled single digit input
 	 */
 
-	type PinInputSize = (typeof PIN_INPUT_DIGIT_PRESET.sizes)[number];
+	type PinInputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
 	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
 
@@ -25,7 +24,7 @@
 		invalid = false,
 		class: className = '',
 		variant = 'default',
-		size = PIN_INPUT_DIGIT_PRESET.defaults.size,
+		size = INPUT_FIELD_PRESET.defaults.size,
 		value = '',
 		onChange,
 		onFocus,
@@ -58,4 +57,9 @@
 </script>
 
 <input class={classes} maxLength={1} {value} {...restProps} />
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Slash } from 'lucide-svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IBreadcrumbsProps } from '$stylist/design-system/props';
@@ -43,3 +43,6 @@
 		{/each}
 	</ol>
 </nav>
+
+
+

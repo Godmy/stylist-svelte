@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { StatusIndicatorWithLabelProps } from '$stylist/design-system';
-	import { createStatusIndicatorWithLabelState } from '../../state.svelte';
+	import { createStatusIndicatorWithLabelState } from '$stylist/design-system/models/status-indicator-with-label.svelte';
 
 	let props: StatusIndicatorWithLabelProps = $props();
 

@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { getContext } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AccordionPanelProps } from '$stylist/design-system/props';
-	import { createAccordionPanelState } from '../state.svelte';
+	import { createAccordionPanelState } from '$stylist/design-system/models/accordion-panel.svelte';
 
 	type Props = AccordionPanelProps & HTMLAttributes<HTMLDivElement>;
 
@@ -47,4 +47,7 @@
 		{/if}
 	</div>
 </div>
+
+
+
 

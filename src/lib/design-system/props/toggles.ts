@@ -12,6 +12,8 @@ export interface ToggleGroupRootProps
 	orientation?: 'horizontal' | 'vertical';
 	type?: ToggleGroupType;
 	class?: string;
+	onValueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
+	/** @deprecated use onValueChange */
 	onvalueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
 }
 
@@ -83,6 +85,9 @@ export interface RadioButtonGroupProps
 export interface ActionSegmentedControlProps {
 	items: string[];
 	selectedIndex?: number;
+	onValueInput?: ValueChangeHandler<number>;
+	onValueChange?: ValueChangeHandler<number>;
+	/** @deprecated use onValueChange */
 	onChange?: ValueChangeHandler<number>;
 	class?: string;
 }
@@ -90,6 +95,8 @@ export interface ActionSegmentedControlProps {
 export interface AdvancedToggleProps extends ToggleBaseProps {
 	label?: string;
 	checked?: boolean;
+	onValueInput?: ValueChangeHandler<boolean>;
+	onValueChange?: ValueChangeHandler<boolean>;
 	onChange?: ValueChangeHandler<boolean>;
 }
 

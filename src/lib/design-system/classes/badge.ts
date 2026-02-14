@@ -1,7 +1,6 @@
 import type { ComponentSize } from '../tokens/sizes';
 import type { CodeBlockVariant } from '../tokens/variants';
 import type { BadgeVariant, CodeBlockSize } from '../tokens';
-import { createDefaultValues } from './component-utils';
 
 export const BASE_BADGE_CLASSES = 'inline-flex items-center font-semibold rounded-full';
 export const BADGE_VARIANT_CLASSES: Record<BadgeVariant, string> = {
@@ -26,11 +25,6 @@ export const BADGE_GROUP_CONTAINER_CLASSES = 'flex flex-wrap items-center gap-2'
 export const BADGE_GROUP_OVERFLOW_CLASSES =
 	'inline-flex items-center rounded-full text-xs font-medium bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] px-2.5 py-0.5';
 
-export const BADGE_DEFAULTS = createDefaultValues<
-	keyof typeof BADGE_VARIANT_CLASSES,
-	keyof typeof BADGE_SIZE_CLASSES
->('default', 'md');
-
 export const BASE_CODE_BLOCK_CLASSES = 'rounded-md overflow-x-auto font-mono';
 export const CODE_BLOCK_VARIANT_CLASSES: Record<CodeBlockVariant, string> = {
 	default: 'bg-gray-900 text-gray-100',
@@ -42,14 +36,6 @@ export const CODE_BLOCK_SIZE_CLASSES: Record<CodeBlockSize, string> = {
 	md: 'text-sm p-4',
 	lg: 'text-base p-6'
 };
-
-export const CODE_BLOCK_DEFAULTS = createDefaultValues<
-	keyof typeof CODE_BLOCK_VARIANT_CLASSES,
-	keyof typeof CODE_BLOCK_SIZE_CLASSES
->('default', 'md');
-
-export const DEFAULT_SHOW_LINE_NUMBERS = false;
-export const DEFAULT_START_LINE_NUMBER = 1;
 
 
 

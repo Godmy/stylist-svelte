@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
-	import { createInputFieldState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createInputPasswordState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-password.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputProps } from '$stylist/design-system/props';
 
@@ -21,9 +20,6 @@
 	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
 
 	let {
-		id,
-		label,
-		errors,
 		showPassword = false,
 		onTogglePassword,
 		class: className = '',
@@ -51,10 +47,6 @@
 	);
 	let classes = $derived(state.classes);
 
-	function handleInput(_: Event) {
-		// The $bindable() will handle setting the value prop automatically
-	}
-
 	function togglePasswordVisibility() {
 		if (onTogglePassword) {
 			onTogglePassword();
@@ -66,7 +58,6 @@
 	<input
 		type={showPassword ? 'text' : 'password'}
 		bind:value
-		oninput={handleInput}
 		{placeholder}
 		{disabled}
 		{required}
@@ -116,4 +107,8 @@
 		</p>
 	{/if}
 </div>
+
+
+
+
 

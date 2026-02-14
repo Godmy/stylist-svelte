@@ -1,12 +1,32 @@
 <script lang="ts">
 	import type { ImageWithCaptionProps } from '$stylist/design-system';
-	import { createImageWithCaptionState } from '../state.svelte';
+	import { createImageWithCaptionState } from '$stylist/design-system/models/image-with-caption.svelte';
 
 	let props: ImageWithCaptionProps = $props();
 	const state = createImageWithCaptionState(props);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				src: _src,
+				alt: _alt,
+				caption: _caption,
+				width: _width,
+				height: _height,
+				imageClass: _imageClass,
+				captionClass: _captionClass,
+				rounded: _rounded,
+				bordered: _bordered,
+				shadow: _shadow,
+				loading: _loading,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 </script>
 
-<div class={state.hostClasses} {...props}>
+<div class={state.hostClasses} {...restProps}>
 	<img
 		src={props.src}
 		alt={props.alt ?? 'Image'}

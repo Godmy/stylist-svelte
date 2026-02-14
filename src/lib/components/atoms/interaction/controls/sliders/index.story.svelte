@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import SliderTick from './tick/index.svelte';
@@ -139,3 +139,6 @@
 		</section>
 	{/snippet}
 </Story>
+
+
+

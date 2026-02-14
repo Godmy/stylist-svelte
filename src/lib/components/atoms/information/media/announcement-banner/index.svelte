@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AnnouncementBannerProps } from '$stylist/design-system';
-	import { createAnnouncementBannerState } from '../state.svelte';
+	import { createAnnouncementBannerState } from '$stylist/design-system/models/announcement-banner.svelte';
 
 	let props: AnnouncementBannerProps = $props();
 	const state = createAnnouncementBannerState(props);

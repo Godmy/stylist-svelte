@@ -4,7 +4,7 @@
 	import { Check, CheckCheck } from 'lucide-svelte';
 
 	import type { MessageThreadProps } from '$stylist/design-system/props';
-	import { createMessageThreadState } from '$stylist/utils/molecules/message-thread-state.svelte';
+	import { createMessageThreadState } from '$stylist/design-system/models/message-thread.svelte';
 	import {
 		ChatStyleManager,
 		DEFAULT_CHAT_MESSAGE_VARIANT,

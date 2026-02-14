@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { INPUT_ADDON_PRESET } from '$stylist/design-system/classes/input';
-	import { createInputAddonState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createInputAddonState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-addon.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 	import type { InputAddonVariant } from '$stylist/design-system/props';
@@ -26,7 +25,7 @@
 	let {
 		position = 'left',
 		variant = 'default',
-		size = INPUT_ADDON_PRESET.defaults.size,
+		size = INPUT_FIELD_PRESET.defaults.size,
 		class: className = '',
 		children,
 		...restProps
@@ -53,3 +52,8 @@
 <div class={classes} {...restProps}>
 	{@render children?.()}
 </div>
+
+
+
+
+

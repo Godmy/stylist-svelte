@@ -1,12 +1,28 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { Avatar } from '$stylist/components/atoms';
 	import { Check, CheckCheck } from 'lucide-svelte';
 
-	import { createChatPreviewState } from './state.svelte';
-	import type { ChatPreviewProps } from './state.svelte';
+	import { createChatPreviewState } from '$stylist/design-system/models/chat-preview.svelte';
+	import type { ChatPreviewProps } from '$stylist/design-system/models/chat-preview.svelte';
 	import { mergeClasses } from '$stylist/utils/classes';
 
-	let props: ChatPreviewProps = $props();
+	type Props = ChatPreviewProps & HTMLAttributes<HTMLDivElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				title: _title,
+				participants: _participants,
+				messages: _messages,
+				maxMessages: _maxMessages,
+				showAvatars: _showAvatars,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const state = createChatPreviewState(props);
 
@@ -42,7 +58,7 @@
 		mergeClasses('ml-1 h-3 w-3', status === 'read' ? 'text-blue-500' : 'text-gray-400');
 </script>
 
-<div class={state.classes} role="region" aria-label={`Chat preview: ${state.title}`}>
+<div class={state.classes} role="region" aria-label={`Chat preview: ${state.title}`} {...restProps}>
 	<div class={state.headerClasses}>
 		<div class={state.chatInfoClasses}>
 			<h3 class={state.titleClasses} aria-label={state.title}>{state.title}</h3>
@@ -89,3 +105,6 @@
 		{/each}
 	</div>
 </div>
+
+
+

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { Info, CheckCircle, AlertTriangle, XCircle, X } from 'lucide-svelte';
 	import { mergeClasses } from '$stylist/utils/classes';
@@ -103,3 +103,6 @@
 		</div>
 	</div>
 {/if}
+
+
+

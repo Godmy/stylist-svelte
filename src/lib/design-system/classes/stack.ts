@@ -1,6 +1,5 @@
-import type { Justification, Orientation, StackAlign as TokenStackAlign } from '../tokens';
-
-export type StackAlign = TokenStackAlign;
+import type { Justification, Orientation, StackAlign } from '../tokens';
+export type { StackAlign } from '../tokens';
 
 export const STACK_DIRECTION_CLASSES: Record<Orientation, string> = {
 	vertical: 'flex-col',

@@ -1,8 +1,24 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { DarkModeToggleProps } from '$stylist/design-system/props';
-	import { createDarkModeToggleState } from './state';
+	import { createDarkModeToggleState } from '$stylist/design-system/models/dark-mode-toggle.svelte';
 
-	let props: DarkModeToggleProps = $props();
+	type Props = DarkModeToggleProps & HTMLAttributes<HTMLButtonElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				disabled: _disabled,
+				size: _size,
+				checked: _checked,
+				darkMode: _darkMode,
+				onToggle: _onToggle,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	const darkModeState = createDarkModeToggleState(props);
 
@@ -34,7 +50,10 @@
 	class={darkModeState.classes}
 	onclick={toggleDarkMode}
 	aria-label={localDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+	{...restProps}
 >
 	{localDarkMode ? 'Moon' : 'Sun'}
 </button>
+
+
 

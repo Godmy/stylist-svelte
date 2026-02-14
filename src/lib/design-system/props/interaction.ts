@@ -116,6 +116,8 @@ export interface SortProps extends SelectProps {
 
 export interface ProductSortProps extends SortProps {
 	selectedOption?: string;
+	onValueChange?: (option: string) => void;
+	/** @deprecated use onValueChange */
 	onSortChange?: (option: string) => void;
 }
 
@@ -133,6 +135,10 @@ export interface SliderProps extends HtmlAttributesWithChildren<HTMLDivElement> 
 	step?: number;
 	disabled?: boolean;
 	orientation?: 'horizontal' | 'vertical';
+	onValueInput?: ValueChangeHandler<number>;
+	onValueChange?: ValueChangeHandler<number>;
+	/** @deprecated use onValueChange */
+	onChange?: ValueChangeHandler<number>;
 }
 
 export interface ToolbarProps<T extends EventTarget = HTMLElement>

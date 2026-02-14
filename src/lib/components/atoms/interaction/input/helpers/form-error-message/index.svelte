@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { FORM_ERROR_MESSAGE_PRESET } from '$stylist/design-system/classes/input';
-	import { createFormErrorMessageState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createFormErrorMessageState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/form-error-message.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
 
@@ -16,7 +15,7 @@
 	import type { InputVariant } from '$stylist/design-system';
 	type FormErrorVariant = InputVariant;
 	type FormErrorMessageProps = {
-		variant?: (typeof FORM_ERROR_MESSAGE_PRESET.variants)[number];
+		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
 		size?: CompactSize;
 		visible?: boolean;
 		text?: string;
@@ -27,7 +26,7 @@
 	let {
 		visible = true,
 		variant = 'error',
-		size = FORM_ERROR_MESSAGE_PRESET.defaults.size,
+		size = INPUT_FIELD_PRESET.defaults.size,
 		text = '',
 		content,
 		class: className = '',
@@ -52,3 +51,8 @@
 		{/if}
 	</p>
 {/if}
+
+
+
+
+

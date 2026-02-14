@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createDefinitionDescriptionState } from '../../state.svelte';
+	import { createDefinitionDescriptionState } from '$stylist/design-system/models/definition-description.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 

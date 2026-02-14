@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GraphNodeProps } from '$stylist/design-system';
-	import { createGraphNodeState } from '../state.svelte';
+	import { createGraphNodeState } from '$stylist/design-system/models/graph-node.svelte';
 
 	let props: GraphNodeProps = $props();
 

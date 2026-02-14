@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ISimpleTooltipProps } from '$stylist/design-system/props';
 
 	/**
@@ -61,3 +61,6 @@
 		<div class={arrowClasses}></div>
 	</div>
 {/if}
+
+
+

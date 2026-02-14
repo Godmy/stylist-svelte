@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createKbdState } from '../../state.svelte';
+	import { createKbdState } from '$stylist/design-system/models/kbd.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 

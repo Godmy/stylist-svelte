@@ -50,6 +50,7 @@ export interface BaseTagProps<T extends EventTarget = HTMLElement>
 export interface TagProps extends BaseTagProps<HTMLSpanElement>, ContentProp {
 	text?: string;
 	icon?: Snippet;
+	onClose?: () => void;
 }
 
 export interface ChipProps extends BaseTagProps<HTMLDivElement>, ContentProp {

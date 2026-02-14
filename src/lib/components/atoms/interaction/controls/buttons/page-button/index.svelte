@@ -1,9 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { PageButtonProps } from '$stylist/design-system/props';
-	import { PAGE_BUTTON_PRESET } from '$stylist/design-system/classes/button';
-	import { createState } from '../state.svelte';
+	import { createState, PAGE_BUTTON_PRESET } from '$stylist/design-system/models/page-button.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -63,4 +62,8 @@
 		{props.page}
 	{/if}
 </button>
+
+
+
+
 

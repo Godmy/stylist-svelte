@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * Компонент Breadcrumb
 	 *
@@ -47,3 +47,6 @@
 		{/each}
 	{/if}
 </nav>
+
+
+

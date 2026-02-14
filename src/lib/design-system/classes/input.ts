@@ -2,9 +2,6 @@ import { ACCESSIBILITY_CLASSES, BASE_CLASSES, STATE_CLASSES } from './classes';
 import { DEFAULT_FLAGS } from '../tokens/flags';
 import { COMPACT_SIZE_SCALE } from '../tokens/sizes';
 import { INPUT_VARIANTS } from '../tokens/variants';
-import type { CompactSize } from '../tokens/sizes';
-import { createBasePreset, type Preset } from './interaction';
-import { createDefaultValues } from './component-utils';
 
 export const INPUT_BASE_CLASS = BASE_CLASSES.input;
 
@@ -58,53 +55,4 @@ export const INPUT_FIELD_HELPER_TEXT_CLASS = 'input-field-helper-text';
 export const INPUT_GROUP_CONTAINER_CLASS = 'input-group-container';
 export const INPUT_GROUP_INPUT_CLASS = 'input-group-input';
 export const INPUT_GROUP_BUTTON_CLASS = 'input-group-button';
-
-export type InputSize = CompactSize;
-
-export interface InputPreset<
-	V extends string = (typeof INPUT_VARIANTS)[number],
-	S extends string = InputSize
-> extends Preset<V, S> {
-	classes: Preset<V, S>['classes'] & {
-		error?: string;
-	};
-}
-
-export interface InputStateOptions<
-	V extends string = (typeof INPUT_VARIANTS)[number],
-	S extends string = InputSize
-> {
-	variant?: V;
-	size?: S;
-	disabled?: boolean;
-	loading?: boolean;
-	error?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-}
-
-const INPUT_SIZES = ['sm', 'md', 'lg'] as const;
-
-const inputBase = createBasePreset(INPUT_VARIANTS, INPUT_SIZES, { variant: 'default', size: 'md' });
-
-export const INPUT_FIELD_PRESET: InputPreset = {
-	...inputBase,
-	classes: {
-		...inputBase.classes,
-		error: 'border-red-500'
-	}
-} as const;
-
-export const INPUT_HELPER_PRESET = INPUT_FIELD_PRESET;
-export const INPUT_ADDON_PRESET = INPUT_FIELD_PRESET;
-export const FORM_HELPER_TEXT_PRESET = INPUT_FIELD_PRESET;
-export const FORM_ERROR_MESSAGE_PRESET = INPUT_FIELD_PRESET;
-export const CHARACTER_COUNT_PRESET = INPUT_FIELD_PRESET;
-export const PIN_INPUT_DIGIT_PRESET = INPUT_FIELD_PRESET;
-
-export const INPUT_DEFAULTS = createDefaultValues<(typeof INPUT_VARIANTS)[number], InputSize>(
-	'default',
-	'md'
-);
 

@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ChatStatusIndicator, MessageTimestamp } from './atoms';
 export { ChatItem } from './chat-item';
 export { ChatList } from './chat-list';
 export { ChatMessage } from './chat-message';

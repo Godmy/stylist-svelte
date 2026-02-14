@@ -79,6 +79,10 @@ export interface MessageInputProps extends HtmlAttributesBase<HTMLDivElement> {
 	showAttachment?: boolean;
 	showEmoji?: boolean;
 	showSend?: boolean;
+	onSendMessage?: (content: string) => void;
+	onAttachClick?: () => void;
+	onEmojiClick?: () => void;
+	onMessageInput?: (content: string) => void;
 }
 
 export interface MessageThreadProps extends HtmlAttributesBase<HTMLDivElement> {

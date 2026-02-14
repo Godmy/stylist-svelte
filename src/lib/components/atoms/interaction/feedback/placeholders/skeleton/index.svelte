@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ISkeletonProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -21,6 +21,18 @@
 			class?: string;
 		} & ISkeletonProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				variant: _variant,
+				width: _width,
+				height: _height,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const variant = props.variant ?? 'text';
@@ -45,4 +57,7 @@
 	);
 </script>
 
-<div class={combinedClass} style={styleVars} aria-busy="true" aria-live="polite" {...props}></div>
+<div class={combinedClass} style={styleVars} aria-busy="true" aria-live="polite" {...restProps}></div>
+
+
+

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { ISpinnerProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
@@ -21,6 +21,18 @@
 			label?: string;
 		} & ISpinnerProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				size: _size,
+				variant: _variant,
+				label: _label,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
 
 	// Set default values
 	const size = props.size ?? 'md';
@@ -35,7 +47,10 @@
 	const labelClass = $derived('spinner-label');
 </script>
 
-<div class={containerClass} role="status" aria-live="polite">
+<div class={containerClass} role="status" aria-live="polite" {...restProps}>
 	<Loader2 class={iconClass} aria-hidden="true" />
 	<span class={labelClass}>{label}</span>
 </div>
+
+
+

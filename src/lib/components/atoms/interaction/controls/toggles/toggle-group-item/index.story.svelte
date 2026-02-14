@@ -1,9 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
 import ToggleGroupItem from './index.svelte';
-import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/toggles/toggle-group-root/index.svelte';
+import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/toggles/toggle-group-root/index.svelte';
 
 	let {
 		id = '',
@@ -42,7 +42,7 @@ import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/
 						</p>
 						<ToggleGroupRoot
 							type="single"
-							onvalueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
+							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
 								(value = Array.isArray(e.detail.value) ? e.detail.value[0] : e.detail.value)}
 						>
 							<ToggleGroupItem value="option1" disabled={props.disabled as boolean}>Option 1</ToggleGroupItem>
@@ -59,7 +59,7 @@ import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/
 						</p>
 						<ToggleGroupRoot
 							type="multiple"
-							onvalueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
+							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
 								console.log('Multiple selection:', e.detail.value)}
 						>
 							<ToggleGroupItem value="multi1" disabled={props.disabled as boolean}>Multi 1</ToggleGroupItem>
@@ -127,3 +127,7 @@ import ToggleGroupRoot from '$stylist/components/molecules/interaction/controls/
 		</section>
 	{/snippet}
 </Story>
+
+
+
+

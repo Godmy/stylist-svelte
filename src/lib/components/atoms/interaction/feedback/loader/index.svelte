@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { ILoaderProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
@@ -18,6 +18,12 @@
 			class?: string;
 		} & ILoaderProps
 	>();
+	const restProps = $derived(
+		(() => {
+			const { class: _class, ...rest } = props;
+			return rest;
+		})()
+	);
 
 	// Generate the CSS class using the style manager
 	const combinedClass = $derived(mergeClasses('loader-container', props.class));
@@ -27,9 +33,12 @@
 	const ariaLabel = 'Loading...';
 </script>
 
-<div class={combinedClass} {role} aria-label={ariaLabel} {...props}>
+<div class={combinedClass} {role} aria-label={ariaLabel} {...restProps}>
 	<span
 		class="!absolute !-m-px !h-px !w-px !overflow-hidden !border-0 !p-0 !whitespace-nowrap ![clip:rect(0,0,0,0)]"
 		>{ariaLabel}</span
 	>
 </div>
+
+
+

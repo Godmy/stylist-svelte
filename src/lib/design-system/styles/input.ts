@@ -48,3 +48,4 @@ export class InputStyleManager {
 		return this.getInputGroupButtonClass();
 	}
 }
+

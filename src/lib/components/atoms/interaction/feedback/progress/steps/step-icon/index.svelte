@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Check, X } from 'lucide-svelte';
 	import type { Snippet } from 'svelte';
@@ -60,3 +60,6 @@
 		{content.value}
 	{/if}
 </span>
+
+
+

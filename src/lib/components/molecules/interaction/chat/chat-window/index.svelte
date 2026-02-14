@@ -42,9 +42,9 @@ import MessageList from '$stylist/components/molecules/information/messages/mess
   });
 
   // Handle sending a message
-  function handleMessageSend(event: CustomEvent<{ content: string }>) {
+  function handleMessageSend(content: string) {
     dispatch('messageSend', {
-      content: event.detail.content,
+      content,
       chatId: chat.id
     });
   }
@@ -118,7 +118,7 @@ import MessageList from '$stylist/components/molecules/information/messages/mess
   
   <div class="chat-input">
     <MessageInput 
-      on:send={handleMessageSend}
+      onSendMessage={handleMessageSend}
     />
   </div>
 </div>

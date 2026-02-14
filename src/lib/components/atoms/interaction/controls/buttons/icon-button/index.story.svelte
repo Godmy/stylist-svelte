@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import IconButton from './index.svelte';
 
 	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link' =
@@ -99,3 +99,6 @@
 		</div>
 	</div>
 </div>
+
+
+

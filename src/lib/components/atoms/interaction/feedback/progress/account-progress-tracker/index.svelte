@@ -1,12 +1,14 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IAccountProgressTrackerProps } from '$stylist/design-system/props';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let {
 		steps = [],
 		currentStep = 0,
-		class: className = ''
-	}: IAccountProgressTrackerProps = $props();
+		class: className = '',
+		...restProps
+	}: IAccountProgressTrackerProps & HTMLAttributes<HTMLDivElement> = $props();
 
 	let localCurrentStep = $state(currentStep);
 
@@ -15,7 +17,7 @@
 	});
 </script>
 
-<div class={mergeClasses('account-progress-tracker-container', className)}>
+<div class={mergeClasses('account-progress-tracker-container', className)} {...restProps}>
 	{#each steps as step, i}
 		<div class="flex items-center">
 			<div
@@ -38,3 +40,6 @@
 		<p>Step {localCurrentStep + 1} of {steps.length}: {steps[localCurrentStep]}</p>
 	</div>
 </div>
+
+
+

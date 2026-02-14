@@ -1,6 +1,5 @@
-<script lang="ts">
-	import { CHARACTER_COUNT_PRESET } from '$stylist/design-system/classes/input';
-	import { createCharacterCountState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createCharacterCountState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/characters-count.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	/**
@@ -20,15 +19,15 @@
 		showPercentage?: boolean;
 		content?: import('svelte').Snippet;
 		class?: string;
-		variant?: (typeof CHARACTER_COUNT_PRESET.variants)[number];
+		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
 		size?: 'sm' | 'md' | 'lg';
 	};
 
 	let {
 		current = 0,
 		max = 100,
-		variant = CHARACTER_COUNT_PRESET.defaults.variant,
-		size = CHARACTER_COUNT_PRESET.defaults.size,
+		variant = INPUT_FIELD_PRESET.defaults.variant,
+		size = INPUT_FIELD_PRESET.defaults.size,
 		showPercentage = false,
 		content,
 		class: className = '',
@@ -60,3 +59,8 @@
 		{message}
 	{/if}
 </div>
+
+
+
+
+

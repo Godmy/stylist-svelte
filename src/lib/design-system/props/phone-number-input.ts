@@ -11,4 +11,7 @@ export interface IPhoneNumberInputProps extends HTMLInputAttributes {
   required?: boolean;
   error?: boolean;
   helpText?: string;
+  onValueInput?: (value: string, event: Event) => void;
+  onValueChange?: (value: string) => void;
+  onInput?: (event: Event) => void;
 }

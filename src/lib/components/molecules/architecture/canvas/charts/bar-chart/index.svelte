@@ -14,7 +14,7 @@
 
   import type { HTMLAttributes } from 'svelte/elements';
   import { Info } from 'lucide-svelte';
-  import Tooltip from '$stylist/components/molecules/interaction/controls/buttons/tooltip/index.svelte';
+  import Tooltip from '$stylist/components/atoms/interaction/controls/buttons/tooltip/index.svelte';
   import { BarChartStyleManager } from '$stylist/design-system/styles/bar-chart';
   import type { IBarChartProps, IBarPosition } from '$stylist/design-system/props/bar-chart';
 

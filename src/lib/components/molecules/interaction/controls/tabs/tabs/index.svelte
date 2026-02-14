@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import type { TabsProps } from '$stylist/design-system/props';
-	import { createTabsState } from '$stylist/utils/molecules/tabs-state.svelte';
+	import { createTabsState } from '$stylist/design-system/models/tabs.svelte';
 
 	let props: TabsProps = $props();
 
@@ -13,6 +13,7 @@
 
 	function handleTabChange(id: string) {
 		selectedTabId = id;
+		props.onValueChange?.(id);
 		props.onTabChange?.(id);
 	}
 
@@ -52,6 +53,7 @@
 		(() => {
 			const {
 				selectedId: _selectedId,
+				onValueChange: _onValueChange,
 				onTabChange: _onTabChange,
 				variant: _variant,
 				size: _size,

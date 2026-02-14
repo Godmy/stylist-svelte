@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import PasswordInput from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import type { IInputProps } from '$stylist/design-system/props';
@@ -73,3 +73,6 @@
 <div class="p-4">
 	<PasswordInput {...props} />
 </div>
+
+
+

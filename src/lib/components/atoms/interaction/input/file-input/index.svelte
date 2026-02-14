@@ -1,8 +1,6 @@
-<script lang="ts">
-	import { INPUT_FIELD_PRESET } from '$stylist/design-system/classes/input';
-	import { createInputState } from '../state.svelte';
+﻿<script lang="ts">
+	import { createFileInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/file-input.svelte';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
-	import { createEventDispatcher } from 'svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 
 	type Props = {
@@ -13,6 +11,7 @@
 		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
 		size?: (typeof INPUT_FIELD_PRESET.sizes)[number];
 		placeholder?: string;
+		onFileChange?: (files: File | File[] | null) => void;
 		class?: string;
 	} & Omit<HTMLInputAttributes, 'size'>;
 
@@ -24,10 +23,10 @@
 		variant = INPUT_FIELD_PRESET.defaults.variant,
 		size = INPUT_FIELD_PRESET.defaults.size,
 		placeholder = 'Choose file(s)...',
+		onFileChange,
 		class: className = '',
 		...restProps
 	}: Props = $props();
-	const dispatch = createEventDispatcher<{ fileChange: { files: File | File[] | null } }>();
 	const inputState = $derived(createInputState({ variant, size, disabled, class: className }));
 	let inputElement: HTMLInputElement | null = $state(null);
 
@@ -55,11 +54,11 @@
 				fileName = file.name;
 			}
 
-			dispatch('fileChange', { files: multiple ? Array.from(target.files) : target.files[0] });
+			onFileChange?.(multiple ? Array.from(target.files) : target.files[0]);
 		} else {
 			internalValue = null;
 			fileName = '';
-			dispatch('fileChange', { files: null });
+			onFileChange?.(null);
 		}
 	}
 
@@ -68,7 +67,7 @@
 		internalValue = null;
 		fileName = '';
 
-		dispatch('fileChange', { files: null });
+		onFileChange?.(null);
 
 		if (inputElement) {
 			inputElement.value = '';
@@ -131,3 +130,7 @@
 		</span>
 	</label>
 </div>
+
+
+
+

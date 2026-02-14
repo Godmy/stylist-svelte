@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import SkeletonRectangle from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -45,3 +45,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

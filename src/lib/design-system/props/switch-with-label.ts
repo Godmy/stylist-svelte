@@ -47,12 +47,24 @@ export interface ISwitchWithLabelProps {
   labelClass?: string;
   
   /**
-   * Callback function triggered when the switch input value changes
+   * Canonical callback function triggered when input updates
+   */
+  onValueInput?: (checked: boolean) => void;
+
+  /**
+   * Canonical callback function triggered when value is committed/changed
+   */
+  onValueChange?: (checked: boolean) => void;
+
+  /**
+   * Legacy callback function triggered when the switch input value changes
+   * @deprecated use onValueInput
    */
   onInput?: (checked: boolean) => void;
   
   /**
-   * Callback function triggered when the switch value changes
+   * Legacy callback function triggered when the switch value changes
+   * @deprecated use onValueChange
    */
   onChange?: (checked: boolean) => void;
 }

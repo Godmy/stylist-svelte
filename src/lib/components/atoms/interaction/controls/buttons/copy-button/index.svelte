@@ -1,10 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Copy, Check } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/props';
-	import { COPY_BUTTON_PRESET } from '$stylist/design-system/classes/button';
-	import { createState } from '../state.svelte';
+	import { createState, COPY_BUTTON_PRESET } from '$stylist/design-system/models/copy-button.svelte';
 
 	let props: CopyButtonProps & HTMLButtonAttributes = $props();
 
@@ -69,5 +68,9 @@
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
+
+
+
+
 
 

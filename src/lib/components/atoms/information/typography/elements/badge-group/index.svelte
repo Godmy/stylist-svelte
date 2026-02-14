@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Badge from '../badge/index.svelte';
 	import type { BadgeGroupProps } from '$stylist/design-system';
-	import { createBadgeGroupState } from '../../state.svelte';
+	import { createBadgeGroupState } from '$stylist/design-system/models/badge-group.svelte';
 
 	let props: BadgeGroupProps = $props();
 

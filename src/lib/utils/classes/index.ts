@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { cn as cnBase } from '$stylist/design-system/utils/cn';
-import type { Preset } from '$stylist/design-system/classes/interaction';
+import type { Preset } from '$stylist/design-system/state/preset';
 
 export type ClassValue =
 	| string
@@ -70,3 +70,4 @@ export function buildClasses<V extends string, S extends string>(
 		.filter(Boolean)
 		.join(' ');
 }
+

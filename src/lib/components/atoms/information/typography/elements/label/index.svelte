@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LabelProps } from '$stylist/design-system';
-	import { createLabelState } from '../../state.svelte';
+	import { createLabelState } from '$stylist/design-system/models/label.svelte';
 
 	let props: LabelProps = $props();
 

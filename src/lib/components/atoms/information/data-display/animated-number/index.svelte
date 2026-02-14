@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AnimatedNumberProps } from '$stylist/design-system';
-	import { createAnimatedNumberState } from '../state.svelte';
+	import { createAnimatedNumberState } from '$stylist/design-system/models/animated-number.svelte';
 
 	type Props = AnimatedNumberProps & HTMLAttributes<HTMLSpanElement>;
 

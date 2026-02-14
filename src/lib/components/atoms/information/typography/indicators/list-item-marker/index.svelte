@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon } from '$stylist/components/atoms';
 	import type { ListItemMarkerProps } from '$stylist/design-system';
-	import { createListItemMarkerState } from '../../state.svelte';
+	import { createListItemMarkerState } from '$stylist/design-system/models/list-item-marker.svelte';
 
 	let props: ListItemMarkerProps = $props();
 

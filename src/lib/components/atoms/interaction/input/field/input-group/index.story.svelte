@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { InputGroup } from '.';
 
 	type ButtonVariant =
@@ -106,7 +106,7 @@
 						{placeholder}
 						{buttonLabel}
 						{buttonVariant}
-						on:input={(e) => (value = e.detail.value)}
+						onValueInput={(next) => (value = next)}
 						{disabled}
 						{buttonDisabled}
 						onButtonClick={handleAction}
@@ -153,3 +153,6 @@
 		</div>
 	</section>
 </div>
+
+
+

@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { RadioProps } from '$stylist/design-system/props';
-	import { createRadioState } from './state.svelte';
+	import { createRadioState } from '$stylist/design-system/models/radio.svelte';
 
 	let props: RadioProps = $props();
 
@@ -51,4 +51,7 @@
 		</label>
 	{/if}
 </div>
+
+
+
 

@@ -1,4 +1,4 @@
-<script>
+﻿<script>
 	import Breadcrumbs from './index.svelte';
 
 	// Определение данных для примера
@@ -16,3 +16,6 @@
 		<Breadcrumbs {crumbs} />
 	</div>
 </div>
+
+
+

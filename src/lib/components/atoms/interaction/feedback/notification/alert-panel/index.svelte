@@ -1,4 +1,5 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let {
@@ -6,14 +7,15 @@
 		description = '',
 		variant = 'info',
 		showIcon = true,
-		class: className = ''
+		class: className = '',
+		...restProps
 	} = $props<{
 		title?: string;
 		description?: string;
 		variant?: 'info' | 'success' | 'warning' | 'error' | 'primary' | 'secondary' | 'danger';
 		showIcon?: boolean;
 		class?: string;
-	}>();
+	} & HTMLAttributes<HTMLDivElement>>();
 
 	const statusIcons: Record<string, string> = {
 		info: 'ℹ',
@@ -26,7 +28,7 @@
 	};
 </script>
 
-<div class={mergeClasses('alert-container', `variant-${variant}`, className)}>
+<div class={mergeClasses('alert-container', `variant-${variant}`, className)} {...restProps}>
 	<div class="alert-content">
 		{#if showIcon}
 			<span class={mergeClasses('alert-icon', `variant-${variant}`)}>{statusIcons[variant]}</span>
@@ -39,3 +41,6 @@
 		</div>
 	</div>
 </div>
+
+
+

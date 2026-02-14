@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { DividerProps } from '$stylist/design-system';
-	import { createDividerState } from '../state.svelte';
+	import { createDividerState } from '$stylist/design-system/models/divider.svelte';
 
 	let props: DividerProps = $props();
 	const state = createDividerState(props);

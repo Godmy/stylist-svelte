@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	/**
 	 * Компонент BreadcrumbLink
 	 *
@@ -33,4 +33,7 @@
 		{@render children?.()}
 	</a>
 {/if}
+
+
+
 

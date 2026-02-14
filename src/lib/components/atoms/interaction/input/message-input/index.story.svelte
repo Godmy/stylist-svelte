@@ -6,3 +6,6 @@
 	<h1>MessageInput Story</h1>
 	<MessageInput placeholder="Type your message..." disabled={false} />
 </div>
+
+
+
