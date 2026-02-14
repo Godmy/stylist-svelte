@@ -38,7 +38,7 @@
       {#if showPalette}
         <div class="grid grid-cols-5 gap-1 mb-2">
           {#each ['#000000','#7f7f7f','#ed1c24','#ff7f27','#fff200','#22b14c','#00a2e8','#3f48cc','#a349a4','#ffffff'] as color}
-            <button type="button" class="w-6 h-6 rounded border" style="background-color: {color}" onclick={() => setColor(color)}></button>
+            <button type="button" aria-label={`Select color ${color}`} class="w-6 h-6 rounded border" style="background-color: {color}" onclick={() => setColor(color)}></button>
           {/each}
         </div>
       {/if}

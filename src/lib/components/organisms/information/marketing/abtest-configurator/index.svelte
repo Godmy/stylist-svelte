@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { TestTube, GitBranch, Users, Target, Play, Pause, Settings, BarChart3, Plus } from 'lucide-svelte';
-  import type { IABTestConfiguratorProps, ABTest, ABTestVariant } from './types';
-  import { ABTestConfiguratorStyleManager } from './styles';
-  import { validateABTest } from './abtest-validation';
-  import { calculateTotalWeight, addABTestVariant, removeABTestVariant, updateABTestVariantWeight, toggleABTestVariantStatus } from './abtest-manager';
+  import type { IABTestConfiguratorProps, ABTest, ABTestVariant } from '$lib/design-system/props/abtest-configurator';
+  import { ABTestConfiguratorStyleManager } from '$lib/design-system/styles/abtest-configurator';
+  import { validateABTest, calculateTotalWeight, addABTestVariant, removeABTestVariant, updateABTestVariantWeight, toggleABTestVariantStatus } from '$lib/design-system/state/abtest-configurator';
 
   let {
     initialTest,

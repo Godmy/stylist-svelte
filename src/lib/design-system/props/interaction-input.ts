@@ -1,4 +1,4 @@
-﻿import type { HTMLAttributes, InputHTMLAttributes, TextareaHTMLAttributes } from 'svelte/elements';
+﻿import type { HTMLAttributes, HTMLInputAttributes, HTMLTextareaAttributes } from 'svelte/elements';
 
 export type AutoCompleteOption = {
   id: string;
@@ -7,7 +7,7 @@ export type AutoCompleteOption = {
   meta?: string;
 };
 
-export interface AutoCompleteProps extends Omit<InputHTMLAttributes, 'oninput' | 'value'> {
+export interface AutoCompleteProps extends Omit<HTMLInputAttributes, 'oninput' | 'value'> {
   options: AutoCompleteOption[];
   value?: string;
   placeholder?: string;
@@ -168,3 +168,5 @@ export interface TranslationEditorProps extends Omit<HTMLAttributes<HTMLDivEleme
   onImport?: (data: unknown) => void;
   onExport?: () => void;
 }
+
+

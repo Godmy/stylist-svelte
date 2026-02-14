@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IGeoJSONViewerProps } from './types';
-  import { GeoJSONViewerStyleManager } from './styles';
+  import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/props/geo-jsonviewer';
+  import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/geo-jsonviewer';
   import { Button } from '$lib/components/atoms';
   import { Globe, Layers, Info, Download, Upload, Plus, Minus, RotateCcw, X } from 'lucide-svelte';
 
@@ -22,9 +22,9 @@
     ...restProps
   }: IGeoJSONViewerProps = $props();
 
-  let currentLayers = $state<import('./types').GeoJsonLayer[]>([]);
-  let currentView = $state<import('./types').MapView>({ ...initialView });
-  let selectedFeature: import('./types').GeoJsonFeature | null = $state(null);
+  let currentLayers = $state<GeoJsonLayer[]>([]);
+  let currentView = $state<MapView>({ ...initialView });
+  let selectedFeature: GeoJsonFeature | null = $state(null);
   let mapOffset = $state({ x: 0, y: 0 });
   let isDragging = $state(false);
   let dragStart = $state({ x: 0, y: 0 });
@@ -59,7 +59,7 @@
     onMapClick?.({ lat, lng });
   }
 
-  function handleFeatureClick(feature: import('./types').GeoJsonFeature, e: MouseEvent) {
+  function handleFeatureClick(feature: GeoJsonFeature, e: MouseEvent) {
     e.stopPropagation();
     selectedFeature = feature;
     onFeatureClick?.(feature);
@@ -109,7 +109,7 @@
   async function loadFromFile(file: File) {
     try {
       const text = await file.text();
-      const parsed = JSON.parse(text) as import('./types').GeoJsonFeatureCollection;
+      const parsed = JSON.parse(text) as GeoJsonFeatureCollection;
 
       // Validate GeoJSON
       if (parsed.type !== 'FeatureCollection' || !Array.isArray(parsed.features)) {

@@ -96,7 +96,13 @@
     {#if status === 'completed' && result}
       <div class={resultSectionClass}>
         <div class={sentimentIconContainerClass}>
-          {#if result.score < -0.5}`r`n            <Frown class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />`r`n          {:else if result.score <= 0.5}`r`n            <Meh class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />`r`n          {:else}`r`n            <Smile class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />`r`n          {/if}
+          {#if result.score < -0.5}
+            <Frown class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+          {:else if result.score <= 0.5}
+            <Meh class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+          {:else}
+            <Smile class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+          {/if}
         </div>
 
         <div class="text-center mb-[--spacing-md]">

@@ -13,5 +13,5 @@ export { PaymentInfo, PaymentMethodSelector, PaymentSelector, PaymentSummary } f
 export { ScatterPlot } from './scatter-plot';
 export { SearchResults } from './search';
 export { ColumnManager, DataTable, DataTableAdvanced, SortableList, TableWithFilters, TableWithGrouping, TableWithStripes } from './tables';
-export * from './toggles';
+export { FeatureToggle } from './toggles';
 export * from './trees';

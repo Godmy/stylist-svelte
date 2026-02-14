@@ -7,7 +7,7 @@
 <div class={FeatureToggleStyleManager.root(className)} {...restProps}>
   <div class="flex items-start justify-between gap-4">
     <div><div class="font-medium">{label}</div><div class="text-sm text-gray-600">{description}</div></div>
-    <button type="button" class={`relative h-7 w-12 rounded-full ${isChecked?'bg-blue-600':'bg-gray-300'} ${disabled?'opacity-50 cursor-not-allowed':''}`} disabled={disabled} onclick={() => { isChecked=!isChecked; onChange?.(isChecked); }}>
+    <button type="button" aria-label={label} class={`relative h-7 w-12 rounded-full ${isChecked?'bg-blue-600':'bg-gray-300'} ${disabled?'opacity-50 cursor-not-allowed':''}`} disabled={disabled} onclick={() => { isChecked=!isChecked; onChange?.(isChecked); }}>
       <span class={`absolute top-1 h-5 w-5 rounded-full bg-white transition-all ${isChecked?'left-6':'left-1'}`}></span>
     </button>
   </div>

@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
 
 export interface SimpleModalProps extends HTMLAttributes<HTMLDivElement> {
   open?: boolean;
@@ -11,12 +12,14 @@ export interface LazyLoaderProps extends HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   text?: string;
   class?: string;
+  children?: Snippet;
 }
 
 export interface LoadingBoundaryProps extends HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   error?: string;
   class?: string;
+  children?: Snippet;
 }
 
 export type NotificationItem = {

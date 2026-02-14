@@ -1,4 +1,4 @@
-<script context="module">
+﻿<script context="module">
   export const title = "TreeNodeItem";
   export const category = "Molecules/Controls/Trees";
 </script>
@@ -9,7 +9,7 @@
   import type { TreeNodeItemNode } from "$stylist/design-system/props/tree-node-item";
 
   // Sample tree node data
-  const sampleTreeData: TreeNode = {
+  const sampleTreeData: TreeNodeItemNode = {
     key: 'root',
     desc: 'Root Node',
     child: [
@@ -44,7 +44,7 @@
     ]
   };
 
-  const sampleTreeData2: TreeNode = {
+  const sampleTreeData2: TreeNodeItemNode = {
     key: 'folder1',
     desc: 'Documents',
     child: [
@@ -59,7 +59,7 @@
     ]
   };
 
-  const sampleTreeData3: TreeNode = {
+  const sampleTreeData3: TreeNodeItemNode = {
     key: 'folder2',
     desc: 'Images',
     child: [
@@ -105,12 +105,12 @@
   }
 
   // Handle node selection (event version - for onselect)
-  function handleNodeSelectEvent(event: CustomEvent<{ node: TreeNode }>) {
+  function handleNodeSelectEvent(event: CustomEvent<{ node: TreeNodeItemNode }>) {
     console.log('Node selected (event):', event.detail.node);
   }
 
   // Handle node toggle (event version - for ontoggle)
-  function handleNodeToggleEvent(event: CustomEvent<{ node: TreeNode }>) {
+  function handleNodeToggleEvent(event: CustomEvent<{ node: TreeNodeItemNode }>) {
     console.log('Node toggled (event):', event.detail.node);
   }
 </script>
@@ -240,3 +240,5 @@
     font-size: 0.875rem;
   }
 </style>
+
+

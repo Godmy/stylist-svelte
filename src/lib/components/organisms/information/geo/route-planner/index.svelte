@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Navigation, MapPin, Clock, Car, Route, Plus, Minus, RotateCcw, X } from 'lucide-svelte';
-  import { Button, Input } from '$lib/components/atoms';
+  import { Button } from '$lib/components/atoms';
 
   type Location = {
     id: string;
@@ -80,22 +80,22 @@
   let selectedWaypoints = $state<Location[]>(waypoints);
   let selectedTravelMode = $state<'driving' | 'walking' | 'cycling' | 'transit'>('driving');
   let searchQuery = $state('');
-  let localShowMap = $state(showMap); // Изменили название, чтобы избежать конфликта
+  let localShowMap = $state(showMap); // РР·РјРµРЅРёР»Рё РЅР°Р·РІР°РЅРёРµ, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РєРѕРЅС„Р»РёРєС‚Р°
   let selectedRouteId = $state(selectedRoute || '');
 
-  // Объявляем функции для управления масштабом карты
+  // РћР±СЉСЏРІР»СЏРµРј С„СѓРЅРєС†РёРё РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РјР°СЃС€С‚Р°Р±РѕРј РєР°СЂС‚С‹
   function handleZoomIn() {
-    // В реальном приложении это будет изменять масштаб карты
+    // Р’ СЂРµР°Р»СЊРЅРѕРј РїСЂРёР»РѕР¶РµРЅРёРё СЌС‚Рѕ Р±СѓРґРµС‚ РёР·РјРµРЅСЏС‚СЊ РјР°СЃС€С‚Р°Р± РєР°СЂС‚С‹
     console.log('Zoom in requested');
   }
 
   function handleZoomOut() {
-    // В реальном приложении это будет изменять масштаб карты
+    // Р’ СЂРµР°Р»СЊРЅРѕРј РїСЂРёР»РѕР¶РµРЅРёРё СЌС‚Рѕ Р±СѓРґРµС‚ РёР·РјРµРЅСЏС‚СЊ РјР°СЃС€С‚Р°Р± РєР°СЂС‚С‹
     console.log('Zoom out requested');
   }
 
   function handleResetView() {
-    // В реальном приложении это будет сбрасывать вид карты
+    // Р’ СЂРµР°Р»СЊРЅРѕРј РїСЂРёР»РѕР¶РµРЅРёРё СЌС‚Рѕ Р±СѓРґРµС‚ СЃР±СЂР°СЃС‹РІР°С‚СЊ РІРёРґ РєР°СЂС‚С‹
     console.log('Reset view requested');
   }
 
@@ -349,7 +349,7 @@
                     <div class="flex items-center mt-1 text-sm text-gray-500">
                       <Clock class="h-4 w-4 mr-1" />
                       <span>{Math.floor(option.duration / 60)}h {option.duration % 60}m</span>
-                      <span class="mx-2">•</span>
+                      <span class="mx-2">вЂў</span>
                       <span>{option.distance} km</span>
                     </div>
                   </div>
@@ -553,3 +553,4 @@
     {/if}
   </div>
 </div>
+

@@ -4,8 +4,8 @@
   import { MapPin, Info, Star, Phone, Mail, Navigation, Building, Settings, HeartPulse, GraduationCap, ShoppingBag, AlertTriangle, Utensils, Car } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
 
-  import type { IMapMarkerProps } from './types';
-  import { MapMarkerStyleManager } from './styles';
+  import type { IMapMarkerProps } from '$lib/design-system/props/map-marker';
+  import { MapMarkerStyleManager } from '$lib/design-system/styles/map-marker';
 
   /**
    * MapMarker component - A map marker with interactive popup and category-based icons

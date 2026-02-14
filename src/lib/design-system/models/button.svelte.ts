@@ -1,5 +1,5 @@
-﻿export { BUTTON_PRESET } from '$stylist/design-system/state/button';
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+﻿/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+export { BUTTON_PRESET } from '$stylist/design-system/state/button';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/props';
 import type { Preset } from '$stylist/design-system/state/preset';

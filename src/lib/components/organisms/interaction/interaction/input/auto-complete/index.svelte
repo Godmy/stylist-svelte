@@ -95,6 +95,12 @@
           role="option"
           aria-selected={index === highlightedIndex}
           onclick={() => handleSelect(option)}
+          onkeydown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              handleSelect(option);
+            }
+          }}
           tabindex={0}
         >
           <span>{option.label}</span>

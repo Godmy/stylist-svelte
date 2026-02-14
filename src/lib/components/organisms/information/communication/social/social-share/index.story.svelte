@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$lib/playground';
     import type { ControlConfig } from '$lib/playground';
     import SocialShare from './index.svelte';
@@ -34,7 +34,7 @@
         },
         {
             name: 'platforms',
-            type: 'object', // Or multiselect if supported by playground
+            type: 'text', // Or multiselect if supported by playground
             defaultValue: ['facebook', 'twitter', 'linkedin', 'email', 'copy']
         },
         {

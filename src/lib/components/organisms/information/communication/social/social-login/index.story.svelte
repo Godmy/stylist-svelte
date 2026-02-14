@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$lib/playground';
     import type { ControlConfig } from '$lib/playground';
     import SocialLogin from './index.svelte';
@@ -16,7 +16,7 @@
     const controls: ControlConfig[] = [
         {
             name: 'providers',
-            type: 'object',
+            type: 'text',
             defaultValue: ['google', 'github', 'apple'] // Example providers
         },
         {

@@ -1,4 +1,4 @@
-export type KanbanTask = {
+﻿export type KanbanTask = {
   id: string;
   title: string;
   description?: string;
@@ -8,3 +8,6 @@ export type KanbanTask = {
   assignee?: string | { id?: string; name: string; avatar?: string };
   updatedAt?: Date;
 };
+
+export { designSystemDarkTheme, designSystemDefaultTheme } from './types/design-tokens';
+

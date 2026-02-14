@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { MapPin, Navigation, Search, Plus, Minus, RotateCcw, Locate } from 'lucide-svelte';
-  import { Button, Input } from '$lib/components/atoms';
+  import { Button } from '$lib/components/atoms';
 
   type MapMarker = {
     id: string;
@@ -353,3 +353,4 @@
     z-index: 100;
   }
 </style>
+
