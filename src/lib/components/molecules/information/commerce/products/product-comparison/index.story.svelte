@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductComparison from './index.svelte';
@@ -57,7 +57,7 @@
   tags={['product', 'comparison', 'ecommerce']}
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-molecules-product-comparison p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductComparison Story</h2>
       <ProductComparison
@@ -67,4 +67,5 @@
     </div>
   {/snippet}
 </Story>
+
 

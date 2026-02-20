@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -7,15 +7,15 @@
 
   // Define the controls for Storybook
   const languages: ILanguageSelectorProps['languages'] = [
-    { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸' },
-    { code: 'fr', name: 'French', nativeName: 'Français', flag: '🇫🇷' },
-    { code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪' },
-    { code: 'it', name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹' },
-    { code: 'ja', name: 'Japanese', nativeName: '日本語', flag: '🇯🇵' },
-    { code: 'ko', name: 'Korean', nativeName: '한국어', flag: '🇰🇷' },
-    { code: 'zh', name: 'Chinese', nativeName: '中文', flag: '🇨🇳' },
-    { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺' },
+    { code: 'en', name: 'English', nativeName: 'English', flag: 'рџ‡єрџ‡ё' },
+    { code: 'es', name: 'Spanish', nativeName: 'EspaГ±ol', flag: 'рџ‡Єрџ‡ё' },
+    { code: 'fr', name: 'French', nativeName: 'FranГ§ais', flag: 'рџ‡«рџ‡·' },
+    { code: 'de', name: 'German', nativeName: 'Deutsch', flag: 'рџ‡©рџ‡Є' },
+    { code: 'it', name: 'Italian', nativeName: 'Italiano', flag: 'рџ‡®рџ‡№' },
+    { code: 'ja', name: 'Japanese', nativeName: 'ж—Ґжњ¬иЄћ', flag: 'рџ‡Їрџ‡µ' },
+    { code: 'ko', name: 'Korean', nativeName: 'н•њкµ­м–ґ', flag: 'рџ‡°рџ‡·' },
+    { code: 'zh', name: 'Chinese', nativeName: 'дё­ж–‡', flag: 'рџ‡Ёрџ‡і' },
+    { code: 'ru', name: 'Russian', nativeName: 'Р СѓСЃСЃРєРёР№', flag: 'рџ‡·рџ‡є' },
   ];
 
   let currentLanguage = $state('en');
@@ -58,7 +58,7 @@
   description="Language selector component with search, flags, and native language names."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-language-selector p-4">
       <h1 class="text-lg font-semibold mb-4">LanguageSelector Component</h1>
 
@@ -105,4 +105,5 @@
     </div>
   {/snippet}
 </Story>
+
 

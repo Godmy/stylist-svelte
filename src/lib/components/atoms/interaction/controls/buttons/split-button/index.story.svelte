@@ -1,39 +1,59 @@
-<script context="module">
-	export const title = 'SplitButton';
-	export const category = 'Atoms/Controls/Buttons';
-</script>
-
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import SplitButton from './index.svelte';
 
-	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link' =
+	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link' | 'outline' =
 		'primary';
 	let size: 'sm' | 'md' | 'lg' = 'md';
-	let disabled = false;
-	let primaryLabel = 'Action';
+	let disabled: boolean = false;
+	let primaryLabel: string = 'Action';
+
+	const controls: ControlConfig[] = [
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link', 'outline'],
+			description: 'Visual style of the button'
+		},
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg'],
+			description: 'Size of the button'
+		},
+		{
+			name: 'disabled',
+			type: 'boolean',
+			defaultValue: false,
+			description: 'Whether the button is disabled'
+		}
+	];
 
 	// Example items for the dropdown
 	const exampleItems = [
 		{
 			label: 'Option 1',
-			onClick: () => alert('Option 1 clicked!')
+			onClick: () => console.log('Option 1 clicked!')
 		},
 		{
 			label: 'Option 2',
-			onClick: () => alert('Option 2 clicked!')
+			onClick: () => console.log('Option 2 clicked!')
 		},
 		{
 			label: 'Option 3',
-			onClick: () => alert('Option 3 clicked!'),
+			onClick: () => console.log('Option 3 clicked!'),
 			disabled: true
 		}
 	];
 
-	const primaryAction = () => alert('Primary action clicked!');
+	const primaryAction = () => console.log('Primary action clicked!');
 </script>
 
 <div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">Split Button</h1>
+	<h1 class="mb-4 text-lg font-semibold">Split Button Component</h1>
 
 	<div class="mb-6 rounded border p-4">
 		<h2 class="text-md mb-2 font-semibold">Interactive Split Button</h2>
@@ -60,6 +80,7 @@
 					<option value="success">Success</option>
 					<option value="warning">Warning</option>
 					<option value="danger">Danger</option>
+					<option value="outline">Outline</option>
 					<option value="ghost">Ghost</option>
 					<option value="link">Link</option>
 				</select>
@@ -134,6 +155,10 @@
 			<div class="flex flex-col items-center">
 				<SplitButton variant="danger" items={exampleItems} {primaryAction} primaryLabel="Danger" />
 				<span class="mt-1 text-xs">Danger</span>
+			</div>
+			<div class="flex flex-col items-center">
+				<SplitButton variant="outline" items={exampleItems} {primaryAction} primaryLabel="Outline" />
+				<span class="mt-1 text-xs">Outline</span>
 			</div>
 			<div class="flex flex-col items-center">
 				<SplitButton variant="ghost" items={exampleItems} {primaryAction} primaryLabel="Ghost" />

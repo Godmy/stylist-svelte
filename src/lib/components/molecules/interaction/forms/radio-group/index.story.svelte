@@ -1,55 +1,52 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import RadioGroup from './RadioGroup.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type RadioGroupStoryProps = {
-    label: string;
-    description: string;
-    value: string;
-    orientation: 'vertical' | 'horizontal';
-    disabled: boolean;
-    required: boolean;
-    showError: boolean;
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'label',
-      type: 'text',
-      defaultValue: 'Выберите план'
+      type: 'text' as ControlType,
+      defaultValue: 'Выберите план',
+      description: 'Label for the radio group'
     },
     {
       name: 'description',
-      type: 'text',
-      defaultValue: 'Определите подходящий тариф для команды.'
+      type: 'text' as ControlType,
+      defaultValue: 'Определите подходящий тариф для команды.',
+      description: 'Description for the radio group'
     },
     {
       name: 'value',
-      type: 'select',
+      type: 'select' as ControlType,
       defaultValue: 'pro',
-      options: ['starter', 'pro', 'enterprise']
+      options: ['starter', 'pro', 'enterprise'],
+      description: 'Selected value'
     },
     {
       name: 'orientation',
-      type: 'select',
+      type: 'select' as ControlType,
       defaultValue: 'vertical',
-      options: ['vertical', 'horizontal']
+      options: ['vertical', 'horizontal'],
+      description: 'Orientation of the radio group'
     },
     {
       name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the radio group is disabled'
     },
     {
       name: 'required',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether the radio group is required'
     },
     {
       name: 'showError',
-      type: 'boolean',
-      defaultValue: false
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether to show error state'
     }
   ];
 
@@ -74,28 +71,20 @@
 </script>
 
 <Story
-  id="atoms-radio-group"
-  title="RadioGroup"
-  component={RadioGroup}
-  category="Atoms"
-  description="Группа радиокнопок с описанием и поддержкой горизонтального режима."
-  tags={['form', 'choice']}
-  controls={controls}
+  {controls}
+  title="RadioGroup Component"
+  description="Группа радиокнопок с описанием и поддержкой горизонтального режима"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <RadioGroup
-      name="plan-choice"
-      label={props.label}
-      description={props.description}
-      options={options}
-      orientation={props.orientation}
-      value={props.value}
-      disabled={props.disabled}
-      required={props.required}
-      error={props.showError ? 'Пожалуйста, выберите тариф.' : ''}
-    />
-  {/snippet}
+  <RadioGroup
+    name="plan-choice"
+    label={controlValues.label}
+    description={controlValues.description}
+    options={options}
+    orientation={controlValues.orientation}
+    value={controlValues.value}
+    disabled={controlValues.disabled}
+    required={controlValues.required}
+    error={controlValues.showError ? 'Пожалуйста, выберите тариф.' : ''}
+  />
 </Story>
-
-
-

@@ -4,7 +4,7 @@
   import Input from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
   import Select from '$stylist/components/molecules/interaction/controls/selectors/selector/index.svelte';
   import { Button } from '$stylist/components/atoms';
-  import Tooltip from '$stylist/components/atoms/interaction/controls/buttons/tooltip/index.svelte';
+  import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
   type Currency = {
     code: string;
@@ -152,7 +152,7 @@
 <div class={`c-currency-converter p-4 border rounded-lg ${hostClass}`} {...restProps}>
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-medium text-gray-900">Currency Converter</h3>
-    <Tooltip text="Convert amounts between different currencies using real-time exchange rates">
+    <Tooltip content="Convert amounts between different currencies using real-time exchange rates">
       <Info class="h-5 w-5 text-gray-500" />
     </Tooltip>
   </div>

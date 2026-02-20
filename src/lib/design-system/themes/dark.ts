@@ -61,3 +61,50 @@ export const darkTheme: Theme = {
 	borderRadius: borderRadius as Record<string, string>, // Скругления границ
 	boxShadow: shadow as Record<string, string> // Тени
 };
+
+/**
+ * Design System Default Theme (Light)
+ * Базовая светлая тема дизайн-системы
+ */
+export const designSystemDefaultTheme: Theme = {
+	name: 'light',
+	colors: {
+		primary: blue,
+		secondary: slate,
+		success: teal,
+		warning: amber,
+		danger: red,
+		neutral: neutral,
+		background: {
+			primary: '#ffffff',
+			secondary: slate[50],
+			tertiary: slate[100]
+		},
+		text: {
+			primary: slate[900],
+			secondary: slate[600],
+			tertiary: slate[500],
+			inverse: '#ffffff'
+		},
+		border: {
+			primary: slate[300],
+			secondary: slate[200],
+			tertiary: slate[100]
+		}
+	},
+	spacing,
+	typography: {
+		fontFamily: fontFamily.sans,
+		fontSize: fontSize as Record<string, string>,
+		fontWeight: fontWeight as Record<string, string>,
+		lineHeight: lineHeight as Record<string, string>
+	},
+	borderRadius: borderRadius as Record<string, string>,
+	boxShadow: shadow as Record<string, string>
+};
+
+/**
+ * Design System Dark Theme
+ * Альтернативное экспортируемое имя для darkTheme
+ */
+export const designSystemDarkTheme = darkTheme;

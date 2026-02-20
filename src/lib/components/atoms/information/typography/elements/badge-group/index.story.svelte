@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import BadgeGroup from './index.svelte';
@@ -33,7 +33,7 @@
 	tags={['badge', 'tag', 'label']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Badge Group</h2>
 			<div class="mx-auto max-w-md">
@@ -53,3 +53,4 @@
 		</div>
 	{/snippet}
 </Story>
+

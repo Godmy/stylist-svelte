@@ -20,5 +20,7 @@ export type CanvasImageEditorProps = {
   contrast?: number;   // 0-200, where 100 is normal
   saturation?: number; // 0-200, where 100 is normal
   hue?: number;        // 0-360, where 0 is normal
+  variant?: 'default' | 'minimal' | 'advanced';
+  size?: 'sm' | 'md' | 'lg';
   class?: string;
 } & HTMLCanvasAttributes;

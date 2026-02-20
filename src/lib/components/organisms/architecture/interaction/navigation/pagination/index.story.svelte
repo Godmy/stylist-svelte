@@ -1,69 +1,66 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Pagination from './index.svelte';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      {
-        name: 'currentPage',
-        type: 'number',
-        defaultValue: 1,
-        min: 1
-      },
-      {
-        name: 'totalPages',
-        type: 'number',
-        defaultValue: 10,
-        min: 1,
-        max: 100
-      },
-      {
-        name: 'showFirstLast',
-        type: 'boolean',
-        defaultValue: true
-      }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
-
-  type Props = {
-    currentPage: number;
-    totalPages: number;
-    showFirstLast: boolean;
-  };
+  const controls = [
+    {
+      name: 'currentPage',
+      type: CONTROL_TYPES.SELECT,
+      options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      defaultValue: 1
+    },
+    {
+      name: 'totalPages',
+      type: CONTROL_TYPES.SELECT,
+      options: [5, 10, 15, 20],
+      defaultValue: 10
+    },
+    {
+      name: 'showFirstLast',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showPrevNext',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showDots',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'maxVisible',
+      type: CONTROL_TYPES.SELECT,
+      options: [3, 5, 7, 9],
+      defaultValue: 5
+    }
+  ];
 </script>
 
-<div class="sb-organisms-pagination">
-  <Story
-    {id}
-    {title}
-    component={Pagination}
-    category="Organisms"
-    description="A component for navigating through multiple pages of content."
-    tags={['navigation', 'pagination', 'paging']}
-    controls={controls}
-  >
-    {#snippet children(props: Props)}
-      <div class="p-6">
-        <h2 class="text-xl font-semibold mb-6">Pagination</h2>
-        <div class="max-w-md mx-auto">
-          <Pagination
-            currentPage={props.currentPage}
-            totalPages={props.totalPages}
-            showFirstLast={props.showFirstLast}
-          />
-        </div>
+<Story
+  {controls}
+  title="Pagination"
+  category="Organisms/Interaction/Navigation"
+  description="A component for navigating through multiple pages of content."
+  tags={['pagination', 'navigation', 'pages', 'paging']}
+>
+  {#snippet children(props)}
+    <div class="p-6">
+      <div class="max-w-md mx-auto">
+        <Pagination
+          currentPage={props.currentPage}
+          totalPages={props.totalPages}
+          showFirstLast={props.showFirstLast}
+          showPrevNext={props.showPrevNext}
+          showDots={props.showDots}
+          maxVisible={props.maxVisible}
+        />
       </div>
-    {/snippet}
-  </Story>
-</div>
+    </div>
+  {/snippet}
+</Story>
 
 

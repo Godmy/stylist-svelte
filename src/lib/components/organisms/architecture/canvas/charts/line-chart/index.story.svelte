@@ -1,20 +1,8 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import LineChart from './index.svelte';
   import type { ILineChartProps } from './types';
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = []
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
   // Define sample data for the chart
   const data: ILineChartProps['data'] = [
@@ -46,171 +34,94 @@
     }
   ];
 
-  let titleState = $state('Sales & Profit Chart');
-  let width = $state(600);
-  let height = $state(400);
-  let showTooltip = $state(true);
-  let showLegend = $state(true);
-  let colorScheme: ILineChartProps['colorScheme'] = $state('default');
-  let maxValue = $state(100);
-  let showAxis = $state(true);
-  let smooth = $state(true);
-  let strokeWidth = $state(2);
-  let variant: ILineChartProps['variant'] = $state('default');
-  let size: ILineChartProps['size'] = $state('md');
+  const controls = [
+    {
+      name: 'title',
+      type: CONTROL_TYPES.TEXT,
+      defaultValue: 'Sales & Profit Chart'
+    },
+    {
+      name: 'width',
+      type: CONTROL_TYPES.SELECT,
+      options: [400, 500, 600, 700, 800],
+      defaultValue: 600
+    },
+    {
+      name: 'height',
+      type: CONTROL_TYPES.SELECT,
+      options: [300, 400, 500, 600],
+      defaultValue: 400
+    },
+    {
+      name: 'showTooltip',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showLegend',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showAxis',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'smooth',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'colorScheme',
+      type: CONTROL_TYPES.SELECT,
+      options: ['default', 'warm', 'cool', 'neutral'],
+      defaultValue: 'default'
+    },
+    {
+      name: 'variant',
+      type: CONTROL_TYPES.SELECT,
+      options: ['default', 'minimal', 'elegant', 'bold'],
+      defaultValue: 'default'
+    },
+    {
+      name: 'size',
+      type: CONTROL_TYPES.SELECT,
+      options: ['sm', 'md', 'lg'],
+      defaultValue: 'md'
+    }
+  ];
 
   let handlePointClick = (point: any, series: any) => {
     console.log('Point clicked:', point, series);
   };
 </script>
 
-<div class="sb-organisms-line-chart">
-  <Story
-    {id}
-    {title}
-    {description}
-    component={LineChart}
-    category="Organisms"
-    controls={controls}
-  >
-    {#snippet children(props: {})}
-      <div class="p-8">
-        <h1>LineChart Story</h1>
-
-        <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label for="title-input" class="block mb-1">Title:</label>
-            <input
-              id="title-input"
-              type="text"
-              bind:value={titleState}
-              class="border rounded p-1 w-full"
-            />
-          </div>
-
-          <div>
-            <label for="width-input" class="block mb-1">Width: {width}</label>
-            <input
-              id="width-input"
-              type="range"
-              min="300"
-              max="800"
-              bind:value={width}
-              class="w-full"
-            />
-          </div>
-
-          <div>
-            <label for="height-input" class="block mb-1">Height: {height}</label>
-            <input
-              id="height-input"
-              type="range"
-              min="200"
-              max="600"
-              bind:value={height}
-              class="w-full"
-            />
-          </div>
-
-          <div>
-            <label for="maxvalue-input" class="block mb-1">Max Value: {maxValue}</label>
-            <input
-              id="maxvalue-input"
-              type="number"
-              bind:value={maxValue}
-              class="border rounded p-1 w-full"
-              min="0"
-            />
-          </div>
-
-          <div class="flex items-center gap-2">
-            <input
-              type="checkbox"
-              bind:checked={showTooltip}
-              id="showTooltip"
-            />
-            <label for="showTooltip">Show Tooltip</label>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <input
-              type="checkbox"
-              bind:checked={showLegend}
-              id="showLegend"
-            />
-            <label for="showLegend">Show Legend</label>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <input
-              type="checkbox"
-              bind:checked={showAxis}
-              id="showAxis"
-            />
-            <label for="showAxis">Show Axis</label>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <input
-              type="checkbox"
-              bind:checked={smooth}
-              id="smooth"
-            />
-            <label for="smooth">Smooth Lines</label>
-          </div>
-
-          <div>
-            <label for="strokeWidth-input" class="block mb-1">Stroke Width: {strokeWidth}</label>
-            <input
-              id="strokeWidth-input"
-              type="range"
-              min="1"
-              max="5"
-              bind:value={strokeWidth}
-              class="w-full"
-            />
-          </div>
-
-          <div>
-            <label for="colorScheme-select" class="block mb-1">Color Scheme:</label>
-            <select id="colorScheme-select" bind:value={colorScheme} class="border rounded p-1 w-full">
-              <option value="default">Default</option>
-              <option value="warm">Warm</option>
-              <option value="cool">Cool</option>
-              <option value="neutral">Neutral</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="variant-select" class="block mb-1">Variant:</label>
-            <select id="variant-select" bind:value={variant} class="border rounded p-1 w-full">
-              <option value="default">Default</option>
-              <option value="minimal">Minimal</option>
-              <option value="elegant">Elegant</option>
-              <option value="bold">Bold</option>
-            </select>
-          </div>
-        </div>
-
-        <LineChart
-          {data}
-          title={titleState}
-          {width}
-          {height}
-          {showTooltip}
-          {showLegend}
-          {colorScheme}
-          {maxValue}
-          {showAxis}
-          {smooth}
-          {strokeWidth}
-          {variant}
-          {size}
-          onPointClick={handlePointClick}
-        />
-      </div>
-    {/snippet}
-  </Story>
-</div>
+<Story
+  {controls}
+  title="LineChart"
+  category="Organisms/Charts"
+  description="Interactive line chart with customizable appearance and data."
+  tags={['chart', 'line', 'data', 'visualization']}
+>
+  {#snippet children(props)}
+    <LineChart
+      {data}
+      title={props.title}
+      width={props.width}
+      height={props.height}
+      showTooltip={props.showTooltip}
+      showLegend={props.showLegend}
+      colorScheme={props.colorScheme}
+      maxValue={100}
+      showAxis={props.showAxis}
+      smooth={props.smooth}
+      strokeWidth={2}
+      variant={props.variant}
+      size={props.size}
+      onPointClick={handlePointClick}
+    />
+  {/snippet}
+</Story>
 
 

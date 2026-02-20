@@ -39,13 +39,8 @@ export interface ToggleProps extends ToggleInputProps {
 	toggleSize?: ToggleSize;
 }
 
-export interface SwitchProps extends ToggleInputProps {
-	id: string;
-	label?: string;
-	description?: string;
-	switchSize?: ToggleSize;
-	required?: boolean;
-}
+// Re-export from source file to avoid duplicates
+export type { SwitchProps } from './switch';
 
 export interface CheckboxProps extends ToggleInputProps {
 	id?: string;

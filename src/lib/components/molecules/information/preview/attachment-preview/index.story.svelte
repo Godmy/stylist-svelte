@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AttachmentPreview from './index.svelte';
@@ -38,7 +38,7 @@
   tags={['file', 'preview', 'attachment']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Attachment Preview</h2>
       <div class="max-w-md mx-auto">
@@ -54,5 +54,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

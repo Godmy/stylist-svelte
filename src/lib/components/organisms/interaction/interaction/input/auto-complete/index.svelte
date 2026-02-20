@@ -1,10 +1,25 @@
 ﻿<script lang="ts">
   import { Search } from 'lucide-svelte';
-  import type { AutoCompleteOption, AutoCompleteProps } from '$stylist/design-system/props/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/design-system/props/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
 
+  interface ExtendedAutoCompleteProps {
+    options?: AutoCompleteOption[];
+    placeholder?: string;
+    value?: string;
+    class?: string;
+    inputClass?: string;
+    listClass?: string;
+    itemClass?: string;
+    selectedClass?: string;
+    onInput?: (value: string) => void;
+    onSelect?: (option: AutoCompleteOption) => void;
+    debounce?: number;
+    showAllSuggestions?: boolean;
+  }
+
   let {
-    options,
+    options = [],
     placeholder = 'Search...',
     value = '',
     class: className = '',
@@ -17,13 +32,12 @@
     debounce = 250,
     showAllSuggestions = false,
     ...restProps
-  }: AutoCompleteProps = $props();
+  }: ExtendedAutoCompleteProps = $props();
 
   let filteredOptions = $state<AutoCompleteOption[]>([]);
   let isOpen = $state(false);
   let highlightedIndex = $state(-1);
   let inputValue = $state(value);
-  let searchTimeout = $state<number | null>(null);
 
   $effect(() => {
     if (inputValue) {
@@ -38,12 +52,9 @@
   function handleInput(event: Event) {
     const target = event.target as HTMLInputElement;
     inputValue = target.value;
-    if (searchTimeout) clearTimeout(searchTimeout);
-    searchTimeout = window.setTimeout(() => {
-      onInput?.(inputValue, event);
-      isOpen = true;
-      highlightedIndex = -1;
-    }, debounce) as unknown as number;
+    onInput?.(inputValue);
+    isOpen = true;
+    highlightedIndex = -1;
   }
 
   function handleSelect(option: AutoCompleteOption) {

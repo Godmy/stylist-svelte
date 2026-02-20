@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CopyableCodeBlock from './index.svelte';
@@ -40,7 +40,7 @@ console.log(message);`;
   description="A code block component with copy functionality."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-copyable-code-block p-4">
       <h1 class="text-lg font-semibold mb-4">CopyableCodeBlock Component</h1>
 
@@ -97,5 +97,6 @@ print(result)`}
     </div>
   {/snippet}
 </Story>
+
 
 

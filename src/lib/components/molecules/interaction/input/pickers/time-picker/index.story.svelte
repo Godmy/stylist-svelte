@@ -1,57 +1,46 @@
 <script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import TimePicker from './index.svelte';
+  import Story from '$stylist/design-system/playground/Story.svelte';
+  import TimePicker from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-    type Props = {
-        value?: string;
-        disabled?: boolean;
-        class?: string;
-        dropdownClass?: string;
-        showSeconds?: boolean;
-        onValueChange?: (time: string) => void;
-    };
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'value',
-            type: 'text',
-            defaultValue: '14:30'
-        },
-        {
-            name: 'showSeconds',
-            type: 'boolean',
-            defaultValue: false
-        },
-        {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false
-        }
-    ];
-
-    function handleTimeChange(time: string) {
-        console.log('Time changed to:', time);
+  const controls = [
+    {
+      name: 'value',
+      type: 'text' as ControlType,
+      defaultValue: '14:30',
+      description: 'Selected time value'
+    },
+    {
+      name: 'showSeconds',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether to show seconds selector'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the time picker is disabled'
     }
+  ];
+
+  function handleTimeChange(time: string) {
+    console.log('Time changed to:', time);
+  }
 </script>
 
 <Story
-    id="molecules-time-picker"
-    title="TimePicker"
-    component={TimePicker}
-    category="Molecules"
-    description="Time picker component with customizable options"
-    controls={controls}
+  {controls}
+  title="TimePicker Component"
+  description="Time picker component with customizable options"
+  let:controlValues
 >
-    {#snippet children(props: Props)}
-        <div class="p-4">
-            <TimePicker
-                value={props.value || '14:30'}
-                showSeconds={props.showSeconds}
-                disabled={props.disabled}
-                onValueChange={handleTimeChange}
-            />
-        </div>
-    {/snippet}
+  <div class="p-4">
+    <TimePicker
+      value={controlValues.value}
+      showSeconds={controlValues.showSeconds}
+      disabled={controlValues.disabled}
+      onValueChange={handleTimeChange}
+    />
+  </div>
 </Story>
-

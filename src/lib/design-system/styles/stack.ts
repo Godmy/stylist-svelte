@@ -24,6 +24,24 @@ export class StackStyleManager {
 	}
 
 	static getStackGap(spacing: string | number): string {
-		return typeof spacing === 'number' ? `${spacing}px` : spacing;
+		// If it's a number, return as pixels
+		if (typeof spacing === 'number') return `${spacing}px`;
+		
+		// If it's one of our predefined size tokens, map to corresponding values
+		switch (spacing) {
+			case 'xs':
+				return '0.25rem'; // 4px
+			case 'sm':
+				return '0.5rem';  // 8px
+			case 'md':
+				return '1rem';    // 16px
+			case 'lg':
+				return '1.5rem';  // 24px
+			case 'xl':
+				return '2rem';    // 32px
+			default:
+				// If it's not a recognized token, return as-is
+				return spacing;
+		}
 	}
 }

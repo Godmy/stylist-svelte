@@ -10,7 +10,7 @@
     Filter,
     Search
   } from 'lucide-svelte';
-  import PostCard from '../../../../molecules/information/card/post-card/PostCard.svelte';
+  import PostCard from '../../../../../molecules/information/cards/post-card/index.svelte';
   // Removed: import type { Post } from '../post-card/PostCard.svelte';
 
   // Defined Post type locally

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import SearchSuggestion from './index.svelte';
@@ -44,7 +44,7 @@
     description="Component for search suggestions"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <SearchSuggestion
                 suggestions={props.suggestions || defaultSuggestions}
@@ -54,6 +54,7 @@
         </div>
     {/snippet}
 </Story>
+
 
 
 

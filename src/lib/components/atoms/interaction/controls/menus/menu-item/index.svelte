@@ -1,103 +1,68 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
   import { Icon } from '$stylist/components/atoms';
+  import { createMenuItemState } from '$stylist/design-system/models/menu-item.svelte';
+  import type { MenuItemProps } from '$stylist/design-system/props/menu-item';
+  import type { HTMLAttributes } from 'svelte/elements';
 
-  type Variant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
-  
-  type BaseComponentProps = {
-    class?: string;
-    'data-testid'?: string;
-  };
+  type Props = MenuItemProps & HTMLAttributes<HTMLElement>;
+  let props: Props = $props();
 
-  type Props = BaseComponentProps & {
-    active?: boolean;
-    variant?: Variant;
-    href?: string;
-    icon?: string;
-    disabled?: boolean;
-    external?: boolean;
-    onValueInput?: (event: MouseEvent) => void;
-    onValueChange?: (event: MouseEvent) => void;
-    /** @deprecated use onValueChange */
-    onClick?: (event: MouseEvent) => void;
-    children?: Snippet;
-  } & HTMLAttributes<HTMLElement>;
+  const state = createMenuItemState(props);
 
-  let { 
-    active = false, 
-    variant = 'default',
-    href,
-    icon,
-    disabled = false,
-    external = false,
-    children,
-    class: className = '',
-    onValueInput,
-    onValueChange,
-    onClick = (event: MouseEvent) => {},
-    ...restProps
-  }: Props = $props();
-  
-  let computedClass = $derived(
-    `menu-item flex items-center px-4 py-2 text-sm font-medium rounded transition-colors ${
-      disabled 
-        ? 'text-gray-400 cursor-not-allowed' 
-        : active 
-          ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-100' 
-          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700'
-    } ${className}`
-  );
-  
   const handleClick = (e: MouseEvent) => {
-    if (disabled) {
+    if (state.disabled) {
       e.preventDefault();
       return;
     }
-    
-    onValueInput?.(e);
-    onValueChange?.(e);
-    onClick(e);
+
+    props.onValueInput?.(e);
+    props.onValueChange?.(e);
+    props.onClick?.(e);
   };
+
+  const restProps = $derived(
+    (() => {
+      const { class: _class, children: _children, ...rest } = props;
+      return rest;
+    })()
+  );
 </script>
 
-{#if href}
-  <a 
-    href={href} 
-    class={computedClass}
-    target={external ? '_blank' : undefined}
-    rel={external ? 'noopener noreferrer' : undefined}
-    aria-current={active ? 'page' : undefined}
+{#if state.href}
+  <a
+    href={state.href}
+    class={state.containerClasses}
+    target={state.external ? '_blank' : undefined}
+    rel={state.external ? 'noopener noreferrer' : undefined}
+    aria-current={state.active ? 'page' : undefined}
     role="menuitem"
     onclick={handleClick}
     {...restProps}
   >
-    {#if icon}
-      <Icon name={icon} class="mr-2 h-4 w-4" aria-hidden="true" />
+    {#if state.icon}
+      <Icon name={state.icon} class="mr-2 h-4 w-4" aria-hidden="true" />
     {/if}
-    {#if children}
-      {@render children()}
+    {#if state.children}
+      {@render state.children()}
     {/if}
-    {#if external}
+    {#if state.external}
       <Icon name="external-link" class="ml-1 h-4 w-4" aria-hidden="true" />
     {/if}
   </a>
 {:else}
-  <button 
-    class={computedClass}
-    disabled={disabled}
-    aria-current={active ? 'true' : undefined}
+  <button
+    class={state.containerClasses}
+    disabled={state.disabled}
+    aria-current={state.active ? 'true' : undefined}
     role="menuitem"
     onclick={handleClick}
     {...restProps}
   >
-    {#if icon}
-      <Icon name={icon} class="mr-2 h-4 w-4" aria-hidden="true" />
+    {#if state.icon}
+      <Icon name={state.icon} class="mr-2 h-4 w-4" aria-hidden="true" />
     {/if}
-    {#if children}
-      {@render children()}
+    {#if state.children}
+      {@render state.children()}
     {/if}
   </button>
 {/if}
-
-

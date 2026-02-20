@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductWishlist from './index.svelte';
@@ -25,7 +25,7 @@
   tags={['wishlist', 'product', 'cart']}
   controls={controls}
 >
-  {#snippet children(props: ProductWishlistStoryProps)}
+  {#snippet children(props)}
     <div class="sb-molecules-product-wishlist p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductWishlist Story</h2>
       <ProductWishlist
@@ -53,3 +53,4 @@
     </div>
   {/snippet}
 </Story>
+

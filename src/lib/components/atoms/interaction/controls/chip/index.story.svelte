@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Chip from './index.svelte';
@@ -7,7 +7,7 @@
 		{
 			name: 'label',
 			type: 'text',
-			defaultValue: 'Пример чипа'
+			defaultValue: 'РџСЂРёРјРµСЂ С‡РёРїР°'
 		},
 		{
 			name: 'variant',
@@ -39,11 +39,11 @@
 	title="Chip"
 	category="Atoms"
 	component={Chip}
-	description="Компактный компонент для отображения небольших фрагментов информации"
+	description="РљРѕРјРїР°РєС‚РЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅРµР±РѕР»СЊС€РёС… С„СЂР°РіРјРµРЅС‚РѕРІ РёРЅС„РѕСЂРјР°С†РёРё"
 	tags={['tag', 'label', 'badge', 'chip']}
 	{controls}
 >
-	{#snippet children(props: Record<string, any>)}
+	{#snippet children(props)}
 		<Chip
 			label={props.label}
 			variant={props.variant}
@@ -53,6 +53,7 @@
 		/>
 	{/snippet}
 </Story>
+
 
 
 

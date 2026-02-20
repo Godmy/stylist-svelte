@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Popover from './index.svelte';
@@ -38,7 +38,7 @@
   tags={['popover', 'tooltip', 'overlay']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="p-8 bg-gray-50 rounded-lg flex justify-center items-center h-48">
       <h2 class="text-xl font-bold mb-4">Popover Story</h2>
       <Popover 
@@ -57,6 +57,7 @@
     </div>
   {/snippet}
 </Story>
+
 
 
 

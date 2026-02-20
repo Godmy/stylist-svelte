@@ -1,11 +1,25 @@
-<script lang="ts">
+﻿<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import { createRawSnippet } from 'svelte';
+
   import WidgetContainer from './index.svelte';
 
   type Dataset = 'support' | 'growth' | 'ops';
 
+  const controls: ControlConfig[] = [
+    { name: 'title', type: 'text', defaultValue: 'Operations overview' },
+    { name: 'subtitle', type: 'text', defaultValue: 'Live metrics for support team' },
+    { name: 'collapsible', type: 'boolean', defaultValue: true },
+    { name: 'initiallyCollapsed', type: 'boolean', defaultValue: false },
+    { name: 'resizable', type: 'boolean', defaultValue: true },
+    { name: 'draggable', type: 'boolean', defaultValue: true },
+    { name: 'maximizable', type: 'boolean', defaultValue: true },
+    { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' }
+  ];
+
   let title = $state('Operations overview');
-  let subtitle = $state('Живые метрики отдела сопровождения');
+  let subtitle = $state('Live metrics for support team');
   let collapsible = $state(true);
   let initiallyCollapsed = $state(false);
   let resizable = $state(true);
@@ -27,19 +41,19 @@
 
     return {
       render: () => `<div class="space-y-4">
-      <p class="text-sm text-gray-500">Dataset: ${dataset}</p>
+      <p class="text-sm text-[--color-text-secondary]">Dataset: ${dataset}</p>
       <div class="grid grid-cols-2 gap-3">
-        <div class="rounded-lg border border-gray-100 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500">Tickets</p>
-          <p class="text-2xl font-semibold text-gray-900">${tickets}</p>
+        <div class="rounded-lg border border-[--color-border-primary] bg-[--color-background-secondary] p-3">
+          <p class="text-xs text-[--color-text-secondary]">Tickets</p>
+          <p class="text-2xl font-semibold text-[--color-text-primary]">${tickets}</p>
         </div>
-        <div class="rounded-lg border border-gray-100 bg-gray-50 p-3">
-          <p class="text-xs text-gray-500">SLA</p>
-          <p class="text-2xl font-semibold text-gray-900">${slaValue}%</p>
+        <div class="rounded-lg border border-[--color-border-primary] bg-[--color-background-secondary] p-3">
+          <p class="text-xs text-[--color-text-secondary]">SLA</p>
+          <p class="text-2xl font-semibold text-[--color-text-primary]">${slaValue}%</p>
         </div>
       </div>
-      <div class="rounded-lg border border-dashed border-gray-200 p-3 text-sm text-gray-600">
-        Δ за неделю: ${trendSign}${trendValue}%
+      <div class="rounded-lg border border-dashed border-[--color-border-primary] p-3 text-sm text-[--color-text-secondary]">
+        Weekly change: ${trendSign}${trendValue}%
       </div>
     </div>`
     };
@@ -48,153 +62,103 @@
   let actionsSnippet = $derived(showActions
     ? createRawSnippet(() => {
         return {
-          render: () => `<div class="flex items-center gap-2 text-gray-500">
-          <button class="rounded-md border border-gray-200 px-2 py-1 text-xs font-medium hover:border-blue-500">Refresh</button>
-          <button class="rounded-md border border-gray-200 px-2 py-1 text-xs font-medium hover:border-blue-500">Export</button>
+          render: () => `<div class="flex items-center gap-2 text-[--color-text-secondary]">
+          <button class="rounded-md border border-[--color-border-primary] px-2 py-1 text-xs font-medium hover:border-[--color-primary-600]">Refresh</button>
+          <button class="rounded-md border border-[--color-border-primary] px-2 py-1 text-xs font-medium hover:border-[--color-primary-600]">Export</button>
         </div>`
         };
       })
     : undefined);
 </script>
 
-<div class="space-y-6 p-6">
-  <div>
-    <h1 class="text-2xl font-semibold text-gray-900">WidgetContainer</h1>
-    <p class="text-gray-600">
-      Обёртка для мини-приложений с перетаскиванием, сворачиванием и кастомными экшенами. Настройте состояние и визуальный
-      контент через панель справа.
-    </p>
-  </div>
+<Story
+  id="molecules-widget-container"
+  title="Widget Container"
+  component={WidgetContainer}
+  category="Molecules"
+  description="Container for mini-applications with drag, collapse, and custom actions."
+  controls={controls}
+>
+  {#snippet children(props)}
+    <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Interactive Widget Container Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Container for mini-applications with drag, collapse, and custom actions.</p>
 
-  <div class="grid gap-6 lg:grid-cols-[2fr_1fr]">
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-      <WidgetContainer
-        {title}
-        {subtitle}
-        content={contentSnippet}
-        actions={actionsSnippet}
-        {collapsible}
-        {initiallyCollapsed}
-        {resizable}
-        {draggable}
-        {maximizable}
-        {size}
-        class="max-w-2xl mx-auto"
-      />
-    </div>
-
-    <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-      <h2 class="text-lg font-semibold text-gray-900">Настройки</h2>
-
-      <div>
-        <label for="widget-title" class="block text-sm font-medium text-gray-700">Заголовок</label>
-        <input
-          id="widget-title"
-          type="text"
-          bind:value={title}
-          class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-        />
-      </div>
-
-      <div>
-        <label for="widget-subtitle" class="block text-sm font-medium text-gray-700">Подзаголовок</label>
-        <input
-          id="widget-subtitle"
-          type="text"
-          bind:value={subtitle}
-          class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-        />
-      </div>
-
-      <div class="grid gap-3 sm:grid-cols-2">
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={collapsible} class="rounded border-gray-300" />
-          Сворачиваемый
-        </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={initiallyCollapsed} class="rounded border-gray-300" />
-          Стартует свернутым
-        </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={resizable} class="rounded border-gray-300" />
-          Позволяет ресайз
-        </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={draggable} class="rounded border-gray-300" />
-          Перетаскивание
-        </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={maximizable} class="rounded border-gray-300" />
-          Максимизация
-        </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showActions} class="rounded border-gray-300" />
-          Кнопки действий
-        </label>
-      </div>
-
-      <div class="grid gap-3 sm:grid-cols-2">
-        <div>
-          <label for="widget-size" class="block text-sm font-medium text-gray-700">Размер</label>
-          <select
-            id="widget-size"
-            bind:value={size}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-          >
-            <option value="sm">Small</option>
-            <option value="md">Medium</option>
-            <option value="lg">Large</option>
-          </select>
-        </div>
-        <div>
-          <label for="widget-dataset" class="block text-sm font-medium text-gray-700">Датасет</label>
-          <select
-            id="widget-dataset"
-            bind:value={selectedDataset}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-          >
-            <option value="support">Support</option>
-            <option value="growth">Growth</option>
-            <option value="ops">Operations</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="grid gap-3 sm:grid-cols-3">
-        <div>
-          <label for="widget-tickets" class="block text-sm font-medium text-gray-700">Tickets</label>
-          <input
-            id="widget-tickets"
-            type="number"
-            min="0"
-            bind:value={ticketVolume}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label for="widget-sla" class="block text-sm font-medium text-gray-700">SLA %</label>
-          <input
-            id="widget-sla"
-            type="number"
-            min="0"
-            max="100"
-            bind:value={sla}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
-          />
-        </div>
-        <div>
-          <label for="widget-trend" class="block text-sm font-medium text-gray-700">Δ %</label>
-          <input
-            id="widget-trend"
-            type="number"
-            min="-100"
-            max="100"
-            bind:value={trend}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+        <div class="mt-6">
+          <WidgetContainer
+            title={props.title}
+            subtitle={props.subtitle}
+            content={contentSnippet}
+            actions={actionsSnippet}
+            collapsible={props.collapsible}
+            initiallyCollapsed={props.initiallyCollapsed}
+            resizable={props.resizable}
+            draggable={props.draggable}
+            maximizable={props.maximizable}
+            size={props.size}
+            class="max-w-2xl mx-auto"
           />
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Widget Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different widget configurations with various properties and states.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Small Widget</p>
+            <WidgetContainer
+              title="Small Widget"
+              subtitle="Compact version"
+              content={contentSnippet}
+              collapsible={true}
+              initiallyCollapsed={false}
+              resizable={false}
+              draggable={false}
+              maximizable={false}
+              size="sm"
+            />
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Initially Collapsed</p>
+            <WidgetContainer
+              title="Collapsed Widget"
+              subtitle="Starts collapsed"
+              content={contentSnippet}
+              collapsible={true}
+              initiallyCollapsed={true}
+              resizable={true}
+              draggable={true}
+              maximizable={true}
+              size="md"
+            />
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Large Widget</p>
+            <WidgetContainer
+              title="Large Widget"
+              subtitle="Expanded version"
+              content={contentSnippet}
+              collapsible={true}
+              initiallyCollapsed={false}
+              resizable={true}
+              draggable={true}
+              maximizable={true}
+              size="lg"
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+  {/snippet}
+</Story>
+
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import AlertPanel from './index.svelte';
@@ -44,13 +44,14 @@
 	description="A panel component to display important alert messages."
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">AlertPanel Story</h2>
 			<AlertPanel {...props} />
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

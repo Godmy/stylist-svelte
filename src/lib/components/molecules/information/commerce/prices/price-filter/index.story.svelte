@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PriceFilter from './index.svelte';
@@ -48,7 +48,7 @@
   description="A price filter component with dual range slider."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-price-filter p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PriceFilter Story</h2>
       <PriceFilter
@@ -62,5 +62,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

@@ -1,5 +1,24 @@
-<script lang="ts">
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
+
   import ImageGallery from './index.svelte';
+
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showThumbnails', type: 'boolean', defaultValue: true },
+      { name: 'autoPlay', type: 'boolean', defaultValue: false },
+      { name: 'showCaptions', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
   type ImageItem = {
     id: string;
@@ -8,7 +27,7 @@
     caption: string;
   };
 
-  let images: ImageItem[] = [
+  const images: ImageItem[] = [
     {
       id: '1',
       src: 'https://placehold.co/800x600/3b82f6/white?text=Image+1',
@@ -40,88 +59,64 @@
       caption: 'Forest trail'
     }
   ];
-
-  let showThumbnails: boolean = true;
-  let autoPlay: boolean = false;
-  let autoPlayInterval: number = 3000;
-  let showCaptions: boolean = true;
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">ImageGallery Component</h1>
+<Story
+  {id}
+  {title}
+  {description}
+  component={ImageGallery}
+  category="Organisms"
+  controls={controls}
+>
+  {#snippet children(props)}
+    <section class="sb-organisms-image-gallery grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Image Gallery Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive image gallery with customizable options.</p>
 
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive ImageGallery</h2>
-    <div class="max-w-2xl mx-auto">
-      <ImageGallery 
-        {images}
-        {showThumbnails}
-        {autoPlay}
-        {autoPlayInterval}
-        {showCaptions}
-      />
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      <div class="flex items-end">
-        <label for="show-thumbnails" class="flex items-center gap-1">
-          <input id="show-thumbnails" type="checkbox" bind:checked={showThumbnails} />
-          Show Thumbnails
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="auto-play" class="flex items-center gap-1">
-          <input id="auto-play" type="checkbox" bind:checked={autoPlay} />
-          Auto Play
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="show-captions" class="flex items-center gap-1">
-          <input id="show-captions" type="checkbox" bind:checked={showCaptions} />
-          Show Captions
-        </label>
-      </div>
-
-      <div>
-        <label for="auto-play-interval" class="block text-sm mb-1">Interval (ms):</label>
-        <input
-          id="auto-play-interval"
-          type="number"
-          bind:value={autoPlayInterval}
-          class="border rounded p-1 w-20"
-          min="1000"
-          max="10000"
-          step="500"
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">ImageGallery Variations</h2>
-    <div class="space-y-4">
-      <div>
-        <h3 class="text-sm font-medium mb-2">Without Thumbnails</h3>
-        <div class="max-w-2xl mx-auto">
-          <ImageGallery 
+        <div class="mt-6">
+          <ImageGallery
             {images}
-            showThumbnails={false}
-            showCaptions={true}
+            showThumbnails={props.showThumbnails}
+            autoPlay={props.autoPlay}
+            showCaptions={props.showCaptions}
           />
         </div>
       </div>
-      <div>
-        <h3 class="text-sm font-medium mb-2">Without Captions</h3>
-        <div class="max-w-2xl mx-auto">
-          <ImageGallery 
-            {images}
-            showThumbnails={true}
-            showCaptions={false}
-          />
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Image Gallery Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different image gallery configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Thumbnails</p>
+            <div>
+              <ImageGallery
+                {images}
+                showThumbnails={false}
+                showCaptions={true}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Captions</p>
+            <div>
+              <ImageGallery
+                {images}
+                showThumbnails={true}
+                showCaptions={false}
+              />
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+  {/snippet}
+</Story>

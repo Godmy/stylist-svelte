@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$lib/playground';
     import type { ControlConfig } from '$lib/playground';
     import StoreLocator, { type Store, type Props } from './index.svelte';
@@ -62,7 +62,7 @@
     description="Store locator component for finding nearby stores"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <StoreLocator
                 stores={defaultStores}

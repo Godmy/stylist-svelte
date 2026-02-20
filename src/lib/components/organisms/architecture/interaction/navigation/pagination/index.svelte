@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ChevronLeft, ChevronRight } from 'lucide-svelte';
+  import { IconChevron } from '$stylist/components/atoms';
   import { PaginationStyleManager } from '$stylist/design-system/styles';
   import type { PaginationProps } from '$stylist/design-system/props';
 
@@ -20,7 +20,7 @@
     disabledButtonClass = '',
     onPageChange,
     ...restProps
-  }: PaginationProps = $props();
+  }: PaginationProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Calculate visible page range
   function getVisiblePages() {
@@ -71,16 +71,25 @@
   function goToNext() {
     goToPage(currentPage + 1);
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(PaginationStyleManager.getHostClasses(className));
+  const navClass = $derived(PaginationStyleManager.getNavClasses());
+  const buttonClassComputed = $derived(PaginationStyleManager.getButtonClasses(false, false, buttonClass));
+  const activeButtonClassComputed = $derived(PaginationStyleManager.getButtonClasses(true, false, activeButtonClass));
+  const disabledButtonClassComputed = $derived(PaginationStyleManager.getButtonClasses(false, true, disabledButtonClass));
+  const iconButtonClass = $derived(PaginationStyleManager.getIconButtonClasses(false, false, buttonClass));
+  const dotsClass = $derived(PaginationStyleManager.getDotsClasses());
 </script>
 
-<div class={PaginationStyleManager.getHostClasses(className)} {...restProps}>
-  <nav class={PaginationStyleManager.getNavClasses()}>
+<div class={containerClass} {...restProps}>
+  <nav class={navClass} aria-label="pagination">
     {#if showFirstLast}
       <button
         type="button"
-        class={PaginationStyleManager.getButtonClasses(false, currentPage === 1, disabledButtonClass)}
+        class={currentPage === 1 ? disabledButtonClassComputed : buttonClassComputed}
         onclick={goToFirst}
-        disabled={currentPage === 1}
+        disabled={currentPage === 1 || disabled}
         aria-label="First page"
       >
         &laquo;
@@ -90,34 +99,36 @@
     {#if showPrevNext}
       <button
         type="button"
-        class={PaginationStyleManager.getIconButtonClasses(false, currentPage === 1, disabledButtonClass)}
+        class={currentPage === 1 ? disabledButtonClassComputed : iconButtonClass}
         onclick={goToPrev}
-        disabled={currentPage === 1}
+        disabled={currentPage === 1 || disabled}
         aria-label="Previous page"
       >
-        <ChevronLeft class="h-4 w-4" />
+        <IconChevron direction="left" size="sm" />
       </button>
     {/if}
 
     {#if showDots && getVisiblePages()[0] > 1}
       <button
         type="button"
-        class={PaginationStyleManager.getButtonClasses(false, false, buttonClass)}
+        class={buttonClassComputed}
         onclick={() => goToPage(1)}
+        aria-label="Go to page 1"
       >
         1
       </button>
       {#if getVisiblePages()[0] > 2}
-        <span class={PaginationStyleManager.getDotsClasses()}>...</span>
+        <span class={dotsClass} aria-hidden="true">...</span>
       {/if}
     {/if}
 
     {#each getVisiblePages() as page}
       <button
         type="button"
-        class={PaginationStyleManager.getButtonClasses(page === currentPage, false, page === currentPage ? activeButtonClass : buttonClass)}
+        class={page === currentPage ? activeButtonClassComputed : buttonClassComputed}
         onclick={() => goToPage(page)}
         aria-current={page === currentPage ? 'page' : undefined}
+        aria-label={`Go to page ${page}`}
       >
         {page}
       </button>
@@ -125,12 +136,13 @@
 
     {#if showDots && getVisiblePages()[getVisiblePages().length - 1] < totalPages}
       {#if getVisiblePages()[getVisiblePages().length - 1] < totalPages - 1}
-        <span class={PaginationStyleManager.getDotsClasses()}>...</span>
+        <span class={dotsClass} aria-hidden="true">...</span>
       {/if}
       <button
         type="button"
-        class={PaginationStyleManager.getButtonClasses(false, false, buttonClass)}
+        class={buttonClassComputed}
         onclick={() => goToPage(totalPages)}
+        aria-label={`Go to page ${totalPages}`}
       >
         {totalPages}
       </button>
@@ -139,21 +151,21 @@
     {#if showPrevNext}
       <button
         type="button"
-        class={PaginationStyleManager.getIconButtonClasses(false, currentPage === totalPages, disabledButtonClass)}
+        class={currentPage === totalPages ? disabledButtonClassComputed : iconButtonClass}
         onclick={goToNext}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === totalPages || disabled}
         aria-label="Next page"
       >
-        <ChevronRight class="h-4 w-4" />
+        <IconChevron direction="right" size="sm" />
       </button>
     {/if}
 
     {#if showFirstLast}
       <button
         type="button"
-        class={PaginationStyleManager.getButtonClasses(false, currentPage === totalPages, disabledButtonClass)}
+        class={currentPage === totalPages ? disabledButtonClassComputed : buttonClassComputed}
         onclick={goToLast}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === totalPages || disabled}
         aria-label="Last page"
       >
         &raquo;
@@ -161,4 +173,3 @@
     {/if}
   </nav>
 </div>
-

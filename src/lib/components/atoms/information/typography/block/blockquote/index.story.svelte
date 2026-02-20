@@ -1,14 +1,7 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Blockquote from './index.svelte';
-
-	type BlockquoteStoryProps = {
-		quote: string;
-		cite: string;
-		withBorder: boolean;
-		withBackground: boolean;
-	};
 
 	const controls: ControlConfig[] = [
 		{
@@ -56,33 +49,31 @@
 </script>
 
 <Story
-	id="atoms-blockquote"
-	title="Blockquote"
-	component={Blockquote}
-	category="Atoms/Typography"
-	description="Typeset citations with optional accent border and background emphasis."
-	tags={['typography', 'blockquote', 'content']}
 	{controls}
+	component={Blockquote}
+	title="Blockquote Component"
+	description="Typeset citations with optional accent border and background emphasis"
+	tags={['information', 'typography', 'blockquote', 'content']}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(values: any)}
 		<div class="space-y-8">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-900/30"
 			>
 				<Blockquote
-					cite={props.cite as string ?? ''}
-					withBorder={props.withBorder as boolean ?? true}
-					withBackground={props.withBackground as boolean ?? true}
+					cite={values.cite as string}
+					withBorder={values.withBorder as boolean}
+					withBackground={values.withBackground as boolean}
 					class="leading-relaxed text-gray-900 dark:text-gray-50"
 				>
-					{props.quote as string ?? 'Design is the silent ambassador of your brand.'}
+					{values.quote as string}
 				</Blockquote>
 				<p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
 					Toggle border/background to preview different emphasis treatments while keeping the same
 					content.
 				</p>
 				<p class="text-sm text-gray-600 dark:text-gray-300">
-					Current values: quote="{props.quote as string ?? 'Design is the silent ambassador of your brand.'}", cite="{props.cite as string ?? ''}"
+					Current values: quote="{values.quote as string}", cite="{values.cite as string}"
 				</p>
 			</div>
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CodeBlockWithLineNumbers from './index.svelte';
@@ -52,7 +52,7 @@ console.log(message);`;
   description="A code block component with line numbers and copy functionality."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-code-block-with-line-numbers p-4">
       <h1 class="text-lg font-semibold mb-4">CodeBlockWithLineNumbers Component</h1>
 
@@ -98,5 +98,6 @@ print(result)`}
     </div>
   {/snippet}
 </Story>
+
 
 

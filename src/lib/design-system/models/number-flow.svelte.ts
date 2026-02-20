@@ -55,10 +55,12 @@ function createPieChartState(props: PieChartProps) {
 	};
 }
 function createColorSwatchState(props: ColorSwatchProps) {
-	const color = $derived(props.color ?? '#0ea5e9');
+	const colorValue = props.color ?? '#0ea5e9';
+	const color = $derived(colorValue);
 	const size = $derived(props.size ?? 32);
-	const style = $derived(DataDisplayStyleManager.getColorSwatchStyle(color, size));
-	const classes = $derived(DataDisplayStyleManager.getColorSwatchClasses(props.class));
+	const classes = $derived(
+		DataDisplayStyleManager.getColorSwatchClasses(colorValue, size, props.class)
+	);
 
 	return {
 		get color() {
@@ -66,9 +68,6 @@ function createColorSwatchState(props: ColorSwatchProps) {
 		},
 		get size() {
 			return size;
-		},
-		get style() {
-			return style;
 		},
 		get classes() {
 			return classes;
@@ -105,7 +104,7 @@ export function createNumberFlowState(props: NumberFlowProps) {
 	const suffix = $derived(props.suffix ?? '');
 	const containerClass = $derived(DataDisplayStyleManager.getNumberFlowContainerClasses(props.class));
 	const classes = $derived(DataDisplayStyleManager.getNumberFlowClasses(containerClass));
-	const formattedValue = $derived(DataDisplayStyleManager.formatNumberFlowValue(value, locales, format));
+	const formattedValue = $derived(DataDisplayStyleManager.formatNumberFlowValue(value, locales, format ?? undefined));
 
 	return {
 		get value() {

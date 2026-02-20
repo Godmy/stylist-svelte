@@ -1,10 +1,5 @@
 ﻿import type { HtmlAttributesBase, HtmlAttributesWithContent } from './common';
-
-export type ChartDataPoint = {
-	label: string;
-	value: number;
-	color?: string;
-};
+import type { ChartDataPoint } from './canvas-chart';
 
 export interface PieChartProps extends HtmlAttributesBase<HTMLDivElement> {
 	data: ChartDataPoint[];

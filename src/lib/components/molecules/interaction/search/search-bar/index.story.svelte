@@ -1,16 +1,34 @@
 <script lang="ts">
-  import type { ISearchBarProps } from '$stylist/design-system/props/search-bar';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import SearchBar from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  let {
-    variant = 'primary'
-  } = $props();
-
-  let placeholder: string = $state('Search...');
-  let value: string = $state('');
-  let disabled: boolean = $state(false);
-  let debounceMs: number = $state(300);
-  let className: string = $state('');
+  const controls = [
+    {
+      name: 'placeholder',
+      type: 'text' as ControlType,
+      defaultValue: 'Search...',
+      description: 'Placeholder text for the search bar'
+    },
+    {
+      name: 'value',
+      type: 'text' as ControlType,
+      defaultValue: '',
+      description: 'Current value of the search bar'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the search bar is disabled'
+    },
+    {
+      name: 'debounceMs',
+      type: 'number' as ControlType,
+      defaultValue: 300,
+      description: 'Debounce time in milliseconds'
+    }
+  ];
 
   function handleSearch(query: string) {
     console.log('Search event:', query);
@@ -19,83 +37,22 @@
   function handleClear() {
     console.log('Clear event');
   }
-
-  // Define controls for the story
-  const args = $derived({
-    placeholder,
-    value,
-    disabled,
-    debounceMs,
-    className
-  });
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">SearchBar Component</h1>
-  <p class="mb-4">A search input component with clear and search buttons.</p>
-
-  <div class="mb-4 space-y-4">
-    <div>
-      <label class="block mb-1" for="search-placeholder">Placeholder: </label>
-      <input
-        id="search-placeholder"
-        type="text"
-        bind:value={placeholder}
-        class="border rounded p-1 ml-2"
-      />
-    </div>
-
-    <div>
-      <label class="block mb-1" for="search-value">Value: </label>
-      <input
-        id="search-value"
-        type="text"
-        bind:value={value}
-        class="border rounded p-1 ml-2"
-      />
-    </div>
-
-    <div>
-      <label class="block mb-1">
-        <input
-          type="checkbox"
-          bind:checked={disabled}
-          class="mr-1"
-        />
-        Disabled
-      </label>
-    </div>
-
-    <div>
-      <label class="block mb-1" for="search-debounce">Debounce (ms): </label>
-      <input
-        id="search-debounce"
-        type="number"
-        bind:value={debounceMs}
-        class="border rounded p-1 ml-2 w-24"
-      />
-    </div>
-
-    <div>
-      <label class="block mb-1" for="search-class">Class: </label>
-      <input
-        id="search-class"
-        type="text"
-        bind:value={className}
-        class="border rounded p-1 ml-2 w-full"
-      />
-    </div>
-  </div>
-
-  <div class="border p-4 rounded">
+<Story
+  {controls}
+  title="SearchBar Component"
+  description="Search bar component with debounce and clear functionality"
+  let:controlValues
+>
+  <div class="p-4">
     <SearchBar
-      {placeholder}
-      {value}
-      {disabled}
-      {debounceMs}
-      class={className}
+      placeholder={controlValues.placeholder}
+      value={controlValues.value}
+      disabled={controlValues.disabled}
+      debounceMs={controlValues.debounceMs}
       onSearch={handleSearch}
       onClear={handleClear}
     />
   </div>
-</div>
+</Story>

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CodeWithCopy from './index.svelte';
@@ -47,7 +47,7 @@ console.log(message);`;
   description="A component to display code with a copy functionality."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-code-with-copy p-4">
       <h1 class="text-lg font-semibold mb-4">CodeWithCopy Component</h1>
 
@@ -95,5 +95,6 @@ $ npm run dev</pre>
     </div>
   {/snippet}
 </Story>
+
 
 

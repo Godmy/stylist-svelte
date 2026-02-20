@@ -1,8 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Alert, ErrorMessage } from './alerts';
+export { ErrorMessage } from './alerts';
 export { Loader } from './loader';
 export { LoadingSpinner } from './loading-spinner';
-export { AlertPanel, SimpleTooltip } from './notification';
+export { AlertPanel } from './notification';
 export { Notification, NotificationBadge, PushNotification } from './notifications';
 export { Overlay } from './overlays';
 export { CardSkeleton, SkeletonCircle, SkeletonRectangle, SkeletonTable, SkeletonText } from './placeholders';

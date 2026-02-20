@@ -1,6 +1,20 @@
 <script lang="ts">
   import MessageList from './index.svelte';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import type { Message, User } from '$stylist/design-system/props/chat';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+
+  // Define controls for the story
+  const controls: ControlConfig[] = [
+    {
+      name: 'messageCount',
+      type: 'number',
+      defaultValue: 8,
+      min: 1,
+      max: 20,
+      description: 'Number of messages to display'
+    }
+  ];
 
   let currentUser: User = {
     id: '1',
@@ -16,7 +30,7 @@
     status: 'online'
   };
 
-  let messages: Message[] = [
+  let allMessages: Message[] = [
     {
       id: '1',
       content: 'Hey there! How are you doing?',
@@ -26,7 +40,7 @@
     },
     {
       id: '2',
-      content: 'I\'m doing great! Just working on a new Svelte project.',
+      content: "I'm doing great! Just working on a new Svelte project.",
       timestamp: new Date(Date.now() - 3500000),
       status: 'read',
       senderId: '1'
@@ -40,21 +54,21 @@
     },
     {
       id: '4',
-      content: 'It\'s a chat application with real-time messaging and file sharing capabilities.',
+      content: "It's a chat application with real-time messaging and file sharing capabilities.",
       timestamp: new Date(Date.now() - 3300000),
       status: 'read',
       senderId: '1'
     },
     {
       id: '5',
-      content: 'That\'s awesome! I\'d love to see it when it\'s ready.',
+      content: "That's awesome! I'd love to see it when it's ready.",
       timestamp: new Date(Date.now() - 3200000),
       status: 'read',
       senderId: '2'
     },
     {
       id: '6',
-      content: 'Sure! I\'ll send you a demo link once I have something working.',
+      content: "Sure! I'll send you a demo link once I have something working.",
       timestamp: new Date(Date.now() - 3100000),
       status: 'read',
       senderId: '1'
@@ -89,19 +103,26 @@
 </script>
 
 <div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">MessageList Component</h1>
+  <h1 class="mb-4 text-lg font-semibold">MessageList Component</h1>
 
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive MessageList</h2>
-    <div class="h-96 flex flex-col gap-4">
-      <MessageList
-        {messages}
-        {currentUser}
-        on:messageClick={handleMessageClick}
-        on:messageReaction={handleMessageReaction}
-        on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
-      />
-    </div>
+  <div class="mb-6 rounded border p-4">
+    <h2 class="text-md mb-2 font-semibold">Interactive MessageList</h2>
+    <Story 
+      {controls} 
+      component={() => {
+        let messageCount = 8; // Default value
+        return (
+          <div class="h-96 flex flex-col gap-4">
+            <MessageList
+              messages={allMessages.slice(0, messageCount)}
+              {currentUser}
+              on:messageClick={handleMessageClick}
+              on:messageReaction={handleMessageReaction}
+              on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
+            />
+          </div>
+        );
+      }} />
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -109,7 +130,7 @@
       <h2 class="text-md font-semibold mb-2">MessageList with Few Messages</h2>
       <div class="h-64">
         <MessageList
-          messages={messages.slice(0, 3)}
+          messages={allMessages.slice(0, 3)}
           {currentUser}
           on:messageClick={handleMessageClick}
           on:messageReaction={handleMessageReaction}
@@ -123,9 +144,9 @@
       <div class="h-64">
         <MessageList
           messages={[
-            { ...messages[0], senderId: currentUser.id },
-            { ...messages[1], senderId: otherUser.id },
-            { ...messages[2], senderId: currentUser.id }
+            { ...allMessages[0], senderId: currentUser.id },
+            { ...allMessages[1], senderId: otherUser.id },
+            { ...allMessages[2], senderId: currentUser.id }
           ]}
           {currentUser}
           on:messageClick={handleMessageClick}
@@ -140,7 +161,7 @@
     <h2 class="text-md font-semibold mb-2">Default MessageList</h2>
     <div class="h-64">
       <MessageList
-        {messages}
+        {allMessages}
         {currentUser}
         on:messageClick={handleMessageClick}
         on:messageReaction={handleMessageReaction}

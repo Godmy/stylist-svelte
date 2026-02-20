@@ -1,15 +1,9 @@
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
-import tailwindcss from '@tailwindcss/postcss';
-import autoprefixer from 'autoprefixer';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-	plugins: [sveltekit()],
-	css: {
-		postcss: {
-			plugins: [tailwindcss(), autoprefixer()]
-		}
-	},
+	plugins: [tailwindcss(), sveltekit()],
 	server: {
 		fs: {
 			// Разрешаем доступ к файлам корневого каталога проекта, включая package.json

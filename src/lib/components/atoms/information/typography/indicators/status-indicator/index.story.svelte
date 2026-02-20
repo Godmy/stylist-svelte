@@ -1,25 +1,18 @@
 <script lang="ts">
 	import StatusIndicator from './index.svelte';
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	type Status = 'online' | 'offline' | 'away' | 'busy';
-
-	type StatusIndicatorStoryProps = {
-		status: Status;
-		label: string;
-	};
-
-	const controls: ControlConfig[] = [
+	const controls = [
 		{
 			name: 'status',
-			type: 'select',
-			defaultValue: 'online',
-			options: ['online', 'offline', 'away', 'busy']
+			type: CONTROL_TYPES.SELECT,
+			options: ['online', 'offline', 'away', 'busy'],
+			defaultValue: 'online'
 		},
 		{
 			name: 'label',
-			type: 'text',
+			type: CONTROL_TYPES.TEXT,
 			defaultValue: 'Available for pairing'
 		}
 	];
@@ -29,20 +22,18 @@
 		{ name: 'Jonas Müller', role: 'Frontend', status: 'busy' },
 		{ name: 'Luna Chen', role: 'Research', status: 'away' },
 		{ name: 'Diego Alvarez', role: 'Infrastructure', status: 'offline' }
-	] satisfies Array<{ name: string; role: string; status: Status }>;
+	];
 </script>
 
 <Story
-	id="atoms-status-indicator"
-	title="StatusIndicator"
-	component={StatusIndicator}
-	category="Atoms"
-	description="Presence dot and label pairing for live collaboration states."
-	tags={['presence', 'status', 'indicator']}
 	{controls}
+	component={StatusIndicator}
+	title="StatusIndicator"
+	category="Atoms/Information/Typography/Indicators"
+	description="Presence dot and label pairing for live collaboration states."
+	tags={['status', 'indicator', 'presence', 'collaboration']}
 >
-	{#snippet children(props: Record<string, unknown>)}
-		{@const storyProps = props as StatusIndicatorStoryProps}
+	{#snippet children(values: any)}
 		<div class="space-y-8">
 			<div
 				class="flex items-center justify-between rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
@@ -54,8 +45,8 @@
 					</p>
 				</div>
 				<StatusIndicator
-					status={storyProps.status}
-					label={storyProps.label}
+					status={props.status}
+					label={props.label}
 					class="text-sm font-medium text-gray-800 dark:text-gray-100"
 				/>
 			</div>

@@ -1,45 +1,60 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { BaseCardStyleManager } from '$stylist/design-system/styles/base-card';
+  import type { BaseCardElementProps } from '$stylist/design-system/props/base-card';
+  import { createState } from '$stylist/design-system/models/base-card.svelte';
+  import { BASE_CARD_PRESET } from '$stylist/design-system/state/base-card';
 
-  type Props = {
-    title?: string;
-    description?: string;
-    class?: string;
-    headerClass?: string;
-    bodyClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  /**
+   * BaseCard - универсальный карточный компонент для отображения информации
+   *
+   * @param variant - Визуальный стиль компонента ('primary' | 'secondary' | 'success' ...)
+   * @param size - Размер компонента ('sm' | 'md' | 'lg')
+   * @param disabled - Отключен ли компонент
+   * @param title - Заголовок карточки
+   * @param description - Описание карточки
+   * @returns Стилизованная карточка
+   */
 
+  let props: BaseCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
+
+  // Централизованное управление состоянием
+  let state = createState(BASE_CARD_PRESET, props as any);
+
+  // Извлечение rest-props вручную для работы в режиме runes
   let {
+    variant,
+    size,
+    disabled,
     title,
     description,
-    class: className = '',
     headerClass = '',
     bodyClass = '',
+    class: classProp,
     children,
     ...restProps
-  }: Props & { children?: () => any } = $props();
-
-  // Generate CSS classes using the style manager
-  const cardClass = $derived(BaseCardStyleManager.getCardClass(className));
-  const headerClassComputed = $derived(BaseCardStyleManager.getHeaderClass(headerClass));
-  const titleClass = $derived(BaseCardStyleManager.getTitleClass());
-  const descriptionClass = $derived(BaseCardStyleManager.getDescriptionClass());
-  const bodyClassComputed = $derived(BaseCardStyleManager.getBodyClass(bodyClass));
+  } = props;
+  
+  // Import classes from the design system
+  import { 
+    BASE_CARD_HEADER_CLASSES, 
+    BASE_CARD_TITLE_CLASSES, 
+    BASE_CARD_DESCRIPTION_CLASSES, 
+    BASE_CARD_BODY_CLASSES 
+  } from '$stylist/design-system/classes/base-card';
 </script>
 
-<div class={cardClass} {...restProps}>
+<div {...restProps} class={state.classes} {...state.attrs}>
   {#if title || description}
-    <div class={headerClassComputed}>
+    <div class={BASE_CARD_HEADER_CLASSES + ' ' + headerClass}>
       {#if title}
-        <h3 class={titleClass}>{title}</h3>
+        <h3 class={BASE_CARD_TITLE_CLASSES}>{title}</h3>
       {/if}
       {#if description}
-        <p class={descriptionClass}>{description}</p>
+        <p class={BASE_CARD_DESCRIPTION_CLASSES}>{description}</p>
       {/if}
     </div>
   {/if}
-  <div class={bodyClassComputed}>
+  <div class={BASE_CARD_BODY_CLASSES + ' ' + bodyClass}>
     {#if children}
       {@render children()}
     {/if}

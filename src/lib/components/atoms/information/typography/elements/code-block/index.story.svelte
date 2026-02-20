@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import CodeBlock from './index.svelte';
@@ -55,7 +55,7 @@
 	tags={['code', 'syntax', 'highlighting', 'block']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		<CodeBlock
 			language={props.language as string ?? 'javascript'}
 			variant={props.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
@@ -70,3 +70,4 @@
 		</CodeBlock>
 	{/snippet}
 </Story>
+

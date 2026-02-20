@@ -1,48 +1,70 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import AlertCard from './index.svelte';
 
-  type Props = {
+  import AlertCard from './index.svelte';
+  import type { AlertCardElementProps } from '$stylist/design-system/props/alert-card';
+
+  let {
+    id = '',
+    title = '',
+    description = '',
+    primaryScenario = undefined,
+    variantScenarios = [],
+    controls = [
+      { name: 'variant', type: 'select', options: ['default', 'info', 'success', 'warning', 'error', 'primary', 'secondary'], defaultValue: 'default' },
+      { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+      { name: 'disabled', type: 'boolean', defaultValue: false },
+      { name: 'title', type: 'text', defaultValue: 'Alert Title' },
+      { name: 'subtitle', type: 'text', defaultValue: 'Alert subtitle' }
+    ]
+  } = $props<{
+    id?: string;
     title?: string;
-    subtitle?: string;
-    icon?: string;
-    class?: string;
+    description?: string;
+    primaryScenario?: AlertCardElementProps;
+    variantScenarios?: AlertCardElementProps[];
+    controls?: ControlConfig[]
+  }>();
+
+  // Сценарии по умолчанию
+  const defaultPrimaryScenario: AlertCardElementProps = {
+    variant: 'default',
+    size: 'md',
+    title: 'Sample Alert',
+    subtitle: 'This is a sample alert message'
   };
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Alert Title'
-    },
-    {
-      name: 'subtitle',
-      type: 'text',
-      defaultValue: 'This is a sample alert message'
-    }
+  const variantScenariosData: AlertCardElementProps[] = [
+    { variant: 'info', size: 'md', title: 'Info Alert', subtitle: 'This is an informational message' },
+    { variant: 'success', size: 'md', title: 'Success Alert', subtitle: 'This is a success message' },
+    { variant: 'warning', size: 'md', title: 'Warning Alert', subtitle: 'This is a warning message' },
+    { variant: 'error', size: 'md', title: 'Error Alert', subtitle: 'This is an error message' },
+    { variant: 'primary', size: 'md', title: 'Primary Alert', subtitle: 'This is a primary message' }
+  ];
+
+  // Использовать предоставленные сценарии или значения по умолчанию
+  primaryScenario = primaryScenario || defaultPrimaryScenario;
+  variantScenarios = variantScenarios.length > 0 ? variantScenarios : variantScenariosData;
+  
+  // Sample actions for the alert card
+  const sampleActions = [
+    { label: 'OK', onClick: () => console.log('OK clicked') },
+    { label: 'Cancel', onClick: () => console.log('Cancel clicked') }
   ];
 </script>
 
 <Story
-  id="molecules-alert-card"
-  title="AlertCard"
+  {id}
+  {title}
+  {description}
   component={AlertCard}
   category="Molecules"
-  description="A card component to display important alerts and notifications."
   controls={controls}
 >
-  {#snippet children(props: Props)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">AlertCard Story</h2>
-      <AlertCard
-        {...props}
-        actions={[
-          { label: 'OK', onClick: () => console.log('OK clicked') },
-          { label: 'Cancel', onClick: () => console.log('Cancel clicked') }
-        ]}
-      />
-    </div>
+  {#snippet children(props)}
+    <AlertCard {...props} actions={sampleActions}>
+      {/* AlertCard doesn't typically use children slot */}
+    </AlertCard>
   {/snippet}
 </Story>
-

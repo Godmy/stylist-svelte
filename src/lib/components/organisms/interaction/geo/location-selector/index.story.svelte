@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -120,7 +120,7 @@
   description="Interactive location selector with list and grid views, search and filtering capabilities."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-location-selector p-4">
       <h1 class="text-lg font-semibold mb-4">LocationSelector Component</h1>
 
@@ -236,4 +236,5 @@
     </div>
   {/snippet}
 </Story>
+
 

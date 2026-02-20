@@ -17,7 +17,7 @@ function createAnimatedNumberState(props: AnimatedNumberProps) {
 
 	const formattedValue = $derived(
 		DataDisplayStyleManager.formatAnimatedValue(value, {
-			format: props.format,
+			format: props.format ?? 'number',
 			separator,
 			decimals
 		})
@@ -56,10 +56,12 @@ export function createPieChartState(props: PieChartProps) {
 	};
 }
 function createColorSwatchState(props: ColorSwatchProps) {
-	const color = $derived(props.color ?? '#0ea5e9');
+	const colorValue = props.color ?? '#0ea5e9';
+	const color = $derived(colorValue);
 	const size = $derived(props.size ?? 32);
-	const style = $derived(DataDisplayStyleManager.getColorSwatchStyle(color, size));
-	const classes = $derived(DataDisplayStyleManager.getColorSwatchClasses(props.class));
+	const classes = $derived(
+		DataDisplayStyleManager.getColorSwatchClasses(colorValue, size, props.class)
+	);
 
 	return {
 		get color() {
@@ -67,9 +69,6 @@ function createColorSwatchState(props: ColorSwatchProps) {
 		},
 		get size() {
 			return size;
-		},
-		get style() {
-			return style;
 		},
 		get classes() {
 			return classes;

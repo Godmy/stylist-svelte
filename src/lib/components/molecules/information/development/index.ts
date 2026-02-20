@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { CodeBlock } from './code-block';
 export { CodeBlockWithLineNumbers } from './code-block-with-line-numbers';
 export { CodeDiff } from './code-diff';
 export { CodeEditor } from './code-editor';

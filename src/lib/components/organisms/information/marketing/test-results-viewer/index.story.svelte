@@ -1,104 +1,106 @@
-<script lang="ts">
-    import { Story } from '$lib/playground';
-    import type { ControlConfig } from '$lib/playground';
-    import TestResultsViewer from './index.svelte';
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
 
-    type TestResult = {
-        id: string;
-        testName: string;
-        variantName: string;
-        visitors: number;
-        conversions: number;
-        conversionRate: number;
-        statisticalSignificance: number;
-        improvement: number;
-        status: 'winning' | 'losing' | 'inconclusive';
-    };
+  import TestResultsViewer from './index.svelte';
 
-    type TestOverview = {
-        testName: string;
-        startDate: Date;
-        endDate: Date;
-        status: 'completed' | 'running' | 'paused';
-        winningVariant: string;
-        confidence: number;
-    };
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showCharts', type: 'boolean', defaultValue: true },
+      { name: 'showSignificance', type: 'boolean', defaultValue: true },
+      { name: 'showConfidence', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
-    type Props = {
-        testResults?: TestResult[];
-        testOverview?: TestOverview;
-        showCharts?: boolean;
-    };
+  type TestResult = {
+    id: string;
+    testName: string;
+    variantName: string;
+    visitors: number;
+    conversions: number;
+    conversionRate: number;
+    statisticalSignificance: number;
+    improvement: number;
+    status: 'winning' | 'losing' | 'inconclusive';
+  };
 
-    const defaultTestResults: TestResult[] = [
-        {
-            id: 'variant-a',
-            testName: 'Homepage Button Color',
-            variantName: 'Control (Blue)',
-            visitors: 10000,
-            conversions: 850,
-            conversionRate: 8.5,
-            statisticalSignificance: 97.2,
-            improvement: 0,
-            status: 'losing'
-        },
-        {
-            id: 'variant-b',
-            testName: 'Homepage Button Color',
-            variantName: 'Variant (Green)',
-            visitors: 10200,
-            conversions: 920,
-            conversionRate: 9.02,
-            statisticalSignificance: 97.2,
-            improvement: 6.12,
-            status: 'winning'
-        },
-        {
-            id: 'variant-c',
-            testName: 'Homepage Button Color',
-            variantName: 'Variant (Red)',
-            visitors: 9800,
-            conversions: 820,
-            conversionRate: 8.37,
-            statisticalSignificance: 65.3,
-            improvement: -1.55,
-            status: 'inconclusive'
-        }
-    ];
+  const testResults: TestResult[] = [
+    { id: '1', testName: 'CTA Test', variantName: 'Variant A', visitors: 1000, conversions: 50, conversionRate: 5, statisticalSignificance: 95, improvement: 10, status: 'winning' },
+    { id: '2', testName: 'CTA Test', variantName: 'Variant B', visitors: 1000, conversions: 40, conversionRate: 4, statisticalSignificance: 80, improvement: -10, status: 'losing' }
+  ];
 
-    const defaultTestOverview: TestOverview = {
-        testName: 'Homepage Button Color Test',
-        startDate: new Date('2023-01-15'),
-        endDate: new Date('2023-02-15'),
-        status: 'completed',
-        winningVariant: 'variant-b',
-        confidence: 97.2
-    };
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'showCharts',
-            type: 'boolean',
-            defaultValue: true
-        }
-    ];
+  function handleExport(results: TestResult[]) {
+    console.log('Exported:', results);
+  }
 </script>
 
 <Story
-    id="molecules-test-results-viewer"
-    title="TestResultsViewer"
-    component={TestResultsViewer}
-    category="Molecules"
-    description="Viewer for test results with statistical significance"
-    controls={controls}
+  {id}
+  {title}
+  {description}
+  component={TestResultsViewer}
+  category="Organisms"
+  controls={controls}
 >
-    {#snippet children(props: Props)}
-        <div class="p-4">
-            <TestResultsViewer
-                testResults={props.testResults || defaultTestResults}
-                testOverview={props.testOverview || defaultTestOverview}
-                showCharts={props.showCharts}
-            />
+  {#snippet children(props)}
+    <section class="sb-organisms-test-results-viewer grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Test Results Viewer Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive test results viewer with customizable options.</p>
+
+        <div class="mt-6">
+          <TestResultsViewer
+            testResults={testResults}
+            showCharts={props.showCharts}
+            showSignificance={props.showSignificance}
+            showConfidence={props.showConfidence}
+            onExport={handleExport}
+          />
         </div>
-    {/snippet}
+      </div>
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Test Results Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different test results viewer configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Charts</p>
+            <div>
+              <TestResultsViewer
+                testResults={testResults}
+                showCharts={false}
+                onExport={handleExport}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal View</p>
+            <div>
+              <TestResultsViewer
+                testResults={testResults}
+                showSignificance={false}
+                showConfidence={false}
+                onExport={handleExport}
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  {/snippet}
 </Story>
+

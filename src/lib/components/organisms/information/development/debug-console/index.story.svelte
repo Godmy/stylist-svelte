@@ -1,21 +1,31 @@
-<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
 
   import DebugConsole from './index.svelte';
+
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showTimestamps', type: 'boolean', defaultValue: true },
+      { name: 'showLogLevel', type: 'boolean', defaultValue: true },
+      { name: 'allowFilter', type: 'boolean', defaultValue: true },
+      { name: 'allowClear', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
   type LogEntry = {
     id: string;
     timestamp: Date;
     level: 'log' | 'info' | 'warn' | 'error' | 'debug';
     message: string;
-  };
-
-  type Props = {
-    showTimestamps: boolean;
-    showLogLevel: boolean;
-    allowFilter: boolean;
-    allowClear: boolean;
   };
 
   const initialLogs: LogEntry[] = [
@@ -35,37 +45,23 @@
   function handleLog(entry: LogEntry) {
     consoleLogs = [...consoleLogs, entry];
   }
-
-  const controls: ControlConfig[] = [
-    { name: 'showTimestamps', type: 'boolean', defaultValue: true },
-    { name: 'showLogLevel', type: 'boolean', defaultValue: true },
-    { name: 'allowFilter', type: 'boolean', defaultValue: true },
-    { name: 'allowClear', type: 'boolean', defaultValue: true }
-  ];
 </script>
 
 <Story
-  id="molecules-debug-console"
-  title="DebugConsole"
+  {id}
+  {title}
+  {description}
   component={DebugConsole}
-  category="Molecules"
-  description="Streaming console widget used for observability panes and embedded devtools."
+  category="Organisms"
   controls={controls}
 >
-  {#snippet children(props: Props)}
-    <section class="grid w-full gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-      <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <header class="flex items-center justify-between">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">Live console</p>
-            <p class="text-lg text-[--color-text-primary]">
-              Toggle extra chrome (timestamps, log levels, filters) via the controls.
-            </p>
-          </div>
-          <span class="rounded-full bg-[--color-background-secondary] px-4 py-1 text-xs font-semibold text-[--color-text-primary]">
-            {props.allowFilter ? 'Filters enabled' : 'Filters hidden'}
-          </span>
-        </header>
+  {#snippet children(props)}
+    <section class="sb-organisms-debug-console grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Debug Console Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive debug console with customizable options.</p>
 
         <div class="mt-6">
           <DebugConsole
@@ -80,24 +76,40 @@
         </div>
       </div>
 
-      <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Log level palette</h3>
-        <p class="text-sm text-[--color-text-secondary]">Give your support teams a consistent legend for what each color means.</p>
-        <ul class="mt-5 space-y-3 text-sm text-[--color-text-primary]">
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-red-50 px-4 py-3">
-            <strong>Error</strong> — fatal issues, circuit breakers, or alert-worthy signals.
-          </li>
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-yellow-50 px-4 py-3">
-            <strong>Warn</strong> — recoverable issues, pending retries, or rate limit warnings.
-          </li>
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-blue-50 px-4 py-3">
-            <strong>Info</strong> — lifecycle events: deploys, state changes, user actions.
-          </li>
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-purple-50 px-4 py-3">
-            <strong>Debug</strong> — verbose traces for engineers toggled via feature flags.
-          </li>
-        </ul>
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Debug Console Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different debug console configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal</p>
+            <div>
+              <DebugConsole
+                logs={consoleLogs.slice(0, 2)}
+                showTimestamps={false}
+                allowFilter={false}
+                onLog={handleLog}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Errors Only</p>
+            <div>
+              <DebugConsole
+                logs={consoleLogs.filter(log => log.level === 'error')}
+                showLogLevel={true}
+                allowClear={true}
+                onClear={handleClear}
+                onLog={handleLog}
+              />
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   {/snippet}
 </Story>
+

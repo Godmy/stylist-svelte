@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import KanbanBoard from './index.svelte';
@@ -172,7 +172,7 @@
   description="A kanban board component for managing tasks across different stages."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-kanban-board p-4">
       <h1 class="text-xl font-bold mb-4">Kanban Board Component</h1>
 
@@ -188,5 +188,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

@@ -1,116 +1,104 @@
-<script lang="ts">
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
+
   import GeoJSONViewer from './index.svelte';
 
-  // Пример данных GeoJSON
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showProperties', type: 'boolean', defaultValue: true },
+      { name: 'showZoomControls', type: 'boolean', defaultValue: true },
+      { name: 'showLayerControl', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
+
   const sampleGeoJSON = {
     type: 'FeatureCollection' as const,
     features: [
       {
         type: 'Feature' as const,
-        properties: {
-          name: 'London',
-          population: 8900000
-        },
-        geometry: {
-          type: 'Point' as const,
-          coordinates: [-0.09, 51.505] as [number, number]
-        }
+        properties: { name: 'London', population: 8900000 },
+        geometry: { type: 'Point' as const, coordinates: [-0.09, 51.505] as [number, number] }
       },
       {
         type: 'Feature' as const,
-        properties: {
-          name: 'Polygon Area',
-          description: 'Sample polygon'
-        },
-        geometry: {
-          type: 'Polygon' as const,
-          coordinates: [[
-            [-0.1, 51.5],
-            [-0.05, 51.5],
-            [-0.05, 51.55],
-            [-0.1, 51.55],
-            [-0.1, 51.5]
-          ]] as [number, number][][]
-        }
+        properties: { name: 'Polygon Area', description: 'Sample polygon' },
+        geometry: { type: 'Polygon' as const, coordinates: [[[-0.1, 51.5], [-0.05, 51.5], [-0.05, 51.55], [-0.1, 51.55], [-0.1, 51.5]]] as [number, number][][] }
       }
     ]
   };
 
-  const sampleLayers = [
-    {
-      id: 'cities',
-      name: 'Cities',
-      data: sampleGeoJSON,
-      visible: true,
-      color: '#3B82F6',
-      opacity: 0.8
-    }
-  ];
-
-  function handleFeatureClick(e: any) {
-    console.log('Feature clicked:', e);
-  }
-
-  function handleMapClick(e: any) {
-    console.log('Map clicked:', e);
-  }
-
-  function handleDataChange(e: any) {
-    console.log('Data changed:', e);
+  function handleFeatureClick(feature: any) {
+    console.log('Feature clicked:', feature.properties.name);
   }
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">GeoJSONViewer Component</h1>
+<Story
+  {id}
+  {title}
+  {description}
+  component={GeoJSONViewer}
+  category="Organisms"
+  controls={controls}
+>
+  {#snippet children(props)}
+    <section class="sb-organisms-geo-jsonviewer grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary GeoJSON Viewer Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive GeoJSON viewer with customizable options.</p>
 
-  <div class="mb-6">
-    <h2 class="text-md font-semibold mb-2">Default GeoJSONViewer</h2>
-    <div class="border p-4 rounded h-96">
-      <GeoJSONViewer
-        geojsonData={sampleGeoJSON}
-        layers={sampleLayers}
-        showControls={true}
-        showLayers={true}
-        showLegend={true}
-        maxZoom={18}
-        minZoom={1}
-        mapType="roadmap"
-        onFeatureClick={handleFeatureClick}
-        onMapClick={handleMapClick}
-        onDataChange={handleDataChange}
-      />
-    </div>
-  </div>
+        <div class="mt-6 h-96">
+          <GeoJSONViewer
+            data={sampleGeoJSON}
+            showProperties={props.showProperties}
+            showZoomControls={props.showZoomControls}
+            showLayerControl={props.showLayerControl}
+            onFeatureClick={handleFeatureClick}
+          />
+        </div>
+      </div>
 
-  <div class="mb-6">
-    <h2 class="text-md font-semibold mb-2">Without Controls</h2>
-    <div class="border p-4 rounded h-96">
-      <GeoJSONViewer
-        geojsonData={sampleGeoJSON}
-        layers={sampleLayers}
-        showControls={false}
-        showLayers={true}
-        showLegend={true}
-        maxZoom={18}
-        minZoom={1}
-        mapType="roadmap"
-      />
-    </div>
-  </div>
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">GeoJSON Viewer Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different GeoJSON viewer configurations with various options.
+        </p>
 
-  <div class="mb-6">
-    <h2 class="text-md font-semibold mb-2">Without Layers Panel</h2>
-    <div class="border p-4 rounded h-96">
-      <GeoJSONViewer
-        geojsonData={sampleGeoJSON}
-        layers={sampleLayers}
-        showControls={true}
-        showLayers={false}
-        showLegend={true}
-        maxZoom={18}
-        minZoom={1}
-        mapType="roadmap"
-      />
-    </div>
-  </div>
-</div>
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Properties</p>
+            <div class="h-64">
+              <GeoJSONViewer
+                data={sampleGeoJSON}
+                showProperties={false}
+                onFeatureClick={handleFeatureClick}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal Controls</p>
+            <div class="h-64">
+              <GeoJSONViewer
+                data={sampleGeoJSON}
+                showZoomControls={false}
+                showLayerControl={false}
+                onFeatureClick={handleFeatureClick}
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  {/snippet}
+</Story>

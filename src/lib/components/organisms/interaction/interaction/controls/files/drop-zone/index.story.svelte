@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -48,7 +48,7 @@
   description="A drag-and-drop surface with optional previews and validation controls."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <section class="sb-organisms-drop-zone grid w-full gap-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="space-y-2">
@@ -100,4 +100,5 @@
     </section>
   {/snippet}
 </Story>
+
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import OperationsHistory from './index.svelte';
@@ -17,7 +17,7 @@
   tags={['history', 'operations', 'log']}
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-molecules-operations-history p-6 max-w-2xl mx-auto">
       <h2 class="text-xl font-semibold mb-6">Operations History</h2>
       <OperationsHistory
@@ -50,3 +50,4 @@
     </div>
   {/snippet}
 </Story>
+

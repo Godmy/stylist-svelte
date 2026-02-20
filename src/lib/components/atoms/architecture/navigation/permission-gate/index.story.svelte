@@ -26,11 +26,11 @@
   tags={['security', 'permission', 'authorization']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PermissionGate Story</h2>
       <PermissionGate
-        hasPermission={props.hasPermission}
+        hasPermission={values.hasPermission}
       >
         {#snippet children()}
           <div class="p-4 bg-green-100 border border-green-300 rounded">

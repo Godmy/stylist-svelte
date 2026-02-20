@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -55,7 +55,7 @@
   description="A multi-step checkout form for processing customer orders."
   controls={controls}
 >
-  {#snippet children(args: Record<string, unknown>)}
+  {#snippet children(args)}
     <section class="sb-organisms-checkout-form">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm max-w-6xl mx-auto">
         <CheckoutForm
@@ -74,4 +74,5 @@
     </section>
   {/snippet}
 </Story>
+
 

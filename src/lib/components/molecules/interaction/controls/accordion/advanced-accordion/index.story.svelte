@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import AdvancedAccordion from './index.svelte';
   import { createRawSnippet } from 'svelte';
   import type { IAdvancedAccordionItem } from '$stylist/design-system/props/advanced-accordion';
@@ -8,7 +9,7 @@
       render: () => html
     }));
 
-  let defaultItems: IAdvancedAccordionItem[] = [
+  const defaultItems: IAdvancedAccordionItem[] = [
     {
       title: 'Getting Started',
       content: createHtmlSnippet(`<div class="p-4">
@@ -53,39 +54,15 @@
   ];
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">AdvancedAccordion Component</h1>
-
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive AdvancedAccordion</h2>
+<Story
+  title="AdvancedAccordion Component"
+  description="Interactive advanced accordion with customizable content"
+>
+  <div class="p-4">
     <div class="max-w-2xl mx-auto">
-      <AdvancedAccordion 
+      <AdvancedAccordion
         items={defaultItems}
       />
     </div>
   </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">AdvancedAccordion Variations</h2>
-    <div class="space-y-4">
-      <div>
-        <h3 class="text-sm font-medium mb-2">With Different Content</h3>
-        <AdvancedAccordion 
-          items={[
-            {
-              title: 'Technical Support',
-              content: createHtmlSnippet(`<div class="p-4">
-                    <h3 class="text-lg font-semibold mb-2">Technical Support</h3>
-                    <p>Our support team is available 24/7 to assist you with any technical issues.</p>
-                    <div class="mt-2 p-3 bg-blue-50 rounded">
-                      <p class="text-sm">Contact: support@example.com</p>
-                      <p class="text-sm">Phone: 1-800-123-4567</p>
-                    </div>
-                  </div>`)
-            }
-          ]}
-        />
-      </div>
-    </div>
-  </div>
-</div>
+</Story>

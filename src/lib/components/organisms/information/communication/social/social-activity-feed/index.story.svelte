@@ -1,139 +1,143 @@
-<script lang="ts">
-    import { Story } from '$lib/playground';
-    import type { ControlConfig } from '$lib/playground';
-    import SocialActivityFeed from './index.svelte';
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
 
-    type ActivityType =
-        | 'like'
-        | 'comment'
-        | 'follow'
-        | 'share'
-        | 'mention'
-        | 'achievement'
-        | 'system'
-        | 'announcement';
+  import SocialActivityFeed from './index.svelte';
 
-    type User = {
-        id: string;
-        name: string;
-        username?: string;
-        avatar?: string;
-        isVerified?: boolean;
-    };
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showAvatars', type: 'boolean', defaultValue: true },
+      { name: 'showTimestamp', type: 'boolean', defaultValue: true },
+      { name: 'filterType', type: 'select', options: ['all', 'unread', 'important'], defaultValue: 'all' }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
-    type Activity = {
-        id: string;
-        type: ActivityType;
-        actor: User;
-        target?: User; // For follow activities
-        subject?: string; // Object of the activity (e.g., post title)
-        content?: string; // Additional content
-        timestamp: Date;
-        relatedUrl?: string;
-        isRead?: boolean;
-        isImportant?: boolean;
-    };
+  type ActivityType =
+    | 'like'
+    | 'comment'
+    | 'follow'
+    | 'share'
+    | 'mention'
+    | 'achievement'
+    | 'system'
+    | 'announcement';
 
-    type Props = {
-        activities?: Activity[];
-        showAvatars?: boolean;
-        showTimestamp?: boolean; // Renamed from showTimestamps
-        showReadStatus?: boolean;
-        enableFiltering?: boolean;
-        showLoadMore?: boolean;
-        maxActivities?: number;
-    };
+  type User = {
+    id: string;
+    name: string;
+    username?: string;
+    avatar?: string;
+    isVerified?: boolean;
+  };
 
-    const defaultActivities: Activity[] = [
-        {
-            id: 'activity-1',
-            type: 'like',
-            actor: { id: 'user-1', name: 'John Doe', avatar: 'https://i.pravatar.cc/150?img=1' },
-            subject: 'post',
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 2), // 2 hours ago
-            isRead: false
-        },
-        {
-            id: 'activity-2',
-            type: 'comment',
-            actor: { id: 'user-2', name: 'Jane Smith', avatar: 'https://i.pravatar.cc/150?img=2' },
-            subject: 'photo',
-            content: 'Great photo!',
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 4), // 4 hours ago
-            isRead: true
-        },
-        {
-            id: 'activity-3',
-            type: 'follow',
-            actor: { id: 'user-3', name: 'Bob Johnson', avatar: 'https://i.pravatar.cc/150?img=3' },
-            target: { id: 'user-4', name: 'You' },
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24), // 1 day ago
-            isRead: false
-        },
-        {
-            id: 'activity-4',
-            type: 'share',
-            actor: { id: 'user-5', name: 'Alice Williams', avatar: 'https://i.pravatar.cc/150?img=4' },
-            subject: 'article',
-            relatedUrl: 'https://example.com/article',
-            timestamp: new Date(Date.now() - 1000 * 60 * 60 * 48), // 2 days ago
-            isRead: true
-        }
-    ];
+  type Activity = {
+    id: string;
+    type: ActivityType;
+    actor: User;
+    target?: User;
+    subject?: string;
+    content?: string;
+    timestamp: Date;
+    relatedUrl?: string;
+    isRead?: boolean;
+    isImportant?: boolean;
+  };
 
-    const controls: ControlConfig[] = [
-        {
-            name: 'showAvatars',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'showTimestamp',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'showReadStatus',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'enableFiltering',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'showLoadMore',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'maxActivities',
-            type: 'number',
-            defaultValue: 10
-        }
-    ];
+  const sampleActivities: Activity[] = [
+    {
+      id: '1',
+      type: 'like',
+      actor: { id: 'u1', name: 'Alice Johnson', avatar: 'https://placehold.co/40x40', isVerified: true },
+      subject: 'your post',
+      timestamp: new Date(Date.now() - 300000)
+    },
+    {
+      id: '2',
+      type: 'follow',
+      actor: { id: 'u2', name: 'Bob Smith', avatar: 'https://placehold.co/40x40' },
+      target: { id: 'u3', name: 'You' },
+      timestamp: new Date(Date.now() - 3600000)
+    },
+    {
+      id: '3',
+      type: 'comment',
+      actor: { id: 'u4', name: 'Carol Davis', avatar: 'https://placehold.co/40x40' },
+      subject: 'your photo',
+      content: 'Great shot!',
+      timestamp: new Date(Date.now() - 7200000)
+    }
+  ];
+
+  function handleActivityClick(activity: Activity) {
+    console.log('Activity clicked:', activity);
+  }
 </script>
 
 <Story
-    id="molecules-social-activity-feed"
-    title="SocialActivityFeed"
-    component={SocialActivityFeed}
-    category="Molecules"
-    description="Social activity feed component for displaying user activities"
-    controls={controls}
+  {id}
+  {title}
+  {description}
+  component={SocialActivityFeed}
+  category="Organisms"
+  controls={controls}
 >
-    {#snippet children(props: Props)}
-        <div class="p-4">
-            <SocialActivityFeed
-                activities={props.activities || defaultActivities}
-                showAvatars={props.showAvatars}
-                showTimestamp={props.showTimestamp}
-                showReadStatus={props.showReadStatus}
-                enableFiltering={props.enableFiltering}
-                showLoadMore={props.showLoadMore}
-                maxActivities={props.maxActivities}
-            />
+  {#snippet children(props)}
+    <section class="sb-organisms-social-activity-feed grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Social Activity Feed Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive social activity feed with customizable options.</p>
+
+        <div class="mt-6 max-w-md mx-auto">
+          <SocialActivityFeed
+            activities={sampleActivities}
+            showAvatars={props.showAvatars}
+            showTimestamp={props.showTimestamp}
+            filterType={props.filterType}
+            onActivityClick={handleActivityClick}
+          />
         </div>
-    {/snippet}
+      </div>
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Activity Feed Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different activity feed configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Avatars</p>
+            <div class="max-w-md mx-auto">
+              <SocialActivityFeed
+                activities={sampleActivities}
+                showAvatars={false}
+                onActivityClick={handleActivityClick}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Important Only</p>
+            <div class="max-w-md mx-auto">
+              <SocialActivityFeed
+                activities={sampleActivities}
+                filterType="important"
+                onActivityClick={handleActivityClick}
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  {/snippet}
 </Story>

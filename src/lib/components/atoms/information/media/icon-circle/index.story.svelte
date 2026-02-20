@@ -1,40 +1,39 @@
 <script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import IconCircle from './index.svelte';
 
-	let variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' = 'primary';
-	let size: 'sm' | 'md' | 'lg' = 'md';
+	const controls: ControlConfig[] = [
+		{
+			name: 'variant',
+			type: 'select',
+			defaultValue: 'primary',
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'info']
+		},
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg']
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">IconCircle</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Variant</span>
-			<select bind:value={variant} class="rounded border p-1">
-				<option value="primary">Primary</option>
-				<option value="secondary">Secondary</option>
-				<option value="success">Success</option>
-				<option value="warning">Warning</option>
-				<option value="danger">Danger</option>
-				<option value="info">Info</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Size</span>
-			<select bind:value={size} class="rounded border p-1">
-				<option value="sm">Small</option>
-				<option value="md">Medium</option>
-				<option value="lg">Large</option>
-			</select>
-		</label>
-	</div>
-
-	<div class="inline-flex items-center rounded border p-4">
-		{#snippet icon()}
-			*
-		{/snippet}
-		<IconCircle {variant} {size} {icon} />
-	</div>
-</div>
+<Story
+	{controls}
+	component={IconCircle}
+	title="IconCircle Component"
+	description="A circular icon component with various variants and sizes"
+	tags={['information', 'media', 'icon', 'circle']}
+>
+	{#snippet children(values: any)}
+		<IconCircle
+			variant={values.variant as 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'default'}
+			size={values.size as 'sm' | 'md' | 'lg'}
+		>
+			{#snippet icon()}
+				*
+			{/snippet}
+		</IconCircle>
+	{/snippet}
+</Story>

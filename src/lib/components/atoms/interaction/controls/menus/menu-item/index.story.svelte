@@ -1,67 +1,80 @@
-<script lang="ts">
-  import MenuItem from './index.svelte';
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import MenuItem from './index.svelte';
 
-  type MenuItemVariant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
-
-  let active = $state(false);
-  let variant = $state<MenuItemVariant>('default');
-  let disabled = $state(false);
-  let text = $state('Menu Item');
-
+  const variantOptions = ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'ghost', 'link'];
+  
   const controls: ControlConfig[] = [
-    { name: 'active', type: 'boolean', defaultValue: false },
-    { name: 'variant', type: 'select', options: ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'ghost', 'link'], defaultValue: 'default' },
-    { name: 'disabled', type: 'boolean', defaultValue: false }
+    {
+      name: 'active',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the menu item is active'
+    },
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'default',
+      options: variantOptions,
+      description: 'Variant of the menu item'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the menu item is disabled'
+    },
+    {
+      name: 'external',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the link opens in a new tab'
+    }
   ];
 </script>
 
-# MenuItem
-
-<Story id="menuitem-story" title="MenuItem" component={MenuItem} {controls}>
-  <div class="space-y-4 p-8">
-    <MenuItem active={active} variant={variant} disabled={disabled}>
-      {text}
-    </MenuItem>
-
-    <div class="space-y-4">
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={active} /> Active
-        </label>
-      </div>
-
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={disabled} /> Disabled
-        </label>
-      </div>
-
-      <div>
-        <label>
-          Variant:
-          <select bind:value={variant}>
-            <option value="default">Default</option>
-            <option value="primary">Primary</option>
-            <option value="secondary">Secondary</option>
-            <option value="success">Success</option>
-            <option value="warning">Warning</option>
-            <option value="danger">Danger</option>
-            <option value="info">Info</option>
-            <option value="ghost">Ghost</option>
-            <option value="link">Link</option>
-          </select>
-        </label>
-      </div>
-
-      <div>
-        <label>Text: <input type="text" bind:value={text} /></label>
-      </div>
+<Story
+  id="atoms-menu-item"
+  title="MenuItem"
+  component={MenuItem}
+  category="Atoms/Interaction/Controls/Menus"
+  description="MenuItem component for navigation menus."
+  tags={['menu', 'navigation', 'item', 'link']}
+  controls={controls}
+>
+  {#snippet children(props)}
+    <div class="p-4">
+      <MenuItem
+        {...props}
+        icon="home"
+        onValueChange={() => console.log('Menu item clicked')}
+      >
+        Home
+      </MenuItem>
     </div>
-  </div>
+  {/snippet}
+  
+  {#snippet variants}
+    <div class="grid grid-cols-1 gap-4 p-4">
+      <MenuItem active={true} variant="default">
+        Active Item
+      </MenuItem>
+      <MenuItem active={false} variant="default" disabled={true}>
+        Disabled Item
+      </MenuItem>
+      <MenuItem active={false} variant="default" external={true} href="#">
+        External Link
+      </MenuItem>
+      <MenuItem active={false} variant="primary">
+        Primary Item
+      </MenuItem>
+      <MenuItem active={false} variant="success">
+        Success Item
+      </MenuItem>
+      <MenuItem active={false} variant="danger">
+        Danger Item
+      </MenuItem>
+    </div>
+  {/snippet}
 </Story>
-
-
-
-

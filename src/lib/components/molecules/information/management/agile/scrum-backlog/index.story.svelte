@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ScrumBacklog from './index.svelte';
@@ -25,9 +25,9 @@
     items: [
       {
         id: 'item1',
-        title: 'Разработать аутентификацию пользователей',
-        description: 'Создать систему регистрации, входа и восстановления пароля',
-        assignee: 'Иван Петров',
+        title: 'Р Р°Р·СЂР°Р±РѕС‚Р°С‚СЊ Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№',
+        description: 'РЎРѕР·РґР°С‚СЊ СЃРёСЃС‚РµРјСѓ СЂРµРіРёСЃС‚СЂР°С†РёРё, РІС…РѕРґР° Рё РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ РїР°СЂРѕР»СЏ',
+        assignee: 'РРІР°РЅ РџРµС‚СЂРѕРІ',
         priority: 'high',
         estimatedHours: 16,
         status: 'todo',
@@ -37,9 +37,9 @@
       },
       {
         id: 'item2',
-        title: 'Дизайн главной страницы',
-        description: 'Создать макет главной страницы с учетом новой брендинговой политики',
-        assignee: 'Анна Сидорова',
+        title: 'Р”РёР·Р°Р№РЅ РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹',
+        description: 'РЎРѕР·РґР°С‚СЊ РјР°РєРµС‚ РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹ СЃ СѓС‡РµС‚РѕРј РЅРѕРІРѕР№ Р±СЂРµРЅРґРёРЅРіРѕРІРѕР№ РїРѕР»РёС‚РёРєРё',
+        assignee: 'РђРЅРЅР° РЎРёРґРѕСЂРѕРІР°',
         priority: 'medium',
         estimatedHours: 12,
         status: 'in-progress',
@@ -49,9 +49,9 @@
       },
       {
         id: 'item3',
-        title: 'Интеграция платежной системы',
-        description: 'Подключить внешний платежный провайдер для обработки транзакций',
-        assignee: 'Михаил Козлов',
+        title: 'РРЅС‚РµРіСЂР°С†РёСЏ РїР»Р°С‚РµР¶РЅРѕР№ СЃРёСЃС‚РµРјС‹',
+        description: 'РџРѕРґРєР»СЋС‡РёС‚СЊ РІРЅРµС€РЅРёР№ РїР»Р°С‚РµР¶РЅС‹Р№ РїСЂРѕРІР°Р№РґРµСЂ РґР»СЏ РѕР±СЂР°Р±РѕС‚РєРё С‚СЂР°РЅР·Р°РєС†РёР№',
+        assignee: 'РњРёС…Р°РёР» РљРѕР·Р»РѕРІ',
         priority: 'high',
         estimatedHours: 24,
         status: 'todo',
@@ -61,9 +61,9 @@
       },
       {
         id: 'item4',
-        title: 'Тестирование производительности',
-        description: 'Провести нагрузочное тестирование API и базы данных',
-        assignee: 'Дмитрий Волков',
+        title: 'РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё',
+        description: 'РџСЂРѕРІРµСЃС‚Рё РЅР°РіСЂСѓР·РѕС‡РЅРѕРµ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ API Рё Р±Р°Р·С‹ РґР°РЅРЅС‹С…',
+        assignee: 'Р”РјРёС‚СЂРёР№ Р’РѕР»РєРѕРІ',
         priority: 'medium',
         estimatedHours: 8,
         status: 'done',
@@ -73,9 +73,9 @@
       },
       {
         id: 'item5',
-        title: 'Рефакторинг компонентов',
-        description: 'Обновить устаревшие компоненты в соответствии с новыми стандартами',
-        assignee: 'Елена Морозова',
+        title: 'Р РµС„Р°РєС‚РѕСЂРёРЅРі РєРѕРјРїРѕРЅРµРЅС‚РѕРІ',
+        description: 'РћР±РЅРѕРІРёС‚СЊ СѓСЃС‚Р°СЂРµРІС€РёРµ РєРѕРјРїРѕРЅРµРЅС‚С‹ РІ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёРё СЃ РЅРѕРІС‹РјРё СЃС‚Р°РЅРґР°СЂС‚Р°РјРё',
+        assignee: 'Р•Р»РµРЅР° РњРѕСЂРѕР·РѕРІР°',
         priority: 'low',
         estimatedHours: 20,
         status: 'todo',
@@ -88,17 +88,17 @@
 
   // Handles for backlog events
   const handleItemAdd = (item: BacklogItem) => {
-    console.log('Добавление задачи:', item);
+    console.log('Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РґР°С‡Рё:', item);
     // Here would be the logic to add item to the backlog
   };
 
   const handleItemUpdate = (item: BacklogItem) => {
-    console.log('Обновление задачи:', item);
+    console.log('РћР±РЅРѕРІР»РµРЅРёРµ Р·Р°РґР°С‡Рё:', item);
     // Here would be the logic to update item in the backlog
   };
 
   const handleItemDelete = (id: string) => {
-    console.log('Удаление задачи с ID:', id);
+    console.log('РЈРґР°Р»РµРЅРёРµ Р·Р°РґР°С‡Рё СЃ ID:', id);
     // Here would be the logic to remove item from the backlog
   };
 
@@ -123,7 +123,7 @@
   description="A backlog component for managing sprint tasks with filtering and CRUD operations."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-scrum-backlog p-4">
       <h1 class="text-xl font-bold mb-4">Scrum Backlog Component</h1>
 
@@ -139,5 +139,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

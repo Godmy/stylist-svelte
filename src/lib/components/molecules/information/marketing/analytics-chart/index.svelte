@@ -55,6 +55,12 @@
     value: item.value,
     color: item.color
   })));
+  const pieChartPoints = $derived(data.map((item) => ({
+    x: item.label,
+    y: item.value,
+    label: item.label,
+    color: item.color
+  })));
 
   const lineSeries = $derived([
     {
@@ -96,7 +102,7 @@
       {:else if type === 'line'}
         <LineChart data={lineSeries} {width} {height} {maxValue} />
       {:else if type === 'pie' && data.length > 0}
-        <PieChart data={chartPoints} />
+        <PieChart data={pieChartPoints} />
       {/if}
     </div>
 

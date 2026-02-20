@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Accessibility, Contrast, Volume2, Eye, Minus, Plus, Type, Grid } from 'lucide-svelte';
-  import { AccessibilityToolbarStyleManager } from '$stylist/design-system/styles/accessibility-toolbar';
+  import { AccessibilityToolbarStyleManager } from '$stylist/design-system/styles';
 
-  type Props = {
+  type AccessibilityToolbarProps = {
     showContrastToggle?: boolean;
     showFontSizeControls?: boolean;
     showScreenReaderTester?: boolean;
@@ -12,6 +12,8 @@
     class?: string;
     toolbarClass?: string;
     buttonClass?: string;
+    variant?: 'default' | 'minimal' | 'compact';
+    size?: 'sm' | 'md' | 'lg';
   } & HTMLAttributes<HTMLDivElement>;
 
   let {
@@ -23,8 +25,10 @@
     class: className = '',
     toolbarClass = '',
     buttonClass = '',
+    variant = 'default',
+    size = 'md',
     ...restProps
-  }: Props = $props();
+  }: AccessibilityToolbarProps & HTMLAttributes<HTMLDivElement> = $props();
 
   let fontSizeScale = $state(1);
   let highContrast = $state(false);
@@ -177,4 +181,3 @@
     </button>
   </div>
 </div>
-

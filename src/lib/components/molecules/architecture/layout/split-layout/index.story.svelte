@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import SplitLayout from './index.svelte';
@@ -36,7 +36,7 @@
     description="Split layout component for organizing content in two sections"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <SplitLayout
                 direction={props.direction}
@@ -46,5 +46,6 @@
         </div>
     {/snippet}
 </Story>
+
 
 

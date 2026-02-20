@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import StatsCard from './index.svelte';
@@ -14,11 +14,11 @@
   };
 
   const controls: ControlConfig[] = [
-    { name: 'label', type: 'text', defaultValue: 'Активные пользователи' },
+    { name: 'label', type: 'text', defaultValue: 'РђРєС‚РёРІРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё' },
     { name: 'value', type: 'text', defaultValue: '24 560' },
     { name: 'trend', type: 'select', defaultValue: 'up', options: ['up', 'down', 'neutral'] },
     { name: 'trendValue', type: 'text', defaultValue: '+12%' },
-    { name: 'description', type: 'text', defaultValue: 'за последние 7 дней' },
+    { name: 'description', type: 'text', defaultValue: 'Р·Р° РїРѕСЃР»РµРґРЅРёРµ 7 РґРЅРµР№' },
     { name: 'showIcon', type: 'boolean', defaultValue: true }
   ];
 </script>
@@ -40,11 +40,11 @@
   title="StatsCard"
   component={StatsCard}
   category="Molecules"
-  description="Карточка с ключевой метрикой и трендом."
+  description="РљР°СЂС‚РѕС‡РєР° СЃ РєР»СЋС‡РµРІРѕР№ РјРµС‚СЂРёРєРѕР№ Рё С‚СЂРµРЅРґРѕРј."
   tags={['dashboard', 'analytics']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="grid gap-6 max-w-3xl sm:grid-cols-2">
       <StatsCard
         label={props.label}
@@ -60,7 +60,7 @@
         value="3,6%"
         trend="down"
         trendValue="-1,2%"
-        description="месяц к месяцу"
+        description="РјРµСЃСЏС† Рє РјРµСЃСЏС†Сѓ"
         icon={churnIcon}
         class="bg-rose-50/80 border-rose-100"
       />
@@ -70,12 +70,13 @@
         value="$82K"
         trend="up"
         trendValue="+5%"
-        description="за квартал"
+        description="Р·Р° РєРІР°СЂС‚Р°Р»"
         icon={revenueIcon}
       />
     </div>
   {/snippet}
 </Story>
+
 
 
 

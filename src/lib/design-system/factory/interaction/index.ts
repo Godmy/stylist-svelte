@@ -1,5 +1,3 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
 import type { Preset } from '../../state/preset';
 import { ACCESSIBILITY_CLASSES, BASE_CLASSES, STATE_CLASSES } from '../../classes/classes';
 import { DEFAULT_FLAGS } from '../../tokens/flags';

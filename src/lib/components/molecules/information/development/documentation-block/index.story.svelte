@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import DocumentationBlock from './index.svelte';
@@ -76,7 +76,7 @@
   description="A component for displaying documentation with rich content and code examples."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-documentation-block p-4">
       <h1 class="text-lg font-semibold mb-4">DocumentationBlock Component</h1>
 
@@ -147,5 +147,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

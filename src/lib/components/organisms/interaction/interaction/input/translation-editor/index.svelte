@@ -1,13 +1,32 @@
 ﻿<script lang="ts">
   import { Download, Edit3, Languages, Save, Trash2, Upload } from 'lucide-svelte';
-  import type { TranslationEditorProps, TranslatableText } from '$stylist/design-system/props/interaction-input';
+  import type { TranslatableText } from '$stylist/design-system/props/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+
+  interface ExtendedTranslationEditorProps {
+    texts?: TranslatableText[];
+    locales?: string[];
+    defaultLocale?: string;
+    currentLocale?: string;
+    class?: string;
+    headerClass?: string;
+    tableClass?: string;
+    rowClass?: string;
+    editorClass?: string;
+    showKeyColumn?: boolean;
+    showContextColumn?: boolean;
+    showStatusColumn?: boolean;
+    onTranslationChange?: (key: string, locale: string, value: string) => void;
+    onSave?: () => void;
+    onImport?: (data: any) => void;
+    onExport?: () => void;
+  }
 
   let {
     texts = [],
     locales = [],
     defaultLocale = 'en',
-    currentLocale,
+    currentLocale = 'en',
     class: className = '',
     headerClass = '',
     tableClass = '',
@@ -21,7 +40,7 @@
     onImport,
     onExport,
     ...restProps
-  }: TranslationEditorProps = $props();
+  }: ExtendedTranslationEditorProps = $props();
 
   let editingId = $state<string | null>(null);
   let editedValue = $state('');
@@ -48,7 +67,7 @@
       <div class="flex gap-2">
         <button type="button" class="px-2 py-1 border rounded" onclick={() => onImport?.({})}><Upload class="h-4 w-4" /></button>
         <button type="button" class="px-2 py-1 border rounded" onclick={() => onExport?.()}><Download class="h-4 w-4" /></button>
-        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave(texts)}><Save class="h-4 w-4" /></button>{/if}
+        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave()}><Save class="h-4 w-4" /></button>{/if}
       </div>
     </div>
 

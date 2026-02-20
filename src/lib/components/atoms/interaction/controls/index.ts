@@ -12,5 +12,5 @@ export { SortableTableHeader } from './tables';
 export { Tab, TabIndicator, TabList, TabPanel, TabPanels } from './tabs';
 export { Tag } from './tag';
 export { AdvancedToggle, Checkbox, DarkModeToggle, HighContrastToggle, Radio, Switch, SwitchWithLabel, ThemeSwitcher, Toggle, ToggleGroupItem, ToggleGroupRoot, ToggleWithDescription } from './toggles';
-export { TooltipWithArrow } from './toolbars';
+export { Tooltip } from './tooltip';
 export { ZoomControls } from './zoom';

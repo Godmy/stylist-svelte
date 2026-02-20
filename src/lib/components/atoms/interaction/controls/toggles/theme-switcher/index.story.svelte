@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import ThemeSwitcher from './index.svelte';
@@ -37,7 +37,7 @@
     description="Component for switching between themes"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <ThemeSwitcher
                 currentTheme={props.currentTheme || 'light'}
@@ -47,6 +47,7 @@
         </div>
     {/snippet}
 </Story>
+
 
 
 

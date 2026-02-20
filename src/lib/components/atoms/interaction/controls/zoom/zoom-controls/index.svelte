@@ -1,55 +1,40 @@
 <script lang="ts">
+  import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-svelte';
+  import { createZoomControlsState } from '$stylist/design-system/models/zoom-controls.svelte';
+  import type { ZoomControlsProps } from '$stylist/design-system/props/zoom-controls';
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ZoomIn, ZoomOut, RotateCcw, Plus, Minus } from 'lucide-svelte';
 
-  type Props = {
-    initialValue?: number;
-    minZoom?: number;
-    maxZoom?: number;
-    step?: number;
-    showPercentage?: boolean;
-    onValueInput?: (zoomLevel: number) => void;
-    onValueChange?: (zoomLevel: number) => void;
-    /** @deprecated use onValueChange */
-    onChange?: (zoomLevel: number) => void;
-    class?: string;
-    controlsClass?: string;
-    indicatorClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  type Props = ZoomControlsProps & HTMLAttributes<HTMLDivElement>;
+  let props: Props = $props();
 
-  let {
-    initialValue = 100, // percentage
-    minZoom = 50,
-    maxZoom = 200,
-    step = 10,
-    showPercentage = true,
-    onValueInput,
-    onValueChange,
-    onChange,
-    class: className = '',
-    controlsClass = '',
-    indicatorClass = '',
-    ...restProps
-  }: Props = $props();
+  const zoomState = createZoomControlsState(props);
+  const initialZoom = zoomState.initialValue;
 
-  let zoomLevel = $state(initialValue);
+  let zoomLevel = $state(initialZoom);
+
+  const restProps = $derived(
+    (() => {
+      const { class: _class, initialValue: _initialValue, minZoom: _minZoom, maxZoom: _maxZoom, step: _step, showPercentage: _showPercentage, onChange: _onChange, onValueInput: _onValueInput, onValueChange: _onValueChange, ...rest } = props;
+      return rest;
+    })()
+  );
 
   function zoomIn() {
-    if (zoomLevel < maxZoom) {
-      zoomLevel = Math.min(zoomLevel + step, maxZoom);
+    if (zoomLevel < zoomState.maxZoom) {
+      zoomLevel = Math.min(zoomLevel + zoomState.step, zoomState.maxZoom);
       applyZoom();
     }
   }
 
   function zoomOut() {
-    if (zoomLevel > minZoom) {
-      zoomLevel = Math.max(zoomLevel - step, minZoom);
+    if (zoomLevel > zoomState.minZoom) {
+      zoomLevel = Math.max(zoomLevel - zoomState.step, zoomState.minZoom);
       applyZoom();
     }
   }
 
   function resetZoom() {
-    zoomLevel = initialValue;
+    zoomLevel = zoomState.initialValue;
     applyZoom();
   }
 
@@ -60,10 +45,10 @@
     contentContainer.style.transformOrigin = 'top left';
     contentContainer.style.width = `${100 * (100 / zoomLevel)}%`;
     contentContainer.style.height = `${100 * (100 / zoomLevel)}%`;
-    
-    onValueInput?.(zoomLevel);
-    onValueChange?.(zoomLevel);
-    onChange?.(zoomLevel);
+
+    props.onValueInput?.(zoomLevel);
+    props.onValueChange?.(zoomLevel);
+    props.onChange?.(zoomLevel);
   }
 
   // Initialize zoom
@@ -72,54 +57,52 @@
   });
 </script>
 
-<div class={`fixed bottom-4 right-4 flex flex-col items-end ${className}`} {...restProps}>
-  <div class="mb-2">
-    <div class={`flex items-center px-3 py-2 bg-white rounded-full shadow-lg border ${indicatorClass}`}>
+<div class={zoomState.containerClasses} {...restProps}>
+  <div class={zoomState.indicatorContainerClasses}>
+    <div class={zoomState.indicatorClasses}>
       <span class="text-sm font-medium text-gray-700">
-        {showPercentage ? `${zoomLevel}%` : zoomLevel}
+        {zoomState.showPercentage ? `${zoomLevel}%` : zoomLevel}
       </span>
     </div>
   </div>
-  
-  <div class={`flex flex-col rounded-full bg-white shadow-lg border ${controlsClass}`}>
+
+  <div class={zoomState.controlsContainerClasses}>
     <button
       type="button"
-      class="p-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-t-full"
+      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonFirstClasses} ${zoomLevel >= zoomState.maxZoom ? zoomState.controlButtonDisabledClasses : ''}`}
       onclick={zoomIn}
       aria-label="Zoom in"
-      disabled={zoomLevel >= maxZoom}
+      disabled={zoomLevel >= zoomState.maxZoom}
     >
       <ZoomIn class="h-5 w-5" />
     </button>
-    
+
     <button
       type="button"
-      class="p-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonMiddleClasses}`}
       onclick={resetZoom}
       aria-label="Reset zoom"
     >
       <RotateCcw class="h-5 w-5" />
     </button>
-    
+
     <button
       type="button"
-      class="p-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-b-full"
+      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonLastClasses} ${zoomLevel <= zoomState.minZoom ? zoomState.controlButtonDisabledClasses : ''}`}
       onclick={zoomOut}
       aria-label="Zoom out"
-      disabled={zoomLevel <= minZoom}
+      disabled={zoomLevel <= zoomState.minZoom}
     >
       <ZoomOut class="h-5 w-5" />
     </button>
   </div>
-  
-  <div class="mt-2 text-xs text-gray-500 text-right">
+
+  <div class={zoomState.hintClasses}>
     <div>Zoom controls</div>
     <div class="flex space-x-1">
-      <kbd class="px-2 py-1 text-xs rounded border bg-gray-100">Ctrl</kbd>
+      <kbd class={zoomState.kbdClasses}>Ctrl</kbd>
       <span>+</span>
-      <kbd class="px-2 py-1 text-xs rounded border bg-gray-100">-</kbd>
+      <kbd class={zoomState.kbdClasses}>-</kbd>
     </div>
   </div>
 </div>
-
-

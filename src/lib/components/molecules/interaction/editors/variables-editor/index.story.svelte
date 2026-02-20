@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import VariablesEditor from './index.svelte';
@@ -31,10 +31,11 @@
     description="Editor for managing variables"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <VariablesEditor {...props} />
         </div>
     {/snippet}
 </Story>
+
 

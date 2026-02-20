@@ -14,7 +14,7 @@
 
   import type { HTMLAttributes } from 'svelte/elements';
   import { Info } from 'lucide-svelte';
-  import Tooltip from '$stylist/components/atoms/interaction/controls/buttons/tooltip/index.svelte';
+  import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
   import { BarChartStyleManager } from '$stylist/design-system/styles/bar-chart';
   import type { IBarChartProps, IBarPosition } from '$stylist/design-system/props/bar-chart';
 
@@ -90,7 +90,7 @@
     <div class={BarChartStyleManager.getTitleContainerClasses()}>
       <h3 class={BarChartStyleManager.getTitleClasses()}>{title}</h3>
       {#if showTooltip}
-        <Tooltip text="This is a bar chart showing categorical data with rectangular bars proportional to the values they represent." position="top">
+        <Tooltip content="This is a bar chart showing categorical data with rectangular bars proportional to the values they represent." placement="top">
           <Info class={BarChartStyleManager.getInfoIconClasses()} />
         </Tooltip>
       {/if}

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import LegendItem from './index.svelte';
@@ -58,7 +58,7 @@
   description="A legend item component for displaying categorized information."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-legend-item p-6 bg-gray-50 rounded-lg">
       <h2 class="text-lg font-semibold mb-4">LegendItem Component</h2>
       
@@ -114,4 +114,5 @@
     </div>
   {/snippet}
 </Story>
+
 

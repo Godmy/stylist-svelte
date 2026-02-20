@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLCanvasAttributes } from 'svelte/elements';
+  import type { HTMLAttributes } from 'svelte/elements';
   import { CanvasImageEditorStyleManager } from '$stylist/design-system/styles';
   import type { CanvasImageEditorProps } from '$stylist/design-system/props';
 
@@ -16,7 +16,7 @@
     hue = 0,
     class: className = '',
     ...restProps
-  }: CanvasImageEditorProps = $props();
+  }: CanvasImageEditorProps & HTMLAttributes<HTMLCanvasElement> = $props();
 
   let canvasRef: HTMLCanvasElement | null = null;
   let image: HTMLImageElement | null = null;
@@ -75,7 +75,7 @@
 
     // Build filter string from all filter properties
     let filterString = '';
-    
+
     // Standard filters
     switch (filter) {
       case 'grayscale':
@@ -158,13 +158,16 @@
   $effect(() => {
     currentCropArea = { ...cropArea };
   });
+
+  // Generate CSS classes using the style manager
+  const canvasClass = $derived(CanvasImageEditorStyleManager.getCanvasClasses());
 </script>
 
 <canvas
   bind:this={canvasRef}
   width={width}
   height={height}
-  class={CanvasImageEditorStyleManager.getCanvasClasses() + ' ' + className}
+  class={canvasClass}
   {...restProps}
+  aria-label="Canvas image editor"
 ></canvas>
-

@@ -12,10 +12,6 @@ export interface IBreadcrumbItem {
 	label: string;
 }
 
-export type PageEllipsisProps = {
-	class?: string;
-} & HTMLAttributes<HTMLDivElement>;
-
 export interface IBreadcrumbProps {
 	items?: Array<{ href?: string; label: string; current?: boolean }>;
 	class?: string;

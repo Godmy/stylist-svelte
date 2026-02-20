@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AvatarGroup from './index.svelte';
@@ -43,7 +43,7 @@
   tags={['avatar', 'user', 'group']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Avatar Group</h2>
       <div class="flex items-center space-x-6">
@@ -63,5 +63,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

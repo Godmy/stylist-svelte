@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PieChartProps } from '$stylist/design-system';
+	import type { PieChartProps, ChartDataPoint } from '$stylist/design-system';
 	import { createPieChartState } from '$stylist/design-system/models/chart-pie.svelte';
 
 	let props: PieChartProps = $props();
@@ -12,7 +12,7 @@
 		})()
 	);
 
-	const total = $derived(data.reduce((sum: number, item: { value: number }) => sum + item.value, 0));
+	const total = $derived(data.reduce((sum: number, item: ChartDataPoint) => sum + item.y, 0));
 	const center = 100;
 	const radius = 90;
 	const startAngle = 0;
@@ -21,14 +21,14 @@
 <div class={state.containerClasses} {...restProps}>
 	<svg width="200" height="200" class={state.svgClasses}>
 		{#each data as item, i (i)}
-			{@const value = item.value}
+			{@const value = item.y}
 			{@const sliceAngle = total === 0 ? 0 : (value / total) * 360}
 			{@const currentSliceStartAngle =
 				i === 0
 					? startAngle
 					: data
 							.slice(0, i)
-							.reduce((sum: number, d: { value: number }) => sum + (total === 0 ? 0 : (d.value / total) * 360), startAngle)}
+							.reduce((sum: number, d: ChartDataPoint) => sum + (total === 0 ? 0 : (d.y / total) * 360), startAngle)}
 			{@const currentSliceEndAngle = currentSliceStartAngle + sliceAngle}
 
 			{@const startRad = (currentSliceStartAngle * Math.PI) / 180}

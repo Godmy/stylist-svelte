@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ConversionFunnel from './index.svelte';
@@ -25,9 +25,10 @@
   description="Conversion funnel visualization."
   controls={controls}
 >
-  {#snippet children(args: Props)}
+  {#snippet children(args)}
     <div class="sb-molecules-conversion-funnel p-4">
       <ConversionFunnel title="Sample Conversion Funnel" steps={sampleSteps} showConversionRate={args.showConversionRate} />
     </div>
   {/snippet}
 </Story>
+

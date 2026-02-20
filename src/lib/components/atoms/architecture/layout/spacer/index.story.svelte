@@ -1,37 +1,37 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Spacer from './index.svelte';
-
-	let size: string | number = 16;
-	let axis: 'vertical' | 'horizontal' = 'vertical';
+	
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	
+	const controls: ControlConfig[] = [
+		{
+			name: 'size',
+			type: 'select',
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '16'], // Include both token sizes and numeric values
+			defaultValue: 'md'
+		},
+		{
+			name: 'axis',
+			type: 'select',
+			options: ['vertical', 'horizontal'],
+			defaultValue: 'vertical'
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">Spacer</h1>
-
-	<div class="mb-6 flex flex-wrap items-center gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Size</span>
-			<input type="number" bind:value={size} class="w-20 rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Axis</span>
-			<select bind:value={axis} class="rounded border p-1">
-				<option value="vertical">vertical</option>
-				<option value="horizontal">horizontal</option>
-			</select>
-		</label>
-	</div>
-
-	{#if axis === 'vertical'}
-		<div class="inline-block bg-slate-100">
-			<Spacer {size} {axis} />
-		</div>
-	{:else}
-		<div class="flex items-center bg-slate-100 p-2">
-			<span>Left</span>
-			<Spacer {size} {axis} />
-			<span>Right</span>
-		</div>
-	{/if}
-</div>
+<Story {controls} component={Spacer} title="Spacer Component" description="A flexible space component for layout purposes">
+	{#snippet children(values: any)}
+		{#if values.axis === 'vertical'}
+			<div class="inline-block bg-slate-100">
+				<Spacer {...values} />
+			</div>
+		{:else}
+			<div class="flex items-center bg-slate-100 p-2">
+				<span>Left</span>
+				<Spacer {...values} />
+				<span>Right</span>
+			</div>
+		{/if}
+	{/snippet}
+</Story>

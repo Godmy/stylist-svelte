@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ScatterPlot from './index.svelte';
@@ -18,12 +18,13 @@
 </script>
 
 <Story id="organisms-scatter-plot" title="Organisms / Interaction / Controls / Scatter Plot" component={ScatterPlot} category="Organisms/Interaction/Controls" controls={controls}>
-  {#snippet children(props: Record<string, unknown>)}
+  {#snippet children(props)}
     {@const typedProps = props as Props}
     <div class="sb-organisms-scatter-plot p-4">
       <ScatterPlot {data} showGrid={typedProps.showGrid} showAxis={typedProps.showAxis} showLabels={typedProps.showLabels} />
     </div>
   {/snippet}
 </Story>
+
 
 

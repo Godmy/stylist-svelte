@@ -1,57 +1,45 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Stack from './index.svelte';
-
-	let direction: 'vertical' | 'horizontal' = 'vertical';
-	let spacing: string | number = '1rem';
-	let align: 'start' | 'center' | 'end' | 'stretch' | 'baseline' = 'stretch';
-	let justify: 'start' | 'center' | 'end' | 'between' | 'around' = 'start';
+	
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	
+	const controls: ControlConfig[] = [
+		{
+			name: 'direction',
+			type: 'select',
+			options: ['vertical', 'horizontal'],
+			defaultValue: 'vertical'
+		},
+		{
+			name: 'spacing',
+			type: 'select',
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '1rem'], // Include both token sizes and custom values
+			defaultValue: 'md'
+		},
+		{
+			name: 'align',
+			type: 'select',
+			options: ['start', 'center', 'end', 'stretch', 'baseline'],
+			defaultValue: 'stretch'
+		},
+		{
+			name: 'justify',
+			type: 'select',
+			options: ['start', 'center', 'end', 'between', 'around'],
+			defaultValue: 'start'
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">Stack</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Direction</span>
-			<select bind:value={direction} class="rounded border p-1">
-				<option value="vertical">vertical</option>
-				<option value="horizontal">horizontal</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Spacing</span>
-			<input type="text" bind:value={spacing} class="w-24 rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Align</span>
-			<select bind:value={align} class="rounded border p-1">
-				<option value="start">start</option>
-				<option value="center">center</option>
-				<option value="end">end</option>
-				<option value="stretch">stretch</option>
-				<option value="baseline">baseline</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Justify</span>
-			<select bind:value={justify} class="rounded border p-1">
-				<option value="start">start</option>
-				<option value="center">center</option>
-				<option value="end">end</option>
-				<option value="between">between</option>
-				<option value="around">around</option>
-			</select>
-		</label>
-	</div>
-
-	<Stack {direction} {spacing} {align} {justify}>
-		{#snippet children()}
-			<div class="rounded bg-slate-100 p-2">Item A</div>
-			<div class="rounded bg-slate-100 p-2">Item B</div>
-			<div class="rounded bg-slate-100 p-2">Item C</div>
-		{/snippet}
-	</Stack>
-</div>
+<Story {controls} component={Stack} title="Stack Component" description="A flexible layout component for arranging elements in a linear fashion">
+	{#snippet children(values: any)}
+		<Stack {...values}>
+			{#snippet children()}
+				<div class="rounded bg-slate-100 p-2">Item A</div>
+				<div class="rounded bg-slate-100 p-2">Item B</div>
+				<div class="rounded bg-slate-100 p-2">Item C</div>
+			{/snippet}
+		</Stack>
+	{/snippet}
+</Story>

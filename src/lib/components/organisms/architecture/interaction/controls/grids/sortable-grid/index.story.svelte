@@ -1,38 +1,8 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import type { Snippet } from 'svelte';
   import SortableGrid from './index.svelte';
   import type { GridItem } from './index.svelte';
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-        {
-            name: 'cols',
-            type: 'number',
-            defaultValue: 3
-        },
-        {
-            name: 'disabled',
-            type: 'boolean',
-            defaultValue: false
-        }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
-
-  type Props = {
-    items?: GridItem[];
-    cols?: number;
-    disabled?: boolean;
-  };
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
   const defaultItems: GridItem[] = [
     { id: '1', title: 'Item 1', content: 'Content for Item 1' },
@@ -42,27 +12,50 @@
     { id: '5', title: 'Item 5', content: 'Content for Item 5' },
     { id: '6', title: 'Item 6', content: 'Content for Item 6' },
   ];
+
+  const controls = [
+    {
+      name: 'cols',
+      type: CONTROL_TYPES.SELECT,
+      options: [1, 2, 3, 4, 5, 6],
+      defaultValue: 3
+    },
+    {
+      name: 'disabled',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: false
+    },
+    {
+      name: 'gap',
+      type: CONTROL_TYPES.SELECT,
+      options: ['sm', 'md', 'lg'],
+      defaultValue: 'md'
+    },
+    {
+      name: 'variant',
+      type: CONTROL_TYPES.SELECT,
+      options: ['card', 'minimal'],
+      defaultValue: 'card'
+    }
+  ];
 </script>
 
-<div class="sb-organisms-sortable-grid">
-  <Story
-    {id}
-    {title}
-    component={SortableGrid}
-    category="Organisms"
-    description="Sortable grid component for organizing items"
-    controls={controls}
-  >
-    {#snippet children(props: Props)}
-      <div class="p-4">
-        <SortableGrid
-          items={props.items || defaultItems}
-          cols={props.cols}
-          disabled={props.disabled}
-        />
-      </div>
-    {/snippet}
-  </Story>
-</div>
+<Story
+  {controls}
+  title="SortableGrid"
+  category="Organisms/Interaction/Controls/Grids"
+  description="Sortable grid component for organizing items."
+  tags={['grid', 'sortable', 'drag-and-drop', 'layout']}
+>
+  {#snippet children(props)}
+    <SortableGrid
+      items={defaultItems}
+      cols={props.cols}
+      disabled={props.disabled}
+      gap={props.gap}
+      variant={props.variant}
+    />
+  {/snippet}
+</Story>
 
 

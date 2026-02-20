@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Grid3X3, Info } from 'lucide-svelte';
-  import Tooltip from '$stylist/components/atoms/interaction/controls/buttons/tooltip/index.svelte';
+  import { IconGrid3x3, IconInfo } from '$stylist/components/atoms';
+  import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
   // Types
   export interface IHeatmapCell {
@@ -187,8 +187,8 @@
     <div class="flex items-center justify-between mb-2">
       <h3 class={titleClasses}>{title}</h3>
       {#if showTooltip}
-        <Tooltip text="This is a heatmap showing data density through color variations in a matrix format." position="top">
-          <Info class={tooltipButtonClasses} />
+        <Tooltip content="This is a heatmap showing data density through color variations in a matrix format." placement="top">
+          <IconInfo size="sm" class={tooltipButtonClasses} />
         </Tooltip>
       {/if}
     </div>
@@ -318,6 +318,4 @@
     </div>
   {/if}
 </div>
-
-
 

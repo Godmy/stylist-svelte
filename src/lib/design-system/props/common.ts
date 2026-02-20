@@ -137,7 +137,7 @@ export interface Props
 	block?: boolean;
 	loadingLabel?: string;
 	children?: Snippet;
-	icon?: Snippet;
+	icon?: string | Snippet;
 }
 
 export interface StateProps {

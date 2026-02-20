@@ -1,6 +1,20 @@
 ﻿<script lang="ts">
-  import type { RangeInputProps } from '$stylist/design-system/props/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+
+  interface ExtendedRangeInputProps {
+    min?: number;
+    max?: number;
+    minValue?: number;
+    maxValue?: number;
+    step?: number;
+    disabled?: boolean;
+    showInputFields?: boolean;
+    class?: string;
+    rangeClass?: string;
+    inputClass?: string;
+    onInput?: (value: { min: number; max: number }) => void;
+    onChange?: (value: { min: number; max: number }) => void;
+  }
 
   let {
     min = 0,
@@ -16,7 +30,7 @@
     onInput,
     onChange,
     ...restProps
-  }: RangeInputProps = $props();
+  }: ExtendedRangeInputProps = $props();
 
   let minVal = $state(minValue);
   let maxVal = $state(maxValue);

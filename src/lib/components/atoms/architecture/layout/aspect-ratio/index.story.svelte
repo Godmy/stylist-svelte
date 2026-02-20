@@ -1,22 +1,24 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import AspectRatio from './index.svelte';
-
-	let ratio = 1;
+	
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	
+	const controls: ControlConfig[] = [
+		{
+			name: 'ratio',
+			type: 'text',
+			defaultValue: '1'
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">AspectRatio</h1>
-
-	<div class="mb-6 flex items-center gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Ratio</span>
-			<input type="number" bind:value={ratio} step="0.25" class="w-24 rounded border p-1" />
-		</label>
-	</div>
-
-	<AspectRatio {ratio}>
-		{#snippet children()}
-			<div class="h-full w-full bg-slate-200"></div>
-		{/snippet}
-	</AspectRatio>
-</div>
+<Story {controls} component={AspectRatio} title="AspectRatio Component" description="Maintains a consistent aspect ratio for content containers">
+	{#snippet children(values: any)}
+		<AspectRatio {...values}>
+			{#snippet children()}
+				<div class="h-full w-full bg-slate-200"></div>
+			{/snippet}
+		</AspectRatio>
+	{/snippet}
+</Story>

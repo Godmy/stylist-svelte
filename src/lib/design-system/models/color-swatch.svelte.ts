@@ -56,10 +56,11 @@ function createPieChartState(props: PieChartProps) {
 }
 
 export function createColorSwatchState(props: ColorSwatchProps) {
-	const color = $derived(props.color ?? '#0ea5e9');
+	const color = $derived((props.color ?? '#0ea5e9') as string);
 	const size = $derived(props.size ?? 32);
-	const style = $derived(DataDisplayStyleManager.getColorSwatchStyle(color, size));
-	const classes = $derived(DataDisplayStyleManager.getColorSwatchClasses(props.class));
+	const classes = $derived(
+		DataDisplayStyleManager.getColorSwatchClasses(color, size, props.class)
+	);
 
 	return {
 		get color() {
@@ -67,9 +68,6 @@ export function createColorSwatchState(props: ColorSwatchProps) {
 		},
 		get size() {
 			return size;
-		},
-		get style() {
-			return style;
 		},
 		get classes() {
 			return classes;

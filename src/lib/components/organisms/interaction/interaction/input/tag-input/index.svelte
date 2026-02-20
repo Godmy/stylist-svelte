@@ -1,7 +1,21 @@
 ﻿<script lang="ts">
   import { X } from 'lucide-svelte';
-  import type { TagInputProps } from '$stylist/design-system/props/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+
+  interface ExtendedTagInputProps {
+    tags?: string[];
+    placeholder?: string;
+    disabled?: boolean;
+    maxTags?: number;
+    delimiter?: string;
+    validator?: (tag: string) => boolean;
+    class?: string;
+    inputClass?: string;
+    tagClass?: string;
+    removeButtonClass?: string;
+    onInput?: (tags: string[]) => void;
+    onChange?: (tags: string[]) => void;
+  }
 
   let {
     tags = [],
@@ -17,7 +31,7 @@
     onInput,
     onChange,
     ...restProps
-  }: TagInputProps = $props();
+  }: ExtendedTagInputProps = $props();
 
   let currentTags = $state<string[]>([...tags]);
   let inputText = $state('');

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import KanbanColumn from './index.svelte';
@@ -47,9 +47,10 @@
   description="Kanban column with draggable cards."
   controls={controls}
 >
-  {#snippet children(args: Props)}
+  {#snippet children(args)}
     <div class="sb-molecules-kanban-column p-4">
       <KanbanColumn column={sampleColumn} droppable={args.droppable} />
     </div>
   {/snippet}
 </Story>
+

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import Switch from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -27,7 +27,7 @@
 </script>
 
 <Story {id} {title} {description} component={Switch} category="Atoms" {controls}>
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const label =
 			typeof props.label === 'string' ? props.label : 'Enable notifications'}
 		{@const description =
@@ -46,6 +46,7 @@
 		/>
 	{/snippet}
 </Story>
+
 
 
 

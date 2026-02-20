@@ -6,12 +6,14 @@
 	const state = createContainerState(props);
 	const restProps = $derived(
 		(() => {
-			const { class: _class, children: _children, maxWidth: _maxWidth, ...rest } = props;
+			const { class: _class, ...rest } = props;
 			return rest;
 		})()
 	);
 </script>
 
 <div class={state.classes} {...restProps}>
-	{@render props.children()}
+	{#if props.children}
+		{@render props.children()}
+	{/if}
 </div>

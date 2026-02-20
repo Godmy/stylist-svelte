@@ -1,18 +1,12 @@
 <script lang="ts">
 	import Abbr from './index.svelte';
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	type AbbrStoryProps = {
-		label: string;
-		title: string;
-		emphasize: boolean;
-	};
-
-	const controls: ControlConfig[] = [
-		{ name: 'label', type: 'text', defaultValue: 'API' },
-		{ name: 'title', type: 'text', defaultValue: 'Application Programming Interface' },
-		{ name: 'emphasize', type: 'boolean', defaultValue: false }
+	const controls = [
+		{ name: 'label', type: CONTROL_TYPES.TEXT, defaultValue: 'API' },
+		{ name: 'title', type: CONTROL_TYPES.TEXT, defaultValue: 'Application Programming Interface' },
+		{ name: 'emphasize', type: CONTROL_TYPES.BOOLEAN, defaultValue: false }
 	];
 
 	const glossary = [
@@ -23,24 +17,25 @@
 </script>
 
 <Story
-	id="atoms-abbr"
-	title="Abbr"
-	component={Abbr}
-	category="Atoms"
-	description="Accessible abbreviation with dotted underline hinting at hover/click tooltips."
-	tags={['typography', 'content', 'a11y']}
 	{controls}
+	component={Abbr}
+	title="Abbr"
+	category="Atoms/Information/Typography/Inline"
+	description="Accessible abbreviation with dotted underline hinting at hover/click tooltips."
+	tags={['abbreviation', 'typography', 'accessibility']}
 >
-	{#snippet children(props: Record<string, unknown>)}
-		{@const storyProps = props as AbbrStoryProps}
+	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<div
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
 			>
 				<p class="text-base leading-relaxed text-gray-700 dark:text-gray-200">
 					Build brilliant experiences by connecting your
-					<Abbr title={storyProps.title} class={storyProps.emphasize ? 'font-semibold text-indigo-600' : ''}>
-						{storyProps.label}
+					<Abbr
+						title={props.title}
+						class={props.emphasize ? 'font-semibold text-indigo-600' : ''}
+					>
+						{props.label}
 					</Abbr>
 					with product storytelling. Hover or focus the abbreviation to reveal the expansion.
 				</p>

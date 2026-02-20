@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Breadcrumb from './index.svelte';
@@ -25,7 +25,7 @@
 	tags={['navigation', 'path', 'hierarchy']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const storyProps = props as Props}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Breadcrumb</h2>
@@ -42,6 +42,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

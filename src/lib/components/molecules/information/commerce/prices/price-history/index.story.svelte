@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PriceHistory from './index.svelte';
@@ -30,7 +30,7 @@
   description="Displays a product's price history over time."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-price-history p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PriceHistory Story</h2>
       <PriceHistory
@@ -48,5 +48,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

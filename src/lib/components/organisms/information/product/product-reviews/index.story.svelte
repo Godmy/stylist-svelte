@@ -1,7 +1,24 @@
-<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
+
   import ProductReviews from './index.svelte';
+
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'averageRating', type: 'number', defaultValue: 4.2 },
+      { name: 'totalReviews', type: 'number', defaultValue: 128 },
+      { name: 'showAddReview', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
   type Review = {
     id: string;
@@ -13,74 +30,78 @@
     verified?: boolean;
   };
 
-  type Props = {
-    averageRating: number;
-    totalReviews: number;
-    showAddReview: boolean;
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'averageRating',
-      type: 'number',
-      defaultValue: 4.2,
-      min: 0,
-      max: 5
-    },
-    {
-      name: 'totalReviews',
-      type: 'number',
-      defaultValue: 128,
-      min: 0
-    },
-    {
-      name: 'showAddReview',
-      type: 'boolean',
-      defaultValue: true
-    }
+  const reviews: Review[] = [
+    { id: '1', author: 'John D.', rating: 5, title: 'Great product!', content: 'Highly recommend this product.', date: new Date().toISOString(), verified: true },
+    { id: '2', author: 'Jane S.', rating: 4, title: 'Good value', content: 'Good quality for the price.', date: new Date().toISOString(), verified: false }
   ];
 
-  const sampleReviews: Review[] = [
-    {
-      id: '1',
-      author: 'John D.',
-      rating: 5,
-      title: 'Excellent Product!',
-      content: 'This product exceeded my expectations. Great quality and fast shipping.',
-      date: '2023-10-15',
-      verified: true
-    },
-    {
-      id: '2',
-      author: 'Sarah M.',
-      rating: 4,
-      title: 'Good Value',
-      content: 'Overall satisfied with the purchase. Would recommend to others.',
-      date: '2023-10-20',
-      verified: true
-    }
-  ];
+  function handleAddReview(review: Review) {
+    console.log('Review added:', review);
+  }
+
+  function handleHelpful(reviewId: string) {
+    console.log('Helpful:', reviewId);
+  }
 </script>
 
 <Story
-  id="molecules-product-reviews"
-  title="ProductReviews"
+  {id}
+  {title}
+  {description}
   component={ProductReviews}
-  category="Molecules"
-  description="Displays product reviews and allows users to submit new reviews."
-  tags={['product', 'reviews', 'rating', 'feedback']}
+  category="Organisms"
   controls={controls}
 >
-  {#snippet children(props: Props)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">ProductReviews Story</h2>
-      <ProductReviews
-        reviews={sampleReviews}
-        averageRating={props.averageRating}
-        totalReviews={props.totalReviews}
-        showAddReview={props.showAddReview}
-        onAddReview={(review) => console.log('New review submitted:', review)}
-      />
-    </div>
+  {#snippet children(props)}
+    <section class="sb-organisms-product-reviews grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Product Reviews Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive product reviews with customizable options.</p>
+
+        <div class="mt-6">
+          <ProductReviews
+            reviews={reviews}
+            averageRating={props.averageRating}
+            totalReviews={props.totalReviews}
+            showAddReview={props.showAddReview}
+            onAddReview={handleAddReview}
+            onHelpful={handleHelpful}
+          />
+        </div>
+      </div>
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Product Reviews Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different product reviews configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Add Review</p>
+            <div>
+              <ProductReviews
+                reviews={reviews}
+                showAddReview={false}
+                onHelpful={handleHelpful}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Verified Only</p>
+            <div>
+              <ProductReviews
+                reviews={reviews.filter(r => r.verified)}
+                onHelpful={handleHelpful}
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   {/snippet}
 </Story>
+

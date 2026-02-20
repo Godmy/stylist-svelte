@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -106,7 +106,7 @@
   description="Inspect the contents of backup archives, crash bundles, or exported design systems."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <section class="sb-organisms-zip-viewer grid w-full gap-8 lg:grid-cols-[1.25fr_0.75fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <div class="flex items-center justify-between">
@@ -153,4 +153,5 @@
     </section>
   {/snippet}
 </Story>
+
 

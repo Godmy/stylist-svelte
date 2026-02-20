@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ExpandableCard from './index.svelte';
@@ -37,7 +37,7 @@
   tags={['card', 'expandable', 'accordion']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="p-6 max-w-md mx-auto">
       <ExpandableCard
         title={props.title}
@@ -64,6 +64,7 @@
     </div>
   {/snippet}
 </Story>
+
 
 
 

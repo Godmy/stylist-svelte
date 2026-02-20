@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductCarousel from './index.svelte';
@@ -25,7 +25,7 @@
   tags={['carousel', 'product', 'slider']}
   controls={controls}
 >
-  {#snippet children(props: ProductCarouselStoryProps)}
+  {#snippet children(props)}
     <div class="sb-molecules-product-carousel p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductCarousel Story</h2>
       <ProductCarousel
@@ -56,3 +56,4 @@
     </div>
   {/snippet}
 </Story>
+

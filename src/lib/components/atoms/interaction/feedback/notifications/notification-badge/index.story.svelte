@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import NotificationBadge from './index.svelte';
@@ -42,7 +42,7 @@
 	tags={['badge', 'count', 'notification']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const storyProps = props as Partial<Props>}
 		{@const count = typeof storyProps.count === 'number' ? storyProps.count : 3}
 		{@const maxCount = typeof storyProps.maxCount === 'number' ? storyProps.maxCount : 99}
@@ -71,6 +71,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

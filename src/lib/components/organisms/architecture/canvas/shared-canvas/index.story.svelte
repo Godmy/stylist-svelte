@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SharedCanvas from './index.svelte';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
   type CanvasObject = {
     id: string;
@@ -24,15 +24,6 @@
     cursorPosition?: { x: number; y: number };
   };
 
-  type Props = {
-    width?: number;
-    height?: number;
-    objects?: CanvasObject[];
-    users?: CanvasUser[];
-    currentUserId?: string;
-    showUsers?: boolean;
-  };
-  
   const defaultObjects: CanvasObject[] = [
     {
       id: 'rect1',
@@ -81,47 +72,49 @@
     }
   ];
 
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'width',
-      type: 'number',
+      type: CONTROL_TYPES.SELECT,
+      options: [600, 700, 800, 900],
       defaultValue: 800
     },
     {
       name: 'height',
-      type: 'number',
+      type: CONTROL_TYPES.SELECT,
+      options: [400, 500, 600, 700],
       defaultValue: 600
     },
     {
       name: 'showUsers',
-      type: 'boolean',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showToolbar',
+      type: CONTROL_TYPES.BOOLEAN,
       defaultValue: true
     }
   ];
 </script>
 
-<div class="sb-organisms-shared-canvas">
-  <Story
-    id="organisms-shared-canvas"
-    title="SharedCanvas"
-    component={SharedCanvas}
-    category="Organisms"
-    description="Shared canvas component for collaborative drawing"
-    controls={controls}
-  >
-    {#snippet children(props: Props)}
-      <div class="p-4">
-        <SharedCanvas
-          width={props.width}
-          height={props.height}
-          objects={props.objects || defaultObjects}
-          users={props.users || defaultUsers}
-          currentUserId={props.currentUserId || 'user1'}
-          showUsers={props.showUsers}
-        />
-      </div>
-    {/snippet}
-  </Story>
-</div>
-
+<Story
+  {controls}
+  title="SharedCanvas"
+  category="Organisms/Canvas"
+  description="Shared canvas component for collaborative drawing."
+  tags={['canvas', 'collaboration', 'drawing', 'multi-user']}
+>
+  {#snippet children(props)}
+    <SharedCanvas
+      width={props.width}
+      height={props.height}
+      objects={defaultObjects}
+      users={defaultUsers}
+      currentUserId="user1"
+      showUsers={props.showUsers}
+      showToolbar={props.showToolbar}
+    />
+  {/snippet}
+</Story>
 

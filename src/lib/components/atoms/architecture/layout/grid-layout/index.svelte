@@ -1,10 +1,11 @@
 <script lang="ts">
-	import type { GridLayoutProps } from '$stylist/design-system';
+	import type { GridItem, GridLayoutProps } from '$stylist/design-system';
 	import { LayoutStyleManager } from '$stylist/design-system/styles/layout';
 	import { createGridLayoutState } from '$stylist/design-system/models/grid-layout.svelte';
 
-	let props: GridLayoutProps = $props();
-	const state = createGridLayoutState(props);
+	type Props = GridLayoutProps & { cols?: number; responsive?: boolean; alignItems?: string; justifyContent?: string };
+	let props: Props = $props();
+	const state = createGridLayoutState(props as any);
 	const items = $derived(props.items ?? []);
 	const restProps = $derived(
 		(() => {
@@ -14,19 +15,34 @@
 				columns: _columns,
 				gap: _gap,
 				itemClass: _itemClass,
+				cols: _cols,
+				responsive: _responsive,
+				alignItems: _alignItems,
+				justifyContent: _justifyContent,
+				children: _children,
 				...rest
 			} = props;
 			return rest;
 		})()
 	);
+
+	function getItemStyle(item: GridItem): string {
+		let style = '';
+		if (item.colSpan) {
+			style += `grid-column: span ${item.colSpan};`;
+		}
+		if (item.rowSpan) {
+			style += `grid-row: span ${item.rowSpan};`;
+		}
+		return style;
+	}
 </script>
 
-<div class={state.containerClass} style={state.containerStyle} {...restProps}>
+<div class={state.containerClass} {...restProps}>
 	{#each items as item}
 		<div
-			class={LayoutStyleManager.getGridLayoutItemClass(item.class ?? '', state.itemClass)}
-			style={(item.colSpan ? `grid-column: span ${item.colSpan};` : '') +
-				(item.rowSpan ? `grid-row: span ${item.rowSpan};` : '')}
+			class={LayoutStyleManager.getGridLayoutItemClass(item.class ?? '', props.itemClass ?? '')}
+			style={getItemStyle(item)}
 		>
 			{#if typeof item.content === 'string'}
 				{@html item.content}

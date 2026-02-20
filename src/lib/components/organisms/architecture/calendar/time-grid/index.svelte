@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TimeSlot as TimeSlotComponent } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';
-  import { Clock, MapPin, User, MoreHorizontal, ChevronLeft, ChevronRight } from 'lucide-svelte';
+  import { IconClock, IconMapPin, IconUser, IconChevron } from '$stylist/components/atoms';
   import { Button } from '$stylist/components/atoms';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
@@ -220,13 +220,13 @@ This component follows SOLID principles:
     <div class={headerClasses}>
       <div class="flex items-center">
         <Button variant="ghost" size="sm" onclick={() => navigateWeek(-1)}>
-          <ChevronLeft class="h-5 w-5" />
+          <IconChevron direction="left" size="md" />
         </Button>
         <Button variant="ghost" size="sm" onclick={navigateToToday} class="mx-2">
           Today
         </Button>
         <Button variant="ghost" size="sm" onclick={() => navigateWeek(1)}>
-          <ChevronRight class="h-5 w-5" />
+          <IconChevron direction="right" size="md" />
         </Button>
         <h2 class="ml-4 text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">
           {viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
@@ -322,7 +322,7 @@ This component follows SOLID principles:
                     <div class="font-[--font-weight-medium] truncate">{event.title}</div>
                     {#if event.location}
                       <div class="text-[--color-text-secondary] flex items-center text-[--text-size-2xs]">
-                        <MapPin class="h-2 w-2 mr-1" />
+                        <IconMapPin size="xs" class="mr-1" />
                         <span class="truncate">{event.location}</span>
                       </div>
                     {/if}

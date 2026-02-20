@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import TabIndicator from './index.svelte';
@@ -37,7 +37,7 @@
 	description="A visual indicator for the active tab in a tab navigation."
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const storyProps = props as Partial<Props>}
 		{@const color = storyProps.color ?? 'primary'}
 		{@const width = typeof storyProps.width === 'string' ? storyProps.width : '50px'}
@@ -67,6 +67,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

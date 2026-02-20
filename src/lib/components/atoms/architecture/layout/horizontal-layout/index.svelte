@@ -21,5 +21,7 @@
 </script>
 
 <div class={state.classes} {...restProps}>
-	{@render props.children()}
+	{#if props.children}
+		{@render props.children()}
+	{/if}
 </div>

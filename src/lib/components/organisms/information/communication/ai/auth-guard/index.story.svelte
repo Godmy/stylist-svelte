@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens';
   import AuthGuard from './index.svelte';
@@ -19,7 +19,7 @@
   tags={['auth', 'permissions', 'security']}
   controls={controls}
 >
-  {#snippet children(props: { isAuthenticated?: boolean; requiredRole?: string; redirectUrl?: string })}
+  {#snippet children(props)}
     <section class="sb-organisms-auth-guard grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <AuthGuard
         isAuthenticated={props.isAuthenticated}
@@ -37,3 +37,4 @@
     </section>
   {/snippet}
 </Story>
+

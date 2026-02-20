@@ -1,11 +1,21 @@
 export class ProductCardStyleManager {
-  static getContainerClass(extraClasses: string = ''): string {
+  static getContainerClass(extraClasses: string = '', variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
     const baseClass = 'c-product-card max-w-sm bg-white rounded-lg shadow-md overflow-hidden';
-    return `${baseClass} ${extraClasses}`.trim();
+    const variantClasses = {
+      default: '',
+      compact: 'max-w-xs',
+      'with-actions': ''
+    };
+    return `${baseClass} ${variantClasses[variant]} ${extraClasses}`.trim();
   }
 
-  static getImageContainerClass(): string {
-    return 'relative';
+  static getImageContainerClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
+    const variantClasses = {
+      default: 'relative',
+      compact: 'relative w-full h-32',
+      'with-actions': 'relative'
+    };
+    return variantClasses[variant];
   }
 
   static getImageClass(): string {
@@ -33,16 +43,35 @@ export class ProductCardStyleManager {
     return 'bg-gray-200 text-gray-800';
   }
 
-  static getContentClass(): string {
-    return 'p-4';
+  static getContentClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
+    const variantClasses = {
+      default: 'p-4 flex flex-col flex-1',
+      compact: 'p-3',
+      'with-actions': 'p-4 flex flex-col flex-1'
+    };
+    return variantClasses[variant];
   }
 
-  static getTitleClass(): string {
-    return 'font-bold text-lg mb-1';
+  static getHeaderClass(): string {
+    return 'mb-2';
   }
 
-  static getDescriptionClass(): string {
-    return 'text-gray-600 text-sm mb-2';
+  static getTitleClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
+    const variantClasses = {
+      default: 'font-bold text-lg mb-1',
+      compact: 'font-bold text-base mb-1 truncate',
+      'with-actions': 'font-bold text-lg mb-1'
+    };
+    return variantClasses[variant];
+  }
+
+  static getDescriptionClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
+    const variantClasses = {
+      default: 'text-gray-600 text-sm mb-2',
+      compact: 'hidden',
+      'with-actions': 'text-gray-600 text-sm mb-2 flex-1'
+    };
+    return variantClasses[variant];
   }
 
   static getRatingContainerClass(): string {

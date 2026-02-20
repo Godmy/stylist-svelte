@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -104,7 +104,7 @@
   description="Selector for mock data schemas with filtering and preview capabilities."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-mock-data-selector p-4">
       <h1>MockDataSelector Story</h1>
       <MockDataSelector
@@ -123,4 +123,5 @@
     </div>
   {/snippet}
 </Story>
+
 

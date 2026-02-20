@@ -1,9 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { ComponentType, Snippet } from 'svelte';
-  import { Menu, X } from 'lucide-svelte';
+  import { IconMenu, IconX } from '$stylist/components/atoms';
   import { SidebarStyleManager } from '$stylist/design-system/styles';
-  import type { NavItem, SidebarProps } from '$stylist/design-system/props';
+  import type { SidebarProps, NavItem } from '$stylist/design-system/props';
 
   let {
     items = [],
@@ -27,7 +27,7 @@
     logoClass = '',
     footerClass = '',
     ...restProps
-  }: SidebarProps = $props();
+  }: SidebarProps & HTMLAttributes<HTMLDivElement> = $props();
 
   let isMobile = $state(window.innerWidth < mobileBreakpoint);
   let isSidebarOpen = $state(!collapsed);
@@ -60,20 +60,41 @@
       window.location.href = item.href;
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(SidebarStyleManager.getHostClasses(className));
+  const mobileButtonClass = $derived(SidebarStyleManager.getMobileButtonClasses());
+  const overlayClass = $derived(SidebarStyleManager.getOverlayClasses());
+  const sidebarClass = $derived(SidebarStyleManager.getSidebarClasses(isMobile, isSidebarOpen, width, mobileWidth));
+  const sidebarContainerClass = $derived(SidebarStyleManager.getSidebarContainerClasses());
+  const headerClass = $derived(SidebarStyleManager.getHeaderClasses(logoClass));
+  const logoWrapperClass = $derived(SidebarStyleManager.getLogoWrapperClasses());
+  const titleClassComputed = $derived(SidebarStyleManager.getTitleClasses(titleClass));
+  const navClassComputed = $derived(SidebarStyleManager.getNavClasses(navClass));
+  const navListClass = $derived(SidebarStyleManager.getNavListClasses());
+  const navItemClass = $derived(SidebarStyleManager.getNavItemClasses(false, false, itemClass, activeItemClass, disabledItemClass));
+  const navItemActiveClass = $derived(SidebarStyleManager.getNavItemClasses(true, false, itemClass, activeItemClass, disabledItemClass));
+  const navItemDisabledClass = $derived(SidebarStyleManager.getNavItemClasses(false, true, itemClass, activeItemClass, disabledItemClass));
+  const navItemIconWrapperClass = $derived(SidebarStyleManager.getNavItemIconWrapperClasses());
+  const navItemLabelClass = $derived(SidebarStyleManager.getNavItemLabelClasses());
+  const navItemBadgeClass = $derived(SidebarStyleManager.getNavItemBadgeClasses());
+  const footerClassComputed = $derived(SidebarStyleManager.getFooterClasses(footerClass));
+  const contentAreaClass = $derived(SidebarStyleManager.getContentAreaClasses(isSidebarOpen, isMobile));
 </script>
 
-<div class={SidebarStyleManager.getHostClasses(className)} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Mobile menu button -->
   {#if collapsible && isMobile}
     <button
       type="button"
-      class={SidebarStyleManager.getMobileButtonClasses()}
+      class={mobileButtonClass}
       onclick={toggleSidebar}
+      aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
     >
       {#if isSidebarOpen}
-        <X class="h-6 w-6" />
+        <IconX size="lg" />
       {:else}
-        <Menu class="h-6 w-6" />
+        <IconMenu size="lg" />
       {/if}
     </button>
   {/if}
@@ -81,7 +102,7 @@
   <!-- Sidebar overlay for mobile -->
   {#if isMobile && isSidebarOpen}
     <div
-      class={SidebarStyleManager.getOverlayClasses()}
+      class={overlayClass}
       onclick={toggleSidebar}
       onkeydown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -97,44 +118,50 @@
 
   <!-- Sidebar -->
   <aside
-    class={SidebarStyleManager.getSidebarClasses(isMobile, isSidebarOpen, width, mobileWidth)}
+    class={sidebarClass}
+    aria-label="Sidebar navigation"
   >
-    <div class={SidebarStyleManager.getSidebarContainerClasses()}>
+    <div class={sidebarContainerClass}>
       <!-- Header with logo and title -->
-      <div class={SidebarStyleManager.getHeaderClasses(logoClass)}>
+      <div class={headerClass}>
         {#if logo}
-          <div class={SidebarStyleManager.getLogoWrapperClasses()}>
+          <div class={logoWrapperClass}>
             {@render logo()}
           </div>
         {/if}
         {#if title && isSidebarOpen}
-          <h1 class={SidebarStyleManager.getTitleClasses(titleClass)}>{title}</h1>
+          <h1 class={titleClassComputed}>{title}</h1>
         {/if}
       </div>
 
       <!-- Navigation items -->
-      <nav class={SidebarStyleManager.getNavClasses(navClass)}>
-        <ul class={SidebarStyleManager.getNavListClasses()}>
+      <nav class={navClassComputed}>
+        <ul class={navListClass}>
           {#each items as item (item.id)}
             <li>
               <a
                 href={item.href || '#'}
-                class={SidebarStyleManager.getNavItemClasses(item.active ?? false, item.disabled ?? false, itemClass, activeItemClass, disabledItemClass)}
+                class={
+                  item.active ? navItemActiveClass :
+                  item.disabled ? navItemDisabledClass :
+                  navItemClass
+                }
                 onclick={(e) => {
                   e.preventDefault();
                   handleClick(item);
                 }}
                 aria-current={item.active ? 'page' : undefined}
+                aria-disabled={item.disabled}
               >
                 {#if item.icon && isSidebarOpen}
-                  <span class={SidebarStyleManager.getNavItemIconWrapperClasses()}>
+                  <span class={navItemIconWrapperClass}>
                     <item.icon class="h-5 w-5" />
                   </span>
                 {/if}
                 {#if isSidebarOpen}
-                  <span class={SidebarStyleManager.getNavItemLabelClasses()}>{item.label}</span>
+                  <span class={navItemLabelClass}>{item.label}</span>
                   {#if item.badge}
-                    <span class={SidebarStyleManager.getNavItemBadgeClasses()}>
+                    <span class={navItemBadgeClass}>
                       {item.badge}
                     </span>
                   {/if}
@@ -147,7 +174,7 @@
 
       <!-- Footer -->
       {#if footer}
-        <div class={SidebarStyleManager.getFooterClasses(footerClass)}>
+        <div class={footerClassComputed}>
           {@render footer()}
         </div>
       {/if}
@@ -155,10 +182,9 @@
   </aside>
 
   <!-- Content area (placeholder) -->
-  <div class={SidebarStyleManager.getContentAreaClasses(isSidebarOpen, isMobile)}>
+  <div class={contentAreaClass}>
     <!-- Actual content would go here -->
   </div>
 </div>
-
 
 

@@ -1,7 +1,23 @@
 ﻿<script lang="ts">
   import { Plus, Trash2 } from 'lucide-svelte';
-  import type { QuoteRequestProps, QuoteRequestValue } from '$stylist/design-system/props/interaction-input';
+  import type { QuoteRequestValue } from '$stylist/design-system/props/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+
+  interface ExtendedQuoteRequestProps {
+    title?: string;
+    description?: string;
+    class?: string;
+    formClass?: string;
+    sectionClass?: string;
+    inputClass?: string;
+    buttonClass?: string;
+    showCompanyFields?: boolean;
+    showShippingFields?: boolean;
+    showUrgentOption?: boolean;
+    showValidUntil?: boolean;
+    onSubmit?: (data: QuoteRequestValue) => void;
+    onCancel?: () => void;
+  }
 
   let {
     title = 'Request a Quote',
@@ -18,7 +34,7 @@
     onSubmit,
     onCancel,
     ...restProps
-  }: QuoteRequestProps = $props();
+  }: ExtendedQuoteRequestProps = $props();
 
   let request = $state<QuoteRequestValue>({
     requesterName: '',

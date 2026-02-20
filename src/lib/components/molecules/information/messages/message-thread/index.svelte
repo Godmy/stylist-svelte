@@ -1,20 +1,33 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { Avatar } from '$stylist/components/atoms';
-	import { Check, CheckCheck } from 'lucide-svelte';
-
-	import type { MessageThreadProps } from '$stylist/design-system/props';
+	import MessageList from '../message-list/index.svelte';
+	import type { Message, MessageThreadMessage, MessageThreadProps, User } from '$stylist/design-system/props/chat';
 	import { createMessageThreadState } from '$stylist/design-system/models/message-thread.svelte';
-	import {
-		ChatStyleManager,
-		DEFAULT_CHAT_MESSAGE_VARIANT,
-	} from '$stylist/design-system';
 
-	type Props = MessageThreadProps & HTMLAttributes<HTMLDivElement>;
+	type Props = MessageThreadProps & {
+		currentUser?: User;
+		onMessageAction?: (action: string, message: MessageThreadMessage) => void;
+	} & HTMLAttributes<HTMLDivElement>;
 
 	let props: Props = $props();
 
 	const state = createMessageThreadState(props);
+	const mappedMessages = $derived(
+		state.messages.map((message) => ({
+			id: message.id,
+			senderId: message.sender,
+			content: message.text,
+			timestamp: new Date(message.timestamp),
+			status: message.status,
+			type: 'text' as const
+		}))
+	);
+	const resolvedCurrentUser = $derived(
+		props.currentUser ?? { id: 'current-user', name: 'Current User' } as User
+	);
+	function handleMessageAction(action: string, message: any) {
+		props.onMessageAction?.(action, message);
+	}
 
 	const restProps = $derived(
 		(() => {
@@ -28,6 +41,8 @@
 				loading: _loading,
 				variant: _variant,
 				messageVariant: _messageVariant,
+				currentUser: _currentUser,
+				onMessageAction: _onMessageAction,
 				...rest
 			} = props;
 			return rest;
@@ -48,47 +63,12 @@
 				<div class={state.spinnerClasses}></div>
 			</div>
 		{:else}
-			<div class={state.messageContainerClasses}>
-				{#each state.messages as message}
-					<div class={`flex ${ChatStyleManager.getChatMessageAlignmentClass(message.isOwn)}`}>
-						<div class="max-w-xs md:max-w-md">
-							{#if !message.isOwn}
-								<div class={ChatStyleManager.getChatMessageHeaderClasses()}>
-									{#if message.senderAvatar}
-										<Avatar
-											src={message.senderAvatar}
-											alt={message.sender}
-											size="sm"
-											class="mr-2"
-										/>
-									{/if}
-									<span>{message.sender}</span>
-								</div>
-							{/if}
-
-								<div
-								class={ChatStyleManager.getChatMessageBubbleClasses(
-									message.isOwn,
-									state.messageVariant ?? DEFAULT_CHAT_MESSAGE_VARIANT
-								)}
-							>
-								<p class="text-sm">{message.text}</p>
-							</div>
-
-							<div class={ChatStyleManager.getChatMessageFooterClasses()}>
-								<span>{message.timestamp}</span>
-								{#if message.isOwn && message.status}
-									{#if message.status === 'read'}
-										<CheckCheck class={ChatStyleManager.getChatMessageStatusIconClasses(message.status)} />
-									{:else}
-										<Check class={ChatStyleManager.getChatMessageStatusIconClasses(message.status)} />
-									{/if}
-								{/if}
-							</div>
-						</div>
-					</div>
-				{/each}
-			</div>
+			<!-- Use MessageList component instead of duplicating logic -->
+			<MessageList
+				messages={mappedMessages}
+				currentUser={resolvedCurrentUser}
+				onMessageAction={handleMessageAction}
+			/>
 		{/if}
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -37,7 +37,7 @@
 </script>
 
 <Story {id} {title} {description} component={ToggleGroupRoot} category="Molecules" {controls}>
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const type = props.type === 'multiple' ? 'multiple' : 'single'}
 		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
 		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
@@ -144,6 +144,7 @@
 		</section>
 	{/snippet}
 </Story>
+
 
 
 

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -22,7 +22,7 @@ import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/togg
 </script>
 
 <Story {id} {title} {description} component={ToggleGroupItem} category="Molecules" {controls}>
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
 			<div
 				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"
@@ -127,6 +127,7 @@ import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/togg
 		</section>
 	{/snippet}
 </Story>
+
 
 
 

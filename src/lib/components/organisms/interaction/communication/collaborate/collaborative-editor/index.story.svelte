@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -35,7 +35,7 @@
   description="Real-time collaborative editor with formatting tools and user presence indicators."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-collaborative-editor p-4">
       <h1 class="text-lg font-semibold mb-4">CollaborativeEditor Component</h1>
 
@@ -100,4 +100,5 @@
     </div>
   {/snippet}
 </Story>
+
 

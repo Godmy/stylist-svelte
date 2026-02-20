@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -40,7 +40,7 @@
   description="Utility toolbar that lets operators export filtered tables without leaving the page."
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <section class="grid w-full gap-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-[2.25rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <div class="flex items-center justify-between">
@@ -102,6 +102,7 @@
     </section>
   {/snippet}
 </Story>
+
 
 
 

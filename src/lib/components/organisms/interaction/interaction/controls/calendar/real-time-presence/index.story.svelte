@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -46,7 +46,7 @@
   description="Real-time presence indicator showing active users with status and activity."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-real-time-presence p-4">
       <h1>RealTimePresence Story</h1>
       <RealTimePresence
@@ -61,5 +61,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

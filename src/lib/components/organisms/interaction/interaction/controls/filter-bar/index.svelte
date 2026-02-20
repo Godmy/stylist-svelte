@@ -107,7 +107,6 @@
             id={`filter-toggle-${toggle.id}`}
             label={toggle.label}
             description={toggle.description}
-            size="sm"
             checked={toggleState[toggle.id]}
             onchange={(e) => {
               const target = e.target as HTMLInputElement;

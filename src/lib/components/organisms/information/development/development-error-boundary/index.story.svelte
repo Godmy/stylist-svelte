@@ -1,14 +1,22 @@
-<script lang="ts">
-  import { Story } from '$lib/playground';
-  import type { ControlConfig } from '$lib/playground';
+﻿<script lang="ts">
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
 
   import DevelopmentErrorBoundary from './index.svelte';
 
-  type Props = {
-    showDetails: boolean;
-  };
-
-  const controls: ControlConfig[] = [{ name: 'showDetails', type: 'boolean', defaultValue: true }];
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showDetails', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
   let shouldThrow = $state(false);
 
@@ -26,60 +34,65 @@
 </script>
 
 <Story
-  id="molecules-development-error-boundary"
-  title="DevelopmentErrorBoundary"
+  {id}
+  {title}
+  {description}
   component={DevelopmentErrorBoundary}
-  category="Molecules"
-  description="Wrap preview components to capture runtime exceptions and display friendly diagnostics."
+  category="Organisms"
   controls={controls}
 >
-  {#snippet children(props: Props)}
-    <section class="grid w-full gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <header class="flex items-center justify-between">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">Sandbox preview</p>
-            <p class="text-lg text-[--color-text-primary]">
-              Click “Trigger crash” to see how the boundary renders fallback UI.
-            </p>
-          </div>
-          <button
-            class="rounded-full bg-[--color-primary-600] px-4 py-1 text-xs font-semibold text-[--color-text-inverse]"
-            onclick={shouldThrow ? resetCrash : triggerCrash}
-          >
-            {shouldThrow ? 'Reset sample' : 'Trigger crash'}
-          </button>
-        </header>
+  {#snippet children(props)}
+    <section class="sb-organisms-development-error-boundary grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Error Boundary Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive error boundary with customizable options.</p>
 
-        <div class="mt-6 rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-4">
-          <DevelopmentErrorBoundary showDetails={props.showDetails}>
-            <div class="space-y-2 text-sm text-[--color-text-primary]">
-              <p class="font-semibold">Settings panel</p>
-              <p class="text-[--color-text-secondary]">
-                This child intentionally explodes when you press the button above.
-              </p>
-              {#if shouldThrow}
-                {@const _ = throwStoryError()}
-              {/if}
-            </div>
+        <div class="mt-6">
+          {#if shouldThrow}
+            {@const _ = throwStoryError()}
+          {/if}
+          <DevelopmentErrorBoundary
+            showDetails={props.showDetails}
+            onReset={resetCrash}
+          >
+            <button
+              class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              onclick={triggerCrash}
+            >
+              Trigger Error
+            </button>
           </DevelopmentErrorBoundary>
         </div>
       </div>
 
-      <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Why it matters</h3>
-        <ul class="mt-4 space-y-3 text-sm text-[--color-text-primary]">
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3">
-            Captures render-time exceptions and displays actionable stack traces for developers.
-          </li>
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3">
-            Use `showDetails` to toggle stack visibility when handing builds to QA or PMs.
-          </li>
-          <li class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] px-4 py-3">
-            Plug into logging backends by handling the `on:error` event inside the boundary.
-          </li>
-        </ul>
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Error Boundary Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different error boundary configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Details</p>
+            <div>
+              <DevelopmentErrorBoundary
+                showDetails={false}
+                onReset={resetCrash}
+              >
+                <button
+                  class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                  onclick={triggerCrash}
+                >
+                  Trigger Error
+                </button>
+              </DevelopmentErrorBoundary>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   {/snippet}
 </Story>
+

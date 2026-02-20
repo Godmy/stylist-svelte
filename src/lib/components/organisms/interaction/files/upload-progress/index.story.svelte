@@ -1,11 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import UploadProgress from './index.svelte';
   import type { IUploadFile, UploadProgressVariant } from './types';
 
-  // Моковые данные для файлов
+  // РњРѕРєРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ С„Р°Р№Р»РѕРІ
   const mockFiles: IUploadFile[] = [
     {
       id: '1',
@@ -39,7 +39,7 @@
     }
   ];
 
-  // Определение переменных
+  // РћРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
   let files: IUploadFile[] = mockFiles;
   let variant: UploadProgressVariant = 'default';
   let showFileName: boolean = true;
@@ -78,7 +78,7 @@
   description="Progress indicator for file uploads with status management."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-organisms-upload-progress">
       <h2>Default</h2>
       <UploadProgress
@@ -129,4 +129,5 @@
     </div>
   {/snippet}
 </Story>
+
 

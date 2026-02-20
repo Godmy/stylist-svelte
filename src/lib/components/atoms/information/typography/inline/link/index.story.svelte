@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Link from './index.svelte';
@@ -40,7 +40,7 @@
 		{
 			name: 'text',
 			type: 'text',
-			defaultValue: 'Перейти по ссылке'
+			defaultValue: 'РџРµСЂРµР№С‚Рё РїРѕ СЃСЃС‹Р»РєРµ'
 		}
 	];
 </script>
@@ -50,11 +50,11 @@
 	title="Link"
 	category="Atoms"
 	component={Link}
-	description="Ссылка с различными вариантами стиля"
+	description="РЎСЃС‹Р»РєР° СЃ СЂР°Р·Р»РёС‡РЅС‹РјРё РІР°СЂРёР°РЅС‚Р°РјРё СЃС‚РёР»СЏ"
 	tags={['navigation', 'link', 'anchor']}
 	{controls}
 >
-	{#snippet children(props: Record<string, any>)}
+	{#snippet children(props)}
 		<Link
 			href={props.href}
 			variant={props.variant}
@@ -66,3 +66,4 @@
 		/>
 	{/snippet}
 </Story>
+

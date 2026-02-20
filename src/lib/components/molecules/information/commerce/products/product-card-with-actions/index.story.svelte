@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductCardWithActions from './index.svelte';
@@ -65,7 +65,7 @@
   description="A product card component with integrated action buttons."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-product-card-with-actions p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductCardWithActions Story</h2>
       <ProductCardWithActions
@@ -87,5 +87,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

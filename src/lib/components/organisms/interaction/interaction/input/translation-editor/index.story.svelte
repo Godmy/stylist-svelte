@@ -1,17 +1,121 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TranslationEditor from './index.svelte';
+  import type { TranslatableText, TranslationLocale } from '$stylist/design-system/props/interaction-input';
 
-  const texts = [
-    { id: '1', key: 'hello', original: 'Hello', translations: { en: 'Hello', es: 'Hola' }, status: 'translated' as const },
-    { id: '2', key: 'bye', original: 'Goodbye', translations: { en: 'Goodbye', es: '' }, status: 'untranslated' as const }
+  type Props = {
+    showKeyColumn: boolean;
+    showContextColumn: boolean;
+    showStatusColumn: boolean;
+    defaultLocale: string;
+    currentLocale: string;
+  };
+
+  const controls: ControlConfig[] = [
+    {
+      name: 'showKeyColumn',
+      type: 'boolean',
+      defaultValue: true
+    },
+    {
+      name: 'showContextColumn',
+      type: 'boolean',
+      defaultValue: false
+    },
+    {
+      name: 'showStatusColumn',
+      type: 'boolean',
+      defaultValue: true
+    },
+    {
+      name: 'defaultLocale',
+      type: 'text',
+      defaultValue: 'en'
+    },
+    {
+      name: 'currentLocale',
+      type: 'text',
+      defaultValue: 'es'
+    }
   ];
-  const locales = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Spanish' }
+
+  const texts: TranslatableText[] = [
+    { 
+      id: '1', 
+      key: 'hello', 
+      original: 'Hello', 
+      translations: { en: 'Hello', es: 'Hola', fr: 'Bonjour' }, 
+      context: 'Greeting',
+      status: 'translated' 
+    },
+    { 
+      id: '2', 
+      key: 'bye', 
+      original: 'Goodbye', 
+      translations: { en: 'Goodbye', es: '', fr: '' }, 
+      context: 'Farewell',
+      status: 'untranslated' 
+    },
+    { 
+      id: '3', 
+      key: 'welcome', 
+      original: 'Welcome', 
+      translations: { en: 'Welcome', es: 'Bienvenido', fr: 'Bienvenue' }, 
+      context: 'Introduction',
+      status: 'needs-review' 
+    }
   ];
+  
+  const locales: TranslationLocale[] = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'es', name: 'Spanish', flag: '🇪🇸' },
+    { code: 'fr', name: 'French', flag: '🇫🇷' }
+  ];
+  
+  function handleTranslationChange(key: string, locale: string, translation: string) {
+    console.log(`Translation changed for ${key} in ${locale}: ${translation}`);
+  }
+
+  function handleSave(texts: TranslatableText[]) {
+    console.log('Translations saved:', texts);
+    alert('Translations saved!');
+  }
+
+  function handleImport(data: unknown) {
+    console.log('Translations imported:', data);
+  }
+
+  function handleExport() {
+    console.log('Translations exported');
+  }
 </script>
 
-<Story id="organisms-translation-editor" title="Organisms / Interaction / Input / Translation Editor" component={TranslationEditor} category="Organisms/Interaction/Input">
-  {#snippet children()}<div class="p-4"><TranslationEditor texts={texts} locales={locales} currentLocale="es" /></div>{/snippet}
+<Story
+  id="organisms-translation-editor"
+  title="Organisms / Interaction / Input / Translation Editor"
+  component={TranslationEditor}
+  category="Organisms/Interaction/Input"
+  description="A translation editor component for managing multilingual content."
+  tags={['editor', 'translation', 'localization']}
+  controls={controls}
+>
+  {#snippet children(props)}
+    <div class="p-4 max-w-4xl">
+      <TranslationEditor 
+        texts={texts}
+        locales={locales}
+        defaultLocale={props.defaultLocale}
+        currentLocale={props.currentLocale}
+        showKeyColumn={props.showKeyColumn}
+        showContextColumn={props.showContextColumn}
+        showStatusColumn={props.showStatusColumn}
+        onTranslationChange={handleTranslationChange}
+        onSave={handleSave}
+        onImport={handleImport}
+        onExport={handleExport}
+      />
+    </div>
+  {/snippet}
 </Story>
+

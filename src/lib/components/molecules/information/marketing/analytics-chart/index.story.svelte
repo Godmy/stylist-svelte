@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AnalyticsChart from './index.svelte';
@@ -25,10 +25,11 @@
   description="Analytics chart component."
   controls={controls}
 >
-  {#snippet children(args: Props)}
+  {#snippet children(args)}
     <div class="sb-molecules-analytics-chart p-4">
       <AnalyticsChart title="Sample Analytics Chart" data={sampleData} type={args.type as any} />
     </div>
   {/snippet}
 </Story>
+
 

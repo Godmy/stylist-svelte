@@ -1,68 +1,54 @@
 <script lang="ts">
-  // Define local types
-  interface User {
-    id: string;
-    name: string;
-    avatar?: string;
-    status?: 'online' | 'away' | 'offline' | 'typing';
-    lastSeen?: Date;
-  }
-
-  interface Chat {
-    id: string;
-    name?: string;
-    participants: User[];
-    isGroup: boolean;
-    lastMessage?: string;
-    lastMessageTime?: Date;
-    unreadCount?: number;
-    avatar?: string;
-  }
-
   import { Avatar, Button, Icon } from '$stylist/components/atoms';
   import { UserStatus } from '$stylist/components/molecules';
+  import { ChatHeaderModel } from '$stylist/design-system/models/chat-header.svelte';
+  import type { ChatHeaderProps } from '$stylist/design-system/props/chat-header';
+  import { ChatHeaderStyleManager } from '$stylist/design-system/styles/chat-header';
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher<{
-    call: { chat: Chat };
-    videoCall: { chat: Chat };
-    info: { chat: Chat };
+    call: { chat: any };
+    videoCall: { chat: any };
+    info: { chat: any };
   }>();
 
   // Props including event handlers using Svelte 5 runes syntax
   let {
     chat,
     currentUser,
-    showActions = true
-  } = $props<{
-    chat: Chat;
-    currentUser: User;
-    showActions?: boolean;
-  }>();
+    showActions = true,
+    class: className = ''
+  }: ChatHeaderProps = $props();
 
-  // Determine if it's a one-on-one chat or a group
-  const isGroupChat = $derived(chat.participants.length > 2);
-
-  // Get the other participant in a one-on-one chat
-  const otherUser = $derived(
-    !isGroupChat
-      ? chat.participants.find((user: User) => user.id !== currentUser.id)
-      : null
-  );
+  // Initialize the model
+  const model = new ChatHeaderModel({
+    chat,
+    currentUser,
+    showActions
+  });
+  
+  // Update model when props change
+  $effect(() => {
+    model.updateFromProps({
+      chat,
+      currentUser,
+      showActions
+    });
+  });
 
   // Handle call action
   function handleCall() {
-    dispatch('call', { chat });
+    model.handleCall(chat, (type, detail) => dispatch(type as any, detail));
   }
 
   // Handle video call action
   function handleVideoCall() {
-    dispatch('videoCall', { chat });
+    model.handleVideoCall(chat, (type, detail) => dispatch(type as any, detail));
   }
 
   // Handle info action
   function handleInfo() {
-    dispatch('info', { chat });
+    model.handleInfo(chat, (type, detail) => dispatch(type as any, detail));
   }
 </script>
 
@@ -101,25 +87,25 @@
   }
 </style>
 
-<div class="c-chat-header">
-  <div class="chat-info">
+<div class={ChatHeaderStyleManager.getAllClasses(className)}>
+  <div class={ChatHeaderStyleManager.getInfoClasses()}>
     <div class="relative">
       <Avatar
-        id={isGroupChat ? chat.id : otherUser?.id || chat.id}
-        name={isGroupChat ? chat.name || '' : otherUser?.name || ''}
-        status={isGroupChat ? 'online' : otherUser?.status}
+        id={model.isGroupChat ? chat.id : model.otherUser?.id || chat.id}
+        name={model.isGroupChat ? chat.name || '' : model.otherUser?.name || ''}
+        status={model.isGroupChat ? 'online' : model.otherUser?.status}
         size="lg"
-        showStatus={!isGroupChat}
+        showStatus={!model.isGroupChat}
       />
     </div>
 
-    <div class="chat-details">
-      <div class="chat-name">
-        {isGroupChat ? chat.name : otherUser?.name}
+    <div class={ChatHeaderStyleManager.getDetailsClasses()}>
+      <div class={ChatHeaderStyleManager.getNameClasses()}>
+        {model.isGroupChat ? chat.name : model.otherUser?.name}
       </div>
-      {#if !isGroupChat && otherUser}
+      {#if !model.isGroupChat && model.otherUser}
         <UserStatus
-          user={otherUser}
+          user={model.otherUser}
           showAvatar={false}
           showName={false}
           showStatusText={true}
@@ -129,7 +115,7 @@
   </div>
 
   {#if showActions}
-    <div class="chat-actions">
+    <div class={ChatHeaderStyleManager.getActionsClasses()}>
       <Button
         variant="ghost"
         size="sm"

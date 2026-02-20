@@ -1,30 +1,22 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
 	import AccordionItem from './index.svelte';
 	import AccordionHeader from '../accordion-header/index.svelte';
 	import AccordionPanel from '../accordion-panel/index.svelte';
 
-	let {
-		id = '',
-		title = '',
-		description = '',
-		controls = []
-	} = $props<{
-		id?: string;
-		title?: string;
-		description?: string;
-		controls?: ControlConfig[];
-	}>();
+	let value: string = 'item-1';
+	let customClass: string = '';
 
-	let multiple = $state<boolean>(false);
-	let openValues = $state<string[]>([]);
-
-	function handleValueChange(values: string[]) {
-		console.log('Accordion values changed:', values);
-		openValues = values;
-	}
+	const controls: ControlConfig[] = [
+		{
+			name: 'value',
+			type: 'text',
+			defaultValue: 'item-1',
+			description: 'Unique identifier for the accordion item'
+		}
+	];
 
 	// Define sample content for the accordion panels
 	const panelContent1 = `<div>
@@ -63,89 +55,106 @@
       </div>
     </form>
   </div>`;
+
+	let multiple: boolean = false;
+	let openValues: string[] = [];
+
+	function handleValueChange(values: string[]) {
+		console.log('Accordion values changed:', values);
+		openValues = values;
+	}
 </script>
 
-<Story {id} {title} {description} component={AccordionItem} category="Atoms" {controls}>
-	{#snippet children(props: any)}
-		<div class="p-4">
-			<div class="mb-6 rounded border p-4">
-				<h2 class="text-md mb-2 font-semibold">Interactive AccordionItem</h2>
-				<div class="flex flex-col gap-4">
-					<ComplexAccordion {multiple} value={openValues} onValueChange={handleValueChange}>
-						{#snippet content()}
-							<AccordionItem value="item-1">
-								<AccordionHeader value="item-1">Accordion Item 1</AccordionHeader>
-								<AccordionPanel value="item-1">{panelContent1}</AccordionPanel>
-							</AccordionItem>
+<div class="p-4">
+	<h1 class="mb-4 text-lg font-semibold">Accordion Item Component</h1>
 
-							<AccordionItem value="item-2">
-								<AccordionHeader value="item-2">Accordion Item 2</AccordionHeader>
-								<AccordionPanel value="item-2">{panelContent2}</AccordionPanel>
-							</AccordionItem>
+	<div class="mb-6 rounded border p-4">
+		<h2 class="text-md mb-2 font-semibold">Interactive Accordion Item</h2>
+		<div class="flex flex-col gap-4">
+			<ComplexAccordion {multiple} value={openValues} onValueChange={handleValueChange}>
+				{#snippet content()}
+					<AccordionItem {value} class={customClass}>
+						<AccordionHeader {value}>Accordion Item 1</AccordionHeader>
+						<AccordionPanel {value}>{panelContent1}</AccordionPanel>
+					</AccordionItem>
+				{/snippet}
+			</ComplexAccordion>
+		</div>
 
-							<AccordionItem value="item-3">
-								<AccordionHeader value="item-3">Accordion Item 3</AccordionHeader>
-								<AccordionPanel value="item-3">{panelContent3}</AccordionPanel>
-							</AccordionItem>
-						{/snippet}
-					</ComplexAccordion>
-				</div>
-
-				<div class="mt-4 flex flex-wrap gap-2">
-					<div class="flex items-end">
-						<label for="accordion-multiple" class="flex items-center gap-1">
-							<input id="accordion-multiple" type="checkbox" bind:checked={multiple} />
-							Multiple Selection
-						</label>
-					</div>
-				</div>
+		<div class="mt-4 flex flex-wrap gap-2">
+			<div>
+				<label for="accordion-item-value" class="mb-1 block text-sm">Item Value:</label>
+				<input
+					id="accordion-item-value"
+					type="text"
+					bind:value={value}
+					class="rounded border p-1"
+				/>
 			</div>
 
-			<div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-				<div class="rounded border p-4">
-					<h2 class="text-md mb-2 font-semibold">AccordionItem with Different Values</h2>
-					<ComplexAccordion>
-						{#snippet content()}
-							<AccordionItem value="different-1">
-								<AccordionHeader value="different-1">Different Value 1</AccordionHeader>
-								<AccordionPanel value="different-1">{panelContent1}</AccordionPanel>
-							</AccordionItem>
-
-							<AccordionItem value="different-2">
-								<AccordionHeader value="different-2">Different Value 2</AccordionHeader>
-								<AccordionPanel value="different-2">{panelContent2}</AccordionPanel>
-							</AccordionItem>
-						{/snippet}
-					</ComplexAccordion>
-				</div>
-
-				<div class="rounded border p-4">
-					<h2 class="text-md mb-2 font-semibold">AccordionItem with Custom Styling</h2>
-					<ComplexAccordion>
-						{#snippet content()}
-							<AccordionItem value="custom-1" class="rounded-lg border-blue-300">
-								<AccordionHeader value="custom-1">Custom Styled Item</AccordionHeader>
-								<AccordionPanel value="custom-1">{panelContent1}</AccordionPanel>
-							</AccordionItem>
-						{/snippet}
-					</ComplexAccordion>
-				</div>
+			<div>
+				<label for="accordion-item-class" class="mb-1 block text-sm">Custom Class:</label>
+				<input
+					id="accordion-item-class"
+					type="text"
+					bind:value={customClass}
+					class="rounded border p-1"
+					placeholder="Add custom CSS class"
+				/>
 			</div>
 
-			<div class="rounded border p-4">
-				<h2 class="text-md mb-2 font-semibold">Default AccordionItem</h2>
-				<ComplexAccordion>
-					{#snippet content()}
-						<AccordionItem value="default-item">
-							<AccordionHeader value="default-item">Default Accordion Item</AccordionHeader>
-							<AccordionPanel value="default-item">{panelContent1}</AccordionPanel>
-						</AccordionItem>
-					{/snippet}
-				</ComplexAccordion>
+			<div class="flex items-end">
+				<label for="accordion-item-multiple" class="flex items-center gap-1">
+					<input id="accordion-item-multiple" type="checkbox" bind:checked={multiple} />
+					Multiple Selection
+				</label>
 			</div>
 		</div>
-	{/snippet}
-</Story>
+	</div>
+
+	<div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+		<div class="rounded border p-4">
+			<h2 class="text-md mb-2 font-semibold">Accordion Item with Different Values</h2>
+			<ComplexAccordion>
+				{#snippet content()}
+					<AccordionItem value="different-1">
+						<AccordionHeader value="different-1">Different Value 1</AccordionHeader>
+						<AccordionPanel value="different-1">{panelContent1}</AccordionPanel>
+					</AccordionItem>
+
+					<AccordionItem value="different-2">
+						<AccordionHeader value="different-2">Different Value 2</AccordionHeader>
+						<AccordionPanel value="different-2">{panelContent2}</AccordionPanel>
+					</AccordionItem>
+				{/snippet}
+			</ComplexAccordion>
+		</div>
+
+		<div class="rounded border p-4">
+			<h2 class="text-md mb-2 font-semibold">Accordion Item with Custom Styling</h2>
+			<ComplexAccordion>
+				{#snippet content()}
+					<AccordionItem value="custom-1" class="rounded-lg border-blue-300 bg-blue-50">
+						<AccordionHeader value="custom-1">Custom Styled Item</AccordionHeader>
+						<AccordionPanel value="custom-1">{panelContent1}</AccordionPanel>
+					</AccordionItem>
+				{/snippet}
+			</ComplexAccordion>
+		</div>
+	</div>
+
+	<div class="rounded border p-4">
+		<h2 class="text-md mb-2 font-semibold">Default Accordion Item</h2>
+		<ComplexAccordion>
+			{#snippet content()}
+				<AccordionItem value="default-item">
+					<AccordionHeader value="default-item">Default Accordion Item</AccordionHeader>
+					<AccordionPanel value="default-item">{panelContent1}</AccordionPanel>
+				</AccordionItem>
+			{/snippet}
+		</ComplexAccordion>
+	</div>
+</div>
 
 
 

@@ -1,21 +1,16 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import DefinitionDescription from './index.svelte';
 	import { DefinitionTerm } from '../../../typography/inline/definition-term';
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	type DefinitionDescriptionStoryProps = {
-		description: string;
-		muted: boolean;
-	};
-
-	const controls: ControlConfig[] = [
+	const controls = [
 		{
 			name: 'description',
-			type: 'text',
+			type: CONTROL_TYPES.TEXT,
 			defaultValue: 'Clarifies context with secondary text styling and generous spacing.'
 		},
-		{ name: 'muted', type: 'boolean', defaultValue: false }
+		{ name: 'muted', type: CONTROL_TYPES.BOOLEAN, defaultValue: false }
 	];
 
 	const workflows = [
@@ -35,15 +30,14 @@
 </script>
 
 <Story
-	id="atoms-definition-description"
-	title="DefinitionDescription"
-	component={DefinitionDescription}
-	category="Atoms"
-	description="Body copy for definition lists that pairs with DefinitionTerm."
-	tags={['typography', 'description']}
 	{controls}
+	component={DefinitionDescription}
+	title="DefinitionDescription"
+	category="Atoms/Information/Typography/Inline"
+	description="Body copy for definition lists that pairs with DefinitionTerm."
+	tags={['definition', 'description', 'typography']}
 >
-	{#snippet children(props: any)}
+	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<dl
 				class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"

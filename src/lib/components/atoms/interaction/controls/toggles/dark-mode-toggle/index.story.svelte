@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import DarkModeToggle from './index.svelte';
@@ -31,7 +31,7 @@
 	tags={['theme', 'toggle', 'dark-mode']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const darkMode = typeof props.darkMode === 'boolean' ? props.darkMode : false}
 		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
 		<div class="rounded-lg bg-gray-50 p-8">
@@ -40,6 +40,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

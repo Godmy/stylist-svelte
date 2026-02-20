@@ -1,9 +1,13 @@
 import {
 	NUMBER_FLOW_BASE_CLASSES,
-	formatAnimatedValue,
-	formatNumberFlowValue
-} from '../classes/animation';
-import { ChartStyleManager } from './chart';
+	PIE_CHART_CONTAINER_BASE_CLASSES,
+	PIE_CHART_SVG_BASE_CLASSES,
+	COLOR_SWATCH_BASE_CLASSES,
+	NPM_BADGE_BASE_CLASSES,
+	NPM_BADGE_LINK_BASE_CLASSES,
+	NPM_BADGE_TYPE_CLASSES
+} from '../classes';
+import { formatAnimatedValue, formatNumberFlowValue } from '../utils/format';
 import { cn } from '../utils/cn';
 
 export class DataDisplayStyleManager {
@@ -19,30 +23,40 @@ export class DataDisplayStyleManager {
 	}
 
 	static getPieChartContainerClasses(className = ''): string {
-		return ChartStyleManager.getPieChartContainerClasses(className);
+		return cn(PIE_CHART_CONTAINER_BASE_CLASSES, className);
 	}
 
 	static getPieChartSvgClasses(className = ''): string {
-		return ChartStyleManager.getPieChartSvgClasses(className);
+		return cn(PIE_CHART_SVG_BASE_CLASSES, className);
 	}
 
-	static getColorSwatchClasses(className = ''): string {
-		return ChartStyleManager.getColorSwatchClasses(className);
+	static getColorSwatchClasses(color: string, size: number = 16, className = ''): string {
+		return cn(
+			COLOR_SWATCH_BASE_CLASSES,
+			className,
+			`bg-[${color}]`,
+			`w-[${size}px]`,
+			`h-[${size}px]`
+		);
 	}
 
+	/**
+	 * @deprecated Use getColorSwatchClasses instead
+	 * This method is kept for backward compatibility only.
+	 */
 	static getColorSwatchStyle(color: string, size = 16): string {
-		return ChartStyleManager.getColorSwatchStyle(color, size);
+		return `background-color: ${color}; width: ${size}px; height: ${size}px;`;
 	}
 
 	static getNpmBadgeClasses(
-		type: 'version' | 'downloads' | 'license' | 'size' | 'custom',
+		type: keyof typeof NPM_BADGE_TYPE_CLASSES = 'version',
 		className = ''
 	): string {
-		return ChartStyleManager.getNpmBadgeClasses(type, className);
+		return cn(NPM_BADGE_BASE_CLASSES, NPM_BADGE_TYPE_CLASSES[type], className);
 	}
 
 	static getNpmBadgeLinkClasses(className = ''): string {
-		return ChartStyleManager.getNpmBadgeLinkClasses(className);
+		return cn(NPM_BADGE_LINK_BASE_CLASSES, className);
 	}
 
 	static getNumberFlowContainerClasses(className = ''): string {

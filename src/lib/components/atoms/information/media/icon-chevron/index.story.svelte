@@ -1,30 +1,34 @@
 <script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import IconChevron from './index.svelte';
 
-	let isOpen = false;
-	let size: 'sm' | 'md' | 'lg' = 'md';
+	const controls: ControlConfig[] = [
+		{
+			name: 'isOpen',
+			type: 'boolean',
+			defaultValue: false
+		},
+		{
+			name: 'size',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg']
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">IconChevron</h1>
-
-	<div class="mb-6 flex flex-wrap items-center gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Open</span>
-			<input type="checkbox" bind:checked={isOpen} />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Size</span>
-			<select bind:value={size} class="rounded border p-1">
-				<option value="sm">Small</option>
-				<option value="md">Medium</option>
-				<option value="lg">Large</option>
-			</select>
-		</label>
-	</div>
-
-	<div class="inline-flex items-center rounded border p-4">
-		<IconChevron {isOpen} {size} />
-	</div>
-</div>
+<Story
+	{controls}
+	component={IconChevron}
+	title="IconChevron Component"
+	description="A chevron icon component that indicates open/close state"
+	tags={['information', 'media', 'icon', 'chevron']}
+>
+	{#snippet children(values: any)}
+		<IconChevron
+			isOpen={values.isOpen as boolean}
+			size={values.size as 'sm' | 'md' | 'lg'}
+		/>
+	{/snippet}
+</Story>

@@ -1,36 +1,43 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Text from './index.svelte';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls: ControlConfig[] = [
+	const controls = [
 		{
 			name: 'variant',
-			type: 'select',
-			defaultValue: 'primary',
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
+			type: CONTROL_TYPES.SELECT,
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
+			defaultValue: 'primary'
 		},
 		{
 			name: 'size',
-			type: 'select',
-			defaultValue: 'md',
-			options: ['sm', 'md', 'lg']
+			type: CONTROL_TYPES.SELECT,
+			options: ['sm', 'md', 'lg'],
+			defaultValue: 'md'
 		},
 		{
 			name: 'disabled',
-			type: 'boolean',
+			type: CONTROL_TYPES.BOOLEAN,
 			defaultValue: false
 		},
 		{
 			name: 'block',
-			type: 'boolean',
+			type: CONTROL_TYPES.BOOLEAN,
 			defaultValue: false
 		}
 	];
 </script>
 
-<Story component={Text} {controls}>
-	{#snippet children()}
+<Story
+	{controls}
+	component={Text}
+	title="Text"
+	category="Atoms/Information/Typography/Text"
+	description="A text component for typography."
+	tags={['text', 'typography', 'body', 'content']}
+>
+	{#snippet children(values: any)}
 		<div class="space-y-4 p-4">
 			<h3 class="text-lg font-semibold">Text Variants</h3>
 

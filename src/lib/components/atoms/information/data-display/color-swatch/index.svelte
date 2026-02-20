@@ -18,7 +18,7 @@
 	);
 </script>
 
-<div class={state.classes} style={state.style} {...restProps}>
+<div class={state.classes} style="background-color: {props.color}" {...restProps}>
 	{#if props.content}
 		<div class="flex h-full w-full items-center justify-center">
 			{@render props.content()}

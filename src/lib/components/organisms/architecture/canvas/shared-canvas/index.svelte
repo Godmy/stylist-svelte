@@ -1,46 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { MousePointer2, Square, Circle, Type, Trash2, Download, Redo, Undo, Palette } from 'lucide-svelte';
+  import { SharedCanvasStyleManager } from '$stylist/design-system/styles';
+  import type { SharedCanvasProps, CanvasObject, CanvasUser } from '$stylist/design-system/props';
 
   export type Tool = 'select' | 'rectangle' | 'circle' | 'text' | 'pen' | 'eraser';
-
-  export type CanvasObject = {
-    id: string;
-    type: 'rectangle' | 'circle' | 'text' | 'path';
-    x: number;
-    y: number;
-    width?: number;
-    height?: number;
-    radius?: number;
-    text?: string;
-    points?: { x: number; y: number }[];
-    color: string;
-    userId?: string;
-  };
-
-  export type CanvasUser = {
-    id: string;
-    name: string;
-    color: string;
-    cursorPosition?: { x: number; y: number };
-  };
-
-  type Props = {
-    width?: number;
-    height?: number;
-    objects?: CanvasObject[];
-    users?: CanvasUser[];
-    currentUserId?: string;
-    currentUser?: CanvasUser;
-    onObjectAdd?: (obj: CanvasObject) => void;
-    onObjectUpdate?: (obj: CanvasObject) => void;
-    onObjectDelete?: (id: string) => void;
-    showUsers?: boolean;
-    showToolbar?: boolean;
-    class?: string;
-    toolbarClass?: string;
-    canvasClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
 
   let {
     width = 800,
@@ -57,8 +21,10 @@
     class: className = '',
     toolbarClass = '',
     canvasClass = '',
+    variant = 'default',
+    size = 'md',
     ...restProps
-  }: Props = $props();
+  }: SharedCanvasProps & HTMLAttributes<HTMLDivElement> = $props();
 
   let selectedTool: Tool = $state('select');
   let selectedColor = $state('#3b82f6'); // Default blue
@@ -259,48 +225,59 @@
       }
     }
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(SharedCanvasStyleManager.getContainerClass(variant, size, className));
+  const toolbarClassComputed = $derived(SharedCanvasStyleManager.getToolbarClass(toolbarClass));
+  const canvasClassComputed = $derived(SharedCanvasStyleManager.getCanvasClass(canvasClass));
+  const userPanelClass = $derived(SharedCanvasStyleManager.getUserPanelClass());
+  const userItemClass = $derived(SharedCanvasStyleManager.getUserItemClass());
 </script>
 
-<div class={`c-shared-canvas border border-gray-200 rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={containerClass} {...restProps}>
   <!-- Toolbar -->
   {#if showToolbar}
-    <div class={`flex items-center p-2 border-b border-gray-200 bg-gray-50 space-x-2 ${toolbarClass}`}>
+    <div class={toolbarClassComputed}>
       <div class="flex space-x-1">
         <button
           type="button"
-          class={`p-2 rounded ${selectedTool === 'select' ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}`}
+          class={SharedCanvasStyleManager.getToolButtonClass(selectedTool === 'select')}
           onclick={() => selectedTool = 'select'}
           title="Select Tool"
+          aria-label="Select Tool"
         >
           <MousePointer2 class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class={`p-2 rounded ${selectedTool === 'rectangle' ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}`}
+          class={SharedCanvasStyleManager.getToolButtonClass(selectedTool === 'rectangle')}
           onclick={() => selectedTool = 'rectangle'}
           title="Rectangle Tool"
+          aria-label="Rectangle Tool"
         >
           <Square class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class={`p-2 rounded ${selectedTool === 'circle' ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}`}
+          class={SharedCanvasStyleManager.getToolButtonClass(selectedTool === 'circle')}
           onclick={() => selectedTool = 'circle'}
           title="Circle Tool"
+          aria-label="Circle Tool"
         >
           <Circle class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class={`p-2 rounded ${selectedTool === 'text' ? 'bg-blue-500 text-white' : 'hover:bg-gray-200'}`}
+          class={SharedCanvasStyleManager.getToolButtonClass(selectedTool === 'text')}
           onclick={() => selectedTool = 'text'}
           title="Text Tool"
+          aria-label="Text Tool"
         >
           <Type class="h-4 w-4" />
         </button>
       </div>
 
-      <div class="h-5 border-l border-gray-300 mx-2"></div>
+      <div class="h-5 border-l border-[--color-border-default] mx-2"></div>
 
       <div class="flex items-center space-x-2">
         <label class="flex items-center text-sm">
@@ -308,44 +285,49 @@
           Color:
           <input
             type="color"
-            class="ml-1 w-8 h-8 p-1 border border-gray-300 rounded cursor-pointer"
+            class="ml-1 w-8 h-8 p-1 border border-[--color-border-default] rounded cursor-pointer"
             bind:value={selectedColor}
+            aria-label="Select color"
           />
         </label>
       </div>
 
-      <div class="h-5 border-l border-gray-300 mx-2"></div>
+      <div class="h-5 border-l border-[--color-border-default] mx-2"></div>
 
       <div class="flex space-x-1">
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class={SharedCanvasStyleManager.getActionButtonClass()}
           onclick={undo}
           title="Undo"
+          aria-label="Undo"
         >
           <Undo class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class={SharedCanvasStyleManager.getActionButtonClass()}
           onclick={redo}
           title="Redo"
+          aria-label="Redo"
         >
           <Redo class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class={SharedCanvasStyleManager.getActionButtonClass()}
           onclick={deleteSelected}
           title="Delete Selected"
+          aria-label="Delete Selected"
         >
           <Trash2 class="h-4 w-4" />
         </button>
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class={SharedCanvasStyleManager.getActionButtonClass()}
           onclick={exportCanvas}
           title="Export Canvas"
+          aria-label="Export Canvas"
         >
           <Download class="h-4 w-4" />
         </button>
@@ -360,7 +342,7 @@
         bind:this={canvasRef}
         width={width}
         height={height}
-        class={`w-full h-full bg-white cursor-${selectedTool === 'select' ? 'default' : 'crosshair'} ${canvasClass}`}
+        class={canvasClassComputed}
         onmousedown={handleMouseDown}
         onmousemove={handleMouseMove}
         onmouseup={handleMouseUp}
@@ -375,6 +357,7 @@
               class="absolute w-2 h-2 rounded-full"
               style={`left: ${user.cursorPosition.x}px; top: ${user.cursorPosition.y}px; background-color: ${user.color};`}
               title={user.name}
+              aria-label={`Cursor of ${user.name}`}
             ></div>
           {/if}
         {/each}
@@ -383,19 +366,20 @@
 
     <!-- User list -->
     {#if showUsers}
-      <div class="w-48 border-l p-3 bg-gray-50">
-        <h4 class="text-sm font-medium text-gray-700 mb-2">Collaborators</h4>
+      <div class={userPanelClass}>
+        <h4 class="text-sm font-medium text-[--color-text-secondary] mb-2">Collaborators</h4>
         <div class="space-y-2">
           {#each users as user}
-            <div class="flex items-center">
+            <div class={userItemClass}>
               <div
                 class="w-4 h-4 rounded-full mr-2"
                 style={`background-color: ${user.color}`}
                 title={user.name}
+                aria-label={user.name}
               ></div>
-              <span class="text-sm text-gray-700">{user.name}</span>
+              <span class="text-sm text-[--color-text-primary]">{user.name}</span>
               {#if user.id === currentUserId}
-                <span class="ml-1 text-xs text-gray-500">(You)</span>
+                <span class="ml-1 text-xs text-[--color-text-tertiary]">(You)</span>
               {/if}
             </div>
           {/each}

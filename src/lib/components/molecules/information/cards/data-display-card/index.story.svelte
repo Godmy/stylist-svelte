@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import { createRawSnippet } from 'svelte';
@@ -31,11 +31,11 @@
     {
       title: 'MRR',
       subtitle: 'Monthly recurring revenue',
-      description: '$146,240 · ↑ 9.2% vs last month'
+      description: '$146,240 В· в†‘ 9.2% vs last month'
     },
     {
       title: 'Conversion',
-      subtitle: 'Trials → paid',
+      subtitle: 'Trials в†’ paid',
       description: '37% conversion after onboarding refresh'
     },
     {
@@ -59,7 +59,7 @@
     render: () =>
       `<div class="flex items-center justify-between text-xs text-gray-500">
         <span>Updated 5 minutes ago</span>
-        <span>Data Warehouse · ETL #42</span>
+        <span>Data Warehouse В· ETL #42</span>
       </div>`
   }));
 </script>
@@ -72,7 +72,7 @@
   description="Narrative card that blends key metrics, narrative context, imagery, and actions."
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <section class="grid w-full gap-8 lg:grid-cols-[1.2fr_0.8fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="flex items-center justify-between">
@@ -117,6 +117,7 @@
     </section>
   {/snippet}
 </Story>
+
 
 
 

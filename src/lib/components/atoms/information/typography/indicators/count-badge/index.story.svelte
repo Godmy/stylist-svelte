@@ -1,18 +1,26 @@
 <script lang="ts">
-	import CountBadge from './index.svelte';
-	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-
-	type CountBadgeStoryProps = {
-		count: number;
-		max: number;
-		showZero: boolean;
-	};
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import CountBadge from './index.svelte';
 
 	const controls: ControlConfig[] = [
-		{ name: 'count', type: 'number', defaultValue: 12, min: 0, max: 200, step: 1 },
-		{ name: 'max', type: 'number', defaultValue: 99, min: 1, max: 999, step: 1 },
-		{ name: 'showZero', type: 'boolean', defaultValue: false }
+		{
+			name: 'count',
+			type: 'select',
+			defaultValue: '12',
+			options: ['0', '1', '3', '5', '10', '12', '25', '50', '99', '100', '152', '200']
+		},
+		{
+			name: 'max',
+			type: 'select',
+			defaultValue: '99',
+			options: ['10', '50', '99', '100', '200', '500', '999']
+		},
+		{
+			name: 'showZero',
+			type: 'boolean',
+			defaultValue: false
+		}
 	];
 
 	const inboxViews = [
@@ -24,15 +32,13 @@
 </script>
 
 <Story
-	id="atoms-count-badge"
-	title="CountBadge"
-	component={CountBadge}
-	category="Atoms"
-	description="Compact counter for unread states with support for maximum display values."
-	tags={['indicator', 'counter', 'notifications']}
 	{controls}
+	component={CountBadge}
+	title="CountBadge Component"
+	description="Compact counter for unread states with support for maximum display values"
+	tags={['information', 'typography', 'indicator', 'counter', 'notifications']}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(values: any)}
 		<div class="space-y-8">
 			<div
 				class="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
@@ -40,15 +46,15 @@
 				<button class="relative rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white">
 					Messages
 					<span class="absolute -top-2 -right-2">
-						<CountBadge 
-							count={props.count as number ?? 12} 
-							max={props.max as number ?? 99} 
-							showZero={props.showZero as boolean ?? false} 
+						<CountBadge
+							count={parseInt(values.count as string) || 12}
+							max={parseInt(values.max as string) || 99}
+							showZero={values.showZero as boolean}
 						/>
 					</span>
 				</button>
 				<p class="text-sm text-gray-600 dark:text-gray-300">
-					Play with the controls to see how overflow (`{props.max as number ?? 99}+`) and zero visibility behave.
+					Play with the controls to see how overflow (`{values.max}+`) and zero visibility behave.
 				</p>
 			</div>
 
@@ -61,9 +67,9 @@
 						<li class="flex items-center justify-between py-3">
 							<span class="text-gray-700 dark:text-gray-200">{view.label}</span>
 							<CountBadge
-								count={view.label === 'Inbox' ? (props.count as number ?? 12) : view.count}
-								max={props.max as number ?? 99}
-								showZero={props.showZero as boolean ?? false}
+								count={view.label === 'Inbox' ? parseInt(values.count as string) || 12 : view.count}
+								max={parseInt(values.max as string) || 99}
+								showZero={values.showZero as boolean}
 							/>
 						</li>
 					{/each}

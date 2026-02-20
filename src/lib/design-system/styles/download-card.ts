@@ -1,26 +1,38 @@
 /**
  * Менеджер стилей для компонента DownloadCard
- * 
+ *
  * Следует принципу единственной ответственности (SRP) из SOLID:
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
+ * 
+ * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
 import type { DownloadCardVariant } from '$stylist/design-system/props/download-card';
+import {
+  CARD_BASE_CLASSES,
+  CARD_ICON_CONTAINER_CLASSES,
+  CARD_ICON_SIZE_CLASSES,
+  CARD_TEXT_CONTENT_CLASSES,
+  CARD_TRUNCATE_CLASSES,
+  CARD_ACTIONS_CLASSES
+} from '$stylist/design-system/classes/cards';
 
 export class DownloadCardStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера DownloadCard
+   * Использует нормализованные базовые классы для карточек
    */
   static getContainerClasses(className?: string): string {
-    return `download-card flex items-center p-4 border rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-200 ${className || ''}`.trim();
+    return `${CARD_BASE_CLASSES} download-card flex items-center p-4 hover:shadow-md transition-shadow duration-200 ${className || ''}`.trim();
   }
 
   /**
    * Возвращает CSS-классы для иконки файла
+   * Использует нормализованные классы для иконок
    */
   static getIconContainerClasses(): string {
-    return 'flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center mr-4';
+    return CARD_ICON_CONTAINER_CLASSES;
   }
 
   /**
@@ -35,28 +47,30 @@ export class DownloadCardStyleManager {
       danger: 'text-red-500 bg-red-50'
     };
 
-    return `w-6 h-6 ${variantClasses[variant]}`;
+    return `${CARD_ICON_SIZE_CLASSES.md} ${variantClasses[variant] || variantClasses.primary}`;
   }
 
   /**
    * Возвращает CSS-классы для контейнера информации о файле
+   * Использует нормализованные классы для текстового контента
    */
   static getInfoContainerClasses(): string {
-    return 'flex-1 min-w-0';
+    return CARD_TEXT_CONTENT_CLASSES;
   }
 
   /**
    * Возвращает CSS-классы для имени файла
+   * Использует нормализованные классы для усечения текста
    */
   static getFileNameClasses(): string {
-    return 'text-sm font-medium text-gray-900 truncate block';
+    return `text-sm font-medium text-[--color-text-primary] ${CARD_TRUNCATE_CLASSES} block`;
   }
 
   /**
    * Возвращает CSS-классы для метаданных файла
    */
   static getMetadataClasses(): string {
-    return 'text-xs text-gray-500 mt-1 flex flex-wrap gap-2';
+    return 'text-xs text-[--color-text-secondary] mt-1 flex flex-wrap gap-2';
   }
 
   /**
@@ -68,6 +82,7 @@ export class DownloadCardStyleManager {
 
   /**
    * Возвращает CSS-классы для кнопки скачивания
+   * Использует нормализованные классы для действий
    */
   static getDownloadButtonClasses(variant: DownloadCardVariant = 'primary'): string {
     const variantClasses = {
@@ -78,6 +93,6 @@ export class DownloadCardStyleManager {
       danger: 'text-red-600 hover:text-red-800'
     };
 
-    return `ml-4 p-2 rounded-full hover:bg-gray-100 transition-colors duration-150 ${variantClasses[variant]}`;
+    return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-150 ${variantClasses[variant] || variantClasses.primary}`;
   }
 }

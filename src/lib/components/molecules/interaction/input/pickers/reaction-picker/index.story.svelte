@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import ReactionPicker from './index.svelte';
 
   type ReactionType = 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view';
@@ -19,10 +20,14 @@
   ];
 </script>
 
-<div class="p-4">
-  <h1>ReactionPicker Story</h1>
-  <ReactionPicker
-    {reactions}
-    class="my-2"
-  />
-</div>
+<Story
+  title="ReactionPicker Component"
+  description="Interactive reaction picker with various emoji reactions"
+>
+  <div class="p-4">
+    <ReactionPicker
+      {reactions}
+      class="my-2"
+    />
+  </div>
+</Story>

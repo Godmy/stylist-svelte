@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -23,7 +23,7 @@
 </script>
 
 <Story {id} {title} {description} component={BreadcrumbSeparator} category="Atoms" {controls}>
-	{#snippet children(props: any)}
+	{#snippet children(props)}
 		<div class="flex items-center text-sm">
 			<span class="cursor-pointer text-blue-600 hover:underline">Home</span>
 			<BreadcrumbSeparator />
@@ -47,6 +47,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

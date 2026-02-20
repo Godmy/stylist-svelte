@@ -1,3 +1,8 @@
+/**
+ * Animation classes and utilities
+ * @deprecated Use centralized utilities from '$stylist/design-system/utils/format' instead
+ */
+
 export const DEFAULT_LANGUAGE = 'en';
 
 export const NUMBER_FLOW_BASE_CLASSES = {
@@ -7,6 +12,9 @@ export const NUMBER_FLOW_BASE_CLASSES = {
 	srOnly: 'sr-only'
 } as const;
 
+/**
+ * @deprecated Use `import { formatNumberFlowValue } from '$stylist/design-system/utils/format'`
+ */
 export const formatNumberFlowValue = (
 	value: number,
 	locales: string | string[] = 'en-US',
@@ -14,6 +22,10 @@ export const formatNumberFlowValue = (
 ) => new Intl.NumberFormat(locales, format).format(value);
 
 export const animateNumberValue = ({ value }: { value: number }) => value;
+
+/**
+ * @deprecated Use `import { formatAnimatedValue } from '$stylist/design-system/utils/format'`
+ */
 export const formatAnimatedValue = (
 	value: number,
 	options: { format?: 'number' | 'percent' | 'currency'; separator?: string; decimals?: number } = {}

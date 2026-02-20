@@ -1,26 +1,33 @@
 <script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import ColorSwatch from './index.svelte';
 
-	let color = '#0ea5e9';
-	let size = 32;
+	const controls: ControlConfig[] = [
+		{
+			name: 'color',
+			type: 'text',
+			defaultValue: '#0ea5e9'
+		},
+		{
+			name: 'size',
+			type: 'text', // Using text type since we need to handle numeric values as strings in the control system
+			defaultValue: '32'
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">ColorSwatch</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Color</span>
-			<input type="text" bind:value={color} class="w-28 rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Size</span>
-			<input type="number" bind:value={size} class="w-20 rounded border p-1" />
-		</label>
-	</div>
-
-	<div class="inline-flex items-center rounded border p-4">
-		<ColorSwatch {color} {size} />
-	</div>
-</div>
+<Story
+	{controls}
+	component={ColorSwatch}
+	title="ColorSwatch Component"
+	description="A component to display a color swatch with customizable size"
+	tags={['information', 'data-display', 'color']}
+>
+	{#snippet children(values: any)}
+		<ColorSwatch
+			color={values.color as string}
+			size={parseInt(values.size as string)}
+		/>
+	{/snippet}
+</Story>

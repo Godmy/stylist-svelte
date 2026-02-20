@@ -72,6 +72,17 @@ export type ExtendedSize = (typeof EXTENDED_SIZE_SCALE)[number];
 export type CountryFlagSize = number;
 
 /**
+ * Шкала размеров для спейсеров - содержит стандартные размеры отступов
+ *
+ * @example
+ * ```ts
+ * const spacerScale = SPACER_SIZE_SCALE; // ['xs', 'sm', 'md', 'lg', 'xl']
+ * ```
+ */
+export const SPACER_SIZE_SCALE = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+export type SpacerSize = (typeof SPACER_SIZE_SCALE)[number];
+
+/**
  * Все шкалы размеров
  *
  * @example
@@ -84,5 +95,6 @@ export const SIZE_SCALES = {
 	compact: COMPACT_SIZE_SCALE,
 	codeBlock: CODE_BLOCK_SIZE_SCALE,
 	label: LABEL_SIZE_SCALE,
-	extended: EXTENDED_SIZE_SCALE
+	extended: EXTENDED_SIZE_SCALE,
+	spacer: SPACER_SIZE_SCALE
 } as const;

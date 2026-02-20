@@ -1,4 +1,4 @@
-﻿import type { DarkModeToggleProps } from '$stylist/design-system/props';
+﻿import type { DarkModeToggleProps } from '$stylist/design-system/props/toggles';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export const createDarkModeToggleState = (props: DarkModeToggleProps) => {

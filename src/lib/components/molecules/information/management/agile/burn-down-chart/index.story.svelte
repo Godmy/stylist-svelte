@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import BurnDownChart from './index.svelte';
@@ -69,7 +69,7 @@
   description="A chart component to visualize sprint progress comparing ideal vs actual work remaining."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-burn-down-chart p-4">
       <h1 class="text-xl font-bold mb-4">Burn Down Chart Component</h1>
 
@@ -84,5 +84,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

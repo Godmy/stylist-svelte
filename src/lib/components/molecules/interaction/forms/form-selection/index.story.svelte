@@ -1,65 +1,59 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import FormSection from './FormSection.svelte';
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  let variant = 'primary';
-
-  let title = $state('Personal Information');
-  let description = $state('Please provide your personal details.');
-  let collapsed = $state(false);
-  let collapsible = $state(true);
-
-  const controls: ControlConfig[] = [
-    { name: 'title', type: 'text', defaultValue: 'Personal Information' },
-    { name: 'description', type: 'text', defaultValue: 'Please provide your personal details.' },
-    { name: 'collapsible', type: 'boolean', defaultValue: true }
+  const controls = [
+    {
+      name: 'title',
+      type: 'text' as ControlType,
+      defaultValue: 'Personal Information',
+      description: 'Title of the form section'
+    },
+    {
+      name: 'description',
+      type: 'text' as ControlType,
+      defaultValue: 'Please provide your personal details.',
+      description: 'Description of the form section'
+    },
+    {
+      name: 'collapsible',
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether the section is collapsible'
+    }
   ];
 </script>
 
-# FormSection
-
-<Story id="formsection-story" title="FormSection" component={FormSection} {controls}>
-  <div class="space-y-4 p-8">
-    <FormSection 
-      {title} 
-      {description} 
-      {collapsible}
-      initiallyCollapsed={collapsed}
+<Story
+  {controls}
+  title="FormSection Component"
+  description="Form section component with optional collapsible functionality"
+  let:controlValues
+>
+  <div class="p-8">
+    <FormSection
+      title={controlValues.title}
+      description={controlValues.description}
+      collapsible={controlValues.collapsible}
+      initiallyCollapsed={false}
     >
       <div class="space-y-4">
         <div>
           <label for="form-name" class="block text-sm font-medium text-gray-700">Name</label>
           <input id="form-name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border" />
         </div>
-        
+
         <div>
           <label for="form-email" class="block text-sm font-medium text-gray-700">Email</label>
           <input id="form-email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border" />
         </div>
-        
+
         <div>
           <label for="form-phone" class="block text-sm font-medium text-gray-700">Phone</label>
           <input id="form-phone" type="tel" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border" />
         </div>
       </div>
     </FormSection>
-
-    <div class="space-y-4 mt-4">
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={collapsible} /> Collapsible
-        </label>
-      </div>
-
-      <div>
-        <label>Title: <input type="text" bind:value={title} /></label>
-      </div>
-
-      <div>
-        <label>Description: <input type="text" bind:value={description} /></label>
-      </div>
-    </div>
   </div>
 </Story>
-

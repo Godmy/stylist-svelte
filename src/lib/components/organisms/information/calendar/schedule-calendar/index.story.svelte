@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -72,7 +72,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props: { showHeader?: boolean; showTimeGutter?: boolean })}
+  {#snippet children(props)}
     <section class="sb-organisms-schedule-calendar grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -148,4 +148,5 @@
     </section>
   {/snippet}
 </Story>
+
 

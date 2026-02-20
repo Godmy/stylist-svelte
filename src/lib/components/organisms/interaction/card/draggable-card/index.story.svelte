@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -29,7 +29,7 @@
     assignedTo: 'Maya Patel'
   };
 
-  let status = $state('Waiting for interaction…');
+  let status = $state('Waiting for interactionвЂ¦');
 
   const updateStatus = (message: string) => {
     status = `${new Date().toLocaleTimeString()}: ${message}`;
@@ -44,7 +44,7 @@
   description="Self-contained card with drag handle, metadata, and action menu."
   controls={controls}
 >
-  {#snippet children(args: Record<string, unknown>)}
+  {#snippet children(args)}
     <section class="sb-organisms-draggable-card grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="mb-4 flex items-center justify-between">
@@ -78,12 +78,13 @@
           {status}
         </div>
         <ul class="mt-4 space-y-2 text-xs text-[--color-text-secondary]">
-          <li>• `onDragStart(data)` fired when dragging begins.</li>
-          <li>• `onDragEnd(data)` fired after drop.</li>
-          <li>• `onCardClick(data)` and `onContextMenu(data, event)` for extra affordances.</li>
+          <li>вЂў `onDragStart(data)` fired when dragging begins.</li>
+          <li>вЂў `onDragEnd(data)` fired after drop.</li>
+          <li>вЂў `onCardClick(data)` and `onContextMenu(data, event)` for extra affordances.</li>
         </ul>
       </div>
     </section>
   {/snippet}
 </Story>
+
 

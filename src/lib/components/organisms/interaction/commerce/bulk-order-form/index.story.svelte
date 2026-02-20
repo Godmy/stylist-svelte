@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -49,7 +49,7 @@
   description="A form for placing bulk orders with multiple products."
   controls={controls}
 >
-  {#snippet children(args: Record<string, unknown>)}
+  {#snippet children(args)}
     <section class="sb-organisms-bulk-order-form">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm max-w-4xl mx-auto">
         <BulkOrderForm
@@ -79,4 +79,5 @@
     </section>
   {/snippet}
 </Story>
+
 

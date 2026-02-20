@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import SideBySideLayout from './index.svelte';
@@ -63,7 +63,7 @@
     description="Layout component that shows content side by side"
     controls={controls}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(props)}
         <div class="p-4">
             <SideBySideLayout
                 sections={[
@@ -86,5 +86,6 @@
         </div>
     {/snippet}
 </Story>
+
 
 

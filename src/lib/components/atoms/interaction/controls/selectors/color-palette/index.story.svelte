@@ -1,115 +1,101 @@
-<script lang="ts">
+﻿<script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ColorPalette from './index.svelte';
 
-  let colors = [
-    { name: 'Primary', value: '#3b82f6', category: 'blue' },
-    { name: 'Secondary', value: '#64748b', category: 'gray' },
-    { name: 'Success', value: '#10b981', category: 'green' },
-    { name: 'Warning', value: '#f59e0b', category: 'yellow' },
-    { name: 'Danger', value: '#ef4444', category: 'red' },
-    { name: 'Info', value: '#0ea5e9', category: 'cyan' },
-    { name: 'Purple', value: '#8b5cf6', category: 'purple' },
-    { name: 'Pink', value: '#ec4899', category: 'pink' }
+  const defaultColors = [
+    { name: 'Red', value: '#EF4444' },
+    { name: 'Blue', value: '#3B82F6' },
+    { name: 'Green', value: '#10B981' },
+    { name: 'Yellow', value: '#F59E0B' },
+    { name: 'Purple', value: '#8B5CF6' },
+    { name: 'Pink', value: '#EC4899' },
+    { name: 'Indigo', value: '#6366F1' },
+    { name: 'Gray', value: '#6B7280' }
   ];
 
-  let title: string = 'Design System Colors';
-  let showLabels: boolean = true;
-  let showValues: boolean = false;
-  let columns: number = 4;
+  const columnOptions = [2, 3, 4, 5, 6];
+
+  const controls: ControlConfig[] = [
+    {
+      name: 'title',
+      type: 'text',
+      defaultValue: 'Color Palette',
+      description: 'Title for the color palette'
+    },
+    {
+      name: 'showLabels',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Whether to show color labels'
+    },
+    {
+      name: 'showValues',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether to show color values'
+    },
+    {
+      name: 'columns',
+      type: 'select',
+      defaultValue: 4,
+      options: columnOptions,
+      description: 'Number of columns to display'
+    }
+  ];
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">ColorPalette Component</h1>
-
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive ColorPalette</h2>
-    <ColorPalette 
-      {colors}
-      {title}
-      {showLabels}
-      {showValues}
-      {columns}
-      onValueChange={(color) => console.log('Selected color:', color)}
-    />
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      <div>
-        <label for="color-title" class="block text-sm mb-1">Title:</label>
-        <input
-          id="color-title"
-          type="text"
-          bind:value={title}
-          class="border rounded p-1 w-40"
-        />
-      </div>
-
-      <div>
-        <label for="color-columns" class="block text-sm mb-1">Columns:</label>
-        <select
-          id="color-columns"
-          bind:value={columns}
-          class="border rounded p-1"
-        >
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
-      </div>
-
-      <div class="flex items-end">
-        <label for="show-labels" class="flex items-center gap-1">
-          <input id="show-labels" type="checkbox" bind:checked={showLabels} />
-          Show Labels
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="show-values" class="flex items-center gap-1">
-          <input id="show-values" type="checkbox" bind:checked={showValues} />
-          Show Values
-        </label>
-      </div>
+<Story
+  id="atoms-color-palette"
+  title="ColorPalette"
+  component={ColorPalette}
+  category="Atoms/Interaction/Controls/Selectors"
+  description="ColorPalette component for selecting colors."
+  tags={['color', 'palette', 'selector', 'picker']}
+  controls={controls}
+>
+  {#snippet children(props)}
+    <div class="p-4">
+      <ColorPalette
+        {...props}
+        colors={defaultColors}
+        onValueChange={(color) => console.log('Selected color:', color)}
+      />
     </div>
-  </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">ColorPalette Variations</h2>
-    <div class="space-y-4">
+  {/snippet}
+  
+  {#snippet variants}
+    <div class="grid grid-cols-1 gap-8 p-4">
       <div>
-        <h3 class="text-sm font-medium mb-2">With Color Values</h3>
-        <ColorPalette 
-          colors={[
-            { name: 'Red', value: '#ef4444' },
-            { name: 'Blue', value: '#3b82f6' },
-            { name: 'Green', value: '#10b981' },
-            { name: 'Yellow', value: '#f59e0b' }
-          ]}
-          title="Color Values Display"
+        <h3 class="text-lg font-semibold mb-4">With Labels</h3>
+        <ColorPalette
+          colors={defaultColors}
+          title="Palette with Labels"
           showLabels={true}
-          showValues={true}
+          showValues={false}
           columns={4}
         />
       </div>
       <div>
-        <h3 class="text-sm font-medium mb-2">Without Labels</h3>
-        <ColorPalette 
-          colors={[
-            { name: 'Primary', value: '#3b82f6' },
-            { name: 'Secondary', value: '#64748b' },
-            { name: 'Success', value: '#10b981' },
-            { name: 'Warning', value: '#f59e0b' },
-            { name: 'Danger', value: '#ef4444' }
-          ]}
-          title="Color Swatches Only"
+        <h3 class="text-lg font-semibold mb-4">With Values</h3>
+        <ColorPalette
+          colors={defaultColors}
+          title="Palette with Values"
+          showLabels={true}
+          showValues={true}
+          columns={3}
+        />
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold mb-4">Compact View</h3>
+        <ColorPalette
+          colors={defaultColors.slice(0, 4)}
+          title="Compact Palette"
           showLabels={false}
           showValues={false}
-          columns={5}
+          columns={4}
         />
       </div>
     </div>
-  </div>
-</div>
-
-
+  {/snippet}
+</Story>

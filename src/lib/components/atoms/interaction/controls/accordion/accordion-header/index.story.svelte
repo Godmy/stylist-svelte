@@ -1,138 +1,158 @@
 <script lang="ts">
-	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
-	import AccordionItem from '../accordion-item/index.svelte';
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import AccordionHeader from './index.svelte';
-	import AccordionPanel from '../accordion-panel/index.svelte';
 
-	let multiple: boolean = false;
-	let openValues: string[] = [];
+	let header: string = 'Accordion Header';
+	let chevronSize: 'sm' | 'md' | 'lg' = 'md';
+	let padding: 'sm' | 'md' | 'lg' = 'md';
+	let customClass: string = '';
 
-	function handleValueChange(values: string[]) {
-		console.log('Accordion values changed:', values);
-		openValues = values;
-	}
-
-	// Define sample content for the accordion panels
-	const panelContent1 = `<div>
-    <p>This is the content of the first accordion panel.</p>
-    <p>You can put any content here - text, images, forms, etc.</p>
-  </div>`;
-
-	const panelContent2 = `<div>
-    <p>This is the content of the second accordion panel.</p>
-    <ul class="list-disc pl-5 mt-2">
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
-    </ul>
-  </div>`;
-
-	const panelContent3 = `<div>
-    <p>This is the content of the third accordion panel.</p>
-    <p>It can contain complex content like forms:</p>
-    <form class="mt-2">
-      <div class="mb-2">
-        <label class="block text-sm font-medium mb-1" for="name">Name:</label>
-        <input
-          id="name"
-          type="text"
-          class="w-full px-3 py-2 border rounded-md"
-        />
-      </div>
-      <div class="mb-2">
-        <label class="block text-sm font-medium mb-1" for="email">Email:</label>
-        <input
-          id="email"
-          type="email"
-          class="w-full px-3 py-2 border rounded-md"
-        />
-      </div>
-    </form>
-  </div>`;
+	const controls: ControlConfig[] = [
+		{
+			name: 'header',
+			type: 'text',
+			defaultValue: 'Accordion Header',
+			description: 'The header text'
+		},
+		{
+			name: 'chevronSize',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg'],
+			description: 'Size of the chevron icon'
+		},
+		{
+			name: 'padding',
+			type: 'select',
+			defaultValue: 'md',
+			options: ['sm', 'md', 'lg'],
+			description: 'Padding size'
+		}
+	];
 </script>
 
 <div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">Accordion Components</h1>
+	<h1 class="mb-4 text-lg font-semibold">Accordion Header Component</h1>
 
 	<div class="mb-6 rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Interactive Accordion</h2>
-		<div class="flex flex-col gap-4">
-			<ComplexAccordion {multiple} value={openValues} onValueChange={handleValueChange}>
-				{#snippet content()}
-					<AccordionItem value="item-1">
-						<AccordionHeader value="item-1">Accordion Header 1</AccordionHeader>
-						<AccordionPanel value="item-1">{panelContent1}</AccordionPanel>
-					</AccordionItem>
-
-					<AccordionItem value="item-2">
-						<AccordionHeader value="item-2">Accordion Header 2</AccordionHeader>
-						<AccordionPanel value="item-2">{panelContent2}</AccordionPanel>
-					</AccordionItem>
-
-					<AccordionItem value="item-3">
-						<AccordionHeader value="item-3">Accordion Header 3</AccordionHeader>
-						<AccordionPanel value="item-3">{panelContent3}</AccordionPanel>
-					</AccordionItem>
+		<h2 class="text-md mb-2 font-semibold">Interactive Accordion Header</h2>
+		<div class="mb-4">
+			<AccordionHeader value="test-value" {header} {chevronSize} {padding} class={customClass}>
+				{#snippet children()}
+					{header}
 				{/snippet}
-			</ComplexAccordion>
+			</AccordionHeader>
 		</div>
 
 		<div class="mt-4 flex flex-wrap gap-2">
-			<div class="flex items-end">
-				<label for="accordion-multiple" class="flex items-center gap-1">
-					<input id="accordion-multiple" type="checkbox" bind:checked={multiple} />
-					Multiple Selection
-				</label>
+			<div>
+				<label for="accordion-header-text" class="mb-1 block text-sm">Header Text:</label>
+				<input
+					id="accordion-header-text"
+					type="text"
+					bind:value={header}
+					class="rounded border p-1"
+				/>
+			</div>
+
+			<div>
+				<label for="accordion-header-chevron-size" class="mb-1 block text-sm">Chevron Size:</label>
+				<select
+					id="accordion-header-chevron-size"
+					bind:value={chevronSize}
+					class="rounded border p-1"
+				>
+					<option value="sm">Small</option>
+					<option value="md">Medium</option>
+					<option value="lg">Large</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="accordion-header-padding" class="mb-1 block text-sm">Padding:</label>
+				<select
+					id="accordion-header-padding"
+					bind:value={padding}
+					class="rounded border p-1"
+				>
+					<option value="sm">Small</option>
+					<option value="md">Medium</option>
+					<option value="lg">Large</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="accordion-header-class" class="mb-1 block text-sm">Custom Class:</label>
+				<input
+					id="accordion-header-class"
+					type="text"
+					bind:value={customClass}
+					class="rounded border p-1"
+					placeholder="Add custom CSS class"
+				/>
 			</div>
 		</div>
 	</div>
 
-	<div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-		<div class="rounded border p-4">
-			<h2 class="text-md mb-2 font-semibold">Single Selection (Default)</h2>
-			<ComplexAccordion>
-				{#snippet content()}
-					<AccordionItem value="single-1">
-						<AccordionHeader value="single-1">Single Accordion 1</AccordionHeader>
-						<AccordionPanel value="single-1">{panelContent1}</AccordionPanel>
-					</AccordionItem>
-
-					<AccordionItem value="single-2">
-						<AccordionHeader value="single-2">Single Accordion 2</AccordionHeader>
-						<AccordionPanel value="single-2">{panelContent2}</AccordionPanel>
-					</AccordionItem>
-				{/snippet}
-			</ComplexAccordion>
-		</div>
-
-		<div class="rounded border p-4">
-			<h2 class="text-md mb-2 font-semibold">Multiple Selection</h2>
-			<ComplexAccordion multiple={true}>
-				{#snippet content()}
-					<AccordionItem value="multi-1">
-						<AccordionHeader value="multi-1">Multi Accordion 1</AccordionHeader>
-						<AccordionPanel value="multi-1">{panelContent1}</AccordionPanel>
-					</AccordionItem>
-
-					<AccordionItem value="multi-2">
-						<AccordionHeader value="multi-2">Multi Accordion 2</AccordionHeader>
-						<AccordionPanel value="multi-2">{panelContent2}</AccordionPanel>
-					</AccordionItem>
-				{/snippet}
-			</ComplexAccordion>
+	<div class="mb-6 rounded border p-4">
+		<h2 class="text-md mb-2 font-semibold">Chevron Sizes</h2>
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Small Chevron</h3>
+				<AccordionHeader value="chevron-sm" chevronSize="sm" padding="md">
+					{#snippet children()}
+						Small Chevron
+					{/snippet}
+				</AccordionHeader>
+			</div>
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Medium Chevron</h3>
+				<AccordionHeader value="chevron-md" chevronSize="md" padding="md">
+					{#snippet children()}
+						Medium Chevron
+					{/snippet}
+				</AccordionHeader>
+			</div>
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Large Chevron</h3>
+				<AccordionHeader value="chevron-lg" chevronSize="lg" padding="md">
+					{#snippet children()}
+						Large Chevron
+					{/snippet}
+				</AccordionHeader>
+			</div>
 		</div>
 	</div>
 
 	<div class="rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Default Accordion</h2>
-		<ComplexAccordion>
-			{#snippet content()}
-				<AccordionItem value="default-1">
-					<AccordionHeader value="default-1">Default Accordion Header</AccordionHeader>
-					<AccordionPanel value="default-1">{panelContent1}</AccordionPanel>
-				</AccordionItem>
-			{/snippet}
-		</ComplexAccordion>
+		<h2 class="text-md mb-2 font-semibold">Padding Variations</h2>
+		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Small Padding</h3>
+				<AccordionHeader value="padding-sm" chevronSize="md" padding="sm">
+					{#snippet children()}
+						Small Padding
+					{/snippet}
+				</AccordionHeader>
+			</div>
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Medium Padding</h3>
+				<AccordionHeader value="padding-md" chevronSize="md" padding="md">
+					{#snippet children()}
+						Medium Padding
+					{/snippet}
+				</AccordionHeader>
+			</div>
+			<div class="rounded border p-3">
+				<h3 class="mb-2 font-medium">Large Padding</h3>
+				<AccordionHeader value="padding-lg" chevronSize="md" padding="lg">
+					{#snippet children()}
+						Large Padding
+					{/snippet}
+				</AccordionHeader>
+			</div>
+		</div>
 	</div>
 </div>
 

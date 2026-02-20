@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { LineChartStyleManager } from '$stylist/design-system/styles/line-chart';
-  import { TrendingUp, Info } from 'lucide-svelte';
-  import Tooltip from '$stylist/components/atoms/interaction/controls/buttons/tooltip/index.svelte';
+  import { IconTrendingUp, IconInfo } from '$stylist/components/atoms';
+  import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
   // Types
   export type ChartDataPoint = {
@@ -141,8 +141,8 @@
     <div class={titleContainerClasses}>
       <h3 class={titleClasses}>{title}</h3>
       {#if showTooltip}
-        <Tooltip text="This is a line chart showing trends over time with data points connected by lines." position="top">
-          <Info class={infoIconClasses} />
+        <Tooltip content="This is a line chart showing trends over time with data points connected by lines." placement="top">
+          <IconInfo size="sm" class={infoIconClasses} />
         </Tooltip>
       {/if}
     </div>
@@ -264,6 +264,5 @@
     </div>
   {/if}
 </div>
-
 
 

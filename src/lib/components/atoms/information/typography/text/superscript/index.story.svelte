@@ -1,36 +1,43 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Superscript from './index.svelte';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls: ControlConfig[] = [
+	const controls = [
 		{
 			name: 'variant',
-			type: 'select',
-			defaultValue: 'primary',
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link']
+			type: CONTROL_TYPES.SELECT,
+			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
+			defaultValue: 'primary'
 		},
 		{
 			name: 'size',
-			type: 'select',
-			defaultValue: 'md',
-			options: ['sm', 'md', 'lg']
+			type: CONTROL_TYPES.SELECT,
+			options: ['sm', 'md', 'lg'],
+			defaultValue: 'md'
 		},
 		{
 			name: 'disabled',
-			type: 'boolean',
+			type: CONTROL_TYPES.BOOLEAN,
 			defaultValue: false
 		},
 		{
 			name: 'block',
-			type: 'boolean',
+			type: CONTROL_TYPES.BOOLEAN,
 			defaultValue: false
 		}
 	];
 </script>
 
-<Story component={Superscript} {controls}>
-	{#snippet children()}
+<Story
+	{controls}
+	component={Superscript}
+	title="Superscript"
+	category="Atoms/Information/Typography/Text"
+	description="A superscript text component for typography."
+	tags={['superscript', 'typography', 'text', 'footnote']}
+>
+	{#snippet children(values: any)}
 		<div class="space-y-4 p-4">
 			<h3 class="text-lg font-semibold">Superscript Text Variants</h3>
 

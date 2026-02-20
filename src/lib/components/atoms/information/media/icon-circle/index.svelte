@@ -1,13 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IconCircleProps } from '$stylist/design-system';
 	import { createIconCircleState } from '$stylist/design-system/models/icon-circle.svelte';
 
-	type Props = IconCircleProps & HTMLAttributes<HTMLDivElement>;
-
-	let props: Props = $props();
-	// Cast to avoid type mismatch
-	const state = createIconCircleState(props as any);
+	let props: IconCircleProps = $props();
+	const state = createIconCircleState(props);
 	const restProps = $derived(
 		(() => {
 			const {

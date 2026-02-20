@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AutoSearch from './index.svelte';
@@ -31,11 +31,12 @@
   description="An auto-search component with real-time suggestions."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">AutoSearch Story</h2>
       <AutoSearch {...props} />
     </div>
   {/snippet}
 </Story>
+
 

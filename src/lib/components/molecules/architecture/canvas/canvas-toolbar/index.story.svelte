@@ -1,37 +1,26 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
-  import * as CanvasToolbarModule from './index.svelte';
-  const CanvasToolbar: any = CanvasToolbarModule.default ?? CanvasToolbarModule;
+  import CanvasToolbar from './index.svelte';
 
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'selectedTool', type: 'select', options: ['pen', 'eraser', 'select', 'text', 'shape'], defaultValue: 'pen' }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
+  const controls: ControlConfig[] = [
+    { name: 'selectedTool', type: 'select', options: ['pen', 'eraser', 'select', 'text', 'shape'], defaultValue: 'pen' }
+  ];
 
   // State for toolbar options
-  let selectedTool = $state('pen');
-  let drawingOptions = $state({
-    lineWidth: 2,
-    strokeColor: '#000000',
-    tool: 'pen' as const,
-    mode: 'draw' as const
-  });
+  let lineWidth = $state(2);
+  let strokeColor = $state('#000000');
+  let tool = $state('pen');
+  let mode = $state('draw');
 
   // Event handlers
   function handleToolChange(event: CustomEvent<{ tool: any; options: any }>) {
     console.log('Tool changed:', event.detail.tool, event.detail.options);
-    drawingOptions = event.detail.options;
+    lineWidth = event.detail.options.lineWidth;
+    strokeColor = event.detail.options.strokeColor;
+    tool = event.detail.options.tool;
+    mode = event.detail.options.mode;
   }
 
   function handleClearCanvas() {
@@ -50,21 +39,24 @@
     console.log('Redo requested');
   }
 
-  // Function to update tool
-  function updateTool(tool: 'pen' | 'eraser' | 'select' | 'text' | 'shape') {
-    selectedTool = tool;
-  }
+  // Create drawing options object
+  let drawingOptions = $derived({
+    lineWidth,
+    strokeColor,
+    tool: tool as 'pen' | 'eraser' | 'select' | 'text' | 'shape',
+    mode: mode as 'draw' | 'erase'
+  });
 </script>
 
 <Story
-  {id}
-  {title}
-  {description}
+  id="molecules-canvas-toolbar"
+  title="Canvas Toolbar"
   component={CanvasToolbar}
   category="Molecules"
+  description="Interactive canvas toolbar with drawing tools and options."
   controls={controls}
 >
-  {#snippet children(props: { selectedTool?: 'pen' | 'eraser' | 'select' | 'text' | 'shape' })}
+  {#snippet children(props)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -76,11 +68,11 @@
           <CanvasToolbar
             selectedTool={props.selectedTool}
             {drawingOptions}
-            on:tool-change={handleToolChange as (e: CustomEvent<any>) => void}
-            on:clear-canvas={handleClearCanvas as (e: CustomEvent<any>) => void}
-            on:save={handleSave as (e: CustomEvent<any>) => void}
-            on:undo={handleUndo as (e: CustomEvent<any>) => void}
-            on:redo={handleRedo as (e: CustomEvent<any>) => void}
+            on:tool-change={handleToolChange}
+            on:clear-canvas={handleClearCanvas}
+            on:save={handleSave}
+            on:undo={handleUndo}
+            on:redo={handleRedo}
           />
         </div>
       </div>
@@ -98,7 +90,7 @@
               <CanvasToolbar
                 selectedTool="pen"
                 {drawingOptions}
-                on:tool-change={handleToolChange as (e: CustomEvent<any>) => void}
+                on:tool-change={handleToolChange}
               />
             </div>
           </article>
@@ -109,7 +101,7 @@
               <CanvasToolbar
                 selectedTool="eraser"
                 {drawingOptions}
-                on:tool-change={handleToolChange as (e: CustomEvent<any>) => void}
+                on:tool-change={handleToolChange}
               />
             </div>
           </article>
@@ -120,7 +112,7 @@
               <CanvasToolbar
                 selectedTool="pen"
                 {drawingOptions}
-                on:tool-change={handleToolChange as (e: CustomEvent<any>) => void}
+                on:tool-change={handleToolChange}
               />
             </div>
           </article>
@@ -129,5 +121,6 @@
     </section>
   {/snippet}
 </Story>
+
 
 

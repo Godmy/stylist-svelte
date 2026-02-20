@@ -1,36 +1,41 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import PictureToolbar from './index.svelte';
+  import Story from '$stylist/design-system/playground/Story.svelte';
+  import PictureToolbar from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-	type Props = {
-		activeTool: string;
-	};
+  const controls = [
+    {
+      name: 'activeTool',
+      type: 'select' as ControlType,
+      defaultValue: 'crop',
+      options: ['crop', 'rotate', 'zoom', 'filter'],
+      description: 'Currently active tool'
+    }
+  ];
 
-	const controls: ControlConfig[] = [
-		{
-			name: 'activeTool',
-			type: 'select',
-			options: ['crop', 'rotate', 'zoom', 'filter'],
-			defaultValue: 'crop'
-		}
-	];
+  const tools = [
+    { id: 'crop', label: 'Crop' },
+    { id: 'rotate', label: 'Rotate' },
+    { id: 'zoom', label: 'Zoom' },
+    { id: 'filter', label: 'Filter' }
+  ];
+
+  function handleToolSelect(toolId: string) {
+    console.log('Tool selected:', toolId);
+  }
 </script>
 
-<Story component={PictureToolbar} {controls}>
-	{#snippet children()}
-		<div class="rounded-lg bg-gray-50 p-8">
-			<h2 class="mb-4 text-xl font-bold">PictureToolbar Story</h2>
-			<PictureToolbar
-				tools={[
-					{ id: 'crop', label: 'Crop' },
-					{ id: 'rotate', label: 'Rotate' },
-					{ id: 'zoom', label: 'Zoom' },
-					{ id: 'filter', label: 'Filter' }
-				]}
-				activeTool="crop"
-				onToolSelect={(toolId: string) => console.log('Tool selected:', toolId)}
-			/>
-		</div>
-	{/snippet}
+<Story
+  {controls}
+  title="PictureToolbar Component"
+  description="Toolbar component for image editing tools"
+  let:controlValues
+>
+  <div class="rounded-lg bg-gray-50 p-8">
+    <PictureToolbar
+      tools={tools}
+      activeTool={controlValues.activeTool}
+      onToolSelect={handleToolSelect}
+    />
+  </div>
 </Story>

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { PaymentMethod } from '$stylist/design-system/props';
@@ -19,12 +19,13 @@
 </script>
 
 <Story id="organisms-payment-method-selector" title="Organisms / Interaction / Controls / Payment / Payment Method Selector" component={PaymentMethodSelector} category="Organisms/Interaction/Controls/Payment" controls={controls}>
-  {#snippet children(props: Record<string, unknown>)}
+  {#snippet children(props)}
     {@const typedProps = props as Props}
     <div class="sb-organisms-payment-method-selector p-4">
       <PaymentMethodSelector {methods} showAddButton={typedProps.showAddButton} showEditButton={typedProps.showEditButton} showRemoveButton={typedProps.showRemoveButton} />
     </div>
   {/snippet}
 </Story>
+
 
 

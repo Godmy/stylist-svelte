@@ -1,42 +1,37 @@
 <script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+    import Story from '$stylist/design-system/playground/Story.svelte';
+    import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
     import SuccessMessage from './index.svelte';
 
-    type Props = {
-        message?: string;
-        show?: boolean;
-        duration?: number;
-    };
-
-    const controls: ControlConfig[] = [
+    const controls = [
         {
             name: 'message',
-            type: 'text',
+            type: CONTROL_TYPES.TEXT,
             defaultValue: 'Operation completed successfully!'
         },
         {
             name: 'show',
-            type: 'boolean',
+            type: CONTROL_TYPES.BOOLEAN,
             defaultValue: true
         },
         {
             name: 'duration',
-            type: 'number',
+            type: CONTROL_TYPES.SELECT,
+            options: [1000, 3000, 5000, 10000],
             defaultValue: 5000
         }
     ];
 </script>
 
 <Story
-    id="molecules-success-message"
-    title="SuccessMessage"
+    {controls}
     component={SuccessMessage}
-    category="Molecules"
+    title="SuccessMessage"
+    category="Atoms/Information/Messages"
     description="Success message component for displaying successful operations"
-    controls={controls}
+    tags={['message', 'success', 'notification', 'feedback']}
 >
-    {#snippet children(props: Props)}
+    {#snippet children(values: any)}
         <div class="p-4">
             <SuccessMessage
                 message={props.message}

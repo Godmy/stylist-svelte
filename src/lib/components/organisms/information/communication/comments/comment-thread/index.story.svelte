@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CommentThread from './index.svelte';
@@ -46,7 +46,7 @@
   description="Threaded comments with replies, editing and actions."
   controls={controls}
 >
-  {#snippet children(props: { title?: string; showTitle?: boolean; showReply?: boolean; showLikes?: boolean })}
+  {#snippet children(props)}
     <section class="sb-organisms-comment-thread grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <CommentThread
         title={props.title}
@@ -59,3 +59,4 @@
     </section>
   {/snippet}
 </Story>
+

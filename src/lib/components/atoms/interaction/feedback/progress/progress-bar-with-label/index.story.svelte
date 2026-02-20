@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ProgressBarWithLabel from './index.svelte';
@@ -61,7 +61,7 @@
 	tags={['progress', 'bar', 'indicator']}
 	{controls}
 >
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const value = typeof props.value === 'number' ? props.value : 75}
 		{@const max = typeof props.max === 'number' ? props.max : 100}
 		{@const label = typeof props.label === 'string' ? props.label : 'Upload Progress'}
@@ -83,6 +83,7 @@
 		</div>
 	{/snippet}
 </Story>
+
 
 
 

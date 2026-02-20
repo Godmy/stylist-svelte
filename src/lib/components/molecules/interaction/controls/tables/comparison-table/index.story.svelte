@@ -1,7 +1,24 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import ComparisonTable from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  let features = [
+  const controls = [
+    {
+      name: 'showHeader',
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show the table header'
+    },
+    {
+      name: 'showDescription',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether to show feature descriptions'
+    }
+  ];
+
+  const features = [
     { id: 'storage', name: 'Storage', description: 'Amount of storage space' },
     { id: 'ram', name: 'RAM', description: 'Memory capacity' },
     { id: 'cpu', name: 'CPU', description: 'Processor performance' },
@@ -11,7 +28,7 @@
     { id: 'price', name: 'Price', description: 'List price' }
   ];
 
-  let products = [
+  const products = [
     {
       id: 'laptop1',
       name: 'Laptop A',
@@ -58,93 +75,20 @@
       primary: false
     }
   ];
-
-  let showHeader: boolean = true;
-  let showDescription: boolean = false;
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">ComparisonTable Component</h1>
-
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive ComparisonTable</h2>
-    <div class="overflow-x-auto">
-      <ComparisonTable 
-        {features}
-        {products}
-        {showHeader}
-        {showDescription}
-      />
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      <div class="flex items-end">
-        <label for="show-header" class="flex items-center gap-1">
-          <input id="show-header" type="checkbox" bind:checked={showHeader} />
-          Show Header
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="show-descriptions" class="flex items-center gap-1">
-          <input id="show-descriptions" type="checkbox" bind:checked={showDescription} />
-          Show Descriptions
-        </label>
-      </div>
-    </div>
+<Story
+  {controls}
+  title="ComparisonTable Component"
+  description="Table component for comparing product features"
+  let:controlValues
+>
+  <div class="overflow-x-auto p-4">
+    <ComparisonTable
+      features={features}
+      products={products}
+      showHeader={controlValues.showHeader}
+      showDescription={controlValues.showDescription}
+    />
   </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">ComparisonTable Variations</h2>
-    <div class="space-y-4">
-      <div>
-        <h3 class="text-sm font-medium mb-2">With Descriptions</h3>
-        <div class="overflow-x-auto">
-          <ComparisonTable 
-            {features}
-            {products}
-            showHeader={true}
-            showDescription={true}
-          />
-        </div>
-      </div>
-      <div>
-        <h3 class="text-sm font-medium mb-2">Different Feature Set</h3>
-        <div class="overflow-x-auto">
-          <ComparisonTable 
-            features={[
-              { id: 'feature1', name: 'Free Shipping', description: 'Does shipping cost extra?' },
-              { id: 'feature2', name: 'Returns', description: 'Return policy' },
-              { id: 'feature3', name: 'Support', description: 'Customer support available' },
-              { id: 'feature4', name: 'Setup', description: 'Free setup included' }
-            ]}
-            products={[
-              {
-                id: 'service1',
-                name: 'Service A',
-                features: {
-                  feature1: true,
-                  feature2: '30 days',
-                  feature3: 'Email',
-                  feature4: false
-                },
-                primary: true
-              },
-              {
-                id: 'service2',
-                name: 'Service B',
-                features: {
-                  feature1: true,
-                  feature2: '60 days',
-                  feature3: 'Phone & Email',
-                  feature4: true
-                },
-                primary: false
-              }
-            ]}
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</Story>

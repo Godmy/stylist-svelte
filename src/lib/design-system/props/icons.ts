@@ -1,33 +1,26 @@
-﻿import type { Snippet } from 'svelte';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
 
-import type { ComponentSize } from '../tokens/sizes';
-import type { ColorVariant, DefaultVariants, NeutralVariant, SemanticVariant } from '../tokens/variants';
-import type { CommonSize } from '../tokens/variants';
-import type { ContentProp } from './common';
-
-export interface IconChevronProps {
-	isOpen?: boolean;
-	size?: CommonSize;
-	direction?: 'up' | 'down' | 'left' | 'right';
-	variant?: SemanticVariant | NeutralVariant | 'dark' | 'light';
-	disabled?: boolean;
-	class?: string;
+export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
+  direction?: 'up' | 'down' | 'left' | 'right';
+  size?: 'sm' | 'md' | 'lg' | '2xl';
+  class?: string;
+  isOpen?: boolean;
+  variant?: 'default' | 'primary' | 'secondary';
+  disabled?: boolean;
 }
 
-export interface IconCircleProps {
-	variant?: SemanticVariant | NeutralVariant | 'dark' | 'light';
-	size?: CommonSize;
-	filled?: boolean;
-	disabled?: boolean;
-	class?: string;
-	icon?: Snippet;
+export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  filled?: boolean;
+  disabled?: boolean;
+  icon?: Snippet;
 }
 
-export interface IconWrapperProps extends ContentProp {
-	size?: ComponentSize;
-	variant?: DefaultVariants;
-	shape?: 'circle' | 'square' | 'rounded';
-	color?: ColorVariant;
-	disabled?: boolean;
-	class?: string;
+export interface IconWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  content?: Snippet;
 }

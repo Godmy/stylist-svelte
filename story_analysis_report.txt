@@ -1,0 +1,1397 @@
+Отчет об анализе story-файлов в библиотеке stylist-svelte
+=========================================================
+
+Цель: Определить компоненты, которые требуют доработки в части документации и примеров использования.
+
+Критерии оценки:
+1. Отсутствие интерактивных элементов управления
+2. Отсутствие демонстрации всех вариантов компонента
+3. Отсутствие демонстрации всех размеров компонента
+4. Неполная документация пропсов
+5. Отсутствие примеров использования
+
+Всего проанализировано файлов: 449
+Файлов, требующих доработки: 345
+
+Файлы, требующие доработки:
+----------------------------
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\canvas\graph\graph-edge\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\canvas\graph\graph-node\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\development\stack\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\aspect-ratio\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\container\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\divider\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\grid-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\horizontal-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\layout\spacer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\navigation\permission-gate\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\architecture\navigation\process-step\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\animated-number\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\charts\chart-pie\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\color-swatch\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\npm-badge\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\number-flow\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\tables\table\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\tables\table-body\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\tables\table-cell\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\tables\table-header\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\data-display\tables\table-row\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\announcement-banner\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\audio-slider\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\audio-visualizer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\country-flag\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\favicon\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\icon-chevron\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\media\image-with-caption\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\messages\message-meta\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\messages\success-message\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\messages\warning-message\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\block\blockquote\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\elements\badge-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\elements\label\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\indicators\count-badge\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\indicators\dot\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\indicators\message-status\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\indicators\status-indicator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\indicators\status-indicator-with-label\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\abbr\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\definition-description\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\definition-term\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\em\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\kbd\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\separator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\inline\syntax-highlighted-code\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\information\typography\kpiindicator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\chat\atoms\chat-status-indicator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\chat\atoms\message-timestamp\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\chat\chat-preview\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\accordion\accordion-header\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\accordion\accordion-item\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\accordion\accordion-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\action-segmented-control\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\buttons\copy-button\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\buttons\page-button\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\buttons\tooltip\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\menus\burger-menu\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\product-sort\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\sliders\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tables\sortable-table-header\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tabs\tab\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tabs\tab-indicator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tabs\tab-list\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tabs\tab-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\tabs\tab-panels\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\advanced-toggle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\checkbox\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\dark-mode-toggle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\switch\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\switch-with-label\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\theme-switcher\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\toggle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toggles\toggle-with-description\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\toolbars\tooltip-with-arrow\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\controls\zoom\zoom-controls\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\alerts\error-message\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\loader\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\notification\alert-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\notification\simple-tooltip\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\notifications\notification\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\notifications\push-notification\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\overlays\overlay\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\card-skeleton\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\skeleton\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\skeleton-circle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\skeleton-rectangle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\skeleton-table\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\placeholders\skeleton-text\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\process\spinner\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\account-progress-tracker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\animated-progress\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\progress-bar-with-label\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\progress-circle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\steps\step-connector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\progress\steps\step-icon\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\feedback\states\state\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\accessibility-checkbox\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\advanced-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\field\input-password\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\file-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\helpers\characters-count\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\helpers\form-error-message\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\message-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\number-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\input\phone-number-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\navigation\breadcrumb\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\navigation\breadcrumb-link\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\navigation\breadcrumb-separator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\navigation\breadcrumbs\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\navigation\pagination\page-ellipsis\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\rating\rating\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\search\auto-search\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\search\autocomplete-dropdown\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\atoms\interaction\search\search-suggestion\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\canvas\charts\bar-chart\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\canvas\charts\pie-chart\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\animated-expandable-table-row\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\gradient-background\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\grid\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\hero\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\popover\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\split-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\stacked-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\vertical-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\layout\widget-container\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\navigation\drawer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\navigation\general-toolbar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\navigation\page-header\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\navigation\side-by-side-layout\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\architecture\navigation\stepper\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\commerce\products\product-search\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\commerce\products\wishlist-button\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\development\code-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\development\playground\props-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\ai-result-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\alert-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\article-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\base-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\category-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\data-display-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\download-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\expandable-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\link-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\post-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\cards\stats-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\prices\price-alert\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\prices\price-filter\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\prices\price-history\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\prices\price-match\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\prices\pricing-table\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-availability\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-card-compact\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-card-with-actions\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-carousel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-comparison\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-comparison-table\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-demo\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-gallery\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-recommendation\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\commerce\products\product-wishlist\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\development\component-preview\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\development\privacy-settings\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\exporters\data-exporter\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\management\agile\burn-down-chart\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\management\agile\scrum-backlog\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\management\kanban\kanban-board\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\management\kanban\kanban-column\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\management\operations-history\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\marketing\analytics-chart\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\marketing\conversion-funnel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\media\avatar-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\media\team-avatar-stack\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\messages\message-composer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\messages\message-item\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\messages\message-list\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\messages\message-thread\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\ontology\ontology-edge-component\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\ontology\ontology-node-component\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\information\preview\attachment-preview\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\chat\chat-item\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\chat\chat-list\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\chat\chat-window\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\chat\user-status\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\accordion\accordion\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\accordion\accordion-complex\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\accordion\advanced-accordion\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\calendar\timeline\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\panels\control-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\selectors\avatar-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\selectors\model-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\sliders\range-slider\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\tables\expandable-table-row\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\tabs\tab-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\tabs\tabs\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\toggles\radio-button-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\toggles\toggle-button-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\toolbars\picture-toolbar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\toolbars\toolbar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\trees\tree-viewer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\controls\zoom\zoom-toolbar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\editors\rich-text-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\editors\variables-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\feedback\errors\error-boundary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\feedback\notifications\notification-settings\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\feedback\performance-monitor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\feedback\toasts\toast-stack\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\forms\file-upload\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\forms\filter-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\forms\form-selection\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\forms\radio-group\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\forms\validation\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\advanced-password-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\field-highlighter\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\pickers\date-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\pickers\date-time-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\pickers\reaction-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\pickers\time-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\slider-with-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\input\tag-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\interaction\search\search-bar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\molecules\ontology\graphviz-directed-edge\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\canvas\shared-canvas\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\card\graph-node-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\dashboards\performance-dashboard\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\dashboards\status-dashboard\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\interaction\controls\accessibility-toolbar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\interaction\controls\grids\sortable-grid\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\interaction\navigation\pagination\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\interaction\navigation\sidebar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\architecture\media\canvas\canvas-image-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\calendar\calendar-view\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\calendar\schedule-calendar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\card\comparison-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\card\kanban-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\card\stat-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\card\user-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\billing-summary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\cart-summary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\currency-converter\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\discount-applier\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\inventory-tracker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\order-confirmation\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\order-history\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\order-tracking\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\shipping-info\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\subscription-manager\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\upsell\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\commerce\warranty-info\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\ai\auth-guard\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\ai\prediction-result\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\ai\prompt-builder\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\ai\sentiment-analysis\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\comments\comment-system\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\comments\comment-thread\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\social\social-activity-feed\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\social\social-feed\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\social\social-login\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\communication\social\social-share\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\development\debug-console\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\development\design-tokens\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\development\development-error-boundary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\development\resource-optimizer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\geo\geo-jsonviewer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\geo\map-marker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\geo\map-with-markers\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\geo\route-planner\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\geo\store-locator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\marketing\abtest-configurator\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\marketing\test-results-viewer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\marketing\traffic-analytics\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\marketing\user-behavior-metrics\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\media\audio-player\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\media\media-library\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\media\video-player\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\product\product-card-extended\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\product\product-catalog\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\product\product-reviews\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\product\product-sorting\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\information\product\product-tour\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\commerce\bulk-order-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\commerce\checkout-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\commerce\rfqform\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\communication\ai\chat-interface\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\communication\chat\chat-header\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\development\mock-data-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\files\drag-drop-file-upload\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\geo\map-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\calendar\real-time-presence\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\combobox\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\export-panel\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\files\drop-zone\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\files\zip-viewer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\filter-bar\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\locale-switcher\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\multi-select\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\page-builder\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\payment\payment-info\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\payment\payment-method-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\payment\payment-selector\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\payment\payment-summary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\scatter-plot\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\search\search-results\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\column-manager\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\data-table\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\data-table-advanced\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\table-with-filters\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\table-with-grouping\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\tables\table-with-stripes\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\toggles\feature-toggle\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\trees\advanced-virtual-tree\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\trees\flat-tree\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\trees\folder-tree\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\controls\trees\virtual-tree\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\dialogs\dialog\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\dialogs\modal\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\dialogs\simple-modal\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\lazy-loader\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\loading-boundary\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\notifications\notification-center\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\notifications\notification-list\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\notifications\notification-preferences\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\notifications\scheduled-notification\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\feedback\response-viewer\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\account\account-settings-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\account\user-profile-card\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\address-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\document-preview\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\form-with-validation\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\login-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\screen-reader\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\search-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\secure-form\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\session-manager\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\settings\appearance-settings\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\forms\settings\security-settings\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\auto-complete\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\date-range-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\date-time-range-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\pickers\advanced-color-picker\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\quote-request\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\range-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\tag-input\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют варианты/размеры
+
+- D:\2026\code\template\stylist-svelte\src\lib\components\organisms\interaction\interaction\input\translation-editor\index.story.svelte
+  Компонент: 
+  Причины: отсутствуют интерактивные элементы, отсутствуют варианты/размеры
+

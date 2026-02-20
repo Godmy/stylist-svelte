@@ -1,24 +1,19 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Highlight from './index.svelte';
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	type HighlightStoryProps = {
-		text: string;
-		variant: 'lemon' | 'mint' | 'lavender';
-	};
-
-	const controls: ControlConfig[] = [
-		{ name: 'text', type: 'text', defaultValue: 'critical insights' },
+	const controls = [
+		{ name: 'text', type: CONTROL_TYPES.TEXT, defaultValue: 'critical insights' },
 		{
 			name: 'variant',
-			type: 'select',
-			defaultValue: 'lemon',
-			options: ['lemon', 'mint', 'lavender']
+			type: CONTROL_TYPES.SELECT,
+			options: ['lemon', 'mint', 'lavender'],
+			defaultValue: 'lemon'
 		}
 	];
 
-	const variantClasses: Record<HighlightStoryProps['variant'], string> = {
+	const variantClasses: Record<'lemon' | 'mint' | 'lavender', string> = {
 		lemon: 'bg-yellow-100 text-amber-700',
 		mint: 'bg-emerald-100 text-emerald-700',
 		lavender: 'bg-indigo-100 text-indigo-700'
@@ -26,22 +21,20 @@
 </script>
 
 <Story
-	id="atoms-highlight"
-	title="Highlight"
-	component={Highlight}
-	category="Atoms"
-	description="Inline marker for callouts inside prose."
-	tags={['inline', 'annotation']}
 	{controls}
+	component={Highlight}
+	title="Highlight"
+	category="Atoms/Information/Typography/Inline"
+	description="Inline marker for callouts inside prose."
+	tags={['highlight', 'typography', 'inline', 'annotation']}
 >
-	{#snippet children(props: Record<string, unknown>)}
-		{@const storyProps = props as HighlightStoryProps}
+	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<p
 				class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 text-gray-800 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-100"
 			>
-				Product reviews surfaced <Highlight class={`${variantClasses[storyProps.variant]} rounded px-1`}>
-					{storyProps.text}
+				Product reviews surfaced <Highlight class={`${variantClasses[props.variant]} rounded px-1`}>
+					{props.text}
 				</Highlight>
 				we almost missed.
 			</p>

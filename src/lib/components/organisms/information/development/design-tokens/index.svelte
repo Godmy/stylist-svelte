@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { designSystemDefaultTheme, designSystemDarkTheme } from '$lib/types/design-tokens';
+  import { designSystemDefaultTheme, designSystemDarkTheme } from '$stylist/design-system/themes';
   // import { onMount } from 'svelte'; // Removed as its functionality is now covered by $state and $effect
 
   type Theme = typeof designSystemDefaultTheme;

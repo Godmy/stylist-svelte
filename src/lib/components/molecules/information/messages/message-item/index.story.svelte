@@ -1,6 +1,30 @@
 <script lang="ts">
   import MessageItem from './index.svelte';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import type { Message, User } from '$stylist/design-system/props/chat';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+
+  // Define controls for the story
+  const controls: ControlConfig[] = [
+    {
+      name: 'isOwn',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether this is the current user\'s message'
+    },
+    {
+      name: 'showAvatar',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Whether to show the sender\'s avatar'
+    },
+    {
+      name: 'enableReactions',
+      type: 'boolean',
+      defaultValue: true,
+      description: 'Whether to enable reactions for the message'
+    }
+  ];
 
   let currentUser: User = {
     id: '1',
@@ -50,18 +74,6 @@
     ]
   };
 
-  let messageWithReactions: Message = {
-    id: '4',
-    content: 'What do you think about this new feature?',
-    timestamp: new Date(Date.now() - 86400000), // 1 day ago
-    status: 'read',
-    senderId: '2'
-  };
-
-  let isOwn: boolean = false;
-  let showAvatar: boolean = true;
-  let enableReactions: boolean = true;
-
   function handleReaction(e: CustomEvent<{ reaction: string }>) {
     console.log('Reaction added:', e.detail.reaction);
   }
@@ -76,45 +88,26 @@
 </script>
 
 <div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">MessageItem Component</h1>
+  <h1 class="mb-4 text-lg font-semibold">MessageItem Component</h1>
 
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive MessageItem</h2>
-    <div class="flex flex-col gap-4">
-      <MessageItem
-        {message}
-        {isOwn}
-        {showAvatar}
-        {enableReactions}
-        sender={message.senderId === currentUser.id ? currentUser : otherUser}
-        on:reaction={handleReaction}
-        on:reply={handleReply}
-        on:forward={handleForward}
-      />
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-      <div class="flex items-end">
-        <label for="message-is-own" class="flex items-center gap-1">
-          <input id="message-is-own" type="checkbox" bind:checked={isOwn} />
-          Is Own Message
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="message-show-avatar" class="flex items-center gap-1">
-          <input id="message-show-avatar" type="checkbox" bind:checked={showAvatar} />
-          Show Avatar
-        </label>
-      </div>
-
-      <div class="flex items-end">
-        <label for="message-enable-reactions" class="flex items-center gap-1">
-          <input id="message-enable-reactions" type="checkbox" bind:checked={enableReactions} />
-          Enable Reactions
-        </label>
-      </div>
-    </div>
+  <div class="mb-6 rounded border p-4">
+    <h2 class="text-md mb-2 font-semibold">Interactive MessageItem</h2>
+    <Story 
+      {controls} 
+      component={(props) => (
+        <div class="flex flex-col gap-4">
+          <MessageItem
+            message={message}
+            isOwn={props.isOwn}
+            showAvatar={props.showAvatar}
+            enableReactions={props.enableReactions}
+            sender={message.senderId === '1' ? currentUser : otherUser}
+            on:reaction={handleReaction}
+            on:reply={handleReply}
+            on:forward={handleForward}
+          />
+        </div>
+      )} />
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -123,7 +116,7 @@
       <MessageItem
         message={ownMessage}
         isOwn={true}
-        {enableReactions}
+        enableReactions={true}
         sender={currentUser}
         on:reaction={handleReaction}
         on:reply={handleReply}
@@ -134,9 +127,9 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">Other User Message</h2>
       <MessageItem
-        {message}
+        message={message}
         isOwn={false}
-        {enableReactions}
+        enableReactions={true}
         sender={otherUser}
         on:reaction={handleReaction}
         on:reply={handleReply}
@@ -149,7 +142,7 @@
       <MessageItem
         message={messageWithAttachment}
         isOwn={false}
-        {enableReactions}
+        enableReactions={true}
         sender={otherUser}
         on:reaction={handleReaction}
         on:reply={handleReply}
@@ -160,7 +153,7 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">Message without Reactions</h2>
       <MessageItem
-        {message}
+        message={message}
         isOwn={false}
         enableReactions={false}
         sender={otherUser}
@@ -174,9 +167,9 @@
   <div class="p-4 border rounded">
     <h2 class="text-md font-semibold mb-2">Default MessageItem</h2>
     <MessageItem
-      {message}
+      message={message}
       isOwn={false}
-      {enableReactions}
+      enableReactions={true}
       sender={otherUser}
       on:reaction={handleReaction}
       on:reply={handleReply}

@@ -1,5 +1,6 @@
 import type { Alignment, Justification } from '../tokens';
 import type { SpacerAxis } from '../props';
+import type { LayoutSize } from '../props/layout-extended';
 
 /**
  * Layout class tokens.
@@ -47,4 +48,40 @@ export const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> =
 export const SPACER_AXIS_CLASSES: Record<SpacerAxis, string> = {
 	horizontal: 'w-[var(--spacer-size)]',
 	vertical: 'h-[var(--spacer-size)]'
+} as const;
+
+/**
+ * Layout direction classes
+ */
+export const LAYOUT_DIRECTION_CLASSES = {
+	vertical: 'flex-col',
+	horizontal: 'flex-row'
+} as const;
+
+/**
+ * Layout size classes for responsive layouts
+ */
+export const LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
+	'1/4': 'w-1/4',
+	'1/3': 'w-1/3',
+	'2/5': 'w-2/5',
+	'1/2': 'w-1/2',
+	'3/5': 'w-3/5',
+	'2/3': 'w-2/3',
+	'3/4': 'w-3/4',
+	full: 'w-full'
+} as const;
+
+/**
+ * Responsive layout size classes
+ */
+export const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
+	'1/4': 'md:w-1/4',
+	'1/3': 'md:w-1/3',
+	'2/5': 'md:w-2/5',
+	'1/2': 'md:w-1/2',
+	'3/5': 'md:w-3/5',
+	'2/3': 'md:w-2/3',
+	'3/4': 'md:w-3/4',
+	full: 'md:w-full'
 } as const;

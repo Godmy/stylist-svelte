@@ -1,70 +1,59 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import PerformanceMonitor from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    title: string;
-    value: number;
-    max: number;
-    unit: string;
-    status: 'normal' | 'warning' | 'critical';
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'title',
-      type: 'text',
-      defaultValue: 'CPU Usage'
+      type: 'text' as ControlType,
+      defaultValue: 'CPU Usage',
+      description: 'Title of the performance monitor'
     },
     {
       name: 'value',
-      type: 'number',
+      type: 'number' as ControlType,
       defaultValue: 65,
       min: 0,
-      max: 100
+      max: 100,
+      description: 'Current value'
     },
     {
       name: 'max',
-      type: 'number',
+      type: 'number' as ControlType,
       defaultValue: 100,
-      min: 1
+      min: 1,
+      description: 'Maximum value'
     },
     {
       name: 'unit',
-      type: 'text',
-      defaultValue: '%'
+      type: 'text' as ControlType,
+      defaultValue: '%',
+      description: 'Unit of measurement'
     },
     {
       name: 'status',
-      type: 'select',
+      type: 'select' as ControlType,
+      defaultValue: 'normal',
       options: ['normal', 'warning', 'critical'],
-      defaultValue: 'normal'
+      description: 'Status indicator'
     }
   ];
 </script>
 
 <Story
-  id="molecules-performance-monitor"
-  title="PerformanceMonitor"
-  component={PerformanceMonitor}
-  category="Molecules"
-  description="A component to display performance metrics with visual indicators."
-  tags={['performance', 'monitor', 'metrics']}
-  controls={controls}
+  {controls}
+  title="PerformanceMonitor Component"
+  description="A component to display performance metrics with visual indicators"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">PerformanceMonitor Story</h2>
-      <PerformanceMonitor
-        title={props.title}
-        value={props.value}
-        max={props.max}
-        unit={props.unit}
-        status={props.status}
-      />
-    </div>
-  {/snippet}
+  <div class="p-8 bg-gray-50 rounded-lg">
+    <PerformanceMonitor
+      title={controlValues.title}
+      value={controlValues.value}
+      max={controlValues.max}
+      unit={controlValues.unit}
+      status={controlValues.status}
+    />
+  </div>
 </Story>
-
-

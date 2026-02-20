@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import OntologyNodeComponent from './index.svelte';
@@ -28,7 +28,7 @@
   description="Node renderer for ontology graph nodes."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-molecules-ontology-node-component p-6">
       <div class="max-w-md mx-auto h-64 flex items-center justify-center border rounded-lg">
         <OntologyNodeComponent node={node} showLabel={props.showLabel} />
@@ -36,3 +36,4 @@
     </div>
   {/snippet}
 </Story>
+

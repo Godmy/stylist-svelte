@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import TeamAvatarStack from './index.svelte';
@@ -52,7 +52,7 @@
     description="Stack of team member avatars"
     controls={controls}
 >
-    {#snippet children(props: any)}
+    {#snippet children(props)}
         <div class="p-4">
             <TeamAvatarStack
                 members={props.members || defaultMembers}
@@ -62,5 +62,6 @@
         </div>
     {/snippet}
 </Story>
+
 
 

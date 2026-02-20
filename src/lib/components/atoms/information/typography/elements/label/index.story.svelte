@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Label from './index.svelte';
@@ -24,7 +24,7 @@
 		{
 			name: 'text',
 			type: 'text',
-			defaultValue: 'Демо метка'
+			defaultValue: 'Р”РµРјРѕ РјРµС‚РєР°'
 		}
 	];
 </script>
@@ -34,11 +34,11 @@
 	title="Label"
 	category="Atoms"
 	component={Label}
-	description="Ярлык для элементов формы"
+	description="РЇСЂР»С‹Рє РґР»СЏ СЌР»РµРјРµРЅС‚РѕРІ С„РѕСЂРјС‹"
 	tags={['form', 'label', 'input']}
 	{controls}
 >
-	{#snippet children(props: Record<string, any>)}
+	{#snippet children(props)}
 		<div class="space-y-2">
 			<Label
 				htmlFor="demo-input"
@@ -47,7 +47,8 @@
 				disabled={props.disabled}
 				text={props.text}
 			/>
-			<Input id="demo-input" label="" placeholder="Введите значение" disabled={props.disabled} />
+			<Input id="demo-input" label="" placeholder="Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ" disabled={props.disabled} />
 		</div>
 	{/snippet}
 </Story>
+

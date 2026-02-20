@@ -99,6 +99,8 @@ export const MESSAGE_STATUS_SIZE_CLASSES: Record<CommonSize, string> = {
 	lg: 'w-5 h-5'
 };
 
+export const DEFAULT_MESSAGE_STATUS: MessageStatusType = 'sent';
+
 export const STATUS_INDICATOR_CONTAINER_CLASSES = 'flex items-center';
 export const STATUS_INDICATOR_DOT_BASE_CLASSES = 'w-3 h-3 rounded-full mr-2';
 export const STATUS_INDICATOR_STATUS_CLASSES: Record<IndicatorStatus, string> = {

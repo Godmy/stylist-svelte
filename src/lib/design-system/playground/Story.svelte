@@ -1,16 +1,19 @@
 <script lang="ts">
 	import type { ControlConfig } from '../tokens/controls';
+	import type { Snippet } from 'svelte';
+
+	type ChildrenFn = (values: any) => any;
 
 	export let controls: ControlConfig[] = [];
-	export let component: any;
+	export let component: any = undefined;
 	export let id: string | undefined = undefined;
 	export let title: string | undefined = undefined;
 	export let category: string | undefined = undefined;
 	export let description: string | undefined = undefined;
 	export let tags: string[] | undefined = undefined;
-// Keep this intentionally broad to support heterogeneous story snippets.
-export let children: any = undefined;
-const controlValues: Record<string, unknown> = {};
+	// Keep this intentionally broad to support heterogeneous story snippets.
+	export let children: Snippet<[any]> | ChildrenFn | undefined = undefined;
+	const controlValues: Record<string, any> = {};
 	$: for (const control of controls) {
 		if (!(control.name in controlValues)) {
 			controlValues[control.name] = control.defaultValue;

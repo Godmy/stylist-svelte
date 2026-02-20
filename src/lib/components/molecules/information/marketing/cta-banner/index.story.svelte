@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CTABanner from './index.svelte';
@@ -23,7 +23,7 @@
   description="CTA banner component."
   controls={controls}
 >
-  {#snippet children(args: Props)}
+  {#snippet children(args)}
     <div class="sb-molecules-cta-banner p-4">
       <CTABanner
         title="Ready to build with AI-verified components?"
@@ -35,3 +35,4 @@
     </div>
   {/snippet}
 </Story>
+

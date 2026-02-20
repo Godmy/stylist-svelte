@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import StepIcon from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -27,7 +27,7 @@
 </script>
 
 <Story {id} {title} {description} component={StepIcon} category="Atoms" {controls}>
-	{#snippet children(props: Record<string, unknown>)}
+	{#snippet children(props)}
 		{@const status =
 			props.status === 'active' || props.status === 'completed' || props.status === 'error'
 				? props.status
@@ -37,6 +37,7 @@
 		<StepIcon {status} {size} {stepNumber} />
 	{/snippet}
 </Story>
+
 
 
 

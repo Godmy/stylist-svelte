@@ -1,5 +1,6 @@
 import type { Alignment, Justification } from '../tokens';
 import type { ContainerMaxWidth, SpacerAxis } from '../props';
+import { SPACER_SIZE_SCALE } from '../tokens/sizes';
 import {
 	CONTAINER_MAX_WIDTH_CLASSES,
 	HORIZONTAL_ALIGN_ITEMS_CLASSES,
@@ -17,10 +18,15 @@ export class LayoutStyleManager {
 			.join(' ');
 	}
 
-	static getContainerClasses(maxWidth: ContainerMaxWidth, className = ''): string {
-		const maxWidthClass =
-			CONTAINER_MAX_WIDTH_CLASSES[maxWidth as keyof typeof CONTAINER_MAX_WIDTH_CLASSES] ??
-			CONTAINER_MAX_WIDTH_CLASSES.full;
+	static getContainerClasses(size: 'sm' | 'md' | 'lg' | 'xl' | 'full', className = ''): string {
+		const sizeMap: Record<string, string> = {
+			sm: 'max-w-screen-sm',
+			md: 'max-w-screen-md',
+			lg: 'max-w-screen-lg',
+			xl: 'max-w-screen-xl',
+			full: 'max-w-full'
+		};
+		const maxWidthClass = sizeMap[size] ?? sizeMap.full;
 		return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
 	}
 
@@ -71,7 +77,24 @@ export class LayoutStyleManager {
 	}
 
 	static getSpacerSize(size?: string | number): string {
+		// If it's a number, return as pixels
 		if (typeof size === 'number') return `${size}px`;
-		return size ?? '1rem';
+		
+		// If it's one of our predefined size tokens, map to corresponding values
+		switch (size) {
+			case 'xs':
+				return '0.25rem'; // 4px
+			case 'sm':
+				return '0.5rem';  // 8px
+			case 'md':
+				return '1rem';    // 16px
+			case 'lg':
+				return '1.5rem';  // 24px
+			case 'xl':
+				return '2rem';    // 32px
+			default:
+				// If it's not a recognized token, return as-is or default to 1rem
+				return size ?? '1rem';
+		}
 	}
 }

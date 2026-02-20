@@ -1,16 +1,16 @@
 <script lang="ts">
-  import * as ChatWindowModule from './index.svelte';
-  const ChatWindow = ChatWindowModule.default ?? ChatWindowModule;
+  import Story from '$stylist/design-system/playground/Story.svelte';
+  import ChatWindow from './index.svelte';
   import type { Chat, User, Message } from '$stylist/design-system/props/chat';
 
-  let currentUser: User = {
+  const currentUser: User = {
     id: '1',
     name: 'Current User',
     avatar: 'https://via.placeholder.com/40',
     status: 'online'
   };
 
-  let chat: Chat = {
+  const chat: Chat = {
     id: '1',
     participants: [
       currentUser,
@@ -33,7 +33,7 @@
     unreadCount: 0
   };
 
-  let messages: Message[] = [
+  const messages: Message[] = [
     {
       id: '1',
       content: 'Hey there! How are you doing?',
@@ -54,33 +54,11 @@
       timestamp: new Date(Date.now() - 3400000),
       status: 'read',
       senderId: '2'
-    },
-    {
-      id: '4',
-      content: 'It\'s a chat application with real-time messaging and file sharing capabilities.',
-      timestamp: new Date(Date.now() - 3300000),
-      status: 'read',
-      senderId: '1'
-    },
-    {
-      id: '5',
-      content: 'That\'s awesome! I\'d love to see it when it\'s ready.',
-      timestamp: new Date(Date.now() - 3200000),
-      status: 'read',
-      senderId: '2'
     }
   ];
 
   function handleMessageSend(e: CustomEvent<{ content: string; chatId: string }>) {
     console.log('Message sent:', e.detail.content, 'to chat:', e.detail.chatId);
-    const newMessage: Message = {
-      id: String(messages.length + 1),
-      content: e.detail.content,
-      timestamp: new Date(),
-      status: 'sent',
-      senderId: currentUser.id
-    };
-    messages = [...messages, newMessage];
   }
 
   function handleMessageReaction(e: CustomEvent<{ messageId: string; reaction: string }>) {
@@ -98,90 +76,20 @@
   function handleChatInfo(e: CustomEvent<{ chat: Chat }>) {
     console.log('Chat info requested for chat:', e.detail.chat.id);
   }
-
-  // Create a group chat for demonstration
-  let groupChat: Chat = {
-    id: '2',
-    name: 'Svelte Developers',
-    participants: [
-      currentUser,
-      { id: '2', name: 'John Doe', avatar: 'https://via.placeholder.com/40', status: 'online' },
-      { id: '3', name: 'Jane Smith', avatar: 'https://via.placeholder.com/40', status: 'away' },
-      { id: '4', name: 'Bob Johnson', avatar: 'https://via.placeholder.com/40', status: 'offline' }
-    ],
-    isGroup: true,
-    lastMessage: 'Bob: Working on a new Svelte component today',
-    lastMessageTime: new Date(Date.now() - 7200000), // 2 hours ago
-    unreadCount: 3
-  };
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">ChatWindow Component</h1>
-
-  <div class="mb-6 p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Interactive ChatWindow</h2>
-    <div class="h-96 flex flex-col gap-4">
-      <ChatWindow
-        {chat}
-        {currentUser}
-        {messages}
-        on:messageSend={handleMessageSend as (e: CustomEvent<any>) => void}
-        on:messageReaction={handleMessageReaction as (e: CustomEvent<any>) => void}
-        on:call={handleCall as (e: CustomEvent<any>) => void}
-        on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-        on:chatInfo={handleChatInfo as (e: CustomEvent<any>) => void}
-      />
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-    <div class="p-4 border rounded">
-      <h2 class="text-md font-semibold mb-2">Group Chat Window</h2>
-      <div class="h-64">
-        <ChatWindow
-          chat={groupChat}
-          {currentUser}
-          {messages}
-          on:messageSend={handleMessageSend as (e: CustomEvent<any>) => void}
-          on:messageReaction={handleMessageReaction as (e: CustomEvent<any>) => void}
-          on:call={handleCall as (e: CustomEvent<any>) => void}
-          on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-          on:chatInfo={handleChatInfo as (e: CustomEvent<any>) => void}
-        />
-      </div>
-    </div>
-
-    <div class="p-4 border rounded">
-      <h2 class="text-md font-semibold mb-2">Chat Window with Few Messages</h2>
-      <div class="h-64">
-        <ChatWindow
-          {chat}
-          {currentUser}
-          messages={messages.slice(0, 2)}
-          on:messageSend={handleMessageSend as (e: CustomEvent<any>) => void}
-          on:messageReaction={handleMessageReaction as (e: CustomEvent<any>) => void}
-          on:call={handleCall as (e: CustomEvent<any>) => void}
-          on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-          on:chatInfo={handleChatInfo as (e: CustomEvent<any>) => void}
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Default ChatWindow</h2>
-    <div class="h-64">
-      <ChatWindow
-        {chat}
-        {currentUser}
-        {messages}
-        on:messageSend={handleMessageSend as (e: CustomEvent<any>) => void}
-        on:messageReaction={handleMessageReaction as (e: CustomEvent<any>) => void}
-        on:call={handleCall as (e: CustomEvent<any>) => void}
-        on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-        on:chatInfo={handleChatInfo as (e: CustomEvent<any>) => void}
-      />
-    </div>
-  </div>
-</div>
+<Story
+  title="ChatWindow Component"
+  description="A component to display a complete chat window with messages and input"
+>
+  <ChatWindow
+    {chat}
+    {currentUser}
+    {messages}
+    on:messageSend={handleMessageSend}
+    on:messageReaction={handleMessageReaction}
+    on:call={handleCall}
+    on:videoCall={handleVideoCall}
+    on:chatInfo={handleChatInfo}
+  />
+</Story>

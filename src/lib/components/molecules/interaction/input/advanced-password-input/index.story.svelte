@@ -1,45 +1,38 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import AdvancedPasswordInput from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    placeholder: string;
-    showStrength: boolean;
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'placeholder',
-      type: 'text',
-      defaultValue: 'Enter password'
+      type: 'text' as ControlType,
+      defaultValue: 'Enter password',
+      description: 'Placeholder text for the password input'
     },
     {
       name: 'showStrength',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show the password strength indicator'
     }
   ];
 </script>
 
 <Story
-  id="molecules-advanced-password-input"
-  title="AdvancedPasswordInput"
-  component={AdvancedPasswordInput}
-  category="Molecules"
-  description="A password input field with strength indicator and visibility toggle."
-  tags={['form', 'input', 'security', 'password']}
-  controls={controls}
+  {controls}
+  title="AdvancedPasswordInput Component"
+  description="A password input field with strength indicator and visibility toggle"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <div class="p-6 max-w-md mx-auto">
-      <div class="mb-6">
-        <h2 class="text-xl font-semibold">Password Input</h2>
-        <p class="text-gray-500">Password field with strength indicator</p>
-      </div>
-      <AdvancedPasswordInput placeholder={props.placeholder} showStrengthMeter={props.showStrength} />
+  <div class="p-6 max-w-md mx-auto">
+    <div class="mb-6">
+      <h2 class="text-xl font-semibold">Password Input</h2>
+      <p class="text-gray-500">Password field with strength indicator</p>
     </div>
-  {/snippet}
+    <AdvancedPasswordInput
+      placeholder={controlValues.placeholder}
+      showStrengthMeter={controlValues.showStrength}
+    />
+  </div>
 </Story>
-
-

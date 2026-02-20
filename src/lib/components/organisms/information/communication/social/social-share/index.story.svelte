@@ -1,85 +1,126 @@
 ﻿<script lang="ts">
-    import { Story } from '$lib/playground';
-    import type { ControlConfig } from '$lib/playground';
-    import SocialShare from './index.svelte';
+  import { Story } from '$stylist/playground';
+  import type { ControlConfig } from '$stylist/playground';
 
-    type SocialPlatform = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
+  import SocialShare from './index.svelte';
 
-    type Props = {
-        url?: string;
-        title?: string;
-        description?: string;
-        platforms?: SocialPlatform[]; // Added platforms prop
-        showCopyLink?: boolean;
-        showEmbed?: boolean;
-        showSave?: boolean;
-        showLike?: boolean;
-    };
+  let {
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showCopyLink', type: 'boolean', defaultValue: true },
+      { name: 'showEmbed', type: 'boolean', defaultValue: false },
+      { name: 'showSave', type: 'boolean', defaultValue: false },
+      { name: 'showLike', type: 'boolean', defaultValue: false }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: ControlConfig[]
+  }>();
 
-    const controls: ControlConfig[] = [
-        {
-            name: 'url',
-            type: 'text',
-            defaultValue: 'https://example.com'
-        },
-        {
-            name: 'title',
-            type: 'text',
-            defaultValue: 'Example Page'
-        },
-        {
-            name: 'description',
-            type: 'text',
-            defaultValue: 'This is a description of the example page.'
-        },
-        {
-            name: 'platforms',
-            type: 'text', // Or multiselect if supported by playground
-            defaultValue: ['facebook', 'twitter', 'linkedin', 'email', 'copy']
-        },
-        {
-            name: 'showCopyLink',
-            type: 'boolean',
-            defaultValue: true
-        },
-        {
-            name: 'showEmbed',
-            type: 'boolean',
-            defaultValue: false
-        },
-        {
-            name: 'showSave',
-            type: 'boolean',
-            defaultValue: false
-        },
-        {
-            name: 'showLike',
-            type: 'boolean',
-            defaultValue: false
-        }
-    ];
+  type SocialPlatform = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
+
+  const url = 'https://example.com';
+  const title = 'Example Page';
+  const description = 'This is a description of the example page.';
+  const platforms: SocialPlatform[] = ['facebook', 'twitter', 'linkedin', 'email', 'copy'];
+
+  function handleShare(platform: SocialPlatform) {
+    console.log('Shared on:', platform);
+  }
+
+  function handleCopyLink() {
+    console.log('Link copied');
+  }
+
+  function handleSave() {
+    console.log('Saved');
+  }
+
+  function handleLike() {
+    console.log('Liked');
+  }
 </script>
 
 <Story
-    id="molecules-social-share"
-    title="SocialShare"
-    component={SocialShare}
-    category="Molecules"
-    description="Social share component for sharing content"
-    controls={controls}
+  {id}
+  {title}
+  {description}
+  component={SocialShare}
+  category="Organisms"
+  controls={controls}
 >
-    {#snippet children(props: Props)}
-        <div class="p-4">
-            <SocialShare
-                url={props.url}
-                title={props.title}
-                description={props.description}
-                platforms={props.platforms}
-                showCopyLink={props.showCopyLink}
-                showEmbed={props.showEmbed}
-                showSave={props.showSave}
-                showLike={props.showLike}
-            />
+  {#snippet children(props)}
+    <section class="sb-organisms-social-share grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Social Share Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive social share with customizable options.</p>
+
+        <div class="mt-6">
+          <SocialShare
+            {url}
+            {title}
+            {description}
+            {platforms}
+            showCopyLink={props.showCopyLink}
+            showEmbed={props.showEmbed}
+            showSave={props.showSave}
+            showLike={props.showLike}
+            onShare={handleShare}
+            onCopyLink={handleCopyLink}
+            onSave={handleSave}
+            onLike={handleLike}
+          />
         </div>
-    {/snippet}
+      </div>
+
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Social Share Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different social share configurations with various options.
+        </p>
+
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal</p>
+            <div>
+              <SocialShare
+                {url}
+                {title}
+                platforms={['twitter', 'facebook']}
+                showCopyLink={false}
+                onShare={handleShare}
+              />
+            </div>
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Full Featured</p>
+            <div>
+              <SocialShare
+                {url}
+                {title}
+                {description}
+                {platforms}
+                showCopyLink={true}
+                showEmbed={true}
+                showSave={true}
+                showLike={true}
+                onShare={handleShare}
+                onCopyLink={handleCopyLink}
+                onSave={handleSave}
+                onLike={handleLike}
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  {/snippet}
 </Story>
+

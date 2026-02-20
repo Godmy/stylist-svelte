@@ -5,14 +5,14 @@
 
 	type Props = IconWrapperProps & HTMLAttributes<HTMLDivElement>;
 
-	let { class: className, ...restProps }: Props = $props();
+	let { class: className, content, ...restProps }: Props = $props();
 
 	// Cast to avoid type mismatch
 	const state = createIconWrapperState({ ...restProps, class: className } as any);
 </script>
 
 <div class={state.classes} {...restProps}>
-	{#if restProps.content}
-		{@render restProps.content()}
+	{#if content}
+		{@render content()}
 	{/if}
 </div>

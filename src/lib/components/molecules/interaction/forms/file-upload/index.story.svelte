@@ -1,61 +1,51 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import FileUpload from './FileUpload.svelte';
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  let variant = 'primary';
-
-  let accept = $state('.pdf,.doc,.docx,.xls,.xlsx,.txt');
-  let maxSize = $state(10 * 1024 * 1024); // 10MB
-  let multiple = $state(false);
-  let disabled = $state(false);
-  let uploadText = $state('или перетащить сюда');
-
-  const controls: ControlConfig[] = [
-    { name: 'accept', type: 'text', defaultValue: '.pdf,.doc,.docx,.xls,.xlsx,.txt' },
-    { name: 'maxSize', type: 'number', defaultValue: 10485760 }, // 10MB
-    { name: 'multiple', type: 'boolean', defaultValue: false },
-    { name: 'disabled', type: 'boolean', defaultValue: false }
+  const controls = [
+    {
+      name: 'accept',
+      type: 'text' as ControlType,
+      defaultValue: '.pdf,.doc,.docx,.xls,.xlsx,.txt',
+      description: 'Accepted file types'
+    },
+    {
+      name: 'maxSize',
+      type: 'number' as ControlType,
+      defaultValue: 10485760,
+      description: 'Maximum file size in bytes (10MB)'
+    },
+    {
+      name: 'multiple',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether to allow multiple files'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the upload is disabled'
+    }
   ];
+
+  let uploadText = 'или перетащить сюда';
 </script>
 
-# FileUpload
-
-<Story id="fileupload-story" title="FileUpload" component={FileUpload} {controls}>
-  <div class="space-y-4 p-8">
-    <FileUpload 
-      {accept}
-      {maxSize}
-      {multiple}
-      {disabled}
-      {uploadText}
+<Story
+  {controls}
+  title="FileUpload Component"
+  description="File upload component with drag and drop support"
+  let:controlValues
+>
+  <div class="p-8">
+    <FileUpload
+      accept={controlValues.accept}
+      maxSize={controlValues.maxSize}
+      multiple={controlValues.multiple}
+      disabled={controlValues.disabled}
+      uploadText={uploadText}
     />
-    
-    <div class="space-y-4 mt-4">
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={multiple} /> Multiple files
-        </label>
-      </div>
-
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={disabled} /> Disabled
-        </label>
-      </div>
-
-      <div>
-        <label>Accept (file types): <input type="text" bind:value={accept} /></label>
-      </div>
-
-      <div>
-        <label>Max size (bytes): <input type="number" bind:value={maxSize} /></label>
-      </div>
-
-      <div>
-        <label>Upload text: <input type="text" bind:value={uploadText} /></label>
-      </div>
-    </div>
   </div>
 </Story>
-

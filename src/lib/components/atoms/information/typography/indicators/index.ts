@@ -5,4 +5,3 @@ export { Dot } from './dot';
 export { ListItemMarker } from './list-item-marker';
 export { MessageStatus } from './message-status';
 export { StatusIndicator } from './status-indicator';
-export { StatusIndicatorWithLabel } from './status-indicator-with-label';

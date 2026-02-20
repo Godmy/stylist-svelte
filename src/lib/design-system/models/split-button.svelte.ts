@@ -1,5 +1,4 @@
 ﻿export { SPLIT_BUTTON_PRESET } from '$stylist/design-system/state/button';
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/props';
 import type { Preset } from '$stylist/design-system/state/preset';

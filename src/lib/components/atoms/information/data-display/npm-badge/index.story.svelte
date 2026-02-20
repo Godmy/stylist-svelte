@@ -1,44 +1,46 @@
 <script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import NPMBadge from './index.svelte';
 
-	let type: 'version' | 'downloads' | 'license' | 'size' | 'custom' = 'version';
-	let value = '1.0.0';
-	let label = '';
-	let link = '';
+	const controls: ControlConfig[] = [
+		{
+			name: 'type',
+			type: 'select',
+			options: ['version', 'downloads', 'license', 'size', 'custom'],
+			defaultValue: 'version'
+		},
+		{
+			name: 'value',
+			type: 'text',
+			defaultValue: '1.0.0'
+		},
+		{
+			name: 'label',
+			type: 'text',
+			defaultValue: ''
+		},
+		{
+			name: 'link',
+			type: 'text',
+			defaultValue: ''
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">NPMBadge</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Type</span>
-			<select bind:value={type} class="rounded border p-1">
-				<option value="version">Version</option>
-				<option value="downloads">Downloads</option>
-				<option value="license">License</option>
-				<option value="size">Size</option>
-				<option value="custom">Custom</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Value</span>
-			<input type="text" bind:value class="rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Label</span>
-			<input type="text" bind:value={label} class="rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Link</span>
-			<input type="text" bind:value={link} class="rounded border p-1" />
-		</label>
-	</div>
-
-	<div class="rounded border p-4">
-		<NPMBadge {type} {value} {label} {link} />
-	</div>
-</div>
+<Story
+	{controls}
+	component={NPMBadge}
+	title="NPMBadge Component"
+	description="An NPM badge component for displaying package information"
+	tags={['information', 'data-display', 'badge', 'npm']}
+>
+	{#snippet children(values: any)}
+		<NPMBadge
+			type={values.type as 'version' | 'downloads' | 'license' | 'size' | 'custom'}
+			value={values.value as string}
+			label={values.label as string}
+			link={values.link as string}
+		/>
+	{/snippet}
+</Story>

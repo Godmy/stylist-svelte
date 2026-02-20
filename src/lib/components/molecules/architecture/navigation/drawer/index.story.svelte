@@ -1,22 +1,21 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import Drawer from './index.svelte';
 
-  type Props = {
-    position: 'left' | 'right' | 'top' | 'bottom';
-    size: string;
-    showBackdrop: boolean;
-  };
-
   const controls: ControlConfig[] = [
     { name: 'position', type: 'select', options: ['left', 'right', 'top', 'bottom'], defaultValue: 'right' },
     { name: 'size', type: 'text', defaultValue: '360px' },
-    { name: 'showBackdrop', type: 'boolean', defaultValue: true }
+    { name: 'showBackdrop', type: 'boolean', defaultValue: true },
+    { name: 'closable', type: 'boolean', defaultValue: true }
   ];
 
   let isOpen = $state(false);
+  let position = $state<'left' | 'right' | 'top' | 'bottom'>('right');
+  let size = $state('360px');
+  let showBackdrop = $state(true);
+  let closable = $state(true);
 </script>
 
 <Story
@@ -27,7 +26,7 @@
   description="Anchored surface that slides in from any edge for contextual tasks."
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="mb-4 flex items-center justify-between">
@@ -54,8 +53,8 @@
           Left/right drawers are great for detail panes; top/bottom work for snackbars or command palettes.
         </p>
         <ul class="mt-4 space-y-2 text-sm text-[--color-text-primary]">
-          <li>Left/right: recommended widths 320–480px.</li>
-          <li>Top/bottom: heights 25–50vh for focus tasks.</li>
+          <li>Left/right: recommended widths 320вЂ“480px.</li>
+          <li>Top/bottom: heights 25вЂ“50vh for focus tasks.</li>
           <li>Backdrop optional; keep it for destructive flows.</li>
         </ul>
       </div>
@@ -66,17 +65,18 @@
       position={props.position}
       size={props.size}
       showBackdrop={props.showBackdrop}
+      closable={props.closable}
       on:close={() => (isOpen = false)}
     >
       <svelte:fragment slot="header">
         <div class="flex items-center justify-between">
           <h2 class="text-base font-semibold text-[--color-text-primary]">Project settings</h2>
-          <span class="text-xs uppercase tracking-wide text-[--color-text-secondary]">{props.position} · {props.size}</span>
+          <span class="text-xs uppercase tracking-wide text-[--color-text-secondary]">{props.position} В· {props.size}</span>
         </div>
       </svelte:fragment>
 
       <p class="text-sm text-[--color-text-secondary]">
-        Use drawers for quick edits that don’t warrant a full page. They should feel fast and reversible.
+        Use drawers for quick edits that donвЂ™t warrant a full page. They should feel fast and reversible.
       </p>
 
       <svelte:fragment slot="actions">
@@ -92,6 +92,7 @@
     </Drawer>
   {/snippet}
 </Story>
+
 
 
 

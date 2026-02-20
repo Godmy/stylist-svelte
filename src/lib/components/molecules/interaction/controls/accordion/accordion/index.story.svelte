@@ -1,58 +1,49 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import type { Snippet } from 'svelte';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import Accordion from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    expanded: boolean;
-    disabled: boolean;
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'expanded',
-      type: 'boolean',
-      defaultValue: false
-    },
+  const controls = [
     {
       name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the accordion item is disabled'
+    }
+  ];
+
+  const items = [
+    {
+      id: 'item1',
+      title: 'Accordion Title',
+      content: `<div class="py-4">
+          <p>
+            This is the accordion content. You can place any content inside the accordion,
+            such as text, images, or other components. The content will be shown when the
+            accordion is expanded.
+          </p>
+        </div>`
     }
   ];
 </script>
 
 <Story
-  id="molecules-accordion"
-  title="Accordion"
-  component={Accordion}
-  category="Molecules"
-  description="A component that allows users to expand and collapse sections of content."
-  tags={['expandable', 'collapsible', 'section']}
-  controls={controls}
+  {controls}
+  title="Accordion Component"
+  description="A component that allows users to expand and collapse sections of content"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <div class="p-6 max-w-md mx-auto">
-      <Accordion
-        items={[
-          {
-            id: 'item1',
-            title: 'Accordion Title',
-            content: `<div class="py-4">
-                <p>
-                  This is the accordion content. You can place any content inside the accordion,
-                  such as text, images, or other components. The content will be shown when the
-                  accordion is expanded.
-                </p>
-              </div>`,
-            disabled: props.disabled
-          }
-        ]}
-        multiple={false}
-      />
-    </div>
-  {/snippet}
+  <div class="p-6 max-w-md mx-auto">
+    <Accordion
+      items={[
+        {
+          ...items[0],
+          disabled: controlValues.disabled
+        }
+      ]}
+      multiple={false}
+    />
+  </div>
 </Story>
 
 

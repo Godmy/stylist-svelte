@@ -1,34 +1,53 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AccessibilityToolbar from './index.svelte';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = []
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
+  const controls = [
+    {
+      name: 'showContrastToggle',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showFontSizeControls',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showScreenReaderTester',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showFocusIndicator',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    },
+    {
+      name: 'showAnimationsToggle',
+      type: CONTROL_TYPES.BOOLEAN,
+      defaultValue: true
+    }
+  ];
 </script>
 
-<div class="sb-organisms-accessibility-toolbar">
-  <Story
-    {id}
-    {title}
-    {description}
-    component={AccessibilityToolbar}
-    category="Organisms"
-    controls={controls}
-  >
-    {#snippet children(props: {})}
-      <AccessibilityToolbar />
-    {/snippet}
-  </Story>
-</div>
+<Story
+  {controls}
+  title="AccessibilityToolbar"
+  category="Organisms/Interaction/Controls"
+  description="Accessibility toolbar component for improving web accessibility."
+  tags={['accessibility', 'toolbar', 'contrast', 'screen-reader', 'focus']}
+>
+  {#snippet children(props)}
+    <AccessibilityToolbar
+      showContrastToggle={props.showContrastToggle}
+      showFontSizeControls={props.showFontSizeControls}
+      showScreenReaderTester={props.showScreenReaderTester}
+      showFocusIndicator={props.showFocusIndicator}
+      showAnimationsToggle={props.showAnimationsToggle}
+    />
+  {/snippet}
+</Story>
 
 

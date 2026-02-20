@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import OntologyEdgeComponent from './index.svelte';
@@ -24,7 +24,7 @@
   description="Edge renderer for ontology graph relationships."
   controls={controls}
 >
-  {#snippet children(props: Props)}
+  {#snippet children(props)}
     <div class="sb-molecules-ontology-edge-component p-6">
       <div class="max-w-md mx-auto h-64 relative border rounded-lg bg-white overflow-hidden">
         <OntologyEdgeComponent showLabel={props.showLabel} edge={relationship} sourceNode={accountNode} targetNode={subscriptionNode} />
@@ -32,3 +32,4 @@
     </div>
   {/snippet}
 </Story>
+

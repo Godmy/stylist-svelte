@@ -1,36 +1,33 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import NotificationSettings from './index.svelte';
   import type { INotificationSettingsPreference } from '$stylist/design-system/props/notification-settings';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    showEmail: boolean;
-    showPush: boolean;
-    showSms: boolean;
-    showInApp: boolean;
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'showEmail',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show email channel'
     },
     {
       name: 'showPush',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show push channel'
     },
     {
       name: 'showSms',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show SMS channel'
     },
     {
       name: 'showInApp',
-      type: 'boolean',
-      defaultValue: true
+      type: 'boolean' as ControlType,
+      defaultValue: true,
+      description: 'Whether to show in-app channel'
     }
   ];
 
@@ -57,28 +54,19 @@
 </script>
 
 <Story
-  id="molecules-notification-settings"
-  title="NotificationSettings"
-  component={NotificationSettings}
-  category="Molecules"
-  description="A settings panel for configuring notification options."
-  tags={['settings', 'notifications', 'preferences']}
-  controls={controls}
+  {controls}
+  title="NotificationSettings Component"
+  description="A settings panel for configuring notification options"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <div class="p-6 max-w-md mx-auto">
-      <h2 class="text-xl font-semibold mb-6">Notification Settings</h2>
-      <NotificationSettings
-        showEmail={props.showEmail}
-        showPush={props.showPush}
-        showSms={props.showSms}
-        showInApp={props.showInApp}
-        preferences={defaultPreferences}
-      />
-    </div>
-  {/snippet}
+  <div class="p-6 max-w-md mx-auto">
+    <h2 class="text-xl font-semibold mb-6">Notification Settings</h2>
+    <NotificationSettings
+      showEmail={controlValues.showEmail}
+      showPush={controlValues.showPush}
+      showSms={controlValues.showSms}
+      showInApp={controlValues.showInApp}
+      preferences={defaultPreferences}
+    />
+  </div>
 </Story>
-
-
-
-

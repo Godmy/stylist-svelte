@@ -1,119 +1,40 @@
 ﻿import { cn } from '$stylist/utils/classes';
-import type {
-	AccordionHeaderProps,
-	AccordionHeaderDoubleProps,
-	AccordionItemProps,
-	AccordionPanelProps,
-	ComplexAccordionProps
-} from '$stylist/design-system/props';
+import type { AccordionHeaderProps } from '$stylist/design-system/props';
 
-	// Определение состояния для AccordionHeader
-	export function createAccordionHeaderState(props: AccordionHeaderProps) {
-		const classes = $derived(
-			cn(
-				'accordion-header',
-				props.open ? 'open' : 'closed',
-				props.disabled ? 'disabled' : '',
-				props.class
-			)
-		);
+/**
+ * AccordionHeader state
+ */
 
-		const chevronClasses = $derived(
-			cn(
-				'accordion-chevron',
-				`size-${props.chevronSize ?? 'md'}`,
-				props.open ? 'rotated' : '',
-				props.chevronSizeClass
-			)
-		);
+export function createAccordionHeaderState(props: AccordionHeaderProps) {
+	const classes = $derived(
+		cn(
+			'accordion-header',
+			props.open ? 'open' : 'closed',
+			props.disabled ? 'disabled' : '',
+			props.class
+		)
+	);
 
-		return {
-			classes,
-			header: props.header,
-			chevronSize: props.chevronSize ?? 'md',
-			padding: props.padding ?? 'md',
-			paddingClass: props.paddingClass,
-			chevronSizeClass: props.chevronSizeClass,
-			chevronClasses,
-			open: props.open ?? false,
-			disabled: props.disabled ?? false
-		};
-	}
+	const chevronClasses = $derived(
+		cn(
+			'accordion-chevron',
+			`size-${props.chevronSize ?? 'md'}`,
+			props.open ? 'rotated' : '',
+			props.chevronSizeClass
+		)
+	);
 
-	// Определение состояния для AccordionHeaderDouble
-function createAccordionHeaderDoubleState(props: AccordionHeaderDoubleProps) {
-		const classes = $derived(
-			cn(
-				'accordion-header-double',
-				props.open ? 'open' : 'closed',
-				props.disabled ? 'disabled' : '',
-				props.class
-			)
-		);
-
-		const chevronClasses = $derived(
-			cn(
-				'accordion-chevron',
-				'size-md',
-				props.open ? 'rotated' : ''
-			)
-		);
-
-		return {
-			classes,
-			chevronClasses,
-			open: props.open ?? false,
-			disabled: props.disabled ?? false
-		};
-	}
-
-	// Определение состояния для AccordionItem
-function createAccordionItemState(props: AccordionItemProps) {
-		const classes = $derived(cn('accordion-item', props.class));
-
-		return {
-			classes
-		};
-	}
-
-	// Определение состояния для AccordionPanel
-function createAccordionPanelState(props: AccordionPanelProps) {
-		const classes = $derived(cn('accordion-panel', props.open ? 'open' : 'closed', props.class));
-
-		const contentClasses = $derived(
-			cn(
-				'accordion-panel-content',
-				props.paddingClass,
-				props.borderClass,
-				props.bgClass
-			)
-		);
-
-		return {
-			classes,
-			content: props.content,
-			paddingClass: props.paddingClass,
-			borderClass: props.borderClass,
-			bgClass: props.bgClass,
-			contentClasses,
-			open: props.open ?? false
-		};
-	}
-
-	// Определение состояния для ComplexAccordion
-function createComplexAccordionState(props: ComplexAccordionProps) {
-		const classes = $derived(cn('complex-accordion-root', props.class));
-
-		return {
-			classes,
-			multiple: props.multiple ?? false,
-			defaultValue: props.defaultValue ?? [],
-			value: props.value ?? [],
-			onValueChange: props.onValueChange
-		};
-	}
+	return {
+		classes,
+		header: props.header,
+		chevronSize: props.chevronSize ?? 'md',
+		padding: props.padding ?? 'md',
+		paddingClass: props.paddingClass,
+		chevronSizeClass: props.chevronSizeClass,
+		chevronClasses,
+		open: props.open ?? false,
+		disabled: props.disabled ?? false
+	};
+}
 
 export default createAccordionHeaderState;
-
-
-

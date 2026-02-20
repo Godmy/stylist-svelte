@@ -2,7 +2,6 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { MapPin, Search, Phone, Clock, Star, Navigation, Filter, Dot } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import Input from '../../../atoms/input/base/Input/Input.svelte';
 
   export type Store = {
     id: string;
@@ -388,6 +387,5 @@
     </div>
   </div>
 </div>
-
 
 

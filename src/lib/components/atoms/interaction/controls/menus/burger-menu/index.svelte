@@ -1,63 +1,44 @@
 <script lang="ts">
-  type BaseComponentProps = {
-    class?: string;
-    'data-testid'?: string;
-  };
+  import { createBurgerMenuState } from '$stylist/design-system/models/burger-menu.svelte';
+  import type { BurgerMenuProps } from '$stylist/design-system/props/burger-menu';
+  import type { HTMLButtonAttributes } from 'svelte/elements';
 
-  type Props = BaseComponentProps & {
-    open?: boolean;
-    size?: 'sm' | 'md' | 'lg';
-    color?: string;
-    activeColor?: string;
-    onValueInput?: (event: MouseEvent) => void;
-    onValueChange?: (event: MouseEvent) => void;
-    /** @deprecated use onValueChange */
-    onClick?: (event: MouseEvent) => void;
-  };
+  type Props = BurgerMenuProps & HTMLButtonAttributes;
+  let props: Props = $props();
 
-  let { 
-    open = false, 
-    size = 'md', 
-    color = 'currentColor', 
-    activeColor = 'currentColor',
-    class: className = '',
-    onValueInput,
-    onValueChange,
-    onClick = (event: MouseEvent) => {}
-  }: Props = $props();
-  
-  let ariaLabel = $derived(open ? 'Close menu' : 'Open menu');
-  let buttonSize = $derived(size === 'sm' ? 'h-5 w-5' : size === 'lg' ? 'h-7 w-7' : 'h-6 w-6');
-  
+  const state = createBurgerMenuState(props);
+  const containerClasses = state.containerClasses;
+  const ariaLabel = state.ariaLabel;
+
   const handleClick = (e: MouseEvent) => {
-    onValueInput?.(e);
-    onValueChange?.(e);
-    onClick(e);
+    props.onValueInput?.(e);
+    props.onValueChange?.(e);
+    props.onClick?.(e);
   };
 </script>
 
-<button 
-  class="burger-menu relative flex flex-col justify-center items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded {className}" 
-  aria-label={ariaLabel}
-  aria-expanded={open}
+<button
+  class={$containerClasses}
+  aria-label={$ariaLabel}
+  aria-expanded={state.open}
   tabindex="0"
   onclick={handleClick}
 >
-  <div class="relative {buttonSize}" role="img" aria-label="Menu toggle icon">
+  <div class={state.iconClasses} role="img" aria-label="Menu toggle icon">
     <!-- Hamburger lines -->
-    <span 
-      class="absolute block h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out"
-      style={`top: calc(50% - 6px); background-color: ${open ? activeColor : color}; transform: ${open ? 'rotate(45deg) translate(0, 0)' : 'rotate(0) translate(0, 0)'};`}
+    <span
+      class={state.lineClasses}
+      style={`top: calc(50% - 6px); background-color: ${state.open ? state.activeColor : state.color}; transform: ${state.open ? 'rotate(45deg) translate(0, 0)' : 'rotate(0) translate(0, 0)'};`}
       aria-hidden="true"
     ></span>
-    <span 
-      class="absolute block h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out {open ? 'opacity-0' : 'opacity-100'}"
-      style={`top: 50%; transform: translateY(-50%); background-color: ${color};`}
+    <span
+      class={`${state.lineClasses} ${state.open ? 'opacity-0' : 'opacity-100'}`}
+      style={`top: 50%; transform: translateY(-50%); background-color: ${state.color};`}
       aria-hidden="true"
     ></span>
-    <span 
-      class="absolute block h-0.5 w-6 rounded bg-current transition-all duration-300 ease-in-out"
-      style={`top: calc(50% + 6px); background-color: ${open ? activeColor : color}; transform: ${open ? 'rotate(-45deg) translate(0, 0)' : 'rotate(0) translate(0, 0)'};`}
+    <span
+      class={state.lineClasses}
+      style={`top: calc(50% + 6px); background-color: ${state.open ? state.activeColor : state.color}; transform: ${state.open ? 'rotate(-45deg) translate(0, 0)' : 'rotate(0) translate(0, 0)'};`}
       aria-hidden="true"
     ></span>
   </div>

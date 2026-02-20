@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PieChart from './index.svelte';
@@ -46,7 +46,7 @@
   tags={['chart', 'pie', 'data-visualization']}
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PieChart Story</h2>
       <PieChart
@@ -63,6 +63,7 @@
     </div>
   {/snippet}
 </Story>
+
 
 
 

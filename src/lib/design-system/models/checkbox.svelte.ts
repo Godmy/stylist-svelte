@@ -1,4 +1,4 @@
-﻿import type { CheckboxProps } from '$stylist/design-system/props';
+﻿import type { CheckboxProps } from '$stylist/design-system/props/toggles';
 import { STATE_CLASSES } from '$stylist/design-system/classes/classes';
 import { mergeClasses } from '$stylist/utils/classes';
 

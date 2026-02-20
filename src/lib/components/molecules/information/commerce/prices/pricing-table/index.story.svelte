@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PricingTable from './index.svelte';
@@ -24,7 +24,7 @@
   description="A pricing table component."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-pricing-table p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PricingTable Story</h2>
       <PricingTable
@@ -71,5 +71,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

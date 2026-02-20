@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PromptBuilder from './index.svelte';
@@ -40,7 +40,7 @@
   description="Build and run prompt templates with editable variables."
   controls={controls}
 >
-  {#snippet children(props: { showTemplates?: boolean; showVariables?: boolean; initialPrompt?: string })}
+  {#snippet children(props)}
     <section class="sb-organisms-prompt-builder grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <PromptBuilder
         templates={sampleTemplates}
@@ -51,4 +51,5 @@
     </section>
   {/snippet}
 </Story>
+
 

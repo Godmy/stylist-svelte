@@ -1,23 +1,17 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import DefinitionTerm from './index.svelte';
 	import { DefinitionDescription } from '../../../typography/inline/definition-description';
-	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	type DefinitionTermStoryProps = {
-		term: string;
-		description: string;
-		highlight: boolean;
-	};
-
-	const controls: ControlConfig[] = [
-		{ name: 'term', type: 'text', defaultValue: 'North Star Metric' },
+	const controls = [
+		{ name: 'term', type: CONTROL_TYPES.TEXT, defaultValue: 'North Star Metric' },
 		{
 			name: 'description',
-			type: 'text',
+			type: CONTROL_TYPES.TEXT,
 			defaultValue: 'Singular KPI that captures the core value delivered to your best customers.'
 		},
-		{ name: 'highlight', type: 'boolean', defaultValue: true }
+		{ name: 'highlight', type: CONTROL_TYPES.BOOLEAN, defaultValue: true }
 	];
 
 	const definitions = [
@@ -37,15 +31,14 @@
 </script>
 
 <Story
-	id="atoms-definition-term"
-	title="DefinitionTerm"
-	component={DefinitionTerm}
-	category="Atoms"
-	description="Bold heading for definition lists, typically paired with DefinitionDescription."
-	tags={['typography', 'glossary']}
 	{controls}
+	component={DefinitionTerm}
+	title="DefinitionTerm"
+	category="Atoms/Information/Typography/Inline"
+	description="Bold heading for definition lists, typically paired with DefinitionDescription."
+	tags={['definition', 'term', 'typography']}
 >
-	{#snippet children(props: any)}
+	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<dl
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"

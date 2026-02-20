@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ComponentPreview from './index.svelte';
@@ -20,7 +20,7 @@
   description="Component preview with code and demo"
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-component-preview">
       <h1 class="text-lg font-semibold mb-4">ComponentPreview</h1>
       <p>Component preview with code and demo</p>
@@ -42,4 +42,5 @@
     </div>
   {/snippet}
 </Story>
+
 

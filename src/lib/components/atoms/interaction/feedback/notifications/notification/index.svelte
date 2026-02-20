@@ -1,9 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { X, CheckCircle, AlertCircle, Info, XCircle } from 'lucide-svelte';
 
   import type { INotificationProps, NotificationType } from '$stylist/design-system/props/notification';
-  import { NotificationStyleManager } from '$stylist/design-system/styles/notification';
+  import { NotificationAtomStyleManager } from '$stylist/design-system/styles/notification';
 
   /**
    * Notification component - A flexible notification component with various styles and states
@@ -83,11 +83,11 @@
   let iconComponent = $derived(iconMap[type] ?? Info);
 
   // Get CSS classes using the style manager
-  let containerClasses = $derived(NotificationStyleManager.getBaseClasses(type, position, hostClass));
-  let contentClasses = $derived(NotificationStyleManager.getContentClasses(contentClass));
-  let headerClasses = $derived(NotificationStyleManager.getHeaderClasses(headerClass));
-  let bodyClasses = $derived(NotificationStyleManager.getBodyClasses(bodyClass));
-  let closeButtonClasses = $derived(NotificationStyleManager.getCloseButtonClasses());
+  let containerClasses = $derived(NotificationAtomStyleManager.getBaseClasses(type, position, hostClass));
+  let contentClasses = $derived(NotificationAtomStyleManager.getContentClasses(contentClass));
+  let headerClasses = $derived(NotificationAtomStyleManager.getHeaderClasses(headerClass));
+  let bodyClasses = $derived(NotificationAtomStyleManager.getBodyClasses(bodyClass));
+  let closeButtonClasses = $derived(NotificationAtomStyleManager.getCloseButtonClasses());
 </script>
 
 {#if isVisible}
@@ -132,3 +132,4 @@
     </div>
   </div>
 {/if}
+

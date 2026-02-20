@@ -2,30 +2,8 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { GripVertical } from 'lucide-svelte';
-
-  export type GridItem = {
-    id: string;
-    title: string;
-    content?: string;
-    render?: Snippet;
-    data?: any;
-  };
-
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
-
-  export type Props = RestProps & {
-    items: GridItem[];
-    class?: string;
-    itemClass?: string;
-    gridClass?: string;
-    onItemsChange?: (items: GridItem[]) => void;
-    onItemDragStart?: (item: GridItem) => void;
-    onItemDragEnd?: (item: GridItem) => void;
-    disabled?: boolean;
-    cols?: number;
-    gap?: 'sm' | 'md' | 'lg';
-    variant?: 'card' | 'minimal';
-  };
+  import { SortableGridStyleManager } from '$stylist/design-system/styles';
+  import type { SortableGridProps, SortableGridItem, GridItem } from '$stylist/design-system/props';
 
   let {
     items = [],
@@ -39,10 +17,11 @@
     cols = 3,
     gap = 'md',
     variant = 'card',
+    size = 'md',
     ...restProps
-  }: Props = $props();
+  }: SortableGridProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> = $props();
 
-  let draggedItem: GridItem | null = $state(null);
+  let draggedItem: SortableGridItem | null = $state(null);
   let draggedOverIndex: number | null = $state(null);
   let isDragging = $state(false);
 
@@ -71,9 +50,9 @@
     if (disabled) return;
 
     e.dataTransfer?.setData('text/plain', item.id);
-    draggedItem = item;
+    draggedItem = item as SortableGridItem;
     isDragging = true;
-    onItemDragStart?.(item);
+    onItemDragStart?.(item as SortableGridItem);
   }
 
   function handleDragOver(e: DragEvent, index: number) {
@@ -113,57 +92,60 @@
   }
 
   function handleDragEnd() {
+    if (draggedItem) {
+      onItemDragEnd?.(draggedItem as SortableGridItem);
+    }
     draggedItem = null;
     isDragging = false;
-    onItemDragEnd?.(draggedItem!);
   }
 
   function handleDragEndEvent(e: DragEvent) {
     handleDragEnd();
   }
+
+  // Generate CSS classes using the style manager
+  const containerClass = $derived(SortableGridStyleManager.getContainerClass(variant, size, disabled, hostClass));
+  const gridClassComputed = $derived(SortableGridStyleManager.getGridClass(gridClass, gridColsClass, gapClass));
+  const itemClassComputed = $derived(SortableGridStyleManager.getItemClass(variant, size, isDragging, draggedItem, itemClass));
+  const itemDraggingClass = $derived(SortableGridStyleManager.getItemDraggingClass());
+  const itemDragOverClass = $derived(SortableGridStyleManager.getItemDragOverClass());
+  const itemContentClass = $derived(SortableGridStyleManager.getItemContentClass(variant));
+  const itemTitleClass = $derived(SortableGridStyleManager.getItemTitleClass());
+  const itemContentTextClass = $derived(SortableGridStyleManager.getItemContentTextClass());
+  const gripIconClass = $derived(SortableGridStyleManager.getGripIconClass());
 </script>
 
-<div class={`c-sortable-grid ${hostClass}`} {...restProps}>
-  <div class={`grid ${gridColsClass} ${gapClass} ${gridClass}`}>
+<div class={containerClass} {...restProps}>
+  <div class={gridClassComputed}>
     {#each items as item, index}
       <div
         draggable={!disabled}
         role="gridcell"
         tabindex="0"
-        class={`relative flex flex-col ${
-          isDragging && draggedItem?.id === item.id ? 'opacity-50' : 'opacity-100'
-        } ${
+        class={itemClassComputed + (
           draggedOverIndex === index && draggedItem && draggedItem.id !== item.id
-            ? 'border-2 border-[--color-primary-500]'
-            : 'border border-[--color-border-default]'
-        } rounded-lg ${
-          variant === 'card' ? 'bg-[--color-background-primary] shadow-sm' : 'bg-[--color-surface-muted]'
-        } transition-all ${itemClass}`}
-        ondragstart={(e) => handleDragStart(e, item, index)}
+            ? ' ' + itemDragOverClass
+            : ''
+        )}
+        ondragstart={(e) => handleDragStart(e, item as GridItem, index)}
         ondragover={(e) => handleDragOver(e, index)}
         ondragleave={handleDragLeave}
         ondrop={(e) => handleDrop(e, index)}
         ondragend={handleDragEndEvent}
+        aria-label={`Grid item ${(item as SortableGridItem).title}`}
       >
-        {#if variant === 'card'}
-          <div class="p-4 flex items-start">
-            <GripVertical class="h-5 w-5 text-[--color-text-tertiary] cursor-move mr-2 flex-shrink-0" />
-            <div class="flex-1 min-w-0">
-              <h3 class="text-sm font-medium text-[--color-text-primary] truncate">{item.title}</h3>
-              {#if item.content}
-                <p class="mt-1 text-xs text-[--color-text-secondary] line-clamp-2">{item.content}</p>
-              {/if}
-            </div>
+        <div class={itemContentClass}>
+          <GripVertical class={gripIconClass} />
+          <div class="flex-1 min-w-0">
+            <h3 class={itemTitleClass}>{(item as SortableGridItem).title}</h3>
+            {#if (item as SortableGridItem).content}
+              <p class={itemContentTextClass}>{(item as SortableGridItem).content}</p>
+            {/if}
           </div>
-          {#if item.render}
-            <div class="px-4 pb-4">
-              {@render item.render()}
-            </div>
-          {/if}
-        {:else}
-          <div class="p-3 flex items-center">
-            <GripVertical class="h-4 w-4 text-[--color-text-tertiary] cursor-move mr-2 flex-shrink-0" />
-            <span class="text-sm text-[--color-text-primary] truncate">{item.title}</span>
+        </div>
+        {#if item.render}
+          <div class="px-4 pb-4">
+            {@render item.render()}
           </div>
         {/if}
       </div>

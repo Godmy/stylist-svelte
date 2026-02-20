@@ -1,21 +1,31 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-
-  type Props = HTMLAttributes<HTMLPreElement> & {
+  /**
+   * CodeEditor - Legacy wrapper for unified CodeBlock
+   * 
+   * @deprecated Use CodeBlock with basic props instead
+   */
+  import CodeBlock from '../code-block/index.svelte';
+  type Props = {
     code?: string;
     language?: string;
     showLineNumbers?: boolean;
     showCopyButton?: boolean;
+    class?: string;
   };
 
   let {
     code = '',
     language = 'text',
-    class: className = '',
-    ...restProps
+    showLineNumbers = false,
+    showCopyButton = false,
+    class: className = ''
   }: Props = $props();
 </script>
 
-<pre class={`rounded-md border border-gray-200 bg-gray-50 p-4 text-sm overflow-auto ${className}`} {...restProps}>
-  <code class={`language-${language}`}>{code}</code>
-</pre>
+<CodeBlock
+  code={code}
+  language={language}
+  showLineNumbers={showLineNumbers}
+  copyable={showCopyButton}
+  class={className}
+/>

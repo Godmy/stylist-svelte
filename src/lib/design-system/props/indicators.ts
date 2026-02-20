@@ -37,17 +37,17 @@ export interface ListItemMarkerProps extends HtmlAttributesBase<HTMLSpanElement>
 export interface StatusIndicatorProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
 	status?: IndicatorStatus;
 	label?: string;
-}
-
-export interface StatusIndicatorWithLabelProps extends HtmlAttributesBase<HTMLDivElement> {
-	status: StatusIndicatorLabelStatus;
-	label: string;
 	customColor?: string;
 	size?: CompactSize;
 	showLabel?: boolean;
 	indicatorClass?: string;
 	labelClass?: string;
 }
+
+/**
+ * @deprecated Используйте StatusIndicatorProps
+ */
+export type StatusIndicatorWithLabelProps = StatusIndicatorProps;
 
 export interface MessageStatusProps {
 	status?: MessageStatusType;

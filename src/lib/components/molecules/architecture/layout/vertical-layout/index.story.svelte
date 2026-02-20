@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -22,7 +22,7 @@
   ];
 
   const dashboardBlocks = [
-    { title: 'Campaign health', value: '86%', detail: '↑ 6% vs last week', accent: 'bg-emerald-100 text-emerald-700' },
+    { title: 'Campaign health', value: '86%', detail: 'в†‘ 6% vs last week', accent: 'bg-emerald-100 text-emerald-700' },
     { title: 'Experiments running', value: '12', detail: '4 finishing this week', accent: 'bg-blue-100 text-blue-700' },
     { title: 'Pending approvals', value: '4', detail: 'Design + Ops', accent: 'bg-orange-100 text-orange-700' }
   ];
@@ -36,7 +36,7 @@
   description="Utility stacker used to create evenly spaced vertical flows with consistent rhythm."
   controls={controls}
 >
-  {#snippet children(props: any)}
+  {#snippet children(props)}
     <section class="grid w-full gap-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-8 shadow-sm">
         <header class="flex items-center justify-between">
@@ -102,6 +102,7 @@
     </section>
   {/snippet}
 </Story>
+
 
 
 

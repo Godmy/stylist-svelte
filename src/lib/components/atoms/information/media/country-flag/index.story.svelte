@@ -1,26 +1,33 @@
 <script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import CountryFlag from './index.svelte';
 
-	let countryCode = 'US';
-	let size = 24;
+	const controls: ControlConfig[] = [
+		{
+			name: 'countryCode',
+			type: 'text',
+			defaultValue: 'US'
+		},
+		{
+			name: 'size',
+			type: 'text',
+			defaultValue: '24'
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">CountryFlag</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Country code</span>
-			<input type="text" bind:value={countryCode} class="w-16 rounded border p-1" />
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Size</span>
-			<input type="number" bind:value={size} class="w-20 rounded border p-1" />
-		</label>
-	</div>
-
-	<div class="inline-flex items-center rounded border p-4">
-		<CountryFlag {countryCode} {size} />
-	</div>
-</div>
+<Story
+	{controls}
+	component={CountryFlag}
+	title="CountryFlag Component"
+	description="A component to display country flags with customizable size"
+	tags={['information', 'media', 'flag', 'country']}
+>
+	{#snippet children(values: any)}
+		<CountryFlag
+			countryCode={values.countryCode as string}
+			size={parseInt(values.size as string) || 24}
+		/>
+	{/snippet}
+</Story>

@@ -1,29 +1,8 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import StatusDashboard from './index.svelte';
-  import type { Snippet } from 'svelte';
   import type { StatusItem } from './index.svelte';
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = []
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: ControlConfig[]
-  }>();
-
-  type Props = {
-    title?: string;
-    subtitle?: string;
-    items: StatusItem[];
-    layout?: 'horizontal' | 'vertical';
-    size?: 'sm' | 'md' | 'lg';
-  };
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
   const defaultItems: StatusItem[] = [
     {
@@ -56,25 +35,36 @@
     }
   ];
 
+  const controls = [
+    {
+      name: 'layout',
+      type: CONTROL_TYPES.SELECT,
+      options: ['horizontal', 'vertical'],
+      defaultValue: 'horizontal'
+    },
+    {
+      name: 'size',
+      type: CONTROL_TYPES.SELECT,
+      options: ['sm', 'md', 'lg'],
+      defaultValue: 'md'
+    }
+  ];
 </script>
 
-<div class="sb-organisms-status-dashboard">
-  <Story
-    {id}
-    {title}
-    component={StatusDashboard}
-    category="Organisms"
-    description="Status dashboard component for monitoring system status"
-    controls={controls}
-  >
-    {#snippet children(props: Props)}
-      <div class="p-4">
-        <StatusDashboard
-          items={defaultItems}
-        />
-      </div>
-    {/snippet}
-  </Story>
-</div>
+<Story
+  {controls}
+  title="StatusDashboard"
+  category="Organisms/Dashboards"
+  description="Status dashboard component for monitoring system status."
+  tags={['dashboard', 'status', 'monitoring', 'system']}
+>
+  {#snippet children(props)}
+    <StatusDashboard
+      items={defaultItems}
+      layout={props.layout}
+      size={props.size}
+    />
+  {/snippet}
+</Story>
 
 

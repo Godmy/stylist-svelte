@@ -1,63 +1,51 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import ErrorBoundary from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    showError: boolean;
-    title: string;
-    message: string;
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'showError',
-      type: 'boolean',
-      defaultValue: false
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether to show error state'
     },
     {
       name: 'title',
-      type: 'text',
-      defaultValue: 'Something went wrong'
+      type: 'text' as ControlType,
+      defaultValue: 'Something went wrong',
+      description: 'Error title'
     },
     {
       name: 'message',
-      type: 'text',
-      defaultValue: 'An unexpected error occurred. Please try again.'
+      type: 'text' as ControlType,
+      defaultValue: 'An unexpected error occurred. Please try again.',
+      description: 'Error message'
     }
   ];
 </script>
 
 <Story
-  id="molecules-error-boundary"
-  title="ErrorBoundary"
-  component={ErrorBoundary}
-  category="Molecules"
-  description="A component that catches and displays errors in its child components."
-  tags={['error', 'fallback', 'boundary']}
-  controls={controls}
+  {controls}
+  title="ErrorBoundary Component"
+  description="A component that catches and displays errors in its child components"
+  let:controlValues
 >
-  {#snippet children(props: any)}
-    <div class="p-6">
-      <p class="mb-4">Toggle to show error state: <input type="checkbox" bind:checked={props.showError} /></p>
-      <div class="border border-gray-200 rounded-lg p-4 max-w-md">
-        <ErrorBoundary title={props.title} message={props.message}>
-          {#if !props.showError}
-            <div class="text-center py-8">
-              <h3 class="text-lg font-medium text-gray-900 mb-2">Normal Content</h3>
-              <p class="text-gray-500">This content displays when no error occurs</p>
-            </div>
-          {:else}
-            <div class="text-center py-8 text-red-500">
-              <h3 class="text-lg font-medium mb-2">Simulated Error</h3>
-              <p>This would trigger the error boundary in a real scenario</p>
-            </div>
-          {/if}
-        </ErrorBoundary>
-      </div>
+  <div class="p-6">
+    <div class="border border-gray-200 rounded-lg p-4 max-w-md">
+      <ErrorBoundary title={controlValues.title} message={controlValues.message}>
+        {#if !controlValues.showError}
+          <div class="text-center py-8">
+            <h3 class="text-lg font-medium text-gray-900 mb-2">Normal Content</h3>
+            <p class="text-gray-500">This content displays when no error occurs</p>
+          </div>
+        {:else}
+          <div class="text-center py-8 text-red-500">
+            <h3 class="text-lg font-medium mb-2">Simulated Error</h3>
+            <p>This would trigger the error boundary in a real scenario</p>
+          </div>
+        {/if}
+      </ErrorBoundary>
     </div>
-  {/snippet}
+  </div>
 </Story>
-
-
-

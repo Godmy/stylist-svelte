@@ -1,5 +1,7 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import FieldHighlighter from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
   type GraphNode = {
     id: string;
@@ -85,20 +87,21 @@
     ]
   };
 
-  let selectedNodeId = $state(graphData.nodes[0].id);
-  let selectedFieldName = $state(graphData.nodes[0].fields?.[1]?.name ?? '');
+  const controls = [
+    {
+      name: 'selectedNodeId',
+      type: 'select' as ControlType,
+      defaultValue: 'customer',
+      options: graphData.nodes.map(n => n.id),
+      description: 'Selected node ID'
+    }
+  ];
+
+  let selectedNodeId = $state('customer');
+  let selectedFieldName = $state('email');
 
   const selectedNode = $derived(graphData.nodes.find((node: GraphNode) => node.id === selectedNodeId) ?? graphData.nodes[0]);
-
-  const selectedField = $derived(selectedNode?.fields?.find((field: { name: string }) => field.name === selectedFieldName) ??
-    null);
-
-  $effect(() => {
-    if (!selectedNode) return;
-    if (!selectedNode.fields?.some((field: { name: string }) => field.name === selectedFieldName)) {
-      selectedFieldName = selectedNode.fields?.[0]?.name ?? '';
-    }
-  });
+  const selectedField = $derived(selectedNode?.fields?.find((field: { name: string }) => field.name === selectedFieldName) ?? null);
 
   function handleNodeSelection(node: GraphNode) {
     selectedNodeId = node.id;
@@ -106,8 +109,13 @@
   }
 </script>
 
-<div class="space-y-8 p-6">
-  <section class="rounded-2xl border border-[--color-border-primary] bg-white p-6 shadow-sm">
+<Story
+  {controls}
+  title="FieldHighlighter Component"
+  description="Interactive field highlighter with graph visualization"
+  let:controlValues
+>
+  <div class="p-4">
     <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
       <div class="space-y-4">
         <div>
@@ -159,53 +167,13 @@
           data={graphData}
           selectedNode={selectedNode}
           selectedField={selectedField}
-          on:nodeClick={(event: CustomEvent<{ node: GraphNode }>) => handleNodeSelection(event.detail.node)}
-          on:fieldClick={(event: CustomEvent<{ node: GraphNode; field: { name: string; type: string; isRequired?: boolean } }>) => {
+          onNodeClick={(event: CustomEvent<{ node: GraphNode }>) => handleNodeSelection(event.detail.node)}
+          onFieldClick={(event: CustomEvent<{ node: GraphNode; field: { name: string; type: string; isRequired?: boolean } }>) => {
             handleNodeSelection(event.detail.node);
             selectedFieldName = event.detail.field.name;
           }}
         />
       </div>
     </div>
-  </section>
-
-  <section class="rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
-    <h2 class="text-base font-semibold text-[--color-text-primary]">Связи между сущностями</h2>
-    <p class="text-sm text-[--color-text-secondary]">
-      Список всех таблиц и их полей помогает быстро проверить, где появится подсветка.
-    </p>
-
-    <div class="mt-4 grid gap-4 md:grid-cols-3">
-      {#each graphData.nodes as node}
-        <article class="rounded-xl border border-[--color-border-primary] bg-white p-4">
-          <header class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-semibold text-[--color-text-primary]">{node.name}</p>
-              <p class="text-xs uppercase tracking-wide text-[--color-text-secondary]">{node.type}</p>
-            </div>
-            <button
-              class="text-xs text-[--color-text-link]"
-              type="button"
-              onclick={() => handleNodeSelection(node)}
-            >
-              Highlight
-            </button>
-          </header>
-
-          <ul class="mt-3 space-y-1 text-sm text-[--color-text-secondary]">
-            {#if node.fields}
-              {#each node.fields as field}
-                <li class="flex items-center justify-between rounded-lg px-2 py-1 {selectedFieldName === field.name && selectedNodeId === node.id ? 'bg-indigo-50 text-indigo-700' : ''}">
-                  <span>{field.name}</span>
-                  <span class="text-xs uppercase">{field.type}</span>
-                </li>
-              {/each}
-            {:else}
-              <li class="text-xs text-[--color-text-tertiary]">Нет полей</li>
-            {/if}
-          </ul>
-        </article>
-      {/each}
-    </div>
-  </section>
-</div>
+  </div>
+</Story>

@@ -1,58 +1,54 @@
 <script lang="ts">
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import FormFieldGroup from './index.svelte';
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  let variant = 'primary';
-
-  let label = $state('Email Address');
-  let description = $state('We\'ll never share your email with anyone else.');
-  let required = $state(false);
-  let error = $state('');
-
-  const controls: ControlConfig[] = [
-    { name: 'label', type: 'text', defaultValue: 'Email Address' },
-    { name: 'description', type: 'text', defaultValue: 'We\'ll never share your email with anyone else.' },
-    { name: 'required', type: 'boolean', defaultValue: false }
+  const controls = [
+    {
+      name: 'label',
+      type: 'text' as ControlType,
+      defaultValue: 'Email Address',
+      description: 'Label for the form field'
+    },
+    {
+      name: 'description',
+      type: 'text' as ControlType,
+      defaultValue: 'We\'ll never share your email with anyone else.',
+      description: 'Description for the form field'
+    },
+    {
+      name: 'required',
+      type: 'boolean' as ControlType,
+      defaultValue: false,
+      description: 'Whether the field is required'
+    },
+    {
+      name: 'error',
+      type: 'text' as ControlType,
+      defaultValue: '',
+      description: 'Error message to display'
+    }
   ];
 </script>
 
-# FormFieldGroup
-
-<Story id="formfieldgroup-story" title="FormFieldGroup" component={FormFieldGroup} {controls}>
-  <div class="space-y-4 p-8">
-    <FormFieldGroup 
-      {label} 
-      {description} 
-      {required}
-      {error}
+<Story
+  {controls}
+  title="FormFieldGroup Component"
+  description="Form field group component with label, description, and error support"
+  let:controlValues
+>
+  <div class="p-8">
+    <FormFieldGroup
+      label={controlValues.label}
+      description={controlValues.description}
+      required={controlValues.required}
+      error={controlValues.error}
     >
-      <input 
-        type="email" 
+      <input
+        type="email"
         placeholder="email@example.com"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border" 
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
       />
     </FormFieldGroup>
-
-    <div class="space-y-4 mt-4">
-      <div>
-        <label>
-          <input type="checkbox" bind:checked={required} /> Required
-        </label>
-      </div>
-
-      <div>
-        <label>Label: <input type="text" bind:value={label} /></label>
-      </div>
-
-      <div>
-        <label>Description: <input type="text" bind:value={description} /></label>
-      </div>
-
-      <div>
-        <label>Error message: <input type="text" bind:value={error} /></label>
-      </div>
-    </div>
   </div>
 </Story>
-

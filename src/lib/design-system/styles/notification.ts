@@ -1,11 +1,11 @@
-import type { NotificationType, NotificationPosition } from '$stylist/design-system/props/notification';
+﻿import type { NotificationType, NotificationPosition } from '$stylist/design-system/props/notification';
 
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing notification styling logic
  * Uses CSS variables from the theme system
  */
-export class NotificationStyleManager {
+export class NotificationAtomStyleManager {
   static getTypeClasses(type: NotificationType): string {
     const typeClasses: Record<NotificationType, string> = {
       success: 'bg-[--color-success-50] border-[--color-success-200] text-[--color-success-800]',

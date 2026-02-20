@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PriceMatch from './index.svelte';
@@ -36,7 +36,7 @@
   description="A price match component showing comparison with competitors."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-price-match p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PriceMatch Story</h2>
       <PriceMatch
@@ -53,5 +53,6 @@
     </div>
   {/snippet}
 </Story>
+
 
 

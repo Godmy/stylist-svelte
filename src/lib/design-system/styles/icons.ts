@@ -12,6 +12,13 @@ import {
 import { cn } from '../utils/cn';
 
 export class IconStyleManager {
+	static getIconClasses(
+		size: keyof typeof TOKEN_ICON_SIZE_CLASSES = 'md',
+		className = ''
+	): string {
+		return cn(TOKEN_ICON_SIZE_CLASSES[size], className);
+	}
+
 	static getIconChevronClasses(options: {
 		isOpen?: boolean;
 		size?: keyof typeof TOKEN_ICON_SIZE_CLASSES;

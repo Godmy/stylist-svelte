@@ -1,48 +1,42 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import Story from '$stylist/design-system/playground/Story.svelte';
   import AvatarSelector from './index.svelte';
+  import type { ControlType } from '$stylist/design-system/tokens/controls';
 
-  type Props = {
-    src?: string;
-    alt?: string;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    class?: string;
-  };
-
-  const controls: ControlConfig[] = [
+  const controls = [
     {
       name: 'src',
-      type: 'text',
-      defaultValue: 'https://placehold.co/40x40'
+      type: 'text' as ControlType,
+      defaultValue: 'https://placehold.co/40x40',
+      description: 'Avatar image URL'
     },
     {
       name: 'alt',
-      type: 'text',
-      defaultValue: 'User avatar'
+      type: 'text' as ControlType,
+      defaultValue: 'User avatar',
+      description: 'Alt text for the avatar'
     },
     {
       name: 'size',
-      type: 'select',
+      type: 'select' as ControlType,
+      defaultValue: 'md',
       options: ['sm', 'md', 'lg', 'xl'],
-      defaultValue: 'md'
+      description: 'Size of the avatar'
     }
   ];
 </script>
 
 <Story
-  id="molecules-avatar-selector"
-  title="AvatarSelector"
-  component={AvatarSelector}
-  category="Molecules"
-  description="A component for selecting avatars with preview."
-  controls={controls}
+  {controls}
+  title="AvatarSelector Component"
+  description="A component for selecting avatars with preview"
+  let:controlValues
 >
-  {#snippet children(props: Props)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">AvatarSelector Story</h2>
-      <AvatarSelector {...props} />
-    </div>
-  {/snippet}
+  <div class="p-8 bg-gray-50 rounded-lg">
+    <AvatarSelector
+      src={controlValues.src}
+      alt={controlValues.alt}
+      size={controlValues.size}
+    />
+  </div>
 </Story>
-

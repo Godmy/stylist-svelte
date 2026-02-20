@@ -1,60 +1,44 @@
 <script lang="ts">
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import HorizontalLayout from './index.svelte';
-
-	let gap: 'none' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-	let alignItems: 'start' | 'center' | 'end' | 'stretch' = 'center';
-	let justifyContent: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly' = 'start';
-	let wrap = true;
+	
+	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	
+	const controls: ControlConfig[] = [
+		{
+			name: 'gap',
+			type: 'select',
+			options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'], // Include our new size tokens
+			defaultValue: 'md'
+		},
+		{
+			name: 'alignItems',
+			type: 'select',
+			options: ['start', 'center', 'end', 'stretch'],
+			defaultValue: 'center'
+		},
+		{
+			name: 'justifyContent',
+			type: 'select',
+			options: ['start', 'center', 'end', 'between', 'around', 'evenly'],
+			defaultValue: 'start'
+		},
+		{
+			name: 'wrap',
+			type: 'boolean',
+			defaultValue: true
+		}
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">HorizontalLayout</h1>
-
-	<div class="mb-6 flex flex-wrap gap-4">
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Gap</span>
-			<select bind:value={gap} class="rounded border p-1">
-				<option value="none">none</option>
-				<option value="sm">sm</option>
-				<option value="md">md</option>
-				<option value="lg">lg</option>
-				<option value="xl">xl</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Align</span>
-			<select bind:value={alignItems} class="rounded border p-1">
-				<option value="start">start</option>
-				<option value="center">center</option>
-				<option value="end">end</option>
-				<option value="stretch">stretch</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Justify</span>
-			<select bind:value={justifyContent} class="rounded border p-1">
-				<option value="start">start</option>
-				<option value="center">center</option>
-				<option value="end">end</option>
-				<option value="between">between</option>
-				<option value="around">around</option>
-				<option value="evenly">evenly</option>
-			</select>
-		</label>
-
-		<label class="flex items-center gap-2">
-			<span class="text-sm">Wrap</span>
-			<input type="checkbox" bind:checked={wrap} />
-		</label>
-	</div>
-
-	<HorizontalLayout {gap} {alignItems} {justifyContent} {wrap}>
-		{#snippet children()}
-			<div class="rounded bg-slate-100 p-2">Item 1</div>
-			<div class="rounded bg-slate-100 p-2">Item 2</div>
-			<div class="rounded bg-slate-100 p-2">Item 3</div>
-		{/snippet}
-	</HorizontalLayout>
-</div>
+<Story {controls} component={HorizontalLayout} title="HorizontalLayout Component" description="A flexible horizontal layout component">
+	{#snippet children(values: any)}
+		<HorizontalLayout {...values}>
+			{#snippet children()}
+				<div class="rounded bg-slate-100 p-2">Item 1</div>
+				<div class="rounded bg-slate-100 p-2">Item 2</div>
+				<div class="rounded bg-slate-100 p-2">Item 3</div>
+			{/snippet}
+		</HorizontalLayout>
+	{/snippet}
+</Story>

@@ -1,17 +1,74 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TreeView from './index.svelte';
 
-  const nodes = [
-    { id: '1', label: 'Root 1', children: [{ id: '1-1', label: 'Child 1-1' }, { id: '1-2', label: 'Child 1-2' }] },
-    { id: '2', label: 'Root 2', children: [{ id: '2-1', label: 'Child 2-1' }] }
+  type Props = {
+    expandable: boolean;
+    selectable: boolean;
+    showIcons: boolean;
+    indentSize: number;
+  };
+
+  const controls: ControlConfig[] = [
+    { name: 'expandable', type: 'boolean', defaultValue: true },
+    { name: 'selectable', type: 'boolean', defaultValue: true },
+    { name: 'showIcons', type: 'boolean', defaultValue: true },
+    { name: 'indentSize', type: 'number', defaultValue: 20 }
   ];
+
+  const nodes = [
+    { 
+      id: '1', 
+      label: 'Root 1', 
+      icon: 'рџ“Ѓ',
+      children: [
+        { id: '1-1', label: 'Child 1-1', icon: 'рџ“„' }, 
+        { id: '1-2', label: 'Child 1-2', icon: 'рџ“„' } 
+      ] 
+    },
+    { 
+      id: '2', 
+      label: 'Root 2', 
+      icon: 'рџ“Ѓ',
+      children: [
+        { id: '2-1', label: 'Child 2-1', icon: 'рџ“„' }
+      ] 
+    }
+  ];
+
+  function handleNodeSelect(node: any) {
+    console.log('Node selected:', node);
+  }
 </script>
 
-<Story id="organisms-flat-tree" title="Organisms / Interaction / Controls / Trees / Flat Tree" component={TreeView} category="Organisms/Interaction/Controls/Trees">
-  {#snippet children()}
+<Story
+  id="organisms-flat-tree"
+  title="Organisms / Interaction / Controls / Trees / Flat Tree"
+  component={TreeView}
+  category="Organisms/Interaction/Controls/Trees"
+  description="A flat tree component for displaying hierarchical data in a simplified view."
+  tags={['tree', 'hierarchy', 'flat']}
+  controls={controls}
+>
+  {#snippet children(props)}
     <div class="sb-organisms-flat-tree p-4">
-      <TreeView {nodes} />
+      <h1 class="text-lg font-semibold mb-4">FlatTree Component</h1>
+
+      <div class="mb-6 p-4 border rounded">
+        <h2 class="text-md font-semibold mb-2">Interactive FlatTree</h2>
+        <div class="max-w-md">
+          <TreeView 
+            {nodes} 
+            expandable={props.expandable}
+            selectable={props.selectable}
+            showIcons={props.showIcons}
+            indentSize={props.indentSize}
+            onNodeSelect={handleNodeSelect}
+          />
+        </div>
+      </div>
     </div>
   {/snippet}
 </Story>
+

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CodeDiff from './index.svelte';
@@ -56,7 +56,7 @@ console.log(farewellMessage);`;
   description="A component to display differences between code versions."
   controls={controls}
 >
-  {#snippet children(args: any)}
+  {#snippet children(args)}
     <div class="sb-molecules-code-diff p-4">
       <h1 class="text-lg font-semibold mb-4">CodeDiff Component</h1>
 
@@ -106,5 +106,6 @@ print(calculate(-1, 2))`}
     </div>
   {/snippet}
 </Story>
+
 
 
