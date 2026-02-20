@@ -51,8 +51,9 @@
   {controls}
   title="FormDatePicker Component"
   description="Interactive form date picker with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="max-w-xs">
       <FormDatePicker
@@ -67,4 +68,6 @@
       />
     </div>
   </div>
+
+  {/snippet}
 </Story>

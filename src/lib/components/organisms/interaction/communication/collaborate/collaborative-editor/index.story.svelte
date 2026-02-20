@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -35,7 +35,7 @@
   description="Real-time collaborative editor with formatting tools and user presence indicators."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-collaborative-editor p-4">
       <h1 class="text-lg font-semibold mb-4">CollaborativeEditor Component</h1>
 
@@ -46,8 +46,8 @@
             {content}
             {users}
             {currentUser}
-            showToolbar={props.showToolbar}
-            showUserList={props.showUserList}
+            showToolbar={values.showToolbar}
+            showUserList={values.showUserList}
           />
         </div>
 

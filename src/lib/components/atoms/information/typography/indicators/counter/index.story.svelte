@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -20,7 +20,7 @@
   description="A small badge to display numerical counts, often used for notifications."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -30,10 +30,10 @@
 
         <div class="mt-6 flex items-center space-x-4">
           <Counter
-            count={parseInt(props.count || '5')}
-            max={parseInt(props.max || '99')}
-            variant={props.variant}
-            size={props.size}
+            count={parseInt(values.count || '5')}
+            max={parseInt(values.max || '99')}
+            variant={values.variant}
+            size={values.size}
           />
           <span class="text-[--color-text-primary]">Notifications</span>
         </div>

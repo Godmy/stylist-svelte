@@ -35,8 +35,8 @@
 			<div class="flex items-center space-x-2">
 				<span>Message Status:</span>
 				<MessageStatus
-					status={props.status}
-					size={props.size}
+					status={values.status}
+					size={values.size}
 				/>
 			</div>
 

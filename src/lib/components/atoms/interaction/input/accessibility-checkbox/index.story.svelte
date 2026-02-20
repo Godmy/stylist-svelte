@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AccessibilityCheckbox from './index.svelte';
@@ -37,13 +37,13 @@
   tags={['form', 'input', 'accessibility']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">AccessibilityCheckbox Story</h2>
       <AccessibilityCheckbox
-        label={props.label}
-        checked={props.checked}
-        disabled={props.disabled}
+        label={values.label}
+        checked={values.checked}
+        disabled={values.disabled}
       />
     </div>
   {/snippet}

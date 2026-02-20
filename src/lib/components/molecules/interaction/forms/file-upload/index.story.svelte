@@ -37,8 +37,9 @@
   {controls}
   title="FileUpload Component"
   description="File upload component with drag and drop support"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-8">
     <FileUpload
       accept={controlValues.accept}
@@ -48,4 +49,6 @@
       uploadText={uploadText}
     />
   </div>
+
+  {/snippet}
 </Story>

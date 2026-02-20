@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TreeView from './index.svelte';
@@ -21,40 +21,40 @@
     { 
       id: '1', 
       label: 'Documents', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       type: 'folder',
       children: [
-        { id: '1-1', label: 'Reports', icon: 'рџ“Ѓ', type: 'folder', children: [
-          { id: '1-1-1', label: 'Q1 Report.pdf', icon: 'рџ“„', type: 'file' },
-          { id: '1-1-2', label: 'Q2 Report.pdf', icon: 'рџ“„', type: 'file' }
+        { id: '1-1', label: 'Reports', icon: '📁', type: 'folder', children: [
+          { id: '1-1-1', label: 'Q1 Report.pdf', icon: '📄', type: 'file' },
+          { id: '1-1-2', label: 'Q2 Report.pdf', icon: '📄', type: 'file' }
         ]}, 
-        { id: '1-2', label: 'Images', icon: 'рџ“Ѓ', type: 'folder', children: [
-          { id: '1-2-1', label: 'photo1.jpg', icon: 'рџ–јпёЏ', type: 'file' },
-          { id: '1-2-2', label: 'photo2.jpg', icon: 'рџ–јпёЏ', type: 'file' }
+        { id: '1-2', label: 'Images', icon: '📁', type: 'folder', children: [
+          { id: '1-2-1', label: 'photo1.jpg', icon: '🖼️', type: 'file' },
+          { id: '1-2-2', label: 'photo2.jpg', icon: '🖼️', type: 'file' }
         ]} 
       ] 
     },
     { 
       id: '2', 
       label: 'Projects', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       type: 'folder',
       children: [
-        { id: '2-1', label: 'Project Alpha', icon: 'рџ“Ѓ', type: 'folder', children: [
-          { id: '2-1-1', label: 'spec.docx', icon: 'рџ“„', type: 'file' },
-          { id: '2-1-2', label: 'budget.xlsx', icon: 'рџ“Љ', type: 'file' }
+        { id: '2-1', label: 'Project Alpha', icon: '📁', type: 'folder', children: [
+          { id: '2-1-1', label: 'spec.docx', icon: '📄', type: 'file' },
+          { id: '2-1-2', label: 'budget.xlsx', icon: '📊', type: 'file' }
         ]},
-        { id: '2-2', label: 'Project Beta', icon: 'рџ“Ѓ', type: 'folder' }
+        { id: '2-2', label: 'Project Beta', icon: '📁', type: 'folder' }
       ] 
     },
     { 
       id: '3', 
       label: 'Downloads', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       type: 'folder',
       children: [
-        { id: '3-1', label: 'installer.exe', icon: 'вљ™пёЏ', type: 'file' },
-        { id: '3-2', label: 'archive.zip', icon: 'рџ“¦', type: 'file' }
+        { id: '3-1', label: 'installer.exe', icon: '⚙️', type: 'file' },
+        { id: '3-2', label: 'archive.zip', icon: '📦', type: 'file' }
       ] 
     }
   ];
@@ -81,7 +81,7 @@
   tags={['tree', 'folder', 'file-system', 'navigation']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-folder-tree p-4">
       <h1 class="text-lg font-semibold mb-4">FolderTree Component</h1>
 
@@ -89,14 +89,7 @@
         <h2 class="text-md font-semibold mb-2">Interactive FolderTree</h2>
         <div class="max-w-md">
           <TreeView 
-            {nodes} 
-            expandable={props.expandable}
-            selectable={props.selectable}
-            showIcons={props.showIcons}
-            indentSize={props.indentSize}
-            onNodeSelect={handleNodeSelect}
-            onNodeExpand={handleNodeExpand}
-            onNodeCollapse={handleNodeCollapse}
+            {nodes}
           />
         </div>
       </div>

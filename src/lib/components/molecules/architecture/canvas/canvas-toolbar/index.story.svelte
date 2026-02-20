@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -46,6 +46,12 @@
     tool: tool as 'pen' | 'eraser' | 'select' | 'text' | 'shape',
     mode: mode as 'draw' | 'erase'
   });
+
+  const toCanvasToolbarProps = (selectedTool: string) =>
+    ({
+      selectedTool,
+      drawingOptions
+    }) as any;
 </script>
 
 <Story
@@ -56,7 +62,7 @@
   description="Interactive canvas toolbar with drawing tools and options."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -66,8 +72,7 @@
 
         <div class="mt-6 flex items-center justify-center">
           <CanvasToolbar
-            selectedTool={props.selectedTool}
-            {drawingOptions}
+            {...toCanvasToolbarProps(values.selectedTool)}
             on:tool-change={handleToolChange}
             on:clear-canvas={handleClearCanvas}
             on:save={handleSave}
@@ -88,8 +93,7 @@
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Pen Tool Configuration</p>
             <div class="flex items-center justify-center">
               <CanvasToolbar
-                selectedTool="pen"
-                {drawingOptions}
+                {...toCanvasToolbarProps('pen')}
                 on:tool-change={handleToolChange}
               />
             </div>
@@ -99,8 +103,7 @@
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Eraser Tool Configuration</p>
             <div class="flex items-center justify-center">
               <CanvasToolbar
-                selectedTool="eraser"
-                {drawingOptions}
+                {...toCanvasToolbarProps('eraser')}
                 on:tool-change={handleToolChange}
               />
             </div>
@@ -110,8 +113,7 @@
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Toolbar with Custom Options</p>
             <div class="flex items-center justify-center">
               <CanvasToolbar
-                selectedTool="pen"
-                {drawingOptions}
+                {...toCanvasToolbarProps('pen')}
                 on:tool-change={handleToolChange}
               />
             </div>

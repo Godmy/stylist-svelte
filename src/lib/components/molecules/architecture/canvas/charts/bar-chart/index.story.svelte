@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import BarChart from './index.svelte';
@@ -31,7 +31,7 @@
   tags={['chart', 'data', 'visualization']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Bar Chart</h2>
       <div class="max-w-2xl mx-auto">
@@ -44,8 +44,8 @@
             { id: 'may', name: 'May', value: 90, color: '#8B5CF6' },
             { id: 'jun', name: 'Jun', value: 70, color: '#EC4899' }
           ]}
-          title={props.title}
-          showLegend={props.showLegend}
+          title={values.title}
+          showLegend={values.showLegend}
         />
       </div>
     </div>

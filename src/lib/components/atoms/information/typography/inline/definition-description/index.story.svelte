@@ -43,8 +43,8 @@
 				class="rounded-2xl border border-gray-200/70 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
 			>
 				<DefinitionTerm>Documentation snippet</DefinitionTerm>
-				<DefinitionDescription class={props.muted ? 'text-gray-400' : 'text-gray-700'}>
-					{props.description}
+				<DefinitionDescription class={values.muted ? 'text-gray-400' : 'text-gray-700'}>
+					{values.description}
 				</DefinitionDescription>
 			</dl>
 

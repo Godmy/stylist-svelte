@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ErrorMessage from './index.svelte';
@@ -41,11 +41,11 @@
   tags={['error', 'message', 'alert', 'feedback']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       {#if showError}
         <ErrorMessage
-          {...props}
+          {...values}
           error={
             errorType === 'string' ? 'This is a sample error message' :
             errorType === 'error-object' ? new Error('Sample error object') :
@@ -83,7 +83,7 @@
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="grid grid-cols-1 gap-4 p-4">
       <div>
         <h3 class="text-lg font-semibold mb-2">With Retry Button</h3>

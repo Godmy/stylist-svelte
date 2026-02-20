@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AutocompleteDropdown from './index.svelte';
@@ -31,11 +31,11 @@
   description="A dropdown component with autocomplete functionality."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">AutocompleteDropdown Story</h2>
       <AutocompleteDropdown
-        {...props}
+        {...values}
         options={[
           { label: 'Option 1', value: 'option1' },
           { label: 'Option 2', value: 'option2' },

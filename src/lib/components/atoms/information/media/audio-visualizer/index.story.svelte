@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -20,7 +20,7 @@
   description="An audio visualizer component that shows audio tracks with play controls."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -30,10 +30,10 @@
 
         <div class="mt-6">
           <AudioVisualizer
-            title={props.title}
-            author={props.author}
-            duration={props.duration}
-            isPlaying={props.isPlaying}
+            title={values.title}
+            author={values.author}
+            duration={values.duration}
+            isPlaying={values.isPlaying}
             alt="Sample track artwork"
             src="https://placehold.co/64x64"
           />

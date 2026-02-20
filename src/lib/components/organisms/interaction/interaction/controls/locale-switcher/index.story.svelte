@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import LocaleSwitcher from './index.svelte';
@@ -40,8 +40,8 @@
   description="Locale and timezone switcher with date and time preview."
   controls={controls}
 >
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-locale-switcher p-4">
       <LocaleSwitcher
         {locales}

@@ -31,8 +31,9 @@
   {controls}
   title="Accordion Component"
   description="A component that allows users to expand and collapse sections of content"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-6 max-w-md mx-auto">
     <Accordion
       items={[
@@ -44,6 +45,8 @@
       multiple={false}
     />
   </div>
+
+  {/snippet}
 </Story>
 
 

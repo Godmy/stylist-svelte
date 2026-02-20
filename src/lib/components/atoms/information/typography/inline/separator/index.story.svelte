@@ -28,19 +28,19 @@
 >
 	{#snippet children(values: any)}
 		<div class="space-y-8">
-			{/* Default story */}
+			<!-- Default story -->
 			<div class="p-4">
 				<div class="space-y-4">
 					<p>Content before separator</p>
 					<Separator
-						orientation={props.orientation}
-						decorative={props.decorative}
+						orientation={values.orientation}
+						decorative={values.decorative}
 					/>
 					<p>Content after separator</p>
 				</div>
 			</div>
 
-			{/* Horizontal separator */}
+			<!-- Horizontal separator -->
 			<div class="p-4">
 				<h3 class="mb-4 text-lg font-medium">Horizontal Separator</h3>
 				<div class="space-y-2">
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 
-			{/* Vertical separator */}
+			<!-- Vertical separator -->
 			<div class="flex p-4">
 				<h3 class="mr-4 text-lg font-medium">Vertical Separator</h3>
 				<div class="flex items-center space-x-4">
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 
-			{/* Decorative vs semantic */}
+			<!-- Decorative vs semantic -->
 			<div class="space-y-6 p-4">
 				<h3 class="text-lg font-medium">Semantic Separator</h3>
 				<p>Uses <code>&lt;hr&gt;</code> element</p>

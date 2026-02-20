@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import DataTableAdvanced from './index.svelte';
@@ -19,8 +19,8 @@
 </script>
 
 <Story id="organisms-data-table-advanced" title="Organisms / Interaction / Controls / Tables / Data Table Advanced" component={DataTableAdvanced} category="Organisms/Interaction/Controls/Tables" controls={controls}>
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-data-table-advanced p-4">
       <DataTableAdvanced {data} {columns} showSearch={typedProps.showSearch} showExport={typedProps.showExport} loading={typedProps.loading} />
     </div>

@@ -33,8 +33,9 @@
   {controls}
   title="TimePicker Component"
   description="Time picker component with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <TimePicker
       value={controlValues.value}
@@ -43,4 +44,6 @@
       onValueChange={handleTimeChange}
     />
   </div>
+
+  {/snippet}
 </Story>

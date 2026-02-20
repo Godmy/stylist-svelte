@@ -70,8 +70,9 @@
   {controls}
   title="ConfirmationDialog Component"
   description="Interactive confirmation dialog with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <button
       class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -93,4 +94,6 @@
       onClose={handleClose}
     />
   </div>
+
+  {/snippet}
 </Story>

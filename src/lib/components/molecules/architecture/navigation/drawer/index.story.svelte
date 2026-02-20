@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -26,7 +26,7 @@
   description="Anchored surface that slides in from any edge for contextual tasks."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="mb-4 flex items-center justify-between">
@@ -53,8 +53,8 @@
           Left/right drawers are great for detail panes; top/bottom work for snackbars or command palettes.
         </p>
         <ul class="mt-4 space-y-2 text-sm text-[--color-text-primary]">
-          <li>Left/right: recommended widths 320вЂ“480px.</li>
-          <li>Top/bottom: heights 25вЂ“50vh for focus tasks.</li>
+          <li>Left/right: recommended widths 320–480px.</li>
+          <li>Top/bottom: heights 25–50vh for focus tasks.</li>
           <li>Backdrop optional; keep it for destructive flows.</li>
         </ul>
       </div>
@@ -62,21 +62,21 @@
 
     <Drawer
       open={isOpen}
-      position={props.position}
-      size={props.size}
-      showBackdrop={props.showBackdrop}
-      closable={props.closable}
+      position={values.position}
+      size={values.size}
+      showBackdrop={values.showBackdrop}
+      closable={values.closable}
       on:close={() => (isOpen = false)}
     >
       <svelte:fragment slot="header">
         <div class="flex items-center justify-between">
           <h2 class="text-base font-semibold text-[--color-text-primary]">Project settings</h2>
-          <span class="text-xs uppercase tracking-wide text-[--color-text-secondary]">{props.position} В· {props.size}</span>
+          <span class="text-xs uppercase tracking-wide text-[--color-text-secondary]">{values.position} · {values.size}</span>
         </div>
       </svelte:fragment>
 
       <p class="text-sm text-[--color-text-secondary]">
-        Use drawers for quick edits that donвЂ™t warrant a full page. They should feel fast and reversible.
+        Use drawers for quick edits that don’t warrant a full page. They should feel fast and reversible.
       </p>
 
       <svelte:fragment slot="actions">

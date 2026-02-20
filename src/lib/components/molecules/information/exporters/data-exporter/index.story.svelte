@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -40,7 +40,7 @@
   description="Utility toolbar that lets operators export filtered tables without leaving the page."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-[2.25rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <div class="flex items-center justify-between">
@@ -50,7 +50,7 @@
               Preview the rows getting exported, then choose your preferred format.
             </p>
           </div>
-          <DataExporter data={dataset} format={props.format} disabled={props.disabled} fileName={props.fileName} />
+          <DataExporter data={dataset} format={values.format} disabled={values.disabled} fileName={values.fileName} />
         </div>
 
         <div class="mt-6 overflow-hidden rounded-2xl border border-[--color-border-primary]">
@@ -85,10 +85,10 @@
 
         <div class="mt-5 space-y-4">
           {#each Object.entries(formatNotes) as [formatKey, note]}
-            <article class={`rounded-2xl border ${props.format === formatKey ? 'border-[--color-primary-500]' : 'border-dashed border-[--color-border-primary]'} bg-[--color-background-primary] p-4`}>
+            <article class={`rounded-2xl border ${values.format === formatKey ? 'border-[--color-primary-500]' : 'border-dashed border-[--color-border-primary]'} bg-[--color-background-primary] p-4`}>
               <div class="flex items-center justify-between">
                 <span class="text-sm font-semibold text-[--color-text-primary] uppercase">{formatKey}</span>
-                {#if props.format === formatKey}
+                {#if values.format === formatKey}
                   <span class="rounded-full bg-[--color-primary-100] px-3 py-0.5 text-xs font-semibold text-[--color-primary-700]">
                     selected
                   </span>

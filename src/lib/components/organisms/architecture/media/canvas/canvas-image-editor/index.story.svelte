@@ -37,12 +37,12 @@
   description="Canvas-based image editor component for cropping, filtering, and manipulating images."
   tags={['image', 'editor', 'canvas', 'filter', 'crop']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <CanvasImageEditor
-      width={props.width}
-      height={props.height}
-      filter={props.filter}
-      cropEnabled={props.cropEnabled}
+      width={values.width}
+      height={values.height}
+      filter={values.filter}
+      cropEnabled={values.cropEnabled}
       src="https://placehold.co/600x400"
     />
   {/snippet}

@@ -74,8 +74,9 @@
   {controls}
   title="RadioGroup Component"
   description="Группа радиокнопок с описанием и поддержкой горизонтального режима"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <RadioGroup
     name="plan-choice"
     label={controlValues.label}
@@ -87,4 +88,6 @@
     required={controlValues.required}
     error={controlValues.showError ? 'Пожалуйста, выберите тариф.' : ''}
   />
+
+  {/snippet}
 </Story>

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -23,7 +23,7 @@
   description="Export panel component with format selection and options."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-export-panel p-4">
       <h1 class="text-lg font-semibold mb-4">ExportPanel Component</h1>
 

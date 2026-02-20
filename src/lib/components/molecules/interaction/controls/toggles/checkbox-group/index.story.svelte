@@ -46,8 +46,9 @@
   {controls}
   title="CheckboxGroup Component"
   description="A group of checkboxes for multiple selection"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <CheckboxGroup
     options={options}
     value={[]}
@@ -57,4 +58,6 @@
     required={controlValues.required}
     onValueChange={handleValueChange}
   />
+
+  {/snippet}
 </Story>

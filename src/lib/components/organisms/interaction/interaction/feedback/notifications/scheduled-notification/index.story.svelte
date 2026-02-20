@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { ScheduledNotificationProps, ScheduledNotificationItem } from '$stylist/design-system/props';
@@ -76,7 +76,7 @@
   tags={['notification', 'scheduled', 'recurring', 'reminder']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={NotificationStyleManager.preferences('sb-organisms-scheduled-notification p-4')}>
       <h1 class="text-lg font-semibold mb-4">ScheduledNotification Component</h1>
 
@@ -85,10 +85,10 @@
         <div class="max-w-lg">
           <ScheduledNotification 
             {notifications}
-            showEditButton={props.showEditButton}
-            showDeleteButton={props.showDeleteButton}
-            showRecurrence={props.showRecurrence}
-            allowReorder={props.allowReorder}
+            showEditButton={values.showEditButton}
+            showDeleteButton={values.showDeleteButton}
+            showRecurrence={values.showRecurrence}
+            allowReorder={values.allowReorder}
             onEdit={handleEdit}
             onDelete={handleDelete}
             onToggle={handleToggle}

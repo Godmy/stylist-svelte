@@ -48,8 +48,9 @@
   {controls}
   title="DatePicker Component"
   description="Interactive date picker with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
       <div class="space-y-4">
@@ -83,4 +84,6 @@
       </div>
     </div>
   </div>
+
+  {/snippet}
 </Story>

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TranslationEditor from './index.svelte';
@@ -68,17 +68,18 @@
   ];
   
   const locales: TranslationLocale[] = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-    { code: 'fr', name: 'French', flag: '🇫🇷' }
+    { code: 'en', name: 'English', flag: '????' },
+    { code: 'es', name: 'Spanish', flag: '????' },
+    { code: 'fr', name: 'French', flag: '????' }
   ];
+  const localeCodes = locales.map((locale) => locale.code);
   
   function handleTranslationChange(key: string, locale: string, translation: string) {
     console.log(`Translation changed for ${key} in ${locale}: ${translation}`);
   }
 
-  function handleSave(texts: TranslatableText[]) {
-    console.log('Translations saved:', texts);
+  function handleSave() {
+    console.log('Translations saved');
     alert('Translations saved!');
   }
 
@@ -100,16 +101,16 @@
   tags={['editor', 'translation', 'localization']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 max-w-4xl">
       <TranslationEditor 
         texts={texts}
-        locales={locales}
-        defaultLocale={props.defaultLocale}
-        currentLocale={props.currentLocale}
-        showKeyColumn={props.showKeyColumn}
-        showContextColumn={props.showContextColumn}
-        showStatusColumn={props.showStatusColumn}
+        locales={localeCodes}
+        defaultLocale={values.defaultLocale}
+        currentLocale={values.currentLocale}
+        showKeyColumn={values.showKeyColumn}
+        showContextColumn={values.showContextColumn}
+        showStatusColumn={values.showStatusColumn}
         onTranslationChange={handleTranslationChange}
         onSave={handleSave}
         onImport={handleImport}

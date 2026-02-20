@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ZoomControls from './index.svelte';
@@ -54,7 +54,7 @@
   tags={['zoom', 'controls', 'accessibility', 'scale']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 h-96 flex items-center justify-center">
       <div class="content-container border-2 border-dashed border-gray-300 p-8 rounded-lg">
         <h2 class="text-xl font-bold mb-4">Zoomable Content</h2>
@@ -68,13 +68,13 @@
         </div>
       </div>
       <ZoomControls
-        {...props}
+        {...values}
         onValueChange={(zoomLevel) => console.log('Zoom level changed:', zoomLevel)}
       />
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="p-4 h-96 flex items-center justify-center">
       <div class="content-container border-2 border-dashed border-gray-300 p-8 rounded-lg">
         <h2 class="text-xl font-bold mb-4">Different Zoom Controls</h2>

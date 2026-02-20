@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import MultiSelect from './index.svelte';
@@ -34,8 +34,8 @@
   description="Multi-selection control with searchable dropdown."
   controls={controls}
 >
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-multi-select p-4">
       <div class="max-w-md">
         <MultiSelect

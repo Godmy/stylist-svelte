@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -55,7 +55,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-debug-console grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -66,10 +66,10 @@
         <div class="mt-6">
           <DebugConsole
             logs={consoleLogs}
-            showTimestamps={props.showTimestamps}
-            showLogLevel={props.showLogLevel}
-            allowFilter={props.allowFilter}
-            allowClear={props.allowClear}
+            showTimestamps={values.showTimestamps}
+            showLogLevel={values.showLogLevel}
+            allowFilter={values.allowFilter}
+            allowClear={values.allowClear}
             onClear={handleClear}
             onLog={handleLog}
           />
@@ -90,6 +90,7 @@
                 logs={consoleLogs.slice(0, 2)}
                 showTimestamps={false}
                 allowFilter={false}
+                onClear={handleClear}
                 onLog={handleLog}
               />
             </div>

@@ -28,8 +28,9 @@
   {controls}
   title="ComplexAccordion Component"
   description="Interactive complex accordion with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <ComplexAccordion
       multiple={controlValues.multiple}
@@ -53,4 +54,6 @@
       {/snippet}
     </ComplexAccordion>
   </div>
+
+  {/snippet}
 </Story>

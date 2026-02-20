@@ -34,6 +34,9 @@ export const APPEARANCE_STYLES = [
 
 export type AppearanceStyle = (typeof APPEARANCE_STYLES)[number];
 
+/**
+ * Тип по умолчанию для вариантов - объединяет основные типы
+ */
 export type DefaultVariants = SemanticVariant | AppearanceStyle | NeutralVariant | 'dark' | 'light';
 
 /**
@@ -113,10 +116,7 @@ export type InputVariant = (typeof INPUT_VARIANTS)[number];
  * Общие цветовые варианты - для компонентов, использующих семантические цвета
  * Объединяет семантические варианты с дополнительными цветами
  */
-export const COLOR_VARIANTS = [
-	...SEMANTIC_VARIANTS,
-	'gray' // Дополнительный цвет, часто используемый для нейтральных элементов
-] as const;
+export const COLOR_VARIANTS = [...SEMANTIC_VARIANTS, 'gray'] as const;
 
 export type ColorVariant = (typeof COLOR_VARIANTS)[number];
 
@@ -140,19 +140,15 @@ export type VariantWithAppearance = {
 };
 
 /**
- * Варианты бейджей - определяют визуальное оформление бейджей
+ * Базовые варианты для повторного использования
  */
-export const BADGE_VARIANTS = [
-	'default',  // Нейтральный стиль
-	'primary',  // Основной акцентный стиль
-	'secondary', // Второстепенный стиль
-	'success',  // Стиль успеха
-	'warning',  // Стиль предупреждения
-	'danger',   // Стиль опасности/ошибки
-	'error',    // Стиль ошибки (альтернатива danger)
-	'info',     // Информационный стиль
-	'gray'      // Нейтральный серый стиль
-] as const;
+const BASE_VARIANTS = [...SEMANTIC_VARIANTS, ...NEUTRAL_VARIANTS, 'gray'] as const;
+
+/**
+ * Варианты бейджей - определяют визуальное оформление бейджей
+ * Используют базовые варианты + error как альтернатива danger
+ */
+export const BADGE_VARIANTS = [...BASE_VARIANTS, 'error'] as const;
 
 export type BadgeVariant = (typeof BADGE_VARIANTS)[number];
 

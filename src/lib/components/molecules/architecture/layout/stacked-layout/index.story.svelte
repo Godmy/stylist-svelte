@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import StackedLayout from './index.svelte';
@@ -39,12 +39,12 @@
     description="Stacked layout component for organizing content"
     controls={controls}
 >
-    {#snippet children(props)}
+    {#snippet children(values: any)}
         <div class="p-4">
             <StackedLayout
-                direction={props.direction}
-                gap={props.spacing as 'none' | 'sm' | 'md' | 'lg' | 'xl'}
-                alignItems={props.alignItems}
+                direction={values.direction}
+                gap={values.spacing as 'none' | 'sm' | 'md' | 'lg' | 'xl'}
+                alignItems={values.alignItems}
             >
                 <div>Item 1</div>
                 <div>Item 2</div>

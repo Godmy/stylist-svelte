@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import Switch from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -27,15 +27,15 @@
 </script>
 
 <Story {id} {title} {description} component={Switch} category="Atoms" {controls}>
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		{@const label =
-			typeof props.label === 'string' ? props.label : 'Enable notifications'}
+			typeof values.label === 'string' ? values.label : 'Enable notifications'}
 		{@const description =
-			typeof props.description === 'string' ? props.description : 'Receive email notifications'}
+			typeof values.description === 'string' ? values.description : 'Receive email notifications'}
 		{@const size =
-			typeof props.size === 'string' ? (props.size as SwitchProps['size']) : 'md'}
-		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
-		{@const required = typeof props.required === 'boolean' ? props.required : false}
+			typeof values.size === 'string' ? (values.size as SwitchProps['size']) : 'md'}
+		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
+		{@const required = typeof values.required === 'boolean' ? values.required : false}
 		<Switch
 			id={switchId}
 			{label}

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -130,7 +130,7 @@
   description="List component with avatars, status indicators, and optional action buttons."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-list-with-avatars p-4">
       <h1 class="text-lg font-semibold mb-4">ListWithAvatars Component</h1>
 
@@ -139,12 +139,12 @@
         <div class="max-w-md mx-auto">
           <ListWithAvatars
             {items}
-            showAvatar={props.showAvatar}
-            showStatus={props.showStatus}
-            showSubtitle={props.showSubtitle}
-            showDescription={props.showDescription}
-            showActions={props.showActions}
-            size={props.size}
+            showAvatar={values.showAvatar}
+            showStatus={values.showStatus}
+            showSubtitle={values.showSubtitle}
+            showDescription={values.showDescription}
+            showActions={values.showActions}
+            size={values.size}
           />
         </div>
 

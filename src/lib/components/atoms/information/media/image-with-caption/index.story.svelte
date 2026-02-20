@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -22,7 +22,7 @@
   description="An image component with caption and styling options."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -32,12 +32,12 @@
 
         <div class="mt-6 flex items-center justify-center">
           <ImageWithCaption
-            src={props.src}
-            alt={props.alt}
-            caption={props.caption}
-            rounded={props.rounded}
-            bordered={props.bordered}
-            shadow={props.shadow}
+            src={values.src}
+            alt={values.alt}
+            caption={values.caption}
+            rounded={values.rounded}
+            bordered={values.bordered}
+            shadow={values.shadow}
           />
         </div>
       </div>

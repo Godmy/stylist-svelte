@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import NumberInput from './index.svelte';
@@ -37,14 +37,14 @@
   tags={['input', 'number', 'form']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6 max-w-md mx-auto">
       <h2 class="text-xl font-semibold mb-6">Number Input</h2>
       <div class="space-y-6">
         <NumberInput
-          min={props.min}
-          max={props.max}
-          step={props.step}
+          min={values.min}
+          max={values.max}
+          step={values.step}
         />
       </div>
     </div>

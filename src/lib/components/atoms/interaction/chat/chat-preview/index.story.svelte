@@ -2,9 +2,10 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ChatPreview from './index.svelte';
+	import type { ChatPreviewProps } from '$stylist/design-system/props/chat-preview';
 
 	// Example data for ChatPreview
-	const chatPreviewData = {
+	const chatPreviewData: ChatPreviewProps = {
 		title: 'AI Team Chat',
 		participants: ['Claude', 'Qwen', 'Gemini'],
 		maxMessages: 3,

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { NotificationCenterProps, NotificationItem } from '$stylist/design-system/props';
@@ -90,7 +90,7 @@
   tags={['notification', 'center', 'alert', 'feedback']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={NotificationStyleManager.preferences('sb-organisms-notification-center p-4')}>
       <h1 class="text-lg font-semibold mb-4">NotificationCenter Component</h1>
 
@@ -99,11 +99,11 @@
         <div class="max-w-lg">
           <NotificationCenter 
             {notifications} 
-            showUnreadCount={props.showUnreadCount}
-            showMarkAllRead={props.showMarkAllRead}
-            showClearAll={props.showClearAll}
-            showTimestamp={props.showTimestamp}
-            pollingInterval={props.pollingInterval}
+            showUnreadCount={values.showUnreadCount}
+            showMarkAllRead={values.showMarkAllRead}
+            showClearAll={values.showClearAll}
+            showTimestamp={values.showTimestamp}
+            pollingInterval={values.pollingInterval}
             onNotificationClick={handleNotificationClick}
             onMarkAllRead={handleMarkAllRead}
             onClearAll={handleClearAll}

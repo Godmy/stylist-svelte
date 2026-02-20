@@ -25,8 +25,9 @@
   {controls}
   title="ExpandableTableRow Component"
   description="A table row that can be expanded to show additional details"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-6">
     <table class="min-w-full divide-y divide-gray-200">
       <thead class="bg-gray-50">
@@ -64,4 +65,6 @@
       </tbody>
     </table>
   </div>
+
+  {/snippet}
 </Story>

@@ -48,8 +48,9 @@
   {controls}
   title="ZoomToolbar Component"
   description="Interactive zoom toolbar with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
       <ZoomToolbar
@@ -76,4 +77,6 @@
       {/if}
     </div>
   </div>
+
+  {/snippet}
 </Story>

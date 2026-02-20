@@ -22,7 +22,7 @@
 		{ name: 'Jonas Müller', role: 'Frontend', status: 'busy' },
 		{ name: 'Luna Chen', role: 'Research', status: 'away' },
 		{ name: 'Diego Alvarez', role: 'Infrastructure', status: 'offline' }
-	];
+	] as Array<{ name: string; role: string; status: 'online' | 'offline' | 'away' | 'busy' }>;
 </script>
 
 <Story
@@ -45,8 +45,8 @@
 					</p>
 				</div>
 				<StatusIndicator
-					status={props.status}
-					label={props.label}
+					status={values.status}
+					label={values.label}
 					class="text-sm font-medium text-gray-800 dark:text-gray-100"
 				/>
 			</div>

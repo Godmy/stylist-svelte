@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import AccountProgressTracker from './index.svelte';
@@ -28,9 +28,9 @@
 	description="Track account setup progress through multiple steps."
 	{controls}
 >
-	{#snippet children(props)}
-		{@const currentStep = typeof props.currentStep === 'number' ? props.currentStep : 0}
-		{@const className = typeof props.class === 'string' ? props.class : undefined}
+	{#snippet children(values: any)}
+		{@const currentStep = typeof values.currentStep === 'number' ? values.currentStep : 0}
+		{@const className = typeof values.class === 'string' ? values.class : undefined}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">AccountProgressTracker Story</h2>
 			<AccountProgressTracker

@@ -49,8 +49,9 @@
   {controls}
   title="Select Component"
   description="Select component for choosing one option from a list"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <Select
     {id}
     label={controlValues.label}
@@ -60,4 +61,6 @@
     placeholder={controlValues.withPlaceholder ? 'Choose an option...' : undefined}
     errors={controlValues.withError ? ['This field is required'] : []}
   />
+
+  {/snippet}
 </Story>

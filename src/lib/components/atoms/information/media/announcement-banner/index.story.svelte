@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -19,7 +19,7 @@
   description="An announcement banner component for displaying important notifications."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -29,9 +29,9 @@
 
         <div class="mt-6">
           <AnnouncementBanner
-            title={props.title}
-            description={props.description}
-            icon={props.icon}
+            title={values.title}
+            description={values.description}
+            icon={values.icon}
           >
             <div>Extra content slot</div>
           </AnnouncementBanner>
@@ -50,7 +50,7 @@
             <AnnouncementBanner
               title="Success!"
               description="Your changes have been saved successfully."
-              icon="вњ…"
+              icon="✅"
             />
           </article>
 
@@ -59,7 +59,7 @@
             <AnnouncementBanner
               title="Warning"
               description="Please review your settings before proceeding."
-              icon="вљ пёЏ"
+              icon="⚠️"
             />
           </article>
         </div>

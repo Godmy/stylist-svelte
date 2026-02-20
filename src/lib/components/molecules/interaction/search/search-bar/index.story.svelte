@@ -43,8 +43,9 @@
   {controls}
   title="SearchBar Component"
   description="Search bar component with debounce and clear functionality"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <SearchBar
       placeholder={controlValues.placeholder}
@@ -55,4 +56,6 @@
       onClear={handleClear}
     />
   </div>
+
+  {/snippet}
 </Story>

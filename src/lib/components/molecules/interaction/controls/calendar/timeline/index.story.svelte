@@ -26,12 +26,15 @@
   {controls}
   title="Timeline Component"
   description="Timeline component to show events chronologically"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <Timeline
       items={defaultItems}
       orientation={controlValues.orientation}
     />
   </div>
+
+  {/snippet}
 </Story>

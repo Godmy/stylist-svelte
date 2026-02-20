@@ -113,8 +113,9 @@
   {controls}
   title="FieldHighlighter Component"
   description="Interactive field highlighter with graph visualization"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
       <div class="space-y-4">
@@ -164,16 +165,13 @@
 
       <div class="relative min-h-[360px] overflow-hidden rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-secondary] p-4">
         <FieldHighlighter
-          data={graphData}
-          selectedNode={selectedNode}
+          data={graphData as any}
+          selectedNode={selectedNode as any}
           selectedField={selectedField}
-          onNodeClick={(event: CustomEvent<{ node: GraphNode }>) => handleNodeSelection(event.detail.node)}
-          onFieldClick={(event: CustomEvent<{ node: GraphNode; field: { name: string; type: string; isRequired?: boolean } }>) => {
-            handleNodeSelection(event.detail.node);
-            selectedFieldName = event.detail.field.name;
-          }}
         />
       </div>
     </div>
   </div>
+
+  {/snippet}
 </Story>

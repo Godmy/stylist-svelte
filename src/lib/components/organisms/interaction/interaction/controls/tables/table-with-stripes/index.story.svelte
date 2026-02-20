@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TableWithStripes from './index.svelte';
@@ -45,7 +45,7 @@
   tags={['table', 'stripes', 'zebra']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-table-with-stripes p-4">
       <h1 class="text-lg font-semibold mb-4">TableWithStripes Component</h1>
 
@@ -55,12 +55,6 @@
           <TableWithStripes 
             {data} 
             {columns}
-            striped={props.striped}
-            hoverable={props.hoverable}
-            compact={props.compact}
-            showHeader={props.showHeader}
-            stripeColor={props.stripeColor}
-            onRowClick={handleRowClick}
           />
         </div>
       </div>

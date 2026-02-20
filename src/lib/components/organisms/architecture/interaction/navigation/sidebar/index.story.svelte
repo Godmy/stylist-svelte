@@ -49,12 +49,12 @@
   description="Sidebar navigation component for organizing application sections."
   tags={['sidebar', 'navigation', 'menu', 'layout']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <Sidebar
       items={navItems}
-      title={props.title}
-      collapsed={props.collapsed}
-      collapsible={props.collapsible}
+      title={values.title}
+      collapsed={values.collapsed}
+      collapsible={values.collapsible}
     />
   {/snippet}
 </Story>

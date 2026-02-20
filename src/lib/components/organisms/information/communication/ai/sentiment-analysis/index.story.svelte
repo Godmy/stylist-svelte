@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SentimentAnalysis from './index.svelte';
@@ -29,11 +29,11 @@
   description="Analyzes text sentiment and displays confidence with score breakdown."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-sentiment-analysis grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <SentimentAnalysis
-        text={props.text}
-        status={props.status}
+        text={values.text}
+        status={values.status}
         result={sampleResult}
       />
     </section>

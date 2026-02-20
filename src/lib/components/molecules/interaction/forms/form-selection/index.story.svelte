@@ -29,8 +29,9 @@
   {controls}
   title="FormSection Component"
   description="Form section component with optional collapsible functionality"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-8">
     <FormSection
       title={controlValues.title}
@@ -56,4 +57,6 @@
       </div>
     </FormSection>
   </div>
+
+  {/snippet}
 </Story>

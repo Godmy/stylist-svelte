@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ColumnManager from './index.svelte';
@@ -43,7 +43,7 @@
   tags={['table', 'columns', 'manager', 'visibility']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-column-manager p-4">
       <h1 class="text-lg font-semibold mb-4">ColumnManager Component</h1>
 
@@ -51,12 +51,7 @@
         <h2 class="text-md font-semibold mb-2">Interactive ColumnManager</h2>
         <div class="max-w-md">
           <ColumnManager 
-            {columns} 
-            allowReorder={props.allowReorder}
-            allowToggle={props.allowToggle}
-            showLockIndicator={props.showLockIndicator}
-            onVisibilityChange={handleVisibilityChange}
-            onReorder={handleReorder}
+            {columns}
           />
         </div>
       </div>

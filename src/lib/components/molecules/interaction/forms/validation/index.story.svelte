@@ -35,8 +35,9 @@
   {controls}
   title="FormFieldGroup Component"
   description="Form field group component with label, description, and error support"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-8">
     <FormFieldGroup
       label={controlValues.label}
@@ -51,4 +52,6 @@
       />
     </FormFieldGroup>
   </div>
+
+  {/snippet}
 </Story>

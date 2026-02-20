@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PostCard from './index.svelte';
@@ -65,17 +65,17 @@
   tags={['post', 'card', 'blog', 'article']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PostCard Story</h2>
       <PostCard
-        title={props.title}
-        subtitle={props.subtitle}
-        image={props.image}
-        date={props.date}
-        excerpt={props.excerpt}
-        author={props.author}
-        tags={parseTags(props.tags)}
+        title={values.title}
+        subtitle={values.subtitle}
+        image={values.image}
+        date={values.date}
+        excerpt={values.excerpt}
+        author={values.author}
+        tags={parseTags(values.tags)}
         actions={[
           { label: 'Read More', onClick: () => console.log('Read More clicked') }
         ]}

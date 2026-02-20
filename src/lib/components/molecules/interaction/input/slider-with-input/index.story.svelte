@@ -41,8 +41,9 @@
   {controls}
   title="SliderWithInput Component"
   description="Slider with input component for value selection"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <SliderWithInput
       min={controlValues.min}
@@ -52,4 +53,6 @@
       disabled={controlValues.disabled}
     />
   </div>
+
+  {/snippet}
 </Story>

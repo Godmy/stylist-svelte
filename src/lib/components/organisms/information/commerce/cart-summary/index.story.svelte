@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -83,7 +83,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-cart-summary grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -98,8 +98,8 @@
             shippingCost={5.99}
             taxCost={12.50}
             discountAmount={25.50}
-            showItemThumbnails={props.showItemThumbnails}
-            showDiscounts={props.showDiscounts}
+            showItemThumbnails={values.showItemThumbnails}
+            showDiscounts={values.showDiscounts}
             showShipping={true}
             showTaxes={true}
             showPromoCode={true}

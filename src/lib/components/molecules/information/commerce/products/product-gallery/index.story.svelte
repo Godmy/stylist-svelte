@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductGallery from './index.svelte';
@@ -38,12 +38,12 @@
   tags={['product', 'gallery', 'images', 'ecommerce']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-molecules-product-gallery p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductGallery Story</h2>
       <ProductGallery
         images={sampleImages}
-        mainImage={props.mainImage}
+        mainImage={values.mainImage}
         onImageChange={(image) => console.log('Image changed:', image)}
       />
     </div>

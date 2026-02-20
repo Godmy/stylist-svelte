@@ -26,7 +26,7 @@
 	{#snippet children(values: any)}
 		<div class="p-4">
 			<div>
-				This is an example of <InlineCode variant={props.variant}>inline code</InlineCode> styling.
+				This is an example of <InlineCode variant={values.variant}>inline code</InlineCode> styling.
 			</div>
 
 			<h3 class="mt-8 mb-4 text-lg font-bold">Different Variants</h3>

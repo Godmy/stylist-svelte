@@ -42,8 +42,8 @@
         <h2 class="text-md mb-2 font-semibold">Interactive MessageMeta</h2>
         <MessageMeta
           message={message}
-          showTimestamp={props.showTimestamp}
-          showStatus={props.showStatus}
+          showTimestamp={values.showTimestamp}
+          showStatus={values.showStatus}
         />
       </div>
 

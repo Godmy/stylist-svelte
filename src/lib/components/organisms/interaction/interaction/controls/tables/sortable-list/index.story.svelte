@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SortableList from './index.svelte';
@@ -18,8 +18,8 @@
 </script>
 
 <Story id="organisms-sortable-list" title="Organisms / Interaction / Controls / Tables / Sortable List" component={SortableList} category="Organisms/Interaction/Controls/Tables" controls={controls}>
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-sortable-list p-4">
       <SortableList {items} showHandle={typedProps.showHandle} showActions={typedProps.showActions} variant={typedProps.variant} />
     </div>

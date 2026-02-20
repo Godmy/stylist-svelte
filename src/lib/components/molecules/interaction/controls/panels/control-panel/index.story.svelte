@@ -37,8 +37,9 @@
   {controls}
   title="ControlPanel Component"
   description="Interactive control panel with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ControlPanel
     showToolbar={controlValues.showToolbar}
     showFilter={controlValues.showFilter}
@@ -46,4 +47,6 @@
     onSearch={handleSearch}
     onFilterChange={handleFilterChange}
   />
+
+  {/snippet}
 </Story>

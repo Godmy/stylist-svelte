@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import Notification from './index.svelte';
@@ -44,15 +44,15 @@
   tags={['message', 'alert', 'toast']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Notification</h2>
       <div class="max-w-md mx-auto space-y-4">
         <Notification 
-          title={props.title} 
-          message={props.message} 
-          type={props.type} 
-          showIcon={props.showIcon} 
+          title={values.title} 
+          message={values.message} 
+          type={values.type} 
+          showIcon={values.showIcon} 
         />
       </div>
     </div>

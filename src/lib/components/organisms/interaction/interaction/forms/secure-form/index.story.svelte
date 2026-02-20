@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { SecureFormProps } from '$stylist/design-system/props';
@@ -39,20 +39,14 @@
   tags={['form', 'secure', 'encryption', 'session']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={SecureFormStyleManager.container('sb-organisms-secure-form p-4')}>
       <h1 class="text-lg font-semibold mb-4">SecureForm Component</h1>
 
       <div class="mb-6 p-4 border rounded">
         <h2 class="text-md font-semibold mb-2">Interactive SecureForm</h2>
         <div class="max-w-md">
-          <SecureForm 
-            showEncryption={props.showEncryption}
-            showSecureIndicator={props.showSecureIndicator}
-            autoLock={props.autoLock}
-            sessionTimeout={props.sessionTimeout}
-            onSubmit={handleSubmit}
-            onSessionExpired={handleSessionExpired}
+          <SecureForm
           />
         </div>
       </div>

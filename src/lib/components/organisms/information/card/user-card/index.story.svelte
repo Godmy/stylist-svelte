@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -65,7 +65,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-user-card grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -79,16 +79,16 @@
               id: 'pm-42',
               name: 'Alicia Norris',
               email: 'alicia@orion.software',
-              title: 'Product Manager В· Activation',
+              title: 'Product Manager · Activation',
               avatar: 'https://i.pravatar.cc/96?img=12',
               status: 'online'
             }}
-            showAvatar={props.showAvatar}
+            showAvatar={values.showAvatar}
             showEmail={true}
             showTitle={true}
-            showStatus={props.showStatus}
+            showStatus={values.showStatus}
             showActions={true}
-            size={props.size}
+            size={values.size}
           />
         </div>
       </div>

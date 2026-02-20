@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { NotificationListProps, NotificationItem } from '$stylist/design-system/props';
@@ -80,7 +80,7 @@
   tags={['notification', 'alert', 'feedback', 'list']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={NotificationStyleManager.preferences('sb-organisms-notification-list p-4')}>
       <h1 class="text-lg font-semibold mb-4">NotificationList Component</h1>
 
@@ -89,10 +89,10 @@
         <div class="max-w-lg">
           <NotificationList 
             {notifications} 
-            showDismiss={props.showDismiss}
-            showTypeIcon={props.showTypeIcon}
-            showTimestamp={props.showTimestamp}
-            maxVisible={props.maxVisible}
+            showDismiss={values.showDismiss}
+            showTypeIcon={values.showTypeIcon}
+            showTimestamp={values.showTimestamp}
+            maxVisible={values.maxVisible}
             onDismiss={handleDismiss}
             onNotificationClick={handleNotificationClick}
           />

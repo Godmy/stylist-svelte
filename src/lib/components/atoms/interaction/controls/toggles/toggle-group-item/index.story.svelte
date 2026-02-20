@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -22,7 +22,7 @@ import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/togg
 </script>
 
 <Story {id} {title} {description} component={ToggleGroupItem} category="Molecules" {controls}>
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
 			<div
 				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"
@@ -45,9 +45,9 @@ import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/togg
 							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
 								(value = Array.isArray(e.detail.value) ? e.detail.value[0] : e.detail.value)}
 						>
-							<ToggleGroupItem value="option1" disabled={props.disabled as boolean}>Option 1</ToggleGroupItem>
-							<ToggleGroupItem value="option2" disabled={props.disabled as boolean}>Option 2</ToggleGroupItem>
-							<ToggleGroupItem value="option3" disabled={props.disabled as boolean}>Option 3</ToggleGroupItem>
+							<ToggleGroupItem value="option1" disabled={values.disabled as boolean}>Option 1</ToggleGroupItem>
+							<ToggleGroupItem value="option2" disabled={values.disabled as boolean}>Option 2</ToggleGroupItem>
+							<ToggleGroupItem value="option3" disabled={values.disabled as boolean}>Option 3</ToggleGroupItem>
 						</ToggleGroupRoot>
 						<p class="mt-2 text-xs text-[--color-text-secondary]">Selected: {value || 'None'}</p>
 					</div>
@@ -62,9 +62,9 @@ import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/togg
 							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
 								console.log('Multiple selection:', e.detail.value)}
 						>
-							<ToggleGroupItem value="multi1" disabled={props.disabled as boolean}>Multi 1</ToggleGroupItem>
-							<ToggleGroupItem value="multi2" disabled={props.disabled as boolean}>Multi 2</ToggleGroupItem>
-							<ToggleGroupItem value="multi3" disabled={props.disabled as boolean}>Multi 3</ToggleGroupItem>
+							<ToggleGroupItem value="multi1" disabled={values.disabled as boolean}>Multi 1</ToggleGroupItem>
+							<ToggleGroupItem value="multi2" disabled={values.disabled as boolean}>Multi 2</ToggleGroupItem>
+							<ToggleGroupItem value="multi3" disabled={values.disabled as boolean}>Multi 3</ToggleGroupItem>
 						</ToggleGroupRoot>
 					</div>
 				</div>

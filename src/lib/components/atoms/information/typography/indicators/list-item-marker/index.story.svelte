@@ -43,10 +43,10 @@
 			<!-- Default story -->
 			<div class="flex items-center p-4">
 				<ListItemMarker
-					type={props.type}
-					value={props.value}
-					color={props.color}
-					size={props.size}
+					type={values.type}
+					value={values.value}
+					color={values.color}
+					size={values.size}
 				/>
 			</div>
 

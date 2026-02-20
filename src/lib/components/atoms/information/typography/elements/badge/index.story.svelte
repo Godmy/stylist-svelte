@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Badge from './index.svelte';
@@ -42,13 +42,13 @@
 	tags={['status', 'label']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		{#snippet badgeLabel()}
-			{(props as BadgeStoryProps).label || 'New'}
+			{(values as BadgeStoryProps).label || 'New'}
 		{/snippet}
 
 		<div class="flex flex-col gap-4">
-			<Badge variant={(props as BadgeStoryProps).variant} size={(props as BadgeStoryProps).size}>
+			<Badge variant={(values as BadgeStoryProps).variant} size={(values as BadgeStoryProps).size}>
 				{@render badgeLabel()}
 			</Badge>
 

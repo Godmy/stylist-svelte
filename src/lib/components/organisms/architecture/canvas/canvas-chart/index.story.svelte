@@ -50,16 +50,16 @@
   description="Interactive canvas chart with customizable types."
   tags={['canvas', 'chart', 'visualization', 'data']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <CanvasChart
-      type={props.type}
-      data={props.type === 'line' ? lineData :
-            props.type === 'bar' ? barData :
+      type={values.type}
+      data={values.type === 'line' ? lineData :
+            values.type === 'bar' ? barData :
             pieData}
-      title={`Sample ${props.type.charAt(0).toUpperCase() + props.type.slice(1)} Chart`}
-      xAxisLabel={props.type !== 'pie' ? 'Month' : undefined}
-      yAxisLabel={props.type !== 'pie' ? 'Value' : undefined}
-      showGrid={props.showGrid}
+      title={`Sample ${values.type.charAt(0).toUpperCase() + values.type.slice(1)} Chart`}
+      xAxisLabel={values.type !== 'pie' ? 'Month' : undefined}
+      yAxisLabel={values.type !== 'pie' ? 'Value' : undefined}
+      showGrid={values.showGrid}
       width={600}
       height={400}
     />

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { PaymentMethod } from '$stylist/design-system/props';
@@ -17,8 +17,8 @@
 </script>
 
 <Story id="organisms-payment-selector" title="Organisms / Interaction / Controls / Payment / Payment Selector" component={PaymentSelector} category="Organisms/Interaction/Controls/Payment" controls={controls}>
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-payment-selector p-4">
       <PaymentSelector {methods} showAddButton={typedProps.showAddButton} showSetDefault={typedProps.showSetDefault} />
     </div>

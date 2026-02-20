@@ -107,22 +107,19 @@
 
   <div class="mb-6 rounded border p-4">
     <h2 class="text-md mb-2 font-semibold">Interactive MessageList</h2>
-    <Story 
-      {controls} 
-      component={() => {
-        let messageCount = 8; // Default value
-        return (
+    <Story {controls}>
+      {#snippet children(values: any)}
           <div class="h-96 flex flex-col gap-4">
             <MessageList
-              messages={allMessages.slice(0, messageCount)}
+              messages={allMessages.slice(0, values.messageCount)}
               {currentUser}
               on:messageClick={handleMessageClick}
               on:messageReaction={handleMessageReaction}
               on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
             />
           </div>
-        );
-      }} />
+      {/snippet}
+    </Story>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -161,7 +158,7 @@
     <h2 class="text-md font-semibold mb-2">Default MessageList</h2>
     <div class="h-64">
       <MessageList
-        {allMessages}
+        messages={allMessages}
         {currentUser}
         on:messageClick={handleMessageClick}
         on:messageReaction={handleMessageReaction}

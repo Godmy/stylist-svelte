@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -120,7 +120,7 @@
   description="Interactive location selector with list and grid views, search and filtering capabilities."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-location-selector p-4">
       <h1 class="text-lg font-semibold mb-4">LocationSelector Component</h1>
 
@@ -129,14 +129,14 @@
         <div class="max-w-3xl mx-auto">
           <LocationSelector
             {locations}
-            currentView={props.currentView}
-            showSearch={props.showSearch}
-            showCategoryFilter={props.showCategoryFilter}
-            showMapToggle={props.showMapToggle}
-            showDistance={props.showDistance}
-            searchPlaceholder={props.searchPlaceholder}
-            defaultCategory={props.defaultCategory}
-            maxLocations={props.maxLocations}
+            currentView={values.currentView}
+            showSearch={values.showSearch}
+            showCategoryFilter={values.showCategoryFilter}
+            showMapToggle={values.showMapToggle}
+            showDistance={values.showDistance}
+            searchPlaceholder={values.searchPlaceholder}
+            defaultCategory={values.defaultCategory}
+            maxLocations={values.maxLocations}
             onLocationSelect={(location) => {
               console.log('Location selected:', location.name);
             }}

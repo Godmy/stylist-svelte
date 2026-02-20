@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -24,16 +24,12 @@
   type SocialPlatform = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
 
   const url = 'https://example.com';
-  const title = 'Example Page';
-  const description = 'This is a description of the example page.';
+  const pageTitle = 'Example Page';
+  const pageDescription = 'This is a description of the example page.';
   const platforms: SocialPlatform[] = ['facebook', 'twitter', 'linkedin', 'email', 'copy'];
 
   function handleShare(platform: SocialPlatform) {
     console.log('Shared on:', platform);
-  }
-
-  function handleCopyLink() {
-    console.log('Link copied');
   }
 
   function handleSave() {
@@ -53,7 +49,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-social-share grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -64,15 +60,14 @@
         <div class="mt-6">
           <SocialShare
             {url}
-            {title}
-            {description}
+            title={pageTitle}
+            description={pageDescription}
             {platforms}
-            showCopyLink={props.showCopyLink}
-            showEmbed={props.showEmbed}
-            showSave={props.showSave}
-            showLike={props.showLike}
+            showCopyLink={values.showCopyLink}
+            showEmbed={values.showEmbed}
+            showSave={values.showSave}
+            showLike={values.showLike}
             onShare={handleShare}
-            onCopyLink={handleCopyLink}
             onSave={handleSave}
             onLike={handleLike}
           />
@@ -91,7 +86,7 @@
             <div>
               <SocialShare
                 {url}
-                {title}
+                title={pageTitle}
                 platforms={['twitter', 'facebook']}
                 showCopyLink={false}
                 onShare={handleShare}
@@ -104,15 +99,14 @@
             <div>
               <SocialShare
                 {url}
-                {title}
-                {description}
+                title={pageTitle}
+                description={pageDescription}
                 {platforms}
                 showCopyLink={true}
                 showEmbed={true}
                 showSave={true}
                 showLike={true}
                 onShare={handleShare}
-                onCopyLink={handleCopyLink}
                 onSave={handleSave}
                 onLike={handleLike}
               />

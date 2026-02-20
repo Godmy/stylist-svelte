@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CommentSystem from './index.svelte';
@@ -57,16 +57,16 @@
   description="Threaded comment stream with actions, replies and editing."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-comment-system grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <CommentSystem
         {comments}
         {currentUser}
-        showReply={props.showReply}
-        showLikes={props.showLikes}
-        showDislikes={props.showDislikes}
-        showEdit={props.showEdit}
-        showDelete={props.showDelete}
+        showReply={values.showReply}
+        showLikes={values.showLikes}
+        showDislikes={values.showDislikes}
+        showEdit={values.showEdit}
+        showDelete={values.showDelete}
       />
     </section>
   {/snippet}

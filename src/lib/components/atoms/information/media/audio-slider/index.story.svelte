@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -22,7 +22,7 @@
   description="An audio slider component for controlling audio levels."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -32,12 +32,12 @@
 
         <div class="mt-6 flex items-center justify-center">
           <AudioSlider
-            value={parseInt(props.value || '50')}
-            min={parseInt(props.min || '0')}
-            max={parseInt(props.max || '100')}
-            step={parseInt(props.step || '1')}
-            label={props.label}
-            showValue={props.showValue}
+            value={parseInt(values.value || '50')}
+            min={parseInt(values.min || '0')}
+            max={parseInt(values.max || '100')}
+            step={parseInt(values.step || '1')}
+            label={values.label}
+            showValue={values.showValue}
           />
         </div>
       </div>

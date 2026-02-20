@@ -49,15 +49,16 @@
   {controls}
   title="RadioButtonGroup Component"
   description="A group of radio buttons for single selection"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <RadioButtonGroup
     options={options}
     value={value}
-    label={controlValues.label}
-    description={controlValues.description}
     disabled={controlValues.disabled}
     required={controlValues.required}
     onValueChange={handleValueChange}
   />
+
+  {/snippet}
 </Story>

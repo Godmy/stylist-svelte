@@ -62,19 +62,22 @@
   {controls}
   title="DialogConfirm Component"
   description="A confirmation dialog component with different variants"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <DialogConfirm
       isOpen={controlValues.isOpen}
-      {title: controlValues.title}
-      {message: controlValues.message}
-      {confirmText: controlValues.confirmText}
-      {cancelText: controlValues.cancelText}
-      {variant: controlValues.variant}
-      {isLoading: controlValues.isLoading}
+      title={controlValues.title}
+      message={controlValues.message}
+      confirmText={controlValues.confirmText}
+      cancelText={controlValues.cancelText}
+      variant={controlValues.variant}
+      isLoading={controlValues.isLoading}
       onClose={handleClose}
       onConfirm={handleConfirm}
     />
   </div>
+
+  {/snippet}
 </Story>

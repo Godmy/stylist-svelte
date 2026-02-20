@@ -43,12 +43,12 @@
   description="Graph node card component for displaying node information."
   tags={['card', 'graph', 'node', 'ontology']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <GraphNodeCard
       node={node1}
-      expanded={props.expanded}
-      selected={props.selected}
-      highlight={props.highlight}
+      expanded={values.expanded}
+      selected={values.selected}
+      highlight={values.highlight}
     />
   {/snippet}
 </Story>

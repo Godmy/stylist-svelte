@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import PhoneNumberInput from './index.svelte';
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -27,9 +27,9 @@
   tags={['input', 'phone']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
-      <PhoneNumberInput {...props} />
+      <PhoneNumberInput {...values} />
     </div>
   {/snippet}
 </Story>

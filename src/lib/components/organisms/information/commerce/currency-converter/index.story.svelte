@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -22,9 +22,9 @@
   // Sample currencies
   const currencies = [
     { code: 'USD', name: 'US Dollar', symbol: '$' },
-    { code: 'EUR', name: 'Euro', symbol: 'в‚¬' },
-    { code: 'GBP', name: 'British Pound', symbol: 'ВЈ' },
-    { code: 'JPY', name: 'Japanese Yen', symbol: 'ВҐ' },
+    { code: 'EUR', name: 'Euro', symbol: '€' },
+    { code: 'GBP', name: 'British Pound', symbol: '£' },
+    { code: 'JPY', name: 'Japanese Yen', symbol: '¥' },
     { code: 'CAD', name: 'Canadian Dollar', symbol: 'CA$' },
     { code: 'AUD', name: 'Australian Dollar', symbol: 'AU$' }
   ];
@@ -72,7 +72,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-currency-converter grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -87,9 +87,9 @@
             toCurrency="EUR"
             currencies={currencies}
             exchangeRates={exchangeRates}
-            showInput={props.showInput}
+            showInput={values.showInput}
             showLabels={true}
-            showConversionRate={props.showConversionRate}
+            showConversionRate={values.showConversionRate}
             showFeeEstimate={false}
             feePercentage={0.5}
             onConvert={(result) => console.log('Conversion result:', result)}

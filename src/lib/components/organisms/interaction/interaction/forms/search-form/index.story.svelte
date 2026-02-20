@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { SearchFormProps } from '$stylist/design-system/props';
@@ -40,7 +40,7 @@
   tags={['search', 'form', 'filters']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={SearchFormStyleManager.container('sb-organisms-search-form p-4')}>
       <h1 class="text-lg font-semibold mb-4">SearchForm Component</h1>
 
@@ -48,13 +48,7 @@
         <h2 class="text-md font-semibold mb-2">Interactive SearchForm</h2>
         <div class="max-w-lg">
           <SearchForm 
-            placeholder={props.placeholder}
-            showFilters={props.showFilters}
-            showAdvanced={props.showAdvanced}
-            showRecentSearches={props.showRecentSearches}
-            debounce={props.debounce}
-            onSearch={handleSearch}
-            onFilterChange={handleFilterChange}
+            placeholder={values.placeholder}
           />
         </div>
       </div>

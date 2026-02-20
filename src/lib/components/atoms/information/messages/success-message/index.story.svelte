@@ -34,9 +34,9 @@
     {#snippet children(values: any)}
         <div class="p-4">
             <SuccessMessage
-                message={props.message}
-                show={props.show}
-                duration={props.duration}
+                message={values.message}
+                show={values.show}
+                duration={values.duration}
             />
         </div>
     {/snippet}

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { PaymentSummaryItem, PaymentSummaryDiscount, PaymentSummaryTax } from '$stylist/design-system/props';
@@ -45,7 +45,7 @@
   tags={['payment', 'summary', 'order', 'checkout']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-payment-summary p-4">
       <h1 class="text-lg font-semibold mb-4">PaymentSummary Component</h1>
 
@@ -53,12 +53,12 @@
         <h2 class="text-md font-semibold mb-2">Interactive PaymentSummary</h2>
         <div class="max-w-md">
           <PaymentSummary 
-            items={props.showItems ? items : []}
-            discounts={props.showDiscounts ? discounts : []}
-            taxes={props.showTaxes ? taxes : []}
-            total={props.total}
-            paymentMethod={props.showPaymentMethod ? 'Visa **** 1111' : undefined}
-            transactionId={props.showTransactionId ? 'TX-1001' : undefined}
+            items={values.showItems ? items : []}
+            discounts={values.showDiscounts ? discounts : []}
+            taxes={values.showTaxes ? taxes : []}
+            total={values.total}
+            paymentMethod={values.showPaymentMethod ? 'Visa **** 1111' : undefined}
+            transactionId={values.showTransactionId ? 'TX-1001' : undefined}
           />
         </div>
       </div>

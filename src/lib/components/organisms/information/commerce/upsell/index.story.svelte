@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -68,7 +68,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-upsell grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -82,8 +82,8 @@
             upsellProducts={upsellProducts}
             title="You might upgrade to"
             description="Consider these premium options"
-            showSavings={props.showSavings}
-            showReason={props.showReason}
+            showSavings={values.showSavings}
+            showReason={values.showReason}
             maxProducts={3}
             onProductUpgrade={(product) => console.log('Upgraded to:', product.name)}
             onProductAddToCart={(product) => console.log('Added to cart:', product.name)}

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Toggle from './index.svelte';
@@ -34,9 +34,9 @@
 	tags={['form', 'input', 'toggle', 'switch']}
 	{controls}
 >
-	{#snippet children(props)}
-		{@const size = typeof props.size === 'string' ? (props.size as ToggleStoryProps['size']) : 'md'}
-		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
+	{#snippet children(values: any)}
+		{@const size = typeof values.size === 'string' ? (values.size as ToggleStoryProps['size']) : 'md'}
+		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		<div class="flex flex-col gap-4">
 			<div class="flex items-center gap-4">
 				<Toggle {size} {disabled} />

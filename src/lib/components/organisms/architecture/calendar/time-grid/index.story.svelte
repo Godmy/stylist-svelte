@@ -90,6 +90,18 @@
   function handleSlotClick(date: Date) {
     console.log('Time slot clicked:', date);
   }
+
+  const timeGridProps = (values: any) =>
+    ({
+      events: sampleEvents,
+      startDate: new Date(),
+      endDate: new Date(new Date().setDate(new Date().getDate() + 6)),
+      showHeader: values.showHeader,
+      showCurrentTimeIndicator: values.showCurrentTimeIndicator,
+      timeStep: values.timeStep,
+      onEventClick: handleEventClick,
+      onSlotClick: handleSlotClick
+    }) as any;
 </script>
 
 <Story
@@ -99,17 +111,8 @@
   description="Interactive time grid with detailed scheduling view."
   tags={['calendar', 'time-grid', 'scheduler', 'events']}
 >
-  {#snippet children(props)}
-    <TimeGrid
-      events={sampleEvents}
-      startDate={new Date()}
-      endDate={new Date(new Date().setDate(new Date().getDate() + 6))}
-      showHeader={props.showHeader}
-      showCurrentTimeIndicator={props.showCurrentTimeIndicator}
-      timeStep={props.timeStep}
-      onEventClick={handleEventClick}
-      onSlotClick={handleSlotClick}
-    />
+  {#snippet children(values: any)}
+    <TimeGrid {...timeGridProps(values)} />
   {/snippet}
 </Story>
 

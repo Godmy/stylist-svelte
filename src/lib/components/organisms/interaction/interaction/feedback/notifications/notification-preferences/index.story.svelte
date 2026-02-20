@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import type { NotificationPreferencesProps } from '$stylist/design-system/props';
@@ -40,7 +40,7 @@
   tags={['notification', 'preferences', 'settings', 'channels']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={NotificationStyleManager.preferences('sb-organisms-notification-preferences p-4')}>
       <h1 class="text-lg font-semibold mb-4">NotificationPreferences Component</h1>
 
@@ -48,11 +48,11 @@
         <h2 class="text-md font-semibold mb-2">Interactive NotificationPreferences</h2>
         <div class="max-w-2xl">
           <NotificationPreferences 
-            showEmail={props.showEmail}
-            showPush={props.showPush}
-            showSms={props.showSms}
-            showInApp={props.showInApp}
-            allowBulkToggle={props.allowBulkToggle}
+            showEmail={values.showEmail}
+            showPush={values.showPush}
+            showSms={values.showSms}
+            showInApp={values.showInApp}
+            allowBulkToggle={values.allowBulkToggle}
             onSave={handleSave}
             onReset={handleReset}
           />

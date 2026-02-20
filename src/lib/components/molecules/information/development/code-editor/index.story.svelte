@@ -30,6 +30,9 @@
       description: 'Whether to show copy button'
     }
   ];
+
+  const greetingCode = "function greet(name) {\n  return `Hello, ${name}!`;\n}\n\ngreet('World');";
+  const typeScriptCode = "interface User {\n  id: number;\n  name: string;\n}\n\nconst user: User = { id: 1, name: 'John' };";
 </script>
 
 <div class="p-4">
@@ -44,7 +47,7 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">JavaScript Code</h2>
       <CodeEditor
-        code="function greet(name) {\n  return `Hello, ${name}!`;\n}\n\ngreet('World');"
+        code={greetingCode}
         language="javascript"
       />
     </div>
@@ -52,7 +55,7 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">TypeScript Code</h2>
       <CodeEditor
-        code="interface User {\n  id: number;\n  name: string;\n}\n\nconst user: User = { id: 1, name: 'John' };"
+        code={typeScriptCode}
         language="typescript"
       />
     </div>

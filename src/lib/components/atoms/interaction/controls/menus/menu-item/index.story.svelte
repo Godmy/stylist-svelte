@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import MenuItem from './index.svelte';
@@ -43,10 +43,10 @@
   tags={['menu', 'navigation', 'item', 'link']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <MenuItem
-        {...props}
+        {...values}
         icon="home"
         onValueChange={() => console.log('Menu item clicked')}
       >
@@ -55,7 +55,7 @@
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="grid grid-cols-1 gap-4 p-4">
       <MenuItem active={true} variant="default">
         Active Item

@@ -32,10 +32,10 @@
 				<p class="text-base leading-relaxed text-gray-700 dark:text-gray-200">
 					Build brilliant experiences by connecting your
 					<Abbr
-						title={props.title}
-						class={props.emphasize ? 'font-semibold text-indigo-600' : ''}
+						title={values.title}
+						class={values.emphasize ? 'font-semibold text-indigo-600' : ''}
 					>
-						{props.label}
+						{values.label}
 					</Abbr>
 					with product storytelling. Hover or focus the abbreviation to reveal the expansion.
 				</p>

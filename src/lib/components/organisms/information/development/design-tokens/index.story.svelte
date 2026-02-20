@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -45,7 +45,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-design-tokens grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -55,12 +55,11 @@
 
         <div class="mt-6">
           <DesignTokens
-            theme={props.theme}
-            showColorPalette={props.showColorPalette}
-            showSpacing={props.showSpacing}
-            showTypography={props.showTypography}
-            showShadows={props.showShadows}
-            onSectionClick={handleSectionClick}
+            theme={values.theme}
+            showColorPalette={values.showColorPalette}
+            showSpacing={values.showSpacing}
+            showTypography={values.showTypography}
+            showShadows={values.showShadows}
           />
         </div>
       </div>
@@ -78,7 +77,6 @@
               <DesignTokens
                 theme="dark"
                 showColorPalette={true}
-                onSectionClick={handleSectionClick}
               />
             </div>
           </article>
@@ -92,7 +90,6 @@
                 showSpacing={false}
                 showTypography={false}
                 showShadows={false}
-                onSectionClick={handleSectionClick}
               />
             </div>
           </article>

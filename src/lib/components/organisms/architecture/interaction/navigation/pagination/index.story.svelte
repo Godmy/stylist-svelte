@@ -47,16 +47,16 @@
   description="A component for navigating through multiple pages of content."
   tags={['pagination', 'navigation', 'pages', 'paging']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6">
       <div class="max-w-md mx-auto">
         <Pagination
-          currentPage={props.currentPage}
-          totalPages={props.totalPages}
-          showFirstLast={props.showFirstLast}
-          showPrevNext={props.showPrevNext}
-          showDots={props.showDots}
-          maxVisible={props.maxVisible}
+          currentPage={values.currentPage}
+          totalPages={values.totalPages}
+          showFirstLast={values.showFirstLast}
+          showPrevNext={values.showPrevNext}
+          showDots={values.showDots}
+          maxVisible={values.maxVisible}
         />
       </div>
     </div>

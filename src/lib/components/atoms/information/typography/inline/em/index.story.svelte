@@ -38,8 +38,8 @@
 			<p
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 text-base text-gray-700 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-200"
 			>
-				Ship confidently by carving time for <Em class={toneClass(props.tone)}>
-					{props.text}
+				Ship confidently by carving time for <Em class={toneClass(values.tone)}>
+					{values.text}
 				</Em> before
 				launch.
 			</p>

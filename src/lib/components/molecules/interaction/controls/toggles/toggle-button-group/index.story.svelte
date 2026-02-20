@@ -40,8 +40,9 @@
   {controls}
   title="ToggleButtonGroup Component"
   description="Group of toggle buttons for selection"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <ToggleButtonGroup
       options={defaultOptions}
@@ -51,5 +52,7 @@
       onValueChange={handleValueChange}
     />
   </div>
+
+  {/snippet}
 </Story>
 

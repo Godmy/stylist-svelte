@@ -34,7 +34,6 @@
 			<ActionSegmentedControl
 				{items}
 				{selectedIndex}
-				{customClass}
 				onValueChange={handleValueChange}
 			/>
 		</div>

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -35,7 +35,7 @@
     { id: '2', author: 'Jane S.', rating: 4, title: 'Good value', content: 'Good quality for the price.', date: new Date().toISOString(), verified: false }
   ];
 
-  function handleAddReview(review: Review) {
+  function handleAddReview(review: { title: string; content: string; rating: number }) {
     console.log('Review added:', review);
   }
 
@@ -52,7 +52,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-product-reviews grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -63,11 +63,10 @@
         <div class="mt-6">
           <ProductReviews
             reviews={reviews}
-            averageRating={props.averageRating}
-            totalReviews={props.totalReviews}
-            showAddReview={props.showAddReview}
+            averageRating={values.averageRating}
+            totalReviews={values.totalReviews}
+            showAddReview={values.showAddReview}
             onAddReview={handleAddReview}
-            onHelpful={handleHelpful}
           />
         </div>
       </div>
@@ -85,7 +84,6 @@
               <ProductReviews
                 reviews={reviews}
                 showAddReview={false}
-                onHelpful={handleHelpful}
               />
             </div>
           </article>
@@ -95,7 +93,6 @@
             <div>
               <ProductReviews
                 reviews={reviews.filter(r => r.verified)}
-                onHelpful={handleHelpful}
               />
             </div>
           </article>

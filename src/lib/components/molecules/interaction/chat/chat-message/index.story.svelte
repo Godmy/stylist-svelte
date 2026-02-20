@@ -31,8 +31,9 @@
   {controls}
   title="ChatMessage Component"
   description="A component to display a single chat message"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ChatMessage
     text="Hello! This is a sample message with the current props."
     sender="Sample User"
@@ -41,5 +42,7 @@
     status={controlValues.status}
     variant={controlValues.variant}
   />
+
+  {/snippet}
 </Story>
 

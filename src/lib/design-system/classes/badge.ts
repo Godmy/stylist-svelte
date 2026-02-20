@@ -12,7 +12,8 @@ export const BADGE_VARIANT_CLASSES: Record<BadgeVariant, string> = {
 	danger: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]',
 	error: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]',
 	info: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
-	gray: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]'
+	gray: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',
+	neutral: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]'
 };
 export const BADGE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	sm: 'text-xs px-2 py-0.5',

@@ -30,8 +30,9 @@
   {controls}
   title="AvatarSelector Component"
   description="A component for selecting avatars with preview"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-8 bg-gray-50 rounded-lg">
     <AvatarSelector
       src={controlValues.src}
@@ -39,4 +40,6 @@
       size={controlValues.size}
     />
   </div>
+
+  {/snippet}
 </Story>

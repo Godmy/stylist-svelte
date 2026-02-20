@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -86,7 +86,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-social-feed grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -96,14 +96,7 @@
 
         <div class="mt-6 max-w-lg mx-auto">
           <SocialFeed
-            user={defaultUser}
             posts={defaultPosts}
-            showComments={props.showComments}
-            showShare={props.showShare}
-            showBookmarks={props.showBookmarks}
-            onLike={handleLike}
-            onComment={handleComment}
-            onShare={handleShare}
           />
         </div>
       </div>
@@ -119,10 +112,7 @@
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Comments</p>
             <div class="max-w-lg mx-auto">
               <SocialFeed
-                user={defaultUser}
                 posts={defaultPosts}
-                showComments={false}
-                onLike={handleLike}
               />
             </div>
           </article>
@@ -131,11 +121,7 @@
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal Mode</p>
             <div class="max-w-lg mx-auto">
               <SocialFeed
-                user={defaultUser}
                 posts={defaultPosts.slice(0, 1)}
-                showShare={false}
-                showBookmarks={false}
-                onLike={handleLike}
               />
             </div>
           </article>

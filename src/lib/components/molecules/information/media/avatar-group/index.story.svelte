@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AvatarGroup from './index.svelte';
@@ -43,21 +43,21 @@
   tags={['avatar', 'user', 'group']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Avatar Group</h2>
       <div class="flex items-center space-x-6">
         <div>
           <h3 class="font-medium mb-2">Small</h3>
-          <AvatarGroup avatars={sampleAvatars} maxVisible={props.maxVisible} size="sm" />
+          <AvatarGroup avatars={sampleAvatars} maxVisible={values.maxVisible} size="sm" />
         </div>
         <div>
           <h3 class="font-medium mb-2">Medium</h3>
-          <AvatarGroup avatars={sampleAvatars} maxVisible={props.maxVisible} size="md" />
+          <AvatarGroup avatars={sampleAvatars} maxVisible={values.maxVisible} size="md" />
         </div>
         <div>
           <h3 class="font-medium mb-2">Large</h3>
-          <AvatarGroup avatars={sampleAvatars} maxVisible={props.maxVisible} size="lg" />
+          <AvatarGroup avatars={sampleAvatars} maxVisible={values.maxVisible} size="lg" />
         </div>
       </div>
     </div>

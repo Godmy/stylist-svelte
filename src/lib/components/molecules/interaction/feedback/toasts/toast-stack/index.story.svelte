@@ -55,8 +55,9 @@
   {controls}
   title="ToastStack Component"
   description="Interactive toast stack with customizable positioning"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <button
       class="bg-blue-500 text-white px-4 py-2 rounded mb-4"
@@ -69,4 +70,6 @@
       position={controlValues.position}
     />
   </div>
+
+  {/snippet}
 </Story>

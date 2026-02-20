@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TableWithGrouping from './index.svelte';
@@ -45,7 +45,7 @@
   tags={['table', 'grouping', 'categories']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-table-with-grouping p-4">
       <h1 class="text-lg font-semibold mb-4">TableWithGrouping Component</h1>
 
@@ -54,12 +54,7 @@
         <div class="max-w-4xl">
           <TableWithGrouping 
             {data} 
-            groupBy={props.groupBy}
-            showGroupCounts={props.showGroupCounts}
-            collapsible={props.collapsible}
-            striped={props.striped}
-            onGroupToggle={handleGroupToggle}
-            onRowClick={handleRowClick}
+            groupBy={values.groupBy}
           />
         </div>
       </div>

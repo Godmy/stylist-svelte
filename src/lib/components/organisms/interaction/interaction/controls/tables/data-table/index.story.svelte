@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import DataTable from './index.svelte';
@@ -53,7 +53,7 @@
   tags={['table', 'data', 'grid']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-data-table p-4">
       <h1 class="text-lg font-semibold mb-4">DataTable Component</h1>
 
@@ -62,13 +62,7 @@
         <div class="max-w-4xl">
           <DataTable 
             {data} 
-            {columns} 
-            striped={props.striped}
-            hoverable={props.hoverable}
-            compact={props.compact}
-            showHeader={props.showHeader}
-            sortable={props.sortable}
-            onSort={handleSort}
+            {columns}
             onRowClick={handleRowClick}
           />
         </div>
@@ -76,35 +70,35 @@
         <div class="mt-4 flex flex-wrap gap-4">
           <div class="flex items-end">
             <label for="striped" class="flex items-center gap-1">
-              <input id="striped" type="checkbox" bind:checked={props.striped} />
+              <input id="striped" type="checkbox" bind:checked={values.striped} />
               Striped
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="hoverable" class="flex items-center gap-1">
-              <input id="hoverable" type="checkbox" bind:checked={props.hoverable} />
+              <input id="hoverable" type="checkbox" bind:checked={values.hoverable} />
               Hoverable
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="compact" class="flex items-center gap-1">
-              <input id="compact" type="checkbox" bind:checked={props.compact} />
+              <input id="compact" type="checkbox" bind:checked={values.compact} />
               Compact
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="show-header" class="flex items-center gap-1">
-              <input id="show-header" type="checkbox" bind:checked={props.showHeader} />
+              <input id="show-header" type="checkbox" bind:checked={values.showHeader} />
               Show Header
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="sortable" class="flex items-center gap-1">
-              <input id="sortable" type="checkbox" bind:checked={props.sortable} />
+              <input id="sortable" type="checkbox" bind:checked={values.sortable} />
               Sortable
             </label>
           </div>

@@ -43,8 +43,9 @@
   {controls}
   title="DragAndDropList Component"
   description="Reorderable list component for backlog grooming, playlists, or priority queues"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <DragAndDropList
       items={items}
@@ -53,4 +54,6 @@
       onItemsChange={handleItemsChange}
     />
   </div>
+
+  {/snippet}
 </Story>

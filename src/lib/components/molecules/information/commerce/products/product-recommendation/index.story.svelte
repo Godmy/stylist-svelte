@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ProductRecommendation from './index.svelte';
@@ -61,12 +61,12 @@
   tags={['product', 'recommendation', 'ecommerce']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-molecules-product-recommendation p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">ProductRecommendation Story</h2>
       <ProductRecommendation
         products={sampleProducts}
-        title={props.title}
+        title={values.title}
         onProductClick={(id) => console.log('Product clicked:', id)}
       />
     </div>

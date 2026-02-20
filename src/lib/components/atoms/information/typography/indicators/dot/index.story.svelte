@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -29,7 +29,7 @@
   description="A small, colored dot indicator for statuses or notifications."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -38,7 +38,7 @@
         <p class="mt-1 text-[--color-text-primary]">A small, colored dot indicator for statuses or notifications.</p>
 
         <div class="mt-6 flex items-center space-x-4">
-          <Dot color={props.color} size={props.size} />
+          <Dot color={values.color} size={values.size} />
           <span class="text-[--color-text-primary]">Status Indicator</span>
         </div>
       </div>

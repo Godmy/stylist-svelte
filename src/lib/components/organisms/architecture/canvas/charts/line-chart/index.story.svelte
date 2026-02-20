@@ -104,21 +104,21 @@
   description="Interactive line chart with customizable appearance and data."
   tags={['chart', 'line', 'data', 'visualization']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <LineChart
       {data}
-      title={props.title}
-      width={props.width}
-      height={props.height}
-      showTooltip={props.showTooltip}
-      showLegend={props.showLegend}
-      colorScheme={props.colorScheme}
+      title={values.title}
+      width={values.width}
+      height={values.height}
+      showTooltip={values.showTooltip}
+      showLegend={values.showLegend}
+      colorScheme={values.colorScheme}
       maxValue={100}
-      showAxis={props.showAxis}
-      smooth={props.smooth}
+      showAxis={values.showAxis}
+      smooth={values.smooth}
       strokeWidth={2}
-      variant={props.variant}
-      size={props.size}
+      variant={values.variant}
+      size={values.size}
       onPointClick={handlePointClick}
     />
   {/snippet}

@@ -25,8 +25,9 @@
   {controls}
   title="Tabs Component"
   description="A component to organize content into tabbed sections"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <Tabs selectedId={controlValues.selectedId} onValueChange={handleTabChange} class="w-full">
     <TabList>
       <Tab id="tab1">Getting Started</Tab>
@@ -64,4 +65,6 @@
       </TabPanel>
     </TabPanels>
   </Tabs>
+
+  {/snippet}
 </Story>

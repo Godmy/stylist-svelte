@@ -29,8 +29,9 @@
   {controls}
   title="PictureToolbar Component"
   description="Toolbar component for image editing tools"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="rounded-lg bg-gray-50 p-8">
     <PictureToolbar
       tools={tools}
@@ -38,4 +39,6 @@
       onToolSelect={handleToolSelect}
     />
   </div>
+
+  {/snippet}
 </Story>

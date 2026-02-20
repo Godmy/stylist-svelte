@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -29,12 +29,12 @@
     console.log('Provider clicked:', provider);
   }
 
-  function handleEmailLogin(email: string) {
-    console.log('Email login:', email);
+  function handleEmailLogin() {
+    console.log('Email login');
   }
 
-  function handleSignUp(email: string, password: string) {
-    console.log('Sign up:', email);
+  function handleSignUp() {
+    console.log('Sign up');
   }
 </script>
 
@@ -46,7 +46,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-social-login grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -57,11 +57,10 @@
         <div class="mt-6 max-w-md mx-auto">
           <SocialLogin
             providers={providers}
-            showEmailForm={props.showEmailForm}
-            showPasswordForm={props.showPasswordForm}
-            showSignUp={props.showSignUp}
-            showForgotPassword={props.showForgotPassword}
-            onProviderClick={handleProviderClick}
+            showEmailForm={values.showEmailForm}
+            showPasswordForm={values.showPasswordForm}
+            showSignUp={values.showSignUp}
+            showForgotPassword={values.showForgotPassword}
             onEmailLogin={handleEmailLogin}
             onSignUp={handleSignUp}
           />
@@ -82,7 +81,6 @@
                 providers={providers}
                 showEmailForm={false}
                 showPasswordForm={false}
-                onProviderClick={handleProviderClick}
               />
             </div>
           </article>

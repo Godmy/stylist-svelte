@@ -39,8 +39,8 @@
 		<div class="p-4">
 			<SyntaxHighlightedCode
 				code={sampleCode}
-				language={props.language}
-				showLineNumbers={props.showLineNumbers}
+				language={values.language}
+				showLineNumbers={values.showLineNumbers}
 			/>
 			
 			<h3 class="mt-8 mb-4 text-lg font-bold">Different Languages</h3>

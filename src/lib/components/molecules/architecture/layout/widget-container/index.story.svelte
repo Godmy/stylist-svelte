@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import { createRawSnippet } from 'svelte';
@@ -79,7 +79,7 @@
   description="Container for mini-applications with drag, collapse, and custom actions."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -89,16 +89,16 @@
 
         <div class="mt-6">
           <WidgetContainer
-            title={props.title}
-            subtitle={props.subtitle}
+            title={values.title}
+            subtitle={values.subtitle}
             content={contentSnippet}
             actions={actionsSnippet}
-            collapsible={props.collapsible}
-            initiallyCollapsed={props.initiallyCollapsed}
-            resizable={props.resizable}
-            draggable={props.draggable}
-            maximizable={props.maximizable}
-            size={props.size}
+            collapsible={values.collapsible}
+            initiallyCollapsed={values.initiallyCollapsed}
+            resizable={values.resizable}
+            draggable={values.draggable}
+            maximizable={values.maximizable}
+            size={values.size}
             class="max-w-2xl mx-auto"
           />
         </div>

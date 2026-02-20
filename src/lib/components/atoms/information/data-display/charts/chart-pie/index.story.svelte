@@ -35,8 +35,6 @@
 	{#snippet children(values: any)}
 		<PieChart
 			data={sampleData}
-			width={parseInt(values.width as string) || undefined}
-			height={parseInt(values.height as string) || undefined}
 		/>
 	{/snippet}
 </Story>

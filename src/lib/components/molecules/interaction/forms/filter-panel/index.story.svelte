@@ -50,8 +50,9 @@
   {controls}
   title="FilterPanel Component"
   description="Interactive filter panel with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="max-w-xs">
       <FilterPanel
@@ -60,9 +61,9 @@
         showUnions={controlValues.showUnions}
         showEnums={controlValues.showEnums}
         layout={controlValues.layout}
-        onFilterChange={handleFilterChange}
-        onReset={handleReset}
       />
     </div>
   </div>
+
+  {/snippet}
 </Story>

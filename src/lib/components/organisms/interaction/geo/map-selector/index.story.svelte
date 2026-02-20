@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -37,17 +37,17 @@
   description="Interactive map selector with location markers and controls."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-map-selector p-4">
       <h1>MapSelector Story</h1>
       <MapSelector
         {locations}
-        showSearch={props.showSearch}
-        showZoomControls={props.showZoomControls}
-        showCurrentLocation={props.showCurrentLocation}
-        showMarkers={props.showMarkers}
-        height={props.height}
-        width={props.width}
+        showSearch={values.showSearch}
+        showZoomControls={values.showZoomControls}
+        showCurrentLocation={values.showCurrentLocation}
+        showMarkers={values.showMarkers}
+        height={values.height}
+        width={values.width}
         class="my-2"
       />
     </div>

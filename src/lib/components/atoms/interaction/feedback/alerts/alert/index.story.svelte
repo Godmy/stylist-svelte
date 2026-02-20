@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import Alert from './index.svelte';
@@ -37,11 +37,11 @@
 	description="Display important messages to users with different severity levels."
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		{@const variant =
-			typeof props.variant === 'string' ? (props.variant as NonNullable<Props['variant']>) : 'info'}
-		{@const title = typeof props.title === 'string' ? props.title : 'Sample Alert'}
-		{@const closable = typeof props.closable === 'boolean' ? props.closable : false}
+			typeof values.variant === 'string' ? (values.variant as NonNullable<Props['variant']>) : 'info'}
+		{@const title = typeof values.title === 'string' ? values.title : 'Sample Alert'}
+		{@const closable = typeof values.closable === 'boolean' ? values.closable : false}
 		<div class="max-w-md p-4">
 			<Alert {variant} {title} {closable}>
 				{#snippet children()}

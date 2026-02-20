@@ -94,8 +94,9 @@
   {controls}
   title="ChatList Component"
   description="A component to display a list of chats"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ChatList
     {chats}
     {currentUser}
@@ -103,4 +104,6 @@
     on:chatSelect={handleChatSelect}
     on:chatDelete={handleChatDelete}
   />
+
+  {/snippet}
 </Story>

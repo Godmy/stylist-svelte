@@ -42,12 +42,14 @@
   {controls}
   title="ModelSelector Component"
   description="A component for selecting AI models from a list"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ModelSelector
     models={sampleModels}
-    selectedModelId={controlValues.selectedModelId}
     onModelSelect={handleModelSelect}
     title={controlValues.title}
   />
+
+  {/snippet}
 </Story>

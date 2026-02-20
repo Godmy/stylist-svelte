@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TreeView from './index.svelte';
@@ -21,32 +21,32 @@
     { 
       id: '1', 
       label: 'Root 1', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       children: [
-        { id: '1-1', label: 'Child 1-1', icon: 'рџ“„' }, 
-        { id: '1-2', label: 'Child 1-2', icon: 'рџ“„', children: [
-          { id: '1-2-1', label: 'Grandchild 1-2-1', icon: 'рџ“„' },
-          { id: '1-2-2', label: 'Grandchild 1-2-2', icon: 'рџ“„' }
+        { id: '1-1', label: 'Child 1-1', icon: '📄' }, 
+        { id: '1-2', label: 'Child 1-2', icon: '📄', children: [
+          { id: '1-2-1', label: 'Grandchild 1-2-1', icon: '📄' },
+          { id: '1-2-2', label: 'Grandchild 1-2-2', icon: '📄' }
         ]} 
       ] 
     },
     { 
       id: '2', 
       label: 'Root 2', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       children: [
-        { id: '2-1', label: 'Child 2-1', icon: 'рџ“„' },
-        { id: '2-2', label: 'Child 2-2', icon: 'рџ“„' }
+        { id: '2-1', label: 'Child 2-1', icon: '📄' },
+        { id: '2-2', label: 'Child 2-2', icon: '📄' }
       ] 
     },
     { 
       id: '3', 
       label: 'Root 3', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       children: [
-        { id: '3-1', label: 'Child 3-1', icon: 'рџ“„' },
-        { id: '3-2', label: 'Child 3-2', icon: 'рџ“„' },
-        { id: '3-3', label: 'Child 3-3', icon: 'рџ“„' }
+        { id: '3-1', label: 'Child 3-1', icon: '📄' },
+        { id: '3-2', label: 'Child 3-2', icon: '📄' },
+        { id: '3-3', label: 'Child 3-3', icon: '📄' }
       ] 
     }
   ];
@@ -73,7 +73,7 @@
   tags={['tree', 'hierarchy', 'navigation']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-virtual-tree p-4">
       <h1 class="text-lg font-semibold mb-4">VirtualTree Component</h1>
 
@@ -81,35 +81,28 @@
         <h2 class="text-md font-semibold mb-2">Interactive VirtualTree</h2>
         <div class="max-w-md">
           <TreeView 
-            {nodes} 
-            expandable={props.expandable}
-            selectable={props.selectable}
-            showIcons={props.showIcons}
-            indentSize={props.indentSize}
-            onNodeSelect={handleNodeSelect}
-            onNodeExpand={handleNodeExpand}
-            onNodeCollapse={handleNodeCollapse}
+            {nodes}
           />
         </div>
 
         <div class="mt-4 flex flex-wrap gap-4">
           <div class="flex items-end">
             <label for="expandable" class="flex items-center gap-1">
-              <input id="expandable" type="checkbox" bind:checked={props.expandable} />
+              <input id="expandable" type="checkbox" bind:checked={values.expandable} />
               Expandable
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="selectable" class="flex items-center gap-1">
-              <input id="selectable" type="checkbox" bind:checked={props.selectable} />
+              <input id="selectable" type="checkbox" bind:checked={values.selectable} />
               Selectable
             </label>
           </div>
 
           <div class="flex items-end">
             <label for="show-icons" class="flex items-center gap-1">
-              <input id="show-icons" type="checkbox" bind:checked={props.showIcons} />
+              <input id="show-icons" type="checkbox" bind:checked={values.showIcons} />
               Show Icons
             </label>
           </div>
@@ -119,7 +112,7 @@
             <input
               id="indent-size"
               type="number"
-              bind:value={props.indentSize}
+              bind:value={values.indentSize}
               class="border rounded p-1 w-16"
               min="10"
               max="40"

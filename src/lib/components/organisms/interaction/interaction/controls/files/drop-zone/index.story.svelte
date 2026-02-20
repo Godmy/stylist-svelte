@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -48,7 +48,7 @@
   description="A drag-and-drop surface with optional previews and validation controls."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-drop-zone grid w-full gap-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <header class="space-y-2">
@@ -60,14 +60,14 @@
 
         <div class="mt-6">
           <DropZone
-            accept={props.accept}
-            multiple={props.multiple}
-            disabled={props.disabled}
-            preview={props.preview}
-            maxSize={props.maxSize}
-            maxItems={props.maxItems}
-            label={props.label}
-            description={props.description}
+            accept={values.accept}
+            multiple={values.multiple}
+            disabled={values.disabled}
+            preview={values.preview}
+            maxSize={values.maxSize}
+            maxItems={values.maxItems}
+            label={values.label}
+            description={values.description}
             onDrop={handleDrop}
           />
         </div>

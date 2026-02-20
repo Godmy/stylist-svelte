@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AdvancedColorPicker from './index.svelte';
@@ -50,7 +50,7 @@
   tags={['input', 'color', 'picker']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <div class="mb-4 flex items-center gap-4">
         <div class="flex items-center gap-2">
@@ -62,10 +62,10 @@
         </div>
       </div>
       <AdvancedColorPicker 
-        value={props.value}
-        disabled={props.disabled}
-        showInput={props.showInput}
-        showPalette={props.showPalette}
+        value={values.value}
+        disabled={values.disabled}
+        showInput={values.showInput}
+        showPalette={values.showPalette}
         onInput={handleInputChange}
       />
     </div>

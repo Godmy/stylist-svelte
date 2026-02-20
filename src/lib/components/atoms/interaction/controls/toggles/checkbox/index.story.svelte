@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import Checkbox from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -33,13 +33,13 @@
 </script>
 
 <Story {id} {title} {description} component={Checkbox} category="Atoms" {controls}>
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		{@const label =
-			typeof props.label === 'string' ? props.label : 'Accept terms and conditions'}
-		{@const required = typeof props.required === 'boolean' ? props.required : false}
-		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
+			typeof values.label === 'string' ? values.label : 'Accept terms and conditions'}
+		{@const required = typeof values.required === 'boolean' ? values.required : false}
+		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		{@const description =
-			typeof props.description === 'string' ? props.description : 'Please read and accept our terms'}
+			typeof values.description === 'string' ? values.description : 'Please read and accept our terms'}
 		<Checkbox
 			id={checkboxId}
 			{label}

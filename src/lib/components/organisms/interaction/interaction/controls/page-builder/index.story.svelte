@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PageBuilder from './index.svelte';
@@ -24,8 +24,8 @@
   description="Visual page builder with drag-and-drop ordering."
   controls={controls}
 >
-  {#snippet children(props)}
-    {@const typedProps = props as Props}
+  {#snippet children(values: any)}
+    {@const typedProps = values as Props}
     <div class="sb-organisms-page-builder p-6">
       <h2 class="text-xl font-semibold mb-6">{typedProps.title}</h2>
       <div class="max-w-4xl mx-auto border rounded-lg">

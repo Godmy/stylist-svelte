@@ -29,8 +29,9 @@
   {controls}
   title="ErrorBoundary Component"
   description="A component that catches and displays errors in its child components"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-6">
     <div class="border border-gray-200 rounded-lg p-4 max-w-md">
       <ErrorBoundary title={controlValues.title} message={controlValues.message}>
@@ -48,4 +49,6 @@
       </ErrorBoundary>
     </div>
   </div>
+
+  {/snippet}
 </Story>

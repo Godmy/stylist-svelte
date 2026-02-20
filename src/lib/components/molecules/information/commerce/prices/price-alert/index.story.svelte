@@ -12,7 +12,7 @@
     primaryScenario = undefined,
     variantScenarios = [],
     controls = [
-      { name: 'variant', type: 'select', options: ['monitoring', 'reached', 'exceeded', 'primary', 'secondary', 'success', 'warning', 'danger'], defaultValue: 'monitoring' },
+      { name: 'variant', type: 'select', options: ['monitoring', 'reached', 'exceeded', 'primary', 'secondary'], defaultValue: 'monitoring' },
       { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
       { name: 'disabled', type: 'boolean', defaultValue: false },
       { name: 'currentPrice', type: 'number', defaultValue: 89.99 },
@@ -41,8 +41,8 @@
     { variant: 'monitoring', size: 'md', currentPrice: 89.99, targetPrice: 99.99, productName: 'Monitoring Alert' },
     { variant: 'reached', size: 'md', currentPrice: 79.99, targetPrice: 89.99, productName: 'Reached Alert' },
     { variant: 'exceeded', size: 'md', currentPrice: 109.99, targetPrice: 99.99, productName: 'Exceeded Alert' },
-    { variant: 'success', size: 'md', currentPrice: 79.99, targetPrice: 89.99, productName: 'Success Alert' },
-    { variant: 'warning', size: 'md', currentPrice: 109.99, targetPrice: 99.99, productName: 'Warning Alert' }
+    { variant: 'reached', size: 'md', currentPrice: 79.99, targetPrice: 89.99, productName: 'Reached Alert (Alt)' },
+    { variant: 'exceeded', size: 'md', currentPrice: 109.99, targetPrice: 99.99, productName: 'Exceeded Alert (Alt)' }
   ];
 
   // Использовать предоставленные сценарии или значения по умолчанию
@@ -58,7 +58,7 @@
   category="Molecules"
   controls={controls}
 >
-  {#snippet children(props)}
-    <PriceAlert {...props} />
+  {#snippet children(values: any)}
+    <PriceAlert {...values} />
   {/snippet}
 </Story>

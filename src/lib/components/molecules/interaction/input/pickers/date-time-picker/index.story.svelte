@@ -32,8 +32,9 @@
   {controls}
   title="DateTimePicker Component"
   description="Inline date + time picker with dropdown calendar and keyboard-friendly selectors"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <DateTimePicker
       value={toDateOrUndefined(controlValues.value)}
@@ -44,4 +45,6 @@
       Selected timestamp: {humanize(controlValues.value)}
     </div>
   </div>
+
+  {/snippet}
 </Story>

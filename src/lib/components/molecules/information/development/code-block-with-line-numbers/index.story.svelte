@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import CodeBlockWithLineNumbers from './index.svelte';
@@ -61,7 +61,6 @@ console.log(message);`;
         <CodeBlockWithLineNumbers
           code={code}
           language={args.language}
-          showLineNumbers={args.showLineNumbers}
           title={args.title}
           copyable={args.copyable}
         />
@@ -75,7 +74,6 @@ console.log(message);`;
             <CodeBlockWithLineNumbers
               code={`console.log("Hello, World!");\n// This code block has no line numbers`}
               language="javascript"
-              showLineNumbers={false}
               title="Code without line numbers"
             />
           </div>

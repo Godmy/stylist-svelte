@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   // @ts-nocheck
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
@@ -86,7 +86,7 @@
   description="File explorer component with grid/list views, search and selection capabilities."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-file-explorer p-4">
       <h1 class="text-lg font-semibold mb-4">FileExplorer Component</h1>
 
@@ -95,12 +95,12 @@
         <div class="h-[500px]">
           <FileExplorer
             {items}
-            currentPath={props.currentPath}
-            viewMode={props.viewMode}
-            searchable={props.searchable}
-            showPath={props.showPath}
-            enableSelection={props.enableSelection}
-            multiselect={props.multiselect}
+            currentPath={values.currentPath}
+            viewMode={values.viewMode}
+            searchable={values.searchable}
+            showPath={values.showPath}
+            enableSelection={values.enableSelection}
+            multiselect={values.multiselect}
             onItemSelect={(item) => {
               console.log('Item selected:', item.name);
             }}

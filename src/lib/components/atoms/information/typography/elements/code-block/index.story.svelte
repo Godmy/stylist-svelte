@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import CodeBlock from './index.svelte';
@@ -55,13 +55,13 @@
 	tags={['code', 'syntax', 'highlighting', 'block']}
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		<CodeBlock
-			language={props.language as string ?? 'javascript'}
-			variant={props.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
-			size={props.size as 'sm' | 'md' | 'lg' ?? 'md'}
-			showLineNumbers={props.showLineNumbers as boolean ?? false}
-			startLineNumber={props.startLineNumber as number ?? 1}
+			language={values.language as string ?? 'javascript'}
+			variant={values.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
+			size={values.size as 'sm' | 'md' | 'lg' ?? 'md'}
+			showLineNumbers={values.showLineNumbers as boolean ?? false}
+			startLineNumber={values.startLineNumber as number ?? 1}
 		>
 			{`function example() {
   console.log("This is an example code block");

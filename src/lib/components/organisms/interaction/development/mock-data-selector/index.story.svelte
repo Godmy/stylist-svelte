@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -104,20 +104,20 @@
   description="Selector for mock data schemas with filtering and preview capabilities."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-mock-data-selector p-4">
       <h1>MockDataSelector Story</h1>
       <MockDataSelector
         {schemas}
         {onSelectionChange}
         {onLoadMockData}
-        title={props.title}
-        description={props.description}
-        allowMultipleSelections={props.allowMultipleSelections}
-        allowFieldSelection={props.allowFieldSelection}
-        allowCustomCount={props.allowCustomCount}
-        showSearch={props.showSearch}
-        showTagsFilter={props.showTagsFilter}
+        title={values.title}
+        description={values.description}
+        allowMultipleSelections={values.allowMultipleSelections}
+        allowFieldSelection={values.allowFieldSelection}
+        allowCustomCount={values.allowCustomCount}
+        showSearch={values.showSearch}
+        showTagsFilter={values.showTagsFilter}
         class="my-2"
       />
     </div>

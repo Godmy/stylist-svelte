@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PushNotification from './index.svelte';
@@ -58,16 +58,16 @@
   tags={['notification', 'alert', 'message']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-gray-50 rounded-lg">
       <h2 class="text-xl font-bold mb-4">PushNotification Story</h2>
       <PushNotification
-        title={props.title}
-        message={props.message}
-        type={props.type}
-        showIcon={props.showIcon}
-        autoDismiss={props.autoDismiss}
-        duration={props.duration}
+        title={values.title}
+        message={values.message}
+        type={values.type}
+        showIcon={values.showIcon}
+        autoDismiss={values.autoDismiss}
+        duration={values.duration}
         onClose={() => console.log('Notification closed')}
       />
     </div>

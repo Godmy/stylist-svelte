@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -24,7 +24,7 @@
   description="A table component for displaying tabular data."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -33,7 +33,7 @@
         <p class="mt-1 text-[--color-text-primary]">A table component for displaying tabular data.</p>
 
         <div class="mt-6 overflow-x-auto">
-          <Table {...props}>
+          <Table {...values}>
             {#snippet content()}
               <TableHeader>
                 {#snippet content()}
@@ -47,13 +47,13 @@
               </TableHeader>
               <TableBody>
                 {#snippet content()}
-                  <TableRow striped={props.striped}>
+                  <TableRow striped={values.striped}>
                     {#snippet content()}
                       <TableCell>Alpha</TableCell>
                       <TableCell>123</TableCell>
                     {/snippet}
                   </TableRow>
-                  <TableRow striped={props.striped}>
+                  <TableRow striped={values.striped}>
                     {#snippet content()}
                       <TableCell>Beta</TableCell>
                       <TableCell>456</TableCell>

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import StatsCard from './index.svelte';
@@ -14,11 +14,11 @@
   };
 
   const controls: ControlConfig[] = [
-    { name: 'label', type: 'text', defaultValue: 'РђРєС‚РёРІРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»Рё' },
+    { name: 'label', type: 'text', defaultValue: 'Активные пользователи' },
     { name: 'value', type: 'text', defaultValue: '24 560' },
     { name: 'trend', type: 'select', defaultValue: 'up', options: ['up', 'down', 'neutral'] },
     { name: 'trendValue', type: 'text', defaultValue: '+12%' },
-    { name: 'description', type: 'text', defaultValue: 'Р·Р° РїРѕСЃР»РµРґРЅРёРµ 7 РґРЅРµР№' },
+    { name: 'description', type: 'text', defaultValue: 'за последние 7 дней' },
     { name: 'showIcon', type: 'boolean', defaultValue: true }
   ];
 </script>
@@ -40,19 +40,19 @@
   title="StatsCard"
   component={StatsCard}
   category="Molecules"
-  description="РљР°СЂС‚РѕС‡РєР° СЃ РєР»СЋС‡РµРІРѕР№ РјРµС‚СЂРёРєРѕР№ Рё С‚СЂРµРЅРґРѕРј."
+  description="Карточка с ключевой метрикой и трендом."
   tags={['dashboard', 'analytics']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="grid gap-6 max-w-3xl sm:grid-cols-2">
       <StatsCard
-        label={props.label}
-        value={props.value}
-        trend={props.trend}
-        trendValue={props.trendValue}
-        description={props.description}
-        icon={props.showIcon ? mainIcon : undefined}
+        label={values.label}
+        value={values.value}
+        trend={values.trend}
+        trendValue={values.trendValue}
+        description={values.description}
+        icon={values.showIcon ? mainIcon : undefined}
       />
 
       <StatsCard
@@ -60,7 +60,7 @@
         value="3,6%"
         trend="down"
         trendValue="-1,2%"
-        description="РјРµСЃСЏС† Рє РјРµСЃСЏС†Сѓ"
+        description="месяц к месяцу"
         icon={churnIcon}
         class="bg-rose-50/80 border-rose-100"
       />
@@ -70,7 +70,7 @@
         value="$82K"
         trend="up"
         trendValue="+5%"
-        description="Р·Р° РєРІР°СЂС‚Р°Р»"
+        description="за квартал"
         icon={revenueIcon}
       />
     </div>

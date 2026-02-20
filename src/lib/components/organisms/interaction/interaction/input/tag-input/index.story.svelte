@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TagInput from './index.svelte';
@@ -50,15 +50,15 @@
   tags={['input', 'tags', 'multiselect']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <h3 class="text-lg font-semibold mb-2">Current Tags: {currentTags.join(', ')}</h3>
       <TagInput 
         tags={currentTags}
-        placeholder={props.placeholder}
-        disabled={props.disabled}
-        maxTags={props.maxTags}
-        delimiter={props.delimiter}
+        placeholder={values.placeholder}
+        disabled={values.disabled}
+        maxTags={values.maxTags}
+        delimiter={values.delimiter}
         onChange={handleInputChange}
       />
     </div>

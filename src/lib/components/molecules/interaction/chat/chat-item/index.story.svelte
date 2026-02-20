@@ -50,19 +50,23 @@
   function handleDelete() {
     console.log('Chat deleted');
   }
+
+  const chatItemProps = (isActive: boolean) =>
+    ({ chat, currentUser, isActive }) as any;
 </script>
 
 <Story
   {controls}
   title="ChatItem Component"
   description="A component to display a single chat item in a chat list"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ChatItem
-    {chat}
-    {currentUser}
-    isActive={controlValues.isActive}
+    {...chatItemProps(controlValues.isActive)}
     on:select={handleSelect}
     on:delete={handleDelete}
   />
+
+  {/snippet}
 </Story>

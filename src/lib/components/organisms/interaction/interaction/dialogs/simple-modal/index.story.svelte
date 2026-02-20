@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SimpleModal from './index.svelte';
@@ -41,7 +41,7 @@
   tags={['dialog', 'modal', 'simple']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-simple-modal p-4">
       <button 
         class="px-4 py-2 bg-blue-600 text-white rounded mb-4" 
@@ -51,7 +51,7 @@
       </button>
       <SimpleModal 
         open={isOpen}
-        title={props.title} 
+        title={values.title} 
         onClose={handleClose} 
       />
     </div>

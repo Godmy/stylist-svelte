@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TreeView from './index.svelte';
@@ -28,21 +28,21 @@
       const root = {
         id: `root-${i}`,
         label: `Root ${i}`,
-        icon: 'рџ“Ѓ',
+        icon: '📁',
         children: [] as any[]
       };
       for (let j = 1; j <= 5; j++) {
         const child = {
           id: `root-${i}-child-${j}`,
           label: `Child ${i}-${j}`,
-          icon: 'рџ“Ѓ',
+          icon: '📁',
           children: [] as any[]
         };
         for (let k = 1; k <= 3; k++) {
           child.children.push({
             id: `root-${i}-child-${j}-leaf-${k}`,
             label: `Leaf ${i}-${j}-${k}`,
-            icon: 'рџ“„',
+            icon: '📄',
             type: 'leaf'
           });
         }
@@ -81,7 +81,7 @@
   tags={['tree', 'virtual', 'large-data', 'performance']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-advanced-virtual-tree p-4">
       <h1 class="text-lg font-semibold mb-4">AdvancedVirtualTree Component</h1>
 
@@ -91,17 +91,7 @@
         </h2>
         <div class="max-w-md" style="height: 400px; overflow: auto;">
           <TreeView 
-            {nodes} 
-            expandable={props.expandable}
-            selectable={props.selectable}
-            showIcons={props.showIcons}
-            indentSize={props.indentSize}
-            virtualScroll={props.virtualScroll}
-            showCheckboxes={props.showCheckboxes}
-            onNodeSelect={handleNodeSelect}
-            onNodeExpand={handleNodeExpand}
-            onNodeCollapse={handleNodeCollapse}
-            onCheck={handleCheck}
+            {nodes}
           />
         </div>
       </div>

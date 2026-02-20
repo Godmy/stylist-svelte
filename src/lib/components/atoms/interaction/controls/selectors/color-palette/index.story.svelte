@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ColorPalette from './index.svelte';
@@ -54,17 +54,17 @@
   tags={['color', 'palette', 'selector', 'picker']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <ColorPalette
-        {...props}
+        {...values}
         colors={defaultColors}
         onValueChange={(color) => console.log('Selected color:', color)}
       />
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="grid grid-cols-1 gap-8 p-4">
       <div>
         <h3 class="text-lg font-semibold mb-4">With Labels</h3>

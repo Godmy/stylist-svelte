@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import ThemeSwitcher from './index.svelte';
@@ -37,11 +37,11 @@
     description="Component for switching between themes"
     controls={controls}
 >
-    {#snippet children(props)}
+    {#snippet children(values: any)}
         <div class="p-4">
             <ThemeSwitcher
-                currentTheme={props.currentTheme || 'light'}
-                showLabels={props.showLabels}
+                currentTheme={values.currentTheme || 'light'}
+                showLabels={values.showLabels}
                 onThemeChange={handleThemeChange}
             />
         </div>

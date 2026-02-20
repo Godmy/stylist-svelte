@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -36,6 +36,12 @@
     { id: '1', testName: 'CTA Test', variantName: 'Variant A', visitors: 1000, conversions: 50, conversionRate: 5, statisticalSignificance: 95, improvement: 10, status: 'winning' },
     { id: '2', testName: 'CTA Test', variantName: 'Variant B', visitors: 1000, conversions: 40, conversionRate: 4, statisticalSignificance: 80, improvement: -10, status: 'losing' }
   ];
+  const testOverview = {
+    totalTests: 1,
+    winningTests: 1,
+    losingTests: 1,
+    averageImprovement: 0
+  } as any;
 
   function handleExport(results: TestResult[]) {
     console.log('Exported:', results);
@@ -50,7 +56,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-test-results-viewer grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -61,10 +67,8 @@
         <div class="mt-6">
           <TestResultsViewer
             testResults={testResults}
-            showCharts={props.showCharts}
-            showSignificance={props.showSignificance}
-            showConfidence={props.showConfidence}
-            onExport={handleExport}
+            testOverview={testOverview}
+            showCharts={values.showCharts}
           />
         </div>
       </div>
@@ -81,8 +85,8 @@
             <div>
               <TestResultsViewer
                 testResults={testResults}
+                testOverview={testOverview}
                 showCharts={false}
-                onExport={handleExport}
               />
             </div>
           </article>
@@ -92,9 +96,7 @@
             <div>
               <TestResultsViewer
                 testResults={testResults}
-                showSignificance={false}
-                showConfidence={false}
-                onExport={handleExport}
+                testOverview={testOverview}
               />
             </div>
           </article>

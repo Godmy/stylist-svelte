@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -49,7 +49,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-product-card-extended grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -60,12 +60,12 @@
         <div class="mt-6">
           <ProductCardExtended
             {...sampleProduct}
-            title={props.title}
-            price={props.price}
-            currency={props.currency}
-            rating={props.rating}
-            reviewCount={props.reviewCount}
-            badge={props.badge}
+            title={values.title}
+            price={values.price}
+            currency={values.currency}
+            rating={values.rating}
+            reviewCount={values.reviewCount}
+            badge={values.badge}
             onAddToCart={() => console.log('Add to Cart clicked')}
             onWishlist={() => console.log('Add to Wishlist clicked')}
           />

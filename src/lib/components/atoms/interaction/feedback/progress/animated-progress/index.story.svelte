@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import AnimatedProgress from './index.svelte';
@@ -51,10 +51,10 @@
 	description="A progress bar component with animated value display."
 	{controls}
 >
-	{#snippet children(props)}
+	{#snippet children(values: any)}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">AnimatedProgress Story</h2>
-			<AnimatedProgress {...props} />
+			<AnimatedProgress {...values} />
 		</div>
 	{/snippet}
 </Story>

@@ -46,8 +46,9 @@
   {controls}
   title="RichTextEditor Component"
   description="A rich text editor component with formatting capabilities"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <RichTextEditor
       value={templateContent}
@@ -60,4 +61,6 @@
       onChange={handleChange}
     />
   </div>
+
+  {/snippet}
 </Story>

@@ -78,8 +78,9 @@
   {controls}
   title="IconPicker Component"
   description="Interactive icon picker with searchable icon library"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <div class="max-w-xl mx-auto">
       <IconPicker
@@ -94,4 +95,6 @@
       />
     </div>
   </div>
+
+  {/snippet}
 </Story>

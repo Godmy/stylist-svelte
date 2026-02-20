@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
     import { Story } from '$stylist/design-system/playground';
     import type { ControlConfig } from '$stylist/design-system/tokens/controls';
     import Stepper, { type Step, type Props } from './index.svelte';
@@ -48,11 +48,11 @@
     description="Stepper component for guiding users through steps"
     controls={controls}
 >
-    {#snippet children(props)}
+    {#snippet children(values: any)}
         <div class="p-4">
             <Stepper
                 steps={defaultSteps}
-                orientation={props.orientation}
+                orientation={values.orientation}
             />
         </div>
     {/snippet}

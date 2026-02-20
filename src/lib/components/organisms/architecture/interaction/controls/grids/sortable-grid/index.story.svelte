@@ -1,10 +1,9 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import SortableGrid from './index.svelte';
-  import type { GridItem } from './index.svelte';
   import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-  const defaultItems: GridItem[] = [
+  const defaultItems = [
     { id: '1', title: 'Item 1', content: 'Content for Item 1' },
     { id: '2', title: 'Item 2', content: 'Content for Item 2' },
     { id: '3', title: 'Item 3', content: 'Content for Item 3' },
@@ -47,13 +46,13 @@
   description="Sortable grid component for organizing items."
   tags={['grid', 'sortable', 'drag-and-drop', 'layout']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <SortableGrid
       items={defaultItems}
-      cols={props.cols}
-      disabled={props.disabled}
-      gap={props.gap}
-      variant={props.variant}
+      cols={values.cols}
+      disabled={values.disabled}
+      gap={values.gap}
+      variant={values.variant}
     />
   {/snippet}
 </Story>

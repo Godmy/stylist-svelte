@@ -65,22 +65,22 @@
 		<div class="p-4">
 			<h1 class="text-lg font-semibold mb-4">KPIIndicator Component</h1>
 
-			{/* Default KPI Indicator */}
+			<!-- Default KPI Indicator -->
 			<div class="mb-6 p-4 border rounded">
 				<h2 class="text-md font-semibold mb-2">Default KPI Indicator</h2>
 				<KPIIndicator
-					title={props.title}
-					currentValue={parseInt(props.currentValue as string) || 750}
-					targetValue={parseInt(props.targetValue as string) || 1000}
-					unit={props.unit}
-					status={props.status}
-					trend={props.trend}
-					trendValue={parseInt(props.trendValue as string) || 12}
-					size={props.size}
+					title={values.title}
+					currentValue={parseInt(values.currentValue as string) || 750}
+					targetValue={parseInt(values.targetValue as string) || 1000}
+					unit={values.unit}
+					status={values.status}
+					trend={values.trend}
+					trendValue={parseInt(values.trendValue as string) || 12}
+					size={values.size}
 				/>
 			</div>
 
-			{/* Different Statuses */}
+			<!-- Different Statuses -->
 			<div class="mb-6 p-4 border rounded">
 				<h2 class="text-md font-semibold mb-2">Different Statuses</h2>
 				<div class="flex flex-wrap gap-4">
@@ -126,7 +126,7 @@
 				</div>
 			</div>
 
-			{/* Different Sizes */}
+			<!-- Different Sizes -->
 			<div class="mb-6 p-4 border rounded">
 				<h2 class="text-md font-semibold mb-2">Different Sizes</h2>
 				<div class="flex items-end gap-6">

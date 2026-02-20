@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import SortableTableHeader from './index.svelte';
@@ -58,13 +58,13 @@
   tags={['table', 'header', 'sort', 'sortable']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <table class="min-w-full divide-y divide-gray-200">
         <thead>
           <tr>
             <SortableTableHeader
-              {...props}
+              {...values}
               currentSortKey={currentSortKey}
               currentSortDirection={currentSortDirection}
               onValueChange={handleSort}
@@ -82,7 +82,7 @@
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="p-4">
       <table class="min-w-full divide-y divide-gray-200">
         <thead>

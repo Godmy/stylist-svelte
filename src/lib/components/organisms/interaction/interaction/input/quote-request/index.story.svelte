@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import QuoteRequest from './index.svelte';
@@ -65,15 +65,15 @@
   tags={['form', 'quote', 'request']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 max-w-2xl">
       <QuoteRequest 
-        title={props.title}
-        description={props.description}
-        showCompanyFields={props.showCompanyFields}
-        showShippingFields={props.showShippingFields}
-        showUrgentOption={props.showUrgentOption}
-        showValidUntil={props.showValidUntil}
+        title={values.title}
+        description={values.description}
+        showCompanyFields={values.showCompanyFields}
+        showShippingFields={values.showShippingFields}
+        showUrgentOption={values.showUrgentOption}
+        showValidUntil={values.showValidUntil}
         onSubmit={handleSubmit}
         onCancel={handleCancel}
       />

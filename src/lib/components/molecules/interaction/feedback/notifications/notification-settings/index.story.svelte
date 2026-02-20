@@ -57,8 +57,9 @@
   {controls}
   title="NotificationSettings Component"
   description="A settings panel for configuring notification options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-6 max-w-md mx-auto">
     <h2 class="text-xl font-semibold mb-6">Notification Settings</h2>
     <NotificationSettings
@@ -69,4 +70,6 @@
       preferences={defaultPreferences}
     />
   </div>
+
+  {/snippet}
 </Story>

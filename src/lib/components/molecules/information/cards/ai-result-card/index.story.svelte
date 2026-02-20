@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -33,19 +33,19 @@
   description="Present AI-generated insights with iconography, copy, and custom content."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <h2 class="text-xl font-semibold text-[--color-text-primary] mb-4">Inline preview</h2>
         <AiResultCard
-          title={props.title}
-          description={props.description}
-          icon={props.icon}
+          title={values.title}
+          description={values.description}
+          icon={values.icon}
         >
           <ul class="mt-4 text-sm text-gray-700 space-y-2">
-            <li>вЂў Confidence score: 92%</li>
-            <li>вЂў Anomalies detected in 3 regions</li>
-            <li>вЂў Suggested follow-up: rerun pipeline nightly</li>
+            <li>• Confidence score: 92%</li>
+            <li>• Anomalies detected in 3 regions</li>
+            <li>• Suggested follow-up: rerun pipeline nightly</li>
           </ul>
         </AiResultCard>
       </div>

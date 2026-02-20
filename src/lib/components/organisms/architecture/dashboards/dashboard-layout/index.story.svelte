@@ -30,12 +30,12 @@
   description="A layout component for dashboards with header and sidebar."
   tags={['layout', 'dashboard', 'structure']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-8 bg-[--color-background-secondary] rounded-lg">
       <DashboardLayout
-        collapsibleSidebar={props.collapsibleSidebar}
-        showSidebarToggle={props.showSidebarToggle}
-        variant={props.variant}
+        collapsibleSidebar={values.collapsibleSidebar}
+        showSidebarToggle={values.showSidebarToggle}
+        variant={values.variant}
       >
         {#snippet header()}
           <div class="w-full">

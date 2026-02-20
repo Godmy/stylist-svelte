@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ProgressBarWithLabel from './index.svelte';
@@ -61,15 +61,15 @@
 	tags={['progress', 'bar', 'indicator']}
 	{controls}
 >
-	{#snippet children(props)}
-		{@const value = typeof props.value === 'number' ? props.value : 75}
-		{@const max = typeof props.max === 'number' ? props.max : 100}
-		{@const label = typeof props.label === 'string' ? props.label : 'Upload Progress'}
+	{#snippet children(values: any)}
+		{@const value = typeof values.value === 'number' ? values.value : 75}
+		{@const max = typeof values.max === 'number' ? values.max : 100}
+		{@const label = typeof values.label === 'string' ? values.label : 'Upload Progress'}
 		{@const showPercentage =
-			typeof props.showPercentage === 'boolean' ? props.showPercentage : true}
+			typeof values.showPercentage === 'boolean' ? values.showPercentage : true}
 		{@const color =
-			typeof props.color === 'string' ? (props.color as ProgressBarWithLabelStoryProps['color']) : 'blue'}
-		{@const height = typeof props.height === 'string' ? props.height : 'h-2'}
+			typeof values.color === 'string' ? (values.color as ProgressBarWithLabelStoryProps['color']) : 'blue'}
+		{@const height = typeof values.height === 'string' ? values.height : 'h-2'}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">ProgressBarWithLabel Story</h2>
 			<ProgressBarWithLabel

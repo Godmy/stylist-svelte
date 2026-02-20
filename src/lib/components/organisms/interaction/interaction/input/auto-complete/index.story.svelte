@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import AutoComplete from './index.svelte';
@@ -66,17 +66,16 @@
   tags={['input', 'autocomplete', 'search']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 max-w-md">
       <div class="mb-4">
         <p>Current value: {currentValue || 'None'}</p>
       </div>
       <AutoComplete 
         options={options}
-        placeholder={props.placeholder}
-        disabled={props.disabled}
-        showAllSuggestions={props.showAllSuggestions}
-        debounce={props.debounce}
+        placeholder={values.placeholder}
+        showAllSuggestions={values.showAllSuggestions}
+        debounce={values.debounce}
         onInput={handleInput}
         onSelect={handleSelect}
       />

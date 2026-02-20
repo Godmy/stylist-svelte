@@ -66,8 +66,9 @@
   {controls}
   title="RangeSlider Component"
   description="A slider component for selecting values or ranges"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <RangeSlider
     id="volume-slider"
     label={controlValues.label}
@@ -79,6 +80,7 @@
     disabled={controlValues.disabled}
     range={controlValues.range}
     description={controlValues.description}
-    onValueChange={handleValueChange}
   />
+
+  {/snippet}
 </Story>

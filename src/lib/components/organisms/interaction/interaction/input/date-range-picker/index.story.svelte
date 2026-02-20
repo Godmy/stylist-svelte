@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import DateRangePicker from './index.svelte';
@@ -39,14 +39,14 @@
   tags={['input', 'date', 'picker', 'range']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 max-w-md">
       <div class="mb-4">
         <p>Selected range: {selectedRange.start ? selectedRange.start.toLocaleDateString() : 'None'} - {selectedRange.end ? selectedRange.end.toLocaleDateString() : 'None'}</p>
       </div>
       <DateRangePicker 
-        placeholder={props.placeholder}
-        disabled={props.disabled}
+        placeholder={values.placeholder}
+        disabled={values.disabled}
         onInput={handleInputChange}
       />
     </div>

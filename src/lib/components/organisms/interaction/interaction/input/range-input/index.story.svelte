@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import RangeInput from './index.svelte';
@@ -57,17 +57,17 @@
   tags={['input', 'range', 'slider']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4 max-w-md">
       <div class="mb-4">
         <p>Current range: {currentValues.min} - {currentValues.max}</p>
       </div>
       <RangeInput 
-        min={props.min}
-        max={props.max}
-        step={props.step}
-        disabled={props.disabled}
-        showInputFields={props.showInputFields}
+        min={values.min}
+        max={values.max}
+        step={values.step}
+        disabled={values.disabled}
+        showInputFields={values.showInputFields}
         onInput={handleInputChange}
       />
     </div>

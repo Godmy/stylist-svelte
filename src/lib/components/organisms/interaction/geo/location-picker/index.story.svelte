@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -58,7 +58,7 @@
   description="Interactive map component for selecting locations with markers and search functionality."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-location-picker p-4">
       <h1 class="text-lg font-semibold mb-4">LocationPicker Component</h1>
 
@@ -70,12 +70,12 @@
             {zoom}
             {markers}
             {selectedMarker}
-            showSearch={props.showSearch}
-            showCoordinates={props.showCoordinates}
-            showCurrentLocation={props.showCurrentLocation}
-            disableInteraction={props.disableInteraction}
-            maxZoom={props.maxZoom}
-            minZoom={props.minZoom}
+            showSearch={values.showSearch}
+            showCoordinates={values.showCoordinates}
+            showCurrentLocation={values.showCurrentLocation}
+            disableInteraction={values.disableInteraction}
+            maxZoom={values.maxZoom}
+            minZoom={values.minZoom}
             onLocationSelect={(coords) => {
               console.log('Location selected:', coords);
             }}

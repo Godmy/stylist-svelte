@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import DarkModeToggle from './index.svelte';
@@ -31,9 +31,9 @@
 	tags={['theme', 'toggle', 'dark-mode']}
 	{controls}
 >
-	{#snippet children(props)}
-		{@const darkMode = typeof props.darkMode === 'boolean' ? props.darkMode : false}
-		{@const disabled = typeof props.disabled === 'boolean' ? props.disabled : false}
+	{#snippet children(values: any)}
+		{@const darkMode = typeof values.darkMode === 'boolean' ? values.darkMode : false}
+		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">DarkModeToggle Story</h2>
 			<DarkModeToggle {darkMode} {disabled} />

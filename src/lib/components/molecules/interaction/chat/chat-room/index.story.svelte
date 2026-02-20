@@ -2,6 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ChatRoom from './index.svelte';
   import type { ControlType } from '$stylist/design-system/tokens/controls';
+  import type { Message as ChatRoomMessage } from './index.svelte';
 
   // Sample users and messages
   const sampleCurrentUser = {
@@ -17,7 +18,7 @@
     { id: 'user4', name: 'Jordan Smith', avatar: '' }
   ];
 
-  const sampleMessages = [
+  const sampleMessages: ChatRoomMessage[] = [
     {
       id: 'msg1',
       text: 'Hey team! How is everyone doing with the project?',
@@ -68,8 +69,9 @@
   {controls}
   title="ChatRoom Component"
   description="A component to display a chat room with message history and composer"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <ChatRoom
     messages={sampleMessages}
     currentUser={sampleCurrentUser}
@@ -80,5 +82,7 @@
     variant={controlValues.variant}
     onMessageSend={handleSendMessage}
   />
+
+  {/snippet}
 </Story>
 

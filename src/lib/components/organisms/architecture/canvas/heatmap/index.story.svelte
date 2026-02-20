@@ -81,16 +81,16 @@
   description="Interactive heatmap visualization with customizable color schemes."
   tags={['heatmap', 'data', 'visualization', 'analytics']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <Heatmap
       {data}
-      title={props.title}
-      width={props.width}
-      height={props.height}
-      showTooltip={props.showTooltip}
-      showLegend={props.showLegend}
-      colorScheme={props.colorScheme}
-      showAxis={props.showAxis}
+      title={values.title}
+      width={values.width}
+      height={values.height}
+      showTooltip={values.showTooltip}
+      showLegend={values.showLegend}
+      colorScheme={values.colorScheme}
+      showAxis={values.showAxis}
       cellPadding={2}
       onCellClick={handleCellClick}
     />

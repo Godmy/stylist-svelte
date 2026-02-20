@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -106,7 +106,7 @@
   description="Inspect the contents of backup archives, crash bundles, or exported design systems."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-zip-viewer grid w-full gap-8 lg:grid-cols-[1.25fr_0.75fr]">
       <div class="rounded-[2.5rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <div class="flex items-center justify-between">
@@ -122,10 +122,10 @@
         <div class="mt-6 rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-4">
           <ZipViewer
             entries={primaryEntries}
-            searchable={props.searchable}
-            showPath={props.showPath}
-            enableFiltering={props.enableFiltering}
-            defaultExpanded={props.defaultExpanded}
+            searchable={values.searchable}
+            showPath={values.showPath}
+            enableFiltering={values.enableFiltering}
+            defaultExpanded={values.defaultExpanded}
           />
         </div>
       </div>

@@ -1,11 +1,11 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import UploadProgress from './index.svelte';
   import type { IUploadFile, UploadProgressVariant } from './types';
 
-  // РњРѕРєРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ С„Р°Р№Р»РѕРІ
+  // Моковые данные для файлов
   const mockFiles: IUploadFile[] = [
     {
       id: '1',
@@ -39,7 +39,7 @@
     }
   ];
 
-  // РћРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
+  // Определение переменных
   let files: IUploadFile[] = mockFiles;
   let variant: UploadProgressVariant = 'default';
   let showFileName: boolean = true;
@@ -78,51 +78,51 @@
   description="Progress indicator for file uploads with status management."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-upload-progress">
       <h2>Default</h2>
       <UploadProgress
         {files}
-        variant={props.variant}
-        showFileName={props.showFileName}
-        showFileSize={props.showFileSize}
-        showProgress={props.showProgress}
-        showActions={props.showActions}
-        autoHideCompleted={props.autoHideCompleted}
-        maxVisible={props.maxVisible}
+        variant={values.variant}
+        showFileName={values.showFileName}
+        showFileSize={values.showFileSize}
+        showProgress={values.showProgress}
+        showActions={values.showActions}
+        autoHideCompleted={values.autoHideCompleted}
+        maxVisible={values.maxVisible}
       />
 
       <h2>Compact</h2>
       <UploadProgress
         {files}
         variant="compact"
-        showFileName={props.showFileName}
-        showFileSize={props.showFileSize}
-        showProgress={props.showProgress}
-        showActions={props.showActions}
-        autoHideCompleted={props.autoHideCompleted}
-        maxVisible={props.maxVisible}
+        showFileName={values.showFileName}
+        showFileSize={values.showFileSize}
+        showProgress={values.showProgress}
+        showActions={values.showActions}
+        autoHideCompleted={values.autoHideCompleted}
+        maxVisible={values.maxVisible}
       />
 
       <h2>Detailed</h2>
       <UploadProgress
         {files}
         variant="detailed"
-        showFileName={props.showFileName}
-        showFileSize={props.showFileSize}
-        showProgress={props.showProgress}
-        showActions={props.showActions}
-        autoHideCompleted={props.autoHideCompleted}
-        maxVisible={props.maxVisible}
+        showFileName={values.showFileName}
+        showFileSize={values.showFileSize}
+        showProgress={values.showProgress}
+        showActions={values.showActions}
+        autoHideCompleted={values.autoHideCompleted}
+        maxVisible={values.maxVisible}
       />
 
       <h2>With Hidden Completed</h2>
       <UploadProgress
         {files}
-        showFileName={props.showFileName}
-        showFileSize={props.showFileSize}
-        showProgress={props.showProgress}
-        showActions={props.showActions}
+        showFileName={values.showFileName}
+        showFileSize={values.showFileSize}
+        showProgress={values.showProgress}
+        showActions={values.showActions}
         autoHideCompleted={true}
         maxVisible={3}
       />

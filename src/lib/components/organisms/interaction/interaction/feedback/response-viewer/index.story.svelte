@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import { ResponseViewerStyleManager } from '$stylist/design-system/styles';
@@ -52,7 +52,7 @@
   tags={['response', 'api', 'json', 'viewer']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={ResponseViewerStyleManager.root('sb-organisms-response-viewer p-4')}>
       <h1 class="text-lg font-semibold mb-4">ResponseViewer Component</h1>
 
@@ -60,15 +60,9 @@
         <h2 class="text-md font-semibold mb-2">Interactive ResponseViewer</h2>
         <div class="max-w-2xl">
           <ResponseViewer 
-            title={props.title}
-            status={props.status}
-            response={getResponseByStatus(props.status)}
-            showLineNumbers={props.showLineNumbers}
-            showCopyButton={props.showCopyButton}
-            showDownloadButton={props.showDownloadButton}
-            collapsed={props.collapsed}
-            onCopy={handleCopy}
-            onDownload={handleDownload}
+            title={values.title}
+            status={values.status}
+            response={getResponseByStatus(values.status)}
           />
         </div>
       </div>

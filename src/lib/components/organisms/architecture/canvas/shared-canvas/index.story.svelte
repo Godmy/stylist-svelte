@@ -105,15 +105,15 @@
   description="Shared canvas component for collaborative drawing."
   tags={['canvas', 'collaboration', 'drawing', 'multi-user']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <SharedCanvas
-      width={props.width}
-      height={props.height}
+      width={values.width}
+      height={values.height}
       objects={defaultObjects}
       users={defaultUsers}
       currentUserId="user1"
-      showUsers={props.showUsers}
-      showToolbar={props.showToolbar}
+      showUsers={values.showUsers}
+      showToolbar={values.showToolbar}
     />
   {/snippet}
 </Story>

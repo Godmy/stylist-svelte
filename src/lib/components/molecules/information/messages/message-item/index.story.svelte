@@ -92,22 +92,22 @@
 
   <div class="mb-6 rounded border p-4">
     <h2 class="text-md mb-2 font-semibold">Interactive MessageItem</h2>
-    <Story 
-      {controls} 
-      component={(props) => (
+    <Story {controls}>
+      {#snippet children(values: any)}
         <div class="flex flex-col gap-4">
           <MessageItem
             message={message}
-            isOwn={props.isOwn}
-            showAvatar={props.showAvatar}
-            enableReactions={props.enableReactions}
+            isOwn={values.isOwn}
+            showAvatar={values.showAvatar}
+            enableReactions={values.enableReactions}
             sender={message.senderId === '1' ? currentUser : otherUser}
             on:reaction={handleReaction}
             on:reply={handleReply}
             on:forward={handleForward}
           />
         </div>
-      )} />
+      {/snippet}
+    </Story>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">

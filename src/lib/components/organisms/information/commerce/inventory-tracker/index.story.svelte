@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/playground';
   import type { ControlConfig } from '$stylist/playground';
 
@@ -114,7 +114,7 @@
   category="Organisms"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-inventory-tracker grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -126,8 +126,8 @@
           <InventoryTracker
             items={inventoryItems}
             alerts={alerts}
-            showAlerts={props.showAlerts}
-            showFilters={props.showFilters}
+            showAlerts={values.showAlerts}
+            showFilters={values.showFilters}
             showSearch={true}
             showStatusFilter={true}
             lowStockThreshold={5}

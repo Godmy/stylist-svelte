@@ -45,8 +45,9 @@
   {controls}
   title="PerformanceMonitor Component"
   description="A component to display performance metrics with visual indicators"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-8 bg-gray-50 rounded-lg">
     <PerformanceMonitor
       title={controlValues.title}
@@ -56,4 +57,6 @@
       status={controlValues.status}
     />
   </div>
+
+  {/snippet}
 </Story>

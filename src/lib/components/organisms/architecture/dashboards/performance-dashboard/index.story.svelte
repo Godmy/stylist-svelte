@@ -2,11 +2,10 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import PerformanceDashboard from './index.svelte';
   import { DollarSign, Users, ShoppingCart, Eye } from 'lucide-svelte';
-  import type { Metric, TimeRange } from './index.svelte';
   import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
   // Sample data for the PerformanceDashboard component
-  const sampleMetrics: Metric[] = [
+  const sampleMetrics = [
     { id: 'revenue', title: 'Total Revenue', value: '$45,231.89', change: 20.1, changeType: 'positive', icon: DollarSign, color: 'bg-[--color-success-500]' },
     { id: 'subscribers', title: 'Subscriptions', value: '+2350', change: 180.1, changeType: 'positive', icon: Users, color: 'bg-[--color-primary-500]' },
     { id: 'sales', title: 'Sales', value: '+12,234', change: 19, changeType: 'positive', icon: ShoppingCart, color: 'bg-[--color-accent-500]' },
@@ -35,11 +34,11 @@
   description="Performance dashboard component for displaying key metrics."
   tags={['dashboard', 'metrics', 'performance', 'analytics']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <PerformanceDashboard
-      metrics={sampleMetrics}
-      timeRange={props.timeRange}
-      showTimeRangeSelector={props.showTimeRangeSelector}
+      metrics={sampleMetrics as any}
+      timeRange={values.timeRange}
+      showTimeRangeSelector={values.showTimeRangeSelector}
     />
   {/snippet}
 </Story>

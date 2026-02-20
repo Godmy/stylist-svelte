@@ -1,10 +1,9 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import StatusDashboard from './index.svelte';
-  import type { StatusItem } from './index.svelte';
   import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-  const defaultItems: StatusItem[] = [
+  const defaultItems = [
     {
       id: 'api-service',
       title: 'API Service',
@@ -58,11 +57,11 @@
   description="Status dashboard component for monitoring system status."
   tags={['dashboard', 'status', 'monitoring', 'system']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <StatusDashboard
-      items={defaultItems}
-      layout={props.layout}
-      size={props.size}
+      items={defaultItems as any}
+      layout={values.layout}
+      size={values.size}
     />
   {/snippet}
 </Story>

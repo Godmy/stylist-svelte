@@ -13,6 +13,7 @@
 	export let tags: string[] | undefined = undefined;
 	// Keep this intentionally broad to support heterogeneous story snippets.
 	export let children: Snippet<[any]> | ChildrenFn | undefined = undefined;
+	export let variants: Snippet<[]> | undefined = undefined;
 	const controlValues: Record<string, any> = {};
 	$: for (const control of controls) {
 		if (!(control.name in controlValues)) {
@@ -38,9 +39,15 @@
 		{#if children}
 			{@render children(controlValues)}
 		{:else if component}
-			{component}
+			<svelte:component this={component} {...controlValues} />
 		{/if}
 	</div>
+
+	{#if variants}
+		<div class="variants-preview">
+			{@render variants()}
+		</div>
+	{/if}
 
 	<div class="controls-panel">
 		{#each controls as control}

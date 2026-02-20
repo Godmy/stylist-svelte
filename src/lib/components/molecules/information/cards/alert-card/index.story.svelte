@@ -12,7 +12,7 @@
     primaryScenario = undefined,
     variantScenarios = [],
     controls = [
-      { name: 'variant', type: 'select', options: ['default', 'info', 'success', 'warning', 'error', 'primary', 'secondary'], defaultValue: 'default' },
+      { name: 'variant', type: 'select', options: ['default', 'info', 'success', 'warning', 'danger', 'primary', 'secondary'], defaultValue: 'default' },
       { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
       { name: 'disabled', type: 'boolean', defaultValue: false },
       { name: 'title', type: 'text', defaultValue: 'Alert Title' },
@@ -39,7 +39,7 @@
     { variant: 'info', size: 'md', title: 'Info Alert', subtitle: 'This is an informational message' },
     { variant: 'success', size: 'md', title: 'Success Alert', subtitle: 'This is a success message' },
     { variant: 'warning', size: 'md', title: 'Warning Alert', subtitle: 'This is a warning message' },
-    { variant: 'error', size: 'md', title: 'Error Alert', subtitle: 'This is an error message' },
+    { variant: 'danger', size: 'md', title: 'Error Alert', subtitle: 'This is an error message' },
     { variant: 'primary', size: 'md', title: 'Primary Alert', subtitle: 'This is a primary message' }
   ];
 
@@ -62,9 +62,9 @@
   category="Molecules"
   controls={controls}
 >
-  {#snippet children(props)}
-    <AlertCard {...props} actions={sampleActions}>
-      {/* AlertCard doesn't typically use children slot */}
+  {#snippet children(values: any)}
+    <AlertCard {...values} actions={sampleActions}>
+      <!-- AlertCard doesn't typically use children slot -->
     </AlertCard>
   {/snippet}
 </Story>

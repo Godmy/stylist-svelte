@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -125,7 +125,7 @@
   description="Interactive chat header with user status and actions."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -138,7 +138,7 @@
             <ChatHeader
               chat={primaryScenario.chat}
               currentUser={primaryScenario.currentUser}
-              showActions={props.showActions}
+              showActions={values.showActions}
               on:call={handleCall as (e: CustomEvent<any>) => void}
               on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
               on:info={handleInfo as (e: CustomEvent<any>) => void}
@@ -161,7 +161,7 @@
                   {scenario.chat.isGroup ? 'Group Chat' : 'One-on-One'} #{i + 1}
                 </p>
                 <p class="text-xs text-[--color-text-secondary]">
-                  {scenario.chat.name} вЂў {scenario.chat.participants.length} participants
+                  {scenario.chat.name} • {scenario.chat.participants.length} participants
                 </p>
               </div>
               <div class="border border-[--color-border-primary] rounded-lg bg-white">

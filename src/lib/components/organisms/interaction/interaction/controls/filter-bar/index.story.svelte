@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import FilterBar from './index.svelte';
@@ -48,12 +48,12 @@
   tags={['filters', 'toolbar']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-filter-bar">
       <FilterBar
-        toggles={props.showToggles ? toggles : []}
-        tags={props.showTags ? tagFilters : []}
-        range={props.showRange ? rangeFilter : undefined}
+        toggles={values.showToggles ? toggles : []}
+        tags={values.showTags ? tagFilters : []}
+        range={values.showRange ? rangeFilter : undefined}
       />
     </div>
   {/snippet}

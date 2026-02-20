@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -50,15 +50,15 @@
   description="Interactive chat interface with AI provider selection and message history."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-chat-interface">
       <ChatInterface
         messages={sampleMessages}
         onSend={handleSend}
         aiProviders={aiProviders}
-        placeholder={props.placeholder}
-        showSettings={props.showSettings}
-        showProviderSelector={props.showProviderSelector}
+        placeholder={values.placeholder}
+        showSettings={values.showSettings}
+        showProviderSelector={values.showProviderSelector}
       />
     </div>
   {/snippet}

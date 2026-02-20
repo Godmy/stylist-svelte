@@ -40,6 +40,9 @@
   function handleCopy() {
     console.log('Code copied!');
   }
+
+  const greetingCode = "function greet(name) {\n  return `Hello, ${name}!`;\n}\n\ngreet('World');";
+  const typeScriptCode = "interface User {\n  id: number;\n  name: string;\n}\n\nconst user: User = { id: 1, name: 'John' };";
 </script>
 
 <div class="p-4">
@@ -54,7 +57,7 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">With Line Numbers</h2>
       <CodeBlock
-        code="function greet(name) {\n  return `Hello, ${name}!`;\n}\n\ngreet('World');"
+        code={greetingCode}
         language="javascript"
         showLineNumbers={true}
       />
@@ -73,7 +76,7 @@
     <div class="p-4 border rounded">
       <h2 class="text-md font-semibold mb-2">TypeScript Code</h2>
       <CodeBlock
-        code="interface User {\n  id: number;\n  name: string;\n}\n\nconst user: User = { id: 1, name: 'John' };"
+        code={typeScriptCode}
         language="typescript"
         showLineNumbers={true}
         copyable={true}

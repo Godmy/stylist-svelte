@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TableWithFilters from './index.svelte';
@@ -53,7 +53,7 @@
   tags={['table', 'filters', 'search', 'sort']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-table-with-filters p-4">
       <h1 class="text-lg font-semibold mb-4">TableWithFilters Component</h1>
 
@@ -63,14 +63,6 @@
           <TableWithFilters 
             {data} 
             {columns}
-            showSearch={props.showSearch}
-            showColumnFilters={props.showColumnFilters}
-            showSortOptions={props.showSortOptions}
-            striped={props.striped}
-            compact={props.compact}
-            onFilterChange={handleFilterChange}
-            onSortChange={handleSortChange}
-            onSearch={handleSearch}
           />
         </div>
       </div>

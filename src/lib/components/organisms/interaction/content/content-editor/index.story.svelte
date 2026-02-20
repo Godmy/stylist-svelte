@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -47,7 +47,7 @@
   description="Rich content editor with multiple content types and formatting tools."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-content-editor p-4">
       <h1 class="text-lg font-semibold mb-4">ContentEditor Component</h1>
 
@@ -56,9 +56,9 @@
         <div class="h-[500px]">
           <ContentEditor
             {initialContent}
-            placeholder={props.placeholder}
-            showToolbar={props.showToolbar}
-            showPreviewButton={props.showPreviewButton}
+            placeholder={values.placeholder}
+            showToolbar={values.showToolbar}
+            showPreviewButton={values.showPreviewButton}
             onSave={(content: any[]) => {
               console.log('Content saved:', content);
             }}

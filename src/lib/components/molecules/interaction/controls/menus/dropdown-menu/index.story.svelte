@@ -29,8 +29,9 @@
   {controls}
   title="DropdownMenu Component"
   description="A dropdown menu component for displaying action lists"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="flex items-center justify-center h-40">
     <DropdownMenu
       label="Options"
@@ -72,4 +73,6 @@
       {/snippet}
     </DropdownMenu>
   </div>
+
+  {/snippet}
 </Story>

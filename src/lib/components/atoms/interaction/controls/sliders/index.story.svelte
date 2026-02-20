@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import SliderTick from './tick/index.svelte';
@@ -71,12 +71,12 @@
 	tags={['display', 'slider', 'tick', 'range']}
 	{controls}
 >
-	{#snippet children(props)}
-		{@const value = typeof props.value === 'number' ? props.value : 50}
-		{@const position = typeof props.position === 'number' ? props.position : 50}
-		{@const active = typeof props.active === 'boolean' ? props.active : true}
-		{@const label = typeof props.label === 'string' ? props.label : '50%'}
-		{@const withContent = typeof props.withContent === 'boolean' ? props.withContent : false}
+	{#snippet children(values: any)}
+		{@const value = typeof values.value === 'number' ? values.value : 50}
+		{@const position = typeof values.position === 'number' ? values.position : 50}
+		{@const active = typeof values.active === 'boolean' ? values.active : true}
+		{@const label = typeof values.label === 'string' ? values.label : '50%'}
+		{@const withContent = typeof values.withContent === 'boolean' ? values.withContent : false}
 		<section class="space-y-10">
 			<div
 				class="rounded-3xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm"

@@ -1,23 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import type { SessionManagerProps, Session } from '$stylist/design-system/props';
+  import type { Session } from '$stylist/design-system/props';
   import { SettingsStyleManager } from '$stylist/design-system/styles';
   import SessionManager from './index.svelte';
-
-  type Props = {
-    showTerminateAll: boolean;
-    showSessionDetails: boolean;
-    showLastActive: boolean;
-    allowTerminate: boolean;
-  };
-
-  const controls: ControlConfig[] = [
-    { name: 'showTerminateAll', type: 'boolean', defaultValue: true },
-    { name: 'showSessionDetails', type: 'boolean', defaultValue: true },
-    { name: 'showLastActive', type: 'boolean', defaultValue: true },
-    { name: 'allowTerminate', type: 'boolean', defaultValue: true }
-  ];
 
   const activeSessions: Session[] = [
     { 
@@ -46,13 +31,6 @@
     }
   ];
 
-  function handleTerminate(sessionId: string) {
-    console.log('Session terminated:', sessionId);
-  }
-
-  function handleTerminateAll() {
-    console.log('All sessions terminated');
-  }
 </script>
 
 <Story
@@ -62,9 +40,8 @@
   category="Organisms/Interaction/Forms"
   description="A session manager component for viewing and managing active user sessions."
   tags={['session', 'security', 'manager', 'devices']}
-  controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class={SettingsStyleManager.container('sb-organisms-session-manager p-4')}>
       <h1 class="text-lg font-semibold mb-4">SessionManager Component</h1>
 
@@ -72,13 +49,7 @@
         <h2 class="text-md font-semibold mb-2">Interactive SessionManager</h2>
         <div class="max-w-2xl">
           <SessionManager 
-            {activeSessions}
-            showTerminateAll={props.showTerminateAll}
-            showSessionDetails={props.showSessionDetails}
-            showLastActive={props.showLastActive}
-            allowTerminate={props.allowTerminate}
-            onTerminate={handleTerminate}
-            onTerminateAll={handleTerminateAll}
+            activeSessions={activeSessions.length}
           />
         </div>
       </div>

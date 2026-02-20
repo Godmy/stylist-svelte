@@ -36,12 +36,15 @@
   {controls}
   title="UserStatus Component"
   description="A component to display a user's status with presence indicator"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <UserStatus
     {user}
     showAvatar={controlValues.showAvatar}
     showName={controlValues.showName}
     showStatusText={controlValues.showStatusText}
   />
+
+  {/snippet}
 </Story>

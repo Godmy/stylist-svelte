@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import BurgerMenu from './index.svelte';
@@ -43,17 +43,17 @@
   tags={['menu', 'navigation', 'hamburger', 'toggle']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-4">
       <BurgerMenu
-        {...props}
+        {...values}
         open={open}
         onValueChange={toggleMenu}
       />
     </div>
   {/snippet}
   
-  {#snippet variants}
+  {#snippet variants()}
     <div class="grid grid-cols-1 gap-4 p-4">
       <div class="flex items-center space-x-4">
         <span>Closed:</span>

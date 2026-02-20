@@ -81,8 +81,9 @@
   {controls}
   title="ComparisonTable Component"
   description="Table component for comparing product features"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="overflow-x-auto p-4">
     <ComparisonTable
       features={features}
@@ -91,4 +92,6 @@
       showDescription={controlValues.showDescription}
     />
   </div>
+
+  {/snippet}
 </Story>

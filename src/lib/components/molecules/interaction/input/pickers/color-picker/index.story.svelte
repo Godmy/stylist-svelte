@@ -33,8 +33,9 @@
   {controls}
   title="ColorPicker Component"
   description="Interactive color picker with customizable options"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <ColorPicker
       value={controlValues.value}
@@ -44,4 +45,6 @@
       onValueChange={handleValueChange}
     />
   </div>
+
+  {/snippet}
 </Story>

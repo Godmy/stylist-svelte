@@ -41,8 +41,6 @@
 	{#snippet children(values: any)}
 		<IconWrapper
 			size={values.size as 'sm' | 'md' | 'lg'}
-			variant={values.variant as 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'default' | 'neutral' | 'dark' | 'light'}
-			shape={values.shape as 'circle' | 'square' | 'rounded'}
 			color={values.color as 'primary' | 'secondary' | 'success' | 'warning' | 'danger'}
 		>
 			{#snippet content()}

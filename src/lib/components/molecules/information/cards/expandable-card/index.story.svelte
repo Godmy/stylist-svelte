@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import ExpandableCard from './index.svelte';
@@ -37,15 +37,15 @@
   tags={['card', 'expandable', 'accordion']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="p-6 max-w-md mx-auto">
       <ExpandableCard
-        title={props.title}
-        defaultExpanded={props.defaultExpanded}
-        disabled={props.disabled}
+        title={values.title}
+        defaultExpanded={values.defaultExpanded}
+        disabled={values.disabled}
       >
         {#snippet summary()}
-          <div class="font-semibold">{props.title}</div>
+          <div class="font-semibold">{values.title}</div>
           <p class="text-sm text-gray-500">Toggle to view more details</p>
         {/snippet}
         {#snippet details()}

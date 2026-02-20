@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -23,7 +23,7 @@
   description="Responsive grid layout component with configurable columns and spacing."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -32,7 +32,7 @@
         <p class="mt-1 text-[--color-text-primary]">Responsive grid layout with configurable columns and spacing.</p>
 
         <div class="mt-6">
-          <Grid cols={props.cols} gap={props.gap} responsive={props.responsive}>
+          <Grid cols={values.cols} gap={values.gap} responsive={values.responsive}>
             <div class="p-4 bg-[--color-primary-100] border border-[--color-border-primary]">Item 1</div>
             <div class="p-4 bg-[--color-primary-200] border border-[--color-border-primary]">Item 2</div>
             <div class="p-4 bg-[--color-primary-300] border border-[--color-border-primary]">Item 3</div>

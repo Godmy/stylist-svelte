@@ -39,13 +39,13 @@
   description="Accessibility toolbar component for improving web accessibility."
   tags={['accessibility', 'toolbar', 'contrast', 'screen-reader', 'focus']}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <AccessibilityToolbar
-      showContrastToggle={props.showContrastToggle}
-      showFontSizeControls={props.showFontSizeControls}
-      showScreenReaderTester={props.showScreenReaderTester}
-      showFocusIndicator={props.showFocusIndicator}
-      showAnimationsToggle={props.showAnimationsToggle}
+      showContrastToggle={values.showContrastToggle}
+      showFontSizeControls={values.showFontSizeControls}
+      showScreenReaderTester={values.showScreenReaderTester}
+      showFocusIndicator={values.showFocusIndicator}
+      showAnimationsToggle={values.showAnimationsToggle}
     />
   {/snippet}
 </Story>

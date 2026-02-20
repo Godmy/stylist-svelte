@@ -63,8 +63,8 @@
   category="Molecules"
   controls={controls}
 >
-  {#snippet children(props)}
-    <BaseCard {...props}>
+  {#snippet children(values: any)}
+    <BaseCard {...values}>
       <div class="p-4">
         <p>{sampleCardContent}</p>
         <div class="mt-4 flex gap-2">

@@ -29,13 +29,16 @@
   {controls}
   title="TabGroup Component"
   description="Advanced TabGroup with multiple tabs"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <TabGroup
-      tabs={complexTabs}
+      tabs={complexTabs as any}
       activeTab={controlValues.activeTab}
       onValueChange={handleTabChange}
     />
   </div>
+
+  {/snippet}
 </Story>

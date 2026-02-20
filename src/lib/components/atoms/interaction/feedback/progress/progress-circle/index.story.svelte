@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 	import ProgressCircle from './index.svelte';
@@ -37,8 +37,8 @@
 	description="A circular progress indicator to show completion percentage."
 	{controls}
 >
-	{#snippet children(props)}
-		{@const storyProps = props as Partial<Props>}
+	{#snippet children(values: any)}
+		{@const storyProps = values as Partial<Props>}
 		<div class="flex items-center space-x-4">
 			<ProgressCircle
 				value={storyProps.progress ?? 60}

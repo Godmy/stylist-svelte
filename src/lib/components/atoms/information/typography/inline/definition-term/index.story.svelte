@@ -43,11 +43,11 @@
 			<dl
 				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
 			>
-				<DefinitionTerm class={props.highlight ? 'text-indigo-600' : ''}>
-					{props.term}
+				<DefinitionTerm class={values.highlight ? 'text-indigo-600' : ''}>
+					{values.term}
 				</DefinitionTerm>
 				<DefinitionDescription class="text-sm leading-relaxed">
-					{props.description}
+					{values.description}
 				</DefinitionDescription>
 			</dl>
 

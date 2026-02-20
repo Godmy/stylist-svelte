@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import TreeNodeItem from './index.svelte';
   import type { ControlType } from '$stylist/design-system/tokens/controls';
@@ -49,21 +49,19 @@
   {controls}
   title="TreeNodeItem Component"
   description="A single node item in a tree view"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <TreeNodeItem
-      item={{
+      node={{
         key: 'sample-node',
         desc: controlValues.desc,
         child: []
       }}
-      level={controlValues.level}
-      expanded={controlValues.expanded}
-      selected={controlValues.selected}
-      disabled={controlValues.disabled}
       onSelectCallback={handleSelect}
-      onToggleCallback={handleToggle}
     />
   </div>
+
+  {/snippet}
 </Story>

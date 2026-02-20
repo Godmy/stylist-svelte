@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
@@ -38,7 +38,7 @@
   category="Molecules"
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-molecules-quantity-selector grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
@@ -48,14 +48,14 @@
 
         <div class="mt-6">
           <QuantitySelector
-            value={props.value}
-            min={props.min}
-            max={props.max}
-            disabled={props.disabled}
-            variant={props.variant}
-            size={props.size}
-            showInput={props.showInput}
-            showButtons={props.showButtons}
+            value={values.value}
+            min={values.min}
+            max={values.max}
+            disabled={values.disabled}
+            variant={values.variant}
+            size={values.size}
+            showInput={values.showInput}
+            showButtons={values.showButtons}
             onValueChange={handleValueChange}
           />
         </div>

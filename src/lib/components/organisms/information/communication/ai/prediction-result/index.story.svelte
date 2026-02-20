@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import PredictionResult from './index.svelte';
@@ -24,12 +24,12 @@
   description="Displays prediction outcomes with confidence and breakdown."
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <section class="sb-organisms-prediction-result grid gap-6 rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
       <PredictionResult
-        title={props.title}
-        status={props.status}
-        showChart={props.showChart}
+        title={values.title}
+        status={values.status}
+        showChart={values.showChart}
         predictions={samplePredictions}
         actualValue={0.81}
         predictedValue={0.85}

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
   import TreeView from './index.svelte';
@@ -21,18 +21,18 @@
     { 
       id: '1', 
       label: 'Root 1', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       children: [
-        { id: '1-1', label: 'Child 1-1', icon: 'рџ“„' }, 
-        { id: '1-2', label: 'Child 1-2', icon: 'рџ“„' } 
+        { id: '1-1', label: 'Child 1-1', icon: '📄' }, 
+        { id: '1-2', label: 'Child 1-2', icon: '📄' } 
       ] 
     },
     { 
       id: '2', 
       label: 'Root 2', 
-      icon: 'рџ“Ѓ',
+      icon: '📁',
       children: [
-        { id: '2-1', label: 'Child 2-1', icon: 'рџ“„' }
+        { id: '2-1', label: 'Child 2-1', icon: '📄' }
       ] 
     }
   ];
@@ -51,7 +51,7 @@
   tags={['tree', 'hierarchy', 'flat']}
   controls={controls}
 >
-  {#snippet children(props)}
+  {#snippet children(values: any)}
     <div class="sb-organisms-flat-tree p-4">
       <h1 class="text-lg font-semibold mb-4">FlatTree Component</h1>
 
@@ -59,12 +59,7 @@
         <h2 class="text-md font-semibold mb-2">Interactive FlatTree</h2>
         <div class="max-w-md">
           <TreeView 
-            {nodes} 
-            expandable={props.expandable}
-            selectable={props.selectable}
-            showIcons={props.showIcons}
-            indentSize={props.indentSize}
-            onNodeSelect={handleNodeSelect}
+            {nodes}
           />
         </div>
       </div>

@@ -50,8 +50,9 @@
   {controls}
   title="SuggestionsTagInput Component"
   description="Tag input component with suggestions and custom tag support"
-  let:controlValues
+ 
 >
+  {#snippet children(controlValues: any)}
   <div class="p-4">
     <SuggestionsTagInput
       id="skills-tags"
@@ -66,4 +67,6 @@
       onValueChange={handleValueChange}
     />
   </div>
+
+  {/snippet}
 </Story>
