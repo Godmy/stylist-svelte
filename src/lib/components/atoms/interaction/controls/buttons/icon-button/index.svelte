@@ -2,7 +2,7 @@
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { IconButtonProps } from '$stylist/design-system/props';
-	import { createState, ICON_BUTTON_PRESET } from '$stylist/design-system/models/icon-button.svelte';
+	import { createState, ICON_BUTTON_PRESET } from '$stylist/design-system/models/interaction/icon-button.svelte';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -48,7 +48,7 @@
 		{@const Icon = props.icon}
 		<Icon />
 	{:else if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{/if}
 </button>
 

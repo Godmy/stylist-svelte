@@ -1,18 +1,23 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { TabPanelProps } from '$stylist/design-system/props';
-	import { createTabPanelState } from '$stylist/design-system/models/tab-panel.svelte';
+	import { createTabPanelState } from '$stylist/design-system/models/interaction/tab-panel.svelte';
 
 	let props: TabPanelProps = $props();
 
 	const context = getContext<{
 		tabsId: string;
 		selectedTabId: string;
-	}>('tabs-context');
+	}>('tabs-context') ?? {
+		tabsId: '',
+		selectedTabId: ''
+	};
 
-	let isSelected = $derived(context.selectedTabId === props.id);
-	let tabId = $derived(`tab-${context.tabsId}-${props.id}`);
-	let panelId = $derived(`panel-${context.tabsId}-${props.id}`);
+	let selectedTabId = $derived(context?.selectedTabId ?? '');
+	let tabsId = $derived(context?.tabsId ?? '');
+	let isSelected = $derived(selectedTabId === props.id);
+	let tabId = $derived(`tab-${tabsId}-${props.id}`);
+	let panelId = $derived(`panel-${tabsId}-${props.id}`);
 
 	const state = createTabPanelState(props, () => isSelected);
 

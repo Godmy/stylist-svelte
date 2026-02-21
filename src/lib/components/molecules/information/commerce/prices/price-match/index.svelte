@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PriceMatchStyleManager } from '$stylist/design-system/styles/price-match';
+  import { PriceMatchStyleManager } from '$stylist/design-system/styles/information/price-match';
 
   let {
     targetPrice = 0,

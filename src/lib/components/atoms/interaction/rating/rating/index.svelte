@@ -1,21 +1,21 @@
 <script lang="ts">
-  import type { IRatingProps, RatingSize } from '$stylist/design-system/props/rating';
-  import { RatingStyleManager } from '$stylist/design-system/styles/rating';
+  import type { IRatingProps, RatingSize } from '$stylist/design-system/props/interaction/rating';
+  import { RatingStyleManager } from '$stylist/design-system/styles/interaction/rating';
   import { Star } from 'lucide-svelte';
 
   /**
-   * Компонент оценки (рейтинга)
+   *   ()
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает только за отображение и взаимодействие с пользователем
-   * - OCP: Легко расширяем за счет пропсов
-   * - LSP: Подчиняется контракту, определенному в интерфейсе IRatingProps
-   * - ISP: Предоставляет минимально необходимый интерфейс взаимодействия
-   * - DIP: Зависит от абстракций (интерфейсов в types.ts и стилей в styles.ts)
+   *   SOLID:
+   * - SRP:         
+   * - OCP:     
+   * - LSP:  ,    IRatingProps
+   * - ISP:     
+   * - DIP:    (  types.ts    styles.ts)
    *
-   * Следует архитектуре Atomic Design как молекула:
-   * - Состоит из атомов (иконка звезды) и предоставляет более сложное поведение
-   * - Может использоваться как строительный блок для более сложных компонентов
+   *   Atomic Design  :
+   * -    ( )     
+   * -         
    */
   let {
     rating = $bindable(0),
@@ -28,7 +28,7 @@
     ...restProps
   }: IRatingProps = $props();
 
-  // Обработчик клика по звезде
+  //    
   const handleStarClick = (value: number) => {
     if (!readonly && !disabled) {
       rating = value;
@@ -36,21 +36,21 @@
     }
   };
 
-  // Обработчик наведения на звезду (для предварительного просмотра)
+  //     (  )
   const handleStarHover = (value: number) => {
     if (!readonly && !disabled) {
-      // В реальных условиях можно добавить эффект подсветки
+      //       
     }
   };
 
-  // Возвращаем на исходное при уходе мыши
+  //      
   const handleMouseLeave = () => {
     if (!readonly && !disabled) {
-      // Убираем эффект подсветки
+      //   
     }
   };
 
-  // Вычисляемые стили
+  //  
   const rootClasses = $derived(RatingStyleManager.getRootClasses(className));
   const starButtonClasses = (index: number) => RatingStyleManager.getStarButtonClasses(
     disabled,
@@ -80,7 +80,7 @@
       onmouseenter={() => handleStarHover(i + 1)}
       onfocus={() => handleStarHover(i + 1)}
       disabled={disabled}
-      aria-label={`Оценка ${i + 1} из ${max}`}
+      aria-label={` ${i + 1}  ${max}`}
       aria-pressed={i < rating}
     >
       <Star
@@ -90,7 +90,7 @@
   {/each}
 
   <span class={ratingTextClasses}>
-    {rating.toFixed(1)} из {max}
+    {rating.toFixed(1)}  {max}
   </span>
 </div>
 

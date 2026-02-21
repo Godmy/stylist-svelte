@@ -1,18 +1,18 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Separator from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'orientation',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['horizontal', 'vertical'],
 			defaultValue: 'horizontal'
 		},
 		{
 			name: 'decorative',
-			type: CONTROL_TYPES.BOOLEAN,
+			type: 'boolean',
 			defaultValue: false
 		}
 	];
@@ -75,3 +75,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

@@ -1,23 +1,19 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import BreadcrumbLink from './index.svelte';
+
+	const controls: ControlConfig[] = [
+		{ name: 'label', type: 'text', defaultValue: 'Products' },
+		{ name: 'href', type: 'text', defaultValue: '/products' },
+		{ name: 'current', type: 'boolean', defaultValue: false }
+	];
 </script>
 
-<svelte:head>
-	<title>BreadcrumbLink Story</title>
-</svelte:head>
-
-<div class="p-4">
-	<h1 class="mb-4 text-xl font-bold">BreadcrumbLink Component</h1>
-
-	<h2 class="mb-2 text-lg font-semibold">Default Link</h2>
-	<BreadcrumbLink href="/products" class="text-blue-600 hover:underline">Products</BreadcrumbLink>
-
-	<h2 class="mt-4 mb-2 text-lg font-semibold">Current Page Link</h2>
-	<BreadcrumbLink current={true}>Current Page</BreadcrumbLink>
-
-	<h2 class="mt-4 mb-2 text-lg font-semibold">With Children Snippet</h2>
-	<BreadcrumbLink href="/about">About Us</BreadcrumbLink>
-</div>
-
-
-
+<Story component={BreadcrumbLink} title="BreadcrumbLink" description="Single link or current text node in breadcrumb chains." {controls}>
+	{#snippet children(values: any)}
+		<div class="flex items-center gap-2 text-sm">
+			<BreadcrumbLink href={values.href} current={values.current}>{values.label}</BreadcrumbLink>
+		</div>
+	{/snippet}
+</Story>

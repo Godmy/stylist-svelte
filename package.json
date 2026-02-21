@@ -1,6 +1,6 @@
 {
 	"name": "stylist-svelte",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A comprehensive Svelte 5 UI component library with Tailwind CSS",
 	"type": "module",
 	"author": "Godmy & AI-Team",

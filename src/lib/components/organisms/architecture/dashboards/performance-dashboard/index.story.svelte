@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import PerformanceDashboard from './index.svelte';
   import { DollarSign, Users, ShoppingCart, Eye } from 'lucide-svelte';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
 
   // Sample data for the PerformanceDashboard component
   const sampleMetrics = [

@@ -1,91 +1,27 @@
-<script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import SideBySideLayout from './index.svelte';
-    import { createRawSnippet } from 'svelte';
-    import type { Snippet } from 'svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import SideBySideLayout from './index.svelte';
 
-    type SideBySideSection = {
-        id: string;
-        content: Snippet;
-        size?: '1/4' | '1/3' | '2/5' | '1/2' | '3/5' | '2/3' | '3/4' | 'full';
-        className?: string;
-    };
-
-    type Props = {
-        sections?: SideBySideSection[];
-        gap?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
-        alignItems?: 'start' | 'center' | 'end' | 'stretch';
-        justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
-        responsive?: boolean;
-    };
-
-
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'gap',
-            type: 'select',
-            options: ['none', 'sm', 'md', 'lg', 'xl'],
-            defaultValue: 'md'
-        },
-        {
-            name: 'alignItems',
-            type: 'select',
-            options: ['center', 'start', 'end', 'stretch'],
-            defaultValue: 'stretch'
-        },
-        {
-            name: 'justifyContent',
-            type: 'select',
-            options: ['start', 'center', 'end', 'between', 'around', 'evenly'],
-            defaultValue: 'start'
-        },
-        {
-            name: 'responsive',
-            type: 'boolean',
-            defaultValue: true
-        }
-    ];
-
-    // Helper to convert raw markup into a typed snippet for Svelte 5
-    const createContentSnippet = (htmlString: string): Snippet =>
-        createRawSnippet(() => ({
-            render: () => htmlString
-        }));
+	const controls: ControlConfig[] = [
+		{ name: 'gap', type: 'select', defaultValue: 'md', options: ['none', 'sm', 'md', 'lg', 'xl'] },
+		{ name: 'alignItems', type: 'select', defaultValue: 'stretch', options: ['start', 'center', 'end', 'stretch'] },
+		{ name: 'justifyContent', type: 'select', defaultValue: 'start', options: ['start', 'center', 'end', 'between', 'around', 'evenly'] },
+		{ name: 'responsive', type: 'boolean', defaultValue: true }
+	];
 </script>
 
-<Story
-    id="molecules-side-by-side-layout"
-    title="SideBySideLayout"
-    component={SideBySideLayout}
-    category="Molecules"
-    description="Layout component that shows content side by side"
-    controls={controls}
->
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <SideBySideLayout
-                sections={[
-                    {
-                        id: 'left',
-                        size: '1/2',
-                        content: createContentSnippet(`<div class="p-4">Left Panel Content</div>`)
-                    },
-                    {
-                        id: 'right',
-                        size: '1/2',
-                        content: createContentSnippet(`<div class="p-4">Right Panel Content</div>`)
-                    }
-                ]}
-                gap={values.gap}
-                alignItems={values.alignItems}
-                justifyContent={values.justifyContent}
-                responsive={values.responsive}
-            />
-        </div>
-    {/snippet}
+<Story component={SideBySideLayout} title="SideBySideLayout" description="Two-section responsive layout container." {controls}>
+	{#snippet children(values: any)}
+		<SideBySideLayout
+			gap={values.gap}
+			alignItems={values.alignItems}
+			justifyContent={values.justifyContent}
+			responsive={values.responsive}
+			sections={[
+				{ id: 'left', size: '2/3', content: (() => ({ render: () => '<div class="rounded-xl border border-[--color-border-primary] bg-[--color-background-secondary] p-4">Left section</div>' })) as any },
+				{ id: 'right', size: '1/3', content: (() => ({ render: () => '<div class="rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4">Right section</div>' })) as any }
+			]}
+		/>
+	{/snippet}
 </Story>
-
-
-

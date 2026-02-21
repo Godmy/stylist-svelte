@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Contrast, Sun, Moon } from 'lucide-svelte';
-  import { HighContrastToggleStyleManager } from '$stylist/design-system/styles/high-contrast-toggle';
+  import { HighContrastToggleStyleManager } from '$stylist/design-system/styles/interaction/high-contrast-toggle';
 
   type Props = {
     enabled?: boolean;

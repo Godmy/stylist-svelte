@@ -1,15 +1,22 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ComponentPreview from './index.svelte';
 
   const controls: ControlConfig[] = [
-    { name: 'title', type: 'text', defaultValue: 'Button Component' },
-    { name: 'description', type: 'text', defaultValue: 'Primary action button with variants' },
-    { name: 'code', type: 'text', defaultValue: '<Button variant="primary">Click me</Button>' },
-    { name: 'language', type: 'text', defaultValue: 'svelte' },
-    { name: 'showCode', type: 'boolean', defaultValue: false }
+    { name: 'title', type: 'text', defaultValue: 'Primary Button' },
+    { name: 'description', type: 'text', defaultValue: 'Button used for key actions in forms.' },
+    { name: 'code', type: 'text', defaultValue: '<Button variant="primary">Save</Button>' },
+    { name: 'language', type: 'select', options: ['svelte', 'typescript', 'html'], defaultValue: 'svelte' },
+    { name: 'showCode', type: 'boolean', defaultValue: false },
+    { name: 'demoVariant', type: 'select', options: ['primary', 'secondary', 'danger'], defaultValue: 'primary' }
   ];
+
+  function variantClass(variant: string): string {
+    if (variant === 'secondary') return 'bg-gray-800 text-white';
+    if (variant === 'danger') return 'bg-red-600 text-white';
+    return 'bg-blue-600 text-white';
+  }
 </script>
 
 <Story
@@ -17,30 +24,22 @@
   title="Molecules / Information / Development / ComponentPreview"
   component={ComponentPreview}
   category="Molecules/Information/Development"
-  description="Component preview with code and demo"
-  controls={controls}
+  description="Preview card with demo/codetab switch and configurable snippet text."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-component-preview">
-      <h1 class="text-lg font-semibold mb-4">ComponentPreview</h1>
-      <p>Component preview with code and demo</p>
-
-      <h2 class="text-md font-semibold mb-2">Primary Button</h2>
-      <div class="p-4 border rounded-lg max-w-2xl">
-        <ComponentPreview
-          title={args.title}
-          description={args.description}
-          code={args.code}
-          language={args.language}
-          showCode={args.showCode}
-        >
-          {#snippet componentDemo()}
-            <button type="button" class="rounded bg-blue-600 px-3 py-1.5 text-white">Click me</button>
-          {/snippet}
-        </ComponentPreview>
-      </div>
+  {#snippet children(args: any)}
+    <div class="p-4 rounded-xl bg-gray-50">
+      <ComponentPreview
+        title={args.title}
+        description={args.description}
+        code={args.code}
+        language={args.language}
+        showCode={args.showCode}
+      >
+        {#snippet componentDemo()}
+          <button class={`px-4 py-2 rounded text-sm ${variantClass(args.demoVariant)}`} type="button">Preview action</button>
+        {/snippet}
+      </ComponentPreview>
     </div>
   {/snippet}
 </Story>
-
-

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { CodeSectionStyleManager } from '$stylist/design-system/styles/code-section';
+  import { CodeSectionStyleManager } from '$stylist/design-system/styles/information/code-section';
   import CodeEditor from '$stylist/components/molecules/information/development/code-editor/index.svelte';
   import { Badge } from '$stylist/components/atoms';
 

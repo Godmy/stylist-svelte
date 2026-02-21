@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BadgeProps } from '$stylist/design-system';
-	import { createBadgeState } from '$stylist/design-system/models/badge.svelte';
+	import { createBadgeState } from '$stylist/design-system/models/information/badge.svelte';
 
 	let props: BadgeProps = $props();
 
@@ -17,6 +17,6 @@
 
 <span class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </span>

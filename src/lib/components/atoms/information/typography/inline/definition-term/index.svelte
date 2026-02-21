@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createDefinitionTermState } from '$stylist/design-system/models/definition-term.svelte';
+	import { createDefinitionTermState } from '$stylist/design-system/models/information/definition-term.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 
@@ -17,7 +17,7 @@
 
 <dt class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </dt>
 

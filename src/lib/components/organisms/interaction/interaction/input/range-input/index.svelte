@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedRangeInputProps {
     min?: number;

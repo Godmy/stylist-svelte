@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import SyntaxHighlightedCode from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
 	const sampleCode = `function greet(name) {
   console.log('Hello, ' + name + '!');
@@ -12,16 +12,16 @@
   };
 }`;
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'language',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['javascript', 'typescript', 'html', 'css', 'json', 'python', 'svelte'],
 			defaultValue: 'javascript'
 		},
 		{
 			name: 'showLineNumbers',
-			type: CONTROL_TYPES.BOOLEAN,
+			type: 'boolean',
 			defaultValue: false
 		}
 	];
@@ -70,3 +70,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

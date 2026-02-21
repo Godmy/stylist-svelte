@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { CodeDiffStyleManager } from '$stylist/design-system/styles/code-diff';
+  import { CodeDiffStyleManager } from '$stylist/design-system/styles/information/code-diff';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

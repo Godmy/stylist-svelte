@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { BarChart3, ArrowRight } from 'lucide-svelte';
-  import { ConversionFunnelStyleManager } from '$stylist/design-system/styles/conversion-funnel';
+  import { ConversionFunnelStyleManager } from '$stylist/design-system/styles/information/conversion-funnel';
 
   type FunnelStep = {
     id: string;

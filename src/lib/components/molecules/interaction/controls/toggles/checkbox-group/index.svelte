@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import Checkbox from '$stylist/components/atoms/interaction/controls/toggles/checkbox/index.svelte';
-  import { CheckboxGroupStyleManager } from '$stylist/design-system/styles/checkbox-group';
+  import { CheckboxGroupStyleManager } from '$stylist/design-system/styles/interaction/checkbox-group';
 
   type Option = {
     id: string;

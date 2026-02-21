@@ -1,29 +1,29 @@
 <script lang="ts">
 	import ListItemMarker from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'type',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['dot', 'number', 'letter', 'check', 'x', 'arrow', 'star'],
 			defaultValue: 'dot'
 		},
 		{
 			name: 'value',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: ''
 		},
 		{
 			name: 'color',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'info', 'gray'],
 			defaultValue: 'gray'
 		},
 		{
 			name: 'size',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['sm', 'md', 'lg'],
 			defaultValue: 'md'
 		}
@@ -96,3 +96,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

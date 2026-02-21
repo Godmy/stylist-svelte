@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ChatWindow from './index.svelte';
-  import type { Chat, User, Message } from '$stylist/design-system/props/chat';
+  import type { Chat, User, Message } from '$stylist/design-system/props/information/chat';
 
   const currentUser: User = {
     id: '1',

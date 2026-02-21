@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IToastProps } from '$stylist/design-system/props/toast';
-  import { ToastStyleManager } from '$stylist/design-system/styles/toast';
+  import type { IToastProps } from '$stylist/design-system/props/interaction/toast';
+  import { ToastStyleManager } from '$stylist/design-system/styles/interaction/toast';
   import { Icon } from '$stylist/components/atoms';
 
   /**
@@ -83,7 +83,7 @@
         </div>
       {/if}
       {#if children}
-        {@render children()}
+        {@render children?.()}
       {/if}
     </div>
     <button

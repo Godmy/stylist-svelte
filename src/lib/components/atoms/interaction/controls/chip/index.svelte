@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { X } from 'lucide-svelte';
 	import type { ChipProps } from '$stylist/design-system/props';
-	import { createChipState } from '$stylist/design-system/models/chip.svelte';
+	import { createChipState } from '$stylist/design-system/models/interaction/chip.svelte';
 
 	let props: ChipProps = $props();
 
@@ -27,7 +27,7 @@
 
 <div class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{:else}
 		{state.label}
 	{/if}

@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { X, CheckCircle, AlertCircle, Info, XCircle } from 'lucide-svelte';
 
-  import type { INotificationProps, NotificationType } from '$stylist/design-system/props/notification';
-  import { NotificationAtomStyleManager } from '$stylist/design-system/styles/notification';
+  import type { INotificationProps, NotificationType } from '$stylist/design-system/props/interaction/notification';
+  import { NotificationAtomStyleManager } from '$stylist/design-system/styles/interaction/notification';
 
   /**
    * Notification component - A flexible notification component with various styles and states
@@ -113,7 +113,7 @@
         {/if}
         {#if children}
           <div class={bodyClasses}>
-            {@render children()}
+            {@render children?.()}
           </div>
         {/if}
       </div>

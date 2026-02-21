@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { createAdvancedInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/advanced-input.svelte';
+	import { createAdvancedInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/advanced-input.svelte';
 
 	/**
 	 * AdvancedInput component - A flexible input component with various styles and states

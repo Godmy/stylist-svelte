@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PricingTableStyleManager } from '$stylist/design-system/styles/pricing-table';
+  import { PricingTableStyleManager } from '$stylist/design-system/styles/information/pricing-table';
 
   let {
     plans = [],

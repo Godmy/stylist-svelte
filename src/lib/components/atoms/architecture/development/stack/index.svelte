@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { StackProps } from '$stylist/design-system';
-	import { createStackState } from '$stylist/design-system/models/stack.svelte';
+	import { createStackState } from '$stylist/design-system/models/architecture/stack.svelte';
 
 	let props: StackProps = $props();
 	const state = createStackState(props);

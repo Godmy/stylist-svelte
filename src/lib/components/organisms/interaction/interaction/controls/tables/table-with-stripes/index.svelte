@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { TableExtendedStyleManager } from '$stylist/design-system/styles/table-extended';
-  import type { TableWithStripesProps } from '$stylist/design-system/props/table-extended';
+  import { TableExtendedStyleManager } from '$stylist/design-system/styles/interaction/table-extended';
+  import type { TableWithStripesProps } from '$stylist/design-system/props/interaction/table-extended';
   let { data = [], columns = [], class: className = '', ...restProps }: TableWithStripesProps = $props();
 </script>
 <div class={TableExtendedStyleManager.root('c-table-with-stripes', className)} {...restProps}>

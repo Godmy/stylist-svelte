@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Chat, User } from '$stylist/design-system/props/chat';
+import type { Chat, User } from '$stylist/design-system/props/information/chat';
   import * as ChatItemModule from '../chat-item/index.svelte';
   const ChatItem: any = ChatItemModule.default ?? ChatItemModule;
   import { createEventDispatcher } from 'svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ScrumBacklogStyleManager } from '$stylist/design-system/styles/scrum-backlog';
+  import { ScrumBacklogStyleManager } from '$stylist/design-system/styles/information/scrum-backlog';
   import { Badge, Button, InputField, TextArea } from '$stylist/components/atoms';
   import { Plus, Calendar, User, Clock } from 'lucide-svelte';
   import { createEventDispatcher } from 'svelte';

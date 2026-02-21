@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Message, User } from '$stylist/design-system/props/chat';
+import type { Message, User } from '$stylist/design-system/props/information/chat';
   import MessageItem from '../message-item/index.svelte';
   import { createEventDispatcher, onMount } from 'svelte';
 

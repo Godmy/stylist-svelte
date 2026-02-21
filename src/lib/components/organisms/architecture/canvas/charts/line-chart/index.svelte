@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { LineChartStyleManager } from '$stylist/design-system/styles/line-chart';
+  import { LineChartStyleManager } from '$stylist/design-system/styles/architecture/line-chart';
   import { IconTrendingUp, IconInfo } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 

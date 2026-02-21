@@ -1,1 +1,1 @@
-export type { IHeatmapCell, IHeatmapProps } from '$stylist/design-system/props/heatmap';
+export type { IHeatmapCell, IHeatmapProps } from '$stylist/design-system/props/architecture/heatmap';

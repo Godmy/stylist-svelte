@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductCarouselStyleManager } from '$stylist/design-system/styles/product-carousel';
+  import { ProductCarouselStyleManager } from '$stylist/design-system/styles/information/product-carousel';
 
   let {
     products = [],

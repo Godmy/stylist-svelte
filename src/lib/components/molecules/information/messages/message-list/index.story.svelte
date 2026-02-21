@@ -1,169 +1,54 @@
 <script lang="ts">
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { Message, User } from '$stylist/design-system/props/information/chat';
   import MessageList from './index.svelte';
-  import Story from '$stylist/design-system/playground/Story.svelte';
-  import type { Message, User } from '$stylist/design-system/props/chat';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
-  // Define controls for the story
+  let lastAction = $state('none');
+
   const controls: ControlConfig[] = [
-    {
-      name: 'messageCount',
-      type: 'number',
-      defaultValue: 8,
-      min: 1,
-      max: 20,
-      description: 'Number of messages to display'
-    }
+    { name: 'messageCount', type: 'number', defaultValue: 6, min: 1, max: 12 },
+    { name: 'includeAttachments', type: 'boolean', defaultValue: false }
   ];
 
-  let currentUser: User = {
-    id: '1',
-    name: 'Current User',
-    avatar: 'https://via.placeholder.com/40',
-    status: 'online'
-  };
+  const currentUser: User = { id: '1', name: 'Current User', avatar: 'https://i.pravatar.cc/80?img=25', status: 'online' };
 
-  let otherUser: User = {
-    id: '2',
-    name: 'John Doe',
-    avatar: 'https://via.placeholder.com/40',
-    status: 'online'
-  };
+  const messages: Message[] = Array.from({ length: 10 }, (_, i) => ({
+    id: `msg-${i + 1}`,
+    senderId: i % 2 === 0 ? '1' : '2',
+    content: `Message ${i + 1} from ${i % 2 === 0 ? 'me' : 'teammate'}`,
+    timestamp: new Date(Date.now() - i * 60000),
+    status: i % 3 === 0 ? 'read' : 'delivered',
+    type: 'text'
+  }));
 
-  let allMessages: Message[] = [
-    {
-      id: '1',
-      content: 'Hey there! How are you doing?',
-      timestamp: new Date(Date.now() - 3600000), // 1 hour ago
-      status: 'read',
-      senderId: '2'
-    },
-    {
-      id: '2',
-      content: "I'm doing great! Just working on a new Svelte project.",
-      timestamp: new Date(Date.now() - 3500000),
-      status: 'read',
-      senderId: '1'
-    },
-    {
-      id: '3',
-      content: 'That sounds interesting! What kind of project?',
-      timestamp: new Date(Date.now() - 3400000),
-      status: 'read',
-      senderId: '2'
-    },
-    {
-      id: '4',
-      content: "It's a chat application with real-time messaging and file sharing capabilities.",
-      timestamp: new Date(Date.now() - 3300000),
-      status: 'read',
-      senderId: '1'
-    },
-    {
-      id: '5',
-      content: "That's awesome! I'd love to see it when it's ready.",
-      timestamp: new Date(Date.now() - 3200000),
-      status: 'read',
-      senderId: '2'
-    },
-    {
-      id: '6',
-      content: "Sure! I'll send you a demo link once I have something working.",
-      timestamp: new Date(Date.now() - 3100000),
-      status: 'read',
-      senderId: '1'
-    },
-    {
-      id: '7',
-      content: 'By the way, did you attend the Svelte Summit?',
-      timestamp: new Date(Date.now() - 3000000),
-      status: 'delivered',
-      senderId: '2'
-    },
-    {
-      id: '8',
-      content: 'Yes, I did! The talks on performance optimization were really insightful.',
-      timestamp: new Date(Date.now() - 2900000),
-      status: 'delivered',
-      senderId: '1'
-    }
-  ];
-
-  function handleMessageClick(e: CustomEvent<{ message: Message }>) {
-    console.log('Message clicked:', e.detail.message.id);
-  }
-
-  function handleMessageReaction(e: CustomEvent<{ message: Message; reaction: string }>) {
-    console.log('Reaction added:', e.detail.reaction, 'to message:', e.detail.message.id);
-  }
-
-  function handleOnMessageAction(action: string, message: Message) {
-    console.log(`Message action (${action}):`, message.id);
-  }
+  const messagesWithAttachments: Message[] = messages.map((msg, i) => (i === 1 ? {
+    ...msg,
+    type: 'image',
+    attachments: [{ id: 'ax1', name: 'image.png', type: 'image/png', size: 12000, url: 'https://placehold.co/120x80' }]
+  } : msg));
 </script>
 
-<div class="p-4">
-  <h1 class="mb-4 text-lg font-semibold">MessageList Component</h1>
-
-  <div class="mb-6 rounded border p-4">
-    <h2 class="text-md mb-2 font-semibold">Interactive MessageList</h2>
-    <Story {controls}>
-      {#snippet children(values: any)}
-          <div class="h-96 flex flex-col gap-4">
-            <MessageList
-              messages={allMessages.slice(0, values.messageCount)}
-              {currentUser}
-              on:messageClick={handleMessageClick}
-              on:messageReaction={handleMessageReaction}
-              on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
-            />
-          </div>
-      {/snippet}
-    </Story>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-    <div class="p-4 border rounded">
-      <h2 class="text-md font-semibold mb-2">MessageList with Few Messages</h2>
-      <div class="h-64">
+<Story
+  id="molecules-message-list"
+  title="Molecules / Information / Messages / MessageList"
+  component={MessageList}
+  category="Molecules/Information/Messages"
+  description="Scrollable chat message list with delegated item events."
+  {controls}
+>
+  {#snippet children(args: any)}
+    <div class="p-4 rounded-xl bg-gray-50 space-y-3">
+      <div class="h-80 rounded border border-gray-200 overflow-hidden bg-white">
         <MessageList
-          messages={allMessages.slice(0, 3)}
+          messages={(args.includeAttachments ? messagesWithAttachments : messages).slice(0, args.messageCount)}
           {currentUser}
-          on:messageClick={handleMessageClick}
-          on:messageReaction={handleMessageReaction}
-          on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
+          on:messageClick={(e) => (lastAction = `click:${e.detail.message.id}`)}
+          on:messageReaction={(e) => (lastAction = `reaction:${e.detail.reaction}`)}
+          onMessageAction={(action, message) => (lastAction = `${action}:${message.id}`)}
         />
       </div>
+      <p class="text-sm text-gray-600">Last action: {lastAction}</p>
     </div>
-
-    <div class="p-4 border rounded">
-      <h2 class="text-md font-semibold mb-2">MessageList with Own Messages</h2>
-      <div class="h-64">
-        <MessageList
-          messages={[
-            { ...allMessages[0], senderId: currentUser.id },
-            { ...allMessages[1], senderId: otherUser.id },
-            { ...allMessages[2], senderId: currentUser.id }
-          ]}
-          {currentUser}
-          on:messageClick={handleMessageClick}
-          on:messageReaction={handleMessageReaction}
-          on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
-        />
-      </div>
-    </div>
-  </div>
-
-  <div class="p-4 border rounded">
-    <h2 class="text-md font-semibold mb-2">Default MessageList</h2>
-    <div class="h-64">
-      <MessageList
-        messages={allMessages}
-        {currentUser}
-        on:messageClick={handleMessageClick}
-        on:messageReaction={handleMessageReaction}
-        on:messageAction={(e) => handleOnMessageAction(e.detail.action, e.detail.message)}
-      />
-    </div>
-  </div>
-</div>
+  {/snippet}
+</Story>

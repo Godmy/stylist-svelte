@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AccordionItemProps } from '$stylist/design-system/props';
-	import { createAccordionItemState } from '$stylist/design-system/models/accordion-item.svelte';
+	import { createAccordionItemState } from '$stylist/design-system/models/interaction/accordion-item.svelte';
 
 	type Props = AccordionItemProps & HTMLAttributes<HTMLDivElement>;
 
@@ -14,7 +14,11 @@
 		accordionId: string;
 		isPanelOpen: (panelId: string) => boolean;
 		handleValueChange: (panelId: string) => void;
-	}>('accordion-context');
+	}>('accordion-context') ?? {
+		accordionId: '',
+		isPanelOpen: () => false,
+		handleValueChange: () => {}
+	};
 
 	let uniqueId = $derived(`${context.accordionId}-${props.value}`);
 

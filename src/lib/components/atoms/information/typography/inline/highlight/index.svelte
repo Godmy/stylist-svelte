@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createHighlightState } from '$stylist/design-system/models/highlight.svelte';
+	import { createHighlightState } from '$stylist/design-system/models/information/highlight.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 
@@ -17,7 +17,7 @@
 
 <mark class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </mark>
 

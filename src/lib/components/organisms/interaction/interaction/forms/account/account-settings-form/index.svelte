@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { AccountSettingsFormProps } from '$stylist/design-system/props/account-forms';
-  import { AccountFormsStyleManager } from '$stylist/design-system/styles/account-forms';
+  import type { AccountSettingsFormProps } from '$stylist/design-system/props/interaction/account-forms';
+  import { AccountFormsStyleManager } from '$stylist/design-system/styles/interaction/account-forms';
   let { name='John Doe', email='john@example.com', locale='en-US', class: className='', ...restProps }: AccountSettingsFormProps = $props();
   const nameId = 'account-settings-name';
   const emailId = 'account-settings-email';

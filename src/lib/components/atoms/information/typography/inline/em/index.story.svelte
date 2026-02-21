@@ -1,13 +1,13 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Em from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
-		{ name: 'text', type: CONTROL_TYPES.TEXT, defaultValue: 'edge cases and prototypes' },
+	const controls: ControlConfig[] = [
+		{ name: 'text', type: 'text', defaultValue: 'edge cases and prototypes' },
 		{
 			name: 'tone',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['default', 'accent', 'warning'],
 			defaultValue: 'default'
 		}
@@ -50,3 +50,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

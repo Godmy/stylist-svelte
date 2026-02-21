@@ -1,1 +1,1 @@
-export type { ILineChartProps } from '$stylist/design-system/props/line-chart';
+export type { ILineChartProps } from '$stylist/design-system/props/architecture/line-chart';

@@ -38,7 +38,7 @@
 
 <h2 {...props} class={classes} {...attrs}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </h2>
 

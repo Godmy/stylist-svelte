@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import PromoBanner from './index.svelte';
 
@@ -11,6 +11,8 @@
     { name: 'variant', type: 'select', options: ['primary', 'secondary', 'success', 'warning', 'danger'], defaultValue: 'success' },
     { name: 'image', type: 'text', defaultValue: 'https://placehold.co/150x80/3B82F6/FFFFFF?text=Promo' }
   ];
+
+  let clicks = $state(0);
 </script>
 
 <Story
@@ -36,8 +38,9 @@
             cta={values.cta}
             variant={values.variant}
             image={values.image}
-            onCtaClick={() => console.log('CTA clicked')}
+            onCtaClick={() => clicks++}
           />
+          <p class="mt-2 text-xs text-[--color-text-secondary]">CTA clicks: {clicks}</p>
         </div>
       </div>
 

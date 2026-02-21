@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/props/geo-jsonviewer';
-  import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/geo-jsonviewer';
+  import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/props/information/geo-jsonviewer';
+  import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/information/geo-jsonviewer';
   import { Button } from '$lib/components/atoms';
   import { Globe, Layers, Info, Download, Upload, Plus, Minus, RotateCcw, X } from 'lucide-svelte';
 

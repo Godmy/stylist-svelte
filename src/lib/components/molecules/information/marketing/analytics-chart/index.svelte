@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { AnalyticsChartStyleManager } from '$stylist/design-system/styles/analytics-chart';
+  import { AnalyticsChartStyleManager } from '$stylist/design-system/styles/information/analytics-chart';
   import BarChart from '$stylist/components/molecules/architecture/canvas/charts/bar-chart/index.svelte';
   import LineChart from '$stylist/components/organisms/architecture/canvas/charts/line-chart/index.svelte';
   import PieChart from '$stylist/components/atoms/information/data-display/charts/chart-pie/index.svelte';

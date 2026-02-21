@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { LoginFormProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { LoginFormProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { email='', rememberMe=false, class: className='', ...restProps }: LoginFormProps = $props();
 </script>
 <form class={InteractionFormsStyleManager.root('c-login-form border rounded-lg p-4 space-y-3', className)} {...restProps}>

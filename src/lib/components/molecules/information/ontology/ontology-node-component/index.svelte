@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { OntologyNodeComponentStyleManager } from '$stylist/design-system/styles/ontology-node-component';
+  import { OntologyNodeComponentStyleManager } from '$stylist/design-system/styles/information/ontology-node-component';
   import { Icon } from '$stylist/components/atoms';
 
   type Position2D = { x: number; y: number };

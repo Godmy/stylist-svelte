@@ -44,7 +44,7 @@
 
 <h1 {...restProps} class={classes}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </h1>
 

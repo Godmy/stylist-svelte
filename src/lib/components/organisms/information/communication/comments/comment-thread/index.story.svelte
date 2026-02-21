@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import CommentThread from './index.svelte';
-  import type { CommentThreadItem } from '$lib/design-system/props/comment-thread';
+  import type { CommentThreadItem } from '$lib/design-system/props/information/comment-thread';
 
   const controls: ControlConfig[] = [
     { name: 'title', type: 'text', defaultValue: 'Discussion Thread' },

@@ -1,12 +1,15 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import TableHeader from './index.svelte';
   import TableRow from '../table-row/index.svelte';
   import TableCell from '../table-cell/index.svelte';
 
-  const controls: ControlConfig[] = [];
+  const controls: ControlConfig[] = [
+    { name: 'showThirdColumn', type: 'boolean', defaultValue: true },
+    { name: 'showSortHint', type: 'boolean', defaultValue: true }
+  ];
 </script>
 
 <Story
@@ -23,7 +26,7 @@
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
           Primary Table Header Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">A header component for tables.</p>
+        <p class="mt-1 text-[--color-text-primary]">Toggle structure and sorting hint visibility.</p>
 
         <div class="mt-6 overflow-x-auto">
           <table class="min-w-full divide-y divide-[--color-border-primary]">
@@ -31,18 +34,15 @@
               {#snippet content()}
                 <TableRow>
                   {#snippet content()}
-                    <TableCell variant="header">Column A</TableCell>
-                    <TableCell variant="header">Column B</TableCell>
+                    <TableCell variant="header">Column A{values.showSortHint ? ' ' : ''}</TableCell>
+                    <TableCell variant="header">Column B{values.showSortHint ? ' ' : ''}</TableCell>
+                    {#if values.showThirdColumn}
+                      <TableCell variant="header">Column C{values.showSortHint ? ' ' : ''}</TableCell>
+                    {/if}
                   {/snippet}
                 </TableRow>
               {/snippet}
             </TableHeader>
-            <tbody>
-              <TableRow>
-                <TableCell>Data 1</TableCell>
-                <TableCell>Data 2</TableCell>
-              </TableRow>
-            </tbody>
           </table>
         </div>
       </div>
@@ -55,32 +55,13 @@
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Multi-column Header</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Compact Header</p>
             <table class="min-w-full divide-y divide-[--color-border-primary]">
               <TableHeader>
                 {#snippet content()}
                   <TableRow>
-                    {#snippet content()}
-                      <TableCell variant="header">Product</TableCell>
-                      <TableCell variant="header">Category</TableCell>
-                      <TableCell variant="header">Price</TableCell>
-                    {/snippet}
-                  </TableRow>
-                {/snippet}
-              </TableHeader>
-            </table>
-          </article>
-
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Header with Sorting</p>
-            <table class="min-w-full divide-y divide-[--color-border-primary]">
-              <TableHeader>
-                {#snippet content()}
-                  <TableRow>
-                    {#snippet content()}
-                      <TableCell variant="header">Name ↕️</TableCell>
-                      <TableCell variant="header">Date ↕️</TableCell>
-                    {/snippet}
+                    <TableCell variant="header">Name</TableCell>
+                    <TableCell variant="header">Status</TableCell>
                   </TableRow>
                 {/snippet}
               </TableHeader>
@@ -91,4 +72,3 @@
     </section>
   {/snippet}
 </Story>
-

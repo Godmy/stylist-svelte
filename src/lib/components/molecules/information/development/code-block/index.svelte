@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Copy, Check } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
-  import { CodeBlockStyleManager } from '$stylist/design-system/styles/code-block';
+  import { CodeBlockStyleManager } from '$stylist/design-system/styles/information/code-block';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

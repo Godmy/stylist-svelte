@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AnnouncementBannerProps } from '$stylist/design-system';
-	import { createAnnouncementBannerState } from '$stylist/design-system/models/announcement-banner.svelte';
+	import { createAnnouncementBannerState } from '$stylist/design-system/models/information/announcement-banner.svelte';
 
 	let props: AnnouncementBannerProps = $props();
 	const state = createAnnouncementBannerState(props);
@@ -31,7 +31,7 @@
 			{/if}
 			{#if props.children}
 				<div class={state.childrenClasses}>
-					{@render props.children()}
+					{@render props.children?.()}
 				</div>
 			{/if}
 		</div>

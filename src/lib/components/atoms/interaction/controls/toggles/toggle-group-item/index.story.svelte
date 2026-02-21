@@ -1,134 +1,29 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import ToggleGroupItem from './index.svelte';
+	import ToggleGroupRoot from '../toggle-group-root/index.svelte';
 
-import ToggleGroupItem from './index.svelte';
-import ToggleGroupRoot from '$stylist/components/atoms/interaction/controls/toggles/toggle-group-root/index.svelte';
+	let selected = $state<string | null>(null);
 
-	let {
-		id = '',
-		title = '',
-		description = '',
-		controls = [{ name: 'disabled', type: 'boolean', defaultValue: false }]
-	}: {
-		id: string;
-		title: string;
-		description: string;
-		controls: ControlConfig[];
-	} = $props();
-
-	// State for tracking values
-	let value: string | null = $state(null);
+	const controls: ControlConfig[] = [
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'type', type: 'select', defaultValue: 'single', options: ['single', 'multiple'] }
+	];
 </script>
 
-<Story {id} {title} {description} component={ToggleGroupItem} category="Molecules" {controls}>
+<Story component={ToggleGroupItem} title="ToggleGroupItem" description="Selectable item managed by ToggleGroupRoot context." {controls}>
 	{#snippet children(values: any)}
-		<section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-			<div
-				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm"
+		<div class="space-y-3">
+			<ToggleGroupRoot
+				type={values.type}
+				onValueChange={(e) => (selected = Array.isArray(e.detail.value) ? e.detail.value.join(', ') : e.detail.value)}
 			>
-				<p class="text-sm font-semibold tracking-wide text-[--color-text-secondary] uppercase">
-					Primary Toggle Group Item Example
-				</p>
-				<p class="mt-1 text-[--color-text-primary]">
-					Toggle group item that works within a root component.
-				</p>
-
-				<div class="mt-6 space-y-8">
-					<!-- Single Selection Toggle Group -->
-					<div>
-						<p class="mb-3 text-sm font-medium text-[--color-text-primary]">
-							Within Toggle Group (Single Selection):
-						</p>
-						<ToggleGroupRoot
-							type="single"
-							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
-								(value = Array.isArray(e.detail.value) ? e.detail.value[0] : e.detail.value)}
-						>
-							<ToggleGroupItem value="option1" disabled={values.disabled as boolean}>Option 1</ToggleGroupItem>
-							<ToggleGroupItem value="option2" disabled={values.disabled as boolean}>Option 2</ToggleGroupItem>
-							<ToggleGroupItem value="option3" disabled={values.disabled as boolean}>Option 3</ToggleGroupItem>
-						</ToggleGroupRoot>
-						<p class="mt-2 text-xs text-[--color-text-secondary]">Selected: {value || 'None'}</p>
-					</div>
-
-					<!-- Multiple Selection Toggle Group -->
-					<div>
-						<p class="mb-3 text-sm font-medium text-[--color-text-primary]">
-							Within Toggle Group (Multiple Selection):
-						</p>
-						<ToggleGroupRoot
-							type="multiple"
-							onValueChange={(e: CustomEvent<{ value: string | string[] | null }>) =>
-								console.log('Multiple selection:', e.detail.value)}
-						>
-							<ToggleGroupItem value="multi1" disabled={values.disabled as boolean}>Multi 1</ToggleGroupItem>
-							<ToggleGroupItem value="multi2" disabled={values.disabled as boolean}>Multi 2</ToggleGroupItem>
-							<ToggleGroupItem value="multi3" disabled={values.disabled as boolean}>Multi 3</ToggleGroupItem>
-						</ToggleGroupRoot>
-					</div>
-				</div>
-			</div>
-
-			<div
-				class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm"
-			>
-				<h3 class="text-base font-semibold text-[--color-text-primary]">
-					Toggle Group Item Variations
-				</h3>
-				<p class="text-sm text-[--color-text-secondary]">
-					Different configurations and states for toggle group items.
-				</p>
-
-				<div class="mt-5 space-y-4">
-					<article
-						class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4"
-					>
-						<p class="mb-2 text-sm font-semibold text-[--color-text-primary]">Disabled State</p>
-						<ToggleGroupRoot type="single">
-							<ToggleGroupItem value="disabled1" disabled={true}>Disabled 1</ToggleGroupItem>
-							<ToggleGroupItem value="disabled2" disabled={true}>Disabled 2</ToggleGroupItem>
-						</ToggleGroupRoot>
-					</article>
-
-					<article
-						class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4"
-					>
-						<p class="mb-2 text-sm font-semibold text-[--color-text-primary]">With Icon Content</p>
-						<ToggleGroupRoot type="single">
-							<ToggleGroupItem value="bold-icon">
-								<span class="font-bold">B</span>
-							</ToggleGroupItem>
-							<ToggleGroupItem value="italic-icon">
-								<span class="italic">I</span>
-							</ToggleGroupItem>
-							<ToggleGroupItem value="underline-icon">
-								<span class="underline">U</span>
-							</ToggleGroupItem>
-						</ToggleGroupRoot>
-					</article>
-
-					<article
-						class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4"
-					>
-						<p class="mb-2 text-sm font-semibold text-[--color-text-primary]">Active State</p>
-						<div class="flex flex-col gap-2">
-							<p class="text-xs text-[--color-text-secondary]">
-								Toggle Group Item is active when selected
-							</p>
-							<ToggleGroupRoot type="single" value="active">
-								<ToggleGroupItem value="inactive">Inactive</ToggleGroupItem>
-								<ToggleGroupItem value="active">Active</ToggleGroupItem>
-							</ToggleGroupRoot>
-						</div>
-					</article>
-				</div>
-			</div>
-		</section>
+				<ToggleGroupItem value="bold" disabled={values.disabled}>Bold</ToggleGroupItem>
+				<ToggleGroupItem value="italic" disabled={values.disabled}>Italic</ToggleGroupItem>
+				<ToggleGroupItem value="underline" disabled={values.disabled}>Underline</ToggleGroupItem>
+			</ToggleGroupRoot>
+			<p class="text-sm text-[--color-text-secondary]">Selected: {selected || 'none'}</p>
+		</div>
 	{/snippet}
 </Story>
-
-
-
-
-

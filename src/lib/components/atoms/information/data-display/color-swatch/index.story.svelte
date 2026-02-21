@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import ColorSwatch from './index.svelte';
 
@@ -25,9 +25,10 @@
 	tags={['information', 'data-display', 'color']}
 >
 	{#snippet children(values: any)}
+		{@const parsedSize = Number(values.size)}
 		<ColorSwatch
 			color={values.color as string}
-			size={parseInt(values.size as string)}
+			size={Number.isNaN(parsedSize) ? 32 : parsedSize}
 		/>
 	{/snippet}
 </Story>

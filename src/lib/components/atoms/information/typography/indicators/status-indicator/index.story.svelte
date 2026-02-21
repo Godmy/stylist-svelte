@@ -1,18 +1,18 @@
 <script lang="ts">
 	import StatusIndicator from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'status',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['online', 'offline', 'away', 'busy'],
 			defaultValue: 'online'
 		},
 		{
 			name: 'label',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: 'Available for pairing'
 		}
 	];
@@ -70,3 +70,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

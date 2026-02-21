@@ -1,72 +1,28 @@
-<script lang="ts">
-  import LoadingOverlay from './index.svelte';
+п»ї<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import Overlay from './index.svelte';
 
-  type SpinnerSize = 'sm' | 'md' | 'lg';
-
-  let loading = true;
-  let message = 'Синхронизируем данные рабочего пространства...';
-  let spinnerSize: SpinnerSize = 'md';
+	const controls: ControlConfig[] = [
+		{ name: 'loading', type: 'boolean', defaultValue: true },
+		{ name: 'message', type: 'text', defaultValue: 'Loading visualization...' },
+		{ name: 'spinnerSize', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
+	];
 </script>
 
-<div class="space-y-8 p-6">
-  <section class="rounded-2xl border border-[--color-border-primary] bg-white p-6 shadow-sm">
-    <div class="grid gap-6 lg:grid-cols-[280px_1fr]">
-      <div class="space-y-4">
-        <div>
-          <label for="message-input" class="text-sm font-medium text-[--color-text-secondary]">Сообщение</label>
-          <textarea
-            id="message-input"
-            rows="3"
-            class="mt-1 w-full rounded-lg border border-[--color-border-primary] px-3 py-2 text-sm"
-            bind:value={message}
-          ></textarea>
-        </div>
-
-        <div>
-          <label for="size-select" class="text-sm font-medium text-[--color-text-secondary]">Размер индикатора</label>
-          <select
-            id="size-select"
-            class="mt-1 w-full rounded-lg border border-[--color-border-primary] px-3 py-2 text-sm"
-            bind:value={spinnerSize}
-          >
-            <option value="sm">Small</option>
-            <option value="md">Medium</option>
-            <option value="lg">Large</option>
-          </select>
-        </div>
-
-        <label class="flex items-center gap-2 text-sm text-[--color-text-secondary]">
-          <input type="checkbox" bind:checked={loading} />
-          Показывать оверлей
-        </label>
-      </div>
-
-      <div class="relative min-h-[220px] rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-secondary]">
-        <div class="h-full p-6">
-          <h3 class="text-sm font-semibold text-[--color-text-primary]">Dashboard</h3>
-          <p class="text-xs text-[--color-text-secondary]">Плейсхолдер контента под загрузочным слоем.</p>
-        </div>
-        <LoadingOverlay loading={loading} {message} spinnerSize={spinnerSize} />
-      </div>
-    </div>
-  </section>
-
-  <section class="rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
-    <h2 class="text-base font-semibold text-[--color-text-primary]">Пресеты</h2>
-    <p class="text-sm text-[--color-text-secondary]">
-      Быстрые варианты показывают разные сообщения и размеры.
-    </p>
-
-    <div class="mt-4 grid gap-4 md:grid-cols-3">
-      {#each ['sm', 'md', 'lg'] as size}
-        <div class="relative h-48 rounded-xl border border-[--color-border-primary] bg-white p-4">
-          <p class="text-sm font-semibold text-[--color-text-primary]">Размер {size.toUpperCase()}</p>
-          <LoadingOverlay loading={true} message={`Загрузка (${size})`} spinnerSize={size as SpinnerSize} />
-        </div>
-      {/each}
-    </div>
-  </section>
-</div>
-
-
-
+<Story component={Overlay} title="Overlay" description="Blocking loading layer for charts, cards, and panels." {controls}>
+	{#snippet children(values: any)}
+		<div class="relative min-h-56 overflow-hidden rounded-2xl border border-[--color-border-primary] bg-[--color-background-secondary] p-6">
+			<div class="space-y-2">
+				<h3 class="text-base font-semibold text-[--color-text-primary]">Sales performance</h3>
+				<p class="text-sm text-[--color-text-secondary]">Chart container placeholder used for overlay preview.</p>
+			</div>
+			<div class="mt-5 grid grid-cols-3 gap-3">
+				<div class="h-24 rounded-lg bg-[--color-background-primary]"></div>
+				<div class="h-24 rounded-lg bg-[--color-background-primary]"></div>
+				<div class="h-24 rounded-lg bg-[--color-background-primary]"></div>
+			</div>
+			<Overlay loading={values.loading} message={values.message} spinnerSize={values.spinnerSize} />
+		</div>
+	{/snippet}
+</Story>

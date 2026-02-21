@@ -1,19 +1,20 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ConversionFunnel from './index.svelte';
 
-  type Props = { showConversionRate: boolean };
-
   const controls: ControlConfig[] = [
-    { name: 'showConversionRate', type: 'boolean', defaultValue: true }
+    { name: 'showConversionRate', type: 'boolean', defaultValue: true },
+    { name: 'showPercentage', type: 'boolean', defaultValue: true },
+    { name: 'showValues', type: 'boolean', defaultValue: true },
+    { name: 'showTrend', type: 'boolean', defaultValue: true }
   ];
 
-  const sampleSteps = [
-    { id: 'visitors', name: 'Visitors', value: 10000, color: '#3b82f6' },
-    { id: 'viewed', name: 'Viewed Product', value: 5000, color: '#60a5fa' },
-    { id: 'cart', name: 'Added to Cart', value: 1000, color: '#93c5fd' },
-    { id: 'purchase', name: 'Completed Purchase', value: 500, color: '#bfdbfe' }
+  const steps = [
+    { id: 'visitors', name: 'Visitors', value: 10000, color: '#2563EB' },
+    { id: 'product', name: 'Product view', value: 4700, color: '#3B82F6' },
+    { id: 'checkout', name: 'Checkout start', value: 1300, color: '#60A5FA' },
+    { id: 'purchase', name: 'Purchase', value: 540, color: '#93C5FD' }
   ];
 </script>
 
@@ -22,13 +23,20 @@
   title="Molecules / Information / Marketing / ConversionFunnel"
   component={ConversionFunnel}
   category="Molecules/Information/Marketing"
-  description="Conversion funnel visualization."
-  controls={controls}
+  description="Conversion stages with dropoff and progression visibility."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-conversion-funnel p-4">
-      <ConversionFunnel title="Sample Conversion Funnel" steps={sampleSteps} showConversionRate={args.showConversionRate} />
+  {#snippet children(args: any)}
+    <div class="p-4 rounded-xl bg-gray-50">
+      <ConversionFunnel
+        title="Checkout funnel"
+        subtitle="Website sales"
+        {steps}
+        showConversionRate={args.showConversionRate}
+        showPercentage={args.showPercentage}
+        showValues={args.showValues}
+        showTrend={args.showTrend}
+      />
     </div>
   {/snippet}
 </Story>
-

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ColorSwatchProps } from '$stylist/design-system';
-	import { createColorSwatchState } from '$stylist/design-system/models/color-swatch.svelte';
+	import { createColorSwatchState } from '$stylist/design-system/models/information/color-swatch.svelte';
 
 	let props: ColorSwatchProps = $props();
 	const state = createColorSwatchState(props);

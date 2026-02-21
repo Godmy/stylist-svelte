@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import type { AccountSettingsFormElementProps, AccountSettings } from '$stylist/design-system/props';
   import { AccountSettingsStyleManager } from '$stylist/design-system/styles';
   import AccountSettingsForm from './index.svelte';

@@ -3,7 +3,7 @@
 	import { X } from 'lucide-svelte';
 
 	import type { TagProps } from '$stylist/design-system/props';
-	import { createTagState } from '$stylist/design-system/models/tag.svelte';
+	import { createTagState } from '$stylist/design-system/models/interaction/tag.svelte';
 
 	type Props = TagProps & HTMLAttributes<HTMLSpanElement>;
 	let props: Props = $props();

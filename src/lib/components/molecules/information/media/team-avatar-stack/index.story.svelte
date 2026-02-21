@@ -1,67 +1,43 @@
 <script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import TeamAvatarStack from './index.svelte';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import TeamAvatarStack from './index.svelte';
 
-    type TeamMember = {
-        id: string;
-        name: string;
-        avatar?: string;
-        role?: string;
-        status?: 'online' | 'away' | 'busy' | 'offline';
-        presence?: boolean;
-    };
+  const controls: ControlConfig[] = [
+    { name: 'maxVisible', type: 'number', defaultValue: 4, min: 1, max: 8 },
+    { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    { name: 'stackDirection', type: 'select', options: ['horizontal', 'vertical'], defaultValue: 'horizontal' },
+    { name: 'showStatus', type: 'boolean', defaultValue: true },
+    { name: 'showTooltip', type: 'boolean', defaultValue: false }
+  ];
 
-    type Props = {
-        members: TeamMember[];
-        maxVisible?: number;
-        showStatus?: boolean;
-        showTooltip?: boolean;
-        size?: 'sm' | 'md' | 'lg';
-        stackDirection?: 'horizontal' | 'vertical';
-    };
-
-    const defaultMembers = [
-        { id: '1', name: 'John Doe', avatar: 'https://via.placeholder.com/40', status: 'online' },
-        { id: '2', name: 'Jane Smith', avatar: 'https://via.placeholder.com/40', status: 'away' },
-        { id: '3', name: 'Bob Johnson', avatar: 'https://via.placeholder.com/40', status: 'online' },
-        { id: '4', name: 'Alice Williams', avatar: 'https://via.placeholder.com/40', status: 'offline' },
-        { id: '5', name: 'Charlie Brown', avatar: 'https://via.placeholder.com/40', status: 'busy' }
-    ];
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'maxVisible',
-            type: 'number',
-            defaultValue: 3
-        },
-        {
-            name: 'size',
-            type: 'select',
-            options: ['sm', 'md', 'lg'],
-            defaultValue: 'md'
-        }
-    ];
+  const members = [
+    { id: '1', name: 'John Doe', avatar: 'https://i.pravatar.cc/120?img=11', status: 'online' as const },
+    { id: '2', name: 'Jane Smith', avatar: 'https://i.pravatar.cc/120?img=12', status: 'away' as const },
+    { id: '3', name: 'Bob Johnson', avatar: 'https://i.pravatar.cc/120?img=13', status: 'busy' as const },
+    { id: '4', name: 'Alice White', avatar: 'https://i.pravatar.cc/120?img=14', status: 'offline' as const },
+    { id: '5', name: 'Mark Lee', avatar: 'https://i.pravatar.cc/120?img=15', status: 'online' as const }
+  ];
 </script>
 
 <Story
-    id="molecules-team-avatar-stack"
-    title="TeamAvatarStack"
-    component={TeamAvatarStack}
-    category="Molecules"
-    description="Stack of team member avatars"
-    controls={controls}
+  id="molecules-team-avatar-stack"
+  title="Molecules / Information / Media / TeamAvatarStack"
+  component={TeamAvatarStack}
+  category="Molecules/Information/Media"
+  description="Team avatar stack with direction and status controls."
+  {controls}
 >
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <TeamAvatarStack
-                members={values.members || defaultMembers}
-                maxVisible={values.maxVisible || 3}
-                size={values.size}
-            />
-        </div>
-    {/snippet}
+  {#snippet children(args: any)}
+    <div class="p-6 rounded-xl bg-gray-50">
+      <TeamAvatarStack
+        members={members}
+        maxVisible={args.maxVisible}
+        size={args.size}
+        stackDirection={args.stackDirection}
+        showStatus={args.showStatus}
+        showTooltip={args.showTooltip}
+      />
+    </div>
+  {/snippet}
 </Story>
-
-
-

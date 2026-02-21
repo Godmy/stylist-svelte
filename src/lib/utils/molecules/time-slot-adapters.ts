@@ -1,5 +1,5 @@
-import type { ITimeSlot } from '$stylist/design-system/props/time-slot';
-import type { CalendarEvent } from '$stylist/design-system/props/calendar';
+import type { ITimeSlot } from '$stylist/design-system/props/interaction/time-slot';
+import type { CalendarEvent } from '$stylist/design-system/props/information/calendar';
 
 /**
  * Converts a calendar TimeSlot (molecular) to an atomic TimeSlot

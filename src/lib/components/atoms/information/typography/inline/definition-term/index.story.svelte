@@ -1,17 +1,17 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import DefinitionTerm from './index.svelte';
 	import { DefinitionDescription } from '../../../typography/inline/definition-description';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
-		{ name: 'term', type: CONTROL_TYPES.TEXT, defaultValue: 'North Star Metric' },
+	const controls: ControlConfig[] = [
+		{ name: 'term', type: 'text', defaultValue: 'North Star Metric' },
 		{
 			name: 'description',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: 'Singular KPI that captures the core value delivered to your best customers.'
 		},
-		{ name: 'highlight', type: CONTROL_TYPES.BOOLEAN, defaultValue: true }
+		{ name: 'highlight', type: 'boolean', defaultValue: true }
 	];
 
 	const definitions = [
@@ -64,4 +64,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+
 

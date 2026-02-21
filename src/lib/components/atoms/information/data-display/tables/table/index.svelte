@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableProps } from '$stylist/design-system/props';
-	import { createTableState } from '$stylist/design-system/models/table.svelte';
+	import { createTableState } from '$stylist/design-system/models/information/table.svelte';
 
 	let props: TableProps = $props();
 	const state = createTableState(props);

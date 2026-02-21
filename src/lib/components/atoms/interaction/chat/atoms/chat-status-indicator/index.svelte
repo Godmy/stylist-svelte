@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { createChatStatusIndicatorState } from '$stylist/design-system/models/chat-status-indicator.svelte';
-  import type { ChatStatusIndicatorProps } from '$stylist/design-system/props/chat-status-indicator';
+  import { createChatStatusIndicatorState } from '$stylist/design-system/models/interaction/chat-status-indicator.svelte';
+  import type { ChatStatusIndicatorProps } from '$stylist/design-system/props/interaction/chat-status-indicator';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type Props = ChatStatusIndicatorProps & HTMLAttributes<HTMLSpanElement>;

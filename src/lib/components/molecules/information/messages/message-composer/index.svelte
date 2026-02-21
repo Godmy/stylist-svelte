@@ -3,8 +3,8 @@
   import { Paperclip, Mic, Send } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
 
-  import type { IMessageComposerProps } from '$stylist/design-system/props/message-composer';
-  import { MessageComposerStyleManager } from '$stylist/design-system/styles/message-composer';
+  import type { IMessageComposerProps } from '$stylist/design-system/props/information/message-composer';
+  import { MessageComposerStyleManager } from '$stylist/design-system/styles/information/message-composer';
 
   /**
    * MessageComposer component - A message input component with attachment and voice options

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IAdvancedAccordionProps, IAdvancedAccordionItem } from '$stylist/design-system/props/advanced-accordion';
-  import { AdvancedAccordionStyleManager } from '$stylist/design-system/styles/advanced-accordion';
+  import type { IAdvancedAccordionProps, IAdvancedAccordionItem } from '$stylist/design-system/props/interaction/advanced-accordion';
+  import { AdvancedAccordionStyleManager } from '$stylist/design-system/styles/interaction/advanced-accordion';
 
   let {
     items = [],

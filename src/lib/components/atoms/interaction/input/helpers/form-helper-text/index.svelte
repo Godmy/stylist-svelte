@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createFormHelperTextState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/form-helper-text.svelte';
+	import { createFormHelperTextState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/form-helper-text.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * FormHelperText component - displays helper text for form fields

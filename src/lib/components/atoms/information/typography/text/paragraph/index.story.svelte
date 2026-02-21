@@ -1,10 +1,11 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import Paragraph from './index.svelte';
 
   const controls: ControlConfig[] = [
+    { name: 'content', type: 'text', defaultValue: 'Example paragraph content.' },
     { name: 'variant', type: 'select', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'], defaultValue: 'primary' },
     { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
     { name: 'disabled', type: 'boolean', defaultValue: false },
@@ -35,7 +36,7 @@
             disabled={values.disabled}
             block={values.block}
           >
-            Example Paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {values.content}
           </Paragraph>
         </div>
       </div>

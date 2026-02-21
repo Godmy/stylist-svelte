@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ITimeSlotProps } from '$stylist/design-system/props/time-slot';
-  import { TimeSlotStyleManager } from '$stylist/design-system/styles/time-slot';
+  import type { ITimeSlotProps } from '$stylist/design-system/props/interaction/time-slot';
+  import { TimeSlotStyleManager } from '$stylist/design-system/styles/interaction/time-slot';
 
   // Component props
   let props: ITimeSlotProps = $props();
@@ -25,12 +25,25 @@
   const wrapperClasses = $derived(
     TimeSlotStyleManager.getTimeSlotClasses(available, selected, active, hostClass)
   );
+  const safeStart = $derived(
+    start instanceof Date ? start : start ? new Date(start as unknown as string | number | Date) : new Date(0)
+  );
+  const safeEnd = $derived(
+    end instanceof Date ? end : end ? new Date(end as unknown as string | number | Date) : new Date(0)
+  );
+  const startTimeText = $derived(
+    Number.isNaN(safeStart.getTime()) ? 'unknown start time' : safeStart.toLocaleTimeString()
+  );
+  const endTimeText = $derived(
+    Number.isNaN(safeEnd.getTime()) ? 'unknown end time' : safeEnd.toLocaleTimeString()
+  );
+  const displayTimeLabel = $derived(timeLabel ?? `${startTimeText} - ${endTimeText}`);
 
   function handleClick() {
     const slot = {
-      start,
-      end,
-      timeLabel,
+      start: safeStart,
+      end: safeEnd,
+      timeLabel: displayTimeLabel,
       available,
       selected,
       active,
@@ -61,10 +74,10 @@ Can be used by various calendar components
   tabindex="0"
   onclick={handleClick}
   onkeydown={handleKeyDown}
-  aria-label={`Time slot from ${start.toLocaleTimeString()} to ${end.toLocaleTimeString()}, ${available ? 'available' : 'not available'}`}
+  aria-label={`Time slot from ${startTimeText} to ${endTimeText}, ${available ? 'available' : 'not available'}`}
 >
   <div class={TimeSlotStyleManager.getTimeLabelClasses()}>
-    {timeLabel}
+    {displayTimeLabel}
   </div>
   {#if events && events.length > 0}
     <div class={TimeSlotStyleManager.getEventCountClasses()}>

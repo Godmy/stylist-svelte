@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createEmState } from '$stylist/design-system/models/em.svelte';
+	import { createEmState } from '$stylist/design-system/models/information/em.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 
@@ -17,7 +17,7 @@
 
 <em class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </em>
 

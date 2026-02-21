@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Plus, Trash2 } from 'lucide-svelte';
-  import type { QuoteRequestValue } from '$stylist/design-system/props/interaction-input';
-  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+  import type { QuoteRequestValue } from '$stylist/design-system/props/interaction/interaction-input';
+  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedQuoteRequestProps {
     title?: string;

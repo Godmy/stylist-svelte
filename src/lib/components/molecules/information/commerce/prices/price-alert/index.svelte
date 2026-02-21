@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { PriceAlertElementProps } from '$stylist/design-system/props/price-alert';
-  import { createState } from '$stylist/design-system/models/price-alert.svelte';
-  import { PRICE_ALERT_PRESET } from '$stylist/design-system/state/price-alert';
+  import type { PriceAlertElementProps } from '$stylist/design-system/props/information/price-alert';
+  import { createState } from '$stylist/design-system/models/information/price-alert.svelte';
+  import { PRICE_ALERT_PRESET } from '$stylist/design-system/presets/price-alert';
 
   /**
    * PriceAlert - компонент для отслеживания цен и уведомлений о достижении целевой цены
@@ -44,7 +44,7 @@
     PRICE_ALERT_CURRENT_PRICE_CLASSES, 
     PRICE_ALERT_TARGET_PRICE_CLASSES, 
     PRICE_ALERT_STATUS_BADGE_CLASSES 
-  } from '$stylist/design-system/classes/price-alert';
+  } from '$stylist/design-system/classes/information/price-alert';
   
   const isTargetReached = $derived(currentPrice <= targetPrice);
   const statusText = $derived(isTargetReached ? 'reached' : 'monitoring');

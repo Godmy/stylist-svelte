@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ISelectProps } from '$stylist/design-system/props/selector';
+  import type { ISelectProps } from '$stylist/design-system/props/interaction/selector';
 
   /**
    * Select component - A stylized select with theme-aware dropdown

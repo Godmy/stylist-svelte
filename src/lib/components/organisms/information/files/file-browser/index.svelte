@@ -1,18 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
   import { Folder, FolderOpen, File, ChevronRight, ChevronDown } from 'lucide-svelte';
-
-  type FolderItem = {
-    id: string;
-    name: string;
-    children?: FolderItem[];
-    expanded?: boolean;
-    selected?: boolean;
-    type?: 'folder' | 'file';
-    icon?: Snippet;
-    data?: any; // Additional data
-  };
+  import type { FolderItem } from './types';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

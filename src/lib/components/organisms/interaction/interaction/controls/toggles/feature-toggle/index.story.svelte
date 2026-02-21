@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import FeatureToggle from './index.svelte';
   type Props={checked:boolean;disabled:boolean};
   const controls: ControlConfig[]=[{name:'checked',type:'boolean',defaultValue:true},{name:'disabled',type:'boolean',defaultValue:false}];

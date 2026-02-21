@@ -1,23 +1,31 @@
 <script lang="ts">
-  import type { Message } from '$stylist/design-system/props/chat';
+  import type { Message } from '$stylist/design-system/props/information/chat';
 
   import MessageStatusAtom from '$stylist/components/atoms/information/typography/indicators/message-status/index.svelte';
   import MessageTimestamp from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp/index.svelte';
 
   // Props
-  let { 
+  let {
     message,
     showTimestamp = true,
     showStatus = true
   }: {
-    message: Message;
+    message?: Message;
     showTimestamp?: boolean;
     showStatus?: boolean;
   } = $props();
 
+  const timestamp = $derived(
+    message?.timestamp instanceof Date
+      ? message.timestamp
+      : message?.timestamp
+        ? new Date(message.timestamp as unknown as string | number | Date)
+        : undefined
+  );
+
   // Message supports string statuses too, but MessageStatusAtom only accepts known literals.
   const displayStatus = $derived(
-    message.status === 'sent' || message.status === 'delivered' || message.status === 'read'
+    message?.status === 'sent' || message?.status === 'delivered' || message?.status === 'read'
       ? message.status
       : undefined
   );
@@ -39,21 +47,21 @@
 
 {#if showTimestamp || showStatus}
   <div class="message-meta">
-    {#if showTimestamp}
-      <MessageTimestamp 
-        timestamp={message.timestamp} 
-        formatStyle="time" 
+    {#if showTimestamp && timestamp}
+      <MessageTimestamp
+        timestamp={timestamp}
+        formatStyle="time"
       />
     {/if}
-    
-    {#if showTimestamp && showStatus}
-      <span class="meta-separator">•</span>
+
+    {#if showTimestamp && timestamp && showStatus}
+      <span class="meta-separator">&middot;</span>
     {/if}
-    
+
     {#if showStatus}
-      <MessageStatusAtom 
-        status={displayStatus} 
-        size="sm" 
+      <MessageStatusAtom
+        status={displayStatus}
+        size="sm"
       />
     {/if}
   </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IRangeSliderProps } from '$stylist/design-system/props/range-slider';
+  import type { IRangeSliderProps } from '$stylist/design-system/props/interaction/range-slider';
 
   /**
    * RangeSlider component - A slider with single or dual handles

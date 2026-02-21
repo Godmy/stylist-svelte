@@ -1,19 +1,20 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import AnalyticsChart from './index.svelte';
 
-  type Props = { type: string };
-
   const controls: ControlConfig[] = [
-    { name: 'type', type: 'select', options: ['bar', 'line', 'pie'], defaultValue: 'bar' }
+    { name: 'type', type: 'select', options: ['bar', 'line', 'pie'], defaultValue: 'bar' },
+    { name: 'showLegend', type: 'boolean', defaultValue: true },
+    { name: 'showTrend', type: 'boolean', defaultValue: true },
+    { name: 'trendValue', type: 'number', defaultValue: 12, min: -100, max: 100 }
   ];
 
-  const sampleData = [
+  const data = [
     { label: 'Jan', value: 400, color: '#3B82F6' },
-    { label: 'Feb', value: 300, color: '#10B981' },
-    { label: 'Mar', value: 200, color: '#F59E0B' },
-    { label: 'Apr', value: 280, color: '#EF4444' }
+    { label: 'Feb', value: 320, color: '#10B981' },
+    { label: 'Mar', value: 250, color: '#F59E0B' },
+    { label: 'Apr', value: 370, color: '#EF4444' }
   ];
 </script>
 
@@ -22,14 +23,22 @@
   title="Molecules / Information / Marketing / AnalyticsChart"
   component={AnalyticsChart}
   category="Molecules/Information/Marketing"
-  description="Analytics chart component."
-  controls={controls}
+  description="Reusable analytics chart wrapper with bar/line/pie modes."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-analytics-chart p-4">
-      <AnalyticsChart title="Sample Analytics Chart" data={sampleData} type={args.type as any} />
+  {#snippet children(args: any)}
+    <div class="p-4 rounded-xl bg-gray-50">
+      <AnalyticsChart
+        title="Monthly traffic"
+        subtitle="Last 4 months"
+        data={data}
+        type={args.type}
+        showLegend={args.showLegend}
+        showTrend={args.showTrend}
+        trendValue={args.trendValue}
+        width={680}
+        height={320}
+      />
     </div>
   {/snippet}
 </Story>
-
-

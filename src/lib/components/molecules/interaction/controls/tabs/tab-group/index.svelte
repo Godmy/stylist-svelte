@@ -2,8 +2,8 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { ITabGroupProps } from '$stylist/design-system/props/tab-group';
-  import { TabGroupStyleManager } from '$stylist/design-system/styles/tab-group';
+  import type { ITabGroupProps } from '$stylist/design-system/props/interaction/tab-group';
+  import { TabGroupStyleManager } from '$stylist/design-system/styles/interaction/tab-group';
 
   /**
    * TabGroup component - A flexible tab component with various visual styles and states

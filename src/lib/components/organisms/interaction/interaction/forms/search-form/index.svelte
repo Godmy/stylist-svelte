@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Search } from 'lucide-svelte';
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { SearchFormProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { SearchFormProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { query='', placeholder='Search...', class: className='', ...restProps }: SearchFormProps = $props();
 </script>
 <form class={InteractionFormsStyleManager.root('c-search-form border rounded-lg p-3 flex items-center gap-2', className)} {...restProps}>

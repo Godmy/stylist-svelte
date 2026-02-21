@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createInputAddonState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-addon.svelte';
+	import { createInputAddonState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-addon.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { CompactSize } from '$stylist/design-system/tokens/sizes';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 	import type { InputAddonVariant } from '$stylist/design-system/props';
 
 	/**

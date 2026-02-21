@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineCodeProps } from '$stylist/design-system';
-	import { createInlineCodeState } from '$stylist/design-system/models/inline-code.svelte';
+	import { createInlineCodeState } from '$stylist/design-system/models/information/inline-code.svelte';
 
 	let props: InlineCodeProps = $props();
 
@@ -17,6 +17,6 @@
 
 <code class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </code>

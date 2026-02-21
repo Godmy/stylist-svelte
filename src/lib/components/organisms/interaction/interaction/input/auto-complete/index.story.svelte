@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import AutoComplete from './index.svelte';
-  import type { AutoCompleteOption } from '$stylist/design-system/props/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/design-system/props/interaction/interaction-input';
 
   type Props = {
     placeholder: string;

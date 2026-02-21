@@ -1,138 +1,33 @@
-<script context="module">
-	export const title = 'Radio';
-	export const category = 'Atoms/Controls/Toggles';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import Radio from './index.svelte';
+
+	const controls: ControlConfig[] = [
+		{ name: 'label', type: 'text', defaultValue: 'Email notifications' },
+		{ name: 'checked', type: 'boolean', defaultValue: true },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
+	];
 </script>
 
-<script>
-	import Radio from './Radio.svelte';
-
-	let label = 'Radio option';
-	let disabled = false;
-	let required = false;
-
-	// Generate a random ID and name for the radio
-	const id = `radio-${Math.random().toString(36).substr(2, 9)}`;
-	const name = `radio-group`;
-</script>
-
-<div class="story-container">
-	<h2>{title}</h2>
-	<p>Single radio button with optional label.</p>
-
-	<!-- Interactive Demo -->
-	<div class="interactive-demo">
-		<div class="mb-6 rounded border p-4">
-			<h3 class="text-md mb-2 font-semibold">Interactive Radio</h3>
-			<div class="flex flex-col gap-4">
-				<Radio {id} {name} value="option1" {label} {disabled} {required} />
-			</div>
-
-			<div class="mt-4 flex flex-wrap gap-2">
-				<div>
-					<label for="radio-label" class="mb-1 block text-sm">Label:</label>
-					<input id="radio-label" type="text" bind:value={label} class="rounded border p-1" />
-				</div>
-
-				<div class="flex items-end">
-					<label for="radio-disabled" class="flex items-center gap-1">
-						<input id="radio-disabled" type="checkbox" bind:checked={disabled} />
-						Disabled
-					</label>
-				</div>
-
-				<div class="flex items-end">
-					<label for="radio-required" class="flex items-center gap-1">
-						<input id="radio-required" type="checkbox" bind:checked={required} />
-						Required
-					</label>
-				</div>
+<Story component={Radio} title="Radio" description="Single radio option with clear checked and disabled states." {controls}>
+	{#snippet children(values: any)}
+		<div class="space-y-4">
+			<Radio
+				id="radio-main"
+				name="story-radio"
+				value="primary"
+				label={values.label}
+				checked={values.checked}
+				disabled={values.disabled}
+				required={values.required}
+				size={values.size}
+			/>
+			<div class="rounded-xl border border-[--color-border-primary] bg-[--color-background-secondary] p-3 text-sm text-[--color-text-secondary]">
+				Use one `name` for a group. This story renders a single controllable option.
 			</div>
 		</div>
-	</div>
-
-	<!-- States Section -->
-	<div class="variants-section">
-		<h3>Radio States</h3>
-		<div class="variant-grid">
-			<div>
-				<h4 class="mb-2 text-sm font-medium">Normal State</h4>
-				<Radio id="normal-radio" name="normal-group" value="option1" label="Normal Radio" />
-			</div>
-			<div>
-				<h4 class="mb-2 text-sm font-medium">Disabled State</h4>
-				<Radio
-					id="disabled-radio"
-					name="disabled-group"
-					value="option1"
-					label="Disabled Radio"
-					disabled={true}
-				/>
-			</div>
-			<div>
-				<h4 class="mb-2 text-sm font-medium">Required Field</h4>
-				<Radio
-					id="required-radio"
-					name="required-group"
-					value="option1"
-					label="Required Radio"
-					required={true}
-				/>
-			</div>
-		</div>
-	</div>
-
-	<!-- Tags -->
-	<div class="tags">
-		<span class="tag">form</span>
-		<span class="tag">toggle</span>
-		<span class="tag">ui</span>
-		<span class="tag">input</span>
-	</div>
-</div>
-
-<style>
-	.story-container {
-		padding: 20px;
-		max-width: 100%;
-		font-family: sans-serif;
-	}
-
-	h2,
-	h3,
-	h4 {
-		margin-top: 1.5rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.interactive-demo {
-		margin: 1.5rem 0;
-	}
-
-	.variants-section {
-		margin-top: 2rem;
-	}
-
-	.variant-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 1rem;
-		margin-top: 1rem;
-	}
-
-	.tags {
-		margin-top: 1rem;
-		display: flex;
-		gap: 0.5rem;
-		flex-wrap: wrap;
-	}
-
-	.tag {
-		background: #f0f0f0;
-		padding: 0.25rem 0.5rem;
-		border-radius: 4px;
-		font-size: 0.875rem;
-	}
-</style>
-
-
-
+	{/snippet}
+</Story>

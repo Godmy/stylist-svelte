@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { BaseCardElementProps } from '$stylist/design-system/props/base-card';
-  import { createState } from '$stylist/design-system/models/base-card.svelte';
-  import { BASE_CARD_PRESET } from '$stylist/design-system/state/base-card';
+  import type { BaseCardElementProps } from '$stylist/design-system/props/information/base-card';
+  import { createState } from '$stylist/design-system/models/information/base-card.svelte';
+  import { BASE_CARD_PRESET } from '$stylist/design-system/presets/base-card';
 
   /**
    * BaseCard - универсальный карточный компонент для отображения информации
@@ -40,7 +40,7 @@
     BASE_CARD_TITLE_CLASSES, 
     BASE_CARD_DESCRIPTION_CLASSES, 
     BASE_CARD_BODY_CLASSES 
-  } from '$stylist/design-system/classes/base-card';
+  } from '$stylist/design-system/classes/information/base-card';
 </script>
 
 <div {...restProps} class={state.classes} {...state.attrs}>

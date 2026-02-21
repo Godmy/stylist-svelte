@@ -1,1 +1,1 @@
-export { GraphvizDirectedEdge } from './ontology/graphviz-directed-edge';
+export { GraphvizDirectedEdge } from './information/ontology/graphviz-directed-edge';

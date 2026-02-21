@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import type { NotificationPreferencesProps } from '$stylist/design-system/props';
   import { NotificationStyleManager } from '$stylist/design-system/styles';
   import NotificationPreferences from './index.svelte';

@@ -14,8 +14,8 @@
    * который может быть использован в других компонентах, таких как Hero
    */
   
-  import type { IGradientBackgroundProps, GradientVariant } from '$stylist/design-system/props/gradient-background';
-  import { GradientBackgroundStyleManager } from '$stylist/design-system/styles/gradient-background';
+  import type { IGradientBackgroundProps, GradientVariant } from '$stylist/design-system/props/architecture/gradient-background';
+  import { GradientBackgroundStyleManager } from '$stylist/design-system/styles/architecture/gradient-background';
   
   let {
     variant = 'dynamic',

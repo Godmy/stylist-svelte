@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Check, Copy } from 'lucide-svelte';
   import { createEventDispatcher } from 'svelte';
-  import { CodeWithCopyStyleManager } from '$stylist/design-system/styles/code-with-copy';
+  import { CodeWithCopyStyleManager } from '$stylist/design-system/styles/information/code-with-copy';
 
   type CodeWithCopyVariant = 'default' | 'terminal' | 'diff';
 

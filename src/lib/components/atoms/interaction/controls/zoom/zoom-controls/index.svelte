@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-svelte';
-  import { createZoomControlsState } from '$stylist/design-system/models/zoom-controls.svelte';
-  import type { ZoomControlsProps } from '$stylist/design-system/props/zoom-controls';
+  import { createZoomControlsState } from '$stylist/design-system/models/interaction/zoom-controls.svelte';
+  import type { ZoomControlsProps } from '$stylist/design-system/props/interaction/zoom-controls';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type Props = ZoomControlsProps & HTMLAttributes<HTMLDivElement>;

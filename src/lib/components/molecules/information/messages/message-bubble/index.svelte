@@ -13,8 +13,8 @@
    * Atomic Design: Atom - Basic UI element for chat message display
    */
 
-  import type { IMessageBubbleProps } from '$stylist/design-system/props/message-bubble';
-  import { MessageBubbleStyleManager } from '$stylist/design-system/styles/message-bubble';
+  import type { IMessageBubbleProps } from '$stylist/design-system/props/information/message-bubble';
+  import { MessageBubbleStyleManager } from '$stylist/design-system/styles/information/message-bubble';
   import Avatar from '$stylist/components/atoms/information/media/avatar/index.svelte';
 
   // Define component props using the interface

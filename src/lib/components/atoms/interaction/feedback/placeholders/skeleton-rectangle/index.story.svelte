@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SkeletonRectangle from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
 	let width = $state(180);
 	let height = $state(32);

@@ -1,57 +1,27 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import BarChart from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import BarChart from './index.svelte';
 
-  type Props = {
-    title: string;
-    showLegend: boolean;
-  };
+	const controls: ControlConfig[] = [
+		{ name: 'title', type: 'text', defaultValue: 'Quarterly revenue' },
+		{ name: 'width', type: 'number', defaultValue: 640, min: 320, max: 900, step: 20 },
+		{ name: 'height', type: 'number', defaultValue: 360, min: 220, max: 600, step: 20 },
+		{ name: 'showLegend', type: 'boolean', defaultValue: true },
+		{ name: 'showAxis', type: 'boolean', defaultValue: true },
+		{ name: 'colorScheme', type: 'select', defaultValue: 'default', options: ['default', 'warm', 'cool', 'neutral'] }
+	];
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Sales Report'
-    },
-    {
-      name: 'showLegend',
-      type: 'boolean',
-      defaultValue: true
-    }
-  ];
+	const data = [
+		{ id: 'q1', name: 'Q1', value: 120 },
+		{ id: 'q2', name: 'Q2', value: 180 },
+		{ id: 'q3', name: 'Q3', value: 145 },
+		{ id: 'q4', name: 'Q4', value: 210 }
+	];
 </script>
 
-<Story
-  id="molecules-bar-chart"
-  title="BarChart"
-  component={BarChart}
-  category="Molecules"
-  description="A component to display data in a bar chart format."
-  tags={['chart', 'data', 'visualization']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-6">
-      <h2 class="text-xl font-semibold mb-6">Bar Chart</h2>
-      <div class="max-w-2xl mx-auto">
-        <BarChart
-          data={[
-            { id: 'jan', name: 'Jan', value: 65, color: '#3B82F6' },
-            { id: 'feb', name: 'Feb', value: 45, color: '#10B981' },
-            { id: 'mar', name: 'Mar', value: 80, color: '#EF4444' },
-            { id: 'apr', name: 'Apr', value: 55, color: '#F59E0B' },
-            { id: 'may', name: 'May', value: 90, color: '#8B5CF6' },
-            { id: 'jun', name: 'Jun', value: 70, color: '#EC4899' }
-          ]}
-          title={values.title}
-          showLegend={values.showLegend}
-        />
-      </div>
-    </div>
-  {/snippet}
+<Story component={BarChart} title="BarChart" description="Categorical bar chart with legend and axis options." {controls}>
+	{#snippet children(values: any)}
+		<BarChart data={data} title={values.title} width={values.width} height={values.height} showLegend={values.showLegend} showAxis={values.showAxis} colorScheme={values.colorScheme} />
+	{/snippet}
 </Story>
-
-
-
-

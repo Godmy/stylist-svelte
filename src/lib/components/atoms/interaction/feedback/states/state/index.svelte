@@ -26,7 +26,7 @@
 <div class="text-center py-12 {className}">
   <!-- Custom icon slot or default icon -->
   {#if children}
-    {@render children()}
+    {@render children?.()}
   {:else if icon}
     {@render icon()}
   {:else}

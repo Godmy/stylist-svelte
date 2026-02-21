@@ -1,39 +1,22 @@
-<script>
-    import GeneralToolbar from './index.svelte';
-    
-    const toolbarItems = [
-        { id: 'new', label: 'New', icon: '📄', action: () => console.log('New clicked') },
-        { id: 'open', label: 'Open', icon: '📂', action: () => console.log('Open clicked') },
-        { id: 'save', label: 'Save', icon: '💾', action: () => console.log('Save clicked') },
-        { id: 'cut', label: 'Cut', icon: '✂️', action: () => console.log('Cut clicked') },
-        { id: 'copy', label: 'Copy', icon: '📋', action: () => console.log('Copy clicked') },
-        { id: 'paste', label: 'Paste', icon: '📌', action: () => console.log('Paste clicked') }
-    ];
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import GeneralToolbar from './index.svelte';
+
+	const toolbarItems = [
+		{ id: 'zoom-in', label: 'Zoom in', icon: '+', action: () => {} },
+		{ id: 'zoom-out', label: 'Zoom out', icon: '-', action: () => {} },
+		{ id: 'layers', label: 'Layers', icon: '#', action: () => {} }
+	];
+
+	const controls: ControlConfig[] = [
+		{ name: 'compact', type: 'boolean', defaultValue: false },
+		{ name: 'disabled', type: 'boolean', defaultValue: false }
+	];
 </script>
 
-<div class="p-4">
-    <h1>GeneralToolbar Stories</h1>
-    
-    <div class="my-4 p-4 border rounded">
-        <h2>Default GeneralToolbar</h2>
-        <GeneralToolbar 
-            {toolbarItems}
-        />
-    </div>
-    
-    <div class="my-4 p-4 border rounded">
-        <h2>Compact GeneralToolbar</h2>
-        <GeneralToolbar 
-            {toolbarItems}
-            compact={true}
-        />
-    </div>
-    
-    <div class="my-4 p-4 border rounded">
-        <h2>Disabled GeneralToolbar</h2>
-        <GeneralToolbar 
-            {toolbarItems}
-            disabled={true}
-        />
-    </div>
-</div>
+<Story component={GeneralToolbar} title="GeneralToolbar" description="Compact action strip for canvas and editors." {controls}>
+	{#snippet children(values: any)}
+		<GeneralToolbar toolbarItems={toolbarItems} compact={values.compact} disabled={values.disabled} />
+	{/snippet}
+</Story>

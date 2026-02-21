@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { DocumentPreviewProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { DocumentPreviewProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { title='Document Preview', content='No content', format='text', class: className='', ...restProps }: DocumentPreviewProps = $props();
 </script>
 <div class={InteractionFormsStyleManager.root('c-document-preview border rounded-lg p-4', className)} {...restProps}>

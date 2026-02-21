@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Avatar, Button, Icon } from '$stylist/components/atoms';
   import { UserStatus } from '$stylist/components/molecules';
-  import { ChatHeaderModel } from '$stylist/design-system/models/chat-header.svelte';
-  import type { ChatHeaderProps } from '$stylist/design-system/props/chat-header';
-  import { ChatHeaderStyleManager } from '$stylist/design-system/styles/chat-header';
+  import { ChatHeaderModel } from '$stylist/design-system/models/interaction/chat-header.svelte';
+  import type { ChatHeaderProps } from '$stylist/design-system/props/interaction/chat-header';
+  import { ChatHeaderStyleManager } from '$stylist/design-system/styles/interaction/chat-header';
   import { createEventDispatcher } from 'svelte';
 
   const dispatch = createEventDispatcher<{

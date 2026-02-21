@@ -1,8 +1,8 @@
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { buildClasses } from '$stylist/utils/classes';
 import { resolveOption } from '$stylist/utils/input';
-import type { ComponentStateOptions } from './defaults';
-import type { Preset } from './preset';
+import type { ComponentStateOptions } from '../defaults/defaults';
+import type { Preset } from '../presets/preset';
 
 type ComponentStateResult<V extends string, S extends string> = {
 	variant: V;

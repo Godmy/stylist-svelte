@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { DocumentationBlockStyleManager } from '$stylist/design-system/styles/documentation-block';
+  import { DocumentationBlockStyleManager } from '$stylist/design-system/styles/information/documentation-block';
   import CodeSection from '$stylist/components/molecules/information/development/code-section/index.svelte';
   import { Badge } from '$stylist/components/atoms';
   import { Divider } from '$stylist/components/atoms';

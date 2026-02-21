@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Lock } from 'lucide-svelte';
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { SecureFormProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { SecureFormProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { token='SECURE_TOKEN', class: className='', ...restProps }: SecureFormProps = $props();
 </script>
 <form class={InteractionFormsStyleManager.root('c-secure-form border rounded-lg p-4 space-y-2', className)} {...restProps}>

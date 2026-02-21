@@ -5,7 +5,7 @@
   import { Tab } from '$stylist/components/atoms/interaction/controls/tabs/tab';
   import TabPanel from '../tab-panel/index.svelte';
   import TabPanels from '../tab-panels/index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
 
   const controls = [
     {

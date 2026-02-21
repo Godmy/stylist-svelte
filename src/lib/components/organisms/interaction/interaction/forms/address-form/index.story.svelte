@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import type { AddressFormProps, AddressData } from '$stylist/design-system/props';
   import { FormStyleManager } from '$stylist/design-system/styles';
   import AddressForm from './index.svelte';

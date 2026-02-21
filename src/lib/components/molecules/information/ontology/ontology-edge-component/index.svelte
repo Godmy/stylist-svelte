@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { OntologyEdgeComponentStyleManager } from '$stylist/design-system/styles/ontology-edge-component';
+  import { OntologyEdgeComponentStyleManager } from '$stylist/design-system/styles/information/ontology-edge-component';
 
   type Position2D = { x: number; y: number };
 

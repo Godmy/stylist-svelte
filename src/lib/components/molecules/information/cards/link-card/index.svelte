@@ -14,8 +14,8 @@
    * (иконка, текст, стрелка) в составной компонент для навигации
    */
   
-  import type { ILinkCardProps, LinkCardVariant } from '$stylist/design-system/props/link-card';
-  import { LinkCardStyleManager } from '$stylist/design-system/styles/link-card';
+  import type { ILinkCardProps, LinkCardVariant } from '$stylist/design-system/props/information/link-card';
+  import { LinkCardStyleManager } from '$stylist/design-system/styles/information/link-card';
   import { ArrowRight } from 'lucide-svelte';
   
   let {

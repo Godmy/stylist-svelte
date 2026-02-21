@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Icon } from '$stylist/components/atoms';
 	import type { IconChevronProps } from '$stylist/design-system';
-	import { createIconChevronState } from '$stylist/design-system/models/icon-chevron.svelte';
+	import { createIconChevronState } from '$stylist/design-system/models/information/icon-chevron.svelte';
 
 	type Props = IconChevronProps & HTMLAttributes<HTMLSpanElement>;
 

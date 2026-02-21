@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductAvailabilityStyleManager } from '$stylist/design-system/styles/product-availability';
+  import { ProductAvailabilityStyleManager } from '$stylist/design-system/styles/information/product-availability';
 
   let {
     available = true,

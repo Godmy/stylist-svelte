@@ -9,4 +9,6 @@ export { ProductComparisonTable } from './product-comparison-table';
 export { ProductDemo } from './product-demo';
 export { ProductGallery } from './product-gallery';
 export { ProductRecommendation } from './product-recommendation';
+export { ProductSearch } from './product-search';
 export { ProductWishlist } from './product-wishlist';
+export { WishlistButton } from './wishlist-button';

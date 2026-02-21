@@ -1,51 +1,15 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ProductCardCompact from './index.svelte';
 
-  type Props = {
-    title: string;
-    price: number;
-    currency: string;
-    image: string;
-    rating: number;
-    badge: string;
-  };
-
   const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Wireless Earbuds'
-    },
-    {
-      name: 'price',
-      type: 'number',
-      defaultValue: 89.99,
-      min: 0
-    },
-    {
-      name: 'currency',
-      type: 'text',
-      defaultValue: '$'
-    },
-    {
-      name: 'image',
-      type: 'text',
-      defaultValue: 'https://via.placeholder.com/150x150?text=Earbuds'
-    },
-    {
-      name: 'rating',
-      type: 'number',
-      defaultValue: 4.5,
-      min: 0,
-      max: 5
-    },
-    {
-      name: 'badge',
-      type: 'text',
-      defaultValue: 'New'
-    }
+    { name: 'title', type: 'text', defaultValue: 'Wireless Earbuds' },
+    { name: 'price', type: 'number', defaultValue: 89.99, min: 0 },
+    { name: 'currency', type: 'text', defaultValue: '$' },
+    { name: 'image', type: 'text', defaultValue: 'https://placehold.co/220x220?text=Earbuds' },
+    { name: 'rating', type: 'number', defaultValue: 4.5, min: 0, max: 5, step: 0.1 },
+    { name: 'badge', type: 'select', options: ['', 'sale', 'new', 'popular'], defaultValue: 'new' }
   ];
 </script>
 
@@ -54,23 +18,21 @@
   title="Molecules / Information / Commerce / Products / ProductCardCompact"
   component={ProductCardCompact}
   category="Molecules/Information/Commerce/Products"
-  description="A compact card component for displaying product information."
-  controls={controls}
+  description="Compact product card for dense lists and carousels."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-product-card-compact p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">ProductCardCompact Story</h2>
-      <ProductCardCompact
-        title={args.title ?? 'Wireless Earbuds'}
-        price={args.price ?? 89.99}
-        currency={args.currency ?? '$'}
-        image={args.image ?? 'https://via.placeholder.com/150x150?text=Earbuds'}
-        rating={args.rating ?? 4.5}
-        badge={args.badge ?? 'New'}
-      />
+  {#snippet children(args: any)}
+    <div class="p-6 bg-gray-50 rounded-xl">
+      <div class="max-w-xs">
+        <ProductCardCompact
+          title={args.title}
+          price={args.price}
+          currency={args.currency}
+          image={args.image}
+          rating={args.rating}
+          badge={args.badge}
+        />
+      </div>
     </div>
   {/snippet}
 </Story>
-
-
-

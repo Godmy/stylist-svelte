@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createKbdState } from '$stylist/design-system/models/kbd.svelte';
+	import { createKbdState } from '$stylist/design-system/models/information/kbd.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 
@@ -17,7 +17,7 @@
 
 <kbd class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </kbd>
 

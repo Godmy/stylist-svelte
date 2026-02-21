@@ -1,111 +1,23 @@
-<script lang="ts">
-  import SwitchWithLabel from './index.svelte';
-  import type { ISwitchWithLabelProps } from '$stylist/design-system/props/switch-with-label';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import SwitchWithLabel from './index.svelte';
 
-  let {
-    variant = 'primary'
-  } = $props();
-
-  let checked: boolean = $state(false);
-  let disabled: boolean = $state(false);
-  let label: string = $state('Enable notifications');
-  let labelPosition: 'start' | 'end' = $state('end');
-  let className: string = $state('');
-  let switchClass: string = $state('');
-  let labelClass: string = $state('');
-
-  function handleValueChange(checked: boolean) {
-    console.log('Value change event:', checked);
-  }
-
-  function handleValueInput(checked: boolean) {
-    console.log('Value input event:', checked);
-  }
+	const controls: ControlConfig[] = [
+		{ name: 'checked', type: 'boolean', defaultValue: false },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'label', type: 'text', defaultValue: 'Enable notifications' },
+		{ name: 'labelPosition', type: 'select', defaultValue: 'end', options: ['start', 'end'] }
+	];
 </script>
 
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">SwitchWithLabel Component</h1>
-  <p class="mb-4">A toggle switch component with an associated label.</p>
-
-  <div class="mb-4 space-y-4">
-    <div>
-      <label class="block mb-1">
-        <input
-          type="checkbox"
-          bind:checked={checked}
-          class="mr-1"
-        />
-        Checked
-      </label>
-    </div>
-
-    <div>
-      <label class="block mb-1">
-        <input
-          type="checkbox"
-          bind:checked={disabled}
-          class="mr-1"
-        />
-        Disabled
-      </label>
-    </div>
-
-    <div>
-      <label class="block mb-1">Label: <input
-        type="text"
-        bind:value={label}
-        class="border rounded p-1 ml-2 w-full"
-      /></label>
-    </div>
-
-    <div>
-      <label class="block mb-1">
-        Label Position:
-        <select bind:value={labelPosition} class="border rounded p-1 ml-2">
-          <option value="start">start</option>
-          <option value="end">end</option>
-        </select>
-      </label>
-    </div>
-
-    <div>
-      <label class="block mb-1">Class: <input
-        type="text"
-        bind:value={className}
-        class="border rounded p-1 ml-2 w-full"
-      /></label>
-    </div>
-
-    <div>
-      <label class="block mb-1">Switch Class: <input
-        type="text"
-        bind:value={switchClass}
-        class="border rounded p-1 ml-2 w-full"
-      /></label>
-    </div>
-
-    <div>
-      <label class="block mb-1">Label Class: <input
-        type="text"
-        bind:value={labelClass}
-        class="border rounded p-1 ml-2 w-full"
-      /></label>
-    </div>
-  </div>
-
-  <div class="border p-4 rounded">
-    <SwitchWithLabel
-      checked={checked}
-      disabled={disabled}
-      label={label}
-      labelPosition={labelPosition}
-      class={className}
-      switchClass={switchClass}
-      labelClass={labelClass}
-      onValueChange={handleValueChange}
-      onValueInput={handleValueInput}
-    />
-  </div>
-</div>
-
-
+<Story component={SwitchWithLabel} title="SwitchWithLabel" description="Boolean switch with label alignment control." {controls}>
+	{#snippet children(values: any)}
+		<SwitchWithLabel
+			checked={values.checked}
+			disabled={values.disabled}
+			label={values.label}
+			labelPosition={values.labelPosition}
+		/>
+	{/snippet}
+</Story>

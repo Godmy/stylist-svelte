@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PriceFilterStyleManager } from '$stylist/design-system/styles/price-filter';
+  import { PriceFilterStyleManager } from '$stylist/design-system/styles/information/price-filter';
 
   let {
     minPrice = 0,

@@ -1,13 +1,13 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Highlight from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
-		{ name: 'text', type: CONTROL_TYPES.TEXT, defaultValue: 'critical insights' },
+	const controls: ControlConfig[] = [
+		{ name: 'text', type: 'text', defaultValue: 'critical insights' },
 		{
 			name: 'variant',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['lemon', 'mint', 'lavender'],
 			defaultValue: 'lemon'
 		}
@@ -51,3 +51,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

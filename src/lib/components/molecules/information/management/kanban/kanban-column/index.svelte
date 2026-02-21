@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { KanbanColumnStyleManager } from '$stylist/design-system/styles/kanban-column';
+  import { KanbanColumnStyleManager } from '$stylist/design-system/styles/information/kanban-column';
   import type { Snippet } from 'svelte';
   import { Plus } from 'lucide-svelte';
 

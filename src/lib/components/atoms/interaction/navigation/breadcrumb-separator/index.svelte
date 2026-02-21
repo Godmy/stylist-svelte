@@ -12,7 +12,7 @@
 
 <span class={`mx-2 text-gray-400 ${className}`} aria-hidden="true" {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{:else}
 		/
 	{/if}

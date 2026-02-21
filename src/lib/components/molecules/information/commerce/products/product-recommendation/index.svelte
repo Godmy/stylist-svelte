@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductRecommendationStyleManager } from '$stylist/design-system/styles/product-recommendation';
+  import { ProductRecommendationStyleManager } from '$stylist/design-system/styles/information/product-recommendation';
   let {
     products = [],
     title = 'Recommended for you',

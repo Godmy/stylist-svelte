@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { AlertCardElementProps } from '$stylist/design-system/props/alert-card';
-  import { createState } from '$stylist/design-system/models/alert-card.svelte';
-  import { ALERT_CARD_PRESET } from '$stylist/design-system/state/alert-card';
+  import type { AlertCardElementProps } from '$stylist/design-system/props/information/alert-card';
+  import { createState } from '$stylist/design-system/models/information/alert-card.svelte';
+  import { ALERT_CARD_PRESET } from '$stylist/design-system/presets/alert-card';
 
   /**
    * AlertCard - карточка для отображения важной информации или предупреждений
@@ -43,7 +43,7 @@
     ALERT_CARD_SUBTITLE_CLASSES,
     ALERT_CARD_ACTIONS_CONTAINER_CLASSES,
     ALERT_CARD_ACTION_BUTTON_CLASSES
-  } from '$stylist/design-system/classes/alert-card';
+  } from '$stylist/design-system/classes/information/alert-card';
 </script>
 
 <div {...restProps} class={state.classes} {...state.attrs}>

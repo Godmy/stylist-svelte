@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Select from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
 
   const exampleOptions = [
     { value: 'option1', label: 'Option 1' },

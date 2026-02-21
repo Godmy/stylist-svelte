@@ -1,24 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
   import { Folder, File, Search, Grid, List, Download, Upload, MoreHorizontal, ChevronRight, ChevronDown } from 'lucide-svelte';
-  import { Button, InputField } from '$stylist/components/atoms';
-
-  type FileType = 'file' | 'folder';
-
-  type FileSystemItem = {
-    id: string;
-    name: string;
-    type: FileType;
-    size?: number; // in bytes
-    modified?: Date;
-    created?: Date;
-    children?: FileSystemItem[];
-    path?: string;
-    icon?: string; // Custom icon
-  };
-
-  type ViewMode = 'list' | 'grid';
+  import { Button } from '$stylist/components/atoms';
+  import type { FileSystemItem, ViewMode } from './types';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 

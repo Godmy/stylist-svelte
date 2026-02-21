@@ -14,7 +14,7 @@
    */
 
   import type { Snippet } from 'svelte';
-  import { ComponentPreviewStyleManager } from '$stylist/design-system/styles/component-preview';
+  import { ComponentPreviewStyleManager } from '$stylist/design-system/styles/information/component-preview';
   import { CodeBlock } from '$stylist/components/atoms';
 
   // Define component props using the interface

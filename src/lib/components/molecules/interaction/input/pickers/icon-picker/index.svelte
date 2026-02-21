@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Search } from 'lucide-svelte';
-  import { IconPickerStyleManager } from '$stylist/design-system/styles/icon-picker';
-  import type { IIconItem, IIconPickerProps, TColumns } from '$stylist/design-system/props/icon-picker';
+  import { IconPickerStyleManager } from '$stylist/design-system/styles/interaction/icon-picker';
+  import type { IIconItem, IIconPickerProps, TColumns } from '$stylist/design-system/props/interaction/icon-picker';
 
   /**
    * @component IconPicker

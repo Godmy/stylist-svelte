@@ -1,61 +1,29 @@
-<script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import SearchSuggestion from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import SearchSuggestion from './index.svelte';
 
-    type SearchSuggestionType = {
-        id: string;
-        text: string;
-        category?: string;
-        icon?: string;
-    };
+	let picked = $state('');
 
-    type Props = {
-        suggestions?: SearchSuggestionType[];
-        query?: string;
-        loading?: boolean;
-    };
+	const suggestions = [
+		{ id: '1', text: 'Analytics dashboard', category: 'Pages', count: 12 },
+		{ id: '2', text: 'Annual report', category: 'Documents', count: 3 },
+		{ id: '3', text: 'Team settings', category: 'Settings', count: 1 },
+		{ id: '4', text: 'API tokens', category: 'Security', count: 2 }
+	];
 
-    const defaultSuggestions: SearchSuggestionType[] = [
-        { id: '1', text: 'Apple', category: 'Fruits' },
-        { id: '2', text: 'Banana', category: 'Fruits' },
-        { id: '3', text: 'Cherry', category: 'Fruits' },
-    ];
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'query',
-            type: 'text',
-            defaultValue: ''
-        },
-        {
-            name: 'loading',
-            type: 'boolean',
-            defaultValue: false
-        }
-    ];
+	const controls: ControlConfig[] = [
+		{ name: 'query', type: 'text', defaultValue: 'a' },
+		{ name: 'loading', type: 'boolean', defaultValue: false },
+		{ name: 'maxSuggestions', type: 'number', defaultValue: 4, min: 1, max: 10, step: 1 }
+	];
 </script>
 
-<Story
-    id="molecules-search-suggestion"
-    title="SearchSuggestion"
-    component={SearchSuggestion}
-    category="Molecules"
-    description="Component for search suggestions"
-    controls={controls}
->
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <SearchSuggestion
-                suggestions={values.suggestions || defaultSuggestions}
-                query={values.query}
-                loading={values.loading}
-            />
-        </div>
-    {/snippet}
+<Story component={SearchSuggestion} title="SearchSuggestion" description="Suggestion list for typeahead and search UX." {controls}>
+	{#snippet children(values: any)}
+		<div class="max-w-md space-y-2">
+			<SearchSuggestion suggestions={suggestions} query={values.query} loading={values.loading} maxSuggestions={values.maxSuggestions} onValueChange={(item) => (picked = item.text)} />
+			<p class="text-sm text-[--color-text-secondary]">Picked: {picked || 'none'}</p>
+		</div>
+	{/snippet}
 </Story>
-
-
-
-
-

@@ -1,14 +1,22 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IconWrapperProps } from '$stylist/design-system';
-	import { createIconWrapperState } from '$stylist/design-system/models/icon-wrapper.svelte';
+	import { createIconWrapperState } from '$stylist/design-system/models/information/icon-wrapper.svelte';
 
 	type Props = IconWrapperProps & HTMLAttributes<HTMLDivElement>;
 
-	let { class: className, content, ...restProps }: Props = $props();
+	let {
+		class: className,
+		content,
+		size,
+		variant,
+		shape,
+		color,
+		disabled,
+		...restProps
+	}: Props = $props();
 
-	// Cast to avoid type mismatch
-	const state = createIconWrapperState({ ...restProps, class: className } as any);
+	const state = createIconWrapperState({ size, variant, shape, color, disabled, class: className } as any);
 </script>
 
 <div class={state.classes} {...restProps}>

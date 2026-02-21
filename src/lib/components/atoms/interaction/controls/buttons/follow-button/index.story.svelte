@@ -1,202 +1,31 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import FollowButton from './index.svelte';
 
-	let isFollowing: boolean = false;
-	let showText: boolean = true;
-	let variant: 'primary' | 'secondary' | 'outline' | 'ghost' = 'primary';
-	let size: 'sm' | 'md' | 'lg' = 'md';
-	let disabled: boolean = false;
-	let followingText: string = 'Following';
-	let unfollowText: string = 'Follow';
-
 	const controls: ControlConfig[] = [
-		{
-			name: 'isFollowing',
-			type: 'boolean',
-			defaultValue: false,
-			description: 'Whether the user is currently following'
-		},
-		{
-			name: 'showText',
-			type: 'boolean',
-			defaultValue: true,
-			description: 'Whether to show text alongside the icon'
-		},
-		{
-			name: 'variant',
-			type: 'select',
-			defaultValue: 'primary',
-			options: ['primary', 'secondary', 'outline', 'ghost'],
-			description: 'Visual style of the button'
-		},
-		{
-			name: 'size',
-			type: 'select',
-			defaultValue: 'md',
-			options: ['sm', 'md', 'lg'],
-			description: 'Size of the button'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: false,
-			description: 'Whether the button is disabled'
-		}
+		{ name: 'isFollowing', type: 'boolean', defaultValue: false },
+		{ name: 'showText', type: 'boolean', defaultValue: true },
+		{ name: 'variant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'outline', 'ghost'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">Follow Button Component</h1>
-
-	<div class="mb-6 rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Interactive Follow Button</h2>
-		<div class="flex items-center gap-2">
-			<FollowButton
-				{isFollowing}
-				{showText}
-				{variant}
-				{size}
-				{disabled}
-				{followingText}
-				{unfollowText}
-				onFollow={() => {
-					console.log('Following user');
-					isFollowing = true;
-				}}
-				onUnfollow={() => {
-					console.log('Unfollowing user');
-					isFollowing = false;
-				}}
-			/>
-		</div>
-
-		<div class="mt-4 flex flex-wrap gap-2">
-			<div>
-				<label for="follow-variant" class="block text-sm mb-1">Variant:</label>
-				<select
-					id="follow-variant"
-					bind:value={variant}
-					class="border rounded p-1"
-				>
-					<option value="primary">Primary</option>
-					<option value="secondary">Secondary</option>
-					<option value="outline">Outline</option>
-					<option value="ghost">Ghost</option>
-				</select>
-			</div>
-
-			<div>
-				<label for="follow-size" class="block text-sm mb-1">Size:</label>
-				<select
-					id="follow-size"
-					bind:value={size}
-					class="border rounded p-1"
-				>
-					<option value="sm">Small</option>
-					<option value="md">Medium</option>
-					<option value="lg">Large</option>
-				</select>
-			</div>
-
-			<div class="flex items-end">
-				<label for="follow-show-text" class="flex items-center gap-1">
-					<input id="follow-show-text" type="checkbox" bind:checked={showText} />
-					Show Text
-				</label>
-			</div>
-
-			<div class="flex items-end">
-				<label for="follow-is-following" class="flex items-center gap-1">
-					<input id="follow-is-following" type="checkbox" bind:checked={isFollowing} />
-					Is Following
-				</label>
-			</div>
-
-			<div class="flex items-end">
-				<label for="follow-disabled" class="flex items-center gap-1">
-					<input id="follow-disabled" type="checkbox" bind:checked={disabled} />
-					Disabled
-				</label>
-			</div>
-		</div>
-	</div>
-
-	<div class="rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Follow Button Variations</h2>
-		<div class="space-y-4">
-			<div>
-				<h3 class="text-sm font-medium mb-2">Different Variants</h3>
-				<div class="flex items-center gap-2">
-					<FollowButton
-						variant="primary"
-						isFollowing={false}
-						onFollow={() => console.log('Primary follow')}
-						onUnfollow={() => console.log('Primary unfollow')}
-					/>
-					<FollowButton
-						variant="secondary"
-						isFollowing={true}
-						onFollow={() => console.log('Secondary follow')}
-						onUnfollow={() => console.log('Secondary unfollow')}
-					/>
-					<FollowButton
-						variant="outline"
-						isFollowing={false}
-						onFollow={() => console.log('Outline follow')}
-						onUnfollow={() => console.log('Outline unfollow')}
-					/>
-					<FollowButton
-						variant="ghost"
-						isFollowing={true}
-						onFollow={() => console.log('Ghost follow')}
-						onUnfollow={() => console.log('Ghost unfollow')}
-					/>
-				</div>
-			</div>
-			<div>
-				<h3 class="text-sm font-medium mb-2">Different Sizes</h3>
-				<div class="flex items-center gap-2">
-					<FollowButton
-						size="sm"
-						isFollowing={false}
-						onFollow={() => console.log('SM follow')}
-						onUnfollow={() => console.log('SM unfollow')}
-					/>
-					<FollowButton
-						size="md"
-						isFollowing={true}
-						onFollow={() => console.log('MD follow')}
-						onUnfollow={() => console.log('MD unfollow')}
-					/>
-					<FollowButton
-						size="lg"
-						isFollowing={false}
-						onFollow={() => console.log('LG follow')}
-						onUnfollow={() => console.log('LG unfollow')}
-					/>
-				</div>
-			</div>
-			<div>
-				<h3 class="text-sm font-medium mb-2">No Text</h3>
-				<div class="flex items-center gap-2">
-					<FollowButton
-						showText={false}
-						isFollowing={false}
-						onFollow={() => console.log('Icon follow')}
-						onUnfollow={() => console.log('Icon unfollow')}
-					/>
-					<FollowButton
-						showText={false}
-						isFollowing={true}
-						onFollow={() => console.log('Icon follow')}
-						onUnfollow={() => console.log('Icon unfollow')}
-					/>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
+<Story
+	{controls}
+	component={FollowButton}
+	title="FollowButton"
+	category="Atoms/Interaction/Controls/Buttons"
+	description="Toggle follow/unfollow action button"
+>
+	{#snippet children(values: any)}
+		<FollowButton
+			isFollowing={values.isFollowing as boolean}
+			showText={values.showText as boolean}
+			variant={values.variant as 'primary' | 'secondary' | 'outline' | 'ghost'}
+			size={values.size as 'sm' | 'md' | 'lg'}
+			disabled={values.disabled as boolean}
+		/>
+	{/snippet}
+</Story>

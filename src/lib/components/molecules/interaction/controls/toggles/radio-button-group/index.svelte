@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { RadioButtonGroupProps } from '$stylist/design-system/props';
-	import { createRadioButtonGroupState } from '$stylist/design-system/models/radio-button-group.svelte';
+	import { createRadioButtonGroupState } from '$stylist/design-system/models/interaction/radio-button-group.svelte';
 
 	let props: RadioButtonGroupProps = $props();
 

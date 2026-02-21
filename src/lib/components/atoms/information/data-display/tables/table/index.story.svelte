@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import Table from './index.svelte';
   import TableHeader from '../table-header/index.svelte';
@@ -31,6 +31,10 @@
           Primary Table Example
         </p>
         <p class="mt-1 text-[--color-text-primary]">A table component for displaying tabular data.</p>
+        <p class="mt-2 text-xs text-[--color-text-secondary]">
+          striped: {values.striped ? 'on' : 'off'} | bordered: {values.bordered ? 'on' : 'off'} |
+          hoverable: {values.hoverable ? 'on' : 'off'}
+        </p>
 
         <div class="mt-6 overflow-x-auto">
           <Table {...values}>

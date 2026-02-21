@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
   import { X } from 'lucide-svelte';
-  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedTagInputProps {
     tags?: string[];

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GraphNodeProps } from '$stylist/design-system';
-	import { createGraphNodeState } from '$stylist/design-system/models/graph-node.svelte';
+	import { createGraphNodeState } from '$stylist/design-system/models/architecture/graph-node.svelte';
 
 	let props: GraphNodeProps = $props();
 
@@ -27,7 +27,7 @@
 
 <div class={`graph-node ${state.sizeClasses} ${props.class ?? ''}`} style={state.style} {...restProps}>
 	{#if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{:else}
 		{label}
 	{/if}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AbbrProps } from '$stylist/design-system';
-	import { createAbbrState } from '$stylist/design-system/models/abbr.svelte';
+	import { createAbbrState } from '$stylist/design-system/models/information/abbr.svelte';
 
 	let props: AbbrProps = $props();
 
@@ -17,6 +17,6 @@
 
 <abbr class={state.classes} title={state.title} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </abbr>

@@ -1,148 +1,33 @@
-<script lang="ts">
-	import Tabs from '../tabs/index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import { Tabs } from '$stylist/components/molecules/interaction/controls/tabs';
 	import TabList from './index.svelte';
-	import { Tab } from '$stylist/components/atoms/interaction/controls/tabs/tab';
-	import TabPanel from '../tab-panel/index.svelte';
+	import Tab from '../tab/index.svelte';
 	import TabPanels from '../tab-panels/index.svelte';
+	import TabPanel from '../tab-panel/index.svelte';
 
-	let selectedTabId: string = 'tab1';
-
-	function handleTabChange(id: string) {
-		console.log('Tab changed to:', id);
-		selectedTabId = id;
-	}
+	const controls: ControlConfig[] = [
+		{ name: 'selectedId', type: 'select', defaultValue: 'profile', options: ['profile', 'billing', 'security'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'class', type: 'text', defaultValue: 'mb-3' }
+	];
 </script>
 
-<div class="p-4">
-	<h1 class="mb-4 text-lg font-semibold">TabList Component</h1>
-
-	<div class="mb-6 rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Interactive TabList</h2>
-		<div class="flex flex-col gap-4">
-			<Tabs selectedId={selectedTabId} onValueChange={handleTabChange}>
-				<TabList class="rounded-t bg-gray-50 p-2">
-					<Tab id="tab1">Tab 1</Tab>
-					<Tab id="tab2">Tab 2</Tab>
-					<Tab id="tab3">Tab 3</Tab>
-				</TabList>
-				<TabPanels>
-					<TabPanel id="tab1">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Tab 1 Content</h3>
-							<p>This is the content for the first tab. You can put any content here.</p>
-							<ul class="mt-2 list-disc pl-5">
-								<li>Item 1</li>
-								<li>Item 2</li>
-								<li>Item 3</li>
-							</ul>
-						</div>
-					</TabPanel>
-					<TabPanel id="tab2">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Tab 2 Content</h3>
-							<p>
-								This is the content for the second tab. It can contain different content than other
-								tabs.
-							</p>
-							<div class="mt-2 rounded bg-blue-100 p-3">
-								<p>This is a special content area for tab 2.</p>
-							</div>
-						</div>
-					</TabPanel>
-					<TabPanel id="tab3">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Tab 3 Content</h3>
-							<p>This is the content for the third tab.</p>
-							<p>Each tab can have unique content and styling.</p>
-						</div>
-					</TabPanel>
-				</TabPanels>
-			</Tabs>
-		</div>
-	</div>
-
-	<div class="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-		<div class="rounded border p-4">
-			<h2 class="text-md mb-2 font-semibold">TabList with Two Items</h2>
-			<Tabs onValueChange={(id: string) => console.log('Two tabs changed:', id)}>
-				<TabList class="rounded-lg bg-gray-100 p-3">
-					<Tab id="two-tab1">First</Tab>
-					<Tab id="two-tab2">Second</Tab>
-				</TabList>
-				<TabPanels>
-					<TabPanel id="two-tab1">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">First Tab</h3>
-							<p>Content for the first tab in a two-tab interface.</p>
-						</div>
-					</TabPanel>
-					<TabPanel id="two-tab2">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Second Tab</h3>
-							<p>Content for the second tab in a two-tab interface.</p>
-						</div>
-					</TabPanel>
-				</TabPanels>
-			</Tabs>
-		</div>
-
-		<div class="rounded border p-4">
-			<h2 class="text-md mb-2 font-semibold">TabList with Different Content</h2>
-			<Tabs onValueChange={(id: string) => console.log('Different content tabs changed:', id)}>
-				<TabList class="bg-blue-50 p-2">
-					<Tab id="diff-tab1">Profile</Tab>
-					<Tab id="diff-tab2">Settings</Tab>
-					<Tab id="diff-tab3">Messages</Tab>
-				</TabList>
-				<TabPanels>
-					<TabPanel id="diff-tab1">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">User Profile</h3>
-							<p>Profile information and settings would go here.</p>
-						</div>
-					</TabPanel>
-					<TabPanel id="diff-tab2">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Settings</h3>
-							<p>Application settings would go here.</p>
-						</div>
-					</TabPanel>
-					<TabPanel id="diff-tab3">
-						<div>
-							<h3 class="mb-2 text-lg font-semibold">Messages</h3>
-							<p>Message content would go here.</p>
-						</div>
-					</TabPanel>
-				</TabPanels>
-			</Tabs>
-		</div>
-	</div>
-
-	<div class="rounded border p-4">
-		<h2 class="text-md mb-2 font-semibold">Default TabList</h2>
-		<Tabs>
-			<TabList>
-				<Tab id="default-tab1">Default Tab</Tab>
-				<Tab id="default-tab2">Another Tab</Tab>
+<Story component={TabList} title="TabList" description="Container that arranges tabs and handles disabled state." {controls}>
+	{#snippet children(values: any)}
+		<Tabs selectedId={values.selectedId} size={values.size}>
+			<TabList class={values.class} disabled={values.disabled}>
+				<Tab id="profile">Profile</Tab>
+				<Tab id="billing">Billing</Tab>
+				<Tab id="security">Security</Tab>
 			</TabList>
-			<TabPanels>
-				<TabPanel id="default-tab1">
-					<div>
-						<h3 class="mb-2 text-lg font-semibold">Default Tab Content</h3>
-						<p>This is the default content for the first tab.</p>
-					</div>
-				</TabPanel>
-				<TabPanel id="default-tab2">
-					<div>
-						<h3 class="mb-2 text-lg font-semibold">Another Tab Content</h3>
-						<p>This is the content for the second tab.</p>
-					</div>
-				</TabPanel>
+			<TabPanels class="rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-4">
+				<TabPanel id="profile">Public profile and personal details.</TabPanel>
+				<TabPanel id="billing">Payment methods and invoices.</TabPanel>
+				<TabPanel id="security">Password, sessions, and 2FA.</TabPanel>
 			</TabPanels>
 		</Tabs>
-	</div>
-</div>
-
-
-
-
+	{/snippet}
+</Story>

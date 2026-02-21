@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { NotificationCenterProps } from '$stylist/design-system/props/interaction-feedback';
-  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction-feedback';
+  import type { NotificationCenterProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { notifications = [], class: className='', ...restProps }: NotificationCenterProps = $props();
   const unread = $derived(notifications.filter((n) => !n.read).length);
 </script>

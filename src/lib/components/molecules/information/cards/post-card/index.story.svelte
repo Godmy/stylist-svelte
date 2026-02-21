@@ -1,89 +1,26 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import PostCard from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import PostCard from './index.svelte';
 
-  type Props = {
-    title: string;
-    subtitle: string;
-    image: string;
-    date: string;
-    excerpt: string;
-    author: string;
-    tags: string; // Comma-separated string for tags
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Sample Post Title'
-    },
-    {
-      name: 'subtitle',
-      type: 'text',
-      defaultValue: 'A brief subtitle'
-    },
-    {
-      name: 'image',
-      type: 'text',
-      defaultValue: 'https://via.placeholder.com/600x400'
-    },
-    {
-      name: 'date',
-      type: 'text',
-      defaultValue: '2023-11-21'
-    },
-    {
-      name: 'excerpt',
-      type: 'text',
-      defaultValue: 'This is a sample excerpt of the post content. It gives a brief overview of what the post is about.'
-    },
-    {
-      name: 'author',
-      type: 'text',
-      defaultValue: 'John Doe'
-    },
-    {
-      name: 'tags',
-      type: 'text',
-      defaultValue: 'Technology,Svelte'
-    }
-  ];
-
-  function parseTags(tagsString: string): string[] {
-    return tagsString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
-  }
+	const controls: ControlConfig[] = [
+		{ name: 'title', type: 'text', defaultValue: 'Release Notes v2.8' },
+		{ name: 'subtitle', type: 'text', defaultValue: 'Performance, stability, and DX upgrades.' },
+		{ name: 'author', type: 'text', defaultValue: 'Platform Team' },
+		{ name: 'date', type: 'text', defaultValue: '2026-02-21' }
+	];
 </script>
 
-<Story
-  id="molecules-post-card"
-  title="PostCard"
-  component={PostCard}
-  category="Molecules"
-  description="A versatile card component to display blog posts or articles."
-  tags={['post', 'card', 'blog', 'article']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">PostCard Story</h2>
-      <PostCard
-        title={values.title}
-        subtitle={values.subtitle}
-        image={values.image}
-        date={values.date}
-        excerpt={values.excerpt}
-        author={values.author}
-        tags={parseTags(values.tags)}
-        actions={[
-          { label: 'Read More', onClick: () => console.log('Read More clicked') }
-        ]}
-      />
-    </div>
-  {/snippet}
+<Story component={PostCard} title="PostCard" description="Editorial/news card with metadata and tags." {controls}>
+	{#snippet children(values: any)}
+		<PostCard
+			title={values.title}
+			subtitle={values.subtitle}
+			author={values.author}
+			date={values.date}
+			excerpt="Improved caching, refined stories, and fixed interaction edge-cases."
+			tags={['release', 'frontend']}
+			actions={[{ label: 'Open', onClick: () => {} }]}
+		/>
+	{/snippet}
 </Story>
-
-
-
-

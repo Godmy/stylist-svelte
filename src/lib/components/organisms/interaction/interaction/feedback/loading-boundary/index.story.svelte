@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import LoadingBoundary from './index.svelte';
   type Props={loading:boolean; hasError:boolean};
   const controls: ControlConfig[]=[{name:'loading',type:'boolean',defaultValue:false},{name:'hasError',type:'boolean',defaultValue:false}];

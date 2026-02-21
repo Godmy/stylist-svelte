@@ -2,13 +2,13 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Container from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
-			name: 'maxWidth',
+			name: 'size',
 			type: 'select',
-			options: ['sm', 'md', 'lg', 'xl', '2xl', 'full'],
+			options: ['sm', 'md', 'lg', 'xl', 'full'],
 			defaultValue: 'full'
 		}
 	];
@@ -16,10 +16,14 @@
 
 <Story {controls} component={Container} title="Container Component" description="A responsive container with max-width constraints">
 	{#snippet children(values: any)}
-		<Container {...values}>
+		<div class="w-full rounded-lg bg-slate-50 py-4">
+			<Container {...values}>
 			{#snippet children()}
-				<div class="rounded bg-slate-100 p-4">Container content</div>
+				<div class="rounded bg-slate-100 p-4 text-center">
+					Container size: <strong>{values.size}</strong>
+				</div>
 			{/snippet}
-		</Container>
+			</Container>
+		</div>
 	{/snippet}
 </Story>

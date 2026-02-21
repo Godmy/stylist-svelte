@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { ProductCardStyleManager } from '$stylist/design-system/styles/product-card';
+  import { ProductCardStyleManager } from '$stylist/design-system/styles/information/product-card';
 
   /**
    * Unified Product Card Component

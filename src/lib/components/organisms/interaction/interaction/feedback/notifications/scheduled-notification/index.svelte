@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { ScheduledNotificationProps } from '$stylist/design-system/props/interaction-feedback';
-  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction-feedback';
+  import type { ScheduledNotificationProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { notifications = [], class: className='', ...restProps }: ScheduledNotificationProps = $props();
 </script>
 <div class={InteractionFeedbackStyleManager.root('c-scheduled-notification border rounded-lg p-4', className)} {...restProps}>

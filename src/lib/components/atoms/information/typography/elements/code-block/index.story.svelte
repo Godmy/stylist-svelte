@@ -1,15 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import CodeBlock from './index.svelte';
-
-	type CodeBlockStoryProps = {
-		language: string;
-		variant: 'default' | 'terminal' | 'diff';
-		size: 'sm' | 'md' | 'lg';
-		showLineNumbers: boolean;
-		startLineNumber: number;
-	};
 
 	const variantOptions = ['default', 'terminal', 'diff'];
 	const sizeOptions = ['sm', 'md', 'lg'];
@@ -56,12 +48,13 @@
 	{controls}
 >
 	{#snippet children(values: any)}
+		{@const startLine = Number(values.startLineNumber)}
 		<CodeBlock
 			language={values.language as string ?? 'javascript'}
 			variant={values.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
 			size={values.size as 'sm' | 'md' | 'lg' ?? 'md'}
 			showLineNumbers={values.showLineNumbers as boolean ?? false}
-			startLineNumber={values.startLineNumber as number ?? 1}
+			startLineNumber={Number.isNaN(startLine) ? 1 : startLine}
 		>
 			{`function example() {
   console.log("This is an example code block");

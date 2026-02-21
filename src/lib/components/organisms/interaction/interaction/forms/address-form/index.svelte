@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { AddressFormProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { AddressFormProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { street='', city='', region='', postalCode='', country='', class: className='', ...restProps }: AddressFormProps = $props();
 </script>
 <form class={InteractionFormsStyleManager.root('c-address-form border rounded-lg p-4 space-y-2', className)} {...restProps}>

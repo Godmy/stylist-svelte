@@ -13,8 +13,8 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful unit
    */
 
-  import type { IStatCardProps } from '$stylist/design-system/props/stat-card';
-  import { StatCardStyleManager } from '$stylist/design-system/styles/stat-card';
+  import type { IStatCardProps } from '$stylist/design-system/props/information/stat-card';
+  import { StatCardStyleManager } from '$stylist/design-system/styles/information/stat-card';
   import AnimatedNumber from '$stylist/components/atoms/information/data-display/animated-number/index.svelte';
 
   // Define component props using the interface

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import BurgerMenu from './index.svelte';
 
   let open = false;
@@ -18,13 +18,13 @@
     {
       name: 'color',
       type: 'color',
-      defaultValue: 'currentColor',
+      defaultValue: '#1f2937',
       description: 'Color of the burger menu when closed'
     },
     {
       name: 'activeColor',
       type: 'color',
-      defaultValue: 'currentColor',
+      defaultValue: '#2563eb',
       description: 'Color of the burger menu when open'
     }
   ];
@@ -46,7 +46,9 @@
   {#snippet children(values: any)}
     <div class="p-4">
       <BurgerMenu
-        {...values}
+        size={values.size}
+        color={values.color}
+        activeColor={values.activeColor}
         open={open}
         onValueChange={toggleMenu}
       />

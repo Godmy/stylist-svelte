@@ -4,7 +4,7 @@
  */
 
 import type { Theme } from '../../themes/types';
-import type { ColorScale } from '../../tokens/colors';
+import type { ColorScale } from '../../tokens/information/colors';
 
 /**
  * Сглаживает вложенный объект в формат CSS переменных

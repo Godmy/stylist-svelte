@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Heatmap from './index.svelte';
   import type { IHeatmapCell } from './types';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
 
   // Generate sample data for the heatmap
   const generateHeatmapData = () => {

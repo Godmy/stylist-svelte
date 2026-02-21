@@ -78,7 +78,7 @@
     minValue?: number;
   }
 
-  import { HeatmapStyleManager } from '$stylist/design-system/styles/heatmap';
+  import { HeatmapStyleManager } from '$stylist/design-system/styles/architecture/heatmap';
 
   let {
     data = [],

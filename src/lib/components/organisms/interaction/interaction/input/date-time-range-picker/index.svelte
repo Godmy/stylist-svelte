@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Calendar, Clock, X } from 'lucide-svelte';
-  import type { DateTimeRangePickerProps } from '$stylist/design-system/props/interaction-input';
-  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction-input';
+  import type { DateTimeRangePickerProps } from '$stylist/design-system/props/interaction/interaction-input';
+  import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   let {
     value = { start: null, end: null },

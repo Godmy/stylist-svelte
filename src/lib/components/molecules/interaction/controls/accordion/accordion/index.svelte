@@ -22,8 +22,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
-  import { AccordionStyleManager } from '$stylist/design-system/styles/accordion';
-  import type { IAccordionProps } from '$stylist/design-system/props/accordion';
+  import { AccordionStyleManager } from '$stylist/design-system/styles/interaction/accordion';
+  import type { IAccordionProps } from '$stylist/design-system/props/interaction/accordion';
 
   let {
     items,

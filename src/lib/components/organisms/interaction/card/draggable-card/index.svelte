@@ -3,7 +3,7 @@
   import { GripVertical, MoreHorizontal } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
   import BaseCard from '$stylist/components/molecules/information/cards/base-card/index.svelte';
-  import { DraggableCardStyleManager } from '$stylist/design-system/styles/draggable-card';
+  import { DraggableCardStyleManager } from '$stylist/design-system/styles/interaction/draggable-card';
 
   type CardData = {
     id: string;

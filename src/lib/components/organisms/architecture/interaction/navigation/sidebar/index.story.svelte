@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Sidebar from './index.svelte';
   import { Home, Settings, User, Bell, Mail } from 'lucide-svelte';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
 
   type NavItem = {
     id: string;

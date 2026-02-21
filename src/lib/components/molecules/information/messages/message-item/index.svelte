@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Message, User } from '$stylist/design-system/props/chat';
+  import type { Message, User } from '$stylist/design-system/props/information/chat';
   import { Avatar, Icon } from '$stylist/components/atoms';
   import MessageMeta from '$stylist/components/atoms/information/messages/message-meta/index.svelte';
   import AttachmentPreview from '../../preview/attachment-preview/index.svelte';

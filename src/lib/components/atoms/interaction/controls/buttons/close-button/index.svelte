@@ -2,7 +2,7 @@
 	import { X, Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { createState, CLOSE_BUTTON_PRESET } from '$stylist/design-system/models/close-button.svelte';
+	import { createState, CLOSE_BUTTON_PRESET } from '$stylist/design-system/models/interaction/close-button.svelte';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)

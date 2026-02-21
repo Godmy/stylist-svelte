@@ -1,99 +1,36 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import ZoomControls from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import ZoomControls from './index.svelte';
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'initialValue',
-      type: 'number',
-      defaultValue: 100,
-      min: 25,
-      max: 400,
-      description: 'Initial zoom level percentage'
-    },
-    {
-      name: 'minZoom',
-      type: 'number',
-      defaultValue: 50,
-      min: 10,
-      max: 200,
-      description: 'Minimum zoom level percentage'
-    },
-    {
-      name: 'maxZoom',
-      type: 'number',
-      defaultValue: 200,
-      min: 100,
-      max: 500,
-      description: 'Maximum zoom level percentage'
-    },
-    {
-      name: 'step',
-      type: 'number',
-      defaultValue: 10,
-      min: 1,
-      max: 50,
-      description: 'Zoom step increment/decrement'
-    },
-    {
-      name: 'showPercentage',
-      type: 'boolean',
-      defaultValue: true,
-      description: 'Whether to show percentage indicator'
-    }
-  ];
+	let currentZoom = $state(100);
+
+	const controls: ControlConfig[] = [
+		{ name: 'initialValue', type: 'number', defaultValue: 100, min: 25, max: 300, step: 5 },
+		{ name: 'minZoom', type: 'number', defaultValue: 50, min: 10, max: 200, step: 5 },
+		{ name: 'maxZoom', type: 'number', defaultValue: 200, min: 100, max: 500, step: 10 },
+		{ name: 'step', type: 'number', defaultValue: 10, min: 1, max: 50, step: 1 },
+		{ name: 'showPercentage', type: 'boolean', defaultValue: true }
+	];
 </script>
 
-<Story
-  id="atoms-zoom-controls"
-  title="ZoomControls"
-  component={ZoomControls}
-  category="Atoms/Interaction/Controls/Zoom"
-  description="ZoomControls component for zooming content."
-  tags={['zoom', 'controls', 'accessibility', 'scale']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-4 h-96 flex items-center justify-center">
-      <div class="content-container border-2 border-dashed border-gray-300 p-8 rounded-lg">
-        <h2 class="text-xl font-bold mb-4">Zoomable Content</h2>
-        <p>This content can be zoomed in and out using the controls.</p>
-        <div class="mt-4 grid grid-cols-3 gap-4">
-          {#each Array.from({ length: 9 }) as _, i}
-            <div class="bg-blue-100 p-4 rounded text-center">
-              Box {i + 1}
-            </div>
-          {/each}
-        </div>
-      </div>
-      <ZoomControls
-        {...values}
-        onValueChange={(zoomLevel) => console.log('Zoom level changed:', zoomLevel)}
-      />
-    </div>
-  {/snippet}
-  
-  {#snippet variants()}
-    <div class="p-4 h-96 flex items-center justify-center">
-      <div class="content-container border-2 border-dashed border-gray-300 p-8 rounded-lg">
-        <h2 class="text-xl font-bold mb-4">Different Zoom Controls</h2>
-        <p>Try different zoom configurations.</p>
-        <div class="mt-4 grid grid-cols-3 gap-4">
-          {#each Array.from({ length: 9 }) as _, i}
-            <div class="bg-green-100 p-4 rounded text-center">
-              Item {i + 1}
-            </div>
-          {/each}
-        </div>
-      </div>
-      <ZoomControls
-        initialValue={75}
-        minZoom={25}
-        maxZoom={150}
-        step={5}
-        showPercentage={true}
-      />
-    </div>
-  {/snippet}
+<Story component={ZoomControls} title="ZoomControls" description="Zoom toolbar with increment, decrement, and reset actions." {controls}>
+	{#snippet children(values: any)}
+		<div class="relative min-h-72 rounded-xl border border-[--color-border-primary] bg-[--color-background-primary] p-6">
+			<div class="content-container rounded-lg border border-dashed border-[--color-border-primary] p-5">
+				<p class="text-sm text-[--color-text-secondary]">Preview content responds to zoom actions.</p>
+			</div>
+			<div class="absolute right-4 bottom-4">
+				<ZoomControls
+					initialValue={values.initialValue}
+					minZoom={values.minZoom}
+					maxZoom={values.maxZoom}
+					step={values.step}
+					showPercentage={values.showPercentage}
+					onValueChange={(z) => (currentZoom = z)}
+				/>
+			</div>
+			<p class="mt-4 text-sm text-[--color-text-secondary]">Current zoom: {currentZoom}%</p>
+		</div>
+	{/snippet}
 </Story>

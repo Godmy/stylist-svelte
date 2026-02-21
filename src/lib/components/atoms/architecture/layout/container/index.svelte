@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ContainerProps } from '$stylist/design-system';
-	import { createContainerState } from '$stylist/design-system/models/container.svelte';
+	import { createContainerState } from '$stylist/design-system/models/architecture/container.svelte';
 
 	let props: ContainerProps = $props();
 	const state = createContainerState(props);
@@ -14,6 +14,6 @@
 
 <div class={state.classes} {...restProps}>
 	{#if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{/if}
 </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { TableExtendedStyleManager } from '$stylist/design-system/styles/table-extended';
-  import type { TableWithFiltersProps } from '$stylist/design-system/props/table-extended';
+  import { TableExtendedStyleManager } from '$stylist/design-system/styles/interaction/table-extended';
+  import type { TableWithFiltersProps } from '$stylist/design-system/props/interaction/table-extended';
   let { data = [], columns = [], class: className = '', ...restProps }: TableWithFiltersProps = $props();
   let filters = $state<Record<string,string>>({});
   const filtered = $derived(data.filter((row) => columns.every((c) => String((row as Record<string,unknown>)[c] ?? '').toLowerCase().includes((filters[c] ?? '').toLowerCase()))));

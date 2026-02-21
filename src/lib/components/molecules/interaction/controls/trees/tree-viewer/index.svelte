@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/interaction/tree-node-item';
   import AdvancedVirtualTree from './index.svelte';
   import { createEventDispatcher } from 'svelte';
   

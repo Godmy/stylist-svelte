@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { User, Message } from '$stylist/design-system/props/chat';
+import type { User, Message } from '$stylist/design-system/props/information/chat';
 import MessageList from '$stylist/components/molecules/information/messages/message-list/index.svelte';
   import MessageInput from '$stylist/components/atoms/interaction/input/message-input/index.svelte';
   import { createEventDispatcher } from 'svelte';

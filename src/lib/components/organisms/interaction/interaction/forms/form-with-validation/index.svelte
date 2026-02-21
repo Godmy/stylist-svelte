@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { FormWithValidationProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { FormWithValidationProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { email='', password='', class: className='', ...restProps }: FormWithValidationProps = $props();
   const emailValid = $derived(email.includes('@'));
   const passwordValid = $derived(password.length >= 8);

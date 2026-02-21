@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CtaBannerStyleManager } from '$stylist/design-system/styles/cta-banner';
+  import { CtaBannerStyleManager } from '$stylist/design-system/styles/information/cta-banner';
 
   type CtaBannerButton = {
     label: string;

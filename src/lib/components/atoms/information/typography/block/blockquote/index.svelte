@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { BlockquoteProps } from '$stylist/design-system';
-	import { createBlockquoteState } from '$stylist/design-system/models/blockquote.svelte';
+	import { createBlockquoteState } from '$stylist/design-system/models/information/blockquote.svelte';
 
 	let props: BlockquoteProps = $props();
 
@@ -17,7 +17,7 @@
 
 <blockquote class={state.classes} cite={state.cite} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 	{#if state.cite}
 		<footer class={state.footerClasses}>

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { ITreeNodeItemProps } from '$stylist/design-system/props/tree-node-item';
-  import { TreeNodeItemStyleManager } from '$stylist/design-system/styles/tree-node-item';
+  import type { ITreeNodeItemProps } from '$stylist/design-system/props/interaction/tree-node-item';
+  import { TreeNodeItemStyleManager } from '$stylist/design-system/styles/interaction/tree-node-item';
   import { ChevronRight, ChevronDown, type Component } from 'lucide-svelte';
-  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/interaction/tree-node-item';
   import Self from './index.svelte';
 
   /**

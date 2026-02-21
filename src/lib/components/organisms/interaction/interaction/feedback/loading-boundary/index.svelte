@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { LoadingBoundaryProps } from '$stylist/design-system/props/interaction-feedback';
-  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction-feedback';
+  import type { LoadingBoundaryProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { loading=false, error='', children, class: className='', ...restProps }: LoadingBoundaryProps = $props();
 </script>
 <div class={InteractionFeedbackStyleManager.root('c-loading-boundary border rounded-lg p-4', className)} {...restProps}>

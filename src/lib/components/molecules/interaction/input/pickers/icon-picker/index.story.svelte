@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import IconPicker from './index.svelte';
   import { Heart, Star, Mail, Settings, User, Search, Bell, Camera, File, Folder, Image, Music, Video, Home, Calendar, MessageCircle, Phone, Trash2, Edit3, Copy } from 'lucide-svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
 
   const controls = [
     {

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { FeatureToggleStyleManager } from '$stylist/design-system/styles/feature-toggle';
-  import type { FeatureToggleProps } from '$stylist/design-system/props/feature-toggle';
+  import { FeatureToggleStyleManager } from '$stylist/design-system/styles/interaction/feature-toggle';
+  import type { FeatureToggleProps } from '$stylist/design-system/props/interaction/feature-toggle';
   let { label='Feature toggle', description='Enable optional capability', checked=false, disabled=false, class: className='', onChange, ...restProps }: FeatureToggleProps = $props();
   let isChecked=$state(checked);
 </script>

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { IPhoneNumberInputProps } from '$stylist/design-system/props/phone-number-input';
+  import type { IPhoneNumberInputProps } from '$stylist/design-system/props/interaction/phone-number-input';
   import {
     createPhoneNumberInputState,
     formatPhoneNumber,
     normalizePhoneInputValue
-  } from '$stylist/design-system/models/phone-number-input.svelte';
+  } from '$stylist/design-system/models/interaction/phone-number-input.svelte';
 
   /**
    * PhoneNumberInput component - displays a phone number input field with formatting

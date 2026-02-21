@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SyntaxHighlightedCodeProps } from '$stylist/design-system';
-	import { createSyntaxHighlightedCodeState } from '$stylist/design-system/models/syntax-highlighted-code.svelte';
+	import { createSyntaxHighlightedCodeState } from '$stylist/design-system/models/information/syntax-highlighted-code.svelte';
 	import CodeBlock from '../../elements/code-block/index.svelte';
 
 	let props: SyntaxHighlightedCodeProps = $props();

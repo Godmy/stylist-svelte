@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '../tokens/controls';
+	import type { ControlConfig } from '../tokens/interaction/controls';
 	import type { Snippet } from 'svelte';
 
 	type ChildrenFn = (values: any) => any;
@@ -21,9 +21,30 @@
 		}
 	}
 
+	function coerceValue(control: ControlConfig, raw: unknown): unknown {
+		if (control.type === 'boolean') {
+			return Boolean(raw);
+		}
+
+		if (control.type === 'number' || control.type === 'range') {
+			const parsed = Number(raw);
+			return Number.isNaN(parsed) ? control.defaultValue ?? 0 : parsed;
+		}
+
+		if (control.type === 'select' && Array.isArray(control.options) && control.options.length > 0) {
+			const first = control.options[0];
+			if (typeof first === 'number') {
+				const parsed = Number(raw);
+				return Number.isNaN(parsed) ? first : parsed;
+			}
+		}
+
+		return raw;
+	}
+
 	// Function to handle control changes
-	function handleChange(controlName: string, value: unknown) {
-		controlValues[controlName] = value;
+	function handleChange(control: ControlConfig, value: unknown) {
+		controlValues[control.name] = coerceValue(control, value);
 	}
 </script>
 
@@ -60,7 +81,20 @@
 						bind:value={controlValues[control.name]}
 						on:input={(e: Event) => {
 							const target = e.target as HTMLInputElement;
-							handleChange(control.name, target ? target.value : '');
+							handleChange(control, target ? target.value : '');
+						}}
+					/>
+				{:else if control.type === 'number'}
+					<input
+						id="control-{control.name}"
+						type="number"
+						min={control.min}
+						max={control.max}
+						step={control.step}
+						bind:value={controlValues[control.name]}
+						on:input={(e: Event) => {
+							const target = e.target as HTMLInputElement;
+							handleChange(control, target ? target.value : '');
 						}}
 					/>
 				{:else if control.type === 'boolean'}
@@ -70,7 +104,7 @@
 						bind:checked={controlValues[control.name] as boolean}
 						on:change={(e: Event) => {
 							const target = e.target as HTMLInputElement;
-							handleChange(control.name, target ? target.checked : false);
+							handleChange(control, target ? target.checked : false);
 						}}
 					/>
 				{:else if control.type === 'select'}
@@ -79,13 +113,36 @@
 						bind:value={controlValues[control.name]}
 						on:change={(e: Event) => {
 							const target = e.target as HTMLSelectElement;
-							handleChange(control.name, target ? target.value : '');
+							handleChange(control, target ? target.value : '');
 						}}
 					>
 						{#each control.options ?? [] as option}
 							<option value={option}>{option}</option>
 						{/each}
 					</select>
+				{:else if control.type === 'color'}
+					<input
+						id="control-{control.name}"
+						type="color"
+						bind:value={controlValues[control.name]}
+						on:input={(e: Event) => {
+							const target = e.target as HTMLInputElement;
+							handleChange(control, target ? target.value : '#000000');
+						}}
+					/>
+				{:else if control.type === 'range'}
+					<input
+						id="control-{control.name}"
+						type="range"
+						min={control.min}
+						max={control.max}
+						step={control.step}
+						bind:value={controlValues[control.name]}
+						on:input={(e: Event) => {
+							const target = e.target as HTMLInputElement;
+							handleChange(control, target ? target.value : '');
+						}}
+					/>
 				{/if}
 			</div>
 		{/each}

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { LazyLoaderProps } from '$stylist/design-system/props/interaction-feedback';
-  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction-feedback';
+  import type { LazyLoaderProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { loading=true, text='Loading content...', children, class: className='', ...restProps }: LazyLoaderProps = $props();
 </script>
 <div class={InteractionFeedbackStyleManager.root('c-lazy-loader border rounded-lg p-4', className)} {...restProps}>

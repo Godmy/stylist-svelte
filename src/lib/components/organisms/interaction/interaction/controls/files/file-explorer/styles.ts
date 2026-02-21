@@ -1,5 +1,3 @@
-import type { IFileExplorerStyleClasses } from './types';
-
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing FileExplorer styling logic

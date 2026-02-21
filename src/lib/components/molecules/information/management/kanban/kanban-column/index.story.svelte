@@ -1,42 +1,27 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import KanbanColumn from './index.svelte';
 
-  interface SampleKanbanTask {
-    id: string;
-    title: string;
-    description?: string;
-    assignee?: { id: string; name: string; avatar?: string } | string;
-    priority: 'low' | 'medium' | 'high';
-    status: 'todo' | 'in-progress' | 'review' | 'done';
-    tags?: string[];
-    createdAt?: Date;
-    updatedAt?: Date;
-  }
-
-  interface SampleKanbanColumnData {
-    id: string;
-    title: string;
-    description?: string;
-    cards: SampleKanbanTask[];
-  }
-
-  const sampleColumn: SampleKanbanColumnData = {
-    id: 'col1',
-    title: 'To Do',
-    description: 'Tasks waiting to be worked on',
-    cards: [
-      { id: 'card1', title: 'Research new features', description: 'Investigate requirements for next sprint', assignee: 'John Doe', priority: 'medium', status: 'todo', tags: ['research'] },
-      { id: 'card2', title: 'Fix critical bug', description: 'Resolve login issue reported by users', assignee: 'Jane Smith', priority: 'high', status: 'todo', tags: ['bug', 'urgent'] }
-    ]
-  };
-
-  type Props = { droppable: boolean };
-
   const controls: ControlConfig[] = [
-    { name: 'droppable', type: 'boolean', defaultValue: true }
+    { name: 'droppable', type: 'boolean', defaultValue: true },
+    { name: 'cardCount', type: 'number', defaultValue: 2, min: 1, max: 5 }
   ];
+
+  function getColumn(cardCount: number) {
+    return {
+      id: 'todo',
+      title: 'To do',
+      cards: Array.from({ length: cardCount }, (_, i) => ({
+        id: `c-${i + 1}`,
+        title: `Task ${i + 1}`,
+        description: `Task description ${i + 1}`,
+        assignee: 'Team member',
+        priority: i % 2 === 0 ? 'high' : 'medium',
+        status: 'todo'
+      }))
+    };
+  }
 </script>
 
 <Story
@@ -44,13 +29,12 @@
   title="Molecules / Information / Management / Kanban / KanbanColumn"
   component={KanbanColumn}
   category="Molecules/Information/Management/Kanban"
-  description="Kanban column with draggable cards."
-  controls={controls}
+  description="Single Kanban column with configurable card amount."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-kanban-column p-4">
-      <KanbanColumn column={sampleColumn} droppable={args.droppable} />
+  {#snippet children(args: any)}
+    <div class="p-4 rounded-xl bg-gray-50">
+      <KanbanColumn column={getColumn(args.cardCount)} droppable={args.droppable} />
     </div>
   {/snippet}
 </Story>
-

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { CodeBlockProps } from '$stylist/design-system';
-	import { createCodeBlockState } from '$stylist/design-system/models/code-block.svelte';
+	import { createCodeBlockState } from '$stylist/design-system/models/information/code-block.svelte';
 
 	let props: CodeBlockProps = $props();
 
@@ -26,6 +26,6 @@
 
 <div class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </div>

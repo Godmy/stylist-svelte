@@ -2,7 +2,7 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
 	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { createState, SPLIT_BUTTON_PRESET } from '$stylist/design-system/models/split-button.svelte';
+	import { createState, SPLIT_BUTTON_PRESET } from '$stylist/design-system/models/interaction/split-button.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -139,7 +139,7 @@
 		onclick={props.primaryAction}
 	>
 		{#if props.children}
-			{@render props.children()}
+			{@render props.children?.()}
 		{:else}
 			{props.primaryLabel ?? 'Action'}
 		{/if}

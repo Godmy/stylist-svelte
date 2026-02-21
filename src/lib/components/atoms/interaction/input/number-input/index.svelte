@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Minus, Plus } from 'lucide-svelte';
-  import { createNumberInputState } from '$stylist/design-system/models/number-input.svelte';
+  import { createNumberInputState } from '$stylist/design-system/models/interaction/number-input.svelte';
 
   type Props = {
     value?: number;

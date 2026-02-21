@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import DataTableAdvanced from './index.svelte';
 
   const data = Array.from({ length: 23 }, (_, i) => ({ id: i + 1, name: `User ${i + 1}`, team: i % 2 ? 'A' : 'B' }));

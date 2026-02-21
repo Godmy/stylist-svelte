@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PriceHistoryStyleManager } from '$stylist/design-system/styles/price-history';
+  import { PriceHistoryStyleManager } from '$stylist/design-system/styles/information/price-history';
 
   let {
     data = [],

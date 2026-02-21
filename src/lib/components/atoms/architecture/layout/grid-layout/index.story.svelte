@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import GridLayout from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -28,6 +28,8 @@
 
 <Story {controls} component={GridLayout} title="GridLayout Component" description="A responsive grid layout component">
 	{#snippet children(values: any)}
-		<GridLayout {...values} {items} />
+		<div class="rounded border border-slate-200 bg-slate-50 p-3">
+			<GridLayout {...values} {items} />
+		</div>
 	{/snippet}
 </Story>

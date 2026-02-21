@@ -1,78 +1,32 @@
-<script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import { Search } from 'lucide-svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import InputAddon from './index.svelte';
-
-	const positionOptions = ['left', 'right'] as const;
-	const variantOptions = ['solid', 'ghost'] as const;
-
-	type Props = {
-		position?: 'left' | 'right';
-		variant?: 'solid' | 'ghost';
-		withIcon?: boolean;
-		addonText?: string;
-		class?: string;
-	};
+	import { Search } from 'lucide-svelte';
 
 	const controls: ControlConfig[] = [
-		{
-			name: 'position',
-			type: 'select',
-			defaultValue: 'left',
-			options: [...positionOptions],
-			description: 'Position of the addon (left/right)'
-		},
-		{
-			name: 'variant',
-			type: 'select',
-			defaultValue: 'solid',
-			options: [...variantOptions],
-			description: 'Visual variant of the addon (solid/ghost)'
-		},
-		{
-			name: 'withIcon',
-			type: 'boolean',
-			defaultValue: true,
-			description: 'Whether to show an icon in the addon'
-		},
-		{
-			name: 'addonText',
-			type: 'text',
-			defaultValue: '$',
-			description: 'Text to display in the addon if no icon'
-		}
+		{ name: 'position', type: 'select', defaultValue: 'left', options: ['left', 'right'] },
+		{ name: 'variant', type: 'select', defaultValue: 'solid', options: ['solid', 'ghost', 'outline'] },
+		{ name: 'withIcon', type: 'boolean', defaultValue: true },
+		{ name: 'addonText', type: 'text', defaultValue: '$' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Search...' }
 	];
-
-	const props: Props = {};
 </script>
 
-<div class="flex flex-col gap-4">
-	<div class="flex items-center rounded-md border border-[--color-border-primary]">
-		{#if props.position === 'left'}
-			<InputAddon {...props}>
-				{#if props.withIcon}
-					<Search class="h-4 w-4" />
-				{:else}
-					{props.addonText}
-				{/if}
-			</InputAddon>
-		{/if}
-		<input
-			type="text"
-			placeholder="Search..."
-			class="flex-1 border-0 bg-transparent px-3 py-2 focus:outline-none"
-		/>
-		{#if props.position === 'right'}
-			<InputAddon {...props}>
-				{#if props.withIcon}
-					<Search class="h-4 w-4" />
-				{:else}
-					{props.addonText}
-				{/if}
-			</InputAddon>
-		{/if}
-	</div>
-</div>
-
-
-
+<Story component={InputAddon} title="InputAddon" description="Prefix/suffix element attached to input controls." {controls}>
+	{#snippet children(values: any)}
+		<div class="flex items-center rounded-md border border-[--color-border-primary]">
+			{#if values.position === 'left'}
+				<InputAddon position="left" variant={values.variant}>
+					{#if values.withIcon}<Search class="h-4 w-4" />{:else}{values.addonText}{/if}
+				</InputAddon>
+			{/if}
+			<input type="text" placeholder={values.placeholder} class="flex-1 border-0 bg-transparent px-3 py-2 focus:outline-none" />
+			{#if values.position === 'right'}
+				<InputAddon position="right" variant={values.variant}>
+					{#if values.withIcon}<Search class="h-4 w-4" />{:else}{values.addonText}{/if}
+				</InputAddon>
+			{/if}
+		</div>
+	{/snippet}
+</Story>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { IconCircleProps } from '$stylist/design-system';
-	import { createIconCircleState } from '$stylist/design-system/models/icon-circle.svelte';
+	import { createIconCircleState } from '$stylist/design-system/models/information/icon-circle.svelte';
 
 	let props: IconCircleProps = $props();
 	const state = createIconCircleState(props);

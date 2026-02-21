@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { KanbanBoardStyleManager } from '$stylist/design-system/styles/kanban-board';
+  import { KanbanBoardStyleManager } from '$stylist/design-system/styles/information/kanban-board';
   import KanbanColumn from '$stylist/components/molecules/information/management/kanban/kanban-column/index.svelte';
   import { Button } from '$stylist/components/atoms';
   import { Plus } from 'lucide-svelte';

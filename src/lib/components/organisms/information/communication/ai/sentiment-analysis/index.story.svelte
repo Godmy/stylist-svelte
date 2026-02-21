@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import SentimentAnalysis from './index.svelte';
-  import type { SentimentResult } from '$lib/design-system/props/sentiment-analysis';
+  import type { SentimentResult } from '$lib/design-system/props/information/sentiment-analysis';
 
   const controls: ControlConfig[] = [
     { name: 'text', type: 'text', defaultValue: 'I like this product. It works very well.' },

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon } from '$stylist/components/atoms';
-  import { createMenuItemState } from '$stylist/design-system/models/menu-item.svelte';
-  import type { MenuItemProps } from '$stylist/design-system/props/menu-item';
+  import { createMenuItemState } from '$stylist/design-system/models/interaction/menu-item.svelte';
+  import type { MenuItemProps } from '$stylist/design-system/props/interaction/menu-item';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type Props = MenuItemProps & HTMLAttributes<HTMLElement>;

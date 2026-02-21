@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import NumberFlow from './index.svelte';
 
@@ -35,8 +35,9 @@
 	tags={['information', 'data-display', 'number', 'flow']}
 >
 	{#snippet children(values: any)}
+		{@const parsedValue = Number(values.value)}
 		<NumberFlow
-			value={parseFloat(values.value as string) || 12345.67}
+			value={Number.isNaN(parsedValue) ? 12345.67 : parsedValue}
 			prefix={values.prefix as string}
 			suffix={values.suffix as string}
 			locales={values.locales as string}

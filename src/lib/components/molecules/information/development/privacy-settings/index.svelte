@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { PrivacySettingsStyleManager } from '$stylist/design-system/styles/privacy-settings';
+  import { PrivacySettingsStyleManager } from '$stylist/design-system/styles/information/privacy-settings';
 
   let {
     settings = [],

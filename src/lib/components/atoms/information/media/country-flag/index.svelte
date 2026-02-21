@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CountryFlagProps } from '$stylist/design-system';
-	import { createCountryFlagState } from '$stylist/design-system/models/country-flag.svelte';
+	import { createCountryFlagState } from '$stylist/design-system/models/information/country-flag.svelte';
 
 	type Props = CountryFlagProps & HTMLAttributes<HTMLSpanElement>;
 

@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Divider from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -33,9 +33,11 @@
 <Story {controls} component={Divider} title="Divider Component" description="A visual separator with optional text label">
 	{#snippet children(values: any)}
 		{#if values.orientation === 'horizontal'}
-			<Divider {...values} />
+			<div class="rounded border border-slate-200 bg-slate-50 p-4">
+				<Divider {...values} />
+			</div>
 		{:else}
-			<div class="h-32">
+			<div class="h-32 rounded border border-slate-200 bg-slate-50 p-4">
 				<Divider {...values} />
 			</div>
 		{/if}

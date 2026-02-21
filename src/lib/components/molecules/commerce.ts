@@ -1,1 +1,1 @@
-export * from './commerce/products';
+export * from './information/commerce/products';

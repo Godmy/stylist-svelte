@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputEmailState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-email.svelte';
+	import { createInputEmailState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-email.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputProps } from '$stylist/design-system/props';
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createTextAreaState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/text-area.svelte';
+	import { createTextAreaState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/text-area.svelte';
 	import type { ITextareaProps } from '$stylist/design-system/props';
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 

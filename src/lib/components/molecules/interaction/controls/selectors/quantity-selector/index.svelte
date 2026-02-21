@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IQuantitySelectorProps, QuantitySelectorSize, QuantitySelectorVariant } from '$stylist/design-system/props/quantity-selector';
-  import { QuantitySelectorStyleManager } from '$stylist/design-system/styles/quantity-selector';
+  import type { IQuantitySelectorProps, QuantitySelectorSize, QuantitySelectorVariant } from '$stylist/design-system/props/interaction/quantity-selector';
+  import { QuantitySelectorStyleManager } from '$stylist/design-system/styles/interaction/quantity-selector';
   import { Plus, Minus } from 'lucide-svelte';
 
   /**

@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
   import { ChevronLeft, ChevronRight, Plus } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
-  import { CalendarViewStyleManager } from '$stylist/design-system/styles/calendar-view';
+  import { CalendarViewStyleManager } from '$stylist/design-system/styles/information/calendar-view';
 
   type CalendarEvent = {
     id: string;

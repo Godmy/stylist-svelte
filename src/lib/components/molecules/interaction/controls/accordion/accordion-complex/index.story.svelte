@@ -4,7 +4,7 @@
   import AccordionItem from '$stylist/components/atoms/interaction/controls/accordion/accordion-item/index.svelte';
   import AccordionHeader from '$stylist/components/atoms/interaction/controls/accordion/accordion-header/index.svelte';
   import AccordionPanel from '$stylist/components/atoms/interaction/controls/accordion/accordion-panel/index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/controls';
+  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
 
   const controls = [
     {

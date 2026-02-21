@@ -1,54 +1,25 @@
-<script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import ThemeSwitcher from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import ThemeSwitcher from './index.svelte';
 
-    type Props = {
-        currentTheme?: 'light' | 'dark' | 'system';
-        availableThemes?: Array<'light' | 'dark' | 'system'>;
-        showLabels?: boolean;
-        onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
-    };
+	let selectedTheme = $state<'light' | 'dark' | 'system'>('light');
 
-    const controls: ControlConfig[] = [
-        {
-            name: 'currentTheme',
-            type: 'select',
-            options: ['light', 'dark', 'system'],
-            defaultValue: 'light'
-        },
-        {
-            name: 'showLabels',
-            type: 'boolean',
-            defaultValue: false
-        }
-    ];
-
-    function handleThemeChange(theme: 'light' | 'dark' | 'system') {
-        console.log('Theme changed to:', theme);
-    }
+	const controls: ControlConfig[] = [
+		{ name: 'currentTheme', type: 'select', defaultValue: 'light', options: ['light', 'dark', 'system'] },
+		{ name: 'showLabels', type: 'boolean', defaultValue: true }
+	];
 </script>
 
-<Story
-    id="molecules-theme-switcher"
-    title="ThemeSwitcher"
-    component={ThemeSwitcher}
-    category="Molecules"
-    description="Component for switching between themes"
-    controls={controls}
->
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <ThemeSwitcher
-                currentTheme={values.currentTheme || 'light'}
-                showLabels={values.showLabels}
-                onThemeChange={handleThemeChange}
-            />
-        </div>
-    {/snippet}
+<Story component={ThemeSwitcher} title="ThemeSwitcher" description="Theme toggle between light, dark, and system modes." {controls}>
+	{#snippet children(values: any)}
+		<div class="space-y-3">
+			<ThemeSwitcher
+				currentTheme={values.currentTheme}
+				showLabels={values.showLabels}
+				onThemeChange={(theme) => (selectedTheme = theme)}
+			/>
+			<p class="text-sm text-[--color-text-secondary]">Selected theme: {selectedTheme}</p>
+		</div>
+	{/snippet}
 </Story>
-
-
-
-
-

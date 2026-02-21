@@ -2,7 +2,7 @@
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { createState, BUTTON_PRESET } from '$stylist/design-system/models/button.svelte';
+	import { createState, BUTTON_PRESET } from '$stylist/design-system/models/interaction/button.svelte';
 
 	/**
 	 * Button component - A flexible button component with various styles and states
@@ -42,7 +42,7 @@
 	{/if}
 
 	{#if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{:else if state.loading}
 		{props.loadingLabel ?? 'Loading...'}
 	{/if}

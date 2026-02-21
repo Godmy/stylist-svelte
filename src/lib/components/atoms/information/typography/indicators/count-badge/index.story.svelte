@@ -1,26 +1,12 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import CountBadge from './index.svelte';
 
 	const controls: ControlConfig[] = [
-		{
-			name: 'count',
-			type: 'select',
-			defaultValue: '12',
-			options: ['0', '1', '3', '5', '10', '12', '25', '50', '99', '100', '152', '200']
-		},
-		{
-			name: 'max',
-			type: 'select',
-			defaultValue: '99',
-			options: ['10', '50', '99', '100', '200', '500', '999']
-		},
-		{
-			name: 'showZero',
-			type: 'boolean',
-			defaultValue: false
-		}
+		{ name: 'count', type: 'select', defaultValue: '12', options: ['0', '1', '3', '5', '10', '12', '25', '50', '99', '100', '152', '200'] },
+		{ name: 'max', type: 'select', defaultValue: '99', options: ['10', '50', '99', '100', '200', '500', '999'] },
+		{ name: 'showZero', type: 'boolean', defaultValue: false }
 	];
 
 	const inboxViews = [
@@ -39,38 +25,24 @@
 	tags={['information', 'typography', 'indicator', 'counter', 'notifications']}
 >
 	{#snippet children(values: any)}
+		{@const count = Number(values.count)}
+		{@const max = Number(values.max)}
 		<div class="space-y-8">
-			<div
-				class="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
-			>
+			<div class="flex items-center gap-3 rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40">
 				<button class="relative rounded-xl bg-gray-900 px-4 py-2 text-sm font-semibold text-white">
 					Messages
 					<span class="absolute -top-2 -right-2">
-						<CountBadge
-							count={parseInt(values.count as string) || 12}
-							max={parseInt(values.max as string) || 99}
-							showZero={values.showZero as boolean}
-						/>
+						<CountBadge count={Number.isNaN(count) ? 12 : count} max={Number.isNaN(max) ? 99 : max} showZero={values.showZero as boolean} />
 					</span>
 				</button>
-				<p class="text-sm text-gray-600 dark:text-gray-300">
-					Play with the controls to see how overflow (`{values.max}+`) and zero visibility behave.
-				</p>
 			</div>
 
-			<div
-				class="rounded-2xl border border-gray-200/80 bg-white/80 p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
-			>
-				<p class="mb-4 text-sm font-semibold text-gray-900 dark:text-white">Inbox sections</p>
+			<div class="rounded-2xl border border-gray-200/80 bg-white/80 p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900/40">
 				<ul class="divide-y divide-gray-100 text-sm dark:divide-gray-800">
 					{#each inboxViews as view}
 						<li class="flex items-center justify-between py-3">
 							<span class="text-gray-700 dark:text-gray-200">{view.label}</span>
-							<CountBadge
-								count={view.label === 'Inbox' ? parseInt(values.count as string) || 12 : view.count}
-								max={parseInt(values.max as string) || 99}
-								showZero={values.showZero as boolean}
-							/>
+							<CountBadge count={view.label === 'Inbox' ? (Number.isNaN(count) ? 12 : count) : view.count} max={Number.isNaN(max) ? 99 : max} showZero={values.showZero as boolean} />
 						</li>
 					{/each}
 				</ul>

@@ -1,71 +1,41 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ProductComparison from './index.svelte';
 
-  type Product = {
-    id: string;
-    name: string;
-    price: number;
-    currency: string;
-    image: string;
-    rating: number;
-  };
-
-  type Props = {
-    features: string; // Comma-separated string for features
-  };
-
   const controls: ControlConfig[] = [
-    {
-      name: 'features',
-      type: 'text',
-      defaultValue: 'Wireless,Noise Cancelling,Battery Life,Water Resistant,Microphone Quality'
-    }
+    { name: 'features', type: 'text', defaultValue: 'Wireless,Noise cancelling,24h battery,Water resistant' },
+    { name: 'includeThirdProduct', type: 'boolean', defaultValue: true }
   ];
 
-  const sampleProducts: Product[] = [
-    {
-      id: '1',
-      name: 'Headphones A',
-      price: 199.99,
-      currency: '$',
-      image: 'https://via.placeholder.com/100x100?text=HP-A',
-      rating: 4.5
-    },
-    {
-      id: '2',
-      name: 'Headphones B',
-      price: 179.99,
-      currency: '$',
-      image: 'https://via.placeholder.com/100x100?text=HP-B',
-      rating: 4.2
-    }
+  const baseProducts = [
+    { id: '1', name: 'Headphones A', price: 199.99, currency: '$', image: 'https://placehold.co/120x120?text=A', rating: 4.5 },
+    { id: '2', name: 'Headphones B', price: 179.99, currency: '$', image: 'https://placehold.co/120x120?text=B', rating: 4.2 },
+    { id: '3', name: 'Headphones C', price: 229.99, currency: '$', image: 'https://placehold.co/120x120?text=C', rating: 4.7 }
   ];
 
-  function parseFeatures(featuresString: string): string[] {
-    return featuresString.split(',').map(f => f.trim()).filter(f => f.length > 0);
+  function parseFeatures(value: string): string[] {
+    return value
+      .split(',')
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0);
   }
 </script>
 
 <Story
   id="molecules-product-comparison"
-  title="ProductComparison"
+  title="Molecules / Information / Commerce / Products / ProductComparison"
   component={ProductComparison}
-  category="Molecules"
-  description="Compares key features and specifications of multiple products."
-  tags={['product', 'comparison', 'ecommerce']}
-  controls={controls}
+  category="Molecules/Information/Commerce/Products"
+  description="Feature-level comparison matrix for multiple products."
+  {controls}
 >
-  {#snippet children(values: any)}
-    <div class="sb-molecules-product-comparison p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">ProductComparison Story</h2>
+  {#snippet children(args: any)}
+    <div class="p-6 bg-gray-50 rounded-xl">
       <ProductComparison
-        products={sampleProducts}
-        features={parseFeatures(values.features)}
+        products={args.includeThirdProduct ? baseProducts : baseProducts.slice(0, 2)}
+        features={parseFeatures(args.features)}
       />
     </div>
   {/snippet}
 </Story>
-
-

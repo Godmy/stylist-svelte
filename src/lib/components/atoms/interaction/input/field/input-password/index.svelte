@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputPasswordState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/input-password.svelte';
+	import { createInputPasswordState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-password.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputProps } from '$stylist/design-system/props';
 

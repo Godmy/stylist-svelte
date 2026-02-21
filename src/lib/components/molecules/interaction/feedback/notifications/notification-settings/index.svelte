@@ -4,7 +4,7 @@ import type {
     INotificationSettingsProps,
     INotificationSettingsPreference,
     NotificationChannel
-  } from '$stylist/design-system/props/notification-settings';
+  } from '$stylist/design-system/props/interaction/notification-settings';
 
   let {
     preferences = [],

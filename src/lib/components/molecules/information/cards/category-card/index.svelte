@@ -13,8 +13,8 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful category unit
    */
 
-  import type { ICategoryCardProps } from '$stylist/design-system/props/category-card';
-  import { CategoryCardStyleManager } from '$stylist/design-system/styles/category-card';
+  import type { ICategoryCardProps } from '$stylist/design-system/props/information/category-card';
+  import { CategoryCardStyleManager } from '$stylist/design-system/styles/information/category-card';
   import IconCircle from '$stylist/components/atoms/information/media/icon-circle/index.svelte';
 
   // Define component props using the interface

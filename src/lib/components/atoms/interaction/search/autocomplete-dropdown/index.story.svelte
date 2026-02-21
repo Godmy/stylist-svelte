@@ -1,49 +1,27 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import AutocompleteDropdown from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import AutocompleteDropdown from './index.svelte';
 
-  type Props = {
-    value?: string;
-    placeholder?: string;
-    class?: string;
-  };
+	let value = $state('');
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'value',
-      type: 'text',
-      defaultValue: ''
-    },
-    {
-      name: 'placeholder',
-      type: 'text',
-      defaultValue: 'Select...'
-    }
-  ];
+	const options = [
+		{ label: 'Design', value: 'design' },
+		{ label: 'Development', value: 'development' },
+		{ label: 'Marketing', value: 'marketing' },
+		{ label: 'Operations', value: 'operations' }
+	];
+
+	const controls: ControlConfig[] = [
+		{ name: 'placeholder', type: 'text', defaultValue: 'Select a team...' }
+	];
 </script>
 
-<Story
-  id="molecules-autocomplete-dropdown"
-  title="AutocompleteDropdown"
-  component={AutocompleteDropdown}
-  category="Molecules"
-  description="A dropdown component with autocomplete functionality."
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">AutocompleteDropdown Story</h2>
-      <AutocompleteDropdown
-        {...values}
-        options={[
-          { label: 'Option 1', value: 'option1' },
-          { label: 'Option 2', value: 'option2' },
-          { label: 'Option 3', value: 'option3' }
-        ]}
-      />
-    </div>
-  {/snippet}
+<Story component={AutocompleteDropdown} title="AutocompleteDropdown" description="Dropdown selector with option list and controlled value." {controls}>
+	{#snippet children(values: any)}
+		<div class="max-w-sm space-y-2">
+			<AutocompleteDropdown options={options} value={value} placeholder={values.placeholder} onValueChange={(next) => (value = next)} />
+			<p class="text-sm text-[--color-text-secondary]">Selected: {value || 'none'}</p>
+		</div>
+	{/snippet}
 </Story>
-
-

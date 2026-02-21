@@ -3,11 +3,11 @@
  * Использует токены дизайна для создания согласованной темной темы
  */
 
-import { blue, slate, teal, amber, red, neutral } from '../tokens/colors';
-import { spacing } from '../tokens/spacing';
-import { fontSize, fontWeight, lineHeight, fontFamily } from '../tokens/typography';
-import { borderRadius } from '../tokens/radius';
-import { shadow } from '../tokens/shadows';
+import { blue, slate, teal, amber, red, neutral } from '../tokens/information/colors';
+import { spacing } from '../tokens/architecture/spacing';
+import { fontSize, fontWeight, lineHeight, fontFamily } from '../tokens/information/typography';
+import { borderRadius } from '../tokens/architecture/radius';
+import { shadow } from '../tokens/architecture/shadows';
 import type { Theme } from './types';
 
 /**

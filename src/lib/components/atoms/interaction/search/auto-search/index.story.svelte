@@ -1,42 +1,20 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import AutoSearch from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import AutoSearch from './index.svelte';
 
-  type Props = {
-    value?: string;
-    placeholder?: string;
-    class?: string;
-  };
+	let query = $state('');
 
-  const controls: ControlConfig[] = [
-    {
-      name: 'value',
-      type: 'text',
-      defaultValue: ''
-    },
-    {
-      name: 'placeholder',
-      type: 'text',
-      defaultValue: 'Search...'
-    }
-  ];
+	const controls: ControlConfig[] = [
+		{ name: 'placeholder', type: 'text', defaultValue: 'Search projects...' }
+	];
 </script>
 
-<Story
-  id="molecules-auto-search"
-  title="AutoSearch"
-  component={AutoSearch}
-  category="Molecules"
-  description="An auto-search component with real-time suggestions."
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">AutoSearch Story</h2>
-      <AutoSearch {...values} />
-    </div>
-  {/snippet}
+<Story component={AutoSearch} title="AutoSearch" description="Text search field with immediate change callbacks." {controls}>
+	{#snippet children(values: any)}
+		<div class="max-w-md space-y-2">
+			<AutoSearch value={query} placeholder={values.placeholder} onValueChange={(next) => (query = next)} />
+			<p class="text-sm text-[--color-text-secondary]">Query: {query || 'empty'}</p>
+		</div>
+	{/snippet}
 </Story>
-
-

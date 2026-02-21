@@ -1,6 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { addABTestVariant, calculateTotalWeight, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './abtest';
 export { animateValue, formatNumber, getEasingFunction } from './animation';
 export { computeAriaLabel, generateAriaAttributes } from './aria';
+export { resolveAuthGuardState } from './auth-guard';
 export { cn, conditionalClasses, mergeClasses, twJoin, twMerge } from './classes';
 export { isClipboardSupported } from './clipboard';
 export { generateCode } from './code-preview';

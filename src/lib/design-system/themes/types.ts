@@ -2,7 +2,7 @@
  * Определения типов темы
  */
 
-import type { ColorScale } from '../tokens/colors';
+import type { ColorScale } from '../tokens/information/colors';
 
 /**
  * Семантические сопоставления цветов для темы

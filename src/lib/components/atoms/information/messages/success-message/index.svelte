@@ -94,7 +94,7 @@
         {/if}
         {#if children}
           <div class={`mt-2 ${bodyClass}`}>
-            {@render children()}
+            {@render children?.()}
           </div>
         {/if}
       </div>

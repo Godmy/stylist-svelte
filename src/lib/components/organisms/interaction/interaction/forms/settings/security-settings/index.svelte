@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction-forms';
-  import type { SecuritySettingsProps } from '$stylist/design-system/props/interaction-forms';
+  import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
+  import type { SecuritySettingsProps } from '$stylist/design-system/props/interaction/interaction-forms';
   let { twoFactor=true, loginAlerts=true, class: className='', ...restProps }: SecuritySettingsProps = $props();
 </script>
 <form class={InteractionFormsStyleManager.root('c-security-settings border rounded-lg p-4 space-y-2', className)} {...restProps}>

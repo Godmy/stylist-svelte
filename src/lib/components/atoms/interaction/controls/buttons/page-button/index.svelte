@@ -2,7 +2,7 @@
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { PageButtonProps } from '$stylist/design-system/props';
-	import { createState, PAGE_BUTTON_PRESET } from '$stylist/design-system/models/page-button.svelte';
+	import { createState, PAGE_BUTTON_PRESET } from '$stylist/design-system/models/interaction/page-button.svelte';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -57,7 +57,7 @@
 		<Loader2 class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{:else}
 		{props.page}
 	{/if}

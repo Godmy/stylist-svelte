@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { setContext } from 'svelte';
 	import type { ComplexAccordionProps } from '$stylist/design-system/props';
-	import { createComplexAccordionState } from '$stylist/design-system/models/accordion-complex.svelte';
+	import { createComplexAccordionState } from '$stylist/design-system/models/interaction/accordion-complex.svelte';
 
 	let props: ComplexAccordionProps = $props();
 

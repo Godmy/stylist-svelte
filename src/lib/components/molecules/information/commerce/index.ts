@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { PriceAlert, PriceFilter, PriceHistory, PriceMatch, PricingTable } from './prices';
-export { ProductAvailability, ProductCard, ProductCardCompact, ProductCardWithActions, ProductCarousel, ProductComparison, ProductComparisonTable, ProductDemo, ProductGallery, ProductRecommendation, ProductWishlist } from './products';
+export { ProductAvailability, ProductCard, ProductCardCompact, ProductCardWithActions, ProductCarousel, ProductComparison, ProductComparisonTable, ProductDemo, ProductGallery, ProductRecommendation, ProductSearch, ProductWishlist, WishlistButton } from './products';

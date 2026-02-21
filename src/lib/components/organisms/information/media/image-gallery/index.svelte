@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronLeft, ChevronRight, X } from 'lucide-svelte';
-  import { ImageGalleryStyleManager } from '$lib/design-system/styles/image-gallery';
-  import type { IImageItem, IImageGalleryProps } from '$lib/design-system/props/image-gallery';
+  import { ImageGalleryStyleManager } from '$lib/design-system/styles/information/image-gallery';
+  import type { IImageItem, IImageGalleryProps } from '$lib/design-system/props/information/image-gallery';
 
   /**
    * @component ImageGallery

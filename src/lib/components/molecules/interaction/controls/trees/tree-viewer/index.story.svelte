@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import TreeViewer from './index.svelte';
-  import type { TreeNodeItemNode } from '$stylist/design-system/props/tree-node-item';
+  import type { TreeNodeItemNode } from '$stylist/design-system/props/interaction/tree-node-item';
 
   // Create sample tree data
   const createSampleTree = (): TreeNodeItemNode[] => [

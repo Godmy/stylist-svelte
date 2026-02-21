@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import type { SearchFormProps } from '$stylist/design-system/props';
   import { SearchFormStyleManager } from '$stylist/design-system/styles';
   import SearchForm from './index.svelte';

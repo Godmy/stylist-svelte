@@ -14,4 +14,4 @@ export { ScatterPlot } from './scatter-plot';
 export { SearchResults } from './search';
 export { ColumnManager, DataTable, DataTableAdvanced, SortableList, TableWithFilters, TableWithGrouping, TableWithStripes } from './tables';
 export { FeatureToggle } from './toggles';
-export * from './trees';
+export { AdvancedVirtualTree, FlatTree, FolderTree, VirtualTree } from './trees';

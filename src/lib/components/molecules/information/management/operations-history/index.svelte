@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { OperationsHistoryStyleManager } from '$stylist/design-system/styles/operations-history';
+  import { OperationsHistoryStyleManager } from '$stylist/design-system/styles/information/operations-history';
   import { Badge, Button, Icon } from '$stylist/components/atoms';
 
   interface Operation {
@@ -124,7 +124,7 @@
                 <div class="mt-1 flex items-center text-xs text-[--color-gray-500] dark:text-[--color-gray-400]">
                   <span>{formatDate(operation.timestamp)}</span>
                   {#if operation.executionTime !== undefined}
-                    <span class="mx-2">•</span>
+                    <span class="mx-2"></span>
                     <span>{operation.executionTime} ms</span>
                   {/if}
                 </div>

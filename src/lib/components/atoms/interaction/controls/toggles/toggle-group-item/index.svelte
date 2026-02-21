@@ -11,11 +11,15 @@
 		disabled: boolean;
 	};
 
-	let {
-		updateValue,
-		value: groupValue,
-		disabled: groupDisabled
-	}: ToggleGroupContext = getContext('toggleGroup');
+	const context = getContext<ToggleGroupContext>('toggleGroup') ?? {
+		updateValue: () => {},
+		value: null,
+		disabled: false
+	};
+
+	let updateValue = $derived(context.updateValue);
+	let groupValue = $derived(context.value);
+	let groupDisabled = $derived(context.disabled);
 
 	let itemDisabled = $derived(props.disabled || groupDisabled);
 

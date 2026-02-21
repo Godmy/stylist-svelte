@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { DialogControlsStyleManager } from '$stylist/design-system/styles/dialog-controls';
-  import type { DialogProps } from '$stylist/design-system/props/dialog-controls';
+  import { DialogControlsStyleManager } from '$stylist/design-system/styles/interaction/dialog-controls';
+  import type { DialogProps } from '$stylist/design-system/props/interaction/dialog-controls';
   let { open = true, title='Dialog', description='Dialog content', class: className='', onClose, ...restProps }: DialogProps = $props();
 </script>
 {#if open}

@@ -1,41 +1,32 @@
-<script lang="ts">
-  import PhoneNumberInput from './index.svelte';
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import type { IPhoneNumberInputProps } from '$stylist/design-system/props/phone-number-input';
-  import type { HTMLInputAttributes } from 'svelte/elements';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import PhoneNumberInput from './index.svelte';
 
-  type Props = IPhoneNumberInputProps & HTMLInputAttributes;
+	let value = $state('79999999999');
 
-  const controls: ControlConfig[] = [
-    { name: 'value', type: 'text', defaultValue: '79999999999', description: 'Raw phone number digits' },
-    { name: 'placeholder', type: 'text', defaultValue: '+7 (___) ___-__-__', description: 'Placeholder text' },
-    { name: 'disabled', type: 'boolean', defaultValue: false, description: 'Whether the input is disabled' },
-    { name: 'required', type: 'boolean', defaultValue: false, description: 'Whether the input is required' },
-    { name: 'error', type: 'boolean', defaultValue: false, description: 'Whether the input has an error' },
-    { name: 'helpText', type: 'text', defaultValue: 'Supports Russian format +7 (XXX) XXX-XX-XX.', description: 'Help text to display' },
-    { name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
-  ];
+	const controls: ControlConfig[] = [
+		{ name: 'placeholder', type: 'text', defaultValue: '+7 (___) ___-__-__' },
+		{ name: 'helpText', type: 'text', defaultValue: 'Supports Russian +7 format.' },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'error', type: 'boolean', defaultValue: false }
+	];
 </script>
 
-<Story
-  id="atoms-phone-number-input"
-  title="PhoneNumberInput"
-  component={PhoneNumberInput}
-  category="Atoms"
-  description="Guided formatter for Russian-style phone numbers."
-  tags={['input', 'phone']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-4">
-      <PhoneNumberInput {...values} />
-    </div>
-  {/snippet}
+<Story component={PhoneNumberInput} title="PhoneNumberInput" description="Formatted phone input with normalized value output." {controls}>
+	{#snippet children(values: any)}
+		<div class="space-y-2 max-w-sm">
+			<PhoneNumberInput
+				value={value}
+				placeholder={values.placeholder}
+				helpText={values.helpText}
+				disabled={values.disabled}
+				required={values.required}
+				error={values.error}
+				onValueChange={(next) => (value = next)}
+			/>
+			<p class="text-sm text-[--color-text-secondary]">Raw value: {value}</p>
+		</div>
+	{/snippet}
 </Story>
-
-
-
-
-
-

@@ -1,63 +1,28 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import Popover from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import Popover from './index.svelte';
 
-  type Props = {
-    title: string;
-    open: boolean;
-    position: 'top' | 'bottom' | 'left' | 'right';
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Popover Title'
-    },
-    {
-      name: 'open',
-      type: 'boolean',
-      defaultValue: false
-    },
-    {
-      name: 'position',
-      type: 'select',
-      options: ['top', 'bottom', 'left', 'right'],
-      defaultValue: 'bottom'
-    }
-  ];
+	const controls: ControlConfig[] = [
+		{ name: 'title', type: 'text', defaultValue: 'Team members' },
+		{ name: 'open', type: 'boolean', defaultValue: true },
+		{ name: 'position', type: 'select', defaultValue: 'bottom', options: ['top', 'bottom', 'left', 'right'] }
+	];
 </script>
 
-<Story
-  id="molecules-popover"
-  title="Popover"
-  component={Popover}
-  category="Molecules"
-  description="A versatile popover component for displaying contextual information."
-  tags={['popover', 'tooltip', 'overlay']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg flex justify-center items-center h-48">
-      <h2 class="text-xl font-bold mb-4">Popover Story</h2>
-      <Popover 
-        title={values.title}
-        open={values.open}
-        position={values.position}
-      >
-        {#snippet content()}
-          <p class="text-sm">This is the popover content.</p>
-          <button class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-sm">Action</button>
-        {/snippet}
-        {#snippet trigger()}
-          <button class="px-4 py-2 bg-gray-200 rounded">Hover or Click me</button>
-        {/snippet}
-      </Popover>
-    </div>
-  {/snippet}
+<Story component={Popover} title="Popover" description="Floating contextual panel anchored to a trigger." {controls}>
+	{#snippet children(values: any)}
+		<Popover title={values.title} open={values.open} position={values.position}>
+			{#snippet trigger()}
+				<button class="rounded-md bg-[--color-primary-600] px-3 py-2 text-sm font-semibold text-white">Toggle popover</button>
+			{/snippet}
+			{#snippet content()}
+				<ul class="space-y-1 text-sm">
+					<li>Ana Trujillo</li>
+					<li>Devon Lane</li>
+					<li>Leslie Alexander</li>
+				</ul>
+			{/snippet}
+		</Popover>
+	{/snippet}
 </Story>
-
-
-
-

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { LegendItemStyleManager } from '$stylist/design-system/styles/legend-item';
+  import { LegendItemStyleManager } from '$stylist/design-system/styles/information/legend-item';
   import { Icon } from '$stylist/components/atoms';
 
   type LegendItemType = 'object' | 'interface' | 'union' | 'enum' | 'scalar' | 'input';

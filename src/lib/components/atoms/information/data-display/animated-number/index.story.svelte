@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import AnimatedNumber from './index.svelte';
 
@@ -8,6 +8,12 @@
 			name: 'value',
 			type: 'text',
 			defaultValue: '12345'
+		},
+		{
+			name: 'format',
+			type: 'select',
+			options: ['number', 'percent', 'currency'],
+			defaultValue: 'number'
 		},
 		{
 			name: 'prefix',
@@ -40,12 +46,15 @@
 	tags={['information', 'data-display', 'number', 'animation']}
 >
 	{#snippet children(values: any)}
+		{@const parsedValue = Number(values.value)}
+		{@const parsedDecimals = Number(values.decimals)}
 		<AnimatedNumber
-			value={parseInt(values.value as string) || 12345}
+			value={Number.isNaN(parsedValue) ? 12345 : parsedValue}
+			format={values.format as 'number' | 'percent' | 'currency'}
 			prefix={values.prefix as string}
 			suffix={values.suffix as string}
 			separator={values.separator as string}
-			decimals={parseInt(values.decimals as string) || 0}
+			decimals={Number.isNaN(parsedDecimals) ? 0 : parsedDecimals}
 		/>
 	{/snippet}
 </Story>

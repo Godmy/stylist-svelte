@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import MenuItem from './index.svelte';
 
   const variantOptions = ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'ghost', 'link'];
@@ -46,9 +46,12 @@
   {#snippet children(values: any)}
     <div class="p-4">
       <MenuItem
-        {...values}
+        active={values.active}
+        variant={values.variant}
+        disabled={values.disabled}
+        external={values.external}
         icon="home"
-        onValueChange={() => console.log('Menu item clicked')}
+        onValueChange={() => {}}
       >
         Home
       </MenuItem>

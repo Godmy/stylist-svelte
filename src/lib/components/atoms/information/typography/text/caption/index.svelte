@@ -40,7 +40,7 @@
 
 <div {...props} class={classes} {...attrs}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </div>
 

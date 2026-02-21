@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Abbr from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
-	const controls = [
-		{ name: 'label', type: CONTROL_TYPES.TEXT, defaultValue: 'API' },
-		{ name: 'title', type: CONTROL_TYPES.TEXT, defaultValue: 'Application Programming Interface' },
-		{ name: 'emphasize', type: CONTROL_TYPES.BOOLEAN, defaultValue: false }
+	const controls: ControlConfig[] = [
+		{ name: 'label', type: 'text', defaultValue: 'API' },
+		{ name: 'title', type: 'text', defaultValue: 'Application Programming Interface' },
+		{ name: 'emphasize', type: 'boolean', defaultValue: false }
 	];
 
 	const glossary = [
@@ -54,3 +54,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

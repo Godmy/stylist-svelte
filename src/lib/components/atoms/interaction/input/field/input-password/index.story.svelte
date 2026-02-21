@@ -1,78 +1,36 @@
-<script lang="ts">
+п»ї<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import PasswordInput from './index.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-	import type { IInputProps } from '$stylist/design-system/props';
 
-	type Props = IInputProps & {
-			value?: string;
-			placeholder?: string;
-			disabled?: boolean;
-			required?: boolean;
-			error?: boolean;
-			helpText?: string;
-			showPassword?: boolean;
-			onTogglePassword?: () => void;
-			class?: string;
-		};
+	let showPassword = $state(false);
 
 	const controls: ControlConfig[] = [
-		{
-			name: 'value',
-			type: 'text',
-			defaultValue: 'Secret#123',
-			description: 'Current password value'
-		},
-		{
-			name: 'placeholder',
-			type: 'text',
-			defaultValue: 'Введите пароль',
-			description: 'Placeholder text'
-		},
-		{
-			name: 'disabled',
-			type: 'boolean',
-			defaultValue: false,
-			description: 'Whether the input is disabled'
-		},
-		{
-			name: 'required',
-			type: 'boolean',
-			defaultValue: true,
-			description: 'Whether the input is required'
-		},
-		{
-			name: 'error',
-			type: 'boolean',
-			defaultValue: false,
-			description: 'Whether the input has an error'
-		},
-		{
-			name: 'helpText',
-			type: 'text',
-			defaultValue: 'Must contain 8+ characters, number and symbol.',
-			description: 'Help text to display'
-		},
-		{ name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
+		{ name: 'label', type: 'text', defaultValue: 'Password' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Enter a strong password' },
+		{ name: 'helpText', type: 'text', defaultValue: 'Use at least 8 characters with letters and numbers.' },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'required', type: 'boolean', defaultValue: true },
+		{ name: 'error', type: 'boolean', defaultValue: false },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
-
-	const props: Props = {
-		label: 'Password',
-		id: 'password-input',
-		name: 'password',
-		type: 'password',
-		value: 'Secret#123',
-		placeholder: 'Введите пароль',
-		disabled: false,
-		required: true,
-		error: false,
-		helpText: 'Must contain 8+ characters, number and symbol.',
-		class: ''
-	};
 </script>
 
-<div class="p-4">
-	<PasswordInput {...props} />
-</div>
-
-
-
+<Story component={PasswordInput} title="InputPassword" description="Password field with visibility toggle." {controls}>
+	{#snippet children(values: any)}
+		<PasswordInput
+			id="story-password"
+			label={values.label}
+			placeholder={values.placeholder}
+			helpText={values.helpText}
+			disabled={values.disabled}
+			required={values.required}
+			error={values.error}
+			size={values.size}
+			showPassword={showPassword}
+			onTogglePassword={() => {
+				showPassword = !showPassword;
+			}}
+		/>
+	{/snippet}
+</Story>

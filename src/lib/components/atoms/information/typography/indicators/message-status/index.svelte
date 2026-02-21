@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Check, CheckCheck } from 'lucide-svelte';
 	import type { MessageStatusProps } from '$stylist/design-system';
-	import { createMessageStatusState } from '$stylist/design-system/models/message-status.svelte';
+	import { createMessageStatusState } from '$stylist/design-system/models/information/message-status.svelte';
 
 	type Props = MessageStatusProps & HTMLAttributes<HTMLDivElement>;
 

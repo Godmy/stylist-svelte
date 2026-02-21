@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IScheduleCalendarProps, ScheduleEvent, ScheduleTimeSlot, DaySchedule } from '$stylist/design-system/props/schedule-calendar';
-  import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';  import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/schedule-calendar';
+  import type { IScheduleCalendarProps, ScheduleEvent, ScheduleTimeSlot, DaySchedule } from '$stylist/design-system/props/information/schedule-calendar';
+  import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';  import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/information/schedule-calendar';
   import { ChevronLeft, ChevronRight, Clock, MapPin, Users } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
   import type { Snippet } from 'svelte';

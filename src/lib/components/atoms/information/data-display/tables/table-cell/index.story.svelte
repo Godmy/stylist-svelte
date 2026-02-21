@@ -1,11 +1,12 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import TableCell from './index.svelte';
 
   const controls: ControlConfig[] = [
-    { name: 'variant', type: 'select', options: ['header', 'data'], defaultValue: 'data' }
+    { name: 'variant', type: 'select', options: ['header', 'data'], defaultValue: 'data' },
+    { name: 'align', type: 'select', options: ['left', 'center', 'right'], defaultValue: 'left' }
   ];
 </script>
 
@@ -30,7 +31,7 @@
             <thead>
               <tr>
                 <TableCell {...values}>Sample Cell</TableCell>
-                <TableCell {...values}>Sample Cell</TableCell>
+                <TableCell {...values}>Aligned Cell</TableCell>
               </tr>
             </thead>
             <tbody>

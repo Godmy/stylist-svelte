@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Check, Copy, Edit3, Loader2, Play, Plus, Trash2 } from 'lucide-svelte';
-  import { PromptBuilderStyleManager } from '$stylist/design-system/styles/prompt-builder';
-  import type { PromptBuilderProps, PromptVariable } from '$stylist/design-system/props/prompt-builder';
+  import { PromptBuilderStyleManager } from '$stylist/design-system/styles/information/prompt-builder';
+  import type { PromptBuilderProps, PromptVariable } from '$stylist/design-system/props/information/prompt-builder';
 
   let {
     templates = [],

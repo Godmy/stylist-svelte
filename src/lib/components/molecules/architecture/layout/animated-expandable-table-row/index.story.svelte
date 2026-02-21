@@ -1,46 +1,29 @@
-<script lang="ts">
-  import type { Snippet } from 'svelte';
-  import AnimatedExpandableTableRow from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import AnimatedExpandableTableRow from './index.svelte';
+
+	const controls: ControlConfig[] = [
+		{ name: 'expanded', type: 'boolean', defaultValue: false },
+		{ name: 'expandable', type: 'boolean', defaultValue: true },
+		{ name: 'colspan', type: 'number', defaultValue: 3, min: 2, max: 6, step: 1 }
+	];
 </script>
 
-<svelte:head>
-  <title>AnimatedExpandableTableRow Story</title>
-</svelte:head>
-
-<div class="p-4">
-  <h1 class="text-lg font-semibold mb-4">AnimatedExpandableTableRow Component</h1>
-
-  {#snippet detailsContent()}
-    <div class="p-4">
-      <h3 class="font-bold text-lg mb-2">Details Content</h3>
-      <p>This is where detailed information would appear when the row is expanded.</p>
-      <ul class="list-disc pl-5 mt-2">
-        <li>Detail 1</li>
-        <li>Detail 2</li>
-        <li>Detail 3</li>
-      </ul>
-    </div>
-  {/snippet}
-
-  <table class="border-collapse border border-gray-300 w-full">
-    <thead>
-      <tr class="bg-gray-100">
-        <th class="border border-gray-300 px-4 py-2">Column 1</th>
-        <th class="border border-gray-300 px-4 py-2">Column 2</th>
-      </tr>
-    </thead>
-    <tbody>
-      <AnimatedExpandableTableRow
-        expanded={false}
-        expandable={true}
-        expandIcon="expand_more"
-        collapseIcon="expand_less"
-        colspan={2}
-        details={detailsContent}
-      >
-        <td>Sample data</td>
-        <td>More data</td>
-      </AnimatedExpandableTableRow>
-    </tbody>
-  </table>
-</div>
+<Story component={AnimatedExpandableTableRow} title="AnimatedExpandableTableRow" description="Expandable row pattern for tabular details." {controls}>
+	{#snippet children(values: any)}
+		<table class="w-full border-collapse rounded-xl border border-[--color-border-primary]">
+			<tbody>
+				<AnimatedExpandableTableRow expanded={values.expanded} expandable={values.expandable} colspan={values.colspan}>
+					{#snippet children()}
+						<td class="px-4 py-3">INV-1042</td>
+						<td class="px-4 py-3">Paid</td>
+					{/snippet}
+					{#snippet details()}
+						<div class="text-sm text-[--color-text-secondary]">Paid via corporate card on 2026-02-20.</div>
+					{/snippet}
+				</AnimatedExpandableTableRow>
+			</tbody>
+		</table>
+	{/snippet}
+</Story>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HorizontalLayoutProps } from '$stylist/design-system';
-	import { createHorizontalLayoutState } from '$stylist/design-system/models/horizontal-layout.svelte';
+	import { createHorizontalLayoutState } from '$stylist/design-system/models/architecture/horizontal-layout.svelte';
 
 	let props: HorizontalLayoutProps = $props();
 	const state = createHorizontalLayoutState(props);
@@ -22,6 +22,6 @@
 
 <div class={state.classes} {...restProps}>
 	{#if props.children}
-		{@render props.children()}
+		{@render props.children?.()}
 	{/if}
 </div>

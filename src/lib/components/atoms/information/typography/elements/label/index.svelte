@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LabelProps } from '$stylist/design-system';
-	import { createLabelState } from '$stylist/design-system/models/label.svelte';
+	import { createLabelState } from '$stylist/design-system/models/information/label.svelte';
 
 	let props: LabelProps = $props();
 
@@ -26,7 +26,7 @@
 
 <label for={state.htmlFor} class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{:else if state.text}
 		{state.text}
 	{/if}

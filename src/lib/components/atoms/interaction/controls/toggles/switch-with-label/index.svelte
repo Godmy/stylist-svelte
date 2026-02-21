@@ -9,8 +9,8 @@
    * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
    */
   import type { HTMLAttributes } from 'svelte/elements';
-  import { SwitchWithLabelStyleManager } from '$stylist/design-system/styles/switch-with-label';
-  import type { ISwitchWithLabelProps } from '$stylist/design-system/props/switch-with-label';
+  import { SwitchWithLabelStyleManager } from '$stylist/design-system/styles/interaction/switch-with-label';
+  import type { ISwitchWithLabelProps } from '$stylist/design-system/props/interaction/switch-with-label';
 
   const {
     checked = false,

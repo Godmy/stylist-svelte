@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { AccordionPanelProps } from '$stylist/design-system/props';
-	import { createAccordionPanelState } from '$stylist/design-system/models/accordion-panel.svelte';
+	import { createAccordionPanelState } from '$stylist/design-system/models/interaction/accordion-panel.svelte';
 
 	type Props = AccordionPanelProps & HTMLAttributes<HTMLDivElement>;
 
@@ -12,7 +12,11 @@
 		accordionId: string;
 		isPanelOpen: (panelId: string) => boolean;
 		handleValueChange: (panelId: string) => void;
-	}>('accordion-context');
+	}>('accordion-context') ?? {
+		accordionId: '',
+		isPanelOpen: () => false,
+		handleValueChange: () => {}
+	};
 
 	let isOpen = $derived(context.isPanelOpen(props.value));
 
@@ -43,7 +47,7 @@
 		{#if content}
 			{@render content()}
 		{:else if children}
-			{@render children()}
+			{@render children?.()}
 		{/if}
 	</div>
 </div>

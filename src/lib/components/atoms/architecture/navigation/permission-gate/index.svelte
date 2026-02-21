@@ -13,7 +13,7 @@
 </script>
 
 {#if hasPermission}
-  {@render children()}
+  {@render children?.()}
 {:else}
   {#if fallback}
     {@render fallback()}

@@ -44,7 +44,7 @@
 
 <sub {...restProps} class={classes}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </sub>
 

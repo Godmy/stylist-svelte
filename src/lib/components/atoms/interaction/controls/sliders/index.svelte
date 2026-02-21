@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { SliderProps } from '$stylist/design-system/props';
-	import { createSliderState } from '$stylist/design-system/models/sliders.svelte';
+	import { createSliderState } from '$stylist/design-system/models/interaction/sliders.svelte';
 
 	type Props = SliderProps & HTMLAttributes<HTMLDivElement>;
 

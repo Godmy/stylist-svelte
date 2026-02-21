@@ -14,8 +14,8 @@
 
   import type { HTMLAttributes } from 'svelte/elements';
   import { DollarSign, Calendar, Clock, Receipt, TrendingUp, TrendingDown } from 'lucide-svelte';
-  import { BillingSummaryStyleManager } from '$stylist/design-system/styles/billing-summary';
-  import type { IBillingSummaryProps } from '$stylist/design-system/props/billing-summary';
+  import { BillingSummaryStyleManager } from '$stylist/design-system/styles/information/billing-summary';
+  import type { IBillingSummaryProps } from '$stylist/design-system/props/information/billing-summary';
 
   let {
     title = 'Billing Summary',

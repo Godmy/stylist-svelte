@@ -14,8 +14,8 @@
    * (заголовки, статистика, кнопки) в сложную, самодостаточную секцию интерфейса
    */
   
-  import type { IHeroProps, HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/props/hero';
-  import { HeroStyleManager } from '$stylist/design-system/styles/hero';
+  import type { IHeroProps, HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/props/architecture/hero';
+  import { HeroStyleManager } from '$stylist/design-system/styles/architecture/hero';
   import AnimatedNumber from '$stylist/components/atoms/information/data-display/animated-number/index.svelte';
   
   let {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createAccessibilityCheckboxState } from '$stylist/design-system/models/accessibility-checkbox.svelte';
+  import { createAccessibilityCheckboxState } from '$stylist/design-system/models/interaction/accessibility-checkbox.svelte';
 
   let {
     label = '',

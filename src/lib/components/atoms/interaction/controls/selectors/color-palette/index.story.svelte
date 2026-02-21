@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ColorPalette from './index.svelte';
 
   const defaultColors = [
@@ -57,9 +57,12 @@
   {#snippet children(values: any)}
     <div class="p-4">
       <ColorPalette
-        {...values}
+        title={values.title as string}
+        showLabels={values.showLabels as boolean}
+        showValues={values.showValues as boolean}
+        columns={Number(values.columns) || 4}
         colors={defaultColors}
-        onValueChange={(color) => console.log('Selected color:', color)}
+        onValueChange={() => {}}
       />
     </div>
   {/snippet}

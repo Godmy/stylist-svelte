@@ -1,36 +1,18 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import FormErrorMessage from './index.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-
-	type Props = {
-		text?: string;
-		visible?: boolean;
-		content?: () => any;
-		class?: string;
-	};
 
 	const controls: ControlConfig[] = [
-		{
-			name: 'text',
-			type: 'text',
-			defaultValue: 'Email is required.',
-			description: 'Error message text'
-		},
-		{
-			name: 'visible',
-			type: 'boolean',
-			defaultValue: true,
-			description: 'Whether the error message is visible'
-		},
-		{ name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
+		{ name: 'text', type: 'text', defaultValue: 'Email is required.' },
+		{ name: 'visible', type: 'boolean', defaultValue: true },
+		{ name: 'variant', type: 'select', defaultValue: 'error', options: ['error', 'danger', 'warning'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
-
-	const props: Props = {};
 </script>
 
-<div class="p-4">
-	<FormErrorMessage {...props} />
-</div>
-
-
-
+<Story component={FormErrorMessage} title="FormErrorMessage" description="Validation message shown below invalid fields." {controls}>
+	{#snippet children(values: any)}
+		<FormErrorMessage text={values.text} visible={values.visible} variant={values.variant} size={values.size} />
+	{/snippet}
+</Story>

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import DateTimeRangePicker from './index.svelte';
-  import type { DateTimeRangeValue } from '$stylist/design-system/props/interaction-input';
+  import type { DateTimeRangeValue } from '$stylist/design-system/props/interaction/interaction-input';
 
   type Props = {
     placeholder: string;

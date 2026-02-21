@@ -3,7 +3,7 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
 	import type { AccordionHeaderProps } from '$stylist/design-system/props';
-	import { createAccordionHeaderState } from '$stylist/design-system/models/accordion-header.svelte';
+	import { createAccordionHeaderState } from '$stylist/design-system/models/interaction/accordion-header.svelte';
 
 	type Props = AccordionHeaderProps & HTMLButtonAttributes;
 
@@ -13,7 +13,11 @@
 		accordionId: string;
 		isPanelOpen: (panelId: string) => boolean;
 		handleValueChange: (panelId: string) => void;
-	}>('accordion-context');
+	}>('accordion-context') ?? {
+		accordionId: '',
+		isPanelOpen: () => false,
+		handleValueChange: () => {}
+	};
 
 	let isOpen = $derived(context.isPanelOpen(props.value));
 

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext, onDestroy, onMount } from 'svelte';
 	import type { TabProps } from '$stylist/design-system/props';
-	import { createTabState } from '$stylist/design-system/models/tab.svelte';
+	import { createTabState } from '$stylist/design-system/models/interaction/tab.svelte';
 
 	let props: TabProps = $props();
 
@@ -14,7 +14,13 @@
 		variant?: TabProps['variant'];
 		size?: TabProps['size'];
 		disabled?: boolean;
-	}>('tabs-context');
+	}>('tabs-context') ?? {
+		tabsId: '',
+		selectedTabId: '',
+		registerTab: () => {},
+		unregisterTab: () => {},
+		handleTabChange: () => {}
+	};
 
 	onMount(() => {
 		context.registerTab(props.id);

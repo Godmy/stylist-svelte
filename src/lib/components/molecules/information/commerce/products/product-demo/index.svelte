@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductDemoStyleManager } from '$stylist/design-system/styles/product-demo';
+  import { ProductDemoStyleManager } from '$stylist/design-system/styles/information/product-demo';
   import type { Snippet } from 'svelte';
 
   let {

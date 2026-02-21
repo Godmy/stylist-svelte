@@ -1,68 +1,21 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import Subscript from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
-		{
-			name: 'variant',
-			type: CONTROL_TYPES.SELECT,
-			options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'],
-			defaultValue: 'primary'
-		},
-		{
-			name: 'size',
-			type: CONTROL_TYPES.SELECT,
-			options: ['sm', 'md', 'lg'],
-			defaultValue: 'md'
-		},
-		{
-			name: 'disabled',
-			type: CONTROL_TYPES.BOOLEAN,
-			defaultValue: false
-		},
-		{
-			name: 'block',
-			type: CONTROL_TYPES.BOOLEAN,
-			defaultValue: false
-		}
+	const controls: ControlConfig[] = [
+		{ name: 'content', type: 'text', defaultValue: 'H2O' },
+		{ name: 'variant', type: 'select', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'], defaultValue: 'primary' },
+		{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'block', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<Story
-	{controls}
-	component={Subscript}
-	title="Subscript"
-	category="Atoms/Information/Typography/Text"
-	description="A subscript text component for typography."
-	tags={['subscript', 'typography', 'text', 'chemical']}
->
+<Story {controls} component={Subscript} title="Subscript" category="Atoms/Information/Typography/Text" description="Subscript typography component">
 	{#snippet children(values: any)}
-		<div class="space-y-4 p-4">
-			<h3 class="text-lg font-semibold">Subscript Text Variants</h3>
-
-			<div class="flex flex-col space-y-2">
-				<Subscript variant="primary">Primary Subscript Text</Subscript>
-				<Subscript variant="secondary">Secondary Subscript Text</Subscript>
-				<Subscript variant="success">Success Subscript Text</Subscript>
-				<Subscript variant="warning">Warning Subscript Text</Subscript>
-				<Subscript variant="danger">Danger Subscript Text</Subscript>
-				<Subscript variant="ghost">Ghost Subscript Text</Subscript>
-				<Subscript variant="link">Link Subscript Text</Subscript>
-			</div>
-
-			<h3 class="mt-6 text-lg font-semibold">Subscript Text Sizes</h3>
-			<div class="flex flex-col space-y-2">
-				<Subscript size="sm">Small Subscript Text</Subscript>
-				<Subscript size="md">Medium Subscript Text</Subscript>
-				<Subscript size="lg">Large Subscript Text</Subscript>
-			</div>
-
-			<h3 class="mt-6 text-lg font-semibold">Subscript Text States</h3>
-			<div class="flex flex-col space-y-2">
-				<Subscript disabled>Disabled Subscript Text</Subscript>
-				<Subscript block>Block Subscript Text</Subscript>
-			</div>
-		</div>
+		<Subscript variant={values.variant as any} size={values.size as 'sm' | 'md' | 'lg'} disabled={values.disabled as boolean} block={values.block as boolean}>
+			{values.content as string}
+		</Subscript>
 	{/snippet}
 </Story>

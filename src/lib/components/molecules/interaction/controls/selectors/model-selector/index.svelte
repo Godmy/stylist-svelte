@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
-  import { ModelSelectorStyleManager } from '$stylist/design-system/styles/model-selector';
-  import type { Model, ModelSelectorProps } from '$stylist/design-system/props/model-selector';
+  import { ModelSelectorStyleManager } from '$stylist/design-system/styles/interaction/model-selector';
+  import type { Model, ModelSelectorProps } from '$stylist/design-system/props/interaction/model-selector';
 
   let {
     models = [],

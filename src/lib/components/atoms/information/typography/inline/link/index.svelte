@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { LinkProps } from '$stylist/design-system';
-	import { createLinkState } from '$stylist/design-system/models/link.svelte';
+	import { createLinkState } from '$stylist/design-system/models/information/link.svelte';
 
 	let props: LinkProps = $props();
 
@@ -28,7 +28,7 @@
 
 <a href={state.href} class={state.classes} target={state.target} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{:else if state.text}
 		{state.text}
 	{/if}

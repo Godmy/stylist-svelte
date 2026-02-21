@@ -51,7 +51,7 @@
 
 <span {...restProps} class={classes}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{:else if content.type === 'icon' && content.icon === 'Check'}
 		<Check size={content.size} />
 	{:else if content.type === 'icon' && content.icon === 'X'}

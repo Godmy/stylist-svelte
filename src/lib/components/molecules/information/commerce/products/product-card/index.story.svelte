@@ -1,65 +1,21 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import ProductCard from './index.svelte';
-  import { Button } from '$stylist/components/atoms'; // Assuming Button atom is available
 
-  type Props = {
-    title: string;
-    price: number;
-    currency: string;
-    image: string;
-    rating: number;
-    reviewCount: number;
-    badge: string;
-    description: string;
-  };
+  let cartClicks = $state(0);
+  let detailsClicks = $state(0);
 
   const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Wireless Headphones'
-    },
-    {
-      name: 'price',
-      type: 'number',
-      defaultValue: 199.99,
-      min: 0
-    },
-    {
-      name: 'currency',
-      type: 'text',
-      defaultValue: '$'
-    },
-    {
-      name: 'image',
-      type: 'text',
-      defaultValue: 'https://via.placeholder.com/300x200?text=Product+Image'
-    },
-    {
-      name: 'rating',
-      type: 'number',
-      defaultValue: 4.2,
-      min: 0,
-      max: 5
-    },
-    {
-      name: 'reviewCount',
-      type: 'number',
-      defaultValue: 128,
-      min: 0
-    },
-    {
-      name: 'badge',
-      type: 'text',
-      defaultValue: 'Sale'
-    },
-    {
-      name: 'description',
-      type: 'text',
-      defaultValue: 'High-quality wireless headphones with noise cancellation'
-    }
+    { name: 'variant', type: 'select', options: ['default', 'compact', 'with-actions'], defaultValue: 'default' },
+    { name: 'title', type: 'text', defaultValue: 'Wireless Headphones' },
+    { name: 'price', type: 'number', defaultValue: 199.99, min: 0 },
+    { name: 'currency', type: 'text', defaultValue: '$' },
+    { name: 'image', type: 'text', defaultValue: 'https://placehold.co/320x220?text=Headphones' },
+    { name: 'rating', type: 'number', defaultValue: 4.2, min: 0, max: 5, step: 0.1 },
+    { name: 'reviewCount', type: 'number', defaultValue: 128, min: 0 },
+    { name: 'badge', type: 'select', options: ['', 'sale', 'new', 'popular'], defaultValue: 'sale' },
+    { name: 'description', type: 'text', defaultValue: 'High-quality wireless headphones with noise cancellation.' }
   ];
 </script>
 
@@ -68,32 +24,30 @@
   title="Molecules / Information / Commerce / Products / ProductCard"
   component={ProductCard}
   category="Molecules/Information/Commerce/Products"
-  description="A versatile card component to display product information."
-  controls={controls}
+  description="Unified product card with default, compact and action variants."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-product-card p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">ProductCard Story</h2>
+  {#snippet children(args: any)}
+    <div class="p-6 bg-gray-50 rounded-xl space-y-4">
       <ProductCard
-        title={args.title ?? 'Wireless Headphones'}
-        price={args.price ?? 199.99}
-        currency={args.currency ?? '$'}
-        image={args.image ?? 'https://via.placeholder.com/300x200?text=Product+Image'}
-        rating={args.rating ?? 4.2}
-        reviewCount={args.reviewCount ?? 128}
-        badge={args.badge ?? 'Sale'}
-        description={args.description ?? 'High-quality wireless headphones with noise cancellation'}
+        variant={args.variant}
+        title={args.title}
+        price={args.price}
+        currency={args.currency}
+        image={args.image}
+        rating={args.rating}
+        reviewCount={args.reviewCount}
+        badge={args.badge}
+        description={args.description}
       >
         {#snippet actions()}
-          <div class="flex space-x-2 mt-4">
-            <Button variant="primary">Add to Cart</Button>
-            <Button variant="secondary">View Details</Button>
+          <div class="flex gap-2">
+            <button class="px-3 py-1.5 text-sm rounded bg-blue-600 text-white" onclick={() => (cartClicks += 1)}>Add to cart</button>
+            <button class="px-3 py-1.5 text-sm rounded border border-gray-300 bg-white" onclick={() => (detailsClicks += 1)}>Details</button>
           </div>
         {/snippet}
       </ProductCard>
+      <div class="text-sm text-gray-600">Actions: cart {cartClicks}, details {detailsClicks}</div>
     </div>
   {/snippet}
 </Story>
-
-
-

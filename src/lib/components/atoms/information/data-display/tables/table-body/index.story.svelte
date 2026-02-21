@@ -1,12 +1,15 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import TableBody from './index.svelte';
   import TableRow from '../table-row/index.svelte';
   import TableCell from '../table-cell/index.svelte';
 
-  const controls: ControlConfig[] = [];
+  const controls: ControlConfig[] = [
+    { name: 'striped', type: 'boolean', defaultValue: true },
+    { name: 'activeFirstRow', type: 'boolean', defaultValue: false }
+  ];
 </script>
 
 <Story
@@ -23,19 +26,19 @@
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
           Primary Table Body Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">A body component for tables.</p>
+        <p class="mt-1 text-[--color-text-primary]">Toggle row states and verify visual behavior.</p>
 
         <div class="mt-6 overflow-x-auto">
           <table class="min-w-full divide-y divide-[--color-border-primary]">
             <TableBody>
               {#snippet content()}
-                <TableRow striped>
+                <TableRow striped={values.striped as boolean} active={values.activeFirstRow as boolean}>
                   {#snippet content()}
                     <TableCell>Row A</TableCell>
                     <TableCell>10</TableCell>
                   {/snippet}
                 </TableRow>
-                <TableRow striped>
+                <TableRow striped={values.striped as boolean}>
                   {#snippet content()}
                     <TableCell>Row B</TableCell>
                     <TableCell>20</TableCell>
@@ -67,32 +70,6 @@
                     <TableCell>Item 2</TableCell>
                     <TableCell>Value 2</TableCell>
                   </TableRow>
-                  <TableRow striped>
-                    <TableCell>Item 3</TableCell>
-                    <TableCell>Value 3</TableCell>
-                  </TableRow>
-                {/snippet}
-              </TableBody>
-            </table>
-          </article>
-
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Mixed Row Types</p>
-            <table class="min-w-full divide-y divide-[--color-border-primary]">
-              <TableBody>
-                {#snippet content()}
-                  <TableRow active>
-                    <TableCell>Active Row</TableCell>
-                    <TableCell>Highlighted</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Normal Row</TableCell>
-                    <TableCell>Standard</TableCell>
-                  </TableRow>
-                  <TableRow striped>
-                    <TableCell>Striped Row</TableCell>
-                    <TableCell>Alternating</TableCell>
-                  </TableRow>
                 {/snippet}
               </TableBody>
             </table>
@@ -102,4 +79,3 @@
     </section>
   {/snippet}
 </Story>
-

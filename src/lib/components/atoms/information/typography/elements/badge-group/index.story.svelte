@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import BadgeGroup from './index.svelte';
 
 	type Props = {
@@ -25,10 +25,10 @@
 </script>
 
 <Story
-	id="molecules-badge-group"
+	id="atoms-badge-group"
 	title="BadgeGroup"
 	component={BadgeGroup}
-	category="Molecules"
+	category="Atoms"
 	description="A component to display a group of badges."
 	tags={['badge', 'tag', 'label']}
 	{controls}
@@ -46,7 +46,7 @@
 						{ id: '5', label: 'Danger', variant: 'danger', size: 'md' },
 						{ id: '6', label: 'Info', variant: 'info', size: 'md' }
 					]}
-					maxVisible={values.maxVisible as number ?? 5}
+					maxVisible={Number(values.maxVisible) || 5}
 					showOverflow={values.showOverflow as boolean ?? true}
 				/>
 			</div>

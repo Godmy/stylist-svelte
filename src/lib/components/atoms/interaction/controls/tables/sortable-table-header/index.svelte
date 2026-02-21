@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-svelte';
-  import { createSortableTableHeaderState } from '$stylist/design-system/models/sortable-table-header.svelte';
-  import type { SortableTableHeaderProps } from '$stylist/design-system/props/sortable-table-header';
+  import { createSortableTableHeaderState } from '$stylist/design-system/models/interaction/sortable-table-header.svelte';
+  import type { SortableTableHeaderProps } from '$stylist/design-system/props/interaction/sortable-table-header';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type Props = SortableTableHeaderProps & HTMLAttributes<HTMLTableHeaderCellElement>;

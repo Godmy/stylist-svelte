@@ -3,7 +3,7 @@
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/props';
-	import { createState, COPY_BUTTON_PRESET } from '$stylist/design-system/models/copy-button.svelte';
+	import { createState, COPY_BUTTON_PRESET } from '$stylist/design-system/models/interaction/copy-button.svelte';
 
 	let props: CopyButtonProps & HTMLButtonAttributes = $props();
 

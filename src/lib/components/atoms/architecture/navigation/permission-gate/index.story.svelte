@@ -1,45 +1,54 @@
 <script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import PermissionGate from './index.svelte';
-  import type { Snippet } from 'svelte';
+	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import PermissionGate from './index.svelte';
 
-  type Props = {
-    hasPermission: boolean;
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'hasPermission',
-      type: 'boolean',
-      defaultValue: true
-    }
-  ];
+	const controls: ControlConfig[] = [
+		{
+			name: 'hasPermission',
+			type: 'boolean',
+			defaultValue: true
+		},
+		{
+			name: 'useCustomFallback',
+			type: 'boolean',
+			defaultValue: true
+		}
+	];
 </script>
 
 <Story
-  id="molecules-permission-gate"
-  title="PermissionGate"
-  component={PermissionGate}
-  category="Molecules"
-  description="A component to conditionally render content based on permissions."
-  tags={['security', 'permission', 'authorization']}
-  controls={controls}
+	id="atoms-permission-gate"
+	title="PermissionGate"
+	component={PermissionGate}
+	category="Atoms"
+	description="Conditionally renders content based on permission state"
+	controls={controls}
 >
-  {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">PermissionGate Story</h2>
-      <PermissionGate
-        hasPermission={values.hasPermission}
-      >
-        {#snippet children()}
-          <div class="p-4 bg-green-100 border border-green-300 rounded">
-            <p>This content is visible because you have permission.</p>
-          </div>
-        {/snippet}
-      </PermissionGate>
-    </div>
-  {/snippet}
+	{#snippet children(values: any)}
+		<div class="rounded-lg border border-slate-200 bg-slate-50 p-6">
+			{#if values.useCustomFallback}
+				<PermissionGate hasPermission={values.hasPermission as boolean}>
+					{#snippet children()}
+						<div class="rounded border border-emerald-300 bg-emerald-50 p-4 text-emerald-900">
+							Visible content for allowed users.
+						</div>
+					{/snippet}
+					{#snippet fallback()}
+						<div class="rounded border border-amber-300 bg-amber-50 p-4 text-amber-900">
+							Custom fallback: access is restricted.
+						</div>
+					{/snippet}
+				</PermissionGate>
+			{:else}
+				<PermissionGate hasPermission={values.hasPermission as boolean}>
+					{#snippet children()}
+						<div class="rounded border border-emerald-300 bg-emerald-50 p-4 text-emerald-900">
+							Visible content for allowed users.
+						</div>
+					{/snippet}
+				</PermissionGate>
+			{/if}
+		</div>
+	{/snippet}
 </Story>
-
-

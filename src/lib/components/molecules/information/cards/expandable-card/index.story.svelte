@@ -1,70 +1,22 @@
-<script lang="ts">
-  import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-  import ExpandableCard from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import ExpandableCard from './index.svelte';
 
-  type Props = {
-    title: string;
-    defaultExpanded: boolean;
-    disabled: boolean;
-  };
-
-  const controls: ControlConfig[] = [
-    {
-      name: 'title',
-      type: 'text',
-      defaultValue: 'Expandable Card Title'
-    },
-    {
-      name: 'defaultExpanded',
-      type: 'boolean',
-      defaultValue: false
-    },
-    {
-      name: 'disabled',
-      type: 'boolean',
-      defaultValue: false
-    }
-  ];
+	const controls: ControlConfig[] = [
+		{ name: 'title', type: 'text', defaultValue: 'Incident Details' },
+		{ name: 'subtitle', type: 'text', defaultValue: 'EU region latency spike' },
+		{ name: 'defaultExpanded', type: 'boolean', defaultValue: false },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'info', 'success', 'warning', 'danger'] }
+	];
 </script>
 
-<Story
-  id="molecules-expandable-card"
-  title="ExpandableCard"
-  component={ExpandableCard}
-  category="Molecules"
-  description="A card component that can be expanded to show additional content."
-  tags={['card', 'expandable', 'accordion']}
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <div class="p-6 max-w-md mx-auto">
-      <ExpandableCard
-        title={values.title}
-        defaultExpanded={values.defaultExpanded}
-        disabled={values.disabled}
-      >
-        {#snippet summary()}
-          <div class="font-semibold">{values.title}</div>
-          <p class="text-sm text-gray-500">Toggle to view more details</p>
-        {/snippet}
-        {#snippet details()}
-          <div class="py-4">
-            <p class="mb-4">
-              This is the expandable content area. You can put any content you want here,
-              such as additional details, images, or other components.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-          </div>
-        {/snippet}
-      </ExpandableCard>
-    </div>
-  {/snippet}
+<Story component={ExpandableCard} title="ExpandableCard" description="Card that reveals additional details on expand." {controls}>
+	{#snippet children(values: any)}
+		<ExpandableCard title={values.title} subtitle={values.subtitle} defaultExpanded={values.defaultExpanded} disabled={values.disabled} variant={values.variant}>
+			{#snippet summary()}<p class="text-sm text-[--color-text-secondary]">Click to inspect timeline and mitigation.</p>{/snippet}
+			{#snippet details()}<p class="text-sm">Mitigation shipped at 15:40 UTC. Recovery complete.</p>{/snippet}
+		</ExpandableCard>
+	{/snippet}
 </Story>
-
-
-
-

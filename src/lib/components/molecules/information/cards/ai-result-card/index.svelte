@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IAiResultCardProps } from '$stylist/design-system/props/ai-result-card';
-  import { AiResultCardStyleManager } from '$stylist/design-system/styles/ai-result-card';
+  import type { IAiResultCardProps } from '$stylist/design-system/props/information/ai-result-card';
+  import { AiResultCardStyleManager } from '$stylist/design-system/styles/information/ai-result-card';
 
   let {
     children,

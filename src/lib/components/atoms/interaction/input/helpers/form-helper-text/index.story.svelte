@@ -1,37 +1,17 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import FormHelperText from './index.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-
-	type Props = {
-		text?: string;
-		variant?: 'default' | 'warning' | 'danger' | 'filled' | 'ghost';
-		content?: () => any;
-		class?: string;
-	};
 
 	const controls: ControlConfig[] = [
-		{
-			name: 'text',
-			type: 'text',
-			defaultValue: 'We will never share your email.',
-			description: 'Helper text content'
-		},
-		{
-			name: 'variant',
-			type: 'select',
-			options: ['default', 'warning', 'danger', 'filled', 'ghost'],
-			defaultValue: 'default',
-			description: 'Visual variant of the helper text'
-		},
-		{ name: 'class', type: 'text', defaultValue: '', description: 'Additional CSS classes' }
+		{ name: 'text', type: 'text', defaultValue: 'Use 8 or more characters.' },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'info', 'success', 'warning', 'danger'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
-
-	const props: Props = {};
 </script>
 
-<div class="p-4">
-	<FormHelperText {...props} />
-</div>
-
-
-
+<Story component={FormHelperText} title="FormHelperText" description="Supportive hint text for form controls." {controls}>
+	{#snippet children(values: any)}
+		<FormHelperText text={values.text} variant={values.variant} size={values.size} />
+	{/snippet}
+</Story>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Chat, User } from '$stylist/design-system/props/chat';
+  import type { Chat, User } from '$stylist/design-system/props/information/chat';
   import { Avatar, Badge } from '$stylist/components/atoms';
   import { MessageTimestamp } from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp';
   import { createEventDispatcher } from 'svelte';

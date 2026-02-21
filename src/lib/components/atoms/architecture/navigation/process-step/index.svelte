@@ -13,8 +13,8 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful process unit
    */
 
-  import type { IProcessStepProps } from '$stylist/design-system/props/process-step';
-  import { ProcessStepStyleManager } from '$stylist/design-system/styles/process-step';
+  import type { IProcessStepProps } from '$stylist/design-system/props/architecture/process-step';
+  import { ProcessStepStyleManager } from '$stylist/design-system/styles/architecture/process-step';
   import IconCircle from '$stylist/components/atoms/information/media/icon-circle/index.svelte';
 
   // Define component props using the interface

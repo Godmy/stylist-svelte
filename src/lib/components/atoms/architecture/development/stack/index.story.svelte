@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Stack from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -34,12 +34,14 @@
 
 <Story {controls} component={Stack} title="Stack Component" description="A flexible layout component for arranging elements in a linear fashion">
 	{#snippet children(values: any)}
-		<Stack {...values}>
-			{#snippet children()}
-				<div class="rounded bg-slate-100 p-2">Item A</div>
-				<div class="rounded bg-slate-100 p-2">Item B</div>
-				<div class="rounded bg-slate-100 p-2">Item C</div>
-			{/snippet}
-		</Stack>
+		<div class="rounded border border-slate-200 p-3 min-h-40">
+			<Stack {...values}>
+				{#snippet children()}
+					<div class="rounded bg-slate-100 p-2">Item A</div>
+					<div class="rounded bg-slate-200 p-3">Item B</div>
+					<div class="rounded bg-slate-300 p-4">Item C</div>
+				{/snippet}
+			</Stack>
+		</div>
 	{/snippet}
 </Story>

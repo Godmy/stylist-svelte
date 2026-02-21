@@ -83,7 +83,7 @@
 						{#if content}
 							{@render content()}
 						{:else if children}
-							{@render children()}
+							{@render children?.()}
 						{/if}
 					</p>
 				</div>

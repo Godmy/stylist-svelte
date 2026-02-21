@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { TableSectionProps } from '$stylist/design-system';
-	import { createTableHeaderState } from '$stylist/design-system/models/table-header.svelte';
+	import { createTableHeaderState } from '$stylist/design-system/models/information/table-header.svelte';
 
 	let props: TableSectionProps = $props();
 	const state = createTableHeaderState(props);

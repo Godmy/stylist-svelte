@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import InlineCode from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
 	const variantOptions = ['default', 'success', 'warning', 'danger'];
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'variant',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: variantOptions,
 			defaultValue: 'default'
 		}
@@ -39,3 +39,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { OrderConfirmationStyleManager } from '$lib/design-system/styles/order-confirmation';
-  import type { IOrderConfirmationProps } from '$lib/design-system/props/order-confirmation';
+  import { OrderConfirmationStyleManager } from '$lib/design-system/styles/information/order-confirmation';
+  import type { IOrderConfirmationProps } from '$lib/design-system/props/information/order-confirmation';
   import type { HTMLAttributes } from 'svelte/elements';
   import { CheckCircle, Package, Truck, Calendar, CreditCard, MapPin, User, Mail, Phone, Download, Share2, Home, X } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';

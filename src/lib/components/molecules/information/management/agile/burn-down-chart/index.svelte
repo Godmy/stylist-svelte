@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BurnDownChartStyleManager } from '$stylist/design-system/styles/burn-down-chart';
+  import { BurnDownChartStyleManager } from '$stylist/design-system/styles/information/burn-down-chart';
   import { onMount } from 'svelte';
 
   interface BurnDownPoint {

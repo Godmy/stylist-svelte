@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductComparisonStyleManager } from '$stylist/design-system/styles/product-comparison';
+  import { ProductComparisonStyleManager } from '$stylist/design-system/styles/information/product-comparison';
   let {
     products = [],
     features = [],

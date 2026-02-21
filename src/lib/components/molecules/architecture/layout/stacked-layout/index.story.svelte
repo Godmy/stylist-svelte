@@ -1,57 +1,24 @@
-<script lang="ts">
-    import { Story } from '$stylist/design-system/playground';
-    import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-    import StackedLayout from './index.svelte';
+﻿<script lang="ts">
+	import { Story } from '$stylist/design-system/playground';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import StackedLayout from './index.svelte';
 
-    type Props = {
-        direction?: 'vertical' | 'horizontal';
-        spacing?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
-        alignItems?: 'start' | 'center' | 'end' | 'stretch';
-    };
-
-    const controls: ControlConfig[] = [
-        {
-            name: 'direction',
-            type: 'select',
-            options: ['vertical', 'horizontal'],
-            defaultValue: 'vertical'
-        },
-        {
-            name: 'spacing',
-            type: 'select',
-            options: ['none', 'sm', 'md', 'lg', 'xl'],
-            defaultValue: 'md'
-        },
-        {
-            name: 'alignItems',
-            type: 'select',
-            options: ['start', 'center', 'end', 'stretch'],
-            defaultValue: 'stretch'
-        }
-    ];
+	const controls: ControlConfig[] = [
+		{ name: 'direction', type: 'select', defaultValue: 'vertical', options: ['vertical', 'horizontal'] },
+		{ name: 'gap', type: 'select', defaultValue: 'md', options: ['none', 'sm', 'md', 'lg', 'xl'] },
+		{ name: 'alignItems', type: 'select', defaultValue: 'stretch', options: ['start', 'center', 'end', 'stretch'] },
+		{ name: 'justifyContent', type: 'select', defaultValue: 'start', options: ['start', 'center', 'end', 'between', 'around', 'evenly'] }
+	];
 </script>
 
-<Story
-    id="molecules-stacked-layout"
-    title="StackedLayout"
-    component={StackedLayout}
-    category="Molecules"
-    description="Stacked layout component for organizing content"
-    controls={controls}
->
-    {#snippet children(values: any)}
-        <div class="p-4">
-            <StackedLayout
-                direction={values.direction}
-                gap={values.spacing as 'none' | 'sm' | 'md' | 'lg' | 'xl'}
-                alignItems={values.alignItems}
-            >
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-            </StackedLayout>
-        </div>
-    {/snippet}
+<Story component={StackedLayout} title="StackedLayout" description="Linear stack layout for grouped interface blocks." {controls}>
+	{#snippet children(values: any)}
+		<StackedLayout direction={values.direction} gap={values.gap} alignItems={values.alignItems} justifyContent={values.justifyContent}>
+			{#snippet children()}
+				<div class="rounded-lg border border-[--color-border-primary] p-3">Item A</div>
+				<div class="rounded-lg border border-[--color-border-primary] p-3">Item B</div>
+				<div class="rounded-lg border border-[--color-border-primary] p-3">Item C</div>
+			{/snippet}
+		</StackedLayout>
+	{/snippet}
 </Story>
-
-

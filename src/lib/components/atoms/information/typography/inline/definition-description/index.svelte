@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InlineBaseProps } from '$stylist/design-system/props';
-	import { createDefinitionDescriptionState } from '$stylist/design-system/models/definition-description.svelte';
+	import { createDefinitionDescriptionState } from '$stylist/design-system/models/information/definition-description.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();
 
@@ -17,7 +17,7 @@
 
 <dd class={state.classes} {...restProps}>
 	{#if children}
-		{@render children()}
+		{@render children?.()}
 	{/if}
 </dd>
 

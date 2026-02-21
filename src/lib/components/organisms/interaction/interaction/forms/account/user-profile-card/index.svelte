@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { UserProfileCardProps } from '$stylist/design-system/props/account-forms';
-  import { AccountFormsStyleManager } from '$stylist/design-system/styles/account-forms';
+  import type { UserProfileCardProps } from '$stylist/design-system/props/interaction/account-forms';
+  import { AccountFormsStyleManager } from '$stylist/design-system/styles/interaction/account-forms';
   let { name='Jane Doe', role='Administrator', email='jane@example.com', class: className='', ...restProps }: UserProfileCardProps = $props();
 </script>
 <div class={AccountFormsStyleManager.root('c-user-profile-card border rounded-lg p-4', className)} {...restProps}>

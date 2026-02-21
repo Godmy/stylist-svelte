@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Edit3, MessageCircle, MoreHorizontal, Reply, Send, Trash2, User as UserIcon } from 'lucide-svelte';
-  import type { CommentThreadItem, CommentThreadProps } from '$lib/design-system/props/comment-thread';
-  import { CommentThreadStyleManager } from '$lib/design-system/styles/comment-thread';
+  import type { CommentThreadItem, CommentThreadProps } from '$lib/design-system/props/information/comment-thread';
+  import { CommentThreadStyleManager } from '$lib/design-system/styles/information/comment-thread';
 
   let {
     title = 'Comments',

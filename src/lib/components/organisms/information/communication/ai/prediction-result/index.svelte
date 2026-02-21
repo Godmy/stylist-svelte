@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AlertCircle, BarChart3, Loader2, TrendingDown, TrendingUp } from 'lucide-svelte';
-  import { PredictionResultStyleManager } from '$stylist/design-system/styles/prediction-result';
-  import type { PredictionResultProps } from '$stylist/design-system/props/prediction-result';
+  import { PredictionResultStyleManager } from '$stylist/design-system/styles/information/prediction-result';
+  import type { PredictionResultProps } from '$stylist/design-system/props/information/prediction-result';
 
   let {
     title = 'Prediction Result',

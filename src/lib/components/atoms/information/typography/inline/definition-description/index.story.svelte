@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import DefinitionDescription from './index.svelte';
 	import { DefinitionTerm } from '../../../typography/inline/definition-term';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'description',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: 'Clarifies context with secondary text styling and generous spacing.'
 		},
-		{ name: 'muted', type: CONTROL_TYPES.BOOLEAN, defaultValue: false }
+		{ name: 'muted', type: 'boolean', defaultValue: false }
 	];
 
 	const workflows = [
@@ -61,4 +61,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+
 

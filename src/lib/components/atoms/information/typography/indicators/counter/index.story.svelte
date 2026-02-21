@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
-
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import Counter from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -21,39 +20,11 @@
   controls={controls}
 >
   {#snippet children(values: any)}
-    <section class="grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Counter Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">A small badge to display numerical counts, often used for notifications.</p>
-
-        <div class="mt-6 flex items-center space-x-4">
-          <Counter
-            count={parseInt(values.count || '5')}
-            max={parseInt(values.max || '99')}
-            variant={values.variant}
-            size={values.size}
-          />
-          <span class="text-[--color-text-primary]">Notifications</span>
-        </div>
-      </div>
-
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Counter Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different counter configurations with various properties.
-        </p>
-
-        <div class="mt-5 flex flex-wrap items-center gap-4">
-          <Counter count={1} variant="primary" />
-          <Counter count={15} variant="secondary" />
-          <Counter count={100} max={99} variant="danger" />
-          <Counter count={5} variant="success" size="sm" />
-          <Counter count={25} variant="warning" size="lg" />
-        </div>
-      </div>
-    </section>
+    {@const count = Number(values.count)}
+    {@const max = Number(values.max)}
+    <div class="mt-2 flex items-center space-x-4">
+      <Counter count={Number.isNaN(count) ? 5 : count} max={Number.isNaN(max) ? 99 : max} variant={values.variant} size={values.size} />
+      <span class="text-[--color-text-primary]">Notifications</span>
+    </div>
   {/snippet}
 </Story>
-

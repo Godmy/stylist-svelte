@@ -1,53 +1,50 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import OperationsHistory from './index.svelte';
 
-  type Props = {};
+  const controls: ControlConfig[] = [
+    { name: 'count', type: 'number', defaultValue: 5, min: 0, max: 10 },
+    { name: 'includePending', type: 'boolean', defaultValue: true }
+  ];
 
-  const controls: ControlConfig[] = [];
+  type Operation = {
+    id: string;
+    name: string;
+    query: string;
+    timestamp: Date;
+    status: 'success' | 'error' | 'pending';
+    executionTime: number;
+  };
+
+  function buildOperations(count: number, includePending: boolean) {
+    const all: Operation[] = Array.from({ length: count }, (_, i) => ({
+      id: `op-${i + 1}`,
+      name: i % 2 === 0 ? 'SQL Query' : 'Mutation',
+      query: i % 2 === 0 ? `SELECT * FROM users WHERE id = ${i + 1}` : `UPDATE users SET status='active' WHERE id = ${i + 1}`,
+      timestamp: new Date(Date.now() - i * 120000),
+      status: i % 3 === 0 ? 'success' : i % 3 === 1 ? 'error' : 'pending',
+      executionTime: 100 + i * 20
+    }));
+
+    return includePending ? all : all.filter((op) => op.status !== 'pending');
+  }
 </script>
 
 <Story
   id="molecules-operations-history"
-  title="OperationsHistory"
+  title="Molecules / Information / Management / OperationsHistory"
   component={OperationsHistory}
-  category="Molecules"
-  description="A component to display a history of operations or actions."
-  tags={['history', 'operations', 'log']}
-  controls={controls}
+  category="Molecules/Information/Management"
+  description="Queryable operation log with status badges and row actions."
+  {controls}
 >
-  {#snippet children(values: any)}
-    <div class="sb-molecules-operations-history p-6 max-w-2xl mx-auto">
-      <h2 class="text-xl font-semibold mb-6">Operations History</h2>
+  {#snippet children(args: any)}
+    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
       <OperationsHistory
-        operations={[
-          {
-            id: '1',
-            name: 'Data Query',
-            query: 'SELECT * FROM users WHERE active = true',
-            timestamp: new Date(),
-            status: 'success',
-            executionTime: 150
-          },
-          {
-            id: '2',
-            name: 'Update Operation',
-            query: 'UPDATE users SET last_login = NOW() WHERE id = 123',
-            timestamp: new Date(Date.now() - 300000),
-            status: 'error',
-            executionTime: 200
-          },
-          {
-            id: '3',
-            name: 'Insert Operation',
-            query: 'INSERT INTO logs (action, user_id) VALUES ("login", 123)',
-            timestamp: new Date(Date.now() - 600000),
-            status: 'pending'
-          }
-        ]}
+        operations={buildOperations(args.count, args.includePending)}
       />
+      <p class="text-sm text-gray-600">Search/filter interactions are available in the component toolbar.</p>
     </div>
   {/snippet}
 </Story>
-

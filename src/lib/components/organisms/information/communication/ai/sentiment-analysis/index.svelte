@@ -1,7 +1,7 @@
 <script lang="ts">
   import { AlertCircle, BarChart3, Frown, Loader2, Meh, Smile } from 'lucide-svelte';
-  import { SentimentAnalysisStyleManager } from '$lib/design-system/styles/sentiment-analysis';
-  import type { SentimentAnalysisProps } from '$lib/design-system/props/sentiment-analysis';
+  import { SentimentAnalysisStyleManager } from '$lib/design-system/styles/information/sentiment-analysis';
+  import type { SentimentAnalysisProps } from '$lib/design-system/props/information/sentiment-analysis';
 
   let {
     text = '',

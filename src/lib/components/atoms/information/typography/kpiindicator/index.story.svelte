@@ -1,52 +1,52 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import KPIIndicator from './index.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'title',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: 'Sales'
 		},
 		{
 			name: 'currentValue',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['100', '250', '500', '750', '1000'],
 			defaultValue: '750'
 		},
 		{
 			name: 'targetValue',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['500', '750', '1000', '1500', '2000'],
 			defaultValue: '1000'
 		},
 		{
 			name: 'unit',
-			type: CONTROL_TYPES.TEXT,
+			type: 'text',
 			defaultValue: '$'
 		},
 		{
 			name: 'status',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['on-track', 'at-risk', 'exceeded'],
 			defaultValue: 'on-track'
 		},
 		{
 			name: 'trend',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['up', 'down'],
 			defaultValue: 'up'
 		},
 		{
 			name: 'trendValue',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['5', '10', '12', '20', '25'],
 			defaultValue: '12'
 		},
 		{
 			name: 'size',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: ['sm', 'md', 'lg'],
 			defaultValue: 'md'
 		}
@@ -174,3 +174,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

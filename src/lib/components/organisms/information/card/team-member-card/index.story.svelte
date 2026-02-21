@@ -3,7 +3,7 @@
   import type { ControlConfig } from '$stylist/playground';
 
   import TeamMemberCard from './index.svelte';
-  import type { ITeamMemberCardProps } from '$stylist/design-system/props/team-member-card';
+  import type { ITeamMemberCardProps } from '$stylist/design-system/props/information/team-member-card';
 
   let {
     id = '',

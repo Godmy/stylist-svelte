@@ -1,18 +1,14 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/controls';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import PrivacySettings from './index.svelte';
 
-  type PrivacySettingsStoryProps = {
-    showSaveButton: boolean;
-  };
+  let saveCount = $state(0);
 
   const controls: ControlConfig[] = [
-    {
-      name: 'showSaveButton',
-      type: 'boolean',
-      defaultValue: true
-    }
+    { name: 'analyticsEnabled', type: 'boolean', defaultValue: true },
+    { name: 'adsEnabled', type: 'boolean', defaultValue: false },
+    { name: 'locationEnabled', type: 'boolean', defaultValue: true }
   ];
 </script>
 
@@ -21,38 +17,20 @@
   title="Molecules / Information / Development / PrivacySettings"
   component={PrivacySettings}
   category="Molecules/Information/Development"
-  description="A component for managing privacy settings."
-  controls={controls}
+  description="Toggleable privacy preferences with explicit save action."
+  {controls}
 >
-  {#snippet children(args)}
-    <div class="sb-molecules-privacy-settings p-8 bg-gray-50 rounded-lg">
-      <h2 class="text-xl font-bold mb-4">PrivacySettings Story</h2>
+  {#snippet children(args: any)}
+    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
       <PrivacySettings
         settings={[
-          {
-            id: 'data-collection',
-            label: 'Data Collection',
-            description: 'Allow collection of usage analytics',
-            enabled: true
-          },
-          {
-            id: 'personalized-ads',
-            label: 'Personalized Ads',
-            description: 'Receive personalized advertisements',
-            enabled: false
-          },
-          {
-            id: 'location-access',
-            label: 'Location Access',
-            description: 'Allow access to your location data',
-            enabled: true
-          }
+          { id: 'analytics', label: 'Usage analytics', description: 'Share anonymous usage stats', enabled: args.analyticsEnabled },
+          { id: 'ads', label: 'Personalized ads', description: 'Allow ad personalization', enabled: args.adsEnabled },
+          { id: 'location', label: 'Location access', description: 'Allow location-based features', enabled: args.locationEnabled }
         ]}
-        onSave={() => console.log('Settings saved')}
+        onSave={() => (saveCount += 1)}
       />
+      <p class="text-sm text-gray-600">Saved: {saveCount} times</p>
     </div>
   {/snippet}
 </Story>
-
-
-

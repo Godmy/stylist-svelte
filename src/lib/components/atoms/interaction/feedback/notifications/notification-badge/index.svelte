@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { INotificationBadgeProps } from '$stylist/design-system/props';
-	import { NotificationBadgeStyleManager } from '$stylist/design-system/styles/feedback';
+	import { NotificationBadgeStyleManager } from '$stylist/design-system/styles/interaction/feedback';
 
 	/**
 	 * NotificationBadge component - A badge component to display notifications count or status
@@ -58,7 +58,7 @@
 {#if count > 0 || showZero || showDot}
 	<div class={containerClasses} {...restProps}>
 		{#if children}
-			{@render children()}
+			{@render children?.()}
 		{/if}
 
 		<span class={badgeClasses}>
@@ -70,7 +70,7 @@
 {:else}
 	<div class={`inline-block ${className}`} {...restProps}>
 		{#if children}
-			{@render children()}
+			{@render children?.()}
 		{/if}
 	</div>
 {/if}

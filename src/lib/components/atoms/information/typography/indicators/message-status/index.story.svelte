@@ -1,21 +1,21 @@
 <script lang="ts">
 	import MessageStatus from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import { CONTROL_TYPES } from '$stylist/design-system/tokens/controls';
+	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
 	const statusOptions = ['sent', 'delivered', 'read'];
 	const sizeOptions = ['sm', 'md'];
 
-	const controls = [
+	const controls: ControlConfig[] = [
 		{
 			name: 'status',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: statusOptions,
 			defaultValue: 'sent'
 		},
 		{
 			name: 'size',
-			type: CONTROL_TYPES.SELECT,
+			type: 'select',
 			options: sizeOptions,
 			defaultValue: 'sm'
 		}
@@ -61,3 +61,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
+

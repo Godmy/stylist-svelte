@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { createBurgerMenuState } from '$stylist/design-system/models/burger-menu.svelte';
-  import type { BurgerMenuProps } from '$stylist/design-system/props/burger-menu';
+  import { createBurgerMenuState } from '$stylist/design-system/models/interaction/burger-menu.svelte';
+  import type { BurgerMenuProps } from '$stylist/design-system/props/interaction/burger-menu';
   import type { HTMLButtonAttributes } from 'svelte/elements';
 
   type Props = BurgerMenuProps & HTMLButtonAttributes;

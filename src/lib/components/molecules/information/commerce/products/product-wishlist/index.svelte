@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductWishlistStyleManager } from '$stylist/design-system/styles/product-wishlist';
+  import { ProductWishlistStyleManager } from '$stylist/design-system/styles/information/product-wishlist';
   let {
     items = [],
     onRemove = (id: string) => {},

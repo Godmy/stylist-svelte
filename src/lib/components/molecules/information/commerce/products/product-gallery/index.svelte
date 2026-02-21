@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ProductGalleryStyleManager } from '$stylist/design-system/styles/product-gallery';
+  import { ProductGalleryStyleManager } from '$stylist/design-system/styles/information/product-gallery';
   let {
     images = [],
     mainImage = '',
