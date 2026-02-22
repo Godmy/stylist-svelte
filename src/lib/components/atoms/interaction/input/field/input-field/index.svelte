@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { InputText } from '$stylist/components/atoms';
-	import type { IInputFieldProps } from '$stylist/design-system/props';
+	import type { IInputFieldProps } from '$stylist/design-system/contracts';
 
 	/**
 	 * Enhanced Input Field component with helper text and error handling

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Button, InputText } from '$stylist/components/atoms';
-	import type { IInputGroupProps } from '$stylist/design-system/props';
+	import type { IInputGroupProps } from '$stylist/design-system/contracts';
 	import { createInputGroupState } from '$stylist/design-system/models/interaction/input-group.svelte';
 
 	type Props = IInputGroupProps & HTMLAttributes<HTMLDivElement>;

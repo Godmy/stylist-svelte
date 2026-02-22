@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { SliderTickProps } from '$stylist/design-system/props';
+import type { SliderTickProps } from '$stylist/design-system/contracts';
 
 // Определение состояния для Slider Tick
 export function createSliderTickState(props: SliderTickProps) {

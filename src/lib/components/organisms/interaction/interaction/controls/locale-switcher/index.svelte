@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Clock, Globe, User } from 'lucide-svelte';
   import { LocaleSwitcherStyleManager } from '$stylist/design-system/styles';
-  import type { LocaleSwitcherProps } from '$stylist/design-system/props';
+  import type { LocaleSwitcherProps } from '$stylist/design-system/contracts';
 
   let {
     locales = [],

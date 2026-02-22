@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { createInputAddonState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-addon.svelte';
+	import { createInputAddonState } from '$stylist/design-system/models/interaction/input-addon.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
-	import type { InputAddonVariant } from '$stylist/design-system/props';
+	import type { InputAddonVariant } from '$stylist/design-system/contracts';
 
 	/**
 	 * InputAddon component - Prefix or suffix for an input field (icon, text)
@@ -25,7 +25,7 @@
 	let {
 		position = 'left',
 		variant = 'default',
-		size = INPUT_FIELD_PRESET.defaults.size,
+		size = 'md',
 		class: className = '',
 		children,
 		...restProps

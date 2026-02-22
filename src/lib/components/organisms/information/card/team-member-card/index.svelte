@@ -13,7 +13,7 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful team member unit
    */
 
-  import type { ITeamMemberCardProps } from '$stylist/design-system/props/information/team-member-card';
+  import type { ITeamMemberCardProps } from '$stylist/design-system/contracts/information/team-member-card';
   import { TeamMemberCardStyleManager } from '$stylist/design-system/styles/information/team-member-card';
   import Avatar from '$stylist/components/atoms/information/media/avatar/index.svelte';
   import Badge from '$stylist/components/atoms/information/typography/elements/badge/index.svelte';

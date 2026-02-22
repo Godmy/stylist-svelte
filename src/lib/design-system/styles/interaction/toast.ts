@@ -1,4 +1,4 @@
-import type { ToastType, IToastStyleClasses } from '$stylist/design-system/props/interaction/toast';
+import type { ToastType, IToastStyleClasses } from '$stylist/design-system/contracts/interaction/toast';
 
 /**
  * Style utility class following Single Responsibility Principle

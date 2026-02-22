@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronDown, ChevronUp } from 'lucide-svelte';
   import { DataTableStyleManager } from '$stylist/design-system/styles';
-  import type { DataTableProps } from '$stylist/design-system/props';
+  import type { DataTableProps } from '$stylist/design-system/contracts';
 
   let {
     data = [],

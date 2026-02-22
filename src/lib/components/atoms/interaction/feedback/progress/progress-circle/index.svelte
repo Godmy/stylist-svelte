@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IProgressCircleProps } from '$stylist/design-system/props';
+	import type { IProgressCircleProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**

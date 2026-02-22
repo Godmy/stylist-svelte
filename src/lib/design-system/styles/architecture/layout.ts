@@ -1,5 +1,5 @@
 import type { Alignment, Justification } from '../../tokens';
-import type { ContainerMaxWidth, SpacerAxis } from '../../props';
+import type { ContainerMaxWidth, SpacerAxis } from '../../contracts';
 import { SPACER_SIZE_SCALE } from '../../tokens/architecture/sizes';
 import {
 	CONTAINER_MAX_WIDTH_CLASSES,

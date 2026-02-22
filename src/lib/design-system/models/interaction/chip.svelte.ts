@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { ChipProps } from '$stylist/design-system/props';
+import type { ChipProps } from '$stylist/design-system/contracts';
 
 // Определение состояния для Chip
 export function createChipState(props: ChipProps) {

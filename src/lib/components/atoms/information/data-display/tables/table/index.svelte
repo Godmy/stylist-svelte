@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TableProps } from '$stylist/design-system/props';
+	import type { TableProps } from '$stylist/design-system/contracts';
 	import { createTableState } from '$stylist/design-system/models/information/table.svelte';
 
 	let props: TableProps = $props();

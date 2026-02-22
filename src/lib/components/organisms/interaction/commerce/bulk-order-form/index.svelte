@@ -17,7 +17,7 @@
   import { Button } from '$stylist/components/atoms';
   import { cn } from '$stylist/utils';
   import { BulkOrderFormModel } from '$stylist/design-system/models/interaction/bulk-order-form.svelte';
-  import type { BulkOrderFormProps } from '$stylist/design-system/props/interaction/bulk-order-form';
+  import type { BulkOrderFormProps } from '$stylist/design-system/contracts/interaction/bulk-order-form';
   import { BulkOrderFormStyleManager } from '$stylist/design-system/styles/interaction/bulk-order-form';
 
   type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;

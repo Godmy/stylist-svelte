@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IExpandableCardProps } from '$stylist/design-system/props/information/expandable-card';
+  import type { IExpandableCardProps } from '$stylist/design-system/contracts/information/expandable-card';
   import { ExpandableCardStyleManager } from '$stylist/design-system/styles/information/expandable-card';
   import { ChevronDown } from 'lucide-svelte';
 

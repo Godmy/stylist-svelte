@@ -1,9 +1,9 @@
-﻿import type {
+import type {
 	TableCellProps,
 	TableProps,
 	TableRowProps,
 	TableSectionProps
-} from '$stylist/design-system/props';
+} from '$stylist/design-system/contracts';
 import { TableStyleManager } from '$stylist/design-system/styles/information/table';
 function createTableState(props: TableProps) {
 	const classes = $derived(TableStyleManager.getTableClasses(props.class));

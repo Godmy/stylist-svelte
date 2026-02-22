@@ -3,7 +3,7 @@
   import type { ComponentType, Snippet } from 'svelte';
   import { IconMenu, IconX } from '$stylist/components/atoms';
   import { SidebarStyleManager } from '$stylist/design-system/styles';
-  import type { SidebarProps, NavItem } from '$stylist/design-system/props';
+  import type { SidebarProps, NavItem } from '$stylist/design-system/contracts';
 
   let {
     items = [],

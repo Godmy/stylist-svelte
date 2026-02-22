@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IDropdownMenuProps } from '$stylist/design-system/props/interaction/dropdown-menu';
+  import type { IDropdownMenuProps } from '$stylist/design-system/contracts/interaction/dropdown-menu';
   import { DropdownMenuStyleManager } from '$stylist/design-system/styles/interaction/dropdown-menu';
   import { Button, Icon } from '$stylist/components/atoms';
 

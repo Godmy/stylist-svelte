@@ -1,4 +1,4 @@
-﻿import type { DividerProps } from '$stylist/design-system/props';
+import type { DividerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
 
 type DividerOrientation = 'horizontal' | 'vertical';

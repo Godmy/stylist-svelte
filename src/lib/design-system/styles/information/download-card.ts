@@ -8,7 +8,7 @@
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
-import type { DownloadCardVariant } from '$stylist/design-system/props/information/download-card';
+import type { DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
 import {
   CARD_BASE_CLASSES,
   CARD_ICON_CONTAINER_CLASSES,

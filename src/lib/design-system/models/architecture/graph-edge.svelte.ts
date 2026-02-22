@@ -1,8 +1,8 @@
-﻿import type {
+import type {
 	GraphEdgeProps,
 	GraphNodeProps,
 	GraphNodeSize
-} from '$stylist/design-system/props';
+} from '$stylist/design-system/contracts';
 import type { GraphEdgeType } from '$stylist/design-system/tokens';
 import { GraphStyleManager } from '$stylist/design-system/styles';
 import { blue } from '$stylist/design-system/tokens';

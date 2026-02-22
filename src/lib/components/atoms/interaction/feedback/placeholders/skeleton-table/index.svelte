@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { ITableSkeletonProps } from '$stylist/design-system/props';
+	import type { ITableSkeletonProps } from '$stylist/design-system/contracts';
 
 	/**
 	 * TableSkeleton component - displays a table loading placeholder

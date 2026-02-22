@@ -4,7 +4,7 @@
  * Uses the Stylist-Svelte theming system with CSS variables
  */
 
-import type { LabelPosition, ISwitchWithLabelProps } from '$stylist/design-system/props/interaction/switch-with-label';
+import type { LabelPosition, ISwitchWithLabelProps } from '$stylist/design-system/contracts/interaction/switch-with-label';
 
 export class SwitchWithLabelStyleManager {
   /**

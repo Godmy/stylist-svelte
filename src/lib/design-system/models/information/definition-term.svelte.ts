@@ -1,4 +1,4 @@
-﻿import type { InlineBaseProps } from '$stylist/design-system/props';
+import type { InlineBaseProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
 
 /**

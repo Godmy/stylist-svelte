@@ -13,7 +13,7 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful comparison unit
    */
 
-  import type { IComparisonCardProps } from '$stylist/design-system/props/information/comparison-card';
+  import type { IComparisonCardProps } from '$stylist/design-system/contracts/information/comparison-card';
   import { ComparisonCardStyleManager } from '$stylist/design-system/styles/information/comparison-card';
 
   // Define component props using the interface

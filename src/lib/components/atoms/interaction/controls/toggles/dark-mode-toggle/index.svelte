@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { DarkModeToggleProps } from '$stylist/design-system/props';
+	import type { DarkModeToggleProps } from '$stylist/design-system/contracts';
 	import { createDarkModeToggleState } from '$stylist/design-system/models/interaction/dark-mode-toggle.svelte';
 
 	type Props = DarkModeToggleProps & HTMLAttributes<HTMLButtonElement>;

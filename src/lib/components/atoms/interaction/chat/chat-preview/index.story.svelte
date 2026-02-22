@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import ChatPreview from './index.svelte';
-	import type { ChatPreviewProps } from '$stylist/design-system/props/interaction/chat-preview';
+	import type { ChatPreviewProps } from '$stylist/design-system/contracts/interaction/chat-preview';
 
 	const baseData: ChatPreviewProps = {
 		title: 'AI Team Chat',

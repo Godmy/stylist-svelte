@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
-	import type { ButtonElementProps } from '$stylist/design-system/props';
-	import { createState, SPLIT_BUTTON_PRESET } from '$stylist/design-system/models/interaction/split-button.svelte';
+	import type { ButtonElementProps } from '$stylist/design-system/contracts';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
+	import { createState } from '$stylist/design-system/models/interaction/split-button.svelte';
+	import { createBasePreset } from '$stylist/design-system/runtime/preset';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -36,10 +39,16 @@
 	let props: ISplitButtonElementProps = $props();
 
 	// Use centralized state management for base button properties
-	let buttonState = createState(SPLIT_BUTTON_PRESET, {
-		...props,
-		class: `${props.class ?? ''} split-button__button`.trim()
-	} as any);
+	let buttonState = createState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+			variant: 'primary',
+			size: 'md'
+		}),
+		{
+			...props,
+			class: `${props.class ?? ''} split-button__button`.trim()
+		} as any
+	);
 
 	const baseButtonClasses = $derived(
 		[buttonState.classes, 'split-button__button'].filter(Boolean).join(' ')

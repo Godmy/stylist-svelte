@@ -1,4 +1,4 @@
-import type { IReactionPickerStyleClasses } from '$stylist/design-system/props/interaction/reaction-picker';
+import type { IReactionPickerStyleClasses } from '$stylist/design-system/contracts/interaction/reaction-picker';
 
 /**
  * Style utility class following Single Responsibility Principle

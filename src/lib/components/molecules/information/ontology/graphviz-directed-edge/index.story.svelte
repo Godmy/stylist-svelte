@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import GraphvizDirectedEdge from './index.svelte';
 </script>

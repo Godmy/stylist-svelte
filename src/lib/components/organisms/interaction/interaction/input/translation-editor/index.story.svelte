@@ -2,7 +2,7 @@
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import TranslationEditor from './index.svelte';
-  import type { TranslatableText, TranslationLocale } from '$stylist/design-system/props/interaction/interaction-input';
+  import type { TranslatableText, TranslationLocale } from '$stylist/design-system/contracts/interaction/interaction-input';
 
   type Props = {
     showKeyColumn: boolean;

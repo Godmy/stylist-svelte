@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { SwitchProps } from '$stylist/design-system/props';
+﻿import type { SwitchProps } from '$stylist/design-system/contracts';
 import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 
 export const createSwitchState = (props: SwitchProps) => {

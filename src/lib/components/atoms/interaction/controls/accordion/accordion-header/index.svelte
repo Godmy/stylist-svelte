@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { ChevronDown } from 'lucide-svelte';
-	import type { AccordionHeaderProps } from '$stylist/design-system/props';
+	import type { AccordionHeaderProps } from '$stylist/design-system/contracts';
 	import { createAccordionHeaderState } from '$stylist/design-system/models/interaction/accordion-header.svelte';
 
 	type Props = AccordionHeaderProps & HTMLButtonAttributes;

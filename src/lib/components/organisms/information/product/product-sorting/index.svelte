@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IProductSortingProps } from '$lib/design-system/props/information/product-sorting';
+  import type { IProductSortingProps } from '$lib/design-system/contracts/information/product-sorting';
   import { ProductSortingStyleManager } from '$lib/design-system/styles/information/product-sorting';
 
   const { getBaseClasses, getSelectClasses, getOptionClasses } = ProductSortingStyleManager;

@@ -1,4 +1,4 @@
-import type { DropdownPosition, IDropdownMenuStyleClasses } from '$stylist/design-system/props/interaction/dropdown-menu';
+import type { DropdownPosition, IDropdownMenuStyleClasses } from '$stylist/design-system/contracts/interaction/dropdown-menu';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ScatterPlotStyleManager } from '$stylist/design-system/styles';
-  import type { ScatterPlotProps } from '$stylist/design-system/props';
+  import type { ScatterPlotProps } from '$stylist/design-system/contracts';
 
   let {
     data = [],

@@ -10,7 +10,7 @@
    */
   import type { HTMLAttributes } from 'svelte/elements';
   import { SwitchWithLabelStyleManager } from '$stylist/design-system/styles/interaction/switch-with-label';
-  import type { ISwitchWithLabelProps } from '$stylist/design-system/props/interaction/switch-with-label';
+  import type { ISwitchWithLabelProps } from '$stylist/design-system/contracts/interaction/switch-with-label';
 
   const {
     checked = false,

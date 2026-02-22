@@ -8,7 +8,7 @@
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
-import type { MetricCardVariant } from '$stylist/design-system/props/information/metric-card';
+import type { MetricCardVariant } from '$stylist/design-system/contracts/information/metric-card';
 import { 
   CARD_BASE_CLASSES,
   CARD_TITLE_CLASSES,

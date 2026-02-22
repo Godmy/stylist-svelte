@@ -1,4 +1,4 @@
-import type { CardData, DraggableCardProps } from '../../props/information/draggable-card';
+import type { CardData, DraggableCardProps } from '../../contracts/information/draggable-card';
 
 export class DraggableCardModel {
   isDragging = $state(false);

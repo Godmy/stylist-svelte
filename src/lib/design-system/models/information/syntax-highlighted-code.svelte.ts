@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/props';
+﻿import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
 import {
 	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,

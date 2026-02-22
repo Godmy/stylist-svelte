@@ -1,4 +1,4 @@
-import type { TooltipWithArrowProps } from '$stylist/design-system/props/information/tooltip-with-arrow';
+import type { TooltipWithArrowProps } from '$stylist/design-system/contracts/information/tooltip-with-arrow';
 import { cn } from '$stylist/utils/classes';
 import { mergeClasses } from '$stylist/utils/classes';
 

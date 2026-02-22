@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TreeControlsStyleManager } from '$stylist/design-system/styles/interaction/tree-controls';
-  import type { TreeNode, VirtualTreeProps } from '$stylist/design-system/props/interaction/tree-controls';
+  import type { TreeNode, VirtualTreeProps } from '$stylist/design-system/contracts/interaction/tree-controls';
   let { nodes = [], class: className = '', ...restProps }: VirtualTreeProps = $props();
   let expanded = $state<Record<string,boolean>>({});
   function toggle(id:string){ expanded={...expanded,[id]:!expanded[id]}; }

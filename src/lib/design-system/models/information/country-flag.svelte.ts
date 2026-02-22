@@ -1,7 +1,7 @@
-﻿import type {
+import type {
 	AnnouncementBannerProps,
 	ImageWithCaptionProps
-} from '$stylist/design-system/props';
+} from '$stylist/design-system/contracts';
 import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
 import type { IconWrapperShape } from '$stylist/design-system/tokens/architecture/shapes';
 import type { ExtendedSize } from '$stylist/design-system/tokens/architecture/sizes';

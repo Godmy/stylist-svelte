@@ -1,5 +1,5 @@
 import type { GraphEdgeType } from '../../tokens';
-import type { GraphNodeSize } from '../../props';
+import type { GraphNodeSize } from '../../contracts';
 
 export const GRAPH_NODE_SIZE_CLASSES: Record<GraphNodeSize, string> = {
 	sm: 'w-6 h-6',

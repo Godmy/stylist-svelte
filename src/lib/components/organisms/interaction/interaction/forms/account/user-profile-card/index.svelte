@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { UserProfileCardProps } from '$stylist/design-system/props/interaction/account-forms';
+  import type { UserProfileCardProps } from '$stylist/design-system/contracts/interaction/account-forms';
   import { AccountFormsStyleManager } from '$stylist/design-system/styles/interaction/account-forms';
   let { name='Jane Doe', role='Administrator', email='jane@example.com', class: className='', ...restProps }: UserProfileCardProps = $props();
 </script>

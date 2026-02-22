@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronDown, X } from 'lucide-svelte';
   import { MultiSelectStyleManager } from '$stylist/design-system/styles';
-  import type { MultiSelectOption, MultiSelectProps } from '$stylist/design-system/props';
+  import type { MultiSelectOption, MultiSelectProps } from '$stylist/design-system/contracts';
 
   let {
     options = [],

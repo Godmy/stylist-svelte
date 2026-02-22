@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { TypographyTextProps } from '$stylist/design-system/props';
+	import type { TypographyTextProps } from '$stylist/design-system/contracts';
 
 	/**
 	 * StrikeThrough component - Displays text with a strikethrough effect and various styles.

@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { IconActivity, IconTrendingUp, IconTrendingDown, IconArrowUp, IconArrowDown } from '$stylist/components/atoms';
   import { PerformanceDashboardStyleManager } from '$stylist/design-system/styles';
-  import type { PerformanceDashboardProps, Metric, TimeRange } from '$stylist/design-system/props';
+  import type { PerformanceDashboardProps, Metric, TimeRange } from '$stylist/design-system/contracts';
 
   let {
     title = 'Performance Dashboard',

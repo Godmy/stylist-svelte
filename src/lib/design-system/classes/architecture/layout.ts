@@ -1,6 +1,6 @@
 import type { Alignment, Justification } from '../../tokens';
-import type { SpacerAxis } from '../../props';
-import type { LayoutSize } from '../../props/architecture/layout-extended';
+import type { SpacerAxis } from '../../contracts';
+import type { LayoutSize } from '../../contracts/architecture/layout-extended';
 
 /**
  * Layout class tokens.

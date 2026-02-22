@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { ToggleGroupRootProps } from '$stylist/design-system/props';
+﻿import type { ToggleGroupRootProps } from '$stylist/design-system/contracts';
 
 export const createToggleGroupRootState = (props: ToggleGroupRootProps) => {
 	const classes = $derived(

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RadioProps } from '$stylist/design-system/props';
+	import type { RadioProps } from '$stylist/design-system/contracts';
 	import { createRadioState } from '$stylist/design-system/models/interaction/radio.svelte';
 
 	let props: RadioProps = $props();

@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { TypographyTextProps } from '$stylist/design-system/props';
+	import type { TypographyTextProps } from '$stylist/design-system/contracts';
 
 	/**
 	 * Superscript component - Displays superscript text with various styles.

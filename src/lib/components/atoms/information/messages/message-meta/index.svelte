@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Message } from '$stylist/design-system/props/information/chat';
+  import type { Message } from '$stylist/design-system/contracts/information/chat';
 
   import MessageStatusAtom from '$stylist/components/atoms/information/typography/indicators/message-status/index.svelte';
   import MessageTimestamp from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp/index.svelte';

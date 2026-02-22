@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { Session } from '$stylist/design-system/props';
+  import type { Session } from '$stylist/design-system/contracts';
   import { SettingsStyleManager } from '$stylist/design-system/styles';
   import SessionManager from './index.svelte';
 

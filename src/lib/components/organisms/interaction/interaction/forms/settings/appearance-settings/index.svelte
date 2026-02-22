@@ -1,6 +1,6 @@
 <script lang="ts">
   import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
-  import type { AppearanceSettingsProps } from '$stylist/design-system/props/interaction/interaction-forms';
+  import type { AppearanceSettingsProps } from '$stylist/design-system/contracts/interaction/interaction-forms';
   let { theme='system', fontScale=100, class: className='', ...restProps }: AppearanceSettingsProps = $props();
   const themeId = 'appearance-settings-theme';
   const fontScaleId = 'appearance-settings-font-scale';

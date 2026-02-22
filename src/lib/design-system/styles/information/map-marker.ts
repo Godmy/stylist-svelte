@@ -1,4 +1,4 @@
-import type { MarkerType, PinStyle } from '$stylist/design-system/props/information/map-marker';
+import type { MarkerType, PinStyle } from '$stylist/design-system/contracts/information/map-marker';
 
 export class MapMarkerStyleManager {
   static getBaseClasses(selected: boolean, hostClass: string): string {

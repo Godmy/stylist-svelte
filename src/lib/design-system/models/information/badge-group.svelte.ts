@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BadgeGroupProps } from '$stylist/design-system/props';
+﻿import type { BadgeGroupProps } from '$stylist/design-system/contracts';
 import { BADGE_GROUP_CONTAINER_CLASSES, BADGE_GROUP_OVERFLOW_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 

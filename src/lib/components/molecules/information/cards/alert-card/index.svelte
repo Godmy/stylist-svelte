@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { AlertCardElementProps } from '$stylist/design-system/props/information/alert-card';
+  import type { AlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
   import { createState } from '$stylist/design-system/models/information/alert-card.svelte';
-  import { ALERT_CARD_PRESET } from '$stylist/design-system/presets/alert-card';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
+  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
    * AlertCard - карточка для отображения важной информации или предупреждений
@@ -18,7 +20,13 @@
   let props: AlertCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Централизованное управление состоянием
-  let state = createState(ALERT_CARD_PRESET, props as any);
+  let state = createState(
+    createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+      variant: 'default',
+      size: 'md'
+    }),
+    props as any
+  );
 
   // Извлечение rest-props вручную для работы в режиме runes
   let {

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from '$stylist/components/atoms';
   import { PaymentMethodSelectorStyleManager } from '$stylist/design-system/styles';
-  import type { PaymentMethodSelectorProps, PaymentMethod } from '$stylist/design-system/props';
+  import type { PaymentMethodSelectorProps, PaymentMethod } from '$stylist/design-system/contracts';
 
   let {
     methods = [],

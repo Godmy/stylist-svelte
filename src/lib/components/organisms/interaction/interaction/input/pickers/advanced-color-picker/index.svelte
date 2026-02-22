@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
-  import type { AdvancedColorPickerProps } from '$stylist/design-system/props/interaction/advanced-color-picker';
+  import type { AdvancedColorPickerProps } from '$stylist/design-system/contracts/interaction/advanced-color-picker';
 
   let {
     value = '#000000',

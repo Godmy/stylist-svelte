@@ -2,7 +2,7 @@
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import DateRangePicker from './index.svelte';
-  import type { DateRangeValue } from '$stylist/design-system/props/interaction/interaction-input';
+  import type { DateRangeValue } from '$stylist/design-system/contracts/interaction/interaction-input';
 
   type Props = {
     placeholder: string;

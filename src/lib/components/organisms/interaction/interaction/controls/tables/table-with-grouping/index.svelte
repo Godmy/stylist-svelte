@@ -1,6 +1,6 @@
 <script lang="ts">
   import { TableExtendedStyleManager } from '$stylist/design-system/styles/interaction/table-extended';
-  import type { TableRecord, TableWithGroupingProps } from '$stylist/design-system/props/interaction/table-extended';
+  import type { TableRecord, TableWithGroupingProps } from '$stylist/design-system/contracts/interaction/table-extended';
 
   let { data = [], groupBy = 'group', class: className = '', ...restProps }: TableWithGroupingProps = $props();
 

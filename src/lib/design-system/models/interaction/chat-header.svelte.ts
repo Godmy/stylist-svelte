@@ -1,4 +1,4 @@
-import type { ChatHeaderUser, ChatHeaderChat, ChatHeaderProps } from '../../props/interaction/chat-header';
+import type { ChatHeaderUser, ChatHeaderChat, ChatHeaderProps } from '../../contracts/interaction/chat-header';
 
 export class ChatHeaderModel {
   isGroupChat = $state(false);

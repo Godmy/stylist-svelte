@@ -1,6 +1,6 @@
 <script lang="ts">
   import { PaymentSummaryStyleManager } from '$stylist/design-system/styles';
-  import type { PaymentSummaryProps } from '$stylist/design-system/props';
+  import type { PaymentSummaryProps } from '$stylist/design-system/contracts';
 
   let {
     title = 'Payment Summary',

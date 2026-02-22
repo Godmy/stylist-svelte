@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { Icon } from '$stylist/components/atoms';
-	import type { MessageInputProps } from '$stylist/design-system/props/information/chat';
+	import type { MessageInputProps } from '$stylist/design-system/contracts/information/chat';
 	import { createMessageInputState } from '$stylist/design-system/models/interaction/message-input.svelte';
 
 	type Props = MessageInputProps & HTMLAttributes<HTMLDivElement>;

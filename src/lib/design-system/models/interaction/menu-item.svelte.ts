@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import { createMenuItemStyles } from '../../styles/interaction/menu-item';
-import type { MenuItemProps } from '../../props/interaction/menu-item';
+import type { MenuItemProps } from '../../contracts/interaction/menu-item';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export function createMenuItemState(props: MenuItemProps) {

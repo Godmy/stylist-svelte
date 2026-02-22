@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { BaseCardElementProps } from '$stylist/design-system/props/information/base-card';
+  import type { BaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
   import { createState } from '$stylist/design-system/models/information/base-card.svelte';
-  import { BASE_CARD_PRESET } from '$stylist/design-system/presets/base-card';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
+  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
    * BaseCard - универсальный карточный компонент для отображения информации
@@ -18,7 +20,13 @@
   let props: BaseCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Централизованное управление состоянием
-  let state = createState(BASE_CARD_PRESET, props as any);
+  let state = createState(
+    createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+      variant: 'default',
+      size: 'md'
+    }),
+    props as any
+  );
 
   // Извлечение rest-props вручную для работы в режиме runes
   let {

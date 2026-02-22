@@ -1,4 +1,4 @@
-import type { ChatMessageStatus, ChatMessageVariant } from '../../props/information/chat';
+import type { ChatMessageStatus, ChatMessageVariant } from '../../contracts/information/chat';
 import {
 	CHAT_MESSAGE_ALIGNMENT_CLASSES,
 	CHAT_MESSAGE_BUBBLE_BASE_CLASSES,

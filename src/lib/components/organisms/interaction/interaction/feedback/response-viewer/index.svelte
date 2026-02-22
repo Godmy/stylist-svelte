@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ResponseViewerProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import type { ResponseViewerProps } from '$stylist/design-system/contracts/interaction/interaction-feedback';
   import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { title='Response', response='{}', status='info', class: className='', ...restProps }: ResponseViewerProps = $props();
 </script>

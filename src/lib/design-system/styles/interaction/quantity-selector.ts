@@ -4,7 +4,7 @@
  * Следует принципу единственной ответственности (SRP) из SOLID - 
  * только генерирует CSS-классы на основе переданных props
  */
-import type { QuantitySelectorSize, QuantitySelectorVariant } from '$stylist/design-system/props/interaction/quantity-selector';
+import type { QuantitySelectorSize, QuantitySelectorVariant } from '$stylist/design-system/contracts/interaction/quantity-selector';
 
 export class QuantitySelectorStyleManager {
   /**

@@ -14,7 +14,7 @@
    * (навигация, заголовки, действия) в сложную, самодостаточную секцию интерфейса
    */
   
-  import type { IPageHeaderProps } from '$stylist/design-system/props/architecture/page-header';
+  import type { IPageHeaderProps } from '$stylist/design-system/contracts/architecture/page-header';
   import { PageHeaderStyleManager } from '$stylist/design-system/styles/architecture/page-header';
   import Link from '$stylist/components/atoms/information/typography/inline/link/index.svelte';
   

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import type { AuthGuardProps } from '$stylist/design-system/props/information/auth-guard';
+  import type { AuthGuardProps } from '$stylist/design-system/contracts/information/auth-guard';
   import { resolveAuthGuardState } from '$stylist/utils/auth-guard';
   import { AuthGuardStyleManager } from '$stylist/design-system/styles/information/auth-guard';
 

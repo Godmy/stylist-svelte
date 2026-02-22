@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { ActionSegmentedControlProps } from '$stylist/design-system/props';
+	import type { ActionSegmentedControlProps } from '$stylist/design-system/contracts';
 
 export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
 		const items = $derived(props.items);

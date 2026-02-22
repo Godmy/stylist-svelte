@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-  import type { Message, User } from '$stylist/design-system/props/information/chat';
+  import type { Message, User } from '$stylist/design-system/contracts/information/chat';
   import MessageItem from './index.svelte';
 
   let lastEvent = $state('none');

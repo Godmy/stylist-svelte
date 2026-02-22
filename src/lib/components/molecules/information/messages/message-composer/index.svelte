@@ -3,7 +3,7 @@
   import { Paperclip, Mic, Send } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';
 
-  import type { IMessageComposerProps } from '$stylist/design-system/props/information/message-composer';
+  import type { IMessageComposerProps } from '$stylist/design-system/contracts/information/message-composer';
   import { MessageComposerStyleManager } from '$stylist/design-system/styles/information/message-composer';
 
   /**

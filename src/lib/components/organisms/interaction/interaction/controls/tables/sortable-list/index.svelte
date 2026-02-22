@@ -1,7 +1,7 @@
 <script lang="ts">
   import { GripVertical, MoreHorizontal } from 'lucide-svelte';
   import { SortableListStyleManager } from '$stylist/design-system/styles';
-  import type { SortableListProps, SortableListItem } from '$stylist/design-system/props';
+  import type { SortableListProps, SortableListItem } from '$stylist/design-system/contracts';
 
   let {
     items = [],

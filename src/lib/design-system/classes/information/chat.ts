@@ -1,4 +1,4 @@
-import type { ChatMessageStatus, ChatMessageVariant } from '../../props/information/chat';
+import type { ChatMessageStatus, ChatMessageVariant } from '../../contracts/information/chat';
 
 export const DEFAULT_CHAT_MESSAGE_VARIANT: ChatMessageVariant = 'default';
 

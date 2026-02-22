@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CheckboxProps } from '$stylist/design-system/props';
+	import type { CheckboxProps } from '$stylist/design-system/contracts';
 	import { createCheckboxState } from '$stylist/design-system/models/interaction/checkbox.svelte';
 
 	let {

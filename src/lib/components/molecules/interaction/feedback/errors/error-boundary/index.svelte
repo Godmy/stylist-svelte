@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IErrorBoundaryProps } from '$stylist/design-system/props/interaction/error-boundary';
+  import type { IErrorBoundaryProps } from '$stylist/design-system/contracts/interaction/error-boundary';
   import { ErrorBoundaryStyleManager } from '$stylist/design-system/styles/interaction/error-boundary';
   import { AlertTriangle, RotateCcw } from 'lucide-svelte';
   import { Button } from '$stylist/components/atoms';

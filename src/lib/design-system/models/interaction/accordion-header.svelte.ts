@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { AccordionHeaderProps } from '$stylist/design-system/props';
+import type { AccordionHeaderProps } from '$stylist/design-system/contracts';
 
 /**
  * AccordionHeader state
@@ -26,15 +26,19 @@ export function createAccordionHeaderState(props: AccordionHeaderProps) {
 	);
 
 	return {
-		classes,
 		header: props.header,
 		chevronSize: props.chevronSize ?? 'md',
 		padding: props.padding ?? 'md',
 		paddingClass: props.paddingClass,
 		chevronSizeClass: props.chevronSizeClass,
-		chevronClasses,
 		open: props.open ?? false,
-		disabled: props.disabled ?? false
+		disabled: props.disabled ?? false,
+		get classes() {
+			return classes;
+		},
+		get chevronClasses() {
+			return chevronClasses;
+		}
 	};
 }
 

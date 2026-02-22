@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { createMessageTimestampStyles } from '../../styles/information/message-timestamp';
-import type { MessageTimestampProps } from '../../props/interaction/message-timestamp';
+import type { MessageTimestampProps } from '../../contracts/interaction/message-timestamp';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export function createMessageTimestampState(props: MessageTimestampProps) {

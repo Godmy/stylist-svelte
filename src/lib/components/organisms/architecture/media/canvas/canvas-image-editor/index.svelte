@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { CanvasImageEditorStyleManager } from '$stylist/design-system/styles';
-  import type { CanvasImageEditorProps } from '$stylist/design-system/props';
+  import type { CanvasImageEditorProps } from '$stylist/design-system/contracts';
 
   let {
     width = 800,

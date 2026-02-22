@@ -4,7 +4,7 @@
  * Uses the Stylist-Svelte theming system with CSS variables
  */
 
-import type { ISearchBarProps } from '$stylist/design-system/props/interaction/search-bar';
+import type { ISearchBarProps } from '$stylist/design-system/contracts/interaction/search-bar';
 
 export class SearchBarStyleManager {
   /**

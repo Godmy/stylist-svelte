@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { PriceAlertElementProps } from '$stylist/design-system/props/information/price-alert';
+  import type { PriceAlertElementProps } from '$stylist/design-system/contracts/information/price-alert';
   import { createState } from '$stylist/design-system/models/information/price-alert.svelte';
-  import { PRICE_ALERT_PRESET } from '$stylist/design-system/presets/price-alert';
+  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
    * PriceAlert - компонент для отслеживания цен и уведомлений о достижении целевой цены
@@ -18,7 +19,13 @@
   let props: PriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Централизованное управление состоянием
-  let state = createState(PRICE_ALERT_PRESET, props as any);
+  let state = createState(
+    createBasePreset(['monitoring', 'reached', 'exceeded'] as const, COMPACT_SIZE_SCALE, {
+      variant: 'monitoring',
+      size: 'md'
+    }),
+    props as any
+  );
 
   // Извлечение rest-props вручную для работы в режиме runes
   let {

@@ -1,4 +1,4 @@
-﻿import type { StackProps } from '$stylist/design-system/props';
+import type { StackProps } from '$stylist/design-system/contracts';
 import type { Orientation, Justification, StackAlign } from '$stylist/design-system/tokens';
 import { StackStyleManager } from '$stylist/design-system/styles';
 import { spacing as spacingTokens } from '$stylist/design-system/tokens';

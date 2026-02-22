@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { SliderProps } from '$stylist/design-system/props';
+import type { SliderProps } from '$stylist/design-system/contracts';
 
 // Определение состояния для Slider
 export function createSliderState(props: SliderProps) {

@@ -4,7 +4,7 @@
   import { MapPin, Info, Star, Phone, Mail, Navigation, Building, Settings, HeartPulse, GraduationCap, ShoppingBag, AlertTriangle, Utensils, Car } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
 
-  import type { IMapMarkerProps } from '$lib/design-system/props/information/map-marker';
+  import type { IMapMarkerProps } from '$lib/design-system/contracts/information/map-marker';
   import { MapMarkerStyleManager } from '$lib/design-system/styles/information/map-marker';
 
   /**

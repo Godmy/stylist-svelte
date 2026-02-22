@@ -1,7 +1,7 @@
 <script lang="ts">
   import { CreditCard, Shield, Lock } from 'lucide-svelte';
   import { PaymentInfoStyleManager } from '$stylist/design-system/styles';
-  import type { PaymentInfoProps, PaymentMethod } from '$stylist/design-system/props';
+  import type { PaymentInfoProps, PaymentMethod } from '$stylist/design-system/contracts';
 
   let {
     paymentMethods = [],

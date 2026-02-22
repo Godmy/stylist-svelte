@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BadgeProps } from '$stylist/design-system/props';
+﻿import type { BadgeProps } from '$stylist/design-system/contracts';
 import { BASE_BADGE_CLASSES, BADGE_VARIANT_CLASSES, BADGE_SIZE_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 

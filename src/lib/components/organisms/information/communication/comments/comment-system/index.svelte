@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Edit3, MessageCircle, MoreHorizontal, Reply, Send, ThumbsDown, ThumbsUp, Trash2, User as UserIcon } from 'lucide-svelte';
   import { Button } from '$lib/components/atoms';
-  import type { CommentItem, CommentSystemProps } from '$lib/design-system/props/information/comment-system';
+  import type { CommentItem, CommentSystemProps } from '$lib/design-system/contracts/information/comment-system';
   import { CommentSystemStyleManager } from '$lib/design-system/styles/information/comment-system';
 
   let {

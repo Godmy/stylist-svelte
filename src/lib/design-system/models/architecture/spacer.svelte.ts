@@ -1,4 +1,4 @@
-﻿import type { SpacerProps } from '$stylist/design-system/props';
+import type { SpacerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
 
 type SpacerAxis = 'horizontal' | 'vertical';

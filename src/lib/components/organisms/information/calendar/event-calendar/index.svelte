@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/props/information/event-calendar';
+  import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/contracts/information/event-calendar';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
   import { Button } from '$stylist/components/atoms';
   import { ChevronLeft, ChevronRight } from 'lucide-svelte';

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageEllipsisProps } from '$stylist/design-system/props';
+	import type { PageEllipsisProps } from '$stylist/design-system/contracts';
 
 	let { class: className = '', ...restProps }: PageEllipsisProps = $props();
 </script>

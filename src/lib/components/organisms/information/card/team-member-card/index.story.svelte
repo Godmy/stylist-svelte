@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground';
-  import type { ControlConfig } from '$stylist/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import TeamMemberCard from './index.svelte';
-  import type { ITeamMemberCardProps } from '$stylist/design-system/props/information/team-member-card';
+  import type { ITeamMemberCardProps } from '$stylist/design-system/contracts/information/team-member-card';
 
   let {
     id = '',
@@ -109,5 +109,6 @@
     </section>
   {/snippet}
 </Story>
+
 
 

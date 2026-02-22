@@ -1,4 +1,4 @@
-import type { THeatmapColorScheme } from '../../props/architecture/heatmap';
+import type { THeatmapColorScheme } from '../../contracts/architecture/heatmap';
 
 export class HeatmapStyleManager {
   static getContainerClasses(additionalClass?: string): string {

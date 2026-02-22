@@ -23,7 +23,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Eye, EyeOff } from 'lucide-svelte';
   import { AdvancedPasswordInputStyleManager } from '$stylist/design-system/styles/interaction/advanced-password-input';
-  import type { IAdvancedPasswordInputProps } from '$stylist/design-system/props/interaction/advanced-password-input';
+  import type { IAdvancedPasswordInputProps } from '$stylist/design-system/contracts/interaction/advanced-password-input';
 
   let {
     value = '',

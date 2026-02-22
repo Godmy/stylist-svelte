@@ -1,4 +1,4 @@
-import type { PredictionResultStatus } from '$stylist/design-system/props/information/prediction-result';
+import type { PredictionResultStatus } from '$stylist/design-system/contracts/information/prediction-result';
 
 export class PredictionResultStyleManager {
   static getContainerClass(customClass = ''): string {

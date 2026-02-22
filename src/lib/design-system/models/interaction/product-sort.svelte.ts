@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { ProductSortProps } from '$stylist/design-system/props';
+﻿import type { ProductSortProps } from '$stylist/design-system/contracts';
 import { INPUT_BASE_CLASS } from '$stylist/design-system/classes';
 import {
 	BASE_LABEL_CLASSES,

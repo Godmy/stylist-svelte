@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { LabelProps } from '$stylist/design-system/props';
+﻿import type { LabelProps } from '$stylist/design-system/contracts';
 import { BASE_LABEL_CLASSES, LABEL_SIZE_CLASSES, LABEL_DISABLED_CLASSES, LABEL_ENABLED_CLASSES, REQUIRED_INDICATOR_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 

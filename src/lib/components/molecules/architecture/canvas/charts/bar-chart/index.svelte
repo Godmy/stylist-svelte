@@ -16,7 +16,7 @@
   import { Info } from 'lucide-svelte';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
   import { BarChartStyleManager } from '$stylist/design-system/styles/architecture/bar-chart';
-  import type { IBarChartProps, IBarPosition } from '$stylist/design-system/props/architecture/bar-chart';
+  import type { IBarChartProps, IBarPosition } from '$stylist/design-system/contracts/architecture/bar-chart';
 
   let {
     data = [],

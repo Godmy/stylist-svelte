@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InlineBaseProps } from '$stylist/design-system/props';
+	import type { InlineBaseProps } from '$stylist/design-system/contracts';
 	import { createEmState } from '$stylist/design-system/models/information/em.svelte';
 
 	let props: InlineBaseProps<HTMLElement> = $props();

@@ -1,15 +1,17 @@
 <script lang="ts">
-	import { createFileInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/file-input.svelte';
+	import { createFileInputState as createInputState } from '$stylist/design-system/models/interaction/file-input.svelte';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	type Props = {
 		value?: File | File[];
 		multiple?: boolean;
 		accept?: string;
 		disabled?: boolean;
-		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
-		size?: (typeof INPUT_FIELD_PRESET.sizes)[number];
+		variant?: (typeof INPUT_VARIANTS)[number];
+		size?: (typeof COMPACT_SIZE_SCALE)[number];
 		placeholder?: string;
 		onFileChange?: (files: File | File[] | null) => void;
 		class?: string;
@@ -20,8 +22,8 @@
 		multiple = false,
 		accept = '',
 		disabled = false,
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
+		variant = 'default',
+		size = 'md',
 		placeholder = 'Choose file(s)...',
 		onFileChange,
 		class: className = '',

@@ -2,7 +2,7 @@
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import CommentSystem from './index.svelte';
-  import type { CommentItem, CommentUser } from '$lib/design-system/props/information/comment-system';
+  import type { CommentItem, CommentUser } from '$lib/design-system/contracts/information/comment-system';
 
   const controls: ControlConfig[] = [
     { name: 'showReply', type: 'boolean', defaultValue: true },

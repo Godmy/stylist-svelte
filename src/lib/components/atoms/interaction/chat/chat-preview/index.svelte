@@ -4,7 +4,7 @@
 	import { Check, CheckCheck } from 'lucide-svelte';
 
 	import { createChatPreviewState } from '$stylist/design-system/models/interaction/chat-preview.svelte';
-	import type { ChatPreviewProps, ChatPreviewMessage } from '$stylist/design-system/props/interaction/chat-preview';
+	import type { ChatPreviewProps, ChatPreviewMessage } from '$stylist/design-system/contracts/interaction/chat-preview';
 
 	type Props = ChatPreviewProps & HTMLAttributes<HTMLDivElement>;
 	let props: Props = $props();

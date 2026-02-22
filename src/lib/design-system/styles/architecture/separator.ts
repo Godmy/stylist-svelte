@@ -5,7 +5,7 @@ import {
 	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
 	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES
 } from '../../classes/architecture/separator';
-import { CODE_BLOCK_DEFAULTS } from '../../defaults/badge';
+import { CODE_BLOCK_DEFAULTS } from '../information/badge';
 import { cn } from '../../utils/cn/index';
 
 export class SeparatorStyleManager {

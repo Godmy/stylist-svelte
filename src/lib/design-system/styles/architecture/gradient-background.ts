@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 
-import type { GradientVariant } from '$stylist/design-system/props/architecture/gradient-background';
+import type { GradientVariant } from '$stylist/design-system/contracts/architecture/gradient-background';
 
 export class GradientBackgroundStyleManager {
   /**

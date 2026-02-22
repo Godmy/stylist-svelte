@@ -1,4 +1,4 @@
-import type { IExpandableCardProps } from '$stylist/design-system/props/information/expandable-card';
+import type { IExpandableCardProps } from '$stylist/design-system/contracts/information/expandable-card';
 
 /**
  * @class ExpandableCardStyleManager

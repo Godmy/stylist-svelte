@@ -1,6 +1,6 @@
-﻿import { createInputState as createBaseInputState } from '$stylist/design-system/state/input';
+import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 import { getCharacterCountState } from '$stylist/utils/input';
-import { INPUT_FIELD_PRESET } from '$stylist/design-system/presets/input-preset';
+import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 
 type InputStateOptions<V extends string, S extends string> = {
 	variant?: V;

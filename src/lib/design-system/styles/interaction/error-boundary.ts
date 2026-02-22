@@ -1,4 +1,4 @@
-import type { IErrorBoundaryProps } from '$stylist/design-system/props/interaction/error-boundary';
+import type { IErrorBoundaryProps } from '$stylist/design-system/contracts/interaction/error-boundary';
 
 /**
  * @class ErrorBoundaryStyleManager

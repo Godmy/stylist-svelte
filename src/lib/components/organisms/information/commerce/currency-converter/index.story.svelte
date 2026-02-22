@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground';
-  import type { ControlConfig } from '$stylist/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import CurrencyConverter from './index.svelte';
 
@@ -22,9 +22,9 @@
   // Sample currencies
   const currencies = [
     { code: 'USD', name: 'US Dollar', symbol: '$' },
-    { code: 'EUR', name: 'Euro', symbol: '€' },
-    { code: 'GBP', name: 'British Pound', symbol: '£' },
-    { code: 'JPY', name: 'Japanese Yen', symbol: '¥' },
+    { code: 'EUR', name: 'Euro', symbol: 'в‚¬' },
+    { code: 'GBP', name: 'British Pound', symbol: 'ВЈ' },
+    { code: 'JPY', name: 'Japanese Yen', symbol: 'ВҐ' },
     { code: 'CAD', name: 'Canadian Dollar', symbol: 'CA$' },
     { code: 'AUD', name: 'Australian Dollar', symbol: 'AU$' }
   ];
@@ -149,5 +149,6 @@
     </section>
   {/snippet}
 </Story>
+
 
 

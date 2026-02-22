@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { LazyLoaderProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import type { LazyLoaderProps } from '$stylist/design-system/contracts/interaction/interaction-feedback';
   import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { loading=true, text='Loading content...', children, class: className='', ...restProps }: LazyLoaderProps = $props();
 </script>

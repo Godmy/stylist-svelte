@@ -22,7 +22,7 @@
     PageBuilderProps,
     PageBuilderTextAttributes,
     PageBuilderToolbarItem
-  } from '$stylist/design-system/props';
+  } from '$stylist/design-system/contracts';
 
   let {
     initialElements = [],

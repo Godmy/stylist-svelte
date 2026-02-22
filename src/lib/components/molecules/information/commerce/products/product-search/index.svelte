@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { ProductSearchProps } from '$stylist/design-system/props/information/molecules-migration';
+<script lang="ts">
+  import type { ProductSearchProps } from '$stylist/design-system/contracts/information/molecules-migration';
   import { ProductSearchStyleManager } from '$stylist/design-system/styles/information/molecules-migration';
 
   let {

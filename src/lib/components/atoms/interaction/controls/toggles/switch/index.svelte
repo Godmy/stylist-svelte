@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SwitchProps } from '$stylist/design-system/props';
+	import type { SwitchProps } from '$stylist/design-system/contracts';
 	import { createSwitchState } from '$stylist/design-system/models/interaction/switch.svelte';
 
 	let props: SwitchProps = $props();

@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-  import type { PropsEditorProps } from '$stylist/design-system/props/information/molecules-migration';
+<script lang="ts">
+  import type { PropsEditorProps } from '$stylist/design-system/contracts/information/molecules-migration';
   import { PropsEditorStyleManager } from '$stylist/design-system/styles/information/molecules-migration';
 
   let {

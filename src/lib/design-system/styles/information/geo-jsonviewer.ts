@@ -1,4 +1,4 @@
-import type { IGeoJSONViewerProps } from '$stylist/design-system/props/information/geo-jsonviewer';
+import type { IGeoJSONViewerProps } from '$stylist/design-system/contracts/information/geo-jsonviewer';
 
 export class GeoJSONViewerStyleManager {
   static getHostClasses(props: IGeoJSONViewerProps): string {

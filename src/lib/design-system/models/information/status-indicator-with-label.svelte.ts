@@ -1,4 +1,4 @@
-import type { StatusIndicatorWithLabelProps } from '$stylist/design-system/props/information/indicators';
+import type { StatusIndicatorWithLabelProps } from '$stylist/design-system/contracts/information/indicators';
 import { cn } from '$stylist/utils/classes';
 import { mergeClasses } from '$stylist/utils/classes';
 

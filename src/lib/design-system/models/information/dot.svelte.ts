@@ -1,4 +1,4 @@
-﻿import type { DotProps } from '$stylist/design-system/props';
+import type { DotProps } from '$stylist/design-system/contracts';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
 
 /**

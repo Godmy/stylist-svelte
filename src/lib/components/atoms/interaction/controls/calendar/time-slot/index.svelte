@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ITimeSlotProps } from '$stylist/design-system/props/interaction/time-slot';
+  import type { ITimeSlotProps } from '$stylist/design-system/contracts/interaction/time-slot';
   import { TimeSlotStyleManager } from '$stylist/design-system/styles/interaction/time-slot';
 
   // Component props

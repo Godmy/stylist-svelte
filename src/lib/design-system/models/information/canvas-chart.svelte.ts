@@ -1,6 +1,6 @@
-import type { CanvasChartProps, CanvasChartState, ChartDataPoint, CanvasChartVariant, CanvasChartSize } from '../../props/information/canvas-chart';
+import type { CanvasChartProps, CanvasChartState, ChartDataPoint, CanvasChartVariant, CanvasChartSize } from '../../contracts/information/canvas-chart';
 import { CanvasChartStyleManager } from '../../styles/information/canvas-chart';
-import { CANVAS_CHART_PRESET } from '../../presets/canvas-chart';
+import { CANVAS_CHART_PRESET } from '../../contracts/information/canvas-chart';
 import { cn } from '../../utils/cn/index';
 
 export { CANVAS_CHART_PRESET };
@@ -91,11 +91,6 @@ export function createCanvasChartState(
   });
 
   return {
-    // State
-    isRendering,
-    hoveredPoint,
-    selectedPoint,
-    
     // Props with defaults
     width,
     height,
@@ -112,18 +107,45 @@ export function createCanvasChartState(
     setSelectedPoint,
     startRendering,
     stopRendering,
-    
+
+    // State
+    get isRendering() {
+      return isRendering;
+    },
+    get hoveredPoint() {
+      return hoveredPoint;
+    },
+    get selectedPoint() {
+      return selectedPoint;
+    },
+
     // Classes
-    wrapperClasses,
-    canvasClasses,
-    containerClasses,
-    titleClasses,
-    legendClasses,
-    legendItemClasses,
-    gridClasses,
-    
+    get wrapperClasses() {
+      return wrapperClasses;
+    },
+    get canvasClasses() {
+      return canvasClasses;
+    },
+    get containerClasses() {
+      return containerClasses;
+    },
+    get titleClasses() {
+      return titleClasses;
+    },
+    get legendClasses() {
+      return legendClasses;
+    },
+    get legendItemClasses() {
+      return legendItemClasses;
+    },
+    get gridClasses() {
+      return gridClasses;
+    },
+
     // Attributes
-    attrs
+    get attrs() {
+      return attrs;
+    }
   };
 }
 
@@ -133,3 +155,4 @@ export function createCanvasChartState(
 export type CanvasChartModel = ReturnType<typeof createCanvasChartState>;
 
 export default createCanvasChartState;
+

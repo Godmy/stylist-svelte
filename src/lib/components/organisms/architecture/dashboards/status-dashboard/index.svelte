@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
   import { CheckCircle, AlertCircle, XCircle, Clock, MoreHorizontal } from 'lucide-svelte';
   import { StatusDashboardStyleManager } from '$stylist/design-system/styles';
-  import type { StatusDashboardProps, StatusItem } from '$stylist/design-system/props';
+  import type { StatusDashboardProps, StatusItem } from '$stylist/design-system/contracts';
 
   let {
     title,

@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { CheckboxProps } from '$stylist/design-system/props/interaction/toggles';
+﻿import type { CheckboxProps } from '$stylist/design-system/contracts/interaction/toggles';
 import { STATE_CLASSES } from '$stylist/design-system/classes/information/classes';
 
 export function createCheckboxState(props: CheckboxProps) {

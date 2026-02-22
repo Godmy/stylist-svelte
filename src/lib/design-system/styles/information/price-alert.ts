@@ -3,13 +3,12 @@ import {
   PRICE_ALERT_SIZE_CLASSES,
   PRICE_ALERT_VARIANT_CLASSES
 } from '../../classes/information/price-alert';
-import { PRICE_ALERT_DEFAULTS } from '../../presets/price-alert';
 import { cn } from '../../utils/cn/index';
 
 export class PriceAlertStyleManager {
   static getClasses(
-    variant: keyof typeof PRICE_ALERT_VARIANT_CLASSES = PRICE_ALERT_DEFAULTS.variant,
-    size: keyof typeof PRICE_ALERT_SIZE_CLASSES = PRICE_ALERT_DEFAULTS.size,
+    variant: keyof typeof PRICE_ALERT_VARIANT_CLASSES = 'monitoring',
+    size: keyof typeof PRICE_ALERT_SIZE_CLASSES = 'md',
     className = ''
   ): string {
     return cn(

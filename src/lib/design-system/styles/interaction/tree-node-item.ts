@@ -1,4 +1,4 @@
-import type { ITreeNodeItemStyleClasses } from '$stylist/design-system/props/interaction/tree-node-item';
+import type { ITreeNodeItemStyleClasses } from '$stylist/design-system/contracts/interaction/tree-node-item';
 
 /**
  * Style utility class following Single Responsibility Principle

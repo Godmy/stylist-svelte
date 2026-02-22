@@ -1,6 +1,6 @@
 <script lang="ts">
   import { InteractionFormsStyleManager } from '$stylist/design-system/styles/interaction/interaction-forms';
-  import type { ScreenReaderProps } from '$stylist/design-system/props/interaction/interaction-forms';
+  import type { ScreenReaderProps } from '$stylist/design-system/contracts/interaction/interaction-forms';
   let { title='Screen Reader Tester', content='Accessible content', class: className='', ...restProps }: ScreenReaderProps = $props();
 </script>
 <div class={InteractionFormsStyleManager.root('c-screen-reader border rounded-lg p-4', className)} {...restProps}>

@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
 
-  import type { ITabGroupProps } from '$stylist/design-system/props/interaction/tab-group';
+  import type { ITabGroupProps } from '$stylist/design-system/contracts/interaction/tab-group';
   import { TabGroupStyleManager } from '$stylist/design-system/styles/interaction/tab-group';
 
   /**

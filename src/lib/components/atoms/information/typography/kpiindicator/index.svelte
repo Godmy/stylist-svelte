@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IKPIIndicatorProps } from '$stylist/design-system/props/information/kpiindicator';
+  import type { IKPIIndicatorProps } from '$stylist/design-system/contracts/information/kpiindicator';
   import { KPIIndicatorStyleManager } from '$stylist/design-system/styles/information/kpiindicator';
   import { TrendingUp, TrendingDown, Minus } from 'lucide-svelte';
 

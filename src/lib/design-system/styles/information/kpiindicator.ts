@@ -5,7 +5,7 @@
  * - SRP: Класс отвечает только за генерацию CSS-классов для KPIIndicator
  * - Использует CSS-переменные из темы для стилизации
  */
-import type { KPIStatus, KPITrend, KPIIndicatorSize } from '$stylist/design-system/props/information/kpiindicator';
+import type { KPIStatus, KPITrend, KPIIndicatorSize } from '$stylist/design-system/contracts/information/kpiindicator';
 
 export class KPIIndicatorStyleManager {
   /**

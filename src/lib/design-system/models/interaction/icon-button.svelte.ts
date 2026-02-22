@@ -1,7 +1,6 @@
-﻿export { ICON_BUTTON_PRESET } from '$stylist/design-system/presets/button';
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Props } from '$stylist/design-system/props';
-import type { Preset } from '$stylist/design-system/presets/preset';
+import type { Props } from '$stylist/design-system/contracts';
+import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { ICON_SIZES } from '$stylist/design-system/classes';

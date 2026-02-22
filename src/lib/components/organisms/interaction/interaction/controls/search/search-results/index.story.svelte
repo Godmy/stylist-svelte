@@ -2,7 +2,7 @@
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import SearchResults from './index.svelte';
-  import type { SearchResultItem } from '$stylist/design-system/props';
+  import type { SearchResultItem } from '$stylist/design-system/contracts';
 
   const results: SearchResultItem[] = [
     { id: '1', title: 'Order #1001', description: 'Order detail page', type: 'page', metadata: { date: '2026-02-14', author: 'Admin' } },

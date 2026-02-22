@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { TabContainerProps } from '$stylist/design-system/props';
+﻿import type { TabContainerProps } from '$stylist/design-system/contracts';
 
 export const createTabListState = (props: TabContainerProps) => {
 	const disabled = $derived(props.disabled ?? false);

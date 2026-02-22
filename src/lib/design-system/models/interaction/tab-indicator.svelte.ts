@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { TabIndicatorProps } from '$stylist/design-system/props';
+﻿import type { TabIndicatorProps } from '$stylist/design-system/contracts';
 
 export const createTabIndicatorState = (props: TabIndicatorProps) => {
 	const color = $derived(props.color ?? 'primary');

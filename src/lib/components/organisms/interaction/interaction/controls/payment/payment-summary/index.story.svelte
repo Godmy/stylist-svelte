@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-  import type { PaymentSummaryItem, PaymentSummaryDiscount, PaymentSummaryTax } from '$stylist/design-system/props';
+  import type { PaymentSummaryItem, PaymentSummaryDiscount, PaymentSummaryTax } from '$stylist/design-system/contracts';
   import PaymentSummary from './index.svelte';
 
   type Props = {

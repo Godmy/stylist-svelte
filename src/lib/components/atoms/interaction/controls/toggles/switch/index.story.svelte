@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import Switch from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-	import type { SwitchProps } from '$stylist/design-system/props';
+	import type { SwitchProps } from '$stylist/design-system/contracts';
 
 	let {
 		id = '',

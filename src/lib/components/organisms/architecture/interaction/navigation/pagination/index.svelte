@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { IconChevron } from '$stylist/components/atoms';
   import { PaginationStyleManager } from '$stylist/design-system/styles';
-  import type { PaginationProps } from '$stylist/design-system/props';
+  import type { PaginationProps } from '$stylist/design-system/contracts';
 
   let {
     currentPage = 1,

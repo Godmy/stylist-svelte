@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Search } from 'lucide-svelte';
-  import type { AutoCompleteOption } from '$stylist/design-system/props/interaction/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedAutoCompleteProps {

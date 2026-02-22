@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
   import { ModelSelectorStyleManager } from '$stylist/design-system/styles/interaction/model-selector';
-  import type { Model, ModelSelectorProps } from '$stylist/design-system/props/interaction/model-selector';
+  import type { Model, ModelSelectorProps } from '$stylist/design-system/contracts/interaction/model-selector';
 
   let {
     models = [],

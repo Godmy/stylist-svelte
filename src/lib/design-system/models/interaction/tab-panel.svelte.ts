@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { TabPanelProps } from '$stylist/design-system/props';
+﻿import type { TabPanelProps } from '$stylist/design-system/contracts';
 
 export const createTabPanelState = (props: TabPanelProps, selected: () => boolean) => {
 	const isSelected = $derived.by(selected);

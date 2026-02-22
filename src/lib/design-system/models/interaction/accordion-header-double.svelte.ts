@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { AccordionHeaderDoubleProps } from '$stylist/design-system/props';
+import type { AccordionHeaderDoubleProps } from '$stylist/design-system/contracts';
 
 /**
  * AccordionHeaderDouble state
@@ -25,10 +25,14 @@ export function createAccordionHeaderDoubleState(props: AccordionHeaderDoublePro
 	);
 
 	return {
-		classes,
-		chevronClasses,
 		open: props.open ?? false,
-		disabled: props.disabled ?? false
+		disabled: props.disabled ?? false,
+		get classes() {
+			return classes;
+		},
+		get chevronClasses() {
+			return chevronClasses;
+		}
 	};
 }
 

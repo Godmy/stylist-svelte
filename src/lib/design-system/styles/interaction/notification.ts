@@ -1,4 +1,4 @@
-﻿import type { NotificationType, NotificationPosition } from '$stylist/design-system/props/interaction/notification';
+import type { NotificationType, NotificationPosition } from '$stylist/design-system/contracts/interaction/notification';
 
 /**
  * Style utility class following Single Responsibility Principle

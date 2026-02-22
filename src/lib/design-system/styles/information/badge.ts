@@ -8,8 +8,20 @@ import {
 	CODE_BLOCK_SIZE_CLASSES,
 	CODE_BLOCK_VARIANT_CLASSES
 } from '../../classes/information/badge';
-import { BADGE_DEFAULTS, CODE_BLOCK_DEFAULTS } from '../../defaults/badge';
 import { cn } from '../../utils/cn/index';
+
+export const BADGE_DEFAULTS = {
+	variant: 'default' as keyof typeof BADGE_VARIANT_CLASSES,
+	size: 'md' as keyof typeof BADGE_SIZE_CLASSES
+};
+
+export const CODE_BLOCK_DEFAULTS = {
+	variant: 'default' as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
+	size: 'md' as keyof typeof CODE_BLOCK_SIZE_CLASSES
+};
+
+export const DEFAULT_SHOW_LINE_NUMBERS = false;
+export const DEFAULT_START_LINE_NUMBER = 1;
 
 export class BadgeStyleManager {
 	static getBadgeClasses(

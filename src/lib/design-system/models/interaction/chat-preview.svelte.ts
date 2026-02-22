@@ -1,6 +1,6 @@
-﻿import { writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import { createChatPreviewStyles } from '../../styles/information/chat-preview';
-import type { ChatPreviewProps } from '../../props/interaction/chat-preview';
+import type { ChatPreviewProps } from '../../contracts/interaction/chat-preview';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export function createChatPreviewState(props: ChatPreviewProps) {

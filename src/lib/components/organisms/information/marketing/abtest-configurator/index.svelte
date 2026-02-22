@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { TestTube, GitBranch, Users, Target, Play, Pause, Settings, BarChart3, Plus } from 'lucide-svelte';
-  import type { IABTestConfiguratorProps, ABTest, ABTestVariant } from '$lib/design-system/props/information/abtest-configurator';
+  import type { IABTestConfiguratorProps, ABTest, ABTestVariant } from '$lib/design-system/contracts/information/abtest-configurator';
   import { ABTestConfiguratorStyleManager } from '$lib/design-system/styles/information/abtest-configurator';
   import { validateABTest, calculateTotalWeight, addABTestVariant, removeABTestVariant, updateABTestVariantWeight, toggleABTestVariantStatus } from '$lib/utils/abtest';
 

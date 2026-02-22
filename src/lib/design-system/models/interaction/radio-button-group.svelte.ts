@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { RadioButtonGroupProps } from '$stylist/design-system/props';
+﻿import type { RadioButtonGroupProps } from '$stylist/design-system/contracts';
 import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 
 export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {

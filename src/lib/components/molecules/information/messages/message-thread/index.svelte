@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import MessageList from '../message-list/index.svelte';
-	import type { Message, MessageThreadMessage, MessageThreadProps, User } from '$stylist/design-system/props/information/chat';
+	import type { Message, MessageThreadMessage, MessageThreadProps, User } from '$stylist/design-system/contracts/information/chat';
 	import { createMessageThreadState } from '$stylist/design-system/models/information/message-thread.svelte';
 
 	type Props = MessageThreadProps & {

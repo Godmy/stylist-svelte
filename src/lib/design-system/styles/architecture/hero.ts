@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 
-import type { HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/props/architecture/hero';
+import type { HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/contracts/architecture/hero';
 
 export class HeroStyleManager {
   /**

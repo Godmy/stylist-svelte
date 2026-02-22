@@ -14,7 +14,7 @@
    * (заголовок, значение, прогресс-бар) в составной компонент для отображения метрики
    */
   
-  import type { IMetricCardProps, MetricCardVariant } from '$stylist/design-system/props/information/metric-card';
+  import type { IMetricCardProps, MetricCardVariant } from '$stylist/design-system/contracts/information/metric-card';
   import { MetricCardStyleManager } from '$stylist/design-system/styles/information/metric-card';
   
   let {

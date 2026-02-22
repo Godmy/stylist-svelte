@@ -14,7 +14,7 @@
    * (иконка, информация о файле, кнопка скачивания) в составной компонент
    */
   
-  import type { IDownloadCardProps, DownloadCardVariant } from '$stylist/design-system/props/information/download-card';
+  import type { IDownloadCardProps, DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
   import { DownloadCardStyleManager } from '$stylist/design-system/styles/information/download-card';
   import { Download } from 'lucide-svelte';
   

@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { createCharacterCountState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/characters-count.svelte';
+	import { createCharacterCountState } from '$stylist/design-system/models/interaction/characters-count.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * CharacterCount component - displays current/max character count with color indication
@@ -19,15 +21,15 @@
 		showPercentage?: boolean;
 		content?: import('svelte').Snippet;
 		class?: string;
-		variant?: (typeof INPUT_FIELD_PRESET.variants)[number];
-		size?: 'sm' | 'md' | 'lg';
+		variant?: (typeof INPUT_VARIANTS)[number];
+		size?: (typeof COMPACT_SIZE_SCALE)[number];
 	};
 
 	let {
 		current = 0,
 		max = 100,
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
+		variant = 'default',
+		size = 'md',
 		showPercentage = false,
 		content,
 		class: className = '',

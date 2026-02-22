@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
-	import type { ISpinnerProps } from '$stylist/design-system/props';
+	import type { ISpinnerProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**

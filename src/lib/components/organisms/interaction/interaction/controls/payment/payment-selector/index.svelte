@@ -1,6 +1,6 @@
 <script lang="ts">
   import { PaymentSelectorStyleManager } from '$stylist/design-system/styles';
-  import type { PaymentSelectorProps } from '$stylist/design-system/props';
+  import type { PaymentSelectorProps } from '$stylist/design-system/contracts';
 
   let {
     methods = [],

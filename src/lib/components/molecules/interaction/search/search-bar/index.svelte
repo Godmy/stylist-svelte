@@ -12,7 +12,7 @@
   import { debounce } from '$stylist/utils/debounce';
   import { Search, X } from 'lucide-svelte';
   import { SearchBarStyleManager } from '$stylist/design-system/styles/interaction/search-bar';
-  import type { ISearchBarProps } from '$stylist/design-system/props/interaction/search-bar';
+  import type { ISearchBarProps } from '$stylist/design-system/contracts/interaction/search-bar';
 
   import type { HTMLAttributes } from 'svelte/elements';
 

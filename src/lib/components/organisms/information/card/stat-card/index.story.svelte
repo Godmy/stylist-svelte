@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground';
-  import type { ControlConfig } from '$stylist/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import StatCard from './index.svelte';
 
@@ -141,5 +141,6 @@
     </section>
   {/snippet}
 </Story>
+
 
 

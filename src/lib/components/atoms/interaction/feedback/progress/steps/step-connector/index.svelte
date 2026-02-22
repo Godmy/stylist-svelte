@@ -2,7 +2,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 
-	import type { IStepConnectorProps } from '$stylist/design-system/props';
+	import type { IStepConnectorProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 	/**
 	 * StepConnector component - Connects steps in a progress indicator

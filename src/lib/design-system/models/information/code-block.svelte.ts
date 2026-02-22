@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { CodeBlockProps } from '$stylist/design-system/props';
+﻿import type { CodeBlockProps } from '$stylist/design-system/contracts';
 import { BASE_CODE_BLOCK_CLASSES, CODE_BLOCK_VARIANT_CLASSES, CODE_BLOCK_SIZE_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 

@@ -1,4 +1,4 @@
-import type { LoadingOverlaySpinnerSize } from '$stylist/design-system/props/interaction/overlay';
+import type { LoadingOverlaySpinnerSize } from '$stylist/design-system/contracts/interaction/overlay';
 
 /**
  * Менеджер стилей для компонента LoadingOverlay

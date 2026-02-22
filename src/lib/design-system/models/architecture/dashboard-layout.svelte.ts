@@ -1,6 +1,6 @@
-import type { DashboardLayoutProps, DashboardLayoutState, DashboardLayoutVariant } from '../../props/architecture/dashboard-layout';
+import type { DashboardLayoutProps, DashboardLayoutState, DashboardLayoutVariant } from '../../contracts/architecture/dashboard-layout';
 import { DashboardLayoutStyleManager } from '../../styles/architecture/dashboard-layout';
-import { DASHBOARD_LAYOUT_PRESET } from '../../presets/dashboard-layout';
+import { DASHBOARD_LAYOUT_PRESET } from '../../contracts/architecture/dashboard-layout';
 import { cn } from '../../utils/cn/index';
 
 export { DASHBOARD_LAYOUT_PRESET };
@@ -88,27 +88,49 @@ export function createDashboardLayoutState(
   });
 
   return {
-    // State
-    isSidebarOpen,
-    isMobile,
-    
     // Actions
     toggleSidebar,
     setSidebarOpen,
     checkMobileBreakpoint,
-    
+
+    // State
+    get isSidebarOpen() {
+      return isSidebarOpen;
+    },
+    get isMobile() {
+      return isMobile;
+    },
+
     // Classes
-    wrapperClasses,
-    sidebarClasses,
-    headerClasses,
-    contentClasses,
-    footerClasses,
-    mobileToggleClasses,
-    mobileOverlayClasses,
-    mobileSidebarClasses,
-    
+    get wrapperClasses() {
+      return wrapperClasses;
+    },
+    get sidebarClasses() {
+      return sidebarClasses;
+    },
+    get headerClasses() {
+      return headerClasses;
+    },
+    get contentClasses() {
+      return contentClasses;
+    },
+    get footerClasses() {
+      return footerClasses;
+    },
+    get mobileToggleClasses() {
+      return mobileToggleClasses;
+    },
+    get mobileOverlayClasses() {
+      return mobileOverlayClasses;
+    },
+    get mobileSidebarClasses() {
+      return mobileSidebarClasses;
+    },
+
     // Attributes
-    attrs
+    get attrs() {
+      return attrs;
+    }
   };
 }
 

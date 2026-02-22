@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 
-import type { LinkCardVariant } from '$stylist/design-system/props/information/link-card';
+import type { LinkCardVariant } from '$stylist/design-system/contracts/information/link-card';
 
 export class LinkCardStyleManager {
   /**

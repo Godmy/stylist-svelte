@@ -5,7 +5,7 @@
  * данный класс отвечает только за генерацию CSS-классов для компонента BillingSummary
  */
 
-import type { BillingSummaryStatus, BillingItemStatus } from '$stylist/design-system/props/information/billing-summary';
+import type { BillingSummaryStatus, BillingItemStatus } from '$stylist/design-system/contracts/information/billing-summary';
 
 export class BillingSummaryStyleManager {
   /**

@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import { cn } from '$stylist/utils/classes';
-import type { AccordionPanelProps } from '$stylist/design-system/props';
+import type { AccordionPanelProps } from '$stylist/design-system/contracts';
 
 /**
  * AccordionPanel state
@@ -19,13 +19,17 @@ export function createAccordionPanelState(props: AccordionPanelProps) {
 	);
 
 	return {
-		classes,
 		content: props.content,
 		paddingClass: props.paddingClass,
 		borderClass: props.borderClass,
 		bgClass: props.bgClass,
-		contentClasses,
-		open: props.open ?? false
+		open: props.open ?? false,
+		get classes() {
+			return classes;
+		},
+		get contentClasses() {
+			return contentClasses;
+		}
 	};
 }
 

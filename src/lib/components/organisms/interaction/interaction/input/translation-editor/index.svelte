@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Download, Edit3, Languages, Save, Trash2, Upload } from 'lucide-svelte';
-  import type { TranslatableText } from '$stylist/design-system/props/interaction/interaction-input';
+  import type { TranslatableText } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedTranslationEditorProps {

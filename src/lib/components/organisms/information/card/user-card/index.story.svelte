@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground';
-  import type { ControlConfig } from '$stylist/playground';
+  import { Story } from '$stylist/design-system/playground';
+  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
   import UserCard from './index.svelte';
 
@@ -79,7 +79,7 @@
               id: 'pm-42',
               name: 'Alicia Norris',
               email: 'alicia@orion.software',
-              title: 'Product Manager · Activation',
+              title: 'Product Manager В· Activation',
               avatar: 'https://i.pravatar.cc/96?img=12',
               status: 'online'
             }}
@@ -115,5 +115,6 @@
     </section>
   {/snippet}
 </Story>
+
 
 

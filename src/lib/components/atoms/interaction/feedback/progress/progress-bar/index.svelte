@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IProgressBarProps } from '$stylist/design-system/props';
+	import type { IProgressBarProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	/**

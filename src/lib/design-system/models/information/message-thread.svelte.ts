@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { MessageThreadProps } from '$stylist/design-system/props';
+﻿import type { MessageThreadProps } from '$stylist/design-system/contracts';
 
 export const createMessageThreadState = (props: MessageThreadProps) => {
 	const hostClasses = $derived(

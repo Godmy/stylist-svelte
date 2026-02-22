@@ -1,4 +1,4 @@
-import type { ISelectProps } from '$stylist/design-system/props/interaction/selector';
+import type { ISelectProps } from '$stylist/design-system/contracts/interaction/selector';
 
 /**
  * Style utility class following Single Responsibility Principle

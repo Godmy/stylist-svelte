@@ -1,4 +1,4 @@
-import type { LineChartVariant, LineChartSize } from '../../props/architecture/line-chart';
+import type { LineChartVariant, LineChartSize } from '../../contracts/architecture/line-chart';
 
 export class LineChartStyleManager {
   static getBaseClasses(): string {

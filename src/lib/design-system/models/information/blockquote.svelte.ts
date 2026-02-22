@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BlockquoteProps } from '$stylist/design-system/props';
+﻿import type { BlockquoteProps } from '$stylist/design-system/contracts';
 import { BLOCKQUOTE_CLASSES } from '$stylist/design-system/classes';
 import { cn } from '$stylist/utils/classes';
 

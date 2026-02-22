@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { IconButtonProps } from '$stylist/design-system/props';
-	import { createState, ICON_BUTTON_PRESET } from '$stylist/design-system/models/interaction/icon-button.svelte';
+	import type { IconButtonProps } from '$stylist/design-system/contracts';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
+	import { createState } from '$stylist/design-system/models/interaction/icon-button.svelte';
+	import { createBasePreset } from '$stylist/design-system/runtime/preset';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -34,10 +37,16 @@
 	} = props;
 
 	// Use centralized state management
-	let state = createState(ICON_BUTTON_PRESET, {
-		...props,
-		class: `${props.class ?? ''} icon-button`.trim()
-	} as any);
+	let state = createState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+			variant: 'secondary',
+			size: 'md'
+		}),
+		{
+			...props,
+			class: `${props.class ?? ''} icon-button`.trim()
+		} as any
+	);
 </script>
 
 <button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>

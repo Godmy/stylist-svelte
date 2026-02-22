@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Copy, Download, RefreshCw } from 'lucide-svelte';
-  import type { CodeEditorProps } from '$stylist/design-system/props/information/molecules-migration';
+  import type { CodeEditorProps } from '$stylist/design-system/contracts/information/molecules-migration';
   import { CodeEditorStyleManager } from '$stylist/design-system/styles/information/molecules-migration';
 
   let {

@@ -1,4 +1,4 @@
-import type { IMessageMetaStyleClasses } from '$stylist/design-system/props/information/message-meta';
+import type { IMessageMetaStyleClasses } from '$stylist/design-system/contracts/information/message-meta';
 
 /**
  * Style utility class following Single Responsibility Principle

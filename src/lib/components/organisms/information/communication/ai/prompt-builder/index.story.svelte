@@ -2,7 +2,7 @@
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import PromptBuilder from './index.svelte';
-  import type { PromptTemplate } from '$stylist/design-system/props/information/prompt-builder';
+  import type { PromptTemplate } from '$stylist/design-system/contracts/information/prompt-builder';
 
   const controls: ControlConfig[] = [
     { name: 'showTemplates', type: 'boolean', defaultValue: true },

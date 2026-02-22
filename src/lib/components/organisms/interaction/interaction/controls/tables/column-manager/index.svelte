@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-svelte';
   import { ColumnManagerStyleManager } from '$stylist/design-system/styles';
-  import type { ColumnManagerProps } from '$stylist/design-system/props';
+  import type { ColumnManagerProps } from '$stylist/design-system/contracts';
 
   let { columns = [], onColumnsChange, class: className = '', ...restProps }: ColumnManagerProps = $props();
   let localColumns = $state(columns.map((c) => ({ ...c })));

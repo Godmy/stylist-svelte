@@ -3,13 +3,12 @@ import {
   ALERT_CARD_SIZE_CLASSES,
   ALERT_CARD_VARIANT_CLASSES
 } from '../../classes/information/alert-card';
-import { ALERT_CARD_DEFAULTS } from '../../presets/alert-card';
 import { cn } from '../../utils/cn/index';
 
 export class AlertCardStyleManager {
   static getClasses(
-    variant: keyof typeof ALERT_CARD_VARIANT_CLASSES = ALERT_CARD_DEFAULTS.variant,
-    size: keyof typeof ALERT_CARD_SIZE_CLASSES = ALERT_CARD_DEFAULTS.size,
+    variant: keyof typeof ALERT_CARD_VARIANT_CLASSES = 'default',
+    size: keyof typeof ALERT_CARD_SIZE_CLASSES = 'md',
     className = ''
   ): string {
     return cn(

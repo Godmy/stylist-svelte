@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ScheduledNotificationProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import type { ScheduledNotificationProps } from '$stylist/design-system/contracts/interaction/interaction-feedback';
   import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { notifications = [], class: className='', ...restProps }: ScheduledNotificationProps = $props();
 </script>

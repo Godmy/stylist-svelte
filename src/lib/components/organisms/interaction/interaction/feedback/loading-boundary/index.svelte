@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { LoadingBoundaryProps } from '$stylist/design-system/props/interaction/interaction-feedback';
+  import type { LoadingBoundaryProps } from '$stylist/design-system/contracts/interaction/interaction-feedback';
   import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { loading=false, error='', children, class: className='', ...restProps }: LoadingBoundaryProps = $props();
 </script>

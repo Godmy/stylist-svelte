@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import { cn as cnBase } from '$stylist/design-system/utils/cn';
-import type { Preset } from '$stylist/design-system/presets/preset';
+import type { Preset } from '$stylist/design-system/runtime/types';
 
 export type ClassValue =
 	| string

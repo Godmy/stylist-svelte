@@ -1,4 +1,4 @@
-import type { IRangeSliderProps } from '$stylist/design-system/props/interaction/range-slider';
+import type { IRangeSliderProps } from '$stylist/design-system/contracts/interaction/range-slider';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -4,7 +4,7 @@
  * Следует принципу единственной ответственности (SRP) из SOLID - 
  * только генерирует CSS-классы на основе переданных props
  */
-import type { RatingSize } from '$stylist/design-system/props/interaction/rating';
+import type { RatingSize } from '$stylist/design-system/contracts/interaction/rating';
 
 export class RatingStyleManager {
   /**

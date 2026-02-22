@@ -3,7 +3,7 @@
  * Responsible only for managing MessageComposer styling logic
  * Uses CSS variables from the theme system
  */
-import type { IMessageComposerProps } from '$stylist/design-system/props/information/message-composer';
+import type { IMessageComposerProps } from '$stylist/design-system/contracts/information/message-composer';
 
 export class MessageComposerStyleManager {
   static getContainerClasses(hostClass: string): string {

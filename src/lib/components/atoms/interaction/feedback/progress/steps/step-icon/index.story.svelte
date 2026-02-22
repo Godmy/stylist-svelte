@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/design-system/playground';
 	import StepIcon from './index.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-	import type { IStepIconProps } from '$stylist/design-system/props';
+	import type { IStepIconProps } from '$stylist/design-system/contracts';
 
 	let {
 		id = '',

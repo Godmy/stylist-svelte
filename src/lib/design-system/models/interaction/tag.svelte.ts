@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BaseTagVariant, TagProps } from '$stylist/design-system/props';
+﻿import type { BaseTagVariant, TagProps } from '$stylist/design-system/contracts';
 import type { CommonSize } from '$stylist/design-system/tokens';
 import { VARIANT_CLASSES } from '$stylist/design-system/classes/interaction';
 import { cn } from '$stylist/utils/classes';

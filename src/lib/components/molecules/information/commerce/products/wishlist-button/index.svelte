@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Heart, Check, X, CheckCircle } from 'lucide-svelte';
-  import type { WishlistButtonProps } from '$stylist/design-system/props/information/molecules-migration';
+  import type { WishlistButtonProps } from '$stylist/design-system/contracts/information/molecules-migration';
   import { WishlistButtonStyleManager } from '$stylist/design-system/styles/information/molecules-migration';
 
   let {

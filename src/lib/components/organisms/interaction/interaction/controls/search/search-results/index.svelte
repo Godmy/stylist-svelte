@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Calendar, MapPin, Search, User } from 'lucide-svelte';
   import { SearchResultsStyleManager } from '$stylist/design-system/styles';
-  import type { SearchResultsProps, SearchResultItem } from '$stylist/design-system/props';
+  import type { SearchResultsProps, SearchResultItem } from '$stylist/design-system/contracts';
 
   let {
     results = [],

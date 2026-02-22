@@ -1,4 +1,4 @@
-﻿import type { GridLayoutExtendedProps } from '$stylist/design-system/props/architecture/layout-extended';
+import type { GridLayoutExtendedProps } from '$stylist/design-system/contracts/architecture/layout-extended';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
 
 export function createGridLayoutState(props: GridLayoutExtendedProps) {

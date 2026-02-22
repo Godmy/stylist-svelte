@@ -1,4 +1,4 @@
-﻿import type { MessageInputProps } from '$stylist/design-system/props/information/chat';
+import type { MessageInputProps } from '$stylist/design-system/contracts/information/chat';
 
 export const createMessageInputState = (props: MessageInputProps) => {
 	const disabled = $derived(props.disabled ?? false);

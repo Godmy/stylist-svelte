@@ -1,4 +1,4 @@
-import type { GraphNodeSize } from '../../props';
+import type { GraphNodeSize } from '../../contracts';
 import type { GraphEdgeType } from '../../tokens';
 import {
 	GRAPH_EDGE_BASE_CLASS,

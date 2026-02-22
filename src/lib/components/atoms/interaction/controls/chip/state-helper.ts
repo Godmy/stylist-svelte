@@ -1,4 +1,4 @@
-import type { ChipProps } from '$stylist/design-system/props';
+import type { ChipProps } from '$stylist/design-system/contracts';
 
 export const createChipState = (props: ChipProps) => {
 	const classes = [

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createErrorMessageState } from '$stylist/design-system/models/interaction/error-message.svelte';
-  import type { ErrorMessageProps } from '$stylist/design-system/props/interaction/error-message';
+  import type { ErrorMessageProps } from '$stylist/design-system/contracts/interaction/error-message';
 
   type Props = ErrorMessageProps;
   let props: Props = $props();

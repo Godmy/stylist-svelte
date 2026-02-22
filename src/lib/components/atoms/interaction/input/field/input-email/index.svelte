@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { createInputEmailState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-email.svelte';
+	import { createInputEmailState as createInputFieldState } from '$stylist/design-system/models/interaction/input-email.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/props';
+	import type { IInputProps } from '$stylist/design-system/contracts';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * EmailInput component - displays an email input field
@@ -12,8 +14,8 @@
 	 * @returns An accessible, styled email input
 	 */
 
-	type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-	type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+	type InputVariant = (typeof INPUT_VARIANTS)[number];
+	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
 
 	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
 
@@ -23,8 +25,8 @@
 		required = false,
 		helpText,
 		value = $bindable<string>(),
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
+		variant = 'default',
+		size = 'md',
 		disabled = false,
 		error = false,
 		...restProps

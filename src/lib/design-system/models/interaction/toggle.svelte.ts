@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { ToggleProps } from '$stylist/design-system/props';
+﻿import type { ToggleProps } from '$stylist/design-system/contracts';
 
 export const createToggleState = (props: ToggleProps) => {
 	const size = $derived(props.size ?? 'md');

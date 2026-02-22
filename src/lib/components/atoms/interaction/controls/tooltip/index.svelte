@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createTooltipState } from '$stylist/design-system/models/interaction/tooltip.svelte';
-	import type { TooltipProps } from '$stylist/design-system/props/interaction/tooltip';
+	import type { TooltipProps } from '$stylist/design-system/contracts/interaction/tooltip';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	type Props = TooltipProps & HTMLAttributes<HTMLElement>;

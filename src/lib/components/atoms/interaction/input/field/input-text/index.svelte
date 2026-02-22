@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { createInputTextState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/input-text.svelte';
-	import type { InputFieldBaseProps, InputValueProps, InputValidationProps, InputAttributesBase, IInputProps } from '$stylist/design-system/props';
+	import { createInputTextState as createInputFieldState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import type { InputFieldBaseProps, InputValueProps, InputValidationProps, InputAttributesBase, IInputProps } from '$stylist/design-system/contracts';
 	import type { HTMLInputAttributes } from 'svelte/elements';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * Input component - A styled input field with label and error handling
@@ -14,8 +16,8 @@
 	 * Interface Segregation Principle: IInputProps provides a focused interface for the component.
 	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
 	 */
-	type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-	type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+	type InputVariant = (typeof INPUT_VARIANTS)[number];
+	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
 
 	let {
 		label,
@@ -37,8 +39,8 @@
 	const errorId = $derived(`${restProps.id}-error`);
 	const inputState = $derived(
 		createInputFieldState({
-			variant: variant ?? INPUT_FIELD_PRESET.defaults.variant,
-			size: size ?? INPUT_FIELD_PRESET.defaults.size,
+			variant: variant ?? 'default',
+			size: size ?? 'md',
 			disabled: restProps.disabled ?? false,
 			error: hasError,
 			class: restProps.class ?? ''

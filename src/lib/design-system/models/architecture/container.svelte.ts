@@ -1,4 +1,4 @@
-﻿import type { ContainerProps } from '$stylist/design-system/props/architecture/container';
+import type { ContainerProps } from '$stylist/design-system/contracts/architecture/container';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
 
 export function createContainerState(props: ContainerProps) {

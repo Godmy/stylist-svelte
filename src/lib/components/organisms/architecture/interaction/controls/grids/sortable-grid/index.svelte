@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
   import { GripVertical } from 'lucide-svelte';
   import { SortableGridStyleManager } from '$stylist/design-system/styles';
-  import type { SortableGridProps, SortableGridItem, GridItem } from '$stylist/design-system/props';
+  import type { SortableGridProps, SortableGridItem, GridItem } from '$stylist/design-system/contracts';
 
   let {
     items = [],

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IRatingProps, RatingSize } from '$stylist/design-system/props/interaction/rating';
+  import type { IRatingProps, RatingSize } from '$stylist/design-system/contracts/interaction/rating';
   import { RatingStyleManager } from '$stylist/design-system/styles/interaction/rating';
   import { Star } from 'lucide-svelte';
 

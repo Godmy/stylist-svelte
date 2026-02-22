@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import { Tabs } from '$stylist/components/molecules/interaction/controls/tabs';

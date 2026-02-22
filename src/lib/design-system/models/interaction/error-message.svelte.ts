@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import { createErrorMessageStyles } from '../../styles/information/error-message';
-import type { ErrorMessageProps } from '../../props/interaction/error-message';
+import type { ErrorMessageProps } from '../../contracts/interaction/error-message';
 import { mergeClasses } from '$stylist/utils/classes';
 
 export function createErrorMessageState(props: ErrorMessageProps) {
@@ -36,7 +36,9 @@ export function createErrorMessageState(props: ErrorMessageProps) {
     title,
     onRetry,
     showRetry,
-    errorMessage,
+    get errorMessage() {
+      return errorMessage;
+    },
     containerClasses,
     titleClasses: styles.title,
     textClasses: styles.text,

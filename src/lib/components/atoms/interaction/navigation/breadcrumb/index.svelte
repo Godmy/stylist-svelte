@@ -14,7 +14,7 @@
 
 	import { ChevronRight } from 'lucide-svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { IBreadcrumbProps } from '$stylist/design-system/props';
+	import type { IBreadcrumbProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	type Props = IBreadcrumbProps & HTMLAttributes<HTMLElement>;

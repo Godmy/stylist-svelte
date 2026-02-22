@@ -1,5 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { TabsProps } from '$stylist/design-system/props';
+﻿import type { TabsProps } from '$stylist/design-system/contracts';
 
 export const createTabsState = (props: TabsProps) => {
 	const variant = $derived(props.variant ?? 'default');

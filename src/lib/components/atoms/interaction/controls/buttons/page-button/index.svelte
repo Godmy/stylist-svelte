@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { Loader2 } from 'lucide-svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { PageButtonProps } from '$stylist/design-system/props';
-	import { createState, PAGE_BUTTON_PRESET } from '$stylist/design-system/models/interaction/page-button.svelte';
+	import type { PageButtonProps } from '$stylist/design-system/contracts';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
+	import { createState } from '$stylist/design-system/models/interaction/page-button.svelte';
+	import { createBasePreset } from '$stylist/design-system/runtime/preset';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -38,12 +41,20 @@
 	} = props;
 
 	// Use centralized state management with adjusted props
-	let state = $derived(createState(PAGE_BUTTON_PRESET, {
-		...props,
-		variant: actualVariant,
-		disabled: actualDisabled,
-		class: `${props.class ?? ''} page-button`.trim()
-	} as any));
+	let state = $derived(
+		createState(
+			createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+				variant: 'outline',
+				size: 'md'
+			}),
+			{
+				...props,
+				variant: actualVariant,
+				disabled: actualDisabled,
+				class: `${props.class ?? ''} page-button`.trim()
+			} as any
+		)
+	);
 </script>
 
 <button

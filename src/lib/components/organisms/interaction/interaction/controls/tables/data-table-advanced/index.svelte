@@ -1,6 +1,6 @@
 <script lang="ts">
   import { DataTableAdvancedStyleManager } from '$stylist/design-system/styles';
-  import type { DataTableAdvancedProps } from '$stylist/design-system/props';
+  import type { DataTableAdvancedProps } from '$stylist/design-system/contracts';
 
   let {
     data = [],

@@ -1,4 +1,4 @@
-﻿import type { TabProps } from '$stylist/design-system/props';
+import type { TabProps } from '$stylist/design-system/contracts';
 import { TabsStyleManager } from '$stylist/design-system/styles/interaction/tabs';
 
 export function createTabState(props: TabProps) {

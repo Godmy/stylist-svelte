@@ -1,4 +1,4 @@
-import type { ABTest, ABTestVariant } from '$stylist/design-system/props/information/abtest-configurator';
+import type { ABTest, ABTestVariant } from '$stylist/design-system/contracts/information/abtest-configurator';
 
 export function validateABTest(test: ABTest): Record<string, string> {
   const errors: Record<string, string> = {};

@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { PropDefinition } from '$stylist/design-system/props/information/molecules-migration';
+  import type { PropDefinition } from '$stylist/design-system/contracts/information/molecules-migration';
   import PropsEditor from './index.svelte';
 
   const defs: PropDefinition[] = [

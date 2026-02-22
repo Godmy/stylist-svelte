@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { IAccountProgressTrackerProps } from '$stylist/design-system/props';
+	import type { IAccountProgressTrackerProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/utils/classes';
 
 	let {

@@ -1,4 +1,4 @@
-import type { BulkOrderFormProduct, BulkOrderFormItem, BulkOrderFormProps } from '../../props/interaction/bulk-order-form';
+import type { BulkOrderFormProduct, BulkOrderFormItem, BulkOrderFormProps } from '../../contracts/interaction/bulk-order-form';
 
 export class BulkOrderFormModel {
   items = $state<BulkOrderFormItem[]>([]);

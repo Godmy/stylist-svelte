@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ToggleProps } from '$stylist/design-system/props';
+	import type { ToggleProps } from '$stylist/design-system/contracts';
 	import { createToggleState } from '$stylist/design-system/models/interaction/toggle.svelte';
 
 	let props: ToggleProps = $props();

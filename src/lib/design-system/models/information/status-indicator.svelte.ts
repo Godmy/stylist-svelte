@@ -1,4 +1,4 @@
-﻿import type { StatusIndicatorProps } from '$stylist/design-system/props';
+import type { StatusIndicatorProps } from '$stylist/design-system/contracts';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
 
 export type StatusIndicatorStatus =

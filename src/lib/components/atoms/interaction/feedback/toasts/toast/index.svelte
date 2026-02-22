@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IToastProps } from '$stylist/design-system/props/interaction/toast';
+  import type { IToastProps } from '$stylist/design-system/contracts/interaction/toast';
   import { ToastStyleManager } from '$stylist/design-system/styles/interaction/toast';
   import { Icon } from '$stylist/components/atoms';
 

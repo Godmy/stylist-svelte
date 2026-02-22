@@ -1,10 +1,10 @@
-﻿import type {
+import type {
 	AnimatedNumberProps,
 	ColorSwatchProps,
 	NpmBadgeProps,
 	NumberFlowProps,
 	PieChartProps
-} from '$stylist/design-system/props';
+} from '$stylist/design-system/contracts';
 import { DataDisplayStyleManager } from '$stylist/design-system/styles/information/data-display';
 import { BADGE_LABELS } from '$stylist/design-system/tokens';
 

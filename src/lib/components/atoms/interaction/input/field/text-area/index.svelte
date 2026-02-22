@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { createTextAreaState as createInputFieldState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/text-area.svelte';
-	import type { ITextareaProps } from '$stylist/design-system/props';
+	import { createTextAreaState as createInputFieldState } from '$stylist/design-system/models/interaction/text-area.svelte';
+	import type { ITextareaProps } from '$stylist/design-system/contracts';
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * Textarea component - A styled textarea field with label and error handling
@@ -14,8 +16,8 @@
 	 * Interface Segregation Principle: ITextareaProps provides a focused interface for the component.
 	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
 	 */
-	type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-	type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+	type InputVariant = (typeof INPUT_VARIANTS)[number];
+	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
 
 	let {
 		id,
@@ -25,8 +27,8 @@
 		required = false,
 		disabled = false,
 		error = false,
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
+		variant = 'default',
+		size = 'md',
 		class: className = '',
 		placeholder,
 		rows = 3,

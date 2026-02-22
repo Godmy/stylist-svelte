@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Slash } from 'lucide-svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { IBreadcrumbsProps } from '$stylist/design-system/props';
+	import type { IBreadcrumbsProps } from '$stylist/design-system/contracts';
 
 	type Props = IBreadcrumbsProps & HTMLAttributes<HTMLElement>;
 

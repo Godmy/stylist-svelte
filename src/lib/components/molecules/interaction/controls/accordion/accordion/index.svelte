@@ -23,7 +23,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { ChevronDown } from 'lucide-svelte';
   import { AccordionStyleManager } from '$stylist/design-system/styles/interaction/accordion';
-  import type { IAccordionProps } from '$stylist/design-system/props/interaction/accordion';
+  import type { IAccordionProps } from '$stylist/design-system/contracts/interaction/accordion';
 
   let {
     items,

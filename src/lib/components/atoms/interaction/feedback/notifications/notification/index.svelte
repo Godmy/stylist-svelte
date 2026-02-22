@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { X, CheckCircle, AlertCircle, Info, XCircle } from 'lucide-svelte';
 
-  import type { INotificationProps, NotificationType } from '$stylist/design-system/props/interaction/notification';
+  import type { INotificationProps, NotificationType } from '$stylist/design-system/contracts/interaction/notification';
   import { NotificationAtomStyleManager } from '$stylist/design-system/styles/interaction/notification';
 
   /**

@@ -1,4 +1,4 @@
-import type { TabGroupVariant, ITabStyleClasses } from '$stylist/design-system/props/interaction/tab-group';
+import type { TabGroupVariant, ITabStyleClasses } from '$stylist/design-system/contracts/interaction/tab-group';
 
 /**
  * Style utility class following Single Responsibility Principle

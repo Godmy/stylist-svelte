@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { MousePointer2, Square, Circle, Type, Trash2, Download, Redo, Undo, Palette } from 'lucide-svelte';
   import { SharedCanvasStyleManager } from '$stylist/design-system/styles';
-  import type { SharedCanvasProps, CanvasObject, CanvasUser } from '$stylist/design-system/props';
+  import type { SharedCanvasProps, CanvasObject, CanvasUser } from '$stylist/design-system/contracts';
 
   export type Tool = 'select' | 'rectangle' | 'circle' | 'text' | 'pen' | 'eraser';
 

@@ -1,4 +1,4 @@
-﻿import type { LinkProps } from '$stylist/design-system/props';
+import type { LinkProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
 import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 

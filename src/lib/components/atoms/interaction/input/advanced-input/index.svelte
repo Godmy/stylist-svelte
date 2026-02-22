@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { createAdvancedInputState as createInputState, INPUT_FIELD_PRESET } from '$stylist/design-system/models/interaction/advanced-input.svelte';
+	import { createAdvancedInputState as createInputState } from '$stylist/design-system/models/interaction/advanced-input.svelte';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
 	 * AdvancedInput component - A flexible input component with various styles and states
@@ -14,8 +16,8 @@
 	 * @returns An accessible, styled input element
 	 */
 
-	type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-	type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
+	type InputVariant = (typeof INPUT_VARIANTS)[number];
+	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
 
 	type AdvancedInputProps = {
 		label?: string;
@@ -36,8 +38,8 @@
 		type = 'text',
 		disabled = false,
 		error = false,
-		variant = INPUT_FIELD_PRESET.defaults.variant,
-		size = INPUT_FIELD_PRESET.defaults.size,
+		variant = 'default',
+		size = 'md',
 		class: className = '',
 		...restProps
 	}: AdvancedInputProps = $props();
