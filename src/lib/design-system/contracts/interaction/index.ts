@@ -67,7 +67,7 @@ export type { IAccountProgressTrackerProps, IAlertProps, IBaseFeedbackProps, IEr
 export type { AddressData, FormData, LoginCredentials, ValidationErrors } from './forms';
 export type { IHighContrastState, IHighContrastToggleProps } from './high-contrast-toggle';
 export type { IIconItem, IIconPickerProps } from './icon-picker';
-export type { IAdvancedInputProps, ICharacterCountProps, IFormErrorMessageProps, IFormHelperTextProps, IInputAddonProps, IInputFieldProps, IInputGroupProps, IInputProps, IPinInputDigitProps, ITextareaProps, InputHelperChildrenProps, InputHelperProps, InputProps } from './input';
+export type { IAdvancedInputProps, ICharacterCountProps, IFormErrorMessageProps, IFormHelperTextProps, IInputAddonProps, IInputBaseProps, IInputDoubleProps, IInputEmailProps, IInputFieldProps, IInputGroupProps, IInputLongProps, IInputPasswordProps, IPinInputDigitProps, ITextareaProps, InputCoreProps, InputHelperChildrenProps, InputHelperProps, InputWithHelperProps, InputWithLabelProps, InputWithValidationProps } from './input';
 export type { LazyLoaderProps, LoadingBoundaryProps, ResponseViewerProps, SimpleModalProps } from './interaction-feedback';
 export type { AddressFormProps, AppearanceSettingsProps, DocumentPreviewProps, FormWithValidationProps, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps } from './interaction-forms';
 export type { DateRangePickerProps, DateTimeRangePickerProps } from './interaction-input';

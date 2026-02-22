@@ -1,30 +1,28 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createTextareaState } from '$stylist/design-system/models/interaction/text-area.svelte';
+	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
-	import type { ITextareaProps } from '$stylist/design-system/contracts';
+	import type { IInputLongProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
-	 * Textarea component - Многострочное текстовое поле
+	 * InputLong component - Многострочный input для длинного текста
 	 *
 	 * @example
 	 * ```svelte
-	 * <Textarea
-	 *   label="Сообщение"
-	 *   bind:value={message}
-	 *   variant="default"
-	 *   size="md"
-	 *   rows={5}
-	 *   maxlength={1000}
-	 *   showCharacterCount={true}
+	 * <InputLong
+	 *   label="Комментарий"
+	 *   bind:value={comment}
+	 *   rows={4}
+	 *   autoResize={true}
+	 *   maxlength={500}
 	 * />
 	 * ```
 	 */
 
-	type Props = ITextareaProps &
+	type Props = IInputLongProps &
 		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
@@ -49,18 +47,21 @@
 		helperText,
 		showHelperWhenError = false,
 
-		// Textarea-specific props
+		// Input-specific props
 		value = $bindable<string>(''),
 		placeholder,
+		autocomplete,
 		name,
 		required = false,
 		readonly = false,
 		autofocus = false,
-		autocomplete,
 		minlength,
 		maxlength,
+
+		// Long input-specific props
 		rows = 4,
 		autoResize = false,
+		maxHeight = '300px',
 
 		// Rest props
 		...restProps
@@ -70,12 +71,10 @@
 	const hasError = $derived(error || errors.length > 0);
 	const errorId = $derived(id ? `${id}-error` : undefined);
 	const labelId = $derived(id ? `${id}-label` : undefined);
-	const currentLength = $derived(value?.length || 0);
-	const remainingChars = $derived(maxlength ? maxlength - currentLength : null);
 
-	// Textarea state
-	const textareaState = $derived(
-		createTextareaState({
+	// Input state
+	const inputState = $derived(
+		createInputTextState({
 			variant,
 			size,
 			disabled,
@@ -106,7 +105,8 @@
 	function autoResizeTextarea() {
 		if (autoResize && textareaElement) {
 			textareaElement.style.height = 'auto';
-			textareaElement.style.height = `${textareaElement.scrollHeight}px`;
+			const newHeight = Math.min(textareaElement.scrollHeight, parseFloat(maxHeight));
+			textareaElement.style.height = `${newHeight}px`;
 		}
 	}
 
@@ -146,7 +146,8 @@
 		{maxlength}
 		{rows}
 		bind:this={textareaElement}
-		class={`${textareaState.classes} resize-y`}
+		class={`${inputState.classes} resize-y`}
+		style="max-height: {maxHeight};"
 		oninput={handleInput}
 		aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
 		aria-invalid={hasError ? 'true' : 'false'}
@@ -162,14 +163,5 @@
 		</p>
 	{:else if showHelper}
 		<p class={helperTextClasses}>{helperText}</p>
-	{/if}
-
-	{#if maxlength}
-		<p class="text-xs text-gray-500 mt-1">
-			{currentLength} / {maxlength}
-			{#if remainingChars !== null && remainingChars <= 10}
-				<span class="text-orange-600 ml-2">Осталось символов: {remainingChars}</span>
-			{/if}
-		</p>
 	{/if}
 </div>

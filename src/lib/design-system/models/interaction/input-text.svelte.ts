@@ -1,9 +1,11 @@
 import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
+import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
-type InputStateOptions<V extends string, S extends string> = {
-	variant?: V;
-	size?: S;
+type InputStateOptions = {
+	variant?: InputVariant;
+	size?: CompactSize;
 	disabled?: boolean;
 	loading?: boolean;
 	error?: boolean;
@@ -12,10 +14,8 @@ type InputStateOptions<V extends string, S extends string> = {
 	ariaLabel?: string;
 };
 
-type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 const createInputFieldState = (
-	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
+	props: InputStateOptions & Record<string, unknown>
 ) => createBaseInputState(INPUT_FIELD_PRESET, props);
 
 export { createInputFieldState };

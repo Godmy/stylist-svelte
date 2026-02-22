@@ -15,6 +15,8 @@ export interface GraphEdgeProps extends GraphEdgeHtmlProps {
 	toNodeId: string;
 	directed?: boolean;
 	type?: GraphEdgeType;
+	label?: string;
+	active?: boolean;
 	style?: Record<string, string>;
 }
 
@@ -26,5 +28,7 @@ export interface GraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
 	type?: GraphNodeType;
 	color?: string;
 	size?: GraphNodeSize;
+	selected?: boolean;
+	interactive?: boolean;
 	children?: Snippet;
 }

@@ -1,73 +1,93 @@
 <script lang="ts">
-	import type { SwitchProps } from '$stylist/design-system/contracts';
-	import { createSwitchState } from '$stylist/design-system/models/interaction/switch.svelte';
+	import type { HTMLInputAttributes } from 'svelte/elements';
+	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
-	let props: SwitchProps = $props();
+	type Props = {
+		/** Уникальный ID для switch */
+		id?: string;
+		/** Лейбл переключателя */
+		label?: string;
+		/** Описание переключателя */
+		description?: string;
+		/** Размер переключателя */
+		size?: CompactSize;
+		/** Отключен ли переключатель */
+		disabled?: boolean;
+		/** Состояние checked (поддерживает two-way binding) */
+		checked?: boolean;
+		/** Обязательное ли поле */
+		required?: boolean;
+		/** Дополнительные CSS классы */
+		class?: string;
+		/** Aria label */
+		ariaLabel?: string;
+	} & Omit<HTMLInputAttributes, 'size' | 'checked'>;
 
-	let checked = $state(props.checked ?? false);
+	let {
+		id,
+		label = '',
+		description = '',
+		size = 'md',
+		disabled = false,
+		checked = $bindable<boolean>(false),
+		required = false,
+		class: className = '',
+		ariaLabel,
+		name,
+		...restProps
+	}: Props = $props();
 
-	$effect(() => {
-		// Update local state when props change
-		if (props.checked !== undefined) {
-			checked = props.checked;
-		}
-	});
+	// Generate unique ID if not provided
+	const generatedId = $derived(id || `switch-${Math.random().toString(36).substr(2, 9)}`);
+	const descriptionId = $derived(description ? `${generatedId}-description` : undefined);
 
-	const switchComponentState = createSwitchState(props);
-
-	// Extract only HTML-compatible props for the input element
-	let htmlProps = $state({});
-	$effect(() => {
-		const {
-			id: _id,
-			label: _label,
-			description: _description,
-			checked: _checked,
-			disabled: _disabled,
-			switchSize: _switchSize,
-			required: _required,
-			class: _class,
-			size: _size, // Exclude custom size prop to avoid conflict with HTML size attribute
-			...filteredProps
-		} = props;
-		htmlProps = filteredProps;
-	});
+	// Classes using style manager
+	const containerClasses = $derived(
+		`flex items-start gap-3 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`
+	);
+	const trackClasses = $derived(TogglesStyleManager.getSwitchTrackClasses(size, disabled, checked));
+	const knobClasses = $derived(TogglesStyleManager.getSwitchKnobClasses(size, disabled, checked));
+	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));
+	const labelContainerClasses = $derived('flex flex-col gap-1');
+	const labelClasses = $derived('text-sm font-medium leading-5 text-[var(--color-text-primary)]');
+	const descriptionClasses = $derived('text-xs text-[var(--color-text-secondary)]');
 </script>
 
-<label class={switchComponentState.labelClasses}>
-	<span class={switchComponentState.trackClasses}>
+<label class={containerClasses}>
+	<span class={trackClasses}>
 		<input
-			id={props.id}
+			id={generatedId}
+			{name}
 			type="checkbox"
-			class={switchComponentState.inputClasses}
 			bind:checked
-			disabled={switchComponentState.disabled}
-			required={switchComponentState.required}
-			aria-describedby={props.description ? `${props.id}-description` : undefined}
-			{...htmlProps}
+			disabled={disabled}
+			required={required}
+			class={inputClasses}
+			aria-label={ariaLabel || label}
+			aria-describedby={descriptionId}
+			aria-checked={checked ? 'true' : 'false'}
+			role="switch"
+			{...restProps}
 		/>
-		<span aria-hidden="true" class={switchComponentState.knobClasses}></span>
+		<span class={knobClasses} aria-hidden="true"></span>
 	</span>
 
-	{#if props.label || props.description}
-		<span class={switchComponentState.labelTextClasses}>
-			{#if props.label}
-				<span class={switchComponentState.labelTitleClasses}>
-					{props.label}
-					{#if switchComponentState.required}
-						<span class={switchComponentState.requiredMarkerClasses} aria-hidden="true">*</span>
+	{#if label || description}
+		<span class={labelContainerClasses}>
+			{#if label}
+				<span class={labelClasses}>
+					{label}
+					{#if required}
+						<span class="text-[var(--color-danger-500)] ml-1" aria-hidden="true">*</span>
 					{/if}
 				</span>
 			{/if}
-			{#if props.description}
-				<span id={`${props.id}-description`} class={switchComponentState.labelDescriptionClasses}>
-					{props.description}
+			{#if description}
+				<span id={descriptionId} class={descriptionClasses}>
+					{description}
 				</span>
 			{/if}
 		</span>
 	{/if}
 </label>
-
-
-
-

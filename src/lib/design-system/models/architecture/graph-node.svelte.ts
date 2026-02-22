@@ -1,48 +1,28 @@
-import type {
-	GraphEdgeProps,
-	GraphNodeProps,
-	GraphNodeSize
-} from '$stylist/design-system/contracts';
-import type { GraphEdgeType } from '$stylist/design-system/tokens';
+import type { GraphNodeProps, GraphNodeSize } from '$stylist/design-system/contracts';
 import { GraphStyleManager } from '$stylist/design-system/styles';
 import { blue } from '$stylist/design-system/tokens';
-function createGraphEdgeState(props: GraphEdgeProps) {
-	const directed = $derived(props.directed ?? true);
-	const type = $derived((props.type ?? 'line') as GraphEdgeType);
-	const style = $derived(props.style ?? {});
-
-	const classes = $derived(GraphStyleManager.getGraphEdgeClasses(directed, type));
-	const styles = $derived(GraphStyleManager.getGraphEdgeStyles(style));
-
-	return {
-		get directed() {
-			return directed;
-		},
-		get type() {
-			return type;
-		},
-		get classes() {
-			return classes;
-		},
-		get styles() {
-			return styles;
-		}
-	};
-}
 
 export function createGraphNodeState(props: GraphNodeProps) {
 	const size = $derived((props.size ?? 'md') as GraphNodeSize);
 	const color = $derived(props.color ?? blue[500]);
+	const selected = $derived(Boolean(props.selected));
 	const positionStyle = $derived(GraphStyleManager.getGraphNodePositionStyle(props.x, props.y));
 	const sizeClasses = $derived(GraphStyleManager.getGraphNodeSizeClasses(size));
-	const style = $derived(`${positionStyle}; --color: ${color};`);
+	const stateClasses = $derived(GraphStyleManager.getGraphNodeStateClasses(selected));
+	const style = $derived(`${positionStyle}; --graph-node-color: ${color};`);
 
 	return {
 		get size() {
 			return size;
 		},
+		get selected() {
+			return selected;
+		},
 		get sizeClasses() {
 			return sizeClasses;
+		},
+		get stateClasses() {
+			return stateClasses;
 		},
 		get style() {
 			return style;
@@ -51,6 +31,3 @@ export function createGraphNodeState(props: GraphNodeProps) {
 }
 
 export default createGraphNodeState;
-
-
-

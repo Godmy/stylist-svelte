@@ -1,67 +1,93 @@
 <script lang="ts">
-	import { createInputEmailState as createInputFieldState } from '$stylist/design-system/models/interaction/input-email.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/contracts';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { IInputEmailProps } from '$stylist/design-system/contracts';
+	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import InputText from '../input-text/index.svelte';
 
 	/**
-	 * EmailInput component - displays an email input field
+	 * InputEmail component - Специализированный input для email с валидацией
 	 *
-	 * @param size - Size of the input ('sm' | 'md' | 'lg')
-	 * @param disabled - Whether the input is disabled
-	 * @param error - Whether the input has an error state
-	 * @returns An accessible, styled email input
+	 * @example
+	 * ```svelte
+	 * <InputEmail
+	 *   label="Email"
+	 *   bind:value={email}
+	 *   variant="default"
+	 *   size="md"
+	 *   error={hasError}
+	 *   errors={['Некорректный email']}
+	 *   helperText="Введите ваш email"
+	 * />
+	 * ```
 	 */
 
-	type InputVariant = (typeof INPUT_VARIANTS)[number];
-	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
-
-	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
+	type Props = IInputEmailProps &
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
-		class: className = '',
-		placeholder = 'Enter email',
-		required = false,
-		helpText,
-		value = $bindable<string>(),
+		// Core props
 		variant = 'default',
 		size = 'md',
 		disabled = false,
 		error = false,
-		...restProps
-	}: IInputProps & {
-		variant?: InputVariant;
-		size?: InputSize;
-		error?: boolean;
-		helpText?: string;
-		value?: string;
-	} & InputAttributes = $props();
+		block = false,
+		class: className = '',
 
-	const state = $derived(
-		createInputFieldState({ variant, size, disabled, error, class: className })
-	);
-	let classes = $derived(state.classes);
+		// Label props
+		label,
+		id,
+		showRequiredIndicator = true,
+
+		// Validation props
+		errors = [],
+		showErrors = true,
+
+		// Helper props
+		helperText,
+		showHelperWhenError = false,
+
+		// Email-specific props
+		value = $bindable<string>(''),
+		placeholder = 'example@email.com',
+		autocomplete = 'email',
+		name,
+		required = false,
+		readonly = false,
+		autofocus = false,
+		pattern = '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$',
+		minlength,
+		maxlength,
+
+		// Rest props
+		...restProps
+	}: Props = $props();
 </script>
 
-<div>
-	<input
-		type="email"
-		bind:value
-		{placeholder}
-		{disabled}
-		{required}
-		class={classes}
-		{...restProps}
-	/>
-	{#if helpText}
-		<p class="mt-1 text-sm text-gray-500">
-			{helpText}
-		</p>
-	{/if}
-</div>
-
-
-
-
-
+<InputText
+	{label}
+	{id}
+	{showRequiredIndicator}
+	{errors}
+	{showErrors}
+	{helperText}
+	{showHelperWhenError}
+	{variant}
+	{size}
+	{disabled}
+	{error}
+	{block}
+	class={className}
+	{value}
+	type="email"
+	{placeholder}
+	{autocomplete}
+	{name}
+	{required}
+	{readonly}
+	{autofocus}
+	{pattern}
+	{minlength}
+	{maxlength}
+	{...restProps}
+/>

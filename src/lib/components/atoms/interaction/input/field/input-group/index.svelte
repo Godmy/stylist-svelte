@@ -1,101 +1,176 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
-	import { Button, InputText } from '$stylist/components/atoms';
+	import type { HTMLInputAttributes } from 'svelte/elements';
+	import { onMount } from 'svelte';
+	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputGroupProps } from '$stylist/design-system/contracts';
-	import { createInputGroupState } from '$stylist/design-system/models/interaction/input-group.svelte';
+	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import { Button } from '$stylist/components/atoms';
 
-	type Props = IInputGroupProps & HTMLAttributes<HTMLDivElement>;
-	let props: Props = $props();
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				id: _id,
-				label: _label,
-				placeholder: _placeholder,
-				value: _value,
-				disabled: _disabled,
-				buttonLabel: _buttonLabel,
-				buttonDisabled: _buttonDisabled,
-				buttonVariant: _buttonVariant,
-				onButtonClick: _onButtonClick,
-				...rest
-			} = props;
-			return rest;
-		})()
+	/**
+	 * InputGroup component - Input с кнопкой справа
+	 *
+	 * @example
+	 * ```svelte
+	 * <InputGroup
+	 *   label="Поиск"
+	 *   bind:value={searchQuery}
+	 *   buttonLabel="Найти"
+	 *   onButtonClick={handleSearch}
+	 * />
+	 * ```
+	 */
+
+	type Props = IInputGroupProps &
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
+
+	let {
+		// Core props
+		variant = 'default',
+		size = 'md',
+		disabled = false,
+		error = false,
+		block = false,
+		class: className = '',
+
+		// Label props
+		label,
+		id,
+		showRequiredIndicator = true,
+
+		// Validation props
+		errors = [],
+		showErrors = true,
+
+		// Helper props
+		helperText,
+		showHelperWhenError = false,
+
+		// Input-specific props
+		value = $bindable<string>(''),
+		placeholder,
+		autocomplete,
+		name,
+		required = false,
+		readonly = false,
+		autofocus = false,
+		pattern,
+		minlength,
+		maxlength,
+
+		// Button props
+		buttonLabel = 'Действие',
+		buttonVariant = 'primary',
+		buttonDisabled = false,
+		onButtonClick,
+		onValueInput,
+		onValueChange,
+
+		// Rest props
+		...restProps
+	}: Props = $props();
+
+	// Derived values
+	const hasError = $derived(error || errors.length > 0);
+	const errorId = $derived(id ? `${id}-error` : undefined);
+	const labelId = $derived(id ? `${id}-label` : undefined);
+
+	// Input state
+	const inputState = $derived(
+		createInputTextState({
+			variant,
+			size,
+			disabled,
+			error: hasError,
+			block: false, // Input в группе не может быть block
+			class: className
+		})
 	);
-	let value = $state(props.value ?? '');
 
-	// Track value changes and invoke typed callbacks
-	let previousValue = $state(props.value ?? '');
+	// Container classes
+	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
+	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
+	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
+	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
+	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
+	const groupContainerClasses = $derived(InputStyleManager.getInputGroupContainerClass('flex items-stretch'));
+	const groupInputClasses = $derived(InputStyleManager.getInputGroupInputClass(''));
+	const groupButtonClasses = $derived(InputStyleManager.getInputGroupButtonClass(''));
 
-	$effect(() => {
-		if (previousValue !== value) {
-			props.onValueInput?.(value);
-			props.onValueChange?.(value);
-		}
-		previousValue = value;
-	});
+	// Show helper text logic
+	const showHelper = $derived(
+		helperText && (showHelperWhenError || !hasError)
+	);
 
-	function handleClick() {
-		if (!(props.buttonDisabled ?? false)) {
-			props.onButtonClick?.();
-		}
+	function handleInput(e: Event) {
+		const target = e.target as HTMLInputElement;
+		onValueInput?.(target.value);
 	}
 
-	const inputGroupState = $derived(createInputGroupState(props.class ?? ''));
-	let containerClasses = $derived(inputGroupState.containerClasses);
-	let inputClasses = $derived(inputGroupState.inputClasses);
-	let buttonClasses = $derived(inputGroupState.buttonClasses);
+	function handleChange(e: Event) {
+		const target = e.target as HTMLInputElement;
+		onValueChange?.(target.value);
+	}
+
+	let inputElement: HTMLInputElement | null = null;
+	onMount(() => {
+		if (autofocus) inputElement?.focus();
+	});
 </script>
 
-<div class={containerClasses} {...restProps}>
-	{#if props.label != null && props.label !== ''}
-		{#if props.placeholder != null && props.placeholder !== ''}
-			<InputText
-				label={props.label}
-				placeholder={props.placeholder}
-				id={props.id ?? ''}
-				bind:value
-				disabled={props.disabled}
-				class={inputClasses}
-			/>
-		{:else}
-			<InputText
-				label={props.label}
-				id={props.id ?? ''}
-				bind:value
-				disabled={props.disabled}
-				class={inputClasses}
-			/>
-		{/if}
-	{:else}
-		{#if props.placeholder != null && props.placeholder !== ''}
-			<InputText
-				placeholder={props.placeholder}
-				id={props.id ?? ''}
-				bind:value
-				disabled={props.disabled}
-				class={inputClasses}
-			/>
-		{:else}
-			<InputText
-				id={props.id ?? ''}
-				bind:value
-				disabled={props.disabled}
-				class={inputClasses}
-			/>
-		{/if}
+<div class={containerClasses}>
+	{#if label}
+		<label for={id} class={labelClasses} id={labelId}>
+			{label}
+			{#if required && showRequiredIndicator}
+				<span class={requiredIndicatorClasses} aria-hidden="true">*</span>
+			{/if}
+		</label>
 	{/if}
-	<Button
-		variant={props.buttonVariant ?? 'primary'}
-		disabled={props.buttonDisabled}
-		class={buttonClasses}
-		onclick={handleClick}
-	>
-		{props.buttonLabel}
-	</Button>
+
+	<div class={groupContainerClasses}>
+		<input
+			{id}
+			type="text"
+			{name}
+			bind:value
+			{placeholder}
+			{required}
+			{readonly}
+			{disabled}
+			bind:this={inputElement}
+			{autocomplete}
+			{pattern}
+			{minlength}
+			{maxlength}
+			class={`${inputState.classes} ${groupInputClasses} rounded-r-none border-r-0`}
+			oninput={handleInput}
+			onchange={handleChange}
+			aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
+			aria-invalid={hasError ? 'true' : 'false'}
+			aria-required={required ? 'true' : 'false'}
+			{...restProps}
+		/>
+
+		<Button
+			variant={buttonVariant}
+			size={size}
+			disabled={buttonDisabled || disabled}
+			onclick={onButtonClick}
+			class={`${groupButtonClasses} rounded-l-none`}
+		>
+			{buttonLabel}
+		</Button>
+	</div>
+
+	{#if hasError && showErrors && errors.length > 0}
+		<p id={errorId} class={errorTextClasses} role="alert">
+			{#each errors as error_msg, i}
+				{error_msg}{i < errors.length - 1 ? ' ' : ''}
+			{/each}
+		</p>
+	{:else if showHelper}
+		<p class={helperTextClasses}>{helperText}</p>
+	{/if}
 </div>
-
-
-

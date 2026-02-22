@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createPinInputDigitState } from '$stylist/design-system/models/interaction/input-pin-digit.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps, PinInputVariant } from '$stylist/design-system/contracts';
+	import type { PinInputVariant } from '$stylist/design-system/contracts';
 	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
@@ -15,7 +15,26 @@
 
 	type PinInputSize = (typeof COMPACT_SIZE_SCALE)[number];
 
-	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
+	type InputAttributes = Omit<
+		HTMLInputAttributes,
+		'size' | 'class' | 'onchange' | 'onfocus' | 'onblur' | 'onkeydown'
+	>;
+
+	type PinInputDigitProps = {
+		id?: string;
+		label?: string;
+		errors?: string[];
+		focused?: boolean;
+		invalid?: boolean;
+		class?: string;
+		variant?: PinInputVariant;
+		size?: PinInputSize;
+		value?: string;
+		onChange?: (value: string, index: number) => void;
+		onFocus?: (index: number) => void;
+		onBlur?: () => void;
+		onKeyDown?: (e: KeyboardEvent, index: number) => void;
+	} & InputAttributes;
 
 	let {
 		id,
@@ -32,17 +51,7 @@
 		onBlur,
 		onKeyDown,
 		...restProps
-	}: IInputProps & {
-		focused?: boolean;
-		invalid?: boolean;
-		value?: string;
-		variant?: PinInputVariant;
-		size?: PinInputSize;
-		onChange?: (value: string, index: number) => void;
-		onFocus?: (index: number) => void;
-		onBlur?: () => void;
-		onKeyDown?: (e: KeyboardEvent, index: number) => void;
-	} & InputAttributes = $props();
+	}: PinInputDigitProps = $props();
 	const pinInputState = $derived(
 		createPinInputDigitState({
 			variant: variant satisfies PinInputVariant,

@@ -1,34 +1,46 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-	import TextArea from './index.svelte';
-
-	let value = $state('');
+	import Textarea from './index.svelte';
 
 	const controls: ControlConfig[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Message' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Type your message...' },
-		{ name: 'rows', type: 'number', defaultValue: 4, min: 2, max: 10, step: 1 },
-		{ name: 'maxlength', type: 'number', defaultValue: 160, min: 20, max: 1000, step: 10 },
-		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'label', type: 'text', defaultValue: 'Сообщение' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Введите ваше сообщение...' },
+		{ name: 'value', type: 'text', defaultValue: '' },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outlined', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg', 'xl'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
-		{ name: 'error', type: 'boolean', defaultValue: false }
+		{ name: 'error', type: 'boolean', defaultValue: false },
+		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'rows', type: 'number', defaultValue: 4, min: 2, max: 20 },
+		{ name: 'autoResize', type: 'boolean', defaultValue: false },
+		{ name: 'maxlength', type: 'number', defaultValue: 1000, min: 0, max: 10000 },
+		{ name: 'helperText', type: 'text', defaultValue: 'Максимум 1000 символов' }
 	];
 </script>
 
-<Story component={TextArea} title="TextArea" description="Multiline input with counter and error display." {controls}>
+<Story
+	{controls}
+	component={Textarea}
+	title="Textarea"
+	category="Atoms/Interaction/Input/Field"
+	description="Многострочное текстовое поле с поддержкой maxlength и auto-resize"
+	tags={['textarea', 'input', 'field', 'form', 'control', 'text']}
+>
 	{#snippet children(values: any)}
-		<TextArea
-			id="story-textarea"
-			label={values.label}
-			placeholder={values.placeholder}
-			rows={values.rows}
-			maxlength={values.maxlength}
-			required={values.required}
-			disabled={values.disabled}
-			error={values.error}
-			errors={values.error ? ['Content is required'] : []}
-			bind:value
+		<Textarea
+			label={values.label as string}
+			placeholder={values.placeholder as string}
+			value={values.value as string}
+			variant={values.variant as any}
+			size={values.size as 'sm' | 'md' | 'lg' | 'xl'}
+			disabled={values.disabled as boolean}
+			error={values.error as boolean}
+			required={values.required as boolean}
+			rows={Number(values.rows) as number}
+			autoResize={values.autoResize as boolean}
+			maxlength={Number(values.maxlength) as number}
+			helperText={values.helperText as string}
 		/>
 	{/snippet}
 </Story>

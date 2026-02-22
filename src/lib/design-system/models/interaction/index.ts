@@ -52,7 +52,7 @@ export { default as createTabPanelsState } from './tab-panels.svelte';
 export { default as createTabState } from './tab.svelte';
 export { default as createTabsState } from './tabs.svelte';
 export { default as createTagState } from './tag.svelte';
-export { default as createTextAreaState } from './text-area.svelte';
+export { default as createTextareaState } from './text-area.svelte';
 export { default as createSliderTickState } from './tick.svelte';
 export { default as createToggleGroupRootState } from './toggle-group-root.svelte';
 export { default as createToggleState } from './toggle.svelte';

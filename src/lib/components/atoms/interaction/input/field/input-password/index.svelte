@@ -1,116 +1,206 @@
 <script lang="ts">
-	import { createInputPasswordState as createInputFieldState } from '$stylist/design-system/models/interaction/input-password.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputProps } from '$stylist/design-system/contracts';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { onMount } from 'svelte';
+	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
+	import type { IInputPasswordProps } from '$stylist/design-system/contracts';
+	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import { Eye, EyeOff } from 'lucide-svelte';
 
 	/**
-	 * PasswordInput component - displays a password input field with visibility toggle
+	 * InputPassword component - Input для пароля с переключателем видимости
 	 *
-	 * @param size - Size of the input ('sm' | 'md' | 'lg')
-	 * @param disabled - Whether the input is disabled
-	 * @param error - Whether the input has an error state
-	 * @param showPassword - Whether to show the password in plain text
-	 * @param onTogglePassword - Callback function when password visibility is toggled
-	 * @returns An accessible, styled password input with visibility toggle
+	 * @example
+	 * ```svelte
+	 * <InputPassword
+	 *   label="Пароль"
+	 *   bind:value={password}
+	 *   allowTogglePassword={true}
+	 *   showPasswordStrength={true}
+	 * />
+	 * ```
 	 */
 
-	type InputVariant = (typeof INPUT_VARIANTS)[number];
-	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
-
-	type InputAttributes = Omit<HTMLInputAttributes, 'size'>;
+	type Props = IInputPasswordProps &
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
-		showPassword = false,
-		onTogglePassword,
-		class: className = '',
-		placeholder = 'Enter password',
-		required = false,
-		helpText,
-		value = $bindable<string>(),
+		// Core props
 		variant = 'default',
 		size = 'md',
 		disabled = false,
 		error = false,
-		...restProps
-	}: IInputProps & {
-		showPassword?: boolean;
-		onTogglePassword?: () => void;
-		helpText?: string;
-		value?: string;
-		variant?: InputVariant;
-		size?: InputSize;
-		error?: boolean;
-	} & InputAttributes = $props();
+		block = false,
+		class: className = '',
 
-	const state = $derived(
-		createInputFieldState({ variant, size, disabled, error, class: className })
+		// Label props
+		label,
+		id,
+		showRequiredIndicator = true,
+
+		// Validation props
+		errors = [],
+		showErrors = true,
+
+		// Helper props
+		helperText,
+		showHelperWhenError = false,
+
+		// Password-specific props
+		value = $bindable<string>(''),
+		placeholder = '••••••••',
+		autocomplete = 'current-password',
+		name,
+		required = false,
+		readonly = false,
+		autofocus = false,
+		minlength = 8,
+		maxlength,
+		pattern,
+
+		// Toggle password visibility
+		allowTogglePassword = true,
+		showPassword = $bindable<boolean>(false),
+		showPasswordStrength = false,
+
+		// Rest props
+		...restProps
+	}: Props = $props();
+
+	// Derived values
+	const hasError = $derived(error || errors.length > 0);
+	const errorId = $derived(id ? `${id}-error` : undefined);
+	const labelId = $derived(id ? `${id}-label` : undefined);
+	const currentType = $derived(showPassword ? 'text' : 'password');
+
+	// Input state
+	const inputState = $derived(
+		createInputTextState({
+			variant,
+			size,
+			disabled,
+			error: hasError,
+			block,
+			class: className
+		})
 	);
-	let classes = $derived(state.classes);
+
+	// Container classes
+	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
+	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
+	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
+	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
+	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
+	const passwordToggleClasses = $derived(InputStyleManager.getPasswordToggleClass(''));
+
+	// Show helper text logic
+	const showHelper = $derived(
+		helperText && (showHelperWhenError || !hasError)
+	);
+
+	// Password strength calculation
+	const passwordStrength = $derived.by(() => {
+		if (!value || !showPasswordStrength) return null;
+
+		let strength = 0;
+		if (value.length >= 8) strength++;
+		if (value.length >= 12) strength++;
+		if (/[a-z]/.test(value) && /[A-Z]/.test(value)) strength++;
+		if (/\d/.test(value)) strength++;
+		if (/[^a-zA-Z0-9]/.test(value)) strength++;
+
+		const labels = ['Очень слабый', 'Слабый', 'Средний', 'Хороший', 'Надёжный'];
+		const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-green-500'];
+
+		return {
+			value: strength,
+			label: labels[Math.min(strength, 4)],
+			color: colors[Math.min(strength, 4)],
+			percentage: (strength / 5) * 100
+		};
+	});
 
 	function togglePasswordVisibility() {
-		if (onTogglePassword) {
-			onTogglePassword();
-		}
+		showPassword = !showPassword;
 	}
+
+	let inputElement: HTMLInputElement | null = null;
+	onMount(() => {
+		if (autofocus) inputElement?.focus();
+	});
 </script>
 
-<div class="relative">
-	<input
-		type={showPassword ? 'text' : 'password'}
-		bind:value
-		{placeholder}
-		{disabled}
-		{required}
-		class={classes}
-		{...restProps}
-	/>
-	<button
-		type="button"
-		class="absolute top-1/2 right-3 -translate-y-1/2 transform"
-		onclick={togglePasswordVisibility}
-		aria-label={showPassword ? 'Hide password' : 'Show password'}
-		{disabled}
-	>
-		{#if showPassword}
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-5 w-5"
-				viewBox="0 0 20 20"
-				fill="currentColor"
+<div class={containerClasses}>
+	{#if label}
+		<label for={id} class={labelClasses} id={labelId}>
+			{label}
+			{#if required && showRequiredIndicator}
+				<span class={requiredIndicatorClasses} aria-hidden="true">*</span>
+			{/if}
+		</label>
+	{/if}
+
+	<div class="relative flex items-stretch">
+		<input
+			{id}
+			type={currentType}
+			{name}
+			bind:value
+			{placeholder}
+			{required}
+			{readonly}
+			{disabled}
+			bind:this={inputElement}
+			{autocomplete}
+			{pattern}
+			{minlength}
+			{maxlength}
+			class={inputState.classes}
+			aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
+			aria-invalid={hasError ? 'true' : 'false'}
+			aria-required={required ? 'true' : 'false'}
+			{...restProps}
+		/>
+
+		{#if allowTogglePassword && !disabled}
+			<button
+				type="button"
+				class={passwordToggleClasses}
+				onclick={togglePasswordVisibility}
+				tabindex="-1"
+				aria-label={showPassword ? 'Скрыть пароль' : 'Показать пароль'}
 			>
-				<path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-				<path
-					fill-rule="evenodd"
-					d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-					clip-rule="evenodd"
-				/>
-			</svg>
-		{:else}
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-5 w-5"
-				viewBox="0 0 20 20"
-				fill="currentColor"
-			>
-				<path
-					fill-rule="evenodd"
-					d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.267-1.112a1 1 0 00-1.414 1.414c1.473 1.473 3.556 2.111 5.638 2.111a7.489 7.489 0 013.62 1.074l-1.78 1.781A3 3 0 007.974 5.385z"
-					clip-rule="evenodd"
-				/>
-				<path d="M6 10a2 2 0 11-4 0 2 2 0 014 0z" />
-			</svg>
+				{#if showPassword}
+					<EyeOff class="w-5 h-5" />
+				{:else}
+					<Eye class="w-5 h-5" />
+				{/if}
+			</button>
 		{/if}
-	</button>
-	{#if helpText}
-		<p class="mt-1 text-sm text-gray-500">
-			{helpText}
+	</div>
+
+	{#if hasError && showErrors && errors.length > 0}
+		<p id={errorId} class={errorTextClasses} role="alert">
+			{#each errors as error_msg, i}
+				{error_msg}{i < errors.length - 1 ? ' ' : ''}
+			{/each}
 		</p>
+	{:else if showHelper}
+		<p class={helperTextClasses}>{helperText}</p>
+	{/if}
+
+	{#if showPasswordStrength && passwordStrength}
+		<div class="mt-2">
+			<div class="flex items-center gap-2">
+				<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+					<div
+						class="h-full transition-all duration-300 {passwordStrength.color}"
+						style="width: {passwordStrength.percentage}%"
+					></div>
+				</div>
+				<span class="text-xs text-gray-600">{passwordStrength.label}</span>
+			</div>
+		</div>
 	{/if}
 </div>
-
-
-
-
-

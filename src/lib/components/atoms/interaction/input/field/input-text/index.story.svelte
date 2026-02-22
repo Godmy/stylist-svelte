@@ -1,36 +1,46 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import InputText from './index.svelte';
 
-	let value = $state('');
-
 	const controls: ControlConfig[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Name' },
-		{ name: 'type', type: 'select', defaultValue: 'text', options: ['text', 'email', 'password', 'number'] },
-		{ name: 'placeholder', type: 'text', defaultValue: 'Enter text...' },
-		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'label', type: 'text', defaultValue: 'Текстовое поле' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Введите текст...' },
+		{ name: 'value', type: 'text', defaultValue: '' },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outlined', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
-		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'outlined', 'filled', 'ghost'] },
-		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
+		{ name: 'error', type: 'boolean', defaultValue: false },
+		{ name: 'block', type: 'boolean', defaultValue: true },
+		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'helperText', type: 'text', defaultValue: 'Это вспомогательный текст' },
+		{ name: 'errors', type: 'text', defaultValue: '' },
+		{ name: 'readonly', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<Story component={InputText} title="InputText" description="Base text input component with validation states." {controls}>
+<Story
+	{controls}
+	component={InputText}
+	title="InputText"
+	category="Atoms/Interaction/Input/Field"
+	description="Базовый текстовый input с поддержкой variant, size, error states и валидации"
+	tags={['input', 'text', 'field', 'form', 'control']}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-2">
-			<InputText
-				id="story-input-text"
-				label={values.label}
-				type={values.type}
-				placeholder={values.placeholder}
-				required={values.required}
-				disabled={values.disabled}
-				variant={values.variant}
-				size={values.size}
-				bind:value
-			/>
-			<p class="text-sm text-[--color-text-secondary]">Value: {value}</p>
-		</div>
+		<InputText
+			label={values.label as string}
+			placeholder={values.placeholder as string}
+			value={values.value as string}
+			variant={values.variant as any}
+			size={values.size as 'sm' | 'md' | 'lg'}
+			disabled={values.disabled as boolean}
+			error={values.error as boolean}
+			block={values.block as boolean}
+			required={values.required as boolean}
+			helperText={values.helperText as string}
+			errors={(values.errors as string)?.split(',').filter(Boolean) || []}
+			readonly={values.readonly as boolean}
+		/>
 	{/snippet}
 </Story>

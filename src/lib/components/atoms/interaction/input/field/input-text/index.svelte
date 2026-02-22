@@ -1,93 +1,150 @@
 <script lang="ts">
-	import { createInputTextState as createInputFieldState } from '$stylist/design-system/models/interaction/input-text.svelte';
-	import type { InputFieldBaseProps, InputValueProps, InputValidationProps, InputAttributesBase, IInputProps } from '$stylist/design-system/contracts';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { onMount } from 'svelte';
+	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
+	import type { IInputBaseProps } from '$stylist/design-system/contracts';
+	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
 	/**
-	 * Input component - A styled input field with label and error handling
+	 * InputText component - Базовый текстовый input с поддержкой variant, size, error states
 	 *
-	 * SOLID Principles applied:
-	 *
-	 * Single Responsibility Principle: This component is responsible only for displaying a styled input field with label and error handling.
-	 * Open/Closed Principle: The component is closed for modification but open for extension via CSS classes.
-	 * Liskov Substitution Principle: Input can be substituted with other input components without breaking functionality.
-	 * Interface Segregation Principle: IInputProps provides a focused interface for the component.
-	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
+	 * @example
+	 * ```svelte
+	 * <InputText
+	 *   label="Email"
+	 *   bind:value={email}
+	 *   variant="default"
+	 *   size="md"
+	 *   error={hasError}
+	 *   errors={['Некорректный email']}
+	 *   helperText="Введите ваш email"
+	 * />
+	 * ```
 	 */
-	type InputVariant = (typeof INPUT_VARIANTS)[number];
-	type InputSize = (typeof COMPACT_SIZE_SCALE)[number];
+
+	type Props = IInputBaseProps<InputVariant, CompactSize> &
+		Omit<HTMLInputAttributes, 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
-		label,
-		value = $bindable<string>(),
-		error,
-		variant,
-		size,
-		...restProps
-	} = $props<Omit<IInputProps, 'label' | 'value'> & {
-		label?: string;
-		value?: string;
-		error?: boolean;
-		variant?: InputVariant;
-		size?: InputSize;
-	} & HTMLInputAttributes>();
+		// Core props
+		variant = 'default',
+		size = 'md',
+		disabled = false,
+		error = false,
+		block = false,
+		class: className = '',
 
-	// Calculate derived values
-	const hasError = $derived((error ?? false) || (restProps.errors?.length ?? 0) > 0);
-	const errorId = $derived(`${restProps.id}-error`);
+		// Label props
+		label,
+		id,
+		showRequiredIndicator = true,
+
+		// Validation props
+		errors = [],
+		showErrors = true,
+
+		// Helper props
+		helperText,
+		showHelperWhenError = false,
+
+		// Native input props
+		value = $bindable<string>(''),
+		type = 'text',
+		placeholder,
+		name,
+		required = false,
+		readonly = false,
+		autofocus = false,
+		autocomplete,
+		pattern,
+		minlength,
+		maxlength,
+		min,
+		max,
+		step,
+
+		// Rest props
+		...restProps
+	}: Props = $props();
+
+	// Derived values
+	const hasError = $derived(error || errors.length > 0);
+	const errorId = $derived(id ? `${id}-error` : undefined);
+	const labelId = $derived(id ? `${id}-label` : undefined);
+
+	// Input state using design system model
 	const inputState = $derived(
-		createInputFieldState({
-			variant: variant ?? 'default',
-			size: size ?? 'md',
-			disabled: restProps.disabled ?? false,
+		createInputTextState({
+			variant,
+			size,
+			disabled,
 			error: hasError,
-			class: restProps.class ?? ''
+			block,
+			class: className
 		})
 	);
 
-	const containerClass = 'mb-[--spacing-md]';
-	const labelClass = 'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]';
-	const errorClass = 'mt-[--spacing-xs] text-sm text-[--color-danger-600]';
-	const requiredClass = 'text-[--color-danger-500]';
+	// Container classes
+	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
+	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
+	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
+	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
+	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
+
+	// Show helper text logic
+	const showHelper = $derived(
+		helperText && (showHelperWhenError || !hasError)
+	);
+
+	let inputElement: HTMLInputElement | null = null;
+	onMount(() => {
+		if (autofocus) inputElement?.focus();
+	});
 </script>
 
-<div class={containerClass}>
-	<label for={restProps.id} class={labelClass}>
-		{label}
-		{#if restProps.required}
-			<span class={requiredClass}>*</span>
-		{/if}
-	</label>
+<div class={containerClasses}>
+	{#if label}
+		<label for={id} class={labelClasses} id={labelId}>
+			{label}
+			{#if required && showRequiredIndicator}
+				<span class={requiredIndicatorClasses} aria-hidden="true">*</span>
+			{/if}
+		</label>
+	{/if}
 
 	<input
-		id={restProps.id}
-		type={restProps.type ?? 'text'}
+		{id}
+		{type}
+		{name}
 		bind:value
+		{placeholder}
+		{required}
+		{readonly}
+		{disabled}
+		bind:this={inputElement}
+		{autocomplete}
+		{pattern}
+		{minlength}
+		{maxlength}
+		{min}
+		{max}
+		{step}
 		class={inputState.classes}
-		disabled={restProps.disabled}
-		placeholder={restProps.placeholder}
-		required={restProps.required}
-		min={restProps.min}
-		max={restProps.max}
-		step={restProps.step}
-		aria-describedby={hasError ? errorId : undefined}
-		aria-invalid={hasError}
-		aria-required={restProps.required}
+		aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
+		aria-invalid={hasError ? 'true' : 'false'}
+		aria-required={required ? 'true' : 'false'}
 		{...restProps}
 	/>
 
-	{#if hasError}
-		<p id={errorId} class={errorClass}>
-			{#each restProps.errors || [] as error_msg, i}
-				{error_msg}{i < (restProps.errors?.length ?? 0) - 1 ? ' ' : ''}
+	{#if hasError && showErrors && errors.length > 0}
+		<p id={errorId} class={errorTextClasses} role="alert">
+			{#each errors as error_msg, i}
+				{error_msg}{i < errors.length - 1 ? ' ' : ''}
 			{/each}
 		</p>
+	{:else if showHelper}
+		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
-
-
-
-
-

@@ -1,9 +1,11 @@
 import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
-import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
+import { TEXTAREA_PRESET } from '$stylist/design-system/runtime/input';
+import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/sizes';
 
-type InputStateOptions<V extends string, S extends string> = {
-	variant?: V;
-	size?: S;
+type TextareaStateOptions = {
+	variant?: InputVariant;
+	size?: ComponentSize;
 	disabled?: boolean;
 	loading?: boolean;
 	error?: boolean;
@@ -12,17 +14,11 @@ type InputStateOptions<V extends string, S extends string> = {
 	ariaLabel?: string;
 };
 
-type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
-type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
-const createInputFieldState = (
-	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
-) => createBaseInputState(INPUT_FIELD_PRESET, props);
+const createTextareaState = (
+	props: TextareaStateOptions & Record<string, unknown>
+) => createBaseInputState(TEXTAREA_PRESET, props);
 
-export { createInputFieldState };
-export const createTextAreaState = createInputFieldState;
-export default createTextAreaState;
+export { createTextareaState };
+export default createTextareaState;
 
-export { INPUT_FIELD_PRESET };
-
-
-
+export { TEXTAREA_PRESET };

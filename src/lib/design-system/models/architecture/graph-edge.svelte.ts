@@ -1,18 +1,14 @@
-import type {
-	GraphEdgeProps,
-	GraphNodeProps,
-	GraphNodeSize
-} from '$stylist/design-system/contracts';
-import type { GraphEdgeType } from '$stylist/design-system/tokens';
+import type { GraphEdgeProps } from '$stylist/design-system/contracts';
+import { GRAPH_EDGE_DEFAULTS, type GraphEdgeType } from '$stylist/design-system/tokens';
 import { GraphStyleManager } from '$stylist/design-system/styles';
-import { blue } from '$stylist/design-system/tokens';
 
 export function createGraphEdgeState(props: GraphEdgeProps) {
-	const directed = $derived(props.directed ?? true);
-	const type = $derived((props.type ?? 'line') as GraphEdgeType);
+	const directed = $derived(props.directed ?? GRAPH_EDGE_DEFAULTS.directed);
+	const type = $derived((props.type ?? GRAPH_EDGE_DEFAULTS.type) as GraphEdgeType);
+	const active = $derived(Boolean(props.active));
 	const style = $derived(props.style ?? {});
 
-	const classes = $derived(GraphStyleManager.getGraphEdgeClasses(directed, type));
+	const classes = $derived(GraphStyleManager.getGraphEdgeClasses(directed, type, active));
 	const styles = $derived(GraphStyleManager.getGraphEdgeStyles(style));
 
 	return {
@@ -22,6 +18,9 @@ export function createGraphEdgeState(props: GraphEdgeProps) {
 		get type() {
 			return type;
 		},
+		get active() {
+			return active;
+		},
 		get classes() {
 			return classes;
 		},
@@ -30,27 +29,5 @@ export function createGraphEdgeState(props: GraphEdgeProps) {
 		}
 	};
 }
-function createGraphNodeState(props: GraphNodeProps) {
-	const size = $derived((props.size ?? 'md') as GraphNodeSize);
-	const color = $derived(props.color ?? blue[500]);
-	const positionStyle = $derived(GraphStyleManager.getGraphNodePositionStyle(props.x, props.y));
-	const sizeClasses = $derived(GraphStyleManager.getGraphNodeSizeClasses(size));
-	const style = $derived(`${positionStyle}; --color: ${color};`);
-
-	return {
-		get size() {
-			return size;
-		},
-		get sizeClasses() {
-			return sizeClasses;
-		},
-		get style() {
-			return style;
-		}
-	};
-}
 
 export default createGraphEdgeState;
-
-
-

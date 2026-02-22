@@ -1,49 +1,54 @@
 <script lang="ts">
-	import type { ToggleProps } from '$stylist/design-system/contracts';
-	import { createToggleState } from '$stylist/design-system/models/interaction/toggle.svelte';
+	import type { HTMLAttributes } from 'svelte/elements';
+	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
+	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
 
-	let props: ToggleProps = $props();
+	type Props = {
+		/** Размер переключателя */
+		size?: CompactSize;
+		/** Отключен ли переключатель */
+		disabled?: boolean;
+		/** Состояние checked (поддерживает two-way binding) */
+		checked?: boolean;
+		/** Дополнительные CSS классы */
+		class?: string;
+		/** Aria label */
+		ariaLabel?: string;
+	} & Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'checked'>;
 
-	let checked = $state(props.checked ?? false);
+	let {
+		size = 'md',
+		disabled = false,
+		checked = $bindable<boolean>(false),
+		class: className = '',
+		ariaLabel = 'Toggle',
+		id,
+		name,
+		...restProps
+	}: Props = $props();
 
-	$effect(() => {
-		// Update local state when props change
-		if (props.checked !== undefined) {
-			checked = props.checked;
-		}
-	});
-
-	const toggleComponentState = createToggleState(props);
-
-	// Extract only HTML-compatible props for the input element
-	let htmlProps = $state({});
-	$effect(() => {
-		const {
-			checked: _checked,
-			disabled: _disabled,
-			toggleSize: _toggleSize,
-			class: _class,
-			size: _size, // Exclude custom size prop to avoid conflict with HTML size attribute
-			...filteredProps
-		} = props;
-		htmlProps = filteredProps;
-	});
+	// Classes using style manager
+	const containerClasses = $derived(TogglesStyleManager.getToggleContainerClasses(className));
+	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));
+	const trackClasses = $derived(TogglesStyleManager.getToggleTrackClasses(disabled, checked));
+	const thumbClasses = $derived(TogglesStyleManager.getToggleThumbClasses(size, disabled, checked));
 </script>
 
-<div class={toggleComponentState.containerClasses}>
+<div class={containerClasses}>
 	<input
+		{id}
+		{name}
 		type="checkbox"
 		bind:checked
-		disabled={toggleComponentState.disabled}
-		class={toggleComponentState.inputClasses}
-		{...htmlProps}
+		disabled={disabled}
+		class={inputClasses}
+		aria-label={ariaLabel}
+		role="switch"
+		aria-checked={checked ? 'true' : 'false'}
+		{...restProps}
 	/>
 
-	<div class={toggleComponentState.trackClasses} class:opacity-50={toggleComponentState.disabledClass}>
-		<div class={toggleComponentState.thumbClasses}></div>
-	</div>
+	<span class={trackClasses}>
+		<span class={thumbClasses}></span>
+	</span>
 </div>
-
-
-
-

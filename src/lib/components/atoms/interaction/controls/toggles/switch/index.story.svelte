@@ -1,52 +1,34 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
-	import Switch from './index.svelte';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-	import type { SwitchProps } from '$stylist/design-system/contracts';
+	import Switch from './index.svelte';
 
-	let {
-		id = '',
-		title = '',
-		description = '',
-		controls = [
-			{ name: 'label', type: 'text', defaultValue: 'Enable notifications' },
-			{ name: 'description', type: 'text', defaultValue: 'Receive email notifications' },
-			{ name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
-			{ name: 'disabled', type: 'boolean', defaultValue: false },
-			{ name: 'required', type: 'boolean', defaultValue: false }
-		]
-	} = $props<{
-		id: string;
-		title: string;
-		description: string;
-		controls: ControlConfig[];
-	}>();
-
-	// Generate a random ID for the switch
-	const switchId = `switch-${Math.random().toString(36).substr(2, 9)}`;
+	const controls: ControlConfig[] = [
+		{ name: 'label', type: 'text', defaultValue: 'Включить уведомления' },
+		{ name: 'description', type: 'text', defaultValue: 'Получать email-уведомления о новых событиях' },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
+		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'checked', type: 'boolean', defaultValue: true },
+		{ name: 'required', type: 'boolean', defaultValue: false }
+	];
 </script>
 
-<Story {id} {title} {description} component={Switch} category="Atoms" {controls}>
+<Story
+	{controls}
+	component={Switch}
+	title="Switch"
+	category="Atoms/Interaction/Controls/Toggles"
+	description="Переключатель с лейблом и описанием для включения/выключения опций"
+	tags={['switch', 'toggle', 'checkbox', 'form', 'control']}
+>
 	{#snippet children(values: any)}
-		{@const label =
-			typeof values.label === 'string' ? values.label : 'Enable notifications'}
-		{@const description =
-			typeof values.description === 'string' ? values.description : 'Receive email notifications'}
-		{@const size =
-			typeof values.size === 'string' ? (values.size as SwitchProps['size']) : 'md'}
-		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
-		{@const required = typeof values.required === 'boolean' ? values.required : false}
 		<Switch
-			id={switchId}
-			{label}
-			{description}
-			{size}
-			{disabled}
-			{required}
+			label={values.label as string}
+			description={values.description as string}
+			size={values.size as 'sm' | 'md' | 'lg'}
+			disabled={values.disabled as boolean}
+			checked={values.checked as boolean}
+			required={values.required as boolean}
 		/>
 	{/snippet}
 </Story>
-
-
-
-

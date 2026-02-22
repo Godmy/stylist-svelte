@@ -1,37 +1,44 @@
 <script lang="ts">
-	import { Story } from '$stylist/design-system/playground';
+	import Story from '$stylist/design-system/playground/Story.svelte';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 	import InputGroup from './index.svelte';
 
-	let value = $state('iris@company.com');
-	let clicks = $state(0);
-
 	const controls: ControlConfig[] = [
-		{ name: 'label', type: 'text', defaultValue: 'Invite teammate' },
-		{ name: 'placeholder', type: 'text', defaultValue: 'name@company.com' },
-		{ name: 'buttonLabel', type: 'text', defaultValue: 'Send invite' },
-		{ name: 'buttonVariant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'ghost', 'link'] },
+		{ name: 'label', type: 'text', defaultValue: 'Поиск' },
+		{ name: 'placeholder', type: 'text', defaultValue: 'Поиск...' },
+		{ name: 'value', type: 'text', defaultValue: '' },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outlined', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
+		{ name: 'error', type: 'boolean', defaultValue: false },
+		{ name: 'required', type: 'boolean', defaultValue: false },
+		{ name: 'buttonLabel', type: 'text', defaultValue: 'Найти' },
+		{ name: 'buttonVariant', type: 'select', defaultValue: 'primary', options: ['primary', 'secondary', 'success', 'warning', 'danger', 'outline', 'ghost', 'link'] },
 		{ name: 'buttonDisabled', type: 'boolean', defaultValue: false }
 	];
 </script>
 
-<Story component={InputGroup} title="InputGroup" description="Input paired with an action button." {controls}>
+<Story
+	{controls}
+	component={InputGroup}
+	title="InputGroup"
+	category="Atoms/Interaction/Input/Field"
+	description="Input с кнопкой справа для действий поиска, отправки и т.д."
+	tags={['input', 'group', 'button', 'field', 'form', 'control']}
+>
 	{#snippet children(values: any)}
-		<div class="space-y-3">
-			<InputGroup
-				id="story-input-group"
-				label={values.label}
-				value={value}
-				placeholder={values.placeholder}
-				buttonLabel={values.buttonLabel}
-				buttonVariant={values.buttonVariant}
-				disabled={values.disabled}
-				buttonDisabled={values.buttonDisabled}
-				onValueChange={(next) => (value = next)}
-				onButtonClick={() => (clicks += 1)}
-			/>
-			<p class="text-sm text-[--color-text-secondary]">Value: {value} | Clicks: {clicks}</p>
-		</div>
+		<InputGroup
+			label={values.label as string}
+			placeholder={values.placeholder as string}
+			value={values.value as string}
+			variant={values.variant as any}
+			size={values.size as 'sm' | 'md' | 'lg'}
+			disabled={values.disabled as boolean}
+			error={values.error as boolean}
+			required={values.required as boolean}
+			buttonLabel={values.buttonLabel as string}
+			buttonVariant={values.buttonVariant as any}
+			buttonDisabled={values.buttonDisabled as boolean}
+		/>
 	{/snippet}
 </Story>
