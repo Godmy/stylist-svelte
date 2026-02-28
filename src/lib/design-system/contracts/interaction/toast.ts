@@ -4,8 +4,9 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
+import type { ToastType as ToastTypeToken } from '$stylist/design-system/tokens/interaction/toast-types';
 
-export type ToastType = 'info' | 'success' | 'warning' | 'error';
+export type ToastType = ToastTypeToken;
 
 export interface IToastProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   type?: ToastType;

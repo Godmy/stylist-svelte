@@ -1,11 +1,17 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 export class PrivacySettingsStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'c-privacy-settings bg-white rounded-lg shadow p-6';
-    return `${baseClass} ${extraClasses}`.trim();
+    return cn(
+      'c-privacy-settings border border-[var(--color-border-primary)] p-6 shadow-sm',
+      CARD_BASE_CLASSES,
+      extraClasses
+    );
   }
 
   static getTitleClass(): string {
-    return 'text-xl font-bold mb-4';
+    return 'mb-4 text-xl font-bold text-[var(--color-text-primary)]';
   }
 
   static getSettingsContainerClass(): string {
@@ -13,7 +19,7 @@ export class PrivacySettingsStyleManager {
   }
 
   static getSettingItemClass(): string {
-    return 'flex items-start justify-between p-3 border rounded-lg';
+    return 'flex items-start justify-between rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3';
   }
 
   static getSettingContentClass(): string {
@@ -21,11 +27,11 @@ export class PrivacySettingsStyleManager {
   }
 
   static getSettingLabelClass(): string {
-    return 'font-medium';
+    return 'font-medium text-[var(--color-text-primary)]';
   }
 
   static getSettingDescriptionClass(): string {
-    return 'text-sm text-gray-600';
+    return 'text-sm text-[var(--color-text-secondary)]';
   }
 
   static getToggleContainerClass(): string {
@@ -37,11 +43,11 @@ export class PrivacySettingsStyleManager {
   }
 
   static getToggleTrackClass(isEnabled: boolean): string {
-    return `block w-11 h-6 rounded-full ${isEnabled ? 'bg-blue-500' : 'bg-gray-300'}`;
+    return `block h-6 w-11 rounded-full ${isEnabled ? 'bg-[var(--color-primary-500)]' : 'bg-[var(--color-neutral-300)]'}`;
   }
 
   static getToggleThumbClass(isEnabled: boolean): string {
-    return `absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${isEnabled ? 'transform translate-x-5' : ''}`;
+    return `absolute left-1 top-1 h-4 w-4 rounded-full bg-[var(--color-background-primary)] transition-transform ${isEnabled ? 'translate-x-5' : ''}`;
   }
 
   static getSaveButtonContainerClass(): string {
@@ -49,6 +55,6 @@ export class PrivacySettingsStyleManager {
   }
 
   static getSaveButtonClass(): string {
-    return 'px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600';
+    return 'rounded bg-[var(--color-primary-500)] px-4 py-2 text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }

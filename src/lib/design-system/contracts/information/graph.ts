@@ -1,10 +1,9 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 
-import type { CommonSize } from '../../tokens/architecture/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { GraphEdgeType } from './common';
 import type { HtmlAttributesBase } from './common';
 
-export type GraphNodeSize = CommonSize;
 
 export type GraphNodeType = string;
 
@@ -27,8 +26,9 @@ export interface GraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
 	label?: string;
 	type?: GraphNodeType;
 	color?: string;
-	size?: GraphNodeSize;
+	size?: ComponentSize;
 	selected?: boolean;
 	interactive?: boolean;
 	children?: Snippet;
 }
+

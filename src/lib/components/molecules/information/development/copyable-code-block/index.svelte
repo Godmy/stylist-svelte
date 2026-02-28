@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
   /**
-   * CopyableCodeBlock - Legacy wrapper for unified CodeBlock
+   * CopyableCode - Legacy wrapper for unified Code
    * 
-   * @deprecated Use CodeBlock with copyable={true} instead
+   * @deprecated Use Code with copyable={true} instead
    */
-  import CodeBlock from '../code-block/index.svelte';
+  import Code from '../code-block/index.svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -21,7 +21,7 @@
   let props: Props = $props();
 </script>
 
-<CodeBlock
+<Code
   code={props.code}
   language={props.language}
   title={props.title}
@@ -31,3 +31,4 @@
   headerClass={props.headerClass}
   {...props}
 />
+

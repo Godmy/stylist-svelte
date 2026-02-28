@@ -1,7 +1,22 @@
-import {
-	TOKEN_TOGGLE_SIZE_CLASSES,
-	TOKEN_TOGGLE_HANDLE_SIZE_CLASSES
-} from '../../classes/interaction/toggles';
+import type { ComponentSize } from '../../tokens/architecture/component-size';
+
+export const TOKEN_TOGGLE_SIZE_CLASSES: Record<ComponentSize, string> = {
+	xs: 'w-7 h-3.5',
+	sm: 'w-8 h-4',
+	md: 'w-10 h-5',
+	lg: 'w-12 h-6',
+	xl: 'w-14 h-7',
+	'2xl': 'w-16 h-8'
+};
+
+export const TOKEN_TOGGLE_HANDLE_SIZE_CLASSES: Record<ComponentSize, string> = {
+	xs: 'h-2.5 w-2.5',
+	sm: 'h-3 w-3',
+	md: 'h-4 w-4',
+	lg: 'h-5 w-5',
+	xl: 'h-6 w-6',
+	'2xl': 'h-7 w-7'
+};
 
 export class TogglesStyleManager {
 	private static join(classes: Array<string | false | null | undefined>): string {
@@ -13,13 +28,13 @@ export class TogglesStyleManager {
 	}
 
 	static getSwitchTrackClasses(
-		switchSizeOrClass: 'sm' | 'md' | 'lg' | string = 'md',
+		switchSizeOrClass: ComponentSize | string = 'md',
 		disabled = false,
 		checked?: boolean
 	): string {
 		if (
 			typeof switchSizeOrClass === 'string' &&
-			!['sm', 'md', 'lg'].includes(switchSizeOrClass)
+			!['xs', 'sm', 'md', 'lg', 'xl', '2xl'].includes(switchSizeOrClass)
 		) {
 			return this.join([
 				'relative inline-flex h-6 w-11 rounded-full transition-colors',
@@ -28,8 +43,19 @@ export class TogglesStyleManager {
 			]);
 		}
 
-		const size = switchSizeOrClass as 'sm' | 'md' | 'lg';
-		const sizeClass = size === 'sm' ? 'h-4 w-8' : size === 'lg' ? 'h-6 w-12' : 'h-5 w-10';
+		const size = switchSizeOrClass as ComponentSize;
+		const sizeClass =
+			size === 'xs'
+				? 'h-3.5 w-7'
+				: size === 'sm'
+					? 'h-4 w-8'
+					: size === 'lg'
+						? 'h-6 w-12'
+						: size === 'xl'
+							? 'h-7 w-14'
+							: size === '2xl'
+								? 'h-8 w-16'
+								: 'h-5 w-10';
 		const state =
 			checked === undefined
 				? 'bg-[--color-border-primary]'
@@ -45,12 +71,24 @@ export class TogglesStyleManager {
 	}
 
 	static getSwitchKnobClasses(
-		switchSize: 'sm' | 'md' | 'lg' = 'md',
+		switchSize: ComponentSize = 'md',
 		disabled = false,
 		checked?: boolean
 	): string {
 		const sizeClasses = TOKEN_TOGGLE_HANDLE_SIZE_CLASSES[switchSize];
-		const state = checked === undefined ? 'translate-x-0' : checked ? 'translate-x-5' : 'translate-x-0';
+		const translateClass =
+			switchSize === 'xs'
+				? 'translate-x-3'
+				: switchSize === 'sm'
+					? 'translate-x-4'
+					: switchSize === 'lg'
+						? 'translate-x-6'
+						: switchSize === 'xl'
+							? 'translate-x-7'
+							: switchSize === '2xl'
+								? 'translate-x-8'
+								: 'translate-x-5';
+		const state = checked === undefined ? 'translate-x-0' : checked ? translateClass : 'translate-x-0';
 		return this.join([
 			'pointer-events-none block rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition-transform',
 			sizeClasses,
@@ -78,12 +116,24 @@ export class TogglesStyleManager {
 	}
 
 	static getToggleThumbClasses(
-		size: 'sm' | 'md' | 'lg' = 'md',
+		size: ComponentSize = 'md',
 		disabled = false,
 		checked?: boolean
 	): string {
 		const sizeClasses = TOKEN_TOGGLE_HANDLE_SIZE_CLASSES[size];
-		const state = checked === undefined ? 'translate-x-0.5' : checked ? 'translate-x-5' : 'translate-x-0.5';
+		const translateClass =
+			size === 'xs'
+				? 'translate-x-3'
+				: size === 'sm'
+					? 'translate-x-4'
+					: size === 'lg'
+						? 'translate-x-6'
+						: size === 'xl'
+							? 'translate-x-7'
+							: size === '2xl'
+								? 'translate-x-8'
+								: 'translate-x-5';
+		const state = checked === undefined ? 'translate-x-0.5' : checked ? translateClass : 'translate-x-0.5';
 		return this.join([
 			'pointer-events-none inline-block transform rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition duration-200 ease-in-out',
 			sizeClasses,
@@ -92,7 +142,7 @@ export class TogglesStyleManager {
 		]);
 	}
 
-	static getToggleSizeClasses(size: 'sm' | 'md' | 'lg' = 'md'): string {
+	static getToggleSizeClasses(size: ComponentSize = 'md'): string {
 		return TOKEN_TOGGLE_SIZE_CLASSES[size];
 	}
 
@@ -109,7 +159,7 @@ export class TogglesStyleManager {
 		return this.join([baseClasses, activeClasses, disabled ? 'opacity-50 cursor-not-allowed' : '']);
 	}
 
-	static getToggleHandleSizeClass(size: 'sm' | 'md' | 'lg' = 'md'): string {
+	static getToggleHandleSizeClass(size: ComponentSize = 'md'): string {
 		return TOKEN_TOGGLE_HANDLE_SIZE_CLASSES[size];
 	}
 }

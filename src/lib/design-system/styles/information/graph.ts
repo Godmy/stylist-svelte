@@ -1,18 +1,24 @@
-import type { GraphNodeSize } from '../../contracts';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { GraphEdgeType } from '../../tokens';
-import {
-	GRAPH_EDGE_ACTIVE_CLASS,
-	GRAPH_EDGE_BASE_CLASS,
-	GRAPH_EDGE_DIRECTED_CLASS,
-	GRAPH_EDGE_TYPE_CLASSES,
-	GRAPH_NODE_BASE_CLASS,
-	GRAPH_NODE_SELECTED_CLASS,
-	GRAPH_NODE_SIZE_CLASSES
-} from '../../classes/information/graph';
 import { cn } from '../../utils/cn/index';
 
+const GRAPH_NODE_SIZE_CLASSES: Record<ComponentSize, string> = {
+	xs: 'w-5 h-5',
+	sm: 'w-6 h-6',
+	md: 'w-8 h-8',
+	lg: 'w-10 h-10',
+	xl: 'w-12 h-12',
+	'2xl': 'w-14 h-14'
+};
+
+const GRAPH_EDGE_TYPE_CLASSES: Record<GraphEdgeType, string> = {
+	line: 'graph-edge--line',
+	curve: 'graph-edge--curve',
+	polyline: 'graph-edge--polyline'
+};
+
 export class GraphStyleManager {
-	static getGraphNodeSizeClasses(size: GraphNodeSize): string {
+	static getGraphNodeSizeClasses(size: ComponentSize): string {
 		return GRAPH_NODE_SIZE_CLASSES[size];
 	}
 
@@ -21,15 +27,15 @@ export class GraphStyleManager {
 	}
 
 	static getGraphNodeStateClasses(selected: boolean): string {
-		return cn(GRAPH_NODE_BASE_CLASS, selected && GRAPH_NODE_SELECTED_CLASS);
+		return cn('graph-node', selected && 'selected');
 	}
 
 	static getGraphEdgeClasses(directed: boolean, type: GraphEdgeType, active: boolean): string {
 		return cn(
-			GRAPH_EDGE_BASE_CLASS,
+			'graph-edge',
 			GRAPH_EDGE_TYPE_CLASSES[type],
-			directed && GRAPH_EDGE_DIRECTED_CLASS,
-			active && GRAPH_EDGE_ACTIVE_CLASS
+			directed && 'directed',
+			active && 'active'
 		);
 	}
 

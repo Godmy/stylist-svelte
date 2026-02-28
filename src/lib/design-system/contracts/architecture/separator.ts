@@ -1,6 +1,8 @@
-﻿import type { CompactSize } from '../../tokens/architecture/sizes';
-import type { CodeBlockVariant } from '../../tokens';
-import type { Orientation } from '../../tokens/architecture/layout';
+﻿import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Code as CodeToken } from '$stylist/design-system/tokens/architecture/code';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+
+export type Code = CodeToken;
 
 export interface SeparatorProps {
 	orientation?: Orientation;
@@ -11,9 +13,13 @@ export interface SeparatorProps {
 export interface SyntaxHighlightedCodeProps {
 	language?: string;
 	code?: string;
-	variant?: CodeBlockVariant;
-	size?: CompactSize;
+	variant?: Code;
+	size?: ComponentSize;
 	showLineNumbers?: boolean;
 	startLineNumber?: number;
 	class?: string;
 }
+
+
+
+

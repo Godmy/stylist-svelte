@@ -1,19 +1,9 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { Alignment, Justification } from '../../tokens';
-import type { HorizontalGap } from '../../classes/architecture/layout';
+import type { Alignment, Justification, Orientation, ComponentSize } from '../../tokens';
+import type { HorizontalGap as LayoutHorizontalGap } from '../../tokens/architecture/layout';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
-
-/**
- * Размер для layout компонентов
- */
-export type LayoutSize = '1/4' | '1/3' | '2/5' | '1/2' | '3/5' | '2/3' | '3/4' | 'full';
-
-/**
- * Базовые типы для layout компонентов
- */
-export type LayoutDirection = 'vertical' | 'horizontal';
 
 /**
  * Секция для layout с динамическими элементами
@@ -21,7 +11,7 @@ export type LayoutDirection = 'vertical' | 'horizontal';
 export interface LayoutSection {
 	id?: string;
 	content: Snippet;
-	size?: LayoutSize;
+	size?: ComponentSize | 'xl' | '2xl' | 'full';
 	className?: string;
 }
 
@@ -30,7 +20,7 @@ export interface LayoutSection {
  */
 export interface VerticalLayoutProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
-	gap?: HorizontalGap;
+	gap?: LayoutHorizontalGap;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
 	fillHeight?: boolean;
@@ -43,13 +33,13 @@ export interface VerticalLayoutProps extends HtmlAttributesWithChildren<HTMLDivE
 export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children?: Snippet;
 	sections?: LayoutSection[];
-	direction?: LayoutDirection;
-	gap?: HorizontalGap;
+	direction?: Orientation;
+	gap?: LayoutHorizontalGap;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
 	responsive?: boolean;
-	primarySize?: LayoutSize;
-	secondarySize?: LayoutSize;
+	primarySize?: ComponentSize | 'xl' | '2xl' | 'full';
+	secondarySize?: ComponentSize | 'xl' | '2xl' | 'full';
 	wrap?: boolean;
 }
 
@@ -59,7 +49,7 @@ export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDi
 export interface GridLayoutExtendedProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
 	cols?: number;
-	gap?: HorizontalGap;
+	gap?: LayoutHorizontalGap;
 	responsive?: boolean;
 	alignItems?: Alignment;
 	justifyContent?: Justification;

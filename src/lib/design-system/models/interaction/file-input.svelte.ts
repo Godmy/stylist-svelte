@@ -22,7 +22,6 @@ export { createInputState };
 export const createFileInputState = createInputState;
 export default createFileInputState;
 
-export { INPUT_FIELD_PRESET };
 
 
 

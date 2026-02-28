@@ -1,6 +1,17 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { File, Folder, Archive, Download, Eye, Search, ChevronRight, ChevronDown, Copy, ExternalLink } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const File = 'file';
+const Folder = 'folder';
+const Archive = 'archive';
+const Download = 'download';
+const Eye = 'eye';
+const Search = 'search';
+const ChevronRight = 'chevron-right';
+const ChevronDown = 'chevron-down';
+const Copy = 'copy';
+const ExternalLink = 'external-link';
+
   import { Button, InputField } from '$stylist/components/atoms';
 
   type ZipEntryType = 'file' | 'directory';
@@ -193,7 +204,7 @@
   <!-- Archive header -->
   <div class={`p-4 bg-gray-50 border-b ${headerClass}`}>
     <div class="flex items-center">
-      <ArchiveIcon class="h-6 w-6 text-blue-500 mr-3" />
+      <BaseIcon name={Archive} class="h-6 w-6 text-blue-500 mr-3" />
       <div>
         <h3 class="font-medium text-gray-900">{archiveName}</h3>
         <p class="text-sm text-gray-500">{entries.length} items</p>
@@ -203,7 +214,7 @@
     {#if searchable}
       <div class="mt-3 relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <SearchIcon class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
         </div>
         <input
           type="text"
@@ -241,14 +252,14 @@
             >
               {#if entry.type === 'directory'}
                 {#if expandedFolders.has(entry.path)}
-                  <ChevronDownIcon class="h-4 w-4 text-gray-600" />
+                  <BaseIcon name={ChevronDown} class="h-4 w-4 text-gray-600" />
                 {:else}
-                  <ChevronRightIcon class="h-4 w-4 text-gray-600" />
+                  <BaseIcon name={ChevronRight} class="h-4 w-4 text-gray-600" />
                 {/if}
               {/if}
             </button>
 
-            <EntryIcon class={`h-5 w-5 mr-3 ${entry.type === 'directory' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={entry.type === 'directory' ? Folder : File} class={`h-5 w-5 mr-3 ${entry.type === 'directory' ? 'text-blue-500' : 'text-gray-500'}`} />
 
             <div class="flex-1 min-w-0">
               <div class="flex items-center">
@@ -264,7 +275,7 @@
                   <span>{formatFileSize(entry.size)}</span>
                 {/if}
                 {#if entry.modified}
-                  <span class="mx-2">•</span>
+                  <span class="mx-2">вЂў</span>
                   <span>{entry.modified.toLocaleDateString()}</span>
                 {/if}
               </div>
@@ -279,7 +290,7 @@
                   disabled={disabled}
                   title="Preview"
                 >
-                  <EyeIcon class="h-4 w-4 text-gray-500" />
+                  <BaseIcon name={Eye} class="h-4 w-4 text-gray-500" />
                 </Button>
               {/if}
 
@@ -290,7 +301,7 @@
                 disabled={disabled}
                 title="Download"
               >
-                <DownloadIcon class="h-4 w-4 text-gray-500" />
+                <BaseIcon name={Download} class="h-4 w-4 text-gray-500" />
               </Button>
 
               <Button
@@ -300,7 +311,7 @@
                 disabled={disabled}
                 title="Extract"
               >
-                <ExternalLinkIcon class="h-4 w-4 text-gray-500" />
+                <BaseIcon name={ExternalLink} class="h-4 w-4 text-gray-500" />
               </Button>
             </div>
           </div>
@@ -309,6 +320,7 @@
     {/if}
   </div>
 </div>
+
 
 
 

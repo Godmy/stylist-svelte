@@ -1,22 +1,15 @@
-import {
-	PERFORMANCE_DASHBOARD_CONTAINER_BASE_CLASSES,
-	PERFORMANCE_DASHBOARD_SIZE_CLASSES,
-	PERFORMANCE_DASHBOARD_HEADER_CLASSES,
-	PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES,
-	PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_ACTIVE_CLASSES,
-	PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_INACTIVE_CLASSES,
-	PERFORMANCE_DASHBOARD_METRICS_GRID_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_CARD_BASE_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_HEADER_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_TITLE_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_VALUE_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_TREND_POSITIVE_CLASSES,
-	PERFORMANCE_DASHBOARD_METRIC_TREND_NEGATIVE_CLASSES,
-	PERFORMANCE_DASHBOARD_CHART_CONTAINER_CLASSES,
-	PERFORMANCE_DASHBOARD_CHART_BAR_BASE_CLASSES,
-	DEFAULT_PERFORMANCE_DASHBOARD_SIZE
-} from '../../classes/interaction/performance-dashboard';
 import { cn } from '../../utils/cn/index';
+
+export const PERFORMANCE_DASHBOARD_SIZE_CLASSES = {
+	sm: 'text-sm',
+	md: 'text-base',
+	lg: 'text-lg'
+} as const;
+
+export const PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES =
+	'px-3 py-1.5 text-sm rounded-md border border-[--color-border-default] transition-colors';
+
+export const DEFAULT_PERFORMANCE_DASHBOARD_SIZE: keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES = 'md';
 
 export interface PerformanceDashboardStyleManagerInterface {
 	getContainerClass: (variant: string, size: string, className?: string) => string;
@@ -37,11 +30,11 @@ export interface PerformanceDashboardStyleManagerInterface {
 export class PerformanceDashboardStyleManager implements PerformanceDashboardStyleManagerInterface {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses = PERFORMANCE_DASHBOARD_SIZE_CLASSES[size as keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES] || PERFORMANCE_DASHBOARD_SIZE_CLASSES[DEFAULT_PERFORMANCE_DASHBOARD_SIZE];
-		return cn(PERFORMANCE_DASHBOARD_CONTAINER_BASE_CLASSES, sizeClasses, className);
+		return cn('bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-default] overflow-hidden', sizeClasses, className);
 	}
 
 	static getHeaderClass(className?: string): string {
-		return cn(PERFORMANCE_DASHBOARD_HEADER_CLASSES, className);
+		return cn('flex justify-between items-center p-4 border-b border-[--color-border-default]', className);
 	}
 
 	static getTimeRangeButtonClass(): string {
@@ -49,43 +42,43 @@ export class PerformanceDashboardStyleManager implements PerformanceDashboardSty
 	}
 
 	static getActiveTimeRangeButtonClass(): string {
-		return cn(PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES, PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_ACTIVE_CLASSES);
+		return cn(PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES, 'bg-[--color-primary-500] text-[--color-text-inverse] border-[--color-primary-500]');
 	}
 
 	static getMetricsGridClass(className?: string): string {
-		return cn(PERFORMANCE_DASHBOARD_METRICS_GRID_CLASSES, className);
+		return cn('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4', className);
 	}
 
 	static getMetricCardClass(className?: string): string {
-		return cn(PERFORMANCE_DASHBOARD_METRIC_CARD_BASE_CLASSES, className);
+		return cn('bg-[--color-surface] rounded-lg border border-[--color-border-default] p-4', className);
 	}
 
 	static getMetricHeaderClass(): string {
-		return PERFORMANCE_DASHBOARD_METRIC_HEADER_CLASSES;
+		return 'flex justify-between items-center mb-2';
 	}
 
 	static getMetricTitleClass(): string {
-		return PERFORMANCE_DASHBOARD_METRIC_TITLE_CLASSES;
+		return 'text-sm font-medium text-[--color-text-secondary]';
 	}
 
 	static getMetricValueClass(): string {
-		return PERFORMANCE_DASHBOARD_METRIC_VALUE_CLASSES;
+		return 'text-2xl font-bold text-[--color-text-primary]';
 	}
 
 	static getTrendPositiveClass(): string {
-		return PERFORMANCE_DASHBOARD_METRIC_TREND_POSITIVE_CLASSES;
+		return 'text-[--color-success-600]';
 	}
 
 	static getTrendNegativeClass(): string {
-		return PERFORMANCE_DASHBOARD_METRIC_TREND_NEGATIVE_CLASSES;
+		return 'text-[--color-danger-600]';
 	}
 
 	static getChartContainerClass(): string {
-		return PERFORMANCE_DASHBOARD_CHART_CONTAINER_CLASSES;
+		return 'p-4';
 	}
 
 	static getChartBarClass(): string {
-		return PERFORMANCE_DASHBOARD_CHART_BAR_BASE_CLASSES;
+		return 'bg-[--color-primary-500] rounded';
 	}
 
 	// Instance methods for interface implementation

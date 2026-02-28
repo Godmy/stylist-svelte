@@ -1,3 +1,4 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 // Props for SortableGrid component
 export interface SortableGridItem {
   id: string;
@@ -17,7 +18,7 @@ export interface SortableGridProps {
   onItemDragEnd?: (item: SortableGridItem) => void;
   disabled?: boolean;
   cols?: number;
-  gap?: 'sm' | 'md' | 'lg';
+  gap?: ComponentSize;
   variant?: 'card' | 'minimal';
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
 }

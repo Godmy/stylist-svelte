@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { IMiniCalendarProps, CalendarEvent, CalendarDay } from './types';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { MiniCalendarStyleManager } from './styles';
-  import { ChevronLeft, ChevronRight } from 'lucide-svelte';
-  import { Button } from '$stylist/components/atoms';
+
+  const ChevronLeft = 'chevron-left';
+  const ChevronRight = 'chevron-right';
 
   // Component props with proper typing
   let props: IMiniCalendarProps = $props();
@@ -117,7 +119,7 @@ This component follows SOLID principles:
   <!-- Calendar header -->
   <div class={headerClasses}>
     <Button variant="ghost" size="sm" onclick={() => navigateMonth(-1)}>
-      <ChevronLeft class="h-4 w-4" />
+      <BaseIcon name={ChevronLeft} class="h-4 w-4" />
     </Button>
 
     <div class="font-[--font-weight-medium] text-[--color-text-primary]">
@@ -136,7 +138,7 @@ This component follows SOLID principles:
         </Button>
       {/if}
       <Button variant="ghost" size="sm" onclick={() => navigateMonth(1)}>
-        <ChevronRight class="h-4 w-4" />
+        <BaseIcon name={ChevronRight} class="h-4 w-4" />
       </Button>
     </div>
   </div>
@@ -189,4 +191,5 @@ This component follows SOLID principles:
     {/each}
   </div>
 </div>
+
 

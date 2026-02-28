@@ -1,3 +1,6 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 export class ScrumBacklogStyleManager {
   static getContainerClass(): string {
     return 'c-scrum-backlog backlog-container';
@@ -12,7 +15,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getHeaderTitleClass(): string {
-    return 'text-xl font-bold text-gray-800';
+    return 'text-xl font-bold text-[var(--color-text-primary)]';
   }
 
   static getHeaderButtonContainerClass(): string {
@@ -24,7 +27,10 @@ export class ScrumBacklogStyleManager {
   }
 
   static getAddFormContainerClass(): string {
-    return 'add-form bg-white p-4 rounded-lg shadow-md mb-4 border border-gray-200';
+    return cn(
+      'add-form mb-4 border border-[var(--color-border-primary)] p-4 shadow-md',
+      CARD_BASE_CLASSES
+    );
   }
 
   static getFormGridClass(): string {
@@ -36,7 +42,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getFormLabelClass(): string {
-    return 'block text-sm font-medium text-gray-700 mb-1';
+    return 'mb-1 block text-sm font-medium text-[var(--color-text-secondary)]';
   }
 
   static getFormInputClass(): string {
@@ -48,7 +54,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getFormSelectClass(): string {
-    return 'w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm';
+    return 'w-full rounded-md border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-[var(--color-primary-500)] sm:text-sm';
   }
 
   static getFormButtonsContainerClass(): string {
@@ -56,7 +62,10 @@ export class ScrumBacklogStyleManager {
   }
 
   static getFiltersContainerClass(): string {
-    return 'filters bg-white p-4 rounded-lg shadow-sm border border-gray-200 mb-4';
+    return cn(
+      'filters mb-4 border border-[var(--color-border-primary)] p-4 shadow-sm',
+      CARD_BASE_CLASSES
+    );
   }
 
   static getFiltersGridClass(): string {
@@ -64,7 +73,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getFilterLabelClass(): string {
-    return 'block text-sm font-medium text-gray-700 mb-1';
+    return 'mb-1 block text-sm font-medium text-[var(--color-text-secondary)]';
   }
 
   static getItemsContainerClass(): string {
@@ -76,11 +85,11 @@ export class ScrumBacklogStyleManager {
   }
 
   static getEmptyStateTextClass(): string {
-    return 'text-gray-500 text-lg';
+    return 'text-lg text-[var(--color-text-secondary)]';
   }
 
   static getEmptyStateSubtextClass(): string {
-    return 'text-gray-400 mt-2';
+    return 'mt-2 text-[var(--color-text-tertiary)]';
   }
 
   static getItemsGridClass(): string {
@@ -88,7 +97,10 @@ export class ScrumBacklogStyleManager {
   }
 
   static getItemCardClass(): string {
-    return 'bg-white rounded-lg shadow-sm border border-gray-200 p-4 relative';
+    return cn(
+      'relative border border-[var(--color-border-primary)] p-4 shadow-sm',
+      CARD_BASE_CLASSES
+    );
   }
 
   static getItemHeaderClass(): string {
@@ -96,11 +108,11 @@ export class ScrumBacklogStyleManager {
   }
 
   static getItemTitleClass(): string {
-    return 'font-semibold text-gray-800';
+    return 'font-semibold text-[var(--color-text-primary)]';
   }
 
   static getItemDescriptionClass(): string {
-    return 'text-sm text-gray-600 mb-3';
+    return 'mb-3 text-sm text-[var(--color-text-secondary)]';
   }
 
   static getItemBadgesContainerClass(): string {

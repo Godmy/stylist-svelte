@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { Avatar } from '$stylist/components/atoms';
-  import { Check, CheckCheck } from 'lucide-svelte';
+  import { Icon as BaseIcon, Avatar } from '$stylist/components/atoms';
+
+  const Check = 'check';
+  const CheckCheck = 'check-check';
 
   type MessageStatus = 'sent' | 'delivered' | 'read';
 
@@ -52,8 +54,6 @@
     'delivered': Check,
     'read': CheckCheck
   }[status]);
-  
-  let StatusIcon = $derived(statusIcon);
 </script>
 
 <div class={`flex ${alignmentClass} mb-4 ${hostClass}`} {...restProps}>
@@ -81,8 +81,9 @@
     <div class={`flex items-center justify-end mt-1 text-xs text-gray-500 ${footerClass}`}>
       <span>{timestamp}</span>
       {#if isOwn && status}
-        <StatusIcon class={`ml-1 h-3 w-3 ${status === 'read' ? 'text-blue-500' : 'text-gray-400'}`} />
+        <BaseIcon name={statusIcon} class={`ml-1 h-3 w-3 ${status === 'read' ? 'text-blue-500' : 'text-gray-400'}`} />
       {/if}
     </div>
   </div>
 </div>
+

@@ -53,7 +53,11 @@ export interface SessionManagerProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface AppearanceSettingsProps extends HTMLAttributes<HTMLFormElement> {
   theme?: 'light' | 'dark' | 'system';
-  fontScale?: number;
+  highContrast?: boolean;
+  uiTheme?: 'minimal' | 'ocean' | 'forest' | 'sunset';
+  onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
+  onHighContrastChange?: (enabled: boolean) => void;
+  onUiThemeChange?: (theme: 'minimal' | 'ocean' | 'forest' | 'sunset') => void;
   class?: string;
 }
 

@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Calendar, Clock, X } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Calendar = 'calendar';
+const Clock = 'clock';
+const X = 'x';
+
   import type { DateTimeRangePickerProps } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
@@ -40,9 +44,9 @@
       value={selectedRange.start && selectedRange.end ? `${fmt(selectedRange.start)} - ${fmt(selectedRange.end)}` : placeholder}
       onclick={() => !disabled && (isOpen = !isOpen)}
     />
-    <Calendar class="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+    <BaseIcon name={Calendar} class="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
     {#if selectedRange.start || selectedRange.end}
-      <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2" onclick={() => (selectedRange = { start: null, end: null })}><X class="h-4 w-4" /></button>
+      <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2" onclick={() => (selectedRange = { start: null, end: null })}><BaseIcon name={X} class="h-4 w-4" /></button>
     {/if}
   </div>
 
@@ -50,12 +54,12 @@
     <div class={InteractionInputStyleManager.panel(`absolute z-10 mt-2 p-3 w-96 ${calendarClass}`)}>
       <div class="grid grid-cols-2 gap-4">
         <div>
-          <div class="text-sm font-medium mb-2 flex items-center gap-1"><Clock class="h-4 w-4" /> Start</div>
+          <div class="text-sm font-medium mb-2 flex items-center gap-1"><BaseIcon name={Clock} class="h-4 w-4" /> Start</div>
           <input type="date" class="w-full mb-2 border rounded px-2 py-1" onchange={(e) => changeTime('start', (selectedRange.start?.getHours() ?? 0), (selectedRange.start?.getMinutes() ?? 0))} />
           <input type="time" class="w-full border rounded px-2 py-1" onchange={(e) => { const [h,m]=(e.target as HTMLInputElement).value.split(':').map(Number); changeTime('start', h||0, m||0); }} />
         </div>
         <div>
-          <div class="text-sm font-medium mb-2 flex items-center gap-1"><Clock class="h-4 w-4" /> End</div>
+          <div class="text-sm font-medium mb-2 flex items-center gap-1"><BaseIcon name={Clock} class="h-4 w-4" /> End</div>
           <input type="date" class="w-full mb-2 border rounded px-2 py-1" onchange={(e) => changeTime('end', (selectedRange.end?.getHours() ?? 0), (selectedRange.end?.getMinutes() ?? 0))} />
           <input type="time" class="w-full border rounded px-2 py-1" onchange={(e) => { const [h,m]=(e.target as HTMLInputElement).value.split(':').map(Number); changeTime('end', h||0, m||0); }} />
         </div>
@@ -63,3 +67,4 @@
     </div>
   {/if}
 </div>
+

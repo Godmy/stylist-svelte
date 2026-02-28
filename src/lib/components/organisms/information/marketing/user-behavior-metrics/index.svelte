@@ -1,6 +1,14 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Activity, MousePointer, Eye, Clock, TrendingUp, TrendingDown, Calendar } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Activity = 'activity';
+const MousePointer = 'mouse-pointer';
+const Eye = 'eye';
+const Clock = 'clock';
+const TrendingUp = 'trending-up';
+const TrendingDown = 'trending-down';
+const Calendar = 'calendar';
+
 
   type UserBehaviorMetric = {
     id: string;
@@ -54,7 +62,7 @@
     <div class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
       <div>
         <div class="flex items-center">
-          <Activity class="h-5 w-5 text-gray-500 mr-2" />
+          <BaseIcon name={Activity} class="h-5 w-5 text-gray-500 mr-2" />
           <h3 class="text-lg font-medium text-gray-900">{title}</h3>
         </div>
         {#if subtitle}
@@ -101,9 +109,9 @@
                 metric.changeType === 'positive' ? 'text-green-600' : 'text-red-600'
               }`}>
                 {#if metric.changeType === 'positive'}
-                  <TrendingUp class="h-4 w-4 mr-1" />
+                  <BaseIcon name={TrendingUp} class="h-4 w-4 mr-1" />
                 {:else}
-                  <TrendingDown class="h-4 w-4 mr-1" />
+                  <BaseIcon name={TrendingDown} class="h-4 w-4 mr-1" />
                 {/if}
                 {Math.abs(metric.change)}%
               </div>
@@ -128,7 +136,7 @@
           <div class="flex items-center justify-between mb-4">
             <h5 class="text-sm font-medium text-gray-900">Engagement Heatmap</h5>
             <div class="flex items-center text-xs text-gray-500">
-              <Eye class="h-4 w-4 mr-1" />
+              <BaseIcon name={Eye} class="h-4 w-4 mr-1" />
               Page views
             </div>
           </div>
@@ -176,7 +184,7 @@
             {/each}
           </div>
           <div class="mt-2 flex items-center text-xs text-gray-500">
-            <MousePointer class="h-4 w-4 mr-1" />
+            <BaseIcon name={MousePointer} class="h-4 w-4 mr-1" />
             Higher density = more clicks
           </div>
         </div>

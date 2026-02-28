@@ -59,7 +59,7 @@
         <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-2">
           {#each Object.entries(currentTheme.colors) as [tokenName, tokenValue]}
             {#if tokenName.includes('color-') && !tokenName.includes('text') && !tokenName.includes('bg') && !tokenName.includes('border') && !tokenName.includes('control')}
-              <div class="flex flex-col items-center p-2 rounded-md hover:bg-[--color-bg-secondary] transition-colors">
+              <div class="flex flex-col items-center p-2 rounded-md hover:bg-[--color-bg-secondary] TRANSITION-colors">
                 <div 
                   class="w-16 h-16 rounded-md border border-[--color-border-primary] mb-2" 
                   style="background-color: {tokenValue}"
@@ -131,7 +131,7 @@
             {#if tokenValue !== 'none'}
               <div
                 class="p-4 rounded-md border border-[--color-border-primary]"
-                style={`box-shadow: ${tokenValue}`}
+                style={`box-SHADOW: ${tokenValue}`}
               >
                 <div class="font-mono text-sm mb-2">{tokenName}</div>
                 <div class="text-xs font-mono">{tokenValue}</div>
@@ -147,3 +147,4 @@
     <p class="text-[--color-text-secondary]">Design tokens are hidden.</p>
   {/if}
 </div>
+

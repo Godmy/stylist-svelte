@@ -1,13 +1,16 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Copy, Check } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Copy = 'copy';
+const Check = 'check';
+
   import { Button } from '$stylist/components/atoms';
-  import { CodeBlockStyleManager } from '$stylist/design-system/styles/information/code-block';
+  import { CodeStyleManager } from '$stylist/design-system/styles/information/code-block';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
   /**
-   * Unified CodeBlock Component
+   * Unified Code Component
    * 
    * Consolidates: code-block-with-line-numbers, copyable-code-block, code-editor
    * 
@@ -66,14 +69,14 @@
   let languageClass = $derived(`language-${language}`);
 
   // Generate CSS classes using the style manager
-  const containerClass = $derived(CodeBlockStyleManager.getContainerClass(hostClass));
-  const headerClassComputed = $derived(CodeBlockStyleManager.getHeaderClass(headerClass));
-  const lineNumbersContainerClass = $derived(CodeBlockStyleManager.getLineNumbersContainerClass(lineNumberClass));
-  const lineNumberItemClass = (isHighlighted: boolean) => CodeBlockStyleManager.getLineNumberItemClass(isHighlighted);
-  const contentContainerClass = $derived(CodeBlockStyleManager.getContentContainerClass(contentClass));
-  const preClass = $derived(CodeBlockStyleManager.getPreClass(codeClass));
-  const copyButtonContainerClass = $derived(CodeBlockStyleManager.getCopyButtonContainerClass());
-  const iconClass = $derived(CodeBlockStyleManager.getIconClass());
+  const containerClass = $derived(CodeStyleManager.getContainerClass(hostClass));
+  const headerClassComputed = $derived(CodeStyleManager.getHeaderClass(headerClass));
+  const lineNumbersContainerClass = $derived(CodeStyleManager.getLineNumbersContainerClass(lineNumberClass));
+  const lineNumberItemClass = (isHighlighted: boolean) => CodeStyleManager.getLineNumberItemClass(isHighlighted);
+  const contentContainerClass = $derived(CodeStyleManager.getContentContainerClass(contentClass));
+  const preClass = $derived(CodeStyleManager.getPreClass(codeClass));
+  const copyButtonContainerClass = $derived(CodeStyleManager.getCopyButtonContainerClass());
+  const iconClass = $derived(CodeStyleManager.getIconClass());
 </script>
 
 <div class={containerClass} {...restProps}>
@@ -83,7 +86,7 @@
     </div>
   {/if}
 
-  <div class={CodeBlockStyleManager.getMainContentClass()}>
+  <div class={CodeStyleManager.getMainContentClass()}>
     {#if showLineNumbers}
       <div class={lineNumbersContainerClass}>
         {#each codeLines as _, index}
@@ -108,9 +111,9 @@
         aria-label="Copy code"
       >
         {#if copied}
-          <Check class={iconClass} />
+          <BaseIcon name={Check} class={iconClass} />
         {:else}
-          <Copy class={iconClass} />
+          <BaseIcon name={Copy} class={iconClass} />
         {/if}
       </Button>
     </div>
@@ -132,3 +135,5 @@
     line-height: 1.5;
   }
 </style>
+
+

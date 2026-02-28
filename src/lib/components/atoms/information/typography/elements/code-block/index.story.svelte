@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-	import CodeBlock from './index.svelte';
+	import Code from './index.svelte';
 
 	const variantOptions = ['default', 'terminal', 'diff'];
 	const sizeOptions = ['sm', 'md', 'lg'];
@@ -40,16 +40,16 @@
 
 <Story
 	id="atoms-code-block"
-	title="CodeBlock"
-	component={CodeBlock}
+	title="Code"
+	component={Code}
 	category="Atoms"
-	description="CodeBlock component for displaying formatted code blocks."
+	description="Code component for displaying formatted code blocks."
 	tags={['code', 'syntax', 'highlighting', 'block']}
 	{controls}
 >
 	{#snippet children(values: any)}
 		{@const startLine = Number(values.startLineNumber)}
-		<CodeBlock
+		<Code
 			language={values.language as string ?? 'javascript'}
 			variant={values.variant as 'default' | 'terminal' | 'diff' ?? 'default'}
 			size={values.size as 'sm' | 'md' | 'lg' ?? 'md'}
@@ -60,7 +60,8 @@
   console.log("This is an example code block");
   return true;
 }`}
-		</CodeBlock>
+		</Code>
 	{/snippet}
 </Story>
+
 

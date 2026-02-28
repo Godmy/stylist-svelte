@@ -1,6 +1,16 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Navigation, MapPin, Clock, Car, Route, Plus, Minus, RotateCcw, X } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Navigation = 'navigation';
+const MapPin = 'map-pin';
+const Clock = 'clock';
+const Car = 'car';
+const Route = 'route';
+const Plus = 'plus';
+const Minus = 'minus';
+const RotateCcw = 'rotate-ccw';
+const X = 'x';
+
   import { Button } from '$lib/components/atoms';
 
   type Location = {
@@ -182,7 +192,7 @@
     <div class="md:w-1/3 space-y-6">
       <div>
         <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <Route class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Route} class="h-5 w-5 mr-2 text-blue-500" />
           Plan Your Route
         </h2>
         <p class="text-sm text-gray-500">Enter your start and end locations</p>
@@ -226,7 +236,7 @@
               type="button"
               class="inline-flex items-center px-4 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             >
-              <MapPin class="h-5 w-5 text-gray-500" />
+              <BaseIcon name={MapPin} class="h-5 w-5 text-gray-500" />
             </button>
           </div>
         </div>
@@ -248,7 +258,7 @@
               type="button"
               class="inline-flex items-center px-4 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
             >
-              <Navigation class="h-5 w-5 text-green-500" />
+              <BaseIcon name={Navigation} class="h-5 w-5 text-green-500" />
             </button>
           </div>
         </div>
@@ -272,7 +282,7 @@
                 <div class="flex items-center justify-between p-2 border border-gray-200 rounded">
                   <div class="flex items-center">
                     <div class="bg-gray-100 p-2 rounded">
-                      <MapPin class="h-4 w-4 text-gray-600" />
+                      <BaseIcon name={MapPin} class="h-4 w-4 text-gray-600" />
                     </div>
                     <div class="ml-2">
                       <div class="text-sm font-medium text-gray-900">{waypoint.name}</div>
@@ -284,7 +294,7 @@
                     class="text-gray-400 hover:text-red-500"
                     onclick={() => handleRemoveWaypoint(i)}
                   >
-                    <X class="h-4 w-4" />
+                    <BaseIcon name={X} class="h-4 w-4" />
                   </button>
                 </div>
               {/each}
@@ -304,7 +314,7 @@
               class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
               onclick={handleAddWaypoint}
             >
-              <Plus class="h-4 w-4" />
+              <BaseIcon name={Plus} class="h-4 w-4" />
             </button>
           </div>
         </div>
@@ -317,7 +327,7 @@
         onclick={calculateRoute}
         disabled={!selectedStartLocation || !selectedEndLocation}
       >
-        <Route class="h-5 w-5 mr-2" />
+        <BaseIcon name={Route} class="h-5 w-5 mr-2" />
         Calculate Route
       </Button>
 
@@ -347,7 +357,7 @@
                   <div>
                     <h4 class="font-medium text-gray-900">{option.name}</h4>
                     <div class="flex items-center mt-1 text-sm text-gray-500">
-                      <Clock class="h-4 w-4 mr-1" />
+                      <BaseIcon name={Clock} class="h-4 w-4 mr-1" />
                       <span>{Math.floor(option.duration / 60)}h {option.duration % 60}m</span>
                       <span class="mx-2">вЂў</span>
                       <span>{option.distance} km</span>
@@ -405,7 +415,7 @@
                 class="absolute w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 z-10"
                 style="top: 30%; left: 20%;"
               >
-                <MapPin class="h-5 w-5" />
+                <BaseIcon name={MapPin} class="h-5 w-5" />
               </div>
 
               <div
@@ -422,7 +432,7 @@
                 class="absolute w-8 h-8 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 z-10"
                 style="top: 70%; left: 80%;"
               >
-                <Navigation class="h-5 w-5" />
+                <BaseIcon name={Navigation} class="h-5 w-5" />
               </div>
 
               <div
@@ -446,7 +456,7 @@
                   class="absolute w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 z-10"
                   style={`top: ${position.top}; left: ${position.left};`}
                 >
-                  <MapPin class="h-4 w-4" />
+                  <BaseIcon name={MapPin} class="h-4 w-4" />
                 </div>
 
                 <div
@@ -479,7 +489,7 @@
                 onclick={handleZoomIn}
                 aria-label="Zoom in"
               >
-                <Plus class="h-4 w-4" />
+                <BaseIcon name={Plus} class="h-4 w-4" />
               </Button>
               <Button
                 variant="secondary"
@@ -487,7 +497,7 @@
                 onclick={handleZoomOut}
                 aria-label="Zoom out"
               >
-                <Minus class="h-4 w-4" />
+                <BaseIcon name={Minus} class="h-4 w-4" />
               </Button>
               <Button
                 variant="secondary"
@@ -495,7 +505,7 @@
                 onclick={handleResetView}
                 aria-label="Reset view"
               >
-                <RotateCcw class="h-4 w-4" />
+                <BaseIcon name={RotateCcw} class="h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -553,4 +563,5 @@
     {/if}
   </div>
 </div>
+
 

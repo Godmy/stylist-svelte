@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { LineChartStyleManager } from '$stylist/design-system/styles/architecture/line-chart';
-  import { IconTrendingUp, IconInfo } from '$stylist/components/atoms';
+  import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
   // Types
@@ -64,7 +64,7 @@
     ...restProps
   }: ILineChartProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // Определяем стили
+  // РћРїСЂРµРґРµР»СЏРµРј СЃС‚РёР»Рё
   const baseClasses = $derived(`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(variant)} ${hostClass}`);
   const titleContainerClasses = $derived(LineChartStyleManager.getTitleContainerClasses());
   const titleClasses = $derived(LineChartStyleManager.getTitleClasses());
@@ -142,7 +142,7 @@
       <h3 class={titleClasses}>{title}</h3>
       {#if showTooltip}
         <Tooltip content="This is a line chart showing trends over time with data points connected by lines." placement="top">
-          <IconInfo size="sm" class={infoIconClasses} />
+          <Icon name="info" size="sm" class={infoIconClasses} />
         </Tooltip>
       {/if}
     </div>
@@ -264,5 +264,6 @@
     </div>
   {/if}
 </div>
+
 
 

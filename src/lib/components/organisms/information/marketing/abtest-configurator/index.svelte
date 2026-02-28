@@ -1,6 +1,16 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { TestTube, GitBranch, Users, Target, Play, Pause, Settings, BarChart3, Plus } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const TestTube = 'test-tube';
+const GitBranch = 'git-branch';
+const Users = 'users';
+const Target = 'target';
+const Play = 'play';
+const Pause = 'pause';
+const Settings = 'settings';
+const BarChart3 = 'bar-chart-3';
+const Plus = 'plus';
+
   import type { IABTestConfiguratorProps, ABTest, ABTestVariant } from '$lib/design-system/contracts/information/abtest-configurator';
   import { ABTestConfiguratorStyleManager } from '$lib/design-system/styles/information/abtest-configurator';
   import { validateABTest, calculateTotalWeight, addABTestVariant, removeABTestVariant, updateABTestVariantWeight, toggleABTestVariantStatus } from '$lib/utils/abtest';
@@ -119,7 +129,7 @@
 <div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <TestTube class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={TestTube} class="h-6 w-6 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">A/B Test Configurator</h3>
     </div>
     <p class="mt-1 text-sm text-gray-500">Configure and manage your A/B tests</p>
@@ -203,7 +213,7 @@
             <div class={`border rounded-lg p-4 ${variantClass}`}>
               <div class="flex items-start justify-between">
                 <div class="flex items-center">
-                  <GitBranch class="h-5 w-5 text-gray-400 mr-2" />
+                  <BaseIcon name={GitBranch} class="h-5 w-5 text-gray-400 mr-2" />
                   <div>
                     <h5 class="font-medium text-gray-900">{variant.name}</h5>
                     <p class="text-sm text-gray-500">{variant.description}</p>
@@ -279,7 +289,7 @@
                 class="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
                 onclick={addVariant}
               >
-                <Plus class="h-4 w-4 mr-1" />
+                <BaseIcon name={Plus} class="h-4 w-4 mr-1" />
                 Add
               </button>
             </div>
@@ -307,7 +317,7 @@
           {test.status.charAt(0).toUpperCase() + test.status.slice(1)}
         </span>
         <span class="ml-3 text-sm text-gray-500">
-          <Users class="h-4 w-4 inline mr-1" />
+          <BaseIcon name={Users} class="h-4 w-4 inline mr-1" />
           Targeting: {test.targetAudience || 'All Users'}
         </span>
       </div>
@@ -318,7 +328,7 @@
           class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
           onclick={saveTest}
         >
-          <Settings class="h-4 w-4 mr-1" />
+          <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
           Save Draft
         </button>
 
@@ -328,7 +338,7 @@
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none"
             onclick={startTest}
           >
-            <Play class="h-4 w-4 mr-1" />
+            <BaseIcon name={Play} class="h-4 w-4 mr-1" />
             Start Test
           </button>
         {/if}
@@ -339,7 +349,7 @@
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none"
             onclick={pauseTest}
           >
-            <Pause class="h-4 w-4 mr-1" />
+            <BaseIcon name={Pause} class="h-4 w-4 mr-1" />
             Pause Test
           </button>
           <button
@@ -347,7 +357,7 @@
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             onclick={completeTest}
           >
-            <BarChart3 class="h-4 w-4 mr-1" />
+            <BaseIcon name={BarChart3} class="h-4 w-4 mr-1" />
             Complete Test
           </button>
         {/if}
@@ -355,3 +365,4 @@
     </div>
   </div>
 </div>
+

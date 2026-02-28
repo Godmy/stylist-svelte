@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Check, Copy } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Check = 'check';
+const Copy = 'copy';
+
   import { createEventDispatcher } from 'svelte';
   import { CodeWithCopyStyleManager } from '$stylist/design-system/styles/information/code-with-copy';
 
@@ -88,9 +91,10 @@
     onclick={copyToClipboard}
   >
     {#if copied}
-      <Check class={iconClass(true)} />
+      <BaseIcon name={Check} class={iconClass(true)} />
     {:else}
-      <Copy class={iconClass(false)} />
+      <BaseIcon name={Copy} class={iconClass(false)} />
     {/if}
   </button>
 </div>
+

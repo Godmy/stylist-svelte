@@ -3,7 +3,6 @@
 	import type { Snippet } from 'svelte';
 
 	// Импортируем токены из системы дизайна
-	import { TRANSITION_CLASSES } from '$stylist/design-system/classes';
 
 	// Типы для изображения
 	export type ImageSize = 'sm' | 'md' | 'lg' | 'xl';
@@ -90,7 +89,7 @@
 	// Генерируем CSS классы
 	const baseClasses = 'block max-w-full h-auto object-cover';
 	const loadedClass = $derived(isLoaded ? 'opacity-100' : 'opacity-0');
-	const transitionClass = TRANSITION_CLASSES.opacity;
+	const transitionClass = 'transition-opacity duration-200';
 	const imageClasses = $derived(
 		`${baseClasses} ${loadedClass} ${transitionClass} ${sizeClasses} ${props.class ?? ''}`
 	);

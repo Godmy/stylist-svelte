@@ -1,23 +1,13 @@
 <script lang="ts">
 	import { createInputAddonState } from '$stylist/design-system/models/interaction/input-addon.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
-	import type { InputAddonVariant } from '$stylist/design-system/contracts';
-
-	/**
-	 * InputAddon component - Prefix or suffix for an input field (icon, text)
-	 *
-	 * @param position - Position ('left' | 'right')
-	 * @param variant - Style variant ('solid' | 'ghost')
-	 * @param children - Content to display in the addon
-	 * @param class - Additional CSS classes
-	 * @returns Wrapper to add content to an input field
-	 */
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
 
 	type InputAddonProps = {
 		position?: 'left' | 'right';
-		variant?: InputAddonVariant;
-		size?: CompactSize;
+		variant?: InputVariant;
+		size?: ComponentSize;
 		class?: string;
 		children?: import('svelte').Snippet;
 	};
@@ -31,11 +21,13 @@
 		...restProps
 	}: InputAddonProps & HTMLAttributes<HTMLDivElement> = $props();
 
-	const inputAddonState = $derived(createInputAddonState({
-		variant: variant satisfies InputAddonVariant,
-		size,
-		class: className
-	}));
+	const inputAddonState = $derived(
+		createInputAddonState({
+			variant: variant satisfies InputVariant,
+			size,
+			class: className
+		})
+	);
 
 	let classes = $derived(
 		[
@@ -52,8 +44,3 @@
 <div class={classes} {...restProps}>
 	{@render children?.()}
 </div>
-
-
-
-
-

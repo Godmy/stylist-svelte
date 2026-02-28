@@ -4,18 +4,18 @@
  * Следует принципу единственной ответственности (SRP) из SOLID -
  * данный файл отвечает только за типизацию компонента BillingSummary
  */
-
 import type { HtmlAttributesBase } from './common';
+import type { BillingItemStatus as BillingItemStatusToken, BillingSummaryStatus as BillingSummaryStatusToken } from '../../tokens/information/billing';
 
 /**
  * Возможные статусы элемента счета
  */
-export type BillingItemStatus = 'paid' | 'pending' | 'failed' | 'refunded';
+export type BillingItemStatus = BillingItemStatusToken;
 
 /**
  * Возможные статусы всего счета
  */
-export type BillingSummaryStatus = 'paid' | 'pending' | 'overdue' | 'cancelled';
+export type BillingSummaryStatus = BillingSummaryStatusToken;
 
 /**
  * Интерфейс элемента счета

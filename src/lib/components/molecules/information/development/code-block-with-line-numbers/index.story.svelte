@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-  import CodeBlockWithLineNumbers from './index.svelte';
+  import CodeWithLineNumbers from './index.svelte';
 
   const controls: ControlConfig[] = [
     { name: 'language', type: 'select', options: ['javascript', 'typescript', 'python', 'json'], defaultValue: 'typescript' },
@@ -22,15 +22,15 @@
 
 <Story
   id="molecules-code-block-with-line-numbers"
-  title="Molecules / Information / Development / CodeBlockWithLineNumbers"
-  component={CodeBlockWithLineNumbers}
+  title="Molecules / Information / Development / CodeWithLineNumbers"
+  component={CodeWithLineNumbers}
   category="Molecules/Information/Development"
-  description="Legacy wrapper over CodeBlock with line numbers always enabled."
+  description="Legacy wrapper over Code with line numbers always enabled."
   {controls}
 >
   {#snippet children(args: any)}
     <div class="p-4 rounded-xl bg-gray-50">
-      <CodeBlockWithLineNumbers
+      <CodeWithLineNumbers
         code={code}
         language={args.language}
         title={args.title}
@@ -40,3 +40,4 @@
     </div>
   {/snippet}
 </Story>
+

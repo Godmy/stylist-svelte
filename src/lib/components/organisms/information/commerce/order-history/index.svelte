@@ -1,6 +1,24 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Package, Calendar, DollarSign, Star, Filter, Search, Download, Repeat, Clock, Truck, CheckCircle, XCircle, RotateCcw, ChevronLeft, ChevronRight, TrendingDown, TrendingUp } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Package = 'package';
+const Calendar = 'calendar';
+const DollarSign = 'dollar-sign';
+const Star = 'star';
+const Filter = 'filter';
+const Search = 'search';
+const Download = 'download';
+const Repeat = 'repeat';
+const Clock = 'clock';
+const Truck = 'truck';
+const CheckCircle = 'check-circle';
+const XCircle = 'x-circle';
+const RotateCcw = 'rotate-ccw';
+const ChevronLeft = 'chevron-left';
+const ChevronRight = 'chevron-right';
+const TrendingDown = 'trending-down';
+const TrendingUp = 'trending-up';
+
   import { Button } from '$stylist/components/atoms';
   import Input from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
 
@@ -220,7 +238,7 @@
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <Package class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Package} class="h-5 w-5 mr-2 text-blue-500" />
           Order History
         </h2>
         <p class="mt-1 text-sm text-gray-500">Review your past orders and re-order items</p>
@@ -230,7 +248,7 @@
         {#if showSearch}
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
@@ -262,7 +280,7 @@
 
   {#if orders.length === 0}
     <div class="text-center py-12 border-2 border-dashed border-gray-300 rounded-lg">
-      <Package class="mx-auto h-12 w-12 text-gray-400" />
+      <BaseIcon name={Package} class="mx-auto h-12 w-12 text-gray-400" />
       <h3 class="mt-2 text-sm font-medium text-gray-900">No orders yet</h3>
       <p class="mt-1 text-sm text-gray-500">Get started by placing your first order.</p>
     </div>
@@ -288,7 +306,7 @@
                   </div>
                 </div>
                 <div class="text-sm text-gray-500 flex items-center">
-                  <Calendar class="h-4 w-4 mr-1" />
+                  <BaseIcon name={Calendar} class="h-4 w-4 mr-1" />
                   {formatDate(order.date)}
                 </div>
               </div>
@@ -296,12 +314,12 @@
               <div class="mt-2 sm:flex sm:justify-between">
                 <div class="sm:flex">
                   <div class="flex items-center text-sm text-gray-500">
-                    <DollarSign class="h-4 w-4 mr-1" />
+                    <BaseIcon name={DollarSign} class="h-4 w-4 mr-1" />
                     {formatCurrency(order.total)}
                   </div>
 
                   <div class="mt-2 sm:mt-0 sm:ml-4 flex items-center text-sm text-gray-500">
-                    <Package class="h-4 w-4 mr-1" />
+                    <BaseIcon name={Package} class="h-4 w-4 mr-1" />
                     {order.items.length} {order.items.length === 1 ? 'item' : 'items'}
                   </div>
                 </div>
@@ -314,7 +332,7 @@
                       onclick={() => handleRepeatOrder(order)}
                       title="Re-order items"
                     >
-                      <Repeat class="h-4 w-4" />
+                      <BaseIcon name={Repeat} class="h-4 w-4" />
                       <span class="hidden sm:inline ml-1">Re-order</span>
                     </Button>
                   {/if}
@@ -326,7 +344,7 @@
                       onclick={() => handleDownloadInvoice(order)}
                       title="Download invoice"
                     >
-                      <Download class="h-4 w-4" />
+                      <BaseIcon name={Download} class="h-4 w-4" />
                     </Button>
                   {/if}
                 </div>
@@ -345,7 +363,7 @@
                         />
                       {:else}
                         <div class="h-12 w-12 rounded-md bg-gray-200 flex items-center justify-center">
-                          <Package class="h-6 w-6 text-gray-400" />
+                          <BaseIcon name={Package} class="h-6 w-6 text-gray-400" />
                         </div>
                       {/if}
                       <p class="mt-1 text-xs text-gray-500 truncate max-w-[80px]">{item.name}</p>
@@ -375,7 +393,7 @@
                           onclick={() => onOrderRated?.(order.id, i + 1)}
                           aria-label={`Rate ${i + 1} out of 5`}
                         >
-                          <Star class="h-5 w-5" />
+                          <BaseIcon name={Star} class="h-5 w-5" />
                         </button>
                       {/each}
                     </div>
@@ -447,5 +465,6 @@
     {/if}
   {/if}
 </div>
+
 
 

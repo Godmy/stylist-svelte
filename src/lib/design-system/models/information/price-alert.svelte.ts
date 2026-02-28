@@ -3,6 +3,7 @@ import type { Props } from '$stylist/design-system/contracts';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
+import type { PriceAlertStatus } from '$stylist/design-system/tokens/information/price-alert-statuses';
 
 type PriceAlertStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
   variant?: V;
@@ -10,9 +11,9 @@ type PriceAlertStateProps<V extends string, S extends string> = Omit<Props, 'var
   currentPrice?: number;
   targetPrice?: number;
   currency?: string;
-  status?: 'monitoring' | 'reached' | 'exceeded';
+  status?: PriceAlertStatus;
   productName?: string;
-  onStatusChange?: (status: 'monitoring' | 'reached' | 'exceeded') => void;
+  onStatusChange?: (status: PriceAlertStatus) => void;
 };
 
 /**
@@ -23,7 +24,7 @@ type PriceAlertStateProps<V extends string, S extends string> = Omit<Props, 'var
  * @param props - Пропсы компонента
  * @returns Реактивный объект состояния с классами, aria-атрибутами и вычисляемыми значениями
  */
-export function createState<V extends string, S extends string>(
+export function createPriceAlertState<V extends string, S extends string>(
   preset: Preset<V, S>,
   props: PriceAlertStateProps<V, S> & HTMLAttributes<HTMLDivElement>
 ) {
@@ -71,5 +72,7 @@ export function createState<V extends string, S extends string>(
   };
 }
 
-export const createPriceAlertState = createState;
+// Алиас для обратной совместимости
+export const createState = createPriceAlertState;
+
 export default createPriceAlertState;

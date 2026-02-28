@@ -1,7 +1,6 @@
-import type { MessageStatusProps } from '$stylist/design-system/contracts';
+import type { MessageStatusProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
-
-type MessageStatusType = 'sent' | 'delivered' | 'read';
+import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/message-statuses';
 
 /**
  * MessageStatus state creator

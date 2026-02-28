@@ -1,19 +1,21 @@
 <script lang="ts">
   /**
-   * Компонент BarChart
+   * РљРѕРјРїРѕРЅРµРЅС‚ BarChart
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает только за отображение столбчатой диаграммы
-   * - OCP: Легко расширяем за счет пропсов
-   * - LSP: Подчиняется контракту, заданному интерфейсом IBarChartProps
-   * - ISP: Интерфейс пропсов разделен на конкретные, необходимые части
-   * - DIP: Зависит от абстракций (типов и стилей), а не от деталей реализации
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃС‚РѕР»Р±С‡Р°С‚РѕР№ РґРёР°РіСЂР°РјРјС‹
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј Р·Р° СЃС‡РµС‚ РїСЂРѕРїСЃРѕРІ
+   * - LSP: РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ РєРѕРЅС‚СЂР°РєС‚Сѓ, Р·Р°РґР°РЅРЅРѕРјСѓ РёРЅС‚РµСЂС„РµР№СЃРѕРј IBarChartProps
+   * - ISP: РРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРїСЃРѕРІ СЂР°Р·РґРµР»РµРЅ РЅР° РєРѕРЅРєСЂРµС‚РЅС‹Рµ, РЅРµРѕР±С…РѕРґРёРјС‹Рµ С‡Р°СЃС‚Рё
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    *
-   * Следует Atomic Design: Это молекула, визуализирующая набор данных
+   * РЎР»РµРґСѓРµС‚ Atomic Design: Р­С‚Рѕ РјРѕР»РµРєСѓР»Р°, РІРёР·СѓР°Р»РёР·РёСЂСѓСЋС‰Р°СЏ РЅР°Р±РѕСЂ РґР°РЅРЅС‹С…
    */
 
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Info } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Info = 'info';
+
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
   import { BarChartStyleManager } from '$stylist/design-system/styles/architecture/bar-chart';
   import type { IBarChartProps, IBarPosition } from '$stylist/design-system/contracts/architecture/bar-chart';
@@ -91,7 +93,7 @@
       <h3 class={BarChartStyleManager.getTitleClasses()}>{title}</h3>
       {#if showTooltip}
         <Tooltip content="This is a bar chart showing categorical data with rectangular bars proportional to the values they represent." placement="top">
-          <Info class={BarChartStyleManager.getInfoIconClasses()} />
+          <BaseIcon name={Info} class={BarChartStyleManager.getInfoIconClasses()} />
         </Tooltip>
       {/if}
     </div>
@@ -208,3 +210,4 @@
     </div>
   {/if}
 </div>
+

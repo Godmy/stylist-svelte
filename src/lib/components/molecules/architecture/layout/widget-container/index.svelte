@@ -1,7 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { GripVertical, MoreHorizontal, Minimize2, Maximize2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const GripVertical = 'grip-vertical';
+const MoreHorizontal = 'more-horizontal';
+const Minimize2 = 'minimize-2';
+const Maximize2 = 'maximize-2';
+
 
   type Props = {
     title?: string;
@@ -62,7 +67,7 @@
   <div class={`flex items-center justify-between p-4 border-b ${headerClass}`}>
     {#if draggable}
       <div class="cursor-move text-gray-400">
-        <GripVertical class="h-5 w-5" />
+        <BaseIcon name={GripVertical} class="h-5 w-5" />
       </div>
     {/if}
     
@@ -88,9 +93,9 @@
           aria-label={isMaximized ? 'Minimize' : 'Maximize'}
         >
           {#if isMaximized}
-            <Minimize2 class="h-5 w-5" />
+            <BaseIcon name={Minimize2} class="h-5 w-5" />
           {:else}
-            <Maximize2 class="h-5 w-5" />
+            <BaseIcon name={Maximize2} class="h-5 w-5" />
           {/if}
         </button>
       {/if}
@@ -119,7 +124,7 @@
         class="text-gray-400 hover:text-gray-600"
         aria-label="More options"
       >
-        <MoreHorizontal class="h-5 w-5" />
+        <BaseIcon name={MoreHorizontal} class="h-5 w-5" />
       </button>
     </div>
   </div>
@@ -130,3 +135,4 @@
     </div>
   {/if}
 </div>
+

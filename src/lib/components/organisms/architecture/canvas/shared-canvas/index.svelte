@@ -1,6 +1,16 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MousePointer2, Square, Circle, Type, Trash2, Download, Redo, Undo, Palette } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MousePointer2 = 'mouse-pointer-2';
+const Square = 'square';
+const Circle = 'circle';
+const Type = 'type';
+const Trash2 = 'trash-2';
+const Download = 'download';
+const Redo = 'redo';
+const Undo = 'undo';
+const Palette = 'palette';
+
   import { SharedCanvasStyleManager } from '$stylist/design-system/styles';
   import type { SharedCanvasProps, CanvasObject, CanvasUser } from '$stylist/design-system/contracts';
 
@@ -246,7 +256,7 @@
           title="Select Tool"
           aria-label="Select Tool"
         >
-          <MousePointer2 class="h-4 w-4" />
+          <BaseIcon name={MousePointer2} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -255,7 +265,7 @@
           title="Rectangle Tool"
           aria-label="Rectangle Tool"
         >
-          <Square class="h-4 w-4" />
+          <BaseIcon name={Square} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -264,7 +274,7 @@
           title="Circle Tool"
           aria-label="Circle Tool"
         >
-          <Circle class="h-4 w-4" />
+          <BaseIcon name={Circle} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -273,7 +283,7 @@
           title="Text Tool"
           aria-label="Text Tool"
         >
-          <Type class="h-4 w-4" />
+          <BaseIcon name={Type} class="h-4 w-4" />
         </button>
       </div>
 
@@ -281,7 +291,7 @@
 
       <div class="flex items-center space-x-2">
         <label class="flex items-center text-sm">
-          <Palette class="h-4 w-4 mr-1" />
+          <BaseIcon name={Palette} class="h-4 w-4 mr-1" />
           Color:
           <input
             type="color"
@@ -302,7 +312,7 @@
           title="Undo"
           aria-label="Undo"
         >
-          <Undo class="h-4 w-4" />
+          <BaseIcon name={Undo} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -311,7 +321,7 @@
           title="Redo"
           aria-label="Redo"
         >
-          <Redo class="h-4 w-4" />
+          <BaseIcon name={Redo} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -320,7 +330,7 @@
           title="Delete Selected"
           aria-label="Delete Selected"
         >
-          <Trash2 class="h-4 w-4" />
+          <BaseIcon name={Trash2} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -329,7 +339,7 @@
           title="Export Canvas"
           aria-label="Export Canvas"
         >
-          <Download class="h-4 w-4" />
+          <BaseIcon name={Download} class="h-4 w-4" />
         </button>
       </div>
     </div>
@@ -388,3 +398,4 @@
     {/if}
   </div>
 </div>
+

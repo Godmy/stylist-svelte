@@ -4,10 +4,10 @@
  *
  * @example
  * ```ts
- * import { spacing } from '$stylist/design-system/tokens';
+ * import { SPACING } from '$stylist/design-system/tokens';
  *
- * const smallPadding = spacing[2]; // '0.5rem'
- * const largeMargin = spacing[8];  // '2rem'
+ * const smallPadding = SPACING[2]; // '0.5rem'
+ * const largeMargin = SPACING[8];  // '2rem'
  * ```
  */
 
@@ -34,7 +34,7 @@
  * @property {string} 56 - Экстремальный отступ (224px)
  * @property {string} 64 - Абсолютный отступ (256px)
  */
-export const spacing = {
+export const SPACING = {
 	0: '0',
 	1: '0.25rem', // 4px
 	2: '0.5rem', // 8px
@@ -59,4 +59,4 @@ export const spacing = {
  * Тип, представляющий возможные ключи шкалы отступов
  * Используется для типизации при работе с отступами
  */
-export type SpacingKey = keyof typeof spacing;
+export type SpacingKey = keyof typeof SPACING;

@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { BarChart3, ArrowRight } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const BarChart3 = 'bar-chart-3';
+const ArrowRight = 'arrow-right';
+
   import { ConversionFunnelStyleManager } from '$stylist/design-system/styles/information/conversion-funnel';
 
   type FunnelStep = {
@@ -57,7 +60,7 @@
 <div class={ConversionFunnelStyleManager.getContainerClass(className)} {...restProps}>
   <div class={ConversionFunnelStyleManager.getHeaderClass(headerClass)}>
     <div class="flex items-center">
-      <BarChart3 class="h-5 w-5 text-gray-500 mr-2" />
+      <BaseIcon name={BarChart3} class="h-5 w-5 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">{title}</h3>
     </div>
     {#if subtitle}
@@ -104,7 +107,7 @@
 
           {#if index < steps.length - 1}
             <div class="flex justify-center mt-4">
-              <ArrowRight class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={ArrowRight} class="h-5 w-5 text-gray-400" />
             </div>
           {/if}
         </div>

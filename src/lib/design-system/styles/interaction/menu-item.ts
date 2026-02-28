@@ -15,10 +15,10 @@ export const createMenuItemStyles = <TOptions extends { active: boolean; disable
     container: [
       'flex items-center px-4 py-2 text-sm font-medium rounded transition-colors',
       disabled
-        ? 'text-gray-400 cursor-not-allowed'
+        ? 'text-[--color-text-tertiary] cursor-not-allowed'
         : active
-          ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-100'
-          : 'text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700',
+          ? 'bg-[--color-primary-100] text-[--color-primary-700] dark:bg-[--color-primary-900] dark:text-[--color-primary-100]'
+          : 'text-[--color-text-primary] hover:bg-[--color-background-hover] dark:text-[--color-text-secondary] dark:hover:bg-[--color-surface-hover]',
       baseClasses?.container || ''
     ].join(' ')
   };

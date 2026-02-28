@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+
   import { ModelSelectorStyleManager } from '$stylist/design-system/styles/interaction/model-selector';
   import type { Model, ModelSelectorProps } from '$stylist/design-system/contracts/interaction/model-selector';
 
@@ -18,8 +20,8 @@
     ...restProps
   }: ModelSelectorProps = $props();
 
-  // Определяем переменные, которые не являются пропсами
-  let unused = { ...restProps }; // Используем restProps, чтобы избежать предупреждения о неиспользуемых переменных
+  // РћРїСЂРµРґРµР»СЏРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РЅРµ СЏРІР»СЏСЋС‚СЃСЏ РїСЂРѕРїСЃР°РјРё
+  let unused = { ...restProps }; // РСЃРїРѕР»СЊР·СѓРµРј restProps, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ Рѕ РЅРµРёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 
   let isOpen = $state(false);
   let selectedModelValue = $state<Model | undefined>(models.find(m => m.id === selectedModel));
@@ -65,7 +67,7 @@
         <span class={placeholderClass}>{placeholder}</span>
       {/if}
     </div>
-    <ChevronDown class={chevronClass} />
+    <BaseIcon name={ChevronDown} class={chevronClass} />
   </button>
 
   {#if isOpen}
@@ -81,7 +83,7 @@
           <div class={modelDetailsContainerClass}>
             <div class="flex items-baseline">
               <p class={modelNameClass}>{model.name}</p>
-              <p class={modelProviderVersionClass}>{model.provider} • v{model.version}</p>
+              <p class={modelProviderVersionClass}>{model.provider} вЂў v{model.version}</p>
             </div>
             <p class={modelDescriptionClass}>{model.description}</p>
 
@@ -120,3 +122,4 @@
     </div>
   {/if}
 </div>
+

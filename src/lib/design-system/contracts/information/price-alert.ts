@@ -1,10 +1,8 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ComponentSize } from '../../tokens/architecture/sizes';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { PriceAlertStatus, PriceAlertVariant } from '$stylist/design-system/tokens/information/price-alert-statuses';
 import type { Props } from './common';
-
-export type PriceAlertVariant = 'monitoring' | 'reached' | 'exceeded';
-export type PriceAlertStatus = 'monitoring' | 'reached' | 'exceeded';
 
 export interface IPriceAlertElementProps extends Omit<Props, 'variant' | 'size' | 'onclick' | 'class'>, Omit<HTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'> {
   class?: string;

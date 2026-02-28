@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { ChevronDown, ChevronUp, ChevronsUpDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+const ChevronUp = 'chevron-up';
+const ChevronsUpDown = 'chevrons-up-down';
+
   import { ColumnManagerStyleManager } from '$stylist/design-system/styles';
   import type { ColumnManagerProps } from '$stylist/design-system/contracts';
 
@@ -26,16 +30,17 @@
     {#each localColumns as column, index}
       <div class="p-3 flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <ChevronsUpDown class="h-4 w-4 text-gray-400" />
+          <BaseIcon name={ChevronsUpDown} class="h-4 w-4 text-gray-400" />
           <input type="checkbox" checked={column.visible} onchange={() => toggle(index)} />
           <span>{column.header}</span>
         </div>
         <div class="flex gap-1">
-          <button type="button" disabled={index === 0} onclick={() => move(index, index - 1)}><ChevronUp class="h-4 w-4" /></button>
-          <button type="button" disabled={index === localColumns.length - 1} onclick={() => move(index, index + 1)}><ChevronDown class="h-4 w-4" /></button>
+          <button type="button" disabled={index === 0} onclick={() => move(index, index - 1)}><BaseIcon name={ChevronUp} class="h-4 w-4" /></button>
+          <button type="button" disabled={index === localColumns.length - 1} onclick={() => move(index, index + 1)}><BaseIcon name={ChevronDown} class="h-4 w-4" /></button>
         </div>
       </div>
     {/each}
   </div>
 </div>
+
 

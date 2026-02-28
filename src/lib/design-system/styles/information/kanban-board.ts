@@ -1,18 +1,22 @@
 export class KanbanBoardStyleManager {
   static getContainerClass(): string {
-    return 'c-kanban-board flex h-full overflow-x-auto pb-4';
+    return [
+      'c-kanban-board flex h-full overflow-x-auto gap-5 rounded-2xl p-4 pb-6',
+      'bg-gradient-to-br from-[--color-neutral-100] via-[--color-background-primary] to-[--color-info-50]',
+      'border border-[--color-border-secondary]/80 shadow-inner'
+    ].join(' ');
   }
 
   static getColumnContainerClass(): string {
-    return 'mr-4 min-w-[320px]';
+    return 'min-w-[340px] max-w-[340px]';
   }
 
   static getButtonContainerClass(): string {
-    return 'flex items-center';
+    return 'flex items-start pt-1';
   }
 
   static getAddButtonClass(): string {
-    return '';
+    return 'rounded-xl border border-dashed border-[--color-border-secondary] bg-[--color-background-primary]/80 hover:bg-[--color-background-primary] text-[--color-text-primary] shadow-sm';
   }
 
   static getIconClass(): string {
@@ -20,6 +24,6 @@ export class KanbanBoardStyleManager {
   }
 
   static getContentContainerClass(): string {
-    return 'ml-4';
+    return 'ml-2 flex items-start';
   }
 }

@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Minus, Plus } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Minus = 'minus';
+const Plus = 'plus';
+
   import { createNumberInputState } from '$stylist/design-system/models/interaction/number-input.svelte';
 
   type Props = {
@@ -97,7 +100,7 @@
     onclick={decrement}
     disabled={disabled || readonly || currentValue <= min}
   >
-    <Minus class="w-4 h-4" />
+    <BaseIcon name={Minus} class="w-4 h-4" />
   </button>
   
   <input
@@ -119,9 +122,10 @@
     onclick={increment}
     disabled={disabled || readonly || currentValue >= max}
   >
-    <Plus class="w-4 h-4" />
+    <BaseIcon name={Plus} class="w-4 h-4" />
   </button>
 </div>
+
 
 
 

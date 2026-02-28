@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { ChevronLeft, ChevronRight, Plus } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronLeft = 'chevron-left';
+const ChevronRight = 'chevron-right';
+const Plus = 'plus';
+
   import { Button } from '$stylist/components/atoms';
   import { CalendarViewStyleManager } from '$stylist/design-system/styles/information/calendar-view';
 
@@ -164,13 +168,13 @@
   <div class={headerClasses}>
     <div class="flex items-center">
       <Button variant="ghost" size="sm" class={navigationButtonClasses} onclick={() => navigateMonth(-1)}>
-        <ChevronLeft class="h-5 w-5" />
+        <BaseIcon name={ChevronLeft} class="h-5 w-5" />
       </Button>
       <Button variant="ghost" size="sm" class={todayButtonClasses} onclick={navigateToToday}>
         Today
       </Button>
       <Button variant="ghost" size="sm" class={navigationButtonClasses} onclick={() => navigateMonth(1)}>
-        <ChevronRight class="h-5 w-5" />
+        <BaseIcon name={ChevronRight} class="h-5 w-5" />
       </Button>
       <h2 class="ml-4 text-xl font-bold text-[--color-text-primary]">{monthYear}</h2>
     </div>
@@ -244,7 +248,7 @@
                 handleAddEvent(day.date);
               }}
             >
-              <Plus class="h-4 w-4" />
+              <BaseIcon name={Plus} class="h-4 w-4" />
             </button>
           </div>
 
@@ -281,4 +285,5 @@
     </div>
   {/if}
 </div>
+
 

@@ -1,5 +1,5 @@
-﻿export type ChatStatusIndicatorVariant = 'online' | 'offline' | 'away' | 'typing';
-export type ChatStatusIndicatorSize = 'sm' | 'md' | 'lg';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { ChatStatusIndicatorVariant } from '$stylist/design-system/tokens/interaction/chat-status';
 
 export interface ChatStatusIndicatorProps {
   /**
@@ -12,7 +12,7 @@ export interface ChatStatusIndicatorProps {
    * The size of the indicator
    * @default 'sm'
    */
-  size?: ChatStatusIndicatorSize;
+  size?: ComponentSize;
   
   /**
    * Whether to show the status label
@@ -55,4 +55,3 @@ export const chatStatusIndicatorPresets: Record<string, Partial<ChatStatusIndica
     showLabel: true
   }
 };
-

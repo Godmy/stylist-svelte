@@ -8,4 +8,5 @@ export { AnalyticsChart, ConversionFunnel, CtaBanner } from './marketing';
 export { AvatarGroup, TeamAvatarStack } from './media';
 export { MessageBubble, MessageComposer, MessageItem, MessageList, MessageThread } from './messages';
 export { GraphvizDirectedEdge, OntologyEdgeComponent, OntologyNodeComponent } from './ontology';
+export { NodePropertiesPanel } from './panels';
 export { AttachmentPreview } from './preview';

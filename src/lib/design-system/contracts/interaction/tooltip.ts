@@ -1,32 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-
-/**
- * Tooltip placement relative to the trigger element
- */
-export type TooltipPlacement =
-	| 'top'
-	| 'top-start'
-	| 'top-end'
-	| 'bottom'
-	| 'bottom-start'
-	| 'bottom-end'
-	| 'left'
-	| 'left-start'
-	| 'left-end'
-	| 'right'
-	| 'right-start'
-	| 'right-end';
-
-/**
- * Tooltip trigger mechanism
- */
-export type TooltipTrigger = 'hover' | 'click' | 'focus';
-
-/**
- * Tooltip variant for different visual styles
- */
-export type TooltipVariant = 'default' | 'with-arrow' | 'simple';
+import type { TooltipPlacement, TooltipTrigger, TooltipVariant } from '../../tokens/interaction/tooltip';
 
 /**
  * Unified Tooltip props following SOLID principles

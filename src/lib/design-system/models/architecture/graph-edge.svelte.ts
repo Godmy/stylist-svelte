@@ -1,10 +1,10 @@
 import type { GraphEdgeProps } from '$stylist/design-system/contracts';
-import { GRAPH_EDGE_DEFAULTS, type GraphEdgeType } from '$stylist/design-system/tokens';
+import type { GraphEdgeType } from '$stylist/design-system/tokens';
 import { GraphStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphEdgeState(props: GraphEdgeProps) {
-	const directed = $derived(props.directed ?? GRAPH_EDGE_DEFAULTS.directed);
-	const type = $derived((props.type ?? GRAPH_EDGE_DEFAULTS.type) as GraphEdgeType);
+	const directed = $derived(props.directed ?? false);
+	const type = $derived((props.type ?? 'line') as GraphEdgeType);
 	const active = $derived(Boolean(props.active));
 	const style = $derived(props.style ?? {});
 

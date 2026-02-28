@@ -1,6 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MapPin, Search, Navigation, Plus, Minus, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Search = 'search';
+const Navigation = 'navigation';
+const Plus = 'plus';
+const Minus = 'minus';
+const RotateCcw = 'rotate-ccw';
+
   import { Button, InputField } from '$stylist/components/atoms';
 
   type MapProvider = 'google' | 'osm' | 'mapbox' | 'here' | 'tomtom';
@@ -171,7 +178,7 @@
   {#if showSearch}
     <div class="relative z-10 mb-4">
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <Search class="h-5 w-5 text-gray-400" />
+        <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
       </div>
       <input
         type="text"
@@ -185,7 +192,7 @@
         class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700"
         onclick={handleSearch}
       >
-        <Search class="h-5 w-5" />
+        <BaseIcon name={Search} class="h-5 w-5" />
       </button>
     </div>
   {/if}
@@ -252,7 +259,7 @@
               if (e.key === 'Enter' || e.key === ' ') handleMarkerClick(location, e);
             }}
           >
-            <MapPin class="h-4 w-4" />
+            <BaseIcon name={MapPin} class="h-4 w-4" />
             {#if pos.y > 50}  <!-- Show label below if marker is in upper half of map -->
               <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white shadow-md rounded px-2 py-1 text-xs whitespace-nowrap">
                 {location.name}
@@ -272,7 +279,7 @@
           onclick={handleZoomIn}
           aria-label="Zoom in"
         >
-          <Plus class="h-4 w-4" />
+          <BaseIcon name={Plus} class="h-4 w-4" />
         </Button>
         <Button
           variant="secondary"
@@ -280,7 +287,7 @@
           onclick={handleZoomOut}
           aria-label="Zoom out"
         >
-          <Minus class="h-4 w-4" />
+          <BaseIcon name={Minus} class="h-4 w-4" />
         </Button>
         <Button
           variant="secondary"
@@ -288,7 +295,7 @@
           onclick={handleResetView}
           aria-label="Reset view"
         >
-          <RotateCcw class="h-4 w-4" />
+          <BaseIcon name={RotateCcw} class="h-4 w-4" />
         </Button>
       </div>
     {/if}
@@ -301,7 +308,7 @@
           onclick={handleCurrentLocation}
           aria-label="Show current location"
         >
-          <Navigation class="h-4 w-4" />
+          <BaseIcon name={Navigation} class="h-4 w-4" />
         </Button>
       </div>
     {/if}
@@ -313,6 +320,7 @@
     </div>
   </div>
 </div>
+
 
 
 

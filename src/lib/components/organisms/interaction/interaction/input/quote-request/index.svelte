@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { Plus, Trash2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Plus = 'plus';
+const Trash2 = 'trash-2';
+
   import type { QuoteRequestValue } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
@@ -76,14 +79,14 @@
     <div class={sectionClass}>
       <div class="flex items-center justify-between mb-2">
         <div class="font-medium">Products</div>
-        <button type="button" class="px-2 py-1 border rounded text-sm" onclick={addProduct}><Plus class="h-4 w-4 inline mr-1" />Add</button>
+        <button type="button" class="px-2 py-1 border rounded text-sm" onclick={addProduct}><BaseIcon name={Plus} class="h-4 w-4 inline mr-1" />Add</button>
       </div>
       <div class="space-y-2">
         {#each request.products as product, index}
           <div class="grid grid-cols-[1fr_100px_40px] gap-2">
             <input class={InteractionInputStyleManager.input(`px-3 py-2 ${inputClass}`)} placeholder="Product" bind:value={product.name} />
             <input class={InteractionInputStyleManager.input(`px-3 py-2 ${inputClass}`)} type="number" min="1" bind:value={product.quantity} />
-            <button type="button" class="border rounded" onclick={() => removeProduct(index)}><Trash2 class="h-4 w-4 mx-auto" /></button>
+            <button type="button" class="border rounded" onclick={() => removeProduct(index)}><BaseIcon name={Trash2} class="h-4 w-4 mx-auto" /></button>
           </div>
         {/each}
       </div>
@@ -107,3 +110,4 @@
     </div>
   </form>
 </div>
+

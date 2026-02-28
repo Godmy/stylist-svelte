@@ -1,24 +1,16 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/contracts';
+import { ICON_SIZES } from '$stylist/design-system/runtime/sizing';
 import type { Preset } from '$stylist/design-system/runtime/types';
-import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
-import { ICON_SIZES } from '$stylist/design-system/classes';
+import { buildClasses } from '$stylist/utils/classes';
 
 type ButtonStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
 	variant?: V;
 	size?: S;
 };
 
-/**
- * Universal button state creator for all button components
- * Provides reactive state management using Svelte 5 runes
- *
- * @param preset - The button preset configuration
- * @param props - Component props
- * @returns Reactive state object with classes, aria attributes, and computed values
- */
-export function createState<V extends string, S extends string>(
+function createSharedButtonState<V extends string, S extends string>(
 	preset: Preset<V, S> & { loaderSize?: Record<string, string> },
 	props: ButtonStateProps<V, S> & HTMLButtonAttributes
 ) {
@@ -56,7 +48,6 @@ export function createState<V extends string, S extends string>(
 		disabled: isDisabled
 	});
 
-	// Use getters to avoid capturing initial values outside reactive context
 	return {
 		get variant() {
 			return variant;
@@ -90,11 +81,16 @@ export function createState<V extends string, S extends string>(
 		}
 	};
 }
-export const createButtonState = createState;
+
+export function createButtonState<V extends string, S extends string>(
+	preset: Preset<V, S> & { loaderSize?: Record<string, string> },
+	props: ButtonStateProps<V, S> & HTMLButtonAttributes
+) {
+	return createSharedButtonState(preset, props);
+}
+
+export const createCloseButtonState = createButtonState;
+export const createCopyButtonState = createButtonState;
+export const createPageButtonState = createButtonState;
+
 export default createButtonState;
-
-
-
-
-
-

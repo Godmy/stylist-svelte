@@ -1,7 +1,10 @@
 <script lang="ts">
-  import type { IRatingProps, RatingSize } from '$stylist/design-system/contracts/interaction/rating';
+  import type { IRatingProps } from '$stylist/design-system/contracts/interaction/rating';
+  import type { ComponentSize } from '$stylist/design-system/tokens';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { RatingStyleManager } from '$stylist/design-system/styles/interaction/rating';
-  import { Star } from 'lucide-svelte';
+
+  const Star = 'star';
 
   /**
    *   ()
@@ -50,7 +53,7 @@
     }
   };
 
-  //  
+  //
   const rootClasses = $derived(RatingStyleManager.getRootClasses(className));
   const starButtonClasses = (index: number) => RatingStyleManager.getStarButtonClasses(
     disabled,
@@ -61,7 +64,7 @@
   );
   const starIconClasses = (index: number) => RatingStyleManager.getStarIconClasses(
     index < rating,
-    size as RatingSize
+    size as ComponentSize
   );
   const ratingTextClasses = $derived(RatingStyleManager.getRatingTextClasses(disabled));
 </script>
@@ -83,7 +86,8 @@
       aria-label={` ${i + 1}  ${max}`}
       aria-pressed={i < rating}
     >
-      <Star
+      <BaseIcon
+        name={Star}
         class={starIconClasses(i)}
       />
     </button>
@@ -93,5 +97,6 @@
     {rating.toFixed(1)}  {max}
   </span>
 </div>
+
 
 

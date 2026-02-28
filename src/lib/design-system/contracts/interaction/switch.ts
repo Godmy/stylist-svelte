@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Switch Props
@@ -20,7 +21,7 @@ export interface SwitchProps extends Omit<HTMLAttributes<HTMLInputElement>, 'siz
   /** Callback when switch changes */
   onChange?: (checked: boolean) => void;
   /** Size of the switch */
-  switchSize?: 'sm' | 'md' | 'lg';
+  switchSize?: ComponentSize;
   /** Size variant */
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
 }

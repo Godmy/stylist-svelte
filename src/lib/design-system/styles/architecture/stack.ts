@@ -1,16 +1,33 @@
-import type { Justification, Orientation } from '../../tokens';
-import type { StackAlign } from '../../classes/architecture/stack';
-import {
-	STACK_ALIGN_CLASSES,
-	STACK_DIRECTION_CLASSES,
-	STACK_JUSTIFY_CLASSES
-} from '../../classes/architecture/stack';
+﻿import type { Justification, Orientation } from '../../tokens';
+import type { Alignment } from '../../tokens/architecture/alignments';
 import { cn } from '../../utils/cn/index';
+
+export const STACK_DIRECTION_CLASSES: Record<Orientation, string> = {
+	vertical: 'flex-col',
+	horizontal: 'flex-row'
+};
+
+export const STACK_ALIGN_CLASSES: Record<Alignment, string> = {
+	start: 'items-start',
+	center: 'items-center',
+	end: 'items-end',
+	stretch: 'items-stretch',
+	baseline: 'items-baseline'
+};
+
+export const STACK_JUSTIFY_CLASSES: Record<Justification, string> = {
+	start: 'justify-start',
+	center: 'justify-center',
+	end: 'justify-end',
+	between: 'justify-between',
+	around: 'justify-around',
+	evenly: 'justify-evenly'
+};
 
 export class StackStyleManager {
 	static getStackClasses(
 		direction: Orientation,
-		align: StackAlign,
+		align: Alignment,
 		justify: Justification,
 		className = ''
 	): string {
@@ -24,23 +41,20 @@ export class StackStyleManager {
 	}
 
 	static getStackGap(spacing: string | number): string {
-		// If it's a number, return as pixels
 		if (typeof spacing === 'number') return `${spacing}px`;
-		
-		// If it's one of our predefined size tokens, map to corresponding values
+
 		switch (spacing) {
 			case 'xs':
-				return '0.25rem'; // 4px
+				return '0.25rem';
 			case 'sm':
-				return '0.5rem';  // 8px
+				return '0.5rem';
 			case 'md':
-				return '1rem';    // 16px
+				return '1rem';
 			case 'lg':
-				return '1.5rem';  // 24px
+				return '1.5rem';
 			case 'xl':
-				return '2rem';    // 32px
+				return '2rem';
 			default:
-				// If it's not a recognized token, return as-is
 				return spacing;
 		}
 	}

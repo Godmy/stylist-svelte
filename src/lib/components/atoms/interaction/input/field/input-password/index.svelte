@@ -1,55 +1,35 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputPasswordProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
-	import { Eye, EyeOff } from 'lucide-svelte';
+	import type { InputVariant } from '$stylist/design-system/tokens/information';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
 
-	/**
-	 * InputPassword component - Input для пароля с переключателем видимости
-	 *
-	 * @example
-	 * ```svelte
-	 * <InputPassword
-	 *   label="Пароль"
-	 *   bind:value={password}
-	 *   allowTogglePassword={true}
-	 *   showPasswordStrength={true}
-	 * />
-	 * ```
-	 */
+	const Eye = 'eye';
+	const EyeOff = 'eye-off';
 
 	type Props = IInputPasswordProps &
 		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
-		// Core props
 		variant = 'default',
 		size = 'md',
 		disabled = false,
 		error = false,
 		block = false,
 		class: className = '',
-
-		// Label props
 		label,
 		id,
 		showRequiredIndicator = true,
-
-		// Validation props
 		errors = [],
 		showErrors = true,
-
-		// Helper props
 		helperText,
 		showHelperWhenError = false,
-
-		// Password-specific props
 		value = $bindable<string>(''),
-		placeholder = '••••••••',
+		placeholder = '��������',
 		autocomplete = 'current-password',
 		name,
 		required = false,
@@ -58,23 +38,17 @@
 		minlength = 8,
 		maxlength,
 		pattern,
-
-		// Toggle password visibility
 		allowTogglePassword = true,
 		showPassword = $bindable<boolean>(false),
 		showPasswordStrength = false,
-
-		// Rest props
 		...restProps
 	}: Props = $props();
 
-	// Derived values
 	const hasError = $derived(error || errors.length > 0);
 	const errorId = $derived(id ? `${id}-error` : undefined);
 	const labelId = $derived(id ? `${id}-label` : undefined);
 	const currentType = $derived(showPassword ? 'text' : 'password');
 
-	// Input state
 	const inputState = $derived(
 		createInputTextState({
 			variant,
@@ -86,20 +60,14 @@
 		})
 	);
 
-	// Container classes
 	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
 	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
 	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
 	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
 	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
 	const passwordToggleClasses = $derived(InputStyleManager.getPasswordToggleClass(''));
+	const showHelper = $derived(helperText && (showHelperWhenError || !hasError));
 
-	// Show helper text logic
-	const showHelper = $derived(
-		helperText && (showHelperWhenError || !hasError)
-	);
-
-	// Password strength calculation
 	const passwordStrength = $derived.by(() => {
 		if (!value || !showPasswordStrength) return null;
 
@@ -110,7 +78,7 @@
 		if (/\d/.test(value)) strength++;
 		if (/[^a-zA-Z0-9]/.test(value)) strength++;
 
-		const labels = ['Очень слабый', 'Слабый', 'Средний', 'Хороший', 'Надёжный'];
+		const labels = ['����� ������', '������', '�������', '�������', '�������'];
 		const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-green-500'];
 
 		return {
@@ -169,12 +137,12 @@
 				class={passwordToggleClasses}
 				onclick={togglePasswordVisibility}
 				tabindex="-1"
-				aria-label={showPassword ? 'Скрыть пароль' : 'Показать пароль'}
+				aria-label={showPassword ? '������ ������' : '�������� ������'}
 			>
 				{#if showPassword}
-					<EyeOff class="w-5 h-5" />
+					<BaseIcon name={EyeOff} class="h-5 w-5" />
 				{:else}
-					<Eye class="w-5 h-5" />
+					<BaseIcon name={Eye} class="h-5 w-5" />
 				{/if}
 			</button>
 		{/if}
@@ -193,14 +161,12 @@
 	{#if showPasswordStrength && passwordStrength}
 		<div class="mt-2">
 			<div class="flex items-center gap-2">
-				<div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-					<div
-						class="h-full transition-all duration-300 {passwordStrength.color}"
-						style="width: {passwordStrength.percentage}%"
-					></div>
+				<div class="h-2 flex-1 overflow-hidden rounded-full bg-gray-200">
+					<div class="h-full transition-all duration-300 {passwordStrength.color}" style="width: {passwordStrength.percentage}%"></div>
 				</div>
 				<span class="text-xs text-gray-600">{passwordStrength.label}</span>
 			</div>
 		</div>
 	{/if}
 </div>
+

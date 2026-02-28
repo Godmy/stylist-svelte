@@ -1,5 +1,7 @@
-﻿<script lang="ts">
-  import { X } from 'lucide-svelte';
+<script lang="ts">
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedTagInputProps {
@@ -60,7 +62,7 @@
   {#each currentTags as tag, index}
     <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 ${tagClass}`}>
       {tag}
-      <button type="button" class={`ml-2 ${removeButtonClass}`} onclick={() => removeTag(index)}><X class="h-4 w-4" /></button>
+      <button type="button" class={`ml-2 ${removeButtonClass}`} onclick={() => removeTag(index)}><BaseIcon name={X} class="h-4 w-4" /></button>
     </span>
   {/each}
 
@@ -88,3 +90,4 @@
     }}
   />
 </div>
+

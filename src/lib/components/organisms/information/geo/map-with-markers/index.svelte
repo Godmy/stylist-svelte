@@ -1,6 +1,14 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MapPin, Navigation, Search, Plus, Minus, RotateCcw, Locate } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Navigation = 'navigation';
+const Search = 'search';
+const Plus = 'plus';
+const Minus = 'minus';
+const RotateCcw = 'rotate-ccw';
+const Locate = 'locate';
+
   import { Button } from '$lib/components/atoms';
 
   type MapMarker = {
@@ -189,7 +197,7 @@
       <div class="mb-4">
         <div class="relative">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
@@ -269,7 +277,7 @@
                 marker.color || 'bg-blue-500'
               } border-2 border-white shadow-lg`}
             >
-              <MapPin class={`${
+              <BaseIcon name={MapPin} class={`${
                 marker.size === 'sm' ? 'w-4 h-4' :
                 marker.size === 'lg' ? 'w-6 h-6' : 'w-5 h-5'
               } text-white`} />
@@ -296,7 +304,7 @@
             onclick={handleZoomIn}
             aria-label="Zoom in"
           >
-            <Plus class="h-4 w-4" />
+            <BaseIcon name={Plus} class="h-4 w-4" />
           </Button>
           <Button
             variant="secondary"
@@ -304,7 +312,7 @@
             onclick={handleZoomOut}
             aria-label="Zoom out"
           >
-            <Minus class="h-4 w-4" />
+            <BaseIcon name={Minus} class="h-4 w-4" />
           </Button>
         {/if}
 
@@ -315,7 +323,7 @@
             onclick={handleCurrentLocation}
             aria-label="Current location"
           >
-            <Locate class="h-4 w-4" />
+            <BaseIcon name={Locate} class="h-4 w-4" />
           </Button>
         {/if}
 
@@ -326,7 +334,7 @@
             onclick={handleResetView}
             aria-label="Reset view"
           >
-            <RotateCcw class="h-4 w-4" />
+            <BaseIcon name={RotateCcw} class="h-4 w-4" />
           </Button>
         {/if}
       </div>
@@ -353,4 +361,5 @@
     z-index: 100;
   }
 </style>
+
 

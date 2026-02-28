@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Accessibility, Contrast, Volume2, Eye, Minus, Plus, Type, Grid } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Accessibility = 'accessibility';
+const Contrast = 'contrast';
+const Volume2 = 'volume-2';
+const Eye = 'eye';
+const Minus = 'minus';
+const Plus = 'plus';
+const Type = 'type';
+const Grid = 'grid';
+
   import { AccessibilityToolbarStyleManager } from '$stylist/design-system/styles';
 
   type AccessibilityToolbarProps = {
@@ -77,7 +86,7 @@
     document.body.classList.toggle('no-focus-outline', !focusIndicator);
   }
 
-  // Toggle animations
+  // Toggle ANIMATIONS
   function toggleAnimations() {
     disableAnimations = !disableAnimations;
 
@@ -110,7 +119,7 @@
         aria-pressed={highContrast}
         onclick={toggleHighContrast}
       >
-        <Contrast class="h-5 w-5" />
+        <BaseIcon name={Contrast} class="h-5 w-5" />
       </button>
     {/if}
 
@@ -121,7 +130,7 @@
         aria-label="Decrease font size"
         onclick={decreaseFontSize}
       >
-        <Minus class="h-5 w-5" />
+        <BaseIcon name={Minus} class="h-5 w-5" />
       </button>
 
       <span class={fontSizeDisplayClass}>{Math.round(fontSizeScale * 100)}%</span>
@@ -132,7 +141,7 @@
         aria-label="Increase font size"
         onclick={increaseFontSize}
       >
-        <Plus class="h-5 w-5" />
+        <BaseIcon name={Plus} class="h-5 w-5" />
       </button>
     {/if}
 
@@ -144,7 +153,7 @@
         aria-pressed={screenReaderMode}
         onclick={toggleScreenReaderMode}
       >
-        <Volume2 class="h-5 w-5" />
+        <BaseIcon name={Volume2} class="h-5 w-5" />
       </button>
     {/if}
 
@@ -156,7 +165,7 @@
         aria-pressed={focusIndicator}
         onclick={toggleFocusIndicator}
       >
-        <Eye class="h-5 w-5" />
+        <BaseIcon name={Eye} class="h-5 w-5" />
       </button>
     {/if}
 
@@ -164,11 +173,11 @@
       <button
         type="button"
         class={`${buttonClassComputed} ${disableAnimations ? activeButtonClass : 'text-[--color-text-primary]'}`}
-        aria-label={disableAnimations ? "Enable animations" : "Reduce animations"}
+        aria-label={disableAnimations ? "Enable ANIMATIONS" : "Reduce ANIMATIONS"}
         aria-pressed={disableAnimations}
         onclick={toggleAnimations}
       >
-        <Grid class="h-5 w-5" />
+        <BaseIcon name={Grid} class="h-5 w-5" />
       </button>
     {/if}
 
@@ -177,7 +186,9 @@
       class={buttonClassComputed}
       aria-label="Accessibility settings"
     >
-      <Accessibility class="h-5 w-5" />
+      <BaseIcon name={Accessibility} class="h-5 w-5" />
     </button>
   </div>
 </div>
+
+

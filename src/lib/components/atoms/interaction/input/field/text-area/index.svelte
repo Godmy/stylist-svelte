@@ -1,19 +1,19 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
 	import { createTextareaState } from '$stylist/design-system/models/interaction/text-area.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { ITextareaProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { InputVariant } from '$stylist/design-system/tokens';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
-	 * Textarea component - Многострочное текстовое поле
+	 * Textarea component - РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅРѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
 	 *
 	 * @example
 	 * ```svelte
 	 * <Textarea
-	 *   label="Сообщение"
+	 *   label="РЎРѕРѕР±С‰РµРЅРёРµ"
 	 *   bind:value={message}
 	 *   variant="default"
 	 *   size="md"
@@ -168,8 +168,11 @@
 		<p class="text-xs text-gray-500 mt-1">
 			{currentLength} / {maxlength}
 			{#if remainingChars !== null && remainingChars <= 10}
-				<span class="text-orange-600 ml-2">Осталось символов: {remainingChars}</span>
+				<span class="text-orange-600 ml-2">РћСЃС‚Р°Р»РѕСЃСЊ СЃРёРјРІРѕР»РѕРІ: {remainingChars}</span>
 			{/if}
 		</p>
 	{/if}
 </div>
+
+
+

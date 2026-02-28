@@ -5,11 +5,11 @@ export class PriceMatchStyleManager {
   }
 
   static getLowerAvailableClass(): string {
-    return 'bg-yellow-50 border-yellow-200';
+    return 'bg-[--color-warning-50] border-[--color-warning-200]';
   }
 
   static getBestPriceClass(): string {
-    return 'bg-green-50 border-green-200';
+    return 'bg-[--color-success-50] border-[--color-success-200]';
   }
 
   static getTitleClass(): string {
@@ -25,11 +25,11 @@ export class PriceMatchStyleManager {
   }
 
   static getLowerPriceClass(): string {
-    return 'text-yellow-700 font-semibold';
+    return 'text-[--color-warning-700] font-semibold';
   }
 
   static getBestPriceTextClass(): string {
-    return 'text-green-700 font-semibold';
+    return 'text-[--color-success-700] font-semibold';
   }
 
   static getCompetitorsContainerClass(): string {
@@ -41,7 +41,7 @@ export class PriceMatchStyleManager {
   }
 
   static getButtonClass(): string {
-    return 'px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600';
+    return 'px-4 py-2 bg-[--color-warning-500] text-[--color-text-inverse] rounded hover:bg-[--color-warning-600]';
   }
 
   static getBoldClass(): string {

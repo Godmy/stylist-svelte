@@ -1,6 +1,17 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Folder, File, Search, Grid, List, Download, Upload, MoreHorizontal, ChevronRight, ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Folder = 'folder';
+const File = 'file';
+const Search = 'search';
+const Grid = 'grid';
+const List = 'list';
+const Download = 'download';
+const Upload = 'upload';
+const MoreHorizontal = 'more-horizontal';
+const ChevronRight = 'chevron-right';
+const ChevronDown = 'chevron-down';
+
   import { Button } from '$stylist/components/atoms';
   import type { FileSystemItem, ViewMode } from './types';
 
@@ -144,7 +155,7 @@
         {#each pathParts as part, index}
           <span>{part}</span>
           {#if index < pathParts.length - 1}
-            <ChevronRight class="h-4 w-4 mx-1" />
+            <BaseIcon name={ChevronRight} class="h-4 w-4 mx-1" />
           {/if}
         {/each}
       </div>
@@ -155,7 +166,7 @@
         {#if searchable}
           <div class="relative flex-1 min-w-[200px]">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
@@ -169,15 +180,15 @@
 
         <Button variant="outline" size="sm" onclick={toggleViewMode}>
           {#if currentViewMode === 'grid'}
-            <List class="h-4 w-4 mr-1" />
+            <BaseIcon name={List} class="h-4 w-4 mr-1" />
           {:else}
-            <Grid class="h-4 w-4 mr-1" />
+            <BaseIcon name={Grid} class="h-4 w-4 mr-1" />
           {/if}
           {currentViewMode === 'grid' ? 'List' : 'Grid'}
         </Button>
 
         <Button variant="outline" size="sm" onclick={() => document.getElementById('file-upload')?.click()}>
-          <Upload class="h-4 w-4 mr-1" />
+          <BaseIcon name={Upload} class="h-4 w-4 mr-1" />
           Upload
         </Button>
         <input
@@ -192,7 +203,7 @@
       <div class="flex items-center">
         <span class="text-sm text-gray-500 mr-2">{filteredItems.length} items</span>
         <Button variant="ghost" size="sm">
-          <MoreHorizontal class="h-5 w-5" />
+          <BaseIcon name={MoreHorizontal} class="h-5 w-5" />
         </Button>
       </div>
     </div>
@@ -203,7 +214,7 @@
     {#if currentViewMode === 'grid'}
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {#each filteredItems as item}
-          {@const ItemIcon = getFileIcon(item)}
+          {@const itemIcon = getFileIcon(item)}
           <div
             class={`border rounded-lg p-3 cursor-pointer flex flex-col items-center text-center ${
               selectedItems.some(i => i.id === item.id)
@@ -216,7 +227,7 @@
             ondblclick={() => handleItemDoubleClick(item)}
             onkeydown={(event) => handleItemKeyDown(event, item)}
           >
-            <ItemIcon class={`h-8 w-8 mb-2 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={itemIcon} class={`h-8 w-8 mb-2 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
             <div class="text-sm font-medium truncate w-full">{item.name}</div>
             {#if item.type === 'file' && item.size}
               <div class="text-xs text-gray-500 mt-1">{formatFileSize(item.size)}</div>
@@ -227,7 +238,7 @@
     {:else}
       <div class="border rounded-lg overflow-hidden">
         {#each filteredItems as item}
-          {@const ItemIcon = getFileIcon(item)}
+          {@const itemIcon = getFileIcon(item)}
           <div
             class={`flex items-center p-3 border-b last:border-b-0 cursor-pointer ${
               selectedItems.some(i => i.id === item.id)
@@ -240,14 +251,14 @@
             ondblclick={() => handleItemDoubleClick(item)}
             onkeydown={(event) => handleItemKeyDown(event, item)}
           >
-            <ItemIcon class={`h-5 w-5 mr-3 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={itemIcon} class={`h-5 w-5 mr-3 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
             <div class="flex-1 min-w-0">
               <div class="text-sm font-medium truncate">{item.name}</div>
               <div class="text-xs text-gray-500 truncate">
                 {#if item.type === 'folder'}
                   Folder
                 {:else}
-                  {item.size ? formatFileSize(item.size) : 'File'} •
+                  {item.size ? formatFileSize(item.size) : 'File'} вЂў
                   {item.modified ? item.modified.toLocaleDateString() : ''}
                 {/if}
               </div>
@@ -260,7 +271,7 @@
                 handleDownload(item);
               }}
             >
-              <Download class="h-4 w-4" />
+              <BaseIcon name={Download} class="h-4 w-4" />
             </Button>
           </div>
         {/each}
@@ -268,6 +279,7 @@
     {/if}
   </div>
 </div>
+
 
 
 

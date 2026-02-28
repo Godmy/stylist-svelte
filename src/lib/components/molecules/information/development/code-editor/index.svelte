@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
   /**
-   * CodeEditor - Legacy wrapper for unified CodeBlock
+   * CodeEditor - Legacy wrapper for unified Code
    * 
-   * @deprecated Use CodeBlock with basic props instead
+   * @deprecated Use Code with basic props instead
    */
-  import CodeBlock from '../code-block/index.svelte';
+  import Code from '../code-block/index.svelte';
   type Props = {
     code?: string;
     language?: string;
@@ -22,10 +22,11 @@
   }: Props = $props();
 </script>
 
-<CodeBlock
+<Code
   code={code}
   language={language}
   showLineNumbers={showLineNumbers}
   copyable={showCopyButton}
   class={className}
 />
+

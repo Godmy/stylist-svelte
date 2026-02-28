@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import InputAddon from './index.svelte';
-	import { Search } from 'lucide-svelte';
 
 	const controls: ControlConfig[] = [
 		{ name: 'position', type: 'select', defaultValue: 'left', options: ['left', 'right'] },
@@ -18,13 +18,13 @@
 		<div class="flex items-center rounded-md border border-[--color-border-primary]">
 			{#if values.position === 'left'}
 				<InputAddon position="left" variant={values.variant}>
-					{#if values.withIcon}<Search class="h-4 w-4" />{:else}{values.addonText}{/if}
+					{#if values.withIcon}<BaseIcon name="search" class="h-4 w-4" />{:else}{values.addonText}{/if}
 				</InputAddon>
 			{/if}
 			<input type="text" placeholder={values.placeholder} class="flex-1 border-0 bg-transparent px-3 py-2 focus:outline-none" />
 			{#if values.position === 'right'}
 				<InputAddon position="right" variant={values.variant}>
-					{#if values.withIcon}<Search class="h-4 w-4" />{:else}{values.addonText}{/if}
+					{#if values.withIcon}<BaseIcon name="search" class="h-4 w-4" />{:else}{values.addonText}{/if}
 				</InputAddon>
 			{/if}
 		</div>

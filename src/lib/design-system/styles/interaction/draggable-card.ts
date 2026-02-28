@@ -1,6 +1,6 @@
 export class DraggableCardStyleManager {
   static getRootClass(extraClasses: string = ''): string {
-    const baseClass = 'c-draggable-card relative shadow-md rounded-lg bg-white transition-all duration-200 ease-in-out';
+    const baseClass = 'c-draggable-card relative shadow-md rounded-lg bg-[--color-background-primary] transition-all duration-200 ease-in-out';
     return extraClasses ? `${baseClass} ${extraClasses}`.trim() : baseClass;
   }
 
@@ -21,15 +21,15 @@ export class DraggableCardStyleManager {
   }
 
   static getGripIconClass(): string {
-    return 'h-5 w-5 text-gray-400';
+    return 'h-5 w-5 text-[--color-text-tertiary]';
   }
 
   static getTitleClass(): string {
-    return 'font-medium text-gray-900 truncate';
+    return 'font-medium text-[--color-text-primary] truncate';
   }
 
   static getDescriptionClass(): string {
-    return 'text-sm text-gray-500 mt-1 truncate';
+    return 'text-sm text-[--color-text-secondary] mt-1 truncate';
   }
 
   static getTagsContainerClass(): string {
@@ -37,11 +37,11 @@ export class DraggableCardStyleManager {
   }
 
   static getTagClass(): string {
-    return 'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800';
+    return 'inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[--color-info-100] text-[--color-info-800]';
   }
 
   static getMetadataClass(): string {
-    return 'mt-3 flex items-center justify-between text-xs text-gray-500';
+    return 'mt-3 flex items-center justify-between text-xs text-[--color-text-secondary]';
   }
 
   static getDateClass(): string {

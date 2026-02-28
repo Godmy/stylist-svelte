@@ -1,7 +1,5 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { SeparatorProps } from '$stylist/design-system/contracts';
-import { SEPARATOR_CLASSES } from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
+import type { SeparatorProps } from '$stylist/design-system/contracts';
 
 /**
  * Separator state creator
@@ -13,7 +11,14 @@ import { cn } from '$stylist/utils/classes';
 export function createSeparatorState(props: SeparatorProps) {
 	const orientation = $derived(props.orientation ?? 'horizontal');
 	const decorative = $derived(props.decorative ?? false);
-	const classes = $derived(mergeClasses(SEPARATOR_CLASSES[orientation], props.class ?? ''));
+	const classes = $derived(
+		mergeClasses(
+			orientation === 'vertical'
+				? 'h-full border-l border-[var(--color-border-secondary)]'
+				: 'w-full border-t border-[var(--color-border-secondary)]',
+			props.class ?? ''
+		)
+	);
 
 	return {
 		get orientation() {

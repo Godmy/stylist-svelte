@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Loader2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Loader2 = 'loader-2';
+
 
   type SpinnerVariant = 'css' | 'svg' | 'icon';
 
@@ -130,7 +132,7 @@
     </span>
   {:else}
     <!-- Icon Spinner: Lucide Loader2 icon -->
-    <Loader2
+    <BaseIcon name={Loader2}
       class={`animate-spin ${sizeClasses} ${iconColorClasses} ${spinnerClass}`}
       aria-hidden="true"
     />
@@ -142,3 +144,4 @@
   
   <span class="sr-only">{label}</span>
 </div>
+

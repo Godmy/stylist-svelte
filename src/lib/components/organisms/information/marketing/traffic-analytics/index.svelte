@@ -1,6 +1,14 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Globe, Users, Eye, Clock, BarChart3, Calendar, Filter } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Globe = 'globe';
+const Users = 'users';
+const Eye = 'eye';
+const Clock = 'clock';
+const BarChart3 = 'bar-chart-3';
+const Calendar = 'calendar';
+const Filter = 'filter';
+
 
   type TrafficSource = {
     id: string;
@@ -74,7 +82,7 @@
     <div class="p-4 flex flex-col md:flex-row md:items-center md:justify-between">
       <div>
         <div class="flex items-center">
-          <Globe class="h-5 w-5 text-gray-500 mr-2" />
+          <BaseIcon name={Globe} class="h-5 w-5 text-gray-500 mr-2" />
           <h3 class="text-lg font-medium text-gray-900">{title}</h3>
         </div>
         {#if subtitle}
@@ -96,7 +104,7 @@
             <option value="1y">Last year</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <Calendar class="h-4 w-4" />
+            <BaseIcon name={Calendar} class="h-4 w-4" />
           </div>
         </div>
       </div>
@@ -109,28 +117,28 @@
       <div class="text-center p-3">
         <div class="text-lg font-semibold text-gray-900">{totalVisitors}</div>
         <div class="text-xs text-gray-500 flex items-center justify-center">
-          <Users class="h-3 w-3 mr-1" />
+          <BaseIcon name={Users} class="h-3 w-3 mr-1" />
           Total Visitors
         </div>
       </div>
       <div class="text-center p-3">
         <div class="text-lg font-semibold text-gray-900">{uniqueVisitors}</div>
         <div class="text-xs text-gray-500 flex items-center justify-center">
-          <Users class="h-3 w-3 mr-1" />
+          <BaseIcon name={Users} class="h-3 w-3 mr-1" />
           Unique Visitors
         </div>
       </div>
       <div class="text-center p-3">
         <div class="text-lg font-semibold text-gray-900">{pageViews}</div>
         <div class="text-xs text-gray-500 flex items-center justify-center">
-          <Eye class="h-3 w-3 mr-1" />
+          <BaseIcon name={Eye} class="h-3 w-3 mr-1" />
           Page Views
         </div>
       </div>
       <div class="text-center p-3">
         <div class="text-lg font-semibold text-gray-900">{timeOnPage}</div>
         <div class="text-xs text-gray-500 flex items-center justify-center">
-          <Clock class="h-3 w-3 mr-1" />
+          <BaseIcon name={Clock} class="h-3 w-3 mr-1" />
           Time on Page
         </div>
       </div>
@@ -139,7 +147,7 @@
       }`}>
         <div class="text-lg font-semibold">{bounceRate}%</div>
         <div class="text-xs flex items-center justify-center">
-          <BarChart3 class="h-3 w-3 mr-1" />
+          <BaseIcon name={BarChart3} class="h-3 w-3 mr-1" />
           Bounce Rate
         </div>
       </div>

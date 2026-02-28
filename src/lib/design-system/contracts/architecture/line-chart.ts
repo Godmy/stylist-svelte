@@ -1,3 +1,5 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+
 export type LineChartPoint = {
   id: string;
   name: string;
@@ -14,7 +16,6 @@ export type LineChartData = {
 };
 
 export type LineChartVariant = 'default' | 'minimal' | 'elegant' | 'bold';
-export type LineChartSize = 'sm' | 'md' | 'lg';
 
 export interface ILineChartProps {
   data: LineChartData[];
@@ -31,7 +32,7 @@ export interface ILineChartProps {
   strokeWidth?: number;
   onPointClick?: (item: LineChartPoint, series: LineChartData) => void;
   variant?: LineChartVariant;
-  size?: LineChartSize;
+  size?: ComponentSize;
   class?: string;
   chartClass?: string;
 }

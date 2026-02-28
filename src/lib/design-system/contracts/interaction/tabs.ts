@@ -1,7 +1,7 @@
 ﻿import type { HTMLButtonAttributes } from 'svelte/elements';
 
-import type { CompactSize, ComponentSize } from '../../tokens/architecture/sizes';
-import type { ColorVariant, DefaultVariants } from '../../tokens/architecture/variants';
+import type { ComponentSize } from '../../tokens/architecture/component-size';
+import type { DefaultVariants } from '../../tokens/information/default-variants';
 import type { ChildrenProp, HtmlAttributesBase, HtmlAttributesWithChildren, IDisableable } from '../information/common';
 
 export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'onclick'> {
@@ -15,13 +15,13 @@ export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'oncli
 	disabled?: boolean;
 }
 
-export type TabIndicatorColor = ColorVariant;
+export type TabIndicatorColor = DefaultVariants;
 
 export interface TabIndicatorProps extends HtmlAttributesBase<HTMLDivElement> {
 	left?: string;
 	width?: string;
 	color?: TabIndicatorColor;
-	size?: CompactSize;
+	size?: ComponentSize;
 	disabled?: boolean;
 }
 
@@ -39,3 +39,10 @@ export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	size?: ComponentSize;
 	disabled?: boolean;
 }
+
+
+
+
+
+
+

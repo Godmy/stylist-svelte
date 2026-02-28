@@ -29,7 +29,7 @@ export class SettingsStyleManager {
    * Get classes for settings description
    */
   static description(base: string, className?: string): string {
-    return `${base} text-sm text-gray-600 mb-4 ${className || ''}`.trim();
+    return `${base} text-sm text-[--color-text-secondary] mb-4 ${className || ''}`.trim();
   }
 
   /**
@@ -77,11 +77,11 @@ export class SecuritySettingsStyleManager {
    */
   static level(base: string, level?: 'low' | 'medium' | 'high', className?: string): string {
     const levelClasses = {
-      low: 'text-red-600',
-      medium: 'text-yellow-600',
-      high: 'text-green-600'
+      low: 'text-[--color-danger-600]',
+      medium: 'text-[--color-warning-600]',
+      high: 'text-[--color-success-600]'
     };
-    
+
     const levelClass = level ? levelClasses[level] : '';
     return `${base} ${levelClass} ${className || ''}`.trim();
   }
@@ -90,7 +90,7 @@ export class SecuritySettingsStyleManager {
    * Get classes for session item
    */
   static session(base: string, current?: boolean, className?: string): string {
-    const currentClass = current ? 'border-blue-200 bg-blue-50' : 'border-gray-200 bg-white';
+    const currentClass = current ? 'border-[--color-info-200] bg-[--color-info-50]' : 'border-[--color-border-secondary] bg-[--color-background-primary]';
     return `${base} ${currentClass} border rounded-lg p-4 ${className || ''}`.trim();
   }
 
@@ -105,7 +105,7 @@ export class SecuritySettingsStyleManager {
    * Get classes for session meta
    */
   static sessionMeta(base: string, className?: string): string {
-    return `${base} text-sm text-gray-500 ${className || ''}`.trim();
+    return `${base} text-sm text-[--color-text-secondary] ${className || ''}`.trim();
   }
 
   /**
@@ -138,9 +138,9 @@ export class AppearanceSettingsStyleManager {
    * Get classes for theme option
    */
   static themeOption(base: string, selected?: boolean, className?: string): string {
-    const selectedClass = selected 
-      ? 'border-blue-500 ring-2 ring-blue-200' 
-      : 'border-gray-200 hover:border-gray-300';
+    const selectedClass = selected
+      ? 'border-[--color-primary-500] ring-2 ring-[--color-primary-200]'
+      : 'border-[--color-border-secondary] hover:border-[--color-border-tertiary]';
     return `${base} ${selectedClass} border rounded-lg p-4 cursor-pointer transition-all ${className || ''}`.trim();
   }
 
@@ -163,7 +163,7 @@ export class AppearanceSettingsStyleManager {
    * Get classes for font size option
    */
   static fontSizeOption(base: string, selected?: boolean, className?: string): string {
-    const selectedClass = selected ? 'bg-blue-100 border-blue-500' : 'bg-white border-gray-200';
+    const selectedClass = selected ? 'bg-[--color-primary-100] border-[--color-primary-500]' : 'bg-[--color-background-primary] border-[--color-border-secondary]';
     return `${base} ${selectedClass} border rounded px-4 py-2 cursor-pointer ${className || ''}`.trim();
   }
 }
@@ -197,14 +197,14 @@ export class AccountSettingsStyleManager {
    * Get classes for danger zone
    */
   static dangerZone(base: string, className?: string): string {
-    return `${base} border border-red-200 rounded-lg p-4 bg-red-50 ${className || ''}`.trim();
+    return `${base} border border-[--color-danger-200] rounded-lg p-4 bg-[--color-danger-50] ${className || ''}`.trim();
   }
 
   /**
    * Get classes for two-factor section
    */
   static twoFactorSection(base: string, enabled?: boolean, className?: string): string {
-    const enabledClass = enabled ? 'border-green-200 bg-green-50' : 'border-gray-200 bg-white';
+    const enabledClass = enabled ? 'border-[--color-success-200] bg-[--color-success-50]' : 'border-[--color-border-secondary] bg-[--color-background-primary]';
     return `${base} ${enabledClass} border rounded-lg p-4 ${className || ''}`.trim();
   }
 }

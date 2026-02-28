@@ -1,7 +1,6 @@
 import type { SpacerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-
-type SpacerAxis = 'horizontal' | 'vertical';
+import type { SpacerAxis } from '$stylist/design-system/tokens/architecture/spacer-axis';
 
 export function createSpacerState(props: SpacerProps) {
 	const axis = $derived((props.axis ?? 'vertical') as SpacerAxis);

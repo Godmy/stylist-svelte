@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import { ChevronDown } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+
 	import type { AccordionHeaderDoubleProps } from '$stylist/design-system/contracts';
 	import { createAccordionHeaderDoubleState } from '$stylist/design-system/models/interaction/accordion-header-double.svelte';
 
@@ -40,8 +42,9 @@
 	aria-disabled={state.disabled}
 >
 	{@render props.children?.()}
-	<ChevronDown class={state.chevronClasses} />
+	<BaseIcon name={ChevronDown} class={state.chevronClasses} />
 </button>
+
 
 
 

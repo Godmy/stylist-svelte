@@ -1,10 +1,12 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 // Props for StatusDashboard component
 export interface StatusDashboardProps {
   title?: string;
   subtitle?: string;
   items: StatusItem[];
-  layout?: 'horizontal' | 'vertical';
-  size?: 'sm' | 'md' | 'lg';
+  layout?: Orientation;
+  size?: ComponentSize;
   class?: string;
   itemClass?: string;
   headerClass?: string;

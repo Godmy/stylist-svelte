@@ -1,4 +1,5 @@
-import type { LineChartVariant, LineChartSize } from '../../contracts/architecture/line-chart';
+import type { LineChartVariant } from '../../contracts/architecture/line-chart';
+import type { ComponentSize } from '../../tokens/architecture/component-size';
 
 export class LineChartStyleManager {
   static getBaseClasses(): string {
@@ -47,7 +48,7 @@ export class LineChartStyleManager {
     }
   }
 
-  static getSizeClasses(size?: LineChartSize): string {
+  static getSizeClasses(size?: ComponentSize): string {
     switch (size) {
       case 'sm':
         return '';

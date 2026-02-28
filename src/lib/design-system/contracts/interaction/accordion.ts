@@ -2,6 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
 import type { ContentProp, HtmlAttributesWithContent } from '../information/common';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export interface AccordionBaseProps {
 	value: string;
@@ -13,8 +14,8 @@ export interface AccordionHeaderProps
 	extends Omit<HTMLButtonAttributes, keyof AccordionBaseProps>,
 		AccordionBaseProps {
 	header?: string;
-	chevronSize?: 'sm' | 'md' | 'lg';
-	padding?: 'sm' | 'md' | 'lg';
+	chevronSize?: ComponentSize;
+	padding?: ComponentSize;
 	paddingClass?: string;
 	chevronSizeClass?: string;
 	open?: boolean;

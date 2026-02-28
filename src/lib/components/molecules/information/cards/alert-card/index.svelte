@@ -1,34 +1,34 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { AlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
   import { createState } from '$stylist/design-system/models/information/alert-card.svelte';
-  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+  import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
-   * AlertCard - карточка для отображения важной информации или предупреждений
+   * AlertCard - РєР°СЂС‚РѕС‡РєР° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РІР°Р¶РЅРѕР№ РёРЅС„РѕСЂРјР°С†РёРё РёР»Рё РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№
    *
-   * @param variant - Визуальный стиль компонента ('info' | 'success' | 'warning' | 'error' ...)
-   * @param size - Размер компонента ('sm' | 'md' | 'lg')
-   * @param disabled - Отключен ли компонент
-   * @param title - Заголовок алерта
-   * @param subtitle - Подзаголовок алерта
-   * @returns Стилизованная карточка алерта
+   * @param variant - Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЃС‚РёР»СЊ РєРѕРјРїРѕРЅРµРЅС‚Р° ('info' | 'success' | 'warning' | 'error' ...)
+   * @param size - Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° ('sm' | 'md' | 'lg')
+   * @param disabled - РћС‚РєР»СЋС‡РµРЅ Р»Рё РєРѕРјРїРѕРЅРµРЅС‚
+   * @param title - Р—Р°РіРѕР»РѕРІРѕРє Р°Р»РµСЂС‚Р°
+   * @param subtitle - РџРѕРґР·Р°РіРѕР»РѕРІРѕРє Р°Р»РµСЂС‚Р°
+   * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР° Р°Р»РµСЂС‚Р°
    */
 
   let props: AlertCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // Централизованное управление состоянием
+  // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createState(
-    createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+    createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
       variant: 'default',
       size: 'md'
     }),
     props as any
   );
 
-  // Извлечение rest-props вручную для работы в режиме runes
+  // РР·РІР»РµС‡РµРЅРёРµ rest-props РІСЂСѓС‡РЅСѓСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ runes
   let {
     variant,
     size,
@@ -42,16 +42,13 @@
     ...restProps
   } = props;
 
-  // Import classes from the design system
-  import {
-    ALERT_CARD_ICON_CONTAINER_CLASSES,
-    ALERT_CARD_ICON_CLASSES,
-    ALERT_CARD_TEXT_CONTAINER_CLASSES,
-    ALERT_CARD_TITLE_CLASSES,
-    ALERT_CARD_SUBTITLE_CLASSES,
-    ALERT_CARD_ACTIONS_CONTAINER_CLASSES,
-    ALERT_CARD_ACTION_BUTTON_CLASSES
-  } from '$stylist/design-system/classes/information/alert-card';
+  const ALERT_CARD_ICON_CONTAINER_CLASSES = 'flex items-center mb-[--spacing-md]';
+  const ALERT_CARD_ICON_CLASSES = 'w-10 h-10 mr-[--spacing-sm]';
+  const ALERT_CARD_TEXT_CONTAINER_CLASSES = '';
+  const ALERT_CARD_TITLE_CLASSES = 'text-lg font-semibold';
+  const ALERT_CARD_SUBTITLE_CLASSES = 'text-[--color-text-secondary]';
+  const ALERT_CARD_ACTIONS_CONTAINER_CLASSES = 'mt-[--spacing-md]';
+  const ALERT_CARD_ACTION_BUTTON_CLASSES = 'mr-[--spacing-sm] mb-[--spacing-sm] px-4 py-2 bg-[--color-primary-500] text-[--color-text-inverse] rounded hover:bg-[--color-primary-600]';
 </script>
 
 <div {...restProps} class={state.classes} {...state.attrs}>
@@ -85,3 +82,6 @@
     </div>
   </div>
 </div>
+
+
+

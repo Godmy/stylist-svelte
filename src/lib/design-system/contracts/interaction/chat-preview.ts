@@ -1,5 +1,5 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 ﻿export type ChatPreviewVariant = 'default' | 'compact' | 'detailed';
-export type ChatPreviewSize = 'sm' | 'md' | 'lg';
 
 /** Р­Р»РµРјРµРЅС‚ С‡Р°С‚Р° РґР»СЏ РїСЂРµРІСЊСЋ */
 export interface ChatPreviewItem {
@@ -57,7 +57,7 @@ export interface ChatPreviewProps {
    * Size of the chat preview
    * @default 'md'
    */
-  size?: ChatPreviewSize;
+  size?: ComponentSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   
   /**
    * Additional CSS classes

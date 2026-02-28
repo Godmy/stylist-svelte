@@ -1,17 +1,21 @@
 <script lang="ts">
   import type { IKPIIndicatorProps } from '$stylist/design-system/contracts/information/kpiindicator';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { KPIIndicatorStyleManager } from '$stylist/design-system/styles/information/kpiindicator';
-  import { TrendingUp, TrendingDown, Minus } from 'lucide-svelte';
+
+  const TrendingUp = 'trending-up';
+  const TrendingDown = 'trending-down';
+  const Minus = 'minus';
 
   /**
-   * KPIIndicator - компонент для отображения индикатора эффективности с прогрессом
+   * KPIIndicator - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РёРЅРґРёРєР°С‚РѕСЂР° СЌС„С„РµРєС‚РёРІРЅРѕСЃС‚Рё СЃ РїСЂРѕРіСЂРµСЃСЃРѕРј
    *
-   * Принципы SOLID:
-   * - SRP: Компонент отвечает только за отображение KPI индикатора
-   * - OCP: Открыт для расширения через пропсы, но закрыт для модификации внутренней логики
-   * - LSP: Может быть использован вместо любого базового компонента отображения данных
-   * - ISP: Предоставляет только необходимые свойства для отображения KPI
-   * - DIP: Зависит от абстракций (типы и стиль-менеджер), а не от конкретных реализаций
+   * РџСЂРёРЅС†РёРїС‹ SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ KPI РёРЅРґРёРєР°С‚РѕСЂР°
+   * - OCP: РћС‚РєСЂС‹С‚ РґР»СЏ СЂР°СЃС€РёСЂРµРЅРёСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹, РЅРѕ Р·Р°РєСЂС‹С‚ РґР»СЏ РјРѕРґРёС„РёРєР°С†РёРё РІРЅСѓС‚СЂРµРЅРЅРµР№ Р»РѕРіРёРєРё
+   * - LSP: РњРѕР¶РµС‚ Р±С‹С‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅ РІРјРµСЃС‚Рѕ Р»СЋР±РѕРіРѕ Р±Р°Р·РѕРІРѕРіРѕ РєРѕРјРїРѕРЅРµРЅС‚Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РґР°РЅРЅС‹С…
+   * - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ С‚РѕР»СЊРєРѕ РЅРµРѕР±С…РѕРґРёРјС‹Рµ СЃРІРѕР№СЃС‚РІР° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ KPI
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹ Рё СЃС‚РёР»СЊ-РјРµРЅРµРґР¶РµСЂ), Р° РЅРµ РѕС‚ РєРѕРЅРєСЂРµС‚РЅС‹С… СЂРµР°Р»РёР·Р°С†РёР№
    */
   let props: IKPIIndicatorProps = $props();
 
@@ -44,7 +48,7 @@
   const statusText = $derived(KPIIndicatorStyleManager.getStatusText(status));
 
   // Determine trend icon
-  const TrendIcon = $derived(trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus);
+  const trendIcon = $derived(trend === 'up' ? TrendingUp : trend === 'down' ? TrendingDown : Minus);
 
   // Get progress bar classes
   const progressTrackClasses = $derived(KPIIndicatorStyleManager.getProgressTrackClasses());
@@ -65,7 +69,7 @@
       </div>
       <div class="flex items-center">
         <span class={trendColorClasses}>
-          <TrendIcon class="h-5 w-5" />
+          <BaseIcon name={trendIcon} class="h-5 w-5" />
         </span>
         {#if trendValue !== 0}
           <span class={`ml-1 text-sm ${trendColorClasses}`}>

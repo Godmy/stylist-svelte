@@ -1,3 +1,24 @@
+import { cn } from '../../utils/cn/index';
+
+const NOTIFICATION_ITEM_TYPE_CLASSES = {
+	info: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',
+	success: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
+	warning: 'border-[var(--color-warning-200)] bg-[var(--color-warning-50)]',
+	error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]'
+} as const;
+
+const NOTIFICATION_BADGE_STATE_CLASSES = {
+	unread: 'bg-[var(--color-danger-500)] text-[var(--color-text-inverse)]',
+	read: 'bg-[var(--color-neutral-200)] text-[var(--color-text-secondary)]'
+} as const;
+
+const RESPONSE_VIEWER_STATUS_CLASSES = {
+	success: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
+	error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]',
+	loading: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',
+	info: 'border-[var(--color-neutral-200)] bg-[var(--color-background-secondary)]'
+} as const;
+
 /**
  * Notification Components Style Manager
  * Provides consistent styling for notification-related components
@@ -8,37 +29,33 @@ export class NotificationStyleManager {
    * Get base classes for notification preferences
    */
   static preferences(base: string, className?: string): string {
-    return `${base} ${className || ''}`.trim();
+    return cn(base, className);
   }
 
   /**
    * Get classes for notification item
    */
   static item(base: string, type?: 'info' | 'success' | 'warning' | 'error', className?: string): string {
-    const typeClasses = {
-      info: 'border-blue-200 bg-blue-50',
-      success: 'border-green-200 bg-green-50',
-      warning: 'border-yellow-200 bg-yellow-50',
-      error: 'border-red-200 bg-red-50'
-    };
-    
-    const typeClass = type ? typeClasses[type] : 'border-gray-200 bg-gray-50';
-    return `${base} ${typeClass} ${className || ''}`.trim();
+    return cn(base, type ? NOTIFICATION_ITEM_TYPE_CLASSES[type] : RESPONSE_VIEWER_STATUS_CLASSES.info, className);
   }
 
   /**
    * Get classes for scheduled notification
    */
   static scheduled(base: string, className?: string): string {
-    return `${base} border rounded-lg p-4 ${className || ''}`.trim();
+    return cn(base, 'rounded-lg border border-[var(--color-border-primary)] p-4', className);
   }
 
   /**
    * Get classes for notification badge
    */
   static badge(base: string, unread?: boolean, className?: string): string {
-    const unreadClass = unread ? 'bg-red-500 text-white' : 'bg-gray-200 text-gray-700';
-    return `${base} ${unreadClass} px-2 py-1 rounded-full text-xs font-semibold ${className || ''}`.trim();
+    return cn(
+      base,
+      unread ? NOTIFICATION_BADGE_STATE_CLASSES.unread : NOTIFICATION_BADGE_STATE_CLASSES.read,
+      'rounded-full px-2 py-1 text-xs font-semibold',
+      className
+    );
   }
 }
 
@@ -50,34 +67,32 @@ export class ResponseViewerStyleManager {
    * Get base classes for response viewer
    */
   static root(base: string, className?: string): string {
-    return `${base} border rounded-lg overflow-hidden ${className || ''}`.trim();
+    return cn(base, 'overflow-hidden rounded-lg border border-[var(--color-border-primary)]', className);
   }
 
   /**
    * Get classes based on status
    */
   static byStatus(status: 'success' | 'error' | 'loading' | 'info'): string {
-    const statusClasses = {
-      success: 'border-green-200 bg-green-50',
-      error: 'border-red-200 bg-red-50',
-      loading: 'border-blue-200 bg-blue-50',
-      info: 'border-gray-200 bg-gray-50'
-    };
-    return statusClasses[status];
+    return RESPONSE_VIEWER_STATUS_CLASSES[status];
   }
 
   /**
    * Get classes for code content
    */
   static code(base: string, className?: string): string {
-    return `${base} font-mono text-sm p-4 overflow-auto ${className || ''}`.trim();
+    return cn(base, 'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]', className);
   }
 
   /**
    * Get classes for toolbar
    */
   static toolbar(base: string, className?: string): string {
-    return `${base} flex items-center justify-between px-4 py-2 border-b bg-gray-50 ${className || ''}`.trim();
+    return cn(
+      base,
+      'flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-4 py-2',
+      className
+    );
   }
 }
 
@@ -89,27 +104,35 @@ export class DocumentPreviewStyleManager {
    * Get base classes for document preview
    */
   static root(base: string, className?: string): string {
-    return `${base} border rounded-lg overflow-hidden ${className || ''}`.trim();
+    return cn(base, 'overflow-hidden rounded-lg border border-[var(--color-border-primary)]', className);
   }
 
   /**
    * Get classes for preview content
    */
   static content(base: string, className?: string): string {
-    return `${base} font-mono text-sm p-4 overflow-auto ${className || ''}`.trim();
+    return cn(base, 'overflow-auto p-4 font-mono text-sm text-[var(--color-text-primary)]', className);
   }
 
   /**
    * Get classes for line numbers
    */
   static lineNumbers(base: string, className?: string): string {
-    return `${base} select-none text-gray-400 text-right pr-4 border-r ${className || ''}`.trim();
+    return cn(
+      base,
+      'select-none border-r border-[var(--color-border-primary)] pr-4 text-right text-[var(--color-text-tertiary)]',
+      className
+    );
   }
 
   /**
    * Get classes for toolbar
    */
   static toolbar(base: string, className?: string): string {
-    return `${base} flex items-center justify-between px-4 py-2 border-b bg-gray-50 ${className || ''}`.trim();
+    return cn(
+      base,
+      'flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-4 py-2',
+      className
+    );
   }
 }

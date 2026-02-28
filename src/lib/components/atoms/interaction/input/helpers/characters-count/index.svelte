@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { createCharacterCountState } from '$stylist/design-system/models/interaction/characters-count.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * CharacterCount component - displays current/max character count with color indication
@@ -22,7 +22,7 @@
 		content?: import('svelte').Snippet;
 		class?: string;
 		variant?: (typeof INPUT_VARIANTS)[number];
-		size?: (typeof COMPACT_SIZE_SCALE)[number];
+		size?: (typeof COMPONENT_SIZE)[number];
 	};
 
 	let {
@@ -61,6 +61,11 @@
 		{message}
 	{/if}
 </div>
+
+
+
+
+
 
 
 

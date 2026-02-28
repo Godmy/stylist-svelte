@@ -1,27 +1,30 @@
 <!--
 /**
- * AdvancedPasswordInput Component - Следует принципам SOLID:
+ * AdvancedPasswordInput Component - РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
  *
  * 1. Single Responsibility Principle (SRP):
- *    Компонент отвечает только за отображение и управление паролем.
- *    Логика стилизации вынесена в AdvancedPasswordInputStyleManager.
+ *    РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Рё СѓРїСЂР°РІР»РµРЅРёРµ РїР°СЂРѕР»РµРј.
+ *    Р›РѕРіРёРєР° СЃС‚РёР»РёР·Р°С†РёРё РІС‹РЅРµСЃРµРЅР° РІ AdvancedPasswordInputStyleManager.
  *
  * 2. Open/Closed Principle (OCP):
- *    Легко расширяется через пропсы и CSS-переменные темы.
+ *    Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµС‚СЃСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹ Рё CSS-РїРµСЂРµРјРµРЅРЅС‹Рµ С‚РµРјС‹.
  *
  * 3. Liskov Substitution Principle (LSP):
- *    Соблюдает контракт, определённый интерфейсом IAdvancedPasswordInputProps.
+ *    РЎРѕР±Р»СЋРґР°РµС‚ РєРѕРЅС‚СЂР°РєС‚, РѕРїСЂРµРґРµР»С‘РЅРЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃРѕРј IAdvancedPasswordInputProps.
  *
  * 4. Interface Segregation Principle (ISP):
- *    Использует минимально необходимый интерфейс IAdvancedPasswordInputProps.
+ *    РСЃРїРѕР»СЊР·СѓРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ IAdvancedPasswordInputProps.
  *
  * 5. Dependency Inversion Principle (DIP):
- *    Зависит от абстракции (типов и стилей) а не от конкретных реализаций.
+ *    Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёРё (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№) Р° РЅРµ РѕС‚ РєРѕРЅРєСЂРµС‚РЅС‹С… СЂРµР°Р»РёР·Р°С†РёР№.
  */
 -->
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Eye, EyeOff } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Eye = 'eye';
+const EyeOff = 'eye-off';
+
   import { AdvancedPasswordInputStyleManager } from '$stylist/design-system/styles/interaction/advanced-password-input';
   import type { IAdvancedPasswordInputProps } from '$stylist/design-system/contracts/interaction/advanced-password-input';
 
@@ -126,9 +129,9 @@
       disabled={disabled}
     >
       {#if showPassword}
-        <EyeOff class={eyeIconClass} />
+        <BaseIcon name={EyeOff} class={eyeIconClass} />
       {:else}
-        <Eye class={eyeIconClass} />
+        <BaseIcon name={Eye} class={eyeIconClass} />
       {/if}
     </button>
   </div>
@@ -150,3 +153,4 @@
     </div>
   {/if}
 </div>
+

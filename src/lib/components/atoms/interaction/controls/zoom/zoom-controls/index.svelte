@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ZoomIn = 'zoom-in';
+const ZoomOut = 'zoom-out';
+const RotateCcw = 'rotate-ccw';
+
   import { createZoomControlsState } from '$stylist/design-system/models/interaction/zoom-controls.svelte';
   import type { ZoomControlsProps } from '$stylist/design-system/contracts/interaction/zoom-controls';
   import type { HTMLAttributes } from 'svelte/elements';
@@ -74,7 +78,7 @@
       aria-label="Zoom in"
       disabled={zoomLevel >= zoomState.maxZoom}
     >
-      <ZoomIn class="h-5 w-5" />
+      <BaseIcon name={ZoomIn} class="h-5 w-5" />
     </button>
 
     <button
@@ -83,7 +87,7 @@
       onclick={resetZoom}
       aria-label="Reset zoom"
     >
-      <RotateCcw class="h-5 w-5" />
+      <BaseIcon name={RotateCcw} class="h-5 w-5" />
     </button>
 
     <button
@@ -93,7 +97,7 @@
       aria-label="Zoom out"
       disabled={zoomLevel <= zoomState.minZoom}
     >
-      <ZoomOut class="h-5 w-5" />
+      <BaseIcon name={ZoomOut} class="h-5 w-5" />
     </button>
   </div>
 
@@ -106,3 +110,4 @@
     </div>
   </div>
 </div>
+

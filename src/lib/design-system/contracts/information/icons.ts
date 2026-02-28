@@ -1,28 +1,30 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
 
 export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
   direction?: 'up' | 'down' | 'left' | 'right';
-  size?: 'sm' | 'md' | 'lg' | '2xl';
+  size?: ComponentSize | '2xl';
   class?: string;
   isOpen?: boolean;
-  variant?: 'default' | 'primary' | 'secondary';
+  variant?: DefaultVariants;
   disabled?: boolean;
 }
 
 export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
   class?: string;
-  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  variant?: DefaultVariants | 'success' | 'warning' | 'danger';
   filled?: boolean;
   disabled?: boolean;
   icon?: Snippet;
 }
 
 export interface IconWrapperProps extends HTMLAttributes<HTMLDivElement> {
-  size?: 'sm' | 'md' | 'lg';
-  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-  shape?: 'circle' | 'square' | 'rounded';
+  size?: ComponentSize;
+  variant?: DefaultVariants | 'success' | 'warning' | 'danger';
+  shape?: 'circle' | 'square' | 'rounded' | 'pill';
   color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
   disabled?: boolean;
   class?: string;

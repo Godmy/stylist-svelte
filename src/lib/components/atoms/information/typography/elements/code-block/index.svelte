@@ -1,10 +1,10 @@
-<script lang="ts">
-	import type { CodeBlockProps } from '$stylist/design-system';
-	import { createCodeBlockState } from '$stylist/design-system/models/information/code-block.svelte';
+﻿<script lang="ts">
+	import type { CodeProps } from '$stylist/design-system';
+	import { createCodeState } from '$stylist/design-system/models/information/code-block.svelte';
 
-	let props: CodeBlockProps = $props();
+	let props: CodeProps = $props();
 
-	const state = createCodeBlockState(props);
+	const state = createCodeState(props);
 	const children = $derived(props.children);
 
 	const restProps = $derived(
@@ -29,3 +29,4 @@
 		{@render children?.()}
 	{/if}
 </div>
+

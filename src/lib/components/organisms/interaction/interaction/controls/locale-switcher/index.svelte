@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Clock, Globe, User } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Clock = 'clock';
+const Globe = 'globe';
+const User = 'user';
+
   import { LocaleSwitcherStyleManager } from '$stylist/design-system/styles';
   import type { LocaleSwitcherProps } from '$stylist/design-system/contracts';
 
@@ -40,7 +44,7 @@
 <div class={LocaleSwitcherStyleManager.getRootClass(className)} {...restProps}>
   <div class={LocaleSwitcherStyleManager.getHeaderClass(headerClass)}>
     <div class="flex items-center">
-      <Globe class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={Globe} class="h-6 w-6 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">Locale Switcher</h3>
     </div>
     <p class="mt-1 text-sm text-gray-500">Change language, region, and formatting preferences</p>
@@ -89,7 +93,7 @@
         <div class="border rounded-lg p-4 bg-gray-50">
           {#if currentLocaleObj}
             <div class="flex items-center mb-4">
-              <Globe class="h-5 w-5 text-gray-500 mr-2" />
+              <BaseIcon name={Globe} class="h-5 w-5 text-gray-500 mr-2" />
               <span class="text-sm font-medium">
                 {currentLocaleObj.name} {showRegional && currentLocaleObj.region ? `(${currentLocaleObj.region})` : ''}
               </span>
@@ -115,7 +119,7 @@
             </div>
 
             <div class="flex items-center text-xs text-gray-500">
-              <Clock class="h-4 w-4 mr-1" />
+              <BaseIcon name={Clock} class="h-4 w-4 mr-1" />
               <span>Timezone: {currentTimezone}</span>
             </div>
           {/if}
@@ -143,7 +147,7 @@
   <div class={LocaleSwitcherStyleManager.getFooterClass(footerClass)}>
     <div class="flex items-center justify-between">
       <div class="flex items-center text-sm text-gray-500">
-        <User class="h-4 w-4 mr-1" />
+        <BaseIcon name={User} class="h-4 w-4 mr-1" />
         <span>Locale: {currentLocale}</span>
       </div>
       <div class="text-sm text-gray-500">
@@ -152,4 +156,5 @@
     </div>
   </div>
 </div>
+
 

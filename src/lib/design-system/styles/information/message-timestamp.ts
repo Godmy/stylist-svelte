@@ -13,7 +13,7 @@ export const createMessageTimestampStyles = <TOptions extends Record<string, unk
 ): MessageTimestampStyles => {
   return {
     container: [
-      'text-xs text-gray-500 whitespace-nowrap',
+      'text-xs text-[--color-text-secondary] whitespace-nowrap',
       baseClasses?.container || ''
     ].join(' ')
   };

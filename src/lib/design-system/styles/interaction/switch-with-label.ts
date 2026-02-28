@@ -40,9 +40,9 @@ export class SwitchWithLabelStyleManager {
    * Gets the CSS classes for the switch element
    */
   static getSwitchClasses(checked: boolean, disabled: boolean, switchClass: string = ''): string {
-    const bgClass = checked ? 'bg-[--color-primary-600]' : 'bg-[--color-border-default]';
+    const bgClass = checked ? 'bg-[--color-primary-600]' : 'bg-[--color-border-primary]';
     const cursorClass = disabled ? 'cursor-not-allowed' : 'cursor-pointer';
-    
+
     return [
       'relative',
       'inline-flex',
@@ -63,13 +63,13 @@ export class SwitchWithLabelStyleManager {
    */
   static getHandleClasses(checked: boolean): string {
     const positionClass = checked ? 'translate-x-6' : 'translate-x-1';
-    
+
     return [
       'inline-block',
       'w-4',
       'h-4',
       'transform',
-      'bg-[--color-bg-default]',
+      'bg-[--color-background-primary]',
       'rounded-full',
       'transition-transform',
       'duration-200',

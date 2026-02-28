@@ -1,62 +1,65 @@
+import { cn } from '../../utils/cn/index';
+import {
+	CODE_CHANGED_CONTAINER_CLASSES,
+	CODE_DIFF_LINE_BASE_CLASSES,
+	CODE_DIFF_LINE_VARIANT_CLASSES,
+	CODE_HEADER_BASE_CLASSES,
+	CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES,
+	CODE_MAIN_CONTENT_CLASSES,
+	CODE_SURFACE_BASE_CLASSES
+} from './code-block';
+
+type DiffLineType = 'added' | 'removed' | 'unchanged';
+
 export class CodeDiffStyleManager {
-  static getContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'c-code-diff rounded-lg border border-gray-200 overflow-hidden';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getContainerClass(extraClasses = ''): string {
+		return cn('c-code-diff relative', CODE_SURFACE_BASE_CLASSES, extraClasses);
+	}
 
-  static getHeaderClass(extraClasses: string = ''): string {
-    const baseClass = 'bg-gray-100 px-4 py-2 border-b border-gray-200 text-sm font-medium text-gray-700';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getHeaderClass(extraClasses = ''): string {
+		return cn(CODE_HEADER_BASE_CLASSES, extraClasses);
+	}
 
-  static getMainContentClass(): string {
-    return 'flex';
-  }
+	static getMainContentClass(): string {
+		return CODE_MAIN_CONTENT_CLASSES;
+	}
 
-  static getLineNumbersContainerClass(): string {
-    return 'w-16 bg-gray-100 text-right select-none text-gray-500 text-sm py-2';
-  }
+	static getLineNumbersContainerClass(): string {
+		return cn('w-16 py-2', CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES);
+	}
 
-  static getLineNumberItemClass(): string {
-    return 'pr-2';
-  }
+	static getLineNumberItemClass(): string {
+		return 'pr-2';
+	}
 
-  static getContentContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'flex-1 overflow-x-auto';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getContentContainerClass(extraClasses = ''): string {
+		return cn('flex-1 overflow-x-auto', extraClasses);
+	}
 
-  static getDiffContentClass(): string {
-    return 'text-sm';
-  }
+	static getDiffContentClass(): string {
+		return 'text-sm';
+	}
 
-  static getDiffLineClass(type: string): string {
-    switch (type) {
-      case 'added':
-        return 'px-4 py-1 bg-green-50 border-l-4 border-green-500';
-      case 'removed':
-        return 'px-4 py-1 bg-red-50 border-l-4 border-red-500';
-      case 'unchanged':
-        return 'px-4 py-1 bg-white';
-      default:
-        return 'px-4 py-1 bg-white';
-    }
-  }
+	static getDiffLineClass(type: string): string {
+		const normalizedType: DiffLineType =
+			type === 'added' || type === 'removed' ? type : 'unchanged';
+		return cn(CODE_DIFF_LINE_BASE_CLASSES, CODE_DIFF_LINE_VARIANT_CLASSES[normalizedType]);
+	}
 
-  static getDiffSpanClass(type: string): string {
-    switch (type) {
-      case 'added':
-        return 'text-green-700';
-      case 'removed':
-        return 'text-red-700';
-      case 'unchanged':
-        return 'text-gray-700';
-      default:
-        return 'text-gray-700';
-    }
-  }
+	static getDiffSpanClass(type: string): string {
+		switch (type) {
+			case 'added':
+				return 'text-[var(--color-success-800)]';
+			case 'removed':
+				return 'text-[var(--color-danger-800)]';
+			case 'changed':
+			case 'unchanged':
+			default:
+				return 'text-[var(--color-text-secondary)]';
+		}
+	}
 
-  static getChangedContainerClass(): string {
-    return 'bg-white';
-  }
+	static getChangedContainerClass(): string {
+		return CODE_CHANGED_CONTAINER_CLASSES;
+	}
 }

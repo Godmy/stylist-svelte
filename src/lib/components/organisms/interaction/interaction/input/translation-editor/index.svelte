@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { Download, Edit3, Languages, Save, Trash2, Upload } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Download = 'download';
+const Edit3 = 'edit-3';
+const Languages = 'languages';
+const Save = 'save';
+const Trash2 = 'trash-2';
+const Upload = 'upload';
+
   import type { TranslatableText } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
@@ -63,11 +70,11 @@
 <div class={InteractionInputStyleManager.root('c-translation-editor', className)} {...restProps}>
   <div class={InteractionInputStyleManager.panel('overflow-hidden')}>
     <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
-      <div class="flex items-center gap-2"><Languages class="h-5 w-5" /><span class="font-semibold">Translation Editor</span></div>
+      <div class="flex items-center gap-2"><BaseIcon name={Languages} class="h-5 w-5" /><span class="font-semibold">Translation Editor</span></div>
       <div class="flex gap-2">
-        <button type="button" class="px-2 py-1 border rounded" onclick={() => onImport?.({})}><Upload class="h-4 w-4" /></button>
-        <button type="button" class="px-2 py-1 border rounded" onclick={() => onExport?.()}><Download class="h-4 w-4" /></button>
-        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave()}><Save class="h-4 w-4" /></button>{/if}
+        <button type="button" class="px-2 py-1 border rounded" onclick={() => onImport?.({})}><BaseIcon name={Upload} class="h-4 w-4" /></button>
+        <button type="button" class="px-2 py-1 border rounded" onclick={() => onExport?.()}><BaseIcon name={Download} class="h-4 w-4" /></button>
+        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave()}><BaseIcon name={Save} class="h-4 w-4" /></button>{/if}
       </div>
     </div>
 
@@ -100,13 +107,13 @@
                 {:else}
                   <div class="flex items-start justify-between gap-2">
                     <div>{text.translations[currentLocale] || '-'}</div>
-                    <button type="button" onclick={() => beginEdit(text)}><Edit3 class="h-4 w-4" /></button>
+                    <button type="button" onclick={() => beginEdit(text)}><BaseIcon name={Edit3} class="h-4 w-4" /></button>
                   </div>
                 {/if}
               </td>
               {#if showContextColumn}<td class="px-4 py-2 text-sm text-gray-600">{text.context || '-'}</td>{/if}
               {#if showStatusColumn}<td class="px-4 py-2 text-sm">{text.status}</td>{/if}
-              <td class="px-4 py-2 text-right"><button type="button" onclick={() => onTranslationChange?.(text.key, currentLocale, '')}><Trash2 class="h-4 w-4 inline" /></button></td>
+              <td class="px-4 py-2 text-right"><button type="button" onclick={() => onTranslationChange?.(text.key, currentLocale, '')}><BaseIcon name={Trash2} class="h-4 w-4 inline" /></button></td>
             </tr>
           {/each}
         </tbody>
@@ -114,3 +121,4 @@
     </div>
   </div>
 </div>
+

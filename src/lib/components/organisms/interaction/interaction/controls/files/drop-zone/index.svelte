@@ -1,7 +1,11 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { Upload, X, Check } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Upload = 'upload';
+const X = 'x';
+const Check = 'check';
+
   import { Button } from '$stylist/components/atoms';
 
   type DropItem = {
@@ -173,7 +177,7 @@
     {@render children()}
   {:else}
     <div class="flex flex-col items-center justify-center">
-      <Upload class="h-10 w-10 text-gray-400 mb-2" />
+      <BaseIcon name={Upload} class="h-10 w-10 text-gray-400 mb-2" />
       <h3 class="text-lg font-medium text-gray-900">{label}</h3>
       <p class="text-sm text-gray-500 mt-1">{description}</p>
       <p class="text-xs text-gray-400 mt-2">Accepts: {accept}</p>
@@ -224,11 +228,11 @@
           <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-md">
             <div class="flex items-center truncate">
               <div class="flex-shrink-0 h-5 w-5 text-blue-500">
-                <Check class="h-5 w-5" />
+                <BaseIcon name={Check} class="h-5 w-5" />
               </div>
               <div class="ml-3 min-w-0">
                 <p class="text-sm font-medium text-gray-900 truncate">{item.name}</p>
-                <p class="text-xs text-gray-500">{item.type} • {formatFileSize(item.size || 0)}</p>
+                <p class="text-xs text-gray-500">{item.type} вЂў {formatFileSize(item.size || 0)}</p>
               </div>
             </div>
 
@@ -239,7 +243,7 @@
                 onclick={() => removeItem(item.id)}
                 disabled={disabled}
               >
-                <X class="h-4 w-4" />
+                <BaseIcon name={X} class="h-4 w-4" />
               </Button>
             </div>
           </div>
@@ -254,3 +258,4 @@
     </div>
   {/if}
 </div>
+

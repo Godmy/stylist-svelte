@@ -1,6 +1,11 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { UserPlus, UserCheck, Check, Loader2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const UserPlus = 'user-plus';
+const UserCheck = 'user-check';
+const Check = 'check';
+const Loader2 = 'loader-2';
+
   import { Button } from '$stylist/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLButtonElement>, 'class'>;
@@ -50,7 +55,7 @@
 
   let buttonVariant = $derived(isFollowing ? 'outline' : variant);
   let buttonText = $derived(isFollowing ? followingText : unfollowText);
-  let ButtonIcon = $derived(isFollowing ? UserCheck : UserPlus);
+  let buttonIcon = $derived(isFollowing ? UserCheck : UserPlus);
 </script>
 
 <button
@@ -75,20 +80,21 @@
 >
   {#if isPending}
     <div class="flex items-center justify-center">
-      <Loader2 class="h-4 w-4 animate-spin" />
+      <BaseIcon name={Loader2} class="h-4 w-4 animate-spin" />
       {#if showText} {isFollowing ? 'Unfollowing...' : 'Following...'} {/if}
     </div>
   {:else}
     <div class="flex items-center justify-center">
       {#if isFollowing}
-        <Check class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
+        <BaseIcon name={Check} class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
       {:else}
-        <ButtonIcon class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
+        <BaseIcon name={buttonIcon} class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
       {/if}
       {#if showText} {buttonText} {/if}
     </div>
   {/if}
 </button>
+
 
 
 

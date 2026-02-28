@@ -1,0 +1,369 @@
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+	import type {
+		LiteGraphNodeProps,
+		LiteGraphPort,
+		ConnectionLineProps,
+		GraphToolbarItem,
+		LiteGraphNodeProperty
+	} from '$stylist/design-system/contracts';
+	import {
+		LitegraphCanvas,
+		NodePalette,
+		Minimap
+	} from '$stylist/components/organisms';
+	import { NodePropertiesPanel } from '$stylist/components/molecules';
+	import { IconButton, Separator, Icon } from '$stylist/components/atoms';
+
+	type NodeData = LiteGraphNodeProps & {
+		properties?: readonly LiteGraphNodeProperty[];
+	};
+
+	type ConnectionData = ConnectionLineProps & {
+		fromPort: string;
+		toPort: string;
+	};
+
+	type PaletteNode = {
+		id: string;
+		type: string;
+		title: string;
+		description?: string;
+		color?: string;
+		category: string;
+	};
+
+	type Props = {
+		nodes?: readonly NodeData[];
+		connections?: readonly ConnectionData[];
+		selectedNodeIds?: readonly string[];
+		zoom?: number;
+		offset?: { x: number; y: number };
+		showToolbar?: boolean;
+		showMiniMap?: boolean;
+		showNodePalette?: boolean;
+		showPropertiesPanel?: boolean;
+		showGrid?: boolean;
+		palettePosition?: { x: number; y: number };
+		toolbarItems?: readonly GraphToolbarItem[];
+		paletteNodes?: PaletteNode[];
+		onNodeSelect?: (nodeId: string) => void;
+		onNodeDrag?: (nodeId: string, position: { x: number; y: number }) => void;
+		onNodeDelete?: (nodeId: string) => void;
+		onNodeDuplicate?: (nodeId: string) => void;
+		onNodeAdd?: (node: NodeData) => void;
+		onPropertyChange?: (nodeId: string, propertyId: string, value: unknown) => void;
+		onSave?: (data: { nodes: readonly NodeData[]; connections: readonly ConnectionData[] }) => void;
+		onExport?: () => void;
+		onImport?: (data: unknown) => void;
+		children?: Snippet;
+		class?: string;
+	};
+
+	let {
+		nodes = [],
+		connections = [],
+		selectedNodeIds = [],
+		zoom = 1,
+		offset = { x: 0, y: 0 },
+		showToolbar = true,
+		showMiniMap = true,
+		showNodePalette = true,
+		showPropertiesPanel = true,
+		showGrid = true,
+		palettePosition = { x: 20, y: 80 },
+		toolbarItems = [],
+		paletteNodes = [],
+		onNodeSelect,
+		onNodeDrag,
+		onNodeDelete,
+		onNodeDuplicate,
+		onNodeAdd,
+		onPropertyChange,
+		onSave,
+		onExport,
+		onImport,
+		class: className = '',
+		children,
+		...restProps
+	}: Props = $props();
+
+	// Состояние UI
+	let isPaletteOpen = $state(showNodePalette);
+	let isPropertiesPanelOpen = $state(showPropertiesPanel);
+	let paletteSearchQuery = $state('');
+	let paletteSelectedCategory = $state('all');
+
+	// Выбранный узел для панели свойств
+	const selectedNode = $derived(
+		selectedNodeIds.length > 0
+			? nodes.find((n) => n.id === selectedNodeIds[0])
+			: undefined
+	);
+
+	// Предустановленные узлы для палитры
+	const defaultPaletteNodes = $derived<PaletteNode[]>(
+		paletteNodes.length > 0 ? paletteNodes : [
+			{ id: 'source', type: 'source', title: 'Source', description: 'Data source node', color: '#10b981', category: 'source' },
+			{ id: 'processor', type: 'processor', title: 'Processor', description: 'Process data', color: '#6366f1', category: 'processor' },
+			{ id: 'output', type: 'output', title: 'Output', description: 'Output node', color: '#f59e0b', category: 'output' },
+			{ id: 'gateway', type: 'gateway', title: 'Gateway', description: 'Decision point', color: '#8b5cf6', category: 'gateway' },
+			{ id: 'custom', type: 'custom', title: 'Custom', description: 'Custom node', color: '#ec4899', category: 'custom' }
+		]
+	);
+
+	function handleNodeSelect(nodeId: string) {
+		if (onNodeSelect) {
+			onNodeSelect(nodeId);
+		}
+	}
+
+	function handleNodeDrag(nodeId: string, position: { x: number; y: number }) {
+		if (onNodeDrag) {
+			onNodeDrag(nodeId, position);
+		}
+	}
+
+	function handleNodeDelete(nodeId: string) {
+		if (onNodeDelete) {
+			onNodeDelete(nodeId);
+		}
+	}
+
+	function handleNodeDuplicate(nodeId: string) {
+		if (onNodeDuplicate) {
+			onNodeDuplicate(nodeId);
+		}
+	}
+
+	function handlePaletteNodeSelect(item: PaletteNode) {
+		if (onNodeAdd) {
+			const centerX = (-offset.x + 400) / zoom;
+			const centerY = (-offset.y + 300) / zoom;
+
+			onNodeAdd({
+				id: `${item.type}-${Date.now()}`,
+				title: item.title,
+				type: item.type as any,
+				x: centerX,
+				y: centerY,
+				color: item.color,
+				inputs: [],
+				outputs: [],
+				properties: []
+			});
+		}
+		isPaletteOpen = false;
+	}
+
+	function handlePropertyChange(propertyId: string, value: unknown) {
+		if (selectedNodeIds.length > 0 && onPropertyChange) {
+			onPropertyChange(selectedNodeIds[0], propertyId, value);
+		}
+	}
+
+	function handleSave() {
+		if (onSave) {
+			onSave({ nodes, connections });
+		}
+	}
+
+	function handleTogglePalette() {
+		isPaletteOpen = !isPaletteOpen;
+	}
+
+	function handleToggleProperties() {
+		isPropertiesPanelOpen = !isPropertiesPanelOpen;
+	}
+</script>
+
+<div class={`graph-editor ${className ?? ''}`} {...restProps}>
+	<!-- Main Canvas Area -->
+	<div class="graph-editor__main">
+		<LitegraphCanvas
+			nodes={nodes}
+			connections={connections}
+			selectedNodeIds={selectedNodeIds}
+			zoom={zoom}
+			offset={offset}
+			showGrid={showGrid}
+			showToolbar={showToolbar}
+			showMiniMap={showMiniMap}
+			toolbarItems={toolbarItems}
+			onNodeSelect={handleNodeSelect}
+			onNodeDrag={handleNodeDrag}
+			onNodeDelete={handleNodeDelete}
+			onNodeDuplicate={handleNodeDuplicate}
+			onSave={handleSave}
+			onExport={onExport}
+			onImport={onImport}
+		>
+			{#if children}
+				{@render children?.()}
+			{/if}
+		</LitegraphCanvas>
+	</div>
+
+	<!-- Node Palette -->
+	{#if showNodePalette}
+		<div class="graph-editor__palette">
+			<NodePalette
+				isOpen={isPaletteOpen}
+				x={palettePosition.x}
+				y={palettePosition.y}
+				items={defaultPaletteNodes}
+				searchQuery={paletteSearchQuery}
+				selectedCategory={paletteSelectedCategory}
+				viewMode="list"
+				onSearch={(query) => paletteSearchQuery = query}
+				onNodeSelect={handlePaletteNodeSelect}
+				onClose={() => isPaletteOpen = false}
+				onCategorySelect={(category) => paletteSelectedCategory = category}
+			/>
+		</div>
+	{/if}
+
+	<!-- Properties Panel -->
+	{#if showPropertiesPanel && selectedNode}
+		<div class="graph-editor__properties">
+			<NodePropertiesPanel
+				id="properties-panel"
+				nodeId={selectedNode.id}
+				title="Node Properties"
+				properties={selectedNode.properties ?? []}
+				size="md"
+				editable={true}
+				showHeader={true}
+				showClose={true}
+				onPropertyChange={handlePropertyChange}
+				onclose={() => isPropertiesPanelOpen = false}
+			/>
+		</div>
+	{/if}
+
+	<!-- Quick Actions Bar -->
+	<div class="graph-editor__quick-actions">
+		<IconButton
+			variant="primary"
+			size="md"
+			aria-label="Add node"
+			title="Add Node"
+			onclick={handleTogglePalette}
+		>
+			<Icon name="plus" size={20} />
+		</IconButton>
+
+		<Separator orientation="vertical" />
+
+		<IconButton
+			variant="ghost"
+			size="md"
+			aria-label="Save graph"
+			title="Save Graph"
+			onclick={handleSave}
+		>
+			<Icon name="save" size={18} />
+		</IconButton>
+
+		<IconButton
+			variant="ghost"
+			size="md"
+			aria-label="Export graph"
+			title="Export Graph"
+			onclick={onExport}
+		>
+			<Icon name="download" size={18} />
+		</IconButton>
+
+		<IconButton
+			variant="ghost"
+			size="md"
+			aria-label="Import graph"
+			title="Import Graph"
+			onclick={onImport}
+		>
+			<Icon name="upload" size={18} />
+		</IconButton>
+
+		<Separator orientation="vertical" />
+
+		<IconButton
+			variant="ghost"
+			size="md"
+			aria-label="Settings"
+			title="Settings"
+		>
+			<Icon name="settings" size={18} />
+		</IconButton>
+
+		<IconButton
+			variant="ghost"
+			size="md"
+			aria-label="Help"
+			title="Help"
+		>
+			<Icon name="info" size={18} />
+		</IconButton>
+	</div>
+</div>
+
+<style>
+	:global(.graph-editor) {
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		background: #0f0f0f;
+	}
+
+	:global(.graph-editor__main) {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	:global(.graph-editor__palette) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 50;
+		pointer-events: none;
+	}
+
+	:global(.graph-editor__palette > *) {
+		pointer-events: auto;
+	}
+
+	:global(.graph-editor__properties) {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+		z-index: 50;
+	}
+
+	:global(.graph-editor__quick-actions) {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1rem;
+		background: rgb(30 30 30 / 0.95);
+		border: 1px solid #374151;
+		border-radius: 12px;
+		box-shadow: 0 8px 16px rgb(0 0 0 / 0.4);
+		z-index: 50;
+		backdrop-filter: blur(8px);
+	}
+
+	:global(.graph-editor__quick-actions .separator) {
+		height: 24px;
+		margin: 0 0.25rem;
+	}
+</style>

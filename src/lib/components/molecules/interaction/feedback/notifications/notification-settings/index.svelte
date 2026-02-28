@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { Bell, Mail, Smartphone, Monitor, Settings } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Bell = 'bell';
+const Mail = 'mail';
+const Smartphone = 'smartphone';
+const Monitor = 'monitor';
+const Settings = 'settings';
+
 import type {
     INotificationSettingsProps,
     INotificationSettingsPreference,
@@ -30,7 +36,7 @@ import type {
 <div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <Bell class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={Bell} class="h-6 w-6 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">Notification Settings</h3>
     </div>
     <p class="mt-1 text-sm text-gray-500">Manage how and when you receive notifications.</p>
@@ -42,13 +48,13 @@ import type {
       <div>Notification Type</div>
       {#if showEmail}
         <div class="flex items-center justify-center">
-          <Mail class="h-4 w-4 mr-1" />
+          <BaseIcon name={Mail} class="h-4 w-4 mr-1" />
           Email
         </div>
       {/if}
       {#if showPush}
         <div class="flex items-center justify-center">
-          <Smartphone class="h-4 w-4 mr-1" />
+          <BaseIcon name={Smartphone} class="h-4 w-4 mr-1" />
           Push
         </div>
       {/if}
@@ -62,7 +68,7 @@ import type {
       {/if}
       {#if showInApp}
         <div class="flex items-center justify-center">
-          <Monitor class="h-4 w-4 mr-1" />
+          <BaseIcon name={Monitor} class="h-4 w-4 mr-1" />
           In-App
         </div>
       {/if}
@@ -137,8 +143,9 @@ import type {
 
   <div class={`border-t px-6 py-4 ${footerClass}`}>
     <div class="flex items-center text-xs text-gray-500">
-      <Settings class="h-4 w-4 mr-1" />
+      <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
       <span>Changes to notification preferences are saved automatically</span>
     </div>
   </div>
 </div>
+

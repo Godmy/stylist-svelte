@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Upload, FileText, X } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Upload = 'upload';
+const FileText = 'file-text';
+const X = 'x';
+
 
   type FileType = {
     id: string;
@@ -152,7 +156,7 @@
     role="button"
     tabindex={0}
   >
-    <Upload class="mx-auto h-12 w-12 text-gray-400 mb-4" />
+    <BaseIcon name={Upload} class="mx-auto h-12 w-12 text-gray-400 mb-4" />
     <p class="text-lg font-medium text-gray-900">Drag and drop files here</p>
     <p class="text-sm text-gray-500 mt-1">or click to browse</p>
     <p class="text-xs text-gray-400 mt-2">Supports: {accept || 'All files'} | Max: {formatFileSize(maxSize)}</p>
@@ -180,7 +184,7 @@
             'border-gray-200 bg-gray-50'
           }`}>
             <div class="flex items-center">
-              <FileText class="h-5 w-5 text-gray-500 mr-2" />
+              <BaseIcon name={FileText} class="h-5 w-5 text-gray-500 mr-2" />
               <div>
                 <p class="text-sm font-medium text-gray-900">{file.name}</p>
                 <p class="text-xs text-gray-500">{formatFileSize(file.size)}</p>
@@ -199,7 +203,7 @@
               {:else if file.status === 'error'}
                 <span class="text-xs text-red-600">Error</span>
               {:else if file.status === 'success'}
-                <span class="text-xs text-green-600">✓ Uploaded</span>
+                <span class="text-xs text-green-600">вњ“ Uploaded</span>
               {/if}
 
               <button
@@ -207,7 +211,7 @@
                 class="text-gray-400 hover:text-gray-600"
                 onclick={() => removeFile(file.id)}
               >
-                <X class="h-4 w-4" />
+                <BaseIcon name={X} class="h-4 w-4" />
               </button>
             </div>
           </li>
@@ -216,3 +220,4 @@
     </div>
   {/if}
 </div>
+

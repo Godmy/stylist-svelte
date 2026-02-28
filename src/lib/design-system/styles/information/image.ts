@@ -1,9 +1,27 @@
-import {
-	ANNOUNCEMENT_BANNER_CLASSES,
-	FAVICON_BASE_CLASSES,
-	IMAGE_WITH_CAPTION_CLASSES
-} from '../../classes/information/image';
 import { cn } from '../../utils/cn/index';
+
+const ANNOUNCEMENT_BANNER_CLASSES = {
+	container:
+		'rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-6',
+	icon: 'w-12 h-12 mr-4',
+	content: 'flex-1',
+	title: 'text-xl font-semibold mb-2',
+	description: 'text-[var(--color-text-secondary)] mb-4',
+	childrenContainer: 'mt-4',
+	flexContainer: 'flex items-start'
+} as const;
+
+const IMAGE_WITH_CAPTION_CLASSES = {
+	hostBase: 'image-with-caption flex flex-col',
+	imageBase: 'w-full object-cover',
+	text: 'mt-2 text-center text-sm text-[var(--color-text-secondary)]',
+	caption: 'text-sm text-[--color-text-secondary]',
+	decoration: {
+		rounded: 'rounded-lg',
+		bordered: 'border border-[var(--color-border-default)]',
+		shadow: 'shadow-md'
+	}
+} as const;
 
 export class ImageStyleManager {
 	static getFaviconUrl(url?: string): string | null {
@@ -17,11 +35,11 @@ export class ImageStyleManager {
 	}
 
 	static getFaviconImageClasses(className = ''): string {
-		return cn(FAVICON_BASE_CLASSES, className);
+		return cn('inline-block rounded-sm', className);
 	}
 
 	static getFaviconFallbackClasses(baseClasses: string): string {
-		return cn('flex items-center justify-center bg-gray-200 text-gray-500 text-xs', baseClasses);
+		return cn('flex items-center justify-center bg-[--color-background-secondary] text-[--color-text-secondary] text-xs', baseClasses);
 	}
 
 	static getFaviconStyle(size: number): string {

@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { GripVertical } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const GripVertical = 'grip-vertical';
+
   import BaseCard from '$stylist/components/molecules/information/cards/base-card/index.svelte';
 
   type DragItem = {
@@ -127,7 +129,7 @@
           >
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                <GripVertical class="h-4 w-4 text-gray-400 cursor-move mr-2" />
+                <BaseIcon name={GripVertical} class="h-4 w-4 text-gray-400 cursor-move mr-2" />
                 {item.title}
               </div>
               <div class="text-sm text-gray-500">
@@ -137,7 +139,7 @@
           </BaseCard>
         {:else}
           <div class="flex items-center p-3">
-            <GripVertical class="h-4 w-4 text-gray-400 cursor-move mr-2" />
+            <BaseIcon name={GripVertical} class="h-4 w-4 text-gray-400 cursor-move mr-2" />
             <span class={`flex-1 ${bodyClass}`}>{item.title}</span>
           </div>
         {/if}
@@ -145,3 +147,4 @@
     {/each}
   </div>
 </div>
+

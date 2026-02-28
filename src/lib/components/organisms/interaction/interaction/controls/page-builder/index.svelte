@@ -1,17 +1,17 @@
 <script lang="ts">
-  import {
-    Columns2,
-    Copy,
-    Eye,
-    GripVertical,
-    Image,
-    Plus,
-    Save,
-    Square,
-    Trash2,
-    Type,
-    X
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Columns2 = 'columns-2';
+const Copy = 'copy';
+const Eye = 'eye';
+const GripVertical = 'grip-vertical';
+const Image = 'image';
+const Plus = 'plus';
+const Save = 'save';
+const Square = 'square';
+const Trash2 = 'trash-2';
+const Type = 'type';
+const X = 'x';
+
   import { PageBuilderStyleManager } from '$stylist/design-system/styles';
   import type {
     PageBuilderButtonAttributes,
@@ -67,9 +67,9 @@
   function getDefaultAttributes(type: PageBuilderElementType): PageBuilderElement['attributes'] {
     switch (type) {
       case 'text':
-        return { fontSize: '16px', color: 'var(--color-text-primary)' };
+        return { FONT_SIZE: '16px', color: 'var(--color-text-primary)' };
       case 'heading':
-        return { level: 2, fontSize: '32px', color: 'var(--color-text-primary)' };
+        return { level: 2, FONT_SIZE: '32px', color: 'var(--color-text-primary)' };
       case 'button':
         return {
           backgroundColor: 'var(--color-primary-500)',
@@ -85,7 +85,7 @@
           backgroundColor: 'var(--color-background-primary)',
           padding: '16px',
           margin: '8px',
-          borderRadius: '4px'
+          BORDER_RADIUS: '4px'
         };
       default:
         return {};
@@ -152,12 +152,12 @@
     switch (element.type) {
       case 'text': {
         const attrs = element.attributes as PageBuilderTextAttributes | undefined;
-        return `<p style="font-size:${attrs?.fontSize ?? '16px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</p>`;
+        return `<p style="font-size:${attrs?.FONT_SIZE ?? '16px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</p>`;
       }
       case 'heading': {
         const attrs = element.attributes as PageBuilderHeadingAttributes | undefined;
         const level = Math.min(Math.max(attrs?.level ?? 2, 1), 6);
-        return `<h${level} style="font-size:${attrs?.fontSize ?? '32px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</h${level}>`;
+        return `<h${level} style="font-size:${attrs?.FONT_SIZE ?? '32px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</h${level}>`;
       }
       case 'button': {
         const attrs = element.attributes as PageBuilderButtonAttributes | undefined;
@@ -182,14 +182,13 @@
     <div class={PageBuilderStyleManager.getToolbarClasses(toolbarClass)}>
       <div class="flex space-x-1">
         {#each toolbarItems as item}
-          {@const Icon = item.icon as any}
           <button
             type="button"
             class={PageBuilderStyleManager.getToolbarButtonClasses()}
             onclick={() => addElement(item.type)}
             title={item.label}
           >
-            <Icon class="h-4 w-4" />
+            <BaseIcon name={item.icon} class="h-4 w-4" />
           </button>
         {/each}
       </div>
@@ -203,7 +202,7 @@
           onclick={() => (isPreviewMode = !isPreviewMode)}
           title="Preview"
         >
-          <Eye class="h-4 w-4" />
+          <BaseIcon name={Eye} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -211,7 +210,7 @@
           onclick={handleSave}
           title="Save"
         >
-          <Save class="h-4 w-4" />
+          <BaseIcon name={Save} class="h-4 w-4" />
         </button>
       </div>
     </div>
@@ -229,7 +228,7 @@
         <div class="max-w-4xl mx-auto border border-dashed border-gray-300 rounded-lg min-h-[400px] p-4">
           {#if elements.length === 0}
             <div class="flex flex-col items-center justify-center h-64 text-gray-500">
-              <Square class="h-12 w-12 mb-4" />
+              <BaseIcon name={Square} class="h-12 w-12 mb-4" />
               <p>Drag elements here to start building your page</p>
               <p class="text-sm mt-2">Or use the toolbar to add elements</p>
             </div>
@@ -252,15 +251,15 @@
                 }}
               >
                 <div class={PageBuilderStyleManager.getDragHandleClasses()}>
-                  <GripVertical class="h-4 w-4" />
+                  <BaseIcon name={GripVertical} class="h-4 w-4" />
                 </div>
 
                 {#if element.type === 'text'}
                   {@const attrs = element.attributes as PageBuilderTextAttributes | undefined}
-                  <p style={`font-size:${attrs?.fontSize ?? '16px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</p>
+                  <p style={`font-size:${attrs?.FONT_SIZE ?? '16px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</p>
                 {:else if element.type === 'heading'}
                   {@const attrs = element.attributes as PageBuilderHeadingAttributes | undefined}
-                  <h2 style={`font-size:${attrs?.fontSize ?? '32px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</h2>
+                  <h2 style={`font-size:${attrs?.FONT_SIZE ?? '32px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</h2>
                 {:else if element.type === 'button'}
                   {@const attrs = element.attributes as PageBuilderButtonAttributes | undefined}
                   <button
@@ -274,12 +273,12 @@
                 {:else if element.type === 'image'}
                   {@const attrs = element.attributes as PageBuilderImageAttributes | undefined}
                   <div class="border border-gray-200 rounded flex items-center justify-center h-32 bg-gray-100">
-                    <Image class="h-8 w-8 text-gray-400" />
+                    <BaseIcon name={Image} class="h-8 w-8 text-gray-400" />
                     <span class="ml-2 text-sm text-gray-500">Image: {attrs?.alt ?? 'Placeholder'}</span>
                   </div>
                 {/if}
 
-                <div class="absolute -right-6 top-0 flex space-x-1 opacity-0 group-hover:opacity-100">
+                <div class="absolute -right-6 top-0 flex space-x-1 OPACITY-0 group-hover:OPACITY-100">
                   <button
                     type="button"
                     class={PageBuilderStyleManager.getElementControlButtonClasses(false)}
@@ -289,7 +288,7 @@
                     }}
                     title="Duplicate"
                   >
-                    <Copy class="h-4 w-4" />
+                    <BaseIcon name={Copy} class="h-4 w-4" />
                   </button>
                   <button
                     type="button"
@@ -300,7 +299,7 @@
                     }}
                     title="Delete"
                   >
-                    <Trash2 class="h-4 w-4" />
+                    <BaseIcon name={Trash2} class="h-4 w-4" />
                   </button>
                 </div>
               </div>
@@ -313,7 +312,7 @@
               class={PageBuilderStyleManager.getAddElementButtonClasses()}
               onclick={() => addElement('text', elements.length)}
             >
-              <Plus class="h-4 w-4 mr-1" />
+              <BaseIcon name={Plus} class="h-4 w-4 mr-1" />
               Add Element
             </button>
           </div>
@@ -331,7 +330,7 @@
             onclick={() => (selectedElementId = null)}
             title="Close"
           >
-            <X class="h-5 w-5" />
+            <BaseIcon name={X} class="h-5 w-5" />
           </button>
         </div>
 
@@ -370,18 +369,18 @@
           {/if}
 
           <div>
-            <label for="fontSize" class="block text-sm font-medium text-gray-700 mb-1">Font Size</label>
+            <label for="FONT_SIZE" class="block text-sm font-medium text-gray-700 mb-1">Font Size</label>
             <input
-              id="fontSize"
+              id="FONT_SIZE"
               type="range"
               class={PageBuilderStyleManager.getSliderClasses()}
               min="8"
               max="72"
-              value={(selectedElement.attributes as PageBuilderTextAttributes)?.fontSize?.replace('px', '') ?? '16'}
+              value={(selectedElement.attributes as PageBuilderTextAttributes)?.FONT_SIZE?.replace('px', '') ?? '16'}
               oninput={(event) => {
-                const fontSize = `${(event.target as HTMLInputElement).value}px`;
+                const FONT_SIZE = `${(event.target as HTMLInputElement).value}px`;
                 updateElement(selectedElement.id, {
-                  attributes: { ...(selectedElement.attributes ?? {}), fontSize }
+                  attributes: { ...(selectedElement.attributes ?? {}), FONT_SIZE }
                 });
               }}
             />
@@ -391,5 +390,7 @@
     {/if}
   </div>
 </div>
+
+
 
 

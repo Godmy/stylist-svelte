@@ -1,19 +1,23 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ChevronLeft, ChevronRight, X } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronLeft = 'chevron-left';
+const ChevronRight = 'chevron-right';
+const X = 'x';
+
   import { ImageGalleryStyleManager } from '$lib/design-system/styles/information/image-gallery';
   import type { IImageItem, IImageGalleryProps } from '$lib/design-system/contracts/information/image-gallery';
 
   /**
    * @component ImageGallery
-   * @description Компонент галереи изображений с возможностью навигации и полноэкранного просмотра
+   * @description РљРѕРјРїРѕРЅРµРЅС‚ РіР°Р»РµСЂРµРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ РЅР°РІРёРіР°С†РёРё Рё РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает только за отображение и навигацию по изображениям
-   * - OCP: Легко расширяем через пропсы
-   * - LSP: Поддерживает подстановку различных типов изображений
-   * - ISP: Предоставляет минимально необходимый интерфейс взаимодействия
-   * - DIP: Зависит от абстракций (типы и стили), а не от деталей реализации
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Рё РЅР°РІРёРіР°С†РёСЋ РїРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏРј
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј С‡РµСЂРµР· РїСЂРѕРїСЃС‹
+   * - LSP: РџРѕРґРґРµСЂР¶РёРІР°РµС‚ РїРѕРґСЃС‚Р°РЅРѕРІРєСѓ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ РёР·РѕР±СЂР°Р¶РµРЅРёР№
+   * - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹ Рё СЃС‚РёР»Рё), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    */
   let {
     images = [],
@@ -125,7 +129,7 @@
             onclick={prevImage}
             aria-label="Previous image"
           >
-            <ChevronLeft class="h-6 w-6" />
+            <BaseIcon name={ChevronLeft} class="h-6 w-6" />
           </button>
 
           <button
@@ -134,7 +138,7 @@
             onclick={nextImage}
             aria-label="Next image"
           >
-            <ChevronRight class="h-6 w-6" />
+            <BaseIcon name={ChevronRight} class="h-6 w-6" />
           </button>
         {/if}
 
@@ -183,7 +187,7 @@
         onclick={closeFullscreen}
         aria-label="Close fullscreen"
       >
-        <X class="h-6 w-6" />
+        <BaseIcon name={X} class="h-6 w-6" />
       </button>
 
       <button
@@ -192,7 +196,7 @@
         onclick={prevImage}
         aria-label="Previous image"
       >
-        <ChevronLeft class="h-8 w-8" />
+        <BaseIcon name={ChevronLeft} class="h-8 w-8" />
       </button>
 
       <div class={ImageGalleryStyleManager.getFullscreenImageContainerClasses()}>
@@ -219,8 +223,9 @@
         onclick={nextImage}
         aria-label="Next image"
       >
-        <ChevronRight class="h-8 w-8" />
+        <BaseIcon name={ChevronRight} class="h-8 w-8" />
       </button>
     </div>
   {/if}
 </div>
+

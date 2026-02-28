@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Palette } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Palette = 'palette';
+
 
   type RestProps = Omit<HTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>;
 
@@ -99,3 +101,4 @@
     <p class="mt-1 text-xs text-red-600">{error}</p>
   {/if}
 </div>
+

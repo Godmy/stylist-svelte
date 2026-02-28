@@ -1,22 +1,20 @@
-﻿import type { HTMLCanvasAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { ChartType, CanvasChartVariant } from '$stylist/design-system/tokens/information/canvas-chart';
+import type { HTMLCanvasAttributes } from 'svelte/elements';
 
 /**
  * CanvasChart type options
  * @description The type of chart to render
  */
-export type ChartType = 'line' | 'bar' | 'pie';
-
 /**
  * CanvasChart variant options
  * @description Visual style variant for the chart
  */
-export type CanvasChartVariant = 'default' | 'minimal' | 'elegant' | 'bold';
 
 /**
  * CanvasChart size options
  * @description Size preset for the chart
  */
-export type CanvasChartSize = 'sm' | 'md' | 'lg';
 
 /**
  * CanvasChart data point interface
@@ -113,7 +111,7 @@ export interface CanvasChartProps extends HTMLCanvasAttributes {
    * Size preset of the chart
    * @default 'md'
    */
-  size?: CanvasChartSize;
+  size?: ComponentSize;
 
   /**
    * Show legend below the chart
@@ -149,7 +147,7 @@ export interface CanvasChartState {
   hoveredPoint: ChartDataPoint | null;
   selectedPoint: ChartDataPoint | null;
   currentVariant: CanvasChartVariant;
-  currentSize: CanvasChartSize;
+  currentSize?: ComponentSize;
 }
 
 // Presets moved from presets\canvas-chart.ts
@@ -187,7 +185,7 @@ export interface CanvasChartPreset {
    * Default size
    * @default 'md'
    */
-  size: CanvasChartSize;
+  size?: ComponentSize;
 
   /**
    * Default show grid state
@@ -294,5 +292,4 @@ export function getCanvasChartPreset(
       return CANVAS_CHART_PRESET;
   }
 }
-
 

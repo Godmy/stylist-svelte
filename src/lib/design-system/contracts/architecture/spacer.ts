@@ -1,4 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { SpacerAxis } from '$stylist/design-system/tokens/architecture/spacer-axis';
 
 /**
  * Spacer Props
@@ -6,9 +8,9 @@ import type { HTMLAttributes } from 'svelte/elements';
  */
 export interface SpacerProps extends HTMLAttributes<HTMLDivElement> {
   /** Size of the spacer */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: ComponentSize;
   /** Axis of the spacer */
-  axis?: 'horizontal' | 'vertical';
+  axis?: SpacerAxis;
   /** Custom class name */
   class?: string;
 }

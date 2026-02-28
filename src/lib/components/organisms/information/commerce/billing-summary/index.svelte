@@ -1,19 +1,26 @@
 <script lang="ts">
   /**
-   * Компонент BillingSummary
+   * РљРѕРјРїРѕРЅРµРЅС‚ BillingSummary
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает за отображение сводки по биллингу
-   * - OCP: Легко расширяем за счет пропсов
-   * - LSP: Подчиняется контракту, заданному интерфейсом IBillingSummaryProps
-   * - ISP: Интерфейс пропсов разделен на конкретные, необходимые части
-   * - DIP: Зависит от абстракций (типов и стилей), а не от деталей реализации
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃРІРѕРґРєРё РїРѕ Р±РёР»Р»РёРЅРіСѓ
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј Р·Р° СЃС‡РµС‚ РїСЂРѕРїСЃРѕРІ
+   * - LSP: РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ РєРѕРЅС‚СЂР°РєС‚Сѓ, Р·Р°РґР°РЅРЅРѕРјСѓ РёРЅС‚РµСЂС„РµР№СЃРѕРј IBillingSummaryProps
+   * - ISP: РРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРїСЃРѕРІ СЂР°Р·РґРµР»РµРЅ РЅР° РєРѕРЅРєСЂРµС‚РЅС‹Рµ, РЅРµРѕР±С…РѕРґРёРјС‹Рµ С‡Р°СЃС‚Рё
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    *
-   * Следует Atomic Design: Это молекула, объединяющая различные элементы биллинга
+   * РЎР»РµРґСѓРµС‚ Atomic Design: Р­С‚Рѕ РјРѕР»РµРєСѓР»Р°, РѕР±СЉРµРґРёРЅСЏСЋС‰Р°СЏ СЂР°Р·Р»РёС‡РЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ Р±РёР»Р»РёРЅРіР°
    */
 
   import type { HTMLAttributes } from 'svelte/elements';
-  import { DollarSign, Calendar, Clock, Receipt, TrendingUp, TrendingDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const DollarSign = 'dollar-sign';
+const Calendar = 'calendar';
+const Clock = 'clock';
+const Receipt = 'receipt';
+const TrendingUp = 'trending-up';
+const TrendingDown = 'trending-down';
+
   import { BillingSummaryStyleManager } from '$stylist/design-system/styles/information/billing-summary';
   import type { IBillingSummaryProps } from '$stylist/design-system/contracts/information/billing-summary';
 
@@ -73,7 +80,7 @@
     <div class="flex items-center justify-between">
       <div>
         <div class="flex items-center">
-          <DollarSign class="h-6 w-6 text-[--color-text-tertiary] mr-2" />
+          <BaseIcon name={DollarSign} class="h-6 w-6 text-[--color-text-tertiary] mr-2" />
           <h3 class={BillingSummaryStyleManager.getTitleClasses()}>{title}</h3>
         </div>
         {#if subtitle}
@@ -101,7 +108,7 @@
         <div class={BillingSummaryStyleManager.getMetricCardClasses()}>
           <div class="flex items-center">
             <div class={BillingSummaryStyleManager.getMetricIconContainerClasses()}>
-              <DollarSign class="h-5 w-5 text-[--color-primary-600]" />
+              <BaseIcon name={DollarSign} class="h-5 w-5 text-[--color-primary-600]" />
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-[--color-text-secondary]">Total Amount</p>
@@ -117,7 +124,7 @@
           <div class={BillingSummaryStyleManager.getMetricCardClasses()}>
             <div class="flex items-center">
               <div class={BillingSummaryStyleManager.getMetricIconContainerClasses(status)}>
-                <Calendar class={BillingSummaryStyleManager.getCalendarIconClasses(status)} />
+                <BaseIcon name={Calendar} class={BillingSummaryStyleManager.getCalendarIconClasses(status)} />
               </div>
               <div class="ml-4">
                 <p class="text-sm font-medium text-[--color-text-secondary]">Due Date</p>
@@ -135,13 +142,13 @@
             <div class="flex items-center">
               <div class={BillingSummaryStyleManager.getMetricIconContainerClasses(status)}>
                 {#if status === 'paid'}
-                  <TrendingUp class="h-5 w-5 text-[--color-success-600]" />
+                  <BaseIcon name={TrendingUp} class="h-5 w-5 text-[--color-success-600]" />
                 {:else if status === 'overdue'}
-                  <TrendingDown class="h-5 w-5 text-[--color-error-600]" />
+                  <BaseIcon name={TrendingDown} class="h-5 w-5 text-[--color-error-600]" />
                 {:else if status === 'cancelled'}
-                  <Receipt class="h-5 w-5 text-[--color-text-tertiary]" />
+                  <BaseIcon name={Receipt} class="h-5 w-5 text-[--color-text-tertiary]" />
                 {:else}
-                  <Clock class="h-5 w-5 text-[--color-warning-600]" />
+                  <BaseIcon name={Clock} class="h-5 w-5 text-[--color-warning-600]" />
                 {/if}
               </div>
               <div class="ml-4">
@@ -197,4 +204,5 @@
     </div>
   </div>
 </div>
+
 

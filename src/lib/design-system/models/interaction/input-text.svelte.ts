@@ -1,11 +1,11 @@
-import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+﻿import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
-import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+import type { InputVariant } from '$stylist/design-system/tokens';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 type InputStateOptions = {
 	variant?: InputVariant;
-	size?: CompactSize;
+	size?: ComponentSize;
 	disabled?: boolean;
 	loading?: boolean;
 	error?: boolean;
@@ -22,7 +22,10 @@ export { createInputFieldState };
 export const createInputTextState = createInputFieldState;
 export default createInputTextState;
 
-export { INPUT_FIELD_PRESET };
+
+
+
+
 
 
 

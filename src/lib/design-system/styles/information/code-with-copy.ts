@@ -1,3 +1,5 @@
+import { cn } from '../../utils/cn/index';
+
 export class CodeWithCopyStyleManager {
   static getContainerClass(): string {
     return 'c-code-with-copy relative group';
@@ -8,10 +10,10 @@ export class CodeWithCopyStyleManager {
   }
 
   static getCopyButtonClass(): string {
-    return 'absolute top-2 right-2 p-1.5 rounded-md bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 opacity-0 group-hover:opacity-100 transition-opacity';
+    return 'absolute right-2 top-2 rounded-md bg-[var(--color-background-secondary)] p-1.5 opacity-0 transition-colors transition-opacity hover:bg-[var(--color-neutral-200)] group-hover:opacity-100';
   }
 
   static getIconClass(isCopied: boolean): string {
-    return isCopied ? 'w-4 h-4 text-green-600' : 'w-4 h-4';
+    return cn('h-4 w-4', isCopied ? 'text-[var(--color-success-600)]' : '');
   }
 }

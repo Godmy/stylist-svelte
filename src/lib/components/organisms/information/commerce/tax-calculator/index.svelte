@@ -1,6 +1,11 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Calculator, DollarSign, Percent, LoaderCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Calculator = 'calculator';
+const DollarSign = 'dollar-sign';
+const Percent = 'percent';
+const LoaderCircle = 'loader-circle';
+
   import { Button } from '$stylist/components/atoms';
   import Select from '$stylist/components/molecules/interaction/controls/selectors/selector/index.svelte';
 
@@ -242,7 +247,7 @@
 
 <div class={`c-tax-calculator ${hostClass}`} {...restProps}>
   <div class="flex items-center mb-4">
-    <Calculator class="h-5 w-5 text-blue-500 mr-2" />
+    <BaseIcon name={Calculator} class="h-5 w-5 text-blue-500 mr-2" />
     <h2 class="text-lg font-medium text-gray-900">Tax Calculator</h2>
   </div>
 
@@ -281,7 +286,7 @@
               <label for={`tax-rate-${rate.id}`} class="ml-2 text-sm text-gray-700">
                 <div class="font-medium">{rate.name}</div>
                 <div class="flex items-center text-xs text-gray-500">
-                  <Percent class="h-3 w-3 mr-1" />
+                  <BaseIcon name={Percent} class="h-3 w-3 mr-1" />
                   {rate.rate}%
                   {#if rate.compound}
                     <span class="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
@@ -303,7 +308,7 @@
       <label for="tax-amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
       <div class="relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <DollarSign class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={DollarSign} class="h-5 w-5 text-gray-400" />
         </div>
         <input
           id="tax-amount"
@@ -336,7 +341,7 @@
 
   {#if isCalculating}
     <div class="mt-6 flex justify-center items-center py-4">
-      <LoaderCircle class="h-6 w-6 animate-spin text-gray-500" />
+      <BaseIcon name={LoaderCircle} class="h-6 w-6 animate-spin text-gray-500" />
     </div>
   {:else if result}
     <div class={`mt-6 border rounded-lg p-6 ${resultClass}`}>
@@ -382,4 +387,5 @@
     </div>
   {/if}
 </div>
+
 

@@ -1,6 +1,7 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { SortDirection } from '../../tokens/interaction/sort-directions';
 
-export type SortDirection = 'asc' | 'desc' | null;
+export type { SortDirection };
 
 export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeaderCellElement> {
   /**
@@ -56,4 +57,3 @@ export const sortableTableHeaderPresets: Record<string, Partial<SortableTableHea
     currentSortDirection: 'desc'
   }
 };
-

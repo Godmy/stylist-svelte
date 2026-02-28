@@ -1,4 +1,5 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
@@ -9,14 +10,13 @@ export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>,
 }
 
 export type WishlistButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
-export type WishlistButtonSize = 'sm' | 'md' | 'lg';
 export type WishlistTooltipPosition = 'top' | 'bottom' | 'left' | 'right';
 
 export interface WishlistButtonProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onchange'> {
   inWishlist?: boolean;
   class?: string;
   buttonClass?: string;
-  size?: WishlistButtonSize;
+  size?: ComponentSize;
   variant?: WishlistButtonVariant;
   showLabel?: boolean;
   label?: string;
@@ -53,7 +53,7 @@ export interface CodeEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'o
   width?: string;
   readOnly?: boolean;
   showLineNumbers?: boolean;
-  fontSize?: number;
+  FONT_SIZE?: number;
   showCopyButton?: boolean;
   class?: string;
   onCodeChange?: (code: string) => void;
@@ -96,3 +96,4 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   highlight?: boolean;
   class?: string;
 }
+

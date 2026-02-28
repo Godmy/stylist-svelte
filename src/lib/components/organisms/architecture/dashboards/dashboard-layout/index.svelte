@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { IconMenu, IconX } from '$stylist/components/atoms';
+  import { Icon } from '$stylist/components/atoms';
   import { Button } from '$stylist/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -78,9 +78,9 @@
             aria-label={isSidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
           >
             {#if isSidebarOpen}
-              <IconX size="sm" />
+              <Icon name="x" size="sm" />
             {:else}
-              <IconMenu size="sm" />
+              <Icon name="menu" size="sm" />
             {/if}
           </Button>
         </div>
@@ -99,7 +99,7 @@
         onclick={toggleSidebar}
         aria-label={isSidebarOpen ? 'Close menu' : 'Open menu'}
       >
-        <IconMenu size="md" />
+        <Icon name="menu" size="md" />
       </Button>
     </div>
   {/if}
@@ -132,7 +132,7 @@
           onclick={toggleSidebar}
           aria-label="Close menu"
         >
-          <IconX size="md" />
+          <Icon name="x" size="md" />
         </Button>
       </div>
       <div class="flex-1 overflow-y-auto py-4">
@@ -167,4 +167,5 @@
     {/if}
   </div>
 </div>
+
 

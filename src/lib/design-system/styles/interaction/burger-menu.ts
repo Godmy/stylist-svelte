@@ -17,7 +17,7 @@ export const createBurgerMenuStyles = <TOptions extends { size: string; open: bo
 ): BurgerMenuStyles => {
   return {
     container: [
-      'relative flex flex-col justify-center items-center focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded',
+      'relative flex flex-col justify-center items-center focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] rounded',
       baseClasses?.container || ''
     ].join(' '),
 

@@ -5,13 +5,14 @@
  * - SRP: Класс отвечает только за генерацию CSS-классов для KPIIndicator
  * - Использует CSS-переменные из темы для стилизации
  */
-import type { KPIStatus, KPITrend, KPIIndicatorSize } from '$stylist/design-system/contracts/information/kpiindicator';
+import type { KPIStatus, KPITrend } from '$stylist/design-system/contracts/information/kpiindicator';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для основного контейнера
    */
-  static getContainerClasses(size: KPIIndicatorSize, additionalClass: string = ''): string {
+  static getContainerClasses(size: ComponentSize, additionalClass: string = ''): string {
     const sizeClasses = this.getSizeClasses(size);
     return `bg-[--stylist-kpi-bg] border border-[--stylist-kpi-border] rounded-lg p-4 ${sizeClasses} ${additionalClass}`.trim();
   }
@@ -19,11 +20,14 @@ export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для размера
    */
-  static getSizeClasses(size: KPIIndicatorSize): string {
-    const sizeClasses: Record<KPIIndicatorSize, string> = {
+  static getSizeClasses(size: ComponentSize): string {
+    const sizeClasses: Record<ComponentSize, string> = {
+      xs: 'p-2 text-xs',
       sm: 'p-3 text-sm',
       md: 'p-4',
-      lg: 'p-5 text-lg'
+      lg: 'p-5 text-lg',
+      xl: 'p-6 text-xl',
+      '2xl': 'p-8 text-2xl'
     };
 
     return sizeClasses[size];

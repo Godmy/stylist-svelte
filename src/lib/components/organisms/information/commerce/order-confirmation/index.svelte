@@ -1,9 +1,22 @@
 <script lang="ts">
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { OrderConfirmationStyleManager } from '$lib/design-system/styles/information/order-confirmation';
   import type { IOrderConfirmationProps } from '$lib/design-system/contracts/information/order-confirmation';
   import type { HTMLAttributes } from 'svelte/elements';
-  import { CheckCircle, Package, Truck, Calendar, CreditCard, MapPin, User, Mail, Phone, Download, Share2, Home, X } from 'lucide-svelte';
-  import { Button } from '$stylist/components/atoms';
+
+  const CheckCircle = 'check-circle';
+  const Package = 'package';
+  const Truck = 'truck';
+  const Calendar = 'calendar';
+  const CreditCard = 'credit-card';
+  const MapPin = 'map-pin';
+  const User = 'user';
+  const Mail = 'mail';
+  const Phone = 'phone';
+  const Download = 'download';
+  const Share2 = 'share-2';
+  const Home = 'home';
+  const X = 'x';
 
   let {
     orderId,
@@ -114,7 +127,7 @@
     <div class="text-center">
       <div class="flex justify-center">
         <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[--color-green-100]">
-          <CheckCircleIcon class="h-10 w-10 text-[--color-green-600]" />
+          <BaseIcon name={CheckCircle} class="h-10 w-10 text-[--color-green-600]" />
         </div>
       </div>
 
@@ -136,7 +149,7 @@
             </h3>
 
             <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${orderStatusConfig.color}`}>
-              <OrderStatusIcon class="h-4 w-4 mr-1" />
+              <BaseIcon name={OrderStatusIcon} class="h-4 w-4 mr-1" />
               {orderStatusConfig.text}
             </span>
           </div>
@@ -233,7 +246,7 @@
             <!-- Shipping address -->
             <div>
               <h4 class="text-md font-medium text-[--color-gray-900] mb-4 flex items-center">
-                <MapPinIcon class="h-4 w-4 mr-2" />
+                <BaseIcon name={MapPin} class="h-4 w-4 mr-2" />
                 Shipping Address
               </h4>
 
@@ -253,13 +266,13 @@
             <!-- Payment and delivery info -->
             <div>
               <h4 class="text-md font-medium text-[--color-gray-900] mb-4 flex items-center">
-                <CreditCardIcon class="h-4 w-4 mr-2" />
+                <BaseIcon name={CreditCard} class="h-4 w-4 mr-2" />
                 Payment & Delivery
               </h4>
 
               <div class="space-y-3">
                 <div class="flex items-start">
-                  <CreditCardIcon class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
+                  <BaseIcon name={CreditCard} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                   <div class="ml-3">
                     <p class="text-sm font-medium text-[--color-gray-900] capitalize">{paymentInfo.method}</p>
                     {#if paymentInfo.lastFour}
@@ -278,7 +291,7 @@
 
                 {#if estimatedDelivery}
                   <div class="flex items-start">
-                    <CalendarIcon class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
+                    <BaseIcon name={Calendar} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                     <div class="ml-3">
                       <p class="text-sm font-medium text-[--color-gray-900]">Estimated Delivery</p>
                       <p class="text-sm text-[--color-gray-500]">{formattedEstimatedDelivery}</p>
@@ -288,7 +301,7 @@
 
                 {#if trackingNumber}
                   <div class="flex items-start">
-                    <TruckIcon class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
+                    <BaseIcon name={Truck} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                     <div class="ml-3">
                       <p class="text-sm font-medium text-[--color-gray-900]">Tracking Number</p>
                       <p class="text-sm text-[--color-gray-500]">{trackingNumber}</p>
@@ -305,31 +318,32 @@
     <!-- Action buttons -->
     <div class={OrderConfirmationStyleManager.getActionButtonsClasses(actionsClass)}>
       <Button variant="primary" onclick={handleContinueShopping}>
-        <HomeIcon class="h-4 w-4 mr-2" />
+        <BaseIcon name={Home} class="h-4 w-4 mr-2" />
         Continue Shopping
       </Button>
 
       {#if trackingNumber}
         <Button variant="ghost" onclick={handleTrackOrder}>
-          <TruckIcon class="h-4 w-4 mr-2" />
+          <BaseIcon name={Truck} class="h-4 w-4 mr-2" />
           Track Order
         </Button>
       {/if}
 
       {#if showDownloadInvoice}
         <Button variant="ghost" onclick={handleDownloadInvoice}>
-          <DownloadIcon class="h-4 w-4 mr-2" />
+          <BaseIcon name={Download} class="h-4 w-4 mr-2" />
           Download Invoice
         </Button>
       {/if}
 
       {#if showShareOrder}
         <Button variant="ghost" onclick={handleShareOrder}>
-          <ShareIcon class="h-4 w-4 mr-2" />
+          <BaseIcon name={Share2} class="h-4 w-4 mr-2" />
           Share Order
         </Button>
       {/if}
     </div>
   </div>
 </div>
+
 

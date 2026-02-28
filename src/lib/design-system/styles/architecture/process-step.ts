@@ -8,6 +8,8 @@
  * - Single Responsibility: Only handles styling logic for ProcessStep
  */
 
+import { cn } from '../../utils/cn/index';
+
 /**
  * Style manager for ProcessStep component
  * Manages all class names and styling for the ProcessStep molecule
@@ -20,12 +22,13 @@ export class ProcessStepStyleManager {
    * @returns Combined string of base and additional classes
    */
   static getBaseClasses(active: boolean = false, className?: string): string {
-    const baseClasses = 'process-step flex items-start p-4 rounded-lg border';
-    const activeClasses = active 
-      ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 dark:border-blue-700' 
-      : 'border-gray-200 bg-white dark:bg-gray-800 dark:border-gray-700';
-    const allClasses = `${baseClasses} ${activeClasses}`;
-    return className ? `${allClasses} ${className}` : allClasses;
+    return cn(
+      'process-step flex items-start rounded-lg border p-4 transition-colors',
+      active
+        ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
+        : 'border-[var(--color-border-primary)] bg-[var(--color-background-primary)]',
+      className
+    );
   }
 
   /**
@@ -34,11 +37,12 @@ export class ProcessStepStyleManager {
    * @returns Number container classes
    */
   static getNumberContainerClasses(active: boolean = false): string {
-    const baseClasses = 'flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full text-sm font-bold mr-4';
-    const activeClasses = active 
-      ? 'bg-blue-500 text-white' 
-      : 'bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200';
-    return `${baseClasses} ${activeClasses}`;
+    return cn(
+      'mr-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
+      active
+        ? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
+        : 'bg-[var(--color-neutral-200)] text-[var(--color-text-primary)]'
+    );
   }
 
   /**
@@ -55,11 +59,10 @@ export class ProcessStepStyleManager {
    * @returns Title classes
    */
   static getTitleClasses(active: boolean = false): string {
-    const baseClasses = 'text-base font-bold';
-    const activeClasses = active 
-      ? 'text-blue-700 dark:text-blue-300' 
-      : 'text-gray-900 dark:text-white';
-    return `${baseClasses} ${activeClasses}`;
+    return cn(
+      'text-base font-bold',
+      active ? 'text-[var(--color-primary-700)]' : 'text-[var(--color-text-primary)]'
+    );
   }
 
   /**
@@ -67,7 +70,7 @@ export class ProcessStepStyleManager {
    * @returns Agent badge classes
    */
   static getAgentBadgeClasses(): string {
-    return 'inline-block ml-2 px-2 py-0.5 text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300 rounded';
+    return 'ml-2 inline-block rounded bg-[var(--color-neutral-100)] px-2 py-0.5 text-xs font-medium text-[var(--color-text-secondary)]';
   }
 
   /**
@@ -75,6 +78,6 @@ export class ProcessStepStyleManager {
    * @returns Description classes
    */
   static getDescriptionClasses(): string {
-    return 'text-sm text-gray-600 dark:text-gray-300 mt-1';
+    return 'mt-1 text-sm text-[var(--color-text-secondary)]';
   }
 }

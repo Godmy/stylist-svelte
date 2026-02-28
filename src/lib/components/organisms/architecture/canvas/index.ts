@@ -1,5 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { CanvasChart } from './canvas-chart';
-export { LineChart } from './charts';
+export { Chart, LineChart } from './charts';
+export { IdefZeroDiagram } from './diagrams';
+export { GraphEditor } from './graph-editor';
 export { Heatmap } from './heatmap';
+export { LitegraphCanvas } from './litegraph-canvas';
+export { Minimap } from './minimap';
 export { SharedCanvas } from './shared-canvas';

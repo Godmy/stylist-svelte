@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { createFormErrorMessageState } from '$stylist/design-system/models/interaction/form-error-message.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * FormErrorMessage component - displays an error message for form fields
@@ -13,11 +13,11 @@
 	 */
 
 	import type { InputVariant } from '$stylist/design-system';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
 	type FormErrorVariant = InputVariant;
 	type FormErrorMessageProps = {
 		variant?: (typeof INPUT_VARIANTS)[number];
-		size?: CompactSize;
+		size?: ComponentSize;
 		visible?: boolean;
 		text?: string;
 		content?: import('svelte').Snippet;
@@ -52,6 +52,10 @@
 		{/if}
 	</p>
 {/if}
+
+
+
+
 
 
 

@@ -1,15 +1,24 @@
 <script lang="ts">
   import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/contracts/information/geo-jsonviewer';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/information/geo-jsonviewer';
-  import { Button } from '$lib/components/atoms';
-  import { Globe, Layers, Info, Download, Upload, Plus, Minus, RotateCcw, X } from 'lucide-svelte';
+
+  const Globe = 'globe';
+  const Layers = 'layers';
+  const Info = 'info';
+  const Download = 'download';
+  const Upload = 'upload';
+  const Plus = 'plus';
+  const Minus = 'minus';
+  const RotateCcw = 'rotate-ccw';
+  const X = 'x';
 
   let {
     geojsonData,
     layers = [],
     class: hostClass = '',
     mapClass = '',
-    initialView = { center: { lat: 51.505, lng: -0.09 }, zoom: 10 }, // London as default
+    initialView = { center: { lat: 51.505, lng: -0.09 }, zoom: 10 },
     showControls = true,
     showLayers = true,
     showLegend = true,
@@ -178,7 +187,7 @@
               target.style.cssText = GeoJSONViewerStyleManager.getFileUploadButtonStyles();
             }}
           >
-            <Upload class="h-4 w-4 inline mr-1" />
+            <BaseIcon name={Upload} class="h-4 w-4 inline mr-1" />
             Upload GeoJSON
             <input
               type="file"
@@ -324,13 +333,13 @@
       {#if showControls}
         <div class="absolute right-4 top-4 flex flex-col space-y-2">
           <Button variant="secondary" size="sm" onclick={handleZoomIn}>
-            <Plus class="h-4 w-4" />
+            <BaseIcon name={Plus} class="h-4 w-4" />
           </Button>
           <Button variant="secondary" size="sm" onclick={handleZoomOut}>
-            <Minus class="h-4 w-4" />
+            <BaseIcon name={Minus} class="h-4 w-4" />
           </Button>
           <Button variant="secondary" size="sm" onclick={handleResetView}>
-            <RotateCcw class="h-4 w-4" />
+            <BaseIcon name={RotateCcw} class="h-4 w-4" />
           </Button>
         </div>
       {/if}
@@ -342,7 +351,7 @@
         <div class="flex justify-between items-start">
           <h3 class="text-lg font-medium">Selected Feature</h3>
           <Button variant="ghost" size="sm" onclick={() => selectedFeature = null}>
-            <X class="h-4 w-4" />
+            <BaseIcon name={X} class="h-4 w-4" />
           </Button>
         </div>
 
@@ -358,3 +367,4 @@
     {/if}
   </div>
 </div>
+

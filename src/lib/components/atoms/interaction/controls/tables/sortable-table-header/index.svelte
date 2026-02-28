@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-svelte';
+  import { Icon } from '$stylist/components/atoms';
+const ChevronUp = 'chevron-up';
+const ChevronDown = 'chevron-down';
+const ChevronsUpDown = 'chevrons-up-down';
+
   import { createSortableTableHeaderState } from '$stylist/design-system/models/interaction/sortable-table-header.svelte';
   import type { SortableTableHeaderProps } from '$stylist/design-system/contracts/interaction/sortable-table-header';
   import type { HTMLAttributes } from 'svelte/elements';
@@ -17,11 +21,13 @@
   );
 
   // Determine the sort icon based on current state
-  let sortIcon = $derived(() => {
-    if (!state.isCurrentSort || state.currentSortDirection === null) return ChevronsUpDown;
-    return state.currentSortDirection === 'asc' ? ChevronUp : ChevronDown;
-  });
-  let SortIcon = $derived(sortIcon);
+  let sortIcon = $derived<string>(
+    !state.isCurrentSort || state.currentSortDirection === null
+      ? ChevronsUpDown
+      : state.currentSortDirection === 'asc'
+        ? ChevronUp
+        : ChevronDown
+  );
 
   function handleClick() {
     if (state.sortKey) {
@@ -38,6 +44,6 @@
 >
   <div class={state.contentClasses}>
     <span>{state.title}</span>
-    <SortIcon class={state.iconClasses} />
+    <Icon name={sortIcon} class={state.iconClasses} />
   </div>
 </th>

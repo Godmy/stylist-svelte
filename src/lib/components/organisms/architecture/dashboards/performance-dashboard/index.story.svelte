@@ -1,7 +1,12 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import PerformanceDashboard from './index.svelte';
-  import { DollarSign, Users, ShoppingCart, Eye } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const DollarSign = 'dollar-sign';
+const Users = 'users';
+const ShoppingCart = 'shopping-cart';
+const Eye = 'eye';
+
   import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
 
   // Sample data for the PerformanceDashboard component
@@ -42,5 +47,6 @@
     />
   {/snippet}
 </Story>
+
 
 

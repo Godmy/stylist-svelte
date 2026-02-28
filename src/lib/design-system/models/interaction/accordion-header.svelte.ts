@@ -1,5 +1,4 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import { cn } from '$stylist/utils/classes';
 import type { AccordionHeaderProps } from '$stylist/design-system/contracts';
 
 /**

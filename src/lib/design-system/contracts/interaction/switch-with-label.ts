@@ -1,10 +1,13 @@
+import type { LabelPosition } from '../../tokens/interaction/label-positions';
+
+export type { LabelPosition };
+
 /**
  * SwitchWithLabel component types and interfaces
  * Following SOLID principles with proper type definitions
  */
 
 /** Position of the label relative to the switch */
-export type LabelPosition = 'start' | 'end';
 
 /** Props interface for SwitchWithLabel component */
 export interface ISwitchWithLabelProps {

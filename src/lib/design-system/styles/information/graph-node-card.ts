@@ -1,23 +1,22 @@
-import {
-	GRAPH_NODE_CARD_CONTAINER_BASE_CLASSES,
-	GRAPH_NODE_CARD_SIZE_CLASSES,
-	GRAPH_NODE_CARD_SELECTED_CLASSES,
-	GRAPH_NODE_CARD_HIGHLIGHT_CLASSES,
-	GRAPH_NODE_CARD_HEADER_CLASSES,
-	GRAPH_NODE_CARD_TITLE_CLASSES,
-	GRAPH_NODE_CARD_TYPE_COLORS,
-	GRAPH_NODE_CARD_TYPE_CLASSES,
-	GRAPH_NODE_CARD_CONTENT_CLASSES,
-	GRAPH_NODE_CARD_DESCRIPTION_CLASSES,
-	GRAPH_NODE_CARD_FIELDS_LIST_CLASSES,
-	GRAPH_NODE_CARD_FIELD_ITEM_CLASSES,
-	GRAPH_NODE_CARD_FIELD_NAME_CLASSES,
-	GRAPH_NODE_CARD_FIELD_TYPE_CLASSES,
-	GRAPH_NODE_CARD_FIELD_REQUIRED_CLASSES,
-	GRAPH_NODE_CARD_ACTIONS_CLASSES,
-	DEFAULT_GRAPH_NODE_CARD_SIZE
-} from '../../classes/information/graph-node-card';
 import { cn } from '../../utils/cn/index';
+
+const GRAPH_NODE_CARD_SIZE_CLASSES = {
+	sm: 'text-sm',
+	md: 'text-base',
+	lg: 'text-lg'
+} as const;
+
+const GRAPH_NODE_CARD_TYPE_COLORS: Record<string, string> = {
+	object: 'bg-[--color-surface-accent] text-[--color-primary-600]',
+	interface: 'bg-[--color-success-100] text-[--color-success-600]',
+	union: 'bg-[--color-danger-100] text-[--color-danger-600]',
+	enum: 'bg-[--color-accent-100] text-[--color-accent-600]',
+	scalar: 'bg-[--color-warning-100] text-[--color-warning-600]',
+	input: 'bg-[--color-info-100] text-[--color-info-600]',
+	default: 'bg-[--color-surface-muted] text-[--color-text-secondary]'
+};
+
+const DEFAULT_GRAPH_NODE_CARD_SIZE: keyof typeof GRAPH_NODE_CARD_SIZE_CLASSES = 'md';
 
 export interface GraphNodeCardStyleManagerInterface {
 	getContainerClass: (variant: string, size: string, selected: boolean, highlight: boolean, className?: string) => string;
@@ -38,56 +37,56 @@ export class GraphNodeCardStyleManager implements GraphNodeCardStyleManagerInter
 	static getContainerClass(variant: string, size: string, selected: boolean, highlight: boolean, className?: string): string {
 		const sizeClasses = GRAPH_NODE_CARD_SIZE_CLASSES[size as keyof typeof GRAPH_NODE_CARD_SIZE_CLASSES] || GRAPH_NODE_CARD_SIZE_CLASSES[DEFAULT_GRAPH_NODE_CARD_SIZE];
 		const stateClasses = [
-			selected ? GRAPH_NODE_CARD_SELECTED_CLASSES : '',
-			highlight ? GRAPH_NODE_CARD_HIGHLIGHT_CLASSES : ''
+			selected ? 'ring-2 ring-[--color-primary-500]' : '',
+			highlight ? 'ring-2 ring-[--color-warning-500]' : ''
 		].filter(Boolean).join(' ');
 
-		return cn(GRAPH_NODE_CARD_CONTAINER_BASE_CLASSES, sizeClasses, stateClasses, className);
+		return cn('border rounded-lg overflow-hidden transition-all duration-200 bg-[--color-background-primary] border-[--color-border-default]', sizeClasses, stateClasses, className);
 	}
 
 	static getHeaderClass(): string {
-		return GRAPH_NODE_CARD_HEADER_CLASSES;
+		return 'flex items-center p-3 border-b border-[--color-border-default] cursor-pointer hover:bg-[--color-surface-hover]';
 	}
 
 	static getTitleClass(): string {
-		return GRAPH_NODE_CARD_TITLE_CLASSES;
+		return 'font-medium text-[--color-text-primary]';
 	}
 
 	static getTypeClass(type: string): string {
 		const typeColor = GRAPH_NODE_CARD_TYPE_COLORS[type] || GRAPH_NODE_CARD_TYPE_COLORS.default;
-		return cn(typeColor, GRAPH_NODE_CARD_TYPE_CLASSES);
+		return cn(typeColor, 'text-xs uppercase px-2 py-1 rounded-full ml-auto');
 	}
 
 	static getContentClass(): string {
-		return GRAPH_NODE_CARD_CONTENT_CLASSES;
+		return 'p-3';
 	}
 
 	static getDescriptionClass(): string {
-		return GRAPH_NODE_CARD_DESCRIPTION_CLASSES;
+		return 'text-sm text-[--color-text-secondary] mt-2';
 	}
 
 	static getFieldsListClass(): string {
-		return GRAPH_NODE_CARD_FIELDS_LIST_CLASSES;
+		return 'space-y-2 mt-3';
 	}
 
 	static getFieldItemClass(): string {
-		return GRAPH_NODE_CARD_FIELD_ITEM_CLASSES;
+		return 'flex items-center gap-2';
 	}
 
 	static getFieldNameClass(): string {
-		return GRAPH_NODE_CARD_FIELD_NAME_CLASSES;
+		return 'font-medium text-[--color-text-primary]';
 	}
 
 	static getFieldTypeClass(): string {
-		return GRAPH_NODE_CARD_FIELD_TYPE_CLASSES;
+		return 'text-xs text-[--color-text-secondary]';
 	}
 
 	static getFieldRequiredClass(): string {
-		return GRAPH_NODE_CARD_FIELD_REQUIRED_CLASSES;
+		return 'text-[--color-danger-500]';
 	}
 
 	static getActionsClass(): string {
-		return GRAPH_NODE_CARD_ACTIONS_CLASSES;
+		return 'flex gap-2 mt-3 pt-3 border-t border-[--color-border-default]';
 	}
 
 	// Instance methods for interface implementation

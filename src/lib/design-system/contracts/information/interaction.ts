@@ -1,6 +1,6 @@
-﻿import type { ComponentSize } from '../../tokens/architecture/sizes';
-import type { Orientation } from '../../tokens/architecture/layout';
-import type { BaseTagVariant } from './badge';
+﻿import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/default-variants';
 import type {
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,
@@ -23,14 +23,14 @@ export type ToolbarVariant =
 
 export interface ToolbarInteractiveProps {
 	variant?: ToolbarVariant;
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size?: ComponentSize;
 	active?: boolean;
 	disabled?: boolean;
 }
 
 export interface ToolbarFieldProps {
 	variant?: ToolbarVariant;
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size?: ComponentSize;
 	disabled?: boolean;
 }
 
@@ -100,22 +100,20 @@ export interface SelectControlProps
 	onBlur?: () => void;
 }
 
-export type SelectVariant = BaseTagVariant;
-
-export type SelectSize = ComponentSize;
-
 export interface SelectOption {
 	value: string;
 	label: string;
 	disabled?: boolean;
 }
 
+export type SelectVariant = DefaultVariants | NeutralVariant;
+
 export interface SelectProps extends HtmlAttributesWithChildren<HTMLElement>, HtmlStateAttr {
-	options: SelectOption[];
+	options: SelectOption[] | string[];
 	value?: string;
 	defaultValue?: string;
-	variant?: SelectVariant;
-	size?: SelectSize;
+	variant?: DefaultVariants | NeutralVariant;
+	size?: ComponentSize;
 	placeholder?: string;
 	searchable?: boolean;
 	multiple?: boolean;
@@ -144,7 +142,7 @@ export interface SliderProps extends HtmlAttributesWithChildren<HTMLDivElement> 
 	max?: number;
 	step?: number;
 	disabled?: boolean;
-	orientation?: 'horizontal' | 'vertical';
+	orientation?: Orientation;
 	onValueInput?: ValueChangeHandler<number>;
 	onValueChange?: ValueChangeHandler<number>;
 	/** @deprecated use onValueChange */
@@ -196,3 +194,5 @@ export interface ProductSortOption {
 	value: string;
 	label: string;
 }
+
+

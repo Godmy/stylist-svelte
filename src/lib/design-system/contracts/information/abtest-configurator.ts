@@ -1,3 +1,5 @@
+import type { ABTestStatus } from '../../tokens/interaction/abtest-statuses';
+
 export type ABTestVariant = {
   id: string;
   name: string;
@@ -13,7 +15,7 @@ export type ABTest = {
   variants: ABTestVariant[];
   startDate: Date;
   endDate?: Date;
-  status: 'draft' | 'running' | 'completed' | 'paused';
+  status: ABTestStatus;
   targetAudience?: string;
   successMetrics: string[];
 };

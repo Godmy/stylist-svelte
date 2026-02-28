@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Paperclip, Mic, Send } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Paperclip = 'paperclip';
+const Mic = 'mic';
+const Send = 'send';
+
   import { Button } from '$stylist/components/atoms';
 
   import type { IMessageComposerProps } from '$stylist/design-system/contracts/information/message-composer';
@@ -99,7 +103,7 @@
         disabled={disabled}
         class={attachmentButtonClasses}
       >
-        <Paperclip class="h-5 w-5 text-[--color-text-secondary]" />
+        <BaseIcon name={Paperclip} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>
     {/if}
 
@@ -122,7 +126,7 @@
         disabled={disabled}
         class={sendButtonClasses}
       >
-        <Send class="h-5 w-5" />
+        <BaseIcon name={Send} class="h-5 w-5" />
       </Button>
     {:else if showVoiceButton}
       <Button
@@ -133,8 +137,9 @@
         disabled={disabled}
         class={voiceButtonClasses}
       >
-        <Mic class="h-5 w-5 text-[--color-text-secondary]" />
+        <BaseIcon name={Mic} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>
     {/if}
   </form>
 </div>
+

@@ -1,6 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Database, Shuffle, Download, Upload, Search, Filter } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Database = 'database';
+const Shuffle = 'shuffle';
+const Download = 'download';
+const Upload = 'upload';
+const Search = 'search';
+const Filter = 'filter';
+
 
   type MockDataSchema = {
     id: string;
@@ -203,7 +210,7 @@
 <div class={`c-mock-data-selector bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <Database class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={Database} class="h-6 w-6 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">{title}</h3>
     </div>
     <p class="mt-1 text-sm text-gray-500">{description}</p>
@@ -217,7 +224,7 @@
           <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search Schemas</label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
@@ -259,7 +266,7 @@
             class="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             onclick={loadMockData}
           >
-            <Download class="h-4 w-4 mr-1" />
+            <BaseIcon name={Download} class="h-4 w-4 mr-1" />
             Load Data
           </button>
         </div>
@@ -283,7 +290,7 @@
                 onclick={() => addSelection(schema.id)}
                 title="Add to selection"
               >
-                <Shuffle class="h-5 w-5" />
+                <BaseIcon name={Shuffle} class="h-5 w-5" />
               </button>
             </div>
 
@@ -299,7 +306,7 @@
 
             <div class="mt-3 text-xs text-gray-500">
               <span>{schema.fields.length} fields</span>
-              <span class="mx-2">•</span>
+              <span class="mx-2">вЂў</span>
               <span>{schema.sampleData.length} samples</span>
             </div>
           </div>
@@ -427,9 +434,10 @@
         class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
         onclick={loadMockData}
       >
-        <Download class="h-4 w-4 mr-1" />
+        <BaseIcon name={Download} class="h-4 w-4 mr-1" />
         Generate Mock Data
       </button>
     </div>
   </div>
 </div>
+

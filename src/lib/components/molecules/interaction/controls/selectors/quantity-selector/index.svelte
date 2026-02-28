@@ -1,21 +1,26 @@
 <script lang="ts">
-  import type { IQuantitySelectorProps, QuantitySelectorSize, QuantitySelectorVariant } from '$stylist/design-system/contracts/interaction/quantity-selector';
+  import type { IQuantitySelectorProps, QuantitySelectorVariant } from '$stylist/design-system/contracts/interaction/quantity-selector';
+  import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { QuantitySelectorStyleManager } from '$stylist/design-system/styles/interaction/quantity-selector';
-  import { Plus, Minus } from 'lucide-svelte';
+
+  const Plus = 'plus';
+  const Minus = 'minus';
+
 
   /**
-   * Компонент для выбора количества
+   * РљРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РІС‹Р±РѕСЂР° РєРѕР»РёС‡РµСЃС‚РІР°
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает только за отображение и взаимодействие с пользователем
-   * - OCP: Легко расширяем за счет пропсов
-   * - LSP: Подчиняется контракту, определенному в интерфейсе IQuantitySelectorProps
-   * - ISP: Предоставляет минимально необходимый интерфейс взаимодействия
-   * - DIP: Зависит от абстракций (интерфейсов в types.ts и стилей в styles.ts)
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Рё РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёРµ СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј Р·Р° СЃС‡РµС‚ РїСЂРѕРїСЃРѕРІ
+   * - LSP: РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ РєРѕРЅС‚СЂР°РєС‚Сѓ, РѕРїСЂРµРґРµР»РµРЅРЅРѕРјСѓ РІ РёРЅС‚РµСЂС„РµР№СЃРµ IQuantitySelectorProps
+   * - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (РёРЅС‚РµСЂС„РµР№СЃРѕРІ РІ types.ts Рё СЃС‚РёР»РµР№ РІ styles.ts)
    *
-   * Следует архитектуре Atomic Design как молекула:
-   * - Состоит из атомов (кнопки, инпут, иконки) и предоставляет более сложное поведение
-   * - Может использоваться как строительный блок для более сложных компонентов
+   * РЎР»РµРґСѓРµС‚ Р°СЂС…РёС‚РµРєС‚СѓСЂРµ Atomic Design РєР°Рє РјРѕР»РµРєСѓР»Р°:
+   * - РЎРѕСЃС‚РѕРёС‚ РёР· Р°С‚РѕРјРѕРІ (РєРЅРѕРїРєРё, РёРЅРїСѓС‚, РёРєРѕРЅРєРё) Рё РїСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ Р±РѕР»РµРµ СЃР»РѕР¶РЅРѕРµ РїРѕРІРµРґРµРЅРёРµ
+   * - РњРѕР¶РµС‚ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊСЃСЏ РєР°Рє СЃС‚СЂРѕРёС‚РµР»СЊРЅС‹Р№ Р±Р»РѕРє РґР»СЏ Р±РѕР»РµРµ СЃР»РѕР¶РЅС‹С… РєРѕРјРїРѕРЅРµРЅС‚РѕРІ
    */
   let {
     value = 1,
@@ -77,18 +82,18 @@
     onValueChange?.(newValue);
   }
 
-  // Вычисляемые стили
+  // Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ СЃС‚РёР»Рё
   const rootClasses = $derived(QuantitySelectorStyleManager.getRootClasses(hostClass));
   const labelClasses = $derived(QuantitySelectorStyleManager.getLabelClasses());
   const containerClasses = $derived(QuantitySelectorStyleManager.getContainerClasses());
   const decrementButtonClasses = $derived(
-    QuantitySelectorStyleManager.getButtonClasses(disabled, showButtons, true, size as QuantitySelectorSize, buttonClass)
+    QuantitySelectorStyleManager.getButtonClasses(disabled, showButtons, true, size as ComponentSize, buttonClass)
   );
   const incrementButtonClasses = $derived(
-    QuantitySelectorStyleManager.getButtonClasses(disabled, showButtons, false, size as QuantitySelectorSize, buttonClass)
+    QuantitySelectorStyleManager.getButtonClasses(disabled, showButtons, false, size as ComponentSize, buttonClass)
   );
   const inputClasses = $derived(
-    QuantitySelectorStyleManager.getInputClasses(showButtons, size as QuantitySelectorSize, variant as QuantitySelectorVariant, inputClass)
+    QuantitySelectorStyleManager.getInputClasses(showButtons, size as ComponentSize, variant as QuantitySelectorVariant, inputClass)
   );
   const iconClasses = $derived(QuantitySelectorStyleManager.getIconClasses());
 </script>
@@ -107,7 +112,7 @@
         disabled={disabled || quantity <= min}
         aria-label="Decrease quantity"
       >
-        <Minus class={iconClasses} />
+        <BaseIcon name={Minus} class={iconClasses} />
       </button>
     {/if}
 
@@ -134,8 +139,9 @@
         disabled={disabled || quantity >= max}
         aria-label="Increase quantity"
       >
-        <Plus class={iconClasses} />
+        <BaseIcon name={Plus} class={iconClasses} />
       </button>
     {/if}
   </div>
 </div>
+

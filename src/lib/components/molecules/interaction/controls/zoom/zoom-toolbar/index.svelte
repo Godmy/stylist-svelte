@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ZoomIn = 'zoom-in';
+const ZoomOut = 'zoom-out';
+const RotateCcw = 'rotate-ccw';
+
   import { Button } from '$stylist/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -63,7 +67,7 @@
     disabled={currentZoom <= minZoom}
     class={`border-r border-gray-300 ${buttonClass}`}
   >
-    <ZoomOut class="h-4 w-4" />
+    <BaseIcon name={ZoomOut} class="h-4 w-4" />
   </Button>
   
   {#if showPercentage}
@@ -80,7 +84,7 @@
     disabled={currentZoom >= maxZoom}
     class={`border-l border-gray-300 ${buttonClass}`}
   >
-    <ZoomIn class="h-4 w-4" />
+    <BaseIcon name={ZoomIn} class="h-4 w-4" />
   </Button>
   
   {#if showReset}
@@ -92,7 +96,8 @@
       aria-label="Reset zoom"
       class={`border-l border-gray-300 ${buttonClass}`}
     >
-      <RotateCcw class="h-4 w-4" />
+      <BaseIcon name={RotateCcw} class="h-4 w-4" />
     </Button>
   {/if}
 </div>
+

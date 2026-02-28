@@ -1,5 +1,11 @@
 <script lang="ts">
-  import { AlertCircle, BarChart3, Loader2, TrendingDown, TrendingUp } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const AlertCircle = 'alert-circle';
+const BarChart3 = 'bar-chart-3';
+const Loader2 = 'loader-2';
+const TrendingDown = 'trending-down';
+const TrendingUp = 'trending-up';
+
   import { PredictionResultStyleManager } from '$stylist/design-system/styles/information/prediction-result';
   import type { PredictionResultProps } from '$stylist/design-system/contracts/information/prediction-result';
 
@@ -58,13 +64,13 @@
   <div class={headerClassComputed}>
     <div class="flex items-center">
       {#if status === 'loading'}
-        <Loader2 class={PredictionResultStyleManager.getStatusIconClass('loading')} />
+        <BaseIcon name={Loader2} class={PredictionResultStyleManager.getStatusIconClass('loading')} />
       {:else if status === 'error'}
-        <AlertCircle class={PredictionResultStyleManager.getStatusIconClass('error')} />
+        <BaseIcon name={AlertCircle} class={PredictionResultStyleManager.getStatusIconClass('error')} />
       {:else if status === 'warning'}
-        <AlertCircle class={PredictionResultStyleManager.getStatusIconClass('warning')} />
+        <BaseIcon name={AlertCircle} class={PredictionResultStyleManager.getStatusIconClass('warning')} />
       {:else}
-        <BarChart3 class={PredictionResultStyleManager.getStatusIconClass('success')} />
+        <BaseIcon name={BarChart3} class={PredictionResultStyleManager.getStatusIconClass('success')} />
       {/if}
       <h3 class={titleClass}>{title}</h3>
     </div>
@@ -80,12 +86,12 @@
 
     {#if status === 'loading'}
       <div class={centeredDisplayClass}>
-        <Loader2 class="h-8 w-8 text-[--color-primary-500] animate-spin" />
+        <BaseIcon name={Loader2} class="h-8 w-8 text-[--color-primary-500] animate-spin" />
         <p class="mt-2 text-sm text-[--color-text-secondary]">Analyzing data...</p>
       </div>
     {:else if status === 'error'}
       <div class={centeredDisplayClass}>
-        <AlertCircle class="h-8 w-8 text-[--color-danger-500]" />
+        <BaseIcon name={AlertCircle} class="h-8 w-8 text-[--color-danger-500]" />
         <p class="mt-2 text-sm text-[--color-text-secondary]">Prediction failed</p>
         {#if onRetry}
           <button type="button" class={retryButtonClass} onclick={onRetry}>
@@ -155,12 +161,12 @@
     <div class={footerClassComputed}>
       <div class="flex items-center">
         {#if predictedValue > actualValue}
-          <TrendingUp class={PredictionResultStyleManager.getTrendIndicatorClass(true)} />
+          <BaseIcon name={TrendingUp} class={PredictionResultStyleManager.getTrendIndicatorClass(true)} />
           <span class={PredictionResultStyleManager.getTrendDescriptionClass(true)}>
             Prediction was {Math.abs(Math.round(((predictedValue - actualValue) / actualValue) * 100))}% higher than actual
           </span>
         {:else if predictedValue < actualValue}
-          <TrendingDown class={PredictionResultStyleManager.getTrendIndicatorClass(false)} />
+          <BaseIcon name={TrendingDown} class={PredictionResultStyleManager.getTrendIndicatorClass(false)} />
           <span class={PredictionResultStyleManager.getTrendDescriptionClass(false)}>
             Prediction was {Math.abs(Math.round(((predictedValue - actualValue) / actualValue) * 100))}% lower than actual
           </span>
@@ -171,4 +177,5 @@
     </div>
   {/if}
 </div>
+
 

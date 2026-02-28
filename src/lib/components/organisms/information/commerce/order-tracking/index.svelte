@@ -1,6 +1,24 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Package, Truck, CheckCircle, Clock, MapPin, Phone, MessageCircle, Calendar, AlertCircle, Navigation, RotateCcw, User, RotateCw, AlertTriangle, Mail, PackagePlus, PackageCheck } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Package = 'package';
+const Truck = 'truck';
+const CheckCircle = 'check-circle';
+const Clock = 'clock';
+const MapPin = 'map-pin';
+const Phone = 'phone';
+const MessageCircle = 'message-circle';
+const Calendar = 'calendar';
+const AlertCircle = 'alert-circle';
+const Navigation = 'navigation';
+const RotateCcw = 'rotate-ccw';
+const User = 'user';
+const RotateCw = 'rotate-cw';
+const AlertTriangle = 'alert-triangle';
+const Mail = 'mail';
+const PackagePlus = 'package-plus';
+const PackageCheck = 'package-check';
+
   import { Button } from '$stylist/components/atoms';
 
   type TrackingStatus = 'pending' | 'processing' | 'shipped' | 'out-for-delivery' | 'delivered' | 'delayed' | 'returned';
@@ -164,7 +182,7 @@
     <div class="flex flex-col md:flex-row md:items-center md:justify-between">
       <div>
         <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <Package class="h-6 w-6 mr-2 text-blue-500" />
+          <BaseIcon name={Package} class="h-6 w-6 mr-2 text-blue-500" />
           Order Tracking
         </h2>
 
@@ -229,7 +247,7 @@
       {#if trackingInfo.events.length === 0}
         <div class="text-center py-8">
           <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
-            <Package class="h-6 w-6 text-gray-400" />
+            <BaseIcon name={Package} class="h-6 w-6 text-gray-400" />
           </div>
           <h3 class="mt-2 text-sm font-medium text-gray-900">No tracking events</h3>
           <p class="mt-1 text-sm text-gray-500">Tracking information will appear here once the order ships.</p>
@@ -266,7 +284,7 @@
 
                 {#if event.status === 'delayed'}
                   <div class="mt-3 p-2 bg-yellow-50 border border-yellow-200 rounded-md flex items-start">
-                    <AlertCircle class="h-5 w-5 text-yellow-500 mr-2 flex-shrink-0" />
+                    <BaseIcon name={AlertCircle} class="h-5 w-5 text-yellow-500 mr-2 flex-shrink-0" />
                     <p class="text-sm text-yellow-700">This order has been delayed. Please contact the carrier for more information.</p>
                   </div>
                 {/if}
@@ -288,7 +306,7 @@
 
         <div class="space-y-2">
           <div class="flex">
-            <MapPin class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
+            <BaseIcon name={MapPin} class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
             <div>
               <p class="text-sm font-medium text-gray-900">Shipping Address</p>
               <p class="text-sm text-gray-500">{trackingInfo.shippingAddress}</p>
@@ -297,7 +315,7 @@
 
           {#if trackingInfo.carrier}
             <div class="flex">
-              <Truck class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
+              <BaseIcon name={Truck} class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
               <div>
                 <p class="text-sm font-medium text-gray-900">Carrier</p>
                 <p class="text-sm text-gray-500">{trackingInfo.carrier}</p>
@@ -314,7 +332,7 @@
           <div class="space-y-2">
             {#if trackingInfo.recipientName}
               <div class="flex">
-                <User class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
+                <BaseIcon name={User} class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
                 <div>
                   <p class="text-sm font-medium text-gray-900">Recipient</p>
                   <p class="text-sm text-gray-500">{trackingInfo.recipientName}</p>
@@ -324,7 +342,7 @@
 
             {#if trackingInfo.recipientPhone}
               <div class="flex">
-                <Phone class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
+                <BaseIcon name={Phone} class="h-5 w-5 text-gray-400 mr-2 flex-shrink-0" />
                 <div>
                   <p class="text-sm font-medium text-gray-900">Phone</p>
                   <p class="text-sm text-gray-500">{trackingInfo.recipientPhone}</p>
@@ -353,7 +371,7 @@
         variant="outline"
         onclick={handleContactCarrier}
       >
-        <Phone class="h-4 w-4 mr-2" />
+        <BaseIcon name={Phone} class="h-4 w-4 mr-2" />
         Contact Carrier
       </Button>
     {/if}
@@ -363,7 +381,7 @@
         variant="danger"
         onclick={handleReportIssue}
       >
-        <AlertCircle class="h-4 w-4 mr-2" />
+        <BaseIcon name={AlertCircle} class="h-4 w-4 mr-2" />
         Report Issue
       </Button>
     {/if}
@@ -371,11 +389,12 @@
     <Button
       variant="outline"
     >
-      <MessageCircle class="h-4 w-4 mr-2" />
+      <BaseIcon name={MessageCircle} class="h-4 w-4 mr-2" />
       Send Message
     </Button>
   </div>
 </div>
+
 
 
 

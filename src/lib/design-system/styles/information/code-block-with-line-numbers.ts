@@ -1,43 +1,49 @@
-export class CodeBlockWithLineNumbersStyleManager {
-  static getContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'c-code-block-with-line-numbers rounded-lg border border-gray-200 overflow-hidden';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+import { cn } from '../../utils/cn/index';
+import {
+	CODE_COPY_BUTTON_CONTAINER_CLASSES,
+	CODE_HEADER_BASE_CLASSES,
+	CODE_ICON_CLASSES,
+	CODE_LINE_NUMBER_HIGHLIGHT_CLASSES,
+	CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES,
+	CODE_MAIN_CONTENT_CLASSES,
+	CODE_PRE_BASE_CLASSES,
+	CODE_SURFACE_BASE_CLASSES
+} from './code-block';
 
-  static getMainContentClass(): string {
-    return 'flex';
-  }
+export class CodeWithLineNumbersStyleManager {
+	static getContainerClass(extraClasses = ''): string {
+		return cn('c-code-block-with-line-numbers', CODE_SURFACE_BASE_CLASSES, extraClasses);
+	}
 
-  static getHeaderClass(extraClasses: string = ''): string {
-    const baseClass = 'bg-gray-100 px-4 py-2 border-b border-gray-200 text-sm font-medium text-gray-700';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getMainContentClass(): string {
+		return CODE_MAIN_CONTENT_CLASSES;
+	}
 
-  static getLineNumbersContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'bg-gray-100 py-4 text-right select-none text-gray-500 text-sm';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getHeaderClass(extraClasses = ''): string {
+		return cn(CODE_HEADER_BASE_CLASSES, extraClasses);
+	}
 
-  static getLineNumberItemClass(isHighlighted: boolean): string {
-    const baseClass = 'pr-3 pl-2';
-    return isHighlighted ? `${baseClass} bg-yellow-100` : baseClass;
-  }
+	static getLineNumbersContainerClass(extraClasses = ''): string {
+		return cn(CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES, extraClasses);
+	}
 
-  static getContentContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'flex-1 overflow-x-auto';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getLineNumberItemClass(isHighlighted: boolean): string {
+		return cn('pl-2 pr-3', isHighlighted ? CODE_LINE_NUMBER_HIGHLIGHT_CLASSES : '');
+	}
 
-  static getPreClass(extraClasses: string = ''): string {
-    const baseClass = 'p-4 text-sm overflow-x-auto max-w-full';
-    return `${baseClass} ${extraClasses}`.trim();
-  }
+	static getContentContainerClass(extraClasses = ''): string {
+		return cn('flex-1 overflow-x-auto', extraClasses);
+	}
 
-  static getCopyButtonContainerClass(): string {
-    return 'absolute top-2 right-2';
-  }
+	static getPreClass(extraClasses = ''): string {
+		return cn(CODE_PRE_BASE_CLASSES, 'max-w-full overflow-x-auto', extraClasses);
+	}
 
-  static getIconClass(): string {
-    return 'h-4 w-4';
-  }
+	static getCopyButtonContainerClass(): string {
+		return CODE_COPY_BUTTON_CONTAINER_CLASSES;
+	}
+
+	static getIconClass(): string {
+		return CODE_ICON_CLASSES;
+	}
 }

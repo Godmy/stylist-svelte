@@ -1,19 +1,27 @@
 <script lang="ts">
   /**
-   * Компонент BulkOrderForm
+   * РљРѕРјРїРѕРЅРµРЅС‚ BulkOrderForm
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает за предоставление интерфейса для массового заказа
-   * - OCP: Легко расширяем за счет пропсов
-   * - LSP: Подчиняется контракту, заданному интерфейсом IBulkOrderFormProps
-   * - ISP: Интерфейс пропсов разделен на конкретные, необходимые части
-   * - DIP: Зависит от абстракций (типов и стилей), а не от деталей реализации
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ Р·Р° РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅРёРµ РёРЅС‚РµСЂС„РµР№СЃР° РґР»СЏ РјР°СЃСЃРѕРІРѕРіРѕ Р·Р°РєР°Р·Р°
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј Р·Р° СЃС‡РµС‚ РїСЂРѕРїСЃРѕРІ
+   * - LSP: РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ РєРѕРЅС‚СЂР°РєС‚Сѓ, Р·Р°РґР°РЅРЅРѕРјСѓ РёРЅС‚РµСЂС„РµР№СЃРѕРј IBulkOrderFormProps
+   * - ISP: РРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРїСЃРѕРІ СЂР°Р·РґРµР»РµРЅ РЅР° РєРѕРЅРєСЂРµС‚РЅС‹Рµ, РЅРµРѕР±С…РѕРґРёРјС‹Рµ С‡Р°СЃС‚Рё
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    *
-   * Следует Atomic Design: Это молекула, объединяющая различные атомы и молекулы
+   * РЎР»РµРґСѓРµС‚ Atomic Design: Р­С‚Рѕ РјРѕР»РµРєСѓР»Р°, РѕР±СЉРµРґРёРЅСЏСЋС‰Р°СЏ СЂР°Р·Р»РёС‡РЅС‹Рµ Р°С‚РѕРјС‹ Рё РјРѕР»РµРєСѓР»С‹
    */
 
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Package, Plus, Minus, Trash2, Upload, Download, Image as ImageIcon } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Package = 'package';
+const Plus = 'plus';
+const Minus = 'minus';
+const Trash2 = 'trash-2';
+const Upload = 'upload';
+const Download = 'download';
+const ImageIcon = 'image';
+
   import { Button } from '$stylist/components/atoms';
   import { cn } from '$stylist/utils';
   import { BulkOrderFormModel } from '$stylist/design-system/models/interaction/bulk-order-form.svelte';
@@ -112,7 +120,7 @@
 <div class={cn(BulkOrderFormStyleManager.getContainerClasses(hostClass), hostClass)} {...restProps}>
   <div class={BulkOrderFormStyleManager.getHeaderClasses(headerClass)}>
     <div class="flex items-center">
-      <Package class="h-6 w-6 text-[--color-primary-600] mr-2" />
+      <BaseIcon name={Package} class="h-6 w-6 text-[--color-primary-600] mr-2" />
       <h2 class={BulkOrderFormStyleManager.getTitleClasses()}>{title}</h2>
     </div>
 
@@ -166,7 +174,7 @@
             onclick={addProduct}
             disabled={!model.selectedProduct}
           >
-            <Plus class="h-4 w-4 mr-2" />
+            <BaseIcon name={Plus} class="h-4 w-4 mr-2" />
             Add to Order
           </Button>
         </div>
@@ -192,11 +200,11 @@
     {#if allowFileUpload}
       <div class={BulkOrderFormStyleManager.getFileAreaClasses()}>
         <Button variant="outline" class="mr-3">
-          <Upload class="h-4 w-4 mr-2" />
+          <BaseIcon name={Upload} class="h-4 w-4 mr-2" />
           Upload CSV
         </Button>
         <Button variant="outline">
-          <Download class="h-4 w-4 mr-2" />
+          <BaseIcon name={Download} class="h-4 w-4 mr-2" />
           Download Template
         </Button>
       </div>
@@ -208,7 +216,7 @@
 
       {#if model.items.length === 0}
         <div class={BulkOrderFormStyleManager.getEmptyStateClasses()}>
-          <Package class="h-12 w-12 text-[--color-text-tertiary] mx-auto" />
+          <BaseIcon name={Package} class="h-12 w-12 text-[--color-text-tertiary] mx-auto" />
           <h3 class="mt-2 text-sm font-medium text-[--color-text-primary]">No items added</h3>
           <p class="mt-1 text-sm text-[--color-text-secondary]">Add some products to your bulk order.</p>
         </div>
@@ -227,7 +235,7 @@
                     />
                   {:else}
                     <div class={BulkOrderFormStyleManager.getDefaultImageIconClasses()}>
-                      <ImageIcon class="h-8 w-8" />
+                      <BaseIcon name={ImageIcon} class="h-8 w-8" />
                     </div>
                   {/if}
                 </div>
@@ -263,7 +271,7 @@
                         onclick={() => updateQuantity(item.id, item.quantity - 1)}
                         disabled={item.quantity <= 1}
                       >
-                        <Minus class="h-4 w-4" />
+                        <BaseIcon name={Minus} class="h-4 w-4" />
                       </button>
 
                       <input
@@ -279,7 +287,7 @@
                         class={BulkOrderFormStyleManager.getQuantityChangeButtonClasses()}
                         onclick={() => updateQuantity(item.id, item.quantity + 1)}
                       >
-                        <Plus class="h-4 w-4" />
+                        <BaseIcon name={Plus} class="h-4 w-4" />
                       </button>
                     </div>
 
@@ -288,7 +296,7 @@
                       class={BulkOrderFormStyleManager.getRemoveButtonClasses()}
                       onclick={() => removeItem(item.id)}
                     >
-                      <Trash2 class="h-4 w-4 mr-1" />
+                      <BaseIcon name={Trash2} class="h-4 w-4 mr-1" />
                       Remove
                     </button>
                   </div>
@@ -330,3 +338,4 @@
     </div>
   </div>
 </div>
+

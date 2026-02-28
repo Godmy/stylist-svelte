@@ -1,11 +1,11 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import type { ProductSortProps } from '$stylist/design-system/contracts';
-import { INPUT_BASE_CLASS } from '$stylist/design-system/classes';
+import { INPUT_BASE_CLASS } from '$stylist/design-system/styles/interaction/input';
 import {
 	BASE_LABEL_CLASSES,
 	LABEL_ENABLED_CLASSES,
 	LABEL_SIZE_CLASSES
-} from '$stylist/design-system/classes';
+} from '$stylist/design-system/styles/information/label';
 import { cn } from '$stylist/utils/classes';
 
 export function createProductSortState(props: ProductSortProps) {

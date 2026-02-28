@@ -1,19 +1,19 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import {
-    Bold,
-    Italic,
-    Underline,
-    AlignLeft,
-    AlignCenter,
-    AlignRight,
-    List,
-    ListOrdered,
-    MessageCircle,
-    User,
-    Users
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Bold = 'bold';
+const Italic = 'italic';
+const Underline = 'underline';
+const AlignLeft = 'align-left';
+const AlignCenter = 'align-center';
+const AlignRight = 'align-right';
+const List = 'list';
+const ListOrdered = 'list-ordered';
+const MessageCircle = 'message-circle';
+const User = 'user';
+const Users = 'users';
+
 
   type CollaborativeUser = {
     id: string;
@@ -81,7 +81,7 @@
       const commentMarker = document.createElement('span');
       commentMarker.id = commentId;
       commentMarker.className = 'collaborative-comment-marker';
-      commentMarker.textContent = ' ¶';
+      commentMarker.textContent = ' В¶';
       commentMarker.style.color = 'blue';
       commentMarker.style.textDecoration = 'underline';
       commentMarker.style.cursor = 'pointer';
@@ -106,7 +106,7 @@
         onclick={() => formatText('bold')}
         title="Bold"
       >
-        <Bold class="h-4 w-4" />
+        <BaseIcon name={Bold} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -114,7 +114,7 @@
         onclick={() => formatText('italic')}
         title="Italic"
       >
-        <Italic class="h-4 w-4" />
+        <BaseIcon name={Italic} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -122,7 +122,7 @@
         onclick={() => formatText('underline')}
         title="Underline"
       >
-        <Underline class="h-4 w-4" />
+        <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
       <button
@@ -131,7 +131,7 @@
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
-        <AlignLeft class="h-4 w-4" />
+        <BaseIcon name={AlignLeft} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -139,7 +139,7 @@
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
-        <AlignCenter class="h-4 w-4" />
+        <BaseIcon name={AlignCenter} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -147,7 +147,7 @@
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
-        <AlignRight class="h-4 w-4" />
+        <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
       <button
@@ -156,7 +156,7 @@
         onclick={() => formatText('insertUnorderedList')}
         title="Bullet List"
       >
-        <List class="h-4 w-4" />
+        <BaseIcon name={List} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -164,7 +164,7 @@
         onclick={() => formatText('insertOrderedList')}
         title="Numbered List"
       >
-        <ListOrdered class="h-4 w-4" />
+        <BaseIcon name={ListOrdered} class="h-4 w-4" />
       </button>
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
       <button
@@ -173,7 +173,7 @@
         onclick={insertComment}
         title="Insert Comment"
       >
-        <MessageCircle class="h-4 w-4" />
+        <BaseIcon name={MessageCircle} class="h-4 w-4" />
       </button>
     </div>
   {/if}
@@ -194,7 +194,7 @@
     {#if showUserList && users.length > 0}
       <div class={`w-48 border-l p-3 ${userListClass}`}>
         <div class="flex items-center text-sm font-medium text-gray-700 mb-2">
-          <Users class="h-4 w-4 mr-1" />
+          <BaseIcon name={Users} class="h-4 w-4 mr-1" />
           Collaborators ({users.length})
         </div>
         <div class="space-y-2">
@@ -226,3 +226,4 @@
     {/if}
   </div>
 </div>
+

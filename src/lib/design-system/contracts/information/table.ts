@@ -1,6 +1,6 @@
 ﻿import type { HTMLAttributes } from 'svelte/elements';
 
-import type { TableCellVariant } from '../../tokens';
+import type { TableCell } from '../../tokens';
 import type { ContentProp } from './common';
 
 export interface TableAttributesBase extends HTMLAttributes<HTMLTableElement> {
@@ -30,6 +30,6 @@ export interface TableRowProps extends TableElementAttributesBase<HTMLTableRowEl
 export type TableCellAlign = string;
 
 export interface TableCellProps extends TableElementAttributesBase<HTMLTableCellElement>, ContentProp {
-	variant?: TableCellVariant;
+	variant?: TableCell;
 	align?: TableCellAlign;
 }

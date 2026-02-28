@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MapPin, Search, Phone, Clock, Star, Navigation, Filter, Dot } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Search = 'search';
+const Phone = 'phone';
+const Clock = 'clock';
+const Star = 'star';
+const Navigation = 'navigation';
+const Filter = 'filter';
+const Dot = 'dot';
+
   import { Button } from '$lib/components/atoms';
 
   export type Store = {
@@ -152,7 +161,7 @@
 <div class={`store-locator ${hostClass}`} {...restProps}>
   <div class={`border border-gray-200 rounded-lg p-6 mb-6 ${headerClass}`}>
     <div class="flex items-center">
-      <MapPin class="h-6 w-6 text-blue-500 mr-3" />
+      <BaseIcon name={MapPin} class="h-6 w-6 text-blue-500 mr-3" />
       <h2 class="text-xl font-bold text-gray-900">Find a Store</h2>
     </div>
     
@@ -170,7 +179,7 @@
             </label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
               </div>
               <input
                 id="store-search"
@@ -284,7 +293,7 @@
               >
                 <div class="flex flex-col items-center">
                   <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg border-2 border-white">
-                    <MapPin class="h-4 w-4" />
+                    <BaseIcon name={MapPin} class="h-4 w-4" />
                   </div>
                   <div class="mt-1 text-xs bg-white px-2 py-1 rounded shadow whitespace-nowrap">
                     {store.name}
@@ -296,7 +305,7 @@
             <!-- Current user position -->
             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
               <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg">
-                <Dot class="h-3 w-3" />
+                <BaseIcon name={Dot} class="h-3 w-3" />
               </div>
             </div>
           </div>
@@ -309,7 +318,7 @@
       <div class="border border-gray-200 rounded-lg overflow-hidden">
         {#if filteredStores.length === 0}
           <div class="text-center py-12">
-            <MapPin class="mx-auto h-12 w-12 text-gray-400" />
+            <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-gray-400" />
             <h3 class="mt-2 text-sm font-medium text-gray-900">No stores found</h3>
             <p class="mt-1 text-sm text-gray-500">Try adjusting your search or moving the map.</p>
           </div>
@@ -325,14 +334,14 @@
                     <div class="mt-2 flex items-center">
                       {#if showRating}
                         <div class="flex items-center">
-                          <Star class="h-4 w-4 text-yellow-400 fill-current" />
+                          <BaseIcon name={Star} class="h-4 w-4 text-yellow-400 fill-current" />
                           <span class="ml-1 text-xs text-gray-600">{store.rating.toFixed(1)}</span>
                         </div>
                       {/if}
                       
                       {#if showDistance}
                         <div class="ml-3 flex items-center text-xs text-gray-500">
-                          <Navigation class="h-3 w-3 mr-1 text-gray-400" />
+                          <BaseIcon name={Navigation} class="h-3 w-3 mr-1 text-gray-400" />
                           {formatDistance(store.distance)}
                         </div>
                       {/if}
@@ -346,7 +355,7 @@
                     
                     {#if showHours}
                       <div class="mt-2 flex items-center text-xs text-gray-500">
-                        <Clock class="h-3 w-3 mr-1" />
+                        <BaseIcon name={Clock} class="h-3 w-3 mr-1" />
                         {store.hours}
                       </div>
                     {/if}
@@ -364,14 +373,14 @@
                   
                   <div class="flex flex-col space-y-2">
                     <Button variant="outline" size="sm" onclick={() => handleCallStore(store)}>
-                      <Phone class="h-4 w-4" />
+                      <BaseIcon name={Phone} class="h-4 w-4" />
                     </Button>
                     <Button 
                       variant="outline" 
                       size="sm" 
                       onclick={() => handleGetDirections(store)}
                     >
-                      <Navigation class="h-4 w-4" />
+                      <BaseIcon name={Navigation} class="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
@@ -387,5 +396,6 @@
     </div>
   </div>
 </div>
+
 
 

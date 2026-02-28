@@ -1,17 +1,20 @@
 <script lang="ts">
   import type { IExpandableCardProps } from '$stylist/design-system/contracts/information/expandable-card';
+  import { Icon } from '$stylist/components/atoms';
   import { ExpandableCardStyleManager } from '$stylist/design-system/styles/information/expandable-card';
-  import { ChevronDown } from 'lucide-svelte';
+
+  const ChevronDown = 'chevron-down';
+
 
   /**
-   * Компонент ExpandableCard - карточка с возможностью раскрытия/сворачивания деталей
+   * РљРѕРјРїРѕРЅРµРЅС‚ ExpandableCard - РєР°СЂС‚РѕС‡РєР° СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ СЂР°СЃРєСЂС‹С‚РёСЏ/СЃРІРѕСЂР°С‡РёРІР°РЅРёСЏ РґРµС‚Р°Р»РµР№
    *
-   * Следует принципам SOLID:
-   * - Принцип единственной ответственности (SRP): компонент отвечает только за отображение раскрываемой карточки
-   * - Принцип открытости/закрытости (OCP): легко расширяем через пропсы и стили
-   * - Принцип подстановки Лисков (LSP): можно использовать как замену стандартной карточке
-   * - Принцип разделения интерфейса (ISP): четко определенный интерфейс пропсов
-   * - Принцип инверсии зависимостей (DIP): зависит от абстракций (стилей через ExpandableCardStyleManager)
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - РџСЂРёРЅС†РёРї РµРґРёРЅСЃС‚РІРµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚Рё (SRP): РєРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ СЂР°СЃРєСЂС‹РІР°РµРјРѕР№ РєР°СЂС‚РѕС‡РєРё
+   * - РџСЂРёРЅС†РёРї РѕС‚РєСЂС‹С‚РѕСЃС‚Рё/Р·Р°РєСЂС‹С‚РѕСЃС‚Рё (OCP): Р»РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј С‡РµСЂРµР· РїСЂРѕРїСЃС‹ Рё СЃС‚РёР»Рё
+   * - РџСЂРёРЅС†РёРї РїРѕРґСЃС‚Р°РЅРѕРІРєРё Р›РёСЃРєРѕРІ (LSP): РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєР°Рє Р·Р°РјРµРЅСѓ СЃС‚Р°РЅРґР°СЂС‚РЅРѕР№ РєР°СЂС‚РѕС‡РєРµ
+   * - РџСЂРёРЅС†РёРї СЂР°Р·РґРµР»РµРЅРёСЏ РёРЅС‚РµСЂС„РµР№СЃР° (ISP): С‡РµС‚РєРѕ РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РїСЂРѕРїСЃРѕРІ
+   * - РџСЂРёРЅС†РёРї РёРЅРІРµСЂСЃРёРё Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№ (DIP): Р·Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (СЃС‚РёР»РµР№ С‡РµСЂРµР· ExpandableCardStyleManager)
    */
 
   let {
@@ -38,7 +41,7 @@
     }
   }
 
-  // Вычисляем стили с использованием ExpandableCardStyleManager
+  // Р’С‹С‡РёСЃР»СЏРµРј СЃС‚РёР»Рё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј ExpandableCardStyleManager
   const baseClasses = $derived(ExpandableCardStyleManager.getBaseClasses());
   const themedClasses = $derived(ExpandableCardStyleManager.getThemedClasses({ variant }));
   const containerClasses = $derived(
@@ -81,7 +84,8 @@
       </div>
     </div>
 
-    <ChevronDown
+    <Icon
+      name={ChevronDown}
       class={chevronClasses}
     />
   </button>
@@ -95,3 +99,4 @@
     </div>
   </div>
 </div>
+

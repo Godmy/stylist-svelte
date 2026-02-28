@@ -1,7 +1,6 @@
-import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BadgeProps } from '$stylist/design-system/contracts';
-import { BASE_BADGE_CLASSES, BADGE_VARIANT_CLASSES, BADGE_SIZE_CLASSES } from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
+﻿import { mergeClasses } from '$stylist/utils/classes';
+import type { BadgeProps } from '$stylist/design-system/contracts';
+import { BADGE_VARIANT_CLASSES, BADGE_SIZE_CLASSES } from '$stylist/design-system/styles/information/badge';
 
 /**
  * Badge state creator
@@ -15,7 +14,7 @@ export function createBadgeState(props: BadgeProps) {
 	const size = $derived(props.size ?? 'md');
 	const classes = $derived(
 		mergeClasses(
-			BASE_BADGE_CLASSES,
+			'inline-flex items-center font-semibold rounded-full',
 			BADGE_VARIANT_CLASSES[variant as keyof typeof BADGE_VARIANT_CLASSES],
 			BADGE_SIZE_CLASSES[size as keyof typeof BADGE_SIZE_CLASSES],
 			props.class ?? ''

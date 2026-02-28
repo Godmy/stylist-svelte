@@ -1,5 +1,10 @@
 <script lang="ts">
-  import { Calendar, MapPin, Search, User } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Calendar = 'calendar';
+const MapPin = 'map-pin';
+const Search = 'search';
+const User = 'user';
+
   import { SearchResultsStyleManager } from '$stylist/design-system/styles';
   import type { SearchResultsProps, SearchResultItem } from '$stylist/design-system/contracts';
 
@@ -32,10 +37,9 @@
   {:else}
     <div class="divide-y divide-gray-200 border rounded-lg">
       {#each displayedResults as result}
-        {@const Icon = icon(result.type)}
         <button type="button" class="w-full text-left p-4 hover:bg-gray-50" onclick={() => onResultClick?.(result)}>
           <div class="flex gap-3">
-            <Icon class="h-5 w-5 text-gray-500" />
+            <BaseIcon name={icon(result.type)} class="h-5 w-5 text-gray-500" />
             <div>
               <div class="font-medium">{result.title}</div>
               {#if result.description}<div class="text-sm text-gray-600">{result.description}</div>{/if}
@@ -51,4 +55,5 @@
     </div>
   {/if}
 </div>
+
 

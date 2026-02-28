@@ -4,9 +4,9 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
+import type { NotificationType as NotificationTypeToken, NotificationPosition } from '../../tokens/interaction/notification';
 
-export type NotificationType = 'success' | 'warning' | 'error' | 'info' | 'default';
-export type NotificationPosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
+export type NotificationType = NotificationTypeToken;
 
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;

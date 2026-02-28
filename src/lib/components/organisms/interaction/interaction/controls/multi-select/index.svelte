@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { ChevronDown, X } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+const X = 'x';
+
   import { MultiSelectStyleManager } from '$stylist/design-system/styles';
   import type { MultiSelectOption, MultiSelectProps } from '$stylist/design-system/contracts';
 
@@ -137,7 +140,7 @@
               }}
               aria-label={`Remove ${foundOption.label}`}
             >
-              <X class="h-3 w-3" />
+              <BaseIcon name={X} class="h-3 w-3" />
             </button>
           </span>
         {/if}
@@ -153,10 +156,10 @@
       }}
       disabled={disabled || selectedValues.length === 0}
     >
-      <X class="h-4 w-4" />
+      <BaseIcon name={X} class="h-4 w-4" />
     </button>
     <div class="ml-2">
-      <ChevronDown class={chevronClasses} />
+      <BaseIcon name={ChevronDown} class={chevronClasses} />
     </div>
   </div>
 
@@ -215,5 +218,6 @@
     </div>
   {/if}
 </div>
+
 
 

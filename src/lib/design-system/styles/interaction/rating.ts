@@ -1,10 +1,10 @@
 /**
  * StyleManager для компонента Rating
- * 
- * Следует принципу единственной ответственности (SRP) из SOLID - 
+ *
+ * Следует принципу единственной ответственности (SRP) из SOLID -
  * только генерирует CSS-классы на основе переданных props
  */
-import type { RatingSize } from '$stylist/design-system/contracts/interaction/rating';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export class RatingStyleManager {
   /**
@@ -18,26 +18,30 @@ export class RatingStyleManager {
    * Получает CSS-классы для кнопки-звезды
    */
   static getStarButtonClasses(isDisabled: boolean, isReadonly: boolean, isFilled: boolean, currentRating: number, maxRating: number): string {
-    const disabledClass = isDisabled ? 'text-[--color-gray-300] opacity-50' : '';
-    const readonlyClass = isReadonly || isDisabled ? 'cursor-default' : 'cursor-pointer hover:text-[--color-yellow-500]';
-    const filledClass = isFilled ? 'text-[--color-yellow-400]' : 'text-[--color-gray-300]';
-    
+    const disabledClass = isDisabled ? 'text-[--color-neutral-300] opacity-50' : '';
+    const readonlyClass = isReadonly || isDisabled ? 'cursor-default' : 'cursor-pointer hover:text-[--color-warning-500]';
+    const filledClass = isFilled ? 'text-[--color-warning-400]' : 'text-[--color-neutral-300]';
+
     return `p-0.5 rounded-full ${disabledClass} ${readonlyClass} ${filledClass}`.trim();
   }
 
   /**
    * Получает CSS-классы для иконки звезды
    */
-  static getStarIconClasses(isFilled: boolean, size: RatingSize): string {
-    const sizeClasses = {
+  static getStarIconClasses(isFilled: boolean, size: ComponentSize): string {
+    const sizeClassesMap: Record<ComponentSize, string> = {
+      xs: 'w-3 h-3',
       sm: 'w-4 h-4',
       md: 'w-5 h-5',
-      lg: 'w-6 h-6'
-    }[size];
-    
+      lg: 'w-6 h-6',
+      xl: 'w-8 h-8',
+      '2xl': 'w-10 h-10'
+    };
+    const sizeClasses = sizeClassesMap[size];
+
     const fillClass = isFilled ? 'fill-current' : 'fill-transparent stroke-current';
     const strokeWidth = isFilled ? 'stroke-0' : 'stroke-[1.5]';
-    
+
     return `${sizeClasses} ${fillClass} ${strokeWidth}`.trim();
   }
 
@@ -45,8 +49,8 @@ export class RatingStyleManager {
    * Получает CSS-классы для текста рейтинга
    */
   static getRatingTextClasses(isDisabled: boolean): string {
-    const disabledClass = isDisabled ? 'text-[--color-gray-400]' : 'text-[--color-gray-600]';
-    
+    const disabledClass = isDisabled ? 'text-[--color-neutral-400]' : 'text-[--color-text-secondary]';
+
     return `${disabledClass} text-sm`.trim();
   }
 }

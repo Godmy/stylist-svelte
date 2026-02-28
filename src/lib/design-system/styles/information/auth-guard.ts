@@ -1,29 +1,21 @@
-import {
-	AUTH_GUARD_ACTION_LINK_CLASSES,
-	AUTH_GUARD_ROOT_CLASS,
-	AUTH_GUARD_SECTION_CLASSES,
-	AUTH_GUARD_TEXT_CLASSES,
-	AUTH_GUARD_TITLE_CLASSES
-} from '$stylist/design-system/classes/interaction/auth-guard';
-
 export class AuthGuardStyleManager {
 	static getRootClasses(hostClass: string): string {
-		return `${AUTH_GUARD_ROOT_CLASS} ${hostClass}`.trim();
+		return `${'c-auth-guard'} ${hostClass}`.trim();
 	}
 
 	static getSectionClasses(fallbackClass: string): string {
-		return `${AUTH_GUARD_SECTION_CLASSES} ${fallbackClass}`.trim();
+		return `${'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[--radius-lg] border border-[--color-border-default] bg-[--color-background-primary] p-[--spacing-xl] text-center'} ${fallbackClass}`.trim();
 	}
 
 	static getTitleClasses(contentClass: string): string {
-		return `${AUTH_GUARD_TITLE_CLASSES} ${contentClass}`.trim();
+		return `${'text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]'} ${contentClass}`.trim();
 	}
 
 	static getTextClasses(contentClass: string): string {
-		return `${AUTH_GUARD_TEXT_CLASSES} ${contentClass}`.trim();
+		return `${'max-w-[40ch] text-[--text-size-sm] text-[--color-text-secondary]'} ${contentClass}`.trim();
 	}
 
 	static getActionLinkClasses(): string {
-		return AUTH_GUARD_ACTION_LINK_CLASSES;
+		return 'inline-flex items-center rounded-[--radius-md] bg-[--color-primary-600] px-[--spacing-md] py-[--spacing-sm] text-[--text-size-sm] font-[--font-weight-medium] text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]';
 	}
 }

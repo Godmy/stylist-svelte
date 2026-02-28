@@ -5,83 +5,88 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-
 import type { HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/contracts/architecture/hero';
+import { cn } from '../../utils/cn/index';
+
+const HERO_HEIGHT_CLASSES: Record<HeroHeight, string> = {
+	screen: 'min-h-screen',
+	large: 'min-h-[80vh]',
+	medium: 'min-h-[60vh]'
+};
+
+const HERO_BACKGROUND_VARIANT_CLASSES: Record<HeroBackgroundVariant, string> = {
+	gradient:
+		'absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--color-background-secondary)] to-[var(--color-primary-100)]',
+	particles: 'absolute inset-0',
+	image: 'absolute inset-0 bg-cover bg-center'
+};
 
 export class HeroStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера Hero
    */
   static getContainerClasses(height: HeroHeight = 'screen', className?: string): string {
-    const heightClasses = {
-      screen: 'min-h-screen',
-      large: 'min-h-[80vh]',
-      medium: 'min-h-[60vh]'
-    };
-
-    return `hero relative w-full flex items-center justify-center overflow-hidden ${heightClasses[height]} ${className || ''}`.trim();
+    return cn(
+      'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
+      HERO_HEIGHT_CLASSES[height],
+      className
+    );
   }
 
   /**
    * Возвращает CSS-классы для фонового элемента
    */
   static getBackgroundClasses(backgroundVariant: HeroBackgroundVariant = 'gradient'): string {
-    const variantClasses = {
-      gradient: 'absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50',
-      particles: 'absolute inset-0',
-      image: 'absolute inset-0 bg-cover bg-center'
-    };
-
-    return variantClasses[backgroundVariant];
+    return HERO_BACKGROUND_VARIANT_CLASSES[backgroundVariant];
   }
 
   /**
    * Возвращает CSS-классы для контента Hero
    */
   static getContentClasses(): string {
-    return 'relative z-10 container mx-auto px-4 py-16 text-center max-w-4xl';
+    return 'relative z-10 mx-auto max-w-4xl px-4 py-16 text-center';
   }
 
   /**
    * Возвращает CSS-классы для заголовка
    */
   static getTitleClasses(): string {
-    return 'text-4xl md:text-6xl font-bold text-gray-900 mb-4';
+    return 'mb-4 text-4xl font-bold text-[var(--color-text-primary)] md:text-6xl';
   }
 
   /**
    * Возвращает CSS-классы для подзаголовка
    */
   static getSubtitleClasses(): string {
-    return 'text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto';
+    return 'mx-auto mb-8 max-w-2xl text-xl text-[var(--color-text-secondary)] md:text-2xl';
   }
 
   /**
    * Возвращает CSS-классы для контейнера статистики
    */
   static getStatsContainerClasses(): string {
-    return 'flex flex-wrap justify-center gap-8 mb-10';
+    return 'mb-10 flex flex-wrap justify-center gap-8';
   }
 
   /**
    * Возвращает CSS-классы для элемента статистики
    */
   static getStatItemClasses(): string {
-    return 'flex flex-col items-center';
+    return 'flex flex-col items-center rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]/80 px-5 py-4 shadow-sm backdrop-blur-sm';
   }
 
   /**
    * Возвращает CSS-классы для значения статистики
    */
   static getStatValueClasses(): string {
-    return 'text-3xl font-bold text-blue-600';
+    return 'text-3xl font-bold text-[var(--color-primary-600)]';
   }
 
   /**
    * Возвращает CSS-классы для метки статистики
    */
   static getStatLabelClasses(): string {
-    return 'text-sm text-gray-500 mt-1';
+    return 'mt-1 text-sm text-[var(--color-text-tertiary)]';
   }
 
   /**
@@ -95,11 +100,11 @@ export class HeroStyleManager {
    * Возвращает CSS-классы для CTA кнопки
    */
   static getCTAButtonClasses(isPrimary: boolean): string {
-    const baseClasses = 'px-6 py-3 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
-    const variantClasses = isPrimary 
-      ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500' 
-      : 'bg-white text-blue-600 border border-blue-200 hover:bg-blue-50 focus:ring-blue-500';
-
-    return `${baseClasses} ${variantClasses}`;
+    return cn(
+      'rounded-lg px-6 py-3 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary-500)]',
+      isPrimary
+        ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-700)]'
+        : 'border border-[var(--color-primary-200)] bg-[var(--color-background-primary)] text-[var(--color-primary-600)] hover:bg-[var(--color-primary-50)]'
+    );
   }
 }

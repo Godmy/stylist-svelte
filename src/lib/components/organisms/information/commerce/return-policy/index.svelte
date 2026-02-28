@@ -1,6 +1,18 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { RotateCcw, Calendar, Package, FileText, Info, Truck, DollarSign, CheckCircle, XCircle, Tag, ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const RotateCcw = 'rotate-ccw';
+const Calendar = 'calendar';
+const Package = 'package';
+const FileText = 'file-text';
+const Info = 'info';
+const Truck = 'truck';
+const DollarSign = 'dollar-sign';
+const CheckCircle = 'check-circle';
+const XCircle = 'x-circle';
+const Tag = 'tag';
+const ChevronDown = 'chevron-down';
+
   import { Button } from '$stylist/components/atoms';
 
   type ReturnCondition = {
@@ -158,7 +170,7 @@
 <div class={`c-return-policy ${hostClass}`} {...restProps}>
   <div class={`border border-gray-200 rounded-lg p-6 ${headerClass}`}>
     <div class="flex items-start">
-      <RotateCcw class="h-8 w-8 text-blue-500 flex-shrink-0" />
+      <BaseIcon name={RotateCcw} class="h-8 w-8 text-blue-500 flex-shrink-0" />
       <div class="ml-4">
         <h2 class="text-xl font-bold text-gray-900">Return Policy</h2>
         <p class="mt-1 text-gray-600">
@@ -175,7 +187,7 @@
     <!-- Return period information -->
     <div class="bg-blue-50 border border-blue-100 rounded-lg p-6">
       <div class="flex items-center">
-        <Calendar class="h-5 w-5 text-blue-500 mr-2" />
+        <BaseIcon name={Calendar} class="h-5 w-5 text-blue-500 mr-2" />
         <h3 class="text-lg font-medium text-gray-900">Return Period</h3>
       </div>
       <div class="mt-4 ml-7">
@@ -193,7 +205,7 @@
     {#if showConditions}
       <div class="border border-gray-200 rounded-lg p-6">
         <div class="flex items-center">
-          <FileText class="h-5 w-5 text-gray-500 mr-2" />
+          <BaseIcon name={FileText} class="h-5 w-5 text-gray-500 mr-2" />
           <h3 class="text-lg font-medium text-gray-900">Return Conditions</h3>
         </div>
 
@@ -227,13 +239,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <h4 class="font-medium text-green-800 mb-3 flex items-center">
-              <CheckCircle class="h-5 w-5 mr-2 text-green-500" />
+              <BaseIcon name={CheckCircle} class="h-5 w-5 mr-2 text-green-500" />
               Eligible for Return
             </h4>
             <ul class="space-y-2">
               {#each eligibleProducts as product}
                 <li class="flex items-start">
-                  <CheckCircle class="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                  <BaseIcon name={CheckCircle} class="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
                   <span class="text-gray-700">{product}</span>
                 </li>
               {/each}
@@ -242,13 +254,13 @@
 
           <div>
             <h4 class="font-medium text-red-800 mb-3 flex items-center">
-              <XCircle class="h-5 w-5 mr-2 text-red-500" />
+              <BaseIcon name={XCircle} class="h-5 w-5 mr-2 text-red-500" />
               Not Eligible for Return
             </h4>
             <ul class="space-y-2">
               {#each ineligibleProducts as product}
                 <li class="flex items-start">
-                  <XCircle class="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                  <BaseIcon name={XCircle} class="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
                   <span class="text-gray-700">{product}</span>
                 </li>
               {/each}
@@ -290,7 +302,7 @@
         <h3 class="text-lg font-medium text-gray-900 mb-4">Shipping Costs</h3>
 
         <div class="flex items-start">
-          <Truck class="h-6 w-6 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
+          <BaseIcon name={Truck} class="h-6 w-6 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
           <div>
             {#if shippingCosts === 'buyer'}
               <p class="text-gray-700">
@@ -319,7 +331,7 @@
 
         {#if restockingFee > 0}
           <div class="mt-4 flex items-start">
-            <Tag class="h-6 w-6 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
+            <BaseIcon name={Tag} class="h-6 w-6 text-gray-500 mr-3 flex-shrink-0 mt-0.5" />
             <div>
               <p class="text-gray-700">
                 <span class="font-medium">Restocking fee:</span> {restockingFee}% of item price will be deducted from refund.
@@ -349,7 +361,7 @@
                 }}
               >
                 <span>{faq.question}</span>
-                <ChevronDown class={`h-4 w-4 transition-transform ${activeFaqId === `faq-${index}` ? 'rotate-180' : ''}`} />
+                <BaseIcon name={ChevronDown} class={`h-4 w-4 transition-transform ${activeFaqId === `faq-${index}` ? 'rotate-180' : ''}`} />
               </button>
               {#if activeFaqId === `faq-${index}`}
                 <div class="p-4 bg-white">
@@ -365,17 +377,17 @@
     <!-- Action buttons -->
     <div class="mt-6 flex flex-wrap gap-3">
       <Button variant="primary" onclick={initiateReturn}>
-        <RotateCcw class="h-4 w-4 mr-2" />
+        <BaseIcon name={RotateCcw} class="h-4 w-4 mr-2" />
         Initiate Return
       </Button>
 
       <Button variant="outline">
-        <FileText class="h-4 w-4 mr-2" />
+        <BaseIcon name={FileText} class="h-4 w-4 mr-2" />
         View Full Policy
       </Button>
 
       <Button variant="outline">
-        <Info class="h-4 w-4 mr-2" />
+        <BaseIcon name={Info} class="h-4 w-4 mr-2" />
         Contact Support
       </Button>
     </div>
@@ -440,4 +452,5 @@
     </div>
   {/if}
 </div>
+
 

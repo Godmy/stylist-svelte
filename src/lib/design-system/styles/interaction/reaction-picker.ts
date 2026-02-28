@@ -13,11 +13,11 @@ export class ReactionPickerStyleManager {
   }
 
   static getReactionClasses(): string {
-    return 'reaction-item text-xl cursor-pointer hover:bg-gray-100 rounded-full p-2 transition-colors';
+    return 'reaction-item text-xl cursor-pointer hover:bg-[--color-background-hover] rounded-full p-2 transition-colors';
   }
 
   static getSelectedClass(isSelected: boolean): string {
-    return isSelected ? 'reaction-selected bg-blue-100 border border-blue-300' : '';
+    return isSelected ? 'reaction-selected bg-[--color-info-100] border border-[--color-info-300]' : '';
   }
 
   static getAllClasses(className: string, isSelected: boolean): string {

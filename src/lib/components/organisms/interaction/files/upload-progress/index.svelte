@@ -1,13 +1,19 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Upload, CheckCircle, AlertCircle, X, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Upload = 'upload';
+const CheckCircle = 'check-circle';
+const AlertCircle = 'alert-circle';
+const X = 'x';
+const RotateCcw = 'rotate-ccw';
+
   import { Button } from '$stylist/components/atoms';
   import { UploadProgressStyleManager } from './styles';
   import type { IUploadProgressProps, IUploadFile, UploadProgressVariant } from './types';
 
   let props: IUploadProgressProps = $props();
 
-  // Установка значений по умолчанию
+  // РЈСЃС‚Р°РЅРѕРІРєР° Р·РЅР°С‡РµРЅРёР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
   let files = $derived(props.files || []);
   let hostClass = $derived(props.hostClass || '');
   let itemClass = $derived(props.itemClass || '');
@@ -23,7 +29,7 @@
   let maxVisible = $derived(props.maxVisible ?? 5);
   let variant = $derived(props.variant ?? 'default');
 
-  // Остальные атрибуты для корневого элемента
+  // РћСЃС‚Р°Р»СЊРЅС‹Рµ Р°С‚СЂРёР±СѓС‚С‹ РґР»СЏ РєРѕСЂРЅРµРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
   let restProps = $derived(() => {
     const {
       files, hostClass, itemClass, progressClass, showFileName, showFileSize,
@@ -33,7 +39,7 @@
     return rest;
   });
 
-  // Вычисление видимых файлов
+  // Р’С‹С‡РёСЃР»РµРЅРёРµ РІРёРґРёРјС‹С… С„Р°Р№Р»РѕРІ
   let visibleFiles = $derived(() => {
     let visible = files;
 
@@ -48,7 +54,7 @@
     return visible;
   });
 
-  // Форматирование размера файла
+  // Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ СЂР°Р·РјРµСЂР° С„Р°Р№Р»Р°
   function formatFileSize(bytes: number): string {
     if (bytes === 0) return '0 Bytes';
     const k = 1024;
@@ -57,7 +63,7 @@
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
 
-  // Обработчики событий
+  // РћР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№
   function handleRetry(file: IUploadFile) {
     onRetry?.(file);
   }
@@ -72,13 +78,13 @@
 </script>
 
 <!--
-  Компонент UploadProgress
-  Следует принципам SOLID:
-  - SRP: Компонент отвечает только за отображение прогресса загрузки файлов
-  - OCP: Легко расширяем новыми вариантами отображения
-  - LSP: Совместим с базовыми компонентами
-  - ISP: Предоставляет только необходимые свойства и методы
-  - DIP: Зависит от абстракций (типы, стили из отдельных файлов)
+  РљРѕРјРїРѕРЅРµРЅС‚ UploadProgress
+  РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+  - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРѕРіСЂРµСЃСЃР° Р·Р°РіСЂСѓР·РєРё С„Р°Р№Р»РѕРІ
+  - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј РЅРѕРІС‹РјРё РІР°СЂРёР°РЅС‚Р°РјРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
+  - LSP: РЎРѕРІРјРµСЃС‚РёРј СЃ Р±Р°Р·РѕРІС‹РјРё РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё
+  - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ С‚РѕР»СЊРєРѕ РЅРµРѕР±С…РѕРґРёРјС‹Рµ СЃРІРѕР№СЃС‚РІР° Рё РјРµС‚РѕРґС‹
+  - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹, СЃС‚РёР»Рё РёР· РѕС‚РґРµР»СЊРЅС‹С… С„Р°Р№Р»РѕРІ)
 -->
 <div class={UploadProgressStyleManager.getHostClasses(variant, `c-upload-progress ${hostClass}`)} {...restProps}>
   {#if files.length === 0}
@@ -93,13 +99,13 @@
         >
           <div class="flex-shrink-0">
             {#if file.status === 'success'}
-              <CheckCircle class={UploadProgressStyleManager.getIconClasses('success')} />
+              <BaseIcon name={CheckCircle} class={UploadProgressStyleManager.getIconClasses('success')} />
             {:else if file.status === 'error'}
-              <AlertCircle class={UploadProgressStyleManager.getIconClasses('error')} />
+              <BaseIcon name={AlertCircle} class={UploadProgressStyleManager.getIconClasses('error')} />
             {:else if file.status === 'uploading'}
-              <Upload class={UploadProgressStyleManager.getIconClasses('uploading')} />
+              <BaseIcon name={Upload} class={UploadProgressStyleManager.getIconClasses('uploading')} />
             {:else}
-              <Upload class={UploadProgressStyleManager.getIconClasses('idle')} />
+              <BaseIcon name={Upload} class={UploadProgressStyleManager.getIconClasses('idle')} />
             {/if}
           </div>
 
@@ -138,7 +144,7 @@
                   onclick={() => handleRetry(file)}
                   title="Retry upload"
                 >
-                  <RotateCcw class="h-4 w-4 text-[--color-text-secondary]" />
+                  <BaseIcon name={RotateCcw} class="h-4 w-4 text-[--color-text-secondary]" />
                 </Button>
               {/if}
 
@@ -149,7 +155,7 @@
                   onclick={() => handleCancel(file)}
                   title="Cancel upload"
                 >
-                  <X class="h-4 w-4 text-[--color-text-secondary]" />
+                  <BaseIcon name={X} class="h-4 w-4 text-[--color-text-secondary]" />
                 </Button>
               {/if}
 
@@ -159,7 +165,7 @@
                 onclick={() => handleRemove(file)}
                 title="Remove"
               >
-                <X class="h-4 w-4 text-[--color-text-secondary]" />
+                <BaseIcon name={X} class="h-4 w-4 text-[--color-text-secondary]" />
               </Button>
             </div>
           {/if}
@@ -174,4 +180,5 @@
     </div>
   {/if}
 </div>
+
 

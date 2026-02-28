@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Truck, Package, MapPin, DollarSign, LoaderCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Truck = 'truck';
+const Package = 'package';
+const MapPin = 'map-pin';
+const DollarSign = 'dollar-sign';
+const LoaderCircle = 'loader-circle';
+
   import { Button } from '$stylist/components/atoms';
 
   type ShippingOption = {
@@ -123,7 +129,7 @@
 
 <div class={`c-shipping-calculator ${hostClass}`} {...restProps}>
   <div class="flex items-center mb-4">
-    <Truck class="h-5 w-5 text-blue-500 mr-2" />
+    <BaseIcon name={Truck} class="h-5 w-5 text-blue-500 mr-2" />
     <h2 class="text-lg font-medium text-gray-900">Shipping Calculator</h2>
   </div>
 
@@ -262,7 +268,7 @@
         disabled={isCalculating}
       >
         {#if isCalculating}
-          <LoaderCircle class="h-4 w-4 animate-spin mr-2" />
+          <BaseIcon name={LoaderCircle} class="h-4 w-4 animate-spin mr-2" />
           Calculating...
         {:else}
           Calculate Shipping
@@ -292,11 +298,11 @@
 
             <div class="flex items-center mt-2 text-xs text-gray-500">
               <span class="flex items-center">
-                <Package class="h-3 w-3 mr-1" />
+                <BaseIcon name={Package} class="h-3 w-3 mr-1" />
                 {option.estimatedDays} day{option.estimatedDays !== 1 ? 's' : ''} delivery
               </span>
               {#if option.carrier}
-                <span class="mx-2">•</span>
+                <span class="mx-2">вЂў</span>
                 <span>via {option.carrier}</span>
               {/if}
             </div>
@@ -323,4 +329,5 @@
     </div>
   {/if}
 </div>
+
 

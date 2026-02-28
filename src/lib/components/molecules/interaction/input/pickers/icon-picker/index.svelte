@@ -1,19 +1,21 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Search } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Search = 'search';
+
   import { IconPickerStyleManager } from '$stylist/design-system/styles/interaction/icon-picker';
   import type { IIconItem, IIconPickerProps, TColumns } from '$stylist/design-system/contracts/interaction/icon-picker';
 
   /**
    * @component IconPicker
-   * @description Компонент для выбора иконок с возможностью поиска
+   * @description РљРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РІС‹Р±РѕСЂР° РёРєРѕРЅРѕРє СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ РїРѕРёСЃРєР°
    *
-   * Следует принципам SOLID:
-   * - SRP: Компонент отвечает только за отображение и выбор иконок
-   * - OCP: Легко расширяем через пропсы
-   * - LSP: Поддерживает подстановку различных типов иконок
-   * - ISP: Предоставляет минимально необходимый интерфейс взаимодействия
-   * - DIP: Зависит от абстракций (типы и стили), а не от деталей реализации
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
+   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Рё РІС‹Р±РѕСЂ РёРєРѕРЅРѕРє
+   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј С‡РµСЂРµР· РїСЂРѕРїСЃС‹
+   * - LSP: РџРѕРґРґРµСЂР¶РёРІР°РµС‚ РїРѕРґСЃС‚Р°РЅРѕРІРєСѓ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ РёРєРѕРЅРѕРє
+   * - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
+   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹ Рё СЃС‚РёР»Рё), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    */
   let {
     icons = [],
@@ -56,7 +58,7 @@
     {#if showSearch}
       <div class={IconPickerStyleManager.getSearchContainerClasses()}>
         <div class={IconPickerStyleManager.getSearchIconClasses()}>
-          <Search />
+          <BaseIcon name={Search} />
         </div>
         <input
           type="text"
@@ -87,3 +89,4 @@
     {/each}
   </div>
 </div>
+

@@ -1,74 +1,76 @@
-/**
- * Менеджер стилей для компонента LinkCard
- * 
- * Следует принципу единственной ответственности (SRP) из SOLID:
- * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
- * и не содержит никакой логики отображения или поведения.
- */
-
 import type { LinkCardVariant } from '$stylist/design-system/contracts/information/link-card';
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
+const LINK_CARD_VARIANT_CLASSES = {
+	default:
+		'bg-[--color-background-primary] border-[--color-border-primary] hover:border-[--color-border-secondary] hover:shadow-sm',
+	primary:
+		'bg-[--color-primary-50] border-[--color-primary-200] hover:border-[--color-primary-300]',
+	secondary:
+		'bg-[--color-background-secondary] border-[--color-border-primary] hover:border-[--color-border-secondary] hover:shadow-sm',
+	success:
+		'bg-[--color-success-50] border-[--color-success-200] hover:border-[--color-success-300]',
+	warning:
+		'bg-[--color-warning-50] border-[--color-warning-200] hover:border-[--color-warning-300]',
+	danger:
+		'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
+	info:
+		'bg-[--color-info-50] border-[--color-info-200] hover:border-[--color-info-300]',
+	solid:
+		'bg-[--color-primary-500] border-[--color-primary-500] text-[--color-text-inverse]',
+	outline:
+		'bg-transparent border-[--color-border-primary] hover:border-[--color-text-tertiary] hover:shadow-sm',
+	ghost:
+		'bg-transparent border-transparent hover:bg-[--color-background-hover]',
+	link:
+		'bg-transparent border-transparent underline hover:no-underline',
+	subtle:
+		'bg-[--color-neutral-50] border-[--color-border-secondary]',
+	neutral:
+		'bg-[--color-neutral-100] border-[--color-neutral-200]',
+	gray:
+		'bg-[--color-neutral-100] border-[--color-neutral-200]',
+	dark:
+		'bg-[--color-neutral-800] border-[--color-neutral-700] text-[--color-text-inverse]',
+	light:
+		'bg-[--color-neutral-50] border-[--color-neutral-200]'
+} as const;
 
 export class LinkCardStyleManager {
-  /**
-   * Возвращает CSS-классы для основного контейнера LinkCard
-   */
-  static getContainerClasses(variant: LinkCardVariant = 'default'): string {
-    const variantClasses = {
-      default: 'bg-white border-gray-200 hover:border-gray-300 hover:shadow-sm',
-      primary: 'bg-blue-50 border-blue-200 hover:border-blue-300 hover:shadow-blue-100',
-      secondary: 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:shadow-sm',
-      outline: 'bg-transparent border-gray-300 hover:border-gray-400 hover:shadow-sm'
-    };
+	static getContainerClasses(variant: LinkCardVariant = 'default'): string {
+		return cn(
+			'link-card group block p-6 transition-all duration-200',
+			CARD_BASE_CLASSES,
+			LINK_CARD_VARIANT_CLASSES[variant] ?? LINK_CARD_VARIANT_CLASSES.default
+		);
+	}
 
-    return `link-card group block p-6 border rounded-lg shadow-sm transition-all duration-200 ${variantClasses[variant]}`;
-  }
+	static getContentClasses(): string {
+		return 'flex items-start';
+	}
 
-  /**
-   * Возвращает CSS-классы для контента карточки
-   */
-  static getContentClasses(): string {
-    return 'flex items-start';
-  }
+	static getIconContainerClasses(): string {
+		return 'mr-4 mt-0.5 flex-shrink-0';
+	}
 
-  /**
-   * Возвращает CSS-классы для иконки
-   */
-  static getIconContainerClasses(): string {
-    return 'flex-shrink-0 mt-0.5 mr-4';
-  }
+	static getIconClasses(): string {
+		return 'h-6 w-6 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-text-secondary)]';
+	}
 
-  /**
-   * Возвращает CSS-классы для иконки в зависимости от варианта
-   */
-  static getIconClasses(): string {
-    return 'w-6 h-6 text-gray-400 group-hover:text-gray-600 transition-colors duration-200';
-  }
+	static getTextContainerClasses(): string {
+		return 'min-w-0 flex-1';
+	}
 
-  /**
-   * Возвращает CSS-классы для контейнера текста
-   */
-  static getTextContainerClasses(): string {
-    return 'flex-1 min-w-0';
-  }
+	static getTitleClasses(): string {
+		return 'text-lg font-semibold text-[var(--color-text-primary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
+	}
 
-  /**
-   * Возвращает CSS-классы для заголовка
-   */
-  static getTitleClasses(): string {
-    return 'text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200';
-  }
+	static getDescriptionClasses(): string {
+		return 'mt-1 text-sm text-[var(--color-text-secondary)]';
+	}
 
-  /**
-   * Возвращает CSS-классы для описания
-   */
-  static getDescriptionClasses(): string {
-    return 'text-sm text-gray-500 mt-1';
-  }
-
-  /**
-   * Возвращает CSS-классы для стрелки перехода
-   */
-  static getArrowClasses(): string {
-    return 'ml-2 flex-shrink-0 text-gray-400 group-hover:text-blue-600 transition-colors duration-200';
-  }
+	static getArrowClasses(): string {
+		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
+	}
 }

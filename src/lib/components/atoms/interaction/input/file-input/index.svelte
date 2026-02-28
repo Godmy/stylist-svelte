@@ -1,9 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { createFileInputState as createInputState } from '$stylist/design-system/models/interaction/file-input.svelte';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	type Props = {
 		value?: File | File[];
@@ -11,7 +11,7 @@
 		accept?: string;
 		disabled?: boolean;
 		variant?: (typeof INPUT_VARIANTS)[number];
-		size?: (typeof COMPACT_SIZE_SCALE)[number];
+		size?: (typeof COMPONENT_SIZE)[number];
 		placeholder?: string;
 		onFileChange?: (files: File | File[] | null) => void;
 		class?: string;
@@ -132,6 +132,11 @@
 		</span>
 	</label>
 </div>
+
+
+
+
+
 
 
 

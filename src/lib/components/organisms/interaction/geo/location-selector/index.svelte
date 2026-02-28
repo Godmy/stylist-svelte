@@ -1,6 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MapPin, Search, List, Grid3X3, LocateFixed, Star } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Search = 'search';
+const List = 'list';
+const Grid3X3 = 'grid-3-x-3';
+const LocateFixed = 'locate-fixed';
+const Star = 'star';
+
   import { Button, InputField } from '$stylist/components/atoms';
 
   type Location = {
@@ -61,7 +68,7 @@
     ...restProps
   }: Props = $props();
 
-  // Явно определяем типы для состояний
+  // РЇРІРЅРѕ РѕРїСЂРµРґРµР»СЏРµРј С‚РёРїС‹ РґР»СЏ СЃРѕСЃС‚РѕСЏРЅРёР№
   let locationsState: Location[] = $state([]);
   $effect(() => {
     locationsState = locations;
@@ -72,7 +79,7 @@
   let filteredLocations = $state<Location[]>([]);
   let categories = $state<string[]>([]);
 
-  // Обновляем filteredLocations при изменении зависимостей
+  // РћР±РЅРѕРІР»СЏРµРј filteredLocations РїСЂРё РёР·РјРµРЅРµРЅРёРё Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№
   $effect(() => {
     let result: Location[] = [...locations];
 
@@ -95,7 +102,7 @@
     filteredLocations = result.slice(0, maxLocations);
   });
 
-  // Обновляем categories при изменении locations
+  // РћР±РЅРѕРІР»СЏРµРј categories РїСЂРё РёР·РјРµРЅРµРЅРёРё locations
   $effect(() => {
     const uniqueCategories: Set<string> = new Set<string>();
     locations.forEach(location => {
@@ -138,7 +145,7 @@
         <div class="flex-grow min-w-[200px]">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
@@ -175,7 +182,7 @@
             aria-label="List view"
             onclick={() => currentView = 'list'}
           >
-            <List class="h-5 w-5" />
+            <BaseIcon name={List} class="h-5 w-5" />
           </button>
           <button
             type="button"
@@ -183,7 +190,7 @@
             aria-label="Grid view"
             onclick={() => currentView = 'grid'}
           >
-            <Grid3X3 class="h-5 w-5" />
+            <BaseIcon name={Grid3X3} class="h-5 w-5" />
           </button>
         </div>
       {/if}
@@ -204,7 +211,7 @@
           }}
         >
           <div class="flex-shrink-0 p-3 rounded-md bg-blue-100 text-blue-600">
-            <MapPin class="h-6 w-6" />
+            <BaseIcon name={MapPin} class="h-6 w-6" />
           </div>
 
           <div class="ml-4 flex-1 min-w-0">
@@ -225,7 +232,7 @@
               {#if location.rating !== undefined}
                 <div class="flex items-center">
                   {#each Array(5) as _, i}
-                    <Star
+                    <BaseIcon name={Star}
                       class={`h-4 w-4 ${
                         i < Math.floor(location.rating)
                           ? 'text-yellow-400 fill-current'
@@ -263,7 +270,7 @@
         >
           <div class="flex items-start">
             <div class="flex-shrink-0 p-2 rounded-md bg-blue-100 text-blue-600">
-              <MapPin class="h-5 w-5" />
+              <BaseIcon name={MapPin} class="h-5 w-5" />
             </div>
 
             <div class="ml-4 min-w-0">
@@ -283,7 +290,7 @@
                 {#if location.rating !== undefined}
                   <div class="flex items-center">
                     {#each Array(5) as _, i}
-                      <Star
+                      <BaseIcon name={Star}
                         class={`h-4 w-4 ${
                           i < Math.floor(location.rating)
                             ? 'text-yellow-400 fill-current'
@@ -305,12 +312,13 @@
 
   {#if filteredLocations.length === 0}
     <div class="text-center py-12 border-2 border-dashed border-gray-300 rounded-lg">
-      <MapPin class="mx-auto h-12 w-12 text-gray-400" />
+      <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-gray-400" />
       <h3 class="mt-2 text-sm font-medium text-gray-900">No locations found</h3>
       <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
     </div>
   {/if}
 </div>
+
 
 
 

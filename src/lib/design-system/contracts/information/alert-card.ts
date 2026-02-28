@@ -1,10 +1,9 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ComponentSize } from '../../tokens/architecture/sizes';
-import type { DefaultVariants } from '../../tokens/architecture/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
 import type { IDisableable, ILoadable, IStyleable } from './common';
 
-/** Действие в алерте */
 export interface IAlertAction {
   label: string;
   onClick: () => void;
@@ -41,3 +40,6 @@ export interface IAlertCardElementProps extends IDisableable, ILoadable, IStylea
 }
 
 export type AlertCardElementProps = IAlertCardElementProps;
+
+
+

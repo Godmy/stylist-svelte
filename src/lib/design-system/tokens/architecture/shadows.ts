@@ -1,28 +1,5 @@
-/**
- * Токены теней - Значения теней для элементов
- *
- * @example
- * ```ts
- * import { shadow } from '$stylist/design-system/tokens';
- *
- * const elementShadow = shadow.md; // '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
- * ```
- */
-
-/**
- * Объект, содержащий значения теней
- * Используется для задания теней элементам в интерфейсе
- *
- * @property {string} none - Без тени
- * @property {string} sm - Маленькая тень
- * @property {string} base - Базовая тень
- * @property {string} md - Средняя тень
- * @property {string} lg - Большая тень
- * @property {string} xl - Очень большая тень
- * @property {string} 2xl - Огромная тень
- * @property {string} inner - Внутренняя тень
- */
-export const shadow = {
+﻿/** Shadow tokens */
+export const SHADOWS = {
 	none: 'none',
 	sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
 	base: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
@@ -33,8 +10,4 @@ export const shadow = {
 	inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)'
 } as const;
 
-/**
- * Тип, представляющий возможные ключи теней
- * Используется для типизации при работе с тенями элементов
- */
-export type ShadowKey = keyof typeof shadow;
+export type ShadowKey = keyof typeof SHADOWS;

@@ -1,9 +1,7 @@
-import {
-	BLOCKQUOTE_CLASSES,
-	DEFAULT_WITH_BACKGROUND,
-	DEFAULT_WITH_BORDER
-} from '../../classes/information/blockquote';
 import { cn } from '../../utils/cn/index';
+
+const DEFAULT_WITH_BACKGROUND = false;
+const DEFAULT_WITH_BORDER = true;
 
 export class BlockquoteStyleManager {
 	static getBlockquoteClasses(
@@ -12,9 +10,9 @@ export class BlockquoteStyleManager {
 		className = ''
 	): string {
 		return cn(
-			BLOCKQUOTE_CLASSES.base,
-			withBackground ? BLOCKQUOTE_CLASSES.background : '',
-			withBorder ? BLOCKQUOTE_CLASSES.border : '',
+			'text-lg italic',
+			withBackground ? 'bg-[--color-background-secondary] p-4 rounded' : '',
+			withBorder ? 'border-l-4 border-[--color-primary-500] pl-4' : '',
 			className
 		);
 	}

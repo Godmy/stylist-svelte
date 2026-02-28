@@ -1,7 +1,4 @@
-/**
- * Размеры спиннера загрузки
- */
-export type LoadingOverlaySpinnerSize = 'sm' | 'md' | 'lg';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Типы пропсов для компонента LoadingOverlay
@@ -20,5 +17,5 @@ export interface ILoadingOverlayProps {
   /**
    * Размер спиннера
    */
-  spinnerSize?: LoadingOverlaySpinnerSize;
+  spinnerSize?: ComponentSize;
 }

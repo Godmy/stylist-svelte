@@ -1,11 +1,14 @@
 <script lang="ts">
-	import { X, Loader2 } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+const Loader2 = 'loader-2';
+
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/close-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+import { createCloseButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)
@@ -21,8 +24,8 @@
 	let props: ButtonElementProps & HTMLButtonAttributes = $props();
 
 	// Use centralized state management
-	let state = createState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+	let state = createCloseButtonState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'ghost',
 			size: 'sm'
 		}),
@@ -45,12 +48,16 @@
 
 <button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
 	{#if state.loading}
-		<Loader2 class={state.loaderClasses} aria-hidden="true" />
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
-		<X class="h-4 w-4" />
+		<BaseIcon name={X} class="h-4 w-4" />
 	{/if}
 </button>
+
+
+
+
 
 
 

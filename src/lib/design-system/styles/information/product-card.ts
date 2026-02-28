@@ -1,104 +1,133 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
+type ProductCardVariant = 'default' | 'compact' | 'with-actions';
+
+export const PRODUCT_CARD_CONTAINER_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+	default: 'max-w-sm shadow-md',
+	compact: 'max-w-xs shadow-sm',
+	'with-actions': 'max-w-sm shadow-md'
+};
+
+export const PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+	default: 'relative',
+	compact: 'relative h-32 w-full',
+	'with-actions': 'relative'
+};
+
+export const PRODUCT_CARD_CONTENT_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+	default: 'flex flex-1 flex-col p-4',
+	compact: 'p-3',
+	'with-actions': 'flex flex-1 flex-col p-4'
+};
+
+export const PRODUCT_CARD_TITLE_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+	default: 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]',
+	compact: 'mb-1 truncate text-base font-semibold text-[var(--color-text-primary)]',
+	'with-actions': 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]'
+};
+
+export const PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+	default: 'mb-2 text-sm text-[var(--color-text-secondary)]',
+	compact: 'hidden',
+	'with-actions': 'mb-2 flex-1 text-sm text-[var(--color-text-secondary)]'
+};
+
+export const PRODUCT_CARD_BADGE_BASE_CLASSES =
+	'absolute left-2 top-2 rounded-md px-2 py-1 text-xs font-medium shadow-sm';
+export const PRODUCT_CARD_BADGE_SALE_CLASSES =
+	'bg-[var(--color-danger-500)] text-[var(--color-text-inverse)]';
+export const PRODUCT_CARD_BADGE_NEW_CLASSES =
+	'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]';
+export const PRODUCT_CARD_BADGE_POPULAR_CLASSES =
+	'bg-[var(--color-warning-500)] text-[var(--color-text-primary)]';
+export const PRODUCT_CARD_BADGE_DEFAULT_CLASSES =
+	'bg-[var(--color-neutral-200)] text-[var(--color-text-primary)]';
+export const PRODUCT_CARD_STAR_FILLED_CLASSES = 'fill-current';
+export const PRODUCT_CARD_STAR_EMPTY_CLASSES = 'fill-[var(--color-neutral-300)]';
+
 export class ProductCardStyleManager {
-  static getContainerClass(extraClasses: string = '', variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
-    const baseClass = 'c-product-card max-w-sm bg-white rounded-lg shadow-md overflow-hidden';
-    const variantClasses = {
-      default: '',
-      compact: 'max-w-xs',
-      'with-actions': ''
-    };
-    return `${baseClass} ${variantClasses[variant]} ${extraClasses}`.trim();
-  }
+	static getContainerClass(
+		extraClasses = '',
+		variant: ProductCardVariant = 'default'
+	): string {
+		return cn(
+			'c-product-card border border-[var(--color-border-primary)]',
+			CARD_BASE_CLASSES,
+			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant],
+			extraClasses
+		);
+	}
 
-  static getImageContainerClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
-    const variantClasses = {
-      default: 'relative',
-      compact: 'relative w-full h-32',
-      'with-actions': 'relative'
-    };
-    return variantClasses[variant];
-  }
+	static getImageContainerClass(variant: ProductCardVariant = 'default'): string {
+		return PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES[variant];
+	}
 
-  static getImageClass(): string {
-    return 'w-full h-48 object-cover';
-  }
+	static getImageClass(): string {
+		return 'h-48 w-full object-cover';
+	}
 
-  static getBadgeClass(badgeTypeClass: string = ''): string {
-    const baseClass = 'absolute top-2 left-2 px-2 py-1 text-xs rounded';
-    return `${baseClass} ${badgeTypeClass}`.trim();
-  }
+	static getBadgeClass(badgeTypeClass = ''): string {
+		return cn(PRODUCT_CARD_BADGE_BASE_CLASSES, badgeTypeClass);
+	}
 
-  static getSaleBadgeClass(): string {
-    return 'bg-red-500 text-white';
-  }
+	static getSaleBadgeClass(): string {
+		return PRODUCT_CARD_BADGE_SALE_CLASSES;
+	}
 
-  static getNewBadgeClass(): string {
-    return 'bg-blue-500 text-white';
-  }
+	static getNewBadgeClass(): string {
+		return PRODUCT_CARD_BADGE_NEW_CLASSES;
+	}
 
-  static getPopularBadgeClass(): string {
-    return 'bg-yellow-500 text-black';
-  }
+	static getPopularBadgeClass(): string {
+		return PRODUCT_CARD_BADGE_POPULAR_CLASSES;
+	}
 
-  static getDefaultBadgeClass(): string {
-    return 'bg-gray-200 text-gray-800';
-  }
+	static getDefaultBadgeClass(): string {
+		return PRODUCT_CARD_BADGE_DEFAULT_CLASSES;
+	}
 
-  static getContentClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
-    const variantClasses = {
-      default: 'p-4 flex flex-col flex-1',
-      compact: 'p-3',
-      'with-actions': 'p-4 flex flex-col flex-1'
-    };
-    return variantClasses[variant];
-  }
+	static getContentClass(variant: ProductCardVariant = 'default'): string {
+		return PRODUCT_CARD_CONTENT_VARIANT_CLASSES[variant];
+	}
 
-  static getHeaderClass(): string {
-    return 'mb-2';
-  }
+	static getHeaderClass(): string {
+		return 'mb-2';
+	}
 
-  static getTitleClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
-    const variantClasses = {
-      default: 'font-bold text-lg mb-1',
-      compact: 'font-bold text-base mb-1 truncate',
-      'with-actions': 'font-bold text-lg mb-1'
-    };
-    return variantClasses[variant];
-  }
+	static getTitleClass(variant: ProductCardVariant = 'default'): string {
+		return PRODUCT_CARD_TITLE_VARIANT_CLASSES[variant];
+	}
 
-  static getDescriptionClass(variant: 'default' | 'compact' | 'with-actions' = 'default'): string {
-    const variantClasses = {
-      default: 'text-gray-600 text-sm mb-2',
-      compact: 'hidden',
-      'with-actions': 'text-gray-600 text-sm mb-2 flex-1'
-    };
-    return variantClasses[variant];
-  }
+	static getDescriptionClass(variant: ProductCardVariant = 'default'): string {
+		return PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES[variant];
+	}
 
-  static getRatingContainerClass(): string {
-    return 'flex items-center mb-2';
-  }
+	static getRatingContainerClass(): string {
+		return 'mb-2 flex items-center';
+	}
 
-  static getStarsContainerClass(): string {
-    return 'flex text-yellow-400';
-  }
+	static getStarsContainerClass(): string {
+		return 'flex text-[var(--color-warning-500)]';
+	}
 
-  static getStarClass(isFilled: boolean): string {
-    return `w-4 h-4 ${isFilled ? 'fill-current' : 'fill-gray-300'}`;
-  }
+	static getStarClass(isFilled: boolean): string {
+		return cn('h-4 w-4', isFilled ? PRODUCT_CARD_STAR_FILLED_CLASSES : PRODUCT_CARD_STAR_EMPTY_CLASSES);
+	}
 
-  static getReviewCountClass(): string {
-    return 'text-gray-600 text-sm ml-1';
-  }
+	static getReviewCountClass(): string {
+		return 'ml-1 text-sm text-[var(--color-text-secondary)]';
+	}
 
-  static getPriceContainerClass(): string {
-    return 'flex justify-between items-center mt-3';
-  }
+	static getPriceContainerClass(): string {
+		return 'mt-3 flex items-center justify-between';
+	}
 
-  static getPriceClass(): string {
-    return 'text-lg font-bold';
-  }
+	static getPriceClass(): string {
+		return 'text-lg font-semibold text-[var(--color-text-primary)]';
+	}
 
-  static getActionsContainerClass(): string {
-    return '';
-  }
+	static getActionsContainerClass(): string {
+		return 'ml-3 flex items-center gap-2';
+	}
 }

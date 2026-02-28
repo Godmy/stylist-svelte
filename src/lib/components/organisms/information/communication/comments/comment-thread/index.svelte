@@ -1,5 +1,13 @@
 <script lang="ts">
-  import { Edit3, MessageCircle, MoreHorizontal, Reply, Send, Trash2, User as UserIcon } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Edit3 = 'edit-3';
+const MessageCircle = 'message-circle';
+const MoreHorizontal = 'more-horizontal';
+const Reply = 'reply';
+const Send = 'send';
+const Trash2 = 'trash-2';
+const UserIcon = 'user';
+
   import type { CommentThreadItem, CommentThreadProps } from '$lib/design-system/contracts/information/comment-thread';
   import { CommentThreadStyleManager } from '$lib/design-system/styles/information/comment-thread';
 
@@ -70,7 +78,7 @@
 <div class={CommentThreadStyleManager.getWrapperClass(className)} {...restProps}>
   {#if showTitle}
     <div class={CommentThreadStyleManager.getHeaderClass(headerClass)}>
-      <MessageCircle class="h-5 w-5 text-[--color-text-secondary] mr-2" />
+      <BaseIcon name={MessageCircle} class="h-5 w-5 text-[--color-text-secondary] mr-2" />
       <h3 class="text-lg font-medium text-[--color-text-primary]">{title}</h3>
     </div>
   {/if}
@@ -78,7 +86,7 @@
   <div class="p-4">
     <div class="flex space-x-3 mb-6">
       <div class="h-8 w-8 rounded-full bg-[--color-background-secondary] flex items-center justify-center">
-        <UserIcon class="h-5 w-5 text-[--color-text-secondary]" />
+        <BaseIcon name={UserIcon} class="h-5 w-5 text-[--color-text-secondary]" />
       </div>
       <div class="flex-1">
         <textarea
@@ -139,22 +147,22 @@
                 {/if}
                 {#if showReply}
                   <button type="button" class={CommentThreadStyleManager.getActionButtonClass()} onclick={() => { if (replyTexts[comment.id] === undefined) replyTexts[comment.id] = ''; }}>
-                    <Reply class="h-4 w-4" />
+                    <BaseIcon name={Reply} class="h-4 w-4" />
                     <span class="ml-1">Reply</span>
                   </button>
                 {/if}
                 {#if currentUserId === comment.author.id}
                   <button type="button" class={CommentThreadStyleManager.getActionButtonClass()} onclick={() => startEditing(comment.id, comment.content)}>
-                    <Edit3 class="h-4 w-4" />
+                    <BaseIcon name={Edit3} class="h-4 w-4" />
                     <span class="ml-1">Edit</span>
                   </button>
                   <button type="button" class="flex items-center text-sm text-[--color-danger-600]" onclick={() => onDelete?.(comment.id)}>
-                    <Trash2 class="h-4 w-4" />
+                    <BaseIcon name={Trash2} class="h-4 w-4" />
                     <span class="ml-1">Delete</span>
                   </button>
                 {/if}
                 <button type="button" class="text-[--color-text-secondary]">
-                  <MoreHorizontal class="h-4 w-4" />
+                  <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
                 </button>
               </div>
 
@@ -173,7 +181,7 @@
                     onclick={() => submitReply(comment.id)}
                     disabled={!replyTexts[comment.id]?.trim()}
                   >
-                    <Send class="h-4 w-4" />
+                    <BaseIcon name={Send} class="h-4 w-4" />
                   </button>
                 </div>
               {/if}
@@ -206,3 +214,4 @@
     </div>
   </div>
 </div>
+

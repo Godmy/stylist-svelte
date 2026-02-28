@@ -1,7 +1,13 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Sidebar from './index.svelte';
-  import { Home, Settings, User, Bell, Mail } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Home = 'home';
+const Settings = 'settings';
+const User = 'user';
+const Bell = 'bell';
+const Mail = 'mail';
+
   import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
 
   type NavItem = {
@@ -58,5 +64,6 @@
     />
   {/snippet}
 </Story>
+
 
 

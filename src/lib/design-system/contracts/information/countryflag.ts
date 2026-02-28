@@ -1,8 +1,6 @@
-﻿import type { CountryFlagSize } from './common';
-
 export interface CountryFlagProps {
 	countryCode?: string;
-	size?: CountryFlagSize;
+	size?: number;
 	class?: string;
 	content?: string;
 }

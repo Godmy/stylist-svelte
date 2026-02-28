@@ -1,30 +1,86 @@
 <script lang="ts">
   type User = { id?: string; name: string; avatar?: string };
-  type KanbanCardType = {
+  export type KanbanCardType = {
     id: string;
     title: string;
     description?: string;
     assignee?: string | User;
     priority?: 'low' | 'medium' | 'high';
-    tags?: string[];
-    updatedAt?: Date;
+    status?: 'todo' | 'in-progress' | 'review' | 'done' | 'archived';
+	tags?: string[];
+	updatedAt?: Date;
   };
 
   import type { Snippet } from 'svelte';
-  import { GripVertical } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Archive = 'archive';
+const Check = 'check';
+const GripVertical = 'grip-vertical';
+const Pencil = 'pencil';
+const Trash2 = 'trash-2';
+const X = 'x';
+
   import { Avatar, Badge, Divider } from '$stylist/components/atoms';
 
   let {
     card,
     draggable = true,
     selected = false,
+    editable = true,
+    archivable = true,
+    deletable = true,
+    ondragstart,
+    ondragend,
+    onTitleChange,
+    onArchive,
+    onDelete,
     children
   }: {
     card: KanbanCardType;
     draggable?: boolean;
     selected?: boolean;
+    editable?: boolean;
+    archivable?: boolean;
+    deletable?: boolean;
+    ondragstart?: (event: DragEvent) => void;
+    ondragend?: (event: DragEvent) => void;
+    onTitleChange?: (title: string) => void;
+    onArchive?: () => void;
+    onDelete?: () => void;
     children?: Snippet;
   } = $props();
+
+  let isEditingTitle = $state(false);
+  let draftTitle = $state(card.title);
+
+  $effect(() => {
+    draftTitle = card.title;
+  });
+
+  function startTitleEdit() {
+    if (!editable) return;
+    draftTitle = card.title;
+    isEditingTitle = true;
+  }
+
+  function cancelTitleEdit() {
+    draftTitle = card.title;
+    isEditingTitle = false;
+  }
+
+  function commitTitleEdit() {
+    const nextTitle = draftTitle.trim();
+    if (!nextTitle) {
+      draftTitle = card.title;
+      isEditingTitle = false;
+      return;
+    }
+
+    if (nextTitle !== card.title) {
+      onTitleChange?.(nextTitle);
+    }
+    isEditingTitle = false;
+  }
 
   // Format date for display
   const formatDate = (date: Date) => {
@@ -44,17 +100,61 @@
       high: 'danger'
     }[priority];
   };
+
+  const getPriorityAccentClass = (priority: 'low' | 'medium' | 'high' | undefined) => {
+    if (!priority) return 'before:bg-slate-300';
+    return {
+      low: 'before:bg-emerald-400',
+      medium: 'before:bg-amber-400',
+      high: 'before:bg-rose-400'
+    }[priority];
+  };
 </script>
 
 <div
-  class="c-kanban-card bg-white rounded-lg shadow-sm border border-gray-200 p-4 cursor-pointer transition-all hover:shadow-md"
+  class={`c-kanban-card group relative rounded-xl border border-slate-200 bg-white/95 p-4 cursor-pointer transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_14px_26px_-18px_rgba(14,116,144,0.55)] before:absolute before:inset-y-3 before:left-0 before:w-1 before:rounded-full ${getPriorityAccentClass(card.priority)}`}
   class:drag-handle={draggable}
   class:ring-2={selected}
-  class:ring-indigo-500={selected}
+  class:ring-cyan-500={selected}
   draggable={draggable}
+  role="listitem"
+  {ondragstart}
+  {ondragend}
 >
-  <div class="flex justify-between items-start mb-2">
-    <div class="font-medium text-gray-900">{card.title}</div>
+  <div class="flex justify-between items-start mb-2 gap-3">
+    <div class="min-w-0 flex-1">
+      {#if isEditingTitle}
+        <div class="flex items-center gap-1">
+          <input
+            class="w-full rounded border border-gray-300 px-2 py-1 text-sm text-gray-900 outline-none focus:border-indigo-500"
+            bind:value={draftTitle}
+            onblur={commitTitleEdit}
+            onkeydown={(e) => {
+              if (e.key === 'Enter') commitTitleEdit();
+              if (e.key === 'Escape') cancelTitleEdit();
+            }}
+          />
+          <button type="button" class="text-emerald-600 hover:text-emerald-700" onclick={commitTitleEdit} aria-label="Save title">
+            <BaseIcon name={Check} class="h-4 w-4" />
+          </button>
+          <button type="button" class="text-gray-500 hover:text-gray-700" onclick={cancelTitleEdit} aria-label="Cancel title edit">
+            <BaseIcon name={X} class="h-4 w-4" />
+          </button>
+        </div>
+      {:else}
+        <button
+          type="button"
+          class="max-w-full truncate text-left font-semibold text-slate-800 hover:text-cyan-700 transition-colors"
+          ondblclick={startTitleEdit}
+          onclick={(e) => {
+            if (e.altKey) startTitleEdit();
+          }}
+          aria-label="Edit card title"
+        >
+          {card.title}
+        </button>
+      {/if}
+    </div>
     {#if card.priority}
       <Badge
         variant={getPriorityColor(card.priority) as any}
@@ -66,7 +166,7 @@
   </div>
 
   {#if card.description}
-    <div class="text-sm text-gray-600 mb-3">{card.description}</div>
+    <div class="text-sm text-slate-600 mb-3 leading-relaxed">{card.description}</div>
   {/if}
 
   {#if card.tags?.length}
@@ -84,7 +184,7 @@
 
   <Divider class="my-2" />
 
-  <div class="flex justify-between items-center text-xs text-gray-500">
+  <div class="flex justify-between items-center text-xs text-slate-500">
     {#if card.assignee}
       <div class="flex items-center">
         {#if typeof card.assignee === 'object'}
@@ -109,7 +209,22 @@
   </div>
 
   <div class="mt-2 flex justify-end">
-    <GripVertical class="w-4 h-4 text-gray-400" />
+    {#if editable}
+      <button type="button" class="mr-2 text-slate-400 hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit card">
+        <BaseIcon name={Pencil} class="w-4 h-4" />
+      </button>
+    {/if}
+    {#if archivable}
+      <button type="button" class="mr-2 text-slate-400 hover:text-amber-600 transition-colors" onclick={() => onArchive?.()} aria-label="Archive card">
+        <BaseIcon name={Archive} class="w-4 h-4" />
+      </button>
+    {/if}
+    {#if deletable}
+      <button type="button" class="mr-2 text-slate-400 hover:text-rose-600 transition-colors" onclick={() => onDelete?.()} aria-label="Delete card">
+        <BaseIcon name={Trash2} class="w-4 h-4" />
+      </button>
+    {/if}
+    <BaseIcon name={GripVertical} class="w-4 h-4 text-slate-300 group-hover:text-slate-500 transition-colors" />
   </div>
 
   {#if children}
@@ -118,6 +233,7 @@
     </div>
   {/if}
 </div>
+
 
 
 

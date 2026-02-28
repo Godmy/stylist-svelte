@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Slash } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Slash = 'slash';
+
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IBreadcrumbsProps } from '$stylist/design-system/contracts';
 
@@ -7,7 +9,7 @@
 
 	let { crumbs = [], class: className = '', ...restProps }: Props = $props();
 
-	// Подсчитываем количество крошек для правильного отображения сепараторов
+	// РџРѕРґСЃС‡РёС‚С‹РІР°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РєСЂРѕС€РµРє РґР»СЏ РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЃРµРїР°СЂР°С‚РѕСЂРѕРІ
 	const totalCrumbs = $derived(crumbs?.length || 0);
 
 	const listClass = 'breadcrumbs-list';
@@ -18,19 +20,19 @@
 </script>
 
 <!--
-  Компонент Breadcrumbs реализует принципы SOLID следующим образом:
-  - SRP (Single Responsibility Principle): Компонент отвечает только за отображение навигационной цепочки
-  - OCP (Open/Closed Principle): Легко расширяем через пропсы
-  - LSP (Liskov Substitution Principle): Подчиняется контракту навигации
-  - ISP (Interface Segregation Principle): Использует минимально необходимый интерфейс IBreadcrumbsProps
-  - DIP (Dependency Inversion Principle): Зависит от абстракций (типов и стилей), а не от конкретных реализаций
+  РљРѕРјРїРѕРЅРµРЅС‚ Breadcrumbs СЂРµР°Р»РёР·СѓРµС‚ РїСЂРёРЅС†РёРїС‹ SOLID СЃР»РµРґСѓСЋС‰РёРј РѕР±СЂР°Р·РѕРј:
+  - SRP (Single Responsibility Principle): РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РЅР°РІРёРіР°С†РёРѕРЅРЅРѕР№ С†РµРїРѕС‡РєРё
+  - OCP (Open/Closed Principle): Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј С‡РµСЂРµР· РїСЂРѕРїСЃС‹
+  - LSP (Liskov Substitution Principle): РџРѕРґС‡РёРЅСЏРµС‚СЃСЏ РєРѕРЅС‚СЂР°РєС‚Сѓ РЅР°РІРёРіР°С†РёРё
+  - ISP (Interface Segregation Principle): РСЃРїРѕР»СЊР·СѓРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ IBreadcrumbsProps
+  - DIP (Dependency Inversion Principle): Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№), Р° РЅРµ РѕС‚ РєРѕРЅРєСЂРµС‚РЅС‹С… СЂРµР°Р»РёР·Р°С†РёР№
 -->
 <nav aria-label="Breadcrumb" class={className} {...restProps}>
 	<ol class={listClass}>
 		{#each crumbs as crumb, i}
 			<li class={itemClass}>
 				{#if i > 0}
-					<Slash class={separatorClass} />
+					<BaseIcon name={Slash} class={separatorClass} />
 				{/if}
 				{#if crumb.href && i < totalCrumbs - 1}
 					<a href={crumb.href} class={activeLinkClass}>
@@ -43,6 +45,7 @@
 		{/each}
 	</ol>
 </nav>
+
 
 
 

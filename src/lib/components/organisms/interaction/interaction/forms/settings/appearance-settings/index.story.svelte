@@ -5,29 +5,16 @@
   import AppearanceSettingsComponent from './index.svelte';
 
   type Props = {
-    showThemeSelector: boolean;
-    showColorPicker: boolean;
-    showFontSize: boolean;
-    showDensity: boolean;
-    showPreview: boolean;
+    theme: 'light' | 'dark' | 'system';
+    highContrast: boolean;
+    uiTheme: 'minimal' | 'ocean' | 'forest' | 'sunset';
   };
 
   const controls: ControlConfig[] = [
-    { name: 'showThemeSelector', type: 'boolean', defaultValue: true },
-    { name: 'showColorPicker', type: 'boolean', defaultValue: true },
-    { name: 'showFontSize', type: 'boolean', defaultValue: true },
-    { name: 'showDensity', type: 'boolean', defaultValue: true },
-    { name: 'showPreview', type: 'boolean', defaultValue: true }
+    { name: 'theme', type: 'select', defaultValue: 'system', options: ['light', 'dark', 'system'] },
+    { name: 'highContrast', type: 'boolean', defaultValue: false },
+    { name: 'uiTheme', type: 'select', defaultValue: 'minimal', options: ['minimal', 'ocean', 'forest', 'sunset'] }
   ];
-
-  function handleSubmit(settings: unknown) {
-    console.log('Appearance settings submitted:', settings);
-    alert('Appearance settings saved!');
-  }
-
-  function handlePreviewChange(settings: unknown) {
-    console.log('Preview changed:', settings);
-  }
 </script>
 
 <Story
@@ -47,6 +34,9 @@
         <h2 class="text-md font-semibold mb-2">Interactive AppearanceSettings</h2>
         <div class="max-w-md">
           <AppearanceSettingsComponent
+            theme={values.theme}
+            highContrast={values.highContrast}
+            uiTheme={values.uiTheme}
           />
         </div>
       </div>

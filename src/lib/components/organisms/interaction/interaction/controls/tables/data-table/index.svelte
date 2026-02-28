@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { ChevronDown, ChevronUp } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+const ChevronUp = 'chevron-up';
+
   import { DataTableStyleManager } from '$stylist/design-system/styles';
   import type { DataTableProps } from '$stylist/design-system/contracts';
 
@@ -43,7 +46,7 @@
             <button type="button" class="flex items-center gap-1" onclick={() => column.sortable && sort(String(column.key))}>
               {column.title}
               {#if column.sortable && sortKey === String(column.key)}
-                {#if sortDirection === 'asc'}<ChevronUp class="h-3 w-3" />{:else}<ChevronDown class="h-3 w-3" />{/if}
+                {#if sortDirection === 'asc'}<BaseIcon name={ChevronUp} class="h-3 w-3" />{:else}<BaseIcon name={ChevronDown} class="h-3 w-3" />{/if}
               {/if}
             </button>
           </th>
@@ -61,4 +64,5 @@
     </tbody>
   </table>
 </div>
+
 

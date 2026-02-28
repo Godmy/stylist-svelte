@@ -1,83 +1,223 @@
 <script lang="ts">
+  import { Icon as BaseIcon, Badge, Button } from '$stylist/components/atoms';
   import { KanbanColumnStyleManager } from '$stylist/design-system/styles/information/kanban-column';
+  import KanbanCard, { type KanbanCardType } from '$stylist/components/organisms/information/card/kanban-card/index.svelte';
   import type { Snippet } from 'svelte';
-  import { Plus } from 'lucide-svelte';
 
-  import { Badge, Button } from '$stylist/components/atoms';
-  import KanbanCard from '$stylist/components/organisms/information/card/kanban-card/index.svelte';
+  const Check = 'check';
+  const Pencil = 'pencil';
+  const Plus = 'plus';
+  const X = 'x';
+
+  export type KanbanColumnType = {
+    id: string;
+    title: string;
+    description?: string;
+    cards: KanbanCardType[];
+  };
+
+  type DragPayload = {
+    cardId: string;
+    fromColumnId: string;
+  };
 
   let {
     column,
     droppable = true,
+    editable = true,
+    showArchivedCards = false,
     onAddCard,
     onCardDrop,
+    onColumnTitleChange,
+    onCardTitleChange,
+    onCardDelete,
+    onCardArchive,
     content
   }: {
-    column: any;
+    column: KanbanColumnType;
     droppable?: boolean;
+    editable?: boolean;
+    showArchivedCards?: boolean;
     onAddCard?: (columnId: string) => void;
     onCardDrop?: (cardId: string, fromColumnId: string, toColumnId: string, position: number) => void;
+    onColumnTitleChange?: (columnId: string, title: string) => void;
+    onCardTitleChange?: (columnId: string, cardId: string, title: string) => void;
+    onCardDelete?: (columnId: string, cardId: string) => void;
+    onCardArchive?: (columnId: string, cardId: string) => void;
     content?: Snippet;
   } = $props();
 
-  const handleDrop = (e: DragEvent) => {
+  let dragOverIndex = $state<number | null>(null);
+  let isEditingTitle = $state(false);
+  let draftTitle = $state(column.title);
+  const visibleCards = $derived(
+    showArchivedCards ? column.cards : column.cards.filter((card) => card.status !== 'archived')
+  );
+
+  $effect(() => {
+    draftTitle = column.title;
+  });
+
+  function parsePayload(e: DragEvent): DragPayload | null {
+    const raw = e.dataTransfer?.getData('application/json') || e.dataTransfer?.getData('text/plain');
+    if (!raw) return null;
+
+    try {
+      const payload = JSON.parse(raw) as Partial<DragPayload>;
+      if (!payload.cardId || !payload.fromColumnId) return null;
+      return { cardId: payload.cardId, fromColumnId: payload.fromColumnId };
+    } catch {
+      return null;
+    }
+  }
+
+  function applyDrop(e: DragEvent, position: number) {
     if (!droppable || !onCardDrop) return;
     e.preventDefault();
-    const cardId = e.dataTransfer?.getData('text/plain');
-    if (cardId) {
-      onCardDrop(cardId, 'unknown', column.id, column.cards.length);
-    }
-  };
 
-  const handleDragOver = (e: DragEvent) => {
+    const payload = parsePayload(e);
+    if (!payload) return;
+
+    onCardDrop(payload.cardId, payload.fromColumnId, column.id, position);
+    dragOverIndex = null;
+  }
+
+  function handleColumnDrop(e: DragEvent) {
+    applyDrop(e, visibleCards.length);
+  }
+
+  function handleCardDrop(e: DragEvent, index: number) {
+    applyDrop(e, index);
+  }
+
+  function handleDragOver(e: DragEvent, index?: number) {
     if (!droppable) return;
     e.preventDefault();
-    e.dataTransfer!.dropEffect = 'move';
-  };
+    if (e.dataTransfer) {
+      e.dataTransfer.dropEffect = 'move';
+    }
 
-  const handleAddCard = () => {
+    dragOverIndex = typeof index === 'number' ? index : null;
+  }
+
+  function handleAddCard() {
     onAddCard?.(column.id);
-  };
+  }
+
+  function startTitleEdit() {
+    if (!editable) return;
+    draftTitle = column.title;
+    isEditingTitle = true;
+  }
+
+  function cancelTitleEdit() {
+    draftTitle = column.title;
+    isEditingTitle = false;
+  }
+
+  function commitTitleEdit() {
+    const nextTitle = draftTitle.trim();
+    if (!nextTitle) {
+      draftTitle = column.title;
+      isEditingTitle = false;
+      return;
+    }
+    if (nextTitle !== column.title) {
+      onColumnTitleChange?.(column.id, nextTitle);
+    }
+    isEditingTitle = false;
+  }
 </script>
 
 <div
   class={KanbanColumnStyleManager.getContainerClass()}
-  ondrop={handleDrop}
+  ondrop={handleColumnDrop}
   ondragover={handleDragOver}
   role="list"
   aria-label="Kanban column: {column.title}"
 >
-  <div class="p-4 border-b border-gray-200">
+  <div class="p-4 border-b border-slate-200/80 bg-gradient-to-r from-white to-slate-50/80">
     <div class="flex justify-between items-center mb-2">
-      <h3 class="font-semibold text-gray-800">{column.title}</h3>
-      <Badge variant="default" size="sm">{column.cards.length}</Badge>
+      {#if isEditingTitle}
+        <div class="flex min-w-0 flex-1 items-center gap-1">
+          <input
+            class="w-full rounded border border-gray-300 px-2 py-1 text-sm text-gray-900 outline-none focus:border-indigo-500"
+            bind:value={draftTitle}
+            onkeydown={(e) => {
+              if (e.key === 'Enter') commitTitleEdit();
+              if (e.key === 'Escape') cancelTitleEdit();
+            }}
+            onblur={commitTitleEdit}
+          />
+          <button type="button" class="text-emerald-600 hover:text-emerald-700" onclick={commitTitleEdit} aria-label="Save column title">
+            <BaseIcon name={Check} class="h-4 w-4" />
+          </button>
+          <button type="button" class="text-gray-500 hover:text-gray-700" onclick={cancelTitleEdit} aria-label="Cancel column title edit">
+            <BaseIcon name={X} class="h-4 w-4" />
+          </button>
+        </div>
+      {:else}
+        <h3 class="font-semibold text-slate-800 tracking-tight">{column.title}</h3>
+      {/if}
+      <div class="flex items-center gap-2">
+        <Badge variant="default" size="sm">{visibleCards.length}</Badge>
+        {#if editable && !isEditingTitle}
+          <button type="button" class="text-slate-400 hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit column title">
+            <BaseIcon name={Pencil} class="h-4 w-4" />
+          </button>
+        {/if}
+      </div>
     </div>
 
     {#if column.description}
-      <p class="text-sm text-gray-600">{column.description}</p>
+      <p class="text-sm text-slate-500">{column.description}</p>
     {/if}
 
     <div class="mt-3">
-      <Button variant="ghost" size="sm" onclick={handleAddCard}>
-        <Plus class="w-4 h-4 mr-1" />
+      <Button variant="ghost" size="sm" onclick={handleAddCard} class="rounded-lg text-slate-600 hover:text-slate-900">
+        <BaseIcon name={Plus} class="w-4 h-4 mr-1" />
         Add Card
       </Button>
     </div>
   </div>
 
-  <div class="flex-grow p-2 space-y-3 overflow-y-auto max-h-[calc(100vh-250px)]">
-    {#each column.cards as card (card.id)}
-      <KanbanCard
-        {card}
-        draggable={true}
-        {...{
-          ondragstart: (e: DragEvent) => {
+  <div class="flex-grow p-3 space-y-3 overflow-y-auto max-h-[calc(100vh-250px)] bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.08),_transparent_60%)]">
+    {#each visibleCards as card, index (card.id)}
+      {#if dragOverIndex === index}
+        <div class="h-2 rounded-full bg-cyan-300/80 ring-2 ring-cyan-200/70 animate-pulse" aria-hidden="true"></div>
+      {/if}
+
+      <div
+        role="listitem"
+        ondrop={(e) => handleCardDrop(e, index)}
+        ondragover={(e) => handleDragOver(e, index)}
+      >
+        <KanbanCard
+          {card}
+          draggable={droppable}
+          editable={editable}
+          ondragstart={(e: DragEvent) => {
             if (!droppable) return;
-            e.dataTransfer?.setData('text/plain', card.id);
-          }
-        }}
-      />
+            const payload: DragPayload = { cardId: card.id, fromColumnId: column.id };
+            e.dataTransfer?.setData('application/json', JSON.stringify(payload));
+            e.dataTransfer?.setData('text/plain', JSON.stringify(payload));
+            if (e.dataTransfer) {
+              e.dataTransfer.effectAllowed = 'move';
+            }
+          }}
+          ondragend={() => {
+            dragOverIndex = null;
+          }}
+          onTitleChange={(title) => onCardTitleChange?.(column.id, card.id, title)}
+          onDelete={() => onCardDelete?.(column.id, card.id)}
+          onArchive={() => onCardArchive?.(column.id, card.id)}
+        />
+      </div>
     {/each}
+
+    {#if dragOverIndex === visibleCards.length}
+      <div class="h-2 rounded-full bg-cyan-300/80 ring-2 ring-cyan-200/70 animate-pulse" aria-hidden="true"></div>
+    {/if}
   </div>
 
   {#if content}
@@ -86,3 +226,4 @@
     </div>
   {/if}
 </div>
+

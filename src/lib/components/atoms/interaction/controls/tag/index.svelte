@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { X } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+
 
 	import type { TagProps } from '$stylist/design-system/contracts';
 	import { createTagState } from '$stylist/design-system/models/interaction/tag.svelte';
@@ -57,10 +59,11 @@
 			disabled={state.disabled}
 			aria-label="Remove tag"
 		>
-			<X class={state.closeButtonIconClasses} />
+			<BaseIcon name={X} class={state.closeButtonIconClasses} />
 		</button>
 	{/if}
 </span>
+
 
 
 

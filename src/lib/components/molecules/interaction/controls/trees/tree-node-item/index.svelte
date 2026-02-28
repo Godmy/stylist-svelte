@@ -1,9 +1,11 @@
 <script lang="ts">
-  import type { ITreeNodeItemProps } from '$stylist/design-system/contracts/interaction/tree-node-item';
+  import type { ITreeNodeItemProps, TreeNodeItemNode } from '$stylist/design-system/contracts/interaction/tree-node-item';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { TreeNodeItemStyleManager } from '$stylist/design-system/styles/interaction/tree-node-item';
-  import { ChevronRight, ChevronDown, type Component } from 'lucide-svelte';
-  import type { TreeNodeItemNode } from '$stylist/design-system/contracts/interaction/tree-node-item';
   import Self from './index.svelte';
+
+  const ChevronRight = 'chevron-right';
+  const ChevronDown = 'chevron-down';
 
   /**
    * TreeNodeItem component - A flexible tree node item component with various states
@@ -125,9 +127,9 @@
         aria-label={expanded ? 'Collapse' : 'Expand'}
       >
         {#if expanded}
-          <ChevronDown class="w-4 h-4" />
+          <BaseIcon name={ChevronDown} class="w-4 h-4" />
         {:else}
-          <ChevronRight class="w-4 h-4" />
+          <BaseIcon name={ChevronRight} class="w-4 h-4" />
         {/if}
       </button>
     {:else}
@@ -231,3 +233,4 @@
   padding-left: 0.5rem;
 }
 </style>
+

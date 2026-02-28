@@ -1,6 +1,23 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { FileText, User, Mail, Phone, MapPin, Briefcase, Send, Calendar, Package, Plus, Minus, Truck, CreditCard, Paperclip, X, Settings } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const FileText = 'file-text';
+const User = 'user';
+const Mail = 'mail';
+const Phone = 'phone';
+const MapPin = 'map-pin';
+const Briefcase = 'briefcase';
+const Send = 'send';
+const Calendar = 'calendar';
+const Package = 'package';
+const Plus = 'plus';
+const Minus = 'minus';
+const Truck = 'truck';
+const CreditCard = 'credit-card';
+const Paperclip = 'paperclip';
+const X = 'x';
+const Settings = 'settings';
+
   import { Button } from '$stylist/components/atoms';
   import InputField from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
   import TextArea from '$stylist/components/atoms/interaction/input/field/text-area/index.svelte';
@@ -188,7 +205,7 @@
 <div class={`c-rfqform ${hostClass}`} {...restProps}>
   <div class="mb-6">
     <h2 class="text-xl font-bold text-gray-900 flex items-center">
-      <FileText class="h-5 w-5 mr-2 text-blue-500" />
+      <BaseIcon name={FileText} class="h-5 w-5 mr-2 text-blue-500" />
       {title}
     </h2>
     {#if description}
@@ -200,7 +217,7 @@
     <!-- Customer Information -->
     <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
       <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-        <User class="h-5 w-5 mr-2 text-blue-500" />
+        <BaseIcon name={User} class="h-5 w-5 mr-2 text-blue-500" />
         Customer Information
       </h3>
 
@@ -211,7 +228,7 @@
           </label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <User class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={User} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               id="requesterName"
@@ -231,7 +248,7 @@
           </label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Mail class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Mail} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               id="requesterEmail"
@@ -251,7 +268,7 @@
           </label>
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Phone class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Phone} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               id="requesterPhone"
@@ -271,7 +288,7 @@
             </label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Briefcase class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={Briefcase} class="h-5 w-5 text-gray-400" />
               </div>
               <input
                 id="companyName"
@@ -290,7 +307,7 @@
             </label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <MapPin class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={MapPin} class="h-5 w-5 text-gray-400" />
               </div>
               <TextArea label=""
                 id="companyAddress"
@@ -310,7 +327,7 @@
     <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
       <div class="flex justify-between items-center mb-4">
         <h3 class="text-lg font-medium text-gray-900 flex items-center">
-          <Package class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Package} class="h-5 w-5 mr-2 text-blue-500" />
           Product Requirements
         </h3>
         <button
@@ -318,7 +335,7 @@
           class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200"
           onclick={addProduct}
         >
-          <Plus class="h-4 w-4 mr-1" />
+          <BaseIcon name={Plus} class="h-4 w-4 mr-1" />
           Add Product
         </button>
       </div>
@@ -335,7 +352,7 @@
                   class="text-red-600 hover:text-red-800 text-sm font-medium"
                   onclick={() => removeProduct(index)}
                 >
-                  <Minus class="h-4 w-4" />
+                  <BaseIcon name={Minus} class="h-4 w-4" />
                 </button>
               {/if}
             </div>
@@ -453,7 +470,7 @@
                 </label>
                 <div class="relative">
                   <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Calendar class="h-5 w-5 text-gray-400" />
+                    <BaseIcon name={Calendar} class="h-5 w-5 text-gray-400" />
                   </div>
                   <input
                     id={`${baseProductId}-delivery-date`}
@@ -487,7 +504,7 @@
     {#if showShippingFields}
       <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Truck class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Truck} class="h-5 w-5 mr-2 text-blue-500" />
           Shipping Information
         </h3>
 
@@ -512,7 +529,7 @@
     {#if showDeliveryTerms}
       <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Truck class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Truck} class="h-5 w-5 mr-2 text-blue-500" />
           Delivery Terms
         </h3>
 
@@ -535,7 +552,7 @@
     {#if showPaymentTerms}
       <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <CreditCard class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={CreditCard} class="h-5 w-5 mr-2 text-blue-500" />
           Payment Terms
         </h3>
 
@@ -558,7 +575,7 @@
     {#if showAttachments}
       <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Paperclip class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Paperclip} class="h-5 w-5 mr-2 text-blue-500" />
           Attachments
         </h3>
 
@@ -579,7 +596,7 @@
               onclick={() => document.getElementById('attachments')?.click()}
               class="mr-2"
             >
-              <Paperclip class="h-4 w-4 mr-1" />
+              <BaseIcon name={Paperclip} class="h-4 w-4 mr-1" />
               Browse Files
             </Button>
             <div class="text-sm text-gray-500">
@@ -597,7 +614,7 @@
                     class="text-red-600 hover:text-red-800"
                     onclick={() => removeAttachment(index)}
                   >
-                    <X class="h-4 w-4" />
+                    <BaseIcon name={X} class="h-4 w-4" />
                   </button>
                 </div>
               {/each}
@@ -609,7 +626,7 @@
 
     <div class={`border border-gray-200 rounded-lg p-6 ${sectionClass}`}>
       <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-        <FileText class="h-5 w-5 mr-2 text-blue-500" />
+        <BaseIcon name={FileText} class="h-5 w-5 mr-2 text-blue-500" />
         Additional Information
       </h3>
 
@@ -642,12 +659,13 @@
         disabled={!isValid()}
         class={buttonClass}
       >
-        <Send class="h-4 w-4 mr-2" />
+        <BaseIcon name={Send} class="h-4 w-4 mr-2" />
         Submit RFQ
       </Button>
     </div>
   </form>
 </div>
+
 
 
 

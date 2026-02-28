@@ -1,4 +1,5 @@
-import type { DropdownPosition, IDropdownMenuStyleClasses } from '$stylist/design-system/contracts/interaction/dropdown-menu';
+import type { IDropdownMenuStyleClasses } from '$stylist/design-system/contracts/interaction/dropdown-menu';
+import type { DropdownPosition } from '$stylist/design-system/tokens/interaction/dropdown-menu';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -25,19 +25,19 @@ export const createChatStatusIndicatorStyles = <TOptions extends { size: string;
     indicator: [
       'rounded-full',
       size === 'sm' ? 'w-3 h-3' : size === 'md' ? 'w-4 h-4' : 'w-5 h-5',
-      status === 'online' ? 'bg-green-500 ring-2 ring-green-200' :
-      status === 'away' ? 'bg-yellow-500 ring-2 ring-yellow-200' :
-      status === 'typing' ? 'bg-blue-500 animate-pulse ring-2 ring-blue-200' :
-      'bg-gray-400 ring-2 ring-gray-200',
+      status === 'online' ? 'bg-[--color-success-500] ring-2 ring-[--color-success-200]' :
+      status === 'away' ? 'bg-[--color-warning-500] ring-2 ring-[--color-warning-200]' :
+      status === 'typing' ? 'bg-[--color-info-500] animate-pulse ring-2 ring-[--color-info-200]' :
+      'bg-[--color-neutral-400] ring-2 ring-[--color-neutral-200]',
       baseClasses?.indicator || ''
     ].join(' '),
 
     label: [
       'text-xs',
-      status === 'online' ? 'text-green-600' :
-      status === 'away' ? 'text-yellow-600' :
-      status === 'typing' ? 'text-blue-600' :
-      'text-gray-500',
+      status === 'online' ? 'text-[--color-success-600]' :
+      status === 'away' ? 'text-[--color-warning-600]' :
+      status === 'typing' ? 'text-[--color-info-600]' :
+      'text-[--color-text-secondary]',
       baseClasses?.label || ''
     ].join(' ')
   };

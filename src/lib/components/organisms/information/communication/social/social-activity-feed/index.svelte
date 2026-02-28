@@ -1,22 +1,22 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { 
-    Heart, 
-    MessageCircle, 
-    Share2, 
-    UserPlus, 
-    AtSign, 
-    Award, 
-    Settings,
-    Bell,
-    Activity as ActivityGlyph,
-    Circle,
-    Check,
-    MoreHorizontal,
-    ArrowRight,
-    CheckCircle,
-    Clock
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Heart = 'heart';
+const MessageCircle = 'message-circle';
+const Share2 = 'share-2';
+const UserPlus = 'user-plus';
+const AtSign = 'at-sign';
+const Award = 'award';
+const Settings = 'settings';
+const Bell = 'bell';
+const ActivityGlyph = 'activity';
+const Circle = 'circle';
+const Check = 'check';
+const MoreHorizontal = 'more-horizontal';
+const ArrowRight = 'arrow-right';
+const CheckCircle = 'check-circle';
+const Clock = 'clock';
+
   import { Avatar } from '$lib/components/atoms';
 
   type ActivityType = 
@@ -182,7 +182,7 @@
   <div class={`border-b border-gray-200 p-4 ${headerClass}`}>
     <div class="flex items-center justify-between">
       <div class="flex items-center">
-        <ActivityGlyph class="h-5 w-5 text-gray-500 mr-2" />
+        <BaseIcon name={ActivityGlyph} class="h-5 w-5 text-gray-500 mr-2" />
         <h2 class="text-lg font-medium text-gray-900">Activity Feed</h2>
         
         {#if showReadStatus && unreadCount > 0}
@@ -226,7 +226,7 @@
   <div class="divide-y divide-gray-200">
     {#if filteredActivities.length === 0}
       <div class="text-center py-8">
-        <ActivityGlyph class="mx-auto h-12 w-12 text-gray-400" />
+        <BaseIcon name={ActivityGlyph} class="mx-auto h-12 w-12 text-gray-400" />
         <h3 class="mt-2 text-sm font-medium text-gray-900">No activities</h3>
         <p class="mt-1 text-sm text-gray-500">When activities happen, they'll appear here.</p>
       </div>
@@ -263,14 +263,14 @@
                   {activity.actor.name}
                   {#if activity.actor.isVerified}
                     <span class="ml-1 text-blue-600">
-                      <CheckCircle class="h-4 w-4 inline" />
+                      <BaseIcon name={CheckCircle} class="h-4 w-4 inline" />
                     </span>
                   {/if}
                 </p>
                 
                 {#if showTimestamp}
                   <div class="flex items-center">
-                    <Clock class="h-4 w-4 text-gray-400 mr-1" />
+                    <BaseIcon name={Clock} class="h-4 w-4 text-gray-400 mr-1" />
                     <span class="text-xs text-gray-500">
                       {formatTime(activity.timestamp)}
                     </span>
@@ -299,7 +299,7 @@
                   }}
                 >
                   View related content
-                  <ArrowRight class="h-4 w-4 ml-1" />
+                  <BaseIcon name={ArrowRight} class="h-4 w-4 ml-1" />
                 </a>
               {/if}
             </div>
@@ -316,7 +316,7 @@
                     }}
                     aria-label="Mark as unread"
                   >
-                    <Check class="h-4 w-4" />
+                    <BaseIcon name={Check} class="h-4 w-4" />
                   </button>
                 {:else}
                   <button
@@ -328,7 +328,7 @@
                     }}
                     aria-label="Mark as read"
                   >
-                    <Circle class="h-4 w-4" />
+                    <BaseIcon name={Circle} class="h-4 w-4" />
                   </button>
                 {/if}
               {/if}
@@ -342,7 +342,7 @@
                 }}
                 aria-label="More options"
               >
-                <MoreHorizontal class="h-4 w-4" />
+                <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
               </button>
             </div>
           </div>
@@ -365,3 +365,4 @@
     </div>
   {/if}
 </div>
+

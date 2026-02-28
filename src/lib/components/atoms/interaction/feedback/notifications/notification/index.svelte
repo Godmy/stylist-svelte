@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { X, CheckCircle, AlertCircle, Info, XCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+const CheckCircle = 'check-circle';
+const AlertCircle = 'alert-circle';
+const Info = 'info';
+const XCircle = 'x-circle';
+
 
   import type { INotificationProps, NotificationType } from '$stylist/design-system/contracts/interaction/notification';
   import { NotificationAtomStyleManager } from '$stylist/design-system/styles/interaction/notification';
@@ -72,7 +78,7 @@
     onClose?.();
   }
 
-  const iconMap: Record<NotificationType, typeof Info> = {
+  const iconMap: Record<NotificationType, string> = {
     success: CheckCircle,
     warning: AlertCircle,
     error: XCircle,
@@ -98,7 +104,7 @@
   >
     <div class="flex items-start">
       <div class="flex-shrink-0">
-        <iconComponent class="h-5 w-5"></iconComponent>
+        <BaseIcon name={iconComponent} class="h-5 w-5"></BaseIcon>
       </div>
       <div class={contentClasses}>
         {#if title}
@@ -125,11 +131,12 @@
             onclick={handleClose}
             aria-label="Close"
           >
-            <X class="h-5 w-5" />
+            <BaseIcon name={X} class="h-5 w-5" />
           </button>
         </div>
       {/if}
     </div>
   </div>
 {/if}
+
 

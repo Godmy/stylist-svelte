@@ -1,15 +1,26 @@
+import { cn } from '../../utils/cn/index';
+
+const PRODUCT_AVAILABILITY_STATUS_CLASSES = {
+	inStock: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
+	outOfStock: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]'
+} as const;
+
+const PRODUCT_AVAILABILITY_BADGE_CLASSES = {
+	inStock: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
+	outOfStock: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
+} as const;
+
 export class ProductAvailabilityStyleManager {
   static getContainerClass(statusClass: string = '', extraClasses: string = ''): string {
-    const baseClass = 'c-product-availability p-4 rounded-lg border';
-    return `${baseClass} ${statusClass} ${extraClasses}`.trim();
+    return cn('c-product-availability rounded-lg border p-4', statusClass, extraClasses);
   }
 
   static getInStockClass(): string {
-    return 'bg-green-50 border-green-200';
+    return PRODUCT_AVAILABILITY_STATUS_CLASSES.inStock;
   }
 
   static getOutOfStockClass(): string {
-    return 'bg-red-50 border-red-200';
+    return PRODUCT_AVAILABILITY_STATUS_CLASSES.outOfStock;
   }
 
   static getHeaderClass(): string {
@@ -17,36 +28,35 @@ export class ProductAvailabilityStyleManager {
   }
 
   static getTitleClass(): string {
-    return 'font-semibold';
+    return 'font-semibold text-[var(--color-text-primary)]';
   }
 
   static getStatusBadgeClass(badgeTypeClass: string = ''): string {
-    const baseClass = 'px-2 py-1 rounded-full text-xs font-medium';
-    return `${baseClass} ${badgeTypeClass}`.trim();
+    return cn('rounded-full px-2 py-1 text-xs font-medium', badgeTypeClass);
   }
 
   static getInStockBadgeClass(): string {
-    return 'bg-green-100 text-green-800';
+    return PRODUCT_AVAILABILITY_BADGE_CLASSES.inStock;
   }
 
   static getOutOfStockBadgeClass(): string {
-    return 'bg-red-100 text-red-800';
+    return PRODUCT_AVAILABILITY_BADGE_CLASSES.outOfStock;
   }
 
   static getDescriptionClass(): string {
-    return 'mb-2';
+    return 'mb-2 text-[var(--color-text-secondary)]';
   }
 
   static getNotifyButtonClass(): string {
-    return 'text-blue-600 hover:text-blue-800 text-sm font-medium';
+    return 'text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)]';
   }
 
   static getNotificationFormClass(): string {
-    return 'mt-3 p-3 bg-blue-50 rounded';
+    return 'mt-3 rounded bg-[var(--color-primary-50)] p-3';
   }
 
   static getNotificationTextClass(): string {
-    return 'mb-2';
+    return 'mb-2 text-[var(--color-text-secondary)]';
   }
 
   static getFormContainerClass(): string {
@@ -54,10 +64,10 @@ export class ProductAvailabilityStyleManager {
   }
 
   static getEmailInputClass(): string {
-    return 'flex-1 px-3 py-2 border border-gray-300 rounded-l focus:outline-none focus:ring-1 focus:ring-blue-500';
+    return 'flex-1 rounded-l border border-[var(--color-border-primary)] px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[var(--color-primary-500)]';
   }
 
   static getNotifySubmitButtonClass(): string {
-    return 'bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600';
+    return 'rounded-r bg-[var(--color-primary-500)] px-4 py-2 text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }

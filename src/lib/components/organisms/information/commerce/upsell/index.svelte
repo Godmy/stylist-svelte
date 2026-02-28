@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ArrowUpRight, DollarSign, BadgePercent, Star, Package } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ArrowUpRight = 'arrow-up-right';
+const DollarSign = 'dollar-sign';
+const BadgePercent = 'badge-percent';
+const Star = 'star';
+const Package = 'package';
+
   import { Button } from '$stylist/components/atoms';
 
   type Product = {
@@ -92,7 +98,7 @@
   <div class={`p-6 border rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 ${headerClass}`}>
     <div class="flex items-center">
       <div class="p-2 bg-blue-100 rounded-lg">
-        <ArrowUpRight class="h-6 w-6 text-blue-600" />
+        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-blue-600" />
       </div>
       <div class="ml-4">
         <h2 class="text-lg font-bold text-gray-900">{title}</h2>
@@ -102,7 +108,7 @@
 
         {#if showSavings && savings > 0}
           <div class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-            <DollarSign class="h-4 w-4 mr-1" />
+            <BaseIcon name={DollarSign} class="h-4 w-4 mr-1" />
             Save {formatPrice(savings)} with upgrade
           </div>
         {/if}
@@ -133,7 +139,7 @@
                   <div class="flex items-center mt-1">
                     <div class="flex">
                       {#each Array(5) as _, i}
-                        <Star
+                        <BaseIcon name={Star}
                           class={`h-4 w-4 ${
                             i < Math.floor(product.rating)
                               ? 'text-yellow-400 fill-current'
@@ -159,7 +165,7 @@
                       <span class="ml-2 text-base text-gray-500 line-through">{formatPrice(product.originalPrice)}</span>
                       {#if product.discountPercent}
                         <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                          <BadgePercent class="h-3 w-3 mr-1" />
+                          <BaseIcon name={BadgePercent} class="h-3 w-3 mr-1" />
                           {product.discountPercent}% OFF
                         </span>
                       {/if}
@@ -194,11 +200,12 @@
   {#if displayedProducts.length === 0}
     <div class="mt-6 text-center py-12 border rounded-lg">
       <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
-        <ArrowUpRight class="h-6 w-6 text-gray-400" />
+        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-gray-400" />
       </div>
       <h3 class="mt-2 text-sm font-medium text-gray-900">No upgrade options available</h3>
       <p class="mt-1 text-sm text-gray-500">We don't have any upgrade suggestions at this time.</p>
     </div>
   {/if}
 </div>
+
 

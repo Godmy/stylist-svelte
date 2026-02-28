@@ -1,11 +1,13 @@
 <script lang="ts">
-	import { Loader2 } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Loader2 = 'loader-2';
+
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { PageButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/page-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+import { createPageButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -42,8 +44,8 @@
 
 	// Use centralized state management with adjusted props
 	let state = $derived(
-		createState(
-			createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+		createPageButtonState(
+			createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 				variant: 'outline',
 				size: 'md'
 			}),
@@ -65,7 +67,7 @@
 	aria-current={props.isActive ? 'page' : undefined}
 >
 	{#if state.loading}
-		<Loader2 class={state.loaderClasses} aria-hidden="true" />
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.children}
 		{@render props.children?.()}
@@ -73,6 +75,10 @@
 		{props.page}
 	{/if}
 </button>
+
+
+
+
 
 
 

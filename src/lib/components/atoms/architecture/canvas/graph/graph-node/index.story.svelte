@@ -3,7 +3,7 @@
 	import GraphNode from './index.svelte';
 	import GraphEdge from '../graph-edge/index.svelte';
 	import type { GraphNodeSize } from '$stylist/design-system/contracts';
-	import { amber, blue, slate, teal } from '$stylist/design-system/tokens';
+	import { AMBER as amber, BLUE as blue, SLATE as slate, TEAL as teal } from '$stylist/design-system/tokens';
 
 	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
 
@@ -18,9 +18,12 @@
 	};
 
 	const NODE_SIZE_PX: Record<GraphNodeSize, number> = {
+		xs: 20,
 		sm: 24,
 		md: 32,
-		lg: 40
+		lg: 40,
+		xl: 48,
+		'2xl': 56
 	};
 
 	const GRID_SIZE = 20;
@@ -47,7 +50,7 @@
 		{
 			name: 'size',
 			type: 'select',
-			options: ['sm', 'md', 'lg'],
+			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
 			defaultValue: 'md'
 		},
 		{

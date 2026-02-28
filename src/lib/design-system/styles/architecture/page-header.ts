@@ -5,13 +5,17 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
+import { cn } from '../../utils/cn/index';
 
 export class PageHeaderStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера PageHeader
    */
   static getContainerClasses(className?: string): string {
-    return `page-header border-b border-gray-200 bg-white ${className || ''}`.trim();
+    return cn(
+      'page-header border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)]',
+      className
+    );
   }
 
   /**
@@ -25,44 +29,44 @@ export class PageHeaderStyleManager {
    * Возвращает CSS-классы для списка хлебных крошек
    */
   static getBreadcrumbsListClasses(): string {
-    return 'flex items-center text-sm text-gray-500';
+    return 'flex items-center text-sm text-[var(--color-text-tertiary)]';
   }
 
   /**
    * Возвращает CSS-классы для элемента хлебных крошек
    */
   static getBreadcrumbItemClasses(isLast: boolean): string {
-    return isLast 
-      ? 'text-gray-900 font-medium' 
-      : 'hover:text-gray-700 transition-colors duration-150';
+    return isLast
+      ? 'font-medium text-[var(--color-text-primary)]'
+      : 'transition-colors duration-150 hover:text-[var(--color-text-primary)]';
   }
 
   /**
    * Возвращает CSS-классы для разделителя хлебных крошек
    */
   static getBreadcrumbSeparatorClasses(): string {
-    return 'mx-2 text-gray-400';
+    return 'mx-2 text-[var(--color-text-tertiary)]';
   }
 
   /**
    * Возвращает CSS-классы для основного заголовка
    */
   static getTitleClasses(): string {
-    return 'text-2xl font-bold text-gray-900 mb-1';
+    return 'mb-1 text-2xl font-bold text-[var(--color-text-primary)]';
   }
 
   /**
    * Возвращает CSS-классы для описания
    */
   static getDescriptionClasses(): string {
-    return 'text-gray-600';
+    return 'text-[var(--color-text-secondary)]';
   }
 
   /**
    * Возвращает CSS-классы для контейнера действий
    */
   static getActionsContainerClasses(): string {
-    return 'flex items-center justify-between';
+    return 'flex items-center justify-between gap-4';
   }
 
   /**

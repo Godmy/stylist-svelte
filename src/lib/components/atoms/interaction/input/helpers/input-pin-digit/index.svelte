@@ -1,19 +1,10 @@
 <script lang="ts">
 	import { createPinInputDigitState } from '$stylist/design-system/models/interaction/input-pin-digit.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { PinInputVariant } from '$stylist/design-system/contracts';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
 
-	/**
-	 * PinInputDigit component - displays a single digit input for PIN codes
-	 *
-	 * @param size - Size of the input ('sm' | 'md' | 'lg')
-	 * @param focused - Whether the digit is focused
-	 * @param invalid - Whether the digit is invalid
-	 * @returns An accessible, styled single digit input
-	 */
-
-	type PinInputSize = (typeof COMPACT_SIZE_SCALE)[number];
+	type PinInputSize = (typeof COMPONENT_SIZE)[number];
 
 	type InputAttributes = Omit<
 		HTMLInputAttributes,
@@ -27,7 +18,7 @@
 		focused?: boolean;
 		invalid?: boolean;
 		class?: string;
-		variant?: PinInputVariant;
+		variant?: InputVariant;
 		size?: PinInputSize;
 		value?: string;
 		onChange?: (value: string, index: number) => void;
@@ -54,7 +45,7 @@
 	}: PinInputDigitProps = $props();
 	const pinInputState = $derived(
 		createPinInputDigitState({
-			variant: variant satisfies PinInputVariant,
+			variant: variant satisfies InputVariant,
 			size,
 			error: invalid,
 			class: className
@@ -67,9 +58,3 @@
 </script>
 
 <input class={classes} maxLength={1} {value} {...restProps} />
-
-
-
-
-
-

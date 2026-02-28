@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Send, Bot, User, Settings, MoreVertical } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Send = 'send';
+const Bot = 'bot';
+const User = 'user';
+const Settings = 'settings';
+const MoreVertical = 'more-vertical';
+
   import { ChatInterfaceStyleManager } from './styles';
   import type { Message, AIProvider, ChatInterfaceProps } from './types';
 
@@ -61,7 +67,7 @@
   <!-- Header -->
   <div class={headerClassComputed}>
     <div class="flex items-center">
-      <Bot class="h-6 w-6 text-[--color-primary-500] mr-2" />
+      <BaseIcon name={Bot} class="h-6 w-6 text-[--color-primary-500] mr-2" />
       <h2 class="text-lg font-semibold text-[--color-text-primary]">
         {aiProviders.find(p => p.id === selectedProvider)?.name || 'AI Assistant'}
       </h2>
@@ -79,11 +85,11 @@
       {/if}
       {#if showSettings}
         <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
-          <Settings class="h-5 w-5" />
+          <BaseIcon name={Settings} class="h-5 w-5" />
         </button>
       {/if}
       <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
-        <MoreVertical class="h-5 w-5" />
+        <BaseIcon name={MoreVertical} class="h-5 w-5" />
       </button>
     </div>
   </div>
@@ -99,7 +105,7 @@
         }`}>
           <div class={messageContentWrapperClass}>
             {#if message.sender === 'ai'}
-              <Bot class={botIconClass} />
+              <BaseIcon name={Bot} class={botIconClass} />
             {/if}
             <div>
               <p>{message.content}</p>
@@ -108,16 +114,16 @@
               }`}>
                 {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 {#if message.status}
-                  {#if message.status === 'sending'} • Sending...
-                  {:else if message.status === 'delivered'} • Delivered
-                  {:else if message.status === 'read'} • Read
-                  {:else if message.status === 'error'} • Error
+                  {#if message.status === 'sending'} вЂў Sending...
+                  {:else if message.status === 'delivered'} вЂў Delivered
+                  {:else if message.status === 'read'} вЂў Read
+                  {:else if message.status === 'error'} вЂў Error
                   {/if}
                 {/if}
               </div>
             </div>
             {#if message.sender === 'user'}
-              <User class={`h-4 w-4 mt-0.5 text-[--color-primary-200] flex-shrink-0`} />
+              <BaseIcon name={User} class={`h-4 w-4 mt-0.5 text-[--color-primary-200] flex-shrink-0`} />
             {/if}
           </div>
         </div>
@@ -145,8 +151,9 @@
         onclick={sendMessage}
         disabled={!newMessage.trim()}
       >
-        <Send class={sendIconClass} />
+        <BaseIcon name={Send} class={sendIconClass} />
       </button>
     </div>
   </div>
 </div>
+

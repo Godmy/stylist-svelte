@@ -1,13 +1,17 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 
-import type { Justification, Orientation } from '../../tokens/architecture/layout';
-import type { SpacerSize } from '../../tokens/architecture/sizes';
-import type { StackAlign, HtmlAttributesWithChildren } from '../information/common';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { Justification } from '$stylist/design-system/tokens/architecture/justifications';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { HtmlAttributesWithChildren } from '../information/common';
 
 export interface StackProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	direction?: Orientation;
-	spacing?: SpacerSize | string | number;
-	align?: StackAlign;
+	spacing?: ComponentSize | string | number;
+	align?: Alignment;
 	justify?: Justification;
 	children?: Snippet;
 }
+
+

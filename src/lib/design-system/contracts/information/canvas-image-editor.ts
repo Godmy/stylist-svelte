@@ -1,6 +1,6 @@
 import type { HTMLCanvasAttributes } from 'svelte/elements';
-
-export type ImageFilter = 'none' | 'grayscale' | 'sepia' | 'invert' | 'blur' | 'brightness' | 'contrast' | 'hue-rotate' | 'saturate';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { ImageFilter } from '$stylist/design-system/tokens/information/canvas-image';
 
 export type CropArea = {
   x: number;
@@ -21,6 +21,6 @@ export type CanvasImageEditorProps = {
   saturation?: number; // 0-200, where 100 is normal
   hue?: number;        // 0-360, where 0 is normal
   variant?: 'default' | 'minimal' | 'advanced';
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
   class?: string;
 } & HTMLCanvasAttributes;

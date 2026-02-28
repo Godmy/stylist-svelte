@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  import { ArrowUp, ArrowDown, Minus } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ArrowUp = 'arrow-up';
+const ArrowDown = 'arrow-down';
+const Minus = 'minus';
+
 
   type Trend = 'up' | 'down' | 'neutral';
 
@@ -49,11 +53,11 @@
     {#if trendValue}
       <span class="inline-flex items-center gap-1 font-medium {trendClasses}">
         {#if trend === 'up'}
-          <ArrowUp class="h-4 w-4" />
+          <BaseIcon name={ArrowUp} class="h-4 w-4" />
         {:else if trend === 'down'}
-          <ArrowDown class="h-4 w-4" />
+          <BaseIcon name={ArrowDown} class="h-4 w-4" />
         {:else}
-          <Minus class="h-4 w-4" />
+          <BaseIcon name={Minus} class="h-4 w-4" />
         {/if}
         {trendValue}
       </span>
@@ -64,3 +68,4 @@
     {/if}
   </div>
 </article>
+

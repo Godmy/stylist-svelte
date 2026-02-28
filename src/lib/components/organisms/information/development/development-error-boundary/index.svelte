@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Bug, RotateCcw, Copy, FileText, ExternalLink } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Bug = 'bug';
+const RotateCcw = 'rotate-ccw';
+const Copy = 'copy';
+const FileText = 'file-text';
+const ExternalLink = 'external-link';
+
   import type { Snippet } from 'svelte';
 
   type ErrorInfo = {
@@ -85,7 +91,7 @@
   <div class={`border border-red-200 rounded-lg bg-red-50 p-6 ${fallbackClass} ${className}`}>
     <div class={`flex items-start ${headerClass}`}>
       <div class="flex-shrink-0">
-        <Bug class="h-6 w-6 text-red-500" />
+        <BaseIcon name={Bug} class="h-6 w-6 text-red-500" />
       </div>
       <div class="ml-3">
         <h3 class="text-lg font-medium text-red-800">{title}</h3>
@@ -96,7 +102,7 @@
     {#if showDetails && error}
       <div class={`mt-4 p-4 bg-white rounded border ${detailsClass}`}>
         <h4 class="text-sm font-medium text-gray-900 flex items-center">
-          <FileText class="h-4 w-4 mr-1" />
+          <BaseIcon name={FileText} class="h-4 w-4 mr-1" />
           Error Details
         </h4>
         <div class="mt-2">
@@ -121,7 +127,7 @@
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none"
           onclick={resetError}
         >
-          <RotateCcw class="h-4 w-4 mr-1" />
+          <BaseIcon name={RotateCcw} class="h-4 w-4 mr-1" />
           Reload Page
         </button>
       {/if}
@@ -138,7 +144,7 @@
             </svg>
             Copied!
           {:else}
-            <Copy class="h-4 w-4 mr-1" />
+            <BaseIcon name={Copy} class="h-4 w-4 mr-1" />
             Copy Error
           {/if}
         </button>
@@ -151,7 +157,7 @@
           rel="noopener noreferrer"
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
         >
-          <ExternalLink class="h-4 w-4 mr-1" />
+          <BaseIcon name={ExternalLink} class="h-4 w-4 mr-1" />
           Report Issue
         </a>
       {/if}
@@ -164,3 +170,4 @@
     {/if}
   </div>
 {/if}
+

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export type PaginationVariant = 'default' | 'compact' | 'minimal';
-export type PaginationSize = 'sm' | 'md' | 'lg';
 
 export type PaginationProps = {
   currentPage: number;
@@ -11,7 +11,7 @@ export type PaginationProps = {
   showDots?: boolean;
   maxVisible?: number;
   variant?: PaginationVariant;
-  size?: PaginationSize;
+  size?: ComponentSize;
   disabled?: boolean;
   class?: string;
   buttonClass?: string;

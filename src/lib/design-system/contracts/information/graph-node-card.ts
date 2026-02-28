@@ -1,3 +1,4 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 // Props for GraphNodeCard component
 export interface GraphNodeCardProps {
   node: GraphNodeData;
@@ -6,7 +7,7 @@ export interface GraphNodeCardProps {
   selected?: boolean;
   highlight?: boolean;
   variant?: 'default' | 'compact' | 'minimal';
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
   class?: string;
 }
 

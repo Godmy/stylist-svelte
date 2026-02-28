@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import FormDatePicker from '../form-date-picker/index.svelte';
-  import { Calendar } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Calendar = 'calendar';
+
 
   type Props = {
     value?: Date;
@@ -138,7 +140,7 @@
       class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-gray-100 ${disabled ? 'hidden' : 'block'}`}
       onclick={toggleDropdown}
     >
-      <Calendar class="w-4 h-4 text-gray-500" />
+      <BaseIcon name={Calendar} class="w-4 h-4 text-gray-500" />
     </button>
   </div>
 
@@ -160,3 +162,4 @@
     </div>
   {/if}
 </div>
+

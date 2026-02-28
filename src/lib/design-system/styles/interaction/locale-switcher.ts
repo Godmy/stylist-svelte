@@ -1,6 +1,6 @@
 export class LocaleSwitcherStyleManager {
   static getRootClass(className: string): string {
-    return `c-locale-switcher bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`.trim();
+    return `c-locale-switcher bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-secondary] overflow-hidden ${className}`.trim();
   }
 
   static getHeaderClass(headerClass: string): string {
@@ -13,13 +13,13 @@ export class LocaleSwitcherStyleManager {
 
   static getLocaleButtonClass(isActive: boolean, localeClass: string): string {
     const stateClass = isActive
-      ? 'border-blue-500 ring-2 ring-blue-200'
-      : 'border-gray-200 hover:border-gray-300';
+      ? 'border-[--color-primary-500] ring-2 ring-[--color-primary-200]'
+      : 'border-[--color-border-secondary] hover:border-[--color-border-tertiary]';
     return `border rounded-lg p-4 flex items-center cursor-pointer ${stateClass} ${localeClass}`.trim();
   }
 
   static getTimezoneSelectClass(): string {
-    return 'block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md';
+    return 'block w-full pl-3 pr-10 py-2 text-base border-[--color-border-secondary] focus:outline-none focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm rounded-md';
   }
 
   static getFooterClass(footerClass: string): string {

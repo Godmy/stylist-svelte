@@ -1,16 +1,16 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { 
-    User, 
-    UserPlus, 
-    UserCheck, 
-    MessageCircle, 
-    Phone, 
-    Video, 
-    MoreHorizontal,
-    Search,
-    Circle
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const User = 'user';
+const UserPlus = 'user-plus';
+const UserCheck = 'user-check';
+const MessageCircle = 'message-circle';
+const Phone = 'phone';
+const Video = 'video';
+const MoreHorizontal = 'more-horizontal';
+const Search = 'search';
+const Circle = 'circle';
+
   import { Avatar } from '$lib/components/atoms';
 
   type FriendStatus = 'online' | 'offline' | 'away' | 'busy';
@@ -250,7 +250,7 @@
         }}
         aria-label="Send message"
       >
-        <MessageCircle class="h-5 w-5" />
+        <BaseIcon name={MessageCircle} class="h-5 w-5" />
       </button>
       
       <button
@@ -262,7 +262,7 @@
         }}
         aria-label="Make call"
       >
-        <Phone class="h-5 w-5" />
+        <BaseIcon name={Phone} class="h-5 w-5" />
       </button>
       
       <button
@@ -274,7 +274,7 @@
         }}
         aria-label="Make video call"
       >
-        <Video class="h-5 w-5" />
+        <BaseIcon name={Video} class="h-5 w-5" />
       </button>
       
       <button
@@ -286,7 +286,7 @@
         }}
         aria-label="More options"
       >
-        <MoreHorizontal class="h-5 w-5" />
+        <BaseIcon name={MoreHorizontal} class="h-5 w-5" />
       </button>
     </div>
   </div>
@@ -304,7 +304,7 @@
     {#if showSearch}
       <div class="mt-4 relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Search class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
         </div>
         <input
           type="text"
@@ -348,9 +348,10 @@
         class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         onclick={handleAddFriend}
       >
-        <UserPlus class="h-5 w-5 mr-2" />
+        <BaseIcon name={UserPlus} class="h-5 w-5 mr-2" />
         Add Friend
       </button>
     </div>
   {/if}
 </div>
+

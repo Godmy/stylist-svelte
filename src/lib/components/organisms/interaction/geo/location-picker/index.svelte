@@ -1,6 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { MapPin, Search, Crosshair, Plus, Minus, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Search = 'search';
+const Crosshair = 'crosshair';
+const Plus = 'plus';
+const Minus = 'minus';
+const RotateCcw = 'rotate-ccw';
+
   import { Button, InputField } from '$stylist/components/atoms';
 
   type Coordinates = {
@@ -147,7 +154,7 @@
   {#if showSearch}
     <div class="relative mb-4">
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <Search class="h-5 w-5 text-gray-400" />
+        <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
       </div>
       <input
         type="text"
@@ -161,7 +168,7 @@
         class="absolute inset-y-0 right-0 pr-3 flex items-center"
         onclick={handleSearch}
       >
-        <Search class="h-5 w-5 text-gray-400 hover:text-gray-600" />
+        <BaseIcon name={Search} class="h-5 w-5 text-gray-400 hover:text-gray-600" />
       </button>
     </div>
   {/if}
@@ -219,7 +226,7 @@
             }
           }}
         >
-          <MapPin
+          <BaseIcon name={MapPin}
             class={`h-6 w-6 ${
               selectedMarker === marker.id
                 ? 'text-red-600 fill-current scale-125'
@@ -238,17 +245,17 @@
     <!-- Map controls -->
     <div class="absolute right-4 top-4 flex flex-col space-y-2">
       <Button variant="secondary" size="sm" onclick={handleZoomIn} disabled={currentZoom >= maxZoom}>
-        <Plus class="h-4 w-4" />
+        <BaseIcon name={Plus} class="h-4 w-4" />
       </Button>
       <Button variant="secondary" size="sm" onclick={handleZoomOut} disabled={currentZoom <= minZoom}>
-        <Minus class="h-4 w-4" />
+        <BaseIcon name={Minus} class="h-4 w-4" />
       </Button>
       <Button variant="secondary" size="sm" onclick={handleResetView}>
-        <RotateCcw class="h-4 w-4" />
+        <BaseIcon name={RotateCcw} class="h-4 w-4" />
       </Button>
       {#if showCurrentLocation}
         <Button variant="secondary" size="sm" onclick={handleCurrentLocation}>
-          <Crosshair class="h-4 w-4" />
+          <BaseIcon name={Crosshair} class="h-4 w-4" />
         </Button>
       {/if}
     </div>
@@ -263,6 +270,7 @@
     {/if}
   </div>
 </div>
+
 
 
 

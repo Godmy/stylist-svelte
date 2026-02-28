@@ -1,6 +1,14 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Terminal, Bug, Play, Square, Trash2, Search, Filter } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Terminal = 'terminal';
+const Bug = 'bug';
+const Play = 'play';
+const Square = 'square';
+const Trash2 = 'trash-2';
+const Search = 'search';
+const Filter = 'filter';
+
 
   type LogLevel = 'log' | 'info' | 'warn' | 'error' | 'debug';
 
@@ -163,7 +171,7 @@
 <div class={`border border-gray-200 rounded-lg overflow-hidden shadow-sm ${className}`}>
   <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
     <div class="flex items-center">
-      <Terminal class="h-5 w-5 text-gray-500 mr-2" />
+      <BaseIcon name={Terminal} class="h-5 w-5 text-gray-500 mr-2" />
       <h3 class="text-sm font-medium text-gray-900">{title}</h3>
       <span class="ml-2 text-xs text-gray-500">({filteredLogs.length} entries)</span>
     </div>
@@ -176,7 +184,7 @@
           onclick={clearLogs}
           title="Clear logs"
         >
-          <Trash2 class="h-4 w-4" />
+          <BaseIcon name={Trash2} class="h-4 w-4" />
         </button>
       {/if}
       
@@ -191,9 +199,9 @@
         title={isRunning ? "Stop simulator" : "Start simulator"}
       >
         {#if isRunning}
-          <Square class="h-4 w-4" />
+          <BaseIcon name={Square} class="h-4 w-4" />
         {:else}
-          <Play class="h-4 w-4" />
+          <BaseIcon name={Play} class="h-4 w-4" />
         {/if}
       </button>
     </div>
@@ -225,7 +233,7 @@
           bind:value={searchQuery}
           oninput={updateFilteredLogs}
         />
-        <Search class="absolute left-2.5 top-1.5 h-3 w-3 text-gray-400" />
+        <BaseIcon name={Search} class="absolute left-2.5 top-1.5 h-3 w-3 text-gray-400" />
       </div>
     </div>
   </div>
@@ -273,7 +281,7 @@
   <div class={`border-t px-4 py-2 text-xs text-gray-500 flex justify-between items-center ${footerClass}`}>
     <div>
       <span class="inline-flex items-center">
-        <Bug class="h-3 w-3 mr-1" />
+        <BaseIcon name={Bug} class="h-3 w-3 mr-1" />
         Debug Console
       </span>
     </div>

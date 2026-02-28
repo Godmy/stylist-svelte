@@ -1,6 +1,18 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { File, Folder, Download, Eye, Archive, Image, Music, Video, Code, FileText, MoreHorizontal } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const File = 'file';
+const Folder = 'folder';
+const Download = 'download';
+const Eye = 'eye';
+const Archive = 'archive';
+const Image = 'image';
+const Music = 'music';
+const Video = 'video';
+const Code = 'code';
+const FileText = 'file-text';
+const MoreHorizontal = 'more-horizontal';
+
   import { Button } from '$lib/components/atoms';
 
   type FileType = 'file' | 'folder' | 'image' | 'video' | 'audio' | 'archive' | 'text' | 'code' | 'document';
@@ -126,7 +138,7 @@
   {/if}
   
   <div class="ml-3 flex-shrink-0">
-    <FileIcon class="h-5 w-5 text-gray-500" />
+    <BaseIcon name={File} class="h-5 w-5 text-gray-500" />
   </div>
   
   {#if showThumbnail && item.thumbnail}
@@ -155,11 +167,11 @@
           <span>{formatFileSize(item.size)}</span>
         {/if}
         {#if showModified && item.modified}
-          <span class="mx-2">•</span>
+          <span class="mx-2">вЂў</span>
           <span>{item.modified.toLocaleDateString()}</span>
         {/if}
         {#if showOwner && item.owner}
-          <span class="mx-2">•</span>
+          <span class="mx-2">вЂў</span>
           <span>{item.owner}</span>
         {/if}
       </div>
@@ -176,7 +188,7 @@
       }}
       disabled={disabled}
     >
-      <Eye class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={Eye} class="h-4 w-4 text-gray-500" />
     </Button>
     <Button 
       variant="ghost" 
@@ -187,7 +199,7 @@
       }}
       disabled={disabled}
     >
-      <Download class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={Download} class="h-4 w-4 text-gray-500" />
     </Button>
     <Button 
       variant="ghost" 
@@ -198,7 +210,8 @@
       }}
       disabled={disabled}
     >
-      <MoreHorizontal class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-gray-500" />
     </Button>
   </div>
 </div>
+

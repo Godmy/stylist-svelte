@@ -145,15 +145,15 @@ export const NotificationBadgeStyleManager: NotificationBadgeStyleManagerInterfa
 
 		const variantClasses =
 			{
-				default: 'bg-gray-200 text-gray-800',
-				primary: 'bg-blue-500 text-white',
-				secondary: 'bg-purple-500 text-white',
-				success: 'bg-green-500 text-white',
-				warning: 'bg-yellow-500 text-black',
-				error: 'bg-red-500 text-white',
-				number: 'bg-red-500 text-white',
-				dot: 'bg-red-500'
-			}[variant] || 'bg-red-500 text-white';
+				default: 'bg-[--color-neutral-200] text-[--color-text-primary]',
+				primary: 'bg-[--color-primary-500] text-[--color-text-inverse]',
+				secondary: 'bg-[--color-secondary-500] text-[--color-text-inverse]',
+				success: 'bg-[--color-success-500] text-[--color-text-inverse]',
+				warning: 'bg-[--color-warning-500] text-[--color-text-primary]',
+				error: 'bg-[--color-danger-500] text-[--color-text-inverse]',
+				number: 'bg-[--color-danger-500] text-[--color-text-inverse]',
+				dot: 'bg-[--color-danger-500]'
+			}[variant] || 'bg-[--color-danger-500] text-[--color-text-inverse]';
 
 		const sizeClasses = showDot
 			? 'w-2 h-2'

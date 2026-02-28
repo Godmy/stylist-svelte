@@ -1,8 +1,7 @@
 import type { DividerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-
-type DividerOrientation = 'horizontal' | 'vertical';
-type DividerAlign = 'start' | 'center' | 'end';
+import type { DividerAlign } from '$stylist/design-system/tokens/architecture/divider-aligns';
+import type { DividerOrientation } from '$stylist/design-system/tokens/architecture/divider-orientations';
 
 export function createDividerState(props: DividerProps) {
 	const orientation = $derived((props.orientation ?? 'horizontal') as DividerOrientation);

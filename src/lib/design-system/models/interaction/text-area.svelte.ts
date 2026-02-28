@@ -1,7 +1,7 @@
-import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+﻿import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 import { TEXTAREA_PRESET } from '$stylist/design-system/runtime/input';
-import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/sizes';
+import type { InputVariant } from '$stylist/design-system/tokens';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 type TextareaStateOptions = {
 	variant?: InputVariant;
@@ -22,3 +22,6 @@ export { createTextareaState };
 export default createTextareaState;
 
 export { TEXTAREA_PRESET };
+
+
+

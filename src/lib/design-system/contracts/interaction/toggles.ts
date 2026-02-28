@@ -1,15 +1,15 @@
 ﻿import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 
-import type { CompactSize } from '../../tokens/architecture/sizes';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { HtmlAttributesWithChildren, ValueChangeHandler } from '../information/common';
-
-export type ToggleGroupType = 'single' | 'multiple';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/toggle-group-types';
 
 export interface ToggleGroupRootProps
 	extends Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'> {
 	value?: string;
 	disabled?: boolean;
-	orientation?: 'horizontal' | 'vertical';
+	orientation?: Orientation;
 	type?: ToggleGroupType;
 	class?: string;
 	onValueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
@@ -21,12 +21,11 @@ export interface ToggleGroupItemProps extends Omit<HTMLButtonAttributes, 'class'
 	class?: string;
 }
 
-export type ToggleSize = CompactSize;
 
 export interface ToggleBaseProps {
 	disabled?: boolean;
 	class?: string;
-	size?: ToggleSize;
+	size?: ComponentSize;
 }
 
 export interface ToggleInputProps
@@ -36,7 +35,7 @@ export interface ToggleInputProps
 }
 
 export interface ToggleProps extends ToggleInputProps {
-	toggleSize?: ToggleSize;
+	toggleSize?: ComponentSize;
 }
 
 // Re-export from source file to avoid duplicates
@@ -63,7 +62,7 @@ export interface RadioButtonGroupProps
 	> {
 	value?: string;
 	disabled?: boolean;
-	orientation?: 'horizontal' | 'vertical';
+	orientation?: Orientation;
 	options: Array<{ value: string; label: string; disabled?: boolean }>;
 	optionClass?: string;
 	labelClass?: string;
@@ -96,5 +95,8 @@ export interface AdvancedToggleProps extends ToggleBaseProps {
 export interface DarkModeToggleProps extends ToggleBaseProps {
 	checked?: boolean;
 	darkMode?: boolean;
+	currentTheme?: 'light' | 'dark' | 'system';
+	showLabels?: boolean;
 	onToggle?: (payload: { darkMode: boolean }) => void;
+	onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
 }

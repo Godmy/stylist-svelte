@@ -1,34 +1,34 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { BaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
   import { createState } from '$stylist/design-system/models/information/base-card.svelte';
-  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+  import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
-   * BaseCard - универсальный карточный компонент для отображения информации
+   * BaseCard - СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ РєР°СЂС‚РѕС‡РЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё
    *
-   * @param variant - Визуальный стиль компонента ('primary' | 'secondary' | 'success' ...)
-   * @param size - Размер компонента ('sm' | 'md' | 'lg')
-   * @param disabled - Отключен ли компонент
-   * @param title - Заголовок карточки
-   * @param description - Описание карточки
-   * @returns Стилизованная карточка
+   * @param variant - Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЃС‚РёР»СЊ РєРѕРјРїРѕРЅРµРЅС‚Р° ('primary' | 'secondary' | 'success' ...)
+   * @param size - Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° ('sm' | 'md' | 'lg')
+   * @param disabled - РћС‚РєР»СЋС‡РµРЅ Р»Рё РєРѕРјРїРѕРЅРµРЅС‚
+   * @param title - Р—Р°РіРѕР»РѕРІРѕРє РєР°СЂС‚РѕС‡РєРё
+   * @param description - РћРїРёСЃР°РЅРёРµ РєР°СЂС‚РѕС‡РєРё
+   * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР°
    */
 
   let props: BaseCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // Централизованное управление состоянием
+  // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createState(
-    createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+    createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
       variant: 'default',
       size: 'md'
     }),
     props as any
   );
 
-  // Извлечение rest-props вручную для работы в режиме runes
+  // РР·РІР»РµС‡РµРЅРёРµ rest-props РІСЂСѓС‡РЅСѓСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ runes
   let {
     variant,
     size,
@@ -43,12 +43,10 @@
   } = props;
   
   // Import classes from the design system
-  import { 
-    BASE_CARD_HEADER_CLASSES, 
-    BASE_CARD_TITLE_CLASSES, 
-    BASE_CARD_DESCRIPTION_CLASSES, 
-    BASE_CARD_BODY_CLASSES 
-  } from '$stylist/design-system/classes/information/base-card';
+  const BASE_CARD_HEADER_CLASSES = 'border-b p-[--spacing-md]';
+  const BASE_CARD_TITLE_CLASSES = 'text-lg font-medium text-[--color-text-primary]';
+  const BASE_CARD_DESCRIPTION_CLASSES = 'pt-[--spacing-xs] text-sm text-[--color-text-secondary]';
+  const BASE_CARD_BODY_CLASSES = 'p-[--spacing-md]';
 </script>
 
 <div {...restProps} class={state.classes} {...state.attrs}>
@@ -68,3 +66,6 @@
     {/if}
   </div>
 </div>
+
+
+

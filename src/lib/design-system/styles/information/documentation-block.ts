@@ -1,23 +1,30 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 export class DocumentationBlockStyleManager {
   static getContainerClass(variantClasses: string, extraClasses: string = ''): string {
-    const baseClass = 'c-documentation-block rounded-lg border overflow-hidden';
-    return `${baseClass} ${variantClasses} ${extraClasses}`.trim();
+    return cn(
+      'c-documentation-block border border-[var(--color-border-primary)]',
+      CARD_BASE_CLASSES,
+      variantClasses,
+      extraClasses
+    );
   }
 
   static getHeaderContainerClass(variantHeaderClasses: string): string {
-    return `px-4 py-3 border-b ${variantHeaderClasses}`;
+    return cn('border-b border-[var(--color-border-primary)] px-4 py-3', variantHeaderClasses);
   }
 
   static getHeaderContentClass(): string {
-    return 'flex justify-between items-center';
+    return 'flex items-center justify-between gap-3';
   }
 
   static getTitleClass(): string {
-    return 'font-semibold text-gray-800 dark:text-gray-200';
+    return 'font-semibold text-[var(--color-text-primary)]';
   }
 
   static getTagsContainerClass(): string {
-    return 'flex gap-2';
+    return 'flex flex-wrap gap-2';
   }
 
   static getTagClass(): string {
@@ -25,7 +32,7 @@ export class DocumentationBlockStyleManager {
   }
 
   static getContentClass(): string {
-    return 'p-4 prose prose-gray dark:prose-invert max-w-none';
+    return 'prose max-w-none p-4 prose-headings:text-[var(--color-text-primary)] prose-p:text-[var(--color-text-secondary)] prose-strong:text-[var(--color-text-primary)]';
   }
 
   static getCodeExamplesContainerClass(): string {

@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { createFormHelperTextState } from '$stylist/design-system/models/interaction/form-helper-text.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * FormHelperText component - displays helper text for form fields
@@ -13,11 +13,11 @@
 	 */
 
 	import type { InputVariant } from '$stylist/design-system';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens/architecture/variants';
+	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
 	type FormHelperVariant = InputVariant;
 	type FormHelperTextProps = {
 		variant?: (typeof INPUT_VARIANTS)[number];
-		size?: CompactSize;
+		size?: ComponentSize;
 		text?: string;
 		content?: import('svelte').Snippet;
 		class?: string;
@@ -48,6 +48,10 @@
 		{text}
 	{/if}
 </p>
+
+
+
+
 
 
 

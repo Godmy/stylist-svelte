@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 ﻿import type { RadioProps } from '$stylist/design-system/contracts';
-import { STATE_CLASSES } from '$stylist/design-system/classes/information/classes';
+import { STATE_CLASSES } from '$stylist/design-system/runtime/foundation';
 
 export const createRadioState = (props: RadioProps) => {
 	const id = props.id;

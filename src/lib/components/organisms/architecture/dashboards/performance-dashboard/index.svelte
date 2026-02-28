@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { IconActivity, IconTrendingUp, IconTrendingDown, IconArrowUp, IconArrowDown } from '$stylist/components/atoms';
+  import { Icon } from '$stylist/components/atoms';
   import { PerformanceDashboardStyleManager } from '$stylist/design-system/styles';
   import type { PerformanceDashboardProps, Metric, TimeRange } from '$stylist/design-system/contracts';
 
@@ -50,7 +50,7 @@
     <div class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between">
       <div>
         <div class="flex items-center">
-          <IconActivity size="md" class="text-[--color-text-secondary] mr-2" />
+          <Icon name="activity" size="md" class="text-[--color-text-secondary] mr-2" />
           <h3 class="text-lg font-medium text-[--color-text-primary]">{title}</h3>
         </div>
         {#if subtitle}
@@ -88,9 +88,9 @@
             metric.changeType === 'positive' ? trendPositiveClass : trendNegativeClass
           }`}>
             {#if metric.changeType === 'positive'}
-              <IconTrendingUp size="sm" class="mr-1" />
+              <Icon name="trending-up" size="sm" class="mr-1" />
             {:else}
-              <IconTrendingDown size="sm" class="mr-1" />
+              <Icon name="trending-down" size="sm" class="mr-1" />
             {/if}
             <span>{Math.abs(metric.change)}%</span>
           </div>
@@ -108,11 +108,11 @@
         <h4 class="text-sm font-medium text-[--color-text-primary]">Performance Trend</h4>
         <div class="flex items-center text-sm">
           <span class="text-[--color-success-600] mr-4">
-            <IconArrowUp size="sm" class="inline mr-1" />
+            <Icon name="arrow-up" size="sm" class="inline mr-1" />
             Good
           </span>
           <span class="text-[--color-danger-600]">
-            <IconArrowDown size="sm" class="inline mr-1" />
+            <Icon name="arrow-down" size="sm" class="inline mr-1" />
             Needs attention
           </span>
         </div>
@@ -129,3 +129,4 @@
     </div>
   </div>
 </div>
+

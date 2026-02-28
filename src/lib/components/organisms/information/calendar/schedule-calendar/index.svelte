@@ -1,10 +1,16 @@
 <script lang="ts">
   import type { IScheduleCalendarProps, ScheduleEvent, ScheduleTimeSlot, DaySchedule } from '$stylist/design-system/contracts/information/schedule-calendar';
-  import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';  import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/information/schedule-calendar';
-  import { ChevronLeft, ChevronRight, Clock, MapPin, Users } from 'lucide-svelte';
-  import { Button } from '$stylist/components/atoms';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
+  import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';
+  import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/information/schedule-calendar';
   import type { Snippet } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
+
+  const ChevronLeft = 'chevron-left';
+  const ChevronRight = 'chevron-right';
+  const Clock = 'clock';
+  const MapPin = 'map-pin';
+  const Users = 'users';
 
   type Props = IScheduleCalendarProps & {
     children?: Snippet;
@@ -156,13 +162,13 @@ This component follows SOLID principles:
     <div class={headerClasses}>
       <div class="flex items-center">
         <Button variant="ghost" size="sm" onclick={() => navigateWeek(-1)}>
-          <ChevronLeft class="h-5 w-5" />
+          <BaseIcon name={ChevronLeft} class="h-5 w-5" />
         </Button>
         <Button variant="ghost" size="sm" onclick={navigateToToday} class="mx-2">
           Today
         </Button>
         <Button variant="ghost" size="sm" onclick={() => navigateWeek(1)}>
-          <ChevronRight class="h-5 w-5" />
+          <BaseIcon name={ChevronRight} class="h-5 w-5" />
         </Button>
         <h2 class="ml-4 text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">
           {viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
@@ -245,12 +251,12 @@ This component follows SOLID principles:
               >
                 <div class="font-[--font-weight-medium] truncate">{event.title}</div>
                 <div class="text-[--color-text-secondary] flex items-center">
-                  <Clock class="h-3 w-3 mr-1" />
+                  <BaseIcon name={Clock} class="h-3 w-3 mr-1" />
                   {event.start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>
                 {#if event.location}
                   <div class="text-[--color-text-secondary] flex items-center">
-                    <MapPin class="h-3 w-3 mr-1" />
+                    <BaseIcon name={MapPin} class="h-3 w-3 mr-1" />
                     <span class="truncate">{event.location}</span>
                   </div>
                 {/if}
@@ -267,6 +273,7 @@ This component follows SOLID principles:
     </div>
   {/if}
 </div>
+
 
 
 

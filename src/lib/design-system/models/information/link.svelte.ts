@@ -1,25 +1,7 @@
-import type { LinkProps } from '$stylist/design-system/contracts';
+﻿import type { LinkProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
-import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
-
-type LinkVariant =
-	| 'default'
-	| 'primary'
-	| 'secondary'
-	| 'success'
-	| 'warning'
-	| 'danger'
-	| 'info'
-	| 'solid'
-	| 'outline'
-	| 'ghost'
-	| 'link'
-	| 'subtle'
-	| 'neutral'
-	| 'gray'
-	| 'muted'
-	| 'dark'
-	| 'light';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { LinkVariant } from '$stylist/design-system/tokens/interaction/link-variants';
 
 /**
  * Link state creator
@@ -39,7 +21,7 @@ export function createLinkState(props: LinkProps) {
 	const classes = $derived(
 		LinkStyleManager.getLinkClasses(
 			variant as LinkVariant,
-			size as CompactSize,
+			size as ComponentSize,
 			disabled,
 			underline,
 			props.class ?? ''
@@ -75,3 +57,5 @@ export function createLinkState(props: LinkProps) {
 }
 
 export default createLinkState;
+
+

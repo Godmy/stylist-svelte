@@ -1,7 +1,6 @@
 import type { InlineCodeProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
-
-type InlineCodeVariant = 'default' | 'subtle';
+import type { InlineCodeVariant } from '$stylist/design-system/tokens/information/inline-code-variants';
 
 /**
  * InlineCode state creator

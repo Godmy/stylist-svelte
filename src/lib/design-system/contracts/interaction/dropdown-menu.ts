@@ -4,8 +4,7 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-
-export type DropdownPosition = 'left' | 'right' | 'center';
+import type { DropdownPosition } from '../../tokens/interaction/dropdown-menu';
 
 interface CloseDropdownFunc {
   closeDropdown: () => void;

@@ -1,27 +1,29 @@
 <!--
 /**
- * Accordion Component - Следует принципам SOLID:
+ * Accordion Component - РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
  *
  * 1. Single Responsibility Principle (SRP):
- *    Компонент отвечает только за отображение аккордеона и управление его состоянием.
- *    Логика стилизации вынесена в AccordionStyleManager.
+ *    РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Р°РєРєРѕСЂРґРµРѕРЅР° Рё СѓРїСЂР°РІР»РµРЅРёРµ РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёРµРј.
+ *    Р›РѕРіРёРєР° СЃС‚РёР»РёР·Р°С†РёРё РІС‹РЅРµСЃРµРЅР° РІ AccordionStyleManager.
  *
  * 2. Open/Closed Principle (OCP):
- *    Легко расширяется через пропсы и CSS-переменные темы.
+ *    Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµС‚СЃСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹ Рё CSS-РїРµСЂРµРјРµРЅРЅС‹Рµ С‚РµРјС‹.
  *
  * 3. Liskov Substitution Principle (LSP):
- *    Соблюдает контракт, определённый интерфейсом IAccordionProps.
+ *    РЎРѕР±Р»СЋРґР°РµС‚ РєРѕРЅС‚СЂР°РєС‚, РѕРїСЂРµРґРµР»С‘РЅРЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃРѕРј IAccordionProps.
  *
  * 4. Interface Segregation Principle (ISP):
- *    Использует минимально необходимый интерфейс IAccordionProps.
+ *    РСЃРїРѕР»СЊР·СѓРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ IAccordionProps.
  *
  * 5. Dependency Inversion Principle (DIP):
- *    Зависит от абстракции (типов и стилей) а не от конкретных реализаций.
+ *    Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёРё (С‚РёРїРѕРІ Рё СЃС‚РёР»РµР№) Р° РЅРµ РѕС‚ РєРѕРЅРєСЂРµС‚РЅС‹С… СЂРµР°Р»РёР·Р°С†РёР№.
  */
 -->
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+
   import { AccordionStyleManager } from '$stylist/design-system/styles/interaction/accordion';
   import type { IAccordionProps } from '$stylist/design-system/contracts/interaction/accordion';
 
@@ -69,7 +71,7 @@
           aria-controls={`panel-${item.id}`}
         >
           <span>{item.title}</span>
-          <ChevronDown
+          <BaseIcon name={ChevronDown}
             class={AccordionStyleManager.getChevronClass(isExpanded(item.id))}
           />
         </button>
@@ -92,3 +94,4 @@
     </div>
   {/each}
 </div>
+

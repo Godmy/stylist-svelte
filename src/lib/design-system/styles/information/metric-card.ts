@@ -10,13 +10,13 @@
 
 import type { MetricCardVariant } from '$stylist/design-system/contracts/information/metric-card';
 import { 
-  CARD_BASE_CLASSES,
-  CARD_TITLE_CLASSES,
-  CARD_DESCRIPTION_CLASSES,
-  CARD_PROGRESS_CONTAINER_CLASSES,
-  CARD_PROGRESS_FILL_CLASSES,
-  CARD_PROGRESS_VARIANT_CLASSES
-} from '$stylist/design-system/classes/information/cards';
+	CARD_BASE_CLASSES,
+	CARD_TITLE_CLASSES,
+	CARD_DESCRIPTION_CLASSES,
+	CARD_PROGRESS_CONTAINER_CLASSES,
+	CARD_PROGRESS_FILL_CLASSES,
+	CARD_PROGRESS_VARIANT_CLASSES
+} from './card';
 
 export class MetricCardStyleManager {
   /**
@@ -86,10 +86,10 @@ export class MetricCardStyleManager {
    */
   static getPercentageClasses(variant: MetricCardVariant = 'info'): string {
     const variantClasses = {
-      success: 'text-green-600',
-      warning: 'text-yellow-600',
-      danger: 'text-red-600',
-      info: 'text-blue-600'
+      success: 'text-[--color-success-600]',
+      warning: 'text-[--color-warning-600]',
+      danger: 'text-[--color-danger-600]',
+      info: 'text-[--color-primary-600]'
     };
 
     return `text-xs font-medium mt-1 ${variantClasses[variant] || variantClasses.info}`;

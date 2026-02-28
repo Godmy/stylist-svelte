@@ -1,11 +1,13 @@
 <script lang="ts">
-	import { Loader2 } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Loader2 = 'loader-2';
+
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * Button component - A flexible button component with various styles and states
@@ -22,8 +24,8 @@
 	let props: ButtonElementProps & HTMLButtonAttributes = $props();
 
 	// Use centralized state management
-	let state = createState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+	let state = createButtonState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'primary',
 			size: 'md'
 		}),
@@ -46,7 +48,7 @@
 
 <button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
 	{#if state.loading}
-		<Loader2 class={state.loaderClasses} aria-hidden="true" />
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{/if}
 
@@ -56,6 +58,10 @@
 		{props.loadingLabel ?? 'Loading...'}
 	{/if}
 </button>
+
+
+
+
 
 
 

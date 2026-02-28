@@ -8,13 +8,14 @@
    * Interface Segregation: Provides clear interface through well-defined props
    * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
    */
-  import { Button } from '$stylist/components/atoms';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { debounce } from '$stylist/utils/debounce';
-  import { Search, X } from 'lucide-svelte';
   import { SearchBarStyleManager } from '$stylist/design-system/styles/interaction/search-bar';
   import type { ISearchBarProps } from '$stylist/design-system/contracts/interaction/search-bar';
-
   import type { HTMLAttributes } from 'svelte/elements';
+
+  const Search = 'search';
+  const X = 'x';
 
   type Props = ISearchBarProps & HTMLAttributes<HTMLDivElement>;
 
@@ -87,7 +88,7 @@
 
 <div class={containerClasses}>
   <div class={iconContainerClasses}>
-    <Search class="h-5 w-5" aria-hidden="true" />
+    <BaseIcon name={Search} class="h-5 w-5" aria-hidden="true" />
   </div>
 
   <input
@@ -112,7 +113,7 @@
         aria-label="Clear search"
         disabled={disabled}
       >
-        <X class="h-4 w-4" aria-hidden="true" />
+        <BaseIcon name={X} class="h-4 w-4" aria-hidden="true" />
       </Button>
     {/if}
     <Button
@@ -126,3 +127,4 @@
     </Button>
   </div>
 </div>
+

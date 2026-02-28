@@ -1,22 +1,24 @@
 <script lang="ts">
   /**
-   * DownloadCard - компонент для отображения карточки файла с возможностью скачивания
+   * DownloadCard - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєР°СЂС‚РѕС‡РєРё С„Р°Р№Р»Р° СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ СЃРєР°С‡РёРІР°РЅРёСЏ
    * 
-   * Следует принципам SOLID:
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
    * 
-   * Single Responsibility: Отвечает только за отображение карточки файла и действия скачивания
-   * Open/Closed: Легко расширяется через пропсы, не требует изменений в коде
-   * Liskov Substitution: Может быть заменен другим компонентом файл-менеджмента при необходимости
-   * Interface Segregation: Имеет минимальный, конкретный интерфейс для файлов
-   * Dependency Inversion: Зависит от абстракции стилей через DownloadCardStyleManager
+   * Single Responsibility: РћС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°СЂС‚РѕС‡РєРё С„Р°Р№Р»Р° Рё РґРµР№СЃС‚РІРёСЏ СЃРєР°С‡РёРІР°РЅРёСЏ
+   * Open/Closed: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµС‚СЃСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹, РЅРµ С‚СЂРµР±СѓРµС‚ РёР·РјРµРЅРµРЅРёР№ РІ РєРѕРґРµ
+   * Liskov Substitution: РњРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°РјРµРЅРµРЅ РґСЂСѓРіРёРј РєРѕРјРїРѕРЅРµРЅС‚РѕРј С„Р°Р№Р»-РјРµРЅРµРґР¶РјРµРЅС‚Р° РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
+   * Interface Segregation: РРјРµРµС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РєРѕРЅРєСЂРµС‚РЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ С„Р°Р№Р»РѕРІ
+   * Dependency Inversion: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёРё СЃС‚РёР»РµР№ С‡РµСЂРµР· DownloadCardStyleManager
    * 
-   * Использует подход Atomic Design (Molecule) - комбинирует базовые элементы
-   * (иконка, информация о файле, кнопка скачивания) в составной компонент
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РїРѕРґС…РѕРґ Atomic Design (Molecule) - РєРѕРјР±РёРЅРёСЂСѓРµС‚ Р±Р°Р·РѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹
+   * (РёРєРѕРЅРєР°, РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ С„Р°Р№Р»Рµ, РєРЅРѕРїРєР° СЃРєР°С‡РёРІР°РЅРёСЏ) РІ СЃРѕСЃС‚Р°РІРЅРѕР№ РєРѕРјРїРѕРЅРµРЅС‚
    */
   
-  import type { IDownloadCardProps, DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
+  import type { IDownloadCardProps } from '$stylist/design-system/contracts/information/download-card';
+  import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { DownloadCardStyleManager } from '$stylist/design-system/styles/information/download-card';
-  import { Download } from 'lucide-svelte';
+
   
   let {
     file,
@@ -28,7 +30,7 @@
     class: className = ''
   }: IDownloadCardProps = $props();
   
-  // Вычисляемые стили через derived для изоляции логики стилизации
+  // Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ СЃС‚РёР»Рё С‡РµСЂРµР· derived РґР»СЏ РёР·РѕР»СЏС†РёРё Р»РѕРіРёРєРё СЃС‚РёР»РёР·Р°С†РёРё
   const containerClasses = $derived(DownloadCardStyleManager.getContainerClasses(className));
   const iconContainerClasses = $derived(DownloadCardStyleManager.getIconContainerClasses());
   const iconClasses = $derived(DownloadCardStyleManager.getIconClasses(variant));
@@ -38,7 +40,7 @@
   const metadataItemClasses = $derived(DownloadCardStyleManager.getMetadataItemClasses());
   const downloadButtonClasses = $derived(DownloadCardStyleManager.getDownloadButtonClasses(variant));
 
-  // Форматирование размера файла (если передано число)
+  // Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ СЂР°Р·РјРµСЂР° С„Р°Р№Р»Р° (РµСЃР»Рё РїРµСЂРµРґР°РЅРѕ С‡РёСЃР»Рѕ)
   function formatFileSize(size: string | number): string {
     if (typeof size === 'number') {
       const units = ['B', 'KB', 'MB', 'GB'];
@@ -56,28 +58,24 @@
     return size;
   }
   
-  // Обработчик клика по кнопке скачивания
+  // РћР±СЂР°Р±РѕС‚С‡РёРє РєР»РёРєР° РїРѕ РєРЅРѕРїРєРµ СЃРєР°С‡РёРІР°РЅРёСЏ
   function handleDownload() {
-    // Открываем URL для скачивания
+    // РћС‚РєСЂС‹РІР°РµРј URL РґР»СЏ СЃРєР°С‡РёРІР°РЅРёСЏ
     window.open(downloadUrl, '_blank');
   }
 </script>
 
 <div class={containerClasses} role="article" aria-label={`Download card: ${file.name}`}>
-  <!-- Иконка файла -->
+  <!-- РРєРѕРЅРєР° С„Р°Р№Р»Р° -->
   <div class={iconContainerClasses} aria-hidden="true">
     {#if icon}
       <span class={iconClasses} aria-label={iconAlt}>{icon}</span>
     {:else}
-      <svg class={iconClasses} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M16 13V19M13 16L16 13L19 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <BaseIcon name="download" class={iconClasses} aria-hidden="true" />
     {/if}
   </div>
 
-  <!-- Информация о файле -->
+  <!-- РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С„Р°Р№Р»Рµ -->
   <div class={infoContainerClasses}>
     <div class={fileNameClasses} aria-label={`File name: ${file.name}`}>{file.name}</div>
     
@@ -102,7 +100,7 @@
     {/if}
   </div>
 
-  <!-- Кнопка скачивания -->
+  <!-- РљРЅРѕРїРєР° СЃРєР°С‡РёРІР°РЅРёСЏ -->
   <button 
     class={downloadButtonClasses}
     aria-label={`Download ${file.name}`}
@@ -110,6 +108,6 @@
     onclick={handleDownload}
     type="button"
   >
-    <Download class="w-5 h-5" aria-hidden="true" />
+    <BaseIcon name="download" class="w-5 h-5" aria-hidden="true" />
   </button>
 </div>

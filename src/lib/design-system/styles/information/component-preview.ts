@@ -8,6 +8,9 @@
  * - Single Responsibility: Only handles styling logic for ComponentPreview
  */
 
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 /**
  * Style manager for ComponentPreview component
  * Manages all class names and styling for the ComponentPreview molecule
@@ -19,8 +22,11 @@ export class ComponentPreviewStyleManager {
    * @returns Combined string of base and additional classes
    */
   static getBaseClasses(className?: string): string {
-    const baseClasses = 'c-component-preview bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden border border-gray-200 dark:border-gray-700';
-    return className ? `${baseClasses} ${className}` : baseClasses;
+    return cn(
+      'c-component-preview border border-[var(--color-border-primary)] shadow-sm',
+      CARD_BASE_CLASSES,
+      className
+    );
   }
 
   /**
@@ -28,7 +34,7 @@ export class ComponentPreviewStyleManager {
    * @returns Header classes
    */
   static getHeaderClasses(): string {
-    return 'px-6 py-4 border-b border-gray-200 dark:border-gray-700';
+    return 'border-b border-[var(--color-border-primary)] px-6 py-4';
   }
 
   /**
@@ -36,7 +42,7 @@ export class ComponentPreviewStyleManager {
    * @returns Title classes
    */
   static getTitleClasses(): string {
-    return 'text-lg font-bold text-gray-900 dark:text-white';
+    return 'text-lg font-bold text-[var(--color-text-primary)]';
   }
 
   /**
@@ -44,7 +50,7 @@ export class ComponentPreviewStyleManager {
    * @returns Description classes
    */
   static getDescriptionClasses(): string {
-    return 'text-sm text-gray-600 dark:text-gray-300 mt-1';
+    return 'mt-1 text-sm text-[var(--color-text-secondary)]';
   }
 
   /**
@@ -52,7 +58,7 @@ export class ComponentPreviewStyleManager {
    * @returns Preview container classes
    */
   static getPreviewContainerClasses(): string {
-    return 'p-6 border-b border-gray-200 dark:border-gray-700';
+    return 'border-b border-[var(--color-border-primary)] p-6';
   }
 
   /**
@@ -60,7 +66,7 @@ export class ComponentPreviewStyleManager {
    * @returns Demo container classes
    */
   static getDemoContainerClasses(): string {
-    return 'flex items-center justify-center min-h-[100px] p-4 bg-gray-50 dark:bg-gray-900 rounded';
+    return 'flex min-h-[100px] items-center justify-center rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4';
   }
 
   /**
@@ -76,7 +82,7 @@ export class ComponentPreviewStyleManager {
    * @returns Tab container classes
    */
   static getTabContainerClasses(): string {
-    return 'border-b border-gray-200 dark:border-gray-700';
+    return 'border-b border-[var(--color-border-primary)]';
   }
 
   /**
@@ -93,10 +99,11 @@ export class ComponentPreviewStyleManager {
    * @returns Tab button classes
    */
   static getTabButtonClasses(isActive: boolean): string {
-    const baseClasses = 'py-2 px-4 text-sm font-medium border-b-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-t-lg';
-    const activeClasses = isActive
-      ? 'border-blue-500 text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-700'
-      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 dark:text-gray-400 dark:hover:text-gray-300';
-    return `${baseClasses} ${activeClasses}`;
+    return cn(
+      'rounded-t-lg border-b-2 px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] focus:ring-offset-2',
+      isActive
+        ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)] text-[var(--color-primary-600)]'
+        : 'border-transparent text-[var(--color-text-tertiary)] hover:border-[var(--color-border-primary)] hover:text-[var(--color-text-primary)]'
+    );
   }
 }

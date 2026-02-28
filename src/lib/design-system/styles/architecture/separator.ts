@@ -1,12 +1,19 @@
-import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../../classes/information/badge';
 import {
-	DEFAULT_SEPARATOR_ORIENTATION,
-	SEPARATOR_CLASSES,
-	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
-	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES
-} from '../../classes/architecture/separator';
-import { CODE_BLOCK_DEFAULTS } from '../information/badge';
+	CODE_BLOCK_SIZE_CLASSES,
+	CODE_BLOCK_VARIANT_CLASSES
+} from '../information/badge';
 import { cn } from '../../utils/cn/index';
+
+export const SEPARATOR_CLASSES = {
+	horizontal: 'w-full border-t border-[var(--color-border-secondary)]',
+	vertical: 'h-full border-l border-[var(--color-border-secondary)]'
+} as const;
+
+export const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
+export const CODE_BLOCK_DEFAULTS = {
+	variant: 'default' as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
+	size: 'md' as keyof typeof CODE_BLOCK_SIZE_CLASSES
+};
 
 export class SeparatorStyleManager {
 	static getSeparatorClasses(
@@ -22,7 +29,7 @@ export class SeparatorStyleManager {
 		className = ''
 	): string {
 		return cn(
-			SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,
+			'rounded-md',
 			CODE_BLOCK_VARIANT_CLASSES[variant],
 			CODE_BLOCK_SIZE_CLASSES[size],
 			className
@@ -30,6 +37,6 @@ export class SeparatorStyleManager {
 	}
 
 	static getSyntaxHighlightedCodeClasses(_language: string): string {
-		return SYNTAX_HIGHLIGHTED_CODE_CLASSES;
+		return 'font-mono text-sm';
 	}
 }

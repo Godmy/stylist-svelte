@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import { ChevronDown } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { AccordionHeaderProps } from '$stylist/design-system/contracts';
 	import { createAccordionHeaderState } from '$stylist/design-system/models/interaction/accordion-header.svelte';
 
@@ -27,19 +27,18 @@
 		context.handleValueChange(props.value);
 	}
 
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				value: _value,
-				children: _children,
-				paddingClass: _paddingClass,
-				chevronSizeClass: _chevronSizeClass,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			value: _value,
+			children: _children,
+			paddingClass: _paddingClass,
+			chevronSizeClass: _chevronSizeClass,
+			...rest
+		} = props;
+
+		return rest;
+	});
 </script>
 
 <button
@@ -50,9 +49,5 @@
 	aria-expanded={isOpen}
 >
 	<span>{@render props.children?.()}</span>
-	<ChevronDown class={state.chevronClasses} />
+	<BaseIcon name="chevron-down" class={state.chevronClasses} />
 </button>
-
-
-
-

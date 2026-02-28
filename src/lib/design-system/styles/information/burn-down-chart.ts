@@ -4,39 +4,39 @@ export class BurnDownChartStyleManager {
   }
 
   static getTitleClass(): string {
-    return 'chart-title text-lg font-semibold mb-3';
+    return 'chart-title mb-3 text-lg font-semibold text-[var(--color-text-primary)]';
   }
 
   static getSvgClass(): string {
-    return 'border border-gray-300 rounded';
+    return 'rounded border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]';
   }
 
   static getGridLineClass(): string {
-    return 'stroke-gray-200 stroke-1';
+    return 'stroke-[var(--color-border-primary)] stroke-1';
   }
 
   static getAxisClass(): string {
-    return 'stroke-gray-700 stroke-2';
+    return 'stroke-[var(--color-text-secondary)] stroke-2';
   }
 
   static getIdealLineClass(): string {
-    return 'stroke-blue-500 stroke-2 fill-none';
+    return 'fill-none stroke-[var(--color-primary-500)] stroke-2';
   }
 
   static getActualLineClass(): string {
-    return 'stroke-red-500 stroke-2 fill-none';
+    return 'fill-none stroke-[var(--color-danger-500)] stroke-2';
   }
 
   static getDataPointClass(): string {
-    return 'fill-red-500 stroke-white stroke-2';
+    return 'fill-[var(--color-danger-500)] stroke-[var(--color-background-primary)] stroke-2';
   }
 
   static getXAxisLabelClass(): string {
-    return 'text-xs fill-gray-700 text-anchor-middle';
+    return 'fill-[var(--color-text-secondary)] text-xs text-anchor-middle';
   }
 
   static getYAxisLabelClass(): string {
-    return 'text-xs fill-gray-700 text-anchor-end';
+    return 'fill-[var(--color-text-secondary)] text-xs text-anchor-end';
   }
 
   static getLegendContainerClass(): string {
@@ -44,10 +44,10 @@ export class BurnDownChartStyleManager {
   }
 
   static getLegendLineClass(): string {
-    return 'stroke-blue-500 stroke-2';
+    return 'stroke-[var(--color-primary-500)] stroke-2';
   }
 
   static getLegendTextClass(): string {
-    return 'text-xs fill-gray-700';
+    return 'fill-[var(--color-text-secondary)] text-xs';
   }
 }

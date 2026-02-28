@@ -1,9 +1,10 @@
-import {
-	COUNTRY_FLAG_BASE_CLASSES,
-	COUNTRY_FLAG_FALLBACK_BASE_CLASSES,
-	resolveCountryFlagEmoji
-} from '../../classes/information/countryflag';
 import { cn } from '../../utils/cn/index';
+
+const resolveCountryFlagEmoji = (code = '') => {
+	const value = code.trim().toUpperCase();
+	if (!/^[A-Z]{2}$/.test(value)) return '';
+	return String.fromCodePoint(...value.split('').map((c) => 127397 + c.charCodeAt(0)));
+};
 
 export class CountryFlagStyleManager {
 	static resolveCountryFlagEmoji(code = ''): string {
@@ -11,11 +12,11 @@ export class CountryFlagStyleManager {
 	}
 
 	static getCountryFlagClasses(className = ''): string {
-		return cn(COUNTRY_FLAG_BASE_CLASSES, className);
+		return cn('inline-flex items-center justify-center', className);
 	}
 
 	static getCountryFlagFallbackClasses(className = ''): string {
-		return cn(COUNTRY_FLAG_FALLBACK_BASE_CLASSES, className);
+		return cn('inline-flex items-center justify-center rounded bg-[--color-background-secondary] text-[--color-text-secondary]', className);
 	}
 
 	static getCountryFlagStyle(size: number): string {

@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { AlertTriangle, Info, Loader2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const AlertTriangle = 'alert-triangle';
+const Info = 'info';
+const Loader2 = 'loader-2';
+
 
   type Props = {
     isOpen: boolean;
@@ -46,9 +50,9 @@
   <div class="sm:flex sm:items-start">
     <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
       {#if variant === 'danger' || variant === 'warning'}
-        <AlertTriangle class="h-6 w-6 {iconColors[variant]}" />
+        <BaseIcon name={AlertTriangle} class="h-6 w-6 {iconColors[variant]}" />
       {:else}
-        <Info class="h-6 w-6 {iconColors[variant]}" />
+        <BaseIcon name={Info} class="h-6 w-6 {iconColors[variant]}" />
       {/if}
     </div>
     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -67,7 +71,7 @@
       onclick={handleConfirm}
     >
       {#if isLoading}
-        <Loader2 class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" />
+        <BaseIcon name={Loader2} class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" />
       {/if}
       {confirmText}
     </button>
@@ -92,3 +96,4 @@
     </div>
   </div>
 {/if}
+

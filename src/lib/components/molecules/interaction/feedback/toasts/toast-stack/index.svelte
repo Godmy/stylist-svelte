@@ -1,6 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { X, CheckCircle, AlertCircle, Info, XCircle, AlertTriangle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+const CheckCircle = 'check-circle';
+const AlertCircle = 'alert-circle';
+const Info = 'info';
+const XCircle = 'x-circle';
+const AlertTriangle = 'alert-triangle';
+
 
   type ToastType = 'info' | 'success' | 'warning' | 'error';
 
@@ -74,8 +81,7 @@
         <div class="flex">
           <div class="flex-shrink-0">
             {#if true}
-              {@const Icon = getToastIcon(toast.type)}
-              <Icon class={`h-5 w-5 ${
+              <BaseIcon name={getToastIcon(toast.type)} class={`h-5 w-5 ${
                 toast.type === 'error' ? 'text-red-500' :
                 toast.type === 'warning' ? 'text-yellow-500' :
                 toast.type === 'success' ? 'text-green-500' : 'text-blue-500'
@@ -111,7 +117,7 @@
               onclick={() => toast.onDismiss && toast.onDismiss()}
               aria-label="Dismiss toast"
             >
-              <X class="h-5 w-5" />
+              <BaseIcon name={X} class="h-5 w-5" />
             </button>
           </div>
         </div>
@@ -119,3 +125,4 @@
     {/each}
   </div>
 {/if}
+

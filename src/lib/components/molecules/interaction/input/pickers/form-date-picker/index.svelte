@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Calendar } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Calendar = 'calendar';
+
 
   type RestProps = Omit<HTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>;
 
@@ -109,7 +111,7 @@
     />
 
     <div class="absolute inset-y-0 right-0 pl-3 flex items-center pointer-events-none">
-      <Calendar class="h-5 w-5 text-gray-400" />
+      <BaseIcon name={Calendar} class="h-5 w-5 text-gray-400" />
     </div>
   </div>
 
@@ -156,3 +158,4 @@
     width: auto;
   }
 </style>
+

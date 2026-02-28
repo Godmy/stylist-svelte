@@ -1,16 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { PaymentMethodType } from '../../tokens/interaction/payment-methods';
+import type { PaymentStatus } from '../../tokens/interaction/payment-statuses';
 
-export type PaymentMethodType =
-  | 'credit_card'
-  | 'debit_card'
-  | 'paypal'
-  | 'bank_transfer'
-  | 'digital_wallet'
-  | 'cash_on_delivery'
-  | 'crypto'
-  | 'apple_pay'
-  | 'google_pay'
-  | 'bank_account';
+export type { PaymentMethodType };
 
 export type PaymentMethod = {
   id: string;
@@ -110,7 +102,6 @@ export interface PaymentSummaryProps extends HTMLAttributes<HTMLDivElement> {
   paymentMethod?: string;
   transactionId?: string;
   date?: Date;
-  status?: 'pending' | 'processing' | 'completed' | 'failed' | 'refunded';
+  status?: PaymentStatus;
   class?: string;
 }
-

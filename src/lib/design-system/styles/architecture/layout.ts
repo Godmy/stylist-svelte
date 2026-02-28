@@ -1,15 +1,87 @@
 import type { Alignment, Justification } from '../../tokens';
-import type { ContainerMaxWidth, SpacerAxis } from '../../contracts';
-import { SPACER_SIZE_SCALE } from '../../tokens/architecture/sizes';
-import {
-	CONTAINER_MAX_WIDTH_CLASSES,
-	HORIZONTAL_ALIGN_ITEMS_CLASSES,
-	HORIZONTAL_GAP_CLASSES,
-	HORIZONTAL_JUSTIFY_CONTENT_CLASSES,
-	SPACER_AXIS_CLASSES
-} from '../../classes/architecture/layout';
-import { BASE_CLASSES } from '../../classes/information/classes';
+import type { SpacerAxis } from '../../contracts';
+import type { ComponentSize } from '../../tokens';
+import type {
+	ContainerMaxWidth as LayoutContainerMaxWidth,
+	HorizontalGap as LayoutHorizontalGap,
+	LayoutSize as LayoutSizeToken
+} from '../../tokens/architecture/layout';
+import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
+
+export type LayoutSize = LayoutSizeToken;
+
+export const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string> = {
+	xs: 'max-w-screen-xs',
+	sm: 'max-w-screen-sm',
+	md: 'max-w-screen-md',
+	lg: 'max-w-screen-lg',
+	xl: 'max-w-screen-xl',
+	'2xl': 'max-w-screen-2xl',
+	full: 'max-w-full'
+} as const;
+
+export type TokenContainerMaxWidth = keyof typeof CONTAINER_MAX_WIDTH_CLASSES;
+
+export const HORIZONTAL_GAP_CLASSES: Record<LayoutHorizontalGap, string> = {
+	none: 'gap-0',
+	xs: 'gap-1',
+	sm: 'gap-2',
+	md: 'gap-4',
+	lg: 'gap-6',
+	xl: 'gap-8'
+} as const;
+
+export type HorizontalGap = LayoutHorizontalGap;
+
+export const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
+	start: 'items-start',
+	center: 'items-center',
+	end: 'items-end',
+	stretch: 'items-stretch',
+	baseline: 'items-baseline'
+};
+
+export const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> = {
+	start: 'justify-start',
+	center: 'justify-center',
+	end: 'justify-end',
+	between: 'justify-between',
+	around: 'justify-around',
+	evenly: 'justify-evenly'
+};
+
+export const SPACER_AXIS_CLASSES: Record<SpacerAxis, string> = {
+	horizontal: 'w-[var(--spacer-size)]',
+	vertical: 'h-[var(--spacer-size)]'
+} as const;
+
+export const LAYOUT_DIRECTION_CLASSES = {
+	vertical: 'flex-col',
+	horizontal: 'flex-row'
+} as const;
+
+export const LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
+	'1/4': 'w-1/4',
+	'1/3': 'w-1/3',
+	'2/5': 'w-2/5',
+	'1/2': 'w-1/2',
+	'3/5': 'w-3/5',
+	'2/3': 'w-2/3',
+	'3/4': 'w-3/4',
+	full: 'w-full'
+} as const;
+
+export const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
+	'1/4': 'md:w-1/4',
+	'1/3': 'md:w-1/3',
+	'2/5': 'md:w-2/5',
+	'1/2': 'md:w-1/2',
+	'3/5': 'md:w-3/5',
+	'2/3': 'md:w-2/3',
+	'3/4': 'md:w-3/4',
+	full: 'md:w-full'
+} as const;
 
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className = ''): string {
@@ -18,15 +90,8 @@ export class LayoutStyleManager {
 			.join(' ');
 	}
 
-	static getContainerClasses(size: 'sm' | 'md' | 'lg' | 'xl' | 'full', className = ''): string {
-		const sizeMap: Record<string, string> = {
-			sm: 'max-w-screen-sm',
-			md: 'max-w-screen-md',
-			lg: 'max-w-screen-lg',
-			xl: 'max-w-screen-xl',
-			full: 'max-w-full'
-		};
-		const maxWidthClass = sizeMap[size] ?? sizeMap.full;
+	static getContainerClasses(size: LayoutContainerMaxWidth, className = ''): string {
+		const maxWidthClass = CONTAINER_MAX_WIDTH_CLASSES[size] ?? CONTAINER_MAX_WIDTH_CLASSES.full;
 		return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
 	}
 
@@ -55,7 +120,7 @@ export class LayoutStyleManager {
 	}
 
 	static getHorizontalLayoutClasses(
-		gap: 'none' | 'sm' | 'md' | 'lg' | 'xl',
+		gap: LayoutHorizontalGap,
 		alignItems: Alignment,
 		justifyContent: Justification,
 		wrap: boolean,
@@ -77,23 +142,22 @@ export class LayoutStyleManager {
 	}
 
 	static getSpacerSize(size?: string | number): string {
-		// If it's a number, return as pixels
 		if (typeof size === 'number') return `${size}px`;
-		
-		// If it's one of our predefined size tokens, map to corresponding values
+
 		switch (size) {
 			case 'xs':
-				return '0.25rem'; // 4px
+				return '0.25rem';
 			case 'sm':
-				return '0.5rem';  // 8px
+				return '0.5rem';
 			case 'md':
-				return '1rem';    // 16px
+				return '1rem';
 			case 'lg':
-				return '1.5rem';  // 24px
+				return '1.5rem';
 			case 'xl':
-				return '2rem';    // 32px
+				return '2rem';
+			case '2xl':
+				return '3rem';
 			default:
-				// If it's not a recognized token, return as-is or default to 1rem
 				return size ?? '1rem';
 		}
 	}

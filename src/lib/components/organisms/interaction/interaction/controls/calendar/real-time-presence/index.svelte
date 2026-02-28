@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Users, User, Activity } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Users = 'users';
+const User = 'user';
+const Activity = 'activity';
+
 
   type PresenceUser = {
     id: string;
@@ -72,14 +76,14 @@
 
 <div class={`c-real-time-presence bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
   <div class="border-b px-4 py-3 flex items-center">
-    <Users class="h-5 w-5 text-gray-500 mr-2" />
+    <BaseIcon name={Users} class="h-5 w-5 text-gray-500 mr-2" />
     <h3 class="text-lg font-medium text-gray-900">{title} <span class="text-gray-500">({users.length})</span></h3>
   </div>
 
   <div class={`p-4 ${userListClass}`}>
     {#if users.length === 0}
       <div class="text-center py-8">
-        <Users class="h-12 w-12 text-gray-400 mx-auto mb-2" />
+        <BaseIcon name={Users} class="h-12 w-12 text-gray-400 mx-auto mb-2" />
         <p class="text-gray-500">No active users</p>
       </div>
     {:else}
@@ -114,7 +118,7 @@
                   <p class="text-sm font-medium text-gray-900">{user.name}</p>
                   {#if showStatus}
                     <span class={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 ${statusClass}`}>
-                      <Activity class={`h-3 w-3 mr-1 ${user.status === 'online' ? 'text-green-500' : user.status === 'away' ? 'text-yellow-500' : user.status === 'busy' ? 'text-red-500' : 'text-gray-500'}`} />
+                      <BaseIcon name={Activity} class={`h-3 w-3 mr-1 ${user.status === 'online' ? 'text-green-500' : user.status === 'away' ? 'text-yellow-500' : user.status === 'busy' ? 'text-red-500' : 'text-gray-500'}`} />
                       {getStatusText(user.status)}
                     </span>
                   {/if}
@@ -141,3 +145,4 @@
     {/if}
   </div>
 </div>
+

@@ -1,14 +1,14 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-  import KanbanColumn from './index.svelte';
+  import KanbanColumn, { type KanbanColumnType } from './index.svelte';
 
   const controls: ControlConfig[] = [
     { name: 'droppable', type: 'boolean', defaultValue: true },
     { name: 'cardCount', type: 'number', defaultValue: 2, min: 1, max: 5 }
   ];
 
-  function getColumn(cardCount: number) {
+  function getColumn(cardCount: number): KanbanColumnType {
     return {
       id: 'todo',
       title: 'To do',

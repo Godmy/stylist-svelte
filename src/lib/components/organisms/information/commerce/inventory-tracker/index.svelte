@@ -1,6 +1,14 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Package, AlertTriangle, TrendingUp, TrendingDown, CheckCircle, XCircle, Search } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Package = 'package';
+const AlertTriangle = 'alert-triangle';
+const TrendingUp = 'trending-up';
+const TrendingDown = 'trending-down';
+const CheckCircle = 'check-circle';
+const XCircle = 'x-circle';
+const Search = 'search';
+
   import { Button } from '$stylist/components/atoms';
   import ProgressBar from '$stylist/components/atoms/interaction/feedback/progress/progress-bar/index.svelte';
 
@@ -182,7 +190,7 @@
     <div class="flex flex-wrap items-center justify-between gap-4">
       <div>
         <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <Package class="h-5 w-5 mr-2" />
+          <BaseIcon name={Package} class="h-5 w-5 mr-2" />
           Inventory Tracker
         </h2>
         <p class="text-sm text-gray-500 mt-1">
@@ -194,7 +202,7 @@
         {#if showSearch}
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
             </div>
             <input
               type="text"
@@ -277,7 +285,7 @@
   {#if showAlerts && unacknowledgedAlerts.length > 0}
     <div class="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
       <h3 class="text-sm font-medium text-yellow-800 flex items-center">
-        <AlertTriangle class="h-4 w-4 mr-2" />
+        <BaseIcon name={AlertTriangle} class="h-4 w-4 mr-2" />
         Low Stock Alerts ({unacknowledgedAlerts.length})
       </h3>
       <div class="mt-2 space-y-2">
@@ -328,7 +336,7 @@
                   <img class="h-10 w-10 rounded-md" src={item.thumbnail} alt={item.name} />
                 {:else}
                   <div class="h-10 w-10 rounded-md bg-gray-200 flex items-center justify-center">
-                    <Package class="h-5 w-5 text-gray-500" />
+                    <BaseIcon name={Package} class="h-5 w-5 text-gray-500" />
                   </div>
                 {/if}
                 <div class="ml-4">
@@ -363,7 +371,7 @@
             <td class="whitespace-nowrap px-3 py-4 text-sm">
               <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig.bgColor} ${statusConfig.color}`}>
                 {#if showAlertBadges && item.status === 'low-stock'}
-                  <AlertTriangle class="h-3 w-3 mr-1" />
+                  <BaseIcon name={AlertTriangle} class="h-3 w-3 mr-1" />
                 {/if}
                 {item.status.replace('-', ' ')}
               </span>
@@ -394,7 +402,7 @@
 
     {#if filteredItems.length === 0}
       <div class="text-center py-12">
-        <Package class="h-12 w-12 text-gray-400 mx-auto" />
+        <BaseIcon name={Package} class="h-12 w-12 text-gray-400 mx-auto" />
         <h3 class="mt-2 text-sm font-medium text-gray-900">No inventory items</h3>
         <p class="mt-1 text-sm text-gray-500">
           {searchTerm ? 'No items match your search.' : 'Get started by adding some inventory items.'}
@@ -403,5 +411,6 @@
     {/if}
   </div>
 </div>
+
 
 

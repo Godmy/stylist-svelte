@@ -1,6 +1,16 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ShieldCheck, Calendar, Clock, FileText, RotateCcw, CheckCircle, XCircle, Download, Mail } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ShieldCheck = 'shield-check';
+const Calendar = 'calendar';
+const Clock = 'clock';
+const FileText = 'file-text';
+const RotateCcw = 'rotate-ccw';
+const CheckCircle = 'check-circle';
+const XCircle = 'x-circle';
+const Download = 'download';
+const Mail = 'mail';
+
   import { Button } from '$stylist/components/atoms';
 
   type WarrantyPeriod = {
@@ -134,7 +144,7 @@
   <div class={`border border-gray-200 rounded-lg p-6 mb-6 ${headerClass}`}>
     <div class="flex items-start">
       <div class="flex-shrink-0">
-        <ShieldCheck class="h-8 w-8 text-blue-500" />
+        <BaseIcon name={ShieldCheck} class="h-8 w-8 text-blue-500" />
       </div>
       <div class="ml-4">
         <h2 class="text-xl font-bold text-gray-900">Warranty Information</h2>
@@ -156,14 +166,14 @@
     <!-- Warranty summary -->
     <div class="bg-white border border-gray-200 rounded-lg p-6">
       <div class="flex items-center">
-        <ShieldCheck class="h-5 w-5 text-blue-500 mr-2" />
+        <BaseIcon name={ShieldCheck} class="h-5 w-5 text-blue-500 mr-2" />
         <h3 class="text-lg font-medium text-gray-900">Warranty Coverage</h3>
       </div>
 
       <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="border border-gray-200 rounded-lg p-4">
           <div class="flex items-center">
-            <Calendar class="h-5 w-5 text-gray-400 mr-2" />
+            <BaseIcon name={Calendar} class="h-5 w-5 text-gray-400 mr-2" />
             <div>
               <p class="text-sm font-medium text-gray-900">Warranty Period</p>
               <p class="text-sm text-gray-500">
@@ -175,11 +185,11 @@
 
         <div class="border border-gray-200 rounded-lg p-4">
           <div class="flex items-center">
-            <Clock class="h-5 w-5 text-gray-400 mr-2" />
+            <BaseIcon name={Clock} class="h-5 w-5 text-gray-400 mr-2" />
             <div>
               <p class="text-sm font-medium text-gray-900">Status</p>
               <p class="text-sm text-gray-500 capitalize">
-                {isExpired ? 'Expired' : `Active • Expires in ${daysRemaining} days`}
+                {isExpired ? 'Expired' : `Active вЂў Expires in ${daysRemaining} days`}
               </p>
             </div>
           </div>
@@ -188,7 +198,7 @@
         {#if serialNumber}
           <div class="border border-gray-200 rounded-lg p-4">
             <div class="flex items-center">
-              <FileText class="h-5 w-5 text-gray-400 mr-2" />
+              <BaseIcon name={FileText} class="h-5 w-5 text-gray-400 mr-2" />
               <div>
                 <p class="text-sm font-medium text-gray-900">Serial Number</p>
                 <p class="text-sm text-gray-500 font-mono">{serialNumber}</p>
@@ -200,7 +210,7 @@
         {#if productId}
           <div class="border border-gray-200 rounded-lg p-4">
             <div class="flex items-center">
-              <FileText class="h-5 w-5 text-gray-400 mr-2" />
+              <BaseIcon name={FileText} class="h-5 w-5 text-gray-400 mr-2" />
               <div>
                 <p class="text-sm font-medium text-gray-900">Product ID</p>
                 <p class="text-sm text-gray-500 font-mono">{productId}</p>
@@ -225,7 +235,7 @@
         <ul class="space-y-2">
           {#each warrantyPeriod.coverage as item}
             <li class="flex items-start">
-              <CheckCircle class="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+              <BaseIcon name={CheckCircle} class="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
               <span class="text-sm text-gray-700">{item}</span>
             </li>
           {/each}
@@ -241,7 +251,7 @@
         <ul class="space-y-2">
           {#each warrantyPeriod.exclusions as item}
             <li class="flex items-start">
-              <XCircle class="h-5 w-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" />
+              <BaseIcon name={XCircle} class="h-5 w-5 text-red-500 mt-0.5 mr-2 flex-shrink-0" />
               <span class="text-sm text-gray-700">{item}</span>
             </li>
           {/each}
@@ -265,7 +275,7 @@
               <div class="flex flex-wrap justify-between">
                 <div>
                   <p class="font-medium text-gray-900">{claim.issue}</p>
-                  <p class="text-sm text-gray-500">Claim #{claim.claimNumber} • {formatDate(claim.date)}</p>
+                  <p class="text-sm text-gray-500">Claim #{claim.claimNumber} вЂў {formatDate(claim.date)}</p>
                 </div>
 
                 <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
@@ -296,7 +306,7 @@
           <div class="rounded-md bg-green-50 p-4 mb-4">
             <div class="flex">
               <div class="flex-shrink-0">
-                <CheckCircle class="h-5 w-5 text-green-400" />
+                <BaseIcon name={CheckCircle} class="h-5 w-5 text-green-400" />
               </div>
               <div class="ml-3">
                 <h3 class="text-sm font-medium text-green-800">Claim submitted successfully!</h3>
@@ -387,7 +397,7 @@
             class="justify-start"
             onclick={onTermsClick}
           >
-            <FileText class="h-4 w-4 mr-2" />
+            <BaseIcon name={FileText} class="h-4 w-4 mr-2" />
             View Warranty Terms
           </Button>
         {/if}
@@ -398,7 +408,7 @@
             class="justify-start"
             onclick={onFileDownload}
           >
-            <Download class="h-4 w-4 mr-2" />
+            <BaseIcon name={Download} class="h-4 w-4 mr-2" />
             Download Warranty Certificate
           </Button>
         {/if}
@@ -408,7 +418,7 @@
           class="justify-start"
           onclick={() => {}}
         >
-          <RotateCcw class="h-4 w-4 mr-2" />
+          <BaseIcon name={RotateCcw} class="h-4 w-4 mr-2" />
           Request Return Authorization
         </Button>
 
@@ -417,11 +427,12 @@
           class="justify-start"
           onclick={() => {}}
         >
-          <Mail class="h-4 w-4 mr-2" />
+          <BaseIcon name={Mail} class="h-4 w-4 mr-2" />
           Contact Support
         </Button>
       </div>
     </div>
   </div>
 </div>
+
 

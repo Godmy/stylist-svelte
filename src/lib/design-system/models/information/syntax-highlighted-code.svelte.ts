@@ -1,12 +1,9 @@
-import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
+﻿import { mergeClasses } from '$stylist/utils/classes';
+import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
 import {
-	SYNTAX_HIGHLIGHTED_CODE_CLASSES,
-	SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,
 	CODE_BLOCK_VARIANT_CLASSES,
 	CODE_BLOCK_SIZE_CLASSES
-} from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
+} from '$stylist/design-system/styles/information/badge';
 
 /**
  * SyntaxHighlightedCode state creator
@@ -24,13 +21,13 @@ export function createSyntaxHighlightedCodeState(props: SyntaxHighlightedCodePro
 	const startLineNumber = $derived(props.startLineNumber ?? 1);
 	const containerClasses = $derived(
 		mergeClasses(
-			SYNTAX_HIGHLIGHTED_CODE_CONTAINER_BASE_CLASSES,
+			'rounded-md',
 			CODE_BLOCK_VARIANT_CLASSES[variant as keyof typeof CODE_BLOCK_VARIANT_CLASSES],
 			CODE_BLOCK_SIZE_CLASSES[size as keyof typeof CODE_BLOCK_SIZE_CLASSES],
 			props.class ?? ''
 		)
 	);
-	const codeClasses = $derived(SYNTAX_HIGHLIGHTED_CODE_CLASSES);
+	const codeClasses = $derived('font-mono text-sm');
 	const escapedCode = $derived(
 		code
 			.replace(/&/g, '&amp;')

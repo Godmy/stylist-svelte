@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { Copy, Download, RefreshCw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Copy = 'copy';
+const Download = 'download';
+const RefreshCw = 'refresh-cw';
+
   import type { CodeEditorProps } from '$stylist/design-system/contracts/information/molecules-migration';
   import { CodeEditorStyleManager } from '$stylist/design-system/styles/information/molecules-migration';
 
@@ -10,7 +14,7 @@
     width = '100%',
     readOnly = false,
     showLineNumbers = true,
-    fontSize = 14,
+    FONT_SIZE = 14,
     showCopyButton = true,
     class: className = '',
     onCodeChange,
@@ -46,16 +50,18 @@
   <div class="flex items-center justify-between border-b border-[var(--color-border-default)] p-2">
     <span class="text-xs uppercase text-gray-500">{language}</span>
     <div class="flex gap-2">
-      {#if showCopyButton}<button type="button" class={CodeEditorStyleManager.button()} onclick={handleCopy}><Copy class="w-3 h-3 inline mr-1" />Copy</button>{/if}
-      <button type="button" class={CodeEditorStyleManager.button()} onclick={handleDownload}><Download class="w-3 h-3 inline mr-1" />Download</button>
-      <button type="button" class={CodeEditorStyleManager.button()} onclick={() => handleCodeChange(code)} disabled={readOnly}><RefreshCw class="w-3 h-3 inline mr-1" />Reset</button>
+      {#if showCopyButton}<button type="button" class={CodeEditorStyleManager.button()} onclick={handleCopy}><BaseIcon name={Copy} class="w-3 h-3 inline mr-1" />Copy</button>{/if}
+      <button type="button" class={CodeEditorStyleManager.button()} onclick={handleDownload}><BaseIcon name={Download} class="w-3 h-3 inline mr-1" />Download</button>
+      <button type="button" class={CodeEditorStyleManager.button()} onclick={() => handleCodeChange(code)} disabled={readOnly}><BaseIcon name={RefreshCw} class="w-3 h-3 inline mr-1" />Reset</button>
     </div>
   </div>
   <textarea
     class="w-full font-mono p-3 resize-none focus:outline-none"
-    style={`height:${height};width:${width};font-size:${fontSize}px;${showLineNumbers ? 'padding-left:40px;' : ''}`}
+    style={`height:${height};width:${width};font-size:${FONT_SIZE}px;${showLineNumbers ? 'padding-left:40px;' : ''}`}
     bind:value={internalCode}
     oninput={(e) => handleCodeChange((e.target as HTMLTextAreaElement).value)}
     readonly={readOnly}
   ></textarea>
 </div>
+
+

@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { ShoppingCart, Plus, Minus, X, Package, Truck, BadgePercent, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ShoppingCart = 'shopping-cart';
+const Plus = 'plus';
+const Minus = 'minus';
+const X = 'x';
+const Package = 'package';
+const Truck = 'truck';
+const BadgePercent = 'badge-percent';
+const RotateCcw = 'rotate-ccw';
+
   import { Button } from '$stylist/components/atoms';
 
   type CartItem = {
@@ -145,7 +154,7 @@
     <div class="md:col-span-2">
       <div class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <ShoppingCart class="h-6 w-6 mr-2" />
+          <BaseIcon name={ShoppingCart} class="h-6 w-6 mr-2" />
           Shopping Cart
         </h2>
         <span class="text-gray-500">{items.length} {items.length === 1 ? 'item' : 'items'}</span>
@@ -154,7 +163,7 @@
       <div class="space-y-6">
         {#if items.length === 0}
           <div class="text-center py-12">
-            <Package class="h-12 w-12 text-gray-400 mx-auto" />
+            <BaseIcon name={Package} class="h-12 w-12 text-gray-400 mx-auto" />
             <h3 class="mt-2 text-lg font-medium text-gray-900">Your cart is empty</h3>
             <p class="mt-1 text-gray-500">Start adding some products to your cart</p>
           </div>
@@ -171,7 +180,7 @@
                     />
                   {:else}
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                      <Package class="h-8 w-8 text-gray-400" />
+                      <BaseIcon name={Package} class="h-8 w-8 text-gray-400" />
                     </div>
                   {/if}
                 </div>
@@ -205,7 +214,7 @@
                       onclick={() => decrementQuantity(item)}
                       disabled={!item.inStock}
                     >
-                      <Minus class="h-4 w-4" />
+                      <BaseIcon name={Minus} class="h-4 w-4" />
                     </button>
 
                     <input
@@ -226,7 +235,7 @@
                         (item.maxQuantity !== undefined && item.quantity >= item.maxQuantity)
                       }
                     >
-                      <Plus class="h-4 w-4" />
+                      <BaseIcon name={Plus} class="h-4 w-4" />
                     </button>
                   </div>
 
@@ -235,7 +244,7 @@
                     class="ml-4 flex items-center text-sm font-medium text-red-600 hover:text-red-500"
                     onclick={() => removeItem(item.id)}
                   >
-                    <X class="h-4 w-4 mr-1" />
+                    <BaseIcon name={X} class="h-4 w-4 mr-1" />
                     Remove
                   </button>
 
@@ -287,7 +296,7 @@
             {#each appliedPromotions as promotion}
               <div class="flex justify-between text-sm">
                 <dt class="text-gray-600 flex items-center">
-                  <BadgePercent class="h-4 w-4 mr-1 text-green-600" />
+                  <BaseIcon name={BadgePercent} class="h-4 w-4 mr-1 text-green-600" />
                   Promotion: {promotion.code}
                 </dt>
                 <dd class="text-green-600">
@@ -351,4 +360,5 @@
     </div>
   </div>
 </div>
+
 

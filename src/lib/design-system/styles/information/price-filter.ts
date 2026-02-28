@@ -17,7 +17,7 @@ export class PriceFilterStyleManager {
   }
 
   static getSliderClass(): string {
-    return 'w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer';
+    return 'w-full h-2 bg-[--color-background-secondary] rounded-lg appearance-none cursor-pointer';
   }
 
   static getSecondSliderClass(): string {

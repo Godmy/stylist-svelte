@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { GripVertical, MoreHorizontal } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const GripVertical = 'grip-vertical';
+const MoreHorizontal = 'more-horizontal';
+
   import { Button } from '$stylist/components/atoms';
   import BaseCard from '$stylist/components/molecules/information/cards/base-card/index.svelte';
   import { DraggableCardStyleManager } from '$stylist/design-system/styles/interaction/draggable-card';
@@ -118,7 +121,7 @@
     <div class="flex justify-between items-start">
       {#if showHandle && variant !== 'compact'}
         <div class={handleClass}>
-          <GripVertical class={gripIconClass} />
+          <BaseIcon name={GripVertical} class={gripIconClass} />
         </div>
       {/if}
       <div class="flex-1 min-w-0">
@@ -129,7 +132,7 @@
       </div>
       {#if showMenu}
         <Button variant="ghost" size="sm" class="ml-2">
-          <MoreHorizontal class="h-4 w-4 text-gray-500" />
+          <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-gray-500" />
         </Button>
       {/if}
     </div>
@@ -160,3 +163,4 @@
     {/if}
   </BaseCard>
 </div>
+

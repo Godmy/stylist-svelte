@@ -1,6 +1,9 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { Check, X } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Check = 'check';
+const X = 'x';
+
 	import type { Snippet } from 'svelte';
 
 	import type { IStepIconProps } from '$stylist/design-system/contracts';
@@ -53,13 +56,14 @@
 	{#if children}
 		{@render children?.()}
 	{:else if content.type === 'icon' && content.icon === 'Check'}
-		<Check size={content.size} />
+		<BaseIcon name={Check} size={content.size} />
 	{:else if content.type === 'icon' && content.icon === 'X'}
-		<X size={content.size} />
+		<BaseIcon name={X} size={content.size} />
 	{:else if content.type === 'number' && content.value !== undefined}
 		{content.value}
 	{/if}
 </span>
+
 
 
 

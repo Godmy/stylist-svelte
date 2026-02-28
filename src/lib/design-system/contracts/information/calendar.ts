@@ -1,9 +1,10 @@
+export type { CalendarViewMode } from '../../tokens/information/calendar';
+
 /**
  * Shared Calendar Types
  * 
  * Common types used across calendar components
  */
-
 export type CalendarEvent = {
   id: string;
   title: string;
@@ -23,5 +24,3 @@ export type CalendarDay = {
   hasEvent?: boolean;
   events: CalendarEvent[];
 };
-
-export type CalendarViewMode = 'day' | 'week' | 'month';

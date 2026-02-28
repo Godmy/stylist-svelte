@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { BarChart3, TrendingUp, TrendingDown, AlertTriangle, CheckCircle, XCircle, Users, Activity } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const BarChart3 = 'bar-chart-3';
+const TrendingUp = 'trending-up';
+const TrendingDown = 'trending-down';
+const AlertTriangle = 'alert-triangle';
+const CheckCircle = 'check-circle';
+const XCircle = 'x-circle';
+const Users = 'users';
+const Activity = 'activity';
+
 
   type TestResult = {
     id: string;
@@ -70,7 +79,7 @@
 <div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <BarChart3 class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={BarChart3} class="h-6 w-6 text-gray-500 mr-2" />
       <h3 class="text-lg font-medium text-gray-900">{title}</h3>
     </div>
     <p class="mt-1 text-sm text-gray-500">{description}</p>
@@ -82,7 +91,7 @@
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
           <div class="p-2 rounded-md bg-blue-100">
-            <Activity class="h-5 w-5 text-blue-600" />
+            <BaseIcon name={Activity} class="h-5 w-5 text-blue-600" />
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">Test Status</p>
@@ -99,7 +108,7 @@
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
           <div class="p-2 rounded-md bg-blue-100">
-            <Users class="h-5 w-5 text-blue-600" />
+            <BaseIcon name={Users} class="h-5 w-5 text-blue-600" />
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">Total Visitors</p>
@@ -111,7 +120,7 @@
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
           <div class="p-2 rounded-md bg-green-100">
-            <CheckCircle class="h-5 w-5 text-green-600" />
+            <BaseIcon name={CheckCircle} class="h-5 w-5 text-green-600" />
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">Total Conversions</p>
@@ -123,7 +132,7 @@
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
           <div class="p-2 rounded-md bg-purple-100">
-            <TrendingUp class="h-5 w-5 text-purple-600" />
+            <BaseIcon name={TrendingUp} class="h-5 w-5 text-purple-600" />
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">Overall CR</p>
@@ -255,7 +264,7 @@
       <div class="border rounded-lg p-4 bg-blue-50">
         <div class="flex items-start">
           <div class="flex-shrink-0">
-            <CheckCircle class="h-5 w-5 text-blue-400" />
+            <BaseIcon name={CheckCircle} class="h-5 w-5 text-blue-400" />
           </div>
           <div class="ml-3">
             <h4 class="text-sm font-medium text-blue-800">Recommendation</h4>
@@ -279,12 +288,12 @@
       <div>
         {#if testOverview.confidence >= 95}
           <span class="inline-flex items-center text-green-600">
-            <CheckCircle class="h-4 w-4 mr-1" />
+            <BaseIcon name={CheckCircle} class="h-4 w-4 mr-1" />
             Results are statistically significant ({testOverview.confidence.toFixed(1)}% confidence)
           </span>
         {:else}
           <span class="inline-flex items-center text-yellow-600">
-            <AlertTriangle class="h-4 w-4 mr-1" />
+            <BaseIcon name={AlertTriangle} class="h-4 w-4 mr-1" />
             Low confidence ({testOverview.confidence.toFixed(1)}% confidence)
           </span>
         {/if}

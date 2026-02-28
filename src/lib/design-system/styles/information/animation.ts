@@ -1,13 +1,16 @@
-import {
-	DEFAULT_LANGUAGE,
-	NUMBER_FLOW_BASE_CLASSES,
-	animateNumberValue,
-	formatAnimatedValue,
-	formatNumberFlowValue
-} from '../../classes/information/animation';
+import { formatAnimatedValue, formatNumberFlowValue } from '../../utils/format/index';
+
+const NUMBER_FLOW_BASE_CLASSES = {
+	container: 'flex items-center',
+	prefix: 'mr-1',
+	suffix: 'ml-1',
+	srOnly: 'sr-only'
+} as const;
+
+const animateNumberValue = ({ value }: { value: number }) => value;
 
 export class AnimationStyleManager {
-	static readonly defaultLanguage = DEFAULT_LANGUAGE;
+	static readonly defaultLanguage = 'en';
 
 	static getNumberFlowContainerClasses(className = ''): string {
 		return [NUMBER_FLOW_BASE_CLASSES.container, className].filter(Boolean).join(' ');

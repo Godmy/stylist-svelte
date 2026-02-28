@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { DollarSign, RefreshCw, Info } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const DollarSign = 'dollar-sign';
+const RefreshCw = 'refresh-cw';
+const Info = 'info';
+
   import Input from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
   import Select from '$stylist/components/molecules/interaction/controls/selectors/selector/index.svelte';
   import { Button } from '$stylist/components/atoms';
@@ -153,7 +157,7 @@
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-medium text-gray-900">Currency Converter</h3>
     <Tooltip content="Convert amounts between different currencies using real-time exchange rates">
-      <Info class="h-5 w-5 text-gray-500" />
+      <BaseIcon name={Info} class="h-5 w-5 text-gray-500" />
     </Tooltip>
   </div>
 
@@ -166,7 +170,7 @@
         </label>
         <div class="relative">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <DollarSign class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={DollarSign} class="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="number"
@@ -221,7 +225,7 @@
           disabled={disabled || loading}
           aria-label="Swap currencies"
         >
-          <RefreshCw class="h-6 w-6" />
+          <BaseIcon name={RefreshCw} class="h-6 w-6" />
         </button>
       </div>
 
@@ -292,5 +296,6 @@
     </div>
   </div>
 </div>
+
 
 

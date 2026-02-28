@@ -1,10 +1,8 @@
-﻿import type { MessageThreadVariant } from '../../tokens';
-import type { NeutralVariant, SemanticVariant } from '../../tokens/architecture/variants';
+﻿import type { Density } from '$stylist/design-system/tokens';
+import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
 export type ChatMessageStatus = 'sent' | 'delivered' | 'read';
-
-export type ChatMessageVariant = SemanticVariant | NeutralVariant;
 
 export interface User {
 	id: string;
@@ -60,7 +58,7 @@ export interface ChatMessageProps extends HtmlAttributesWithChildren<HTMLDivElem
 	contentClass?: string;
 	headerClass?: string;
 	footerClass?: string;
-	variant?: ChatMessageVariant;
+	variant?: DefaultVariants | NeutralVariant;
 }
 
 export interface MessageThreadMessage {
@@ -92,6 +90,8 @@ export interface MessageThreadProps extends HtmlAttributesBase<HTMLDivElement> {
 	messageContainerClass?: string;
 	headerClass?: string;
 	loading?: boolean;
-	variant?: MessageThreadVariant;
-	messageVariant?: ChatMessageVariant;
+	variant?: Density;
+	messageVariant?: DefaultVariants | NeutralVariant;
 }
+
+

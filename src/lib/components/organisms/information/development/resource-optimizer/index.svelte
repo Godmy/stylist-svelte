@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { HardDrive, Zap, Image, File, Package, Upload, Download, Settings } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const HardDrive = 'hard-drive';
+const Zap = 'zap';
+const Image = 'image';
+const File = 'file';
+const Package = 'package';
+const Upload = 'upload';
+const Download = 'download';
+const Settings = 'settings';
+
 
   type ResourceType = 'image' | 'script' | 'stylesheet' | 'font' | 'api' | 'other';
 
@@ -133,7 +142,7 @@
 <div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <Zap class="h-6 w-6 text-gray-500 mr-2" />
+      <BaseIcon name={Zap} class="h-6 w-6 text-gray-500 mr-2" />
       <div>
         <h3 class="text-lg font-medium text-gray-900">{title}</h3>
         {#if description}
@@ -177,8 +186,8 @@
           <div class={`border rounded-lg overflow-hidden ${resourceClass}`}>
             <div class="flex items-center p-4">
               {#if true}
-                {@const ResourceIcon = getResourceTypeIcon(resource.type)}
-                <ResourceIcon class="h-5 w-5 text-gray-500 mr-3" />
+                {@const resourceIcon = getResourceTypeIcon(resource.type)}
+                <BaseIcon name={resourceIcon} class="h-5 w-5 text-gray-500 mr-3" />
               {/if}
               
               <div class="flex-1 min-w-0">
@@ -281,7 +290,7 @@
                     class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
                     onclick={() => onResourceOptimize && onResourceOptimize(resource.id)}
                   >
-                    <Zap class="h-4 w-4 mr-1" />
+                    <BaseIcon name={Zap} class="h-4 w-4 mr-1" />
                     Optimize
                   </button>
                   
@@ -291,7 +300,7 @@
                       class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
                       onclick={() => onResourceOptimize && onResourceOptimize(resource.id)}
                     >
-                      <Image class="h-4 w-4 mr-1" />
+                      <BaseIcon name={Image} class="h-4 w-4 mr-1" />
                       Compress Image
                     </button>
                   {/if}
@@ -312,7 +321,7 @@
             class="inline-flex items-center px-3 py-1.5 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             onclick={applySelectedOptimizations}
           >
-            <Settings class="h-4 w-4 mr-1" />
+            <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
             Apply Selected
           </button>
         </div>
@@ -360,7 +369,7 @@
         {suggestions.length} optimization{ suggestions.length !== 1 ? 's' : ''} available
       </div>
       <div class="flex items-center">
-        <Zap class="h-4 w-4 text-yellow-500 mr-1" />
+        <BaseIcon name={Zap} class="h-4 w-4 text-yellow-500 mr-1" />
         <span class="text-sm font-medium text-gray-900">
           Potential savings: {formatBytes(optimizationPotential)} ({savingsPercent.toFixed(1)}%)
         </span>

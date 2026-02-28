@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { createEventDispatcher } from 'svelte';
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Clock } from 'lucide-svelte';
+
+  const Clock = 'clock';
 
   type Props = {
     value?: string;
@@ -118,7 +120,7 @@
       onclick={toggleDropdown}
       disabled={disabled}
     >
-      <Clock class="w-4 h-4 text-gray-500" />
+      <BaseIcon name={Clock} class="w-4 h-4 text-gray-500" />
     </button>
   </div>
 
@@ -159,3 +161,4 @@
     </div>
   {/if}
 </div>
+

@@ -15,192 +15,154 @@
  * }
  */
 
-import {
-  MESSAGE_BASE_CLASSES,
-  MESSAGE_BUBBLE_BASE_CLASSES,
-  MESSAGE_ALIGNMENT_CLASSES,
-  MESSAGE_VARIANT_BG_CLASSES,
-  MESSAGE_VARIANT_TEXT_CLASSES,
-  MESSAGE_AUTHOR_CLASSES,
-  MESSAGE_CONTENT_CLASSES,
-  MESSAGE_META_CLASSES,
-  MESSAGE_TIMESTAMP_CLASSES,
-  MESSAGE_STATUS_CLASSES,
-  MESSAGE_AVATAR_CONTAINER_CLASSES,
-  MESSAGE_AVATAR_SIZE_CLASSES,
-  MESSAGE_ACTIONS_CLASSES,
-  MESSAGE_ACTION_BUTTON_CLASSES,
-  MESSAGE_REACTION_BUTTON_CLASSES,
-  MESSAGE_LIST_CONTAINER_CLASSES,
-  MESSAGE_LIST_ITEM_CLASSES,
-  MESSAGE_LIST_DATE_SEPARATOR_CLASSES,
-  MESSAGE_LIST_DATE_SEPARATOR_LINE_CLASSES,
-  MESSAGE_COMPOSER_CONTAINER_CLASSES,
-  MESSAGE_COMPOSER_INPUT_CONTAINER_CLASSES,
-  MESSAGE_COMPOSER_INPUT_CLASSES,
-  MESSAGE_COMPOSER_BUTTON_CLASSES,
-  getMessageVariantBgClasses,
-  getMessageVariantTextClasses,
-  getMessageStatusClasses,
-  getMessageAvatarSizeClasses
-} from '$stylist/design-system/classes/information/messages';
+const MESSAGE_ALIGNMENT_CLASSES = {
+	left: 'items-start',
+	right: 'items-end',
+	center: 'items-center'
+} as const;
+
+const MESSAGE_VARIANT_BG_CLASSES = {
+	default: 'bg-white border-[--color-border-secondary]',
+	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
+	incoming: 'bg-white border-[--color-border-secondary]',
+	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]',
+	error: 'bg-[--color-danger-50] border-[--color-danger-200]',
+	warning: 'bg-[--color-warning-50] border-[--color-warning-200]',
+	success: 'bg-[--color-success-50] border-[--color-success-200]'
+} as const;
+
+const MESSAGE_VARIANT_TEXT_CLASSES = {
+	default: 'text-[--color-text-primary]',
+	system: 'text-[--color-text-secondary]',
+	incoming: 'text-[--color-text-primary]',
+	outgoing: 'text-[--color-text-inverse]',
+	error: 'text-[--color-danger-800]',
+	warning: 'text-[--color-warning-800]',
+	success: 'text-[--color-success-800]'
+} as const;
+
+const MESSAGE_STATUS_CLASSES = {
+	sent: 'text-[--color-primary-500]',
+	delivered: 'text-[--color-text-tertiary]',
+	read: 'text-[--color-success-500]',
+	error: 'text-[--color-danger-500]'
+} as const;
+
+const MESSAGE_AVATAR_SIZE_CLASSES = {
+	sm: 'w-6 h-6',
+	md: 'w-8 h-8',
+	lg: 'w-10 h-10'
+} as const;
 
 type MessageAlignment = keyof typeof MESSAGE_ALIGNMENT_CLASSES;
 type MessageVariant = keyof typeof MESSAGE_VARIANT_BG_CLASSES;
 type MessageStatus = keyof typeof MESSAGE_STATUS_CLASSES;
 type MessageAvatarSize = keyof typeof MESSAGE_AVATAR_SIZE_CLASSES;
 
+function getMessageVariantBgClasses(variant: MessageVariant): string {
+	return MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
+}
+
+function getMessageVariantTextClasses(variant: keyof typeof MESSAGE_VARIANT_TEXT_CLASSES): string {
+	return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+}
+
+function getMessageStatusClasses(status: MessageStatus): string {
+	return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
+}
+
+function getMessageAvatarSizeClasses(size: MessageAvatarSize): string {
+	return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
+}
+
 export class MessageStyleManager {
-  /**
-   * Get message container classes with alignment
-   */
-  static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
-    const alignmentClass = MESSAGE_ALIGNMENT_CLASSES[align];
-    return `${MESSAGE_BASE_CLASSES} ${alignmentClass} ${className || ''}`.trim();
-  }
+	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
+		const alignmentClass = MESSAGE_ALIGNMENT_CLASSES[align];
+		return `${'flex items-start gap-3'} ${alignmentClass} ${className || ''}`.trim();
+	}
 
-  /**
-   * Get message bubble classes with variant
-   */
-  static getMessageBubbleClasses(variant: MessageVariant = 'default', className?: string): string {
-    const bgClass = getMessageVariantBgClasses(variant);
-    return `${MESSAGE_BUBBLE_BASE_CLASSES} ${bgClass} ${className || ''}`.trim();
-  }
+	static getMessageBubbleClasses(variant: MessageVariant = 'default', className?: string): string {
+		const bgClass = getMessageVariantBgClasses(variant);
+		return `${'rounded-lg p-4 max-w-[75%] shadow-sm border'} ${bgClass} ${className || ''}`.trim();
+	}
 
-  /**
-   * Get message text color classes based on variant
-   */
-  static getMessageTextClasses(variant: MessageVariant = 'default'): string {
-    return getMessageVariantTextClasses(variant);
-  }
+	static getMessageTextClasses(variant: MessageVariant = 'default'): string {
+		return getMessageVariantTextClasses(variant);
+	}
 
-  /**
-   * Get author classes
-   */
-  static getAuthorClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-    const textClass = getMessageVariantTextClasses(variant);
-    return `${MESSAGE_AUTHOR_CLASSES} ${textClass}`;
-  }
+	static getAuthorClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
+		const textClass = getMessageVariantTextClasses(variant);
+		return `${'text-sm font-semibold mb-1'} ${textClass}`;
+	}
 
-  /**
-   * Get content classes
-   */
-  static getContentClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-    const textClass = getMessageVariantTextClasses(variant);
-    return `${MESSAGE_CONTENT_CLASSES} ${textClass}`;
-  }
+	static getContentClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
+		const textClass = getMessageVariantTextClasses(variant);
+		return `${'text-[--color-text-primary] word-wrap-break-word whitespace-pre-wrap'} ${textClass}`;
+	}
 
-  /**
-   * Get meta classes
-   */
-  static getMetaClasses(): string {
-    return MESSAGE_META_CLASSES;
-  }
+	static getMetaClasses(): string {
+		return 'flex items-center gap-2 mt-2 text-xs';
+	}
 
-  /**
-   * Get timestamp classes
-   */
-  static getTimestampClasses(): string {
-    return MESSAGE_TIMESTAMP_CLASSES;
-  }
+	static getTimestampClasses(): string {
+		return 'text-[--color-text-secondary]';
+	}
 
-  /**
-   * Get status classes
-   */
-  static getStatusClasses(status: MessageStatus = 'delivered'): string {
-    return getMessageStatusClasses(status);
-  }
+	static getStatusClasses(status: MessageStatus = 'delivered'): string {
+		return getMessageStatusClasses(status);
+	}
 
-  /**
-   * Get avatar container classes
-   */
-  static getAvatarContainerClasses(align: MessageAlignment = 'left'): string {
-    return MESSAGE_AVATAR_CONTAINER_CLASSES;
-  }
+	static getAvatarContainerClasses(align: MessageAlignment = 'left'): string {
+		return 'flex-shrink-0';
+	}
 
-  /**
-   * Get avatar size classes
-   */
-  static getAvatarSizeClasses(size: MessageAvatarSize = 'md'): string {
-    return getMessageAvatarSizeClasses(size);
-  }
+	static getAvatarSizeClasses(size: MessageAvatarSize = 'md'): string {
+		return getMessageAvatarSizeClasses(size);
+	}
 
-  /**
-   * Get actions classes
-   */
-  static getActionsClasses(): string {
-    return MESSAGE_ACTIONS_CLASSES;
-  }
+	static getActionsClasses(): string {
+		return 'flex items-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity';
+	}
 
-  /**
-   * Get action button classes
-   */
-  static getActionButtonClasses(): string {
-    return MESSAGE_ACTION_BUTTON_CLASSES;
-  }
+	static getActionButtonClasses(): string {
+		return 'p-1 rounded hover:bg-[--color-background-secondary] transition-colors';
+	}
 
-  /**
-   * Get reaction button classes
-   */
-  static getReactionButtonClasses(): string {
-    return MESSAGE_REACTION_BUTTON_CLASSES;
-  }
+	static getReactionButtonClasses(): string {
+		return 'text-lg p-1 rounded hover:bg-[--color-background-secondary]';
+	}
 
-  /**
-   * Get message list container classes
-   */
-  static getMessageListContainerClasses(className?: string): string {
-    return `${MESSAGE_LIST_CONTAINER_CLASSES} ${className || ''}`.trim();
-  }
+	static getMessageListContainerClasses(className?: string): string {
+		return `${'flex flex-col gap-4 p-4 overflow-y-auto'} ${className || ''}`.trim();
+	}
 
-  /**
-   * Get message list item classes
-   */
-  static getMessageListItemClasses(): string {
-    return MESSAGE_LIST_ITEM_CLASSES;
-  }
+	static getMessageListItemClasses(): string {
+		return 'flex gap-3';
+	}
 
-  /**
-   * Get date separator classes
-   */
-  static getDateSeparatorClasses(): string {
-    return MESSAGE_LIST_DATE_SEPARATOR_CLASSES;
-  }
+	static getDateSeparatorClasses(): string {
+		return 'flex items-center gap-4 my-4 text-xs text-[--color-text-secondary]';
+	}
 
-  /**
-   * Get date separator line classes
-   */
-  static getDateSeparatorLineClasses(): string {
-    return MESSAGE_LIST_DATE_SEPARATOR_LINE_CLASSES;
-  }
+	static getDateSeparatorLineClasses(): string {
+		return 'flex-1 h-px bg-[--color-border-secondary]';
+	}
 
-  /**
-   * Get message composer container classes
-   */
-  static getMessageComposerContainerClasses(className?: string): string {
-    return `${MESSAGE_COMPOSER_CONTAINER_CLASSES} ${className || ''}`.trim();
-  }
+	static getMessageComposerContainerClasses(className?: string): string {
+		return `${'flex items-end gap-2 p-4 border-t border-[--color-border-secondary] bg-[--color-background-primary]'} ${className || ''}`.trim();
+	}
 
-  /**
-   * Get message composer input container classes
-   */
-  static getMessageComposerInputContainerClasses(): string {
-    return MESSAGE_COMPOSER_INPUT_CONTAINER_CLASSES;
-  }
+	static getMessageComposerInputContainerClasses(): string {
+		return 'flex-1 flex items-center gap-2 border border-[--color-border-secondary] rounded-lg px-3 py-2 bg-[--color-background-primary]';
+	}
 
-  /**
-   * Get message composer input classes
-   */
-  static getMessageComposerInputClasses(className?: string): string {
-    return `${MESSAGE_COMPOSER_INPUT_CLASSES} ${className || ''}`.trim();
-  }
+	static getMessageComposerInputClasses(className?: string): string {
+		return `${'flex-1 resize-none border-none outline-none bg-transparent text-[--color-text-primary] placeholder-[--color-text-secondary]'} ${className || ''}`.trim();
+	}
 
-  /**
-   * Get message composer button classes
-   */
-  static getMessageComposerButtonClasses(): string {
-    return MESSAGE_COMPOSER_BUTTON_CLASSES;
-  }
+	static getMessageComposerButtonClasses(): string {
+		return 'p-2 rounded-md hover:bg-[--color-background-secondary] transition-colors';
+	}
 }
 
 export default MessageStyleManager;

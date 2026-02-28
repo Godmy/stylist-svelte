@@ -1,6 +1,19 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Heart, ThumbsUp, ThumbsDown, Laugh, Smile, Angry, Frown, Eye, Bookmark, Share2, HandHeart, Sparkles } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Heart = 'heart';
+const ThumbsUp = 'thumbs-up';
+const ThumbsDown = 'thumbs-down';
+const Laugh = 'laugh';
+const Smile = 'smile';
+const Angry = 'angry';
+const Frown = 'frown';
+const Eye = 'eye';
+const Bookmark = 'bookmark';
+const Share2 = 'share-2';
+const HandHeart = 'hand-heart';
+const Sparkles = 'sparkles';
+
 
   type ReactionType = 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view';
 
@@ -183,7 +196,8 @@
       {@const FirstActiveIcon = getReactionIcon(firstActive?.type || 'like')}
       <FirstActiveIcon class={`h-5 w-5 ${firstActive ? 'fill-current' : ''}`} />
     {:else}
-      <Smile class="h-5 w-5" />
+      <BaseIcon name={Smile} class="h-5 w-5" />
     {/if}
   </button>
 </div>
+

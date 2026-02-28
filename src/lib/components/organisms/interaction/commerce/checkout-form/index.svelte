@@ -1,6 +1,22 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { CreditCard, MapPin, User, Mail, Phone, Lock, Package, Truck, Wallet, Building2, Home, Landmark, Globe, Check, CheckCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const CreditCard = 'credit-card';
+const MapPin = 'map-pin';
+const User = 'user';
+const Mail = 'mail';
+const Phone = 'phone';
+const Lock = 'lock';
+const Package = 'package';
+const Truck = 'truck';
+const Wallet = 'wallet';
+const Building2 = 'building-2';
+const Home = 'home';
+const Landmark = 'landmark';
+const Globe = 'globe';
+const Check = 'check';
+const CheckCircle = 'check-circle';
+
   import { Button } from '$stylist/components/atoms';
   import { cn } from '$stylist/utils';
 
@@ -338,7 +354,7 @@
                 'bg-gray-200 text-gray-500'
               }`}>
                 {#if getStepStatus(step) === 'complete'}
-                  <Check class="h-4 w-4" />
+                  <BaseIcon name={Check} class="h-4 w-4" />
                 {:else if getStepStatus(step) === 'current'}
                   {i + 1}
                 {:else}
@@ -369,7 +385,7 @@
       {#if currentStep === 'information'}
         <div class="bg-white shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
-            <User class="h-5 w-5 mr-2" />
+            <BaseIcon name={User} class="h-5 w-5 mr-2" />
             Contact Information
           </h2>
 
@@ -437,7 +453,7 @@
 
           <div class="mt-8">
             <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-              <MapPin class="h-5 w-5 mr-2" />
+              <BaseIcon name={MapPin} class="h-5 w-5 mr-2" />
               Shipping Address
             </h3>
 
@@ -563,7 +579,7 @@
       {#if currentStep === 'shipping'}
         <div class="bg-white shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
-            <Truck class="h-5 w-5 mr-2" />
+            <BaseIcon name={Truck} class="h-5 w-5 mr-2" />
             Shipping Method
           </h2>
 
@@ -603,7 +619,7 @@
       {#if currentStep === 'payment'}
         <div class="bg-white shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
-            <CreditCard class="h-5 w-5 mr-2" />
+            <BaseIcon name={CreditCard} class="h-5 w-5 mr-2" />
             Payment Method
           </h2>
 
@@ -735,7 +751,7 @@
       {#if currentStep === 'review'}
         <div class="bg-white shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
-            <Package class="h-5 w-5 mr-2" />
+            <BaseIcon name={Package} class="h-5 w-5 mr-2" />
             Review Your Order
           </h2>
 
@@ -784,7 +800,7 @@
         <div class="bg-white shadow rounded-lg p-6">
           <div class="text-center">
             <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-              <CheckCircle class="h-6 w-6 text-green-600" />
+              <BaseIcon name={CheckCircle} class="h-6 w-6 text-green-600" />
             </div>
             <h2 class="mt-4 text-lg font-medium text-gray-900">Thank you for your order!</h2>
             <p class="mt-2 text-gray-600">
@@ -809,7 +825,7 @@
             variant="ghost"
             onclick={goToPreviousStep}
           >
-            ← Return to {getPreviousStepTitle(currentStep)}
+            в†ђ Return to {getPreviousStepTitle(currentStep)}
           </Button>
         {/if}
 
@@ -819,9 +835,9 @@
             class="w-full sm:w-auto"
             onclick={goToNextStep}
           >
-            {currentStep === 'review' ? 'Place Order →' :
-             currentStep === 'confirmation' ? 'Continue Shopping →' :
-             `Continue to ${getNextStepTitle(currentStep)} →`}
+            {currentStep === 'review' ? 'Place Order в†’' :
+             currentStep === 'confirmation' ? 'Continue Shopping в†’' :
+             `Continue to ${getNextStepTitle(currentStep)} в†’`}
           </Button>
         </div>
       </div>
@@ -909,3 +925,4 @@
     </div>
   </div>
 </div>
+

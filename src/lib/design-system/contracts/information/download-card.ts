@@ -1,9 +1,9 @@
 /**
  * Типы и интерфейсы для компонента DownloadCard
- * 
+ *
  * DownloadCard - компонент для отображения карточки файла с возможностью скачивания
  * Следует принципам SOLID:
- * 
+ *
  * Single Responsibility: Компонент отвечает только за отображение карточки файла и действия скачивания
  * Open/Closed: Легко расширяется через пропсы
  * Liskov Substitution: Может быть заменен другим компонентом файл-менеджмента
@@ -11,7 +11,9 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-export type DownloadCardVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
+
+export type DownloadCardVariant = SemanticVariant;
 
 export interface IFileMetadata {
   /** Имя файла */

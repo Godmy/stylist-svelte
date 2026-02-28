@@ -1,19 +1,19 @@
 export class OperationsHistoryStyleManager {
   static getBaseClasses(additionalClass: string = ''): string {
-    return `c-operations-history operations-history border border-[--color-gray-300] rounded-md dark:border-[--color-gray-600] bg-white dark:bg-[--color-gray-800] overflow-hidden ${additionalClass}`.trim();
+    return `c-operations-history operations-history border border-[--color-border-secondary] rounded-md bg-[--color-background-primary] overflow-hidden ${additionalClass}`.trim();
   }
 
   static getToolbarClasses(): string {
-    return 'toolbar bg-[--color-gray-100] dark:bg-[--color-gray-700] border-b border-[--color-gray-200] dark:border-[--color-gray-600] p-2 flex items-center justify-between';
+    return 'toolbar bg-[--color-background-secondary] border-b border-[--color-border-secondary] p-2 flex items-center justify-between';
   }
 
   static getSearchInputClasses(): string {
-    return 'px-2 py-1 text-xs border border-[--color-gray-300] rounded-sm focus:outline-none focus:ring-1 focus:ring-[--color-indigo-500] dark:bg-[--color-gray-600] dark:border-[--color-gray-500] dark:text-white';
+    return 'px-2 py-1 text-xs border border-[--color-border-secondary] rounded-sm focus:outline-none focus:ring-1 focus:ring-[--color-primary-500] bg-[--color-background-secondary] text-[--color-text-primary]';
   }
 
   static getOperationItemClasses(isSelected: boolean): string {
-    const baseClasses = 'p-3 hover:bg-[--color-gray-50] dark:hover:bg-[--color-gray-750] cursor-pointer transition-colors w-full text-left border border-transparent rounded hover:shadow-sm';
-    const selectedClasses = isSelected ? 'bg-[--color-indigo-50] dark:bg-[--color-indigo-900]/30 border-[--color-indigo-200] dark:border-[--color-indigo-700]' : '';
+    const baseClasses = 'p-3 hover:bg-[--color-background-hover] cursor-pointer transition-colors w-full text-left border border-transparent rounded hover:shadow-sm';
+    const selectedClasses = isSelected ? 'bg-[--color-primary-50] border-[--color-primary-200]' : '';
     return `${baseClasses} ${selectedClasses}`.trim();
   }
 

@@ -4,6 +4,7 @@
  */
 
 import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Варианты статуса KPI индикатора
@@ -18,7 +19,6 @@ export type KPITrend = 'up' | 'down' | 'neutral';
 /**
  * Варианты размера KPI индикатора
  */
-export type KPIIndicatorSize = 'sm' | 'md' | 'lg';
 
 /**
  * Пропсы для компонента KPIIndicator
@@ -70,7 +70,7 @@ export interface IKPIIndicatorProps extends HTMLAttributes<HTMLDivElement> {
    * Размер компонента
    * @default 'md'
    */
-  size?: KPIIndicatorSize;
+  size?: ComponentSize;
   
   /**
    * Дополнительные CSS-классы для контейнера

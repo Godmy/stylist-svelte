@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { ComponentType, Snippet } from 'svelte';
-  import { IconMenu, IconX } from '$stylist/components/atoms';
+  import { Icon } from '$stylist/components/atoms';
   import { SidebarStyleManager } from '$stylist/design-system/styles';
   import type { SidebarProps, NavItem } from '$stylist/design-system/contracts';
 
@@ -66,6 +66,7 @@
   const mobileButtonClass = $derived(SidebarStyleManager.getMobileButtonClasses());
   const overlayClass = $derived(SidebarStyleManager.getOverlayClasses());
   const sidebarClass = $derived(SidebarStyleManager.getSidebarClasses(isMobile, isSidebarOpen, width, mobileWidth));
+  const sidebarStyle = $derived(SidebarStyleManager.getSidebarStyle(isMobile, isSidebarOpen, width, mobileWidth));
   const sidebarContainerClass = $derived(SidebarStyleManager.getSidebarContainerClasses());
   const headerClass = $derived(SidebarStyleManager.getHeaderClasses(logoClass));
   const logoWrapperClass = $derived(SidebarStyleManager.getLogoWrapperClasses());
@@ -92,9 +93,9 @@
       aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
     >
       {#if isSidebarOpen}
-        <IconX size="lg" />
+        <Icon name="x" size="lg" />
       {:else}
-        <IconMenu size="lg" />
+        <Icon name="menu" size="lg" />
       {/if}
     </button>
   {/if}
@@ -119,6 +120,7 @@
   <!-- Sidebar -->
   <aside
     class={sidebarClass}
+    style={sidebarStyle}
     aria-label="Sidebar navigation"
   >
     <div class={sidebarContainerClass}>
@@ -186,5 +188,6 @@
     <!-- Actual content would go here -->
   </div>
 </div>
+
 
 

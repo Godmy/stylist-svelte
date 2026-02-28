@@ -1,12 +1,15 @@
 <script lang="ts">
-	import { Copy, Check } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Copy = 'copy';
+const Check = 'check';
+
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/copy-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+import { createCopyButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	let props: CopyButtonProps & HTMLButtonAttributes = $props();
 
@@ -26,8 +29,8 @@
 	} = props;
 
 	// Use centralized state management for base button properties
-	let buttonState = createState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+	let buttonState = createCopyButtonState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'outline',
 			size: 'sm'
 		}),
@@ -70,13 +73,17 @@
 >
 	{#if props.showIcon}
 		{#if copied}
-			<Check class={iconClasses} aria-hidden="true" />
+			<BaseIcon name={Check} class={iconClasses} aria-hidden="true" />
 		{:else}
-			<Copy class={iconClasses} aria-hidden="true" />
+			<BaseIcon name={Copy} class={iconClasses} aria-hidden="true" />
 		{/if}
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
+
+
+
+
 
 
 

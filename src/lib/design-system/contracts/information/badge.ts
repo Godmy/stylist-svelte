@@ -1,20 +1,23 @@
 ﻿import type { Snippet } from 'svelte';
 
-import type { BadgeType } from '../../tokens/information/badge';
-import type { BadgeVariant, CodeBlockSize, CodeBlockVariant } from '../../tokens';
-import type { CommonSize, NeutralVariant, SemanticVariant } from '../../tokens/architecture/variants';
+import type { BadgeType } from '$stylist/design-system/tokens/information/badge';
+import type { Code as CodeToken } from '$stylist/design-system/tokens/architecture/code';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/default-variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
+export type Code = CodeToken;
+
 export interface BadgeProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
-	variant?: BadgeVariant;
-	size?: CommonSize;
+	variant?: DefaultVariants;
+	size?: ComponentSize;
 }
 
 export interface BadgeGroupItem {
 	id: string;
 	label: string;
-	variant?: BadgeVariant;
-	size?: CommonSize;
+	variant?: DefaultVariants;
+	size?: ComponentSize;
 	disabled?: boolean;
 	onClick?: () => void;
 }
@@ -27,22 +30,18 @@ export interface BadgeGroupProps extends HtmlAttributesBase<HTMLDivElement> {
 	overflowClass?: string;
 }
 
-export interface CodeBlockProps extends HtmlAttributesWithChildren<HTMLElement> {
+export interface CodeProps extends HtmlAttributesWithChildren<HTMLElement> {
 	language?: string;
-	variant?: CodeBlockVariant;
-	size?: CodeBlockSize;
+	variant?: Code;
+	size?: ComponentSize;
 	showLineNumbers?: boolean;
 	startLineNumber?: number;
 }
 
-export type BaseTagVariant = SemanticVariant | NeutralVariant;
-
-export type BaseTagSize = CommonSize;
-
 export interface BaseTagProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
-	variant?: BaseTagVariant;
-	size?: BaseTagSize;
+	variant?: DefaultVariants | NeutralVariant;
+	size?: ComponentSize;
 	closable?: boolean;
 	disabled?: boolean;
 }
@@ -66,3 +65,9 @@ export interface NpmBadgeProps {
 	value?: string;
 	link?: string;
 }
+
+
+
+
+
+

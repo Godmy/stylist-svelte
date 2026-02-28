@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { GripVertical } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const GripVertical = 'grip-vertical';
+
   import { SortableGridStyleManager } from '$stylist/design-system/styles';
   import type { SortableGridProps, SortableGridItem, GridItem } from '$stylist/design-system/contracts';
 
@@ -41,9 +43,12 @@
   }[cols] || 'grid-cols-3');
 
   let gapClass = $derived({
+    'xs': 'gap-1',
     'sm': 'gap-2',
     'md': 'gap-4',
-    'lg': 'gap-6'
+    'lg': 'gap-6',
+    'xl': 'gap-8',
+    '2xl': 'gap-10'
   }[gap] || 'gap-4');
 
   function handleDragStart(e: DragEvent, item: GridItem, index: number) {
@@ -135,7 +140,7 @@
         aria-label={`Grid item ${(item as SortableGridItem).title}`}
       >
         <div class={itemContentClass}>
-          <GripVertical class={gripIconClass} />
+          <BaseIcon name={GripVertical} class={gripIconClass} />
           <div class="flex-1 min-w-0">
             <h3 class={itemTitleClass}>{(item as SortableGridItem).title}</h3>
             {#if (item as SortableGridItem).content}
@@ -152,3 +157,4 @@
     {/each}
   </div>
 </div>
+

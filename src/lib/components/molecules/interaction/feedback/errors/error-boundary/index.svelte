@@ -1,8 +1,10 @@
 <script lang="ts">
   import type { IErrorBoundaryProps } from '$stylist/design-system/contracts/interaction/error-boundary';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { ErrorBoundaryStyleManager } from '$stylist/design-system/styles/interaction/error-boundary';
-  import { AlertTriangle, RotateCcw } from 'lucide-svelte';
-  import { Button } from '$stylist/components/atoms';
+
+  const AlertTriangle = 'alert-triangle';
+  const RotateCcw = 'rotate-ccw';
 
   /**
    * @component ErrorBoundary
@@ -55,7 +57,7 @@
       <div class={themedClasses} {...restProps}>
         <div class={contentClasses}>
           <div class="flex-shrink-0">
-            <AlertTriangle class={iconClasses} />
+            <BaseIcon name={AlertTriangle} class={iconClasses} />
           </div>
           <div class="ml-4">
             <h3 class={headerClasses}>{title}</h3>
@@ -77,7 +79,7 @@
                 onclick={() => handleReset(reset)}
                 class="flex items-center"
               >
-                <RotateCcw class="w-4 h-4 mr-2" />
+                <BaseIcon name={RotateCcw} class="w-4 h-4 mr-2" />
                 Try again
               </Button>
             </div>
@@ -87,3 +89,4 @@
     {/if}
   {/snippet}
 </svelte:boundary>
+

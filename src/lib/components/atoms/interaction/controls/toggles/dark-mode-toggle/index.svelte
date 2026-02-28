@@ -1,10 +1,22 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { DarkModeToggleProps } from '$stylist/design-system/contracts';
-	import { createDarkModeToggleState } from '$stylist/design-system/models/interaction/dark-mode-toggle.svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Sun = 'sun';
+const Moon = 'moon';
+const Laptop = 'laptop';
 
-	type Props = DarkModeToggleProps & HTMLAttributes<HTMLButtonElement>;
+	import type { DarkModeToggleProps } from '$stylist/design-system/contracts';
+
+	type ThemeMode = 'light' | 'dark' | 'system';
+	type Props = DarkModeToggleProps &
+		HTMLAttributes<HTMLButtonElement> & {
+			currentTheme?: ThemeMode;
+			showLabels?: boolean;
+			onThemeChange?: (theme: ThemeMode) => void;
+		};
+
 	let props: Props = $props();
+
 	const restProps = $derived(
 		(() => {
 			const {
@@ -14,46 +26,106 @@
 				checked: _checked,
 				darkMode: _darkMode,
 				onToggle: _onToggle,
+				currentTheme: _currentTheme,
+				showLabels: _showLabels,
+				onThemeChange: _onThemeChange,
 				...rest
 			} = props;
 			return rest;
 		})()
 	);
 
-	const darkModeState = createDarkModeToggleState(props);
+	function resolveInitialTheme(): ThemeMode {
+		if (props.currentTheme) return props.currentTheme;
+		if (typeof props.darkMode === 'boolean') return props.darkMode ? 'dark' : 'light';
+		return 'system';
+	}
 
-	let localDarkMode = $state(darkModeState.darkMode);
+	let theme = $state<ThemeMode>(resolveInitialTheme());
 
 	$effect(() => {
-		localDarkMode = darkModeState.darkMode;
+		if (props.currentTheme) {
+			theme = props.currentTheme;
+		} else if (typeof props.darkMode === 'boolean') {
+			theme = props.darkMode ? 'dark' : 'light';
+		}
 	});
 
-	function toggleDarkMode() {
-		if (!darkModeState.disabled) {
-			localDarkMode = !localDarkMode;
-			props.onToggle?.({ darkMode: localDarkMode });
+	function applyTheme(newTheme: ThemeMode) {
+		const prefersDark =
+			typeof window !== 'undefined' &&
+			window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const effectiveTheme = newTheme === 'system' ? (prefersDark ? 'dark' : 'light') : newTheme;
+
+		if (typeof document !== 'undefined') {
+			document.documentElement.classList.remove('light', 'dark');
+			document.documentElement.classList.add(effectiveTheme);
+		}
+		return effectiveTheme;
+	}
+
+	function setTheme(newTheme: ThemeMode) {
+		theme = newTheme;
+		props.onThemeChange?.(newTheme);
+		const effectiveTheme = applyTheme(newTheme);
+		props.onToggle?.({ darkMode: effectiveTheme === 'dark' });
+
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem('theme-mode', newTheme);
 		}
 	}
 
+	function cycleTheme() {
+		if (props.disabled) return;
+		const modes: ThemeMode[] = ['light', 'dark', 'system'];
+		const currentIndex = modes.indexOf(theme);
+		const nextIndex = (currentIndex + 1) % modes.length;
+		setTheme(modes[nextIndex]);
+	}
+
+	const iconName = $derived(theme === 'light' ? Sun : theme === 'dark' ? Moon : Laptop);
+	const label = $derived(theme === 'light' ? 'Light' : theme === 'dark' ? 'Dark' : 'System');
+
 	$effect(() => {
-		if (typeof window !== 'undefined') {
-			if (localDarkMode) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-		}
+		applyTheme(theme);
 	});
 </script>
 
 <button
-	class={darkModeState.classes}
-	onclick={toggleDarkMode}
-	aria-label={localDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+	type="button"
+	class={`c-dark-mode-toggle ${props.class ?? ''}`}
+	onclick={cycleTheme}
+	aria-label={`Theme mode: ${label}. Click to switch`}
+	disabled={props.disabled}
 	{...restProps}
 >
-	{localDarkMode ? 'Moon' : 'Sun'}
+	<BaseIcon name={iconName} size={16} />
 </button>
+
+<style>
+	.c-dark-mode-toggle {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.45rem 0.7rem;
+		border-radius: 0.6rem;
+		border: 1px solid var(--line, #d8deea);
+		background: var(--surface, #fff);
+		color: var(--text, #171923);
+		cursor: pointer;
+		transition: background-color 120ms ease, border-color 120ms ease;
+	}
+
+	.c-dark-mode-toggle:hover:not(:disabled) {
+		background: color-mix(in srgb, var(--surface, #fff) 88%, var(--accent, #3253d4) 12%);
+	}
+
+	.c-dark-mode-toggle:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+</style>
+
 
 
 

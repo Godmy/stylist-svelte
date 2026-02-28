@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   /**
    * @component ProcessStep
    * @description Process step for timeline
@@ -15,7 +15,6 @@
 
   import type { IProcessStepProps } from '$stylist/design-system/contracts/architecture/process-step';
   import { ProcessStepStyleManager } from '$stylist/design-system/styles/architecture/process-step';
-  import IconCircle from '$stylist/components/atoms/information/media/icon-circle/index.svelte';
 
   // Define component props using the interface
   let {
@@ -51,3 +50,4 @@
     <p class={descriptionClasses}>{description}</p>
   </div>
 </div>
+

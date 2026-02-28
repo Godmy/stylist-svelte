@@ -1,24 +1,24 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	type Props = {
-		/** Уникальный ID для switch */
+		/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ ID РґР»СЏ switch */
 		id?: string;
-		/** Лейбл переключателя */
+		/** Р›РµР№Р±Р» РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
 		label?: string;
-		/** Описание переключателя */
+		/** РћРїРёСЃР°РЅРёРµ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
 		description?: string;
-		/** Размер переключателя */
-		size?: CompactSize;
-		/** Отключен ли переключатель */
+		/** Р Р°Р·РјРµСЂ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
+		size?: ComponentSize;
+		/** РћС‚РєР»СЋС‡РµРЅ Р»Рё РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ */
 		disabled?: boolean;
-		/** Состояние checked (поддерживает two-way binding) */
+		/** РЎРѕСЃС‚РѕСЏРЅРёРµ checked (РїРѕРґРґРµСЂР¶РёРІР°РµС‚ two-way binding) */
 		checked?: boolean;
-		/** Обязательное ли поле */
+		/** РћР±СЏР·Р°С‚РµР»СЊРЅРѕРµ Р»Рё РїРѕР»Рµ */
 		required?: boolean;
-		/** Дополнительные CSS классы */
+		/** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ CSS РєР»Р°СЃСЃС‹ */
 		class?: string;
 		/** Aria label */
 		ariaLabel?: string;
@@ -91,3 +91,5 @@
 		</span>
 	{/if}
 </label>
+
+

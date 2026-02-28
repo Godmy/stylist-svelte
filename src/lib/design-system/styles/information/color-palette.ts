@@ -38,7 +38,7 @@ export const createColorPaletteStyles = <TOptions extends { columns: number }>(
     ].join(' '),
     
     header: [
-      'text-lg font-medium text-gray-900 mb-4',
+      'mb-4 text-lg font-medium text-[var(--color-text-primary)]',
       baseClasses?.header || ''
     ].join(' '),
     
@@ -48,22 +48,22 @@ export const createColorPaletteStyles = <TOptions extends { columns: number }>(
     ].join(' '),
     
     item: [
-      'flex flex-col items-center cursor-pointer rounded-lg p-3 transition-shadow hover:shadow-md',
+      'flex cursor-pointer flex-col items-center rounded-lg border border-transparent p-3 transition-[box-shadow,border-color] hover:border-[var(--color-border-primary)] hover:shadow-md',
       baseClasses?.item || ''
     ].join(' '),
     
     colorSwatch: [
-      'w-full h-12 rounded-md mb-2 border border-gray-200',
+      'mb-2 h-12 w-full rounded-md border border-[var(--color-border-primary)]',
       baseClasses?.colorSwatch || ''
     ].join(' '),
     
     label: [
-      'text-xs font-medium text-gray-700 truncate w-full text-center',
+      'w-full truncate text-center text-xs font-medium text-[var(--color-text-secondary)]',
       baseClasses?.label || ''
     ].join(' '),
     
     value: [
-      'text-xs text-gray-500 font-mono truncate w-full text-center',
+      'w-full truncate text-center font-mono text-xs text-[var(--color-text-tertiary)]',
       baseClasses?.value || ''
     ].join(' ')
   };

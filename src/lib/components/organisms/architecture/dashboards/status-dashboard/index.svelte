@@ -1,7 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { CheckCircle, AlertCircle, XCircle, Clock, MoreHorizontal } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const CheckCircle = 'check-circle';
+const AlertCircle = 'alert-circle';
+const XCircle = 'x-circle';
+const Clock = 'clock';
+const MoreHorizontal = 'more-horizontal';
+
   import { StatusDashboardStyleManager } from '$stylist/design-system/styles';
   import type { StatusDashboardProps, StatusItem } from '$stylist/design-system/contracts';
 
@@ -70,7 +76,7 @@
       <div class={itemCardClass + ' ' + statusInfo.border}>
         <div class={itemContentClass}>
           <div class={statusIconWrapperClass + ' ' + statusInfo.bg}>
-            <statusInfo.icon class={statusIconClass + ' ' + statusInfo.color} />
+            <BaseIcon name={statusInfo.icon} class={statusIconClass + ' ' + statusInfo.color} />
           </div>
           <div class="ml-3 flex-1">
             <div class={itemHeaderClass}>
@@ -99,3 +105,4 @@
     {/each}
   </div>
 </div>
+

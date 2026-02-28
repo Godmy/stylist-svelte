@@ -1,22 +1,21 @@
-﻿import type { Snippet } from 'svelte';
-import type {
-	HTMLAttributes,
-	HTMLBlockquoteAttributes,
-	HTMLButtonAttributes,
-	HTMLInputAttributes
-} from 'svelte/elements';
+import type { Snippet } from 'svelte';
+import type { HTMLAttributes } from 'svelte/elements';
 
-import type { ComponentSize, CompactSize } from '../../tokens/architecture/sizes';
-import type { CommonSize, DefaultVariants, InputVariant } from '../../tokens/architecture/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
+import type {
+	InteractionState,
+	LoadingState,
+	ValidationState,
+	VisibilityState
+} from '$stylist/design-system/tokens/interaction/states';
 
 export type {
 	GraphEdgeType,
-	StackAlign,
-	MessageThreadVariant,
-	SkeletonVariant,
-	TableCellVariant,
-	CountryFlagSize
-} from '../../tokens';
+	Density,
+	Skeleton,
+	TableCell,
+} from '$stylist/design-system/tokens';
 
 export interface ClassProp {
 	class?: string;
@@ -32,7 +31,7 @@ export interface ContentProp {
 
 export interface TypographyTextProps {
 	variant?: string;
-	size?: CommonSize;
+	size?: ComponentSize;
 	disabled?: boolean;
 	block?: boolean;
 	class?: string;
@@ -90,7 +89,7 @@ export interface InputFieldRequiredProps extends InputFieldBaseProps {
 	label: string;
 }
 
-export interface InputAttributesBase extends Omit<HTMLInputAttributes, 'class'>, ClassProp {}
+export interface InputAttributesBase extends Omit<import('svelte/elements').HTMLInputAttributes, 'class'>, ClassProp {}
 
 export interface TextInputBaseProps extends InputAttributesBase {
 	value?: string;
@@ -185,24 +184,9 @@ export interface StateStyleProps {
 
 export interface ComponentStateProps extends StateProps, StateStyleProps {}
 
-export type LoadingState = 'idle' | 'loading' | 'success' | 'error';
-
-export type ValidationState = 'valid' | 'invalid' | 'pending';
-
-export type InteractionState = 'enabled' | 'disabled' | 'readonly';
-
-export type VisibilityState = 'visible' | 'hidden' | 'collapsed';
-
-export type CharacterCountVariant = InputVariant;
-
-export type InputAddonVariant = InputVariant;
-
-export type PinInputVariant = InputVariant;
-
-export type BlockquoteAttributesBase = HTMLBlockquoteAttributes & ClassProp;
-
-export type ButtonAttributesBase = Omit<HTMLButtonAttributes, 'class'> & ClassProp;
-
-export type ButtonAttributesWithChildren = ButtonAttributesBase & ChildrenProp;
-
-export type InputHtmlType = HTMLInputAttributes['type'];
+export type {
+	InteractionState,
+	LoadingState,
+	ValidationState,
+	VisibilityState
+};

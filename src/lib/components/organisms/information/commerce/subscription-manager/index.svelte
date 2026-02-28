@@ -1,6 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { CreditCard, Calendar, DollarSign, RefreshCw, X, CheckCircle, AlertCircle, Settings } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const CreditCard = 'credit-card';
+const Calendar = 'calendar';
+const DollarSign = 'dollar-sign';
+const RefreshCw = 'refresh-cw';
+const X = 'x';
+const CheckCircle = 'check-circle';
+const AlertCircle = 'alert-circle';
+const Settings = 'settings';
+
 
   type SubscriptionPlan = {
     id: string;
@@ -103,8 +112,6 @@
         return { color: 'text-gray-600', bg: 'bg-gray-100', icon: AlertCircle, text: 'Unknown' };
     }
   }
-
-  let StatusIcon = $derived(getStatusInfo().icon);
 </script>
 
 <div class={`c-subscription-manager bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
@@ -112,7 +119,7 @@
     <div class="flex items-center justify-between">
       <div>
         <div class="flex items-center">
-          <RefreshCw class="h-6 w-6 text-gray-500 mr-2" />
+          <BaseIcon name={RefreshCw} class="h-6 w-6 text-gray-500 mr-2" />
           <h3 class="text-lg font-medium text-gray-900">{title}</h3>
         </div>
         {#if subtitle}
@@ -123,7 +130,7 @@
       {#if true}
         {@const statusInfo = getStatusInfo()}
         <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${statusInfo.bg} ${statusInfo.color}`}>
-          <StatusIcon class="h-4 w-4 mr-1" />
+          <BaseIcon name={statusInfo.icon} class="h-4 w-4 mr-1" />
           {statusInfo.text}
         </span>
       {/if}
@@ -137,7 +144,7 @@
         <h4 class="text-sm font-medium text-gray-900 mb-4">Plan Information</h4>
         <div class="flex items-center">
           <div class="p-2 rounded-md bg-blue-100">
-            <DollarSign class="h-5 w-5 text-blue-600" />
+            <BaseIcon name={DollarSign} class="h-5 w-5 text-blue-600" />
           </div>
           <div class="ml-4">
             <h5 class="font-medium text-gray-900">{subscription.plan.name}</h5>
@@ -153,7 +160,7 @@
           <ul class="space-y-1">
             {#each subscription.plan.features as feature}
               <li class="flex items-center text-sm text-gray-600">
-                <CheckCircle class="h-4 w-4 text-green-500 mr-2" />
+                <BaseIcon name={CheckCircle} class="h-4 w-4 text-green-500 mr-2" />
                 <span>{feature}</span>
               </li>
             {/each}
@@ -205,7 +212,7 @@
           <h4 class="text-sm font-medium text-gray-900 mb-4">Payment Method</h4>
           <div class="flex items-center">
             <div class="p-2 rounded-md bg-gray-100">
-              <CreditCard class="h-5 w-5 text-gray-600" />
+              <BaseIcon name={CreditCard} class="h-5 w-5 text-gray-600" />
             </div>
             <div class="ml-4">
               <p class="text-sm font-medium text-gray-900">{subscription.paymentMethod}</p>
@@ -295,7 +302,7 @@
               class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
               onclick={onBillingChange}
             >
-              <Settings class="h-4 w-4 mr-1" />
+              <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
               Billing Settings
             </button>
           {/if}
@@ -306,8 +313,9 @@
 
   <div class={`border-t px-6 py-4 ${footerClass}`}>
     <div class="flex items-center text-xs text-gray-500">
-      <AlertCircle class="h-4 w-4 mr-1" />
+      <BaseIcon name={AlertCircle} class="h-4 w-4 mr-1" />
       <span>Changes to your subscription will take effect at the start of the next billing cycle</span>
     </div>
   </div>
 </div>
+

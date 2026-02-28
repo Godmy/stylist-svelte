@@ -1,8 +1,14 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
-import type { ComponentSize, CompactSize } from '../../tokens/architecture/sizes';
-import type { ColorVariant, NeutralVariant, SemanticVariant, SkeletonVariant, StateVariant } from '../../tokens/architecture/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
+import type { Skeleton } from '$stylist/design-system/tokens/information/skeletons';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
+import type {
+	NotificationBadgePosition,
+	NotificationBadgeVariant,
+	StepIconStatus
+} from '$stylist/design-system/tokens/interaction/feedback';
 
 export interface IBaseFeedbackProps extends HtmlAttributesBase<HTMLElement> {}
 
@@ -17,15 +23,6 @@ export interface ISimpleTooltipProps extends IBaseFeedbackProps {
 	show?: boolean;
 }
 
-export type NotificationBadgePosition = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
-
-export type NotificationBadgeVariant =
-	| SemanticVariant
-	| NeutralVariant
-	| StateVariant
-	| 'number'
-	| 'dot';
-
 export interface INotificationBadgeProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	count?: number;
 	maxCount?: number;
@@ -36,32 +33,30 @@ export interface INotificationBadgeProps extends HtmlAttributesWithChildren<HTML
 }
 
 export interface ISkeletonProps extends HtmlAttributesBase<HTMLDivElement> {
-	variant?: SkeletonVariant;
+	variant?: Skeleton;
 	width?: string;
 	height?: string;
 }
 
-export type SpinnerSize = ComponentSize;
-
 export interface ISpinnerProps extends HtmlAttributesBase<HTMLDivElement> {
-	size?: SpinnerSize;
-	variant?: 'white' | 'gray' | ColorVariant;
+	size?: ComponentSize;
+	variant?: 'white' | 'gray' | DefaultVariants;
 	label?: string;
 }
 
 export interface ILoaderProps extends HtmlAttributesBase<HTMLDivElement> {}
 
-export type ProgressBarSize = CompactSize;
-
-export type ProgressBarVariant = SemanticVariant;
+// ����� ��� �������� �������������
+/** @deprecated ����������� DefaultVariants */
+export type ProgressBarVariant = DefaultVariants;
 
 export interface IProgressBarProps extends HtmlAttributesBase<HTMLDivElement> {
 	value: number;
 	max?: number;
 	label?: string;
 	showPercentage?: boolean;
-	size?: ProgressBarSize;
-	variant?: ProgressBarVariant;
+	size?: ComponentSize;
+	variant?: DefaultVariants;
 }
 
 export interface IProgressCircleProps extends HtmlAttributesBase<HTMLDivElement> {
@@ -71,16 +66,12 @@ export interface IProgressCircleProps extends HtmlAttributesBase<HTMLDivElement>
 	strokeWidth?: number;
 	label?: string;
 	showPercentage?: boolean;
-	variant?: ProgressBarVariant;
+	variant?: DefaultVariants;
 }
-
-export type StepIconStatus = 'pending' | 'active' | 'completed' | 'error';
-
-export type StepIconSize = CompactSize;
 
 export interface IStepIconProps extends HtmlAttributesBase<HTMLSpanElement> {
 	status?: StepIconStatus;
-	size?: StepIconSize;
+	size?: ComponentSize;
 	stepNumber?: number;
 	iconName?: string;
 }
@@ -104,7 +95,7 @@ export interface ITableSkeletonProps extends HtmlAttributesBase<HTMLTableElement
 }
 
 export interface IAlertProps {
-	variant?: SemanticVariant;
+	variant?: DefaultVariants;
 	size?: ComponentSize;
 	disabled?: boolean;
 	class?: string;

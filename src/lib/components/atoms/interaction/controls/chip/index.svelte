@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { X } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const X = 'x';
+
 	import type { ChipProps } from '$stylist/design-system/contracts';
 	import { createChipState } from '$stylist/design-system/models/interaction/chip.svelte';
 
@@ -34,10 +36,11 @@
 
 	{#if state.closable}
 		<button class={state.closeButtonClasses} aria-label="Close" disabled={state.disabled}>
-			<X class={state.closeButtonIconClasses} />
+			<BaseIcon name={X} class={state.closeButtonIconClasses} />
 		</button>
 	{/if}
 </div>
+
 
 
 

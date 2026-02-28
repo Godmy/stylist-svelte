@@ -1,7 +1,8 @@
 ﻿import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
 
-export type MenuItemVariant = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
+export type MenuItemVariant = DefaultVariants | 'success' | 'warning' | 'danger' | 'info' | 'ghost' | 'link';
 
 export interface MenuItemProps extends HTMLAttributes<HTMLElement> {
   /**

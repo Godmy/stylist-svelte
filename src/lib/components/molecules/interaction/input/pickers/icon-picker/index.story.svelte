@@ -1,7 +1,28 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import IconPicker from './index.svelte';
-  import { Heart, Star, Mail, Settings, User, Search, Bell, Camera, File, Folder, Image, Music, Video, Home, Calendar, MessageCircle, Phone, Trash2, Edit3, Copy } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Heart = 'heart';
+const Star = 'star';
+const Mail = 'mail';
+const Settings = 'settings';
+const User = 'user';
+const Search = 'search';
+const Bell = 'bell';
+const Camera = 'camera';
+const File = 'file';
+const Folder = 'folder';
+const Image = 'image';
+const Music = 'music';
+const Video = 'video';
+const Home = 'home';
+const Calendar = 'calendar';
+const MessageCircle = 'message-circle';
+const Phone = 'phone';
+const Trash2 = 'trash-2';
+const Edit3 = 'edit-3';
+const Copy = 'copy';
+
   import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
 
   const controls = [

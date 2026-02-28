@@ -11,7 +11,7 @@ export class ProductSortingStyleManager {
   }
 
   static getSelectClasses(): string {
-    return 'product-sort-select px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500';
+    return 'product-sort-select px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[--color-primary-500]';
   }
 
   static getOptionClasses(): string {

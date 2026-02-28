@@ -1,10 +1,10 @@
-<script lang="ts">
+﻿<script lang="ts">
   /**
-   * CodeBlockWithLineNumbers - Legacy wrapper for unified CodeBlock
+   * CodeWithLineNumbers - Legacy wrapper for unified Code
    * 
-   * @deprecated Use CodeBlock with showLineNumbers={true} instead
+   * @deprecated Use Code with showLineNumbers={true} instead
    */
-  import CodeBlock from '../code-block/index.svelte';
+  import Code from '../code-block/index.svelte';
   import type { HTMLAttributes } from 'svelte/elements';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -25,7 +25,7 @@
   let props: Props = $props();
 </script>
 
-<CodeBlock
+<Code
   code={props.code}
   language={props.language}
   showLineNumbers={true}
@@ -39,3 +39,4 @@
   headerClass={props.headerClass}
   {...props}
 />
+

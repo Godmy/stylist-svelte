@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { Icon } from '$stylist/components/atoms';
-	import type { ListItemMarkerProps } from '$stylist/design-system';
+	import type { ListItemMarkerProps } from '$stylist/design-system/contracts/information/indicators';
 	import { createListItemMarkerState } from '$stylist/design-system/models/information/list-item-marker.svelte';
 
 	let props: ListItemMarkerProps = $props();
 
 	const state = createListItemMarkerState(props);
+	const iconSize = $derived(state.size === '2xl' ? 'xl' : state.size);
 
 	const restProps = $derived(
 		(() => {
@@ -28,6 +29,6 @@
 	{:else if state.type === 'number'}
 		{state.value}
 	{:else if typeof state.value === 'string'}
-		<Icon name={state.value} size={state.size} />
+		<Icon name={state.value} size={iconSize} />
 	{/if}
 </span>

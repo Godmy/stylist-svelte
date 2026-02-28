@@ -1,4 +1,5 @@
 import type { IMessageMetaStyleClasses } from '$stylist/design-system/contracts/information/message-meta';
+import { cn } from '../../utils/cn/index';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -7,9 +8,10 @@ import type { IMessageMetaStyleClasses } from '$stylist/design-system/contracts/
  */
 export class MessageMetaStyleManager {
   static getBaseClasses(className: string): string {
-    const baseClasses = 'message-meta-base flex justify-between text-xs text-gray-500';
-
-    return `${baseClasses} ${className}`;
+    return cn(
+      'message-meta-base flex justify-between text-xs text-[var(--color-text-tertiary)]',
+      className
+    );
   }
 
   static getTimestampClasses(): string {
@@ -22,9 +24,9 @@ export class MessageMetaStyleManager {
 
   static getStatusClasses(status: string): string {
     const statusClasses: Record<string, string> = {
-      sent: 'status-sent text-blue-500',
-      delivered: 'status-delivered text-yellow-500',
-      read: 'status-read text-green-500'
+      sent: 'status-sent text-[var(--color-primary-500)]',
+      delivered: 'status-delivered text-[var(--color-warning-500)]',
+      read: 'status-read text-[var(--color-success-500)]'
     };
 
     return statusClasses[status] || 'status-default';

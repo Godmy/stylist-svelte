@@ -8,6 +8,14 @@
  * - Single Responsibility: Only handles styling logic for MessageBubble
  */
 
+import { cn } from '../../utils/cn/index';
+
+const MESSAGE_BUBBLE_WRAPPER_VARIANTS = {
+	left: 'rounded-bl-none bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-br-lg',
+	right: 'rounded-bl-lg rounded-br-none bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]',
+	system: 'rounded-lg bg-[var(--color-neutral-200)] text-[var(--color-text-secondary)]'
+} as const;
+
 /**
  * Style manager for MessageBubble component
  * Manages all class names and styling for the MessageBubble atom
@@ -20,9 +28,11 @@ export class MessageBubbleStyleManager {
    * @returns Combined string of container classes and additional classes
    */
   static getContainerClasses(align: 'left' | 'right' = 'left', className?: string): string {
-    const alignmentClass = align === 'right' ? 'ml-auto' : 'mr-auto';
-    const baseClasses = `message-bubble-container flex ${align === 'right' ? 'justify-end' : 'justify-start'}`;
-    return className ? `${baseClasses} ${alignmentClass} ${className}` : `${baseClasses} ${alignmentClass}`;
+    return cn(
+      'message-bubble-container flex',
+      align === 'right' ? 'justify-end ml-auto' : 'justify-start mr-auto',
+      className
+    );
   }
 
   /**
@@ -32,15 +42,14 @@ export class MessageBubbleStyleManager {
    * @returns Combined string of wrapper classes
    */
   static getWrapperClasses(align: 'left' | 'right' = 'left', variant: 'default' | 'system' = 'default'): string {
-    const alignmentClass = align === 'right' 
-      ? 'bg-blue-500 text-white rounded-br-none rounded-bl-lg' 
-      : 'bg-gray-100 text-gray-800 rounded-bl-none rounded-br-lg';
-      
-    const variantClass = variant === 'system' 
-      ? 'bg-gray-200 text-gray-700 rounded-lg' 
-      : alignmentClass;
-      
-    return `message-bubble-wrapper p-4 max-w-xs relative ${variantClass}`;
+    return cn(
+      'message-bubble-wrapper relative max-w-xs p-4',
+      variant === 'system'
+        ? MESSAGE_BUBBLE_WRAPPER_VARIANTS.system
+        : align === 'right'
+          ? MESSAGE_BUBBLE_WRAPPER_VARIANTS.right
+          : MESSAGE_BUBBLE_WRAPPER_VARIANTS.left
+    );
   }
 
   /**
@@ -50,15 +59,15 @@ export class MessageBubbleStyleManager {
    * @returns Author text classes
    */
   static getAuthorClasses(align: 'left' | 'right' = 'left', variant: 'default' | 'system' = 'default'): string {
-    const baseClasses = 'font-semibold text-sm';
-    
+    const baseClasses = 'text-sm font-semibold';
+
     if (variant === 'system') {
-      return `${baseClasses} text-center`;
+      return `${baseClasses} text-center text-[var(--color-text-secondary)]`;
     }
-    
+
     return align === 'right'
-      ? `${baseClasses} text-blue-100`
-      : `${baseClasses} text-gray-600`;
+      ? `${baseClasses} text-[var(--color-primary-100)]`
+      : `${baseClasses} text-[var(--color-text-secondary)]`;
   }
 
   /**
@@ -71,12 +80,12 @@ export class MessageBubbleStyleManager {
     const baseClasses = 'mt-1';
     
     if (variant === 'system') {
-      return `${baseClasses} text-center`;
+      return `${baseClasses} text-center text-[var(--color-text-secondary)]`;
     }
     
     return align === 'right'
-      ? `${baseClasses} text-white`
-      : `${baseClasses} text-gray-800`;
+      ? `${baseClasses} text-[var(--color-text-inverse)]`
+      : `${baseClasses} text-[var(--color-text-primary)]`;
   }
 
   /**
@@ -89,12 +98,12 @@ export class MessageBubbleStyleManager {
     const baseClasses = 'text-xs mt-2';
     
     if (variant === 'system') {
-      return `${baseClasses} text-gray-500 text-center`;
+      return `${baseClasses} text-center text-[var(--color-text-tertiary)]`;
     }
     
     return align === 'right'
-      ? `${baseClasses} text-blue-200`
-      : `${baseClasses} text-gray-500`;
+      ? `${baseClasses} text-[var(--color-primary-100)]`
+      : `${baseClasses} text-[var(--color-text-tertiary)]`;
   }
 
   /**

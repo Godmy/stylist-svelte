@@ -1,6 +1,18 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Share2, Link, Check, Facebook, Twitter, Linkedin, Mail, MessageCircle, Send, Bookmark, Heart } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Share2 = 'share-2';
+const Link = 'link';
+const Check = 'check';
+const Facebook = 'facebook';
+const Twitter = 'twitter';
+const Linkedin = 'linkedin';
+const Mail = 'mail';
+const MessageCircle = 'message-circle';
+const Send = 'send';
+const Bookmark = 'bookmark';
+const Heart = 'heart';
+
   import { Button } from '$lib/components/atoms';
 
   type SocialPlatform = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
@@ -219,9 +231,9 @@
         aria-expanded={showDropdown}
       >
         {#if copied}
-          <Check class={iconSizeClasses} />
+          <BaseIcon name={Check} class={iconSizeClasses} />
         {:else}
-          <Share2 class={iconSizeClasses} />
+          <BaseIcon name={Share2} class={iconSizeClasses} />
         {/if}
         <span class="sr-only">Share</span>
       </Button>
@@ -247,7 +259,7 @@
                   <platform.icon class="mr-3 h-5 w-5" />
                   <span>{platform.label}</span>
                   {#if platform.platform === 'copy' && copied}
-                    <Check class="ml-auto h-5 w-5 text-green-500" />
+                    <BaseIcon name={Check} class="ml-auto h-5 w-5 text-green-500" />
                   {/if}
                 </button>
               {/if}
@@ -263,7 +275,7 @@
         size={size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'md'}
         onclick={handleSave}
       >
-        <Bookmark class={iconSizeClasses} />
+        <BaseIcon name={Bookmark} class={iconSizeClasses} />
         <span class="sr-only">Save</span>
       </Button>
     {/if}
@@ -274,7 +286,7 @@
         size={size === 'sm' ? 'sm' : size === 'lg' ? 'lg' : 'md'}
         onclick={handleLike}
       >
-        <Heart class={iconSizeClasses} />
+        <BaseIcon name={Heart} class={iconSizeClasses} />
         <span class="sr-only">Like</span>
       </Button>
     {/if}
@@ -287,9 +299,9 @@
         title={copied ? 'Copied!' : 'Copy link'}
       >
         {#if copied}
-          <Check class={iconSizeClasses} />
+          <BaseIcon name={Check} class={iconSizeClasses} />
         {:else}
-          <Link class={iconSizeClasses} />
+          <BaseIcon name={Link} class={iconSizeClasses} />
         {/if}
         <span class="sr-only">{copied ? 'Copied!' : 'Copy link'}</span>
       </Button>
@@ -302,3 +314,4 @@
     </div>
   {/if}
 </div>
+

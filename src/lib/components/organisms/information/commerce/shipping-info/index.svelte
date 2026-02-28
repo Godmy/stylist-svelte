@@ -1,6 +1,17 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Truck, Package, MapPin, Clock, Calendar, Info, ShieldCheck, XCircle, Globe, CheckCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Truck = 'truck';
+const Package = 'package';
+const MapPin = 'map-pin';
+const Clock = 'clock';
+const Calendar = 'calendar';
+const Info = 'info';
+const ShieldCheck = 'shield-check';
+const XCircle = 'x-circle';
+const Globe = 'globe';
+const CheckCircle = 'check-circle';
+
   import { Button } from '$stylist/components/atoms';
 
   type ShippingOption = {
@@ -130,19 +141,19 @@
 <div class={`c-shipping-info ${hostClass}`} {...restProps}>
   <div class={`border border-gray-200 rounded-lg p-6 ${headerClass}`}>
     <div class="flex items-center">
-      <Truck class="h-6 w-6 text-blue-500 mr-3" />
+      <BaseIcon name={Truck} class="h-6 w-6 text-blue-500 mr-3" />
       <h2 class="text-xl font-bold text-gray-900">Shipping Information</h2>
     </div>
 
     {#if showEstimates && deliveryEstimate}
       <div class="mt-4 flex flex-wrap gap-4">
         <div class="flex items-center text-sm text-gray-600">
-          <Calendar class="h-4 w-4 mr-2 text-gray-500" />
+          <BaseIcon name={Calendar} class="h-4 w-4 mr-2 text-gray-500" />
           <span>Estimated delivery: {formatDate(deliveryEstimate)}</span>
         </div>
 
         <div class="flex items-center text-sm text-gray-600">
-          <Clock class="h-4 w-4 mr-2 text-gray-500" />
+          <BaseIcon name={Clock} class="h-4 w-4 mr-2 text-gray-500" />
           <span>Processing time: 1-2 business days</span>
         </div>
       </div>
@@ -154,7 +165,7 @@
       <!-- Shipping options -->
       <div class={`border border-gray-200 rounded-lg p-6 ${optionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Package class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={Package} class="h-5 w-5 mr-2 text-blue-500" />
           Shipping Options
         </h3>
 
@@ -190,27 +201,27 @@
 
                   <div class="mt-2 flex flex-wrap gap-3">
                     <span class="inline-flex items-center text-sm text-gray-500">
-                      <Clock class="h-4 w-4 mr-1 text-gray-400" />
+                      <BaseIcon name={Clock} class="h-4 w-4 mr-1 text-gray-400" />
                       {option.estimatedDays} day{option.estimatedDays !== 1 ? 's' : ''} delivery
                     </span>
 
                     {#if option.carrier}
                       <span class="inline-flex items-center text-sm text-gray-500">
-                        <Truck class="h-4 w-4 mr-1 text-gray-400" />
+                        <BaseIcon name={Truck} class="h-4 w-4 mr-1 text-gray-400" />
                         Via {option.carrier}
                       </span>
                     {/if}
 
                     {#if option.trackingAvailable}
                       <span class="inline-flex items-center text-sm text-gray-500">
-                        <Package class="h-4 w-4 mr-1 text-gray-400" />
+                        <BaseIcon name={Package} class="h-4 w-4 mr-1 text-gray-400" />
                         Tracking included
                       </span>
                     {/if}
 
                     {#if option.insurance}
                       <span class="inline-flex items-center text-sm text-gray-500">
-                        <ShieldCheck class="h-4 w-4 mr-1 text-gray-400" />
+                        <BaseIcon name={ShieldCheck} class="h-4 w-4 mr-1 text-gray-400" />
                         Insurance included
                       </span>
                     {/if}
@@ -256,13 +267,13 @@
       <!-- Free shipping information -->
       <div class={`border border-gray-200 rounded-lg p-6 ${infoClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Truck class="h-5 w-5 mr-2 text-green-500" />
+          <BaseIcon name={Truck} class="h-5 w-5 mr-2 text-green-500" />
           Free Shipping
         </h3>
 
         <div class="flex items-start">
           <div class="flex-shrink-0 mt-0.5">
-            <Info class="h-5 w-5 text-green-500" />
+            <BaseIcon name={Info} class="h-5 w-5 text-green-500" />
           </div>
           <div class="ml-3">
             <p class="text-sm text-gray-700">
@@ -281,7 +292,7 @@
       <!-- Shipping regions -->
       <div class={`border border-gray-200 rounded-lg p-6 ${regionClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <MapPin class="h-5 w-5 mr-2 text-blue-500" />
+          <BaseIcon name={MapPin} class="h-5 w-5 mr-2 text-blue-500" />
           Available Regions
         </h3>
 
@@ -330,25 +341,25 @@
       <!-- Shipping restrictions -->
       <div class={`border border-gray-200 rounded-lg p-6 ${infoClass}`}>
         <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
-          <Info class="h-5 w-5 mr-2 text-yellow-500" />
+          <BaseIcon name={Info} class="h-5 w-5 mr-2 text-yellow-500" />
           Restrictions & Limitations
         </h3>
 
         <ul class="space-y-2">
           <li class="flex items-start">
-            <XCircle class="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BaseIcon name={XCircle} class="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
             <span class="text-sm text-gray-700">We do not ship to PO Boxes</span>
           </li>
           <li class="flex items-start">
-            <XCircle class="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BaseIcon name={XCircle} class="h-5 w-5 text-red-500 mr-2 mt-0.5 flex-shrink-0" />
             <span class="text-sm text-gray-700">Some items may have geographic shipping limitations</span>
           </li>
           <li class="flex items-start">
-            <Package class="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BaseIcon name={Package} class="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
             <span class="text-sm text-gray-700">Heavier items may incur additional shipping charges</span>
           </li>
           <li class="flex items-start">
-            <Clock class="h-5 w-5 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
+            <BaseIcon name={Clock} class="h-5 w-5 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
             <span class="text-sm text-gray-700">During holidays, shipping times may be extended</span>
           </li>
         </ul>
@@ -356,4 +367,5 @@
     {/if}
   </div>
 </div>
+
 

@@ -1,8 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentType, Snippet } from 'svelte';
-
-export type SidebarVariant = 'default' | 'compact' | 'minimal';
-export type SidebarPosition = 'left' | 'right' | 'top' | 'bottom';
+import type { SidebarVariant, SidebarPosition } from '../../tokens/architecture/sidebar';
 
 export type NavItem = {
   id: string;

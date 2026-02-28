@@ -1,8 +1,12 @@
 <script lang="ts">
+  import { Icon, Badge, Button, InputField, TextArea } from '$stylist/components/atoms';
   import { ScrumBacklogStyleManager } from '$stylist/design-system/styles/information/scrum-backlog';
-  import { Badge, Button, InputField, TextArea } from '$stylist/components/atoms';
-  import { Plus, Calendar, User, Clock } from 'lucide-svelte';
   import { createEventDispatcher } from 'svelte';
+
+  const Plus = 'plus';
+  const Calendar = 'calendar';
+  const User = 'user';
+  const Clock = 'clock';
 
   interface BacklogItem {
     id: string;
@@ -22,16 +26,16 @@
   }
 
   /**
-   * Компонент бэклога задач
+   * РљРѕРјРїРѕРЅРµРЅС‚ Р±СЌРєР»РѕРіР° Р·Р°РґР°С‡
    *
-   * Компонент для отображения, фильтрации и управления задачами в бэклоге.
-   * Позволяет добавлять, изменять и удалять задачи, а также фильтровать их по различным критериям.
+   * РљРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ, С„РёР»СЊС‚СЂР°С†РёРё Рё СѓРїСЂР°РІР»РµРЅРёСЏ Р·Р°РґР°С‡Р°РјРё РІ Р±СЌРєР»РѕРіРµ.
+   * РџРѕР·РІРѕР»СЏРµС‚ РґРѕР±Р°РІР»СЏС‚СЊ, РёР·РјРµРЅСЏС‚СЊ Рё СѓРґР°Р»СЏС‚СЊ Р·Р°РґР°С‡Рё, Р° С‚Р°РєР¶Рµ С„РёР»СЊС‚СЂРѕРІР°С‚СЊ РёС… РїРѕ СЂР°Р·Р»РёС‡РЅС‹Рј РєСЂРёС‚РµСЂРёСЏРј.
    *
-   * @param {BacklogData} data - Данные бэклога, содержащие список задач
-   * @param {boolean} [showFilters=true] - Показывать ли панель фильтров
-   * @param {(item: BacklogItem) => void} [onItemAdd] - Обработчик добавления новой задачи
-   * @param {(item: BacklogItem) => void} [onItemUpdate] - Обработчик обновления задачи
-   * @param {(id: string) => void} [onItemDelete] - Обработчик удаления задачи
+   * @param {BacklogData} data - Р”Р°РЅРЅС‹Рµ Р±СЌРєР»РѕРіР°, СЃРѕРґРµСЂР¶Р°С‰РёРµ СЃРїРёСЃРѕРє Р·Р°РґР°С‡
+   * @param {boolean} [showFilters=true] - РџРѕРєР°Р·С‹РІР°С‚СЊ Р»Рё РїР°РЅРµР»СЊ С„РёР»СЊС‚СЂРѕРІ
+   * @param {(item: BacklogItem) => void} [onItemAdd] - РћР±СЂР°Р±РѕС‚С‡РёРє РґРѕР±Р°РІР»РµРЅРёСЏ РЅРѕРІРѕР№ Р·Р°РґР°С‡Рё
+   * @param {(item: BacklogItem) => void} [onItemUpdate] - РћР±СЂР°Р±РѕС‚С‡РёРє РѕР±РЅРѕРІР»РµРЅРёСЏ Р·Р°РґР°С‡Рё
+   * @param {(id: string) => void} [onItemDelete] - РћР±СЂР°Р±РѕС‚С‡РёРє СѓРґР°Р»РµРЅРёСЏ Р·Р°РґР°С‡Рё
    */
   let {
     data,
@@ -150,14 +154,14 @@
 <div class={containerClass}>
   <div class={headerClass}>
     <div class={ScrumBacklogStyleManager.getHeaderFlexClass()}>
-      <h2 class={headerTitleClass}>Бэклог</h2>
+      <h2 class={headerTitleClass}>Р‘СЌРєР»РѕРі</h2>
       <Button
         variant="primary"
         size="md"
         onclick={() => showAddForm = !showAddForm}
         class={addButtonClass}
       >
-        <Plus class={iconClass} /> Добавить задачу
+        <Icon name={Plus} class={iconClass} /> Р”РѕР±Р°РІРёС‚СЊ Р·Р°РґР°С‡Сѓ
       </Button>
     </div>
 
@@ -167,9 +171,9 @@
           <div class={formColSpanClass}>
             <InputField
               id="new-item-title"
-              label="Название задачи *"
+              label="РќР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё *"
               bind:value={newItemTitle}
-              placeholder="Введите название задачи"
+              placeholder="Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ Р·Р°РґР°С‡Рё"
               class={formInputClass}
             />
           </div>
@@ -177,30 +181,30 @@
           <div class={formColSpanClass}>
             <TextArea
               id="new-item-description"
-              label="Описание"
+              label="РћРїРёСЃР°РЅРёРµ"
               bind:value={newItemDescription}
-              placeholder="Введите описание задачи"
+              placeholder="Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ Р·Р°РґР°С‡Рё"
               class={formTextareaClass}
             />
           </div>
 
           <div>
-            <label for="new-item-priority" class={formLabelClass}>Приоритет</label>
+            <label for="new-item-priority" class={formLabelClass}>РџСЂРёРѕСЂРёС‚РµС‚</label>
             <select
                 id="new-item-priority"
                 class={formSelectClass}
                 bind:value={newItemPriority}
             >
-                <option value="low">Низкий</option>
-                <option value="medium">Средний</option>
-                <option value="high">Высокий</option>
+                <option value="low">РќРёР·РєРёР№</option>
+                <option value="medium">РЎСЂРµРґРЅРёР№</option>
+                <option value="high">Р’С‹СЃРѕРєРёР№</option>
             </select>
           </div>
 
           <div>
             <InputField
               id="new-item-hours"
-              label="Оценка времени (часы)"
+              label="РћС†РµРЅРєР° РІСЂРµРјРµРЅРё (С‡Р°СЃС‹)"
               type="number"
               value={newItemEstimatedHoursStr}
               onchange={(e: Event) => {
@@ -215,7 +219,7 @@
                 newItemEstimatedHoursStr = value;
                 newItemEstimatedHours = parseInt(value || '0', 10);
               }}
-              placeholder="Часы"
+              placeholder="Р§Р°СЃС‹"
               class={formInputClass}
             />
           </div>
@@ -223,9 +227,9 @@
           <div class={formColSpanClass}>
             <InputField
               id="new-item-assignee"
-              label="Назначена"
+              label="РќР°Р·РЅР°С‡РµРЅР°"
               bind:value={newItemAssignee}
-              placeholder="Имя исполнителя"
+              placeholder="РРјСЏ РёСЃРїРѕР»РЅРёС‚РµР»СЏ"
               class={formInputClass}
             />
           </div>
@@ -236,12 +240,12 @@
             variant="secondary"
             size="sm"
             onclick={() => showAddForm = false}
-          >Отмена</Button>
+          >РћС‚РјРµРЅР°</Button>
           <Button
             variant="primary"
             size="sm"
             onclick={addNewItem}
-          >Добавить</Button>
+          >Р”РѕР±Р°РІРёС‚СЊ</Button>
         </div>
       </div>
     {/if}
@@ -252,38 +256,38 @@
           <div>
             <InputField
               id="search-query"
-              label="Поиск"
+              label="РџРѕРёСЃРє"
               bind:value={searchQuery}
-              placeholder="Поиск задач..."
+              placeholder="РџРѕРёСЃРє Р·Р°РґР°С‡..."
               class={formInputClass}
             />
           </div>
 
           <div>
-            <label for="status-filter" class={filterLabelClass}>Статус</label>
+            <label for="status-filter" class={filterLabelClass}>РЎС‚Р°С‚СѓСЃ</label>
             <select
                 id="status-filter"
                 class={formSelectClass}
                 bind:value={statusFilter}
             >
-                <option value="all">Все статусы</option>
-                <option value="todo">К выполнению</option>
-                <option value="in-progress">В работе</option>
-                <option value="done">Выполнено</option>
+                <option value="all">Р’СЃРµ СЃС‚Р°С‚СѓСЃС‹</option>
+                <option value="todo">Рљ РІС‹РїРѕР»РЅРµРЅРёСЋ</option>
+                <option value="in-progress">Р’ СЂР°Р±РѕС‚Рµ</option>
+                <option value="done">Р’С‹РїРѕР»РЅРµРЅРѕ</option>
             </select>
           </div>
 
           <div>
-            <label for="priority-filter" class={filterLabelClass}>Приоритет</label>
+            <label for="priority-filter" class={filterLabelClass}>РџСЂРёРѕСЂРёС‚РµС‚</label>
             <select
                 id="priority-filter"
                 class={formSelectClass}
                 bind:value={priorityFilter}
             >
-                <option value="all">Все приоритеты</option>
-                <option value="low">Низкий</option>
-                <option value="medium">Средний</option>
-                <option value="high">Высокий</option>
+                <option value="all">Р’СЃРµ РїСЂРёРѕСЂРёС‚РµС‚С‹</option>
+                <option value="low">РќРёР·РєРёР№</option>
+                <option value="medium">РЎСЂРµРґРЅРёР№</option>
+                <option value="high">Р’С‹СЃРѕРєРёР№</option>
             </select>
           </div>
         </div>
@@ -294,8 +298,8 @@
   <div class={itemsContainerClass}>
     {#if getFilteredItems().length === 0}
       <div class={emptyStateContainerClass}>
-        <p class={emptyStateTextClass}>Бэклог пуст</p>
-        <p class={ScrumBacklogStyleManager.getEmptyStateSubtextClass()}>Добавьте первую задачу или измените фильтры</p>
+        <p class={emptyStateTextClass}>Р‘СЌРєР»РѕРі РїСѓСЃС‚</p>
+        <p class={ScrumBacklogStyleManager.getEmptyStateSubtextClass()}>Р”РѕР±Р°РІСЊС‚Рµ РїРµСЂРІСѓСЋ Р·Р°РґР°С‡Сѓ РёР»Рё РёР·РјРµРЅРёС‚Рµ С„РёР»СЊС‚СЂС‹</p>
       </div>
     {:else}
       <div class={itemsGridClass}>
@@ -309,7 +313,7 @@
                   size="sm"
                   class={itemBadgeClass}
                 >
-                  {item.priority === 'high' ? 'ВАЖНО' : item.priority === 'medium' ? 'СР.' : 'НОРМ.'}
+                  {item.priority === 'high' ? 'Р’РђР–РќРћ' : item.priority === 'medium' ? 'РЎР .' : 'РќРћР Рњ.'}
                 </Badge>
               {/if}
             </div>
@@ -321,23 +325,23 @@
             <div class={itemBadgesContainerClass}>
               {#if item.estimatedHours}
                 <Badge variant="default" size="sm" class={itemBadgeClass}>
-                  <Clock class={iconClass} /> {item.estimatedHours} ч.
+                  <Icon name={Clock} class={iconClass} /> {item.estimatedHours} С‡.
                 </Badge>
               {/if}
 
               {#if item.assignee}
                 <Badge variant="default" size="sm" class={itemBadgeClass}>
-                  <User class={iconClass} /> {item.assignee}
+                  <Icon name={User} class={iconClass} /> {item.assignee}
                 </Badge>
               {/if}
 
               <Badge variant="default" size="sm" class={itemBadgeClass}>
-                {item.status === 'todo' ? 'К выполнению' :
-                 item.status === 'in-progress' ? 'В работе' : 'Выполнено'}
+                {item.status === 'todo' ? 'Рљ РІС‹РїРѕР»РЅРµРЅРёСЋ' :
+                 item.status === 'in-progress' ? 'Р’ СЂР°Р±РѕС‚Рµ' : 'Р’С‹РїРѕР»РЅРµРЅРѕ'}
               </Badge>
 
               <Badge variant="default" size="sm" class={itemBadgeClass}>
-                <Calendar class={iconClass} /> {formatDate(item.createdAt)}
+                <Icon name={Calendar} class={iconClass} /> {formatDate(item.createdAt)}
               </Badge>
             </div>
 
@@ -348,7 +352,7 @@
                 onclick={() => { if (onItemUpdate) onItemUpdate(item); }}
                 class={itemActionButtonClass}
               >
-                Изменить
+                РР·РјРµРЅРёС‚СЊ
               </Button>
               <Button
                 variant="danger"
@@ -356,7 +360,7 @@
                 onclick={() => { if (onItemDelete) onItemDelete(item.id); }}
                 class={itemActionButtonClass}
               >
-                Удалить
+                РЈРґР°Р»РёС‚СЊ
               </Button>
             </div>
           </div>
@@ -365,6 +369,7 @@
     {/if}
   </div>
 </div>
+
 
 
 

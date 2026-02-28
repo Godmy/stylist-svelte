@@ -1,5 +1,13 @@
 <script lang="ts">
-  import { Check, Copy, Edit3, Loader2, Play, Plus, Trash2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Check = 'check';
+const Copy = 'copy';
+const Edit3 = 'edit-3';
+const Loader2 = 'loader-2';
+const Play = 'play';
+const Plus = 'plus';
+const Trash2 = 'trash-2';
+
   import { PromptBuilderStyleManager } from '$stylist/design-system/styles/information/prompt-builder';
   import type { PromptBuilderProps, PromptVariable } from '$stylist/design-system/contracts/information/prompt-builder';
 
@@ -131,16 +139,16 @@
     <div class={headerButtonsClass}>
       <button type="button" class={copyButtonClass} onclick={copyToClipboard}>
         {#if copied}
-          <Check class="h-4 w-4 mr-1" />Copied
+          <BaseIcon name={Check} class="h-4 w-4 mr-1" />Copied
         {:else}
-          <Copy class="h-4 w-4 mr-1" />Copy
+          <BaseIcon name={Copy} class="h-4 w-4 mr-1" />Copy
         {/if}
       </button>
       <button type="button" class={runButtonClass} onclick={handleRun} disabled={running}>
         {#if running}
-          <Loader2 class={loadingSpinnerClass} />Running...
+          <BaseIcon name={Loader2} class={loadingSpinnerClass} />Running...
         {:else}
-          <Play class="h-4 w-4 mr-1" />Run
+          <BaseIcon name={Play} class="h-4 w-4 mr-1" />Run
         {/if}
       </button>
     </div>
@@ -152,7 +160,7 @@
         <div class={templatesHeaderClass}>
           <h4 class={templatesTitleClass}>Templates</h4>
           <button type="button" class={addTemplateButtonClass} onclick={addTemplate}>
-            <Plus class="h-4 w-4" />
+            <BaseIcon name={Plus} class="h-4 w-4" />
           </button>
         </div>
         <div class={templatesListClass}>
@@ -182,7 +190,7 @@
           <div class={variablesHeaderClass}>
             <h4 class={variablesTitleClass}>Variables</h4>
             <button type="button" class={addVariableButtonClass} onclick={addVariable}>
-              <Plus class="h-3 w-3 mr-1" />Add Variable
+              <BaseIcon name={Plus} class="h-3 w-3 mr-1" />Add Variable
             </button>
           </div>
 
@@ -204,7 +212,7 @@
                       onclick={() => insertVariableAtCursor(variable.id)}
                       title="Insert variable"
                     >
-                      <Edit3 class="h-4 w-4" />
+                      <BaseIcon name={Edit3} class="h-4 w-4" />
                     </button>
                     <button
                       type="button"
@@ -212,7 +220,7 @@
                       onclick={() => removeVariable(variable.id)}
                       title="Remove variable"
                     >
-                      <Trash2 class="h-4 w-4" />
+                      <BaseIcon name={Trash2} class="h-4 w-4" />
                     </button>
                   </div>
                 </div>
@@ -230,4 +238,5 @@
     <button type="button" class={saveButtonClass} onclick={handleSave}>Save Prompt</button>
   </div>
 </div>
+
 

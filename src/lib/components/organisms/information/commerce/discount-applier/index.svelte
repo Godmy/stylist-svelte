@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Percent, Tag, Check, X, LoaderCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Percent = 'percent';
+const Tag = 'tag';
+const Check = 'check';
+const X = 'x';
+const LoaderCircle = 'loader-circle';
+
   import { Button } from '$stylist/components/atoms';
   import Input from '$stylist/components/atoms/interaction/input/field/input-field/index.svelte';
 
@@ -214,7 +220,7 @@
   {#if showCodeInput}
     <div class="mb-6">
       <label class="block text-sm font-medium text-gray-700 mb-1 flex items-center">
-        <Tag class="h-4 w-4 mr-1" />
+        <BaseIcon name={Tag} class="h-4 w-4 mr-1" />
         Have a promo code?
       </label>
 
@@ -236,7 +242,7 @@
           disabled={validating}
         >
           {#if validating}
-            <LoaderCircle class="h-4 w-4 animate-spin" />
+            <BaseIcon name={LoaderCircle} class="h-4 w-4 animate-spin" />
           {:else}
             Apply
           {/if}
@@ -256,7 +262,7 @@
   {#if showAppliedRules && appliedCodes.length > 0}
     <div class="mb-6">
       <h3 class="text-sm font-medium text-gray-900 mb-2 flex items-center">
-        <Check class="h-4 w-4 mr-1 text-green-500" />
+        <BaseIcon name={Check} class="h-4 w-4 mr-1 text-green-500" />
         Applied Discounts
       </h3>
 
@@ -275,7 +281,7 @@
                 onclick={() => handleRemoveRule(rule.id)}
                 aria-label="Remove discount"
               >
-                <X class="h-4 w-4" />
+                <BaseIcon name={X} class="h-4 w-4" />
               </Button>
             </div>
           {/if}
@@ -287,7 +293,7 @@
   {#if showRuleList && eligibleRules.length > 0}
     <div>
       <h3 class="text-sm font-medium text-gray-900 mb-2 flex items-center">
-        <Percent class="h-4 w-4 mr-1" />
+        <BaseIcon name={Percent} class="h-4 w-4 mr-1" />
         Available Discounts
       </h3>
 
@@ -354,5 +360,6 @@
     <p class="text-sm text-gray-500">No discounts available for your cart</p>
   {/if}
 </div>
+
 
 

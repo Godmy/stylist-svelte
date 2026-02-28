@@ -1,24 +1,25 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 export class PricingTableStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'c-pricing-table grid grid-cols-1 md:grid-cols-3 gap-6';
-    return `${baseClass} ${extraClasses}`.trim();
+    return cn('c-pricing-table grid grid-cols-1 gap-6 md:grid-cols-3', extraClasses);
   }
 
   static getPlanCardClass(highlightClass: string = ''): string {
-    const baseClass = 'border rounded-lg p-6';
-    return `${baseClass} ${highlightClass}`.trim();
+    return cn(CARD_BASE_CLASSES, 'border border-[var(--color-border-primary)] p-6', highlightClass);
   }
 
   static getDefaultPlanClass(): string {
-    return 'border-gray-200';
+    return 'border-[var(--color-border-primary)]';
   }
 
   static getHighlightedPlanClass(): string {
-    return 'border-blue-500 bg-blue-50 transform scale-105 z-10 relative shadow-lg';
+    return 'relative z-10 scale-105 border-[var(--color-primary-500)] bg-[var(--color-primary-50)] shadow-lg';
   }
 
   static getPopularBadgeClass(): string {
-    return 'bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-4';
+    return 'mb-4 inline-block rounded-full bg-[var(--color-primary-500)] px-3 py-1 text-xs font-bold text-[var(--color-text-inverse)]';
   }
 
   static getPlanTitleClass(): string {
@@ -34,7 +35,7 @@ export class PricingTableStyleManager {
   }
 
   static getPeriodClass(): string {
-    return 'text-gray-600';
+    return 'text-[var(--color-text-secondary)]';
   }
 
   static getFeaturesListClass(): string {
@@ -46,19 +47,18 @@ export class PricingTableStyleManager {
   }
 
   static getCheckIconClass(): string {
-    return 'w-5 h-5 text-green-500 mr-2';
+    return 'mr-2 h-5 w-5 text-[var(--color-success-500)]';
   }
 
   static getCtaButtonClass(buttonTypeClass: string = ''): string {
-    const baseClass = 'w-full py-3 rounded-lg font-medium';
-    return `${baseClass} ${buttonTypeClass}`.trim();
+    return cn('w-full rounded-lg py-3 font-medium transition-colors', buttonTypeClass);
   }
 
   static getDefaultButtonClass(): string {
-    return 'bg-gray-100 text-gray-800 hover:bg-gray-200';
+    return 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-neutral-200)]';
   }
 
   static getHighlightedButtonClass(): string {
-    return 'bg-blue-500 text-white hover:bg-blue-600';
+    return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }

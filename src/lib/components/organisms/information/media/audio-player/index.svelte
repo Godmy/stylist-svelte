@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Play, Pause, Volume2, VolumeX, RotateCcw } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Play = 'play';
+const Pause = 'pause';
+const Volume2 = 'volume-2';
+const VolumeX = 'volume-x';
+const RotateCcw = 'rotate-ccw';
+
   import { Button } from '$lib/components/atoms';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -131,9 +137,9 @@
           aria-label={isPlaying ? 'Pause' : 'Play'}
         >
           {#if isPlaying}
-            <Pause class="h-5 w-5" />
+            <BaseIcon name={Pause} class="h-5 w-5" />
           {:else}
-            <Play class="h-5 w-5" />
+            <BaseIcon name={Play} class="h-5 w-5" />
           {/if}
         </Button>
         
@@ -144,9 +150,9 @@
           aria-label={isMuted ? 'Unmute' : 'Mute'}
         >
           {#if isMuted}
-            <VolumeX class="h-5 w-5" />
+            <BaseIcon name={VolumeX} class="h-5 w-5" />
           {:else}
-            <Volume2 class="h-5 w-5" />
+            <BaseIcon name={Volume2} class="h-5 w-5" />
           {/if}
         </Button>
       </div>
@@ -180,9 +186,10 @@
           onclick={reloadAudio}
           aria-label="Reload audio"
         >
-          <RotateCcw class="h-4 w-4" />
+          <BaseIcon name={RotateCcw} class="h-4 w-4" />
         </Button>
       </div>
     </div>
   {/if}
 </div>
+

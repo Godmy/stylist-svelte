@@ -1,11 +1,17 @@
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
+
 export class PriceHistoryStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    const baseClass = 'c-price-history bg-white p-4 rounded-lg shadow';
-    return `${baseClass} ${extraClasses}`.trim();
+    return cn(
+      'c-price-history border border-[var(--color-border-primary)] p-4 shadow-sm',
+      CARD_BASE_CLASSES,
+      extraClasses
+    );
   }
 
   static getTitleClass(): string {
-    return 'font-semibold mb-4';
+    return 'mb-4 font-semibold text-[var(--color-text-primary)]';
   }
 
   static getChartContainerClass(): string {
@@ -17,11 +23,11 @@ export class PriceHistoryStyleManager {
   }
 
   static getGridLineClass(): string {
-    return 'stroke-gray-200 stroke-1';
+    return 'stroke-[var(--color-border-primary)] stroke-1';
   }
 
   static getGridTextClass(): string {
-    return 'text-xs fill-gray-500';
+    return 'fill-[var(--color-text-tertiary)] text-xs';
   }
 
   static getPriceLineClass(): string {
@@ -33,11 +39,11 @@ export class PriceHistoryStyleManager {
   }
 
   static getNoDataClass(): string {
-    return 'h-48 flex items-center justify-center text-gray-500';
+    return 'flex h-48 items-center justify-center text-[var(--color-text-tertiary)]';
   }
 
   static getInfoClass(): string {
-    return 'mt-4 text-sm text-gray-600';
+    return 'mt-4 text-sm text-[var(--color-text-secondary)]';
   }
 
   static getInfoTextClass(): string {

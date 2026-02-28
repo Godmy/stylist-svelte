@@ -1,22 +1,25 @@
 <script lang="ts">
   /**
-   * LinkCard - компонент для отображения карточки-ссылки для быстрых переходов
+   * LinkCard - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєР°СЂС‚РѕС‡РєРё-СЃСЃС‹Р»РєРё РґР»СЏ Р±С‹СЃС‚СЂС‹С… РїРµСЂРµС…РѕРґРѕРІ
    * 
-   * Следует принципам SOLID:
+   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
    * 
-   * Single Responsibility: Отвечает только за отображение карточки-ссылки
-   * Open/Closed: Легко расширяется через пропсы, не требует изменений в коде
-   * Liskov Substitution: Может быть заменен другим компонентом навигации при необходимости
-   * Interface Segregation: Имеет минимальный, конкретный интерфейс для навигации
-   * Dependency Inversion: Зависит от абстракции стилей через LinkCardStyleManager
+   * Single Responsibility: РћС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РєР°СЂС‚РѕС‡РєРё-СЃСЃС‹Р»РєРё
+   * Open/Closed: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµС‚СЃСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹, РЅРµ С‚СЂРµР±СѓРµС‚ РёР·РјРµРЅРµРЅРёР№ РІ РєРѕРґРµ
+   * Liskov Substitution: РњРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°РјРµРЅРµРЅ РґСЂСѓРіРёРј РєРѕРјРїРѕРЅРµРЅС‚РѕРј РЅР°РІРёРіР°С†РёРё РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
+   * Interface Segregation: РРјРµРµС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РєРѕРЅРєСЂРµС‚РЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ РЅР°РІРёРіР°С†РёРё
+   * Dependency Inversion: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёРё СЃС‚РёР»РµР№ С‡РµСЂРµР· LinkCardStyleManager
    * 
-   * Использует подход Atomic Design (Molecule) - комбинирует базовые элементы
-   * (иконка, текст, стрелка) в составной компонент для навигации
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РїРѕРґС…РѕРґ Atomic Design (Molecule) - РєРѕРјР±РёРЅРёСЂСѓРµС‚ Р±Р°Р·РѕРІС‹Рµ СЌР»РµРјРµРЅС‚С‹
+   * (РёРєРѕРЅРєР°, С‚РµРєСЃС‚, СЃС‚СЂРµР»РєР°) РІ СЃРѕСЃС‚Р°РІРЅРѕР№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РЅР°РІРёРіР°С†РёРё
    */
   
   import type { ILinkCardProps, LinkCardVariant } from '$stylist/design-system/contracts/information/link-card';
+  import { Icon } from '$stylist/components/atoms';
   import { LinkCardStyleManager } from '$stylist/design-system/styles/information/link-card';
-  import { ArrowRight } from 'lucide-svelte';
+
+  const ArrowRight = 'arrow-right';
+
   
   let {
     title,
@@ -29,7 +32,7 @@
     class: className = ''
   }: ILinkCardProps = $props();
   
-  // Вычисляемые стили через derived для изоляции логики стилизации
+  // Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ СЃС‚РёР»Рё С‡РµСЂРµР· derived РґР»СЏ РёР·РѕР»СЏС†РёРё Р»РѕРіРёРєРё СЃС‚РёР»РёР·Р°С†РёРё
   const containerClasses = $derived(`${LinkCardStyleManager.getContainerClasses(variant)} ${className}`.trim());
   const contentClasses = $derived(LinkCardStyleManager.getContentClasses());
   const iconContainerClasses = $derived(LinkCardStyleManager.getIconContainerClasses());
@@ -39,10 +42,10 @@
   const descriptionClasses = $derived(LinkCardStyleManager.getDescriptionClasses());
   const arrowClasses = $derived(LinkCardStyleManager.getArrowClasses());
 
-  // Определяем target в зависимости от пропса newTab
+  // РћРїСЂРµРґРµР»СЏРµРј target РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РїСЂРѕРїСЃР° newTab
   const linkTarget = $derived(newTab ? '_blank' : '_self');
   
-  // Определяем rel для безопасности при newTab
+  // РћРїСЂРµРґРµР»СЏРµРј rel РґР»СЏ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїСЂРё newTab
   const linkRel = $derived(newTab ? 'noopener noreferrer' : undefined);
 </script>
 
@@ -68,7 +71,8 @@
     </div>
     
     {#if showArrow}
-      <ArrowRight class={arrowClasses} aria-hidden="true" />
+      <Icon name={ArrowRight} class={arrowClasses} aria-hidden="true" />
     {/if}
   </div>
 </a>
+

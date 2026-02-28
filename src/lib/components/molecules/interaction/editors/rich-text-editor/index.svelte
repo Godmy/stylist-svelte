@@ -1,22 +1,22 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { 
-    Bold, 
-    Italic, 
-    Underline, 
-    AlignLeft, 
-    AlignCenter, 
-    AlignRight, 
-    List, 
-    ListOrdered, 
-    Quote, 
-    Type,
-    Link,
-    Image,
-    MoreHorizontal,
-    Hash,
-    Minus
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Bold = 'bold';
+const Italic = 'italic';
+const Underline = 'underline';
+const AlignLeft = 'align-left';
+const AlignCenter = 'align-center';
+const AlignRight = 'align-right';
+const List = 'list';
+const ListOrdered = 'list-ordered';
+const Quote = 'quote';
+const Type = 'type';
+const Link = 'link';
+const Image = 'image';
+const MoreHorizontal = 'more-horizontal';
+const Hash = 'hash';
+const Minus = 'minus';
+
 
   type Props = {
     value?: string;
@@ -124,7 +124,7 @@
         onclick={() => formatText('bold')}
         title="Bold"
       >
-        <Bold class="h-4 w-4" />
+        <BaseIcon name={Bold} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -132,7 +132,7 @@
         onclick={() => formatText('italic')}
         title="Italic"
       >
-        <Italic class="h-4 w-4" />
+        <BaseIcon name={Italic} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -140,7 +140,7 @@
         onclick={() => formatText('underline')}
         title="Underline"
       >
-        <Underline class="h-4 w-4" />
+        <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
       
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
@@ -151,7 +151,7 @@
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
-        <AlignLeft class="h-4 w-4" />
+        <BaseIcon name={AlignLeft} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -159,7 +159,7 @@
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
-        <AlignCenter class="h-4 w-4" />
+        <BaseIcon name={AlignCenter} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -167,7 +167,7 @@
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
-        <AlignRight class="h-4 w-4" />
+        <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
       
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
@@ -178,7 +178,7 @@
         onclick={() => formatText('insertUnorderedList')}
         title="Bullet List"
       >
-        <List class="h-4 w-4" />
+        <BaseIcon name={List} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -186,7 +186,7 @@
         onclick={() => formatText('insertOrderedList')}
         title="Numbered List"
       >
-        <ListOrdered class="h-4 w-4" />
+        <BaseIcon name={ListOrdered} class="h-4 w-4" />
       </button>
       
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
@@ -197,7 +197,7 @@
         onclick={toggleBlockquote}
         title="Quote"
       >
-        <Quote class="h-4 w-4" />
+        <BaseIcon name={Quote} class="h-4 w-4" />
       </button>
       
       <div class="relative">
@@ -207,7 +207,7 @@
           onclick={() => showLinkInput = !showLinkInput}
           title="Insert Link"
         >
-          <Link class="h-4 w-4" />
+          <BaseIcon name={Link} class="h-4 w-4" />
         </button>
         
         {#if showLinkInput}
@@ -245,7 +245,7 @@
         onclick={insertImage}
         title="Insert Image"
       >
-        <Image class="h-4 w-4" />
+        <BaseIcon name={Image} class="h-4 w-4" />
       </button>
       
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
@@ -256,7 +256,7 @@
           class="p-2 rounded hover:bg-gray-200"
           title="More options"
         >
-          <MoreHorizontal class="h-4 w-4" />
+          <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
         </button>
         
         <div class="absolute z-10 mt-1 w-40 p-2 bg-white border border-gray-200 rounded-md shadow-lg hidden group-hover:block">
@@ -265,7 +265,7 @@
             class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
             onclick={() => toggleHeading(2)}
           >
-            <Hash class="h-4 w-4 mr-2" />
+            <BaseIcon name={Hash} class="h-4 w-4 mr-2" />
             Heading 2
           </button>
           <button
@@ -273,7 +273,7 @@
             class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
             onclick={() => toggleHeading(3)}
           >
-            <Hash class="h-4 w-4 mr-2" />
+            <BaseIcon name={Hash} class="h-4 w-4 mr-2" />
             Heading 3
           </button>
           <button
@@ -281,7 +281,7 @@
             class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
             onclick={toggleHorizontalRule}
           >
-            <Minus class="h-4 w-4 mr-2" />
+            <BaseIcon name={Minus} class="h-4 w-4 mr-2" />
             Divider
           </button>
         </div>
@@ -312,7 +312,7 @@
         onclick={() => formatText('bold')}
         title="Bold"
       >
-        <Bold class="h-4 w-4" />
+        <BaseIcon name={Bold} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -320,7 +320,7 @@
         onclick={() => formatText('italic')}
         title="Italic"
       >
-        <Italic class="h-4 w-4" />
+        <BaseIcon name={Italic} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -328,7 +328,7 @@
         onclick={() => formatText('underline')}
         title="Underline"
       >
-        <Underline class="h-4 w-4" />
+        <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
       
       <div class="w-px h-6 bg-gray-300 mx-1"></div>
@@ -339,7 +339,7 @@
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
-        <AlignLeft class="h-4 w-4" />
+        <BaseIcon name={AlignLeft} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -347,7 +347,7 @@
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
-        <AlignCenter class="h-4 w-4" />
+        <BaseIcon name={AlignCenter} class="h-4 w-4" />
       </button>
       <button
         type="button"
@@ -355,8 +355,9 @@
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
-        <AlignRight class="h-4 w-4" />
+        <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
     </div>
   {/if}
 </div>
+

@@ -1,7 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { CheckCircle, AlertTriangle, Info, XCircle } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const CheckCircle = 'check-circle';
+const AlertTriangle = 'alert-triangle';
+const Info = 'info';
+const XCircle = 'x-circle';
+
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
@@ -66,7 +71,7 @@
   }
 
   // Icon mapping based on variant
-  const iconMap: Record<MessageVariant, typeof Info> = {
+  const iconMap: Record<MessageVariant, string> = {
     success: CheckCircle,
     warning: AlertTriangle,
     error: XCircle,
@@ -125,7 +130,7 @@
   >
     <div class="flex items-start">
       <div class="flex-shrink-0">
-        <iconComponent class={`h-5 w-5 ${iconColorClasses}`}></iconComponent>
+        <BaseIcon name={iconComponent} class={`h-5 w-5 ${iconColorClasses}`}></BaseIcon>
       </div>
       <div class={`ml-3 w-0 flex-1 ${contentClass}`}>
         {#if displayTitle}
@@ -161,3 +166,4 @@
     </div>
   </div>
 {/if}
+

@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { SyntaxHighlightedCodeProps } from '$stylist/design-system';
 	import { createSyntaxHighlightedCodeState } from '$stylist/design-system/models/information/syntax-highlighted-code.svelte';
-	import CodeBlock from '../../elements/code-block/index.svelte';
+	import Code from '../../elements/code-block/index.svelte';
 
 	let props: SyntaxHighlightedCodeProps = $props();
 
@@ -24,7 +24,7 @@
 	);
 </script>
 
-<CodeBlock
+<Code
 	{...restProps}
 	variant={state.variant}
 	size={state.size}
@@ -35,4 +35,5 @@
 	<code class={state.codeClasses}>
 		{@html state.escapedCode}
 	</code>
-</CodeBlock>
+</Code>
+

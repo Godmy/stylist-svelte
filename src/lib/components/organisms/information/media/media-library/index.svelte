@@ -1,20 +1,20 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { 
-    Folder, 
-    File, 
-    Image, 
-    Film, 
-    Music, 
-    Upload, 
-    Search, 
-    Grid3X3, 
-    List,
-    Trash2,
-    Download,
-    Eye,
-    X
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Folder = 'folder';
+const File = 'file';
+const Image = 'image';
+const Film = 'film';
+const Music = 'music';
+const Upload = 'upload';
+const Search = 'search';
+const Grid3X3 = 'grid-3-x-3';
+const List = 'list';
+const Trash2 = 'trash-2';
+const Download = 'download';
+const Eye = 'eye';
+const X = 'x';
+
 
   type MediaType = 'image' | 'video' | 'audio' | 'document' | 'other';
 
@@ -141,7 +141,7 @@
       <div class="flex-1">
         <div class="relative rounded-md shadow-sm">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
@@ -159,7 +159,7 @@
             class="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             onclick={triggerFileInput}
           >
-            <Upload class="h-4 w-4 mr-1" />
+            <BaseIcon name={Upload} class="h-4 w-4 mr-1" />
             Upload
           </button>
         {/if}
@@ -175,7 +175,7 @@
             onclick={() => selectedViewMode = 'grid'}
             title="Grid view"
           >
-            <Grid3X3 class="h-4 w-4" />
+            <BaseIcon name={Grid3X3} class="h-4 w-4" />
           </button>
           <button
             type="button"
@@ -187,7 +187,7 @@
             onclick={() => selectedViewMode = 'list'}
             title="List view"
           >
-            <List class="h-4 w-4" />
+            <BaseIcon name={List} class="h-4 w-4" />
           </button>
         </div>
       </div>
@@ -216,7 +216,7 @@
             type="button"
             class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none"
           >
-            <Download class="h-4 w-4 mr-1" />
+            <BaseIcon name={Download} class="h-4 w-4 mr-1" />
             Download
           </button>
         {/if}
@@ -225,7 +225,7 @@
             type="button"
             class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none"
           >
-            <Trash2 class="h-4 w-4 mr-1" />
+            <BaseIcon name={Trash2} class="h-4 w-4 mr-1" />
             Delete
           </button>
         {/if}
@@ -234,7 +234,7 @@
           class="inline-flex items-center px-3 py-1 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
           onclick={() => selectedItems = []}
         >
-          <X class="h-4 w-4 mr-1" />
+          <BaseIcon name={X} class="h-4 w-4 mr-1" />
           Clear
         </button>
       </div>
@@ -284,7 +284,7 @@
             {:else}
               {#if true}
                 {@const FileIcon = getFileIcon(item.type)}
-                <FileIcon class="h-10 w-10 text-gray-400" />
+                <BaseIcon name={FileIcon} class="h-10 w-10 text-gray-400" />
               {/if}
             {/if}
           </div>
@@ -326,12 +326,12 @@
           <div class="flex-shrink-0 w-16 h-16 bg-gray-100 rounded flex items-center justify-center">
             {#if true}
               {@const FileIcon = getFileIcon(item.type)}
-              <FileIcon class="h-8 w-8 text-gray-400" />
+              <BaseIcon name={FileIcon} class="h-8 w-8 text-gray-400" />
             {/if}
           </div>
           <div class="ml-4 flex-1 min-w-0">
             <p class="text-sm font-medium text-gray-900 truncate">{item.name}</p>
-            <p class="text-sm text-gray-500">{formatFileSize(item.size)} • {formatDate(item.uploadDate)}</p>
+            <p class="text-sm text-gray-500">{formatFileSize(item.size)} вЂў {formatDate(item.uploadDate)}</p>
           </div>
           <div class="ml-4 flex space-x-2">
             {#if allowDownload}
@@ -344,7 +344,7 @@
                 }}
                 title="Download"
               >
-                <Download class="h-5 w-5" />
+                <BaseIcon name={Download} class="h-5 w-5" />
               </button>
             {/if}
             <button
@@ -356,7 +356,7 @@
               }}
               title="View"
             >
-              <Eye class="h-5 w-5" />
+              <BaseIcon name={Eye} class="h-5 w-5" />
             </button>
             {#if allowDelete}
               <button
@@ -368,7 +368,7 @@
                 }}
                 title="Delete"
               >
-                <Trash2 class="h-5 w-5" />
+                <BaseIcon name={Trash2} class="h-5 w-5" />
               </button>
             {/if}
           </div>
@@ -380,7 +380,7 @@
   <!-- Empty state -->
   {#if getFilteredItems().length === 0}
     <div class="py-12 text-center">
-      <Folder class="h-12 w-12 text-gray-400 mx-auto mb-2" />
+      <BaseIcon name={Folder} class="h-12 w-12 text-gray-400 mx-auto mb-2" />
       <h3 class="text-sm font-medium text-gray-900 mb-1">No media files</h3>
       <p class="text-sm text-gray-500">
         {searchQuery ? 'No files match your search' : 'Upload files to get started'}
@@ -391,10 +391,11 @@
           class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
           onclick={triggerFileInput}
         >
-          <Upload class="h-4 w-4 mr-1" />
+          <BaseIcon name={Upload} class="h-4 w-4 mr-1" />
           Upload files
         </button>
       {/if}
     </div>
   {/if}
 </div>
+

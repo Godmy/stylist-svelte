@@ -1,5 +1,15 @@
 <script lang="ts">
-  import { Edit3, MessageCircle, MoreHorizontal, Reply, Send, ThumbsDown, ThumbsUp, Trash2, User as UserIcon } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Edit3 = 'edit-3';
+const MessageCircle = 'message-circle';
+const MoreHorizontal = 'more-horizontal';
+const Reply = 'reply';
+const Send = 'send';
+const ThumbsDown = 'thumbs-down';
+const ThumbsUp = 'thumbs-up';
+const Trash2 = 'trash-2';
+const UserIcon = 'user';
+
   import { Button } from '$lib/components/atoms';
   import type { CommentItem, CommentSystemProps } from '$lib/design-system/contracts/information/comment-system';
   import { CommentSystemStyleManager } from '$lib/design-system/styles/information/comment-system';
@@ -84,7 +94,7 @@
           <img class="h-10 w-10 rounded-full" src={comment.author.avatar} alt={comment.author.name} />
         {:else}
           <div class="h-10 w-10 rounded-full bg-[--color-background-secondary] flex items-center justify-center">
-            <UserIcon class="h-5 w-5 text-[--color-text-secondary]" />
+            <BaseIcon name={UserIcon} class="h-5 w-5 text-[--color-text-secondary]" />
           </div>
         {/if}
       </div>
@@ -123,36 +133,36 @@
         <div class={actionBarClass}>
           {#if showLikes}
             <button type="button" class={`flex items-center space-x-1 ${comment.isLiked ? 'text-[--color-primary-600]' : ''}`} onclick={() => onCommentLike?.(comment.id, true)}>
-              <ThumbsUp class="h-4 w-4" />
+              <BaseIcon name={ThumbsUp} class="h-4 w-4" />
               <span>{comment.likes ?? 0}</span>
             </button>
           {/if}
           {#if showDislikes}
             <button type="button" class={`flex items-center space-x-1 ${comment.isDisliked ? 'text-[--color-danger-600]' : ''}`} onclick={() => onCommentLike?.(comment.id, false)}>
-              <ThumbsDown class="h-4 w-4" />
+              <BaseIcon name={ThumbsDown} class="h-4 w-4" />
               <span>{comment.dislikes ?? 0}</span>
             </button>
           {/if}
           {#if showReply}
             <button type="button" class="flex items-center space-x-1" onclick={() => toggleReplyForm(comment.id)}>
-              <Reply class="h-4 w-4" />
+              <BaseIcon name={Reply} class="h-4 w-4" />
               <span>{showReplyForm[comment.id] ? 'Cancel reply' : 'Reply'}</span>
             </button>
           {/if}
           {#if showEdit && comment.author.id === currentUserId}
             <button type="button" class="flex items-center space-x-1" onclick={() => { editCommentId = comment.id; editContent = comment.content; }}>
-              <Edit3 class="h-4 w-4" />
+              <BaseIcon name={Edit3} class="h-4 w-4" />
               <span>Edit</span>
             </button>
           {/if}
           {#if showDelete && comment.author.id === currentUserId}
             <button type="button" class="flex items-center space-x-1 text-[--color-danger-600]" onclick={() => onCommentDelete?.(comment.id)}>
-              <Trash2 class="h-4 w-4" />
+              <BaseIcon name={Trash2} class="h-4 w-4" />
               <span>Delete</span>
             </button>
           {/if}
           <button type="button" class="flex items-center">
-            <MoreHorizontal class="h-4 w-4" />
+            <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
           </button>
         </div>
 
@@ -168,7 +178,7 @@
             <div class="mt-2 flex justify-end space-x-2">
               <Button variant="ghost" size="sm" onclick={() => { showReplyForm = { ...showReplyForm, [comment.id]: false }; replyContent = ''; }}>Cancel</Button>
               <Button variant="primary" size="sm" onclick={() => submitReply(comment.id)} disabled={!replyContent.trim()}>
-                <Send class="h-4 w-4 mr-1" />Reply
+                <BaseIcon name={Send} class="h-4 w-4 mr-1" />Reply
               </Button>
             </div>
           </div>
@@ -198,7 +208,7 @@
       ></textarea>
       <div class="mt-3 flex justify-end">
         <button type="button" class={primaryButtonClass} onclick={() => submitComment()} disabled={!newComment.trim()}>
-          <MessageCircle class="h-4 w-4 mr-2" />
+          <BaseIcon name={MessageCircle} class="h-4 w-4 mr-2" />
           Comment
         </button>
       </div>
@@ -221,3 +231,4 @@
     </div>
   </div>
 </div>
+

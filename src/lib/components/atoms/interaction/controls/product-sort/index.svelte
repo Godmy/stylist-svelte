@@ -36,7 +36,11 @@
 		class={sortState.selectClasses}
 	>
 		{#each sortState.options as option}
-			<option value={option.value}>{option.label}</option>
+			{#if typeof option === 'string'}
+				<option value={option}>{option}</option>
+			{:else}
+				<option value={option.value}>{option.label}</option>
+			{/if}
 		{/each}
 	</select>
 </div>

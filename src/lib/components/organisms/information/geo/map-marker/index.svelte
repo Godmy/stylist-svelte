@@ -1,7 +1,22 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { MapPin, Info, Star, Phone, Mail, Navigation, Building, Settings, HeartPulse, GraduationCap, ShoppingBag, AlertTriangle, Utensils, Car } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MapPin = 'map-pin';
+const Info = 'info';
+const Star = 'star';
+const Phone = 'phone';
+const Mail = 'mail';
+const Navigation = 'navigation';
+const Building = 'building';
+const Settings = 'settings';
+const HeartPulse = 'heart-pulse';
+const GraduationCap = 'graduation-cap';
+const ShoppingBag = 'shopping-bag';
+const AlertTriangle = 'alert-triangle';
+const Utensils = 'utensils';
+const Car = 'car';
+
   import { Button } from '$lib/components/atoms';
 
   import type { IMapMarkerProps } from '$lib/design-system/contracts/information/map-marker';
@@ -82,10 +97,10 @@
     onNavigateClick?.(coordinates);
   }
 
-  function getIconForCategory(cat?: string) {
+  function getIconForCategory(cat?: string): string {
     if (!cat) return MapPin;
 
-    const categoryIcons: Record<string, typeof MapPin> = {
+    const categoryIcons: Record<string, string> = {
       'restaurant': Utensils,
       'hotel': Building,
       'attraction': Star,
@@ -100,8 +115,8 @@
     return categoryIcons[cat] || MapPin;
   }
 
-  // Define icon components for categories
-  let CategoryIcon = getIconForCategory(category);
+  // Define icon for categories
+  let CategoryIcon = $derived(getIconForCategory(category));
 
   // Derived classes using StyleManager
   let hostClasses = $derived(MapMarkerStyleManager.getBaseClasses(selected, hostClass));
@@ -143,7 +158,8 @@
     }}
   >
     {#if pinStyle === 'standard'}
-      <MapPinIcon
+      <BaseIcon
+        name={MapPin}
         class={pinStyleClasses}
       />
     {:else if pinStyle === 'flag'}
@@ -153,7 +169,7 @@
       </div>
     {:else}
       <div class={`flex items-center justify-center ${pinStyleClasses}`}>
-        <CategoryIcon class="w-3/5 h-3/5" />
+        <BaseIcon name={CategoryIcon} class="w-3/5 h-3/5" />
       </div>
     {/if}
 
@@ -175,7 +191,8 @@
           {#if rating !== undefined}
             <div class={ratingContainerClasses}>
               {#each Array(5) as _, i}
-                <StarIcon
+                <BaseIcon
+                  name={Star}
                   class={starClasses(i < Math.floor(rating))}
                 />
               {/each}
@@ -198,13 +215,13 @@
         <div class={contactInfoContainerClasses}>
           {#if contactInfo.phone}
             <div class={contactItemClasses}>
-              <PhoneIcon class="h-4 w-4 mr-2" />
+              <BaseIcon name={Phone} class="h-4 w-4 mr-2" />
               <a href={`tel:${contactInfo.phone}`} class={contactLinkClasses}>{contactInfo.phone}</a>
             </div>
           {/if}
           {#if contactInfo.email}
             <div class={contactItemClasses}>
-              <MailIcon class="h-4 w-4 mr-2" />
+              <BaseIcon name={Mail} class="h-4 w-4 mr-2" />
               <a href={`mailto:${contactInfo.email}`} class={contactLinkClasses} target="_blank">{contactInfo.email}</a>
             </div>
           {/if}
@@ -233,14 +250,15 @@
 
       <div class={actionButtonsContainerClasses}>
         <Button variant="outline" size="sm" onclick={handleNavigateClick}>
-          <NavigationIcon class="h-4 w-4 mr-1" />
+          <BaseIcon name={Navigation} class="h-4 w-4 mr-1" />
           Directions
         </Button>
         <Button variant="outline" size="sm" onclick={handleInfoClick}>
-          <InfoIcon class="h-4 w-4 mr-1" />
+          <BaseIcon name={Info} class="h-4 w-4 mr-1" />
           Details
         </Button>
       </div>
     </div>
   {/if}
 </div>
+

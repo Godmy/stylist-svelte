@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { MoreVertical } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const MoreVertical = 'more-vertical';
+
 
   type User = {
     id: string;
@@ -129,9 +131,10 @@
           class="text-gray-400 hover:text-gray-600"
           aria-label="More options"
         >
-          <MoreVertical class="h-5 w-5" />
+          <BaseIcon name={MoreVertical} class="h-5 w-5" />
         </button>
       {/if}
     </div>
   {/if}
 </div>
+

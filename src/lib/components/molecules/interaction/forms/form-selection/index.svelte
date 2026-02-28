@@ -1,7 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+
 
   type Props = {
     title?: string;
@@ -74,7 +76,7 @@
             toggleCollapsed();
           }}
         >
-          <ChevronDown
+          <BaseIcon name={ChevronDown}
             class="w-4 h-4 transform transition-transform text-gray-500 {isCollapsed ? 'rotate-180' : ''}"
           />
         </button>
@@ -113,3 +115,4 @@
     width: 100%;
   }
 </style>
+

@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { IconChevron } from '$stylist/components/atoms';
+  import { Icon } from '$stylist/components/atoms';
   import { PaginationStyleManager } from '$stylist/design-system/styles';
   import type { PaginationProps } from '$stylist/design-system/contracts';
 
@@ -104,7 +104,7 @@
         disabled={currentPage === 1 || disabled}
         aria-label="Previous page"
       >
-        <IconChevron direction="left" size="sm" />
+        <Icon name="chevron-down" direction="left" size="sm" />
       </button>
     {/if}
 
@@ -156,7 +156,7 @@
         disabled={currentPage === totalPages || disabled}
         aria-label="Next page"
       >
-        <IconChevron direction="right" size="sm" />
+        <Icon name="chevron-down" direction="right" size="sm" />
       </button>
     {/if}
 
@@ -173,3 +173,5 @@
     {/if}
   </nav>
 </div>
+
+

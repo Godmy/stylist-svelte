@@ -1,18 +1,17 @@
-/**
- * Генератор CSS переменных
- * Автоматически создает CSS кастомные свойства из объектов тем
+﻿/**
+ * Р“РµРЅРµСЂР°С‚РѕСЂ CSS РїРµСЂРµРјРµРЅРЅС‹С…
+ * РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё СЃРѕР·РґР°РµС‚ CSS РєР°СЃС‚РѕРјРЅС‹Рµ СЃРІРѕР№СЃС‚РІР° РёР· РѕР±СЉРµРєС‚РѕРІ С‚РµРј
  */
 
 import type { Theme } from '../../themes/types';
-import type { ColorScale } from '../../tokens/information/colors';
 
 /**
- * Сглаживает вложенный объект в формат CSS переменных
- * Пример: { colors: { primary: { 500: '#000' } } } => '--color-primary-500: #000'
- * @param obj Объект для преобразования
- * @param prefix Префикс для ключей (опционально)
- * @param result Результирующий объект для накопления (опционально)
- * @returns Объект с плоской структурой переменных CSS
+ * РЎРіР»Р°Р¶РёРІР°РµС‚ РІР»РѕР¶РµРЅРЅС‹Р№ РѕР±СЉРµРєС‚ РІ С„РѕСЂРјР°С‚ CSS РїРµСЂРµРјРµРЅРЅС‹С…
+ * РџСЂРёРјРµСЂ: { colors: { primary: { 500: '#000' } } } => '--color-primary-500: #000'
+ * @param obj РћР±СЉРµРєС‚ РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ
+ * @param prefix РџСЂРµС„РёРєСЃ РґР»СЏ РєР»СЋС‡РµР№ (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ)
+ * @param result Р РµР·СѓР»СЊС‚РёСЂСѓСЋС‰РёР№ РѕР±СЉРµРєС‚ РґР»СЏ РЅР°РєРѕРїР»РµРЅРёСЏ (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ)
+ * @returns РћР±СЉРµРєС‚ СЃ РїР»РѕСЃРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂРѕР№ РїРµСЂРµРјРµРЅРЅС‹С… CSS
  */
 function flattenObject(
 	obj: any,
@@ -33,66 +32,66 @@ function flattenObject(
 }
 
 /**
- * Преобразует объект темы в объект CSS переменных
- * @param theme Объект темы для преобразования
- * @returns Объект с CSS переменными, сгенерированными из темы
+ * РџСЂРµРѕР±СЂР°Р·СѓРµС‚ РѕР±СЉРµРєС‚ С‚РµРјС‹ РІ РѕР±СЉРµРєС‚ CSS РїРµСЂРµРјРµРЅРЅС‹С…
+ * @param theme РћР±СЉРµРєС‚ С‚РµРјС‹ РґР»СЏ РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёСЏ
+ * @returns РћР±СЉРµРєС‚ СЃ CSS РїРµСЂРµРјРµРЅРЅС‹РјРё, СЃРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹РјРё РёР· С‚РµРјС‹
  */
 export function themeToCSSVars(theme: Theme): Record<string, string> {
 	const vars: Record<string, string> = {};
 
-	// Обработка цветов
-	// Основная палитра
+	// РћР±СЂР°Р±РѕС‚РєР° С†РІРµС‚РѕРІ
+	// РћСЃРЅРѕРІРЅР°СЏ РїР°Р»РёС‚СЂР°
 	Object.entries(theme.colors.primary).forEach(([shade, color]) => {
 		vars[`color-primary-${shade}`] = color;
 	});
 
-	// Вторичная палитра
+	// Р’С‚РѕСЂРёС‡РЅР°СЏ РїР°Р»РёС‚СЂР°
 	Object.entries(theme.colors.secondary).forEach(([shade, color]) => {
 		vars[`color-secondary-${shade}`] = color;
 	});
 
-	// Палитра успеха
+	// РџР°Р»РёС‚СЂР° СѓСЃРїРµС…Р°
 	Object.entries(theme.colors.success).forEach(([shade, color]) => {
 		vars[`color-success-${shade}`] = color;
 	});
 
-	// Палитра предупреждения
+	// РџР°Р»РёС‚СЂР° РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ
 	Object.entries(theme.colors.warning).forEach(([shade, color]) => {
 		vars[`color-warning-${shade}`] = color;
 	});
 
-	// Палитра опасности
+	// РџР°Р»РёС‚СЂР° РѕРїР°СЃРЅРѕСЃС‚Рё
 	Object.entries(theme.colors.danger).forEach(([shade, color]) => {
 		vars[`color-danger-${shade}`] = color;
 	});
 
-	// Нейтральная палитра
+	// РќРµР№С‚СЂР°Р»СЊРЅР°СЏ РїР°Р»РёС‚СЂР°
 	Object.entries(theme.colors.neutral).forEach(([shade, color]) => {
-		vars[`color-neutral-${shade}`] = color;
+		vars[`color-NEUTRAL-${shade}`] = color;
 	});
 
-	// Цвета фона
-	vars['color-bg-primary'] = theme.colors.background.primary; // Основной фон
-	vars['color-bg-secondary'] = theme.colors.background.secondary; // Вторичный фон
-	vars['color-bg-tertiary'] = theme.colors.background.tertiary; // Третичный фон
+	// Р¦РІРµС‚Р° С„РѕРЅР°
+	vars['color-bg-primary'] = theme.colors.background.primary; // РћСЃРЅРѕРІРЅРѕР№ С„РѕРЅ
+	vars['color-bg-secondary'] = theme.colors.background.secondary; // Р’С‚РѕСЂРёС‡РЅС‹Р№ С„РѕРЅ
+	vars['color-bg-tertiary'] = theme.colors.background.tertiary; // РўСЂРµС‚РёС‡РЅС‹Р№ С„РѕРЅ
 
-	// Цвета текста
-	vars['color-text-primary'] = theme.colors.text.primary; // Основной текст
-	vars['color-text-secondary'] = theme.colors.text.secondary; // Вторичный текст
-	vars['color-text-tertiary'] = theme.colors.text.tertiary; // Третичный текст
-	vars['color-text-inverse'] = theme.colors.text.inverse; // Инвертированный текст
+	// Р¦РІРµС‚Р° С‚РµРєСЃС‚Р°
+	vars['color-text-primary'] = theme.colors.text.primary; // РћСЃРЅРѕРІРЅРѕР№ С‚РµРєСЃС‚
+	vars['color-text-secondary'] = theme.colors.text.secondary; // Р’С‚РѕСЂРёС‡РЅС‹Р№ С‚РµРєСЃС‚
+	vars['color-text-tertiary'] = theme.colors.text.tertiary; // РўСЂРµС‚РёС‡РЅС‹Р№ С‚РµРєСЃС‚
+	vars['color-text-inverse'] = theme.colors.text.inverse; // РРЅРІРµСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ С‚РµРєСЃС‚
 
-	// Цвета границ
-	vars['color-border-primary'] = theme.colors.border.primary; // Основная граница
-	vars['color-border-secondary'] = theme.colors.border.secondary; // Вторичная граница
-	vars['color-border-tertiary'] = theme.colors.border.tertiary; // Третичная граница
+	// Р¦РІРµС‚Р° РіСЂР°РЅРёС†
+	vars['color-border-primary'] = theme.colors.border.primary; // РћСЃРЅРѕРІРЅР°СЏ РіСЂР°РЅРёС†Р°
+	vars['color-border-secondary'] = theme.colors.border.secondary; // Р’С‚РѕСЂРёС‡РЅР°СЏ РіСЂР°РЅРёС†Р°
+	vars['color-border-tertiary'] = theme.colors.border.tertiary; // РўСЂРµС‚РёС‡РЅР°СЏ РіСЂР°РЅРёС†Р°
 
-	// Отступы
+	// РћС‚СЃС‚СѓРїС‹
 	Object.entries(theme.spacing).forEach(([key, value]) => {
-		vars[`spacing-${key}`] = value;
+		vars[`SPACING-${key}`] = value;
 	});
 
-	// Типографика
+	// РўРёРїРѕРіСЂР°С„РёРєР°
 	Object.entries(theme.typography.fontSize).forEach(([key, value]) => {
 		vars[`font-size-${key}`] = value;
 	});
@@ -105,25 +104,25 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
 		vars[`line-height-${key}`] = value;
 	});
 
-	vars['font-family-sans'] = theme.typography.fontFamily; // Семейство шрифтов
+	vars['font-family-sans'] = theme.typography.fontFamily; // РЎРµРјРµР№СЃС‚РІРѕ С€СЂРёС„С‚РѕРІ
 
-	// Скругления границ
+	// РЎРєСЂСѓРіР»РµРЅРёСЏ РіСЂР°РЅРёС†
 	Object.entries(theme.borderRadius).forEach(([key, value]) => {
 		vars[`radius-${key}`] = value;
 	});
 
-	// Тени
+	// РўРµРЅРё
 	Object.entries(theme.boxShadow).forEach(([key, value]) => {
-		vars[`shadow-${key}`] = value;
+		vars[`SHADOW-${key}`] = value;
 	});
 
 	return vars;
 }
 
 /**
- * Применяет CSS переменные к DOM элементу
- * @param element DOM элемент для применения переменных
- * @param vars Объект с CSS переменными в формате --имя: значение
+ * РџСЂРёРјРµРЅСЏРµС‚ CSS РїРµСЂРµРјРµРЅРЅС‹Рµ Рє DOM СЌР»РµРјРµРЅС‚Сѓ
+ * @param element DOM СЌР»РµРјРµРЅС‚ РґР»СЏ РїСЂРёРјРµРЅРµРЅРёСЏ РїРµСЂРµРјРµРЅРЅС‹С…
+ * @param vars РћР±СЉРµРєС‚ СЃ CSS РїРµСЂРµРјРµРЅРЅС‹РјРё РІ С„РѕСЂРјР°С‚Рµ --РёРјСЏ: Р·РЅР°С‡РµРЅРёРµ
  */
 export function applyCSSVars(element: HTMLElement, vars: Record<string, string>): void {
 	Object.entries(vars).forEach(([key, value]) => {
@@ -132,9 +131,9 @@ export function applyCSSVars(element: HTMLElement, vars: Record<string, string>)
 }
 
 /**
- * Удаляет CSS переменные из DOM элемента
- * @param element DOM элемент для удаления переменных
- * @param varNames Массив имен переменных для удаления (без префикса --)
+ * РЈРґР°Р»СЏРµС‚ CSS РїРµСЂРµРјРµРЅРЅС‹Рµ РёР· DOM СЌР»РµРјРµРЅС‚Р°
+ * @param element DOM СЌР»РµРјРµРЅС‚ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РїРµСЂРµРјРµРЅРЅС‹С…
+ * @param varNames РњР°СЃСЃРёРІ РёРјРµРЅ РїРµСЂРµРјРµРЅРЅС‹С… РґР»СЏ СѓРґР°Р»РµРЅРёСЏ (Р±РµР· РїСЂРµС„РёРєСЃР° --)
  */
 export function removeCSSVars(element: HTMLElement, varNames: string[]): void {
 	varNames.forEach((name) => {
@@ -143,9 +142,9 @@ export function removeCSSVars(element: HTMLElement, varNames: string[]): void {
 }
 
 /**
- * Применяет тему к корневому элементу документа
- * @param theme Объект темы для применения
- * @param element Целевой DOM элемент (по умолчанию document.documentElement)
+ * РџСЂРёРјРµРЅСЏРµС‚ С‚РµРјСѓ Рє РєРѕСЂРЅРµРІРѕРјСѓ СЌР»РµРјРµРЅС‚Сѓ РґРѕРєСѓРјРµРЅС‚Р°
+ * @param theme РћР±СЉРµРєС‚ С‚РµРјС‹ РґР»СЏ РїСЂРёРјРµРЅРµРЅРёСЏ
+ * @param element Р¦РµР»РµРІРѕР№ DOM СЌР»РµРјРµРЅС‚ (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ document.documentElement)
  */
 export function applyThemeToDOM(
 	theme: Theme,
@@ -154,15 +153,15 @@ export function applyThemeToDOM(
 	const vars = themeToCSSVars(theme);
 	applyCSSVars(element, vars);
 
-	// Устанавливает атрибут данных для CSS селекторов
+	// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р°С‚СЂРёР±СѓС‚ РґР°РЅРЅС‹С… РґР»СЏ CSS СЃРµР»РµРєС‚РѕСЂРѕРІ
 	element.setAttribute('data-theme', theme.name);
 }
 
 /**
- * Генерирует CSS строку из темы (для статической генерации CSS)
- * @param theme Объект темы для генерации CSS
- * @param selector CSS селектор для применения переменных (по умолчанию :root)
- * @returns Строка CSS с переменными темы
+ * Р“РµРЅРµСЂРёСЂСѓРµС‚ CSS СЃС‚СЂРѕРєСѓ РёР· С‚РµРјС‹ (РґР»СЏ СЃС‚Р°С‚РёС‡РµСЃРєРѕР№ РіРµРЅРµСЂР°С†РёРё CSS)
+ * @param theme РћР±СЉРµРєС‚ С‚РµРјС‹ РґР»СЏ РіРµРЅРµСЂР°С†РёРё CSS
+ * @param selector CSS СЃРµР»РµРєС‚РѕСЂ РґР»СЏ РїСЂРёРјРµРЅРµРЅРёСЏ РїРµСЂРµРјРµРЅРЅС‹С… (РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ :root)
+ * @returns РЎС‚СЂРѕРєР° CSS СЃ РїРµСЂРµРјРµРЅРЅС‹РјРё С‚РµРјС‹
  */
 export function generateThemeCSS(theme: Theme, selector = ':root'): string {
 	const vars = themeToCSSVars(theme);
@@ -172,3 +171,8 @@ export function generateThemeCSS(theme: Theme, selector = ':root'): string {
 
 	return `${selector} {\n${cssVars}\n}`;
 }
+
+
+
+
+

@@ -11,7 +11,7 @@ export type PageBuilderElementType =
   | 'grid';
 
 export interface PageBuilderTextAttributes {
-  fontSize?: string;
+  FONT_SIZE?: string;
   color?: string;
 }
 
@@ -64,3 +64,4 @@ export interface PageBuilderProps extends HTMLAttributes<HTMLDivElement> {
   canvasClass?: string;
   elementClass?: string;
 }
+

@@ -1,11 +1,12 @@
+import type { HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
+import type { TabGroupVariant } from '../../tokens/interaction/tab-variants';
+
+export type { TabGroupVariant };
+
 /**
  * TabGroup types and interfaces following SOLID principles
  */
-
-import type { HTMLAttributes } from 'svelte/elements';
-import type { Snippet } from 'svelte';
-
-export type TabGroupVariant = 'line' | 'boxed' | 'pill';
 
 export interface ITab {
   id: string;

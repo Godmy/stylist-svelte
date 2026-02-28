@@ -1,6 +1,9 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Users, User } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Users = 'users';
+const User = 'user';
+
 
   type TeamMember = {
     id: string;
@@ -100,7 +103,8 @@
       class={`relative ${stackDirection === 'horizontal' ? '-ml-2' : '-mt-2'} flex items-center justify-center rounded-full border-2 border-white bg-indigo-100 text-indigo-800 font-medium ${sizeClasses} ${size === 'sm' ? 'text-xs' : size === 'md' ? 'text-sm' : 'text-base'}`}
     >
       +{overflowCount}
-      <Users class="ml-1" style={`width: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}; height: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}`} />
+      <BaseIcon name={Users} class="ml-1" style={`width: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}; height: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}`} />
     </div>
   {/if}
 </div>
+

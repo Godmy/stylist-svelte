@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   /**
    * @component CategoryCard
    * @description Card for component categories (for /stylist page)
@@ -15,7 +15,7 @@
 
   import type { ICategoryCardProps } from '$stylist/design-system/contracts/information/category-card';
   import { CategoryCardStyleManager } from '$stylist/design-system/styles/information/category-card';
-  import IconCircle from '$stylist/components/atoms/information/media/icon-circle/index.svelte';
+  import Icon from '$stylist/components/atoms/information/media/icon/index.svelte';
 
   // Define component props using the interface
   let {
@@ -47,7 +47,7 @@
   <div class={linkWrapperClasses}>
     <div class={headerClasses}>
       <div class={iconContainerClasses}>
-        <IconCircle icon={icon as any} size="md" variant="primary" />
+        <Icon name={icon} container="circle" containerSize="md" variant="primary" />
       </div>
       <div class={contentContainerClasses}>
         <h3 class={titleClasses}>
@@ -71,3 +71,5 @@
     {/if}
   </div>
 </a>
+
+

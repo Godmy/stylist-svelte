@@ -1,9 +1,22 @@
-import {
-  ALERT_CARD_BASE_CLASSES,
-  ALERT_CARD_SIZE_CLASSES,
-  ALERT_CARD_VARIANT_CLASSES
-} from '../../classes/information/alert-card';
+import { BASE_CLASSES } from '../../runtime/foundation';
+import { VARIANT_CLASSES } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
+
+const ALERT_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
+
+const ALERT_CARD_VARIANT_CLASSES = {
+	...VARIANT_CLASSES,
+	info: 'border-l-4 border-[--color-info-500]',
+	success: 'border-l-4 border-[--color-success-500]',
+	warning: 'border-l-4 border-[--color-warning-500]',
+	error: 'border-l-4 border-[--color-danger-500]'
+} as const;
+
+const ALERT_CARD_SIZE_CLASSES = {
+	sm: 'p-3',
+	md: 'p-4',
+	lg: 'p-6'
+} as const;
 
 export class AlertCardStyleManager {
   static getClasses(

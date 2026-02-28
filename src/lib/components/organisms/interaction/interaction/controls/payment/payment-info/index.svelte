@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { CreditCard, Shield, Lock } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const CreditCard = 'credit-card';
+const Shield = 'shield';
+const Lock = 'lock';
+
   import { PaymentInfoStyleManager } from '$stylist/design-system/styles';
   import type { PaymentInfoProps, PaymentMethod } from '$stylist/design-system/contracts';
 
@@ -28,7 +32,7 @@
 <div class={PaymentInfoStyleManager.root(className)} {...restProps}>
   <div class="border border-gray-200 rounded-lg p-6">
     <div class="flex items-center gap-2">
-      <CreditCard class="h-5 w-5 text-blue-600" />
+      <BaseIcon name={CreditCard} class="h-5 w-5 text-blue-600" />
       <h3 class="text-lg font-semibold">Payment Information</h3>
     </div>
   </div>
@@ -70,9 +74,10 @@
 
   {#if showSecurityInfo}
     <div class="mt-4 border border-gray-200 rounded-lg p-4">
-      <div class="flex items-center gap-2 text-sm font-medium"><Shield class="h-4 w-4" /> Security</div>
-      <div class="mt-2 text-sm text-gray-600 flex items-center gap-2"><Lock class="h-4 w-4" /> Encrypted payment processing</div>
+      <div class="flex items-center gap-2 text-sm font-medium"><BaseIcon name={Shield} class="h-4 w-4" /> Security</div>
+      <div class="mt-2 text-sm text-gray-600 flex items-center gap-2"><BaseIcon name={Lock} class="h-4 w-4" /> Encrypted payment processing</div>
     </div>
   {/if}
 </div>
+
 

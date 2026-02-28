@@ -1,15 +1,25 @@
-import type { Preset } from '../runtime/types';
-import { COMPONENT_SIZE_SCALE, COMPACT_SIZE_SCALE } from '../tokens/architecture/sizes';
-import { DEFAULT_FLAGS } from '../tokens/information/flags';
-import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from '../classes/information/classes';
-import { ICON_SIZES, SIZE_CLASSES } from '../classes/architecture/sizes';
-import { INTERACTIVE_BASE_CLASS, INTERACTIVE_VARIANTS, VARIANT_CLASSES } from '../classes/interaction';
+﻿import type { Preset } from '../runtime/types';
+import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
+import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from './foundation';
+import { ICON_SIZES, SIZE_CLASSES } from './sizing';
+import {
+	INTERACTIVE_BASE_CLASS,
+	INTERACTIVE_VARIANTS,
+	VARIANT_CLASSES
+} from '../styles/interaction/interaction';
+
+const DEFAULT_STATE_FLAGS = {
+	disabled: false,
+	loading: false,
+	readonly: false,
+	required: false,
+	closeable: false
+} as const;
 
 export const INTERACTION_TOKENS = {
 	INTERACTIVE_VARIANTS,
-	COMPONENT_SIZE_SCALE,
-	COMPACT_SIZE_SCALE,
-	DEFAULT_FLAGS,
+	COMPONENT_SIZE,
+	DEFAULT_STATE_FLAGS,
 	STATE_CLASSES,
 	INTERACTIVE_BASE_CLASS,
 	ACCESSIBILITY_CLASSES,
@@ -51,3 +61,4 @@ export const createBasePreset = <V extends string, S extends string>(
 		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
 	) as Record<S, string>
 });
+

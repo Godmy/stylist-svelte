@@ -1,8 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { ILanguageSelectorProps } from './types';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { LanguageSelectorStyleManager } from './styles';
-  import { Check, Globe } from 'lucide-svelte';
+
+  const Globe = 'globe';
+  const Check = 'check';
+
 
   let {
     languages = [],
@@ -79,7 +83,7 @@
         </span>
       {:else}
         <span class="flex items-center">
-          <Globe class="h-4 w-4 mr-2" />
+          <BaseIcon name={Globe} class="h-4 w-4 mr-2" />
           Select Language
         </span>
       {/if}
@@ -132,7 +136,7 @@
                 {/if}
               </span>
               {#if language.code === currentLanguage}
-                <Check class={checkIconClasses} />
+                <BaseIcon name={Check} class={checkIconClasses} />
               {/if}
             </button>
           {/each}
@@ -147,3 +151,4 @@
     </div>
   {/if}
 </div>
+

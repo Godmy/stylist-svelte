@@ -1,7 +1,10 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { Check, CheckCheck } from 'lucide-svelte';
-	import type { MessageStatusProps } from '$stylist/design-system';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Check = 'check';
+const CheckCheck = 'check-check';
+
+	import type { MessageStatusProps } from '$stylist/design-system/contracts/information/indicators';
 	import { createMessageStatusState } from '$stylist/design-system/models/information/message-status.svelte';
 
 	type Props = MessageStatusProps & HTMLAttributes<HTMLDivElement>;
@@ -19,8 +22,9 @@
 
 <div class={state.containerClasses} {...restProps}>
 	{#if state.isDoubleCheck}
-		<CheckCheck class={state.iconClasses} />
+		<BaseIcon name={CheckCheck} class={state.iconClasses} />
 	{:else}
-		<Check class={state.iconClasses} />
+		<BaseIcon name={Check} class={state.iconClasses} />
 	{/if}
 </div>
+

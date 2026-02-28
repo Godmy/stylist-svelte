@@ -1,14 +1,11 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '../../tokens/architecture/sizes';
-import type { DefaultVariants } from '../../tokens/architecture/variants';
-import type {
-	ButtonAttributesBase,
-	ButtonAttributesWithChildren,
-	Props,
-	ClassProp
-} from '../information/common';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
+import type { Props, ClassProp } from '../information/common';
+
+type ButtonAttributesBase = Omit<HTMLButtonAttributes, 'class'> & ClassProp;
 
 export type ButtonElementBaseProps<TCore, TDom> = Omit<TCore, 'children'> &
 	TDom & {
@@ -40,7 +37,7 @@ export interface CopyButtonProps
 
 export interface IconButtonProps extends Omit<ButtonCoreProps, 'children' | 'icon'>, ButtonDomProps {
 	class?: string;
-	icon?: Snippet;
+	icon?: string | Snippet;
 	children?: Snippet;
 }
 
@@ -62,4 +59,4 @@ export interface ButtonControlProps extends ButtonAttributesBase {
 	onClick?: () => void;
 }
 
-export type { ButtonAttributesBase, ButtonAttributesWithChildren, ClassProp };
+export type { ClassProp };

@@ -1,3 +1,4 @@
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
 /**
  * Типы и интерфейсы для компонента LinkCard
  * 
@@ -11,7 +12,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-export type LinkCardVariant = 'default' | 'primary' | 'secondary' | 'outline';
+export type LinkCardVariant = DefaultVariants | 'outline';
 
 export interface ILinkCardProps {
   /** Заголовок карточки */

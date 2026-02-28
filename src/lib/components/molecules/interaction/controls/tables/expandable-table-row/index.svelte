@@ -1,7 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { ChevronDown, ChevronRight } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+const ChevronRight = 'chevron-right';
+
 
   type RestProps = Omit<HTMLAttributes<HTMLTableRowElement>, 'class'>;
 
@@ -47,9 +50,9 @@
         onclick={toggleExpanded}
       >
         {#if expanded}
-          <ChevronDown class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={ChevronDown} class="h-5 w-5 text-gray-400" />
         {:else}
-          <ChevronRight class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={ChevronRight} class="h-5 w-5 text-gray-400" />
         {/if}
       </button>
     </td>
@@ -64,3 +67,4 @@
       </td>
     </tr>
   {/if}
+

@@ -1,123 +1,55 @@
-/**
- * @file StatCard Style Manager
- * @description Style management for StatCard component following Atomic Design principles
- * @author Vibe Management Pro
- * @version 1.0.0
- *
- * SOLID Principles Applied:
- * - Single Responsibility: Only handles styling logic for StatCard
- */
+import { cn } from '../../utils/cn/index';
+import { CARD_BASE_CLASSES } from './card';
 
-/**
- * Style manager for StatCard component
- * Manages all class names and styling for the StatCard molecule
- */
+const STAT_CARD_VARIANT_CLASSES = {
+	default: '',
+	gradient:
+		'bg-gradient-to-br from-[var(--color-primary-50)] to-[var(--color-background-secondary)] border-[var(--color-primary-200)]'
+} as const;
+
+const STAT_CARD_TREND_TEXT_CLASSES = {
+	up: 'text-[var(--color-success-700)]',
+	down: 'text-[var(--color-danger-700)]',
+	neutral: 'text-[var(--color-text-secondary)]'
+} as const;
+
 export class StatCardStyleManager {
-  /**
-   * Gets the base classes for the StatCard component
-   * @param variant - Visual variant of the stat card
-   * @param className - Additional CSS classes to append
-   * @returns Combined string of base and additional classes
-   */
-  static getBaseClasses(variant: 'default' | 'gradient' = 'default', className?: string): string {
-    const baseClasses = 'stat-card bg-white dark:bg-gray-800 rounded-lg shadow p-6 border border-gray-200 dark:border-gray-700';
+	static getBaseClasses(
+		variant: keyof typeof STAT_CARD_VARIANT_CLASSES = 'default',
+		className = ''
+	): string {
+		return cn('stat-card p-6', CARD_BASE_CLASSES, STAT_CARD_VARIANT_CLASSES[variant], className);
+	}
 
-    const variantClasses = this.getVariantClasses(variant);
+	static getVariantClasses(variant: keyof typeof STAT_CARD_VARIANT_CLASSES): string {
+		return STAT_CARD_VARIANT_CLASSES[variant] ?? STAT_CARD_VARIANT_CLASSES.default;
+	}
 
-    const allClasses = `${baseClasses} ${variantClasses}`;
-    return className ? `${allClasses} ${className}` : allClasses;
-  }
+	static getIconContainerClasses(): string {
+		return 'mb-4';
+	}
 
-  /**
-   * Gets the variant-specific classes for the StatCard component
-   * @param variant - Visual variant of the stat card
-   * @returns Variant-specific classes
-   */
-  static getVariantClasses(variant: 'default' | 'gradient'): string {
-    switch (variant) {
-      case 'gradient':
-        return 'bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20';
-      case 'default':
-      default:
-        return '';
-    }
-  }
+	static getTitleClasses(): string {
+		return 'stat-card-title mb-1 text-sm font-medium text-[var(--color-text-secondary)]';
+	}
 
-  /**
-   * Gets the icon container classes for the StatCard component
-   * @returns Icon container classes
-   */
-  static getIconContainerClasses(): string {
-    return 'mb-4';
-  }
+	static getValueClasses(): string {
+		return 'stat-card-value text-2xl font-bold text-[var(--color-text-primary)]';
+	}
 
-  /**
-   * Gets the title classes for the StatCard component
-   * @returns Title classes
-   */
-  static getTitleClasses(): string {
-    return 'stat-card-title text-sm font-medium text-gray-500 dark:text-gray-400 mb-1';
-  }
+	static getTrendContainerClasses(): string {
+		return 'mt-1 flex items-center';
+	}
 
-  /**
-   * Gets the value classes for the StatCard component
-   * @returns Value classes
-   */
-  static getValueClasses(): string {
-    return 'stat-card-value text-2xl font-bold text-gray-900 dark:text-white';
-  }
+	static getTrendTextClasses(trend: 'up' | 'down' | 'neutral' = 'neutral'): string {
+		return cn('text-xs font-medium', STAT_CARD_TREND_TEXT_CLASSES[trend]);
+	}
 
-  /**
-   * Gets the trend container classes for the StatCard component
-   * @returns Trend container classes
-   */
-  static getTrendContainerClasses(): string {
-    return 'flex items-center mt-1';
-  }
+	static getTrendIconClasses(trend: 'up' | 'down' | 'neutral' = 'neutral'): string {
+		return cn('mr-1 h-3 w-3', STAT_CARD_TREND_TEXT_CLASSES[trend]);
+	}
 
-  /**
-   * Gets the trend text classes for the StatCard component
-   * @param trend - Trend direction
-   * @returns Trend text classes
-   */
-  static getTrendTextClasses(trend?: 'up' | 'down' | 'neutral'): string {
-    const baseClasses = 'text-xs font-medium';
-
-    switch (trend) {
-      case 'up':
-        return `${baseClasses} text-green-600 dark:text-green-400`;
-      case 'down':
-        return `${baseClasses} text-red-600 dark:text-red-400`;
-      case 'neutral':
-      default:
-        return `${baseClasses} text-gray-500 dark:text-gray-400`;
-    }
-  }
-
-  /**
-   * Gets the trend icon classes for the StatCard component
-   * @param trend - Trend direction
-   * @returns Trend icon classes
-   */
-  static getTrendIconClasses(trend?: 'up' | 'down' | 'neutral'): string {
-    const baseClasses = 'w-3 h-3 mr-1';
-
-    switch (trend) {
-      case 'up':
-        return `${baseClasses} text-green-600 dark:text-green-400`;
-      case 'down':
-        return `${baseClasses} text-red-600 dark:text-red-400`;
-      case 'neutral':
-      default:
-        return `${baseClasses} text-gray-500 dark:text-gray-400`;
-    }
-  }
-
-  /**
-   * Gets the description classes for the StatCard component
-   * @returns Description classes
-   */
-  static getDescriptionClasses(): string {
-    return 'stat-card-description text-xs text-gray-500 dark:text-gray-400 mt-2';
-  }
+	static getDescriptionClasses(): string {
+		return 'stat-card-description mt-2 text-xs text-[var(--color-text-secondary)]';
+	}
 }

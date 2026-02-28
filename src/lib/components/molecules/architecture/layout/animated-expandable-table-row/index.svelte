@@ -1,7 +1,10 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
-  import { ChevronDown, ChevronUp } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const ChevronDown = 'chevron-down';
+const ChevronUp = 'chevron-up';
+
 
   type Props = {
     expanded?: boolean;
@@ -53,13 +56,13 @@
           {#if collapseIcon}
             {@html collapseIcon}
           {:else}
-            <ChevronUp class="h-5 w-5 text-gray-500" />
+            <BaseIcon name={ChevronUp} class="h-5 w-5 text-gray-500" />
           {/if}
         {:else}
           {#if expandIcon}
             {@html expandIcon}
           {:else}
-            <ChevronDown class="h-5 w-5 text-gray-500" />
+            <BaseIcon name={ChevronDown} class="h-5 w-5 text-gray-500" />
           {/if}
         {/if}
       </button>
@@ -114,3 +117,4 @@
     }
   }
 </style>
+

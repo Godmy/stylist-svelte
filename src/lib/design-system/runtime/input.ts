@@ -1,6 +1,7 @@
-import type { InputPreset } from '../runtime/types';
-import { COMPACT_SIZE_SCALE, COMPONENT_SIZE_SCALE } from '../tokens/architecture/sizes';
-import { INPUT_VARIANTS } from '../tokens/architecture/variants';
+﻿import type { InputPreset } from '../runtime/types';
+import type { ComponentSize } from '../tokens/architecture/component-size';
+import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
+import { INPUT_VARIANTS } from '../tokens/information/input-variants';
 import { createBasePreset } from './preset';
 import {
 	INPUT_SIZE_CLASSES,
@@ -15,18 +16,18 @@ import {
 	INPUT_PASSWORD_TOGGLE_CLASS,
 	INPUT_LONG_RESIZE_HANDLE_CLASS,
 	INPUT_DOUBLE_CONTAINER_CLASS
-} from '../classes/interaction/input';
+} from '../styles/interaction/input';
 
 // ============================================================================
 // Input Field Preset
 // ============================================================================
 
-const inputBase = createBasePreset(INPUT_VARIANTS, COMPACT_SIZE_SCALE, {
+const inputBase = createBasePreset(INPUT_VARIANTS, COMPONENT_SIZE, {
 	variant: 'default',
 	size: 'md'
 });
 
-export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], 'sm' | 'md' | 'lg'> = {
+export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], ComponentSize> = {
 	...inputBase,
 	classes: {
 		...inputBase.classes,
@@ -39,12 +40,12 @@ export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], 's
 // Textarea Preset
 // ============================================================================
 
-const textareaBase = createBasePreset(INPUT_VARIANTS, COMPONENT_SIZE_SCALE, {
+const textareaBase = createBasePreset(INPUT_VARIANTS, COMPONENT_SIZE, {
 	variant: 'default',
 	size: 'md'
 });
 
-export const TEXTAREA_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], 'sm' | 'md' | 'lg' | 'xl'> = {
+export const TEXTAREA_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], ComponentSize> = {
 	...textareaBase,
 	classes: {
 		...textareaBase.classes,
@@ -91,3 +92,9 @@ export const INPUT_CONTAINER_PRESET = {
 	errorTextClass: INPUT_FIELD_ERROR_TEXT_CLASS,
 	labelClass: INPUT_FIELD_LABEL_CLASS
 } as const;
+
+
+
+
+
+

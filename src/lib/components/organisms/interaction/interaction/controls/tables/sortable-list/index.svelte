@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { GripVertical, MoreHorizontal } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const GripVertical = 'grip-vertical';
+const MoreHorizontal = 'more-horizontal';
+
   import { SortableListStyleManager } from '$stylist/design-system/styles';
   import type { SortableListProps, SortableListItem } from '$stylist/design-system/contracts';
 
@@ -45,18 +48,19 @@
       >
         <div class="flex items-center justify-between gap-2">
           <div class="flex items-center gap-2">
-            {#if showHandle}<GripVertical class="h-4 w-4 text-gray-400" />{/if}
+            {#if showHandle}<BaseIcon name={GripVertical} class="h-4 w-4 text-gray-400" />{/if}
             <div>
               <div class="font-medium text-sm">{item.title}</div>
               {#if item.description}<div class="text-xs text-gray-500">{item.description}</div>{/if}
             </div>
           </div>
           {#if showActions}
-            <button type="button" onclick={() => onItemAction?.(item, 'menu')}><MoreHorizontal class="h-4 w-4 text-gray-500" /></button>
+            <button type="button" onclick={() => onItemAction?.(item, 'menu')}><BaseIcon name={MoreHorizontal} class="h-4 w-4 text-gray-500" /></button>
           {/if}
         </div>
       </div>
     {/each}
   </div>
 </div>
+
 

@@ -1,11 +1,13 @@
 <script lang="ts">
-	import { Loader2 } from 'lucide-svelte';
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Loader2 = 'loader-2';
+
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { IconButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/icon-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { createIconButtonState } from '$stylist/design-system/models/interaction/icon-button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -37,8 +39,8 @@
 	} = props;
 
 	// Use centralized state management
-	let state = createState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+	let state = createIconButtonState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'secondary',
 			size: 'md'
 		}),
@@ -51,15 +53,22 @@
 
 <button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
 	{#if state.loading}
-		<Loader2 class={state.loaderClasses} aria-hidden="true" />
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.icon !== undefined && props.icon !== null}
-		{@const Icon = props.icon}
-		<Icon />
+		{#if typeof props.icon === 'string'}
+			<BaseIcon name={props.icon} />
+		{:else}
+			{@render props.icon?.()}
+		{/if}
 	{:else if props.children}
 		{@render props.children?.()}
 	{/if}
 </button>
+
+
+
+
 
 
 

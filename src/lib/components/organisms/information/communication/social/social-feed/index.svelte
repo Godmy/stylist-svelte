@@ -1,15 +1,15 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import {
-    Heart,
-    MessageCircle,
-    Share2,
-    MoreHorizontal,
-    User,
-    Calendar,
-    Filter,
-    Search
-  } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Heart = 'heart';
+const MessageCircle = 'message-circle';
+const Share2 = 'share-2';
+const MoreHorizontal = 'more-horizontal';
+const User = 'user';
+const Calendar = 'calendar';
+const Filter = 'filter';
+const Search = 'search';
+
   import PostCard from '../../../../../molecules/information/cards/post-card/index.svelte';
   // Removed: import type { Post } from '../post-card/PostCard.svelte';
 
@@ -190,7 +190,7 @@
       {#if showSearch}
         <div class="relative w-64">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
@@ -234,7 +234,7 @@
           />
         {:else}
           <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
-            <User class="h-6 w-6 text-gray-600" />
+            <BaseIcon name={User} class="h-6 w-6 text-gray-600" />
           </div>
         {/if}
 
@@ -292,7 +292,7 @@
     {#if filteredPosts.length === 0}
       <div class="text-center py-12 border-b border-gray-200">
         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
-          <MessageCircle class="h-6 w-6 text-gray-400" />
+          <BaseIcon name={MessageCircle} class="h-6 w-6 text-gray-400" />
         </div>
         <h3 class="mt-2 text-sm font-medium text-gray-900">No posts</h3>
         <p class="mt-1 text-sm text-gray-500">Get started by creating your first post.</p>
@@ -334,3 +334,4 @@
     </div>
   {/if}
 </div>
+

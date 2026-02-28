@@ -1,5 +1,5 @@
-import type { CompactSize } from '../tokens/architecture/sizes';
-import type { INPUT_VARIANTS } from '../tokens/architecture/variants';
+﻿import type { ComponentSize } from '../tokens/architecture/component-size';
+import type { INPUT_VARIANTS } from '../tokens/information/input-variants';
 
 export interface Preset<V extends string, S extends string> {
 	variants: readonly V[];
@@ -22,7 +22,7 @@ export interface Preset<V extends string, S extends string> {
 
 export interface InputPreset<
 	V extends string = (typeof INPUT_VARIANTS)[number],
-	S extends string = CompactSize
+	S extends string = ComponentSize
 > extends Preset<V, S> {
 	classes: Preset<V, S>['classes'] & {
 		error?: string;
@@ -31,7 +31,7 @@ export interface InputPreset<
 
 export interface InputStateOptions<
 	V extends string = (typeof INPUT_VARIANTS)[number],
-	S extends string = CompactSize
+	S extends string = ComponentSize
 > {
 	variant?: V;
 	size?: S;
@@ -67,3 +67,6 @@ export interface ComponentStateOptions<V extends string, S extends string> {
 	class?: string;
 	ariaLabel?: string;
 }
+
+
+

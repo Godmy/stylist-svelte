@@ -1,33 +1,35 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { PriceAlertElementProps } from '$stylist/design-system/contracts/information/price-alert';
   import { createState } from '$stylist/design-system/models/information/price-alert.svelte';
-  import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+  import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
+  import { PRICE_ALERT_STATUSES } from '$stylist/design-system/tokens/information/price-alert-statuses';
+  import type { PriceAlertStatus } from '$stylist/design-system/tokens/information/price-alert-statuses';
 
   /**
-   * PriceAlert - компонент для отслеживания цен и уведомлений о достижении целевой цены
+   * PriceAlert - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ С†РµРЅ Рё СѓРІРµРґРѕРјР»РµРЅРёР№ Рѕ РґРѕСЃС‚РёР¶РµРЅРёРё С†РµР»РµРІРѕР№ С†РµРЅС‹
    *
-   * @param variant - Визуальный стиль компонента ('monitoring' | 'reached' | 'exceeded' ...)
-   * @param size - Размер компонента ('sm' | 'md' | 'lg')
-   * @param disabled - Отключен ли компонент
-   * @param currentPrice - Текущая цена
-   * @param targetPrice - Целевая цена
-   * @returns Стилизованный компонент уведомления о цене
+   * @param variant - Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЃС‚РёР»СЊ РєРѕРјРїРѕРЅРµРЅС‚Р° ('monitoring' | 'reached' | 'exceeded' ...)
+   * @param size - Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° ('sm' | 'md' | 'lg')
+   * @param disabled - РћС‚РєР»СЋС‡РµРЅ Р»Рё РєРѕРјРїРѕРЅРµРЅС‚
+   * @param currentPrice - РўРµРєСѓС‰Р°СЏ С†РµРЅР°
+   * @param targetPrice - Р¦РµР»РµРІР°СЏ С†РµРЅР°
+   * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ С†РµРЅРµ
    */
 
   let props: PriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // Централизованное управление состоянием
+  // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createState(
-    createBasePreset(['monitoring', 'reached', 'exceeded'] as const, COMPACT_SIZE_SCALE, {
+    createBasePreset(PRICE_ALERT_STATUSES, COMPONENT_SIZE, {
       variant: 'monitoring',
       size: 'md'
     }),
     props as any
   );
 
-  // Извлечение rest-props вручную для работы в режиме runes
+  // РР·РІР»РµС‡РµРЅРёРµ rest-props РІСЂСѓС‡РЅСѓСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ runes
   let {
     variant,
     size,
@@ -35,26 +37,24 @@
     currentPrice = 0,
     targetPrice = 0,
     currency = '$',
-    status = 'monitoring',
+    status = 'monitoring' as PriceAlertStatus,
     productName = '',
-    onStatusChange = (status: 'monitoring' | 'reached' | 'exceeded') => {},
+    onStatusChange = (status: PriceAlertStatus) => {},
     class: classProp,
     children,
     ...restProps
   } = props;
   
   // Import classes from the design system
-  import { 
-    PRICE_ALERT_TITLE_CLASSES, 
-    PRICE_ALERT_CONTENT_CLASSES, 
-    PRICE_ALERT_PRICE_INFO_CLASSES, 
-    PRICE_ALERT_CURRENT_PRICE_CLASSES, 
-    PRICE_ALERT_TARGET_PRICE_CLASSES, 
-    PRICE_ALERT_STATUS_BADGE_CLASSES 
-  } from '$stylist/design-system/classes/information/price-alert';
+  const PRICE_ALERT_TITLE_CLASSES = 'font-semibold mb-2';
+  const PRICE_ALERT_CONTENT_CLASSES = 'flex justify-between items-center';
+  const PRICE_ALERT_PRICE_INFO_CLASSES = 'space-y-1';
+  const PRICE_ALERT_CURRENT_PRICE_CLASSES = 'text-sm text-gray-600';
+  const PRICE_ALERT_TARGET_PRICE_CLASSES = 'text-sm font-medium';
+  const PRICE_ALERT_STATUS_BADGE_CLASSES = 'px-2 py-1 rounded text-xs font-medium';
   
   const isTargetReached = $derived(currentPrice <= targetPrice);
-  const statusText = $derived(isTargetReached ? 'reached' : 'monitoring');
+  const statusText = $derived((isTargetReached ? 'reached' : 'monitoring') as PriceAlertStatus);
   const statusMsg = $derived(isTargetReached
     ? `Target price of ${currency}${targetPrice} reached!`
     : `Waiting for price to reach ${currency}${targetPrice}`);
@@ -77,3 +77,6 @@
     </div>
   </div>
 </div>
+
+
+

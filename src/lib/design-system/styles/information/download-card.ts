@@ -4,19 +4,20 @@
  * Следует принципу единственной ответственности (SRP) из SOLID:
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
- * 
+ *
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
 import type { DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
 import {
-  CARD_BASE_CLASSES,
-  CARD_ICON_CONTAINER_CLASSES,
-  CARD_ICON_SIZE_CLASSES,
-  CARD_TEXT_CONTENT_CLASSES,
-  CARD_TRUNCATE_CLASSES,
-  CARD_ACTIONS_CLASSES
-} from '$stylist/design-system/classes/information/cards';
+	CARD_BASE_CLASSES,
+	CARD_ICON_CONTAINER_CLASSES,
+	CARD_ICON_SIZE_CLASSES,
+	CARD_TEXT_CONTENT_CLASSES,
+	CARD_TRUNCATE_CLASSES,
+	CARD_ACTIONS_CLASSES
+} from './card';
 
 export class DownloadCardStyleManager {
   /**
@@ -38,13 +39,14 @@ export class DownloadCardStyleManager {
   /**
    * Возвращает CSS-классы для иконки в зависимости от варианта
    */
-  static getIconClasses(variant: DownloadCardVariant = 'primary'): string {
-    const variantClasses = {
-      primary: 'text-blue-500 bg-blue-50',
-      secondary: 'text-gray-500 bg-gray-50',
-      success: 'text-green-500 bg-green-50',
-      warning: 'text-yellow-500 bg-yellow-50',
-      danger: 'text-red-500 bg-red-50'
+  static getIconClasses(variant: SemanticVariant = 'primary'): string {
+    const variantClasses: Record<SemanticVariant, string> = {
+      primary: 'text-[--color-primary-500] bg-[--color-primary-50]',
+      secondary: 'text-[--color-neutral-500] bg-[--color-neutral-50]',
+      success: 'text-[--color-success-500] bg-[--color-success-50]',
+      warning: 'text-[--color-warning-500] bg-[--color-warning-50]',
+      danger: 'text-[--color-danger-500] bg-[--color-danger-50]',
+      info: 'text-[--color-info-500] bg-[--color-info-50]'
     };
 
     return `${CARD_ICON_SIZE_CLASSES.md} ${variantClasses[variant] || variantClasses.primary}`;
@@ -85,12 +87,13 @@ export class DownloadCardStyleManager {
    * Использует нормализованные классы для действий
    */
   static getDownloadButtonClasses(variant: DownloadCardVariant = 'primary'): string {
-    const variantClasses = {
-      primary: 'text-blue-600 hover:text-blue-800',
-      secondary: 'text-gray-600 hover:text-gray-800',
-      success: 'text-green-600 hover:text-green-800',
-      warning: 'text-yellow-600 hover:text-yellow-800',
-      danger: 'text-red-600 hover:text-red-800'
+    const variantClasses: Record<DownloadCardVariant, string> = {
+      primary: 'text-[--color-primary-600] hover:text-[--color-primary-700]',
+      secondary: 'text-[--color-neutral-600] hover:text-[--color-neutral-700]',
+      success: 'text-[--color-success-600] hover:text-[--color-success-700]',
+      warning: 'text-[--color-warning-600] hover:text-[--color-warning-700]',
+      danger: 'text-[--color-danger-600] hover:text-[--color-danger-700]',
+      info: 'text-[--color-info-600] hover:text-[--color-info-700]'
     };
 
     return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-150 ${variantClasses[variant] || variantClasses.primary}`;

@@ -1,12 +1,12 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputEmailProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens/architecture/variants';
-	import type { CompactSize } from '$stylist/design-system/tokens/architecture/sizes';
+	import type { InputVariant } from '$stylist/design-system/tokens';
+	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 	import InputText from '../input-text/index.svelte';
 
 	/**
-	 * InputEmail component - Специализированный input для email с валидацией
+	 * InputEmail component - РЎРїРµС†РёР°Р»РёР·РёСЂРѕРІР°РЅРЅС‹Р№ input РґР»СЏ email СЃ РІР°Р»РёРґР°С†РёРµР№
 	 *
 	 * @example
 	 * ```svelte
@@ -16,8 +16,8 @@
 	 *   variant="default"
 	 *   size="md"
 	 *   error={hasError}
-	 *   errors={['Некорректный email']}
-	 *   helperText="Введите ваш email"
+	 *   errors={['РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ email']}
+	 *   helperText="Р’РІРµРґРёС‚Рµ РІР°С€ email"
 	 * />
 	 * ```
 	 */
@@ -91,3 +91,7 @@
 	{maxlength}
 	{...restProps}
 />
+
+
+
+

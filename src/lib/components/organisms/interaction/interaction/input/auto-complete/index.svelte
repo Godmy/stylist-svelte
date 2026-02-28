@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { Search } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Search = 'search';
+
   import type { AutoCompleteOption } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
@@ -83,7 +85,7 @@
 <div class={InteractionInputStyleManager.root('c-auto-complete relative', className)}>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-      <Search class="h-5 w-5 text-gray-400" />
+      <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
     </div>
     <input
       type="text"
@@ -123,3 +125,4 @@
     </ul>
   {/if}
 </div>
+

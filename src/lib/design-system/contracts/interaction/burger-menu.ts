@@ -1,4 +1,4 @@
-﻿export type BurgerMenuSize = 'sm' | 'md' | 'lg';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export interface BurgerMenuProps {
   /**
@@ -11,7 +11,7 @@ export interface BurgerMenuProps {
    * Size of the burger menu
    * @default 'md'
    */
-  size?: BurgerMenuSize;
+  size?: ComponentSize;
   
   /**
    * Color of the burger menu when closed

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
   import CodeEditor from './index.svelte';
@@ -16,7 +16,7 @@
   title="Molecules / Information / Development / CodeEditor"
   component={CodeEditor}
   category="Molecules/Information/Development"
-  description="Legacy code editor wrapper over CodeBlock."
+  description="Legacy code editor wrapper over Code."
   {controls}
 >
   {#snippet children(args: any)}
@@ -30,3 +30,4 @@
     </div>
   {/snippet}
 </Story>
+

@@ -1,4 +1,4 @@
-import type { ListItemMarkerProps } from '$stylist/design-system/contracts';
+import type { ListItemMarkerProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
 
 /**

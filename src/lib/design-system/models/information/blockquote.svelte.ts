@@ -1,7 +1,5 @@
+import type { BlockquoteProps } from '$stylist/design-system/contracts';
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BlockquoteProps } from '$stylist/design-system/contracts';
-import { BLOCKQUOTE_CLASSES } from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
 
 /**
  * Blockquote state creator
@@ -16,13 +14,13 @@ export function createBlockquoteState(props: BlockquoteProps) {
 	const withBackground = $derived(props.withBackground ?? false);
 	const classes = $derived(
 		mergeClasses(
-			BLOCKQUOTE_CLASSES.base,
-			withBorder && BLOCKQUOTE_CLASSES.background,
-			withBackground && BLOCKQUOTE_CLASSES.border,
+			'text-lg italic',
+			withBorder && 'bg-gray-50 p-4 rounded',
+			withBackground && 'border-l-4 border-indigo-500 pl-4',
 			props.class ?? ''
 		)
 	);
-	const footerClasses = $derived(BLOCKQUOTE_CLASSES.footer);
+	const footerClasses = $derived('mt-2 text-sm text-gray-500');
 
 	return {
 		get cite() {

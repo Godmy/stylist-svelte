@@ -1,13 +1,26 @@
-import {
-  PRICE_ALERT_BASE_CLASSES,
-  PRICE_ALERT_SIZE_CLASSES,
-  PRICE_ALERT_VARIANT_CLASSES
-} from '../../classes/information/price-alert';
+import { BASE_CLASSES } from '../../runtime/foundation';
+import { VARIANT_CLASSES } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
+import type { PriceAlertVariant } from '../../tokens/information/price-alert-statuses';
+
+const PRICE_ALERT_BASE_CLASSES = `${BASE_CLASSES.card} p-4`;
+
+const PRICE_ALERT_VARIANT_CLASSES: Record<PriceAlertVariant, string> = {
+	...VARIANT_CLASSES,
+	monitoring: 'border-[--color-info-200] bg-[--color-info-50]',
+	reached: 'border-[--color-success-200] bg-[--color-success-50]',
+	exceeded: 'border-[--color-danger-200] bg-[--color-danger-50]'
+} as const;
+
+const PRICE_ALERT_SIZE_CLASSES = {
+	sm: 'p-2 text-sm',
+	md: 'p-4 text-base',
+	lg: 'p-6 text-lg'
+} as const;
 
 export class PriceAlertStyleManager {
   static getClasses(
-    variant: keyof typeof PRICE_ALERT_VARIANT_CLASSES = 'monitoring',
+    variant: PriceAlertVariant = 'monitoring',
     size: keyof typeof PRICE_ALERT_SIZE_CLASSES = 'md',
     className = ''
   ): string {

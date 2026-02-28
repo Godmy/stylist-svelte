@@ -3,11 +3,11 @@
  */
 
 import type { HTMLAttributes } from 'svelte/elements';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Размеры звезд в компоненте рейтинга
  */
-export type RatingSize = 'sm' | 'md' | 'lg';
 
 /**
  * Пропсы для компонента Rating
@@ -41,7 +41,7 @@ export interface IRatingProps extends HTMLAttributes<HTMLDivElement> {
    * Размер звезд
    * @default 'md'
    */
-  size?: RatingSize;
+  size?: ComponentSize;
   
   /**
    * Дополнительные CSS классы

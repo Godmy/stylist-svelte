@@ -1,6 +1,12 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { Folder, FolderOpen, File, ChevronRight, ChevronDown } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const Folder = 'folder';
+const FolderOpen = 'folder-open';
+const File = 'file';
+const ChevronRight = 'chevron-right';
+const ChevronDown = 'chevron-down';
+
   import type { FolderItem } from './types';
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
@@ -100,12 +106,6 @@
     
     return count;
   }
-
-  let FolderIcon = Folder;
-  let FolderOpenIcon = FolderOpen;
-  let FileIcon = File;
-  let ChevronRightIcon = ChevronRight;
-  let ChevronDownIcon = ChevronDown;
 </script>
 
 <div class={`folder-tree ${hostClass}`} {...restProps}>
@@ -161,9 +161,9 @@
           disabled={disabled}
         >
           {#if isExpanded(item.id)}
-            <ChevronDownIcon class="h-4 w-4 text-gray-600" />
+            <BaseIcon name={ChevronDown} class="h-4 w-4 text-gray-600" />
           {:else}
-            <ChevronRightIcon class="h-4 w-4 text-gray-600" />
+            <BaseIcon name={ChevronRight} class="h-4 w-4 text-gray-600" />
           {/if}
         </button>
       {:else}
@@ -173,12 +173,12 @@
       <div class="flex items-center flex-1 min-w-0">
         {#if item.type === 'folder'}
           {#if isExpanded(item.id)}
-            <FolderOpenIcon class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
+            <BaseIcon name={FolderOpen} class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
           {:else}
-            <FolderIcon class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
+            <BaseIcon name={Folder} class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
           {/if}
         {:else}
-          <FileIcon class="h-5 w-5 flex-shrink-0 text-gray-600 mr-2" />
+          <BaseIcon name={File} class="h-5 w-5 flex-shrink-0 text-gray-600 mr-2" />
         {/if}
 
         <span class="truncate">{item.name}</span>
@@ -200,3 +200,4 @@
     {/if}
   </li>
 {/snippet}
+

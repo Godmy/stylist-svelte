@@ -1,10 +1,12 @@
 <script lang="ts">
   import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/contracts/information/event-calendar';
+  import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
-  import { Button } from '$stylist/components/atoms';
-  import { ChevronLeft, ChevronRight } from 'lucide-svelte';
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
+
+  const ChevronLeft = 'chevron-left';
+  const ChevronRight = 'chevron-right';
 
   type Props = {
     events?: CalendarEvent[];
@@ -245,7 +247,7 @@ This component follows SOLID principles:
         else if (currentViewMode === 'week') navigateWeek(-1);
         else navigateDay(-1);
       }}>
-        <ChevronLeft class="h-5 w-5" />
+        <BaseIcon name={ChevronLeft} class="h-5 w-5" />
       </Button>
       <Button variant="ghost" size="sm" onclick={navigateToToday} class="mx-2">
         Today
@@ -255,7 +257,7 @@ This component follows SOLID principles:
         else if (currentViewMode === 'week') navigateWeek(1);
         else navigateDay(1);
       }}>
-        <ChevronRight class="h-5 w-5" />
+        <BaseIcon name={ChevronRight} class="h-5 w-5" />
       </Button>
       <h2 class="ml-4 text-[--text-size-xl] font-[--font-weight-bold] text-[--color-text-primary]">{displayTitle}</h2>
     </div>
@@ -403,7 +405,7 @@ This component follows SOLID principles:
             onclick={() => showEventActions = false}
             class="text-[--color-text-muted] hover:text-[--color-text-primary]"
           >
-            ✕
+            вњ•
           </button>
         </div>
 
@@ -432,4 +434,5 @@ This component follows SOLID principles:
     </div>
   {/if}
 </div>
+
 

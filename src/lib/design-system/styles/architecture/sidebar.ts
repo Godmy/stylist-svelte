@@ -1,10 +1,12 @@
+import { cn } from '../../utils/cn/index';
+
 /**
  * Style manager for the Sidebar component
  * Following the design system patterns
  */
 export class SidebarStyleManager {
   static getHostClasses(baseClass: string = ''): string {
-    return `c-sidebar flex ${baseClass}`;
+    return cn('c-sidebar flex', baseClass);
   }
 
   static getMobileButtonClasses(): string {
@@ -16,34 +18,32 @@ export class SidebarStyleManager {
   }
 
   static getSidebarClasses(isMobile: boolean, isSidebarOpen: boolean, width: string, mobileWidth: string): string {
-    const widthNum = width.replace('px', '');
-    const mobileWidthNum = mobileWidth.replace('px', '');
-    
-    let classes = 'fixed lg:sticky top-0 left-0 h-screen z-40 bg-[--color-background-primary] shadow-[--shadow-lg] transform transition-transform duration-300 ease-in-out ';
-    
-    if (isMobile) {
-      if (isSidebarOpen) {
-        classes += `translate-x-0 w-${mobileWidthNum}`;
-      } else {
-        classes += `-translate-x-full w-${mobileWidthNum}`;
-      }
-    } else {
-      if (isSidebarOpen) {
-        classes += `translate-x-0 w-${widthNum}`;
-      } else {
-        classes += `translate-x-0 -ml-${widthNum} w-${widthNum}`;
-      }
-    }
-    
-    return classes + ' lg:translate-x-0 lg:w-' + widthNum;
+    return cn(
+      'fixed left-0 top-0 z-40 h-screen bg-[--color-background-primary] shadow-[--shadow-lg] transition-[transform,margin] duration-300 ease-in-out lg:sticky',
+      isMobile
+        ? isSidebarOpen
+          ? 'translate-x-0'
+          : '-translate-x-full'
+        : 'translate-x-0',
+      !isMobile && !isSidebarOpen ? '-ml-[var(--sidebar-width)]' : 'ml-0'
+    );
+  }
+
+  static getSidebarStyle(isMobile: boolean, isSidebarOpen: boolean, width: string, mobileWidth: string): string {
+    const resolvedWidth = isMobile ? mobileWidth : width;
+    const marginLeft = !isMobile && !isSidebarOpen ? `-${width}` : '0px';
+    return `--sidebar-width: ${width}; width: ${resolvedWidth}; margin-left: ${marginLeft};`;
   }
 
   static getSidebarContainerClasses(): string {
-    return 'h-full flex flex-col border-r border-[--color-border-primary]';
+    return 'flex h-full flex-col border-r border-[--color-border-primary]';
   }
 
   static getHeaderClasses(customClass: string = ''): string {
-    return `flex items-center p-[--spacing-4] border-b border-[--color-border-primary] ${customClass}`;
+    return cn(
+      'flex items-center border-b border-[--color-border-primary] p-[--spacing-4]',
+      customClass
+    );
   }
 
   static getLogoWrapperClasses(): string {
@@ -51,11 +51,14 @@ export class SidebarStyleManager {
   }
 
   static getTitleClasses(customClass: string = ''): string {
-    return `text-[--text-size-xl] font-[--font-weight-semibold] text-[--color-text-primary] ${customClass}`;
+    return cn(
+      'text-[--text-size-xl] font-[--font-weight-semibold] text-[--color-text-primary]',
+      customClass
+    );
   }
 
   static getNavClasses(customClass: string = ''): string {
-    return `flex-1 overflow-y-auto py-[--spacing-4] ${customClass}`;
+    return cn('flex-1 overflow-y-auto py-[--spacing-4]', customClass);
   }
 
   static getNavListClasses(): string {
@@ -63,21 +66,16 @@ export class SidebarStyleManager {
   }
 
   static getNavItemClasses(isActive: boolean, isDisabled: boolean, customClass: string = '', activeClass: string = '', disabledClass: string = ''): string {
-    let classes = 'flex items-center p-[--spacing-3] rounded-[--radius-lg] transition-colors ';
-    
-    if (isActive) {
-      classes += activeClass || 'bg-[--color-surface-selected] text-[--color-text-accent] border-r-[--border-width-2] border-[--color-border-accent] ';
-    } else {
-      classes += 'text-[--color-text-primary] hover:bg-[--color-surface-hover] ';
-    }
-    
-    if (isDisabled) {
-      classes += disabledClass || 'opacity-[--opacity-medium] cursor-not-allowed ';
-    } else {
-      classes += 'cursor-pointer ';
-    }
-    
-    return classes + customClass;
+    return cn(
+      'flex items-center rounded-[--radius-lg] p-[--spacing-3] transition-colors',
+      isActive
+        ? activeClass || 'border-r-[--border-width-2] border-[--color-border-accent] bg-[--color-surface-selected] text-[--color-text-accent]'
+        : 'text-[--color-text-primary] hover:bg-[--color-surface-hover]',
+      isDisabled
+        ? disabledClass || 'cursor-not-allowed opacity-[--opacity-medium]'
+        : 'cursor-pointer',
+      customClass
+    );
   }
 
   static getNavItemIconWrapperClasses(): string {
@@ -89,11 +87,14 @@ export class SidebarStyleManager {
   }
 
   static getNavItemBadgeClasses(): string {
-    return 'bg-[--color-surface-muted] text-[--color-text-primary] text-[--text-size-xs] font-[--font-weight-medium] px-[--spacing-2] py-[--spacing-0.5] rounded-full';
+    return 'rounded-full bg-[--color-surface-muted] px-[--spacing-2] py-[--spacing-0.5] text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-primary]';
   }
 
   static getFooterClasses(customClass: string = ''): string {
-    return `mt-auto p-[--spacing-4] border-t border-[--color-border-primary] ${customClass}`;
+    return cn(
+      'mt-auto border-t border-[--color-border-primary] p-[--spacing-4]',
+      customClass
+    );
   }
 
   static getContentAreaClasses(isSidebarOpen: boolean, isMobile: boolean): string {

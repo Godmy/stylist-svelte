@@ -1,6 +1,19 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import { UserRoundPlus, Github, Chrome, Apple, Mail, Lock, Facebook, Twitter, Linkedin, Slack, Laptop2, Loader2 } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const UserRoundPlus = 'user-round-plus';
+const Github = 'github';
+const Chrome = 'chrome';
+const Apple = 'apple';
+const Mail = 'mail';
+const Lock = 'lock';
+const Facebook = 'facebook';
+const Twitter = 'twitter';
+const Linkedin = 'linkedin';
+const Slack = 'slack';
+const Laptop2 = 'laptop-2';
+const Loader2 = 'loader-2';
+
   import { Button } from '$lib/components/atoms';
 
   type Provider = 'google' | 'facebook' | 'github' | 'twitter' | 'linkedin' | 'apple' | 'microsoft' | 'slack';
@@ -175,7 +188,7 @@
   <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
     <div class="text-center">
       <div class="mx-auto h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
-        <UserRoundPlus class="h-6 w-6 text-blue-600" />
+        <BaseIcon name={UserRoundPlus} class="h-6 w-6 text-blue-600" />
       </div>
       <h2 class="mt-4 text-2xl font-bold text-gray-900">{title}</h2>
       {#if description}
@@ -229,7 +242,7 @@
             <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
             <div class="mt-1 relative rounded-md shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Mail class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={Mail} class="h-5 w-5 text-gray-400" />
               </div>
               <input
                 id="email"
@@ -250,7 +263,7 @@
               <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock class="h-5 w-5 text-gray-400" />
+                  <BaseIcon name={Lock} class="h-5 w-5 text-gray-400" />
                 </div>
                 <input
                   id="password"
@@ -259,7 +272,7 @@
                   autocomplete="current-password"
                   required
                   class={`focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md ${inputClass}`}
-                  placeholder="••••••••"
+                  placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў"
                   value={password}
                   oninput={(e) => password = (e.target as HTMLInputElement).value}
                 />
@@ -301,7 +314,7 @@
               disabled={isLoading}
             >
               {#if isLoading}
-                <Loader2 class="h-4 w-4 mr-2 animate-spin" />
+                <BaseIcon name={Loader2} class="h-4 w-4 mr-2 animate-spin" />
                 Signing in...
               {:else}
                 Sign in
@@ -328,3 +341,4 @@
     {/if}
   </div>
 </div>
+

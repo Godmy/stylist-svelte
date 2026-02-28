@@ -1,9 +1,20 @@
-import {
-  BASE_CARD_BASE_CLASSES,
-  BASE_CARD_SIZE_CLASSES,
-  BASE_CARD_VARIANT_CLASSES
-} from '../../classes/information/base-card';
+import { BASE_CLASSES } from '../../runtime/foundation';
+import { VARIANT_CLASSES } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
+
+const BASE_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
+
+const BASE_CARD_VARIANT_CLASSES = {
+	...VARIANT_CLASSES,
+	outline: 'bg-transparent',
+	ghost: 'bg-transparent border-none shadow-none'
+} as const;
+
+const BASE_CARD_SIZE_CLASSES = {
+	sm: 'p-3',
+	md: 'p-4',
+	lg: 'p-6'
+} as const;
 
 export class BaseCardStyleManager {
   static getClasses(

@@ -43,22 +43,22 @@ export const createZoomControlsStyles = <TOptions extends Record<string, unknown
     ].join(' '),
     
     indicator: [
-      'flex items-center px-3 py-2 bg-white rounded-full shadow-lg border',
+      'flex items-center px-3 py-2 bg-[--color-background-primary] rounded-full shadow-lg border',
       baseClasses?.indicator || ''
     ].join(' '),
-    
+
     controlsContainer: [
-      'flex flex-col rounded-full bg-white shadow-lg border',
+      'flex flex-col rounded-full bg-[--color-background-primary] shadow-lg border',
       baseClasses?.controlsContainer || ''
     ].join(' '),
-    
+
     controlButton: [
-      'p-3 text-gray-700 hover:text-gray-900 hover:bg-gray-100',
+      'p-3 text-[--color-text-primary] hover:text-[--color-text-emphasis] hover:bg-[--color-background-hover]',
       baseClasses?.controlButton || ''
     ].join(' '),
-    
+
     controlButtonDisabled: [
-      'text-gray-400 cursor-not-allowed',
+      'text-[--color-text-tertiary] cursor-not-allowed',
       baseClasses?.controlButtonDisabled || ''
     ].join(' '),
     
@@ -75,14 +75,14 @@ export const createZoomControlsStyles = <TOptions extends Record<string, unknown
       'rounded-b-full',
       baseClasses?.controlButtonLast || ''
     ].join(' '),
-    
+
     hint: [
-      'mt-2 text-xs text-gray-500 text-right',
+      'mt-2 text-xs text-[--color-text-secondary] text-right',
       baseClasses?.hint || ''
     ].join(' '),
-    
+
     kbd: [
-      'px-2 py-1 text-xs rounded border bg-gray-100',
+      'px-2 py-1 text-xs rounded border bg-[--color-background-secondary]',
       baseClasses?.kbd || ''
     ].join(' ')
   };

@@ -1,3 +1,4 @@
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 // Props for SharedCanvas component
 export interface SharedCanvasProps {
   width?: number;
@@ -15,7 +16,7 @@ export interface SharedCanvasProps {
   toolbarClass?: string;
   canvasClass?: string;
   variant?: 'default' | 'minimal';
-  size?: 'sm' | 'md' | 'lg';
+  size?: ComponentSize;
 }
 
 export interface CanvasObject {

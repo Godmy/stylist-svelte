@@ -1,7 +1,5 @@
-import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { BadgeGroupProps } from '$stylist/design-system/contracts';
-import { BADGE_GROUP_CONTAINER_CLASSES, BADGE_GROUP_OVERFLOW_CLASSES } from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
+﻿import { mergeClasses } from '$stylist/utils/classes';
+import type { BadgeGroupProps } from '$stylist/design-system/contracts';
 
 /**
  * BadgeGroup state creator
@@ -16,8 +14,13 @@ export function createBadgeGroupState(props: BadgeGroupProps) {
 	const showOverflow = $derived(props.showOverflow ?? true);
 	const badgeClass = $derived(props.badgeClass ?? '');
 	const overflowClass = $derived(props.overflowClass ?? '');
-	const containerClasses = $derived(mergeClasses(BADGE_GROUP_CONTAINER_CLASSES, props.class ?? ''));
-	const overflowClasses = $derived(mergeClasses(BADGE_GROUP_OVERFLOW_CLASSES, overflowClass));
+	const containerClasses = $derived(mergeClasses('flex flex-wrap items-center gap-2', props.class ?? ''));
+	const overflowClasses = $derived(
+		mergeClasses(
+			'inline-flex items-center rounded-full text-xs font-medium bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] px-2.5 py-0.5',
+			overflowClass
+		)
+	);
 	const visibleBadges = $derived(badges.slice(0, maxVisible));
 	const overflowCount = $derived(Math.max(0, badges.length - maxVisible));
 

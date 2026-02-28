@@ -8,12 +8,15 @@ export class MapMarkerStyleManager {
   static getMarkerContainerClasses(iconClass: string): string {
     return `flex flex-col items-center cursor-pointer ${iconClass}`;
   }
-  static getPinStyleClasses(size: 'sm' | 'md' | 'lg', colorClass: string, selected: boolean, pinStyle: PinStyle): string {
+  static getPinStyleClasses(size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl', colorClass: string, selected: boolean, pinStyle: PinStyle): string {
     const sizeClasses = {
+      xs: 'h-3 w-3',
       sm: 'h-4 w-4',
       md: 'h-6 w-6',
-      lg: 'h-8 w-8'
-    }[size];
+      lg: 'h-8 w-8',
+      xl: 'h-10 w-10',
+      '2xl': 'h-12 w-12'
+    }[size] ?? 'h-6 w-6';
 
     const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-200`;
 
@@ -90,22 +93,28 @@ export class MapMarkerStyleManager {
     return typeColors[type];
   }
 
-  static getFlagClasses(colorClass: string, size: 'sm' | 'md' | 'lg'): string {
+  static getFlagClasses(colorClass: string, size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'): string {
     const sizeClasses = {
+      xs: 'w-0.5 h-2/3',
       sm: 'w-0.5 h-3/4',
       md: 'w-0.5 h-3/4',
-      lg: 'w-0.5 h-3/4'
-    }[size];
+      lg: 'w-0.5 h-3/4',
+      xl: 'w-0.5 h-4/5',
+      '2xl': 'w-0.5 h-5/6'
+    }[size] ?? 'w-0.5 h-3/4';
 
     return `absolute ${sizeClasses} ${colorClass} bottom-0 left-1/2 transform -translate-x-1/2`;
   }
 
-  static getFlagTopClasses(colorClass: string, size: 'sm' | 'md' | 'lg'): string {
+  static getFlagTopClasses(colorClass: string, size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'): string {
     const sizeClasses = {
+      xs: 'w-3 h-3',
       sm: 'w-4 h-4',
       md: 'w-4 h-4',
-      lg: 'w-4 h-4'
-    }[size];
+      lg: 'w-4 h-4',
+      xl: 'w-5 h-5',
+      '2xl': 'w-6 h-6'
+    }[size] ?? 'w-4 h-4';
 
     return `absolute top-0 left-1/2 transform -translate-x-full ${colorClass} ${sizeClasses} rounded-full`;
   }

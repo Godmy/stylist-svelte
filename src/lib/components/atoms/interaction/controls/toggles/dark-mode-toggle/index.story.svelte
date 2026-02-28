@@ -4,15 +4,22 @@
 	import DarkModeToggle from './index.svelte';
 
 	type DarkModeToggleStoryProps = {
-		darkMode: boolean;
+		currentTheme: 'light' | 'dark' | 'system';
+		showLabels: boolean;
 		disabled: boolean;
 	};
 
 	const controls: ControlConfig[] = [
 		{
-			name: 'darkMode',
+			name: 'currentTheme',
+			type: 'select',
+			defaultValue: 'system',
+			options: ['light', 'dark', 'system']
+		},
+		{
+			name: 'showLabels',
 			type: 'boolean',
-			defaultValue: false
+			defaultValue: true
 		},
 		{
 			name: 'disabled',
@@ -32,11 +39,12 @@
 	{controls}
 >
 	{#snippet children(values: any)}
-		{@const darkMode = typeof values.darkMode === 'boolean' ? values.darkMode : false}
+		{@const currentTheme = (values.currentTheme ?? 'system') as DarkModeToggleStoryProps['currentTheme']}
+		{@const showLabels = typeof values.showLabels === 'boolean' ? values.showLabels : true}
 		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		<div class="rounded-lg bg-gray-50 p-8">
 			<h2 class="mb-4 text-xl font-bold">DarkModeToggle Story</h2>
-			<DarkModeToggle {darkMode} {disabled} />
+			<DarkModeToggle {currentTheme} {showLabels} {disabled} />
 		</div>
 	{/snippet}
 </Story>

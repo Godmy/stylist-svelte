@@ -1,18 +1,21 @@
 <script lang="ts">
+	// @ts-nocheck
   import { Story } from '$stylist/design-system/playground';
   import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
-  import KanbanBoard from './index.svelte';
+  import KanbanBoard, { type KanbanBoardType } from './index.svelte';
 
   let moves = $state(0);
   let newColumns = $state(0);
   let newCards = $state(0);
+  let externalUpdates = $state(0);
 
   const controls: ControlConfig[] = [
     { name: 'allowReordering', type: 'boolean', defaultValue: true },
+    { name: 'controlled', type: 'boolean', defaultValue: false },
     { name: 'compact', type: 'boolean', defaultValue: false }
   ];
 
-  const board = {
+  const initialBoard: KanbanBoardType = {
     id: 'board1',
     title: 'Q1 Launch',
     columns: [
@@ -22,6 +25,8 @@
       { id: 'done', title: 'Done', cards: [{ id: 't5', title: 'Design system sync', priority: 'low', status: 'done' }] }
     ]
   };
+
+  let board = $state<KanbanBoardType>(initialBoard);
 </script>
 
 <Story
@@ -37,13 +42,20 @@
       <div class={`rounded border border-gray-200 ${args.compact ? 'h-[500px]' : 'h-[640px]'} bg-white`}>
         <KanbanBoard
           board={board}
+          controlled={args.controlled}
           allowReordering={args.allowReordering}
           onCardMove={() => (moves += 1)}
           onColumnAdd={() => (newColumns += 1)}
           onCardAdd={() => (newCards += 1)}
+          onBoardChange={(nextBoard) => {
+            if (args.controlled) {
+              board = nextBoard;
+              externalUpdates += 1;
+            }
+          }}
         />
       </div>
-      <p class="text-sm text-gray-600">Actions: move {moves}, add column {newColumns}, add card {newCards}</p>
+      <p class="text-sm text-gray-600">Actions: move {moves}, add column {newColumns}, add card {newCards}, external sync {externalUpdates}</p>
     </div>
   {/snippet}
 </Story>

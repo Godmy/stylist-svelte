@@ -1,11 +1,13 @@
-<script lang="ts">
+﻿<script lang="ts">
+	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import { ChevronDown } from 'lucide-svelte';
 	import type { ButtonElementProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/classes/interaction';
-	import { createState } from '$stylist/design-system/models/interaction/split-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { createSplitButtonState } from '$stylist/design-system/models/interaction/split-button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPACT_SIZE_SCALE } from '$stylist/design-system/tokens/architecture/sizes';
+	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+
+	const ChevronDown = 'chevron-down';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -39,8 +41,8 @@
 	let props: ISplitButtonElementProps = $props();
 
 	// Use centralized state management for base button properties
-	let buttonState = createState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPACT_SIZE_SCALE, {
+	let buttonState = createSplitButtonState(
+		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'primary',
 			size: 'md'
 		}),
@@ -162,7 +164,7 @@
 		aria-expanded={isOpen}
 		aria-label="Show more options"
 	>
-		<ChevronDown class="h-4 w-4" aria-hidden="true" />
+					<BaseIcon name={ChevronDown} class="h-4 w-4" aria-hidden="true" />
 	</button>
 
 	{#if isOpen}
@@ -185,6 +187,9 @@
 		</div>
 	{/if}
 </div>
+
+
+
 
 
 

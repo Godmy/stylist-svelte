@@ -1,63 +1,77 @@
-/**
- * Определение светлой темы
- * Использует токены дизайна для создания согласованной светлой темы
+﻿/**
+ * РћРїСЂРµРґРµР»РµРЅРёРµ СЃРІРµС‚Р»РѕР№ С‚РµРјС‹
+ * РСЃРїРѕР»СЊР·СѓРµС‚ С‚РѕРєРµРЅС‹ РґРёР·Р°Р№РЅР° РґР»СЏ СЃРѕР·РґР°РЅРёСЏ СЃРѕРіР»Р°СЃРѕРІР°РЅРЅРѕР№ СЃРІРµС‚Р»РѕР№ С‚РµРјС‹
  */
 
-import { blue, slate, green, amber, red, neutral } from '../tokens/information/colors';
-import { spacing } from '../tokens/architecture/spacing';
-import { fontSize, fontWeight, lineHeight, fontFamily } from '../tokens/information/typography';
-import { borderRadius } from '../tokens/architecture/radius';
-import { shadow } from '../tokens/architecture/shadows';
+import { AMBER } from '../tokens/information/amber';
+import { BLUE } from '../tokens/information/blue';
+import { GREEN } from '../tokens/information/green';
+import { NEUTRAL } from '../tokens/information/neutral';
+import { RED } from '../tokens/information/red';
+import { SLATE } from '../tokens/information/slate';
+import { SPACING } from '../tokens/architecture/spacing';
+import { FONT_FAMILY } from '../tokens/information/font-family';
+import { FONT_SIZE } from '../tokens/information/font-size';
+import { FONT_WEIGHT } from '../tokens/information/font-weight';
+import { LINE_HEIGHT } from '../tokens/information/line-height';
+import { RADIUS } from '../tokens/architecture/radius';
+import { SHADOWS } from '../tokens/architecture/shadows';
 import type { Theme } from './types';
 
 /**
- * Светлая тема
- * Определяет значения для светлого режима интерфейса
+ * РЎРІРµС‚Р»Р°СЏ С‚РµРјР°
+ * РћРїСЂРµРґРµР»СЏРµС‚ Р·РЅР°С‡РµРЅРёСЏ РґР»СЏ СЃРІРµС‚Р»РѕРіРѕ СЂРµР¶РёРјР° РёРЅС‚РµСЂС„РµР№СЃР°
  */
 export const lightTheme: Theme = {
 	name: 'light',
 
 	colors: {
-		// Семантические цветовые сопоставления
-		primary: blue, // Основной цвет
-		secondary: slate, // Вторичный цвет
-		success: green, // Цвет успеха
-		warning: amber, // Цвет предупреждения
-		danger: red, // Цвет опасности
-		neutral: neutral, // Нейтральный цвет
+		// РЎРµРјР°РЅС‚РёС‡РµСЃРєРёРµ С†РІРµС‚РѕРІС‹Рµ СЃРѕРїРѕСЃС‚Р°РІР»РµРЅРёСЏ
+		primary: BLUE, // РћСЃРЅРѕРІРЅРѕР№ С†РІРµС‚
+		secondary: SLATE, // Р’С‚РѕСЂРёС‡РЅС‹Р№ С†РІРµС‚
+		success: GREEN, // Р¦РІРµС‚ СѓСЃРїРµС…Р°
+		warning: AMBER, // Р¦РІРµС‚ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ
+		danger: RED, // Р¦РІРµС‚ РѕРїР°СЃРЅРѕСЃС‚Рё
+		neutral: NEUTRAL, // РќРµР№С‚СЂР°Р»СЊРЅС‹Р№ С†РІРµС‚
 
-		// Цвета поверхностей
+		// Р¦РІРµС‚Р° РїРѕРІРµСЂС…РЅРѕСЃС‚РµР№
 		background: {
-			primary: '#ffffff', // Основной фон
-			secondary: '#f9fafb', // Вторичный фон
-			tertiary: '#f3f4f6' // Третичный фон
+			primary: '#ffffff', // РћСЃРЅРѕРІРЅРѕР№ С„РѕРЅ
+			secondary: '#f9fafb', // Р’С‚РѕСЂРёС‡РЅС‹Р№ С„РѕРЅ
+			tertiary: '#f3f4f6' // РўСЂРµС‚РёС‡РЅС‹Р№ С„РѕРЅ
 		},
 
-		// Цвета текста
+		// Р¦РІРµС‚Р° С‚РµРєСЃС‚Р°
 		text: {
-			primary: slate[900], // Основной текст (#0f172a)
-			secondary: slate[600], // Вторичный текст (#475569)
-			tertiary: slate[500], // Третичный текст (#64748b)
-			inverse: '#ffffff' // Инвертированный текст
+			primary: SLATE[900], // РћСЃРЅРѕРІРЅРѕР№ С‚РµРєСЃС‚ (#0f172a)
+			secondary: SLATE[600], // Р’С‚РѕСЂРёС‡РЅС‹Р№ С‚РµРєСЃС‚ (#475569)
+			tertiary: SLATE[500], // РўСЂРµС‚РёС‡РЅС‹Р№ С‚РµРєСЃС‚ (#64748b)
+			inverse: '#ffffff' // РРЅРІРµСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ С‚РµРєСЃС‚
 		},
 
-		// Цвета границ
+		// Р¦РІРµС‚Р° РіСЂР°РЅРёС†
 		border: {
-			primary: slate[200], // Основная граница (#e2e8f0)
-			secondary: slate[300], // Вторичная граница (#cbd5e1)
-			tertiary: slate[100] // Третичная граница (#f1f5f9)
+			primary: SLATE[200], // РћСЃРЅРѕРІРЅР°СЏ РіСЂР°РЅРёС†Р° (#e2e8f0)
+			secondary: SLATE[300], // Р’С‚РѕСЂРёС‡РЅР°СЏ РіСЂР°РЅРёС†Р° (#cbd5e1)
+			tertiary: SLATE[100] // РўСЂРµС‚РёС‡РЅР°СЏ РіСЂР°РЅРёС†Р° (#f1f5f9)
 		}
 	},
 
-	spacing, // Шкала отступов из токенов
+	spacing: SPACING, // РЁРєР°Р»Р° РѕС‚СЃС‚СѓРїРѕРІ РёР· С‚РѕРєРµРЅРѕРІ
 
 	typography: {
-		fontFamily: fontFamily.sans, // Семейство шрифтов
-		fontSize: fontSize as Record<string, string>, // Размеры шрифта
-		fontWeight: fontWeight as Record<string, string>, // Насыщенность шрифта
-		lineHeight: lineHeight as Record<string, string> // Высота строк
+		fontFamily: FONT_FAMILY.sans, // РЎРµРјРµР№СЃС‚РІРѕ С€СЂРёС„С‚РѕРІ
+		fontSize: FONT_SIZE as Record<string, string>, // Р Р°Р·РјРµСЂС‹ С€СЂРёС„С‚Р°
+		fontWeight: FONT_WEIGHT as Record<string, string>, // РќР°СЃС‹С‰РµРЅРЅРѕСЃС‚СЊ С€СЂРёС„С‚Р°
+		lineHeight: LINE_HEIGHT as Record<string, string> // Р’С‹СЃРѕС‚Р° СЃС‚СЂРѕРє
 	},
 
-	borderRadius: borderRadius as Record<string, string>, // Скругления границ
-	boxShadow: shadow as Record<string, string> // Тени
+	borderRadius: RADIUS as Record<string, string>, // РЎРєСЂСѓРіР»РµРЅРёСЏ РіСЂР°РЅРёС†
+	boxShadow: SHADOWS as Record<string, string> // РўРµРЅРё
 };
+
+
+
+
+
+

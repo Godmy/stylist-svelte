@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { AlertCircle, BarChart3, Frown, Loader2, Meh, Smile } from 'lucide-svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
+const AlertCircle = 'alert-circle';
+const BarChart3 = 'bar-chart-3';
+const Frown = 'frown';
+const Loader2 = 'loader-2';
+const Meh = 'meh';
+const Smile = 'smile';
+
   import { SentimentAnalysisStyleManager } from '$lib/design-system/styles/information/sentiment-analysis';
   import type { SentimentAnalysisProps } from '$lib/design-system/contracts/information/sentiment-analysis';
 
@@ -58,7 +65,7 @@
 
 <div class={`c-sentiment-analysis ${containerClass}`} {...restProps}>
   <div class={headerClassComputed}>
-    <BarChart3 class="h-5 w-5 text-[--color-primary-500] mr-[--spacing-sm]" />
+    <BaseIcon name={BarChart3} class="h-5 w-5 text-[--color-primary-500] mr-[--spacing-sm]" />
     <h3 class={titleClass}>Sentiment Analysis</h3>
   </div>
 
@@ -80,7 +87,7 @@
       disabled={status === 'analyzing' || !inputText.trim()}
     >
       {#if status === 'analyzing'}
-        <Loader2 class={loadingSpinnerClass} />Analyzing...
+        <BaseIcon name={Loader2} class={loadingSpinnerClass} />Analyzing...
       {:else}
         Analyze Sentiment
       {/if}
@@ -88,7 +95,7 @@
 
     {#if status === 'error' && errorMessage}
       <div class={errorMessageContainerClass}>
-        <AlertCircle class={errorIconClass} />
+        <BaseIcon name={AlertCircle} class={errorIconClass} />
         <span class={errorMessageClass}>{errorMessage}</span>
       </div>
     {/if}
@@ -97,11 +104,11 @@
       <div class={resultSectionClass}>
         <div class={sentimentIconContainerClass}>
           {#if result.score < -0.5}
-            <Frown class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+            <BaseIcon name={Frown} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
           {:else if result.score <= 0.5}
-            <Meh class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+            <BaseIcon name={Meh} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
           {:else}
-            <Smile class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
+            <BaseIcon name={Smile} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
           {/if}
         </div>
 
@@ -147,3 +154,4 @@
     Sentiment analysis powered by AI. Results are estimates and may not reflect the true sentiment.
   </div>
 </div>
+

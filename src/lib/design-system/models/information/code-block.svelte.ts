@@ -1,16 +1,18 @@
-import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { CodeBlockProps } from '$stylist/design-system/contracts';
-import { BASE_CODE_BLOCK_CLASSES, CODE_BLOCK_VARIANT_CLASSES, CODE_BLOCK_SIZE_CLASSES } from '$stylist/design-system/classes';
-import { cn } from '$stylist/utils/classes';
+﻿import { mergeClasses } from '$stylist/utils/classes';
+import type { CodeProps } from '$stylist/design-system/contracts';
+import {
+	CODE_BLOCK_VARIANT_CLASSES,
+	CODE_BLOCK_SIZE_CLASSES
+} from '$stylist/design-system/styles/information/badge';
 
 /**
- * CodeBlock state creator
+ * Code state creator
  * Provides reactive state management for code block components using Svelte 5 runes
  *
- * @param props - CodeBlock component props
+ * @param props - Code component props
  * @returns Reactive state object with classes and computed values
  */
-export function createCodeBlockState(props: CodeBlockProps) {
+export function createCodeState(props: CodeProps) {
 	const language = $derived(props.language ?? 'text');
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');
@@ -18,7 +20,7 @@ export function createCodeBlockState(props: CodeBlockProps) {
 	const startLineNumber = $derived(props.startLineNumber ?? 1);
 	const classes = $derived(
 		mergeClasses(
-			BASE_CODE_BLOCK_CLASSES,
+			'rounded-md overflow-x-auto font-mono',
 			CODE_BLOCK_VARIANT_CLASSES[variant as keyof typeof CODE_BLOCK_VARIANT_CLASSES],
 			CODE_BLOCK_SIZE_CLASSES[size as keyof typeof CODE_BLOCK_SIZE_CLASSES],
 			props.class ?? ''
@@ -47,4 +49,4 @@ export function createCodeBlockState(props: CodeBlockProps) {
 	};
 }
 
-export default createCodeBlockState;
+export default createCodeState;
