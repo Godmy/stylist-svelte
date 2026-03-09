@@ -1,6 +1,6 @@
 /**
  * Auto-generated icon registry
- * Generated at: 2026-03-08T07:30:25.449Z
+ * Generated at: 2026-03-09T07:12:24.110Z
  * Do not edit manually - run 'npx tsx scripts/svg/generate-registry.ts' to regenerate
  */
 
@@ -13,8 +13,8 @@ export interface IconEntry {
 
 export const ICON_REGISTRY = {
   "$schema": "https://stylist-svelte.dev/schema/icon-registry.json",
-  "generated": "2026-03-08T07:30:25.437Z",
-  "total": 347,
+  "generated": "2026-03-09T07:12:24.104Z",
+  "total": 355,
   "categories": {
     "architecture": [
       {
@@ -1534,6 +1534,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/collaborate.svg"
       },
       {
+        "name": "components",
+        "category": "interaction",
+        "path": "./interaction/components.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/components.svg"
+      },
+      {
         "name": "confirmation-dialog",
         "category": "interaction",
         "path": "./interaction/confirmation-dialog.svg",
@@ -1544,6 +1550,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/content-editor.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/content-editor.svg"
+      },
+      {
+        "name": "contracts",
+        "category": "interaction",
+        "path": "./interaction/contracts.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/contracts.svg"
       },
       {
         "name": "controls",
@@ -1666,6 +1678,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/forms-organism.svg"
       },
       {
+        "name": "icons",
+        "category": "interaction",
+        "path": "./interaction/icons.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/icons.svg"
+      },
+      {
         "name": "indicators",
         "category": "interaction",
         "path": "./interaction/indicators.svg",
@@ -1688,6 +1706,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/input-organism.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/input-organism.svg"
+      },
+      {
+        "name": "json",
+        "category": "interaction",
+        "path": "./interaction/json.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/json.svg"
       },
       {
         "name": "list",
@@ -1760,6 +1784,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/mock-data-selector.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/mock-data-selector.svg"
+      },
+      {
+        "name": "models",
+        "category": "interaction",
+        "path": "./interaction/models.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/models.svg"
       },
       {
         "name": "notification",
@@ -1930,6 +1960,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/state.svg"
       },
       {
+        "name": "styles",
+        "category": "interaction",
+        "path": "./interaction/styles.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/styles.svg"
+      },
+      {
         "name": "stylist-organism",
         "category": "interaction",
         "path": "./interaction/stylist-organism.svg",
@@ -1966,6 +2002,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/tag-input.svg"
       },
       {
+        "name": "themes",
+        "category": "interaction",
+        "path": "./interaction/themes.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/themes.svg"
+      },
+      {
         "name": "toast",
         "category": "interaction",
         "path": "./interaction/toast.svg",
@@ -1988,6 +2030,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/toggles-molecule.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/toggles-molecule.svg"
+      },
+      {
+        "name": "tokens",
+        "category": "interaction",
+        "path": "./interaction/tokens.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/tokens.svg"
       },
       {
         "name": "toolbars-molecule",
@@ -3618,6 +3666,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/collaborate.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/collaborate.svg"
     },
+    "components": {
+      "name": "components",
+      "category": "interaction",
+      "path": "./interaction/components.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/components.svg"
+    },
     "confirmation-dialog": {
       "name": "confirmation-dialog",
       "category": "interaction",
@@ -3629,6 +3683,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/content-editor.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/content-editor.svg"
+    },
+    "contracts": {
+      "name": "contracts",
+      "category": "interaction",
+      "path": "./interaction/contracts.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/contracts.svg"
     },
     "controls": {
       "name": "controls",
@@ -3750,6 +3810,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/forms-organism.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/forms-organism.svg"
     },
+    "icons": {
+      "name": "icons",
+      "category": "interaction",
+      "path": "./interaction/icons.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/icons.svg"
+    },
     "indicators": {
       "name": "indicators",
       "category": "interaction",
@@ -3773,6 +3839,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/input-organism.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/input-organism.svg"
+    },
+    "json": {
+      "name": "json",
+      "category": "interaction",
+      "path": "./interaction/json.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/json.svg"
     },
     "list": {
       "name": "list",
@@ -3845,6 +3917,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/mock-data-selector.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/mock-data-selector.svg"
+    },
+    "models": {
+      "name": "models",
+      "category": "interaction",
+      "path": "./interaction/models.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/models.svg"
     },
     "notification": {
       "name": "notification",
@@ -4014,6 +4092,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/state.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/state.svg"
     },
+    "styles": {
+      "name": "styles",
+      "category": "interaction",
+      "path": "./interaction/styles.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/styles.svg"
+    },
     "stylist-organism": {
       "name": "stylist-organism",
       "category": "interaction",
@@ -4050,6 +4134,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/tag-input.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/tag-input.svg"
     },
+    "themes": {
+      "name": "themes",
+      "category": "interaction",
+      "path": "./interaction/themes.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/themes.svg"
+    },
     "toast": {
       "name": "toast",
       "category": "interaction",
@@ -4073,6 +4163,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/toggles-molecule.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/toggles-molecule.svg"
+    },
+    "tokens": {
+      "name": "tokens",
+      "category": "interaction",
+      "path": "./interaction/tokens.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/tokens.svg"
     },
     "toolbars-molecule": {
       "name": "toolbars-molecule",
@@ -4193,7 +4289,7 @@ export const ICON_REGISTRY = {
 
 export type IconCategory = 'architecture' | 'information' | 'interaction';
 
-export type IconName = 'alignments' | 'animated-expandable-table-row' | 'aspect-ratio' | 'aspect-ratio-atom' | 'blur' | 'breakpoints' | 'calendar-view' | 'canvas-chart' | 'canvas-organism' | 'canvas-toolbar' | 'charts-organism' | 'component-size' | 'container' | 'dashboard-layout' | 'diagrams-organism' | 'divider' | 'drawer' | 'drawing-surface' | 'event-calendar' | 'general-toolbar' | 'gradient-background' | 'graph-edge' | 'graph-node' | 'graph-node-card' | 'grid-3x3' | 'grid-columns' | 'grid-gaps' | 'grid-layout' | 'grid-molecule' | 'heatmap' | 'hero' | 'horizontal-layout' | 'justifications' | 'lines' | 'markers' | 'navigation-organism' | 'opacity' | 'orientations' | 'padding' | 'page-header' | 'performance-dashboard' | 'permission-gate' | 'popover' | 'positions' | 'process-step' | 'radius' | 'schedule-calendar' | 'shadows' | 'shapes' | 'shared-canvas' | 'side-by-side-layout' | 'spacer' | 'spacing' | 'split-layout' | 'stack' | 'stacked-layout' | 'status-dashboard' | 'stepper' | 'style' | 'table-cells' | 'text-alignments' | 'time-grid' | 'vertical-layout' | 'widget-container' | 'width' | 'z-index' | 'abtest-configurator' | 'agile' | 'ai-organism' | 'ai-result-card' | 'alert-card' | 'analytics-chart' | 'animated-number' | 'announcement-banner' | 'article-card' | 'atomic-principles-showcase' | 'attachment-preview' | 'audio-player' | 'audio-slider' | 'audio-visualizer' | 'avatar' | 'avatar-group' | 'badge' | 'base-card' | 'billing-summary' | 'card-with-image' | 'cart-summary' | 'category-card' | 'chart' | 'charts-molecule' | 'code-block-molecule' | 'code-diff' | 'code-editor-molecule' | 'code-section' | 'color-swatch' | 'colors' | 'comments' | 'comparison-card' | 'component-library-stats' | 'component-preview' | 'conversion-funnel' | 'country-flag' | 'cta-banner' | 'currency-converter' | 'data-display-card' | 'data-exporter' | 'debug-console' | 'densities' | 'design-tokens-organism' | 'development-error-boundary' | 'diagram' | 'diagrams-molecule' | 'discount-applier' | 'documentation-block' | 'download-card' | 'expandable-card' | 'favicon' | 'file-browser' | 'file-list-item' | 'geo-jsonviewer' | 'gradients' | 'graphviz-directed-edge' | 'image' | 'image-gallery' | 'image-with-caption' | 'inline-text' | 'inventory-tracker' | 'kanban' | 'kanban-card' | 'kpi-indicator' | 'legend-item' | 'link-card' | 'map-marker-organism' | 'map-with-markers' | 'media-library' | 'message-bubble' | 'message-composer' | 'message-item' | 'message-list' | 'message-meta' | 'message-status' | 'message-thread' | 'metric-card' | 'npm-badge' | 'number-flow' | 'ontology-edge-component' | 'ontology-node-component' | 'operations-history' | 'order-confirmation' | 'order-history' | 'order-tracking' | 'playground' | 'playground-ai-assistant' | 'playground-ai-chat' | 'playground-ai-panel' | 'playground-animated-background' | 'playground-canvas-shell' | 'playground-code-viewer' | 'playground-component-catalog' | 'playground-component-info-card' | 'playground-component-tree' | 'playground-cta-buttons' | 'playground-device-frame' | 'playground-drawing-overlay' | 'playground-enhanced-export-panel' | 'playground-error-boundary' | 'playground-feature-grid' | 'playground-generic-code-viewer' | 'playground-hero' | 'playground-live-code-section' | 'playground-markdown-renderer' | 'playground-mission-banner' | 'playground-screenshot-selector' | 'playground-shell-header' | 'playground-shortcuts-panel' | 'playground-toast' | 'playground-tree-node' | 'post-card' | 'prices' | 'privacy-settings' | 'product-card-extended' | 'product-catalog' | 'product-reviews' | 'product-sorting' | 'product-tour' | 'products' | 'promo-banner' | 'resource-optimizer' | 'return-policy' | 'route-planner' | 'shipping-calculator' | 'shipping-info' | 'skeletons' | 'social' | 'stat-card' | 'stats-card' | 'store-locator' | 'subscription-manager' | 'table' | 'tax-calculator' | 'team-avatar-stack' | 'team-member-card' | 'test-results-viewer' | 'text' | 'text-block' | 'text-element' | 'traffic-analytics' | 'typography' | 'typography-indicator' | 'upsell' | 'user-behavior-metrics' | 'user-card' | 'variants' | 'verdicts' | 'video-player' | 'warranty-info' | 'accordion' | 'accordion-molecule' | 'activity' | 'advanced-password-input' | 'ai-interaction' | 'alert' | 'alert-circle' | 'animations' | 'arrow-down' | 'arrow-up' | 'auto-search' | 'autocomplete' | 'box' | 'breadcrumb' | 'bulk-order-form' | 'button' | 'calendar' | 'calendar-molecule' | 'characters-count' | 'chat-item' | 'chat-list' | 'chat-message' | 'chat-organism' | 'chat-preview' | 'chat-room' | 'chat-window' | 'check' | 'check-circle' | 'checkout-form' | 'chevron-down' | 'chevron-up' | 'chip' | 'clock' | 'code' | 'code-editor-dev' | 'collaborate' | 'confirmation-dialog' | 'content-editor' | 'controls' | 'controls-interaction' | 'controls-organism' | 'dialog-confirm' | 'dialogs-organism' | 'download' | 'drag-drop-file-upload' | 'draggable-card' | 'errors' | 'feedback-organism' | 'field-highlighter' | 'file-input' | 'file-upload' | 'filter-panel' | 'form-error' | 'form-footer' | 'form-header' | 'form-helper' | 'form-selection' | 'forms-organism' | 'indicators' | 'info' | 'input-field' | 'input-organism' | 'list' | 'lists' | 'location-picker' | 'location-selector' | 'map-pin' | 'map-selector' | 'maximize' | 'menu' | 'menus-molecule' | 'message-input' | 'minus' | 'mock-data-selector' | 'notification' | 'notifications-molecule' | 'number-input' | 'overlay' | 'pagination' | 'panels' | 'performance-monitor' | 'pickers' | 'placeholder' | 'plus' | 'process' | 'progress' | 'radio-group' | 'rating' | 'rfqform' | 'rich-text-editor' | 'save' | 'search' | 'search-bar' | 'search-suggestion' | 'selector' | 'selectors-molecule' | 'settings' | 'slider' | 'slider-with-input' | 'sliders-molecule' | 'spinner' | 'state' | 'stylist-organism' | 'tab' | 'tables-molecule' | 'tabs-molecule' | 'tag' | 'tag-input' | 'toast' | 'toasts-molecule' | 'toggle' | 'toggles-molecule' | 'toolbars-molecule' | 'tooltip' | 'transitions' | 'trash' | 'trees' | 'trending-down' | 'trending-up' | 'upload' | 'upload-progress' | 'user' | 'user-status' | 'validation' | 'variables-editor' | 'x' | 'x-circle' | 'zoom' | 'zoom-in' | 'zoom-molecule' | 'zoom-out';
+export type IconName = 'alignments' | 'animated-expandable-table-row' | 'aspect-ratio' | 'aspect-ratio-atom' | 'blur' | 'breakpoints' | 'calendar-view' | 'canvas-chart' | 'canvas-organism' | 'canvas-toolbar' | 'charts-organism' | 'component-size' | 'container' | 'dashboard-layout' | 'diagrams-organism' | 'divider' | 'drawer' | 'drawing-surface' | 'event-calendar' | 'general-toolbar' | 'gradient-background' | 'graph-edge' | 'graph-node' | 'graph-node-card' | 'grid-3x3' | 'grid-columns' | 'grid-gaps' | 'grid-layout' | 'grid-molecule' | 'heatmap' | 'hero' | 'horizontal-layout' | 'justifications' | 'lines' | 'markers' | 'navigation-organism' | 'opacity' | 'orientations' | 'padding' | 'page-header' | 'performance-dashboard' | 'permission-gate' | 'popover' | 'positions' | 'process-step' | 'radius' | 'schedule-calendar' | 'shadows' | 'shapes' | 'shared-canvas' | 'side-by-side-layout' | 'spacer' | 'spacing' | 'split-layout' | 'stack' | 'stacked-layout' | 'status-dashboard' | 'stepper' | 'style' | 'table-cells' | 'text-alignments' | 'time-grid' | 'vertical-layout' | 'widget-container' | 'width' | 'z-index' | 'abtest-configurator' | 'agile' | 'ai-organism' | 'ai-result-card' | 'alert-card' | 'analytics-chart' | 'animated-number' | 'announcement-banner' | 'article-card' | 'atomic-principles-showcase' | 'attachment-preview' | 'audio-player' | 'audio-slider' | 'audio-visualizer' | 'avatar' | 'avatar-group' | 'badge' | 'base-card' | 'billing-summary' | 'card-with-image' | 'cart-summary' | 'category-card' | 'chart' | 'charts-molecule' | 'code-block-molecule' | 'code-diff' | 'code-editor-molecule' | 'code-section' | 'color-swatch' | 'colors' | 'comments' | 'comparison-card' | 'component-library-stats' | 'component-preview' | 'conversion-funnel' | 'country-flag' | 'cta-banner' | 'currency-converter' | 'data-display-card' | 'data-exporter' | 'debug-console' | 'densities' | 'design-tokens-organism' | 'development-error-boundary' | 'diagram' | 'diagrams-molecule' | 'discount-applier' | 'documentation-block' | 'download-card' | 'expandable-card' | 'favicon' | 'file-browser' | 'file-list-item' | 'geo-jsonviewer' | 'gradients' | 'graphviz-directed-edge' | 'image' | 'image-gallery' | 'image-with-caption' | 'inline-text' | 'inventory-tracker' | 'kanban' | 'kanban-card' | 'kpi-indicator' | 'legend-item' | 'link-card' | 'map-marker-organism' | 'map-with-markers' | 'media-library' | 'message-bubble' | 'message-composer' | 'message-item' | 'message-list' | 'message-meta' | 'message-status' | 'message-thread' | 'metric-card' | 'npm-badge' | 'number-flow' | 'ontology-edge-component' | 'ontology-node-component' | 'operations-history' | 'order-confirmation' | 'order-history' | 'order-tracking' | 'playground' | 'playground-ai-assistant' | 'playground-ai-chat' | 'playground-ai-panel' | 'playground-animated-background' | 'playground-canvas-shell' | 'playground-code-viewer' | 'playground-component-catalog' | 'playground-component-info-card' | 'playground-component-tree' | 'playground-cta-buttons' | 'playground-device-frame' | 'playground-drawing-overlay' | 'playground-enhanced-export-panel' | 'playground-error-boundary' | 'playground-feature-grid' | 'playground-generic-code-viewer' | 'playground-hero' | 'playground-live-code-section' | 'playground-markdown-renderer' | 'playground-mission-banner' | 'playground-screenshot-selector' | 'playground-shell-header' | 'playground-shortcuts-panel' | 'playground-toast' | 'playground-tree-node' | 'post-card' | 'prices' | 'privacy-settings' | 'product-card-extended' | 'product-catalog' | 'product-reviews' | 'product-sorting' | 'product-tour' | 'products' | 'promo-banner' | 'resource-optimizer' | 'return-policy' | 'route-planner' | 'shipping-calculator' | 'shipping-info' | 'skeletons' | 'social' | 'stat-card' | 'stats-card' | 'store-locator' | 'subscription-manager' | 'table' | 'tax-calculator' | 'team-avatar-stack' | 'team-member-card' | 'test-results-viewer' | 'text' | 'text-block' | 'text-element' | 'traffic-analytics' | 'typography' | 'typography-indicator' | 'upsell' | 'user-behavior-metrics' | 'user-card' | 'variants' | 'verdicts' | 'video-player' | 'warranty-info' | 'accordion' | 'accordion-molecule' | 'activity' | 'advanced-password-input' | 'ai-interaction' | 'alert' | 'alert-circle' | 'animations' | 'arrow-down' | 'arrow-up' | 'auto-search' | 'autocomplete' | 'box' | 'breadcrumb' | 'bulk-order-form' | 'button' | 'calendar' | 'calendar-molecule' | 'characters-count' | 'chat-item' | 'chat-list' | 'chat-message' | 'chat-organism' | 'chat-preview' | 'chat-room' | 'chat-window' | 'check' | 'check-circle' | 'checkout-form' | 'chevron-down' | 'chevron-up' | 'chip' | 'clock' | 'code' | 'code-editor-dev' | 'collaborate' | 'components' | 'confirmation-dialog' | 'content-editor' | 'contracts' | 'controls' | 'controls-interaction' | 'controls-organism' | 'dialog-confirm' | 'dialogs-organism' | 'download' | 'drag-drop-file-upload' | 'draggable-card' | 'errors' | 'feedback-organism' | 'field-highlighter' | 'file-input' | 'file-upload' | 'filter-panel' | 'form-error' | 'form-footer' | 'form-header' | 'form-helper' | 'form-selection' | 'forms-organism' | 'icons' | 'indicators' | 'info' | 'input-field' | 'input-organism' | 'json' | 'list' | 'lists' | 'location-picker' | 'location-selector' | 'map-pin' | 'map-selector' | 'maximize' | 'menu' | 'menus-molecule' | 'message-input' | 'minus' | 'mock-data-selector' | 'models' | 'notification' | 'notifications-molecule' | 'number-input' | 'overlay' | 'pagination' | 'panels' | 'performance-monitor' | 'pickers' | 'placeholder' | 'plus' | 'process' | 'progress' | 'radio-group' | 'rating' | 'rfqform' | 'rich-text-editor' | 'save' | 'search' | 'search-bar' | 'search-suggestion' | 'selector' | 'selectors-molecule' | 'settings' | 'slider' | 'slider-with-input' | 'sliders-molecule' | 'spinner' | 'state' | 'styles' | 'stylist-organism' | 'tab' | 'tables-molecule' | 'tabs-molecule' | 'tag' | 'tag-input' | 'themes' | 'toast' | 'toasts-molecule' | 'toggle' | 'toggles-molecule' | 'tokens' | 'toolbars-molecule' | 'tooltip' | 'transitions' | 'trash' | 'trees' | 'trending-down' | 'trending-up' | 'upload' | 'upload-progress' | 'user' | 'user-status' | 'validation' | 'variables-editor' | 'x' | 'x-circle' | 'zoom' | 'zoom-in' | 'zoom-molecule' | 'zoom-out';
 
 export const ICONS_BY_CATEGORY = {
   architecture: [
@@ -4453,8 +4549,10 @@ export const ICONS_BY_CATEGORY = {
   "code",
   "code-editor-dev",
   "collaborate",
+  "components",
   "confirmation-dialog",
   "content-editor",
+  "contracts",
   "controls",
   "controls-interaction",
   "controls-organism",
@@ -4475,10 +4573,12 @@ export const ICONS_BY_CATEGORY = {
   "form-helper",
   "form-selection",
   "forms-organism",
+  "icons",
   "indicators",
   "info",
   "input-field",
   "input-organism",
+  "json",
   "list",
   "lists",
   "location-picker",
@@ -4491,6 +4591,7 @@ export const ICONS_BY_CATEGORY = {
   "message-input",
   "minus",
   "mock-data-selector",
+  "models",
   "notification",
   "notifications-molecule",
   "number-input",
@@ -4519,16 +4620,19 @@ export const ICONS_BY_CATEGORY = {
   "sliders-molecule",
   "spinner",
   "state",
+  "styles",
   "stylist-organism",
   "tab",
   "tables-molecule",
   "tabs-molecule",
   "tag",
   "tag-input",
+  "themes",
   "toast",
   "toasts-molecule",
   "toggle",
   "toggles-molecule",
+  "tokens",
   "toolbars-molecule",
   "tooltip",
   "transitions",
@@ -4551,7 +4655,7 @@ export const ICONS_BY_CATEGORY = {
 ]
 } as const;
 
-export const ICONS_TOTAL = 347;
+export const ICONS_TOTAL = 355;
 
 export function getIconPath(name: IconName): string {
   return ICON_REGISTRY.byName[name]?.path ?? '';

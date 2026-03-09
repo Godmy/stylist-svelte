@@ -1,4 +1,4 @@
-import { LOADING_STATUSES, type LoadingStatus } from '$stylist/design-system/tokens';
+import { STATUSES, type LoadingState } from '$stylist/design-system/tokens/interaction/statuses';
 
 type AuthGuardResolutionInput = {
 	isAuthenticated: boolean;
@@ -11,7 +11,7 @@ type AuthGuardResolution = {
 	isLoggedIn: boolean;
 	hasRequiredPermissions: boolean;
 	isAuthorized: boolean;
-	loadingStatus: LoadingStatus;
+	loadingStatus: LoadingState;
 };
 
 export function resolveAuthGuardState(input: AuthGuardResolutionInput): AuthGuardResolution {
@@ -29,6 +29,10 @@ export function resolveAuthGuardState(input: AuthGuardResolutionInput): AuthGuar
 		isLoggedIn,
 		hasRequiredPermissions,
 		isAuthorized: isLoggedIn && hasRequiredPermissions,
-		loadingStatus: LOADING_STATUSES[2]
+		loadingStatus: STATUSES.lifecycle.loading[2]
 	};
 }
+
+
+
+

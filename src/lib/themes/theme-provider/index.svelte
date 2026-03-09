@@ -1,8 +1,11 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import { lightTheme, darkTheme, setThemeContext, applyThemeToDOM } from '../design-system';
-	import type { Theme, ThemeName } from '../design-system';
+	import { applyThemeToDOM } from '../utils/css';
+	import { setThemeContext } from '../theme/context';
+	import { darkTheme, lightTheme } from '../theme';
+	import type { Theme } from '../theme/interface';
+	import type { ThemeName } from '../theme/name';
 
 	type Props = {
 		initialTheme?: ThemeName;

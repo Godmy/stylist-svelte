@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import { getThemeContext } from '../design-system';
+	import { getThemeContext } from '../theme/context';
 
 	type Props = {
 		children: Snippet<[{ theme: any; themeName: string; setTheme: (name: any) => void }]>;

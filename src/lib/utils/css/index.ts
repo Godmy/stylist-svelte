@@ -1,5 +1,5 @@
-import { applyThemeToDOM, darkTheme, lightTheme } from '../../design-system';
-import type { Theme, ThemeName } from '../../design-system';
+import { applyThemeToDOM, darkTheme, lightTheme } from '../../themes';
+import type { Theme, ThemeName } from '../../themes/theme';
 
 type ThemeType = ThemeName;
 
