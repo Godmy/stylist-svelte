@@ -8,24 +8,6 @@ function stringEntries(value: object): [string, string][] {
 	return Object.entries(value as Record<string, string>);
 }
 
-function flattenObject(
-	obj: any,
-	prefix = '',
-	result: Record<string, string> = {}
-): Record<string, string> {
-	for (const [key, value] of Object.entries(obj)) {
-		const newKey = prefix ? `${prefix}-${key}` : key;
-
-		if (value && typeof value === 'object' && !Array.isArray(value)) {
-			flattenObject(value, newKey, result);
-		} else {
-			result[newKey] = String(value);
-		}
-	}
-
-	return result;
-}
-
 export function themeToCSSVars(theme: Theme): Record<string, string> {
 	const vars: Record<string, string> = {};
 
@@ -50,12 +32,12 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
 	});
 
 	stringEntries(theme.colors.neutral).forEach(([shade, color]) => {
-		vars[`color-NEUTRAL-${shade}`] = color;
+		vars[`color-neutral-${shade}`] = color;
 	});
 
-	vars['color-bg-primary'] = theme.colors.background.primary;
-	vars['color-bg-secondary'] = theme.colors.background.secondary;
-	vars['color-bg-tertiary'] = theme.colors.background.tertiary;
+	vars['color-background-primary'] = theme.colors.background.primary;
+	vars['color-background-secondary'] = theme.colors.background.secondary;
+	vars['color-background-tertiary'] = theme.colors.background.tertiary;
 
 	vars['color-text-primary'] = theme.colors.text.primary;
 	vars['color-text-secondary'] = theme.colors.text.secondary;
@@ -67,7 +49,7 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
 	vars['color-border-tertiary'] = theme.colors.border.tertiary;
 
 	stringEntries(theme.spacing).forEach(([key, value]) => {
-		vars[`SPACING-${key}`] = value;
+		vars[`spacing-${key}`] = value;
 	});
 
 	stringEntries(theme.typography.fontSize).forEach(([key, value]) => {
@@ -89,8 +71,29 @@ export function themeToCSSVars(theme: Theme): Record<string, string> {
 	});
 
 	stringEntries(theme.boxShadow).forEach(([key, value]) => {
-		vars[`SHADOW-${key}`] = value;
+		vars[`shadow-${key}`] = value;
 	});
+
+	// Compatibility aliases for existing consumers while the codebase converges
+	vars['color-bg-primary'] = vars['color-background-primary'];
+	vars['color-bg-secondary'] = vars['color-background-secondary'];
+	vars['color-bg-tertiary'] = vars['color-background-tertiary'];
+
+	vars['color-border-default'] = vars['color-border-primary'];
+	vars['color-border-subtle'] = vars['color-border-tertiary'];
+	vars['color-border-base'] = vars['color-border-secondary'];
+	vars['color-border'] = vars['color-border-primary'];
+
+	vars['color-text-muted'] = vars['color-text-secondary'];
+	vars['color-text-disabled'] = vars['color-text-tertiary'];
+
+	vars['color-surface'] = vars['color-background-primary'];
+	vars['color-surface-primary'] = vars['color-background-primary'];
+	vars['color-surface-secondary'] = vars['color-background-secondary'];
+	vars['color-surface-muted'] = vars['color-background-tertiary'];
+	vars['color-surface-hover'] = vars['color-background-secondary'];
+	vars['color-background-surface'] = vars['color-background-primary'];
+	vars['color-background-hover'] = vars['color-background-secondary'];
 
 	return vars;
 }
@@ -138,12 +141,56 @@ export function applySchemeToDOM(
 		return;
 	}
 
+	// Scheme-local vars (used by lightweight UI pieces and stories)
 	element.style.setProperty('--app-bg', scheme.colors.bg);
 	element.style.setProperty('--app-surface', scheme.colors.surface);
 	element.style.setProperty('--app-text', scheme.colors.text);
 	element.style.setProperty('--app-muted', scheme.colors.muted);
 	element.style.setProperty('--app-line', scheme.colors.line);
 	element.style.setProperty('--app-accent', scheme.colors.accent);
+
+	// Semantic aliases consumed by design-system/components
+	element.style.setProperty('--accent', scheme.colors.accent);
+	element.style.setProperty('--surface', scheme.colors.surface);
+	element.style.setProperty('--text', scheme.colors.text);
+	element.style.setProperty('--muted', scheme.colors.muted);
+	element.style.setProperty('--line', scheme.colors.line);
+
+	element.style.setProperty('--color-background-primary', scheme.colors.bg);
+	element.style.setProperty('--color-background-secondary', scheme.colors.surface);
+	element.style.setProperty('--color-background-tertiary', scheme.colors.surface);
+	element.style.setProperty('--color-background-hover', scheme.colors.surface);
+	element.style.setProperty('--color-background-surface', scheme.colors.surface);
+
+	element.style.setProperty('--color-bg-primary', scheme.colors.bg);
+	element.style.setProperty('--color-bg-secondary', scheme.colors.surface);
+	element.style.setProperty('--color-bg-tertiary', scheme.colors.surface);
+
+	element.style.setProperty('--color-text-primary', scheme.colors.text);
+	element.style.setProperty('--color-text-secondary', scheme.colors.muted);
+	element.style.setProperty('--color-text-tertiary', scheme.colors.muted);
+	element.style.setProperty('--color-text-muted', scheme.colors.muted);
+	element.style.setProperty('--color-text-disabled', scheme.colors.muted);
+
+	element.style.setProperty('--color-border-primary', scheme.colors.line);
+	element.style.setProperty('--color-border-secondary', scheme.colors.line);
+	element.style.setProperty('--color-border-tertiary', scheme.colors.line);
+	element.style.setProperty('--color-border-default', scheme.colors.line);
+	element.style.setProperty('--color-border-subtle', scheme.colors.line);
+	element.style.setProperty('--color-border-base', scheme.colors.line);
+	element.style.setProperty('--color-border', scheme.colors.line);
+
+	element.style.setProperty('--color-surface', scheme.colors.surface);
+	element.style.setProperty('--color-surface-primary', scheme.colors.surface);
+	element.style.setProperty('--color-surface-secondary', scheme.colors.surface);
+	element.style.setProperty('--color-surface-muted', scheme.colors.bg);
+	element.style.setProperty('--color-surface-hover', scheme.colors.surface);
+
+	element.style.setProperty('--color-primary-500', scheme.colors.accent);
+	element.style.setProperty('--color-primary-600', scheme.colors.accent);
+	element.style.setProperty('--color-primary-700', scheme.colors.accent);
+	element.style.setProperty('--color-info-500', scheme.colors.accent);
+	element.style.setProperty('--color-info-600', scheme.colors.accent);
 	element.setAttribute('data-ui-theme', scheme.id);
 }
 
@@ -167,7 +214,7 @@ export function generateThemeCSS(theme: Theme, selector = ':root'): string {
 	const vars = themeToCSSVars(theme);
 	const cssVars = Object.entries(vars)
 		.map(([key, value]) => `  --${key}: ${value};`)
-		.join('n');
+		.join('\n');
 
 	return `${selector} {\n${cssVars}\n}`;
 }

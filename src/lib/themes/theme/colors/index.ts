@@ -1,12 +1,12 @@
-import type { ColorScale } from '../../colors/scale';
+import type { Scale } from '../../scale';
 
 export interface ThemeColors {
-	primary: ColorScale;
-	secondary: ColorScale;
-	success: ColorScale;
-	warning: ColorScale;
-	danger: ColorScale;
-	neutral: ColorScale;
+	primary: Scale;
+	secondary: Scale;
+	success: Scale;
+	warning: Scale;
+	danger: Scale;
+	neutral: Scale;
 	background: {
 		primary: string;
 		secondary: string;

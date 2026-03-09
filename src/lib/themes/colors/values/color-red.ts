@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+﻿import type { Scale } from '../../scale';
 
-export const COLOR_RED: ColorScale = {
+export const COLOR_RED: Scale = {
 	50: '#fef2f2',
 	100: '#fee2e2',
 	200: '#fecaca',
@@ -12,3 +12,4 @@ export const COLOR_RED: ColorScale = {
 	800: '#991b1b',
 	900: '#7f1d1d'
 };
+

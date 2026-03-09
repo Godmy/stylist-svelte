@@ -1,0 +1,1726 @@
+{
+  "generatedAt": "2026-03-09T20:06:37.881Z",
+  "totalTokens": 344,
+  "rows": [
+    {
+      "token": "playground",
+      "count": 26,
+      "group": "ai"
+    },
+    {
+      "token": "code",
+      "count": 9,
+      "group": "code"
+    },
+    {
+      "token": "message",
+      "count": 9,
+      "group": "message"
+    },
+    {
+      "token": "chat",
+      "count": 8,
+      "group": "message"
+    },
+    {
+      "token": "input",
+      "count": 8,
+      "group": "form"
+    },
+    {
+      "token": "form",
+      "count": 7,
+      "group": "form"
+    },
+    {
+      "token": "grid",
+      "count": 7,
+      "group": "table"
+    },
+    {
+      "token": "layout",
+      "count": 7,
+      "group": "layout"
+    },
+    {
+      "token": "ai",
+      "count": 6,
+      "group": "ai"
+    },
+    {
+      "token": "text",
+      "count": 6,
+      "group": "align"
+    },
+    {
+      "token": "calendar",
+      "count": 5,
+      "group": "calendar"
+    },
+    {
+      "token": "canvas",
+      "count": 5,
+      "group": "chart"
+    },
+    {
+      "token": "editor",
+      "count": 5,
+      "group": "code"
+    },
+    {
+      "token": "file",
+      "count": 5,
+      "group": "file"
+    },
+    {
+      "token": "product",
+      "count": 5,
+      "group": "commerce"
+    },
+    {
+      "token": "selector",
+      "count": 5,
+      "group": "form"
+    },
+    {
+      "token": "banner",
+      "count": 4,
+      "group": "message"
+    },
+    {
+      "token": "image",
+      "count": 4,
+      "group": "image"
+    },
+    {
+      "token": "info",
+      "count": 4,
+      "group": "status"
+    },
+    {
+      "token": "list",
+      "count": 4,
+      "group": "file"
+    },
+    {
+      "token": "map",
+      "count": 4,
+      "group": "map"
+    },
+    {
+      "token": "node",
+      "count": 4,
+      "group": "graph"
+    },
+    {
+      "token": "order",
+      "count": 4,
+      "group": "commerce"
+    },
+    {
+      "token": "panel",
+      "count": 4,
+      "group": "ai"
+    },
+    {
+      "token": "search",
+      "count": 4,
+      "group": "search"
+    },
+    {
+      "token": "upload",
+      "count": 4,
+      "group": "file"
+    },
+    {
+      "token": "user",
+      "count": 4,
+      "group": "chart"
+    },
+    {
+      "token": "zoom",
+      "count": 4,
+      "group": "zoom"
+    },
+    {
+      "token": "alert",
+      "count": 3,
+      "group": "status"
+    },
+    {
+      "token": "animated",
+      "count": 3,
+      "group": "animation"
+    },
+    {
+      "token": "audio",
+      "count": 3,
+      "group": "audio"
+    },
+    {
+      "token": "avatar",
+      "count": 3,
+      "group": "user"
+    },
+    {
+      "token": "block",
+      "count": 3,
+      "group": "code"
+    },
+    {
+      "token": "chart",
+      "count": 3,
+      "group": "chart"
+    },
+    {
+      "token": "circle",
+      "count": 3,
+      "group": "status"
+    },
+    {
+      "token": "controls",
+      "count": 3,
+      "group": "settings"
+    },
+    {
+      "token": "dashboard",
+      "count": 3,
+      "group": "layout"
+    },
+    {
+      "token": "data",
+      "count": 3,
+      "group": "info"
+    },
+    {
+      "token": "down",
+      "count": 3,
+      "group": "arrow"
+    },
+    {
+      "token": "edge",
+      "count": 3,
+      "group": "graph"
+    },
+    {
+      "token": "error",
+      "count": 3,
+      "group": "status"
+    },
+    {
+      "token": "graph",
+      "count": 3,
+      "group": "graph"
+    },
+    {
+      "token": "header",
+      "count": 3,
+      "group": "layout"
+    },
+    {
+      "token": "number",
+      "count": 3,
+      "group": "animation"
+    },
+    {
+      "token": "preview",
+      "count": 3,
+      "group": "file"
+    },
+    {
+      "token": "slider",
+      "count": 3,
+      "group": "audio"
+    },
+    {
+      "token": "status",
+      "count": 3,
+      "group": "status"
+    },
+    {
+      "token": "table",
+      "count": 3,
+      "group": "animation"
+    },
+    {
+      "token": "up",
+      "count": 3,
+      "group": "arrow"
+    },
+    {
+      "token": "viewer",
+      "count": 3,
+      "group": "code"
+    },
+    {
+      "token": "accordion",
+      "count": 2,
+      "group": "accordion"
+    },
+    {
+      "token": "alignments",
+      "count": 2,
+      "group": "align"
+    },
+    {
+      "token": "analytics",
+      "count": 2,
+      "group": "chart"
+    },
+    {
+      "token": "arrow",
+      "count": 2,
+      "group": "arrow"
+    },
+    {
+      "token": "aspect",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "background",
+      "count": 2,
+      "group": "color"
+    },
+    {
+      "token": "badge",
+      "count": 2,
+      "group": "tag"
+    },
+    {
+      "token": "boundary",
+      "count": 2,
+      "group": "status"
+    },
+    {
+      "token": "calculator",
+      "count": 2,
+      "group": "commerce"
+    },
+    {
+      "token": "catalog",
+      "count": 2,
+      "group": "info"
+    },
+    {
+      "token": "charts",
+      "count": 2,
+      "group": "chart"
+    },
+    {
+      "token": "check",
+      "count": 2,
+      "group": "status"
+    },
+    {
+      "token": "chevron",
+      "count": 2,
+      "group": "arrow"
+    },
+    {
+      "token": "confirmation",
+      "count": 2,
+      "group": "commerce"
+    },
+    {
+      "token": "container",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "cta",
+      "count": 2,
+      "group": "message"
+    },
+    {
+      "token": "diagrams",
+      "count": 2,
+      "group": "graph"
+    },
+    {
+      "token": "dialog",
+      "count": 2,
+      "group": "status"
+    },
+    {
+      "token": "download",
+      "count": 2,
+      "group": "file"
+    },
+    {
+      "token": "drawing",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "expandable",
+      "count": 2,
+      "group": "animation"
+    },
+    {
+      "token": "field",
+      "count": 2,
+      "group": "form"
+    },
+    {
+      "token": "group",
+      "count": 2,
+      "group": "user"
+    },
+    {
+      "token": "hero",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "history",
+      "count": 2,
+      "group": "info"
+    },
+    {
+      "token": "indicator",
+      "count": 2,
+      "group": "chart"
+    },
+    {
+      "token": "interaction",
+      "count": 2,
+      "group": "ai"
+    },
+    {
+      "token": "kanban",
+      "count": 2,
+      "group": "graph"
+    },
+    {
+      "token": "library",
+      "count": 2,
+      "group": "chart"
+    },
+    {
+      "token": "location",
+      "count": 2,
+      "group": "form"
+    },
+    {
+      "token": "markers",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "ontology",
+      "count": 2,
+      "group": "graph"
+    },
+    {
+      "token": "overlay",
+      "count": 2,
+      "group": "info"
+    },
+    {
+      "token": "performance",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "player",
+      "count": 2,
+      "group": "audio"
+    },
+    {
+      "token": "process",
+      "count": 2,
+      "group": "graph"
+    },
+    {
+      "token": "progress",
+      "count": 2,
+      "group": "progress"
+    },
+    {
+      "token": "ratio",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "section",
+      "count": 2,
+      "group": "code"
+    },
+    {
+      "token": "settings",
+      "count": 2,
+      "group": "settings"
+    },
+    {
+      "token": "shipping",
+      "count": 2,
+      "group": "commerce"
+    },
+    {
+      "token": "side",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "stack",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "stats",
+      "count": 2,
+      "group": "chart"
+    },
+    {
+      "token": "summary",
+      "count": 2,
+      "group": "commerce"
+    },
+    {
+      "token": "tag",
+      "count": 2,
+      "group": "tag"
+    },
+    {
+      "token": "team",
+      "count": 2,
+      "group": "user"
+    },
+    {
+      "token": "toast",
+      "count": 2,
+      "group": "message"
+    },
+    {
+      "token": "tokens",
+      "count": 2,
+      "group": "settings"
+    },
+    {
+      "token": "toolbar",
+      "count": 2,
+      "group": "layout"
+    },
+    {
+      "token": "tree",
+      "count": 2,
+      "group": "graph"
+    },
+    {
+      "token": "trending",
+      "count": 2,
+      "group": "arrow"
+    },
+    {
+      "token": "typography",
+      "count": 2,
+      "group": "text"
+    },
+    {
+      "token": "x",
+      "count": 2,
+      "group": "status"
+    },
+    {
+      "token": "3x3",
+      "count": 1,
+      "group": "table"
+    },
+    {
+      "token": "abtest",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "activity",
+      "count": 1,
+      "group": "progress"
+    },
+    {
+      "token": "advanced",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "agile",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "animations",
+      "count": 1,
+      "group": "animation"
+    },
+    {
+      "token": "announcement",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "applier",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "article",
+      "count": 1,
+      "group": "text"
+    },
+    {
+      "token": "assistant",
+      "count": 1,
+      "group": "ai"
+    },
+    {
+      "token": "atom",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "atomic",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "attachment",
+      "count": 1,
+      "group": "file"
+    },
+    {
+      "token": "auto",
+      "count": 1,
+      "group": "search"
+    },
+    {
+      "token": "autocomplete",
+      "count": 1,
+      "group": "search"
+    },
+    {
+      "token": "bar",
+      "count": 1,
+      "group": "search"
+    },
+    {
+      "token": "behavior",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "billing",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "blur",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "box",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "breadcrumb",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "breakpoints",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "browser",
+      "count": 1,
+      "group": "file"
+    },
+    {
+      "token": "bubble",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "bulk",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "button",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "buttons",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "caption",
+      "count": 1,
+      "group": "image"
+    },
+    {
+      "token": "cart",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "category",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "cells",
+      "count": 1,
+      "group": "table"
+    },
+    {
+      "token": "characters",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "checkout",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "chip",
+      "count": 1,
+      "group": "tag"
+    },
+    {
+      "token": "clock",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "collaborate",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "color",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "colors",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "columns",
+      "count": 1,
+      "group": "table"
+    },
+    {
+      "token": "comments",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "comparison",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "composer",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "configurator",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "confirm",
+      "count": 1,
+      "group": "status"
+    },
+    {
+      "token": "console",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "content",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "contracts",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "conversion",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "converter",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "count",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "country",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "currency",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "debug",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "densities",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "design",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "dev",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "development",
+      "count": 1,
+      "group": "status"
+    },
+    {
+      "token": "device",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "diagram",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "dialogs",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "diff",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "directed",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "discount",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "display",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "divider",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "documentation",
+      "count": 1,
+      "group": "text"
+    },
+    {
+      "token": "drag",
+      "count": 1,
+      "group": "file"
+    },
+    {
+      "token": "draggable",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "drawer",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "drop",
+      "count": 1,
+      "group": "file"
+    },
+    {
+      "token": "element",
+      "count": 1,
+      "group": "text"
+    },
+    {
+      "token": "errors",
+      "count": 1,
+      "group": "status"
+    },
+    {
+      "token": "event",
+      "count": 1,
+      "group": "calendar"
+    },
+    {
+      "token": "export",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "exporter",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "extended",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "favicon",
+      "count": 1,
+      "group": "image"
+    },
+    {
+      "token": "feature",
+      "count": 1,
+      "group": "table"
+    },
+    {
+      "token": "feedback",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "filter",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "flag",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "flow",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "footer",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "forms",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "frame",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "funnel",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "gallery",
+      "count": 1,
+      "group": "image"
+    },
+    {
+      "token": "gaps",
+      "count": 1,
+      "group": "table"
+    },
+    {
+      "token": "gate",
+      "count": 1,
+      "group": "security"
+    },
+    {
+      "token": "general",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "geo",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "gradient",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "gradients",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "graphviz",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "heatmap",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "helper",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "highlighter",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "horizontal",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "icons",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "in",
+      "count": 1,
+      "group": "zoom"
+    },
+    {
+      "token": "index",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "indicators",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "inline",
+      "count": 1,
+      "group": "text"
+    },
+    {
+      "token": "inventory",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "json",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "jsonviewer",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "justifications",
+      "count": 1,
+      "group": "align"
+    },
+    {
+      "token": "kpi",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "legend",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "lines",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "link",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "lists",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "live",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "locator",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "manager",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "markdown",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "marker",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "maximize",
+      "count": 1,
+      "group": "zoom"
+    },
+    {
+      "token": "media",
+      "count": 1,
+      "group": "image"
+    },
+    {
+      "token": "member",
+      "count": 1,
+      "group": "user"
+    },
+    {
+      "token": "menu",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "menus",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "meta",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "metric",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "metrics",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "minus",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "mission",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "mock",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "models",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "monitor",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "navigation",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "notification",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "notifications",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "npm",
+      "count": 1,
+      "group": "tag"
+    },
+    {
+      "token": "opacity",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "operations",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "optimizer",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "orientations",
+      "count": 1,
+      "group": "align"
+    },
+    {
+      "token": "out",
+      "count": 1,
+      "group": "zoom"
+    },
+    {
+      "token": "padding",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "page",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "pagination",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "panels",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "password",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "permission",
+      "count": 1,
+      "group": "security"
+    },
+    {
+      "token": "picker",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "pickers",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "pin",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "placeholder",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "planner",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "plus",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "policy",
+      "count": 1,
+      "group": "security"
+    },
+    {
+      "token": "popover",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "positions",
+      "count": 1,
+      "group": "align"
+    },
+    {
+      "token": "post",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "prices",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "principles",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "privacy",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "products",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "promo",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "radio",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "radius",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "rating",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "renderer",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "resource",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "result",
+      "count": 1,
+      "group": "ai"
+    },
+    {
+      "token": "results",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "return",
+      "count": 1,
+      "group": "security"
+    },
+    {
+      "token": "reviews",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "rfqform",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "rich",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "room",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "route",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "row",
+      "count": 1,
+      "group": "animation"
+    },
+    {
+      "token": "save",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "schedule",
+      "count": 1,
+      "group": "calendar"
+    },
+    {
+      "token": "screenshot",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "selection",
+      "count": 1,
+      "group": "form"
+    },
+    {
+      "token": "selectors",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "shadows",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "shapes",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "shared",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "shortcuts",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "showcase",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "size",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "skeletons",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "sliders",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "social",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "sorting",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "spacer",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "spacing",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "spinner",
+      "count": 1,
+      "group": "progress"
+    },
+    {
+      "token": "split",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "stacked",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "stat",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "state",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "step",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "stepper",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "store",
+      "count": 1,
+      "group": "map"
+    },
+    {
+      "token": "style",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "styles",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "stylist",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "subscription",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "suggestion",
+      "count": 1,
+      "group": "search"
+    },
+    {
+      "token": "surface",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "swatch",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "tab",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "tables",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "tabs",
+      "count": 1,
+      "group": "menu"
+    },
+    {
+      "token": "tax",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "test",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "themes",
+      "count": 1,
+      "group": "settings"
+    },
+    {
+      "token": "thread",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "time",
+      "count": 1,
+      "group": "calendar"
+    },
+    {
+      "token": "toasts",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "toggle",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "toggles",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "toolbars",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "tooltip",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "tour",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "tracker",
+      "count": 1,
+      "group": "info"
+    },
+    {
+      "token": "tracking",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "traffic",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "transitions",
+      "count": 1,
+      "group": "animation"
+    },
+    {
+      "token": "trash",
+      "count": 1,
+      "group": "interaction"
+    },
+    {
+      "token": "trees",
+      "count": 1,
+      "group": "graph"
+    },
+    {
+      "token": "upsell",
+      "count": 1,
+      "group": "commerce"
+    },
+    {
+      "token": "validation",
+      "count": 1,
+      "group": "status"
+    },
+    {
+      "token": "variables",
+      "count": 1,
+      "group": "code"
+    },
+    {
+      "token": "variants",
+      "count": 1,
+      "group": "color"
+    },
+    {
+      "token": "verdicts",
+      "count": 1,
+      "group": "chart"
+    },
+    {
+      "token": "vertical",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "video",
+      "count": 1,
+      "group": "image"
+    },
+    {
+      "token": "view",
+      "count": 1,
+      "group": "calendar"
+    },
+    {
+      "token": "visualizer",
+      "count": 1,
+      "group": "audio"
+    },
+    {
+      "token": "warranty",
+      "count": 1,
+      "group": "status"
+    },
+    {
+      "token": "widget",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "width",
+      "count": 1,
+      "group": "layout"
+    },
+    {
+      "token": "window",
+      "count": 1,
+      "group": "message"
+    },
+    {
+      "token": "z",
+      "count": 1,
+      "group": "layout"
+    }
+  ]
+}

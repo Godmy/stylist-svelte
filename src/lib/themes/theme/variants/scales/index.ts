@@ -1,15 +1,15 @@
-import { REM } from '../../../../design-system/tokens/architecture/rem';
+import { Size } from '../../../size';
 
-export const THEME_SPACING = REM as Record<string, string>;
+export const THEME_SPACING = Size as Record<string, string>;
 
 export const THEME_RADIUS: Record<string, string> = {
-	none: REM['0'],
-	sm: REM['0.5'],
-	base: REM['1'],
-	md: REM['1.5'],
-	lg: REM['2'],
-	xl: REM['3'],
-	'2xl': REM['4'],
-	'3xl': REM['6'],
-	full: REM['full']
+	none: Size['0'],
+	sm: Size['0.5'],
+	base: Size['1'],
+	md: Size['1.5'],
+	lg: Size['2'],
+	xl: Size['3'],
+	'2xl': Size['4'],
+	'3xl': Size['6'],
+	full: Size['full']
 };

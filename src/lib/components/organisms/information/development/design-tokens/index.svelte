@@ -49,7 +49,7 @@
   }
 </script>
 
-<div class="design-tokens-container p-6 bg-[--color-bg-primary] text-[--color-text-primary]">
+<div class="design-tokens-container p-6 bg-[--color-background-primary] text-[--color-text-primary]">
   {#if showTokens}
     <h2 class="text-xl font-bold mb-4">Design Tokens</h2>
     
@@ -59,7 +59,7 @@
         <div class="grid grid-cols-5 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-15 gap-2">
           {#each Object.entries(currentTheme.colors) as [tokenName, tokenValue]}
             {#if tokenName.includes('color-') && !tokenName.includes('text') && !tokenName.includes('bg') && !tokenName.includes('border') && !tokenName.includes('control')}
-              <div class="flex flex-col items-center p-2 rounded-md hover:bg-[--color-bg-secondary] TRANSITION-colors">
+              <div class="flex flex-col items-center p-2 rounded-md hover:bg-[--color-background-secondary] TRANSITION-colors">
                 <div 
                   class="w-16 h-16 rounded-md border border-[--color-border-primary] mb-2" 
                   style="background-color: {tokenValue}"

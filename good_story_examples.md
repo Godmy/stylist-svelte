@@ -38,7 +38,7 @@
   import type { ControlConfig } from '$stylist/design-system/tokens/controls';
 
   import MyComponent from './index.svelte';
-  import type { IMyComponentProps } from '$stylist/design-system/props/my-component';
+  import type { IMyComponentProps } from '$stylist/design-system/contracts/my-component';
 
   // Определение пропсов для story
   let {

@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+﻿import type { Scale } from '../../scale';
 
-export const COLOR_SLATE: ColorScale = {
+export const COLOR_SLATE: Scale = {
 	50: '#f8fafc',
 	100: '#f1f5f9',
 	200: '#e2e8f0',
@@ -12,3 +12,4 @@ export const COLOR_SLATE: ColorScale = {
 	800: '#1e293b',
 	900: '#0f172a'
 };
+

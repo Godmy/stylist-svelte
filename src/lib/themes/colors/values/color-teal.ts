@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+﻿import type { Scale } from '../../scale';
 
-export const COLOR_TEAL: ColorScale = {
+export const COLOR_TEAL: Scale = {
 	50: '#f0fdf9',
 	100: '#ccfbf1',
 	200: '#99f6e4',
@@ -12,3 +12,4 @@ export const COLOR_TEAL: ColorScale = {
 	800: '#115e59',
 	900: '#134e4a'
 };
+

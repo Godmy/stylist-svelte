@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+﻿import type { Scale } from '../../scale';
 
-export const COLOR_NEUTRAL: ColorScale = {
+export const COLOR_NEUTRAL: Scale = {
 	50: '#fafafa',
 	100: '#f5f5f5',
 	200: '#e5e5e5',
@@ -12,3 +12,4 @@ export const COLOR_NEUTRAL: ColorScale = {
 	800: '#262626',
 	900: '#171717'
 };
+

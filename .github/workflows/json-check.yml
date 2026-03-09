@@ -1,0 +1,31 @@
+name: JSON Generation Check
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+jobs:
+  json-check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: stylist-svelte
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Generate JSON artifacts
+        run: yarn json:generate
+
+      - name: Ensure generated files are committed
+        run: git diff --exit-code -- src/lib/json src/lib/svg/icons/icon-registry.ts

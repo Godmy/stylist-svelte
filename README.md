@@ -56,6 +56,51 @@ npm install stylist-svelte
 - `THEMING_SYSTEM.md` — theming model and CSS variables
 - `CONTRIBUTING.md` — how to contribute
 
+## Automation: What Can Run
+
+There are 3 launch levels in this repository.
+
+### 1) Local manual runs
+
+From `package.json`, you can run:
+
+- `yarn json:generate` (`scripts/orchestrator.ts`)
+- `yarn analyze` (same full pipeline)
+- `yarn analyze:tokens|contracts|models|styles|components|icons`
+- `yarn dep-tree`, `yarn dep-short`, `yarn token-audit`, `yarn contracts-analysis`
+- `yarn dev:with-json` (generation + Vite dev server)
+
+`orchestrator.ts` generates/updates:
+
+- `src/lib/json/core/*`
+- `src/lib/json/reports/*`
+- `src/lib/svg/icons/icon-registry.ts`
+
+### 2) CI automatic runs (GitHub Actions)
+
+Workflow file: `.github/workflows/json-check.yml`
+
+Triggers:
+
+- `pull_request`
+- `push` to `main` / `master`
+
+Steps:
+
+- install dependencies
+- run `yarn json:generate`
+- run `git diff --exit-code -- src/lib/json src/lib/svg/icons/icon-registry.ts`
+
+Result:
+
+- CI fails if generated artifacts changed but were not committed.
+
+### 3) Local automatic runs on `git commit`
+
+Not configured now.
+
+To run checks before each local commit, add a pre-commit hook (for example via Husky).
+
 ## Prompt Framing
 
 *Producer prompt:* "We create the world’s largest Svelte 5 component library using runes, farms, and AI-agent magic. The vibe-management.pro team presents a SAMO-rooted product. Stylist-svelte follows digital tailogism, measuring impact through morphological analysis and packaging components with functional taxonomy (architecture, information, interaction) plus domain clustering. The design system draws inspiration from molecular organization and keeps tokens, classes, props, presets, states, models, factories, and utilities on hand. AI farms: Claude, Codex, Qwen, Gemini. Roles include Product Owner, Scrum-master, Captitan Svelte, Stylist, Stylist coder-model, Debug, NormControl, Pirat. Agent usage: Qwen 35%, Claude 30%, Codex 25%, Gemini 10%."

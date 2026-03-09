@@ -10,8 +10,8 @@ const PRIMARY_SOLID_CLASSES =
 
 export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default:
-		'bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] ' +
-		'border border-[var(--color-border-primary)] hover:bg-[var(--color-bg-secondary)]',
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] ' +
+		'border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
 	primary: PRIMARY_SOLID_CLASSES,
 	secondary:
 		'bg-[var(--color-secondary-600)] text-[var(--color-text-inverse)] ' +
@@ -31,10 +31,10 @@ export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	solid: PRIMARY_SOLID_CLASSES,
 	outline:
 		'bg-transparent text-[var(--color-text-primary)] ' +
-		'border border-[var(--color-neutral-400)] hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-neutral-500)]',
+		'border border-[var(--color-neutral-400)] hover:bg-[var(--color-background-secondary)] hover:border-[var(--color-neutral-500)]',
 	ghost:
 		'bg-transparent text-[var(--color-text-primary)] ' +
-		'border border-transparent hover:bg-[var(--color-bg-secondary)]',
+		'border border-transparent hover:bg-[var(--color-background-secondary)]',
 	link:
 		'bg-transparent text-[var(--color-primary-600)] underline underline-offset-2 ' +
 		'border border-transparent hover:text-[var(--color-primary-700)]',

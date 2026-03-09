@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+import type { Scale } from '../../scale';
 
-export const COLOR_BLUE: ColorScale = {
+export const COLOR_BLUE: Scale = {
 	50: '#eff6ff',
 	100: '#dbeafe',
 	200: '#bfdbfe',

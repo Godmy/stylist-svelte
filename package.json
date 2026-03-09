@@ -24,7 +24,8 @@
 	"homepage": "https://github.com/Godmy/stylist-svelte#readme",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "svelte-package && publint",
+		"dev:with-json": "yarn json:generate && vite dev",
+		"build": "yarn analyze && svelte-package && publint",
 		"preview": "vite preview",
 		"package": "svelte-package",
 		"tsc": "tsc --noEmit",
@@ -40,7 +41,27 @@
 		"audit": "yarn audit",
 		"depcheck": "depcheck",
 		"madge:graph": "madge --image ./madge-graph.svg ./src/index.ts",
-		"madge:circular": "madge --circular ./src/index.ts"
+		"madge:circular": "madge --circular ./src/index.ts",
+		"json:generate": "tsx scripts/orchestrator.ts",
+		"json:predev": "yarn json:generate",
+		"analyze": "tsx scripts/orchestrator.ts",
+		"analyze:build": "tsx scripts/orchestrator.ts",
+		"analyze:tokens": "tsx scripts/analyzers/analyze-tokens.ts",
+		"analyze:contracts": "tsx scripts/analyzers/analyze-contracts.ts",
+		"analyze:models": "tsx scripts/analyzers/analyze-models.ts",
+		"analyze:styles": "tsx scripts/analyzers/analyze-styles.ts",
+		"analyze:components": "tsx scripts/analyzers/analyze-components.ts",
+		"analyze:icons": "tsx scripts/analyzers/analyze-icons.ts",
+		"dep-tree": "tsx scripts/dependency-tree.ts",
+		"dep-short": "tsx scripts/dependency-short.ts",
+		"token-audit": "tsx scripts/token-audit.ts",
+		"contracts-analysis": "tsx scripts/contracts-analysis.ts",
+		"samo:molecular-organization": "tsx scripts/samo/molecular-organization/generate.ts",
+		"samo:solid": "tsx scripts/samo/solid/generate.ts",
+		"samo:atomic-design": "tsx scripts/samo/atomic-design/generate.ts",
+		"samo:component-reuse": "tsx scripts/samo/component-reuse/generate.ts",
+		"samo:inventory": "tsx scripts/samo/inventory/generate.ts",
+		"samo:all": "yarn samo:atomic-design && yarn samo:solid && yarn samo:molecular-organization && yarn samo:component-reuse && yarn samo:inventory"
 	},
 	"exports": {
 		".": {
@@ -85,16 +106,17 @@
 		"svelte-check": "^4.3.2",
 		"svelte-preprocess": "^6.0.3",
 		"tailwindcss": "^4.1.17",
+		"tsx": "^4.21.0",
 		"typescript": "^5.9.2",
 		"typescript-eslint": "^8.44.1",
 		"vite": "^7.1.7",
 		"vitest": "^3.2.4"
 	},
 	"dependencies": {
-		"lucide-svelte": "^0.468.0",
 		"marked": "^17.0.0",
 		"shiki": "^3.15.0"
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts"
 }
+

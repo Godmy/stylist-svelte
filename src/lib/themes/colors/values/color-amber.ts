@@ -1,6 +1,6 @@
-import type { ColorScale } from '../scale';
+﻿import type { Scale } from '../../scale';
 
-export const COLOR_AMBER: ColorScale = {
+export const COLOR_AMBER: Scale = {
 	50: '#fffbeb',
 	100: '#fef3c7',
 	200: '#fde68a',
@@ -12,3 +12,4 @@ export const COLOR_AMBER: ColorScale = {
 	800: '#92400e',
 	900: '#78350f'
 };
+

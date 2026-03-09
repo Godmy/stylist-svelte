@@ -1,115 +1,53 @@
 # Stylist Design System
 
-Design-system в `src/lib/design-system` — фундамент библиотеки компонентов. 
-Задача слоя: сделать разработку компонентов предсказуемой при большом масштабе кода.
+`src/lib/design-system` is the component-system core.
 
-## 1. Принцип разделения папок
+## Responsibility
 
-Система разделена по ответственности, а не по «удобству в моменте»:
+- Define component contracts, style managers, runtime helpers, and design-system tokens.
+- Provide reusable API for components in `src/lib/components`.
+- Consume CSS variables as inputs for visual behavior.
 
-- `tokens` — атомарные значения и шкалы.
-- `classes` — декларативные class maps и CSS-классы по вариантам.
-- `contracts` — контракты входных параметров.
-- `presets` — доменные preset/default-конфигурации компонентов.
-- `defaults` — общие defaults и базовые state-типы.
-- `state` — runtime state builder (минимальный слой вычисления состояния).
-- `models` — state/model-фабрики конкретных компонентов.
-- `styles` — `*StyleManager` для сборки итоговых классов.
-- `themes` — тема, css vars, контекст.
-- `utils` — общие утилиты вне предметной логики компонента.
+## Non-Responsibility
 
-## 2. Функциональная таксономия
+- Do not own theme runtime.
+- Do not apply themes to DOM (`documentElement.style.setProperty` etc.).
+- Do not own theme schemes/modes context.
 
-Для визуальных слоёв применяется единая таксономия:
+Theme runtime ownership is in `src/lib/themes`.
 
-- `architecture`
-- `information`
-- `interaction`
+## Folder Roles
 
-Она используется в:
+- `contracts/`: component input/output contracts.
+- `models/`: state/model helpers for components.
+- `styles/`: style managers and class composition.
+- `tokens/`: DS token constants and semantic keys.
+- `runtime/`: base runtime class presets and helpers.
+- `utils/`: shared pure utilities.
+- `playground/`: story/playground support utilities.
 
-- `tokens/*`
-- `classes/*`
-- `props/*`
-- `models/*`
-- `styles/*`
+## Dependency Boundaries
 
-Это снижает хаос в импортах и делает назначение модулей очевидным по пути.
+Allowed:
 
-## 3. Направление зависимостей
+- `components -> design-system`
+- `components -> themes`
+- `design-system -> design-system/*`
 
-Нормальная цепочка зависимостей:
+Disallowed:
 
-1. `tokens` -> `classes`
-2. `classes` + `tokens` -> `presets/defaults`
-3. `presets/defaults` -> `state`
-4. `props` + `state/presets` -> `models`
-5. `classes/contracts/tokens` -> `styles`
-6. `components` используют `props/models/styles/tokens` по месту
+- `design-system -> themes` (runtime/theme domain coupling)
 
-Критично:
+## Extension Rules
 
-- `classes` не должны зависеть от `state`.
-- `state` не должен разрастаться в «монолит компонентов».
-- `styles` не должны содержать бизнес-логику.
+1. Add/extend token or contract in `design-system`.
+2. Consume through models/styles in DS.
+3. Keep real color values dynamic via CSS vars.
+4. If a new theme behavior is needed, implement it in `src/lib/themes`, not here.
 
-## 4. Как расширять систему
+## Operational Rules
 
-При добавлении нового компонента:
-
-1. Добавить/переиспользовать токены в нужном домене.
-2. Добавить типы в `props/<domain>/<component>.ts`.
-3. Добавить class maps в `classes/<domain>/<component>.ts`.
-4. Добавить preset/default в `presets` или `defaults` (если нужно).
-5. Добавить runtime state в `state` только если нужна общая state-логика.
-6. Добавить `model` и `style manager`.
-7. Перегенерировать индексы:
-   - `python -u "d:\2026\code\template\stylist\indexation\cli.py"`
-
-## 5. Оценка текущего подхода
-
-### Сильные стороны
-
-- Высокая масштабируемость структуры по доменам.
-- Хорошая типобезопасность за счёт отдельного слоя `props`.
-- Контролируемое переиспользование за счёт `tokens/classes/presets`.
-- Явный API через barrel-экспорты.
-
-### Слабые стороны и риски
-
-- Рост количества файлов и импортов.
-- Риск дублирования между `styles` и `classes` при нарушении границ.
-- Требуется дисциплина по слоям, иначе архитектура деградирует.
-
-### Эффективность и элегантность
-
-- Эффективность высокая для большой библиотеки: изменения локализуются и легче ревьюятся.
-- Элегантность инженерная, не минималистичная: система осознанно платит объёмом кода за управляемость.
-
-## 6. Аналоги и отличия
-
-Подход не единственный. Основные альтернативы:
-
-1. **Monolithic component files** (`props + styles + state` в каждом компоненте)
-   - Плюс: быстрее старт.
-   - Минус: хуже масштаб и переиспользование.
-
-2. **Utility-first only (Tailwind без design-system слоёв)**
-   - Плюс: высокая скорость прототипирования.
-   - Минус: слабее контрактность и повторяемость API.
-
-3. **Variant-first (CVA/recipe-подход)**
-   - Плюс: компактнее слой variants.
-   - Минус: часто не покрывает полноценно domain taxonomy + runtime state.
-
-4. **Token pipeline (Style Dictionary + platform exports)**
-   - Плюс: отлично для мультиплатформы.
-   - Минус: выше стоимость инфраструктуры и сопровождения.
-
-## 7. Скорость разработки и объём кода
-
-- В короткой перспективе: система медленнее «быстрых» подходов.
-- В длинной перспективе (большая библиотека): быстрее за счёт стандартизированных слоёв.
-- Объём кода больше, но когнитивная сложность ниже при изменениях в масштабе.
-
-Итог: для цели «очень большая библиотека Svelte-компонентов» выбранный подход оправдан.
+- Re-generate indexes after structure/export changes:
+  - `python -u "d:\2026\code\template\stylist\indexation\cli.py"`
+- Run unified checks:
+  - `python -u "d:\2026\code\template\stylist\errors\cli.py"`
