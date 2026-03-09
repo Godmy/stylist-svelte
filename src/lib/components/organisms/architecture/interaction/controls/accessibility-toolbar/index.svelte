@@ -2,7 +2,6 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Accessibility = 'accessibility';
-const Contrast = 'contrast';
 const Volume2 = 'volume-2';
 const Eye = 'eye';
 const Minus = 'minus';
@@ -13,7 +12,6 @@ const Grid = 'grid';
   import { AccessibilityToolbarStyleManager } from '$stylist/design-system/styles';
 
   type AccessibilityToolbarProps = {
-    showContrastToggle?: boolean;
     showFontSizeControls?: boolean;
     showScreenReaderTester?: boolean;
     showFocusIndicator?: boolean;
@@ -26,7 +24,6 @@ const Grid = 'grid';
   } & HTMLAttributes<HTMLDivElement>;
 
   let {
-    showContrastToggle = true,
     showFontSizeControls = true,
     showScreenReaderTester = true,
     showFocusIndicator = true,
@@ -40,7 +37,6 @@ const Grid = 'grid';
   }: AccessibilityToolbarProps & HTMLAttributes<HTMLDivElement> = $props();
 
   let fontSizeScale = $state(1);
-  let highContrast = $state(false);
   let screenReaderMode = $state(false);
   let focusIndicator = $state(true);
   let disableAnimations = $state(false);
@@ -58,17 +54,6 @@ const Grid = 'grid';
     if (fontSizeScale > 0.8) {
       fontSizeScale = Math.round((fontSizeScale - 0.1) * 10) / 10;
       document.documentElement.style.fontSize = `${fontSizeScale * 16}px`;
-    }
-  }
-
-  // Toggle high contrast
-  function toggleHighContrast() {
-    highContrast = !highContrast;
-
-    if (highContrast) {
-      document.body.classList.add('high-contrast-mode');
-    } else {
-      document.body.classList.remove('high-contrast-mode');
     }
   }
 
@@ -111,18 +96,6 @@ const Grid = 'grid';
 
 <div class={containerClass} {...restProps}>
   <div class={toolbarClassComputed}>
-    {#if showContrastToggle}
-      <button
-        type="button"
-        class={`${buttonClassComputed} ${highContrast ? activeButtonClass : 'text-[--color-text-primary]'}`}
-        aria-label={highContrast ? "Disable high contrast" : "Enable high contrast"}
-        aria-pressed={highContrast}
-        onclick={toggleHighContrast}
-      >
-        <BaseIcon name={Contrast} class="h-5 w-5" />
-      </button>
-    {/if}
-
     {#if showFontSizeControls}
       <button
         type="button"

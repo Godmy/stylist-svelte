@@ -1,8 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { SortDirection } from '../../tokens/interaction/sort-directions';
 
-export type { SortDirection };
-
 export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeaderCellElement> {
   /**
    * Title for the table header
@@ -21,7 +19,7 @@ export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeader
   
   /**
    * Current sort direction
-   * @default null
+   * @default 'none'
    */
   currentSortDirection?: SortDirection;
   
@@ -46,7 +44,7 @@ export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeader
 export const sortableTableHeaderPresets: Record<string, Partial<SortableTableHeaderProps>> = {
   default: {
     title: 'Column',
-    currentSortDirection: null
+    currentSortDirection: 'none'
   },
   ascending: {
     title: 'Column',

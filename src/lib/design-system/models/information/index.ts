@@ -5,7 +5,7 @@ export { default as createAnimatedNumberState } from './animated-number.svelte';
 export { default as createAnnouncementBannerState } from './announcement-banner.svelte';
 export { default as createBadgeGroupState } from './badge-group.svelte';
 export { default as createBadgeState } from './badge.svelte';
-export { createBaseCardState, createState } from './base-card.svelte';
+export { default as createBaseCardState } from './base-card.svelte';
 export { default as createBlockquoteState } from './blockquote.svelte';
 export { createChartAxisXState, createChartAxisYState, createChartAxisZState, createChartBackgroundState, createChartCanvasState, createChartLegendState, createChartNameState, createChartPolylineState, createChartState, mapPointsToViewBox } from './chart-function.svelte';
 export { default as createPieChartState } from './chart-pie.svelte';
@@ -37,7 +37,7 @@ export { default as createNodePropertiesPanelState } from './node-properties-pan
 export { default as createNpmBadgeState } from './npm-badge.svelte';
 export { default as createNumberFlowState } from './number-flow.svelte';
 export { default as createPortGroupState } from './port-group.svelte';
-export { createPriceAlertState, createState } from './price-alert.svelte';
+export { default as createPriceAlertState } from './price-alert.svelte';
 export { default as createSeparatorState } from './separator.svelte';
 export { default as createStatusIndicatorState } from './status-indicator.svelte';
 export { default as createSyntaxHighlightedCodeState } from './syntax-highlighted-code.svelte';

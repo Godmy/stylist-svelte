@@ -1,9 +1,9 @@
 import type { SpacerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-import type { SpacerAxis } from '$stylist/design-system/tokens/architecture/spacer-axis';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 
 export function createSpacerState(props: SpacerProps) {
-	const axis = $derived((props.axis ?? 'vertical') as SpacerAxis);
+	const axis = $derived((props.axis ?? 'vertical') as Orientation);
 	const sizeValue = $derived(LayoutStyleManager.getSpacerSize(props.size));
 	const classes = $derived(LayoutStyleManager.getSpacerClasses(axis, props.class ?? ''));
 

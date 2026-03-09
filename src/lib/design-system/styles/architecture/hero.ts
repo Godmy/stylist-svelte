@@ -5,16 +5,19 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-import type { HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/contracts/architecture/hero';
+import type { Background } from '$stylist/design-system/tokens/information/background';
+import type { Height } from '$stylist/design-system/tokens/architecture/height';
 import { cn } from '../../utils/cn/index';
 
-const HERO_HEIGHT_CLASSES: Record<HeroHeight, string> = {
+const HERO_HEIGHT_CLASSES: Record<Height, string> = {
 	screen: 'min-h-screen',
 	large: 'min-h-[80vh]',
 	medium: 'min-h-[60vh]'
 };
 
-const HERO_BACKGROUND_VARIANT_CLASSES: Record<HeroBackgroundVariant, string> = {
+const HERO_BACKGROUND_VARIANT_CLASSES: Record<Background, string> = {
+	default:
+		'absolute inset-0 bg-[var(--color-background-secondary)]',
 	gradient:
 		'absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--color-background-secondary)] to-[var(--color-primary-100)]',
 	particles: 'absolute inset-0',
@@ -25,7 +28,7 @@ export class HeroStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера Hero
    */
-  static getContainerClasses(height: HeroHeight = 'screen', className?: string): string {
+  static getContainerClasses(height: Height = 'screen', className?: string): string {
     return cn(
       'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
       HERO_HEIGHT_CLASSES[height],
@@ -36,7 +39,7 @@ export class HeroStyleManager {
   /**
    * Возвращает CSS-классы для фонового элемента
    */
-  static getBackgroundClasses(backgroundVariant: HeroBackgroundVariant = 'gradient'): string {
+  static getBackgroundClasses(backgroundVariant: Background = 'gradient'): string {
     return HERO_BACKGROUND_VARIANT_CLASSES[backgroundVariant];
   }
 
@@ -108,3 +111,6 @@ export class HeroStyleManager {
     );
   }
 }
+
+
+

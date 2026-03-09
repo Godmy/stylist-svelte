@@ -1,80 +1,81 @@
-﻿<script lang="ts">
+<script lang="ts">
+  import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
   // Types
   export interface IHeatmapCell {
-    /** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЏС‡РµР№РєРё */
+    /** Уникальный идентификатор ячейки */
     id: string;
-    /** РќР°Р·РІР°РЅРёРµ СЃС‚СЂРѕРєРё */
+    /** Название строки */
     row: string;
-    /** РќР°Р·РІР°РЅРёРµ СЃС‚РѕР»Р±С†Р° */
+    /** Название столбца */
     column: string;
-    /** Р—РЅР°С‡РµРЅРёРµ СЏС‡РµР№РєРё */
+    /** Значение ячейки */
     value: number;
-    /** Р¦РІРµС‚ СЏС‡РµР№РєРё (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ) */
+    /** Цвет ячейки (опционально) */
     color?: string;
-    /** РћРїРёСЃР°РЅРёРµ СЏС‡РµР№РєРё (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ) */
+    /** Описание ячейки (опционально) */
     description?: string;
   }
 
   /**
-   * Р Р°СЃС€РёСЂРµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ СЏС‡РµР№РєРё СЃ РІС‹С‡РёСЃР»РµРЅРЅС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё
+   * Расширенные данные для ячейки с вычисленными параметрами
    */
   export interface IExtendedHeatmapCell extends IHeatmapCell {
-    /** РџРѕР·РёС†РёСЏ X РЅР° РіСЂР°С„РёРєРµ */
+    /** Позиция X на графике */
     x: number;
-    /** РџРѕР·РёС†РёСЏ Y РЅР° РіСЂР°С„РёРєРµ */
+    /** Позиция Y на графике */
     y: number;
-    /** РЁРёСЂРёРЅР° СЏС‡РµР№РєРё */
+    /** Ширина ячейки */
     width: number;
-    /** Р’С‹СЃРѕС‚Р° СЏС‡РµР№РєРё */
+    /** Высота ячейки */
     height: number;
-    /** Р¦РІРµС‚ СЏС‡РµР№РєРё */
+    /** Цвет ячейки */
     color: string;
-    /** РРЅС‚РµРЅСЃРёРІРЅРѕСЃС‚СЊ Р·РЅР°С‡РµРЅРёСЏ (РѕС‚ 0 РґРѕ 1) */
+    /** Интенсивность значения (от 0 до 1) */
     intensity: number;
   }
 
   /**
-   * Р”РѕСЃС‚СѓРїРЅС‹Рµ С†РІРµС‚РѕРІС‹Рµ СЃС…РµРјС‹ РґР»СЏ С‚РµРїР»РѕРІРѕР№ РєР°СЂС‚С‹
+   * Доступные цветовые схемы для тепловой карты
    */
-  export type THeatmapColorScheme = 'blue' | 'red' | 'green' | 'purple' | 'warm' | 'cool';
+  export type HeatmapColorScheme = ColorScheme;
 
   /**
-   * РўРёРїС‹ РґР»СЏ РїСЂРѕРїСЃРѕРІ РєРѕРјРїРѕРЅРµРЅС‚Р° Heatmap
+   * Типы для пропсов компонента Heatmap
    */
   export interface IHeatmapProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-    /** Р”Р°РЅРЅС‹Рµ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅР° С‚РµРїР»РѕРІРѕР№ РєР°СЂС‚Рµ */
+    /** Данные для отображения на тепловой карте */
     data: IHeatmapCell[];
-    /** Р—Р°РіРѕР»РѕРІРѕРє С‚РµРїР»РѕРІРѕР№ РєР°СЂС‚С‹ */
+    /** Заголовок тепловой карты */
     title?: string;
-    /** РЁРёСЂРёРЅР° РєРѕРјРїРѕРЅРµРЅС‚Р° */
+    /** Ширина компонента */
     width?: number;
-    /** Р’С‹СЃРѕС‚Р° РєРѕРјРїРѕРЅРµРЅС‚Р° */
+    /** Высота компонента */
     height?: number;
-    /** РџРѕРєР°Р·С‹РІР°С‚СЊ Р»Рё РїРѕРґСЃРєР°Р·РєРё РїСЂРё РЅР°РІРµРґРµРЅРёРё */
+    /** Показывать ли подсказки при наведении */
     showTooltip?: boolean;
-    /** РџРѕРєР°Р·С‹РІР°С‚СЊ Р»Рё Р»РµРіРµРЅРґСѓ */
+    /** Показывать ли легенду */
     showLegend?: boolean;
-    /** Р¦РІРµС‚РѕРІР°СЏ СЃС…РµРјР° РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ */
-    colorScheme?: THeatmapColorScheme;
-    /** РџРѕРєР°Р·С‹РІР°С‚СЊ Р»Рё РѕСЃРё РєРѕРѕСЂРґРёРЅР°С‚ */
+    /** Цветовая схема отображения */
+    colorScheme?: HeatmapColorScheme;
+    /** Показывать ли оси координат */
     showAxis?: boolean;
-    /** Р¦РІРµС‚ РѕСЃРµР№ РєРѕРѕСЂРґРёРЅР°С‚ */
+    /** Цвет осей координат */
     axisColor?: string;
-    /** РћС‚СЃС‚СѓРї РІРЅСѓС‚СЂРё СЏС‡РµР№РєРё */
+    /** Отступ внутри ячейки */
     cellPadding?: number;
-    /** РћР±СЂР°Р±РѕС‚С‡РёРє РєР»РёРєР° РїРѕ СЏС‡РµР№РєРµ */
+    /** Обработчик клика по ячейке */
     onCellClick?: (item: IHeatmapCell) => void;
-    /** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ CSS РєР»Р°СЃСЃС‹ РґР»СЏ РєРѕРЅС‚РµР№РЅРµСЂР° */
+    /** Дополнительные CSS классы для контейнера */
     class?: string;
-    /** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ CSS РєР»Р°СЃСЃС‹ РґР»СЏ РѕР±Р»Р°СЃС‚Рё РґРёР°РіСЂР°РјРјС‹ */
+    /** Дополнительные CSS классы для области диаграммы */
     chartClass?: string;
-    /** РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёРё С†РІРµС‚Р° (РµСЃР»Рё РЅРµ СѓРєР°Р·Р°РЅРѕ, Р±СѓРґРµС‚ РІС‹С‡РёСЃР»РµРЅРѕ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё) */
+    /** Максимальное значение для нормализации цвета (если не указано, будет вычислено автоматически) */
     maxValue?: number;
-    /** РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РЅРѕСЂРјР°Р»РёР·Р°С†РёРё С†РІРµС‚Р° */
+    /** Минимальное значение для нормализации цвета */
     minValue?: number;
   }
 
@@ -145,7 +146,7 @@
   }) as () => IExtendedHeatmapCell[];
 
   // Function to get color based on scheme and intensity
-  function getColorByScheme(intensity: number, scheme: THeatmapColorScheme): string {
+  function getColorByScheme(intensity: number, scheme: HeatmapColorScheme): string {
     // Normalize intensity to 0-100 range for color calculation
     const normalizedIntensity = Math.min(100, Math.max(0, intensity * 100));
 
@@ -168,7 +169,7 @@
 
   let hoveredCell: string | null = $state(null);
 
-  // Р’С‹С‡РёСЃР»СЏРµРј CSS-РєР»Р°СЃСЃС‹ СЃ РїРѕРјРѕС‰СЊСЋ StyleManager
+  // Вычисляем CSS-классы с помощью StyleManager
   const containerClasses = $derived(HeatmapStyleManager.getContainerClasses(hostClass));
   const chartContainerClasses = $derived(HeatmapStyleManager.getChartContainerClasses(chartClass));
   const titleClasses = $derived(HeatmapStyleManager.getTitleClasses());

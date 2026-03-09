@@ -5,16 +5,17 @@
  * @version 1.0.0
  */
 
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { MessageBubbleVariant } from '$stylist/design-system/tokens/architecture/message-bubble';
+
+export type MessageAlign = Extract<Alignment, 'left' | 'right'>;
+
 /**
  * Alignment options for MessageBubble
  */
-export type MessageAlign = 'left' | 'right';
-
 /**
  * Variant options for MessageBubble
  */
-export type MessageBubbleVariant = 'default' | 'system';
-
 /**
  * Props interface for MessageBubble component
  * Single Responsibility: Define the contract for MessageBubble component
@@ -59,3 +60,4 @@ export interface IMessageBubbleProps {
    */
   class?: string;
 }
+

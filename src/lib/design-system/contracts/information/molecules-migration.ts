@@ -1,5 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { PropType } from '$stylist/design-system/tokens/interaction/prop-types';
+import type { LineStyle } from '$stylist/design-system/tokens/architecture/line-styles';
 
 export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
@@ -9,19 +13,16 @@ export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>,
   onSuggestionSelect?: (suggestion: string) => void;
 }
 
-export type WishlistButtonVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'ghost' | 'link';
-export type WishlistTooltipPosition = 'top' | 'bottom' | 'left' | 'right';
-
 export interface WishlistButtonProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onchange'> {
   inWishlist?: boolean;
   class?: string;
   buttonClass?: string;
   size?: ComponentSize;
-  variant?: WishlistButtonVariant;
+  variant?: SemanticVariant;
   showLabel?: boolean;
   label?: string;
   tooltip?: string;
-  tooltipPosition?: WishlistTooltipPosition;
+  tooltipPosition?: Alignment;
   disabled?: boolean;
   onToggle?: (inWishlist: boolean) => void;
   onSuccess?: () => void;
@@ -59,8 +60,6 @@ export interface CodeEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'o
   onCodeChange?: (code: string) => void;
 }
 
-export type PropType = 'string' | 'number' | 'boolean' | 'enum';
-
 export interface PropDefinition {
   name: string;
   type: PropType;
@@ -80,8 +79,6 @@ export interface PropsEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   onPropChange?: (name: string, value: unknown) => void;
 }
 
-export type EdgeStyle = 'solid' | 'dashed' | 'dotted' | 'bold' | 'tapered' | 'invisible';
-
 export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElement>, 'style'> {
   id: string;
   sourceX: number;
@@ -91,9 +88,11 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   label?: string;
   color?: string;
   width?: number;
-  style?: EdgeStyle;
+  style?: LineStyle;
   selected?: boolean;
   highlight?: boolean;
   class?: string;
 }
+
+
 

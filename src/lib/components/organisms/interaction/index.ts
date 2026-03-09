@@ -3,6 +3,7 @@ export { DraggableCard } from './card';
 export { BulkOrderForm, CheckoutForm, Rfqform } from './commerce';
 export { ChatHeader, ChatInterface, CollaborativeEditor } from './communication';
 export { ContentEditor } from './content';
+export { Controls, StylistMenu } from './controls';
 export { MockDataSelector, Stylist } from './development';
 export { DragDropFileUpload, UploadProgress } from './files';
 export { LocationPicker, LocationSelector, MapSelector } from './geo';

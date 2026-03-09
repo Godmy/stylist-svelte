@@ -1,7 +1,7 @@
-﻿import type { HTMLButtonAttributes } from 'svelte/elements';
+import type { HTMLButtonAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { DefaultVariants } from '../../tokens/information/default-variants';
+import type { DefaultVariants } from '../../tokens/information/input-variants';
 import type { ChildrenProp, HtmlAttributesBase, HtmlAttributesWithChildren, IDisableable } from '../information/common';
 
 export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'onclick'> {

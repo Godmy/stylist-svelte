@@ -1,3 +1,5 @@
+import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
+
 /**
  * Типы для компонента BarChart
  * 
@@ -8,8 +10,6 @@
 /**
  * Тип цветовой схемы диаграммы
  */
-export type ColorScheme = 'default' | 'warm' | 'cool' | 'neutral';
-
 /**
  * Интерфейс точки данных для диаграммы
  */
@@ -140,3 +140,5 @@ export interface IBarChartProps {
    */
   chartClass?: string;
 }
+
+

@@ -14,7 +14,9 @@
    * (заголовки, статистика, кнопки) в сложную, самодостаточную секцию интерфейса
    */
   
-  import type { IHeroProps, HeroBackgroundVariant, HeroHeight } from '$stylist/design-system/contracts/architecture/hero';
+  import type { IHeroProps } from '$stylist/design-system/contracts/architecture/hero';
+  import type { Background } from '$stylist/design-system/tokens/information/background';
+  import type { Height } from '$stylist/design-system/tokens/architecture/height';
   import { HeroStyleManager } from '$stylist/design-system/styles/architecture/hero';
   import AnimatedNumber from '$stylist/components/atoms/information/data-display/animated-number/index.svelte';
   
@@ -29,11 +31,11 @@
     height = 'screen',
     class: className = '',
     children
-  } = $props();
+  }: IHeroProps = $props();
   
   // Вычисляемые стили через derived для изоляции логики стилизации
-  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as HeroHeight, className));
-  const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as HeroBackgroundVariant));
+  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as Height, className));
+  const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as Background));
   const contentClasses = $derived(HeroStyleManager.getContentClasses());
   const titleClasses = $derived(HeroStyleManager.getTitleClasses());
   const subtitleClasses = $derived(HeroStyleManager.getSubtitleClasses());
@@ -87,7 +89,11 @@
         {#each stats as stat}
           <div class={statItemClasses} aria-label={`${stat.label}: ${stat.value}`}>
             <div class={statValueClasses}>
-              <AnimatedNumber value={stat.value} />
+              {#if typeof stat.value === 'number'}
+                <AnimatedNumber value={stat.value} />
+              {:else}
+                {stat.value}
+              {/if}
             </div>
             <div class={statLabelClasses}>{stat.label}</div>
           </div>

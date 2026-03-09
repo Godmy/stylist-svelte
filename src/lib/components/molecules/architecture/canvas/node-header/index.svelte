@@ -40,8 +40,10 @@
 	});
 
 	let isEditing = $state(false);
+	// svelte-ignore state_referenced_locally
 	let editValue = $state<string>(title);
 
+	// svelte-ignore state_referenced_locally
 	function handleDoubleClick() {
 		if (!props.editable) return;
 		isEditing = true;

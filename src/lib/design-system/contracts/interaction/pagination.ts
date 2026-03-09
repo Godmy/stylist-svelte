@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-
-export type PaginationVariant = 'default' | 'compact' | 'minimal';
+import type { SidebarVariant } from '$stylist/design-system/tokens/architecture/sidebar';
 
 export type PaginationProps = {
   currentPage: number;
@@ -10,7 +9,7 @@ export type PaginationProps = {
   showPrevNext?: boolean;
   showDots?: boolean;
   maxVisible?: number;
-  variant?: PaginationVariant;
+  variant?: SidebarVariant;
   size?: ComponentSize;
   disabled?: boolean;
   class?: string;

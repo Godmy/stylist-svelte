@@ -1,14 +1,17 @@
 import type { Snippet } from 'svelte';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
-import type { Skeleton } from '$stylist/design-system/tokens/information/skeletons';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { Skeleton } from '$stylist/design-system/tokens/architecture/skeletons';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
-import type {
-	NotificationBadgePosition,
-	NotificationBadgeVariant,
-	StepIconStatus
-} from '$stylist/design-system/tokens/interaction/feedback';
+import type { NotificationBadgeVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { StepIconStatus } from '$stylist/design-system/tokens/interaction/statuses';
+
+export type NotificationBadgePosition = Extract<
+	Alignment,
+	'top-end' | 'top-start' | 'bottom-end' | 'bottom-start'
+>;
 
 export interface IBaseFeedbackProps extends HtmlAttributesBase<HTMLElement> {}
 
@@ -101,3 +104,7 @@ export interface IAlertProps {
 	class?: string;
 	children?: Snippet;
 }
+
+
+
+

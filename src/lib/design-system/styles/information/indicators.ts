@@ -1,4 +1,4 @@
-import type { PresenceStatus } from '../../tokens/interaction/presence-statuses';
+import type { PresenceStatus } from '../../tokens/interaction/statuses';
 import { cn } from '../../utils/cn/index';
 
 const DOT_COLOR_CLASSES = {
@@ -113,14 +113,16 @@ const STATUS_INDICATOR_STATUS_CLASSES = {
 	online: 'bg-[--color-success-500]',
 	offline: 'bg-[--color-neutral-500]',
 	away: 'bg-[--color-warning-500]',
-	busy: 'bg-[--color-danger-500]'
+	busy: 'bg-[--color-danger-500]',
+	typing: 'bg-[--color-info-500]'
 } as const;
 
 const STATUS_INDICATOR_STATUS_TEXT = {
 	online: 'Online',
 	offline: 'Offline',
 	away: 'Away',
-	busy: 'Busy'
+	busy: 'Busy',
+	typing: 'Typing'
 } as const;
 
 const STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES = ['flex', 'items-center'] as const;
@@ -262,3 +264,5 @@ export class IndicatorsStyleManager {
 		return cn('text-sm', labelClass);
 	}
 }
+
+

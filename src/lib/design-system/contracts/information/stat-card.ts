@@ -5,16 +5,15 @@
  * @version 1.0.0
  */
 
+import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
+import type { Background } from '$stylist/design-system/tokens/information/background';
+
 /**
  * Trend options for StatCard
  */
-export type StatTrend = 'up' | 'down' | 'neutral';
-
 /**
  * Variant options for StatCard
  */
-export type StatCardVariant = 'default' | 'gradient';
-
 /**
  * Props interface for StatCard component
  * Single Responsibility: Define the contract for StatCard component
@@ -40,7 +39,7 @@ export interface IStatCardProps {
    * Trend direction of the statistic
    * @default undefined
    */
-  trend?: StatTrend;
+  trend?: KPITrend;
 
   /**
    * Value of the trend (e.g. "+12.5%")
@@ -58,7 +57,7 @@ export interface IStatCardProps {
    * Visual variant of the stat card
    * @default 'default'
    */
-  variant?: StatCardVariant;
+  variant?: Background;
 
   /**
    * Whether to use animated number display

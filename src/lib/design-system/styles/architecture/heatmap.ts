@@ -1,5 +1,3 @@
-import type { THeatmapColorScheme } from '../../contracts/architecture/heatmap';
-
 export class HeatmapStyleManager {
   static getContainerClasses(additionalClass?: string): string {
     const baseClasses = [
@@ -62,13 +60,13 @@ export class HeatmapStyleManager {
     return baseClasses.join(' ');
   }
 
-  static getCellTextClasses(isHighContrast: boolean): string {
+  static getCellTextClasses(emphasizedText: boolean): string {
     const baseClasses = [
       'pointer-events-none',
       'text-xs'
     ];
 
-    if (isHighContrast) {
+    if (emphasizedText) {
       baseClasses.push('fill-[--color-text-inverse]', 'text-[--color-text-inverse]');
     } else {
       baseClasses.push('fill-[--color-text-primary]', 'text-[--color-text-primary]');
@@ -132,3 +130,5 @@ export class HeatmapStyleManager {
     ].join(' ');
   }
 }
+
+

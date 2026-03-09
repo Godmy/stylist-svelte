@@ -1,6 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentType, Snippet } from 'svelte';
-import type { SidebarVariant, SidebarPosition } from '../../tokens/architecture/sidebar';
+import type { Alignment } from '../../tokens/architecture/alignments';
+import type { SidebarVariant } from '../../tokens/architecture/sidebar';
 
 export type NavItem = {
   id: string;
@@ -24,7 +25,7 @@ export type SidebarProps = {
   width?: string;
   mobileWidth?: string;
   variant?: SidebarVariant;
-  position?: SidebarPosition;
+  position?: Alignment;
   disabled?: boolean;
   class?: string;
   navClass?: string;

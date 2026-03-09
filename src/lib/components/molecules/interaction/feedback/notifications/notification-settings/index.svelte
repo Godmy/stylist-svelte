@@ -8,9 +8,9 @@ const Settings = 'settings';
 
 import type {
     INotificationSettingsProps,
-    INotificationSettingsPreference,
-    NotificationChannel
+    INotificationSettingsPreference
   } from '$stylist/design-system/contracts/interaction/notification-settings';
+import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channels';
 
   let {
     preferences = [],

@@ -92,7 +92,12 @@
 	function handleKeyDown(event: KeyboardEvent) {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
-			handleMapClick(event as unknown as MouseEvent);
+			const mockMouseEvent = {
+				...event,
+				clientX: (event.target as SVGElement).getBoundingClientRect().left + (event.target as SVGElement).clientWidth / 2,
+				clientY: (event.target as SVGElement).getBoundingClientRect().top + (event.target as SVGElement).clientHeight / 2
+			} as unknown as MouseEvent;
+			handleMapClick(mockMouseEvent);
 		}
 	}
 
@@ -151,7 +156,7 @@
 		height={height}
 		onclick={handleMapClick}
 		onkeydown={handleKeyDown}
-		role="img"
+		role="button"
 		aria-label="Mini map navigation"
 		tabindex="0"
 	>

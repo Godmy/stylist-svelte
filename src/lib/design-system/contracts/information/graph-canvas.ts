@@ -1,80 +1,72 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
+import type { MarkerType } from '$stylist/design-system/tokens/architecture/markers';
+import type { PanMode } from '$stylist/design-system/tokens/architecture/pan-modes';
 
 /**
- * Режимы отображения сетки
- */
-export type GraphCanvasGridMode = 'none' | 'dots' | 'lines' | 'cross';
-
-/**
- * Режимы панорамирования
- */
-export type GraphCanvasPanMode = 'drag' | 'space' | 'always';
-
-/**
- * Свойства холста графа
+ * РЎРІРѕР№СЃС‚РІР° С…РѕР»СЃС‚Р° РіСЂР°С„Р°
  */
 export interface GraphCanvasProps extends HtmlAttributesBase<HTMLDivElement> {
-	/** Ширина холста */
+	/** РЁРёСЂРёРЅР° С…РѕР»СЃС‚Р° */
 	width?: number;
-	/** Высота холста */
+	/** Р’С‹СЃРѕС‚Р° С…РѕР»СЃС‚Р° */
 	height?: number;
-	/** Масштаб (zoom) */
+	/** РњР°СЃС€С‚Р°Р± (zoom) */
 	zoom?: number;
-	/** Минимальный масштаб */
+	/** РњРёРЅРёРјР°Р»СЊРЅС‹Р№ РјР°СЃС€С‚Р°Р± */
 	minZoom?: number;
-	/** Максимальный масштаб */
+	/** РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ РјР°СЃС€С‚Р°Р± */
 	maxZoom?: number;
-	/** Смещение по X */
+	/** РЎРјРµС‰РµРЅРёРµ РїРѕ X */
 	offsetX?: number;
-	/** Смещение по Y */
+	/** РЎРјРµС‰РµРЅРёРµ РїРѕ Y */
 	offsetY?: number;
-	/** Размер ячейки сетки */
+	/** Р Р°Р·РјРµСЂ СЏС‡РµР№РєРё СЃРµС‚РєРё */
 	gridSize?: number;
-	/** Режим отображения сетки */
-	gridMode?: GraphCanvasGridMode;
-	/** Цвет сетки */
+	/** Р РµР¶РёРј РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ СЃРµС‚РєРё */
+	gridMode?: MarkerType;
+	/** Р¦РІРµС‚ СЃРµС‚РєРё */
 	gridColor?: string;
-	/** Цвет фона */
+	/** Р¦РІРµС‚ С„РѕРЅР° */
 	backgroundColor?: string;
-	/** Режим панорамирования */
-	panMode?: GraphCanvasPanMode;
-	/** Включено ли перетаскивание */
+	/** Р РµР¶РёРј РїР°РЅРѕСЂР°РјРёСЂРѕРІР°РЅРёСЏ */
+	panMode?: PanMode;
+	/** Р’РєР»СЋС‡РµРЅРѕ Р»Рё РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ */
 	panEnabled?: boolean;
-	/** Включено ли масштабирование колесом */
+	/** Р’РєР»СЋС‡РµРЅРѕ Р»Рё РјР°СЃС€С‚Р°Р±РёСЂРѕРІР°РЅРёРµ РєРѕР»РµСЃРѕРј */
 	zoomEnabled?: boolean;
-	/** Включено ли выделение узлов */
+	/** Р’РєР»СЋС‡РµРЅРѕ Р»Рё РІС‹РґРµР»РµРЅРёРµ СѓР·Р»РѕРІ */
 	selectionEnabled?: boolean;
-	/** Включена ли сетка */
+	/** Р’РєР»СЋС‡РµРЅР° Р»Рё СЃРµС‚РєР° */
 	snapToGrid?: boolean;
-	/** Сила притяжения к сетке */
+	/** РЎРёР»Р° РїСЂРёС‚СЏР¶РµРЅРёСЏ Рє СЃРµС‚РєРµ */
 	snapThreshold?: number;
-	/** Класс для области контента */
+	/** РљР»Р°СЃСЃ РґР»СЏ РѕР±Р»Р°СЃС‚Рё РєРѕРЅС‚РµРЅС‚Р° */
 	contentClass?: string;
-	/** Класс для сетки */
+	/** РљР»Р°СЃСЃ РґР»СЏ СЃРµС‚РєРё */
 	gridClass?: string;
-	/** Обработчик изменения масштаба */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅРµРЅРёСЏ РјР°СЃС€С‚Р°Р±Р° */
 	onzoomchange?: (zoom: number) => void;
-	/** Обработчик изменения смещения */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅРµРЅРёСЏ СЃРјРµС‰РµРЅРёСЏ */
 	onoffsetchange?: (offset: { x: number; y: number }) => void;
-	/** Обработчик начала панорамирования */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°С‡Р°Р»Р° РїР°РЅРѕСЂР°РјРёСЂРѕРІР°РЅРёСЏ */
 	onpanstart?: (event: MouseEvent) => void;
-	/** Обработчик панорамирования */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РїР°РЅРѕСЂР°РјРёСЂРѕРІР°РЅРёСЏ */
 	onpan?: (event: MouseEvent) => void;
-	/** Обработчик завершения панорамирования */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє Р·Р°РІРµСЂС€РµРЅРёСЏ РїР°РЅРѕСЂР°РјРёСЂРѕРІР°РЅРёСЏ */
 	onpanend?: (event: MouseEvent) => void;
-	/** Обработчик клика по холсту */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РєР»РёРєР° РїРѕ С…РѕР»СЃС‚Сѓ */
 	oncanvasclick?: (event: MouseEvent) => void;
-	/** Обработчик двойного клика */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РґРІРѕР№РЅРѕРіРѕ РєР»РёРєР° */
 	ondblclick?: (event: MouseEvent) => void;
-	/** Обработчик контекстного меню */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РєРѕРЅС‚РµРєСЃС‚РЅРѕРіРѕ РјРµРЅСЋ */
 	oncontextmenu?: (event: MouseEvent) => void;
-	/** Дочерний контент (узлы, связи) */
+	/** Р”РѕС‡РµСЂРЅРёР№ РєРѕРЅС‚РµРЅС‚ (СѓР·Р»С‹, СЃРІСЏР·Рё) */
 	children?: Snippet;
 }
 
 /**
- * Позиция в 2D пространстве
+ * РџРѕР·РёС†РёСЏ РІ 2D РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµ
  */
 export interface GraphCanvasPosition {
 	x: number;
@@ -82,7 +74,7 @@ export interface GraphCanvasPosition {
 }
 
 /**
- * Область видимости холста
+ * РћР±Р»Р°СЃС‚СЊ РІРёРґРёРјРѕСЃС‚Рё С…РѕР»СЃС‚Р°
  */
 export interface GraphCanvasViewport {
 	position: GraphCanvasPosition;
@@ -90,3 +82,10 @@ export interface GraphCanvasViewport {
 	width: number;
 	height: number;
 }
+
+
+
+
+
+
+

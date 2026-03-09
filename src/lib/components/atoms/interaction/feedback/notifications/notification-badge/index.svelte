@@ -25,8 +25,8 @@
 	let {
 		count = 0,
 		maxCount = 99,
-		variant = 'error',
-		position = 'top-right',
+		variant = 'danger',
+		position = 'top-end',
 		showZero = false,
 		class: className = '',
 		badgeClass = '',

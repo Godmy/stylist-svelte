@@ -14,7 +14,7 @@
    * (РёРєРѕРЅРєР°, С‚РµРєСЃС‚, СЃС‚СЂРµР»РєР°) РІ СЃРѕСЃС‚Р°РІРЅРѕР№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РЅР°РІРёРіР°С†РёРё
    */
   
-  import type { ILinkCardProps, LinkCardVariant } from '$stylist/design-system/contracts/information/link-card';
+  import type { ILinkCardProps } from '$stylist/design-system/contracts/information/link-card';
   import { Icon } from '$stylist/components/atoms';
   import { LinkCardStyleManager } from '$stylist/design-system/styles/information/link-card';
 

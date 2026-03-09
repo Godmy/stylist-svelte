@@ -1,8 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-
-export type MarkerType = 'default' | 'business' | 'person' | 'place' | 'custom';
+import type { MapMarkerType, PinStyle } from '$stylist/design-system/tokens/architecture/map-markers';
 
 export type MarkerCategory =
   | 'restaurant'
@@ -27,14 +26,12 @@ export type ContactInfo = {
   hours?: string;
 };
 
-export type PinStyle = 'standard' | 'flag' | 'custom';
-
 export interface IMapMarkerProps extends HTMLAttributes<HTMLDivElement> {
   coordinates: Coordinates;
   title?: string;
   description?: string;
   snippet?: Snippet;
-  type?: MarkerType;
+  type?: MapMarkerType;
   category?: MarkerCategory;
   color?: string;
   size?: ComponentSize;
@@ -53,3 +50,4 @@ export interface IMapMarkerProps extends HTMLAttributes<HTMLDivElement> {
   popupClass?: string;
   contentClass?: string;
 }
+

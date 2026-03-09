@@ -39,7 +39,7 @@ export class GraphStyleManager {
 		);
 	}
 
-	static getGraphEdgeStyles(style: Record<string, string>): string {
+	static getGraphLineStyles(style: Record<string, string>): string {
 		return Object.entries(style)
 			.map(([key, value]) => `${GraphStyleManager.toCssProperty(key)}:${value}`)
 			.join(';');
@@ -53,3 +53,4 @@ export class GraphStyleManager {
 		return key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 	}
 }
+

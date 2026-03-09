@@ -1,13 +1,13 @@
-﻿import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { InlineCodeVariant } from '../../tokens/information/inline-code-variants';
-import type { LinkVariant } from '../../tokens/interaction/link-variants';
+import type { ComponentSize } from '../../tokens/architecture/component-size';
+import type { InlineCodeVariant } from '../../tokens/architecture/code';
+import type { DefaultVariants } from '../../tokens/information/input-variants';
 
 export const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
 	default: 'bg-[--color-background-secondary] text-[--color-text-primary]',
 	subtle: 'bg-[--color-background-tertiary] text-[--color-text-secondary]'
 };
 
-export const LINK_VARIANT_CLASSES: Record<LinkVariant, string> = {
+export const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default: 'text-[var(--color-text-primary)]',
 	primary: 'text-[var(--color-primary-600)]',
 	secondary: 'text-[var(--color-secondary-600)]',
@@ -22,7 +22,6 @@ export const LINK_VARIANT_CLASSES: Record<LinkVariant, string> = {
 	subtle: 'text-[var(--color-text-primary)]',
 	neutral: 'text-[var(--color-neutral-600)]',
 	gray: 'text-[var(--color-neutral-600)]',
-	muted: 'text-[var(--color-text-tertiary)]',
 	dark: 'text-[var(--color-text-inverse)]',
 	light: 'text-[var(--color-text-primary)]'
 };
@@ -73,7 +72,7 @@ export class LinkStyleManager {
 	}
 
 	static getLinkClasses(
-		variant: LinkVariant = 'default',
+		variant: DefaultVariants = 'default',
 		size: ComponentSize = 'md',
 		disabled = false,
 		underline = true,
@@ -91,3 +90,5 @@ export class LinkStyleManager {
 		]);
 	}
 }
+
+

@@ -1,5 +1,5 @@
-import type { ChatMessageStatus } from '../../contracts/information/chat';
-import type { DefaultVariants, NeutralVariant } from '../../tokens/information/default-variants';
+import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
+import type { DefaultVariants, NeutralVariant } from '../../tokens/information/input-variants';
 import { cn } from '../../utils/cn/index';
 
 const CHAT_MESSAGE_ALIGNMENT_CLASSES = {
@@ -24,7 +24,7 @@ const CHAT_MESSAGE_BUBBLE_VARIANT_CLASSES: Record<string, string> = {
 	gray: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none'
 };
 
-const CHAT_MESSAGE_STATUS_ICON_CLASSES: Record<ChatMessageStatus, string> = {
+const CHAT_MESSAGE_STATUS_ICON_CLASSES: Record<MessageStatusType, string> = {
 	sent: 'ml-1 h-3 w-3 text-[var(--color-text-tertiary)]',
 	delivered: 'ml-1 h-3 w-3 text-[var(--color-text-tertiary)]',
 	read: 'ml-1 h-3 w-3 text-[var(--color-primary-500)]'
@@ -58,7 +58,11 @@ export class ChatStyleManager {
 		return cn('mt-1 flex items-center justify-end text-xs text-[var(--color-text-tertiary)]', className);
 	}
 
-	static getChatMessageStatusIconClasses(status: ChatMessageStatus): string {
+	static getMessageStatusTypeIconClasses(status: MessageStatusType): string {
 		return CHAT_MESSAGE_STATUS_ICON_CLASSES[status];
 	}
 }
+
+
+
+

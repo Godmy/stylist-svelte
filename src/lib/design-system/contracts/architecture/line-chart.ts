@@ -1,4 +1,5 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
 
 export type LineChartPoint = {
   id: string;
@@ -14,8 +15,6 @@ export type LineChartData = {
   data: LineChartPoint[];
   color?: string;
 };
-
-export type LineChartVariant = 'default' | 'minimal' | 'elegant' | 'bold';
 
 export interface ILineChartProps {
   data: LineChartData[];

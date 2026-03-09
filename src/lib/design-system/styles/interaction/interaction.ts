@@ -1,4 +1,4 @@
-import type { DefaultVariants } from '../../tokens/information/default-variants';
+import type { DefaultVariants } from '../../tokens/information/input-variants';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
 

@@ -1,7 +1,7 @@
 ﻿import { FONT_FAMILY } from './font-family';
 import { FONT_SIZE } from './font-size';
 import { FONT_WEIGHT } from './font-weight';
-import { LINE_HEIGHT } from './line-height';
+import { LINE_HEIGHT } from '../architecture/line-height';
 
 export const TYPOGRAPHY = {
 	fontSize: FONT_SIZE,

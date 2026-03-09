@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { BaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
-  import { createState } from '$stylist/design-system/models/information/base-card.svelte';
+  import { createBaseCardState } from '$stylist/design-system/models/information/base-card.svelte';
   import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
   import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
@@ -20,7 +20,7 @@
   let props: BaseCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
-  let state = createState(
+  let state = createBaseCardState(
     createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
       variant: 'default',
       size: 'md'

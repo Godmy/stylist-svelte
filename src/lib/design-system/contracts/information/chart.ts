@@ -1,4 +1,4 @@
-﻿import type { HtmlAttributesBase, HtmlAttributesWithContent } from './common';
+import type { HtmlAttributesBase, HtmlAttributesWithContent } from './common';
 import type { ChartDataPoint } from './canvas-chart';
 
 export interface PieChartProps extends HtmlAttributesBase<HTMLDivElement> {
@@ -125,3 +125,4 @@ export interface ChartProps extends HtmlAttributesBase<HTMLDivElement> {
 	showZAxis?: boolean;
 	showAxisArrows?: boolean;
 }
+

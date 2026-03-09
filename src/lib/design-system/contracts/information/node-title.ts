@@ -1,36 +1,37 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { NodeTitleVariant } from '$stylist/design-system/tokens/information/node-title';
 
 /**
- * Варианты заголовка узла
+ * Р’Р°СЂРёР°РЅС‚С‹ Р·Р°РіРѕР»РѕРІРєР° СѓР·Р»Р°
  */
-export type NodeTitleVariant = 'default' | 'selected' | 'error' | 'warning';
-
 /**
- * Свойства заголовка узла графа
+ * РЎРІРѕР№СЃС‚РІР° Р·Р°РіРѕР»РѕРІРєР° СѓР·Р»Р° РіСЂР°С„Р°
  */
 export interface NodeTitleProps extends Omit<HtmlAttributesBase<HTMLHeadingElement>, 'onchange'> {
-	/** Текст заголовка */
+	/** РўРµРєСЃС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	title: string;
-	/** Вариант отображения */
+	/** Р’Р°СЂРёР°РЅС‚ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ */
 	variant?: NodeTitleVariant;
-	/** Размер заголовка */
+	/** Р Р°Р·РјРµСЂ Р·Р°РіРѕР»РѕРІРєР° */
 	size?: ComponentSize;
-	/** Цвет заголовка */
+	/** Р¦РІРµС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	color?: string;
-	/** Иконка слева от заголовка */
+	/** РРєРѕРЅРєР° СЃР»РµРІР° РѕС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	icon?: string | Snippet;
-	/** Иконка справа от заголовка */
+	/** РРєРѕРЅРєР° СЃРїСЂР°РІР° РѕС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	trailingIcon?: string | Snippet;
-	/** Выделенное состояние */
+	/** Р’С‹РґРµР»РµРЅРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ */
 	selected?: boolean;
-	/** Редактируемый */
+	/** Р РµРґР°РєС‚РёСЂСѓРµРјС‹Р№ */
 	editable?: boolean;
-	/** Обработчик изменения текста */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅРµРЅРёСЏ С‚РµРєСЃС‚Р° */
 	onchange?: (value: string) => void;
-	/** Обработчик двойного клика */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РґРІРѕР№РЅРѕРіРѕ РєР»РёРєР° */
 	ondblclick?: (event: MouseEvent) => void;
-	/** Дочерний контент */
+	/** Р”РѕС‡РµСЂРЅРёР№ РєРѕРЅС‚РµРЅС‚ */
 	children?: Snippet;
 }
+
+

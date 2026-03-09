@@ -1,8 +1,9 @@
 import type { HtmlAttributesBase } from './common';
-import type { ConnectionLineType as ConnectionLineTypeToken, ConnectionLineStyle as ConnectionLineStyleToken } from '$stylist/design-system/tokens/information/connection-line';
+import type { LineType as LineTypeToken } from '$stylist/design-system/tokens/architecture/line-types';
+import type { LineStyle as LineStyleToken } from '$stylist/design-system/tokens/architecture/line-styles';
 
-export type ConnectionLineType = ConnectionLineTypeToken;
-export type ConnectionLineStyle = ConnectionLineStyleToken;
+export type ConnectionLineType = LineTypeToken;
+export type ConnectionLineStyle = LineStyleToken;
 
 /**
  * Интерфейс для отрисовки соединительных линий
@@ -41,3 +42,6 @@ export interface ConnectionPathResult {
 	midPoint: Point;
 	angle: number;
 }
+
+
+

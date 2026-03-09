@@ -1,3 +1,5 @@
+import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
+
 export interface IHeatmapCell {
   /** Unique identifier for the cell */
   id: string;
@@ -28,8 +30,6 @@ export interface IExtendedHeatmapCell extends IHeatmapCell {
   intensity: number;
 }
 
-export type THeatmapColorScheme = 'blue' | 'red' | 'green' | 'purple' | 'warm' | 'cool';
-
 export interface IHeatmapProps {
   /** Data to display on the heatmap */
   data: IHeatmapCell[];
@@ -44,7 +44,7 @@ export interface IHeatmapProps {
   /** Whether to show legend */
   showLegend?: boolean;
   /** Color scheme for display */
-  colorScheme?: THeatmapColorScheme;
+  colorScheme?: ColorScheme;
   /** Whether to show coordinate axes */
   showAxis?: boolean;
   /** Axis color */
@@ -62,3 +62,5 @@ export interface IHeatmapProps {
   /** Minimum value for color normalization */
   minValue?: number;
 }
+
+

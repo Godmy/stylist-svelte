@@ -1,4 +1,6 @@
 import type { Snippet } from 'svelte';
+import type { Direction } from '$stylist/design-system/tokens/architecture/directions';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Тип данных для порта графа
@@ -13,16 +15,15 @@ export type GraphPortDataType =
 	| 'event'
 	| 'action';
 
+export type GraphPortDirection = Direction;
+export type GraphPortSize = ComponentSize;
+
 /**
  * Направление порта
  */
-export type GraphPortDirection = 'input' | 'output';
-
 /**
  * Размер порта
  */
-export type GraphPortSize = 'xs' | 'sm' | 'md' | 'lg';
-
 /**
  * Состояние порта
  */

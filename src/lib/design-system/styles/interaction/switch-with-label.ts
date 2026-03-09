@@ -4,14 +4,14 @@
  * Uses the Stylist-Svelte theming system with CSS variables
  */
 
-import type { LabelPosition, ISwitchWithLabelProps } from '$stylist/design-system/contracts/interaction/switch-with-label';
+import type { LabelPosition } from '$stylist/design-system/contracts/interaction/switch-with-label';
 
 export class SwitchWithLabelStyleManager {
   /**
    * Gets the CSS classes for the container based on label position
    */
   static getContainerClasses(labelPosition: LabelPosition, baseClass: string = ''): string {
-    const positionClass = labelPosition === 'start' ? 'flex-row-reverse' : 'flex-row';
+    const positionClass = labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row';
     
     return [
       'flex',
@@ -82,6 +82,6 @@ export class SwitchWithLabelStyleManager {
    * Gets the CSS classes for the label position (start or end)
    */
   static getLabelPositionClasses(labelPosition: LabelPosition): string {
-    return labelPosition === 'end' ? 'mr-3' : 'ml-3';
+    return labelPosition === 'right' ? 'mr-3' : 'ml-3';
   }
 }

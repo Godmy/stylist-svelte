@@ -50,7 +50,7 @@ export interface PageBuilderElement {
 export interface PageBuilderToolbarItem {
   type: PageBuilderElementType;
   label: string;
-  icon: unknown;
+  icon: string;
 }
 
 export interface PageBuilderProps extends HTMLAttributes<HTMLDivElement> {

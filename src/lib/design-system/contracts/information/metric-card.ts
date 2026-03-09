@@ -11,7 +11,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-export type MetricCardVariant = 'success' | 'warning' | 'danger' | 'info';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
 
 export interface IMetricCardProps {
   /** Название метрики */
@@ -30,7 +30,7 @@ export interface IMetricCardProps {
   description?: string;
   
   /** Вариант оформления */
-  variant?: MetricCardVariant;
+  variant?: SemanticVariant;
   
   /** Показывать ли прогресс-бар */
   showProgressBar?: boolean; // default: true

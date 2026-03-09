@@ -12,11 +12,10 @@
 	 * @returns Accessible, styled error message for form fields
 	 */
 
-	import type { InputVariant } from '$stylist/design-system';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
+	import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
 	type FormErrorVariant = InputVariant;
 	type FormErrorMessageProps = {
-		variant?: (typeof INPUT_VARIANTS)[number];
+		variant?: InputVariant;
 		size?: ComponentSize;
 		visible?: boolean;
 		text?: string;

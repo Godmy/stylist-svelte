@@ -22,12 +22,12 @@ import {
 // Input Field Preset
 // ============================================================================
 
-const inputBase = createBasePreset(INPUT_VARIANTS, COMPONENT_SIZE, {
+const inputBase = createBasePreset(INPUT_VARIANTS.input, COMPONENT_SIZE, {
 	variant: 'default',
 	size: 'md'
 });
 
-export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], ComponentSize> = {
+export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS.input)[number], ComponentSize> = {
 	...inputBase,
 	classes: {
 		...inputBase.classes,
@@ -40,12 +40,12 @@ export const INPUT_FIELD_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], Co
 // Textarea Preset
 // ============================================================================
 
-const textareaBase = createBasePreset(INPUT_VARIANTS, COMPONENT_SIZE, {
+const textareaBase = createBasePreset(INPUT_VARIANTS.input, COMPONENT_SIZE, {
 	variant: 'default',
 	size: 'md'
 });
 
-export const TEXTAREA_PRESET: InputPreset<(typeof INPUT_VARIANTS)[number], ComponentSize> = {
+export const TEXTAREA_PRESET: InputPreset<(typeof INPUT_VARIANTS.input)[number], ComponentSize> = {
 	...textareaBase,
 	classes: {
 		...textareaBase.classes,
@@ -92,6 +92,7 @@ export const INPUT_CONTAINER_PRESET = {
 	errorTextClass: INPUT_FIELD_ERROR_TEXT_CLASS,
 	labelClass: INPUT_FIELD_LABEL_CLASS
 } as const;
+
 
 
 

@@ -1,5 +1,5 @@
 export type TokenDomain = 'architecture' | 'information' | 'interaction';
-export type TokenControlKind = 'radio' | 'select' | 'range';
+export type TokenControlKind = 'radio' | 'select' | 'range' | 'text';
 export type TokenValue = string | number | boolean;
 
 export type TokenOption = {
@@ -34,8 +34,14 @@ export type TokenRangeControlDefinition = TokenControlBase & {
 	step?: number;
 };
 
+export type TokenTextControlDefinition = TokenControlBase & {
+	controlKind: 'text';
+	placeholder?: string;
+};
+
 export type TokenControlDefinition =
 	| TokenRadioControlDefinition
 	| TokenSelectControlDefinition
-	| TokenRangeControlDefinition;
+	| TokenRangeControlDefinition
+	| TokenTextControlDefinition;
 

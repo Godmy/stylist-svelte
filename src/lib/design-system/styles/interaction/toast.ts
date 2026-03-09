@@ -8,9 +8,11 @@ import type { ToastType, IToastStyleClasses } from '$stylist/design-system/contr
 export class ToastStyleManager {
   static getTypeClasses(type: ToastType): string {
     const typeClasses: Record<ToastType, string> = {
+      silent: 'toast-variant-info',
       info: 'toast-variant-info',
       success: 'toast-variant-success', 
       warning: 'toast-variant-warning',
+      danger: 'toast-variant-error',
       error: 'toast-variant-error'
     };
 

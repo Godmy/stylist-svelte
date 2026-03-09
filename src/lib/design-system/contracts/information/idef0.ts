@@ -1,6 +1,5 @@
-﻿import type { HtmlAttributesBase } from './common';
-
-export type Idef0Direction = 'input' | 'output';
+import type { HtmlAttributesBase } from './common';
+import type { Direction } from '$stylist/design-system/tokens/architecture/directions';
 
 export interface Idef0Port {
 	id: string;
@@ -36,7 +35,7 @@ export interface Idef0PortLabelProps extends HtmlAttributesBase<SVGTextElement> 
 
 export interface Idef0ConnectorProps extends HtmlAttributesBase<SVGGElement> {
 	label: string;
-	direction: Idef0Direction;
+	direction: Direction;
 	x1: number;
 	y1: number;
 	x2: number;
@@ -79,3 +78,4 @@ export interface Idef0DiagramProps extends HtmlAttributesBase<HTMLDivElement> {
 	width?: number;
 	height?: number;
 }
+

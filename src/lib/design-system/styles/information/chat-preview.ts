@@ -12,6 +12,7 @@ const CHAT_PREVIEW_SIZE_CLASSES = {
 const CHAT_PREVIEW_VARIANT_CLASSES = {
 	compact: 'p-2',
 	detailed: 'p-6',
+	featured: 'p-4 ring-2 ring-[var(--color-primary-500)] shadow-lg',
 	default: 'p-4'
 } as const;
 

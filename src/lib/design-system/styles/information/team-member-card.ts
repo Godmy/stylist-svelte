@@ -3,6 +3,8 @@ import { CARD_BASE_CLASSES } from './card';
 
 const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
 	default: '',
+	compact: 'p-2',
+	detailed: 'p-8',
 	featured:
 		'ring-2 ring-[var(--color-primary-500)] shadow-lg scale-[1.02] border-[var(--color-primary-300)]'
 } as const;

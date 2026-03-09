@@ -1,13 +1,13 @@
 import type { StackProps } from '$stylist/design-system/contracts';
 import type { Alignment, Orientation, Justification } from '$stylist/design-system/tokens';
 import { StackStyleManager } from '$stylist/design-system/styles';
-import { SPACING as spacingTokens } from '$stylist/design-system/tokens';
+import { REM } from '$stylist/design-system/tokens';
 
 export function createStackState(props: StackProps) {
 	const direction = $derived((props.direction ?? 'vertical') as Orientation);
-	const spacing = $derived(props.spacing ?? spacingTokens[4]);
-	const align = $derived((props.align ?? 'stretch') as Alignment);
-	const justify = $derived((props.justify ?? 'start') as Justification);
+	const spacing = $derived(props.spacing ?? REM['4']);
+	const align = $derived((props.align ?? 'center') as Alignment);
+	const justify = $derived((props.justify ?? 'justify') as Justification);
 	const gap = $derived(StackStyleManager.getStackGap(spacing));
 	const classes = $derived(
 		StackStyleManager.getStackClasses(direction, align, justify, props.class ?? '')
@@ -36,6 +36,7 @@ export function createStackState(props: StackProps) {
 }
 
 export default createStackState;
+
 
 
 

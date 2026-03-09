@@ -1,125 +1,59 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
+  import type { ThemeMode } from '$stylist/themes/utils/css';
+  import { applyThemeModeAndScheme } from '$stylist/themes/utils/css';
+  import {
+    THEME_SCHEMES,
+    type ThemeScheme,
+    type ThemeSchemeId
+  } from '$stylist/themes/schemes';
 const Palette = 'palette';
 
-
-  type ThemeId = 'minimal' | 'ocean' | 'forest' | 'sunset';
-  type ThemePalette = {
-    id: ThemeId;
-    label: string;
-    description: string;
-    colors: {
-      bg: string;
-      surface: string;
-      text: string;
-      muted: string;
-      line: string;
-      accent: string;
-    };
-  };
 
   type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
-    currentTheme?: ThemeId;
+    currentTheme?: ThemeSchemeId;
+    themeMode?: ThemeMode;
     class?: string;
     compact?: boolean;
     showHeader?: boolean;
     showLabels?: boolean;
-    themes?: ThemePalette[];
-    onThemeChange?: (theme: ThemeId) => void;
+    themes?: ThemeScheme[];
+    onThemeChange?: (theme: ThemeSchemeId) => void;
   };
 
   let {
     currentTheme = 'minimal',
+    themeMode = 'system',
     class: hostClass = '',
     compact = false,
     showHeader = true,
     showLabels = false,
-    themes = [
-      {
-        id: 'minimal',
-        label: 'Minimal',
-        description: 'Neutral light palette',
-        colors: {
-          bg: '#f7f7f9',
-          surface: '#ffffff',
-          text: '#171923',
-          muted: '#5f6572',
-          line: '#d8deea',
-          accent: '#3253d4'
-        }
-      },
-      {
-        id: 'ocean',
-        label: 'Ocean',
-        description: 'Cold blue palette',
-        colors: {
-          bg: '#ecf3fa',
-          surface: '#ffffff',
-          text: '#0f2942',
-          muted: '#47617a',
-          line: '#c4d9ee',
-          accent: '#0f7ad8'
-        }
-      },
-      {
-        id: 'forest',
-        label: 'Forest',
-        description: 'Natural green palette',
-        colors: {
-          bg: '#eff6f1',
-          surface: '#ffffff',
-          text: '#193126',
-          muted: '#496355',
-          line: '#cadece',
-          accent: '#22754b'
-        }
-      },
-      {
-        id: 'sunset',
-        label: 'Sunset',
-        description: 'Warm orange palette',
-        colors: {
-          bg: '#fdf2ea',
-          surface: '#ffffff',
-          text: '#402417',
-          muted: '#7f5946',
-          line: '#f0d5c6',
-          accent: '#d86a2f'
-        }
-      }
-    ] as ThemePalette[],
+    themes = THEME_SCHEMES as ThemeScheme[],
     onThemeChange,
     ...restProps
   }: Props = $props();
 
-  let theme = $state<ThemeId>(currentTheme);
+  let theme = $state<ThemeSchemeId>(currentTheme);
 
   $effect(() => {
     theme = currentTheme;
   });
 
-  function applyTheme(newTheme: ThemeId) {
+  function applyTheme(newTheme: ThemeSchemeId) {
+    if (typeof document === 'undefined') return;
     const selected = themes.find((item) => item.id === newTheme);
-    if (!selected || typeof document === 'undefined') return;
+    if (!selected) return;
 
-    const root = document.documentElement;
-    root.style.setProperty('--app-bg', selected.colors.bg);
-    root.style.setProperty('--app-surface', selected.colors.surface);
-    root.style.setProperty('--app-text', selected.colors.text);
-    root.style.setProperty('--app-muted', selected.colors.muted);
-    root.style.setProperty('--app-line', selected.colors.line);
-    root.style.setProperty('--app-accent', selected.colors.accent);
-    root.setAttribute('data-ui-theme', selected.id);
-
+    applyThemeModeAndScheme(themeMode, newTheme, document.documentElement);
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('ui-theme', selected.id);
     }
   }
 
-  function setTheme(newTheme: ThemeId) {
+  function setTheme(newTheme: ThemeSchemeId) {
     theme = newTheme;
     onThemeChange?.(newTheme);
     applyTheme(newTheme);

@@ -11,7 +11,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
 
 export type DownloadCardVariant = SemanticVariant;
 

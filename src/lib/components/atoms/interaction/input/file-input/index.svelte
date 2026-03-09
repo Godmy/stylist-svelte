@@ -10,7 +10,7 @@
 		multiple?: boolean;
 		accept?: string;
 		disabled?: boolean;
-		variant?: (typeof INPUT_VARIANTS)[number];
+		variant?: (typeof INPUT_VARIANTS.input)[number];
 		size?: (typeof COMPONENT_SIZE)[number];
 		placeholder?: string;
 		onFileChange?: (files: File | File[] | null) => void;

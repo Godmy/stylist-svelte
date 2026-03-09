@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { onMount } from 'svelte';
   import { generateCode } from '$stylist/utils/code-preview';
 
@@ -148,9 +148,9 @@
 
   <div class="code-toolbar flex items-center justify-between p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
     <div class="text-xs text-gray-500 dark:text-gray-400">
-      {currentLanguage} • {generatedCode.split('\n').length} lines
+      {currentLanguage} вЂў {generatedCode.split('n').length} lines
       {#if componentName}
-        • Dynamic generation
+        вЂў Dynamic generation
       {/if}
     </div>
     <div class="flex space-x-2">
@@ -185,3 +185,4 @@
     {/if}
   </div>
 </div>
+

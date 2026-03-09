@@ -1,5 +1,5 @@
 import type { GraphCanvasProps, GraphCanvasViewport, GraphCanvasPosition } from '$stylist/design-system/contracts';
-import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/tokens';
+import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/tokens/information/graph-canvas';
 import { GraphCanvasStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphCanvasState(props: GraphCanvasProps) {
@@ -9,7 +9,7 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 	const offsetX = $derived(props.offsetX ?? 0);
 	const offsetY = $derived(props.offsetY ?? 0);
 	const gridSize = $derived(props.gridSize ?? GRAPH_CANVAS_DEFAULTS.gridSize);
-	const gridMode = $derived(props.gridMode ?? 'dots');
+	const gridMode = $derived(props.gridMode ?? 'dot');
 	const gridColor = $derived(props.gridColor ?? GRAPH_CANVAS_DEFAULTS.gridColor);
 	const backgroundColor = $derived(props.backgroundColor ?? GRAPH_CANVAS_DEFAULTS.backgroundColor);
 	const snapToGrid = $derived(props.snapToGrid ?? false);

@@ -1,4 +1,5 @@
-﻿import type { HTMLAttributes, HTMLInputAttributes, HTMLTextareaAttributes } from 'svelte/elements';
+import type { HTMLAttributes, HTMLInputAttributes, HTMLTextareaAttributes } from 'svelte/elements';
+import type { Translation } from '$stylist/design-system/tokens/information/translations';
 
 // Re-export from source files to avoid duplicates
 export type { AutoCompleteProps } from '../information/auto-complete';
@@ -70,15 +71,13 @@ export type QuoteRequestValue = {
   validUntil?: Date;
 };
 
-export type TranslationStatus = 'translated' | 'needs-review' | 'untranslated';
-
 export type TranslatableText = {
   id: string;
   key: string;
   original: string;
   translations: Record<string, string>;
   context?: string;
-  status: TranslationStatus;
+  status: Translation;
 };
 
 export type TranslationLocale = {
@@ -86,5 +85,6 @@ export type TranslationLocale = {
   name: string;
   flag?: string;
 };
+
 
 

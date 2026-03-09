@@ -1,8 +1,8 @@
-ï»¿import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/message-statuses';
+import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
 import type { MarkerType } from '$stylist/design-system/tokens/architecture/markers';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
-import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/presence-statuses';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
 export interface DotProps extends HtmlAttributesBase<HTMLSpanElement> {
@@ -41,7 +41,7 @@ export interface StatusIndicatorProps extends HtmlAttributesWithChildren<HTMLSpa
 }
 
 /**
- * @deprecated Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ StatusIndicatorProps
+ * @deprecated Èñïîëüçóéòå StatusIndicatorProps
  */
 export type StatusIndicatorWithLabelProps = StatusIndicatorProps;
 
@@ -49,3 +49,5 @@ export interface MessageStatusProps {
 	status?: MessageStatusType;
 	size?: ComponentSize;
 }
+
+

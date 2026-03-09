@@ -1,6 +1,8 @@
-import type { DividerAlign } from '$stylist/design-system/tokens/architecture/divider-aligns';
-import type { DividerOrientation } from '$stylist/design-system/tokens/architecture/divider-orientations';
+import type { DividerAlign } from '$stylist/design-system/tokens/architecture/alignments';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { HTMLAttributes } from 'svelte/elements';
+
+export type DividerOrientation = Orientation;
 
 /**
  * Divider Props

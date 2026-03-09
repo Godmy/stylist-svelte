@@ -1,6 +1,6 @@
-﻿import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/default-variants';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/input-variants';
 import type {
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,

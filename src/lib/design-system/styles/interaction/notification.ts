@@ -1,4 +1,5 @@
-import type { NotificationType, NotificationPosition } from '$stylist/design-system/tokens/interaction/notification';
+import type { SemanticVariant as NotificationType } from '$stylist/design-system/tokens/information/input-variants';
+import type { NotificationPosition } from '$stylist/design-system/contracts/interaction/notification';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -8,11 +9,12 @@ import type { NotificationType, NotificationPosition } from '$stylist/design-sys
 export class NotificationAtomStyleManager {
   static getTypeClasses(type: NotificationType): string {
     const typeClasses: Record<NotificationType, string> = {
+      primary: 'bg-[--color-primary-50] border-[--color-primary-200] text-[--color-primary-800]',
+      secondary: 'bg-[--color-secondary-50] border-[--color-secondary-200] text-[--color-secondary-800]',
       success: 'bg-[--color-success-50] border-[--color-success-200] text-[--color-success-800]',
       warning: 'bg-[--color-warning-50] border-[--color-warning-200] text-[--color-warning-800]',
-      error: 'bg-[--color-danger-50] border-[--color-danger-200] text-[--color-danger-800]',
-      info: 'bg-[--color-primary-50] border-[--color-primary-200] text-[--color-primary-800]',
-      default: 'bg-[--color-surface-primary] border-[--color-border-primary] text-[--color-text-primary]'
+      danger: 'bg-[--color-danger-50] border-[--color-danger-200] text-[--color-danger-800]',
+      info: 'bg-[--color-info-50] border-[--color-info-200] text-[--color-info-800]'
     };
 
     return typeClasses[type];
@@ -20,10 +22,10 @@ export class NotificationAtomStyleManager {
 
   static getPositionClasses(position: NotificationPosition): string {
     const positionClasses: Record<NotificationPosition, string> = {
-      'top-right': 'top-4 right-4',
-      'top-left': 'top-4 left-4',
-      'bottom-right': 'bottom-4 right-4',
-      'bottom-left': 'bottom-4 left-4',
+      'top-end': 'top-4 right-4',
+      'top-start': 'top-4 left-4',
+      'bottom-end': 'bottom-4 right-4',
+      'bottom-start': 'bottom-4 left-4',
       'top-center': 'top-4 left-1/2 transform -translate-x-1/2',
       'bottom-center': 'bottom-4 left-1/2 transform -translate-x-1/2'
     };
@@ -55,3 +57,4 @@ export class NotificationAtomStyleManager {
     return 'inline-flex text-[--color-text-secondary] hover:text-[--color-text-primary] focus:outline-none';
   }
 }
+

@@ -69,7 +69,4 @@ export function createBaseCardState<V extends string, S extends string>(
   };
 }
 
-// Алиас для обратной совместимости
-export const createState = createBaseCardState;
-
 export default createBaseCardState;

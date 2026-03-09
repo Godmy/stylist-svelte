@@ -1,6 +1,5 @@
 import type { HtmlAttributesBase } from './common';
-
-export type PredictionResultStatus = 'success' | 'error' | 'loading' | 'warning';
+import type { PredictionResultStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export type Prediction = {
 	label: string;
@@ -24,3 +23,5 @@ export interface PredictionResultProps extends HtmlAttributesBase<HTMLDivElement
 	contentClass?: string;
 	footerClass?: string;
 }
+
+

@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
-import type { GraphPortDataType, GraphPortSize } from './graph-port';
+import type { GraphPortDataType, GraphPortDirection } from './graph-port';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
@@ -10,13 +10,13 @@ export interface LiteGraphPort {
 	/** Уникальный идентификатор порта */
 	id: string;
 	/** Направление */
-	direction: 'input' | 'output';
+	direction: GraphPortDirection;
 	/** Тип данных */
 	dataType?: GraphPortDataType;
 	/** Метка */
 	label?: string;
 	/** Размер */
-	size?: GraphPortSize;
+	size?: ComponentSize;
 	/** Подключён ли */
 	connected?: boolean;
 	/** Цвет */

@@ -6,13 +6,11 @@
 
   type Props = {
     theme: 'light' | 'dark' | 'system';
-    highContrast: boolean;
     uiTheme: 'minimal' | 'ocean' | 'forest' | 'sunset';
   };
 
   const controls: ControlConfig[] = [
     { name: 'theme', type: 'select', defaultValue: 'system', options: ['light', 'dark', 'system'] },
-    { name: 'highContrast', type: 'boolean', defaultValue: false },
     { name: 'uiTheme', type: 'select', defaultValue: 'minimal', options: ['minimal', 'ocean', 'forest', 'sunset'] }
   ];
 </script>
@@ -35,7 +33,6 @@
         <div class="max-w-md">
           <AppearanceSettingsComponent
             theme={values.theme}
-            highContrast={values.highContrast}
             uiTheme={values.uiTheme}
           />
         </div>

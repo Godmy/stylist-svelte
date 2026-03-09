@@ -12,11 +12,10 @@
 	 * @returns Accessible, styled helper text for form fields
 	 */
 
-	import type { InputVariant } from '$stylist/design-system';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
+	import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
 	type FormHelperVariant = InputVariant;
 	type FormHelperTextProps = {
-		variant?: (typeof INPUT_VARIANTS)[number];
+		variant?: InputVariant;
 		size?: ComponentSize;
 		text?: string;
 		content?: import('svelte').Snippet;

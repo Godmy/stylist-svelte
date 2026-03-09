@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { designSystemDefaultTheme, designSystemDarkTheme } from '$stylist/design-system/themes';
+  import { darkTheme, lightTheme } from '$stylist/themes';
   // import { onMount } from 'svelte'; // Removed as its functionality is now covered by $state and $effect
 
-  type Theme = typeof designSystemDefaultTheme;
+  type Theme = typeof lightTheme;
 
   const { // Changed let to const
     theme = 'light' as 'light' | 'dark',
@@ -23,7 +23,7 @@
   }>();
 
   // Changed to $state and initialized directly, removing the need for onMount to set initial theme
-  let currentTheme = $state<Theme>(theme === 'light' ? designSystemDefaultTheme : designSystemDarkTheme);
+  let currentTheme = $state<Theme>(theme === 'light' ? lightTheme : darkTheme);
 
   // onMount block is removed as the initial theme is set with $state and subsequent changes are handled by $effect
   // onMount(() => {
@@ -31,7 +31,7 @@
   // });
 
   $effect(() => {
-    currentTheme = theme === 'light' ? designSystemDefaultTheme : designSystemDarkTheme;
+    currentTheme = theme === 'light' ? lightTheme : darkTheme;
   });
 
   // Функция для отображения примера цвета

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenSelectControlDefinition } from '../token-controls/types';
+	import type { TokenTextControlDefinition } from '../token-controls/types';
 
 	type TokenTextControlProps = {
-		definition: TokenSelectControlDefinition;
+		definition: TokenTextControlDefinition;
 		value?: string;
 		placeholder?: string;
 		onChange?: (value: string) => void;
@@ -12,7 +12,7 @@
 	let {
 		definition,
 		value = '',
-		placeholder = 'Enter value',
+		placeholder = definition.placeholder ?? 'Enter value',
 		onChange
 	}: TokenTextControlProps = $props();
 

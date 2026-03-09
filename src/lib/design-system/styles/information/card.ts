@@ -63,6 +63,7 @@ export const CARD_PROGRESS_VARIANT_CLASSES = {
 	warning: 'bg-yellow-500',
 	danger: 'bg-red-500',
 	info: 'bg-blue-500',
+	secondary: 'bg-[--color-secondary-500]',
 	primary: 'bg-[--color-primary-500]'
 } as const;
 

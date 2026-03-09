@@ -22,7 +22,7 @@ type AlertCardStateProps<V extends string, S extends string> = Omit<Props, 'vari
  * @param props - Пропсы компонента
  * @returns Реактивный объект состояния с классами, aria-атрибутами и вычисляемыми значениями
  */
-export function createState<V extends string, S extends string>(
+export function createAlertCardState<V extends string, S extends string>(
   preset: Preset<V, S>,
   props: AlertCardStateProps<V, S> & HTMLAttributes<HTMLDivElement>
 ) {
@@ -70,5 +70,4 @@ export function createState<V extends string, S extends string>(
   };
 }
 
-export const createAlertCardState = createState;
 export default createAlertCardState;

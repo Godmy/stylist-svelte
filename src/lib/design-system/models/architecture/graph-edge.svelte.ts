@@ -9,7 +9,7 @@ export function createGraphEdgeState(props: GraphEdgeProps) {
 	const style = $derived(props.style ?? {});
 
 	const classes = $derived(GraphStyleManager.getGraphEdgeClasses(directed, type, active));
-	const styles = $derived(GraphStyleManager.getGraphEdgeStyles(style));
+	const styles = $derived(GraphStyleManager.getGraphLineStyles(style));
 
 	return {
 		get directed() {
@@ -31,3 +31,4 @@ export function createGraphEdgeState(props: GraphEdgeProps) {
 }
 
 export default createGraphEdgeState;
+

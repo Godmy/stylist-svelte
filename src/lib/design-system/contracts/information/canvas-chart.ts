@@ -1,5 +1,6 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { ChartType, CanvasChartVariant } from '$stylist/design-system/tokens/information/canvas-chart';
+import type { ChartType } from '$stylist/design-system/tokens/architecture/chart-types';
+import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
 import type { HTMLCanvasAttributes } from 'svelte/elements';
 
 /**
@@ -105,7 +106,7 @@ export interface CanvasChartProps extends HTMLCanvasAttributes {
    * Visual variant of the chart
    * @default 'default'
    */
-  variant?: CanvasChartVariant;
+  variant?: LineChartVariant;
 
   /**
    * Size preset of the chart
@@ -146,7 +147,7 @@ export interface CanvasChartState {
   isRendering: boolean;
   hoveredPoint: ChartDataPoint | null;
   selectedPoint: ChartDataPoint | null;
-  currentVariant: CanvasChartVariant;
+  currentVariant: LineChartVariant;
   currentSize?: ComponentSize;
 }
 
@@ -179,7 +180,7 @@ export interface CanvasChartPreset {
    * Default variant
    * @default 'default'
    */
-  variant: CanvasChartVariant;
+  variant: LineChartVariant;
 
   /**
    * Default size
@@ -292,4 +293,8 @@ export function getCanvasChartPreset(
       return CANVAS_CHART_PRESET;
   }
 }
+
+
+
+
 

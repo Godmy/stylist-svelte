@@ -1,6 +1,24 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { TooltipPlacement, TooltipTrigger, TooltipVariant } from '../../tokens/interaction/tooltip';
+import type { Alignment } from '../../tokens/architecture/alignments';
+import type { TooltipVariant } from '../../tokens/architecture/tooltip';
+import type { TooltipTrigger } from '../../tokens/interaction/triggers';
+
+export type TooltipPlacement = Extract<
+	Alignment,
+	| 'top'
+	| 'top-start'
+	| 'top-end'
+	| 'bottom'
+	| 'bottom-start'
+	| 'bottom-end'
+	| 'left'
+	| 'left-start'
+	| 'left-end'
+	| 'right'
+	| 'right-start'
+	| 'right-end'
+>;
 
 /**
  * Unified Tooltip props following SOLID principles
@@ -83,3 +101,5 @@ export interface TooltipProps extends HTMLAttributes<HTMLElement> {
 	 */
 	onHide?: () => void;
 }
+
+

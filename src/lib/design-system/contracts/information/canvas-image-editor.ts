@@ -1,6 +1,6 @@
-import type { HTMLCanvasAttributes } from 'svelte/elements';
+﻿import type { HTMLCanvasAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { ImageFilter } from '$stylist/design-system/tokens/information/canvas-image';
+import type { ImageFilter } from '$stylist/design-system/tokens/information/image-filters';
 
 export type CropArea = {
   x: number;
@@ -24,3 +24,5 @@ export type CanvasImageEditorProps = {
   size?: ComponentSize;
   class?: string;
 } & HTMLCanvasAttributes;
+
+

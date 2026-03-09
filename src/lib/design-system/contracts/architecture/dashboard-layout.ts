@@ -1,12 +1,6 @@
 ﻿import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-
-/**
- * DashboardLayout variant options
- * @description Controls the spacing and density of the dashboard layout
- */
-export type DashboardLayoutVariant = 'default' | 'compact' | 'spacious';
-
+import type { DashboardLayoutVariant } from '$stylist/design-system/tokens/architecture/densities';
 /**
  * DashboardLayout props interface
  * @description Properties for configuring the dashboard layout component

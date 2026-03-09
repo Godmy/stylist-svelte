@@ -1,4 +1,4 @@
-﻿export type MessageTimestampFormatStyle = 'datetime' | 'time' | 'date';
+﻿import type { MessageTimestampFormatStyle } from '$stylist/design-system/tokens/information/timestamp-format';
 
 export interface MessageTimestampProps {
   /**
@@ -48,4 +48,7 @@ export const messageTimestampPresets: Record<string, Partial<MessageTimestampPro
     showRelative: false
   }
 };
+
+
+
 

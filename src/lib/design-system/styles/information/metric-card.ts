@@ -8,7 +8,7 @@
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
-import type { MetricCardVariant } from '$stylist/design-system/contracts/information/metric-card';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
 import { 
 	CARD_BASE_CLASSES,
 	CARD_TITLE_CLASSES,
@@ -70,8 +70,10 @@ export class MetricCardStyleManager {
    * Возвращает CSS-классы для заполнения прогресс-бара в зависимости от варианта
    * Использует нормализованные вариант-классы
    */
-  static getProgressBarFillClasses(variant: MetricCardVariant = 'info', percentage: number): string {
-    const variantClasses = {
+  static getProgressBarFillClasses(variant: SemanticVariant = 'info', percentage: number): string {
+    const variantClasses: Record<SemanticVariant, string> = {
+      primary: CARD_PROGRESS_VARIANT_CLASSES.primary,
+      secondary: CARD_PROGRESS_VARIANT_CLASSES.secondary,
       success: CARD_PROGRESS_VARIANT_CLASSES.success,
       warning: CARD_PROGRESS_VARIANT_CLASSES.warning,
       danger: CARD_PROGRESS_VARIANT_CLASSES.danger,
@@ -84,8 +86,10 @@ export class MetricCardStyleManager {
   /**
    * Возвращает CSS-классы для отображения процентного значения
    */
-  static getPercentageClasses(variant: MetricCardVariant = 'info'): string {
-    const variantClasses = {
+  static getPercentageClasses(variant: SemanticVariant = 'info'): string {
+    const variantClasses: Record<SemanticVariant, string> = {
+      primary: 'text-[--color-primary-600]',
+      secondary: 'text-[--color-secondary-600]',
       success: 'text-[--color-success-600]',
       warning: 'text-[--color-warning-600]',
       danger: 'text-[--color-danger-600]',

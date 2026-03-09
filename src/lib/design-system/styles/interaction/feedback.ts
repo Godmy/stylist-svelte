@@ -134,14 +134,14 @@ export const AccountProgressTrackerStyleManager: AccountProgressTrackerStyleMana
 
 export const NotificationBadgeStyleManager: NotificationBadgeStyleManagerInterface = {
 	getContainerClasses: (className?: string) => cn('relative inline-block', className),
-	getBadgeClasses: (showDot: boolean, variant = 'error', position = 'top-right', badgeClass = '') => {
+	getBadgeClasses: (showDot: boolean, variant = 'error', position = 'top-end', badgeClass = '') => {
 		const positionClasses =
 			{
-				'top-right': '-top-2 -right-2',
-				'top-left': '-top-2 -left-2',
-				'bottom-right': '-bottom-2 -right-2',
-				'bottom-left': '-bottom-2 -left-2'
-			}[position] || 'top-right';
+				'top-end': '-top-2 -right-2',
+				'top-start': '-top-2 -left-2',
+				'bottom-end': '-bottom-2 -right-2',
+				'bottom-start': '-bottom-2 -left-2'
+			}[position] || '-top-2 -right-2';
 
 		const variantClasses =
 			{
@@ -150,7 +150,7 @@ export const NotificationBadgeStyleManager: NotificationBadgeStyleManagerInterfa
 				secondary: 'bg-[--color-secondary-500] text-[--color-text-inverse]',
 				success: 'bg-[--color-success-500] text-[--color-text-inverse]',
 				warning: 'bg-[--color-warning-500] text-[--color-text-primary]',
-				error: 'bg-[--color-danger-500] text-[--color-text-inverse]',
+				danger: 'bg-[--color-danger-500] text-[--color-text-inverse]',
 				number: 'bg-[--color-danger-500] text-[--color-text-inverse]',
 				dot: 'bg-[--color-danger-500]'
 			}[variant] || 'bg-[--color-danger-500] text-[--color-text-inverse]';

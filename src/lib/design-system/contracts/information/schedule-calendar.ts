@@ -3,14 +3,9 @@
  */
 
 import type { CalendarEvent } from './calendar';
+import type { Priority } from '$stylist/design-system/tokens/information/priorities';
 
 export type { CalendarEvent } from './calendar';
-
-/**
- * Priority level for events
- */
-export type EventPriority = 'low' | 'medium' | 'high' | 'urgent';
-
 /**
  * Represents a schedule event
  */
@@ -18,7 +13,7 @@ export type ScheduleEvent = CalendarEvent & {
   /**
    * Priority level of the event
    */
-  priority?: EventPriority;
+  priority?: Priority;
 };
 
 /**
@@ -147,3 +142,6 @@ export interface IScheduleCalendarProps {
    */
   onEventClick?: (event: ScheduleEvent) => void;
 }
+
+
+

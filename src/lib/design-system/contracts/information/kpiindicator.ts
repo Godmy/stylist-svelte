@@ -5,17 +5,14 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { KPIStatus, KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
 
 /**
  * Варианты статуса KPI индикатора
  */
-export type KPIStatus = 'on-track' | 'at-risk' | 'off-track' | 'exceeded';
-
 /**
  * Варианты тренда для KPI индикатора
  */
-export type KPITrend = 'up' | 'down' | 'neutral';
-
 /**
  * Варианты размера KPI индикатора
  */

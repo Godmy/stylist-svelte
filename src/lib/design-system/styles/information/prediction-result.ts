@@ -1,4 +1,4 @@
-import type { PredictionResultStatus } from '$stylist/design-system/contracts/information/prediction-result';
+import type { PredictionResultStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export class PredictionResultStyleManager {
   static getContainerClass(customClass = ''): string {
@@ -127,3 +127,5 @@ export class PredictionResultStyleManager {
     return `${baseClass} ${colorClass}`;
   }
 }
+
+

@@ -9,8 +9,7 @@
 	} from '$stylist/design-system/contracts';
 	import {
 		LitegraphCanvas,
-		NodePalette,
-		Minimap
+		NodePalette
 	} from '$stylist/components/organisms';
 	import { NodePropertiesPanel } from '$stylist/components/molecules';
 	import { IconButton, Separator, Icon } from '$stylist/components/atoms';
@@ -19,10 +18,7 @@
 		properties?: readonly LiteGraphNodeProperty[];
 	};
 
-	type ConnectionData = ConnectionLineProps & {
-		fromPort: string;
-		toPort: string;
-	};
+	type ConnectionData = ConnectionLineProps;
 
 	type PaletteNode = {
 		id: string;
@@ -53,6 +49,8 @@
 		onNodeDuplicate?: (nodeId: string) => void;
 		onNodeAdd?: (node: NodeData) => void;
 		onPropertyChange?: (nodeId: string, propertyId: string, value: unknown) => void;
+		onZoomChange?: (zoom: number) => void;
+		onOffsetChange?: (offset: { x: number; y: number }) => void;
 		onSave?: (data: { nodes: readonly NodeData[]; connections: readonly ConnectionData[] }) => void;
 		onExport?: () => void;
 		onImport?: (data: unknown) => void;
@@ -80,6 +78,8 @@
 		onNodeDuplicate,
 		onNodeAdd,
 		onPropertyChange,
+		onZoomChange,
+		onOffsetChange,
 		onSave,
 		onExport,
 		onImport,
@@ -88,11 +88,27 @@
 		...restProps
 	}: Props = $props();
 
+	let editorRef = $state<HTMLDivElement | null>(null);
+	let addButtonAnchorRef = $state<HTMLDivElement | null>(null);
+	let anchoredPalettePosition = $state({ ...palettePosition });
+
 	// Состояние UI
 	let isPaletteOpen = $state(showNodePalette);
 	let isPropertiesPanelOpen = $state(showPropertiesPanel);
 	let paletteSearchQuery = $state('');
 	let paletteSelectedCategory = $state('all');
+
+	$effect(() => {
+		isPaletteOpen = showNodePalette;
+	});
+
+	$effect(() => {
+		isPropertiesPanelOpen = showPropertiesPanel;
+	});
+
+	$effect(() => {
+		anchoredPalettePosition = { ...palettePosition };
+	});
 
 	// Выбранный узел для панели свойств
 	const selectedNode = $derived(
@@ -168,7 +184,23 @@
 		}
 	}
 
+	function recalculatePalettePosition() {
+		if (!editorRef || !addButtonAnchorRef) {
+			return;
+		}
+
+		const editorRect = editorRef.getBoundingClientRect();
+		const anchorRect = addButtonAnchorRef.getBoundingClientRect();
+		const gap = 12;
+
+		anchoredPalettePosition = {
+			x: anchorRect.right - editorRect.left + gap,
+			y: anchorRect.top - editorRect.top
+		};
+	}
+
 	function handleTogglePalette() {
+		recalculatePalettePosition();
 		isPaletteOpen = !isPaletteOpen;
 	}
 
@@ -177,7 +209,9 @@
 	}
 </script>
 
-<div class={`graph-editor ${className ?? ''}`} {...restProps}>
+<svelte:window onresize={recalculatePalettePosition} />
+
+<div bind:this={editorRef} class={`graph-editor ${className ?? ''}`} {...restProps}>
 	<!-- Main Canvas Area -->
 	<div class="graph-editor__main">
 		<LitegraphCanvas
@@ -194,6 +228,9 @@
 			onNodeDrag={handleNodeDrag}
 			onNodeDelete={handleNodeDelete}
 			onNodeDuplicate={handleNodeDuplicate}
+			onNodeAdd={onNodeAdd}
+			onZoomChange={onZoomChange}
+			onOffsetChange={onOffsetChange}
 			onSave={handleSave}
 			onExport={onExport}
 			onImport={onImport}
@@ -209,8 +246,8 @@
 		<div class="graph-editor__palette">
 			<NodePalette
 				isOpen={isPaletteOpen}
-				x={palettePosition.x}
-				y={palettePosition.y}
+				x={anchoredPalettePosition.x}
+				y={anchoredPalettePosition.y}
 				items={defaultPaletteNodes}
 				searchQuery={paletteSearchQuery}
 				selectedCategory={paletteSelectedCategory}
@@ -224,7 +261,7 @@
 	{/if}
 
 	<!-- Properties Panel -->
-	{#if showPropertiesPanel && selectedNode}
+	{#if showPropertiesPanel && isPropertiesPanelOpen && selectedNode}
 		<div class="graph-editor__properties">
 			<NodePropertiesPanel
 				id="properties-panel"
@@ -243,15 +280,17 @@
 
 	<!-- Quick Actions Bar -->
 	<div class="graph-editor__quick-actions">
-		<IconButton
-			variant="primary"
-			size="md"
-			aria-label="Add node"
-			title="Add Node"
-			onclick={handleTogglePalette}
-		>
-			<Icon name="plus" size={20} />
-		</IconButton>
+		<div class="graph-editor__quick-anchor" bind:this={addButtonAnchorRef}>
+			<IconButton
+				variant="primary"
+				size="md"
+				aria-label="Add node"
+				title="Add Node"
+				onclick={handleTogglePalette}
+			>
+				<Icon name="plus" size={20} />
+			</IconButton>
+		</div>
 
 		<Separator orientation="vertical" />
 
@@ -280,7 +319,7 @@
 			size="md"
 			aria-label="Import graph"
 			title="Import Graph"
-			onclick={onImport}
+			onclick={() => onImport?.(null)}
 		>
 			<Icon name="upload" size={18} />
 		</IconButton>
@@ -290,8 +329,9 @@
 		<IconButton
 			variant="ghost"
 			size="md"
-			aria-label="Settings"
-			title="Settings"
+			aria-label="Toggle properties panel"
+			title="Toggle Properties"
+			onclick={handleToggleProperties}
 		>
 			<Icon name="settings" size={18} />
 		</IconButton>
@@ -365,5 +405,9 @@
 	:global(.graph-editor__quick-actions .separator) {
 		height: 24px;
 		margin: 0 0.25rem;
+	}
+
+	:global(.graph-editor__quick-anchor) {
+		display: inline-flex;
 	}
 </style>

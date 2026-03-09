@@ -1,4 +1,4 @@
-import type { LinkCardVariant } from '$stylist/design-system/contracts/information/link-card';
+﻿import type { LinkCardVariant } from '$stylist/design-system/tokens/information/link-card';
 import { cn } from '../../utils/cn/index';
 import { CARD_BASE_CLASSES } from './card';
 
@@ -74,3 +74,5 @@ export class LinkCardStyleManager {
 		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
 	}
 }
+
+

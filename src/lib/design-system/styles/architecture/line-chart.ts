@@ -1,5 +1,5 @@
-import type { LineChartVariant } from '../../contracts/architecture/line-chart';
-import type { ComponentSize } from '../../tokens/architecture/component-size';
+import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export class LineChartStyleManager {
   static getBaseClasses(): string {

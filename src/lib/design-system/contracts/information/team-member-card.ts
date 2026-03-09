@@ -20,11 +20,11 @@ export interface IAchievement {
   description: string;
 }
 
+import type { CardType } from '$stylist/design-system/tokens/architecture/card-types';
+
 /**
  * Variant options for TeamMemberCard
  */
-export type TeamMemberCardVariant = 'default' | 'featured';
-
 /**
  * Props interface for TeamMemberCard component
  * Single Responsibility: Define the contract for TeamMemberCard component
@@ -69,10 +69,13 @@ export interface ITeamMemberCardProps {
    * Visual variant of the team member card
    * @default 'default'
    */
-  variant?: TeamMemberCardVariant;
+  variant?: CardType;
 
   /**
    * Additional CSS classes to apply to the component
    */
   class?: string;
 }
+
+
+

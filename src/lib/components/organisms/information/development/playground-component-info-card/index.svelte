@@ -181,7 +181,7 @@ const User = 'user';
           </div>
 
           <!-- Last Updated -->
-          <div class="stat-card p-4 bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/30 dark:to-amber-900/30 rounded-xl border-2 border-orange-200 dark:border-orange-800">
+          <div class="stat-card p-4 bg-gradient-to-br from-orange-50 to-COLOR_AMBER-50 dark:from-orange-900/30 dark:to-COLOR_AMBER-900/30 rounded-xl border-2 border-orange-200 dark:border-orange-800">
             <div class="flex items-center gap-2 mb-2">
               <BaseIcon name={Calendar} class="w-4 h-4 text-orange-600 dark:text-orange-400" />
               <span class="text-xs font-semibold text-orange-900 dark:text-orange-200">Updated</span>

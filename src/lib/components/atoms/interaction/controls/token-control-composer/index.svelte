@@ -1,7 +1,8 @@
 <script lang="ts">
-	import TokenRadioControl from '../token-radio/index.svelte';
-	import TokenRangeControl from '../token-range/index.svelte';
-	import TokenSelectControl from '../token-select/index.svelte';
+import TokenRadioControl from '../token-radio/index.svelte';
+import TokenRangeControl from '../token-range/index.svelte';
+import TokenSelectControl from '../token-select/index.svelte';
+import TokenTextControl from '../token-text/index.svelte';
 	import type { TokenControlDefinition, TokenValue } from '../token-controls/types';
 
 	type TokenControlComposerProps = {
@@ -17,10 +18,16 @@
 	<TokenRadioControl definition={definition} {value} {onChange} />
 {:else if definition.controlKind === 'select'}
 	<TokenSelectControl definition={definition} {value} {onChange} />
-{:else}
+{:else if definition.controlKind === 'range'}
 	<TokenRangeControl
 		definition={definition}
 		value={typeof value === 'number' ? value : Number(definition.defaultValue ?? definition.min)}
+		onChange={(next) => onChange?.(next)}
+	/>
+{:else}
+	<TokenTextControl
+		definition={definition}
+		value={typeof value === 'string' ? value : String(value ?? definition.defaultValue ?? '')}
 		onChange={(next) => onChange?.(next)}
 	/>
 {/if}

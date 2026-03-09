@@ -15,3 +15,4 @@ export class OntologyEdgeComponentStyleManager {
     return `c-ontology-edge-component absolute top-0 left-0 w-full h-full ${additionalClass}`.trim();
   }
 }
+

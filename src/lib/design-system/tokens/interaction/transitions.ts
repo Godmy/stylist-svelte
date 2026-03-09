@@ -1,12 +1,12 @@
-﻿import { TRANSITION_DURATION } from './transition-duration';
+import { DURATION } from './duration';
 import { TRANSITION_EASING } from './transition-easing';
 
 export const TRANSITION = {
-	instant: `all ${TRANSITION_DURATION.none} ${TRANSITION_EASING.easeInOut}`,
-	quick: `all ${TRANSITION_DURATION.fast} ${TRANSITION_EASING.easeInOut}`,
-	smooth: `all ${TRANSITION_DURATION.normal} ${TRANSITION_EASING.easeInOut}`,
-	gentle: `all ${TRANSITION_DURATION.slow} ${TRANSITION_EASING.easeInOut}`,
-	emphasized: `all ${TRANSITION_DURATION.slower} cubic-bezier(0.2, 0, 0, 1)`
+	instant: `all ${DURATION[0]} ${TRANSITION_EASING.easeInOut}`,
+	quick: `all ${DURATION[150]} ${TRANSITION_EASING.easeInOut}`,
+	smooth: `all ${DURATION[200]} ${TRANSITION_EASING.easeInOut}`,
+	gentle: `all ${DURATION[300]} ${TRANSITION_EASING.easeInOut}`,
+	emphasized: `all ${DURATION[400]} cubic-bezier(0.2, 0, 0, 1)`
 } as const;
 
 export type TransitionKey = keyof typeof TRANSITION;

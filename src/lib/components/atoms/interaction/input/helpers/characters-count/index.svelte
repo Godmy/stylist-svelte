@@ -21,7 +21,7 @@
 		showPercentage?: boolean;
 		content?: import('svelte').Snippet;
 		class?: string;
-		variant?: (typeof INPUT_VARIANTS)[number];
+		variant?: (typeof INPUT_VARIANTS.input)[number];
 		size?: (typeof COMPONENT_SIZE)[number];
 	};
 

@@ -1,6 +1,4 @@
-import type { LabelPosition } from '../../tokens/interaction/label-positions';
-
-export type { LabelPosition };
+import type { Alignment } from '../../tokens/architecture/alignments';
 
 /**
  * SwitchWithLabel component types and interfaces
@@ -8,6 +6,7 @@ export type { LabelPosition };
  */
 
 /** Position of the label relative to the switch */
+export type LabelPosition = Extract<Alignment, 'left' | 'right'>;
 
 /** Props interface for SwitchWithLabel component */
 export interface ISwitchWithLabelProps {
@@ -30,7 +29,7 @@ export interface ISwitchWithLabelProps {
   
   /**
    * Position of the label relative to the switch
-   * @default 'end'
+   * @default 'right'
    */
   labelPosition?: LabelPosition;
   

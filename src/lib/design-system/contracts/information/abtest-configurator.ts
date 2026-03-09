@@ -1,4 +1,4 @@
-import type { ABTestStatus } from '../../tokens/interaction/abtest-statuses';
+import type { ABTestStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export type ABTestVariant = {
   id: string;
@@ -32,3 +32,5 @@ export interface IABTestConfiguratorProps {
   variantClass?: string;
   footerClass?: string;
 }
+
+

@@ -1,4 +1,4 @@
-import type { DefaultVariants } from '../../tokens/information/default-variants';
+import type { DefaultVariants } from '../../tokens/information/input-variants';
 import type { ComponentSize } from '../../tokens/architecture/component-size';
 import type { ComponentShape } from '../../tokens/architecture/shapes';
 import { cn } from '../../utils/cn/index';

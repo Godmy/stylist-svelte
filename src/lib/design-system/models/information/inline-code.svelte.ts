@@ -1,6 +1,6 @@
 import type { InlineCodeProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
-import type { InlineCodeVariant } from '$stylist/design-system/tokens/information/inline-code-variants';
+import type { InlineCodeVariant } from '$stylist/design-system/tokens/architecture/code';
 
 /**
  * InlineCode state creator
@@ -29,3 +29,5 @@ export function createInlineCodeState(props: InlineCodeProps) {
 }
 
 export default createInlineCodeState;
+
+

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenControlDefinition, TokenControlKind, TokenDomain, TokenOption, TokenRadioControlDefinition, TokenRangeControlDefinition, TokenSelectControlDefinition, TokenValue } from './types';
+export type { TokenControlDefinition, TokenControlKind, TokenDomain, TokenOption, TokenRadioControlDefinition, TokenRangeControlDefinition, TokenSelectControlDefinition, TokenTextControlDefinition, TokenValue } from './types';

@@ -9,7 +9,7 @@
  */
 
 import type { DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
+import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
 import {
 	CARD_BASE_CLASSES,
 	CARD_ICON_CONTAINER_CLASSES,

@@ -1,10 +1,4 @@
-﻿/** Border style tokens */
-export const STYLE = {
-	solid: 'solid',
-	dashed: 'dashed',
-	dotted: 'dotted',
-	double: 'double',
-	none: 'none'
-} as const;
+/** Border style tokens */
+export const STYLE = ['solid', 'dashed', 'dotted', 'double', 'none'] as const;
 
-export type Style = (typeof STYLE)[keyof typeof STYLE];
+export type Style = (typeof STYLE)[number];

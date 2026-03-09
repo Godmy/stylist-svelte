@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { HTMLAttributes } from 'svelte/elements';
 	import type { LiteGraphNodeProperty, NodePropertiesPanelProps } from '$stylist/design-system/contracts';
 	import { createNodePropertiesPanelState } from '$stylist/design-system/models/information/node-properties-panel.svelte';
 	import { IconButton, NodeProperty } from '$stylist/components/atoms';
@@ -25,14 +26,16 @@
 			onPropertyChange: _onPropertyChange,
 			onclose: _onclose,
 			children: _children,
-			// Исключаем события чтобы избежать проблем с типами
+			// Исключаем события clipboard чтобы избежать проблем с типами
 			oncopy: _oncopy,
 			oncut: _oncut,
 			onpaste: _onpaste,
 			...rest
 		} = props;
 
-		return rest;
+		// Приводим restProps к правильному типу для aside
+		return rest as Omit<HTMLAttributes<HTMLElement>, 
+			'class' | 'id' | 'oncopy' | 'oncut' | 'onpaste'>;
 	});
 
 	function handlePropertyChange(propertyId: string, value: unknown) {

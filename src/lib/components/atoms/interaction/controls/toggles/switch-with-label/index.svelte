@@ -16,7 +16,7 @@
     checked = false,
     disabled = false,
     label,
-    labelPosition = 'end',
+    labelPosition = 'right',
     class: className = '',
     switchClass = '',
     labelClass = '',
@@ -82,7 +82,7 @@
   aria-checked={isChecked}
   {...restProps}
 >
-  {#if labelPosition === 'end'}
+  {#if labelPosition === 'left'}
     <label
       for="switch-input"
       class={`${labelPositionClass} ${labelClasses}`}
@@ -110,7 +110,7 @@
     <span class={handleClasses}></span>
   </div>
 
-  {#if labelPosition === 'start'}
+  {#if labelPosition === 'right'}
     <label
       for="switch-input"
       class={`${labelPositionClass} ${labelClasses}`}

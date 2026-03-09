@@ -105,7 +105,7 @@ const X = 'x';
     if (!priority) return 'before:bg-slate-300';
     return {
       low: 'before:bg-emerald-400',
-      medium: 'before:bg-amber-400',
+      medium: 'before:bg-COLOR_AMBER-400',
       high: 'before:bg-rose-400'
     }[priority];
   };
@@ -215,7 +215,7 @@ const X = 'x';
       </button>
     {/if}
     {#if archivable}
-      <button type="button" class="mr-2 text-slate-400 hover:text-amber-600 transition-colors" onclick={() => onArchive?.()} aria-label="Archive card">
+      <button type="button" class="mr-2 text-slate-400 hover:text-COLOR_AMBER-600 transition-colors" onclick={() => onArchive?.()} aria-label="Archive card">
         <BaseIcon name={Archive} class="w-4 h-4" />
       </button>
     {/if}

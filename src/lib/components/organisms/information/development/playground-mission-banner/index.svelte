@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Sparkles = 'sparkles';
 
@@ -27,7 +27,7 @@ const Sparkles = 'sparkles';
     ...restProps
   }: Props = $props();
 
-  const titleLines = $derived(title.split('\n'));
+  const titleLines = $derived(title.split('n'));
 </script>
 
 <section class={`py-24 bg-gradient-to-br from-orange-600 via-red-600 to-purple-600 text-white ${className}`} {...restProps}>
@@ -63,4 +63,5 @@ const Sparkles = 'sparkles';
     </div>
   </div>
 </section>
+
 

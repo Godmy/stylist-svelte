@@ -1,5 +1,5 @@
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { TimeRange as TimeRangeToken } from '../../tokens/interaction/time-ranges';
+import type { TimeRange as TimeRangeToken } from '../../tokens/information/time-ranges';
 
 export type TimeRange = TimeRangeToken;
 

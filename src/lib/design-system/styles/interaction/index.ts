@@ -14,7 +14,6 @@ export { ErrorBoundaryStyleManager } from './error-boundary';
 export { FeatureToggleStyleManager } from './feature-toggle';
 export { AccountProgressTrackerStyleManager, AlertStyleManager, LoaderStyleManager, NotificationBadgeStyleManager, ProgressBarStyleManager, ProgressCircleStyleManager, SkeletonStyleManager, SpinnerStyleManager, StepConnectorStyleManager } from './feedback';
 export { FormStyleManager, ScreenReaderStyleManager, SearchFormStyleManager, SecureFormStyleManager, ValidationStyleManager } from './forms';
-export { HighContrastToggleStyleManager } from './high-contrast-toggle';
 export { IconPickerStyleManager } from './icon-picker';
 export { INPUT_BASE_CLASS, INPUT_DOUBLE_CONTAINER_CLASS, INPUT_ERROR_CLASS, INPUT_FIELD_CONTAINER_CLASS, INPUT_FIELD_ERROR_TEXT_CLASS, INPUT_FIELD_HELPER_TEXT_CLASS, INPUT_FIELD_LABEL_CLASS, INPUT_GROUP_BUTTON_CLASS, INPUT_GROUP_CONTAINER_CLASS, INPUT_GROUP_INPUT_CLASS, INPUT_LONG_RESIZE_HANDLE_CLASS, INPUT_PASSWORD_TOGGLE_CLASS, INPUT_SIZE_CLASSES, INPUT_TOKENS, INPUT_VARIANT_CLASSES, InputStyleManager, TEXTAREA_SIZE_CLASSES } from './input';
 export { INTERACTIVE_BASE_CLASS, INTERACTIVE_VARIANTS, InteractionStyleManager, VARIANT_CLASSES } from './interaction';

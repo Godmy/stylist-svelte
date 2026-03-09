@@ -27,6 +27,7 @@
 	});
 
 	function handleItemClick(item: GraphToolbarItem) {
+		item.onclick?.();
 		props.onItemClick?.(item.id);
 	}
 

@@ -15,7 +15,6 @@
    */
   
   import type { IDownloadCardProps } from '$stylist/design-system/contracts/information/download-card';
-  import type { SemanticVariant } from '$stylist/design-system/tokens/information/semantic-variants';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { DownloadCardStyleManager } from '$stylist/design-system/styles/information/download-card';
 

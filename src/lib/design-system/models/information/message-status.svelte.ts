@@ -1,6 +1,6 @@
 import type { MessageStatusProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
-import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/message-statuses';
+import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
 
 /**
  * MessageStatus state creator
@@ -42,3 +42,5 @@ export function createMessageStatusState(props: MessageStatusProps) {
 }
 
 export default createMessageStatusState;
+
+

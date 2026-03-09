@@ -3,7 +3,7 @@
 	import type { Story } from '@storybook/svelte';
 	import { GraphNode, GraphEdge } from '$stylist/components/atoms';
 
-	export default {
+	export const meta = {
 		title: 'Atoms/Architecture/Canvas/GraphCanvas',
 		component: GraphCanvas,
 		argTypes: {

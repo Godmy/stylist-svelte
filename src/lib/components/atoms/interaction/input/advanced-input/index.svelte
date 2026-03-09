@@ -16,7 +16,7 @@
 	 * @returns An accessible, styled input element
 	 */
 
-	type InputVariant = (typeof INPUT_VARIANTS)[number];
+	type InputVariant = (typeof INPUT_VARIANTS.input)[number];
 	type InputSize = (typeof COMPONENT_SIZE)[number];
 
 	type AdvancedInputProps = {

@@ -17,6 +17,9 @@
 			if (step <= 0) return 0;
 			return Math.floor((definition.max - definition.min) / step) + 1;
 		}
+		if (definition.controlKind === 'text') {
+			return 1;
+		}
 		return definition.options.length;
 	});
 

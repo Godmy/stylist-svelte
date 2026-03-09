@@ -21,7 +21,7 @@ export interface Preset<V extends string, S extends string> {
 }
 
 export interface InputPreset<
-	V extends string = (typeof INPUT_VARIANTS)[number],
+	V extends string = (typeof INPUT_VARIANTS.input)[number],
 	S extends string = ComponentSize
 > extends Preset<V, S> {
 	classes: Preset<V, S>['classes'] & {
@@ -30,7 +30,7 @@ export interface InputPreset<
 }
 
 export interface InputStateOptions<
-	V extends string = (typeof INPUT_VARIANTS)[number],
+	V extends string = (typeof INPUT_VARIANTS.input)[number],
 	S extends string = ComponentSize
 > {
 	variant?: V;
@@ -67,6 +67,7 @@ export interface ComponentStateOptions<V extends string, S extends string> {
 	class?: string;
 	ariaLabel?: string;
 }
+
 
 
 

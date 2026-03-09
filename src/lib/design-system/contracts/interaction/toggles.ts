@@ -1,9 +1,9 @@
-﻿import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
+import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { HtmlAttributesWithChildren, ValueChangeHandler } from '../information/common';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/toggle-group-types';
+import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/selection-type';
 
 export interface ToggleGroupRootProps
 	extends Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'> {
@@ -100,3 +100,4 @@ export interface DarkModeToggleProps extends ToggleBaseProps {
 	onToggle?: (payload: { darkMode: boolean }) => void;
 	onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
 }
+

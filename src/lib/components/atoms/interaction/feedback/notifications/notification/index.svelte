@@ -40,11 +40,11 @@ const XCircle = 'x-circle';
     title,
     message,
     children,
-    type = 'default',
+    type = 'info',
     duration = 5000,
     closable = true,
     onClose,
-    position = 'top-right',
+    position = 'top-end',
     showIcon = true,
     class: hostClass = '',
     contentClass = '',
@@ -79,11 +79,12 @@ const XCircle = 'x-circle';
   }
 
   const iconMap: Record<NotificationType, string> = {
+    primary: Info,
+    secondary: Info,
     success: CheckCircle,
     warning: AlertCircle,
-    error: XCircle,
-    info: Info,
-    default: Info
+    danger: XCircle,
+    info: Info
   };
 
   let iconComponent = $derived(iconMap[type] ?? Info);

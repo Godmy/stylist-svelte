@@ -1,8 +1,9 @@
 import type { HTMLInputAttributes, HTMLTextareaAttributes, HTMLAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { AppearanceStyle } from '$stylist/design-system/tokens/information/appearance-styles';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { AppearanceStyle } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
 import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
 import type {
 	ChildrenProp,
@@ -158,9 +159,7 @@ export interface ICharacterCountProps extends InputHelperProps<HTMLDivElement> {
 	max?: number;
 	showPercentage?: boolean;
 }
-
-export type InputAddonPosition = 'left' | 'right';
-
+export type InputAddonPosition = Extract<Alignment, 'left' | 'right'>;
 export interface IInputAddonProps extends InputHelperChildrenProps<HTMLDivElement> {
 	position?: InputAddonPosition;
 	variant?: AppearanceStyle;

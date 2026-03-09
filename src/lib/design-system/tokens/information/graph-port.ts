@@ -1,3 +1,5 @@
+import type { ComponentSize } from '../architecture/component-size';
+
 /**
  * Токены для портов графа
  * Определяют цвета для различных типов данных
@@ -26,7 +28,13 @@ export const GRAPH_PORT_COLORS = {
 /**
  * Размеры портов
  */
-export const GRAPH_PORT_SIZES = {
+type GraphPortDimensions = {
+	width: string;
+	height: string;
+	hoverArea: string;
+};
+
+export const GRAPH_PORT_SIZE_MAP: Record<ComponentSize, GraphPortDimensions> = {
 	xs: {
 		width: '8px',
 		height: '8px',
@@ -46,6 +54,16 @@ export const GRAPH_PORT_SIZES = {
 		width: '16px',
 		height: '16px',
 		hoverArea: '32px'
+	},
+	xl: {
+		width: '20px',
+		height: '20px',
+		hoverArea: '40px'
+	},
+	'2xl': {
+		width: '24px',
+		height: '24px',
+		hoverArea: '48px'
 	}
 } as const;
 
@@ -57,4 +75,5 @@ export type GraphPortType = keyof typeof GRAPH_PORT_COLORS;
 /**
  * Размер порта
  */
-export type GraphPortSizeKey = keyof typeof GRAPH_PORT_SIZES;
+export type GraphPortSize = ComponentSize;
+export type GraphPortSizeKey = keyof typeof GRAPH_PORT_SIZE_MAP;

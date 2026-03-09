@@ -1,3 +1,6 @@
+import type { Background } from '$stylist/design-system/tokens/information/background';
+import type { Height } from '$stylist/design-system/tokens/architecture/height';
+
 /**
  * Типы и интерфейсы для компонента Hero
  * 
@@ -21,9 +24,6 @@ export interface IHeroCTA {
   onClick: () => void;
 }
 
-export type HeroBackgroundVariant = 'gradient' | 'particles' | 'image';
-export type HeroHeight = 'screen' | 'large' | 'medium';
-
 export interface IHeroProps {
   /** Заголовок hero секции */
   title: string;
@@ -41,13 +41,13 @@ export interface IHeroProps {
   secondaryCTA?: IHeroCTA;
   
   /** Вариант фона */
-  backgroundVariant?: HeroBackgroundVariant;
+  backgroundVariant?: Background;
   
   /** URL фонового изображения */
   backgroundImage?: string;
   
   /** Высота секции */
-  height?: HeroHeight; // default: 'screen'
+  height?: Height; // default: 'screen'
   
   /** Дополнительные CSS классы */
   class?: string;
@@ -55,3 +55,6 @@ export interface IHeroProps {
   /** Слот для дополнительного контента */
   children?: import('svelte').Snippet;
 }
+
+
+

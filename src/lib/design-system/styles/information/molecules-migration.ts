@@ -1,4 +1,4 @@
-﻿export class ProductSearchStyleManager {
+export class ProductSearchStyleManager {
   static root(className: string): string {
     return `c-product-search ${className}`.trim();
   }
@@ -31,3 +31,5 @@ export class GraphvizDirectedEdgeStyleManager {
     return `c-graphviz-directed-edge absolute inset-0 ${className}`.trim();
   }
 }
+
+

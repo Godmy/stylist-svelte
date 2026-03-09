@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const FileCode = 'file-code';
 const Download = 'download';
@@ -68,7 +68,7 @@ const Terminal = 'terminal';
     const scriptClose = '<' + '/script>';
     return '<script>\n' +
       `  import ${resolvedComponentName} from './${resolvedComponentName}.svelte';\n` +
-      scriptClose + '\n\n' +
+      scriptClose + 'n\n' +
       openTag + resolvedComponentName + closeTag;
   });
 
@@ -181,10 +181,10 @@ const Terminal = 'terminal';
       <!-- CodeSandbox -->
       <button
         onclick={openInCodeSandbox}
-        class="group p-4 bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 hover:from-yellow-100 hover:to-amber-100 dark:hover:from-yellow-800/30 dark:hover:to-amber-800/30 rounded-xl border-2 border-yellow-200 dark:border-yellow-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
+        class="group p-4 bg-gradient-to-br from-yellow-50 to-COLOR_AMBER-50 dark:from-yellow-900/20 dark:to-COLOR_AMBER-900/20 hover:from-yellow-100 hover:to-COLOR_AMBER-100 dark:hover:from-yellow-800/30 dark:hover:to-COLOR_AMBER-800/30 rounded-xl border-2 border-yellow-200 dark:border-yellow-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
       >
         <div class="flex items-center justify-between mb-2">
-          <div class="text-2xl">в—†</div>
+          <div class="text-2xl">РІвЂ”вЂ </div>
           <BaseIcon name={ExternalLink} class="w-4 h-4 text-yellow-600 dark:text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
         <div class="text-left">
@@ -203,7 +203,7 @@ const Terminal = 'terminal';
         class="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 hover:from-blue-100 hover:to-cyan-100 dark:hover:from-blue-800/30 dark:hover:to-cyan-800/30 rounded-xl border-2 border-blue-200 dark:border-blue-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
       >
         <div class="flex items-center justify-between mb-2">
-          <div class="text-2xl">в—†</div>
+          <div class="text-2xl">РІвЂ”вЂ </div>
           <BaseIcon name={ExternalLink} class="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>
         <div class="text-left">
@@ -300,5 +300,6 @@ const Terminal = 'terminal';
     display: block;
   }
 </style>
+
 
 

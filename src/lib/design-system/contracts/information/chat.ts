@@ -1,8 +1,8 @@
-﻿import type { Density } from '$stylist/design-system/tokens';
-import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/information/default-variants';
+import type { Density } from '$stylist/design-system/tokens';
+import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
-export type ChatMessageStatus = 'sent' | 'delivered' | 'read';
+import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
 
 export interface User {
 	id: string;
@@ -31,7 +31,7 @@ export interface Message {
 	content: string;
 	timestamp: Date;
 	type?: 'text' | 'image' | 'file' | string;
-	status?: ChatMessageStatus | string;
+	status?: MessageStatusType | string;
 	replyTo?: string;
 	attachments?: MessageAttachment[];
 	reactions?: MessageReaction[];
@@ -53,7 +53,7 @@ export interface ChatMessageProps extends HtmlAttributesWithChildren<HTMLDivElem
 	sender?: string;
 	senderAvatar?: string;
 	timestamp?: string;
-	status?: ChatMessageStatus;
+	status?: MessageStatusType;
 	isOwn?: boolean;
 	contentClass?: string;
 	headerClass?: string;
@@ -67,7 +67,7 @@ export interface MessageThreadMessage {
 	sender: string;
 	senderAvatar?: string;
 	timestamp: string;
-	status?: ChatMessageStatus;
+	status?: MessageStatusType;
 	isOwn: boolean;
 }
 
@@ -93,5 +93,7 @@ export interface MessageThreadProps extends HtmlAttributesBase<HTMLDivElement> {
 	variant?: Density;
 	messageVariant?: DefaultVariants | NeutralVariant;
 }
+
+
 
 

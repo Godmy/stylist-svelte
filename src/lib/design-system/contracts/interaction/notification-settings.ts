@@ -1,6 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-
-export type NotificationChannel = 'email' | 'push' | 'sms' | 'in_app';
+import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channels';
 
 export interface INotificationSettingsPreference {
   id: string;

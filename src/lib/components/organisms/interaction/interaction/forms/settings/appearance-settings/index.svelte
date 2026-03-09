@@ -1,29 +1,25 @@
 <script lang="ts">
   import { AppearanceSettingsStyleManager } from '$stylist/design-system/styles/interaction/settings';
   import type { AppearanceSettingsProps } from '$stylist/design-system/contracts/interaction/interaction-forms';
-  import { DarkModeToggle, HighContrastToggle, ThemeSwitcher } from '$stylist/components/atoms';
+  import { DarkModeToggle, ThemeSwitcher } from '$stylist/components/atoms';
 
   type ThemeMode = 'light' | 'dark' | 'system';
   type UiTheme = 'minimal' | 'ocean' | 'forest' | 'sunset';
 
   let {
     theme = 'system',
-    highContrast = false,
     uiTheme = 'minimal',
     onThemeChange,
-    onHighContrastChange,
     onUiThemeChange,
     class: className = '',
     ...restProps
   }: AppearanceSettingsProps = $props();
 
   let localTheme = $state<ThemeMode>(theme);
-  let localHighContrast = $state(highContrast);
   let localUiTheme = $state<UiTheme>(uiTheme);
 
   $effect(() => {
     localTheme = theme;
-    localHighContrast = highContrast;
     localUiTheme = uiTheme;
   });
 
@@ -32,17 +28,11 @@
     onThemeChange?.(nextTheme);
   }
 
-  function handleHighContrastChange(nextValue: boolean) {
-    localHighContrast = nextValue;
-    onHighContrastChange?.(nextValue);
-  }
-
   function handleUiThemeChange(nextTheme: UiTheme) {
     localUiTheme = nextTheme;
     onUiThemeChange?.(nextTheme);
   }
 
-  const effectiveTheme = $derived(localTheme === 'dark' ? 'dark' : 'light');
 </script>
 
 <form class={AppearanceSettingsStyleManager.preferences('c-appearance-settings border rounded-lg p-4 space-y-4', className)} {...restProps}>
@@ -53,22 +43,6 @@
     </div>
     <div class="settings-control">
       <DarkModeToggle currentTheme={localTheme} onThemeChange={handleThemeChange} />
-    </div>
-  </div>
-
-  <div class="settings-item">
-    <div class="settings-meta">
-      <div class="settings-title">High contrast</div>
-      <div class="settings-help">{localHighContrast ? 'Enabled' : 'Disabled'}</div>
-    </div>
-    <div class="settings-control">
-      <HighContrastToggle
-        enabled={localHighContrast}
-        theme={effectiveTheme}
-        showStateText={false}
-        showDescription={false}
-        onToggle={handleHighContrastChange}
-      />
     </div>
   </div>
 

@@ -1,12 +1,12 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { ChatStatusIndicatorVariant } from '$stylist/design-system/tokens/interaction/chat-status';
+import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export interface ChatStatusIndicatorProps {
   /**
    * The status to display
    * @default 'offline'
    */
-  status?: ChatStatusIndicatorVariant;
+  status?: PresenceStatus;
   
   /**
    * The size of the indicator

@@ -1,8 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { TabGroupVariant } from '../../tokens/interaction/tab-variants';
-
-export type { TabGroupVariant };
+import type { TabGroupVariant } from '../../tokens/architecture/tab-variants';
 
 /**
  * TabGroup types and interfaces following SOLID principles
@@ -37,3 +35,4 @@ export interface ITabStyleClasses {
   inactive: string;
   disabled: string;
 }
+

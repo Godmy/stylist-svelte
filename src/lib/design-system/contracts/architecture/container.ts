@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { ContainerMaxWidth } from '$stylist/design-system/tokens/architecture/layout';
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-  size?: ComponentSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full';
+  size?: ContainerMaxWidth;
   class?: string;
 }

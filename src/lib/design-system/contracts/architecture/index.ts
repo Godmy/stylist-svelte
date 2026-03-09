@@ -1,13 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { DASHBOARD_LAYOUT_COMPACT_PRESET, DASHBOARD_LAYOUT_FIXED_SIDEBAR_PRESET, DASHBOARD_LAYOUT_PRESET, DASHBOARD_LAYOUT_SPACIOUS_PRESET, getDashboardLayoutPreset } from './dashboard-layout';
-export type { ColorScheme } from './bar-chart';
-export type { DashboardLayoutVariant } from './dashboard-layout';
+export type { DividerOrientation } from './divider';
 export type { GradientVariant } from './gradient-background';
-export type { THeatmapColorScheme } from './heatmap';
-export type { HeroBackgroundVariant, HeroHeight } from './hero';
 export type { GridItem, GridItemContent, SpacerAxis } from './layout';
 export type { SideBySideLayoutProps, SplitLayoutProps, StackedLayoutProps } from './layout-extended';
-export type { LineChartData, LineChartPoint, LineChartVariant } from './line-chart';
+export type { LineChartData, LineChartPoint } from './line-chart';
 export type { Code } from './separator';
 export type { NavItem, SidebarProps } from './sidebar';
 export type { AspectRatioProps } from './aspect-ratio';
@@ -22,6 +19,7 @@ export type { GridLayoutProps } from './layout';
 export type { GridLayoutExtendedProps, HorizontalLayoutProps, LayoutSection, VerticalLayoutProps } from './layout-extended';
 export type { ILineChartProps } from './line-chart';
 export type { IPageHeaderProps } from './page-header';
+export type { Position2D } from './position2d';
 export type { IProcessStepProps } from './process-step';
 export type { SeparatorProps, SyntaxHighlightedCodeProps } from './separator';
 export type { CanvasObject, CanvasUser, SharedCanvasProps } from './shared-canvas';

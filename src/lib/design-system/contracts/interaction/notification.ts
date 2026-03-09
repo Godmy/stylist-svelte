@@ -4,9 +4,15 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { NotificationType as NotificationTypeToken, NotificationPosition } from '../../tokens/interaction/notification';
+import type { SemanticVariant } from '../../tokens/information/input-variants';
+import type { Alignment } from '../../tokens/architecture/alignments';
 
-export type NotificationType = NotificationTypeToken;
+export type NotificationPosition = Extract<
+	Alignment,
+	'top-end' | 'top-start' | 'bottom-end' | 'bottom-start' | 'top-center' | 'bottom-center'
+>;
+
+export type NotificationType = SemanticVariant;
 
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;
@@ -24,3 +30,4 @@ export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   headerClass?: string;
   bodyClass?: string;
 }
+

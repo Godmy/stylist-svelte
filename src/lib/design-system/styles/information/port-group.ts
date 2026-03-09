@@ -1,4 +1,4 @@
-import type { GraphPortDirection } from '$stylist/design-system/contracts';
+import type { Direction } from '$stylist/design-system/tokens/architecture/directions';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -8,7 +8,7 @@ export class PortGroupStyleManager {
 	/**
 	 * Получает классы группы
 	 */
-	static getGroupClasses(direction: GraphPortDirection, compact: boolean): string {
+	static getGroupClasses(direction: Direction, compact: boolean): string {
 		return cn(
 			'port-group',
 			`port-group--${direction}`,

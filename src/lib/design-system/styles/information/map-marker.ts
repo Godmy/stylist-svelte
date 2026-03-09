@@ -1,4 +1,4 @@
-import type { MarkerType, PinStyle } from '$stylist/design-system/contracts/information/map-marker';
+import type { MapMarkerType, PinStyle } from '$stylist/design-system/tokens/architecture/map-markers';
 
 export class MapMarkerStyleManager {
   static getBaseClasses(selected: boolean, hostClass: string): string {
@@ -79,10 +79,10 @@ export class MapMarkerStyleManager {
     return 'flex space-x-2 mt-4';
   }
 
-  static getColorClass(color: string, type: MarkerType): string {
+  static getColorClass(color: string, type: MapMarkerType): string {
     if (color) return color;
 
-    const typeColors: Record<MarkerType, string> = {
+    const typeColors: Record<MapMarkerType, string> = {
       default: 'text-[--color-primary-500]',
       business: 'text-[--color-success-500]',
       person: 'text-[--color-purple-500]',
