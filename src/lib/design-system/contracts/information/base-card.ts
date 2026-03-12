@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { Props } from './common';
 
 export interface IBaseCardElementProps extends Omit<Props, 'variant' | 'size' | 'onclick'>, Omit<HTMLAttributes<HTMLDivElement>, 'class' | 'variant' | 'size' | 'onclick'> {
@@ -17,5 +17,6 @@ export interface IBaseCardElementProps extends Omit<Props, 'variant' | 'size' | 
 }
 
 export type BaseCardElementProps = IBaseCardElementProps;
+
 
 

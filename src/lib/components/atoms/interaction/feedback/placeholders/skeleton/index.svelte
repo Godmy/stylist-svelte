@@ -15,7 +15,7 @@
 	 */
 	const props = $props<
 		{
-			variant?: 'text' | 'circular' | 'rectangular';
+			variant?: 'text' | 'card' | 'image' | 'icon';
 			width?: string;
 			height?: string;
 			class?: string;
@@ -46,10 +46,10 @@
 
 	// Calculate dimensions
 	const defaultHeight = $derived(
-		variant === 'text' ? '1rem' : variant === 'circular' ? '2.5rem' : '3rem'
+		variant === 'text' ? '1rem' : variant === 'icon' ? '2.5rem' : '3rem'
 	);
 	const computedHeight = $derived(height || defaultHeight);
-	const computedWidth = $derived(variant === 'circular' ? computedHeight : width);
+	const computedWidth = $derived(variant === 'icon' ? computedHeight : width);
 
 	// Добавляем width и height как CSS переменные для использования в классах
 	const styleVars = $derived(
@@ -58,6 +58,7 @@
 </script>
 
 <div class={combinedClass} style={styleVars} aria-busy="true" aria-live="polite" {...restProps}></div>
+
 
 
 

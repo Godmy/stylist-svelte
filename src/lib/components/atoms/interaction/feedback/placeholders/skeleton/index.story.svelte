@@ -5,7 +5,7 @@
 
 	// Define controls for the story
 	const controls: ControlConfig[] = [
-		{ name: 'variant', type: 'select', options: ['text', 'circular', 'rectangular'] },
+		{ name: 'variant', type: 'select', options: ['text', 'card', 'image', 'icon'] },
 		{ name: 'width', type: 'text', defaultValue: '100%' },
 		{ name: 'height', type: 'text' },
 		{ name: 'class', type: 'text' }

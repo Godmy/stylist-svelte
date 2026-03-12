@@ -1,7 +1,7 @@
 import type { LinkProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 
 /**
  * Link state creator
@@ -57,5 +57,6 @@ export function createLinkState(props: LinkProps) {
 }
 
 export default createLinkState;
+
 
 

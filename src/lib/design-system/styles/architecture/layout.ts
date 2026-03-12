@@ -1,14 +1,11 @@
 import type { Alignment, Justification } from '../../tokens';
 import type { SpacerAxis } from '../../contracts';
 import type { ComponentSize } from '../../tokens';
-import type {
-	ContainerMaxWidth as LayoutContainerMaxWidth,
-	HorizontalGap as LayoutHorizontalGap,
-	LayoutSize as LayoutSizeToken
-} from '../../tokens/architecture/layout';
+import type { ContainerMaxWidth as LayoutContainerMaxWidth } from '../../tokens/architecture/size';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
 
+export type LayoutSizeToken = '1/4' | '1/3' | '2/5' | '1/2' | '3/5' | '2/3' | '3/4' | 'full';
 export type LayoutSize = LayoutSizeToken;
 
 export const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string> = {
@@ -23,16 +20,16 @@ export const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string
 
 export type TokenContainerMaxWidth = keyof typeof CONTAINER_MAX_WIDTH_CLASSES;
 
-export const HORIZONTAL_GAP_CLASSES: Record<LayoutHorizontalGap, string> = {
-	none: 'gap-0',
+export const HORIZONTAL_GAP_CLASSES: Record<ComponentSize, string> = {
 	xs: 'gap-1',
 	sm: 'gap-2',
 	md: 'gap-4',
 	lg: 'gap-6',
-	xl: 'gap-8'
+	xl: 'gap-8',
+	'2xl': 'gap-12'
 } as const;
 
-export type HorizontalGap = LayoutHorizontalGap;
+export type HorizontalGap = ComponentSize;
 
 export const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
 	top: 'items-start',
@@ -52,6 +49,7 @@ export const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
 	'right-start': 'items-start',
 	'right-end': 'items-end',
 	center: 'items-center',
+	justify: 'items-center',
 };
 
 export const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> = {
@@ -132,7 +130,7 @@ export class LayoutStyleManager {
 	}
 
 	static getHorizontalLayoutClasses(
-		gap: LayoutHorizontalGap,
+		gap: ComponentSize,
 		alignItems: Alignment,
 		justifyContent: Justification,
 		wrap: boolean,

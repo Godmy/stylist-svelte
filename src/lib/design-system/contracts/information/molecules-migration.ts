@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { SemanticVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { PropType } from '$stylist/design-system/tokens/interaction/prop-types';
-import type { LineStyle } from '$stylist/design-system/tokens/architecture/line-styles';
+import type { Style as LineStyle } from '$stylist/design-system/tokens/architecture/style';
 
 export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
@@ -93,6 +93,7 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   highlight?: boolean;
   class?: string;
 }
+
 
 
 

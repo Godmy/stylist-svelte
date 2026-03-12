@@ -7,7 +7,7 @@ export { ControlPanel } from './panels';
 export { AvatarSelector, ModelSelector, QuantitySelector, Selector } from './selectors';
 export { RangeSlider } from './sliders';
 export { ComparisonTable, ExpandableTableRow } from './tables';
-export { TabGroup, Tabs } from './tabs';
+export { StylistTab, TabGroup, Tabs } from './tabs';
 export { CheckboxGroup, RadioButtonGroup, ToggleButtonGroup } from './toggles';
 export { PictureToolbar, Toolbar } from './toolbars';
 export { TreeNodeItem, TreeViewer } from './trees';

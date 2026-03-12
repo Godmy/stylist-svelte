@@ -72,16 +72,14 @@
 
 	function getTokenIconKind(tokenName: string): TokenIconKind {
 		switch (tokenName) {
-			case 'BREAKPOINTS':
 			case 'POSITIONS':
 			case 'ORIENTATIONS':
 			case 'ALIGNMENTS':
 			case 'JUSTIFICATIONS':
-			case 'TEXT_ALIGNMENTS':
 				return 'layout';
-			case 'SHAPES_COMPONENT':
-			case 'SHAPES_GEOMETRIC':
-			case 'SHAPES':
+			case 'GEOMETRY':
+			case 'shape':
+			case 'corner':
 				return 'shape';
 			case 'COMPONENT_SIZE':
 				return 'size';
@@ -110,19 +108,25 @@
 			case 'Z_INDEX':
 				return 'layers';
 			case 'COLOR_PALETTES':
+			case 'COLORS_PALETTE':
 			case 'COLOR_PALETTES[shade]':
+			case 'COLORS_PALETTE[shade]':
 				return 'palette';
 			case 'GRADIENTS':
 			case 'DIRECTIONAL_GRADIENTS':
 			case 'RADIAL_GRADIENTS':
 				return 'gradient';
 			case 'FONT_FAMILY':
-			case 'FONT_SIZE':
+			case 'REM':
 			case 'FONT_WEIGHT':
 			case 'LINE_HEIGHT':
 				return 'TYPOGRAPHY';
-			case 'LINES':
-			case 'MARKERS':
+			case 'trajectory':
+			case 'connector':
+			case 'marker':
+			case 'chart':
+			case 'pin':
+			case 'ownership':
 				return 'graph';
 			case 'TRANSITION':
 			case 'TRANSITION_DURATION':
@@ -131,13 +135,12 @@
 				return 'motion';
 			case 'APPEARANCE_STYLES':
 			case 'STATE_VARIANTS':
-			case 'SEMANTIC_VARIANTS':
 			case 'FLOW_VARIANTS':
 			case 'ALL_VARIANTS':
 			case 'INPUT_VARIANTS':
 			case 'CODE':
 			case 'DENSITIES':
-			case 'SKELETONS':
+			case 'skeleton':
 			case 'TABLE_CELLS':
 				return 'variant';
 			case 'PRESENCE_STATUSES':

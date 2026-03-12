@@ -1,13 +1,10 @@
 import type { HtmlAttributesBase } from './common';
-import type { LineType as LineTypeToken } from '$stylist/design-system/tokens/architecture/line-types';
-import type { LineStyle as LineStyleToken } from '$stylist/design-system/tokens/architecture/line-styles';
+import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
+import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
 
-export type ConnectionLineType = LineTypeToken;
+export type ConnectionLineType = PrimitiveTrajectory;
 export type ConnectionLineStyle = LineStyleToken;
 
-/**
- * Интерфейс для отрисовки соединительных линий
- */
 export interface ConnectionLineProps extends HtmlAttributesBase<SVGElement> {
 	id: string;
 	startX: number;
@@ -42,6 +39,3 @@ export interface ConnectionPathResult {
 	midPoint: Point;
 	angle: number;
 }
-
-
-

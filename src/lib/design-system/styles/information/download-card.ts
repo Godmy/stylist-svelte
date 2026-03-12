@@ -9,7 +9,7 @@
  */
 
 import type { DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
 import {
 	CARD_BASE_CLASSES,
 	CARD_ICON_CONTAINER_CLASSES,
@@ -39,13 +39,14 @@ export class DownloadCardStyleManager {
   /**
    * Возвращает CSS-классы для иконки в зависимости от варианта
    */
-  static getIconClasses(variant: SemanticVariant = 'primary'): string {
-    const variantClasses: Record<SemanticVariant, string> = {
+  static getIconClasses(variant: ToneVariant = 'primary'): string {
+    const variantClasses: Record<ToneVariant, string> = {
       primary: 'text-[--color-primary-500] bg-[--color-primary-50]',
       secondary: 'text-[--color-neutral-500] bg-[--color-neutral-50]',
       success: 'text-[--color-success-500] bg-[--color-success-50]',
       warning: 'text-[--color-warning-500] bg-[--color-warning-50]',
       danger: 'text-[--color-danger-500] bg-[--color-danger-50]',
+      error: 'text-[--color-danger-500] bg-[--color-danger-50]',
       info: 'text-[--color-info-500] bg-[--color-info-50]'
     };
 
@@ -93,9 +94,11 @@ export class DownloadCardStyleManager {
       success: 'text-[--color-success-600] hover:text-[--color-success-700]',
       warning: 'text-[--color-warning-600] hover:text-[--color-warning-700]',
       danger: 'text-[--color-danger-600] hover:text-[--color-danger-700]',
+      error: 'text-[--color-danger-600] hover:text-[--color-danger-700]',
       info: 'text-[--color-info-600] hover:text-[--color-info-700]'
     };
 
     return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-150 ${variantClasses[variant] || variantClasses.primary}`;
   }
 }
+

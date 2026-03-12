@@ -4,7 +4,6 @@ export { DEFAULT_DRAGGABLE_CARD_PROPS, DRAGGABLE_CARD_PRESETS } from './draggabl
 export type { ABTest, ABTestVariant } from './abtest-configurator';
 export type { AlertCardElementProps } from './alert-card';
 export type { AuthRole } from './auth-guard';
-export type { Code } from './badge';
 export type { BaseCardElementProps } from './base-card';
 export type { BillingItemStatus, BillingSummaryStatus } from './billing-summary';
 export type { CalendarDay, CalendarEvent } from './calendar';
@@ -19,7 +18,7 @@ export type { GraphNodeType } from './graph';
 export type { GraphPortDataType, GraphPortDirection, GraphPortSize } from './graph-port';
 export type { SelectVariant, ToolbarVariant } from './interaction';
 export type { LiteGraphNodeState, LiteGraphNodeType } from './litegraph-node';
-export type { ContactInfo, Coordinates, MarkerCategory } from './map-marker';
+export type { ContactInfo, Coordinates, MapMarkerType, MarkerCategory, PinStyle } from './map-marker';
 export type { MessageAlign } from './message-bubble';
 export type { CodeLanguage } from './molecules-migration';
 export type { NodePropertyType } from './node-property';

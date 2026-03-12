@@ -1,5 +1,5 @@
-﻿import type { NodeTitleProps } from '$stylist/design-system/contracts';
-import type { NodeTitleVariant } from '$stylist/design-system/tokens/information/node-title';
+import type { NodeTitleProps } from '$stylist/design-system/contracts';
+import type { NodeTitleVariant } from '$stylist/design-system/tokens/interaction/statuses';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
 import { NodeTitleStyleManager } from '$stylist/design-system/styles';
 
@@ -36,5 +36,6 @@ export function createNodeTitleState(props: NodeTitleProps) {
 }
 
 export default createNodeTitleState;
+
 
 

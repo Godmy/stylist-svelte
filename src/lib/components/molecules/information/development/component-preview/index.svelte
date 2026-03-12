@@ -15,7 +15,7 @@
 
   import type { Snippet } from 'svelte';
   import { ComponentPreviewStyleManager } from '$stylist/design-system/styles/information/component-preview';
-  import { CodeBlock } from '$stylist/components/atoms';
+  import CodeBlock from '../code-block/index.svelte';
 
   // Define component props using the interface
   let {
@@ -87,9 +87,7 @@
     </div>
   {:else}
     <div class={codeContainerClasses}>
-      <CodeBlock language={language}>
-        {code}
-      </CodeBlock>
+      <CodeBlock language={language} code={code} />
     </div>
   {/if}
 </div>

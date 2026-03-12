@@ -1,4 +1,4 @@
-import type { MapMarkerType, PinStyle } from '$stylist/design-system/tokens/architecture/map-markers';
+import type { MapMarkerType, PinStyle } from '$stylist/design-system/contracts/information/map-marker';
 
 export class MapMarkerStyleManager {
   static getBaseClasses(selected: boolean, hostClass: string): string {
@@ -21,12 +21,14 @@ export class MapMarkerStyleManager {
     const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-200`;
 
     switch (pinStyle) {
-      case 'standard':
+      case 'line':
         return basePinClass;
       case 'flag':
         return `relative ${sizeClasses}`;
-      case 'custom':
+      case 'ring':
         return `${sizeClasses} ${colorClass} rounded-full border-2 border-[--color-border-primary] shadow-md`;
+      case 'anchor':
+        return `${sizeClasses} ${colorClass} rotate-45 rounded-br-full`;
       default:
         return basePinClass;
     }
@@ -83,11 +85,12 @@ export class MapMarkerStyleManager {
     if (color) return color;
 
     const typeColors: Record<MapMarkerType, string> = {
-      default: 'text-[--color-primary-500]',
       business: 'text-[--color-success-500]',
       person: 'text-[--color-purple-500]',
       place: 'text-[--color-warning-500]',
-      custom: 'text-[--color-danger-500]'
+      government: 'text-[--color-primary-500]',
+      private: 'text-[--color-danger-500]',
+      brand: 'text-[--color-info-500]'
     };
 
     return typeColors[type];
@@ -119,6 +122,7 @@ export class MapMarkerStyleManager {
     return `absolute top-0 left-1/2 transform -translate-x-full ${colorClass} ${sizeClasses} rounded-full`;
   }
 }
+
 
 
 

@@ -2,9 +2,9 @@ import type { HTMLInputAttributes, HTMLTextareaAttributes, HTMLAttributes } from
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { AppearanceStyle } from '$stylist/design-system/tokens/information/input-variants';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
-import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { AppearanceStyle } from '$stylist/design-system/tokens/interaction/variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type {
 	ChildrenProp,
 	ClassProp,
@@ -196,3 +196,4 @@ export type {
 	InputAttributesBase,
 	TextInputBaseProps
 };
+

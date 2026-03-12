@@ -1,5 +1,5 @@
 import type { Background } from '$stylist/design-system/tokens/information/background';
-import type { Height } from '$stylist/design-system/tokens/architecture/height';
+import type { Height } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Типы и интерфейсы для компонента Hero

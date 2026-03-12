@@ -1,5 +1,5 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
+import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 export type LineChartPoint = {
   id: string;
@@ -35,3 +35,4 @@ export interface ILineChartProps {
   class?: string;
   chartClass?: string;
 }
+

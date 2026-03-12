@@ -8,7 +8,7 @@
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
 import { 
 	CARD_BASE_CLASSES,
 	CARD_TITLE_CLASSES,
@@ -70,13 +70,14 @@ export class MetricCardStyleManager {
    * Возвращает CSS-классы для заполнения прогресс-бара в зависимости от варианта
    * Использует нормализованные вариант-классы
    */
-  static getProgressBarFillClasses(variant: SemanticVariant = 'info', percentage: number): string {
-    const variantClasses: Record<SemanticVariant, string> = {
+  static getProgressBarFillClasses(variant: ToneVariant = 'info', percentage: number): string {
+    const variantClasses: Record<ToneVariant, string> = {
       primary: CARD_PROGRESS_VARIANT_CLASSES.primary,
       secondary: CARD_PROGRESS_VARIANT_CLASSES.secondary,
       success: CARD_PROGRESS_VARIANT_CLASSES.success,
       warning: CARD_PROGRESS_VARIANT_CLASSES.warning,
       danger: CARD_PROGRESS_VARIANT_CLASSES.danger,
+      error: CARD_PROGRESS_VARIANT_CLASSES.danger,
       info: CARD_PROGRESS_VARIANT_CLASSES.info
     };
 
@@ -86,16 +87,18 @@ export class MetricCardStyleManager {
   /**
    * Возвращает CSS-классы для отображения процентного значения
    */
-  static getPercentageClasses(variant: SemanticVariant = 'info'): string {
-    const variantClasses: Record<SemanticVariant, string> = {
+  static getPercentageClasses(variant: ToneVariant = 'info'): string {
+    const variantClasses: Record<ToneVariant, string> = {
       primary: 'text-[--color-primary-600]',
       secondary: 'text-[--color-secondary-600]',
       success: 'text-[--color-success-600]',
       warning: 'text-[--color-warning-600]',
       danger: 'text-[--color-danger-600]',
+      error: 'text-[--color-danger-600]',
       info: 'text-[--color-primary-600]'
     };
 
     return `text-xs font-medium mt-1 ${variantClasses[variant] || variantClasses.info}`;
   }
 }
+

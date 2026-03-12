@@ -1,5 +1,5 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { GraphEdgeType } from '../../tokens';
+import type { PrimitiveTrajectory } from '../../tokens/architecture/primitives';
 import { cn } from '../../utils/cn/index';
 
 const GRAPH_NODE_SIZE_CLASSES: Record<ComponentSize, string> = {
@@ -11,10 +11,16 @@ const GRAPH_NODE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'w-14 h-14'
 };
 
-const GRAPH_EDGE_TYPE_CLASSES: Record<GraphEdgeType, string> = {
-	line: 'graph-edge--line',
+const GRAPH_EDGE_TYPE_CLASSES: Record<PrimitiveTrajectory, string> = {
+	straight: 'graph-edge--line',
 	curve: 'graph-edge--curve',
-	polyline: 'graph-edge--polyline'
+	polyline: 'graph-edge--polyline',
+	bezier: 'graph-edge--curve',
+	arc: 'graph-edge--curve',
+	loop: 'graph-edge--curve',
+	elbow: 'graph-edge--polyline',
+	step: 'graph-edge--polyline',
+	'smooth-step': 'graph-edge--curve'
 };
 
 export class GraphStyleManager {
@@ -30,7 +36,7 @@ export class GraphStyleManager {
 		return cn('graph-node', selected && 'selected');
 	}
 
-	static getGraphEdgeClasses(directed: boolean, type: GraphEdgeType, active: boolean): string {
+	static getGraphEdgeClasses(directed: boolean, type: PrimitiveTrajectory, active: boolean): string {
 		return cn(
 			'graph-edge',
 			GRAPH_EDGE_TYPE_CLASSES[type],

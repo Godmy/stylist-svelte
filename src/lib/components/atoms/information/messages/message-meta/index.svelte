@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { Message } from '$stylist/design-system/contracts/information/chat';
-
-  import MessageStatusAtom from '$stylist/components/atoms/information/typography/indicators/message-status/index.svelte';
+  import { Icon as BaseIcon } from '$stylist/components/atoms';
   import MessageTimestamp from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp/index.svelte';
+  const Check = 'check';
+  const CheckCheck = 'check-check';
 
   // Props
   let {
@@ -28,6 +29,10 @@
     message?.status === 'sent' || message?.status === 'delivered' || message?.status === 'read'
       ? message.status
       : undefined
+  );
+
+  const statusIcon = $derived(
+    displayStatus === 'read' ? CheckCheck : displayStatus === 'delivered' ? CheckCheck : Check
   );
 </script>
 
@@ -58,11 +63,11 @@
       <span class="meta-separator">&middot;</span>
     {/if}
 
-    {#if showStatus}
-      <MessageStatusAtom
-        status={displayStatus}
-        size="sm"
-      />
+    {#if showStatus && displayStatus}
+      <span class="inline-flex items-center gap-1 text-xs text-[--color-gray-500]">
+        <BaseIcon name={statusIcon} class={`h-3 w-3 ${displayStatus === 'read' ? 'text-[--color-primary-600]' : ''}`} />
+        {displayStatus}
+      </span>
     {/if}
   </div>
 {/if}

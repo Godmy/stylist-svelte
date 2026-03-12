@@ -10,7 +10,7 @@ export const SEPARATOR_CLASSES = {
 } as const;
 
 export const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
-export const CODE_BLOCK_DEFAULTS = {
+export const SEPARATOR_CODE_BLOCK_DEFAULTS = {
 	variant: 'default' as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
 	size: 'md' as keyof typeof CODE_BLOCK_SIZE_CLASSES
 };
@@ -24,8 +24,8 @@ export class SeparatorStyleManager {
 	}
 
 	static getSyntaxHighlightedCodeContainerClasses(
-		variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = CODE_BLOCK_DEFAULTS.variant,
-		size: keyof typeof CODE_BLOCK_SIZE_CLASSES = CODE_BLOCK_DEFAULTS.size,
+		variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = SEPARATOR_CODE_BLOCK_DEFAULTS.variant,
+		size: keyof typeof CODE_BLOCK_SIZE_CLASSES = SEPARATOR_CODE_BLOCK_DEFAULTS.size,
 		className = ''
 	): string {
 		return cn(

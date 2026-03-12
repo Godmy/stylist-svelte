@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 
 export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
   direction?: 'up' | 'down' | 'left' | 'right';
@@ -15,7 +15,7 @@ export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
 export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
   size?: ComponentSize;
   class?: string;
-  variant?: DefaultVariants | 'success' | 'warning' | 'danger';
+  variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
   filled?: boolean;
   disabled?: boolean;
   icon?: Snippet;
@@ -23,10 +23,11 @@ export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface IconWrapperProps extends HTMLAttributes<HTMLDivElement> {
   size?: ComponentSize;
-  variant?: DefaultVariants | 'success' | 'warning' | 'danger';
+  variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
   shape?: 'circle' | 'square' | 'rounded' | 'pill';
-  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+  color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'error';
   disabled?: boolean;
   class?: string;
   content?: Snippet;
 }
+

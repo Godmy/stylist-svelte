@@ -4,7 +4,7 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { SemanticVariant } from '../../tokens/information/input-variants';
+import type { ToneVariant } from '../../tokens/interaction/variants';
 import type { Alignment } from '../../tokens/architecture/alignments';
 
 export type NotificationPosition = Extract<
@@ -12,7 +12,7 @@ export type NotificationPosition = Extract<
 	'top-end' | 'top-start' | 'bottom-end' | 'bottom-start' | 'top-center' | 'bottom-center'
 >;
 
-export type NotificationType = SemanticVariant;
+export type NotificationType = ToneVariant;
 
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;
@@ -30,4 +30,5 @@ export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   headerClass?: string;
   bodyClass?: string;
 }
+
 

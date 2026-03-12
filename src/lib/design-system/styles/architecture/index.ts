@@ -8,11 +8,11 @@ export { CONTAINER_MAX_WIDTH_CLASSES, HORIZONTAL_ALIGN_ITEMS_CLASSES, HORIZONTAL
 export { LineChartStyleManager } from './line-chart';
 export { PageHeaderStyleManager } from './page-header';
 export { ProcessStepStyleManager } from './process-step';
-export { CODE_BLOCK_DEFAULTS, DEFAULT_SEPARATOR_ORIENTATION, SEPARATOR_CLASSES, SeparatorStyleManager } from './separator';
+export { DEFAULT_SEPARATOR_ORIENTATION, SEPARATOR_CLASSES, SEPARATOR_CODE_BLOCK_DEFAULTS, SeparatorStyleManager } from './separator';
 export { DEFAULT_SHARED_CANVAS_SIZE, SHARED_CANVAS_SIZE_CLASSES, SharedCanvasStyleManager } from './shared-canvas';
 export { SidebarStyleManager } from './sidebar';
 export { STACK_ALIGN_CLASSES, STACK_DIRECTION_CLASSES, STACK_JUSTIFY_CLASSES, StackStyleManager } from './stack';
 export { TimeGridStyleManager } from './time-grid';
 export type { DashboardLayoutVariant } from './dashboard-layout';
-export type { HorizontalGap, LayoutSize, TokenContainerMaxWidth } from './layout';
+export type { HorizontalGap, LayoutSize, LayoutSizeToken, TokenContainerMaxWidth } from './layout';
 export type { SharedCanvasStyleManagerInterface } from './shared-canvas';

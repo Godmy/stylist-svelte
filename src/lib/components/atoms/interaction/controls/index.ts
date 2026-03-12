@@ -9,7 +9,7 @@ export { BurgerMenu, MenuItem } from './menus';
 export { NodeProperty } from './node-property';
 export { ProductSort } from './product-sort';
 export { ColorPalette } from './selectors';
-export { Sliders } from './sliders';
+export { Tick } from './sliders';
 export { SortableTableHeader } from './tables';
 export { Tab, TabIndicator, TabList, TabPanel, TabPanels } from './tabs';
 export { Tag } from './tag';

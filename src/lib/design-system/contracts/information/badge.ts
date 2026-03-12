@@ -1,12 +1,10 @@
 import type { Snippet } from 'svelte';
 
 import type { BadgeType } from '$stylist/design-system/tokens/information/badge';
-import type { Code as CodeToken } from '$stylist/design-system/tokens/architecture/code';
-import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { Code } from '$stylist/design-system/tokens/interaction/variants';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
-
-export type Code = CodeToken;
 
 export interface BadgeProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
 	variant?: DefaultVariants;

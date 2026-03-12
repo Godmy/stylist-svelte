@@ -1,7 +1,7 @@
-﻿import type { InputPreset } from '../runtime/types';
+import type { InputPreset } from '../runtime/types';
 import type { ComponentSize } from '../tokens/architecture/component-size';
 import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
-import { INPUT_VARIANTS } from '../tokens/information/input-variants';
+import { INPUT_VARIANTS } from '../tokens/interaction/variants';
 import { createBasePreset } from './preset';
 import {
 	INPUT_SIZE_CLASSES,
@@ -92,6 +92,7 @@ export const INPUT_CONTAINER_PRESET = {
 	errorTextClass: INPUT_FIELD_ERROR_TEXT_CLASS,
 	labelClass: INPUT_FIELD_LABEL_CLASS
 } as const;
+
 
 
 

@@ -84,6 +84,7 @@ const XCircle = 'x-circle';
     success: CheckCircle,
     warning: AlertCircle,
     danger: XCircle,
+    error: XCircle,
     info: Info
   };
 

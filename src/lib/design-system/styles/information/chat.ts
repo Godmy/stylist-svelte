@@ -1,5 +1,5 @@
 import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
-import type { DefaultVariants, NeutralVariant } from '../../tokens/information/input-variants';
+import type { DefaultVariants, NeutralVariant } from '../../tokens/interaction/variants';
 import { cn } from '../../utils/cn/index';
 
 const CHAT_MESSAGE_ALIGNMENT_CLASSES = {
@@ -62,6 +62,7 @@ export class ChatStyleManager {
 		return CHAT_MESSAGE_STATUS_ICON_CLASSES[status];
 	}
 }
+
 
 
 

@@ -18,7 +18,6 @@ const createInputState = (
 	props: InputStateOptions & Record<string, unknown>
 ) => createBaseInputState(INPUT_FIELD_PRESET, props);
 
-export { createInputState };
 export const createAdvancedInputState = createInputState;
 export default createAdvancedInputState;
 

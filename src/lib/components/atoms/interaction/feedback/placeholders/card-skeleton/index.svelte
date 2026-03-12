@@ -18,7 +18,7 @@
 		<div class="overflow-hidden rounded-lg bg-white p-6 shadow">
 			<div class="flex items-center space-x-4">
 				{#if showAvatar}
-					<Skeleton variant="circular" width="48px" height="48px" />
+					<Skeleton variant="icon" width="48px" height="48px" />
 				{/if}
 				<div class="flex-1 space-y-2">
 					<Skeleton width="80%" height="1.25rem" />

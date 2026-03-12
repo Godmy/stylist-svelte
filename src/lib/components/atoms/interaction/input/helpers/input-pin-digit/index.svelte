@@ -2,7 +2,7 @@
 	import { createPinInputDigitState } from '$stylist/design-system/models/interaction/input-pin-digit.svelte';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
-	import type { InputVariant } from '$stylist/design-system/tokens/information/input-variants';
+	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 	type PinInputSize = (typeof COMPONENT_SIZE)[number];
 
@@ -58,3 +58,4 @@
 </script>
 
 <input class={classes} maxLength={1} {value} {...restProps} />
+

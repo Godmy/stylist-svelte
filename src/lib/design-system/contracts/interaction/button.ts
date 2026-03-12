@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { Props, ClassProp } from '../information/common';
 
 type ButtonAttributesBase = Omit<HTMLButtonAttributes, 'class'> & ClassProp;
@@ -60,3 +60,4 @@ export interface ButtonControlProps extends ButtonAttributesBase {
 }
 
 export type { ClassProp };
+

@@ -2,7 +2,6 @@ import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
 import type { Alignment, Justification, Orientation, ComponentSize } from '../../tokens';
-import type { HorizontalGap as LayoutHorizontalGap } from '../../tokens/architecture/layout';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
 
 /**
@@ -20,7 +19,7 @@ export interface LayoutSection {
  */
 export interface VerticalLayoutProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
-	gap?: LayoutHorizontalGap;
+	gap?: ComponentSize;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
 	fillHeight?: boolean;
@@ -34,7 +33,7 @@ export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDi
 	children?: Snippet;
 	sections?: LayoutSection[];
 	direction?: Orientation;
-	gap?: LayoutHorizontalGap;
+	gap?: ComponentSize;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
 	responsive?: boolean;
@@ -49,7 +48,7 @@ export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDi
 export interface GridLayoutExtendedProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	children: Snippet;
 	cols?: number;
-	gap?: LayoutHorizontalGap;
+	gap?: ComponentSize;
 	responsive?: boolean;
 	alignItems?: Alignment;
 	justifyContent?: Justification;

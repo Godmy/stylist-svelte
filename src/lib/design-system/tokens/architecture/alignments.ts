@@ -16,11 +16,13 @@ export const ALIGNMENTS = [
 	'right-center',
 	'right-start',
 	'right-end',
-	'center'
+	'center',
+	'justify'
 ] as const;
 export type Alignment = (typeof ALIGNMENTS)[number];
 
 export type DividerAlign = Extract<Alignment, 'left' | 'center' | 'right'>;
+export type TextAlign = Alignment;
 
 /** Justification tokens */
 export const JUSTIFICATIONS = ['stretch', 'baseline', 'between', 'around', 'evenly', 'justify'] as const;

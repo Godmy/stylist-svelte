@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SidebarVariant } from '$stylist/design-system/tokens/architecture/sidebar';
+import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 export type CardData = {
   id: string;
@@ -61,6 +61,7 @@ export const DRAGGABLE_CARD_PRESETS = {
     showMenu: true
   }
 };
+
 
 
 

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { PaymentMethodType } from '../../tokens/interaction/payment-methods';
-import type { PaymentStatus } from '../../tokens/interaction/sales';
+import type { PaymentStatus } from '../../tokens/interaction/statuses';
 
 export type PaymentMethod = {
   id: string;
@@ -103,5 +103,6 @@ export interface PaymentSummaryProps extends HTMLAttributes<HTMLDivElement> {
   status?: PaymentStatus;
   class?: string;
 }
+
 
 

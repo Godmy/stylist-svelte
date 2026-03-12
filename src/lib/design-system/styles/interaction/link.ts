@@ -1,6 +1,6 @@
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { InlineCodeVariant } from '../../tokens/architecture/code';
-import type { DefaultVariants } from '../../tokens/information/input-variants';
+import type { InlineCodeVariant } from '../../tokens/interaction/variants';
+import type { DefaultVariants } from '../../tokens/interaction/variants';
 
 export const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
 	default: 'bg-[--color-background-secondary] text-[--color-text-primary]',
@@ -14,6 +14,7 @@ export const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	success: 'text-[var(--color-success-600)]',
 	warning: 'text-[var(--color-warning-600)]',
 	danger: 'text-[var(--color-danger-600)]',
+	error: 'text-[var(--color-danger-600)]',
 	info: 'text-[var(--color-info-600)]',
 	solid: 'text-[var(--color-primary-500)]',
 	outline: 'text-[var(--color-text-primary)]',
@@ -90,5 +91,6 @@ export class LinkStyleManager {
 		]);
 	}
 }
+
 
 

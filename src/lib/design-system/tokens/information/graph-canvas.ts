@@ -1,4 +1,4 @@
-﻿import type { MarkerType } from '../architecture/markers';
+import type { PrimitiveMarker } from '../architecture/primitives';
 import { PAN_MODES } from '../architecture/pan-modes';
 
 export const GRAPH_CANVAS_DEFAULTS = {
@@ -12,5 +12,6 @@ export const GRAPH_CANVAS_DEFAULTS = {
 	panButton: 'middle'
 } as const;
 
-export type GraphCanvasGridMode = MarkerType;
+export type GraphCanvasGridMode = PrimitiveMarker;
 export type GraphCanvasPanMode = (typeof PAN_MODES)[number];
+

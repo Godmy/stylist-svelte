@@ -1,4 +1,4 @@
-import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
+import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export class LineChartStyleManager {
@@ -60,3 +60,4 @@ export class LineChartStyleManager {
     }
   }
 }
+

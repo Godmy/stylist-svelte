@@ -1,8 +1,8 @@
 import { cn, mergeClasses } from '../../utils/cn/index';
-import type { InputVariant } from '../../tokens/information/input-variants';
+import type { InputVariant } from '../../tokens/interaction/variants';
 import type { ComponentSize } from '../../tokens/architecture/component-size';
 import { COMPONENT_SIZE } from '../../tokens/architecture/component-size';
-import { INPUT_VARIANTS } from '../../tokens/information/input-variants';
+import { INPUT_VARIANTS } from '../../tokens/interaction/variants';
 import {
 	ACCESSIBILITY_CLASSES,
 	BASE_CLASSES,
@@ -26,7 +26,7 @@ export const INPUT_VARIANT_CLASSES = {
 	filled:
 		'bg-[var(--color-secondary-50)] text-[var(--color-text-primary)] ' +
 		'border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	outlined:
+	outline:
 		'bg-transparent text-[var(--color-text-primary)] ' +
 		'border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
 	ghost:
@@ -242,3 +242,4 @@ export class InputStyleManager {
 }
 
 export default InputStyleManager;
+

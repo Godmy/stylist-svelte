@@ -1,5 +1,5 @@
-﻿import type { ComponentSize } from '../tokens/architecture/component-size';
-import type { INPUT_VARIANTS } from '../tokens/information/input-variants';
+import type { ComponentSize } from '../tokens/architecture/component-size';
+import type { INPUT_VARIANTS } from '../tokens/interaction/variants';
 
 export interface Preset<V extends string, S extends string> {
 	variants: readonly V[];
@@ -67,6 +67,7 @@ export interface ComponentStateOptions<V extends string, S extends string> {
 	class?: string;
 	ariaLabel?: string;
 }
+
 
 
 

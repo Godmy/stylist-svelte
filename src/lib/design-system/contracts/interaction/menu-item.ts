@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 
 export interface MenuItemProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -91,3 +91,4 @@ export const menuItemPresets: Record<string, Partial<MenuItemProps>> = {
     external: true
   }
 };
+

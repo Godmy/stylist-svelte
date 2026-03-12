@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ResponseViewerStatus, DocumentPreviewFormat } from '$stylist/design-system/tokens/architecture/response-viewers';
+import type { ResponseViewerStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { DocumentPreviewFormat } from '$stylist/design-system/tokens/interaction/variants';
 
 /**
  * Response Viewer Status Types
@@ -20,4 +21,5 @@ export type { ResponseViewerProps } from '../interaction/interaction-feedback';
  */
 // Re-export from interaction-forms to avoid duplicates
 export type { DocumentPreviewProps } from '../interaction/interaction-forms';
+
 

@@ -2,6 +2,7 @@ import { cn } from '../../utils/cn/index';
 import { CARD_BASE_CLASSES } from './card';
 
 const ORDER_STATUS_CLASSES = {
+	pending: 'bg-[var(--color-gray-100)] text-[var(--color-gray-800)]',
 	processing: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)]',
 	shipped: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
 	delivered: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
@@ -29,7 +30,7 @@ export class OrderConfirmationStyleManager {
   static getShippingAddressClasses(addressClass: string = ''): string { return cn('rounded-lg border border-[var(--color-border-primary)] p-4', addressClass); }
   static getActionButtonsClasses(actionsClass: string = ''): string { return cn('mt-8 flex flex-wrap gap-3', actionsClass); }
 
-  static getOrderStatusClasses(status: 'processing' | 'shipped' | 'delivered' | 'cancelled'): string {
+  static getOrderStatusClasses(status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'): string {
     return ORDER_STATUS_CLASSES[status];
   }
 

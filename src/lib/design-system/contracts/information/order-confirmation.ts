@@ -1,6 +1,6 @@
 import type { HtmlAttributesBase } from './common';
-import type { OrderStatus as _OrderStatus } from '$stylist/design-system/tokens/interaction/sales';
-import type { BillingItemStatus } from '$stylist/design-system/tokens/interaction/sales';
+import type { OrderStatus as _OrderStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 type OrderStatus = _OrderStatus;
 type PaymentStatus = BillingItemStatus;
@@ -61,6 +61,7 @@ export type IOrderConfirmationProps = HtmlAttributesBase<HTMLDivElement> & {
   currency?: string;
   locale?: string;
 } & IOrderConfirmationEvents;
+
 
 
 

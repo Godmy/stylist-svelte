@@ -1,7 +1,7 @@
 import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
-import type { MarkerType } from '$stylist/design-system/tokens/architecture/markers';
+import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture/primitives';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
@@ -24,7 +24,7 @@ export interface CountBadgeProps extends HtmlAttributesWithChildren<HTMLSpanElem
 }
 
 export interface ListItemMarkerProps extends HtmlAttributesBase<HTMLSpanElement> {
-	type?: MarkerType;
+	type?: PrimitiveMarker;
 	value?: string | number;
 	color?: DefaultVariants;
 	size?: ComponentSize;
@@ -49,5 +49,3 @@ export interface MessageStatusProps {
 	status?: MessageStatusType;
 	size?: ComponentSize;
 }
-
-

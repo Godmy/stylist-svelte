@@ -4,7 +4,7 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { NotificationType } from '$stylist/design-system/tokens/information/verdicts';
+import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
 
 export type ToastType = NotificationType;
 
@@ -23,4 +23,5 @@ export interface IToastStyleClasses {
   type: string;
   visible: string;
 }
+
 

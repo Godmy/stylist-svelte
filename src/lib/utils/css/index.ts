@@ -1,5 +1,6 @@
 import { applyThemeToDOM, darkTheme, lightTheme } from '../../themes';
-import type { Theme, ThemeName } from '../../themes/theme';
+import type { Theme } from '../../themes/contracts/theme';
+import type { ThemeName } from '../../themes/contracts/theme-name';
 
 type ThemeType = ThemeName;
 
@@ -87,3 +88,4 @@ export function normalizeClassNames(...classes: (string | boolean | null | undef
 export function mergeStyles(...styles: (string | null | undefined)[]): string {
 	return styles.filter(Boolean).join('; ');
 }
+

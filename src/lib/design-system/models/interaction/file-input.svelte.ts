@@ -18,7 +18,6 @@ const createInputState = (
 	props: InputStateOptions<InputVariant, InputSize> & Record<string, unknown>
 ) => createBaseInputState(INPUT_FIELD_PRESET, props);
 
-export { createInputState };
 export const createFileInputState = createInputState;
 export default createFileInputState;
 

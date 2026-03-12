@@ -1,8 +1,6 @@
-﻿import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Code as CodeToken } from '$stylist/design-system/tokens/architecture/code';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Code } from '$stylist/design-system/tokens/interaction/variants';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-
-export type Code = CodeToken;
 
 export interface SeparatorProps {
 	orientation?: Orientation;

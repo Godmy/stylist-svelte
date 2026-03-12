@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { QuantitySelectorVariant as QuantitySelectorVariantToken } from '$stylist/design-system/tokens/architecture/quantity-selector';
+import type { QuantitySelectorVariant as QuantitySelectorVariantToken } from '$stylist/design-system/tokens/interaction/variants';
 
 export type QuantitySelectorVariant = QuantitySelectorVariantToken;
 
@@ -22,4 +22,5 @@ export interface IQuantitySelectorProps extends HTMLAttributes<HTMLDivElement> {
 	showButtons?: boolean;
 	label?: string;
 }
+
 

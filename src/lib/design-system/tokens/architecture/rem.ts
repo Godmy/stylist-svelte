@@ -29,33 +29,3 @@ const remEntries = {
 } as const;
 
 export const REM = remEntries;
-export type RemKey = keyof typeof REM;
-export type GridGapKey = '0' | '2' | '4' | '6' | '8' | '12';
-export type PaddingKey = '4' | '6' | '8' | '12';
-export type RadiusKey = '0' | '0.5' | '1' | '1.5' | '2' | '3' | '4' | '6' | 'full';
-export type SpacingKey =
-	| '0'
-	| '0.5'
-	| '1'
-	| '1.5'
-	| '2'
-	| '3'
-	| '4'
-	| '5'
-	| '6'
-	| '8'
-	| '10'
-	| '12'
-	| '16'
-	| '20'
-	| '24'
-	| '32'
-	| '40'
-	| '48'
-	| '56'
-	| '64'
-	| '72'
-	| '80'
-	| '96'
-	| '112'
-	| '128';

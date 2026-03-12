@@ -1,4 +1,4 @@
-﻿import type { LinkCardVariant } from '$stylist/design-system/tokens/information/link-card';
+import type { DefaultVariants as LinkCardVariant } from '$stylist/design-system/tokens/interaction/variants';
 import { cn } from '../../utils/cn/index';
 import { CARD_BASE_CLASSES } from './card';
 
@@ -13,8 +13,8 @@ const LINK_CARD_VARIANT_CLASSES = {
 		'bg-[--color-success-50] border-[--color-success-200] hover:border-[--color-success-300]',
 	warning:
 		'bg-[--color-warning-50] border-[--color-warning-200] hover:border-[--color-warning-300]',
-	danger:
-		'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
+	danger: 'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
+	error: 'bg-[--color-danger-50] border-[--color-danger-200] hover:border-[--color-danger-300]',
 	info:
 		'bg-[--color-info-50] border-[--color-info-200] hover:border-[--color-info-300]',
 	solid:
@@ -74,5 +74,9 @@ export class LinkCardStyleManager {
 		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
 	}
 }
+
+
+
+
 
 

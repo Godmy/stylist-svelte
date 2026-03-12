@@ -1,8 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { Alignment } from '../../tokens/architecture/alignments';
-import type { TooltipVariant } from '../../tokens/architecture/tooltip';
 import type { TooltipTrigger } from '../../tokens/interaction/triggers';
+
+export type TooltipVariant = 'default' | 'with-arrow' | 'simple';
 
 export type TooltipPlacement = Extract<
 	Alignment,
@@ -101,5 +102,6 @@ export interface TooltipProps extends HTMLAttributes<HTMLElement> {
 	 */
 	onHide?: () => void;
 }
+
 
 

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { SidebarVariant } from '$stylist/design-system/tokens/architecture/sidebar';
+import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 export type PaginationProps = {
   currentPage: number;
@@ -18,3 +18,4 @@ export type PaginationProps = {
   disabledButtonClass?: string;
   onPageChange?: (page: number) => void;
 } & HTMLAttributes<HTMLDivElement>;
+

@@ -1,6 +1,6 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { ChartType } from '$stylist/design-system/tokens/architecture/chart-types';
-import type { LineChartVariant } from '$stylist/design-system/tokens/architecture/line-chart-variants';
+import type { PrimitiveChart } from '$stylist/design-system/tokens/architecture/primitives';
+import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { HTMLCanvasAttributes } from 'svelte/elements';
 
 /**
@@ -70,7 +70,7 @@ export interface CanvasChartProps extends HTMLCanvasAttributes {
    * Type of chart to render
    * @default 'line'
    */
-  type?: ChartType;
+  type?: PrimitiveChart;
 
   /**
    * Chart title displayed at the top
@@ -174,7 +174,7 @@ export interface CanvasChartPreset {
    * Default chart type
    * @default 'line'
    */
-  type: ChartType;
+  type: PrimitiveChart;
 
   /**
    * Default variant
@@ -293,6 +293,8 @@ export function getCanvasChartPreset(
       return CANVAS_CHART_PRESET;
   }
 }
+
+
 
 
 

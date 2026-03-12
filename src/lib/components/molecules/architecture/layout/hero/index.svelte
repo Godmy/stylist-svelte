@@ -16,7 +16,7 @@
   
   import type { IHeroProps } from '$stylist/design-system/contracts/architecture/hero';
   import type { Background } from '$stylist/design-system/tokens/information/background';
-  import type { Height } from '$stylist/design-system/tokens/architecture/height';
+  import type { Height } from '$stylist/design-system/tokens/architecture/size';
   import { HeroStyleManager } from '$stylist/design-system/styles/architecture/hero';
   import AnimatedNumber from '$stylist/components/atoms/information/data-display/animated-number/index.svelte';
   

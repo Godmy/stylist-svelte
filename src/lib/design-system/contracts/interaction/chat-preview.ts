@@ -1,5 +1,5 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { CardType } from '$stylist/design-system/tokens/architecture/card-types';
+import type { CardType } from '$stylist/design-system/tokens/interaction/variants';
 
 /** Р­Р»РµРјРµРЅС‚ С‡Р°С‚Р° РґР»СЏ РїСЂРµРІСЊСЋ */
 export interface ChatPreviewItem {
@@ -93,6 +93,7 @@ export const chatPreviewPresets: Record<string, Partial<ChatPreviewProps>> = {
     size: 'lg'
   }
 };
+
 
 
 

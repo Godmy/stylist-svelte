@@ -5,7 +5,7 @@
  * данный файл отвечает только за типизацию компонента BillingSummary
  */
 import type { HtmlAttributesBase } from './common';
-import type { BillingItemStatus as BillingItemStatusToken, BillingSummaryStatus as BillingSummaryStatusToken } from '../../tokens/interaction/sales';
+import type { BillingItemStatus as BillingItemStatusToken, BillingSummaryStatus as BillingSummaryStatusToken } from '../../tokens/interaction/statuses';
 
 /**
  * Возможные статусы элемента счета
@@ -139,5 +139,6 @@ export interface IBillingSummaryProps extends HtmlAttributesBase<HTMLDivElement>
    */
   footerClass?: string;
 }
+
 
 

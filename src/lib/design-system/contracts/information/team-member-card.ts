@@ -20,7 +20,7 @@ export interface IAchievement {
   description: string;
 }
 
-import type { CardType } from '$stylist/design-system/tokens/architecture/card-types';
+import type { CardType } from '$stylist/design-system/tokens/interaction/variants';
 
 /**
  * Variant options for TeamMemberCard
@@ -76,6 +76,7 @@ export interface ITeamMemberCardProps {
    */
   class?: string;
 }
+
 
 
 

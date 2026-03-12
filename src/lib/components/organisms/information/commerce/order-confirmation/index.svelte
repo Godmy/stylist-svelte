@@ -48,6 +48,11 @@
   }: IOrderConfirmationProps = $props();
 
   let orderStatusConfig = $derived({
+    'pending': {
+      icon: Package,
+      text: 'Pending',
+      color: OrderConfirmationStyleManager.getOrderStatusClasses('pending')
+    },
     'processing': {
       icon: Package,
       text: 'Processing',
@@ -345,5 +350,4 @@
     </div>
   </div>
 </div>
-
 

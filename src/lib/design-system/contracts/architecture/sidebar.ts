@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentType, Snippet } from 'svelte';
 import type { Alignment } from '../../tokens/architecture/alignments';
-import type { SidebarVariant } from '../../tokens/architecture/sidebar';
+import type { SidebarVariant } from '../../tokens/interaction/variants';
 
 export type NavItem = {
   id: string;
@@ -36,3 +36,4 @@ export type SidebarProps = {
   logoClass?: string;
   footerClass?: string;
 } & HTMLAttributes<HTMLElement>;
+

@@ -1,7 +1,9 @@
-import type { DefaultVariants } from '../../tokens/information/input-variants';
+import type { DefaultVariants } from '../../tokens/interaction/variants';
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { ComponentShape } from '../../tokens/architecture/shapes';
+import type { PrimitiveCorner, PrimitiveShape } from '../../tokens/architecture/primitives';
 import { cn } from '../../utils/cn/index';
+
+type IconWrapperShape = Extract<PrimitiveShape, 'circle' | 'square' | 'pill'> | Extract<PrimitiveCorner, 'rounded'>;
 
 export const TOKEN_ICON_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'w-3 h-3',
@@ -19,6 +21,7 @@ export const TOKEN_ICON_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	success: 'text-[--color-success-500]',
 	warning: 'text-[--color-warning-500]',
 	danger: 'text-[--color-danger-500]',
+	error: 'text-[--color-danger-500]',
 	info: 'text-[--color-info-500]',
 	solid: 'text-[--color-primary-500]',
 	outline: 'text-[--color-text-primary]',
@@ -40,7 +43,7 @@ export const TOKEN_ICON_WRAPPER_PADDING_CLASSES: Record<ComponentSize, string> =
 	'2xl': 'p-4'
 };
 
-export const TOKEN_ICON_WRAPPER_SHAPE_CLASSES: Record<ComponentShape, string> = {
+export const TOKEN_ICON_WRAPPER_SHAPE_CLASSES: Record<IconWrapperShape, string> = {
 	circle: 'rounded-full',
 	square: 'rounded-none',
 	rounded: 'rounded-md',
@@ -54,6 +57,7 @@ export const TOKEN_ICON_WRAPPER_COLOR_CLASSES: Record<DefaultVariants, string> =
 	success: 'text-[--color-success-500] bg-[--color-success-100]',
 	warning: 'text-[--color-warning-500] bg-[--color-warning-100]',
 	danger: 'text-[--color-danger-500] bg-[--color-danger-100]',
+	error: 'text-[--color-danger-500] bg-[--color-danger-100]',
 	info: 'text-[--color-info-500] bg-[--color-info-100]',
 	gray: 'text-[--color-neutral-500] bg-[--color-neutral-100]',
 	solid: 'text-[--color-primary-600] bg-[--color-primary-100]',
@@ -164,3 +168,5 @@ export class IconStyleManager {
 		);
 	}
 }
+
+

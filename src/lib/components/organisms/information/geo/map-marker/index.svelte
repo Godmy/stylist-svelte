@@ -42,7 +42,7 @@ const Car = 'car';
    * @param size - Size of the marker ('sm' | 'md' | 'lg')
    * @param showPopup - Whether to initially show the popup
    * @param popupContent - Custom content for the popup
-   * @param pinStyle - Style of the pin ('standard' | 'flag' | 'custom')
+   * @param pinStyle - Style of the pin ('line' | 'flag' | 'ring' | 'anchor')
    * @param rating - Rating from 0-5
    * @param contactInfo - Contact information to display
    * @param distance - Distance string to display
@@ -61,13 +61,13 @@ const Car = 'car';
     title,
     description,
     snippet,
-    type = 'default',
+    type = 'place',
     category,
     color = '',
     size = 'md',
     showPopup = false,
     popupContent,
-    pinStyle = 'standard',
+    pinStyle = 'line',
     rating,
     contactInfo,
     distance,
@@ -157,7 +157,7 @@ const Car = 'car';
       if (e.key === 'Enter' || e.key === ' ') handleClick();
     }}
   >
-    {#if pinStyle === 'standard'}
+    {#if pinStyle === 'line'}
       <BaseIcon
         name={MapPin}
         class={pinStyleClasses}

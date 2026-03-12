@@ -5,7 +5,6 @@ export type { GradientVariant } from './gradient-background';
 export type { GridItem, GridItemContent, SpacerAxis } from './layout';
 export type { SideBySideLayoutProps, SplitLayoutProps, StackedLayoutProps } from './layout-extended';
 export type { LineChartData, LineChartPoint } from './line-chart';
-export type { Code } from './separator';
 export type { NavItem, SidebarProps } from './sidebar';
 export type { AspectRatioProps } from './aspect-ratio';
 export type { IBarChartProps, IBarPosition, IChartDataPoint } from './bar-chart';

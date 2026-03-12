@@ -1,33 +1,33 @@
-﻿import type { MarkerType } from '$stylist/design-system/tokens/architecture/markers';
+import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture/primitives';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
- * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ С…РѕР»СЃС‚Р° РіСЂР°С„Р°
+ * Менеджер стилей для холста графа
  */
 export class GraphCanvasStyleManager {
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ РєРѕРЅС‚РµР№РЅРµСЂР° С…РѕР»СЃС‚Р°
+	 * Получает класс контейнера холста
 	 */
 	static getContainerClass(className?: string): string {
 		return cn('graph-canvas', className);
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ СЃРµС‚РєРё
+	 * Получает класс сетки
 	 */
-	static getGridClass(gridMode: MarkerType, className?: string): string {
+	static getGridClass(gridMode: PrimitiveMarker, className?: string): string {
 		return cn('graph-canvas__grid', `graph-canvas__grid--${gridMode}`, className);
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ РєРѕРЅС‚РµРЅС‚Р°
+	 * Получает класс контента
 	 */
 	static getContentClass(className?: string): string {
 		return cn('graph-canvas__content', className);
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ СЃС‚РёР»Рё СЃРµС‚РєРё
+	 * Получает стили сетки
 	 */
 	static getGridStyles(
 		gridSize: number,
@@ -42,14 +42,14 @@ export class GraphCanvasStyleManager {
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ СЃС‚РёР»Рё С‚СЂР°РЅСЃС„РѕСЂРјР°С†РёРё
+	 * Получает стили трансформации
 	 */
 	static getTransformStyles(offsetX: number, offsetY: number, zoom: number): string {
 		return `transform: translate(${offsetX}px, ${offsetY}px) scale(${zoom}); transform-origin: 0 0;`;
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ CSS РґР»СЏ РїР°С‚С‚РµСЂРЅР° СЃРµС‚РєРё
+	 * Получает CSS для паттерна сетки
 	 */
 	static getGridPatternCSS(gridSize: number, gridColor: string): string {
 		return `
@@ -61,7 +61,7 @@ export class GraphCanvasStyleManager {
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ CSS РґР»СЏ С‚РѕС‡РµС‡РЅРѕР№ СЃРµС‚РєРё
+	 * Получает CSS для точечной сетки
 	 */
 	static getDotsPatternCSS(gridSize: number, gridColor: string): string {
 		return `
@@ -71,7 +71,7 @@ export class GraphCanvasStyleManager {
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ CSS РґР»СЏ РєСЂРµСЃС‚РѕРѕР±СЂР°Р·РЅРѕР№ СЃРµС‚РєРё
+	 * Получает CSS для крестообразной сетки
 	 */
 	static getCrossPatternCSS(gridSize: number, gridColor: string): string {
 		return `
@@ -85,6 +85,7 @@ export class GraphCanvasStyleManager {
 }
 
 export default GraphCanvasStyleManager;
+
 
 
 

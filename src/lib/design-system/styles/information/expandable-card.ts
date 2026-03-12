@@ -25,7 +25,7 @@ export class ExpandableCardStyleManager {
       case 'minimal':
         variantClasses = 'border-none shadow-none';
         break;
-      case 'outlined':
+      case 'outline':
         variantClasses = 'shadow-none border-2';
         break;
       case 'filled':

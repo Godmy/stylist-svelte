@@ -1,5 +1,5 @@
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { Code } from '../../tokens/architecture/code';
+import type { Code } from '../../tokens/interaction/variants';
 import type { DefaultVariants } from '../../tokens';
 import { cn } from '../../utils/cn/index';
 
@@ -10,6 +10,7 @@ export const BADGE_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	success: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
 	warning: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)]',
 	danger: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]',
+	error: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]',
 	info: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
 	gray: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',
 	neutral: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',
@@ -97,3 +98,4 @@ export class BadgeStyleManager {
 		);
 	}
 }
+

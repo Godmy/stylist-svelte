@@ -43,7 +43,7 @@ export interface IExpandableCardProps extends Omit<HTMLAttributes<HTMLDivElement
    * Variant of the expandable card
    * @default 'default'
    */
-  variant?: 'default' | 'minimal' | 'outlined' | 'filled';
+  variant?: 'default' | 'minimal' | 'outline' | 'filled';
 
   /**
    * Additional CSS classes for the main card container

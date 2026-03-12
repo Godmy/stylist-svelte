@@ -1,5 +1,5 @@
 import type { Density } from '$stylist/design-system/tokens';
-import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
 
 import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
@@ -93,6 +93,7 @@ export interface MessageThreadProps extends HtmlAttributesBase<HTMLDivElement> {
 	variant?: Density;
 	messageVariant?: DefaultVariants | NeutralVariant;
 }
+
 
 
 

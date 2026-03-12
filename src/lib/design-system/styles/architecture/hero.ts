@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 import type { Background } from '$stylist/design-system/tokens/information/background';
-import type { Height } from '$stylist/design-system/tokens/architecture/height';
+import type { Height } from '$stylist/design-system/tokens/architecture/size';
 import { cn } from '../../utils/cn/index';
 
 const HERO_HEIGHT_CLASSES: Record<Height, string> = {

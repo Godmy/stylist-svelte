@@ -12,7 +12,6 @@ export class ToastStyleManager {
       info: 'toast-variant-info',
       success: 'toast-variant-success', 
       warning: 'toast-variant-warning',
-      danger: 'toast-variant-error',
       error: 'toast-variant-error'
     };
 

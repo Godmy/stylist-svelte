@@ -1,54 +1,75 @@
 # themes
 
-Theme domain for Stylist UI.
+Theme runtime domain for Stylist UI.
 
 ## Purpose
 
-- Keep theme primitives and theme variants in one place.
-- Provide a single runtime path to apply themes into CSS variables.
-- Expose Svelte context helpers for app-wide theme switching.
+- Keep all theme contracts, tokens, defaults, and runtime helpers in one place.
+- Provide one stable path from theme data to CSS variables on DOM.
+- Keep component styling dependent on semantic CSS variables.
 
-## Ownership
+## Folder Map
 
-`src/lib/themes` is the only owner of:
+```text
+src/lib/themes
+|- contracts/
+|  |- theme/
+|  |- theme-colors/
+|  |- theme-name/
+|  |- theme-scheme/
+|  `- theme-scheme-id/
+|- tokens/
+|  |- border-radius/
+|  |- box-shadows/
+|  |- colors/
+|  |- colors-scales/
+|  |- scale/
+|  |- size/
+|  |- spacing/
+|  `- typography/
+|- defaults/
+|  |- theme-schemes/
+|  `- themes/
+`- runtime/
+   |- theme-context/
+   |- theme-provider/
+   |- theme-consumer/
+   `- utils/css/
+```
 
-- theme mode resolution (`light` / `dark` / `system`)
-- UI scheme registry (Minimal/Ocean/Forest/Sunset)
-- applying theme/scheme values to DOM CSS variables
-- theme context provider/consumer wiring
+## Change Policy
 
-`src/lib/design-system` is a consumer of CSS vars and must not own theme runtime.
+### Closed Nodes (Edit with high caution)
 
-## Structure
+- `contracts/theme-name`: canonical theme mode identifiers.
+- `contracts/theme-scheme-id`: canonical scheme identifiers.
+- `contracts/theme`: root `Theme` shape used by runtime and consumers.
+- `runtime/theme-context`: Svelte context key and typed API.
+- `runtime/utils/css`: variable naming and DOM-application behavior.
 
-- `colors/`:
-  color values and palette-level constants.
-- `scale/`:
-  numeric scale primitives (50..900) used for ordered token groups (e.g. font weight, color shade keys).
-- `size/`:
-  physical size primitives in CSS units (`rem`/`px`) used for spacing/radius/font-size values.
-- `theme/`:
-  theme types, names, context, and concrete variants (`light`, `dark`, `default`).
-- `schemes/`:
-  UI scheme registry and IDs.
-- `theme-provider/` and `theme-consumer/`:
-  Svelte wrappers for reading/writing theme context.
-- `utils/css/`:
-  conversion of theme object to CSS variables and DOM application.
+### Scalable Nodes (Expected to grow)
 
-## Main API
+- `tokens/colors-scales/*`: add new scales or shades.
+- `tokens/typography/*`: add typography token values.
+- `tokens/size`, `tokens/spacing`, `tokens/border-radius`, `tokens/box-shadows`: expand value maps.
+- `defaults/themes/*`: add or evolve concrete theme variants.
+- `defaults/theme-schemes`: add UI schemes for the selector.
 
-- `lightTheme`, `darkTheme`, `defaultTheme`
-- `ThemeName`, `Theme`, `ThemeColors`, `ThemeContext`
-- `setThemeContext`, `getThemeContext`, `getThemeContextOptional`
-- `THEME_SCHEMES`, `THEME_SCHEMES_BY_ID`
-- `themeToCSSVars`, `applyThemeToDOM`, `applySchemeToDOM`, `applyThemeModeAndScheme`, `generateThemeCSS`
+## How to Extend
 
-## Scaling Rules
+1. Add or update token values under `tokens/*`.
+2. If semantic shape changes, update `contracts/theme-colors` or `contracts/theme-typography` first.
+3. Update concrete variants in `defaults/themes/*`.
+4. If new scheme is needed, add it in `defaults/theme-schemes` and keep `contracts/theme-scheme-id` in sync.
+5. If mode set changes, update `contracts/theme-name`, then adjust runtime resolution in `runtime/utils/css`.
+6. Run index generation: `python -u "d:\2026\code\template\stylist\indexation\cli.py"`.
+7. Run checks: `python -u "d:\2026\code\template\stylist\errors\cli.py"`.
 
-- Add new visual mode by creating one variant in `theme/variants/`.
-- Add new UI scheme in `schemes/`.
-- Keep `scale/` and `size/` separate:
-  `Scale` for ordinal steps, `Size` for CSS dimensions.
-- Keep component styling dependent on CSS vars, not hardcoded values.
-- Reuse `themes/utils/css` as the only place that writes theme vars to DOM.
+## Public API
+
+`src/lib/themes/index.ts` re-exports:
+
+- Contracts: `Theme`, `ThemeColors`, `ThemeTypography`, `ThemeName`, `ThemeScheme`, `ThemeSchemeId`.
+- Token values: `COLORS`, `COLORS_SCALES_*`, `Scale`, `Size`, `THEME_SPACING`, `THEME_RADIUS`, `THEME_BOX_SHADOW`, `TYPOGRAPHY_*`.
+- Defaults: `lightTheme`, `darkTheme`, `defaultTheme`, `THEME_SCHEMES`, `THEME_SCHEMES_BY_ID`.
+- Runtime: `ThemeProvider`, `ThemeConsumer`, `setThemeContext`, `getThemeContext`, `applyThemeModeAndScheme`, `themeToCSSVars`, etc.

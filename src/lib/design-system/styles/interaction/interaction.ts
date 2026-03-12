@@ -1,4 +1,4 @@
-import type { DefaultVariants } from '../../tokens/information/input-variants';
+import type { DefaultVariants } from '../../tokens/interaction/variants';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
 
@@ -23,6 +23,9 @@ export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 		'bg-[var(--color-warning-500)] text-[var(--color-text-inverse)] ' +
 		'border border-transparent hover:bg-[var(--color-warning-600)]',
 	danger:
+		'bg-[var(--color-danger-600)] text-[var(--color-text-inverse)] ' +
+		'border border-transparent hover:bg-[var(--color-danger-700)]',
+	error:
 		'bg-[var(--color-danger-600)] text-[var(--color-text-inverse)] ' +
 		'border border-transparent hover:bg-[var(--color-danger-700)]',
 	info:
@@ -84,3 +87,4 @@ export class InteractionStyleManager {
 		return INTERACTIVE_VARIANTS;
 	}
 }
+

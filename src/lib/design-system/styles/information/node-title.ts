@@ -1,13 +1,13 @@
-﻿import type { NodeTitleVariant } from '$stylist/design-system/tokens/information/node-title';
+import type { NodeTitleVariant } from '$stylist/design-system/tokens/interaction/statuses';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
- * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ Р·Р°РіРѕР»РѕРІРєРѕРІ СѓР·Р»РѕРІ РіСЂР°С„Р°
+ * Менеджер стилей для заголовков узлов графа
  */
 export class NodeTitleStyleManager {
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ Р·Р°РіРѕР»РѕРІРєР°
+	 * Получает классы заголовка
 	 */
 	static getTitleClasses(
 		variant: NodeTitleVariant,
@@ -23,7 +23,7 @@ export class NodeTitleStyleManager {
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ inline-СЃС‚РёР»Рё Р·Р°РіРѕР»РѕРІРєР°
+	 * Получает inline-стили заголовка
 	 */
 	static getTitleStyles(color?: string): string {
 		if (!color) return '';
@@ -31,7 +31,7 @@ export class NodeTitleStyleManager {
 	}
 
 	/**
-	 * РџРѕР»СѓС‡Р°РµС‚ С†РІРµС‚ РґР»СЏ РІР°СЂРёР°РЅС‚Р° Р·Р°РіРѕР»РѕРІРєР°
+	 * Получает цвет для варианта заголовка
 	 */
 	static getVariantColor(variant: NodeTitleVariant): string {
 		const colorMap: Record<NodeTitleVariant, string> = {
@@ -45,5 +45,6 @@ export class NodeTitleStyleManager {
 }
 
 export default NodeTitleStyleManager;
+
 
 

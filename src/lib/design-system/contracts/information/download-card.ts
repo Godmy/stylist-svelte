@@ -11,9 +11,9 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-import type { SemanticVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
 
-export type DownloadCardVariant = SemanticVariant;
+export type DownloadCardVariant = ToneVariant;
 
 export interface IFileMetadata {
   /** Имя файла */

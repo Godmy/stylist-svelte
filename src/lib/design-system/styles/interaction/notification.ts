@@ -1,4 +1,4 @@
-import type { SemanticVariant as NotificationType } from '$stylist/design-system/tokens/information/input-variants';
+import type { ToneVariant as NotificationType } from '$stylist/design-system/tokens/interaction/variants';
 import type { NotificationPosition } from '$stylist/design-system/contracts/interaction/notification';
 
 /**
@@ -14,6 +14,7 @@ export class NotificationAtomStyleManager {
       success: 'bg-[--color-success-50] border-[--color-success-200] text-[--color-success-800]',
       warning: 'bg-[--color-warning-50] border-[--color-warning-200] text-[--color-warning-800]',
       danger: 'bg-[--color-danger-50] border-[--color-danger-200] text-[--color-danger-800]',
+      error: 'bg-[--color-danger-50] border-[--color-danger-200] text-[--color-danger-800]',
       info: 'bg-[--color-info-50] border-[--color-info-200] text-[--color-info-800]'
     };
 
@@ -57,4 +58,5 @@ export class NotificationAtomStyleManager {
     return 'inline-flex text-[--color-text-secondary] hover:text-[--color-text-primary] focus:outline-none';
   }
 }
+
 

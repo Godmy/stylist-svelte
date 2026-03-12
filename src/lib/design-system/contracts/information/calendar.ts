@@ -1,4 +1,4 @@
-export type { CalendarViewMode } from '../../tokens/information/calendar';
+export type { CalendarViewMode } from '../../tokens/information/date-time';
 
 /**
  * Shared Calendar Types

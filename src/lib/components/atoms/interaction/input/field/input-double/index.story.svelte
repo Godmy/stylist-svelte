@@ -10,7 +10,7 @@
 		{ name: 'placeholder2', type: 'text', defaultValue: 'Иванов' },
 		{ name: 'value1', type: 'text', defaultValue: '' },
 		{ name: 'value2', type: 'text', defaultValue: '' },
-		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outlined', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
+		{ name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'filled', 'outline', 'ghost', 'info', 'success', 'warning', 'danger', 'solid'] },
 		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] },
 		{ name: 'disabled1', type: 'boolean', defaultValue: false },
 		{ name: 'disabled2', type: 'boolean', defaultValue: false },
@@ -48,3 +48,4 @@
 		/>
 	{/snippet}
 </Story>
+

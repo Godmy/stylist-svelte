@@ -1,6 +1,6 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { InlineCodeVariant } from '$stylist/design-system/tokens/architecture/code';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { InlineCodeVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { HtmlAttributesWithChildren } from '../information/common';
 
 export interface TextProps extends HtmlAttributesWithChildren<HTMLElement> {
@@ -31,6 +31,7 @@ export interface LinkProps extends InlineBaseProps<HTMLAnchorElement> {
 	target?: string;
 	text?: string;
 }
+
 
 
 

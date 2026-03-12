@@ -21,7 +21,7 @@ const Check = 'check';
    * - title: Code block title
    */
 
-  type Props = RestProps & {
+  type CodeBlockProps = RestProps & {
     code?: string;
     language?: string;
     showLineNumbers?: boolean;
@@ -48,7 +48,7 @@ const Check = 'check';
     codeClass = '',
     headerClass = '',
     ...restProps
-  }: Props = $props();
+  }: CodeBlockProps = $props();
 
   let copied = $state(false);
   let codeLines = $derived(code.split('\n'));

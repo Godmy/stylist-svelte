@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type {
 	InteractionState,
 	LoadingState,
@@ -11,9 +11,9 @@ import type {
 } from '$stylist/design-system/tokens/interaction/statuses';
 
 export type {
-	GraphEdgeType,
+	PrimitiveTrajectory as GraphEdgeType,
 	Density,
-	Skeleton,
+	PrimitiveSkeleton as Skeleton,
 	TableCell,
 } from '$stylist/design-system/tokens';
 
@@ -190,4 +190,5 @@ export type {
 	ValidationState,
 	VisibilityState
 };
+
 

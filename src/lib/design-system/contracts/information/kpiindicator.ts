@@ -5,7 +5,8 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { KPIStatus, KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
+import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
+import type { KPIStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 /**
  * Варианты статуса KPI индикатора
@@ -84,3 +85,6 @@ export interface IKPIIndicatorProps extends HTMLAttributes<HTMLDivElement> {
    */
   valueClass?: string;
 }
+
+
+

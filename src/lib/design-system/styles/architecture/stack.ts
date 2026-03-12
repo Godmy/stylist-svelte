@@ -25,6 +25,7 @@ export const STACK_ALIGN_CLASSES: Record<Alignment, string> = {
 	'right-start': 'items-start',
 	'right-end': 'items-end',
 	center: 'items-center',
+	justify: 'items-center',
 };
 
 export const STACK_JUSTIFY_CLASSES: Record<Justification, string> = {

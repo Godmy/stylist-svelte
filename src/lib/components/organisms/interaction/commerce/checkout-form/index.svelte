@@ -272,7 +272,7 @@ const CheckCircle = 'check-circle';
     confirmation: 'Confirmation'
   };
 
-  type StepStatus = 'complete' | 'current' | 'upcoming';
+  type StepStatus = 'completed' | 'current' | 'upcoming';
 
   function getStepIndex(step: CheckoutStep | string) {
     const idx = orderedSteps.indexOf(step as CheckoutStep);
@@ -284,7 +284,7 @@ const CheckCircle = 'check-circle';
     const targetIndex = getStepIndex(step);
 
     if (targetIndex < currentIndex) {
-      return 'complete';
+      return 'completed';
     }
 
     if (targetIndex === currentIndex) {
@@ -349,11 +349,11 @@ const CheckCircle = 'check-circle';
           <div class={`flex flex-col items-center ${i < 3 ? 'flex-1' : ''}`}>
             <div class="flex items-center">
               <div class={`w-8 h-8 rounded-full flex items-center justify-center ${
-                getStepStatus(step) === 'complete' ? 'bg-blue-600 text-white' :
+                getStepStatus(step) === 'completed' ? 'bg-blue-600 text-white' :
                 getStepStatus(step) === 'current' ? 'bg-white border-2 border-blue-600 text-blue-600' :
                 'bg-gray-200 text-gray-500'
               }`}>
-                {#if getStepStatus(step) === 'complete'}
+                {#if getStepStatus(step) === 'completed'}
                   <BaseIcon name={Check} class="h-4 w-4" />
                 {:else if getStepStatus(step) === 'current'}
                   {i + 1}
@@ -925,4 +925,5 @@ const CheckCircle = 'check-circle';
     </div>
   </div>
 </div>
+
 

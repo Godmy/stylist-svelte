@@ -1,13 +1,13 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
-  import type { ThemeMode } from '$stylist/themes/utils/css';
-  import { applyThemeModeAndScheme } from '$stylist/themes/utils/css';
+  import type { ThemeMode } from '$stylist/themes/runtime/utils/css';
+  import { applyThemeModeAndScheme } from '$stylist/themes/runtime/utils/css';
   import {
     THEME_SCHEMES,
     type ThemeScheme,
     type ThemeSchemeId
-  } from '$stylist/themes/schemes';
+  } from '$stylist/themes/defaults/theme-schemes';
 const Palette = 'palette';
 
 

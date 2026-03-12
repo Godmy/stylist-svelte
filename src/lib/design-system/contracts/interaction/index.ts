@@ -30,11 +30,12 @@ export type { PaymentMethod, PaymentSummaryDiscount, PaymentSummaryItem, Payment
 export type { TimeRange } from './performance-dashboard';
 export type { QuantitySelectorVariant } from './quantity-selector';
 export type { LabelPosition } from './switch-with-label';
+export type { TabGroupVariant } from './tab-group';
 export type { ColumnConfig, SortableListItem } from './table-controls';
 export type { TableRecord } from './table-extended';
 export type { TabContainerProps, TabIndicatorColor } from './tabs';
 export type { ToastType } from './toast';
-export type { TooltipPlacement } from './tooltip';
+export type { TooltipPlacement, TooltipVariant } from './tooltip';
 export type { TreeNode } from './tree-controls';
 export type { AccordionBaseProps, AccordionHeaderDoubleProps, AccordionHeaderProps, AccordionItemProps, AccordionPanelProps, ComplexAccordionProps, IAccordionProps } from './accordion';
 export type { AccountSettingsFormProps, UserProfileCardProps } from './account-forms';

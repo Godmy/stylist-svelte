@@ -1,6 +1,6 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type {
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,
@@ -16,6 +16,7 @@ export type ToolbarVariant =
 	| 'success'
 	| 'warning'
 	| 'danger'
+	| 'error'
 	| 'info'
 	| 'neutral'
 	| 'dark'
@@ -194,5 +195,6 @@ export interface ProductSortOption {
 	value: string;
 	label: string;
 }
+
 
 

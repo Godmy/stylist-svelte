@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/information/input-variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { IDisableable, ILoadable, IStyleable } from './common';
 
 export interface IAlertAction {
@@ -40,6 +40,7 @@ export interface IAlertCardElementProps extends IDisableable, ILoadable, IStylea
 }
 
 export type AlertCardElementProps = IAlertCardElementProps;
+
 
 
 
