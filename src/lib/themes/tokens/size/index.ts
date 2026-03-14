@@ -24,6 +24,18 @@ export const Size = {
 	'96': '24rem',
 	'112': '28rem',
 	'128': '32rem',
+	custom035: '0.35rem',
+	custom072: '0.72rem',
+	custom086: '0.86rem',
+	custom09: '0.9rem',
+	custom095: '0.95rem',
+	custom105: '1.05rem',
+	custom12: '1.2rem',
+	custom22: '2.2rem',
+	custom23: '2.3rem',
+	custom2875: '2.875rem',
+	custom45: '4.5rem',
+	custom90: '9rem',
 	full: '9999px'
 } as const;
 

@@ -1,4 +1,4 @@
-﻿import type { Scale } from '../../scale';
+import type { Scale } from '../../scale';
 
 export const COLORS_SCALES_SLATE: Scale = {
 	50: '#f8fafc',
@@ -12,5 +12,7 @@ export const COLORS_SCALES_SLATE: Scale = {
 	800: '#1e293b',
 	900: '#0f172a'
 };
+
+
 
 

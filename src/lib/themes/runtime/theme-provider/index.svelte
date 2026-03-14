@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
-	import { applyThemeToDOM } from '../utils/css';
+	import { applyThemeToDOM } from '../css';
 	import { setThemeContext } from '../theme-context';
 	import { darkTheme, lightTheme } from '../../defaults/themes';
 	import type { Theme } from '../../contracts/theme';
@@ -57,4 +57,7 @@
 <div class={containerClass} {...restProps}>
 	{@render children()}
 </div>
+
+
+
 

@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="3" y="3" width="18" height="18" rx="2"/>
-  <path d="M3 9h18"/>
+  <title>playground-code-viewer</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M10.0 6v12"/>
   <path d="m8 8-4 4 4 4M16 8l4 4-4 4"/>
   <path d="m13 5-3 14"/>
 </svg>

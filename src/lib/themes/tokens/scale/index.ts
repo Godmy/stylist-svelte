@@ -1,4 +1,4 @@
-export interface Scale {
+﻿export interface Scale {
 	50: string;
 	100: string;
 	200: string;
@@ -23,3 +23,5 @@ export const Scale: Scale = {
 	800: '800',
 	900: '900'
 };
+
+export type ScaleKey = keyof typeof Scale;

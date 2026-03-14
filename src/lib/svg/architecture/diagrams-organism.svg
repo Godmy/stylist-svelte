@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="12" r="8.2"/>
-  <circle cx="6" cy="6" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
+  <title>diagrams-organism</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 9.0h12"/>
+  <circle cx="6" cy="10" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="12" cy="18" r="2"/>
   <path d="M7.7 7.2 16.3 6.8M7 7.5l4 8m6.3-5.9-4.1 7.4"/>
 </svg>

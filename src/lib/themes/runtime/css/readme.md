@@ -1,4 +1,4 @@
-# themes/runtime/utils/css
+# themes/runtime/css
 
 Theme-to-CSS-variable conversion and DOM application helpers.
 

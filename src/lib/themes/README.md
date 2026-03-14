@@ -34,7 +34,7 @@ src/lib/themes
    |- theme-context/
    |- theme-provider/
    |- theme-consumer/
-   `- utils/css/
+   `- css/
 ```
 
 ## Change Policy
@@ -45,7 +45,7 @@ src/lib/themes
 - `contracts/theme-scheme-id`: canonical scheme identifiers.
 - `contracts/theme`: root `Theme` shape used by runtime and consumers.
 - `runtime/theme-context`: Svelte context key and typed API.
-- `runtime/utils/css`: variable naming and DOM-application behavior.
+- `runtime/css`: variable naming and DOM-application behavior.
 
 ### Scalable Nodes (Expected to grow)
 
@@ -61,7 +61,7 @@ src/lib/themes
 2. If semantic shape changes, update `contracts/theme-colors` or `contracts/theme-typography` first.
 3. Update concrete variants in `defaults/themes/*`.
 4. If new scheme is needed, add it in `defaults/theme-schemes` and keep `contracts/theme-scheme-id` in sync.
-5. If mode set changes, update `contracts/theme-name`, then adjust runtime resolution in `runtime/utils/css`.
+5. If mode set changes, update `contracts/theme-name`, then adjust runtime resolution in `runtime/css`.
 6. Run index generation: `python -u "d:\2026\code\template\stylist\indexation\cli.py"`.
 7. Run checks: `python -u "d:\2026\code\template\stylist\errors\cli.py"`.
 

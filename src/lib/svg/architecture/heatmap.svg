@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M6 4h12l4 4v12l-4 4H6l-4-4V8Z"/>
+  <title>heatmap</title>
+  <path d="M4 12a8 8 0 1 0 16 0 8 8 0 1 0-16 0"/>
+  <path d="M6 7.0h12"/>
   <path d="M4 19h16"/>
-  <path d="M7 16v-7M12 16v-7M17 16v-10"/>
+  <path d="M7 16v-7M12 16v-8M17 16v-6"/>
 </svg>

@@ -1,7 +1,7 @@
 /**
  * Auto-generated icon registry
- * Generated at: 2026-03-09T07:12:24.110Z
- * Do not edit manually - run 'npx tsx scripts/svg/generate-registry.ts' to regenerate
+ * Generated at: 2026-03-12T06:10:15.997Z
+ * Do not edit manually - run 'npx tsx scripts/svg/generate-registry/generate.ts' to regenerate
  */
 
 export interface IconEntry {
@@ -13,7 +13,7 @@ export interface IconEntry {
 
 export const ICON_REGISTRY = {
   "$schema": "https://stylist-svelte.dev/schema/icon-registry.json",
-  "generated": "2026-03-09T07:12:24.104Z",
+  "generated": "2026-03-12T06:10:15.988Z",
   "total": 355,
   "categories": {
     "architecture": [
@@ -4672,3 +4672,6 @@ export function listIconsByCategory(category: IconCategory): string[] {
 export function hasIcon(name: string): name is IconName {
   return name in ICON_REGISTRY.byName;
 }
+
+
+

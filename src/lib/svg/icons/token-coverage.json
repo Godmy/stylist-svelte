@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-09T20:06:37.881Z",
+  "generatedAt": "2026-03-09T20:56:51.282Z",
   "totalTokens": 344,
   "rows": [
     {
       "token": "playground",
       "count": 26,
-      "group": "ai"
+      "group": "unknown"
     },
     {
       "token": "code",
@@ -40,7 +40,7 @@
     {
       "token": "layout",
       "count": 7,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "ai",
@@ -50,7 +50,7 @@
     {
       "token": "text",
       "count": 6,
-      "group": "align"
+      "group": "text"
     },
     {
       "token": "calendar",
@@ -60,7 +60,7 @@
     {
       "token": "canvas",
       "count": 5,
-      "group": "chart"
+      "group": "unknown"
     },
     {
       "token": "editor",
@@ -100,7 +100,7 @@
     {
       "token": "list",
       "count": 4,
-      "group": "file"
+      "group": "menu"
     },
     {
       "token": "map",
@@ -120,7 +120,7 @@
     {
       "token": "panel",
       "count": 4,
-      "group": "ai"
+      "group": "unknown"
     },
     {
       "token": "search",
@@ -135,7 +135,7 @@
     {
       "token": "user",
       "count": 4,
-      "group": "chart"
+      "group": "user"
     },
     {
       "token": "zoom",
@@ -165,7 +165,7 @@
     {
       "token": "block",
       "count": 3,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "chart",
@@ -175,7 +175,7 @@
     {
       "token": "circle",
       "count": 3,
-      "group": "status"
+      "group": "unknown"
     },
     {
       "token": "controls",
@@ -185,12 +185,12 @@
     {
       "token": "dashboard",
       "count": 3,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "data",
       "count": 3,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "down",
@@ -210,27 +210,27 @@
     {
       "token": "graph",
       "count": 3,
-      "group": "graph"
+      "group": "unknown"
     },
     {
       "token": "header",
       "count": 3,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "number",
       "count": 3,
-      "group": "animation"
+      "group": "form"
     },
     {
       "token": "preview",
       "count": 3,
-      "group": "file"
+      "group": "unknown"
     },
     {
       "token": "slider",
       "count": 3,
-      "group": "audio"
+      "group": "unknown"
     },
     {
       "token": "status",
@@ -240,7 +240,7 @@
     {
       "token": "table",
       "count": 3,
-      "group": "animation"
+      "group": "table"
     },
     {
       "token": "up",
@@ -275,32 +275,32 @@
     {
       "token": "aspect",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "background",
       "count": 2,
-      "group": "color"
+      "group": "unknown"
     },
     {
       "token": "badge",
       "count": 2,
-      "group": "tag"
+      "group": "unknown"
     },
     {
       "token": "boundary",
       "count": 2,
-      "group": "status"
+      "group": "unknown"
     },
     {
       "token": "calculator",
       "count": 2,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "catalog",
       "count": 2,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "charts",
@@ -320,17 +320,17 @@
     {
       "token": "confirmation",
       "count": 2,
-      "group": "commerce"
+      "group": "status"
     },
     {
       "token": "container",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "cta",
       "count": 2,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "diagrams",
@@ -340,7 +340,7 @@
     {
       "token": "dialog",
       "count": 2,
-      "group": "status"
+      "group": "unknown"
     },
     {
       "token": "download",
@@ -350,12 +350,12 @@
     {
       "token": "drawing",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "expandable",
       "count": 2,
-      "group": "animation"
+      "group": "unknown"
     },
     {
       "token": "field",
@@ -365,27 +365,27 @@
     {
       "token": "group",
       "count": 2,
-      "group": "user"
+      "group": "unknown"
     },
     {
       "token": "hero",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "history",
       "count": 2,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "indicator",
       "count": 2,
-      "group": "chart"
+      "group": "unknown"
     },
     {
       "token": "interaction",
       "count": 2,
-      "group": "ai"
+      "group": "unknown"
     },
     {
       "token": "kanban",
@@ -395,17 +395,17 @@
     {
       "token": "library",
       "count": 2,
-      "group": "chart"
+      "group": "unknown"
     },
     {
       "token": "location",
       "count": 2,
-      "group": "form"
+      "group": "map"
     },
     {
       "token": "markers",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "ontology",
@@ -415,12 +415,12 @@
     {
       "token": "overlay",
       "count": 2,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "performance",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "player",
@@ -440,12 +440,12 @@
     {
       "token": "ratio",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "section",
       "count": 2,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "settings",
@@ -460,12 +460,12 @@
     {
       "token": "side",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "stack",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "stats",
@@ -475,12 +475,12 @@
     {
       "token": "summary",
       "count": 2,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "tag",
       "count": 2,
-      "group": "tag"
+      "group": "unknown"
     },
     {
       "token": "team",
@@ -500,7 +500,7 @@
     {
       "token": "toolbar",
       "count": 2,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "tree",
@@ -510,7 +510,7 @@
     {
       "token": "trending",
       "count": 2,
-      "group": "arrow"
+      "group": "chart"
     },
     {
       "token": "typography",
@@ -525,12 +525,12 @@
     {
       "token": "3x3",
       "count": 1,
-      "group": "table"
+      "group": "unknown"
     },
     {
       "token": "abtest",
       "count": 1,
-      "group": "settings"
+      "group": "unknown"
     },
     {
       "token": "activity",
@@ -540,7 +540,7 @@
     {
       "token": "advanced",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "agile",
@@ -560,7 +560,7 @@
     {
       "token": "applier",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "article",
@@ -575,12 +575,12 @@
     {
       "token": "atom",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "atomic",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "attachment",
@@ -590,7 +590,7 @@
     {
       "token": "auto",
       "count": 1,
-      "group": "search"
+      "group": "unknown"
     },
     {
       "token": "autocomplete",
@@ -600,12 +600,12 @@
     {
       "token": "bar",
       "count": 1,
-      "group": "search"
+      "group": "unknown"
     },
     {
       "token": "behavior",
       "count": 1,
-      "group": "chart"
+      "group": "unknown"
     },
     {
       "token": "billing",
@@ -615,12 +615,12 @@
     {
       "token": "blur",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "box",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "breadcrumb",
@@ -630,22 +630,22 @@
     {
       "token": "breakpoints",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "browser",
       "count": 1,
-      "group": "file"
+      "group": "unknown"
     },
     {
       "token": "bubble",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "bulk",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "button",
@@ -655,12 +655,12 @@
     {
       "token": "buttons",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "caption",
       "count": 1,
-      "group": "image"
+      "group": "unknown"
     },
     {
       "token": "cart",
@@ -670,7 +670,7 @@
     {
       "token": "category",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "cells",
@@ -680,22 +680,22 @@
     {
       "token": "characters",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "checkout",
       "count": 1,
-      "group": "form"
+      "group": "commerce"
     },
     {
       "token": "chip",
       "count": 1,
-      "group": "tag"
+      "group": "unknown"
     },
     {
       "token": "clock",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "collaborate",
@@ -715,12 +715,12 @@
     {
       "token": "columns",
       "count": 1,
-      "group": "table"
+      "group": "unknown"
     },
     {
       "token": "comments",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "comparison",
@@ -730,7 +730,7 @@
     {
       "token": "composer",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "configurator",
@@ -750,7 +750,7 @@
     {
       "token": "content",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "contracts",
@@ -760,12 +760,12 @@
     {
       "token": "conversion",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "converter",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "count",
@@ -785,32 +785,32 @@
     {
       "token": "debug",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "densities",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "design",
       "count": 1,
-      "group": "settings"
+      "group": "unknown"
     },
     {
       "token": "dev",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "development",
       "count": 1,
-      "group": "status"
+      "group": "unknown"
     },
     {
       "token": "device",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "diagram",
@@ -820,7 +820,7 @@
     {
       "token": "dialogs",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "diff",
@@ -830,7 +830,7 @@
     {
       "token": "directed",
       "count": 1,
-      "group": "graph"
+      "group": "unknown"
     },
     {
       "token": "discount",
@@ -840,12 +840,12 @@
     {
       "token": "display",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "divider",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "documentation",
@@ -855,27 +855,27 @@
     {
       "token": "drag",
       "count": 1,
-      "group": "file"
+      "group": "unknown"
     },
     {
       "token": "draggable",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "drawer",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "drop",
       "count": 1,
-      "group": "file"
+      "group": "unknown"
     },
     {
       "token": "element",
       "count": 1,
-      "group": "text"
+      "group": "unknown"
     },
     {
       "token": "errors",
@@ -885,22 +885,22 @@
     {
       "token": "event",
       "count": 1,
-      "group": "calendar"
+      "group": "unknown"
     },
     {
       "token": "export",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "exporter",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "extended",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "favicon",
@@ -910,17 +910,17 @@
     {
       "token": "feature",
       "count": 1,
-      "group": "table"
+      "group": "unknown"
     },
     {
       "token": "feedback",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "filter",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "flag",
@@ -930,27 +930,27 @@
     {
       "token": "flow",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "footer",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "forms",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "frame",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "funnel",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "gallery",
@@ -960,7 +960,7 @@
     {
       "token": "gaps",
       "count": 1,
-      "group": "table"
+      "group": "unknown"
     },
     {
       "token": "gate",
@@ -970,7 +970,7 @@
     {
       "token": "general",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "geo",
@@ -1000,17 +1000,17 @@
     {
       "token": "helper",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "highlighter",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "horizontal",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "icons",
@@ -1020,17 +1020,17 @@
     {
       "token": "in",
       "count": 1,
-      "group": "zoom"
+      "group": "unknown"
     },
     {
       "token": "index",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "indicators",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "inline",
@@ -1040,7 +1040,7 @@
     {
       "token": "inventory",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "json",
@@ -1050,7 +1050,7 @@
     {
       "token": "jsonviewer",
       "count": 1,
-      "group": "map"
+      "group": "unknown"
     },
     {
       "token": "justifications",
@@ -1065,17 +1065,17 @@
     {
       "token": "legend",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "lines",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "link",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "lists",
@@ -1085,7 +1085,7 @@
     {
       "token": "live",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "locator",
@@ -1095,7 +1095,7 @@
     {
       "token": "manager",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "markdown",
@@ -1130,12 +1130,12 @@
     {
       "token": "menus",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "meta",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "metric",
@@ -1150,17 +1150,17 @@
     {
       "token": "minus",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "mission",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "mock",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "models",
@@ -1170,12 +1170,12 @@
     {
       "token": "monitor",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "navigation",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "notification",
@@ -1190,7 +1190,7 @@
     {
       "token": "npm",
       "count": 1,
-      "group": "tag"
+      "group": "unknown"
     },
     {
       "token": "opacity",
@@ -1200,12 +1200,12 @@
     {
       "token": "operations",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "optimizer",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "orientations",
@@ -1215,17 +1215,17 @@
     {
       "token": "out",
       "count": 1,
-      "group": "zoom"
+      "group": "unknown"
     },
     {
       "token": "padding",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "page",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "pagination",
@@ -1235,12 +1235,12 @@
     {
       "token": "panels",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "password",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "permission",
@@ -1270,12 +1270,12 @@
     {
       "token": "planner",
       "count": 1,
-      "group": "map"
+      "group": "unknown"
     },
     {
       "token": "plus",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "policy",
@@ -1285,7 +1285,7 @@
     {
       "token": "popover",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "positions",
@@ -1295,7 +1295,7 @@
     {
       "token": "post",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "prices",
@@ -1305,12 +1305,12 @@
     {
       "token": "principles",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "privacy",
       "count": 1,
-      "group": "settings"
+      "group": "security"
     },
     {
       "token": "products",
@@ -1340,47 +1340,47 @@
     {
       "token": "renderer",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "resource",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "result",
       "count": 1,
-      "group": "ai"
+      "group": "unknown"
     },
     {
       "token": "results",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "return",
       "count": 1,
-      "group": "security"
+      "group": "unknown"
     },
     {
       "token": "reviews",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "rfqform",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "rich",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "room",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "route",
@@ -1390,12 +1390,12 @@
     {
       "token": "row",
       "count": 1,
-      "group": "animation"
+      "group": "unknown"
     },
     {
       "token": "save",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "schedule",
@@ -1405,17 +1405,17 @@
     {
       "token": "screenshot",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "selection",
       "count": 1,
-      "group": "form"
+      "group": "unknown"
     },
     {
       "token": "selectors",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "shadows",
@@ -1425,57 +1425,57 @@
     {
       "token": "shapes",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "shared",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "shortcuts",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "showcase",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "size",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "skeletons",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "sliders",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "social",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "sorting",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "spacer",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "spacing",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "spinner",
@@ -1485,12 +1485,12 @@
     {
       "token": "split",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "stacked",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "stat",
@@ -1500,7 +1500,7 @@
     {
       "token": "state",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "step",
@@ -1510,12 +1510,12 @@
     {
       "token": "stepper",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "store",
       "count": 1,
-      "group": "map"
+      "group": "commerce"
     },
     {
       "token": "style",
@@ -1530,27 +1530,27 @@
     {
       "token": "stylist",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "subscription",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "suggestion",
       "count": 1,
-      "group": "search"
+      "group": "unknown"
     },
     {
       "token": "surface",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "swatch",
       "count": 1,
-      "group": "color"
+      "group": "unknown"
     },
     {
       "token": "tab",
@@ -1560,7 +1560,7 @@
     {
       "token": "tables",
       "count": 1,
-      "group": "interaction"
+      "group": "table"
     },
     {
       "token": "tabs",
@@ -1575,7 +1575,7 @@
     {
       "token": "test",
       "count": 1,
-      "group": "code"
+      "group": "unknown"
     },
     {
       "token": "themes",
@@ -1595,47 +1595,47 @@
     {
       "token": "toasts",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "toggle",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "toggles",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "toolbars",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "tooltip",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "tour",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "tracker",
       "count": 1,
-      "group": "info"
+      "group": "unknown"
     },
     {
       "token": "tracking",
       "count": 1,
-      "group": "commerce"
+      "group": "unknown"
     },
     {
       "token": "traffic",
       "count": 1,
-      "group": "chart"
+      "group": "unknown"
     },
     {
       "token": "transitions",
@@ -1645,7 +1645,7 @@
     {
       "token": "trash",
       "count": 1,
-      "group": "interaction"
+      "group": "unknown"
     },
     {
       "token": "trees",
@@ -1665,7 +1665,7 @@
     {
       "token": "variables",
       "count": 1,
-      "group": "code"
+      "group": "settings"
     },
     {
       "token": "variants",
@@ -1680,7 +1680,7 @@
     {
       "token": "vertical",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "video",
@@ -1690,7 +1690,7 @@
     {
       "token": "view",
       "count": 1,
-      "group": "calendar"
+      "group": "unknown"
     },
     {
       "token": "visualizer",
@@ -1700,27 +1700,27 @@
     {
       "token": "warranty",
       "count": 1,
-      "group": "status"
+      "group": "unknown"
     },
     {
       "token": "widget",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "width",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     },
     {
       "token": "window",
       "count": 1,
-      "group": "message"
+      "group": "unknown"
     },
     {
       "token": "z",
       "count": 1,
-      "group": "layout"
+      "group": "unknown"
     }
   ]
 }

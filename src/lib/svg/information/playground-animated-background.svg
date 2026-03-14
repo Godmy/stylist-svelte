@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="12" cy="12" r="8.2"/>
-  <path d="M8.5 7.5v9l8-4.5Z"/>
+  <title>playground-animated-background</title>
+  <path d="M4 6h16v12H4Z"/>
+  <path d="M9.0 6v12"/>
+  <path d="M8.8 8v8l6.5-4Z"/>
   <path d="M3.5 9h2M3.5 15h2M18.5 9h2M18.5 15h2"/>
 </svg>

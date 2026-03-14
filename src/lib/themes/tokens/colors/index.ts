@@ -1,7 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-export const COLORS = {
+﻿export const COLORS = {
 	white: '#ffffff',
 	beige: '#f5f5dc',
 	linen: '#faf0e6',
