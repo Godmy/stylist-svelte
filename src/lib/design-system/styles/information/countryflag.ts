@@ -1,10 +1,10 @@
 import { cn } from '../../utils/cn/index';
-import { resolveCountryFlagEmoji } from '../../functions/information/countryflag';
-
 
 export class CountryFlagStyleManager {
 	static resolveCountryFlagEmoji(code = ''): string {
-		return resolveCountryFlagEmoji(code);
+		const value = code.trim().toUpperCase();
+		if (!/^[A-Z]{2}$/.test(value)) return '';
+		return String.fromCodePoint(...value.split('').map((char) => 127397 + char.charCodeAt(0)));
 	}
 
 	static getCountryFlagClasses(className = ''): string {

@@ -2,7 +2,6 @@ import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from '
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { HtmlAttributesWithChildren } from '../information/common';
-import type { ValueChangeHandler } from '$stylist/design-system/types/information/common';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/selection-type';
 
@@ -74,19 +73,19 @@ export interface RadioButtonGroupProps
 export interface ActionSegmentedControlProps {
 	items: string[];
 	selectedIndex?: number;
-	onValueInput?: ValueChangeHandler<number>;
-	onValueChange?: ValueChangeHandler<number>;
+	onValueInput?: (value: number) => void;
+	onValueChange?: (value: number) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<number>;
+	onChange?: (value: number) => void;
 	class?: string;
 }
 
 export interface AdvancedToggleProps extends ToggleBaseProps {
 	label?: string;
 	checked?: boolean;
-	onValueInput?: ValueChangeHandler<boolean>;
-	onValueChange?: ValueChangeHandler<boolean>;
-	onChange?: ValueChangeHandler<boolean>;
+	onValueInput?: (value: boolean) => void;
+	onValueChange?: (value: boolean) => void;
+	onChange?: (value: boolean) => void;
 }
 
 export interface DarkModeToggleProps extends ToggleBaseProps {

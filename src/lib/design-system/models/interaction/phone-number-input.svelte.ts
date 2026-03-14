@@ -1,4 +1,7 @@
-import type { PhoneNumberInputStateProps } from '../../types/interaction/phone-number-input';
+interface PhoneNumberInputStateProps {
+	error?: boolean;
+	disabled?: boolean;
+}
 
 
 

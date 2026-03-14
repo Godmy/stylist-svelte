@@ -1,5 +1,5 @@
 import type { ComponentSize } from '../../tokens';
-import { VARIANT_CLASSES } from '../../constants/interaction/interaction';
+import { VARIANT_CLASSES } from './interaction';
 
 const TAG_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'px-1 py-0.5 text-[10px]',

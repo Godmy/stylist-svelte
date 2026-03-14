@@ -1,5 +1,3 @@
-import { writable } from 'svelte/store';
-import { createMessageTimestampStyles } from '../../functions/information/message-timestamp';
 import type { MessageTimestampProps } from '../../contracts/interaction/message-timestamp';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -67,7 +65,9 @@ export function createMessageTimestampState(props: MessageTimestampProps) {
   const formattedDateTime = $derived(timestamp.toISOString());
 
   // Generate styles
-  const styles = createMessageTimestampStyles({});
+  const styles = {
+    container: 'text-xs text-[--color-text-secondary] whitespace-nowrap'
+  };
 
   // Merge classes with custom classes
   const classes = $derived(mergeClasses(props.class ?? '', styles.container));

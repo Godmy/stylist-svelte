@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import type { DashboardLayoutVariant } from '../../tokens/architecture/dashboard-layout';
+import type { Density } from '../../tokens/architecture/densities';
 
 
 export class DashboardLayoutStyleManager {
@@ -75,11 +75,11 @@ export class DashboardLayoutStyleManager {
     );
   }
 
-  static getContentClasses(variant: DashboardLayoutVariant, className = ''): string {
-    const variantClasses = {
-      'default': 'p-4',
-      'compact': 'p-2',
-      'spacious': 'p-6'
+  static getContentClasses(variant: Density, className = ''): string {
+    const variantClasses: Record<Density, string> = {
+      default: 'p-4',
+      compact: 'p-2',
+      spacious: 'p-6'
     };
 
     return cn(

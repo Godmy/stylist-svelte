@@ -1,4 +1,8 @@
-import type { AccessibilityCheckboxStateProps } from '../../types/interaction/accessibility-checkbox';
+interface AccessibilityCheckboxStateProps {
+	checked?: boolean;
+	disabled?: boolean;
+	class?: string;
+}
 
 export const createAccessibilityCheckboxState = (props: AccessibilityCheckboxStateProps) => {
 	const checked = $derived(props.checked ?? false);
@@ -35,7 +39,6 @@ export const createAccessibilityCheckboxState = (props: AccessibilityCheckboxSta
 };
 
 export default createAccessibilityCheckboxState;
-
 
 
 

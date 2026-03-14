@@ -6,7 +6,7 @@ const Lock = 'lock';
 
   import { PaymentInfoStyleManager } from '$stylist/design-system/styles';
   import type { PaymentInfoProps } from '$stylist/design-system/contracts/interaction/payment-controls';
-  import type { PaymentMethod } from '$stylist/design-system/types/interaction/payment-controls';
+  import type { PaymentMethod } from '$stylist/design-system/contracts/interaction/payment-controls';
 
   let {
     paymentMethods = [],

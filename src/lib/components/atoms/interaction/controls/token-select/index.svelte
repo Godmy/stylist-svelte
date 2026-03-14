@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenSelectControlDefinition, TokenValue } from '$stylist/design-system/types/interaction/token-controls';
+	import type { TokenSelectControlDefinition, TokenValue } from '$stylist/design-system/runtime/token-controls';
 
 	type TokenSelectControlProps = {
 		definition: TokenSelectControlDefinition;

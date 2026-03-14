@@ -8,7 +8,7 @@ const XCircle = 'x-circle';
 const Clock = 'clock';
 const MoreHorizontal = 'more-horizontal';
 
-  import { StatusDashboardStyleManager } from '$stylist/design-system/styles';
+  import { StatusDashboardStyleManager } from '$stylist/design-system/styles/information/status-dashboard';
   import type { StatusDashboardProps, StatusItem } from '$stylist/design-system/contracts';
 
   let {

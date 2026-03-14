@@ -1,5 +1,6 @@
 <script lang="ts">
-import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
+import type { CalendarEvent, CalendarDay } from '$stylist/design-system/contracts/information/event-calendar';
+import type { CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
   import type { HTMLAttributes } from 'svelte/elements';

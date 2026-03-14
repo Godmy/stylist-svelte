@@ -1,5 +1,4 @@
 import { derived, writable } from 'svelte/store';
-import { createColorPaletteStyles } from '../../functions/information/color-palette';
 import type { ColorPaletteProps } from '../../contracts/interaction/color-palette';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -11,10 +10,15 @@ export function createColorPaletteState(props: ColorPaletteProps) {
   const showValues = props.showValues ?? false;
   const columns = props.columns ?? 5;
 
-  // Generate styles
-  const styles = createColorPaletteStyles({ 
-    columns 
-  });
+  const styles = {
+    container: 'space-y-4',
+    header: 'text-sm font-semibold text-[--color-text-primary]',
+    grid: `grid gap-3`,
+    item: 'flex flex-col items-center rounded-lg border border-[--color-border-secondary] bg-[--color-background-primary] p-3 transition-colors hover:bg-[--color-background-secondary]',
+    colorSwatch: 'h-12 w-12 rounded-md border border-[--color-border-secondary]',
+    label: 'mt-2 text-xs font-medium text-[--color-text-primary]',
+    value: 'mt-1 text-xs text-[--color-text-secondary]'
+  };
 
   // Merge classes with custom classes
   const containerClasses = derived(
@@ -40,7 +44,7 @@ export function createColorPaletteState(props: ColorPaletteProps) {
     columns,
     containerClasses,
     headerClasses,
-    gridClasses: styles.grid,
+    gridClasses: `${styles.grid} grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-${Math.min(columns, 6)}`,
     itemClasses,
     colorSwatchClasses: styles.colorSwatch,
     labelClasses: styles.label,

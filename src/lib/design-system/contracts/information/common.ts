@@ -10,6 +10,7 @@ import type {
 	VisibilityState
 } from '$stylist/design-system/tokens/interaction/statuses';
 
+
 export interface ClassProp {
 	class?: string;
 }

@@ -1,5 +1,4 @@
 import { derived, writable } from 'svelte/store';
-import { createErrorMessageStyles } from '../../functions/information/error-message';
 import type { ErrorMessageProps } from '../../contracts/interaction/error-message';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -22,8 +21,13 @@ export function createErrorMessageState(props: ErrorMessageProps) {
     }
   });
 
-  // Generate styles
-  const styles = createErrorMessageStyles({});
+  const styles = {
+    container: 'rounded-lg border border-[--color-danger-200] bg-[--color-danger-50] p-4 text-[--color-danger-900]',
+    title: 'text-sm font-semibold',
+    text: 'mt-1 text-sm',
+    button: 'inline-flex items-center rounded-md bg-[--color-danger-600] px-3 py-1.5 text-sm font-medium text-[--color-text-inverse] transition-colors hover:bg-[--color-danger-700]',
+    buttonContainer: 'mt-3'
+  };
 
   // Merge classes with custom classes
   const containerClasses = derived(

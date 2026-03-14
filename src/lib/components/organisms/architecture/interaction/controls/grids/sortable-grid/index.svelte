@@ -4,9 +4,8 @@
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const GripVertical = 'grip-vertical';
 
-  import { SortableGridStyleManager } from '$stylist/design-system/styles';
+  import { SortableGridStyleManager } from '$stylist/design-system/styles/information/sortable-grid';
   import type { SortableGridProps, SortableGridItem } from '$stylist/design-system/contracts/information/sortable-grid';
-  import type { GridItem } from '$stylist/design-system/types/architecture/layout';
 
   let {
     items = [],
@@ -52,7 +51,7 @@ const GripVertical = 'grip-vertical';
     '2xl': 'gap-10'
   }[gap] || 'gap-4');
 
-  function handleDragStart(e: DragEvent, item: GridItem, index: number) {
+  function handleDragStart(e: DragEvent, item: SortableGridItem, index: number) {
     if (disabled) return;
 
     e.dataTransfer?.setData('text/plain', item.id);
@@ -133,7 +132,7 @@ const GripVertical = 'grip-vertical';
             ? ' ' + itemDragOverClass
             : ''
         )}
-        ondragstart={(e) => handleDragStart(e, item as GridItem, index)}
+        ondragstart={(e) => handleDragStart(e, item as SortableGridItem, index)}
         ondragover={(e) => handleDragOver(e, index)}
         ondragleave={handleDragLeave}
         ondrop={(e) => handleDrop(e, index)}

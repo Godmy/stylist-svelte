@@ -1,137 +1,36 @@
-import type { ScheduleEvent } from '../../types/information/schedule-calendar';
-
-/**
- * ScheduleCalendar Component Types
- */
-
-import type { CalendarEvent } from '../../types/information/calendar';
 import type { Priority } from '$stylist/design-system/tokens/information/priorities';
-/**
- * Represents a time slot in the schedule calendar
- */
+import type { CalendarEvent } from './event-calendar';
+
+export interface ScheduleEvent extends CalendarEvent {
+	priority?: Priority;
+}
+
 export interface ScheduleTimeSlot {
-  /**
-   * Time display string for the slot (e.g., "9 AM")
-   */
-  time: string;
+	time: string;
+	hour: number;
+	events: ScheduleEvent[];
+}
 
-  /**
-   * The hour of the slot
-   */
-  hour: number;
-
-  /**
-   * Events in this time slot
-   */
-  events: ScheduleEvent[];
-};
-
-/**
- * Represents a day's schedule
- */
 export interface DaySchedule {
-  /**
-   * Date of the day
-   */
-  date: Date;
-
-  /**
-   * Day of the week (e.g., "Mon")
-   */
-  dayOfWeek: string;
-
-  /**
-   * Date string (e.g., "Nov 1")
-   */
-  dateStr: string;
-
-  /**
-   * Time slots for this day
-   */
-  slots: ScheduleTimeSlot[];
+	date: Date;
+	dayOfWeek: string;
+	dateStr: string;
+	slots: ScheduleTimeSlot[];
 }
 
-/**
- * Props for the ScheduleCalendar component
- */
 export interface IScheduleCalendarProps {
-  /**
-   * Array of events to display
-   */
-  events?: ScheduleEvent[];
-
-  /**
-   * Start date for the schedule view
-   * @default new Date()
-   */
-  startDate?: Date;
-
-  /**
-   * End date for the schedule view
-   * @default startDate + 6 days
-   */
-  endDate?: Date;
-
-  /**
-   * Start time for the schedule (hour in 24-hour format)
-   * @default 8
-   */
-  startTime?: number;
-
-  /**
-   * End time for the schedule (hour in 24-hour format)
-   * @default 20
-   */
-  endTime?: number;
-
-  /**
-   * Whether to show the header with navigation controls
-   * @default true
-   */
-  showHeader?: boolean;
-
-  /**
-   * Whether to show the time gutter with time labels
-   * @default true
-   */
-  showTimeGutter?: boolean;
-
-  /**
-   * Height of each time slot in pixels
-   * @default 60
-   */
-  timeSlotHeight?: number;
-
-  /**
-   * Additional CSS class for slots
-   */
-  slotClass?: string;
-
-  /**
-   * Additional CSS class for events
-   */
-  eventClass?: string;
-
-  /**
-   * Additional CSS class for headers
-   */
-  headerClass?: string;
-
-  /**
-   * Additional CSS classes
-   */
-  class?: string;
-
-  /**
-   * Callback fired when a time slot is clicked
-   */
-  onSlotClick?: (date: Date) => void;
-
-  /**
-   * Callback fired when an event is clicked
-   */
-  onEventClick?: (event: ScheduleEvent) => void;
+	events?: ScheduleEvent[];
+	startDate?: Date;
+	endDate?: Date;
+	startTime?: number;
+	endTime?: number;
+	showHeader?: boolean;
+	showTimeGutter?: boolean;
+	timeSlotHeight?: number;
+	slotClass?: string;
+	eventClass?: string;
+	headerClass?: string;
+	class?: string;
+	onSlotClick?: (date: Date) => void;
+	onEventClick?: (event: ScheduleEvent) => void;
 }
-
-
-

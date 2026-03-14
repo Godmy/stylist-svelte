@@ -5,7 +5,7 @@ const MoreHorizontal = 'more-horizontal';
 
   import { SortableListStyleManager } from '$stylist/design-system/styles';
   import type { SortableListProps } from '$stylist/design-system/contracts/interaction/table-controls';
-  import type { SortableListItem } from '$stylist/design-system/types/interaction/table-controls';
+  import type { SortableListItem } from '$stylist/design-system/contracts/interaction/table-controls';
 
   let {
     items = [],

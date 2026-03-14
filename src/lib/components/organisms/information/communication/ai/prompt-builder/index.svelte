@@ -10,7 +10,7 @@ const Trash2 = 'trash-2';
 
   import { PromptBuilderStyleManager } from '$stylist/design-system/styles/information/prompt-builder';
   import type { PromptBuilderProps } from '$stylist/design-system/contracts/information/prompt-builder';
-  import type { PromptVariable } from '$stylist/design-system/types/information/prompt-builder';
+  import type { PromptVariable } from '$stylist/design-system/contracts/information/prompt-builder';
 
   let {
     templates = [],

@@ -28,6 +28,11 @@ export interface TabPanelProps extends HtmlAttributesWithChildren<HTMLDivElement
 	disabled?: boolean;
 }
 
+
+export interface TabContainerProps extends HtmlAttributesWithChildren<HTMLDivElement> {
+	disabled?: boolean;
+}
+
 export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	selectedId?: string;
 	onValueChange?: (id: string) => void;

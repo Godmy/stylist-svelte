@@ -1,5 +1,3 @@
-import { writable } from 'svelte/store';
-import { createChatPreviewStyles } from '../../functions/information/chat-preview';
 import type { ChatPreviewProps } from '../../contracts/interaction/chat-preview';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -16,11 +14,30 @@ export function createChatPreviewState(props: ChatPreviewProps) {
   // Get display messages (limited by maxMessages)
   const displayMessages = $derived(messages.slice(0, maxMessages));
 
-  // Generate styles
-  const styles = createChatPreviewStyles({
-    variant,
-    size
-  });
+  const variantClasses: Record<string, string> = {
+    default: 'border-[--color-border-secondary] bg-[--color-background-primary]',
+    elevated: 'border-transparent bg-[--color-background-primary] shadow-md',
+    muted: 'border-[--color-border-secondary] bg-[--color-background-secondary]'
+  };
+
+  const sizeClasses: Record<string, string> = {
+    sm: 'max-w-sm',
+    md: 'max-w-md',
+    lg: 'max-w-lg'
+  };
+
+  const styles = {
+    container: mergeClasses(
+      'rounded-xl border p-4',
+      variantClasses[variant] ?? variantClasses.default,
+      sizeClasses[size] ?? sizeClasses.md
+    ),
+    header: 'mb-4 flex items-center justify-between gap-3',
+    chatInfo: 'min-w-0',
+    title: 'truncate text-sm font-semibold text-[var(--color-text-primary)]',
+    participants: 'mt-1 text-xs text-[var(--color-text-secondary)]',
+    messagesContainer: 'space-y-3'
+  };
 
   // Merge classes with custom classes
   const classes = $derived(mergeClasses(props.class ?? '', styles.container));

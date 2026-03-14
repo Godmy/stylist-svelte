@@ -1,4 +1,4 @@
-import type { TableSectionProps } from '$stylist/design-system/types/information/table';
+import type { TableSectionProps } from '$stylist/design-system/contracts/information/table';
 import { TableStyleManager } from '$stylist/design-system/styles/information/table';
 
 export function createTableBodyState(props: TableSectionProps) {

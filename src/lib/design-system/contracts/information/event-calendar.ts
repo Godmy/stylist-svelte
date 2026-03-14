@@ -1,101 +1,40 @@
-/**
- * EventCalendar Component Types
- *
- * This file defines all TypeScript interfaces and types for the EventCalendar component
- * following SOLID principles and proper type safety.
- */
+import type { CalendarViewMode } from '../../tokens/information/date-time';
 
-import type { CalendarViewMode, CalendarEvent, CalendarDay } from '../../types/information/calendar';
-
-/**
- * Props for the EventCalendar component
- */
-export interface IEventCalendarProps {
-  /**
-   * Array of events to display
-   */
-  events?: CalendarEvent[];
-
-  /**
-   * Initial date to display
-   * @default new Date()
-   */
-  initialDate?: Date;
-
-  /**
-   * Initial view mode
-   * @default 'month'
-   */
-  viewMode?: CalendarViewMode;
-
-  /**
-   * Initial selected date
-   * @default new Date()
-   */
-  selectedDate?: Date;
-
-  /**
-   * Additional CSS class for day cells
-   */
-  dayClass?: string;
-
-  /**
-   * Additional CSS class for events
-   */
-  eventClass?: string;
-
-  /**
-   * Additional CSS class for headers
-   */
-  headerClass?: string;
-
-  /**
-   * Additional CSS classes
-   */
-  class?: string;
-
-  /**
-   * Whether to show all-day events
-   * @default true
-   */
-  showAllDayEvents?: boolean;
-
-  /**
-   * Whether to show event duration
-   * @default true
-   */
-  showEventDuration?: boolean;
-
-  /**
-   * Callback fired when an event is clicked
-   */
-  onEventClick?: (event: CalendarEvent) => void;
-
-  /**
-   * Callback fired when an event is created (day clicked)
-   */
-  onEventCreate?: (date: Date) => void;
-
-  /**
-   * Callback fired when an event is edited
-   */
-  onEventEdit?: (event: CalendarEvent) => void;
-
-  /**
-   * Callback fired when an event is deleted
-   */
-  onEventDelete?: (event: CalendarEvent) => void;
-
-  /**
-   * Callback fired when a day is clicked
-   */
-  onDayClick?: (day: CalendarDay) => void;
-
-  /**
-   * Callback fired when the view mode changes
-   */
-  onViewModeChange?: (mode: CalendarViewMode) => void;
+export interface CalendarEvent {
+	id: string;
+	title: string;
+	start: Date;
+	end: Date;
+	color?: string;
+	allDay?: boolean;
+	location?: string;
+	description?: string;
 }
 
+export interface CalendarDay {
+	date: Date;
+	isCurrentMonth: boolean;
+	isToday: boolean;
+	isSelected?: boolean;
+	hasEvent?: boolean;
+	events: CalendarEvent[];
+}
 
-
+export interface IEventCalendarProps {
+	events?: CalendarEvent[];
+	initialDate?: Date;
+	viewMode?: CalendarViewMode;
+	selectedDate?: Date;
+	dayClass?: string;
+	eventClass?: string;
+	headerClass?: string;
+	class?: string;
+	showAllDayEvents?: boolean;
+	showEventDuration?: boolean;
+	onEventClick?: (event: CalendarEvent) => void;
+	onEventCreate?: (date: Date) => void;
+	onEventEdit?: (event: CalendarEvent) => void;
+	onEventDelete?: (event: CalendarEvent) => void;
+	onDayClick?: (day: CalendarDay) => void;
+	onViewModeChange?: (mode: CalendarViewMode) => void;
+}

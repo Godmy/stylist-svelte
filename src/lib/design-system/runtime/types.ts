@@ -74,3 +74,6 @@ export interface ComponentStateOptions<V extends string, S extends string> {
 
 
 
+
+export type InputSize = ComponentSize;
+export type InputVariant = (typeof INPUT_VARIANTS.input)[number];

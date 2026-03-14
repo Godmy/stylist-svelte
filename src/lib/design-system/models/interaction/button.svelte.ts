@@ -4,7 +4,11 @@ import { ICON_SIZES } from '$stylist/design-system/runtime/sizing';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { buildClasses } from '$stylist/utils/classes';
-import type { ButtonStateProps } from '../../types/interaction/button';
+
+interface ButtonStateProps<V extends string, S extends string> extends Omit<Props, 'variant' | 'size'> {
+	variant?: V;
+	size?: S;
+}
 
 
 function createSharedButtonState<V extends string, S extends string>(

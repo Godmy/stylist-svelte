@@ -7,8 +7,7 @@ import type {
 	HtmlStateAttr,
 	HtmlVariantSizeAttr
 } from './common';
-import type { ValueChangeHandler } from '$stylist/design-system/types/information/common';
-import type { ToolbarVariant } from '../../types/information/interaction';
+import type { ToolbarVariant } from '../../tokens/interaction/toolbar';
 
 export interface ToolbarInteractiveProps {
 	variant?: ToolbarVariant;
@@ -28,10 +27,10 @@ export interface ControlProps<T extends EventTarget = HTMLElement>
 		HtmlStateAttr,
 		HtmlVariantSizeAttr {
 	value?: unknown;
-	onValueInput?: ValueChangeHandler<unknown>;
-	onValueChange?: ValueChangeHandler<unknown>;
+	onValueInput?: (value: unknown) => void;
+	onValueChange?: (value: unknown) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<unknown>;
+	onChange?: (value: unknown) => void;
 	onFocus?: () => void;
 	onBlur?: () => void;
 	onKeyDown?: (event: KeyboardEvent) => void;
@@ -47,10 +46,10 @@ export interface InputControlProps
 	value?: string;
 	placeholder?: string;
 	type?: string;
-	onValueInput?: ValueChangeHandler<string>;
-	onValueChange?: ValueChangeHandler<string>;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<string>;
+	onChange?: (value: string) => void;
 	onFocus?: () => void;
 	onBlur?: () => void;
 }
@@ -65,10 +64,10 @@ export interface TextAreaControlProps
 	placeholder?: string;
 	rows?: number;
 	cols?: number;
-	onValueInput?: ValueChangeHandler<string>;
-	onValueChange?: ValueChangeHandler<string>;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<string>;
+	onChange?: (value: string) => void;
 	onFocus?: () => void;
 	onBlur?: () => void;
 }
@@ -81,10 +80,10 @@ export interface SelectControlProps
 	name?: string;
 	value?: string;
 	options?: Array<{ value: string; label: string }>;
-	onValueInput?: ValueChangeHandler<string>;
-	onValueChange?: ValueChangeHandler<string>;
+	onValueInput?: (value: string) => void;
+	onValueChange?: (value: string) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<string>;
+	onChange?: (value: string) => void;
 	onFocus?: () => void;
 	onBlur?: () => void;
 }
@@ -130,10 +129,10 @@ export interface SliderProps extends HtmlAttributesWithChildren<HTMLDivElement> 
 	step?: number;
 	disabled?: boolean;
 	orientation?: Orientation;
-	onValueInput?: ValueChangeHandler<number>;
-	onValueChange?: ValueChangeHandler<number>;
+	onValueInput?: (value: number) => void;
+	onValueChange?: (value: number) => void;
 	/** @deprecated use onValueChange */
-	onChange?: ValueChangeHandler<number>;
+	onChange?: (value: number) => void;
 }
 
 export interface ToolbarProps<T extends EventTarget = HTMLElement>

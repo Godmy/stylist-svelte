@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * SVG Registry Generator - СЃРѕР·РґР°С‘С‚ СЂРµРµСЃС‚СЂ РІСЃРµС… SVG РёРєРѕРЅРѕРє
+ * SVG Registry Generator - РЎРѓР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р Р†РЎРѓР ВµРЎвЂ¦ SVG Р С‘Р С”Р С•Р Р…Р С•Р С”
  *
- * РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ:
- *   npx tsx scripts/svg/generate-registry.ts
+ * Р ВРЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°Р Р…Р С‘Р Вµ:
+ *   npx tsx scripts/svg/generate-registry/generate.ts
  */
 
 import fs from 'fs';
@@ -11,18 +11,18 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(__dirname, '../..');
+const ROOT_DIR = path.resolve(__dirname, '../../..');
 const SVG_DIR = path.join(ROOT_DIR, 'src/lib/svg');
 const JSON_DIR = path.join(ROOT_DIR, 'src/lib/json/core');
 const ICONS_DIR = path.join(ROOT_DIR, 'src/lib/svg/icons');
 
 /**
- * РљР°С‚РµРіРѕСЂРёСЏ РёРєРѕРЅРєРё
+ * Р С™Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘РЎРЏ Р С‘Р С”Р С•Р Р…Р С”Р С‘
  */
 type IconCategory = 'architecture' | 'information' | 'interaction';
 
 /**
- * РРЅС‚РµСЂС„РµР№СЃ Р·Р°РїРёСЃРё СЂРµРµСЃС‚СЂР° РёРєРѕРЅРѕРє
+ * Р ВР Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓ Р В·Р В°Р С—Р С‘РЎРѓР С‘ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В° Р С‘Р С”Р С•Р Р…Р С•Р С”
  */
 interface IconEntry {
   name: string;
@@ -32,7 +32,7 @@ interface IconEntry {
 }
 
 /**
- * РРЅС‚РµСЂС„РµР№СЃ СЂРµРµСЃС‚СЂР° РёРєРѕРЅРѕРє
+ * Р ВР Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В° Р С‘Р С”Р С•Р Р…Р С•Р С”
  */
 interface IconRegistry {
   $schema: string;
@@ -47,7 +47,7 @@ interface IconRegistry {
 }
 
 /**
- * РЎРєР°РЅРёСЂСѓРµС‚ РїР°РїРєСѓ СЃ РёРєРѕРЅРєР°РјРё Рё РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РёРјС‘РЅ С„Р°Р№Р»РѕРІ
+ * Р РЋР С”Р В°Р Р…Р С‘РЎР‚РЎС“Р ВµРЎвЂљ Р С—Р В°Р С—Р С”РЎС“ РЎРѓ Р С‘Р С”Р С•Р Р…Р С”Р В°Р СР С‘ Р С‘ Р Р†Р С•Р В·Р Р†РЎР‚Р В°РЎвЂ°Р В°Р ВµРЎвЂљ РЎРѓР С—Р С‘РЎРѓР С•Р С” Р С‘Р СРЎвЂР Р… РЎвЂћР В°Р в„–Р В»Р С•Р Р†
  */
 function scanIconFolder(folderPath: string): string[] {
   if (!fs.existsSync(folderPath)) {
@@ -62,21 +62,21 @@ function scanIconFolder(folderPath: string): string[] {
 }
 
 /**
- * РЎРѕР·РґР°С‘С‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅС‹Р№ РїСѓС‚СЊ Рє РёРєРѕРЅРєРµ
+ * Р РЋР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ Р С•РЎвЂљР Р…Р С•РЎРѓР С‘РЎвЂљР ВµР В»РЎРЉР Р…РЎвЂ№Р в„– Р С—РЎС“РЎвЂљРЎРЉ Р С” Р С‘Р С”Р С•Р Р…Р С”Р Вµ
  */
 function createIconPath(name: string, category: IconCategory): string {
   return `./${category}/${name}.svg`;
 }
 
 /**
- * РЎРѕР·РґР°С‘С‚ РїРѕР»РЅС‹Р№ РїСѓС‚СЊ Рє РёРєРѕРЅРєРµ
+ * Р РЋР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ Р С—Р С•Р В»Р Р…РЎвЂ№Р в„– Р С—РЎС“РЎвЂљРЎРЉ Р С” Р С‘Р С”Р С•Р Р…Р С”Р Вµ
  */
 function createFullIconPath(name: string, category: IconCategory): string {
   return `stylist-svelte/src/lib/svg/${category}/${name}.svg`;
 }
 
 /**
- * Р“РµРЅРµСЂРёСЂСѓРµС‚ СЂРµРµСЃС‚СЂ РёРєРѕРЅРѕРє
+ * Р вЂњР ВµР Р…Р ВµРЎР‚Р С‘РЎР‚РЎС“Р ВµРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р С‘Р С”Р С•Р Р…Р С•Р С”
  */
 function generateIconRegistry(): IconRegistry {
   const categories: IconCategory[] = ['architecture', 'information', 'interaction'];
@@ -116,7 +116,7 @@ function generateIconRegistry(): IconRegistry {
 }
 
 /**
- * РЎРѕС…СЂР°РЅСЏРµС‚ СЂРµРµСЃС‚СЂ РёРєРѕРЅРѕРє РІ JSON С„Р°Р№Р»
+ * Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏР ВµРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р С‘Р С”Р С•Р Р…Р С•Р С” Р Р† JSON РЎвЂћР В°Р в„–Р В»
  */
 function saveIconRegistry(registry: IconRegistry): void {
   if (!fs.existsSync(JSON_DIR)) {
@@ -129,7 +129,7 @@ function saveIconRegistry(registry: IconRegistry): void {
 }
 
 /**
- * Р“РµРЅРµСЂРёСЂСѓРµС‚ TypeScript С„Р°Р№Р» СЃ РєРѕРЅСЃС‚Р°РЅС‚Р°РјРё РёРєРѕРЅРѕРє
+ * Р вЂњР ВµР Р…Р ВµРЎР‚Р С‘РЎР‚РЎС“Р ВµРЎвЂљ TypeScript РЎвЂћР В°Р в„–Р В» РЎРѓ Р С”Р С•Р Р…РЎРѓРЎвЂљР В°Р Р…РЎвЂљР В°Р СР С‘ Р С‘Р С”Р С•Р Р…Р С•Р С”
  */
 function generateTypeScriptRegistry(registry: IconRegistry): void {
   if (!fs.existsSync(ICONS_DIR)) {
@@ -141,7 +141,7 @@ function generateTypeScriptRegistry(registry: IconRegistry): void {
   let content = `/**
  * Auto-generated icon registry
  * Generated at: ${new Date().toISOString()}
- * Do not edit manually - run 'npx tsx scripts/svg/generate-registry.ts' to regenerate
+ * Do not edit manually - run 'npx tsx scripts/svg/generate-registry/generate.ts' to regenerate
  */
 
 export interface IconEntry {
@@ -187,7 +187,7 @@ export function hasIcon(name: string): name is IconName {
 }
 
 /**
- * Р’С‹РІРѕРґРёС‚ СЃС‚Р°С‚РёСЃС‚РёРєСѓ СЂРµРµСЃС‚СЂР°
+ * Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљ РЎРѓРЎвЂљР В°РЎвЂљР С‘РЎРѓРЎвЂљР С‘Р С”РЎС“ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В°
  */
 function printRegistryStats(registry: IconRegistry): void {
   console.log('\n[svg-registry] Icon Registry Statistics:');
@@ -200,7 +200,7 @@ function printRegistryStats(registry: IconRegistry): void {
 }
 
 /**
- * Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ
+ * Р вЂњР В»Р В°Р Р†Р Р…Р В°РЎРЏ РЎвЂћРЎС“Р Р…Р С”РЎвЂ Р С‘РЎРЏ
  */
 async function main(): Promise<void> {
   console.log('='.repeat(50));

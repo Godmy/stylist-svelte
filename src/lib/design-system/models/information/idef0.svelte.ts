@@ -9,7 +9,7 @@ import type {
 	Idef0PortLabelProps
 } from '../../contracts/information/idef0';
 import { Idef0StyleManager } from '../../styles/information/idef0';
-import type { Idef0PortPosition } from '../../types/information/idef0';
+import type { Idef0PortPosition } from '../../contracts/information/idef0';
 
 
 function calculatePortPositions(ports: Idef0Port[], top: number, height: number): Idef0PortPosition[] {

@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
-import { CODE_BLOCK_VARIANT_CLASSES, CODE_BLOCK_SIZE_CLASSES } from '$stylist/design-system/constants';
+import { CODE_BLOCK_VARIANT_CLASSES, CODE_BLOCK_SIZE_CLASSES } from '$stylist/design-system/styles/information/badge';
 
 /**
  * SyntaxHighlightedCode state creator

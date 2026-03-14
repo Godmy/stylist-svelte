@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from '../../constants/information/card';
+import { CARD_BASE_CLASSES } from './card';
 
 export class PricingTableStyleManager {
   static getContainerClass(extraClasses: string = ''): string {

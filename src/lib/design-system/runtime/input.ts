@@ -16,7 +16,7 @@ import {
 	INPUT_PASSWORD_TOGGLE_CLASS,
 	INPUT_LONG_RESIZE_HANDLE_CLASS,
 	INPUT_DOUBLE_CONTAINER_CLASS
-} from '../constants/interaction/input';
+} from '../styles/interaction/input';
 
 // ============================================================================
 // Input Field Preset

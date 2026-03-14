@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenRadioControlDefinition, TokenValue } from '$stylist/design-system/types/interaction/token-controls';
+	import type { TokenRadioControlDefinition, TokenValue } from '$stylist/design-system/runtime/token-controls';
 
 	type TokenRadioControlProps = {
 		definition: TokenRadioControlDefinition;

@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { DashboardLayoutVariant } from '$stylist/design-system/tokens/architecture/densities';
+import type { Density } from '$stylist/design-system/tokens/architecture/densities';
 /**
  * DashboardLayout props interface
  * @description Properties for configuring the dashboard layout component
@@ -94,7 +94,7 @@ export interface DashboardLayoutProps extends Omit<HTMLAttributes<HTMLDivElement
    * Visual variant controlling spacing density
    * @default 'default'
    */
-  variant?: DashboardLayoutVariant;
+  variant?: Density;
 }
 
 /**
@@ -104,7 +104,7 @@ export interface DashboardLayoutProps extends Omit<HTMLAttributes<HTMLDivElement
 export interface DashboardLayoutState {
   isSidebarOpen: boolean;
   isMobile: boolean;
-  currentVariant: DashboardLayoutVariant;
+  currentVariant: Density;
 }
 
 // Presets moved from presets\dashboard-layout.ts
@@ -136,7 +136,7 @@ export interface DashboardLayoutPreset {
    * Default variant
    * @default 'default'
    */
-  variant: DashboardLayoutVariant;
+  variant: Density;
 
   /**
    * Default mobile breakpoint

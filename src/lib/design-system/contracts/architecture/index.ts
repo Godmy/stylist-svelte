@@ -9,11 +9,12 @@ export type { IExtendedHeatmapCell, IHeatmapCell, IHeatmapProps } from './heatma
 export type { IHeroCTA, IHeroProps, IHeroStat } from './hero';
 export type { GridLayoutProps } from './layout';
 export type { GridLayoutExtendedProps, HorizontalLayoutProps, LayoutSection, VerticalLayoutProps } from './layout-extended';
-export type { ILineChartProps } from './line-chart';
+export type { ILineChartProps, LineChartData, LineChartPoint } from './line-chart';
 export type { IPageHeaderProps } from './page-header';
 export type { Position2D } from './position2d';
 export type { IProcessStepProps } from './process-step';
 export type { SeparatorProps, SyntaxHighlightedCodeProps } from './separator';
 export type { CanvasObject, CanvasUser, SharedCanvasProps } from './shared-canvas';
+export type { NavItem, SidebarProps } from './sidebar';
 export type { SpacerProps } from './spacer';
 export type { StackProps } from './stack';

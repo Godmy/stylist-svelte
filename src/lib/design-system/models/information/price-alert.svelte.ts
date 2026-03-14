@@ -4,7 +4,18 @@ import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
-import type { PriceAlertStateProps } from '../../types/information/price-alert';
+
+interface PriceAlertStateProps<V extends string, S extends string>
+	extends Omit<Props, 'variant' | 'size'> {
+	variant?: V;
+	size?: S;
+	currentPrice?: number;
+	targetPrice?: number;
+	currency?: string;
+	status?: AlertType;
+	productName?: string;
+	onStatusChange?: (status: AlertType) => void;
+}
 
 
 /**

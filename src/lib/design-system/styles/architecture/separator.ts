@@ -1,4 +1,4 @@
-import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../../constants/information/badge';
+import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../information/badge';
 import { cn } from '../../utils/cn/index';
 
 const SEPARATOR_CLASSES = {

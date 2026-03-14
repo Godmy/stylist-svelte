@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button, Icon } from '$stylist/components/atoms';
   import { createEventDispatcher } from 'svelte';
-  import { GraphNodeCardStyleManager } from '$stylist/design-system/styles';
+  import { GraphNodeCardStyleManager } from '$stylist/design-system/styles/information/graph-node-card';
   import type { GraphNodeCardProps, GraphNodeData } from '$stylist/design-system/contracts';
 
   import type { HTMLAttributes } from 'svelte/elements';

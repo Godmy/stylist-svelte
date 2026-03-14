@@ -1,5 +1,4 @@
 import { formatAnimatedValue, formatNumberFlowValue } from '../../utils/format/index';
-import { animateNumberValue } from '../../functions/information/animation';
 
 const NUMBER_FLOW_BASE_CLASSES = {
 	container: 'flex items-center',
@@ -40,7 +39,7 @@ export class AnimationStyleManager {
 	}
 
 	static animateValue(value: number): number {
-		return animateNumberValue({ value });
+		return value;
 	}
 
 	static formatAnimated(

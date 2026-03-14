@@ -1,5 +1,5 @@
 import type { ITimeSlot } from '$stylist/design-system/contracts/interaction/time-slot';
-import type { CalendarEvent } from '$stylist/design-system/contracts/information/calendar';
+import type { CalendarEvent } from '$stylist/design-system/contracts/information/event-calendar';
 
 /**
  * Converts a calendar TimeSlot (molecular) to an atomic TimeSlot
@@ -51,3 +51,7 @@ export function scheduleTimeSlotToAtomic(molecularSlot: {
     class: ''
   };
 }
+
+
+
+

@@ -3,7 +3,7 @@ import TokenRadioControl from '../token-radio/index.svelte';
 import TokenRangeControl from '../token-range/index.svelte';
 import TokenSelectControl from '../token-select/index.svelte';
 import TokenTextControl from '../token-text/index.svelte';
-	import type { TokenControlDefinition, TokenValue } from '$stylist/design-system/types/interaction/token-controls';
+	import type { TokenControlDefinition, TokenValue } from '$stylist/design-system/runtime/token-controls';
 
 	type TokenControlComposerProps = {
 		definition: TokenControlDefinition;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IGeoJSONViewerProps } from '$lib/design-system/contracts/information/geo-jsonviewer';
-  import type { GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/types/information/geo-jsonviewer';
+  import type { GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/contracts/information/geo-jsonviewer';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/information/geo-jsonviewer';
 

@@ -24,7 +24,7 @@ export function getInputGroupContainerClass(): string {
 }
 
 export function getInputGroupInputClass(className = ''): string {
-	return `rounded-none rounded-l-md focus:z-10 border-r-0 ${className}`.trim();
+	return `rounded-none rounded-l-md focus:z-[var(--z-index-docked)] border-r-0 ${className}`.trim();
 }
 
 export function getInputGroupButtonClass(): string {
@@ -36,7 +36,7 @@ export function getInputFieldContainerClass(): string {
 }
 
 export function getInputFieldHelperTextClass(): string {
-	return 'text-xs text-gray-500';
+	return 'text-xs text-[var(--color-text-secondary)]';
 }
 
 export function getSharedPasswordInputContainerClass(error: boolean): string {
@@ -62,3 +62,7 @@ export function getFileSelectionLabel(value: File | File[] | null | undefined): 
 	}
 	return value.name || '';
 }
+
+
+
+

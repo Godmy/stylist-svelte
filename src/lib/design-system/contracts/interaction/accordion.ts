@@ -4,7 +4,13 @@ import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 import type { ContentProp, HtmlAttributesWithContent } from '../information/common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
-import type { AccordionDataItem } from '../../types/interaction/accordion';
+export interface AccordionDataItem {
+	id: string;
+	title: string;
+	content: Snippet | string;
+	disabled?: boolean;
+}
+
 export interface AccordionBaseProps {
 	value: string;
 	class?: string;
@@ -50,16 +56,11 @@ export interface AccordionPanelProps
 	open?: boolean;
 }
 
-/** Пропсы компонента Accordion */
 export interface IAccordionProps {
-  items: AccordionDataItem[];
-  multiple?: boolean;
-  class?: string;
-  itemClass?: string;
-  headerClass?: string;
-  contentClass?: string;
+	items: AccordionDataItem[];
+	multiple?: boolean;
+	class?: string;
+	itemClass?: string;
+	headerClass?: string;
+	contentClass?: string;
 }
-
-
-
-

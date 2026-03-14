@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Search = 'search';
 
-  import type { AutoCompleteOption } from '$stylist/design-system/types/interaction/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/design-system/contracts/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedAutoCompleteProps {

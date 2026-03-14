@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from '../../constants/information/card';
+import { CARD_BASE_CLASSES } from './card';
 
 const ORDER_STATUS_CLASSES = {
 	pending: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',

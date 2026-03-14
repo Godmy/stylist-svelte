@@ -4,4 +4,7 @@ export { INPUT_CONTAINER_PRESET, INPUT_DOUBLE_PRESET, INPUT_FIELD_PRESET, INPUT_
 export { INTERACTION_TOKENS, createBasePreset } from './preset';
 export { ICON_SIZES, PADDING_SIZES, SIZE_CLASSES, TEXT_SIZES } from './sizing';
 export type { AccessibilityClass, BaseClass, StateClass, TransitionClass } from './foundation';
+export type { TokenControlDefinition } from './token-controls';
+export type { InputSize, InputVariant } from './types';
+export type { TokenOption, TokenRadioControlDefinition, TokenRangeControlDefinition, TokenSelectControlDefinition, TokenTextControlDefinition } from './token-controls';
 export type { ComponentClasses, ComponentStateOptions, ExtendedPreset, InputPreset, InputStateOptions, Preset } from './types';

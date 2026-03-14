@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { IAlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
   import { createAlertCardState } from '$stylist/design-system/models/information/alert-card.svelte';
-  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
   import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 

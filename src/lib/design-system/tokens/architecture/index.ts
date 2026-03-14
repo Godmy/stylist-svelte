@@ -2,7 +2,6 @@
 export { ALIGNMENTS, JUSTIFICATIONS } from './alignments';
 export { ASPECT_RATIO } from './aspect-ratio';
 export { COMPONENT_SIZE } from './component-size';
-export { DASHBOARD_LAYOUT_VARIANTS } from './dashboard-layout';
 export { DENSITIES } from './densities';
 export { GRADIENT_VARIANTS } from './gradient';
 export { GRID_COLUMNS } from './grid-columns';
@@ -16,8 +15,7 @@ export { TABLE_CELLS } from './table-cells';
 export type { Alignment, DividerAlign, Justification, TextAlign } from './alignments';
 export type { AspectRatio } from './aspect-ratio';
 export type { ComponentSize } from './component-size';
-export type { DashboardLayoutVariant } from './dashboard-layout';
-export type { DashboardLayoutVariant, Density } from './densities';
+export type { Density } from './densities';
 export type { GradientVariant } from './gradient';
 export type { GridColumnsKey } from './grid-columns';
 export type { GridItem, GridItemContent } from './layout';

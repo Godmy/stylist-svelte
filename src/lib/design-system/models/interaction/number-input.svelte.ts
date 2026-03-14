@@ -1,4 +1,10 @@
-import type { NumberInputStateProps } from '../../types/interaction/number-input';
+interface NumberInputStateProps {
+	disabled?: boolean;
+	readonly?: boolean;
+	class?: string;
+	inputClass?: string;
+	buttonClass?: string;
+}
 
 
 

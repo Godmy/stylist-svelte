@@ -5,7 +5,7 @@ const X = 'x';
 
   import { MultiSelectStyleManager } from '$stylist/design-system/styles';
   import type { MultiSelectProps } from '$stylist/design-system/contracts/interaction/multi-select';
-  import type { MultiSelectOption } from '$stylist/design-system/types/interaction/multi-select';
+  import type { MultiSelectOption } from '$stylist/design-system/contracts/interaction/multi-select';
 
   let {
     options = [],

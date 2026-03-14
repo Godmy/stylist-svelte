@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonElementProps } from '$stylist/design-system/types/interaction/button';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+	import type { ButtonElementProps } from '$stylist/design-system/contracts/interaction/button';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
 	import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';

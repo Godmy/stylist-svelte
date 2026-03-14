@@ -1,24 +1,28 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { TreeNode } from '../../types/interaction/tree-controls';
+export interface TreeNode {
+	id: string;
+	label: string;
+	children?: TreeNode[];
+	expanded?: boolean;
+}
+
 export interface VirtualTreeProps extends HTMLAttributes<HTMLDivElement> {
-  nodes: TreeNode[];
-  class?: string;
+	nodes: TreeNode[];
+	class?: string;
 }
 
 export interface FlatTreeProps extends HTMLAttributes<HTMLDivElement> {
-  nodes: TreeNode[];
-  class?: string;
+	nodes: TreeNode[];
+	class?: string;
 }
 
 export interface FolderTreeProps extends HTMLAttributes<HTMLDivElement> {
-  nodes: TreeNode[];
-  class?: string;
+	nodes: TreeNode[];
+	class?: string;
 }
 
 export interface AdvancedVirtualTreeProps extends HTMLAttributes<HTMLDivElement> {
-  nodes: TreeNode[];
-  class?: string;
+	nodes: TreeNode[];
+	class?: string;
 }
-
-

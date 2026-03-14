@@ -4,7 +4,8 @@
 
   import * as ScheduleCalendarModule from './index.svelte';
   const ScheduleCalendar: any = ScheduleCalendarModule.default ?? ScheduleCalendarModule;
-  import type { IScheduleCalendarProps, ScheduleEvent } from '$stylist/design-system/contracts/information/schedule-calendar';
+  import type { IScheduleCalendarProps } from '$stylist/design-system/contracts/information/schedule-calendar';
+  import type { ScheduleEvent } from '$stylist/design-system/contracts/information/schedule-calendar';
 
   export let id: string;
   export let title: string;

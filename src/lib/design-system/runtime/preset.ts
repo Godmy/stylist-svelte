@@ -6,7 +6,7 @@ import {
 	INTERACTIVE_BASE_CLASS,
 	INTERACTIVE_VARIANTS,
 	VARIANT_CLASSES
-} from '../constants/interaction/interaction';
+} from '../styles/interaction/interaction';
 
 const DEFAULT_STATE_FLAGS = {
 	disabled: false,

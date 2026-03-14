@@ -2,7 +2,7 @@
   import { Button } from '$stylist/components/atoms';
   import { PaymentMethodSelectorStyleManager } from '$stylist/design-system/styles';
   import type { PaymentMethodSelectorProps } from '$stylist/design-system/contracts/interaction/payment-controls';
-  import type { PaymentMethod } from '$stylist/design-system/types/interaction/payment-controls';
+  import type { PaymentMethod } from '$stylist/design-system/contracts/interaction/payment-controls';
 
   let {
     methods = [],

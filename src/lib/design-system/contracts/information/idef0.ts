@@ -8,6 +8,11 @@ export interface Idef0Port {
 	color?: string;
 }
 
+export interface Idef0PortPosition {
+	port: Idef0Port;
+	y: number;
+}
+
 export interface Idef0BlackBoxModel {
 	id: string;
 	title: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TabContainerProps } from '$stylist/design-system/types/interaction/tabs';
+	import type { TabContainerProps } from '$stylist/design-system/contracts/interaction/tabs';
 	import { createTabListState } from '$stylist/design-system/models/interaction/tab-list.svelte';
 
 	let props: TabContainerProps = $props();

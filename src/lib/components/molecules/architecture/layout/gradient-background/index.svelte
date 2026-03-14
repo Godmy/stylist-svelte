@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { IGradientBackgroundProps } from '$stylist/design-system/contracts/architecture/gradient-background';
-  import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
   import { GradientBackgroundStyleManager } from '$stylist/design-system/styles/architecture/gradient-background';
 
   let {
@@ -20,7 +19,7 @@
   const gradientClasses = $derived(GradientBackgroundStyleManager.getGradientClasses(typedVariant, typedDirection));
   const contentWrapperClasses = $derived(GradientBackgroundStyleManager.getContentWrapperClasses());
 
-  const gradientImageByDirection = (value: GradientVariant): string => {
+  const gradientImageByDirection = (value: 'diagonal' | 'horizontal' | 'vertical' | 'radial'): string => {
     if (value === 'radial') return 'var(--gradient-radial-center)';
     if (value === 'horizontal') return 'var(--gradient-directional-horizontal)';
     if (value === 'vertical') return 'var(--gradient-directional-vertical)';

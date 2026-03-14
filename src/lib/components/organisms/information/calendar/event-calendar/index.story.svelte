@@ -3,7 +3,7 @@
   import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import EventCalendar from './index.svelte';
-  import type { CalendarEvent } from '$stylist/design-system/contracts/information/calendar';
+  import type { CalendarEvent } from '$stylist/design-system/contracts/information/event-calendar';
 
   let {
     id = '',

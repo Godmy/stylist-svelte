@@ -23,11 +23,28 @@ export interface PageBuilderImageAttributes {
   height?: string;
 }
 
+export interface PageBuilderDividerAttributes {
+  color?: string;
+}
+
+export interface PageBuilderContainerAttributes {
+  backgroundColor?: string;
+  padding?: string;
+  margin?: string;
+  BORDER_RADIUS?: string;
+}
+
 export interface PageBuilderElement {
   id: string;
   type: PageBuilderElementType;
   content?: string;
-  attributes?: PageBuilderElementAttributes;
+  attributes?:
+    | PageBuilderTextAttributes
+    | PageBuilderHeadingAttributes
+    | PageBuilderButtonAttributes
+    | PageBuilderImageAttributes
+    | PageBuilderDividerAttributes
+    | PageBuilderContainerAttributes;
   children?: PageBuilderElement[];
 }
 

@@ -1,5 +1,4 @@
 import { derived, writable } from 'svelte/store';
-import { createSortableTableHeaderStyles } from '../../functions/information/sortable-table-header';
 import type { SortableTableHeaderProps } from '../../contracts/interaction/sortable-table-header';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -16,11 +15,11 @@ export function createSortableTableHeaderState(props: SortableTableHeaderProps) 
     ([$currentSortKey, $sortKey]) => $currentSortKey === $sortKey
   );
 
-  // Generate styles
-  const styles = createSortableTableHeaderStyles({ 
-    isCurrentSort: false, // We'll determine this dynamically
-    sortDirection: currentSortDirection || 'none'
-  });
+  const styles = {
+    container: 'cursor-pointer select-none px-4 py-3 text-left align-middle text-sm font-medium text-[--color-text-primary]',
+    content: 'flex items-center gap-2',
+    icon: 'h-4 w-4 text-[--color-text-secondary]'
+  };
 
   // Merge classes with custom classes
   const containerClasses = derived(

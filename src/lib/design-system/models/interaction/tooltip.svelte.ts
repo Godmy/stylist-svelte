@@ -1,6 +1,8 @@
 import type { TooltipProps } from '../../contracts/interaction/tooltip';
 import type { TooltipPlacement } from '$stylist/design-system/tokens/interaction/tooltip';
-import type { TooltipStateProps } from '../../types/interaction/tooltip';
+import type { HTMLAttributes } from 'svelte/elements';
+
+type TooltipStateProps = TooltipProps & HTMLAttributes<HTMLElement>;
 
 
 /**

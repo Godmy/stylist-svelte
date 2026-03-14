@@ -7,7 +7,7 @@ const User = 'user';
 
   import { SearchResultsStyleManager } from '$stylist/design-system/styles';
   import type { SearchResultsProps } from '$stylist/design-system/contracts/information/search-results';
-  import type { SearchResultItem } from '$stylist/design-system/types/information/search-results';
+  import type { SearchResultItem } from '$stylist/design-system/contracts/information/search-results';
 
   let {
     results = [],

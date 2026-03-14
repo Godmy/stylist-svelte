@@ -1,4 +1,4 @@
-﻿/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
 /**
  * ARIA utilities for interactive components

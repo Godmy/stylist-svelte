@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Avatar, Button, Icon } from '$stylist/components/atoms';
   import { UserStatus } from '$stylist/components/molecules';
-  import { ChatHeaderModel } from '../../../../../../design-system/classes/interaction/chat-header';
-  import type { ChatHeaderProps } from '$stylist/design-system/types/interaction/chat-header';
+  import { ChatHeaderModel } from '../../../../../../design-system/models/interaction/chat-header.svelte';
+  import type { ChatHeaderProps } from '$stylist/design-system/contracts/interaction/chat-header';
   import { ChatHeaderStyleManager } from '$stylist/design-system/styles/interaction/chat-header';
   import { createEventDispatcher } from 'svelte';
 
@@ -21,7 +21,7 @@
   }: ChatHeaderProps = $props();
 
   // Initialize the model
-  const model = new ChatHeaderModel({
+  const model = ChatHeaderModel({
     chat,
     currentUser,
     showActions

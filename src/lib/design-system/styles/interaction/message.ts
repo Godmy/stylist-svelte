@@ -1,8 +1,44 @@
-import { MESSAGE_ALIGNMENT_CLASSES } from '../../constants/interaction/message';
-import type { MessageAlignment, MessageAvatarSize, MessageStatus, MessageVariant } from '../../types/interaction/message';
-import { getMessageAvatarSizeClasses, getMessageStatusClasses, getMessageVariantBgClasses, getMessageVariantTextClasses } from '../../functions/interaction/message';
+import type { MessageAlign as MessageAlignment } from '../../tokens/information/message-align';
+import type { MessageAvatarSize, MessageStatus, MessageVariant } from '../../tokens/information/message';
 
+export const MESSAGE_ALIGNMENT_CLASSES = {
+	left: 'items-start',
+	right: 'items-end',
+	center: 'items-center'
+} as const;
 
+export const MESSAGE_VARIANT_BG_CLASSES = {
+	default: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
+	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
+	incoming: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
+	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]',
+	error: 'bg-[--color-danger-50] border-[--color-danger-200]',
+	warning: 'bg-[--color-warning-50] border-[--color-warning-200]',
+	success: 'bg-[--color-success-50] border-[--color-success-200]'
+} as const;
+
+export const MESSAGE_VARIANT_TEXT_CLASSES = {
+	default: 'text-[--color-text-primary]',
+	system: 'text-[--color-text-secondary]',
+	incoming: 'text-[--color-text-primary]',
+	outgoing: 'text-[--color-text-inverse]',
+	error: 'text-[--color-danger-800]',
+	warning: 'text-[--color-warning-800]',
+	success: 'text-[--color-success-800]'
+} as const;
+
+export const MESSAGE_STATUS_CLASSES = {
+	sent: 'text-[--color-primary-500]',
+	delivered: 'text-[--color-text-tertiary]',
+	read: 'text-[--color-success-500]',
+	error: 'text-[--color-danger-500]'
+} as const;
+
+export const MESSAGE_AVATAR_SIZE_CLASSES = {
+	sm: 'w-6 h-6',
+	md: 'w-8 h-8',
+	lg: 'w-10 h-10'
+} as const;
 
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
@@ -11,21 +47,21 @@ export class MessageStyleManager {
 	}
 
 	static getMessageBubbleClasses(variant: MessageVariant = 'default', className?: string): string {
-		const bgClass = getMessageVariantBgClasses(variant);
+		const bgClass = MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
 		return `${'rounded-lg p-4 max-w-[75%] shadow-sm border'} ${bgClass} ${className || ''}`.trim();
 	}
 
 	static getMessageTextClasses(variant: MessageVariant = 'default'): string {
-		return getMessageVariantTextClasses(variant);
+		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
 	}
 
 	static getAuthorClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-		const textClass = getMessageVariantTextClasses(variant);
+		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
 		return `${'text-sm font-semibold mb-1'} ${textClass}`;
 	}
 
 	static getContentClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-		const textClass = getMessageVariantTextClasses(variant);
+		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
 		return `${'text-[--color-text-primary] word-wrap-break-word whitespace-pre-wrap'} ${textClass}`;
 	}
 
@@ -38,15 +74,15 @@ export class MessageStyleManager {
 	}
 
 	static getStatusClasses(status: MessageStatus = 'delivered'): string {
-		return getMessageStatusClasses(status);
+		return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
 	}
 
-	static getAvatarContainerClasses(align: MessageAlignment = 'left'): string {
+	static getAvatarContainerClasses(_align: MessageAlignment = 'left'): string {
 		return 'flex-shrink-0';
 	}
 
 	static getAvatarSizeClasses(size: MessageAvatarSize = 'md'): string {
-		return getMessageAvatarSizeClasses(size);
+		return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
 	}
 
 	static getActionsClasses(): string {
@@ -95,6 +131,3 @@ export class MessageStyleManager {
 }
 
 export default MessageStyleManager;
-
-
-

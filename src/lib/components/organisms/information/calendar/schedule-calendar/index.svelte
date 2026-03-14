@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IScheduleCalendarProps, ScheduleTimeSlot, DaySchedule } from '$stylist/design-system/contracts/information/schedule-calendar';
-  import type { ScheduleEvent } from '$stylist/design-system/types/information/schedule-calendar';
+  import type { ScheduleEvent } from '$stylist/design-system/contracts/information/schedule-calendar';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';
   import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/information/schedule-calendar';

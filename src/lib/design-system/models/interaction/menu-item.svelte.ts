@@ -1,5 +1,4 @@
 import { derived, writable } from 'svelte/store';
-import { createMenuItemStyles } from '../../functions/interaction/menu-item';
 import type { MenuItemProps } from '../../contracts/interaction/menu-item';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -13,12 +12,28 @@ export function createMenuItemState(props: MenuItemProps) {
   const external = props.external ?? false;
   const children = props.children;
 
-  // Generate styles
-  const styles = createMenuItemStyles({ 
-    active, 
-    disabled, 
-    variant 
-  });
+  const variantClasses: Record<string, string> = {
+    default: active
+      ? 'bg-[--color-background-secondary] text-[--color-text-primary]'
+      : 'text-[--color-text-primary] hover:bg-[--color-background-secondary]',
+    primary: active
+      ? 'bg-[--color-primary-100] text-[--color-primary-700]'
+      : 'text-[--color-primary-700] hover:bg-[--color-primary-50]',
+    success: active
+      ? 'bg-[--color-success-50] text-[--color-success-700]'
+      : 'text-[--color-success-700] hover:bg-[--color-success-50]',
+    danger: active
+      ? 'bg-[--color-danger-50] text-[--color-danger-700]'
+      : 'text-[--color-danger-700] hover:bg-[--color-danger-50]'
+  };
+
+  const styles = {
+    container: mergeClasses(
+      'inline-flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors',
+      variantClasses[variant] ?? variantClasses.default,
+      disabled ? 'pointer-events-none opacity-[var(--opacity-50)]' : ''
+    )
+  };
 
   // Merge classes with custom classes
   const containerClasses = derived(

@@ -2,7 +2,7 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import type { IBaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
   import { createBaseCardState } from '$stylist/design-system/models/information/base-card.svelte';
-  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
   import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 

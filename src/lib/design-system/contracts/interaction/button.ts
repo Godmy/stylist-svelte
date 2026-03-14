@@ -5,10 +5,20 @@ import type { ComponentSize } from '$stylist/design-system/tokens/architecture/c
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { Props, ClassProp } from '../information/common';
 
-import type { ButtonAttributesBase, ButtonCoreProps, ButtonDomProps } from '../../types/interaction/button';
+export interface ButtonAttributesBase extends Omit<HTMLButtonAttributes, 'class'>, ClassProp {}
+
+export interface ButtonDomProps extends Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'onclick'> {}
+
+export interface ButtonCoreProps extends Omit<Props, 'class'> {}
+
+export interface ButtonElementProps extends Omit<ButtonCoreProps, 'children'>, ButtonDomProps {
+	class?: string;
+	children?: Snippet;
+}
+
 export interface CopyButtonProps
 	extends Omit<
-			ButtonCoreProps,
+			Props,
 			'children' | 'text' | 'label' | 'successMessage' | 'showIcon' | 'onSuccess' | 'onError'
 		>,
 		ButtonDomProps {
@@ -22,14 +32,14 @@ export interface CopyButtonProps
 	onError?: (error: Error) => void;
 }
 
-export interface IconButtonProps extends Omit<ButtonCoreProps, 'children' | 'icon'>, ButtonDomProps {
+export interface IconButtonProps extends Omit<Props, 'children' | 'icon'>, ButtonDomProps {
 	class?: string;
 	icon?: string | Snippet;
 	children?: Snippet;
 }
 
 export interface PageButtonProps
-	extends Omit<ButtonCoreProps, 'children' | 'page' | 'isActive'>,
+	extends Omit<Props, 'children' | 'page' | 'isActive'>,
 		ButtonDomProps {
 	class?: string;
 	page?: number;
@@ -45,6 +55,3 @@ export interface ButtonControlProps extends ButtonAttributesBase {
 	block?: boolean;
 	onClick?: () => void;
 }
-
-
-

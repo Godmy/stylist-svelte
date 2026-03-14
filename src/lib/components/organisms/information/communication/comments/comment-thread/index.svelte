@@ -9,7 +9,7 @@ const Trash2 = 'trash-2';
 const UserIcon = 'user';
 
   import type { CommentThreadProps } from '$lib/design-system/contracts/information/comment-thread';
-  import type { CommentThreadItem } from '$lib/design-system/types/information/comment-thread';
+  import type { CommentThreadItem } from '$lib/design-system/contracts/information/comment-thread';
   import { CommentThreadStyleManager } from '$lib/design-system/styles/information/comment-thread';
 
   let {

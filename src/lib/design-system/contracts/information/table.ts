@@ -30,5 +30,9 @@ export interface TableCellProps extends TableElementAttributesBase<HTMLTableCell
 	align?: Alignment;
 }
 
+export interface TableSectionProps
+	extends TableElementAttributesBase<HTMLTableSectionElement>,
+		ContentProp {}
+
 
 

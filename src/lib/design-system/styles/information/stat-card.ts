@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from '../../constants/information/card';
+import { CARD_BASE_CLASSES } from './card';
 import type { Background } from '$stylist/design-system/tokens/information/background';
 
 const STAT_CARD_VARIANT_CLASSES = {

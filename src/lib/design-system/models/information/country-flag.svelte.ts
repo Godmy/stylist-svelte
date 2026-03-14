@@ -1,5 +1,5 @@
 import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
-import type { CountryFlagProps } from '../../types/information/country-flag';
+import type { CountryFlagProps } from '../../contracts/information/countryflag';
 
 
 export function createCountryFlagState(props: CountryFlagProps) {

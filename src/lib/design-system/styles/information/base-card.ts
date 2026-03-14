@@ -1,5 +1,5 @@
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../../constants/interaction/interaction';
+import { VARIANT_CLASSES } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
 
 const BASE_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;

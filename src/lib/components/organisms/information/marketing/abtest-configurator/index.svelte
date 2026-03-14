@@ -12,7 +12,7 @@ const BarChart3 = 'bar-chart-3';
 const Plus = 'plus';
 
   import type { IABTestConfiguratorProps } from '$lib/design-system/contracts/information/abtest-configurator';
-  import type { ABTest, ABTestVariant } from '$lib/design-system/types/information/abtest-configurator';
+  import type { ABTest, ABTestVariant } from '$lib/design-system/contracts/information/abtest-configurator';
   import { ABTestConfiguratorStyleManager } from '$lib/design-system/styles/information/abtest-configurator';
   import { validateABTest, calculateTotalWeight, addABTestVariant, removeABTestVariant, updateABTestVariantWeight, toggleABTestVariantStatus } from '$lib/utils/abtest';
 

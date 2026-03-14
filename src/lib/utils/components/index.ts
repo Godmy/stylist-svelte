@@ -68,10 +68,10 @@ export const getStateClasses = (
 	const classes: string[] = [];
 
 	// Add standard state classes with fallback defaults
-	if (stateFlags.disabled) classes.push(stateClasses?.disabled || 'opacity-50 cursor-not-allowed');
-	if (stateFlags.loading) classes.push(stateClasses?.loading || 'opacity-70');
+	if (stateFlags.disabled) classes.push(stateClasses?.disabled || 'opacity-[var(--opacity-50)] cursor-not-allowed');
+	if (stateFlags.loading) classes.push(stateClasses?.loading || 'opacity-[var(--opacity-70)]');
 	if (stateFlags.block) classes.push(stateClasses?.block || 'block w-full');
-	if (stateFlags.readonly) classes.push(stateClasses?.readonly || 'bg-gray-100');
+	if (stateFlags.readonly) classes.push(stateClasses?.readonly || 'bg-[var(--color-background-secondary)]');
 
 	// Add custom state classes
 	if (customStateClasses) {
@@ -129,3 +129,7 @@ export const getComponentClasses = (
 
 	return classes.filter(Boolean).join(' ');
 };
+
+
+
+

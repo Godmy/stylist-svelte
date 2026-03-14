@@ -1,3 +1,8 @@
+export interface NodePropertyState {
+	error?: boolean;
+	editable?: boolean;
+}
+
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';

@@ -1,5 +1,4 @@
 import { derived, writable } from 'svelte/store';
-import { createChatStatusIndicatorStyles } from '../../functions/information/chat-status-indicator';
 import type { ChatStatusIndicatorProps } from '../../contracts/interaction/chat-status-indicator';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -20,12 +19,28 @@ export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) 
     }
   });
 
-  // Generate styles
-  const styles = createChatStatusIndicatorStyles({ 
-    size, 
-    status, 
-    showLabel 
-  });
+  const indicatorSizes: Record<string, string> = {
+    sm: 'h-2 w-2',
+    md: 'h-2.5 w-2.5',
+    lg: 'h-3 w-3'
+  };
+
+  const indicatorStatuses: Record<string, string> = {
+    online: 'bg-[--color-success-500]',
+    away: 'bg-[--color-warning-500]',
+    typing: 'bg-[--color-primary-500]',
+    offline: 'bg-[--color-text-tertiary]'
+  };
+
+  const styles = {
+    container: 'inline-flex items-center gap-2',
+    indicator: mergeClasses(
+      'inline-flex rounded-full',
+      indicatorSizes[size] ?? indicatorSizes.sm,
+      indicatorStatuses[status] ?? indicatorStatuses.offline
+    ),
+    label: 'text-xs text-[--color-text-secondary]'
+  };
 
   // Merge classes with custom classes
   const containerClasses = derived(
