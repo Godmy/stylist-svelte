@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Avatar, Button, Icon } from '$stylist/components/atoms';
   import { UserStatus } from '$stylist/components/molecules';
-  import { ChatHeaderModel } from '$stylist/design-system/models/interaction/chat-header.svelte';
-  import type { ChatHeaderProps } from '$stylist/design-system/contracts/interaction/chat-header';
+  import { ChatHeaderModel } from '../../../../../../design-system/classes/interaction/chat-header';
+  import type { ChatHeaderProps } from '$stylist/design-system/types/interaction/chat-header';
   import { ChatHeaderStyleManager } from '$stylist/design-system/styles/interaction/chat-header';
   import { createEventDispatcher } from 'svelte';
 
@@ -57,15 +57,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid #e2e8f0;
-    background-color: white;
+    padding: var(--spacing-4);
+    border-bottom: 1px solid var(--color-border-primary);
+    background-color: var(--color-background-primary);
   }
 
   .chat-info {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--spacing-3);
     flex: 1;
   }
 
@@ -76,14 +76,14 @@
   }
 
   .chat-name {
-    font-weight: 600;
-    color: #1e293b;
-    font-size: 1rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-4);
   }
 
   .chat-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 </style>
 
@@ -143,3 +143,5 @@
     </div>
   {/if}
 </div>
+
+

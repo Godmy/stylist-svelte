@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { marked } from 'marked';
   import { onMount } from 'svelte';
 
@@ -39,75 +39,75 @@
   }
 
   :global(.markdown-content h1) {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    font-size: var(--font-size-8);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-4);
     color: inherit;
   }
 
   :global(.markdown-content h2) {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: var(--font-size-6);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--spacing-6);
+    margin-bottom: var(--spacing-3);
     color: inherit;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding-bottom: 0.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+    padding-bottom: var(--spacing-2);
   }
 
   :global(.markdown-content h3) {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-top: 1.25rem;
-    margin-bottom: 0.5rem;
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--spacing-5);
+    margin-bottom: var(--spacing-2);
     color: inherit;
   }
 
   :global(.markdown-content p) {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.625;
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    line-height: var(--line-height-relaxed);
     color: inherit;
   }
 
   :global(.markdown-content ul),
   :global(.markdown-content ol) {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-    padding-left: 1.5rem;
+    margin-top: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    padding-left: var(--spacing-6);
     color: inherit;
   }
 
   :global(.markdown-content li) {
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-top: var(--spacing-1);
+    margin-bottom: var(--spacing-1);
     color: inherit;
   }
 
   :global(.markdown-content code) {
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-    font-size: 0.875em;
+    background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
+    padding: var(--spacing-1) var(--spacing-1);
+    border-radius: var(--border-radius-base);
+    font-size: var(--font-size-3);
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
   :global(.dark .markdown-content code) {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 
   :global(.markdown-content pre) {
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 1rem;
-    border-radius: 0.5rem;
+    background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-lg);
     overflow-x: auto;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
   }
 
   :global(.dark .markdown-content pre) {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: color-mix(in srgb, var(--color-background-primary) 5%, transparent);
   }
 
   :global(.markdown-content pre code) {
@@ -117,72 +117,72 @@
   }
 
   :global(.markdown-content blockquote) {
-    border-left: 4px solid rgba(0, 0, 0, 0.2);
-    padding-left: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    color: rgba(0, 0, 0, 0.7);
+    border-left: 4px solid color-mix(in srgb, var(--color-text-primary) 20%, transparent);
+    padding-left: var(--spacing-4);
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+    color: color-mix(in srgb, var(--color-text-primary) 70%, transparent);
   }
 
   :global(.dark .markdown-content blockquote) {
-    border-left-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.7);
+    border-left-color: color-mix(in srgb, var(--color-background-primary) 20%, transparent);
+    color: color-mix(in srgb, var(--color-background-primary) 70%, transparent);
   }
 
   :global(.markdown-content a) {
-    color: #3b82f6;
+    color: var(--color-primary-500);
     text-decoration: underline;
   }
 
   :global(.markdown-content a:hover) {
-    color: #2563eb;
+    color: var(--color-primary-600);
   }
 
   :global(.dark .markdown-content a) {
-    color: #60a5fa;
+    color: var(--color-primary-400);
   }
 
   :global(.dark .markdown-content a:hover) {
-    color: #93c5fd;
+    color: var(--color-primary-300);
   }
 
   :global(.markdown-content table) {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
   }
 
   :global(.markdown-content th),
   :global(.markdown-content td) {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+    padding: var(--spacing-2);
     text-align: left;
   }
 
   :global(.dark .markdown-content th),
   :global(.dark .markdown-content td) {
-    border-color: rgba(255, 255, 255, 0.1);
+    border-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 
   :global(.markdown-content th) {
-    background-color: rgba(0, 0, 0, 0.05);
-    font-weight: 600;
+    background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
+    font-weight: var(--font-weight-semibold);
   }
 
   :global(.dark .markdown-content th) {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: color-mix(in srgb, var(--color-background-primary) 5%, transparent);
   }
 
   :global(.markdown-content hr) {
     border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+    margin-top: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
   }
 
   :global(.dark .markdown-content hr) {
-    border-top-color: rgba(255, 255, 255, 0.1);
+    border-top-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 </style>
 

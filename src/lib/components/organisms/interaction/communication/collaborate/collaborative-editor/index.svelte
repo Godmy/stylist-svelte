@@ -97,12 +97,12 @@ const Users = 'users';
   }
 </script>
 
-<div class={`c-collaborative-editor flex flex-col border border-gray-200 rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={`c-collaborative-editor flex flex-col border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`} {...restProps}>
   {#if showToolbar}
-    <div class={`flex items-center p-2 border-b border-gray-200 bg-gray-50 space-x-1 ${toolbarClass}`}>
+    <div class={`flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1 ${toolbarClass}`}>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('bold')}
         title="Bold"
       >
@@ -110,7 +110,7 @@ const Users = 'users';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('italic')}
         title="Italic"
       >
@@ -118,16 +118,16 @@ const Users = 'users';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('underline')}
         title="Underline"
       >
         <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
@@ -135,7 +135,7 @@ const Users = 'users';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
@@ -143,16 +143,16 @@ const Users = 'users';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
         <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertUnorderedList')}
         title="Bullet List"
       >
@@ -160,16 +160,16 @@ const Users = 'users';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertOrderedList')}
         title="Numbered List"
       >
         <BaseIcon name={ListOrdered} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={insertComment}
         title="Insert Comment"
       >
@@ -193,7 +193,7 @@ const Users = 'users';
 
     {#if showUserList && users.length > 0}
       <div class={`w-48 border-l p-3 ${userListClass}`}>
-        <div class="flex items-center text-sm font-medium text-gray-700 mb-2">
+        <div class="flex items-center text-sm font-medium text-[var(--color-text-primary)] mb-2">
           <BaseIcon name={Users} class="h-4 w-4 mr-1" />
           Collaborators ({users.length})
         </div>
@@ -209,15 +209,15 @@ const Users = 'users';
                 />
               {:else}
                 <div
-                  class="w-6 h-6 rounded-full flex items-center justify-center text-xs text-white mr-2"
+                  class="w-6 h-6 rounded-full flex items-center justify-center text-xs text-[var(--color-text-inverse)] mr-2"
                   style={`background-color: ${user.color}`}
                 >
                   {user.name.charAt(0).toUpperCase()}
                 </div>
               {/if}
-              <span class="text-sm text-gray-700">{user.name}</span>
+              <span class="text-sm text-[var(--color-text-primary)]">{user.name}</span>
               {#if currentUser?.id === user.id}
-                <span class="ml-1 text-xs text-gray-500">(You)</span>
+                <span class="ml-1 text-xs text-[var(--color-text-secondary)]">(You)</span>
               {/if}
             </div>
           {/each}
@@ -226,4 +226,7 @@ const Users = 'users';
     {/if}
   </div>
 </div>
+
+
+
 

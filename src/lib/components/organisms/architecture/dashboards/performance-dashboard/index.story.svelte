@@ -7,7 +7,7 @@ const Users = 'users';
 const ShoppingCart = 'shopping-cart';
 const Eye = 'eye';
 
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   // Sample data for the PerformanceDashboard component
   const sampleMetrics = [
@@ -47,6 +47,8 @@ const Eye = 'eye';
     />
   {/snippet}
 </Story>
+
+
 
 
 

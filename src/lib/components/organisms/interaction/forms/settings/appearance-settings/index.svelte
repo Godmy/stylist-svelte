@@ -67,24 +67,20 @@
 <style>
   .c-appearance-settings {
     display: grid;
-    gap: 0.7rem;
-    border-color: var(--line, #d8deea);
-    background: linear-gradient(
-      165deg,
-      color-mix(in srgb, var(--surface, #fff) 93%, var(--accent, #3253d4) 7%),
-      var(--surface, #fff)
-    );
+    gap: var(--spacing-3);
+    border-color: var(--line, var(--color-border-primary));
+    background: var(--gradient-custom32);
   }
 
   .settings-item {
     display: grid;
-    gap: 0.65rem;
+    gap: var(--spacing-3);
     grid-template-columns: minmax(140px, 1fr) auto;
     align-items: center;
-    border: 1px solid var(--line, #d8deea);
-    border-radius: 0.75rem;
-    background: color-mix(in srgb, var(--surface, #fff) 94%, var(--bg, #f7f7f9) 6%);
-    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--line, var(--color-border-primary));
+    border-radius: var(--border-radius-xl);
+    background: color-mix(in srgb, var(--surface, var(--color-background-primary)) 94%, var(--bg, var(--color-background-secondary)) 6%);
+    padding: var(--spacing-3) var(--spacing-3);
   }
 
   .settings-item-column {
@@ -94,19 +90,19 @@
 
   .settings-meta {
     display: grid;
-    gap: 0.15rem;
+    gap: var(--spacing-1);
   }
 
   .settings-title {
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--text, #171923);
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text, var(--color-text-primary));
   }
 
   .settings-help {
-    font-size: 0.74rem;
-    color: var(--muted, #5f6572);
-    line-height: 1.25;
+    font-size: var(--font-size-3);
+    color: var(--muted, var(--color-text-secondary));
+    line-height: var(--line-height-tight);
   }
 
   .settings-control {
@@ -125,3 +121,5 @@
     }
   }
 </style>
+
+

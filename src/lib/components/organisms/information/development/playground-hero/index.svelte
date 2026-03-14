@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Sparkles = 'sparkles';
 const ExternalLink = 'external-link';
@@ -52,9 +52,9 @@ const ArrowRight = 'arrow-right';
     50% { background-position: 100% 50%; }
   }
   .gradient-bg {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: var(--gradient-custom102);
     background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
+    animation: gradient-shift var(--duration-s15) var(--animation-ease) infinite;
   }
 
   @keyframes float {
@@ -62,23 +62,23 @@ const ArrowRight = 'arrow-right';
     50% { transform: translateY(-20px) rotate(5deg); }
   }
   .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float var(--duration-s6) var(--animation-ease-in-out) infinite;
   }
 
   @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(249, 115, 22, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(249, 115, 22, 0.6); }
+    0%, 100% { box-shadow: var(--shadow-custom18); }
+    50% { box-shadow: var(--shadow-custom19); }
   }
   .pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    animation: pulse-glow var(--duration-2000) var(--animation-ease-in-out) infinite;
   }
 
   @keyframes slide-up {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: var(--opacity-0); transform: translateY(30px); }
+    to { opacity: var(--opacity-100); transform: translateY(var(--opacity-0)); }
   }
   .slide-up {
-    animation: slide-up 0.6s ease-out forwards;
+    animation: slide-up var(--duration-600) var(--animation-ease-out) forwards;
   }
 
   @keyframes heartbeat {
@@ -88,12 +88,12 @@ const ArrowRight = 'arrow-right';
   }
   .heart-icon {
     display: inline-block;
-    animation: heartbeat 1.5s ease-in-out infinite;
+    animation: heartbeat var(--duration-1500) var(--animation-ease-in-out) infinite;
   }
 </style>
 
 <div class={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`} {...restProps}>
-  <div class="absolute inset-0 gradient-bg opacity-10"></div>
+  <div class="absolute inset-0 gradient-bg opacity-[var(--opacity-10)]"></div>
 
   <div class="absolute inset-0 overflow-hidden">
     {#each particleIndexes as _i}
@@ -104,14 +104,14 @@ const ArrowRight = 'arrow-right';
           height: {Math.random() * 100 + 20}px;
           left: {Math.random() * 100}%;
           top: {Math.random() * 100}%;
-          animation: float {Math.random() * 10 + 5}s ease-in-out infinite;
+          animation: float {Math.random() * 10 + 5}s var(--animation-ease-in-out) infinite;
           animation-delay: {Math.random() * 5}s;
         "
       ></div>
     {/each}
   </div>
 
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+  <div class="relative z-[var(--z-index-docked)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
     <div class="text-center">
       <div class="mb-6 slide-up" style="animation-delay: 0.1s">
         <h1 class="text-7xl md:text-8xl lg:text-9xl font-black mb-4 leading-tight text-gray-900 dark:text-white">
@@ -128,7 +128,7 @@ const ArrowRight = 'arrow-right';
         >
           <BaseIcon name={Sparkles} class="w-6 h-6 text-orange-600 group-hover:rotate-12 transition-transform" />
           <span class="text-lg font-bold text-orange-900 dark:text-orange-300">{badgeLabel}</span>
-          <BaseIcon name={ExternalLink} class="w-5 h-5 text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <BaseIcon name={ExternalLink} class="w-5 h-5 text-orange-600 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </a>
       </div>
 
@@ -160,7 +160,7 @@ const ArrowRight = 'arrow-right';
               href={model.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-orange-400 dark:hover:border-orange-500 transition-all duration-300 hover:scale-110 hover:-translate-y-2"
+              class="group px-6 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-2xl border-2 border-gray-200 dark:border-gray-700 hover:border-orange-400 dark:hover:border-orange-500 transition-all duration-[var(--duration-300)] hover:scale-110 hover:-translate-y-2"
               style="animation-delay: {0.6 + i * 0.1}s"
             >
               <div class="flex items-center gap-4">
@@ -170,7 +170,7 @@ const ArrowRight = 'arrow-right';
                 <div class="text-left">
                   <div class="flex items-center gap-2">
                     <span class="text-lg font-bold text-gray-900 dark:text-white transition-all">{model.name}</span>
-                    <BaseIcon name={ArrowRight} class="w-4 h-4 text-orange-500 dark:text-orange-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                    <BaseIcon name={ArrowRight} class="w-4 h-4 text-orange-500 dark:text-orange-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] group-hover:translate-x-1 transition-all" />
                   </div>
                   <span class="text-xs text-gray-500 dark:text-gray-400">{model.description}</span>
                 </div>
@@ -182,4 +182,7 @@ const ArrowRight = 'arrow-right';
     </div>
   </div>
 </div>
+
+
+
 

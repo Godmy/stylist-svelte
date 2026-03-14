@@ -105,8 +105,8 @@
     <input
       bind:this={timeInputRef}
       type="text"
-      class={`w-full p-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-        disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : 'cursor-pointer'
+      class={`w-full p-2 pr-10 border border-[var(--color-border-primary)] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+        disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : 'cursor-pointer'
       }`}
       readonly
       value={selectedTime}
@@ -116,18 +116,18 @@
     />
     <button
       type="button"
-      class="absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-gray-100"
+      class="absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-[var(--color-background-secondary)]"
       onclick={toggleDropdown}
       disabled={disabled}
     >
-      <BaseIcon name={Clock} class="w-4 h-4 text-gray-500" />
+      <BaseIcon name={Clock} class="w-4 h-4 text-[var(--color-text-secondary)]" />
     </button>
   </div>
 
   {#if isOpen}
     <div
       bind:this={timePickerRef}
-      class={`absolute z-10 w-full mt-1 p-2 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto ${dropdownClass}`}
+      class={`absolute z-[var(--z-index-docked)] w-full mt-1 p-2 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg max-h-60 overflow-y-auto ${dropdownClass}`}
       onclick={(e: Event) => e.stopPropagation()}
       onkeydown={(e: KeyboardEvent) => e.stopPropagation()}
       role="dialog"
@@ -135,8 +135,8 @@
     >
       {#each timeOptions as time}
         <div
-          class={`p-2 hover:bg-gray-100 cursor-pointer ${
-            selectedTime === time ? 'bg-blue-100' : ''
+          class={`p-2 hover:bg-[var(--color-background-secondary)] cursor-pointer ${
+            selectedTime === time ? 'bg-[var(--color-primary-100)]' : ''
           }`}
           onclick={() => {
             selectedTime = time;
@@ -161,4 +161,9 @@
     </div>
   {/if}
 </div>
+
+
+
+
+
 

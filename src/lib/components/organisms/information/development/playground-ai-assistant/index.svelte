@@ -153,16 +153,16 @@ const Loader2 = 'loader-2';
     width: 450px;
     max-width: 90vw;
     background: white;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 9998;
+    border-left: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+    z-index: var(--z-index-layer9998);
     display: flex;
     flex-direction: column;
-    animation: slideInRight 0.3s ease-out;
+    animation: slideInRight var(--duration-300) var(--animation-ease-out);
   }
 
   :global(.dark) .chat-assistant {
-    background: #1f2937;
-    border-left-color: rgba(255, 255, 255, 0.1);
+    background: var(--color-text-primary);
+    border-left-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 
   @keyframes slideInRight {
@@ -177,82 +177,82 @@ const Loader2 = 'loader-2';
   .messages-container {
     flex: 1;
     overflow-y: auto;
-    padding: 1rem;
+    padding: var(--spacing-4);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--spacing-4);
   }
 
   .message {
-    padding: 0.875rem 1rem;
-    border-radius: 0.875rem;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--border-radius-xl);
     max-width: 85%;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
     word-wrap: break-word;
   }
 
   .message.user {
     align-self: flex-end;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-custom62);
     color: white;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    box-shadow: var(--shadow-custom35);
   }
 
   .message.assistant {
     align-self: flex-start;
-    background: #f3f4f6;
-    color: #1f2937;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    box-shadow: var(--shadow-custom29);
   }
 
   :global(.dark) .message.assistant {
-    background: #374151;
-    color: #f9fafb;
+    background: var(--color-border-primary);
+    color: var(--color-background-primary);
   }
 
   .input-container {
-    padding: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-4);
+    border-top: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
     background: white;
   }
 
   :global(.dark) .input-container {
-    border-top-color: rgba(255, 255, 255, 0.1);
-    background: #1f2937;
+    border-top-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
+    background: var(--color-text-primary);
   }
 
   .error-banner {
-    background: #fee2e2;
-    color: #991b1b;
-    padding: 0.75rem 1rem;
-    border-left: 4px solid #dc2626;
-    margin: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
+    background: var(--color-danger-100);
+    color: var(--color-danger-800);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-left: 4px solid var(--color-danger-600);
+    margin: var(--spacing-2) var(--spacing-4);
+    border-radius: var(--border-radius-lg);
+    font-size: var(--font-size-3);
   }
 
   :global(.dark) .error-banner {
-    background: #7f1d1d;
-    color: #fecaca;
-    border-left-color: #ef4444;
+    background: var(--color-danger-900);
+    color: var(--color-danger-200);
+    border-left-color: var(--color-error-500);
   }
 
   .loading-indicator {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    background: #f3f4f6;
-    border-radius: 0.875rem;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-4);
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-xl);
     max-width: 85%;
     align-self: flex-start;
-    color: #6b7280;
-    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-3);
   }
 
   :global(.dark) .loading-indicator {
-    background: #374151;
-    color: #9ca3af;
+    background: var(--color-border-primary);
+    color: var(--color-text-secondary);
   }
 </style>
 
@@ -327,12 +327,12 @@ const Loader2 = 'loader-2';
         placeholder="Р’РІРµРґРёС‚Рµ СЃРѕРѕР±С‰РµРЅРёРµ..."
         rows="2"
         disabled={isLoading}
-        class="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none disabled:opacity-50"
+        class="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none disabled:opacity-[var(--opacity-50)]"
       ></textarea>
       <button
         onclick={sendMessage}
         disabled={!inputMessage.trim() || isLoading}
-        class="p-2 h-10 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:from-purple-700 hover:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
+        class="p-2 h-10 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:from-purple-700 hover:to-purple-800 disabled:opacity-[var(--opacity-50)] disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-xl"
       >
         {#if isLoading}
           <BaseIcon name={Loader2} class="w-5 h-5 animate-spin" />
@@ -346,6 +346,5 @@ const Loader2 = 'loader-2';
     </p>
   </div>
 </div>
-
 
 

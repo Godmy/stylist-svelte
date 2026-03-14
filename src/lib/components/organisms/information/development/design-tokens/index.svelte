@@ -113,7 +113,7 @@
             <div class="flex flex-col items-center">
               <div 
                 class="bg-[--color-secondary-200] dark:bg-[--color-secondary-700] border border-[--color-border-primary] dark:border-[--color-border-primary]"
-                style="width: 6rem; height: 4rem; border-radius: {tokenValue}"
+                style="width: var(--border-radius-full); height: var(--spacing-16); border-radius: {tokenValue}"
               ></div>
               <span class="text-xs font-mono mt-2">{tokenName}</span>
               <span class="text-xs">{tokenValue}</span>
@@ -131,7 +131,7 @@
             {#if tokenValue !== 'none'}
               <div
                 class="p-4 rounded-md border border-[--color-border-primary]"
-                style={`box-SHADOW: ${tokenValue}`}
+                style={`box-shadow: var(--shadow-${tokenName}, ${tokenValue})`}
               >
                 <div class="font-mono text-sm mb-2">{tokenName}</div>
                 <div class="text-xs font-mono">{tokenValue}</div>
@@ -147,4 +147,5 @@
     <p class="text-[--color-text-secondary]">Design tokens are hidden.</p>
   {/if}
 </div>
+
 

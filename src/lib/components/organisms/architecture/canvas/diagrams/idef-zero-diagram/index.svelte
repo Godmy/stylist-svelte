@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0DiagramProps } from '$stylist/design-system';
 	import { createIdef0DiagramState } from '$stylist/design-system/models/information/idef0.svelte';
 	import Idef0BlackBox from '$stylist/components/molecules/architecture/canvas/diagrams/idef-zero-black-box/index.svelte';
@@ -22,4 +22,6 @@
 		/>
 	</svg>
 </section>
+
+
 

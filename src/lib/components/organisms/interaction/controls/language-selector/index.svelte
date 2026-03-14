@@ -96,7 +96,7 @@
   {#if isOpen}
     <div class={dropdownBaseClasses}>
       {#if searchable}
-        <div class="p-2 border-b border-[--color-border-default]">
+        <div class="p-2 border-b border-[--color-border-primary]">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <svg class="h-5 w-5 text-[--color-text-secondary]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -143,7 +143,7 @@
         {/if}
       </div>
 
-      <div class="py-1 border-t border-[--color-border-default]">
+      <div class="py-1 border-t border-[--color-border-primary]">
         <div class="px-4 py-2 text-xs text-[--color-text-secondary]">
           {filteredLanguages.length} language{filteredLanguages.length !== 1 ? 's' : ''} available
         </div>
@@ -151,4 +151,7 @@
     </div>
   {/if}
 </div>
+
+
+
 

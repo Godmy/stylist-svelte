@@ -15,15 +15,15 @@
      ================================ */
 
   :root {
-    --orange-1: #FF3E00;
-    --orange-2: #FF6B35;
-    --red-1: #EF4444;
+    --orange-1: var(--color-danger-500);
+    --orange-2: var(--color-warning-500);
+    --red-1: var(--color-error-500);
 
     /* opacity tuning for light mode */
-    --wash-opacity: 0.12;
-    --shape-opacity: 0.12;
-    --orb-opacity: 0.12;
-    --particle-opacity: 0.25;
+    --wash-opacity: var(--opacity-10);
+    --shape-opacity: var(--opacity-10);
+    --orb-opacity: var(--opacity-10);
+    --particle-opacity: var(--opacity-25);
 
     --blur-strong: 80px;
     --blur-soft: 40px;
@@ -31,16 +31,16 @@
 
   :global(.dark) {
     /* lower intensity on dark backgrounds */
-    --wash-opacity: 0.08;
-    --shape-opacity: 0.09;
-    --orb-opacity: 0.10;
-    --particle-opacity: 0.18;
+    --wash-opacity: var(--opacity-10);
+    --shape-opacity: var(--opacity-10);
+    --orb-opacity: var(--opacity-10);
+    --particle-opacity: var(--opacity-20);
   }
 
   .ambient-bg {
     position: absolute;
     inset: 0;
-    z-index: 0;
+    z-index: var(--z-index-base);
     pointer-events: none;
     overflow: hidden;
     background: transparent;
@@ -51,14 +51,11 @@
   .ambient-bg__wash {
     position: absolute;
     inset: -10%;
-    background:
-      radial-gradient(60vmax 60vmax at 10% 10%, color-mix(in oklab, var(--orange-2) 70%, transparent) 0%, transparent 60%),
-      radial-gradient(70vmax 70vmax at 90% 20%, color-mix(in oklab, var(--red-1) 70%, transparent) 0%, transparent 62%),
-      radial-gradient(80vmax 80vmax at 50% 100%, color-mix(in oklab, var(--orange-1) 60%, transparent) 0%, transparent 65%);
+    background: var(--gradient-custom152);
     opacity: var(--wash-opacity);
     filter: blur(var(--blur-strong)) saturate(1.1);
     transform: translateZ(0);
-    animation: wash-drift 26s ease-in-out infinite alternate;
+    animation: wash-drift var(--duration-s26) var(--animation-ease-in-out) infinite alternate;
   }
 
   /* Large semi-transparent blurred shapes */
@@ -66,7 +63,7 @@
     position: absolute;
     width: 48vmax;
     height: 48vmax;
-    border-radius: 999px;
+    border-radius: var(--border-radius-full);
     opacity: var(--shape-opacity);
     filter: blur(var(--blur-strong));
     mix-blend-mode: screen;
@@ -74,16 +71,15 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     animation:
-      shape-drift 22s linear infinite,
-      shape-breathe 8s ease-in-out infinite;
+      shape-drift var(--duration-s22) var(--animation-linear) infinite,
+      shape-breathe var(--duration-s8_5) var(--animation-ease-in-out) infinite;
   }
 
   .ambient-bg__shape.s1 {
     top: -10vmax;
     left: -8vmax;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 107, 53, 0.15), transparent 60%),
-                radial-gradient(circle at 70% 70%, rgba(255, 62, 0, 0.12), transparent 65%);
-    animation-duration: 28s, 9s;
+    background: var(--gradient-custom202);
+    animation-duration: var(--duration-s28), var(--duration-s9);
   }
 
   .ambient-bg__shape.s2 {
@@ -91,9 +87,8 @@
     right: -12vmax;
     width: 55vmax;
     height: 55vmax;
-    background: radial-gradient(circle at 35% 35%, rgba(239, 68, 68, 0.14), transparent 60%),
-                radial-gradient(circle at 75% 25%, rgba(255, 62, 0, 0.10), transparent 62%);
-    animation-duration: 24s, 7.5s;
+    background: var(--gradient-custom212);
+    animation-duration: var(--duration-s24), var(--duration-s7_5);
     animation-direction: reverse, alternate;
   }
 
@@ -103,54 +98,53 @@
     width: 60vmax;
     height: 40vmax;
     border-radius: 28vmax;
-    background: radial-gradient(ellipse at 40% 50%, rgba(255, 107, 53, 0.12), transparent 65%),
-                radial-gradient(ellipse at 80% 60%, rgba(239, 68, 68, 0.10), transparent 70%);
-    animation-duration: 30s, 10s;
+    background: var(--gradient-custom302);
+    animation-duration: var(--duration-s30), var(--duration-s10);
   }
 
   /* Glowing orbs */
   .ambient-bg__orb {
     position: absolute;
-    border-radius: 999px;
+    border-radius: var(--border-radius-full);
     opacity: var(--orb-opacity);
     filter: blur(var(--blur-soft));
     transform: translateZ(0);
     mix-blend-mode: screen;
     animation:
-      orb-float 18s linear infinite,
-      orb-breathe 6s ease-in-out infinite;
+      orb-float var(--duration-s18) var(--animation-linear) infinite,
+      orb-breathe var(--duration-s6) var(--animation-ease-in-out) infinite;
   }
 
   /* Individual orb sizes/starts for parallax */
   .ambient-bg__orb.o1 {
     width: 18vmax; height: 18vmax;
     top: 12%; left: 8%;
-    background: radial-gradient(circle, rgba(255, 62, 0, 0.15) 0%, transparent 65%);
-    animation-duration: 26s, 7s;
+    background: var(--gradient-custom262);
+    animation-duration: var(--duration-s26), var(--duration-s7);
   }
   .ambient-bg__orb.o2 {
     width: 12vmax; height: 12vmax;
     top: 55%; left: 18%;
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.14) 0%, transparent 68%);
-    animation-duration: 20s, 6s;
+    background: var(--gradient-custom282);
+    animation-duration: var(--duration-s20), var(--duration-s6);
   }
   .ambient-bg__orb.o3 {
     width: 22vmax; height: 22vmax;
     top: 25%; right: 10%;
-    background: radial-gradient(circle, rgba(239, 68, 68, 0.14) 0%, transparent 70%);
-    animation-duration: 30s, 8.5s;
+    background: var(--gradient-custom252);
+    animation-duration: var(--duration-s30), var(--duration-s8_5);
   }
   .ambient-bg__orb.o4 {
     width: 10vmax; height: 10vmax;
     bottom: 18%; right: 22%;
-    background: radial-gradient(circle, rgba(255, 62, 0, 0.12) 0%, transparent 70%);
-    animation-duration: 17s, 5.5s;
+    background: var(--gradient-custom242);
+    animation-duration: var(--duration-s17), var(--duration-s5_5);
   }
   .ambient-bg__orb.o5 {
     width: 14vmax; height: 14vmax;
     bottom: 8%; left: 52%;
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 72%);
-    animation-duration: 23s, 7.5s;
+    background: var(--gradient-custom272);
+    animation-duration: var(--duration-s23), var(--duration-s7_5);
   }
 
   /* Small particles */
@@ -161,46 +155,46 @@
 
   .ambient-bg__particle {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
+    width: var(--spacing-2);
+    height: var(--spacing-2);
+    border-radius: var(--border-radius-full);
     opacity: var(--particle-opacity);
-    background: radial-gradient(circle, rgba(255, 107, 53, 0.35) 0%, transparent 70%);
+    background: var(--gradient-custom292);
     filter: blur(2px);
     transform: translateZ(0);
     animation:
-      particle-drift 16s linear infinite,
-      particle-fade 5.5s ease-in-out infinite;
+      particle-drift var(--duration-s16) var(--animation-linear) infinite,
+      particle-fade var(--duration-s5_5) var(--animation-ease-in-out) infinite;
   }
 
   /* Particle placement + random-ish timings */
-  .ambient-bg__particle.p0  { top: 10%; left: 20%; animation-duration: 18s, 6s; }
-  .ambient-bg__particle.p1  { top: 25%; left: 70%; animation-duration: 22s, 5s; }
-  .ambient-bg__particle.p2  { top: 45%; left: 35%; animation-duration: 16s, 7s; }
-  .ambient-bg__particle.p3  { top: 60%; left: 80%; animation-duration: 20s, 6.5s; }
-  .ambient-bg__particle.p4  { top: 75%; left: 15%; animation-duration: 24s, 5.5s; }
-  .ambient-bg__particle.p5  { top: 82%; left: 55%; animation-duration: 19s, 6.2s; }
-  .ambient-bg__particle.p6  { top: 14%; left: 52%; animation-duration: 25s, 7.2s; }
-  .ambient-bg__particle.p7  { top: 33%; left: 8%;  animation-duration: 17s, 5.8s; }
-  .ambient-bg__particle.p8  { top: 52%; left: 62%; animation-duration: 21s, 6.7s; }
-  .ambient-bg__particle.p9  { top: 68%; left: 42%; animation-duration: 15s, 5.2s; }
-  .ambient-bg__particle.p10 { top: 7%;  left: 88%; animation-duration: 23s, 6.9s; }
-  .ambient-bg__particle.p11 { top: 90%; left: 90%; animation-duration: 26s, 7.5s; }
+  .ambient-bg__particle.p0  { top: 10%; left: 20%; animation-duration: var(--duration-s18), var(--duration-s6); }
+  .ambient-bg__particle.p1  { top: 25%; left: 70%; animation-duration: var(--duration-s22), var(--duration-s5); }
+  .ambient-bg__particle.p2  { top: 45%; left: 35%; animation-duration: var(--duration-s16), var(--duration-s7); }
+  .ambient-bg__particle.p3  { top: 60%; left: 80%; animation-duration: var(--duration-s20), var(--duration-s6_5); }
+  .ambient-bg__particle.p4  { top: 75%; left: 15%; animation-duration: var(--duration-s24), var(--duration-s5_5); }
+  .ambient-bg__particle.p5  { top: 82%; left: 55%; animation-duration: var(--duration-s19), var(--duration-s6_2); }
+  .ambient-bg__particle.p6  { top: 14%; left: 52%; animation-duration: var(--duration-s25), var(--duration-s7_2); }
+  .ambient-bg__particle.p7  { top: 33%; left: 8%;  animation-duration: var(--duration-s17), var(--duration-s5_8); }
+  .ambient-bg__particle.p8  { top: 52%; left: 62%; animation-duration: var(--duration-s21), var(--duration-s6_7); }
+  .ambient-bg__particle.p9  { top: 68%; left: 42%; animation-duration: var(--duration-s15), var(--duration-s5_2); }
+  .ambient-bg__particle.p10 { top: 7%;  left: 88%; animation-duration: var(--duration-s23), var(--duration-s6_9); }
+  .ambient-bg__particle.p11 { top: 90%; left: 90%; animation-duration: var(--duration-s26), var(--duration-s7_5); }
 
   /* Subtle geometric SVG overlay */
   .ambient-bg__geo {
     position: absolute;
     inset: -5%;
-    opacity: 0.6;
+    opacity: var(--opacity-60);
     filter: blur(1px);
     transform: translateZ(0);
-    animation: geo-drift 28s ease-in-out infinite alternate;
+    animation: geo-drift var(--duration-s28) var(--animation-ease-in-out) infinite alternate;
   }
 
   /* Ensure main content is above background */
   .playground-welcome {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-index-layer1);
   }
 
   /* ================================
@@ -219,7 +213,7 @@
   }
 
   @keyframes shape-breathe {
-    0%, 100% { opacity: calc(var(--shape-opacity) * 0.9); }
+    0%, 100% { opacity: calc(var(--shape-opacity) * var(--opacity-90)); }
     50%      { opacity: calc(var(--shape-opacity) * 1.15); }
   }
 
@@ -230,7 +224,7 @@
   }
 
   @keyframes orb-breathe {
-    0%, 100% { opacity: calc(var(--orb-opacity) * 0.85); }
+    0%, 100% { opacity: calc(var(--orb-opacity) * var(--opacity-80)); }
     50%      { opacity: calc(var(--orb-opacity) * 1.2); }
   }
 
@@ -240,8 +234,8 @@
   }
 
   @keyframes particle-fade {
-    0%, 100% { opacity: calc(var(--particle-opacity) * 0.6); }
-    50%      { opacity: calc(var(--particle-opacity) * 1.0); }
+    0%, 100% { opacity: calc(var(--particle-opacity) * var(--opacity-60)); }
+    50%      { opacity: calc(var(--particle-opacity) * var(--opacity-100)); }
   }
 
   @keyframes geo-drift {
@@ -289,12 +283,12 @@
   <svg class="ambient-bg__geo" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
       <radialGradient id="g1" cx="30%" cy="20%" r="60%">
-        <stop offset="0%" stop-color="#FF6B35" stop-opacity="0.12"/>
-        <stop offset="100%" stop-color="#FF3E00" stop-opacity="0"/>
+        <stop offset="0%" stop-color="var(--color-warning-500)" stop-opacity="0.12"/>
+        <stop offset="100%" stop-color="var(--color-danger-500)" stop-opacity="0"/>
       </radialGradient>
       <radialGradient id="g2" cx="70%" cy="70%" r="65%">
-        <stop offset="0%" stop-color="#EF4444" stop-opacity="0.10"/>
-        <stop offset="100%" stop-color="#EF4444" stop-opacity="0"/>
+        <stop offset="0%" stop-color="var(--color-error-500)" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="var(--color-error-500)" stop-opacity="0"/>
       </radialGradient>
     </defs>
     <circle cx="20" cy="15" r="18" fill="url(#g1)"/>
@@ -308,4 +302,8 @@
     {@render children()}
   {/if}
 </div>
+
+
+
+
 

@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Heatmap from './index.svelte';
   import type { IHeatmapCell } from './types';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   // Generate sample data for the heatmap
   const generateHeatmapData = () => {
@@ -64,8 +64,8 @@
     {
       name: 'colorScheme',
       type: CONTROL_TYPES.SELECT,
-      options: ['blue', 'red', 'green', 'purple', 'warm', 'cool'],
-      defaultValue: 'blue'
+      options: ['minimal', 'ocean', 'forest', 'sunset'],
+      defaultValue: 'minimal'
     }
   ];
 
@@ -96,5 +96,7 @@
     />
   {/snippet}
 </Story>
+
+
 
 

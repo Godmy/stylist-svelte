@@ -62,7 +62,7 @@
     readonly
     bind:value={displayValue}
     placeholder={placeholder}
-    class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    class="border border-[var(--color-border-primary)] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
     onclick={() => !disabled && (isOpen = true)}
     disabled={disabled}
     {...restProps}
@@ -75,8 +75,12 @@
       onchange={handleDateChange}
       min={minDate?.toISOString().split('T')[0]}
       max={maxDate?.toISOString().split('T')[0]}
-      class="absolute top-full left-0 mt-1 border border-gray-300 rounded-md p-2 bg-white shadow-lg z-10"
+      class="absolute top-full left-0 mt-1 border border-[var(--color-border-primary)] rounded-md p-2 bg-[var(--color-background-primary)] shadow-lg z-[var(--z-index-docked)]"
       style="width: fit-content;"
     />
   {/if}
 </div>
+
+
+
+

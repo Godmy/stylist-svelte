@@ -110,15 +110,15 @@
 
 <div class="space-y-6 p-6">
   <div>
-    <h1 class="text-2xl font-semibold text-gray-900">RoutePlanner</h1>
-    <p class="text-gray-600">
+    <h1 class="text-2xl font-semibold text-[var(--color-text-primary)]">RoutePlanner</h1>
+    <p class="text-[var(--color-text-secondary)]">
       Интерактивный планировщик маршрутов: переключайте набор режимов передвижения, сценарии отображения и просматривайте лог
       событий.
     </p>
   </div>
 
   <div class="grid gap-6 2xl:grid-cols-[2fr_1fr]">
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+    <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
       <RoutePlanner
         startLocation={start}
         endLocation={end}
@@ -139,92 +139,92 @@
       />
     </div>
 
-    <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-      <h2 class="text-lg font-semibold text-gray-900">Настройки</h2>
+    <div class="space-y-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+      <h2 class="text-lg font-semibold text-[var(--color-text-primary)]">Настройки</h2>
 
       <div class="grid gap-3">
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showSearch} class="rounded border-gray-300" />
+        <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+          <input type="checkbox" bind:checked={showSearch} class="rounded border-[var(--color-border-primary)]" />
           Панель поиска локаций
         </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showRouteOptions} class="rounded border-gray-300" />
+        <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+          <input type="checkbox" bind:checked={showRouteOptions} class="rounded border-[var(--color-border-primary)]" />
           Список маршрутов
         </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showDirections} class="rounded border-gray-300" />
+        <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+          <input type="checkbox" bind:checked={showDirections} class="rounded border-[var(--color-border-primary)]" />
           Пошаговые направления
         </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showMap} class="rounded border-gray-300" />
+        <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+          <input type="checkbox" bind:checked={showMap} class="rounded border-[var(--color-border-primary)]" />
           Карта
         </label>
-        <label class="flex items-center gap-2 text-sm text-gray-700">
-          <input type="checkbox" bind:checked={showTravelMode} class="rounded border-gray-300" />
+        <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+          <input type="checkbox" bind:checked={showTravelMode} class="rounded border-[var(--color-border-primary)]" />
           Переключатель режима поездки
         </label>
       </div>
 
       <div class="grid gap-3 sm:grid-cols-2">
         <div>
-          <label for="route-height" class="block text-sm font-medium text-gray-700">Высота контейнера</label>
+          <label for="route-height" class="block text-sm font-medium text-[var(--color-text-primary)]">Высота контейнера</label>
           <input
             id="route-height"
             type="text"
             bind:value={plannerHeight}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+            class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
           />
         </div>
         <div>
-          <label for="route-width" class="block text-sm font-medium text-gray-700">Ширина</label>
+          <label for="route-width" class="block text-sm font-medium text-[var(--color-text-primary)]">Ширина</label>
           <input
             id="route-width"
             type="text"
             bind:value={plannerWidth}
-            class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+            class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
           />
         </div>
       </div>
 
       <div>
-        <label for="route-modes" class="block text-sm font-medium text-gray-700">Разрешённые режимы</label>
+        <label for="route-modes" class="block text-sm font-medium text-[var(--color-text-primary)]">Разрешённые режимы</label>
         <select
           id="route-modes"
           multiple
           size="4"
           bind:value={travelModes}
-          class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+          class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
         >
           <option value="driving">Авто</option>
           <option value="walking">Пешком</option>
           <option value="cycling">Велосипед</option>
           <option value="transit">Общественный транспорт</option>
         </select>
-        <p class="mt-1 text-xs text-gray-500">
+        <p class="mt-1 text-xs text-[var(--color-text-secondary)]">
           Удерживайте Ctrl / Cmd чтобы выбрать несколько вариантов.
         </p>
       </div>
 
       <div>
-        <h3 class="text-sm font-semibold text-gray-800">Сценарии</h3>
+        <h3 class="text-sm font-semibold text-[var(--color-text-primary)]">Сценарии</h3>
         <div class="mt-2 flex flex-wrap gap-2">
           <button
             type="button"
-            class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+            class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
             onclick={() => applyPreset('delivery')}
           >
             Доставка
           </button>
           <button
             type="button"
-            class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+            class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
             onclick={() => applyPreset('eco')}
           >
             Eco mode
           </button>
           <button
             type="button"
-            class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+            class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
             onclick={() => applyPreset('walking')}
           >
             Пеший маршрут
@@ -234,16 +234,19 @@
     </div>
   </div>
 
-  <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-    <h2 class="text-lg font-semibold text-gray-900">Лента событий</h2>
+  <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+    <h2 class="text-lg font-semibold text-[var(--color-text-primary)]">Лента событий</h2>
     {#if activityLog.length > 0}
-      <ul class="mt-3 space-y-2 text-sm text-gray-700">
+      <ul class="mt-3 space-y-2 text-sm text-[var(--color-text-primary)]">
         {#each activityLog as entry}
-          <li class="rounded-md bg-gray-50 px-3 py-2">{entry}</li>
+          <li class="rounded-md bg-[var(--color-background-secondary)] px-3 py-2">{entry}</li>
         {/each}
       </ul>
     {:else}
-      <p class="mt-2 text-sm text-gray-500">Выполните действия в планировщике, чтобы увидеть историю.</p>
+      <p class="mt-2 text-sm text-[var(--color-text-secondary)]">Выполните действия в планировщике, чтобы увидеть историю.</p>
     {/if}
   </div>
 </div>
+
+
+

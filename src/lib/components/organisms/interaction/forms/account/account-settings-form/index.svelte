@@ -10,5 +10,8 @@
   <div><label class="text-sm" for={nameId}>Name</label><input id={nameId} class="w-full border rounded px-2 py-1" value={name} /></div>
   <div><label class="text-sm" for={emailId}>Email</label><input id={emailId} class="w-full border rounded px-2 py-1" value={email} /></div>
   <div><label class="text-sm" for={localeId}>Locale</label><input id={localeId} class="w-full border rounded px-2 py-1" value={locale} /></div>
-  <button type="submit" class="px-3 py-1 bg-blue-600 text-white rounded">Save</button>
+  <button type="submit" class="px-3 py-1 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded">Save</button>
 </form>
+
+
+

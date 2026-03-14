@@ -4,7 +4,8 @@
 const Search = 'search';
 
   import { IconPickerStyleManager } from '$stylist/design-system/styles/interaction/icon-picker';
-  import type { IIconItem, IIconPickerProps, TColumns } from '$stylist/design-system/contracts/interaction/icon-picker';
+  import type { IIconItem, IIconPickerProps } from '$stylist/design-system/contracts/interaction/icon-picker';
+  import type { TColumns } from '$stylist/design-system/types/interaction/icon-picker';
 
   /**
    * @component IconPicker
@@ -89,4 +90,7 @@ const Search = 'search';
     {/each}
   </div>
 </div>
+
+
+
 

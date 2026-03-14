@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import EventCalendar from './index.svelte';
-  import type { CalendarEvent } from '$stylist/design-system/contracts/information/event-calendar';
+  import type { CalendarEvent } from '$stylist/design-system/contracts/information/calendar';
 
   let {
     id = '',
@@ -154,6 +154,9 @@
     </section>
   {/snippet}
 </Story>
+
+
+
 
 
 

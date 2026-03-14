@@ -139,8 +139,8 @@ const Sparkles = 'sparkles';
           type="button"
           class={`flex items-center rounded-full px-2 py-1 ${
             reaction.active 
-              ? 'bg-blue-100 text-blue-700 border border-blue-300' 
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)] border border-[var(--color-primary-300)]' 
+              : 'bg-[var(--color-background-secondary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-tertiary)]'
           } ${reactionClass}`}
           onclick={() => toggleReaction(reaction.type)}
           aria-label={`${reaction.active ? 'Remove' : 'Add'} ${getReactionLabel(reaction.type)} reaction`}
@@ -159,7 +159,7 @@ const Sparkles = 'sparkles';
   <!-- Emoji picker popover -->
   {#if showPicker && showEmojiPicker}
     <div
-      class={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 rounded-lg border border-gray-200 bg-white shadow-lg ${pickerClass}`}
+      class={`absolute bottom-full mb-2 left-1/2 -translate-x-1/2 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-lg ${pickerClass}`}
     >
       <div class="p-2">
         <div class="grid grid-cols-5 gap-2">
@@ -167,8 +167,8 @@ const Sparkles = 'sparkles';
             {@const ReactionIcon = getReactionIcon(reaction.type)}
             <button
               type="button"
-              class={`p-2 rounded-lg hover:bg-gray-100 ${
-                reaction.active ? 'bg-blue-100 text-blue-700' : 'text-gray-700'
+              class={`p-2 rounded-lg hover:bg-[var(--color-background-secondary)] ${
+                reaction.active ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'text-[var(--color-text-primary)]'
               }`}
               onclick={() => toggleReaction(reaction.type)}
               aria-label={getReactionLabel(reaction.type)}
@@ -184,8 +184,8 @@ const Sparkles = 'sparkles';
   <!-- Reaction picker trigger -->
   <button
     type="button"
-    class={`ml-1 p-1.5 rounded-full hover:bg-gray-100 ${
-      reactions.some(r => r.active) ? 'text-blue-600' : 'text-gray-500'
+    class={`ml-1 p-1.5 rounded-full hover:bg-[var(--color-background-secondary)] ${
+      reactions.some(r => r.active) ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-secondary)]'
     }`}
     onclick={() => showEmojiPicker = !showEmojiPicker}
     aria-label="Add reaction"
@@ -200,4 +200,7 @@ const Sparkles = 'sparkles';
     {/if}
   </button>
 </div>
+
+
+
 

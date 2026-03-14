@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import GraphNodeCard from './index.svelte';
   import type { GraphNodeData } from '$stylist/design-system/contracts';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   // Sample node data with correct structure
   const node1: GraphNodeData = {
@@ -52,5 +52,7 @@
     />
   {/snippet}
 </Story>
+
+
 
 

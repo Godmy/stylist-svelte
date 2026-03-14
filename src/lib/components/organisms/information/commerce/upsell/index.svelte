@@ -95,19 +95,19 @@ const Package = 'package';
 </script>
 
 <div class={`c-upsell ${hostClass}`} {...restProps}>
-  <div class={`p-6 border rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 ${headerClass}`}>
+  <div class={`p-6 border rounded-lg [background-image:var(--gradient-ocean)] ${headerClass}`}>
     <div class="flex items-center">
-      <div class="p-2 bg-blue-100 rounded-lg">
-        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-blue-600" />
+      <div class="p-2 bg-[var(--color-primary-100)] rounded-lg">
+        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-[var(--color-primary-600)]" />
       </div>
       <div class="ml-4">
-        <h2 class="text-lg font-bold text-gray-900">{title}</h2>
+        <h2 class="text-lg font-bold text-[var(--color-text-primary)]">{title}</h2>
         {#if description}
-          <p class="mt-1 text-sm text-gray-600">{description}</p>
+          <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{description}</p>
         {/if}
 
         {#if showSavings && savings > 0}
-          <div class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+          <div class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
             <BaseIcon name={DollarSign} class="h-4 w-4 mr-1" />
             Save {formatPrice(savings)} with upgrade
           </div>
@@ -119,9 +119,9 @@ const Package = 'package';
   {#if displayedProducts.length > 0}
     <div class={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 ${productListClass}`}>
       {#each displayedProducts as product}
-        <div class={`border rounded-lg overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow ${productCardClass}`}>
+        <div class={`border rounded-lg overflow-hidden bg-[var(--color-background-primary)] shadow-sm hover:shadow-md transition-shadow ${productCardClass}`}>
           {#if product.thumbnail}
-            <div class="h-48 bg-gray-100">
+            <div class="h-48 bg-[var(--color-background-secondary)]">
               <img
                 src={product.thumbnail}
                 alt={product.name}
@@ -133,7 +133,7 @@ const Package = 'package';
           <div class="p-4">
             <div class="flex justify-between items-start">
               <div class="flex-1 min-w-0">
-                <h3 class="text-lg font-medium text-gray-900 truncate">{product.name}</h3>
+                <h3 class="text-lg font-medium text-[var(--color-text-primary)] truncate">{product.name}</h3>
 
                 {#if product.rating !== undefined}
                   <div class="flex items-center mt-1">
@@ -145,26 +145,26 @@ const Package = 'package';
                               ? 'text-yellow-400 fill-current'
                               : (i === Math.floor(product.rating) && product.rating % 1 >= 0.5
                                 ? 'text-yellow-400'
-                                : 'text-gray-300')
+                                : 'text-[var(--color-text-tertiary)]')
                           }`}
                         />
                       {/each}
                     </div>
                     {#if product.reviewCount}
-                      <span class="ml-1 text-sm text-gray-500">({product.reviewCount})</span>
+                      <span class="ml-1 text-sm text-[var(--color-text-secondary)]">({product.reviewCount})</span>
                     {/if}
                   </div>
                 {/if}
 
-                <p class="mt-2 text-sm text-gray-500 line-clamp-2">{product.description}</p>
+                <p class="mt-2 text-sm text-[var(--color-text-secondary)] line-clamp-2">{product.description}</p>
 
                 <div class="mt-4 flex items-center justify-between">
                   <div>
-                    <span class="text-lg font-bold text-gray-900">{formatPrice(product.price)}</span>
+                    <span class="text-lg font-bold text-[var(--color-text-primary)]">{formatPrice(product.price)}</span>
                     {#if product.originalPrice && product.originalPrice > product.price}
-                      <span class="ml-2 text-base text-gray-500 line-through">{formatPrice(product.originalPrice)}</span>
+                      <span class="ml-2 text-base text-[var(--color-text-secondary)] line-through">{formatPrice(product.originalPrice)}</span>
                       {#if product.discountPercent}
-                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-danger-100)] text-[var(--color-danger-800)]">
                           <BaseIcon name={BadgePercent} class="h-3 w-3 mr-1" />
                           {product.discountPercent}% OFF
                         </span>
@@ -185,7 +185,7 @@ const Package = 'package';
             {#if product.tags && product.tags.length > 0}
               <div class="mt-3 flex flex-wrap gap-1">
                 {#each product.tags as tag}
-                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+                  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                     {tag}
                   </span>
                 {/each}
@@ -199,13 +199,18 @@ const Package = 'package';
 
   {#if displayedProducts.length === 0}
     <div class="mt-6 text-center py-12 border rounded-lg">
-      <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
-        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-gray-400" />
+      <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-background-secondary)]">
+        <BaseIcon name={ArrowUpRight} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
       </div>
-      <h3 class="mt-2 text-sm font-medium text-gray-900">No upgrade options available</h3>
-      <p class="mt-1 text-sm text-gray-500">We don't have any upgrade suggestions at this time.</p>
+      <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No upgrade options available</h3>
+      <p class="mt-1 text-sm text-[var(--color-text-secondary)]">We don't have any upgrade suggestions at this time.</p>
     </div>
   {/if}
 </div>
+
+
+
+
+
 
 

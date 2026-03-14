@@ -1,10 +1,10 @@
-﻿<script lang="ts">
+<script lang="ts">
   interface Props {
     drawColor?: string;
     onClose?: () => void;
   }
 
-  let { drawColor = '#ef4444', onClose }: Props = $props();
+  let { drawColor = 'var(--color-error-500)', onClose }: Props = $props();
 
   // Drawing state
   let isDrawing = $state(false);
@@ -75,7 +75,7 @@
   .drawing-overlay {
     position: fixed;
     inset: 0;
-    z-index: 9998;
+    z-index: var(--z-index-layer9998);
     pointer-events: none;
   }
 
@@ -99,4 +99,5 @@
     onpointerup={handlePointerUp}
   ></canvas>
 </div>
+
 

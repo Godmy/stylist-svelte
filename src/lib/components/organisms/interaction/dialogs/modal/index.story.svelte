@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import Modal from './index.svelte';
 
   type Props = {
@@ -45,7 +45,7 @@
   {#snippet children(values: any)}
     <div class="sb-organisms-modal p-4">
       <button 
-        class="px-4 py-2 bg-blue-600 text-white rounded mb-4" 
+        class="px-4 py-2 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded mb-4" 
         onclick={handleOpen}
       >
         Open Modal
@@ -58,4 +58,7 @@
     </div>
   {/snippet}
 </Story>
+
+
+
 

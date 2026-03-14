@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import DragDropFileUpload from './index.svelte';
 
   type Props = {
@@ -58,7 +58,7 @@
   controls={controls}
 >
   {#snippet children(values: any)}
-    <div class="sb-organisms-drag-drop-file-upload p-8 bg-gray-50 rounded-lg">
+    <div class="sb-organisms-drag-drop-file-upload p-8 bg-[var(--color-background-secondary)] rounded-lg">
       <h2 class="text-xl font-bold mb-4">DragDropFileUpload Story</h2>
       <DragDropFileUpload
         accept={values.accept}
@@ -72,5 +72,8 @@
     </div>
   {/snippet}
 </Story>
+
+
+
 
 

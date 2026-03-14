@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import SharedCanvas from './index.svelte';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   type CanvasObject = {
     id: string;
@@ -117,4 +117,6 @@
     />
   {/snippet}
 </Story>
+
+
 

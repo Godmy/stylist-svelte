@@ -31,7 +31,13 @@
     xAxisLabel = '',
     yAxisLabel = '',
     showGrid = true,
-    colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6'],
+    colors = [
+      'var(--color-primary-500)',
+      'var(--color-error-500)',
+      'var(--color-success-500)',
+      'var(--color-warning-500)',
+      'var(--color-secondary-500)'
+    ],
     ...restProps
   }: Props = $props();
 
@@ -107,7 +113,7 @@
     const chartWidth = canvasRef!.width - padding.left - padding.right;
     const chartHeight = canvasRef!.height - padding.top - padding.bottom;
 
-    ctx.strokeStyle = '#e5e7eb';
+    ctx.strokeStyle = 'var(--color-border-primary)';
     ctx.lineWidth = 0.5;
 
     // Horizontal grid lines
@@ -174,7 +180,7 @@
     });
 
     // Draw X-axis labels
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = 'var(--color-text-primary)';
     ctx.font = '12px sans-serif';
     ctx.textAlign = 'center';
     data.forEach((point, i) => {
@@ -218,7 +224,7 @@
     });
 
     // Draw X-axis labels
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = 'var(--color-text-primary)';
     ctx.font = '12px sans-serif';
     ctx.textAlign = 'center';
     data.forEach((point, i) => {
@@ -266,7 +272,7 @@
       const labelX = centerX + Math.cos(startAngle + sliceAngle / 2) * radius * 0.7;
       const labelY = centerY + Math.sin(startAngle + sliceAngle / 2) * radius * 0.7;
 
-      ctx.fillStyle = '#000';
+      ctx.fillStyle = 'var(--color-text-primary)';
       ctx.font = '12px sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -281,6 +287,9 @@
   bind:this={canvasRef}
   width={width}
   height={height}
-  class="c-canvas-chart border border-gray-300 rounded-md"
+  class="c-canvas-chart border border-[var(--color-border-primary)] rounded-md"
   {...restProps}
 ></canvas>
+
+
+

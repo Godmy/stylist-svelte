@@ -219,7 +219,7 @@ const LoaderCircle = 'loader-circle';
 <div class={`c-discount-applier ${hostClass}`} {...restProps}>
   {#if showCodeInput}
     <div class="mb-6">
-      <label class="block text-sm font-medium text-gray-700 mb-1 flex items-center">
+      <label class="block text-sm font-medium text-[var(--color-text-primary)] mb-1 flex items-center">
         <BaseIcon name={Tag} class="h-4 w-4 mr-1" />
         Have a promo code?
       </label>
@@ -251,7 +251,7 @@ const LoaderCircle = 'loader-circle';
 
       {#if message}
         <div class={`mt-2 text-sm ${
-          message.type === 'success' ? 'text-green-600' : 'text-red-600'
+          message.type === 'success' ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'
         }`}>
           {message.text}
         </div>
@@ -261,8 +261,8 @@ const LoaderCircle = 'loader-circle';
 
   {#if showAppliedRules && appliedCodes.length > 0}
     <div class="mb-6">
-      <h3 class="text-sm font-medium text-gray-900 mb-2 flex items-center">
-        <BaseIcon name={Check} class="h-4 w-4 mr-1 text-green-500" />
+      <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-2 flex items-center">
+        <BaseIcon name={Check} class="h-4 w-4 mr-1 text-[var(--color-success-500)]" />
         Applied Discounts
       </h3>
 
@@ -270,10 +270,10 @@ const LoaderCircle = 'loader-circle';
         {#each appliedCodes as code}
           {@const rule = rules.find(r => r.code === code)}
           {#if rule}
-            <div class="flex items-center justify-between p-3 bg-green-50 rounded-md">
+            <div class="flex items-center justify-between p-3 bg-[var(--color-success-50)] rounded-md">
               <div>
-                <div class="font-medium text-green-800">{rule.name}</div>
-                <div class="text-sm text-green-600">-{formatCurrency(calculateDiscountAmount(rule))}</div>
+                <div class="font-medium text-[var(--color-success-800)]">{rule.name}</div>
+                <div class="text-sm text-[var(--color-success-600)]">-{formatCurrency(calculateDiscountAmount(rule))}</div>
               </div>
               <Button
                 variant="ghost"
@@ -292,50 +292,50 @@ const LoaderCircle = 'loader-circle';
 
   {#if showRuleList && eligibleRules.length > 0}
     <div>
-      <h3 class="text-sm font-medium text-gray-900 mb-2 flex items-center">
+      <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-2 flex items-center">
         <BaseIcon name={Percent} class="h-4 w-4 mr-1" />
         Available Discounts
       </h3>
 
       <div class="space-y-3">
         {#each eligibleRules as rule}
-          <div class="p-4 border border-gray-200 rounded-lg">
+          <div class="p-4 border border-[var(--color-border-primary)] rounded-lg">
             <div class="flex justify-between items-start">
               <div class="flex-1 min-w-0">
                 <div class="flex items-center">
-                  <span class="font-medium text-gray-900">{rule.name}</span>
+                  <span class="font-medium text-[var(--color-text-primary)]">{rule.name}</span>
                   {#if rule.code}
-                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                       {rule.code}
                     </span>
                   {/if}
                 </div>
 
-                <p class="mt-1 text-sm text-gray-600">{rule.description}</p>
+                <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{rule.description}</p>
 
                 <div class="mt-2 flex flex-wrap gap-2">
                   {#if rule.type === 'percentage'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
                       {rule.value}% off
                     </span>
                   {:else if rule.type === 'fixed'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
                       {formatCurrency(rule.value)} off
                     </span>
                   {:else if rule.type === 'free_shipping'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                       Free shipping
                     </span>
                   {/if}
 
                   {#if rule.minOrderAmount}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]">
                       Min. {formatCurrency(rule.minOrderAmount)}
                     </span>
                   {/if}
 
                   {#if rule.startDate || rule.endDate}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-secondary-100)] text-[var(--color-secondary-800)]">
                       {rule.startDate ? formatDate(rule.startDate) : 'Now'} - {rule.endDate ? formatDate(rule.endDate) : 'Ongoing'}
                     </span>
                   {/if}
@@ -357,9 +357,13 @@ const LoaderCircle = 'loader-circle';
   {/if}
 
   {#if showRuleList && eligibleRules.length === 0 && rules.length > 0}
-    <p class="text-sm text-gray-500">No discounts available for your cart</p>
+    <p class="text-sm text-[var(--color-text-secondary)]">No discounts available for your cart</p>
   {/if}
 </div>
+
+
+
+
 
 
 

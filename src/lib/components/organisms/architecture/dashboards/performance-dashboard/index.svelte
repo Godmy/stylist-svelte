@@ -2,7 +2,8 @@
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon } from '$stylist/components/atoms';
   import { PerformanceDashboardStyleManager } from '$stylist/design-system/styles';
-  import type { PerformanceDashboardProps, Metric, TimeRange } from '$stylist/design-system/contracts';
+  import type { PerformanceDashboardProps, Metric } from '$stylist/design-system/contracts/interaction/performance-dashboard';
+  import type { TimeRange } from '$stylist/design-system/tokens/information/date-time';
 
   let {
     title = 'Performance Dashboard',
@@ -81,7 +82,7 @@
     {#each metrics as metric}
       <div class={metricCardClassComputed}>
         <div class={metricHeaderClass}>
-          <div class={`p-3 rounded-md ${metric.color} text-white`}>
+          <div class={`p-3 rounded-md ${metric.color} text-[var(--color-text-inverse)]`}>
             <metric.icon class="h-6 w-6" />
           </div>
           <div class={`flex items-center text-sm font-medium ${
@@ -129,4 +130,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
 

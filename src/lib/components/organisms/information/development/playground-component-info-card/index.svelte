@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const X = 'x';
 const Package = 'package';
@@ -70,7 +70,7 @@ const User = 'user';
 {#if isOpen}
   <!-- Backdrop -->
   <div
-    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fade-in"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[var(--z-index-overlay)] animate-fade-in"
     onclick={handleClose}
     onkeydown={(e) => e.key === 'Escape' && handleClose()}
     role="button"
@@ -79,7 +79,7 @@ const User = 'user';
   ></div>
 
   <!-- Modal -->
-  <div class="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+  <div class="fixed inset-0 z-[var(--z-index-modal)] flex items-center justify-center p-4 pointer-events-none">
     <div
       class="info-card-modal w-full max-w-2xl bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 rounded-2xl shadow-2xl border-2 border-gray-200 dark:border-gray-700 overflow-hidden pointer-events-auto animate-scale-in"
       onclick={(e) => e.stopPropagation()}
@@ -234,7 +234,7 @@ const User = 'user';
             <ul class="space-y-2">
               {#each examples as example}
                 <li class="flex items-start gap-2 p-3 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                  <span class="text-indigo-500 mt-0.5">вЂў</span>
+                  <span class="text-indigo-500 mt-0.5">РІР‚Сћ</span>
                   <span class="text-sm text-gray-700 dark:text-gray-300">{example}</span>
                 </li>
               {/each}
@@ -271,45 +271,49 @@ const User = 'user';
 <style>
   @keyframes fade-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
     }
   }
 
   @keyframes scale-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
       transform: scale(0.95);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
       transform: scale(1);
     }
   }
 
   .animate-fade-in {
-    animation: fade-in 0.2s ease-out;
+    animation: fade-in var(--duration-200) var(--animation-ease-out);
   }
 
   .animate-scale-in {
-    animation: scale-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: scale-in var(--duration-300) var(--easing-ease-standard);
   }
 
   .stat-card {
-    animation: fade-slide-up 0.3s ease-out;
+    animation: fade-slide-up var(--duration-300) var(--animation-ease-out);
   }
 
   @keyframes fade-slide-up {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
       transform: translateY(8px);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
       transform: translateY(0);
     }
   }
 </style>
+
+
+
+
 

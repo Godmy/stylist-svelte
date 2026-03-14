@@ -134,18 +134,18 @@ const X = 'x';
   }
 </script>
 
-<div class={`border border-gray-200 rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`} {...restProps}>
   <!-- Header with search and controls -->
-  <div class={`border-b px-4 py-3 bg-white ${headerClass}`}>
+  <div class={`border-b px-4 py-3 bg-[var(--color-background-primary)] ${headerClass}`}>
     <div class="flex items-center">
       <div class="flex-1">
         <div class="relative rounded-md shadow-sm">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
           </div>
           <input
             type="text"
-            class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-12 py-2 border border-gray-300 rounded-md text-sm"
+            class="focus:ring-blue-500 focus:border-[var(--color-primary-500)] block w-full pl-10 pr-12 py-2 border border-[var(--color-border-primary)] rounded-md text-sm"
             placeholder={searchPlaceholder}
             bind:value={searchQuery}
           />
@@ -156,7 +156,7 @@ const X = 'x';
         {#if allowUpload}
           <button
             type="button"
-            class="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+            class="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
             onclick={triggerFileInput}
           >
             <BaseIcon name={Upload} class="h-4 w-4 mr-1" />
@@ -164,13 +164,13 @@ const X = 'x';
           </button>
         {/if}
         
-        <div class="flex border border-gray-300 rounded-md">
+        <div class="flex border border-[var(--color-border-primary)] rounded-md">
           <button
             type="button"
             class={`p-2 rounded-l-md ${
               selectedViewMode === 'grid' 
-                ? 'bg-blue-100 text-blue-600' 
-                : 'bg-white text-gray-500 hover:bg-gray-50'
+                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]' 
+                : 'bg-[var(--color-background-primary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => selectedViewMode = 'grid'}
             title="Grid view"
@@ -181,8 +181,8 @@ const X = 'x';
             type="button"
             class={`p-2 rounded-r-md ${
               selectedViewMode === 'list' 
-                ? 'bg-blue-100 text-blue-600' 
-                : 'bg-white text-gray-500 hover:bg-gray-50'
+                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]' 
+                : 'bg-[var(--color-background-primary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => selectedViewMode = 'list'}
             title="List view"
@@ -206,15 +206,15 @@ const X = 'x';
 
   <!-- Toolbar with selection actions -->
   {#if selectedItems.length > 0}
-    <div class={`border-b px-4 py-2 bg-blue-50 flex items-center justify-between ${toolbarClass}`}>
-      <span class="text-sm font-medium text-blue-800">
+    <div class={`border-b px-4 py-2 bg-[var(--color-primary-50)] flex items-center justify-between ${toolbarClass}`}>
+      <span class="text-sm font-medium text-[var(--color-primary-800)]">
         {selectedItems.length} item{selectedItems.length !== 1 ? 's' : ''} selected
       </span>
       <div class="flex space-x-2">
         {#if allowDownload}
           <button
             type="button"
-            class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-blue-700 bg-blue-100 hover:bg-blue-200 focus:outline-none"
+            class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-[var(--color-primary-700)] bg-[var(--color-primary-100)] hover:bg-[var(--color-primary-200)] focus:outline-none"
           >
             <BaseIcon name={Download} class="h-4 w-4 mr-1" />
             Download
@@ -223,7 +223,7 @@ const X = 'x';
         {#if allowDelete}
           <button
             type="button"
-            class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-red-700 bg-red-100 hover:bg-red-200 focus:outline-none"
+            class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-[var(--color-danger-700)] bg-[var(--color-danger-100)] hover:bg-[var(--color-danger-200)] focus:outline-none"
           >
             <BaseIcon name={Trash2} class="h-4 w-4 mr-1" />
             Delete
@@ -231,7 +231,7 @@ const X = 'x';
         {/if}
         <button
           type="button"
-          class="inline-flex items-center px-3 py-1 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+          class="inline-flex items-center px-3 py-1 border border-[var(--color-border-primary)] text-xs font-medium rounded text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none"
           onclick={() => selectedItems = []}
         >
           <BaseIcon name={X} class="h-4 w-4 mr-1" />
@@ -248,7 +248,7 @@ const X = 'x';
         <!-- Grid view item -->
         <div 
           class={`border rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow ${
-            selectedItems.includes(item.id) ? 'ring-2 ring-blue-500' : 'border-gray-200'
+            selectedItems.includes(item.id) ? 'ring-2 ring-blue-500' : 'border-[var(--color-border-primary)]'
           } ${itemClass}`}
           role="button"
           tabindex="0"
@@ -274,7 +274,7 @@ const X = 'x';
             }
           }}
         >
-          <div class="aspect-square bg-gray-100 flex items-center justify-center">
+          <div class="aspect-square bg-[var(--color-background-secondary)] flex items-center justify-center">
             {#if item.thumbnail}
               <img 
                 src={item.thumbnail} 
@@ -284,20 +284,20 @@ const X = 'x';
             {:else}
               {#if true}
                 {@const FileIcon = getFileIcon(item.type)}
-                <BaseIcon name={FileIcon} class="h-10 w-10 text-gray-400" />
+                <BaseIcon name={FileIcon} class="h-10 w-10 text-[var(--color-text-tertiary)]" />
               {/if}
             {/if}
           </div>
           <div class="p-2">
-            <p class="text-xs font-medium text-gray-900 truncate">{item.name}</p>
-            <p class="text-xs text-gray-500">{formatFileSize(item.size)}</p>
+            <p class="text-xs font-medium text-[var(--color-text-primary)] truncate">{item.name}</p>
+            <p class="text-xs text-[var(--color-text-secondary)]">{formatFileSize(item.size)}</p>
           </div>
         </div>
       {:else}
         <!-- List view item -->
         <div 
           class={`flex items-center p-3 border rounded-lg ${
-            selectedItems.includes(item.id) ? 'bg-blue-50 border-blue-500' : 'border-gray-200'
+            selectedItems.includes(item.id) ? 'bg-[var(--color-primary-50)] border-[var(--color-primary-500)]' : 'border-[var(--color-border-primary)]'
           } ${itemClass}`}
           role="button"
           tabindex="0"
@@ -323,21 +323,21 @@ const X = 'x';
             }
           }}
         >
-          <div class="flex-shrink-0 w-16 h-16 bg-gray-100 rounded flex items-center justify-center">
+          <div class="flex-shrink-0 w-16 h-16 bg-[var(--color-background-secondary)] rounded flex items-center justify-center">
             {#if true}
               {@const FileIcon = getFileIcon(item.type)}
-              <BaseIcon name={FileIcon} class="h-8 w-8 text-gray-400" />
+              <BaseIcon name={FileIcon} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
             {/if}
           </div>
           <div class="ml-4 flex-1 min-w-0">
-            <p class="text-sm font-medium text-gray-900 truncate">{item.name}</p>
-            <p class="text-sm text-gray-500">{formatFileSize(item.size)} вЂў {formatDate(item.uploadDate)}</p>
+            <p class="text-sm font-medium text-[var(--color-text-primary)] truncate">{item.name}</p>
+            <p class="text-sm text-[var(--color-text-secondary)]">{formatFileSize(item.size)} вЂў {formatDate(item.uploadDate)}</p>
           </div>
           <div class="ml-4 flex space-x-2">
             {#if allowDownload}
               <button
                 type="button"
-                class="text-gray-400 hover:text-gray-600"
+                class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
                 onclick={(e) => {
                   e.stopPropagation();
                   handleItemDownload(item.id);
@@ -349,7 +349,7 @@ const X = 'x';
             {/if}
             <button
               type="button"
-              class="text-gray-400 hover:text-gray-600"
+              class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
               onclick={(e) => {
                 e.stopPropagation();
                 handleItemSelect(item);
@@ -361,7 +361,7 @@ const X = 'x';
             {#if allowDelete}
               <button
                 type="button"
-                class="text-gray-400 hover:text-red-500"
+                class="text-[var(--color-text-tertiary)] hover:text-[var(--color-danger-500)]"
                 onclick={(e) => {
                   e.stopPropagation();
                   handleItemDelete(item.id);
@@ -380,15 +380,15 @@ const X = 'x';
   <!-- Empty state -->
   {#if getFilteredItems().length === 0}
     <div class="py-12 text-center">
-      <BaseIcon name={Folder} class="h-12 w-12 text-gray-400 mx-auto mb-2" />
-      <h3 class="text-sm font-medium text-gray-900 mb-1">No media files</h3>
-      <p class="text-sm text-gray-500">
+      <BaseIcon name={Folder} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto mb-2" />
+      <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-1">No media files</h3>
+      <p class="text-sm text-[var(--color-text-secondary)]">
         {searchQuery ? 'No files match your search' : 'Upload files to get started'}
       </p>
       {#if allowUpload && !searchQuery}
         <button
           type="button"
-          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
           onclick={triggerFileInput}
         >
           <BaseIcon name={Upload} class="h-4 w-4 mr-1" />
@@ -398,4 +398,8 @@ const X = 'x';
     </div>
   {/if}
 </div>
+
+
+
+
 

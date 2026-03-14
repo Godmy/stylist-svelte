@@ -13,10 +13,10 @@ const Type = 'type';
 const X = 'x';
 
   import { PageBuilderStyleManager } from '$stylist/design-system/styles';
+  import type { PageBuilderElementType } from '$stylist/design-system/tokens/interaction/page-builder';
   import type {
     PageBuilderButtonAttributes,
     PageBuilderElement,
-    PageBuilderElementType,
     PageBuilderHeadingAttributes,
     PageBuilderImageAttributes,
     PageBuilderProps,
@@ -74,18 +74,18 @@ const X = 'x';
         return {
           backgroundColor: 'var(--color-primary-500)',
           color: 'var(--color-text-inverse)',
-          padding: '8px 16px'
+          padding: 'var(--spacing-2) var(--spacing-4)'
         };
       case 'image':
         return { src: '', alt: 'Image', width: '100%', height: 'auto' };
       case 'divider':
-        return { color: 'var(--color-border)' };
+        return { color: 'var(--color-border-primary)' };
       case 'container':
         return {
           backgroundColor: 'var(--color-background-primary)',
-          padding: '16px',
-          margin: '8px',
-          BORDER_RADIUS: '4px'
+          padding: 'var(--spacing-4)',
+          margin: 'var(--spacing-2)',
+          BORDER_RADIUS: 'var(--border-radius-base)'
         };
       default:
         return {};
@@ -152,19 +152,19 @@ const X = 'x';
     switch (element.type) {
       case 'text': {
         const attrs = element.attributes as PageBuilderTextAttributes | undefined;
-        return `<p style="font-size:${attrs?.FONT_SIZE ?? '16px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</p>`;
+        return `<p style="font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-4)'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</p>`;
       }
       case 'heading': {
         const attrs = element.attributes as PageBuilderHeadingAttributes | undefined;
         const level = Math.min(Math.max(attrs?.level ?? 2, 1), 6);
-        return `<h${level} style="font-size:${attrs?.FONT_SIZE ?? '32px'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</h${level}>`;
+        return `<h${level} style="font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-8)'};color:${attrs?.color ?? 'var(--color-text-primary)'};">${element.content ?? ''}</h${level}>`;
       }
       case 'button': {
         const attrs = element.attributes as PageBuilderButtonAttributes | undefined;
-        return `<button style="background-color:${attrs?.backgroundColor ?? 'var(--color-primary-500)'};color:${attrs?.color ?? 'var(--color-text-inverse)'};padding:${attrs?.padding ?? '8px 16px'};border:none;border-radius:4px;cursor:pointer;">${element.content ?? ''}</button>`;
+        return `<button style="background-color:${attrs?.backgroundColor ?? 'var(--color-primary-500)'};color:${attrs?.color ?? 'var(--color-text-inverse)'};padding:${attrs?.padding ?? 'var(--spacing-2) var(--spacing-4)'};border:none;border-radius: var(--border-radius-base);cursor:pointer;">${element.content ?? ''}</button>`;
       }
       case 'divider':
-        return '<hr style="border:0;border-top:1px solid var(--color-border);margin:16px 0;" />';
+        return '<hr style="border:0;border-top:1px solid var(--color-border-primary);margin: var(--spacing-4) 0;" />';
       case 'image': {
         const attrs = element.attributes as PageBuilderImageAttributes | undefined;
         return `<img src="${attrs?.src ?? ''}" alt="${attrs?.alt ?? 'Image'}" style="width:${attrs?.width ?? '100%'};height:${attrs?.height ?? 'auto'};" />`;
@@ -225,9 +225,9 @@ const X = 'x';
           {/each}
         </div>
       {:else}
-        <div class="max-w-4xl mx-auto border border-dashed border-gray-300 rounded-lg min-h-[400px] p-4">
+        <div class="max-w-4xl mx-auto border border-dashed border-[var(--color-border-primary)] rounded-lg min-h-[400px] p-4">
           {#if elements.length === 0}
-            <div class="flex flex-col items-center justify-center h-64 text-gray-500">
+            <div class="flex flex-col items-center justify-center h-64 text-[var(--color-text-secondary)]">
               <BaseIcon name={Square} class="h-12 w-12 mb-4" />
               <p>Drag elements here to start building your page</p>
               <p class="text-sm mt-2">Or use the toolbar to add elements</p>
@@ -256,29 +256,29 @@ const X = 'x';
 
                 {#if element.type === 'text'}
                   {@const attrs = element.attributes as PageBuilderTextAttributes | undefined}
-                  <p style={`font-size:${attrs?.FONT_SIZE ?? '16px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</p>
+                  <p style={`font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-4)'};color:${attrs?.color ?? 'var(--color-text-primary)'};`}>{element.content}</p>
                 {:else if element.type === 'heading'}
                   {@const attrs = element.attributes as PageBuilderHeadingAttributes | undefined}
-                  <h2 style={`font-size:${attrs?.FONT_SIZE ?? '32px'};color:${attrs?.color ?? '#000000'};`}>{element.content}</h2>
+                  <h2 style={`font-size:${attrs?.FONT_SIZE ?? 'var(--font-size-8)'};color:${attrs?.color ?? 'var(--color-text-primary)'};`}>{element.content}</h2>
                 {:else if element.type === 'button'}
                   {@const attrs = element.attributes as PageBuilderButtonAttributes | undefined}
                   <button
-                    style={`background-color:${attrs?.backgroundColor ?? '#3B82F6'};color:${attrs?.color ?? '#FFFFFF'};padding:${attrs?.padding ?? '8px 16px'};`}
+                    style={`background-color:${attrs?.backgroundColor ?? 'var(--color-primary-500)'};color:${attrs?.color ?? 'var(--color-background-primary)'};padding:${attrs?.padding ?? 'var(--spacing-2) var(--spacing-4)'};`}
                     class="rounded border-0 cursor-pointer"
                   >
                     {element.content}
                   </button>
                 {:else if element.type === 'divider'}
-                  <hr class="border-t border-gray-300 my-2" />
+                  <hr class="border-t border-[var(--color-border-primary)] my-2" />
                 {:else if element.type === 'image'}
                   {@const attrs = element.attributes as PageBuilderImageAttributes | undefined}
-                  <div class="border border-gray-200 rounded flex items-center justify-center h-32 bg-gray-100">
-                    <BaseIcon name={Image} class="h-8 w-8 text-gray-400" />
-                    <span class="ml-2 text-sm text-gray-500">Image: {attrs?.alt ?? 'Placeholder'}</span>
+                  <div class="border border-[var(--color-border-primary)] rounded flex items-center justify-center h-32 bg-[var(--color-background-secondary)]">
+                    <BaseIcon name={Image} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
+                    <span class="ml-2 text-sm text-[var(--color-text-secondary)]">Image: {attrs?.alt ?? 'Placeholder'}</span>
                   </div>
                 {/if}
 
-                <div class="absolute -right-6 top-0 flex space-x-1 OPACITY-0 group-hover:OPACITY-100">
+                <div class="absolute -right-6 top-0 flex space-x-1 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)]">
                   <button
                     type="button"
                     class={PageBuilderStyleManager.getElementControlButtonClasses(false)}
@@ -323,10 +323,10 @@ const X = 'x';
     {#if selectedElement && !isPreviewMode && editable}
       <div class={PageBuilderStyleManager.getPropertiesPanelClasses()}>
         <div class={PageBuilderStyleManager.getPropertiesPanelHeaderClasses()}>
-          <h3 class="text-lg font-medium text-gray-900">Properties</h3>
+          <h3 class="text-lg font-medium text-[var(--color-text-primary)]">Properties</h3>
           <button
             type="button"
-            class="p-1 rounded hover:bg-gray-200"
+            class="p-1 rounded hover:bg-[var(--color-background-tertiary)]"
             onclick={() => (selectedElementId = null)}
             title="Close"
           >
@@ -336,13 +336,13 @@ const X = 'x';
 
         <div class="space-y-4">
           <div>
-            <div class="block text-sm font-medium text-gray-700 mb-1">Type</div>
-            <span class="text-sm text-gray-900 capitalize">{selectedElement.type}</span>
+            <div class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Type</div>
+            <span class="text-sm text-[var(--color-text-primary)] capitalize">{selectedElement.type}</span>
           </div>
 
           {#if selectedElement.type === 'text' || selectedElement.type === 'heading'}
             <div>
-              <label for="textContent" class="block text-sm font-medium text-gray-700 mb-1">Content</label>
+              <label for="textContent" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Content</label>
               <input
                 id="textContent"
                 type="text"
@@ -356,7 +356,7 @@ const X = 'x';
 
           {#if selectedElement.type === 'button'}
             <div>
-              <label for="buttonText" class="block text-sm font-medium text-gray-700 mb-1">Button Text</label>
+              <label for="buttonText" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Button Text</label>
               <input
                 id="buttonText"
                 type="text"
@@ -369,7 +369,7 @@ const X = 'x';
           {/if}
 
           <div>
-            <label for="FONT_SIZE" class="block text-sm font-medium text-gray-700 mb-1">Font Size</label>
+            <label for="FONT_SIZE" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Font Size</label>
             <input
               id="FONT_SIZE"
               type="range"
@@ -390,6 +390,9 @@ const X = 'x';
     {/if}
   </div>
 </div>
+
+
+
 
 
 

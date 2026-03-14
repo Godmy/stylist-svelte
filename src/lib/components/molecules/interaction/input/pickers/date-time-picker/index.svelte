@@ -107,8 +107,8 @@ const Calendar = 'calendar';
     <input
       bind:this={dateInputRef}
       type="text"
-      class={`w-full p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer ${dateClass} ${
-        disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : ''
+      class={`w-full p-2 border border-[var(--color-border-primary)] rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer ${dateClass} ${
+        disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
       }`}
       readonly
       value={selectedDate ? selectedDate.toLocaleDateString() : ''}
@@ -119,8 +119,8 @@ const Calendar = 'calendar';
     
     <!-- Time Input -->
     <select
-      class={`p-2 border border-l-0 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${timeClass} ${
-        disabled ? 'bg-gray-100 text-gray-400 cursor-not-allowed' : ''
+      class={`p-2 border border-l-0 border-[var(--color-border-primary)] rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${timeClass} ${
+        disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
       }`}
       value={selectedTime}
       onchange={handleTimeChange}
@@ -137,17 +137,17 @@ const Calendar = 'calendar';
     
     <button
       type="button"
-      class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-gray-100 ${disabled ? 'hidden' : 'block'}`}
+      class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-[var(--color-background-secondary)] ${disabled ? 'hidden' : 'block'}`}
       onclick={toggleDropdown}
     >
-      <BaseIcon name={Calendar} class="w-4 h-4 text-gray-500" />
+      <BaseIcon name={Calendar} class="w-4 h-4 text-[var(--color-text-secondary)]" />
     </button>
   </div>
 
   {#if isOpen}
     <div
       bind:this={datePickerRef}
-      class={`absolute z-10 mt-1 p-4 bg-white border border-gray-200 rounded-md shadow-lg ${dropdownClass}`}
+      class={`absolute z-[var(--z-index-docked)] mt-1 p-4 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg ${dropdownClass}`}
       onclick={(e) => e.stopPropagation()}
       onkeydown={(e: KeyboardEvent) => e.stopPropagation()}
       role="dialog"
@@ -162,4 +162,8 @@ const Calendar = 'calendar';
     </div>
   {/if}
 </div>
+
+
+
+
 

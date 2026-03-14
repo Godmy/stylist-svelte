@@ -202,23 +202,23 @@ const ExternalLink = 'external-link';
 
 <div class={`c-zip-viewer border rounded-lg overflow-hidden ${hostClass}`} {...restProps}>
   <!-- Archive header -->
-  <div class={`p-4 bg-gray-50 border-b ${headerClass}`}>
+  <div class={`p-4 bg-[var(--color-background-secondary)] border-b ${headerClass}`}>
     <div class="flex items-center">
-      <BaseIcon name={Archive} class="h-6 w-6 text-blue-500 mr-3" />
+      <BaseIcon name={Archive} class="h-6 w-6 text-[var(--color-primary-500)] mr-3" />
       <div>
-        <h3 class="font-medium text-gray-900">{archiveName}</h3>
-        <p class="text-sm text-gray-500">{entries.length} items</p>
+        <h3 class="font-medium text-[var(--color-text-primary)]">{archiveName}</h3>
+        <p class="text-sm text-[var(--color-text-secondary)]">{entries.length} items</p>
       </div>
     </div>
 
     {#if searchable}
       <div class="mt-3 relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         </div>
         <input
           type="text"
-          class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
           placeholder="Search in archive..."
           value={searchQuery}
           oninput={handleSearchInput}
@@ -231,7 +231,7 @@ const ExternalLink = 'external-link';
   <!-- Entries list -->
   <div class="overflow-y-auto max-h-[500px]">
     {#if zipTree().length === 0}
-      <div class="text-center py-8 text-gray-500">
+      <div class="text-center py-8 text-[var(--color-text-secondary)]">
         {searchQuery ? 'No matching items found' : 'Archive is empty'}
       </div>
     {:else}
@@ -239,38 +239,38 @@ const ExternalLink = 'external-link';
         {#each zipTree() as entry}
           {@const EntryIcon = getEntryIcon(entry)}
           <div
-            class={`flex items-center p-3 hover:bg-gray-50 ${
-              entry.type === 'directory' ? 'bg-gray-25' : ''
+            class={`flex items-center p-3 hover:bg-[var(--color-background-secondary)] ${
+              entry.type === 'directory' ? 'bg-[var(--color-background-secondary)]' : ''
             } ${entryClass}`}
           >
             <button
               type="button"
-              class="flex h-6 w-6 items-center justify-center rounded hover:bg-gray-200 focus:outline-none mr-2"
+              class="flex h-6 w-6 items-center justify-center rounded hover:bg-[var(--color-background-tertiary)] focus:outline-none mr-2"
               aria-label={expandedFolders.has(entry.path) ? `Collapse ${entry.name}` : `Expand ${entry.name}`}
               onclick={() => toggleFolder(entry)}
               disabled={entry.type === 'file' || disabled}
             >
               {#if entry.type === 'directory'}
                 {#if expandedFolders.has(entry.path)}
-                  <BaseIcon name={ChevronDown} class="h-4 w-4 text-gray-600" />
+                  <BaseIcon name={ChevronDown} class="h-4 w-4 text-[var(--color-text-secondary)]" />
                 {:else}
-                  <BaseIcon name={ChevronRight} class="h-4 w-4 text-gray-600" />
+                  <BaseIcon name={ChevronRight} class="h-4 w-4 text-[var(--color-text-secondary)]" />
                 {/if}
               {/if}
             </button>
 
-            <BaseIcon name={entry.type === 'directory' ? Folder : File} class={`h-5 w-5 mr-3 ${entry.type === 'directory' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={entry.type === 'directory' ? Folder : File} class={`h-5 w-5 mr-3 ${entry.type === 'directory' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`} />
 
             <div class="flex-1 min-w-0">
               <div class="flex items-center">
-                <span class="font-medium text-gray-900 truncate">{entry.name}</span>
+                <span class="font-medium text-[var(--color-text-primary)] truncate">{entry.name}</span>
                 {#if entry.type === 'directory'}
-                  <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                     Directory
                   </span>
                 {/if}
               </div>
-              <div class="flex items-center text-xs text-gray-500 mt-1">
+              <div class="flex items-center text-xs text-[var(--color-text-secondary)] mt-1">
                 {#if entry.size !== undefined}
                   <span>{formatFileSize(entry.size)}</span>
                 {/if}
@@ -290,7 +290,7 @@ const ExternalLink = 'external-link';
                   disabled={disabled}
                   title="Preview"
                 >
-                  <BaseIcon name={Eye} class="h-4 w-4 text-gray-500" />
+                  <BaseIcon name={Eye} class="h-4 w-4 text-[var(--color-text-secondary)]" />
                 </Button>
               {/if}
 
@@ -301,7 +301,7 @@ const ExternalLink = 'external-link';
                 disabled={disabled}
                 title="Download"
               >
-                <BaseIcon name={Download} class="h-4 w-4 text-gray-500" />
+                <BaseIcon name={Download} class="h-4 w-4 text-[var(--color-text-secondary)]" />
               </Button>
 
               <Button
@@ -311,7 +311,7 @@ const ExternalLink = 'external-link';
                 disabled={disabled}
                 title="Extract"
               >
-                <BaseIcon name={ExternalLink} class="h-4 w-4 text-gray-500" />
+                <BaseIcon name={ExternalLink} class="h-4 w-4 text-[var(--color-text-secondary)]" />
               </Button>
             </div>
           </div>
@@ -320,6 +320,10 @@ const ExternalLink = 'external-link';
     {/if}
   </div>
 </div>
+
+
+
+
 
 
 

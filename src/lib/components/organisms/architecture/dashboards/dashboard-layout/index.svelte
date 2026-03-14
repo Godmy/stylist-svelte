@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { Icon } from '$stylist/components/atoms';
@@ -67,7 +67,7 @@
   <!-- Sidebar -->
   {#if sidebar}
     <aside
-      class={`hidden md:block ${sidebarWidthClass} bg-[--color-background-primary] shadow-md flex flex-col transition-all duration-300 ease-in-out ${sidebarClass}`}
+      class={`hidden md:block ${sidebarWidthClass} bg-[--color-background-primary] shadow-md flex flex-col transition-all duration-[var(--duration-300)] ease-in-out ${sidebarClass}`}
     >
       {#if collapsibleSidebar && showSidebarToggle}
         <div class="p-4 flex justify-end">
@@ -93,7 +93,7 @@
 
   <!-- Mobile sidebar toggle button -->
   {#if showSidebarToggle && sidebar}
-    <div class="md:hidden fixed top-4 left-4 z-50">
+    <div class="md:hidden fixed top-4 left-4 z-[var(--z-index-modal)]">
       <Button
         variant="secondary"
         onclick={toggleSidebar}
@@ -107,7 +107,7 @@
   <!-- Mobile sidebar overlay -->
   {#if sidebar && isSidebarOpen}
     <div
-      class="fixed inset-0 z-40 bg-[--color-overlay-primary] bg-opacity-50 md:hidden"
+      class="fixed inset-0 z-[var(--z-index-overlay)] bg-[--color-overlay-primary] bg-opacity-[var(--opacity-50)] md:hidden"
       onclick={toggleSidebar}
       role="button"
       tabindex={0}
@@ -123,7 +123,7 @@
   <!-- Mobile sidebar -->
   {#if sidebar && isSidebarOpen}
     <aside
-      class="fixed inset-y-0 left-0 z-50 w-64 bg-[--color-background-primary] shadow-lg md:hidden"
+      class="fixed inset-y-0 left-0 z-[var(--z-index-modal)] w-64 bg-[--color-background-primary] shadow-lg md:hidden"
     >
       <div class="p-4 flex justify-end">
         <Button
@@ -145,7 +145,7 @@
   <div class="flex-1 flex flex-col overflow-hidden">
     <!-- Header -->
     {#if header}
-      <header class={`bg-[--color-background-primary] shadow-sm z-10 ${headerClass}`}>
+      <header class={`bg-[--color-background-primary] shadow-sm z-[var(--z-index-docked)] ${headerClass}`}>
         <div class="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {@render header()}
         </div>
@@ -167,5 +167,8 @@
     {/if}
   </div>
 </div>
+
+
+
 
 

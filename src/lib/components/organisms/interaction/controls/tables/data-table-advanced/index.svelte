@@ -46,13 +46,13 @@
       <div class="p-6 text-center">Loading...</div>
     {:else}
       <table class="min-w-full">
-        <thead class="bg-gray-50"><tr>{#each columns as c}<th class="text-left px-3 py-2 text-xs uppercase">{c.header}</th>{/each}</tr></thead>
+        <thead class="bg-[var(--color-background-secondary)]"><tr>{#each columns as c}<th class="text-left px-3 py-2 text-xs uppercase">{c.header}</th>{/each}</tr></thead>
         <tbody>
           {#if pageData.length === 0}
-            <tr><td colspan={columns.length} class="px-3 py-4 text-center text-sm text-gray-500">No data</td></tr>
+            <tr><td colspan={columns.length} class="px-3 py-4 text-center text-sm text-[var(--color-text-secondary)]">No data</td></tr>
           {:else}
             {#each pageData as row}
-              <tr class="border-t hover:bg-gray-50" onclick={() => onRowClick?.(row)}>
+              <tr class="border-t hover:bg-[var(--color-background-secondary)]" onclick={() => onRowClick?.(row)}>
                 {#each columns as c}
                   <td class="px-3 py-2 text-sm">{row[c.key]}</td>
                 {/each}
@@ -72,4 +72,7 @@
     </div>
   </div>
 </div>
+
+
+
 

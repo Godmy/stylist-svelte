@@ -7,7 +7,7 @@ const Save = 'save';
 const Trash2 = 'trash-2';
 const Upload = 'upload';
 
-  import type { TranslatableText } from '$stylist/design-system/contracts/interaction/interaction-input';
+  import type { TranslatableText } from '$stylist/design-system/types/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedTranslationEditorProps {
@@ -80,7 +80,7 @@ const Upload = 'upload';
 
     <div class="overflow-x-auto">
       <table class={`min-w-full divide-y divide-gray-200 ${tableClass}`}>
-        <thead class="bg-gray-50 text-left text-xs text-gray-500">
+        <thead class="bg-[var(--color-background-secondary)] text-left text-xs text-[var(--color-text-secondary)]">
           <tr>
             {#if showKeyColumn}<th class="px-4 py-2">Key</th>{/if}
             <th class="px-4 py-2">Source ({defaultLocale})</th>
@@ -93,7 +93,7 @@ const Upload = 'upload';
         <tbody>
           {#each texts as text}
             <tr class={`border-t ${rowClass}`}>
-              {#if showKeyColumn}<td class="px-4 py-2 text-sm text-gray-600">{text.key}</td>{/if}
+              {#if showKeyColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.key}</td>{/if}
               <td class="px-4 py-2 text-sm">{text.original}</td>
               <td class="px-4 py-2 text-sm">
                 {#if editingId === text.id}
@@ -111,7 +111,7 @@ const Upload = 'upload';
                   </div>
                 {/if}
               </td>
-              {#if showContextColumn}<td class="px-4 py-2 text-sm text-gray-600">{text.context || '-'}</td>{/if}
+              {#if showContextColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.context || '-'}</td>{/if}
               {#if showStatusColumn}<td class="px-4 py-2 text-sm">{text.status}</td>{/if}
               <td class="px-4 py-2 text-right"><button type="button" onclick={() => onTranslationChange?.(text.key, currentLocale, '')}><BaseIcon name={Trash2} class="h-4 w-4 inline" /></button></td>
             </tr>
@@ -121,4 +121,7 @@ const Upload = 'upload';
     </div>
   </div>
 </div>
+
+
+
 

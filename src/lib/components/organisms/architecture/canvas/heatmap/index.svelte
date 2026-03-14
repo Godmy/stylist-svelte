@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
+  import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
@@ -41,7 +41,7 @@
   /**
    * Доступные цветовые схемы для тепловой карты
    */
-  export type HeatmapColorScheme = ColorScheme;
+  export type HeatmapColorScheme = ThemeSchemeId;
 
   /**
    * Типы для пропсов компонента Heatmap
@@ -88,9 +88,9 @@
     height = 400,
     showTooltip = true,
     showLegend = true,
-    colorScheme = 'blue',
+    colorScheme = 'minimal',
     showAxis = true,
-    axisColor = 'var(--color-border-default, #E5E7EB)',
+    axisColor = 'var(--color-border-primary)',
     cellPadding = 2,
     onCellClick,
     class: hostClass = '',
@@ -151,19 +151,29 @@
     const normalizedIntensity = Math.min(100, Math.max(0, intensity * 100));
 
     switch (scheme) {
-      case 'red':
+      case 'sunset':
         return `hsl(0, 70%, ${70 - normalizedIntensity * 0.5}%)`;
-      case 'green':
+      case 'forest':
         return `hsl(120, 60%, ${50 + (100 - normalizedIntensity) * 0.3}%)`;
-      case 'purple':
+      case 'ocean':
         return `hsl(270, 60%, ${70 - normalizedIntensity * 0.4}%)`;
-      case 'warm':
-        return `hsl(${normalizedIntensity * 0.4}, 70%, 60%)`; // From red-orange-yellow
-      case 'cool':
-        return `hsl(${240 - normalizedIntensity * 0.8}, 70%, 60%)`; // From blue to cyan
-      case 'blue':
+      case 'minimal':
       default:
         return `hsl(210, 80%, ${80 - normalizedIntensity * 0.6}%)`; // From light blue to dark blue
+    }
+  }
+
+  function getLegendGradientByScheme(scheme: HeatmapColorScheme): string {
+    switch (scheme) {
+      case 'sunset':
+        return 'var(--gradient-sunset)';
+      case 'forest':
+        return 'var(--gradient-forest)';
+      case 'ocean':
+        return 'var(--gradient-ocean)';
+      case 'minimal':
+      default:
+        return 'var(--gradient-info)';
     }
   }
 
@@ -230,7 +240,7 @@
             y={height - 5}
             text-anchor="middle"
             font-size="10"
-            fill="var(--color-text-secondary, #6B7280)"
+            fill="var(--color-text-secondary)"
             class={axisTextClasses}
           >
             {col.length > 10 ? col.substring(0, 7) + '...' : col}
@@ -244,7 +254,7 @@
             y={10 + i * cellHeight + cellHeight / 2}
             text-anchor="end"
             font-size="10"
-            fill="var(--color-text-secondary, #6B7280)"
+            fill="var(--color-text-secondary)"
             dominant-baseline="middle"
             class={axisTextClasses}
           >
@@ -288,7 +298,7 @@
               text-anchor="middle"
               dominant-baseline="middle"
               font-size="10"
-              fill={cell.intensity > 0.5 ? "var(--color-text-inverse, #ffffff)" : "var(--color-text-primary, #333333)"}
+              fill={cell.intensity > 0.5 ? "var(--color-text-inverse)" : "var(--color-text-primary)"}
               class="pointer-events-none text-xs"
             >
               {Math.round(cell.value)}
@@ -306,18 +316,17 @@
         <span>{(minValue + calculatedMaxValue) / 2}</span>
         <span>{calculatedMaxValue}</span>
       </div>
-      <div
-        class={legendGradientClasses}
-        style={`background: linear-gradient(to right,
-          ${getColorByScheme(0, colorScheme)},
-          ${getColorByScheme(0.5, colorScheme)},
-          ${getColorByScheme(1, colorScheme)})`}
-      ></div>
+      <div class={legendGradientClasses} style={`background-image: ${getLegendGradientByScheme(colorScheme)}`}></div>
       <div class={legendTitleClasses}>
         {colorScheme.charAt(0).toUpperCase() + colorScheme.slice(1)} Color Scale
       </div>
     </div>
   {/if}
 </div>
+
+
+
+
+
 
 

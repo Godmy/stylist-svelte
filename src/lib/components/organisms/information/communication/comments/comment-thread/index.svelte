@@ -8,7 +8,8 @@ const Send = 'send';
 const Trash2 = 'trash-2';
 const UserIcon = 'user';
 
-  import type { CommentThreadItem, CommentThreadProps } from '$lib/design-system/contracts/information/comment-thread';
+  import type { CommentThreadProps } from '$lib/design-system/contracts/information/comment-thread';
+  import type { CommentThreadItem } from '$lib/design-system/types/information/comment-thread';
   import { CommentThreadStyleManager } from '$lib/design-system/styles/information/comment-thread';
 
   let {
@@ -214,4 +215,6 @@ const UserIcon = 'user';
     </div>
   </div>
 </div>
+
+
 

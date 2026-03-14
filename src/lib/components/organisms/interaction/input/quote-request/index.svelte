@@ -3,7 +3,7 @@
 const Plus = 'plus';
 const Trash2 = 'trash-2';
 
-  import type { QuoteRequestValue } from '$stylist/design-system/contracts/interaction/interaction-input';
+  import type { QuoteRequestValue } from '$stylist/design-system/types/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedQuoteRequestProps {
@@ -66,7 +66,7 @@ const Trash2 = 'trash-2';
   <form class={InteractionInputStyleManager.panel(`p-4 space-y-4 ${formClass}`)} onsubmit={(e) => { e.preventDefault(); onSubmit?.(request); }}>
     <div>
       <h3 class="text-lg font-semibold">{title}</h3>
-      <p class="text-sm text-gray-600">{description}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">{description}</p>
     </div>
 
     <div class={`grid grid-cols-1 md:grid-cols-2 gap-3 ${sectionClass}`}>
@@ -106,8 +106,11 @@ const Trash2 = 'trash-2';
 
     <div class="flex justify-end gap-2">
       <button type="button" class="px-3 py-2 border rounded" onclick={() => onCancel?.()}>Cancel</button>
-      <button type="submit" class={`px-3 py-2 rounded bg-blue-600 text-white ${buttonClass}`}>Send request</button>
+      <button type="submit" class={`px-3 py-2 rounded bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] ${buttonClass}`}>Send request</button>
     </div>
   </form>
 </div>
+
+
+
 

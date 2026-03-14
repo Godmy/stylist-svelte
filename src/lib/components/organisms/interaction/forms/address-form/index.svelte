@@ -14,3 +14,6 @@
     <input class="w-full border rounded px-2 py-1" placeholder="Country" value={country} />
   </div>
 </form>
+
+
+

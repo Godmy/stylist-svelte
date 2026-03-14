@@ -54,11 +54,11 @@ const AlertTriangle = 'alert-triangle';
   // Get toast color based on type
   function getToastColor(type: ToastType) {
     switch(type) {
-      case 'success': return 'bg-green-50 border-green-200 text-green-800';
-      case 'warning': return 'bg-yellow-50 border-green-200 text-yellow-800';
-      case 'error': return 'bg-red-50 border-red-200 text-red-800';
+      case 'success': return 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]';
+      case 'warning': return 'bg-yellow-50 border-[var(--color-success-200)] text-yellow-800';
+      case 'error': return 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]';
       case 'info':
-      default: return 'bg-blue-50 border-blue-200 text-blue-800';
+      default: return 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]';
     }
   }
 
@@ -75,16 +75,16 @@ const AlertTriangle = 'alert-triangle';
 </script>
 
 {#if toasts.length > 0}
-  <div class={`fixed z-50 space-y-3 ${positionClasses[position]} ${className}`} {...restProps}>
+  <div class={`fixed z-[var(--z-index-modal)] space-y-3 ${positionClasses[position]} ${className}`} {...restProps}>
     {#each toasts.slice(0, maxToasts) as toast}
       <div class={`border rounded-lg p-4 shadow-lg max-w-xs w-full ${getToastColor(toast.type)} ${toastClass}`}>
         <div class="flex">
           <div class="flex-shrink-0">
             {#if true}
               <BaseIcon name={getToastIcon(toast.type)} class={`h-5 w-5 ${
-                toast.type === 'error' ? 'text-red-500' :
+                toast.type === 'error' ? 'text-[var(--color-danger-500)]' :
                 toast.type === 'warning' ? 'text-yellow-500' :
-                toast.type === 'success' ? 'text-green-500' : 'text-blue-500'
+                toast.type === 'success' ? 'text-[var(--color-success-500)]' : 'text-[var(--color-primary-500)]'
               }`} />
             {/if}
           </div>
@@ -100,7 +100,7 @@ const AlertTriangle = 'alert-triangle';
                 {#each toast.actions as action}
                   <button
                     type="button"
-                    class="inline-flex items-center px-2.5 py-1 border border-transparent text-xs font-medium rounded shadow-sm focus:outline-none bg-blue-100 text-blue-700 hover:bg-blue-200"
+                    class="inline-flex items-center px-2.5 py-1 border border-transparent text-xs font-medium rounded shadow-sm focus:outline-none bg-[var(--color-primary-100)] text-[var(--color-primary-700)] hover:bg-[var(--color-primary-200)]"
                     onclick={action.onClick}
                   >
                     {action.label}
@@ -113,7 +113,7 @@ const AlertTriangle = 'alert-triangle';
           <div class="ml-4 flex-shrink-0">
             <button
               type="button"
-              class="text-gray-400 hover:text-gray-500"
+              class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
               onclick={() => toast.onDismiss && toast.onDismiss()}
               aria-label="Dismiss toast"
             >
@@ -125,4 +125,9 @@ const AlertTriangle = 'alert-triangle';
     {/each}
   </div>
 {/if}
+
+
+
+
+
 

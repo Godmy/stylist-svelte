@@ -36,7 +36,7 @@ const MoreHorizontal = 'more-horizontal';
       case 'pending':
         return { icon: Clock, color: 'text-[--color-primary-500]', bg: 'bg-[--color-primary-100]', border: 'border-[--color-primary-200]' };
       default: // info
-        return { icon: AlertCircle, color: 'text-[--color-text-secondary]', bg: 'bg-[--color-surface-muted]', border: 'border-[--color-border-default]' };
+        return { icon: AlertCircle, color: 'text-[--color-text-secondary]', bg: 'bg-[--color-background-tertiary]', border: 'border-[--color-border-primary]' };
     }
   }
 
@@ -105,4 +105,7 @@ const MoreHorizontal = 'more-horizontal';
     {/each}
   </div>
 </div>
+
+
+
 

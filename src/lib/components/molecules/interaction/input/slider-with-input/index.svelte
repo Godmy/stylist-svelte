@@ -97,8 +97,8 @@
 <div class={`flex items-center space-x-4 ${className}`} {...restProps}>
   <input
     type="range"
-    class={`w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ${
-      disabled ? 'opacity-50 cursor-not-allowed' : ''
+    class={`w-full h-2 bg-[var(--color-background-tertiary)] rounded-lg appearance-none cursor-pointer ${
+      disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
     } ${sliderClass}`}
     min={min}
     max={max}
@@ -116,8 +116,8 @@
   {#if showInput}
     <input
       type="number"
-      class={`w-${inputWidth.replace('px', '')} px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
-        disabled ? 'bg-gray-100 cursor-not-allowed' : ''
+      class={`w-${inputWidth.replace('px', '')} px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${
+        disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
       } ${inputClass}`}
       min={min}
       max={max}
@@ -129,3 +129,7 @@
     />
   {/if}
 </div>
+
+
+
+

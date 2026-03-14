@@ -68,7 +68,7 @@ const MoreVertical = 'more-vertical';
   }
 </script>
 
-<div class={`c-user-card flex items-center ${paddingClass} bg-white rounded-lg shadow border border-gray-200 ${className}`} {...restProps}>
+<div class={`c-user-card flex items-center ${paddingClass} bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] ${className}`} {...restProps}>
   {#if showAvatar}
     <div class="relative flex-shrink-0 mr-4">
       {#if user.avatar}
@@ -78,19 +78,19 @@ const MoreVertical = 'more-vertical';
           class={`${avatarSize} rounded-full object-cover ${avatarClass}`}
         />
       {:else}
-        <div class={`${avatarSize} rounded-full bg-gray-200 flex items-center justify-center ${avatarClass}`}>
-          <span class="text-gray-600 font-medium">
+        <div class={`${avatarSize} rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center ${avatarClass}`}>
+          <span class="text-[var(--color-text-secondary)] font-medium">
             {user.name ? user.name.charAt(0).toUpperCase() : '?'}
           </span>
         </div>
       {/if}
 
       {#if showStatus && user.status}
-        <div class={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white ${
-          user.status === 'online' ? 'bg-green-500' :
+        <div class={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[var(--color-background-primary)] ${
+          user.status === 'online' ? 'bg-[var(--color-success-500)]' :
           user.status === 'away' ? 'bg-yellow-500' :
-          user.status === 'busy' ? 'bg-red-500' :
-          'bg-gray-400'
+          user.status === 'busy' ? 'bg-[var(--color-danger-500)]' :
+          'bg-[var(--color-neutral-400)]'
         } ${statusClass}`}></div>
       {/if}
     </div>
@@ -98,7 +98,7 @@ const MoreVertical = 'more-vertical';
 
   <div class={`flex-1 min-w-0 ${contentClass}`}>
     <div class="flex items-baseline">
-      <h3 class={`font-semibold text-gray-900 truncate ${textSize}`}>
+      <h3 class={`font-semibold text-[var(--color-text-primary)] truncate ${textSize}`}>
         {user.name}
       </h3>
       {#if showActions && user.actions}
@@ -109,13 +109,13 @@ const MoreVertical = 'more-vertical';
     </div>
 
     {#if showTitle && user.title}
-      <p class={`text-gray-500 truncate ${textSize}`}>
+      <p class={`text-[var(--color-text-secondary)] truncate ${textSize}`}>
         {user.title}
       </p>
     {/if}
 
     {#if showEmail && user.email}
-      <p class={`text-gray-500 truncate ${textSize}`}>
+      <p class={`text-[var(--color-text-secondary)] truncate ${textSize}`}>
         {user.email}
       </p>
     {/if}
@@ -128,7 +128,7 @@ const MoreVertical = 'more-vertical';
       {:else}
         <button
           type="button"
-          class="text-gray-400 hover:text-gray-600"
+          class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
           aria-label="More options"
         >
           <BaseIcon name={MoreVertical} class="h-5 w-5" />
@@ -137,4 +137,8 @@ const MoreVertical = 'more-vertical';
     </div>
   {/if}
 </div>
+
+
+
+
 

@@ -145,11 +145,11 @@ const Star = 'star';
         <div class="flex-grow min-w-[200px]">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
             </div>
             <input
               type="text"
-              class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`}
+              class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
               placeholder={searchPlaceholder}
               value={searchQuery}
               oninput={handleSearchInput}
@@ -161,7 +161,7 @@ const Star = 'star';
       {#if showCategoryFilter}
         <div>
           <select
-            class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+            class="block w-full pl-3 pr-10 py-2 text-base border-[var(--color-border-primary)] focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm rounded-md"
             value={selectedCategory}
             onchange={handleCategoryChange}
           >
@@ -178,7 +178,7 @@ const Star = 'star';
         <div class={`flex border rounded-md ${viewToggleClass}`}>
           <button
             type="button"
-            class={`p-2 ${currentView === 'list' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}
+            class={`p-2 ${currentView === 'list' ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
             aria-label="List view"
             onclick={() => currentView = 'list'}
           >
@@ -186,7 +186,7 @@ const Star = 'star';
           </button>
           <button
             type="button"
-            class={`p-2 ${currentView === 'grid' ? 'bg-blue-100 text-blue-700' : 'text-gray-500 hover:text-gray-700'}`}
+            class={`p-2 ${currentView === 'grid' ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'}`}
             aria-label="Grid view"
             onclick={() => currentView = 'grid'}
           >
@@ -210,22 +210,22 @@ const Star = 'star';
             if (e.key === 'Enter' || e.key === ' ') handleLocationSelect(location);
           }}
         >
-          <div class="flex-shrink-0 p-3 rounded-md bg-blue-100 text-blue-600">
+          <div class="flex-shrink-0 p-3 rounded-md bg-[var(--color-primary-100)] text-[var(--color-primary-600)]">
             <BaseIcon name={MapPin} class="h-6 w-6" />
           </div>
 
           <div class="ml-4 flex-1 min-w-0">
             <div class="flex items-baseline justify-between">
-              <h3 class="text-sm font-medium text-gray-900 truncate">{location.name}</h3>
+              <h3 class="text-sm font-medium text-[var(--color-text-primary)] truncate">{location.name}</h3>
               {#if location.distance !== undefined && showDistance}
-                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                   {formatDistance(location.distance)}
                 </span>
               {/if}
             </div>
 
             {#if location.address}
-              <p class="mt-1 text-sm text-gray-500 truncate">{location.address}</p>
+              <p class="mt-1 text-sm text-[var(--color-text-secondary)] truncate">{location.address}</p>
             {/if}
 
             <div class="mt-2 flex items-center">
@@ -238,16 +238,16 @@ const Star = 'star';
                           ? 'text-yellow-400 fill-current'
                           : (i === Math.floor(location.rating) && location.rating % 1 >= 0.5
                             ? 'text-yellow-400'
-                            : 'text-gray-300')
+                            : 'text-[var(--color-text-tertiary)]')
                       }`}
                     />
                   {/each}
-                  <span class="ml-1 text-sm text-gray-500">{location.rating.toFixed(1)}</span>
+                  <span class="ml-1 text-sm text-[var(--color-text-secondary)]">{location.rating.toFixed(1)}</span>
                 </div>
               {/if}
 
               {#if location.category}
-                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]">
                   {location.category}
                 </span>
               {/if}
@@ -269,20 +269,20 @@ const Star = 'star';
           }}
         >
           <div class="flex items-start">
-            <div class="flex-shrink-0 p-2 rounded-md bg-blue-100 text-blue-600">
+            <div class="flex-shrink-0 p-2 rounded-md bg-[var(--color-primary-100)] text-[var(--color-primary-600)]">
               <BaseIcon name={MapPin} class="h-5 w-5" />
             </div>
 
             <div class="ml-4 min-w-0">
-              <h3 class="text-sm font-medium text-gray-900 truncate">{location.name}</h3>
+              <h3 class="text-sm font-medium text-[var(--color-text-primary)] truncate">{location.name}</h3>
 
               {#if location.address}
-                <p class="mt-1 text-sm text-gray-500 line-clamp-2">{location.address}</p>
+                <p class="mt-1 text-sm text-[var(--color-text-secondary)] line-clamp-2">{location.address}</p>
               {/if}
 
               <div class="mt-3 flex items-center justify-between">
                 {#if location.distance !== undefined && showDistance}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                     {formatDistance(location.distance)}
                   </span>
                 {/if}
@@ -296,7 +296,7 @@ const Star = 'star';
                             ? 'text-yellow-400 fill-current'
                             : (i === Math.floor(location.rating) && location.rating % 1 >= 0.5
                               ? 'text-yellow-400'
-                              : 'text-gray-300')
+                              : 'text-[var(--color-text-tertiary)]')
                         }`}
                       />
                     {/each}
@@ -311,13 +311,17 @@ const Star = 'star';
   {/if}
 
   {#if filteredLocations.length === 0}
-    <div class="text-center py-12 border-2 border-dashed border-gray-300 rounded-lg">
-      <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-gray-400" />
-      <h3 class="mt-2 text-sm font-medium text-gray-900">No locations found</h3>
-      <p class="mt-1 text-sm text-gray-500">Try adjusting your search or filter to find what you're looking for.</p>
+    <div class="text-center py-12 border-2 border-dashed border-[var(--color-border-primary)] rounded-lg">
+      <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" />
+      <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No locations found</h3>
+      <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Try adjusting your search or filter to find what you're looking for.</p>
     </div>
   {/if}
 </div>
+
+
+
+
 
 
 

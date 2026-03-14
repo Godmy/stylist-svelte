@@ -44,14 +44,14 @@ const X = 'x';
       value={selectedRange.start && selectedRange.end ? `${fmt(selectedRange.start)} - ${fmt(selectedRange.end)}` : placeholder}
       onclick={() => !disabled && (isOpen = !isOpen)}
     />
-    <BaseIcon name={Calendar} class="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+    <BaseIcon name={Calendar} class="h-5 w-5 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)]" />
     {#if selectedRange.start || selectedRange.end}
       <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2" onclick={() => (selectedRange = { start: null, end: null })}><BaseIcon name={X} class="h-4 w-4" /></button>
     {/if}
   </div>
 
   {#if isOpen}
-    <div class={InteractionInputStyleManager.panel(`absolute z-10 mt-2 p-3 w-96 ${calendarClass}`)}>
+    <div class={InteractionInputStyleManager.panel(`absolute z-[var(--z-index-docked)] mt-2 p-3 w-96 ${calendarClass}`)}>
       <div class="grid grid-cols-2 gap-4">
         <div>
           <div class="text-sm font-medium mb-2 flex items-center gap-1"><BaseIcon name={Clock} class="h-4 w-4" /> Start</div>
@@ -67,4 +67,8 @@ const X = 'x';
     </div>
   {/if}
 </div>
+
+
+
+
 

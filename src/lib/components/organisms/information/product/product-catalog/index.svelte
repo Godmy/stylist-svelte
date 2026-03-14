@@ -18,7 +18,7 @@
   }>();
 </script>
 
-<div class={`bg-white rounded-lg shadow ${className}`}>
+<div class={`bg-[var(--color-background-primary)] rounded-lg shadow ${className}`}>
   <div class={`${layout === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6' : 'flex flex-col p-4'}`}>
     {#each products as product}
       {#if layout === 'grid'}
@@ -73,3 +73,5 @@
     {/each}
   </div>
 </div>
+
+

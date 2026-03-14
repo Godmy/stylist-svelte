@@ -166,8 +166,8 @@ const Check = 'check';
 
 <div
   class={`c-drop-zone border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
-    isDragOver ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-gray-400'
-  } ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${hostClass}`}
+    isDragOver ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
+  } ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${hostClass}`}
   ondragover={handleDragOver}
   ondragleave={handleDragLeave}
   ondrop={handleDrop}
@@ -177,10 +177,10 @@ const Check = 'check';
     {@render children()}
   {:else}
     <div class="flex flex-col items-center justify-center">
-      <BaseIcon name={Upload} class="h-10 w-10 text-gray-400 mb-2" />
-      <h3 class="text-lg font-medium text-gray-900">{label}</h3>
-      <p class="text-sm text-gray-500 mt-1">{description}</p>
-      <p class="text-xs text-gray-400 mt-2">Accepts: {accept}</p>
+      <BaseIcon name={Upload} class="h-10 w-10 text-[var(--color-text-tertiary)] mb-2" />
+      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{label}</h3>
+      <p class="text-sm text-[var(--color-text-secondary)] mt-1">{description}</p>
+      <p class="text-xs text-[var(--color-text-tertiary)] mt-2">Accepts: {accept}</p>
     </div>
 
     <input
@@ -212,7 +212,7 @@ const Check = 'check';
   {#if items.length > 0}
     <div class="mt-6">
       <div class="flex justify-between items-center mb-3">
-        <h4 class="text-md font-medium text-gray-900">Dropped Items ({items.length})</h4>
+        <h4 class="text-md font-medium text-[var(--color-text-primary)]">Dropped Items ({items.length})</h4>
         <Button
           variant="ghost"
           size="sm"
@@ -225,14 +225,14 @@ const Check = 'check';
 
       <div class="space-y-2 max-h-60 overflow-y-auto">
         {#each items as item}
-          <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-md">
+          <div class="flex items-center justify-between p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md">
             <div class="flex items-center truncate">
-              <div class="flex-shrink-0 h-5 w-5 text-blue-500">
+              <div class="flex-shrink-0 h-5 w-5 text-[var(--color-primary-500)]">
                 <BaseIcon name={Check} class="h-5 w-5" />
               </div>
               <div class="ml-3 min-w-0">
-                <p class="text-sm font-medium text-gray-900 truncate">{item.name}</p>
-                <p class="text-xs text-gray-500">{item.type} вЂў {formatFileSize(item.size || 0)}</p>
+                <p class="text-sm font-medium text-[var(--color-text-primary)] truncate">{item.name}</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">{item.type} вЂў {formatFileSize(item.size || 0)}</p>
               </div>
             </div>
 
@@ -254,8 +254,12 @@ const Check = 'check';
 
   {#if isProcessing}
     <div class="mt-4 flex justify-center">
-      <div class="text-sm text-gray-500">Processing...</div>
+      <div class="text-sm text-[var(--color-text-secondary)]">Processing...</div>
     </div>
   {/if}
 </div>
+
+
+
+
 

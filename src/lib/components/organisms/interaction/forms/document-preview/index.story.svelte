@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import { DocumentPreviewStyleManager } from '$stylist/design-system/styles';
   import DocumentPreview from './index.svelte';
 
@@ -79,5 +79,7 @@ This is a **markdown** document.
     </div>
   {/snippet}
 </Story>
+
+
 
 

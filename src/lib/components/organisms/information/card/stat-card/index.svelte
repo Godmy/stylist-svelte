@@ -47,7 +47,7 @@
 <div class={`c-stat-card ${classes}`}>
   {#if icon}
     <div class={iconContainerClasses}>
-      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">{icon}</span>
+      <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-600)]">{icon}</span>
     </div>
   {/if}
 
@@ -82,5 +82,9 @@
     <p class={descriptionClasses}>{description}</p>
   {/if}
 </div>
+
+
+
+
 
 

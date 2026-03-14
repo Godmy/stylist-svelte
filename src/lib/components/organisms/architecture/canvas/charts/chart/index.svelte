@@ -39,3 +39,5 @@
 		<ChartLegend items={legendItems} />
 	{/if}
 </section>
+
+

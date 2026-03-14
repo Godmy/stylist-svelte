@@ -129,18 +129,18 @@ const LoaderCircle = 'loader-circle';
 
 <div class={`c-shipping-calculator ${hostClass}`} {...restProps}>
   <div class="flex items-center mb-4">
-    <BaseIcon name={Truck} class="h-5 w-5 text-blue-500 mr-2" />
-    <h2 class="text-lg font-medium text-gray-900">Shipping Calculator</h2>
+    <BaseIcon name={Truck} class="h-5 w-5 text-[var(--color-primary-500)] mr-2" />
+    <h2 class="text-lg font-medium text-[var(--color-text-primary)]">Shipping Calculator</h2>
   </div>
 
   <div class={`grid grid-cols-1 md:grid-cols-2 gap-6 ${formClass}`}>
     <!-- Origin and destination -->
     <div class="space-y-4">
       <div>
-        <label for="origin-country" class="block text-sm font-medium text-gray-700 mb-1">Origin Country</label>
+        <label for="origin-country" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Origin Country</label>
         <select
           id="origin-country"
-          class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
           value={originCountry}
           onchange={(e) => originCountry = (e.target as HTMLSelectElement).value}
         >
@@ -151,10 +151,10 @@ const LoaderCircle = 'loader-circle';
       </div>
 
       <div>
-        <label for="destination-country" class="block text-sm font-medium text-gray-700 mb-1">Destination Country</label>
+        <label for="destination-country" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Destination Country</label>
         <select
           id="destination-country"
-          class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
           value={destinationCountry}
           onchange={(e) => {
             destinationCountry = (e.target as HTMLSelectElement).value;
@@ -169,10 +169,10 @@ const LoaderCircle = 'loader-circle';
 
       {#if showStateSelector && availableStates.length > 0}
         <div>
-          <label for="destination-state" class="block text-sm font-medium text-gray-700 mb-1">Destination State</label>
+          <label for="destination-state" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Destination State</label>
           <select
             id="destination-state"
-            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+            class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
             value={destinationState}
             onchange={(e) => destinationState = (e.target as HTMLSelectElement).value}
           >
@@ -185,13 +185,13 @@ const LoaderCircle = 'loader-circle';
       {/if}
 
       <div>
-        <label for="destination-zip" class="block text-sm font-medium text-gray-700 mb-1">ZIP/Postal Code</label>
+        <label for="destination-zip" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">ZIP/Postal Code</label>
         <input
           id="destination-zip"
           type="text"
           value={destinationZip}
           placeholder="Enter destination ZIP"
-          class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
           oninput={(e) => destinationZip = (e.target as HTMLInputElement).value}
         />
       </div>
@@ -201,14 +201,14 @@ const LoaderCircle = 'loader-circle';
     <div class="space-y-4">
       {#if showWeightInput}
         <div>
-          <label for="package-weight" class="block text-sm font-medium text-gray-700 mb-1">Weight (lbs)</label>
+          <label for="package-weight" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Weight (lbs)</label>
           <input
             id="package-weight"
             type="number"
             min="0.1"
             step="0.1"
             value={weight}
-            class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+            class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
             oninput={(e) => weight = parseFloat((e.target as HTMLInputElement).value) || 0}
           />
         </div>
@@ -216,7 +216,7 @@ const LoaderCircle = 'loader-circle';
 
       {#if showDimensionsInput}
         <div>
-          <p class="text-sm font-medium text-gray-700 mb-1">Dimensions (L x W x H in inches)</p>
+          <p class="text-sm font-medium text-[var(--color-text-primary)] mb-1">Dimensions (L x W x H in inches)</p>
           <div class="grid grid-cols-3 gap-2">
             <div class="col-span-1">
               <input
@@ -225,7 +225,7 @@ const LoaderCircle = 'loader-circle';
                 min="0.1"
                 step="0.1"
                 placeholder="Length"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
                 value={dimensions.length}
                 aria-label="Length in inches"
                 oninput={(e) => dimensions = { ...dimensions, length: parseFloat((e.target as HTMLInputElement).value) || 0 }}
@@ -238,7 +238,7 @@ const LoaderCircle = 'loader-circle';
                 min="0.1"
                 step="0.1"
                 placeholder="Width"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
                 value={dimensions.width}
                 aria-label="Width in inches"
                 oninput={(e) => dimensions = { ...dimensions, width: parseFloat((e.target as HTMLInputElement).value) || 0 }}
@@ -251,7 +251,7 @@ const LoaderCircle = 'loader-circle';
                 min="0.1"
                 step="0.1"
                 placeholder="Height"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                class="w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
                 value={dimensions.height}
                 aria-label="Height in inches"
                 oninput={(e) => dimensions = { ...dimensions, height: parseFloat((e.target as HTMLInputElement).value) || 0 }}
@@ -280,23 +280,23 @@ const LoaderCircle = 'loader-circle';
   <!-- Results -->
   {#if calculatedOptions.length > 0}
     <div class={`mt-6 space-y-3 ${resultClass}`}>
-      <h3 class="text-md font-medium text-gray-900">Shipping Options</h3>
+      <h3 class="text-md font-medium text-[var(--color-text-primary)]">Shipping Options</h3>
 
       {#each calculatedOptions as option}
-        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:bg-gray-50">
+        <div class="flex items-center justify-between p-4 border border-[var(--color-border-primary)] rounded-lg hover:bg-[var(--color-background-secondary)]">
           <div class="flex-1">
             <div class="flex items-center">
-              <h4 class="text-sm font-medium text-gray-900">{option.name}</h4>
+              <h4 class="text-sm font-medium text-[var(--color-text-primary)]">{option.name}</h4>
               {#if option.trackingAvailable}
-                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                <span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                   Tracking
                 </span>
               {/if}
             </div>
 
-            <p class="text-sm text-gray-500 mt-1">{option.description}</p>
+            <p class="text-sm text-[var(--color-text-secondary)] mt-1">{option.description}</p>
 
-            <div class="flex items-center mt-2 text-xs text-gray-500">
+            <div class="flex items-center mt-2 text-xs text-[var(--color-text-secondary)]">
               <span class="flex items-center">
                 <BaseIcon name={Package} class="h-3 w-3 mr-1" />
                 {option.estimatedDays} day{option.estimatedDays !== 1 ? 's' : ''} delivery
@@ -309,7 +309,7 @@ const LoaderCircle = 'loader-circle';
           </div>
 
           <div class="flex items-center">
-            <span class="text-lg font-medium text-gray-900 mr-3">{formatCurrency(option.price)}</span>
+            <span class="text-lg font-medium text-[var(--color-text-primary)] mr-3">{formatCurrency(option.price)}</span>
             <Button
               variant="primary"
               size="sm"
@@ -324,10 +324,14 @@ const LoaderCircle = 'loader-circle';
   {/if}
 
   {#if error}
-    <div class="mt-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
+    <div class="mt-4 p-3 bg-[var(--color-danger-50)] border border-[var(--color-danger-200)] text-[var(--color-danger-700)] rounded-md text-sm">
       {error}
     </div>
   {/if}
 </div>
+
+
+
+
 
 

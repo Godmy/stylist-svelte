@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import TimeGrid from './index.svelte';
   import type { ITimeGridProps, CalendarEvent } from './types';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   // Sample events data
   const sampleEvents: CalendarEvent[] = [
@@ -115,4 +115,6 @@
     <TimeGrid {...timeGridProps(values)} />
   {/snippet}
 </Story>
+
+
 

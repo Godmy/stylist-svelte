@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import AdvancedPasswordInput from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -29,7 +29,7 @@
   <div class="p-6 max-w-md mx-auto">
     <div class="mb-6">
       <h2 class="text-xl font-semibold">Password Input</h2>
-      <p class="text-gray-500">Password field with strength indicator</p>
+      <p class="text-[var(--color-text-secondary)]">Password field with strength indicator</p>
     </div>
     <AdvancedPasswordInput
       placeholder={controlValues.placeholder}
@@ -39,3 +39,5 @@
 
   {/snippet}
 </Story>
+
+

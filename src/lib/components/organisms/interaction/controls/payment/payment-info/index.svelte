@@ -5,7 +5,8 @@ const Shield = 'shield';
 const Lock = 'lock';
 
   import { PaymentInfoStyleManager } from '$stylist/design-system/styles';
-  import type { PaymentInfoProps, PaymentMethod } from '$stylist/design-system/contracts';
+  import type { PaymentInfoProps } from '$stylist/design-system/contracts/interaction/payment-controls';
+  import type { PaymentMethod } from '$stylist/design-system/types/interaction/payment-controls';
 
   let {
     paymentMethods = [],
@@ -30,27 +31,27 @@ const Lock = 'lock';
 </script>
 
 <div class={PaymentInfoStyleManager.root(className)} {...restProps}>
-  <div class="border border-gray-200 rounded-lg p-6">
+  <div class="border border-[var(--color-border-primary)] rounded-lg p-6">
     <div class="flex items-center gap-2">
-      <BaseIcon name={CreditCard} class="h-5 w-5 text-blue-600" />
+      <BaseIcon name={CreditCard} class="h-5 w-5 text-[var(--color-primary-600)]" />
       <h3 class="text-lg font-semibold">Payment Information</h3>
     </div>
   </div>
 
   {#if showMethods}
-    <div class="mt-4 border border-gray-200 rounded-lg p-4 space-y-3">
+    <div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4 space-y-3">
       {#each paymentMethods as method}
         <button
           type="button"
-          class={`w-full text-left rounded-md border p-3 ${selectedMethodId === method.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200'}`}
+          class={`w-full text-left rounded-md border p-3 ${selectedMethodId === method.id ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)]'}`}
           onclick={() => handleMethodSelect(method)}
           disabled={method.disabled}
         >
           <div class="font-medium">{method.name}</div>
           {#if method.description}
-            <div class="text-sm text-gray-600">{method.description}</div>
+            <div class="text-sm text-[var(--color-text-secondary)]">{method.description}</div>
           {/if}
-          <div class="text-xs text-gray-500 mt-1">
+          <div class="text-xs text-[var(--color-text-secondary)] mt-1">
             {#if showFees && method.fee !== undefined}Fee: {method.fee}%{/if}
             {#if showProcessingTime && method.processingTime}
               <span class="ml-2">{method.processingTime}</span>
@@ -62,22 +63,25 @@ const Lock = 'lock';
   {/if}
 
   {#if showAcceptedCards}
-    <div class="mt-4 border border-gray-200 rounded-lg p-4">
+    <div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4">
       <div class="text-sm font-medium mb-2">Accepted Cards</div>
       <div class="flex flex-wrap gap-2">
         {#each acceptedCards as card}
-          <span class="px-2 py-1 rounded bg-gray-100 text-xs uppercase">{card}</span>
+          <span class="px-2 py-1 rounded bg-[var(--color-background-secondary)] text-xs uppercase">{card}</span>
         {/each}
       </div>
     </div>
   {/if}
 
   {#if showSecurityInfo}
-    <div class="mt-4 border border-gray-200 rounded-lg p-4">
+    <div class="mt-4 border border-[var(--color-border-primary)] rounded-lg p-4">
       <div class="flex items-center gap-2 text-sm font-medium"><BaseIcon name={Shield} class="h-4 w-4" /> Security</div>
-      <div class="mt-2 text-sm text-gray-600 flex items-center gap-2"><BaseIcon name={Lock} class="h-4 w-4" /> Encrypted payment processing</div>
+      <div class="mt-2 text-sm text-[var(--color-text-secondary)] flex items-center gap-2"><BaseIcon name={Lock} class="h-4 w-4" /> Encrypted payment processing</div>
     </div>
   {/if}
 </div>
+
+
+
 
 

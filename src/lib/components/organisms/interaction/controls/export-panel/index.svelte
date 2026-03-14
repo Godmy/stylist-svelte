@@ -26,63 +26,63 @@
   .c-export-panel {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background-color: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-primary);
     min-width: 300px;
   }
 
   .panel-header {
-    font-weight: 600;
-    font-size: 1.125rem;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-4);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
   }
 
   .panel-section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
   .section-title {
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: #475569;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-3);
+    color: var(--color-text-secondary);
   }
 
   .format-options {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     flex-wrap: wrap;
   }
 
   .format-option {
     flex: 1;
     text-align: center;
-    padding: 0.5rem;
-    border: 1px solid #cbd5e0;
-    border-radius: 0.25rem;
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-base);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all var(--duration-200);
   }
 
   .format-option:hover {
-    background-color: #f1f5f9;
+    background-color: var(--color-background-secondary);
   }
 
   .format-option.active {
-    background-color: #dbeafe;
-    border-color: #3b82f6;
-    color: #1d4ed8;
+    background-color: var(--color-primary-100);
+    border-color: var(--color-primary-500);
+    color: var(--color-primary-700);
   }
 
   .checkbox-group {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 </style>
 

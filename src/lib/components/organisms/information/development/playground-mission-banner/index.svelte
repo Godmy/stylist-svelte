@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Sparkles = 'sparkles';
 
@@ -43,7 +43,7 @@ const Sparkles = 'sparkles';
       {/each}
     </h2>
 
-    <p class="text-2xl mb-12 leading-relaxed opacity-90">
+    <p class="text-2xl mb-12 leading-relaxed opacity-[var(--opacity-90)]">
       {description}
     </p>
 
@@ -63,5 +63,7 @@ const Sparkles = 'sparkles';
     </div>
   </div>
 </section>
+
+
 
 

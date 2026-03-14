@@ -151,7 +151,7 @@ const ChevronDown = 'chevron-down';
   <!-- Explorer header with toolbar -->
   <div class={`p-3 border-b ${headerClass}`}>
     {#if showPath}
-      <div class={`flex items-center text-sm text-gray-600 mb-2 ${pathClass}`}>
+      <div class={`flex items-center text-sm text-[var(--color-text-secondary)] mb-2 ${pathClass}`}>
         {#each pathParts as part, index}
           <span>{part}</span>
           {#if index < pathParts.length - 1}
@@ -166,11 +166,11 @@ const ChevronDown = 'chevron-down';
         {#if searchable}
           <div class="relative flex-1 min-w-[200px]">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
             </div>
             <input
               type="text"
-              class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`}
+              class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
               placeholder="Search files..."
               value={searchQuery}
               oninput={handleSearchInput}
@@ -201,7 +201,7 @@ const ChevronDown = 'chevron-down';
       </div>
 
       <div class="flex items-center">
-        <span class="text-sm text-gray-500 mr-2">{filteredItems.length} items</span>
+        <span class="text-sm text-[var(--color-text-secondary)] mr-2">{filteredItems.length} items</span>
         <Button variant="ghost" size="sm">
           <BaseIcon name={MoreHorizontal} class="h-5 w-5" />
         </Button>
@@ -218,8 +218,8 @@ const ChevronDown = 'chevron-down';
           <div
             class={`border rounded-lg p-3 cursor-pointer flex flex-col items-center text-center ${
               selectedItems.some(i => i.id === item.id)
-                ? 'border-blue-500 bg-blue-50'
-                : 'border-gray-200 hover:bg-gray-50'
+                ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
+                : 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
             } ${itemClass}`}
             role="button"
             tabindex="0"
@@ -227,10 +227,10 @@ const ChevronDown = 'chevron-down';
             ondblclick={() => handleItemDoubleClick(item)}
             onkeydown={(event) => handleItemKeyDown(event, item)}
           >
-            <BaseIcon name={itemIcon} class={`h-8 w-8 mb-2 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={itemIcon} class={`h-8 w-8 mb-2 ${item.type === 'folder' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`} />
             <div class="text-sm font-medium truncate w-full">{item.name}</div>
             {#if item.type === 'file' && item.size}
-              <div class="text-xs text-gray-500 mt-1">{formatFileSize(item.size)}</div>
+              <div class="text-xs text-[var(--color-text-secondary)] mt-1">{formatFileSize(item.size)}</div>
             {/if}
           </div>
         {/each}
@@ -242,8 +242,8 @@ const ChevronDown = 'chevron-down';
           <div
             class={`flex items-center p-3 border-b last:border-b-0 cursor-pointer ${
               selectedItems.some(i => i.id === item.id)
-                ? 'bg-blue-50'
-                : 'hover:bg-gray-50'
+                ? 'bg-[var(--color-primary-50)]'
+                : 'hover:bg-[var(--color-background-secondary)]'
             } ${itemClass}`}
             role="button"
             tabindex="0"
@@ -251,10 +251,10 @@ const ChevronDown = 'chevron-down';
             ondblclick={() => handleItemDoubleClick(item)}
             onkeydown={(event) => handleItemKeyDown(event, item)}
           >
-            <BaseIcon name={itemIcon} class={`h-5 w-5 mr-3 ${item.type === 'folder' ? 'text-blue-500' : 'text-gray-500'}`} />
+            <BaseIcon name={itemIcon} class={`h-5 w-5 mr-3 ${item.type === 'folder' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`} />
             <div class="flex-1 min-w-0">
               <div class="text-sm font-medium truncate">{item.name}</div>
-              <div class="text-xs text-gray-500 truncate">
+              <div class="text-xs text-[var(--color-text-secondary)] truncate">
                 {#if item.type === 'folder'}
                   Folder
                 {:else}
@@ -279,6 +279,9 @@ const ChevronDown = 'chevron-down';
     {/if}
   </div>
 </div>
+
+
+
 
 
 

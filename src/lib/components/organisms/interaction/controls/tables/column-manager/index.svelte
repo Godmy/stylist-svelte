@@ -30,7 +30,7 @@ const ChevronsUpDown = 'chevrons-up-down';
     {#each localColumns as column, index}
       <div class="p-3 flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <BaseIcon name={ChevronsUpDown} class="h-4 w-4 text-gray-400" />
+          <BaseIcon name={ChevronsUpDown} class="h-4 w-4 text-[var(--color-text-tertiary)]" />
           <input type="checkbox" checked={column.visible} onchange={() => toggle(index)} />
           <span>{column.header}</span>
         </div>
@@ -42,5 +42,8 @@ const ChevronsUpDown = 'chevrons-up-down';
     {/each}
   </div>
 </div>
+
+
+
 
 

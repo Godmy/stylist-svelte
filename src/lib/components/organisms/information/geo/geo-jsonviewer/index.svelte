@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/contracts/information/geo-jsonviewer';
+  import type { IGeoJSONViewerProps } from '$lib/design-system/contracts/information/geo-jsonviewer';
+  import type { GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$lib/design-system/types/information/geo-jsonviewer';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { GeoJSONViewerStyleManager } from '$lib/design-system/styles/information/geo-jsonviewer';
 
@@ -46,7 +47,7 @@
         name: 'Default Layer',
         data: geojsonData,
         visible: true,
-        color: '#3B82F6',
+        color: 'var(--color-primary-500)',
         opacity: 0.8
       }];
     } else if (layers.length > 0) {
@@ -130,7 +131,7 @@
         name: file.name.replace('.geojson', ''),
         data: parsed,
         visible: true,
-        color: '#3B82F6',
+        color: 'var(--color-primary-500)',
         opacity: 0.8
       }];
 
@@ -251,7 +252,7 @@
           <!-- Grid pattern to simulate map background -->
           <defs>
             <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse">
-              <path d="M 5 0 L 0 0 0 5" fill="none" stroke="var(--color-border-default)" stroke-width="0.5"/>
+              <path d="M 5 0 L 0 0 0 5" fill="none" stroke="var(--color-border-primary)" stroke-width="0.5"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -358,7 +359,7 @@
         <div class="mt-3 grid grid-cols-2 gap-2">
           {#each Object.entries(selectedFeature.properties) as [key, value]}
             <div class="flex flex-col">
-              <span class="text-xs text-gray-500">{key}</span>
+              <span class="text-xs text-[var(--color-text-secondary)]">{key}</span>
               <span class="text-sm">{String(value)}</span>
             </div>
           {/each}
@@ -367,4 +368,7 @@
     {/if}
   </div>
 </div>
+
+
+
 

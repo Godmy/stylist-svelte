@@ -89,43 +89,43 @@ import { Button } from '$stylist/components/atoms';
   .filter-panel {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-primary);
   }
 
   .filter-section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
   .filter-header {
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: #1e293b;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid #e2e8f0;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-3);
+    color: var(--color-text-primary);
+    padding-bottom: var(--spacing-1);
+    border-bottom: 1px solid var(--color-border-primary);
   }
 
   .filter-options {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
   .filter-item {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
   .layout-controls {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
 
@@ -208,9 +208,10 @@ import { Button } from '$stylist/components/atoms';
     variant="ghost" 
     size="sm" 
     class="reset-btn"
-    style="align-self: flex-start; margin-top: 0.5rem;"
+    style="align-self: flex-start; margin-top: var(--spacing-2);"
     onclick={handleReset}
   >
     Reset Filters
   </Button>
 </div>
+

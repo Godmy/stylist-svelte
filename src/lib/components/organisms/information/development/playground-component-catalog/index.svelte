@@ -139,14 +139,14 @@ const Sparkles = 'sparkles';
         <div class="flex items-center gap-1 bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-900 rounded-lg border-2 border-orange-200 dark:border-gray-700 p-1.5 shadow-sm">
           <button
             onclick={() => onViewModeChange('grid')}
-            class="px-3 py-2 rounded-md transition-all duration-200 {viewMode === 'grid' ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg' : 'text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-white/50 dark:hover:bg-gray-700/50'}"
+            class="px-3 py-2 rounded-md transition-all duration-[var(--duration-200)] {viewMode === 'grid' ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg' : 'text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-white/50 dark:hover:bg-gray-700/50'}"
             title="Grid view"
           >
             <BaseIcon name={Grid} class="w-5 h-5" />
           </button>
           <button
             onclick={() => onViewModeChange('list')}
-            class="px-3 py-2 rounded-md transition-all duration-200 {viewMode === 'list' ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg' : 'text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-white/50 dark:hover:bg-gray-700/50'}"
+            class="px-3 py-2 rounded-md transition-all duration-[var(--duration-200)] {viewMode === 'list' ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-lg' : 'text-gray-400 dark:text-gray-500 hover:text-orange-600 dark:hover:text-orange-400 hover:bg-white/50 dark:hover:bg-gray-700/50'}"
             title="List view"
           >
             <BaseIcon name={List} class="w-5 h-5" />
@@ -191,7 +191,7 @@ const Sparkles = 'sparkles';
                   class="px-5 py-2.5 rounded-xl text-sm font-bold transition-all border-2 hover:scale-105 shadow-sm {isSelected ? 'bg-gradient-to-r from-orange-600 to-red-600 text-white border-orange-500 shadow-lg ring-4 ring-orange-200 dark:ring-orange-900/50' : colors.bg + ' ' + colors.text + ' ' + colors.border + ' hover:border-orange-400 dark:hover:border-orange-500 hover:shadow-md'}"
                 >
                   {category}
-                  <span class="ml-2 {isSelected ? 'opacity-90' : 'opacity-70'} text-xs">
+                  <span class="ml-2 {isSelected ? 'opacity-[var(--opacity-90)]' : 'opacity-[var(--opacity-70)]'} text-xs">
                     ({categoryCounts[category] ?? 0})
                   </span>
                 </button>
@@ -244,7 +244,7 @@ const Sparkles = 'sparkles';
           >
             <div class="w-full h-32 mb-6 rounded-xl bg-gradient-to-br {colors.bg} border-2 {colors.border} flex items-center justify-center overflow-hidden relative group-hover:scale-105 transition-transform">
               <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-              <BaseIcon name={getCategoryIcon(story.category)} class="w-16 h-16 {colors.text} opacity-30 group-hover:opacity-50 transition-opacity" />
+              <BaseIcon name={getCategoryIcon(story.category)} class="w-16 h-16 {colors.text} opacity-[var(--opacity-30)] group-hover:opacity-[var(--opacity-50)] transition-opacity" />
               <div class="absolute bottom-2 right-2 px-2 py-1 bg-white/90 dark:bg-gray-900/90 rounded text-xs font-semibold {colors.text}">
                 Preview
               </div>
@@ -282,7 +282,7 @@ const Sparkles = 'sparkles';
 
             <div class="flex items-center justify-between pt-3 border-t-2 border-gray-100 dark:border-gray-700">
               <span class="text-xs text-gray-400">Svelte 5</span>
-              <div class="flex items-center gap-1 text-orange-600 dark:text-orange-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="flex items-center gap-1 text-orange-600 dark:text-orange-400 text-sm font-semibold opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity">
                 <span>Open</span>
                 <BaseIcon name={ArrowRight} class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
@@ -352,4 +352,6 @@ const Sparkles = 'sparkles';
     {/if}
   </div>
 </div>
+
+
 

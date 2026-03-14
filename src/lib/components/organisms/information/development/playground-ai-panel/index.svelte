@@ -94,36 +94,36 @@ const ChevronDown = 'chevron-down';
 
   /* Dark mode styles */
   :global(.dark) .ai-panel-container {
-    background: rgb(17 24 39);
+    background: var(--color-text-primary);
   }
 
   .provider-header {
-    transition: all 0.2s ease;
+    transition: all var(--duration-200) var(--animation-ease);
   }
 
   .provider-header:hover {
-    background: rgb(249 250 251);
+    background: var(--color-background-primary);
   }
 
   :global(.dark) .provider-header:hover {
-    background: rgb(31 41 55);
+    background: var(--color-text-primary);
   }
 
   .option-item {
-    transition: all 0.15s ease;
+    transition: all var(--duration-150) var(--animation-ease);
   }
 
   .option-item:hover {
-    background: rgb(243 244 246);
+    background: var(--color-background-secondary);
   }
 
   :global(.dark) .option-item:hover {
-    background: rgb(55 65 81);
+    background: var(--color-border-primary);
   }
 
   .option-item.selected {
-    background: color-mix(in srgb, var(--playground-accent, #FF6B35) 10%, transparent);
-    color: var(--playground-accent, #FF6B35);
+    background: color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 10%, transparent);
+    color: var(--playground-accent, var(--color-warning-500));
   }
 </style>
 
@@ -172,5 +172,7 @@ const ChevronDown = 'chevron-down';
     {/each}
   </div>
 </div>
+
+
 
 

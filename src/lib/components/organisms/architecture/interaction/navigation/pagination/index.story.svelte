@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import Pagination from './index.svelte';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -62,5 +62,7 @@
     </div>
   {/snippet}
 </Story>
+
+
 
 

@@ -349,9 +349,9 @@ const CheckCircle = 'check-circle';
           <div class={`flex flex-col items-center ${i < 3 ? 'flex-1' : ''}`}>
             <div class="flex items-center">
               <div class={`w-8 h-8 rounded-full flex items-center justify-center ${
-                getStepStatus(step) === 'completed' ? 'bg-blue-600 text-white' :
-                getStepStatus(step) === 'current' ? 'bg-white border-2 border-blue-600 text-blue-600' :
-                'bg-gray-200 text-gray-500'
+                getStepStatus(step) === 'completed' ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]' :
+                getStepStatus(step) === 'current' ? 'bg-[var(--color-background-primary)] border-2 border-[var(--color-primary-600)] text-[var(--color-primary-600)]' :
+                'bg-[var(--color-background-tertiary)] text-[var(--color-text-secondary)]'
               }`}>
                 {#if getStepStatus(step) === 'completed'}
                   <BaseIcon name={Check} class="h-4 w-4" />
@@ -363,12 +363,12 @@ const CheckCircle = 'check-circle';
               </div>
               {#if i < 3}
                 <div class={`flex-auto border-t-2 ${
-                  i < getStepIndex(currentStep) ? 'border-blue-600' : 'border-gray-300'
+                  i < getStepIndex(currentStep) ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]'
                 }`}></div>
               {/if}
             </div>
             <div class={`mt-2 text-xs font-medium ${
-              getStepStatus(step) === 'current' ? 'text-blue-600' : 'text-gray-500'
+              getStepStatus(step) === 'current' ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-secondary)]'
             }`}>
               {formatStepTitle(step)}
             </div>
@@ -383,8 +383,8 @@ const CheckCircle = 'check-circle';
     <div class="lg:col-span-2">
       <!-- Step 1: Information -->
       {#if currentStep === 'information'}
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+        <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
+          <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={User} class="h-5 w-5 mr-2" />
             Contact Information
           </h2>
@@ -401,7 +401,7 @@ const CheckCircle = 'check-circle';
                 oninput={(e: Event) => handleInputChange('firstName', (e.target as HTMLInputElement).value)}
               />
               {#if errors.firstName}
-                <p class="mt-1 text-sm text-red-600">{errors.firstName}</p>
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.firstName}</p>
               {/if}
             </div>
 
@@ -416,7 +416,7 @@ const CheckCircle = 'check-circle';
                 oninput={(e: Event) => handleInputChange('lastName', (e.target as HTMLInputElement).value)}
               />
               {#if errors.lastName}
-                <p class="mt-1 text-sm text-red-600">{errors.lastName}</p>
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.lastName}</p>
               {/if}
             </div>
 
@@ -431,7 +431,7 @@ const CheckCircle = 'check-circle';
                 oninput={(e: Event) => handleInputChange('email', (e.target as HTMLInputElement).value)}
               />
               {#if errors.email}
-                <p class="mt-1 text-sm text-red-600">{errors.email}</p>
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.email}</p>
               {/if}
             </div>
 
@@ -446,13 +446,13 @@ const CheckCircle = 'check-circle';
                 oninput={(e: Event) => handleInputChange('phone', (e.target as HTMLInputElement).value)}
               />
               {#if errors.phone}
-                <p class="mt-1 text-sm text-red-600">{errors.phone}</p>
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.phone}</p>
               {/if}
             </div>
           </div>
 
           <div class="mt-8">
-            <h3 class="text-lg font-medium text-gray-900 mb-4 flex items-center">
+            <h3 class="text-lg font-medium text-[var(--color-text-primary)] mb-4 flex items-center">
               <BaseIcon name={MapPin} class="h-5 w-5 mr-2" />
               Shipping Address
             </h3>
@@ -462,7 +462,7 @@ const CheckCircle = 'check-circle';
                 <input
                   id="same-as-billing"
                   type="checkbox"
-                  class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  class="h-4 w-4 rounded border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500"
                   checked={sameAsBilling}
                   onchange={(e: Event) => sameAsBilling = (e.target as HTMLInputElement).checked}
                 />
@@ -484,7 +484,7 @@ const CheckCircle = 'check-circle';
                     oninput={(e: Event) => handleInputChange('address1', (e.target as HTMLInputElement).value, true)}
                   />
                   {#if errors.address1}
-                    <p class="mt-1 text-sm text-red-600">{errors.address1}</p>
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.address1}</p>
                   {/if}
                 </div>
 
@@ -513,7 +513,7 @@ const CheckCircle = 'check-circle';
                     oninput={(e: Event) => handleInputChange('city', (e.target as HTMLInputElement).value, true)}
                   />
                   {#if errors.city}
-                    <p class="mt-1 text-sm text-red-600">{errors.city}</p>
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.city}</p>
                   {/if}
                 </div>
 
@@ -532,7 +532,7 @@ const CheckCircle = 'check-circle';
                     {/each}
                   </select>
                   {#if errors.state}
-                    <p class="mt-1 text-sm text-red-600">{errors.state}</p>
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.state}</p>
                   {/if}
                 </div>
 
@@ -548,7 +548,7 @@ const CheckCircle = 'check-circle';
                     oninput={(e: Event) => handleInputChange('zipCode', (e.target as HTMLInputElement).value, true)}
                   />
                   {#if errors.zipCode}
-                    <p class="mt-1 text-sm text-red-600">{errors.zipCode}</p>
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.zipCode}</p>
                   {/if}
                 </div>
 
@@ -566,7 +566,7 @@ const CheckCircle = 'check-circle';
                     {/each}
                   </select>
                   {#if errors.country}
-                    <p class="mt-1 text-sm text-red-600">{errors.country}</p>
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.country}</p>
                   {/if}
                 </div>
               </div>
@@ -577,8 +577,8 @@ const CheckCircle = 'check-circle';
 
       <!-- Step 2: Shipping -->
       {#if currentStep === 'shipping'}
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+        <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
+          <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={Truck} class="h-5 w-5 mr-2" />
             Shipping Method
           </h2>
@@ -586,7 +586,7 @@ const CheckCircle = 'check-circle';
           <div role="radiogroup" aria-label="Shipping method">
             {#each shippingOptions as option}
               <div class={`border rounded-lg p-4 flex justify-between items-start ${
-                selectedShippingOption === option.id ? 'border-blue-500 ring-2 ring-blue-500' : 'border-gray-200'
+                selectedShippingOption === option.id ? 'border-[var(--color-primary-500)] ring-2 ring-blue-500' : 'border-[var(--color-border-primary)]'
               }`}>
                 <div>
                   <div class="flex items-center">
@@ -595,19 +595,19 @@ const CheckCircle = 'check-circle';
                       type="radio"
                       name="shipping-method"
                       value={option.id}
-                      class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                      class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
                       checked={selectedShippingOption === option.id}
                       onchange={(e: Event) => selectedShippingOption = (e.target as HTMLInputElement).value}
                     />
-                    <label for={`shipping-option-${option.id}`} class="ml-3 block text-sm font-medium text-gray-900">
+                    <label for={`shipping-option-${option.id}`} class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                       {option.name}
                     </label>
                   </div>
-                  <p class="ml-7 text-sm text-gray-500">{option.description}</p>
+                  <p class="ml-7 text-sm text-[var(--color-text-secondary)]">{option.description}</p>
                 </div>
                 <div class="text-right">
-                  <p class="text-sm font-medium text-gray-900">{formatCurrency(option.price)}</p>
-                  <p class="text-sm text-gray-500">{option.estimatedDays} days</p>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">{formatCurrency(option.price)}</p>
+                  <p class="text-sm text-[var(--color-text-secondary)]">{option.estimatedDays} days</p>
                 </div>
               </div>
             {/each}
@@ -617,8 +617,8 @@ const CheckCircle = 'check-circle';
 
       <!-- Step 3: Payment -->
       {#if currentStep === 'payment'}
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+        <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
+          <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={CreditCard} class="h-5 w-5 mr-2" />
             Payment Method
           </h2>
@@ -631,11 +631,11 @@ const CheckCircle = 'check-circle';
                   type="radio"
                   name="payment-method"
                   value="credit_card"
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
                   checked={paymentMethod.type === 'credit_card'}
                   onchange={() => handlePaymentMethodChange('credit_card')}
                 />
-                <label for="payment-credit" class="ml-3 block text-sm font-medium text-gray-700">
+                <label for="payment-credit" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   Credit Card
                 </label>
               </div>
@@ -654,7 +654,7 @@ const CheckCircle = 'check-circle';
                       oninput={(e: Event) => handleCardChange('number', formatCardNumber((e.target as HTMLInputElement).value))}
                     />
                     {#if errors.cardNumber}
-                      <p class="mt-1 text-sm text-red-600">{errors.cardNumber}</p>
+                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cardNumber}</p>
                     {/if}
                   </div>
 
@@ -671,7 +671,7 @@ const CheckCircle = 'check-circle';
                         oninput={(e: Event) => handleCardChange('expiry', formatExpiryDate((e.target as HTMLInputElement).value))}
                       />
                       {#if errors.expiry}
-                        <p class="mt-1 text-sm text-red-600">{errors.expiry}</p>
+                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.expiry}</p>
                       {/if}
                     </div>
 
@@ -687,7 +687,7 @@ const CheckCircle = 'check-circle';
                         oninput={(e: Event) => handleCardChange('cvv', (e.target as HTMLInputElement).value)}
                       />
                       {#if errors.cvv}
-                        <p class="mt-1 text-sm text-red-600">{errors.cvv}</p>
+                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cvv}</p>
                       {/if}
                     </div>
                   </div>
@@ -703,7 +703,7 @@ const CheckCircle = 'check-circle';
                       oninput={(e: Event) => handleCardChange('name', (e.target as HTMLInputElement).value)}
                     />
                     {#if errors.cardName}
-                      <p class="mt-1 text-sm text-red-600">{errors.cardName}</p>
+                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cardName}</p>
                     {/if}
                   </div>
                 </div>
@@ -717,11 +717,11 @@ const CheckCircle = 'check-circle';
                   type="radio"
                   name="payment-method"
                   value="paypal"
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
                   checked={paymentMethod.type === 'paypal'}
                   onchange={() => handlePaymentMethodChange('paypal')}
                 />
-                <label for="payment-paypal" class="ml-3 block text-sm font-medium text-gray-700">
+                <label for="payment-paypal" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   PayPal
                 </label>
               </div>
@@ -734,11 +734,11 @@ const CheckCircle = 'check-circle';
                   type="radio"
                   name="payment-method"
                   value="digital_wallet"
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                  class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
                   checked={paymentMethod.type === 'digital_wallet'}
                   onchange={() => handlePaymentMethodChange('digital_wallet')}
                 />
-                <label for="payment-digital" class="ml-3 block text-sm font-medium text-gray-700">
+                <label for="payment-digital" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   Digital Wallet (Apple Pay, Google Pay, etc.)
                 </label>
               </div>
@@ -749,44 +749,44 @@ const CheckCircle = 'check-circle';
 
       <!-- Step 4: Review -->
       {#if currentStep === 'review'}
-        <div class="bg-white shadow rounded-lg p-6">
-          <h2 class="text-lg font-medium text-gray-900 mb-6 flex items-center">
+        <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
+          <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={Package} class="h-5 w-5 mr-2" />
             Review Your Order
           </h2>
 
           <div class="space-y-6">
             <div>
-              <h3 class="text-md font-medium text-gray-900 mb-4">Contact Information</h3>
-              <p class="text-gray-700">{billingAddress.firstName} {billingAddress.lastName}</p>
-              <p class="text-gray-700">{billingAddress.email}</p>
-              <p class="text-gray-700">{billingAddress.phone}</p>
+              <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Contact Information</h3>
+              <p class="text-[var(--color-text-primary)]">{billingAddress.firstName} {billingAddress.lastName}</p>
+              <p class="text-[var(--color-text-primary)]">{billingAddress.email}</p>
+              <p class="text-[var(--color-text-primary)]">{billingAddress.phone}</p>
             </div>
 
             <div>
-              <h3 class="text-md font-medium text-gray-900 mb-4">Shipping Address</h3>
-              <p class="text-gray-700">{shippingAddress.firstName} {shippingAddress.lastName}</p>
-              <p class="text-gray-700">{shippingAddress.address1}</p>
+              <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Shipping Address</h3>
+              <p class="text-[var(--color-text-primary)]">{shippingAddress.firstName} {shippingAddress.lastName}</p>
+              <p class="text-[var(--color-text-primary)]">{shippingAddress.address1}</p>
               {#if shippingAddress.address2}
-                <p class="text-gray-700">{shippingAddress.address2}</p>
+                <p class="text-[var(--color-text-primary)]">{shippingAddress.address2}</p>
               {/if}
-              <p class="text-gray-700">{shippingAddress.city}, {shippingAddress.state} {shippingAddress.zipCode}</p>
-              <p class="text-gray-700">{getCountryName(shippingAddress.country)}</p>
+              <p class="text-[var(--color-text-primary)]">{shippingAddress.city}, {shippingAddress.state} {shippingAddress.zipCode}</p>
+              <p class="text-[var(--color-text-primary)]">{getCountryName(shippingAddress.country)}</p>
             </div>
 
             <div>
-              <h3 class="text-md font-medium text-gray-900 mb-4">Shipping Method</h3>
-              <p class="text-gray-700">{selectedShippingDetails?.name}</p>
-              <p class="text-gray-700 text-sm">
+              <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Shipping Method</h3>
+              <p class="text-[var(--color-text-primary)]">{selectedShippingDetails?.name}</p>
+              <p class="text-[var(--color-text-primary)] text-sm">
                 {selectedShippingDetails?.description} - {formatCurrency(selectedShippingDetails?.price ?? 0)}
               </p>
             </div>
 
             <div>
-              <h3 class="text-md font-medium text-gray-900 mb-4">Payment Method</h3>
-              <p class="text-gray-700 capitalize">{paymentMethod.type}</p>
+              <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Payment Method</h3>
+              <p class="text-[var(--color-text-primary)] capitalize">{paymentMethod.type}</p>
               {#if paymentMethod.type === 'credit_card' && cardInfo.number}
-                <p class="text-gray-700 text-sm">
+                <p class="text-[var(--color-text-primary)] text-sm">
                   **** **** **** {cardInfo.number.replace(/\s/g, '').slice(-4)}
                 </p>
               {/if}
@@ -797,14 +797,14 @@ const CheckCircle = 'check-circle';
 
       <!-- Step 5: Confirmation -->
       {#if currentStep === 'confirmation'}
-        <div class="bg-white shadow rounded-lg p-6">
+        <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <div class="text-center">
-            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
-              <BaseIcon name={CheckCircle} class="h-6 w-6 text-green-600" />
+            <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-success-100)]">
+              <BaseIcon name={CheckCircle} class="h-6 w-6 text-[var(--color-success-600)]" />
             </div>
-            <h2 class="mt-4 text-lg font-medium text-gray-900">Thank you for your order!</h2>
-            <p class="mt-2 text-gray-600">
-              Your order number is <span class="font-medium">#123456</span>. We've emailed your receipt to {billingAddress.email}.
+            <h2 class="mt-4 text-lg font-medium text-[var(--color-text-primary)]">Thank you for your order!</h2>
+            <p class="mt-2 text-[var(--color-text-secondary)]">
+              Your order number is <span class="font-medium">var(--color-primary-700)</span>. We've emailed your receipt to {billingAddress.email}.
             </p>
             <div class="mt-6">
               <Button
@@ -844,8 +844,8 @@ const CheckCircle = 'check-circle';
     </div>
 
     <!-- Order summary sidebar -->
-    <div class="bg-white shadow rounded-lg p-6 h-fit sticky top-6">
-      <h2 class="text-lg font-medium text-gray-900 mb-4">Order Summary</h2>
+    <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6 h-fit sticky top-6">
+      <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-4">Order Summary</h2>
 
       <div class="flow-root">
         <ul class="-my-6 divide-y divide-gray-200">
@@ -863,11 +863,11 @@ const CheckCircle = 'check-circle';
 
               <div class="ml-4 flex-1 flex flex-col">
                 <div>
-                  <div class="flex justify-between text-base font-medium text-gray-900">
+                  <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)]">
                     <h3>{item.name}</h3>
                     <p class="ml-4">{formatCurrency(item.price * item.quantity)}</p>
                   </div>
-                  <p class="mt-1 text-sm text-gray-500">Qty {item.quantity}</p>
+                  <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Qty {item.quantity}</p>
                 </div>
               </div>
             </li>
@@ -875,25 +875,25 @@ const CheckCircle = 'check-circle';
         </ul>
       </div>
 
-      <div class="mt-6 border-t border-gray-200 pt-4">
+      <div class="mt-6 border-t border-[var(--color-border-primary)] pt-4">
         <div class="space-y-3">
-          <div class="flex justify-between text-sm text-gray-600">
+          <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Subtotal</dt>
             <dd>{formattedSubtotal}</dd>
           </div>
-          <div class="flex justify-between text-sm text-gray-600">
+          <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Shipping</dt>
             <dd>{formattedShipping}</dd>
           </div>
-          <div class="flex justify-between text-sm text-gray-600">
+          <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Tax</dt>
             <dd>{formattedTax}</dd>
           </div>
-          <div class="flex justify-between text-sm text-gray-600">
+          <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Discount</dt>
             <dd>- $0.00</dd>
           </div>
-          <div class="flex justify-between text-base font-medium text-gray-900 border-t border-gray-200 pt-3">
+          <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)] border-t border-[var(--color-border-primary)] pt-3">
             <dt>Order total</dt>
             <dd>{formattedTotal}</dd>
           </div>
@@ -906,7 +906,7 @@ const CheckCircle = 'check-circle';
             <input
               id="terms"
               type="checkbox"
-              class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              class="h-4 w-4 rounded border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500"
               checked={termsAccepted}
               onchange={(e: Event) => termsAccepted = (e.target as HTMLInputElement).checked}
             />
@@ -915,15 +915,19 @@ const CheckCircle = 'check-circle';
             </label>
           </div>
           {#if !termsAccepted && currentStep === 'review'}
-            <p class="mt-1 text-sm text-red-600">You must agree to the terms and conditions to continue.</p>
+            <p class="mt-1 text-sm text-[var(--color-danger-600)]">You must agree to the terms and conditions to continue.</p>
           {/if}
-          <p class="text-sm text-gray-700">
-            Read our <a href="/terms" class="text-blue-600 hover:text-blue-500">terms and conditions</a>
+          <p class="text-sm text-[var(--color-text-primary)]">
+            Read our <a href="/terms" class="text-[var(--color-primary-600)] hover:text-[var(--color-primary-500)]">terms and conditions</a>
           </p>
         </div>
       {/if}
     </div>
   </div>
 </div>
+
+
+
+
 
 

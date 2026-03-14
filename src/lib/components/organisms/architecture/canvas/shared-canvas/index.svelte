@@ -37,7 +37,7 @@ const Palette = 'palette';
   }: SharedCanvasProps & HTMLAttributes<HTMLDivElement> = $props();
 
   let selectedTool: Tool = $state('select');
-  let selectedColor = $state('#3b82f6'); // Default blue
+  let selectedColor = $state('var(--color-primary-500)'); // Default blue
   let isDrawing = $state(false);
   let startX = $state(0);
   let startY = $state(0);
@@ -68,9 +68,9 @@ const Palette = 'palette';
 
     // Draw all objects
     objects.forEach(obj => {
-      ctx.strokeStyle = obj.color || '#000000';
+      ctx.strokeStyle = obj.color || 'var(--color-text-primary)';
       ctx.lineWidth = 2;
-      ctx.fillStyle = obj.color || '#000000';
+      ctx.fillStyle = obj.color || 'var(--color-text-primary)';
 
       switch (obj.type) {
         case 'rectangle':
@@ -287,7 +287,7 @@ const Palette = 'palette';
         </button>
       </div>
 
-      <div class="h-5 border-l border-[--color-border-default] mx-2"></div>
+      <div class="h-5 border-l border-[--color-border-primary] mx-2"></div>
 
       <div class="flex items-center space-x-2">
         <label class="flex items-center text-sm">
@@ -295,14 +295,14 @@ const Palette = 'palette';
           Color:
           <input
             type="color"
-            class="ml-1 w-8 h-8 p-1 border border-[--color-border-default] rounded cursor-pointer"
+            class="ml-1 w-8 h-8 p-1 border border-[--color-border-primary] rounded cursor-pointer"
             bind:value={selectedColor}
             aria-label="Select color"
           />
         </label>
       </div>
 
-      <div class="h-5 border-l border-[--color-border-default] mx-2"></div>
+      <div class="h-5 border-l border-[--color-border-primary] mx-2"></div>
 
       <div class="flex space-x-1">
         <button
@@ -398,4 +398,7 @@ const Palette = 'palette';
     {/if}
   </div>
 </div>
+
+
+
 

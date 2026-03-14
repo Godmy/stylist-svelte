@@ -30,14 +30,14 @@
   }>();
 
   const badgeStyles = {
-    sale: 'bg-red-500 text-white',
-    new: 'bg-blue-500 text-white',
-    popular: 'bg-yellow-500 text-black',
-    default: 'bg-gray-200 text-gray-800'
+    sale: 'bg-[var(--color-danger-500)] text-[var(--color-text-inverse)]',
+    new: 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]',
+    popular: 'bg-yellow-500 text-[var(--color-text-primary)]',
+    default: 'bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]'
   };
 </script>
 
-<div class={`bg-white rounded-lg shadow-md overflow-hidden ${className}`}>
+<div class={`bg-[var(--color-background-primary)] rounded-lg shadow-md overflow-hidden ${className}`}>
   <div class="relative">
     {#if image}
       <img src={image} alt={title} class="w-full h-56 object-cover" />
@@ -63,19 +63,19 @@
           </svg>
         {/each}
       </div>
-      <span class="text-gray-600 text-sm ml-1">({reviewCount})</span>
+      <span class="text-[var(--color-text-secondary)] text-sm ml-1">({reviewCount})</span>
     </div>
     
-    <p class="text-gray-700 text-sm mb-3">{description}</p>
+    <p class="text-[var(--color-text-primary)] text-sm mb-3">{description}</p>
     
     {#if features.length > 0}
       <ul class="mb-4 space-y-1">
         {#each features as feature}
           <li class="flex items-start">
-            <svg class="w-4 h-4 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg class="w-4 h-4 text-[var(--color-success-500)] mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
             </svg>
-            <span class="text-sm text-gray-600">{feature}</span>
+            <span class="text-sm text-[var(--color-text-secondary)]">{feature}</span>
           </li>
         {/each}
       </ul>
@@ -86,13 +86,13 @@
       <div class="space-x-2">
         <button
           onclick={onAddToCart}
-          class="px-3 py-1.5 bg-blue-500 text-white text-sm rounded hover:bg-blue-600"
+          class="px-3 py-1.5 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] text-sm rounded hover:bg-[var(--color-primary-600)]"
         >
           Add to Cart
         </button>
         <button
           onclick={onWishlist}
-          class="p-1.5 border border-gray-300 rounded hover:bg-gray-100"
+          class="p-1.5 border border-[var(--color-border-primary)] rounded hover:bg-[var(--color-background-secondary)]"
           aria-label="Add to wishlist"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -103,3 +103,6 @@
     </div>
   </div>
 </div>
+
+
+

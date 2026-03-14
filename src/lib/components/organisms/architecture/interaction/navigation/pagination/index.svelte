@@ -1,8 +1,8 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon } from '$stylist/components/atoms';
   import { PaginationStyleManager } from '$stylist/design-system/styles';
-  import type { PaginationProps } from '$stylist/design-system/contracts';
+  import type { PaginationProps } from '$stylist/design-system/types/interaction/pagination';
 
   let {
     currentPage = 1,
@@ -173,5 +173,7 @@
     {/if}
   </nav>
 </div>
+
+
 
 

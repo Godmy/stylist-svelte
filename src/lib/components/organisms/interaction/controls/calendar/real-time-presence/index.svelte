@@ -45,10 +45,10 @@ const Activity = 'activity';
 
   function getStatusColor(status: string) {
     switch(status) {
-      case 'online': return 'bg-green-500';
+      case 'online': return 'bg-[var(--color-success-500)]';
       case 'away': return 'bg-yellow-500';
-      case 'busy': return 'bg-red-500';
-      default: return 'bg-gray-500';
+      case 'busy': return 'bg-[var(--color-danger-500)]';
+      default: return 'bg-[var(--color-neutral-500)]';
     }
   }
 
@@ -74,22 +74,22 @@ const Activity = 'activity';
   }
 </script>
 
-<div class={`c-real-time-presence bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={`c-real-time-presence bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`} {...restProps}>
   <div class="border-b px-4 py-3 flex items-center">
-    <BaseIcon name={Users} class="h-5 w-5 text-gray-500 mr-2" />
-    <h3 class="text-lg font-medium text-gray-900">{title} <span class="text-gray-500">({users.length})</span></h3>
+    <BaseIcon name={Users} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
+    <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title} <span class="text-[var(--color-text-secondary)]">({users.length})</span></h3>
   </div>
 
   <div class={`p-4 ${userListClass}`}>
     {#if users.length === 0}
       <div class="text-center py-8">
-        <BaseIcon name={Users} class="h-12 w-12 text-gray-400 mx-auto mb-2" />
-        <p class="text-gray-500">No active users</p>
+        <BaseIcon name={Users} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto mb-2" />
+        <p class="text-[var(--color-text-secondary)]">No active users</p>
       </div>
     {:else}
       <ul class="space-y-3">
         {#each users as user}
-          <li class={`flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 ${userItemClass}`}>
+          <li class={`flex items-center justify-between p-3 rounded-lg hover:bg-[var(--color-background-secondary)] ${userItemClass}`}>
             <div class="flex items-center">
               {#if showAvatars}
                 <div class="relative flex-shrink-0 mr-3">
@@ -100,8 +100,8 @@ const Activity = 'activity';
                       class="h-10 w-10 rounded-full"
                     />
                   {:else}
-                    <div class="h-10 w-10 rounded-full bg-gray-300 flex items-center justify-center">
-                      <span class="text-sm font-medium text-gray-700">
+                    <div class="h-10 w-10 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
+                      <span class="text-sm font-medium text-[var(--color-text-primary)]">
                         {user.name.charAt(0).toUpperCase()}
                       </span>
                     </div>
@@ -115,27 +115,27 @@ const Activity = 'activity';
 
               <div>
                 <div class="flex items-center">
-                  <p class="text-sm font-medium text-gray-900">{user.name}</p>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">{user.name}</p>
                   {#if showStatus}
-                    <span class={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 ${statusClass}`}>
-                      <BaseIcon name={Activity} class={`h-3 w-3 mr-1 ${user.status === 'online' ? 'text-green-500' : user.status === 'away' ? 'text-yellow-500' : user.status === 'busy' ? 'text-red-500' : 'text-gray-500'}`} />
+                    <span class={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] ${statusClass}`}>
+                      <BaseIcon name={Activity} class={`h-3 w-3 mr-1 ${user.status === 'online' ? 'text-[var(--color-success-500)]' : user.status === 'away' ? 'text-yellow-500' : user.status === 'busy' ? 'text-[var(--color-danger-500)]' : 'text-[var(--color-text-secondary)]'}`} />
                       {getStatusText(user.status)}
                     </span>
                   {/if}
                 </div>
 
                 {#if showLastSeen && user.lastSeen}
-                  <p class="text-xs text-gray-500">Active {formatLastSeen(user.lastSeen)}</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Active {formatLastSeen(user.lastSeen)}</p>
                 {/if}
 
                 {#if user.activeArea}
-                  <p class="text-xs text-gray-500">Working on: {user.activeArea}</p>
+                  <p class="text-xs text-[var(--color-text-secondary)]">Working on: {user.activeArea}</p>
                 {/if}
               </div>
             </div>
 
             {#if showCursorPositions && user.cursorPosition}
-              <div class="text-xs text-gray-500">
+              <div class="text-xs text-[var(--color-text-secondary)]">
                 <div>Position: {user.cursorPosition.x}, {user.cursorPosition.y}</div>
               </div>
             {/if}
@@ -145,4 +145,8 @@ const Activity = 'activity';
     {/if}
   </div>
 </div>
+
+
+
+
 

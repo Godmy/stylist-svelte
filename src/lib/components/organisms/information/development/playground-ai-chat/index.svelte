@@ -52,16 +52,16 @@ const Send = 'send';
     width: 400px;
     max-width: 90vw;
     background: white;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 9998;
+    border-left: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+    z-index: var(--z-index-layer9998);
     display: flex;
     flex-direction: column;
-    animation: slideInRight 0.3s ease-out;
+    animation: slideInRight var(--duration-300) var(--animation-ease-out);
   }
 
   :global(.dark) .chat-panel {
-    background: #1f2937;
-    border-left-color: rgba(255, 255, 255, 0.1);
+    background: var(--color-text-primary);
+    border-left-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 
   @keyframes slideInRight {
@@ -76,42 +76,42 @@ const Send = 'send';
   .messages-container {
     flex: 1;
     overflow-y: auto;
-    padding: 1rem;
+    padding: var(--spacing-4);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--spacing-3);
   }
 
   .message {
-    padding: 0.75rem 1rem;
-    border-radius: 0.75rem;
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--border-radius-xl);
     max-width: 85%;
   }
 
   .message.user {
     align-self: flex-end;
-    background: var(--playground-accent, #ff6b35);
+    background: var(--playground-accent, var(--color-warning-500));
     color: white;
   }
 
   .message.assistant {
     align-self: flex-start;
-    background: #f3f4f6;
-    color: #1f2937;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
   }
 
   :global(.dark) .message.assistant {
-    background: #374151;
-    color: #f9fafb;
+    background: var(--color-border-primary);
+    color: var(--color-background-primary);
   }
 
   .input-container {
-    padding: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-4);
+    border-top: 1px solid color-mix(in srgb, var(--color-text-primary) 10%, transparent);
   }
 
   :global(.dark) .input-container {
-    border-top-color: rgba(255, 255, 255, 0.1);
+    border-top-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 </style>
 
@@ -152,7 +152,7 @@ const Send = 'send';
       <button
         onclick={sendMessage}
         disabled={!inputMessage.trim()}
-        class="p-2 bg-[var(--playground-accent)] text-white rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+        class="p-2 bg-[var(--playground-accent)] text-white rounded-lg hover:opacity-[var(--opacity-90)] disabled:opacity-[var(--opacity-50)] disabled:cursor-not-allowed transition-all"
       >
         <BaseIcon name={Send} class="w-5 h-5" />
       </button>
@@ -162,5 +162,6 @@ const Send = 'send';
     </p>
   </div>
 </div>
+
 
 

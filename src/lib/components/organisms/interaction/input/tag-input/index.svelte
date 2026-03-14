@@ -60,7 +60,7 @@ const X = 'x';
 
 <div class={InteractionInputStyleManager.root('c-tag-input flex flex-wrap gap-2 items-center', className)} {...restProps}>
   {#each currentTags as tag, index}
-    <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 ${tagClass}`}>
+    <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm bg-[var(--color-primary-100)] text-[var(--color-primary-800)] ${tagClass}`}>
       {tag}
       <button type="button" class={`ml-2 ${removeButtonClass}`} onclick={() => removeTag(index)}><BaseIcon name={X} class="h-4 w-4" /></button>
     </span>
@@ -90,4 +90,8 @@ const X = 'x';
     }}
   />
 </div>
+
+
+
+
 

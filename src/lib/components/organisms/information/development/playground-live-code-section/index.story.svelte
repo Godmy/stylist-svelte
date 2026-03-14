@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import PlaygroundLiveCodeSection from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -11,7 +11,7 @@
 
   const sampleCode = `<script lang="ts">
   let count = $state(0);
-<\/script>
+</script>
 
 <button onclick={() => count += 1}>
   Count: {count}
@@ -33,3 +33,5 @@
     />
   {/snippet}
 </Story>
+
+

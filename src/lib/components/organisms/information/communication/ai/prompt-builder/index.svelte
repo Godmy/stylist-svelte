@@ -9,7 +9,8 @@ const Plus = 'plus';
 const Trash2 = 'trash-2';
 
   import { PromptBuilderStyleManager } from '$stylist/design-system/styles/information/prompt-builder';
-  import type { PromptBuilderProps, PromptVariable } from '$stylist/design-system/contracts/information/prompt-builder';
+  import type { PromptBuilderProps } from '$stylist/design-system/contracts/information/prompt-builder';
+  import type { PromptVariable } from '$stylist/design-system/types/information/prompt-builder';
 
   let {
     templates = [],
@@ -238,5 +239,7 @@ const Trash2 = 'trash-2';
     <button type="button" class={saveButtonClass} onclick={handleSave}>Save Prompt</button>
   </div>
 </div>
+
+
 
 

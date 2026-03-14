@@ -155,9 +155,9 @@ const Info = 'info';
 
 <div class={`c-currency-converter p-4 border rounded-lg ${hostClass}`} {...restProps}>
   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-lg font-medium text-gray-900">Currency Converter</h3>
+    <h3 class="text-lg font-medium text-[var(--color-text-primary)]">Currency Converter</h3>
     <Tooltip content="Convert amounts between different currencies using real-time exchange rates">
-      <BaseIcon name={Info} class="h-5 w-5 text-gray-500" />
+      <BaseIcon name={Info} class="h-5 w-5 text-[var(--color-text-secondary)]" />
     </Tooltip>
   </div>
 
@@ -165,18 +165,18 @@ const Info = 'info';
     <!-- Amount input -->
     {#if showInput}
       <div>
-        <label for="amount" class="block text-sm font-medium text-gray-700 mb-1">
+        <label for="amount" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
           Amount
         </label>
         <div class="relative">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={DollarSign} class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={DollarSign} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
           </div>
           <input
             type="number"
             id="amount"
-            class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${inputClass} ${
-              disabled ? 'bg-gray-100 cursor-not-allowed' : ''
+            class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${inputClass} ${
+              disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
             }`}
             value={amountValue}
             oninput={handleAmountChange}
@@ -191,13 +191,13 @@ const Info = 'info';
     <!-- Currency selection -->
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div>
-        <label for="from-currency" class="block text-sm font-medium text-gray-700 mb-1">
+        <label for="from-currency" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
           From
         </label>
         <select
           id="from-currency"
-          class={`block w-full px-3 py-2 border border-gray-300 rounded-md leading-5 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${selectClass} ${
-            disabled ? 'bg-gray-100 cursor-not-allowed' : ''
+          class={`block w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${selectClass} ${
+            disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
           }`}
           value={sourceCurrency}
           onchange={handleSourceCurrencyChange}
@@ -214,7 +214,7 @@ const Info = 'info';
       <div class="flex items-end justify-center">
         <button
           type="button"
-          class="p-2 text-gray-500 hover:text-gray-700 disabled:opacity-50"
+          class="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] disabled:opacity-[var(--opacity-50)]"
           onclick={() => {
             const temp = sourceCurrency;
             sourceCurrency = targetCurrency;
@@ -230,13 +230,13 @@ const Info = 'info';
       </div>
 
       <div>
-        <label for="to-currency" class="block text-sm font-medium text-gray-700 mb-1">
+        <label for="to-currency" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
           To
         </label>
         <select
           id="to-currency"
-          class={`block w-full px-3 py-2 border border-gray-300 rounded-md leading-5 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${selectClass} ${
-            disabled ? 'bg-gray-100 cursor-not-allowed' : ''
+          class={`block w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${selectClass} ${
+            disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
           }`}
           value={targetCurrency}
           onchange={handleTargetCurrencyChange}
@@ -252,25 +252,25 @@ const Info = 'info';
     </div>
 
     <!-- Results -->
-    <div class={`mt-6 p-4 bg-gray-50 rounded-lg ${resultClass}`}>
+    <div class={`mt-6 p-4 bg-[var(--color-background-secondary)] rounded-lg ${resultClass}`}>
       <div class="flex justify-between items-center">
         <div>
-          <p class="text-sm text-gray-600">Converted Amount</p>
-          <p class="text-2xl font-semibold text-gray-900">
+          <p class="text-sm text-[var(--color-text-secondary)]">Converted Amount</p>
+          <p class="text-2xl font-semibold text-[var(--color-text-primary)]">
             {getCurrencySymbol(targetCurrency)}{convertedAmount.toFixed(2)}
           </p>
         </div>
         <div class="text-right">
-          <p class="text-sm text-gray-600">Original Amount</p>
-          <p class="text-lg text-gray-700">
+          <p class="text-sm text-[var(--color-text-secondary)]">Original Amount</p>
+          <p class="text-lg text-[var(--color-text-primary)]">
             {getCurrencySymbol(sourceCurrency)}{amountValue.toFixed(2)}
           </p>
         </div>
       </div>
 
       {#if showConversionRate}
-        <div class="mt-3 pt-3 border-t border-gray-200">
-          <p class="text-sm text-gray-600">
+        <div class="mt-3 pt-3 border-t border-[var(--color-border-primary)]">
+          <p class="text-sm text-[var(--color-text-secondary)]">
             1 {sourceCurrency} = {conversionRate.toFixed(4)} {targetCurrency}
             (as of today)
           </p>
@@ -278,16 +278,16 @@ const Info = 'info';
       {/if}
 
       {#if showFeeEstimate && feePercentage > 0}
-        <div class="mt-3 pt-3 border-t border-gray-200">
+        <div class="mt-3 pt-3 border-t border-[var(--color-border-primary)]">
           <div class="flex justify-between text-sm">
-            <span class="text-gray-600">Estimated fees ({feePercentage}%):</span>
-            <span class="font-medium text-gray-900">
+            <span class="text-[var(--color-text-secondary)]">Estimated fees ({feePercentage}%):</span>
+            <span class="font-medium text-[var(--color-text-primary)]">
               {getCurrencySymbol(targetCurrency)}{feeAmount.toFixed(2)}
             </span>
           </div>
           <div class="flex justify-between mt-1">
-            <span class="text-gray-600 font-medium">Total with fees:</span>
-            <span class="font-bold text-lg text-gray-900">
+            <span class="text-[var(--color-text-secondary)] font-medium">Total with fees:</span>
+            <span class="font-bold text-lg text-[var(--color-text-primary)]">
               {getCurrencySymbol(targetCurrency)}{(convertedAmount + feeAmount).toFixed(2)}
             </span>
           </div>
@@ -296,6 +296,9 @@ const Info = 'info';
     </div>
   </div>
 </div>
+
+
+
 
 
 

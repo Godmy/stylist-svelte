@@ -154,11 +154,11 @@ const RotateCcw = 'rotate-ccw';
   {#if showSearch}
     <div class="relative mb-4">
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+        <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
       </div>
       <input
         type="text"
-        class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+        class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
         placeholder="Search for a place..."
         value={searchQuery}
         oninput={(e) => searchQuery = (e.target as HTMLInputElement).value}
@@ -168,14 +168,14 @@ const RotateCcw = 'rotate-ccw';
         class="absolute inset-y-0 right-0 pr-3 flex items-center"
         onclick={handleSearch}
       >
-        <BaseIcon name={Search} class="h-5 w-5 text-gray-400 hover:text-gray-600" />
+        <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]" />
       </button>
     </div>
   {/if}
 
-  <div class="relative rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+  <div class="relative rounded-lg overflow-hidden border border-[var(--color-border-primary)] shadow-sm">
     <div
-      class={`relative bg-blue-50 cursor-crosshair ${mapClass}`}
+      class={`relative bg-[var(--color-primary-50)] cursor-crosshair ${mapClass}`}
       style={`width: 100%; height: 400px;`}
       onclick={handleMapClick}
       role="button"
@@ -185,22 +185,22 @@ const RotateCcw = 'rotate-ccw';
       }}
     >
       <!-- Simplified map representation -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100">
+      <div class="absolute inset-0 [background-image:var(--gradient-forest)]">
         <!-- Grid lines to simulate map -->
         {#each Array(10).fill(0) as _, i}
           <div
-            class="absolute w-full h-px bg-gray-300 opacity-30"
+            class="absolute w-full h-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-30)]"
             style={`top: ${i * 10}%`}
           ></div>
           <div
-            class="absolute h-full w-px bg-gray-300 opacity-30"
+            class="absolute h-full w-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-30)]"
             style={`left: ${i * 10}%`}
           ></div>
         {/each}
 
         <!-- Center marker -->
         <div
-          class="absolute w-3 h-3 bg-red-500 rounded-full border-2 border-white transform -translate-x-1/2 -translate-y-1/2"
+          class="absolute w-3 h-3 bg-[var(--color-danger-500)] rounded-full border-2 border-[var(--color-background-primary)] transform -translate-x-1/2 -translate-y-1/2"
           style={`left: 50%; top: 50%;`}
         ></div>
       </div>
@@ -210,7 +210,7 @@ const RotateCcw = 'rotate-ccw';
         {@const pos = coordsToPixel(marker.coordinates, mapDimensions.width, mapDimensions.height)}
         <div
           class={`absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer ${
-            selectedMarker === marker.id ? 'z-10' : 'z-0'
+            selectedMarker === marker.id ? 'z-[var(--z-index-docked)]' : 'z-[var(--z-index-base)]'
           }`}
           style={`left: ${pos.x}px; top: ${pos.y}px;`}
           onclick={(e) => {
@@ -229,12 +229,12 @@ const RotateCcw = 'rotate-ccw';
           <BaseIcon name={MapPin}
             class={`h-6 w-6 ${
               selectedMarker === marker.id
-                ? 'text-red-600 fill-current scale-125'
-                : 'text-blue-600 fill-current'
+                ? 'text-[var(--color-danger-600)] fill-current scale-125'
+                : 'text-[var(--color-primary-600)] fill-current'
             }`}
           />
           {#if selectedMarker === marker.id || marker.title}
-            <div class="absolute left-1/2 transform -translate-x-1/2 -top-8 bg-white shadow-md rounded px-2 py-1 text-xs whitespace-nowrap">
+            <div class="absolute left-1/2 transform -translate-x-1/2 -top-8 bg-[var(--color-background-primary)] shadow-md rounded px-2 py-1 text-xs whitespace-nowrap">
               {marker.title || `Marker ${marker.id}`}
             </div>
           {/if}
@@ -262,7 +262,7 @@ const RotateCcw = 'rotate-ccw';
 
     <!-- Coordinates display -->
     {#if showCoordinates}
-      <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
+      <div class="absolute bottom-4 left-4 bg-[var(--color-background-primary)]/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
         <div>Lat: {currentCenter.lat.toFixed(4)}</div>
         <div>Lng: {currentCenter.lng.toFixed(4)}</div>
         <div>Zoom: {currentZoom}</div>
@@ -270,6 +270,12 @@ const RotateCcw = 'rotate-ccw';
     {/if}
   </div>
 </div>
+
+
+
+
+
+
 
 
 

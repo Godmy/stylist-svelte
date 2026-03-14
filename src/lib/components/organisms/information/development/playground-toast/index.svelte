@@ -23,17 +23,17 @@
 
 <style>
   .toast {
-    animation: slideIn 0.3s ease-out;
+    animation: slideIn var(--duration-300) var(--animation-ease-out);
   }
 
   @keyframes slideIn {
     from {
       transform: translateY(-100%);
-      opacity: 0;
+      opacity: var(--opacity-0);
     }
     to {
       transform: translateY(0);
-      opacity: 1;
+      opacity: var(--opacity-100);
     }
   }
 </style>
@@ -44,4 +44,5 @@
   </div>
   <p class="text-sm font-medium flex-1">{message}</p>
 </div>
+
 

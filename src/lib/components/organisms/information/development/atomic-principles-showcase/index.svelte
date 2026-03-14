@@ -37,7 +37,7 @@ const Package = 'package';
     50% { transform: translateY(-20px) rotate(5deg); }
   }
   .float-animation {
-    animation: float 6s ease-in-out infinite;
+    animation: float var(--duration-s6) var(--animation-ease-in-out) infinite;
   }
 </style>
 
@@ -107,4 +107,5 @@ const Package = 'package';
     </div>
   </div>
 </section>
+
 

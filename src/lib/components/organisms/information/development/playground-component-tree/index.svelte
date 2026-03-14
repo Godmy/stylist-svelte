@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Code = 'code';
 const Layers = 'layers';
@@ -387,7 +387,7 @@ const FileCode = 'file-code';
 <style>
   .tree-container {
     height: 100%;
-    min-height: 0;
+    min-height: var(--size-0);
     overflow-y: scroll !important;
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch;
@@ -399,34 +399,38 @@ const FileCode = 'file-code';
 
   /* Custom scrollbar */
   .tree-container::-webkit-scrollbar {
-    width: 8px;
+    width: var(--spacing-2);
   }
 
   .tree-container::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.05);
+    background: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
   }
 
   .tree-container::-webkit-scrollbar-thumb {
-    background: rgba(156, 163, 175, 0.5);
-    border-radius: 4px;
+    background: color-mix(in srgb, var(--color-text-secondary) 50%, transparent);
+    border-radius: var(--border-radius-base);
   }
 
   .tree-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(156, 163, 175, 0.7);
+    background: color-mix(in srgb, var(--color-text-secondary) 70%, transparent);
   }
 
   :global(.dark) .tree-container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
+    background: color-mix(in srgb, var(--color-background-primary) 5%, transparent);
   }
 
   :global(.dark) .tree-container::-webkit-scrollbar-thumb {
-    background: rgba(75, 85, 99, 0.5);
+    background: color-mix(in srgb, var(--color-border-primary) 50%, transparent);
   }
 
   :global(.dark) .tree-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(75, 85, 99, 0.7);
+    background: color-mix(in srgb, var(--color-border-primary) 70%, transparent);
   }
 </style>
+
+
+
+
 
 
 

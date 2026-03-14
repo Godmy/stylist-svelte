@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { TimeSlot as TimeSlotComponent } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';
   import { Icon } from '$stylist/components/atoms';
   import { Button } from '$stylist/components/atoms';
@@ -336,6 +336,8 @@ This component follows SOLID principles:
     </div>
   {/if}
 </div>
+
+
 
 
 

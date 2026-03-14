@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Search = 'search';
 
-  import type { AutoCompleteOption } from '$stylist/design-system/contracts/interaction/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/design-system/types/interaction/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedAutoCompleteProps {
@@ -28,7 +28,7 @@ const Search = 'search';
     inputClass = '',
     listClass = '',
     itemClass = '',
-    selectedClass = 'bg-blue-100',
+    selectedClass = 'bg-[var(--color-primary-100)]',
     onInput,
     onSelect,
     debounce = 250,
@@ -85,7 +85,7 @@ const Search = 'search';
 <div class={InteractionInputStyleManager.root('c-auto-complete relative', className)}>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-      <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+      <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
     </div>
     <input
       type="text"
@@ -101,10 +101,10 @@ const Search = 'search';
   </div>
 
   {#if isOpen && filteredOptions.length > 0}
-    <ul class={`absolute z-10 mt-1 w-full bg-white shadow-lg max-h-60 rounded-md py-1 overflow-auto ${listClass}`} role="listbox">
+    <ul class={`absolute z-[var(--z-index-docked)] mt-1 w-full bg-[var(--color-background-primary)] shadow-lg max-h-60 rounded-md py-1 overflow-auto ${listClass}`} role="listbox">
       {#each filteredOptions as option, index}
         <li
-          class={`relative py-2 px-3 cursor-pointer hover:bg-blue-100 ${index === highlightedIndex ? selectedClass : ''} ${itemClass}`}
+          class={`relative py-2 px-3 cursor-pointer hover:bg-[var(--color-primary-100)] ${index === highlightedIndex ? selectedClass : ''} ${itemClass}`}
           role="option"
           aria-selected={index === highlightedIndex}
           onclick={() => handleSelect(option)}
@@ -118,11 +118,15 @@ const Search = 'search';
         >
           <span>{option.label}</span>
           {#if option.meta}
-            <span class="ml-2 text-xs text-gray-500">{option.meta}</span>
+            <span class="ml-2 text-xs text-[var(--color-text-secondary)]">{option.meta}</span>
           {/if}
         </li>
       {/each}
     </ul>
   {/if}
 </div>
+
+
+
+
 

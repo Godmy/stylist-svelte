@@ -120,11 +120,11 @@
 	// Предустановленные узлы для палитры
 	const defaultPaletteNodes = $derived<PaletteNode[]>(
 		paletteNodes.length > 0 ? paletteNodes : [
-			{ id: 'source', type: 'source', title: 'Source', description: 'Data source node', color: '#10b981', category: 'source' },
-			{ id: 'processor', type: 'processor', title: 'Processor', description: 'Process data', color: '#6366f1', category: 'processor' },
-			{ id: 'output', type: 'output', title: 'Output', description: 'Output node', color: '#f59e0b', category: 'output' },
-			{ id: 'gateway', type: 'gateway', title: 'Gateway', description: 'Decision point', color: '#8b5cf6', category: 'gateway' },
-			{ id: 'custom', type: 'custom', title: 'Custom', description: 'Custom node', color: '#ec4899', category: 'custom' }
+			{ id: 'source', type: 'source', title: 'Source', description: 'Data source node', color: 'var(--color-success-500)', category: 'source' },
+			{ id: 'processor', type: 'processor', title: 'Processor', description: 'Process data', color: 'var(--color-secondary-500)', category: 'processor' },
+			{ id: 'output', type: 'output', title: 'Output', description: 'Output node', color: 'var(--color-warning-500)', category: 'output' },
+			{ id: 'gateway', type: 'gateway', title: 'Gateway', description: 'Decision point', color: 'var(--color-info-500)', category: 'gateway' },
+			{ id: 'custom', type: 'custom', title: 'Custom', description: 'Custom node', color: 'var(--color-primary-500)', category: 'custom' }
 		]
 	);
 
@@ -356,7 +356,7 @@
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-		background: #0f0f0f;
+		background: var(--color-background-primary);
 	}
 
 	:global(.graph-editor__main) {
@@ -370,7 +370,7 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		z-index: 50;
+		z-index: var(--z-index-layer50);
 		pointer-events: none;
 	}
 
@@ -380,34 +380,35 @@
 
 	:global(.graph-editor__properties) {
 		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		z-index: 50;
+		top: var(--spacing-4);
+		right: var(--spacing-4);
+		z-index: var(--z-index-layer50);
 	}
 
 	:global(.graph-editor__quick-actions) {
 		position: absolute;
-		bottom: 1.5rem;
+		bottom: var(--spacing-6);
 		left: 50%;
 		transform: translateX(-50%);
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem 1rem;
-		background: rgb(30 30 30 / 0.95);
-		border: 1px solid #374151;
-		border-radius: 12px;
-		box-shadow: 0 8px 16px rgb(0 0 0 / 0.4);
-		z-index: 50;
+		gap: var(--spacing-2);
+		padding: var(--spacing-3) var(--spacing-4);
+		background: color-mix(in srgb, var(--color-background-primary) 95%, transparent);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-xl);
+		box-shadow: var(--shadow-custom42);
+		z-index: var(--z-index-layer50);
 		backdrop-filter: blur(8px);
 	}
 
 	:global(.graph-editor__quick-actions .separator) {
-		height: 24px;
-		margin: 0 0.25rem;
+		height: var(--spacing-6);
+		margin: 0 var(--spacing-1);
 	}
 
 	:global(.graph-editor__quick-anchor) {
 		display: inline-flex;
 	}
 </style>
+

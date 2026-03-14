@@ -82,7 +82,7 @@ const Calendar = 'calendar';
 </script>
 
 <div class={`date-picker-container relative ${hostClass}`}>
-  <label for="date-picker-input" class="block text-sm font-medium text-gray-700 mb-1">
+  <label for="date-picker-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
     {label || 'Date'}
   </label>
 
@@ -102,7 +102,7 @@ const Calendar = 'calendar';
     <input
       id="date-picker-input"
       type="text"
-      class={`block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${inputClass}`}
+      class={`block w-full pl-3 pr-10 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${inputClass}`}
       placeholder={placeholder}
       value={selectedDate ? formatDate(selectedDate) : ''}
       readonly
@@ -111,15 +111,15 @@ const Calendar = 'calendar';
     />
 
     <div class="absolute inset-y-0 right-0 pl-3 flex items-center pointer-events-none">
-      <BaseIcon name={Calendar} class="h-5 w-5 text-gray-400" />
+      <BaseIcon name={Calendar} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
     </div>
   </div>
 
   {#if showCalendar}
-    <div class={`absolute z-10 mt-1 bg-white shadow-lg rounded-md p-3 border border-gray-200 ${calendarClass}`}>
+    <div class={`absolute z-[var(--z-index-docked)] mt-1 bg-[var(--color-background-primary)] shadow-lg rounded-md p-3 border border-[var(--color-border-primary)] ${calendarClass}`}>
       <input
         type="date"
-        class="block w-full p-2 border border-gray-300 rounded-md"
+        class="block w-full p-2 border border-[var(--color-border-primary)] rounded-md"
         value={selectedDate}
         min={minDate}
         max={maxDate}
@@ -132,11 +132,11 @@ const Calendar = 'calendar';
   {/if}
 
   {#if helperText}
-    <p class="mt-1 text-xs text-gray-500">{helperText}</p>
+    <p class="mt-1 text-xs text-[var(--color-text-secondary)]">{helperText}</p>
   {/if}
 
   {#if error}
-    <p class="mt-1 text-xs text-red-600">{error}</p>
+    <p class="mt-1 text-xs text-[var(--color-danger-600)]">{error}</p>
   {/if}
 </div>
 
@@ -158,4 +158,9 @@ const Calendar = 'calendar';
     width: auto;
   }
 </style>
+
+
+
+
+
 

@@ -134,12 +134,12 @@ const FileText = 'file-text';
   }
 </script>
 
-<div class={`c-content-editor border border-gray-200 rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={`c-content-editor border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`} {...restProps}>
   {#if showToolbar}
-    <div class={`flex items-center p-2 border-b border-gray-200 bg-gray-50 space-x-1 ${toolbarClass}`}>
+    <div class={`flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1 ${toolbarClass}`}>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('bold')}
         title="Bold"
       >
@@ -147,7 +147,7 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('italic')}
         title="Italic"
       >
@@ -155,16 +155,16 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('underline')}
         title="Underline"
       >
         <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
@@ -172,7 +172,7 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
@@ -180,16 +180,16 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
         <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertUnorderedList')}
         title="Bullet List"
       >
@@ -197,23 +197,23 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertOrderedList')}
         title="Numbered List"
       >
         <BaseIcon name={ListOrdered} class="h-4 w-4" />
       </button>
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         title="Add Image"
       >
         <BaseIcon name={Image} class="h-4 w-4" />
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         title="Add Link"
       >
         <BaseIcon name={Link} class="h-4 w-4" />
@@ -223,7 +223,7 @@ const FileText = 'file-text';
 
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={togglePreview}
         title="Preview"
       >
@@ -231,7 +231,7 @@ const FileText = 'file-text';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={handleSave}
         title="Save"
       >
@@ -249,7 +249,7 @@ const FileText = 'file-text';
           {:else if element.type === 'header'}
             <h2 class="text-2xl font-bold mb-4">{element.content}</h2>
           {:else if element.type === 'quote'}
-            <blockquote class="border-l-4 border-gray-300 pl-4 italic my-4">
+            <blockquote class="border-l-4 border-[var(--color-border-primary)] pl-4 italic my-4">
               {element.content}
             </blockquote>
           {:else if element.type === 'list'}
@@ -263,7 +263,7 @@ const FileText = 'file-text';
       {#each contentElements as element, index}
         <div
           class={`mb-4 p-2 border rounded ${
-            activeElementId === element.id ? 'border-blue-500' : 'border-transparent'
+            activeElementId === element.id ? 'border-[var(--color-primary-500)]' : 'border-transparent'
           }`}
           role="button"
           tabindex="0"
@@ -293,24 +293,24 @@ const FileText = 'file-text';
             />
           {:else if element.type === 'quote'}
             <textarea
-              class={`w-full italic focus:outline-none border-l-4 border-gray-300 pl-4 ${contentClass}`}
+              class={`w-full italic focus:outline-none border-l-4 border-[var(--color-border-primary)] pl-4 ${contentClass}`}
               bind:value={element.content}
               oninput={() => updateContent(element.id, element.content)}
               placeholder="Quote..."
               rows={2}
             ></textarea>
           {:else if element.type === 'image'}
-            <div class="border-2 border-dashed border-gray-300 rounded flex flex-col items-center justify-center p-8">
-              <BaseIcon name={Image} class="h-10 w-10 text-gray-400 mb-2" />
-              <p class="text-gray-500">Image: {element.content || 'No image selected'}</p>
-              <p class="text-sm text-gray-400 mt-1">Click to add image</p>
+            <div class="border-2 border-dashed border-[var(--color-border-primary)] rounded flex flex-col items-center justify-center p-8">
+              <BaseIcon name={Image} class="h-10 w-10 text-[var(--color-text-tertiary)] mb-2" />
+              <p class="text-[var(--color-text-secondary)]">Image: {element.content || 'No image selected'}</p>
+              <p class="text-sm text-[var(--color-text-tertiary)] mt-1">Click to add image</p>
             </div>
           {/if}
 
           <div class="flex justify-end space-x-1 mt-1">
             <button
               type="button"
-              class="text-gray-400 hover:text-gray-600 p-1"
+              class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] p-1"
               onclick={() => moveElement(element.id, 'up')}
               disabled={index === 0}
               title="Move up"
@@ -321,7 +321,7 @@ const FileText = 'file-text';
             </button>
             <button
               type="button"
-              class="text-gray-400 hover:text-gray-600 p-1"
+              class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] p-1"
               onclick={() => moveElement(element.id, 'down')}
               disabled={index === contentElements.length - 1}
               title="Move down"
@@ -332,7 +332,7 @@ const FileText = 'file-text';
             </button>
             <button
               type="button"
-              class="text-gray-400 hover:text-red-500 p-1"
+              class="text-[var(--color-text-tertiary)] hover:text-[var(--color-danger-500)] p-1"
               onclick={() => deleteElement(element.id)}
               disabled={contentElements.length <= 1}
               title="Delete"
@@ -348,7 +348,7 @@ const FileText = 'file-text';
         <div class="flex justify-center my-2">
           <button
             type="button"
-            class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center"
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-medium flex items-center"
             onclick={() => addNewElement(index)}
           >
             <svg class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -363,7 +363,7 @@ const FileText = 'file-text';
       <div class="flex justify-center mt-4">
         <button
           type="button"
-          class="text-gray-500 hover:text-gray-700 text-sm font-medium flex items-center"
+          class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] text-sm font-medium flex items-center"
           onclick={() => addNewElement(contentElements.length - 1)}
         >
           <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -375,4 +375,7 @@ const FileText = 'file-text';
     {/if}
   </div>
 </div>
+
+
+
 

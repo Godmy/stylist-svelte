@@ -102,7 +102,7 @@ const X = 'x';
   };
 
   const getPriorityAccentClass = (priority: 'low' | 'medium' | 'high' | undefined) => {
-    if (!priority) return 'before:bg-slate-300';
+    if (!priority) return 'before:bg-[var(--color-background-tertiary)]';
     return {
       low: 'before:bg-emerald-400',
       medium: 'before:bg-COLOR_AMBER-400',
@@ -112,7 +112,7 @@ const X = 'x';
 </script>
 
 <div
-  class={`c-kanban-card group relative rounded-xl border border-slate-200 bg-white/95 p-4 cursor-pointer transition-all duration-200 hover:-translate-y-[1px] hover:shadow-[0_14px_26px_-18px_rgba(14,116,144,0.55)] before:absolute before:inset-y-3 before:left-0 before:w-1 before:rounded-full ${getPriorityAccentClass(card.priority)}`}
+  class={`c-kanban-card group relative rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]/95 p-4 cursor-pointer transition-all duration-[var(--duration-200)] hover:-translate-y-[1px] hover:shadow-[0_14px_26px_-18px_color-mix(in srgb, var(--color-info-600) 55%, transparent)] before:absolute before:inset-y-3 before:left-0 before:w-1 before:rounded-full ${getPriorityAccentClass(card.priority)}`}
   class:drag-handle={draggable}
   class:ring-2={selected}
   class:ring-cyan-500={selected}
@@ -126,7 +126,7 @@ const X = 'x';
       {#if isEditingTitle}
         <div class="flex items-center gap-1">
           <input
-            class="w-full rounded border border-gray-300 px-2 py-1 text-sm text-gray-900 outline-none focus:border-indigo-500"
+            class="w-full rounded border border-[var(--color-border-primary)] px-2 py-1 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-500)]"
             bind:value={draftTitle}
             onblur={commitTitleEdit}
             onkeydown={(e) => {
@@ -137,14 +137,14 @@ const X = 'x';
           <button type="button" class="text-emerald-600 hover:text-emerald-700" onclick={commitTitleEdit} aria-label="Save title">
             <BaseIcon name={Check} class="h-4 w-4" />
           </button>
-          <button type="button" class="text-gray-500 hover:text-gray-700" onclick={cancelTitleEdit} aria-label="Cancel title edit">
+          <button type="button" class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" onclick={cancelTitleEdit} aria-label="Cancel title edit">
             <BaseIcon name={X} class="h-4 w-4" />
           </button>
         </div>
       {:else}
         <button
           type="button"
-          class="max-w-full truncate text-left font-semibold text-slate-800 hover:text-cyan-700 transition-colors"
+          class="max-w-full truncate text-left font-semibold text-[var(--color-text-primary)] hover:text-cyan-700 transition-colors"
           ondblclick={startTitleEdit}
           onclick={(e) => {
             if (e.altKey) startTitleEdit();
@@ -166,7 +166,7 @@ const X = 'x';
   </div>
 
   {#if card.description}
-    <div class="text-sm text-slate-600 mb-3 leading-relaxed">{card.description}</div>
+    <div class="text-sm text-[var(--color-text-secondary)] mb-3 leading-relaxed">{card.description}</div>
   {/if}
 
   {#if card.tags?.length}
@@ -184,7 +184,7 @@ const X = 'x';
 
   <Divider class="my-2" />
 
-  <div class="flex justify-between items-center text-xs text-slate-500">
+  <div class="flex justify-between items-center text-xs text-[var(--color-text-secondary)]">
     {#if card.assignee}
       <div class="flex items-center">
         {#if typeof card.assignee === 'object'}
@@ -210,21 +210,21 @@ const X = 'x';
 
   <div class="mt-2 flex justify-end">
     {#if editable}
-      <button type="button" class="mr-2 text-slate-400 hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit card">
+      <button type="button" class="mr-2 text-[var(--color-text-tertiary)] hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit card">
         <BaseIcon name={Pencil} class="w-4 h-4" />
       </button>
     {/if}
     {#if archivable}
-      <button type="button" class="mr-2 text-slate-400 hover:text-COLOR_AMBER-600 transition-colors" onclick={() => onArchive?.()} aria-label="Archive card">
+      <button type="button" class="mr-2 text-[var(--color-text-tertiary)] hover:text-COLOR_AMBER-600 transition-colors" onclick={() => onArchive?.()} aria-label="Archive card">
         <BaseIcon name={Archive} class="w-4 h-4" />
       </button>
     {/if}
     {#if deletable}
-      <button type="button" class="mr-2 text-slate-400 hover:text-rose-600 transition-colors" onclick={() => onDelete?.()} aria-label="Delete card">
+      <button type="button" class="mr-2 text-[var(--color-text-tertiary)] hover:text-rose-600 transition-colors" onclick={() => onDelete?.()} aria-label="Delete card">
         <BaseIcon name={Trash2} class="w-4 h-4" />
       </button>
     {/if}
-    <BaseIcon name={GripVertical} class="w-4 h-4 text-slate-300 group-hover:text-slate-500 transition-colors" />
+    <BaseIcon name={GripVertical} class="w-4 h-4 text-[var(--color-text-tertiary)] group-hover:text-[var(--color-text-secondary)] transition-colors" />
   </div>
 
   {#if children}
@@ -233,6 +233,10 @@ const X = 'x';
     </div>
   {/if}
 </div>
+
+
+
+
 
 
 

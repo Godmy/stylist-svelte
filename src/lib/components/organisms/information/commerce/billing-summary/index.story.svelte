@@ -1,7 +1,7 @@
 <script lang="ts">
   // @ts-nocheck
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import BillingSummary from './index.svelte';
 
   let {
@@ -131,6 +131,8 @@
     </section>
   {/snippet}
 </Story>
+
+
 
 
 

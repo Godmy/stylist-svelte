@@ -96,19 +96,17 @@
 
 <style>
   .grid-overlay {
-    background-image:
-      linear-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(249, 115, 22, 0.15) 1px, transparent 1px);
+    background-image: var(--gradient-custom112);
     background-size: 20px 20px;
-    animation: grid-fade-in 0.3s ease-out;
+    animation: grid-fade-in var(--duration-300) var(--animation-ease-out);
   }
 
   @keyframes grid-fade-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
     }
   }
 
@@ -117,31 +115,23 @@
   }
 
   .canvas-container {
-    background:
-      radial-gradient(circle at 20% 20%, var(--playground-glow-light-1, rgba(249, 115, 22, 0.08)) 0%, transparent 55%),
-      radial-gradient(circle at 80% 80%, var(--playground-glow-light-2, rgba(239, 68, 68, 0.08)) 0%, transparent 55%);
+    background: var(--gradient-custom182);
   }
 
   :global(.dark) .canvas-container {
-    background:
-      radial-gradient(circle at 20% 20%, var(--playground-glow-dark-1, rgba(249, 115, 22, 0.12)) 0%, transparent 55%),
-      radial-gradient(circle at 80% 80%, var(--playground-glow-dark-2, rgba(168, 85, 247, 0.12)) 0%, transparent 55%);
+    background: var(--gradient-custom172);
   }
 
   .canvas-frame {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--duration-300) var(--easing-ease-standard);
   }
 
   .canvas-frame:hover {
-    box-shadow:
-      0 20px 25px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.15)),
-      0 10px 10px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.08));
+    box-shadow: var(--shadow-custom30);
   }
 
   :global(.dark) .canvas-frame:hover {
-    box-shadow:
-      0 20px 25px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.25)),
-      0 10px 10px -5px var(--playground-accent-shadow, rgba(249, 115, 22, 0.15));
+    box-shadow: var(--shadow-custom31);
   }
 
   .panning {
@@ -154,7 +144,7 @@
   }
 </style>
 
-<div class="flex-1 flex flex-col canvas-container bg-gradient-to-br from-[var(--playground-gradient-light-from,#f9fafb)] via-[var(--playground-gradient-light-via,#f3f4f6)] to-[var(--playground-gradient-light-to,#f3f4f6)] dark:from-[var(--playground-gradient-dark-from,#111827)] dark:via-[var(--playground-gradient-dark-via,#0f172a)] dark:to-[var(--playground-gradient-dark-to,#111827)] overflow-hidden">
+<div class="flex-1 flex flex-col canvas-container bg-gradient-to-br from-[var(--playground-gradient-light-from,var(--color-background-primary))] via-[var(--playground-gradient-light-via,var(--color-background-secondary))] to-[var(--playground-gradient-light-to,var(--color-background-secondary))] dark:from-[var(--playground-gradient-dark-from,var(--color-text-primary))] dark:via-[var(--playground-gradient-dark-via,var(--color-text-primary))] dark:to-[var(--playground-gradient-dark-to,var(--color-text-primary))] overflow-hidden">
   <div
     bind:this={canvasContainer}
     class="flex-1 overflow-auto p-8 flex relative"
@@ -167,7 +157,7 @@
     <div class="w-full min-h-full flex items-center justify-center">
       <div
         class="canvas-zoom"
-        style="transform: translate({panX}px, {panY}px) scale({zoom}); transform-origin: center; transition: {isPanning ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)'};"
+        style="transform: translate({panX}px, {panY}px) scale({zoom}); transform-origin: center; transition: {isPanning ? 'none' : 'transform var(--duration-300) var(--easing-ease-standard)'};"
       >
         {#if showDeviceFrame && viewport !== 'fullscreen'}
           <PlaygroundDeviceFrame device={viewport}>
@@ -175,7 +165,7 @@
               {#if showGrid}
                 <div class="grid-overlay absolute inset-0 pointer-events-none rounded-[2.5rem]"></div>
               {/if}
-              <div class="relative z-10 p-8">
+              <div class="relative z-[var(--z-index-docked)] p-8">
                 <PlaygroundErrorBoundary {component} {props}>
                   {#if children}
                     {@render children()}
@@ -192,7 +182,7 @@
             {#if showGrid}
               <div class="grid-overlay absolute inset-0 pointer-events-none rounded-2xl"></div>
             {/if}
-            <div class="relative z-10 p-8">
+            <div class="relative z-[var(--z-index-docked)] p-8">
               <PlaygroundErrorBoundary {component} {props}>
                 {#if children}
                   {@render children()}
@@ -205,3 +195,5 @@
     </div>
   </div>
 </div>
+
+

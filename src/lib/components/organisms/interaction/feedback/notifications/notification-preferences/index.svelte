@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { NotificationPreferencesProps } from '$stylist/design-system/contracts/interaction/interaction-feedback';
+  import type { NotificationPreferencesProps } from '$stylist/design-system/contracts/information/notifications';
   import { InteractionFeedbackStyleManager } from '$stylist/design-system/styles/interaction/interaction-feedback';
   let { email = true, push = true, sms = false, class: className='', ...restProps }: NotificationPreferencesProps & { email?: boolean; push?: boolean; sms?: boolean } = $props();
 </script>
@@ -9,3 +9,7 @@
   <label class="block text-sm"><input type="checkbox" checked={push} /> Push</label>
   <label class="block text-sm"><input type="checkbox" checked={sms} /> SMS</label>
 </div>
+
+
+
+

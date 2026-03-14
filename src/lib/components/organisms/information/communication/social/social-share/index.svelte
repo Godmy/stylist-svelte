@@ -240,7 +240,7 @@ const Heart = 'heart';
       
       {#if showDropdown}
         <div 
-          class={`absolute z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 ${dropdownClass}`}
+          class={`absolute z-[var(--z-index-docked)] mt-2 w-56 rounded-md shadow-lg bg-[var(--color-background-primary)] ring-1 ring-black ring-opacity-[var(--opacity-5)] ${dropdownClass}`}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="share-menu"
@@ -250,8 +250,8 @@ const Heart = 'heart';
               {#if platform.enabled}
                 <button
                   type="button"
-                  class={`flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ${
-                    platform.platform === 'copy' && copied ? 'bg-green-50 text-green-700' : ''
+                  class={`flex items-center w-full px-4 py-2 text-sm text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)] ${
+                    platform.platform === 'copy' && copied ? 'bg-[var(--color-success-50)] text-[var(--color-success-700)]' : ''
                   }`}
                   onclick={() => handleShare(platform.platform)}
                   role="menuitem"
@@ -259,7 +259,7 @@ const Heart = 'heart';
                   <platform.icon class="mr-3 h-5 w-5" />
                   <span>{platform.label}</span>
                   {#if platform.platform === 'copy' && copied}
-                    <BaseIcon name={Check} class="ml-auto h-5 w-5 text-green-500" />
+                    <BaseIcon name={Check} class="ml-auto h-5 w-5 text-[var(--color-success-500)]" />
                   {/if}
                 </button>
               {/if}
@@ -309,9 +309,14 @@ const Heart = 'heart';
   </div>
   
   {#if copied}
-    <div class="mt-2 inline-flex px-3 py-1 text-xs font-medium text-green-700 bg-green-100 rounded-full shadow-sm">
+    <div class="mt-2 inline-flex px-3 py-1 text-xs font-medium text-[var(--color-success-700)] bg-[var(--color-success-100)] rounded-full shadow-sm">
       Link copied to clipboard!
     </div>
   {/if}
 </div>
+
+
+
+
+
 

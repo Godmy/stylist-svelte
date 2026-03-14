@@ -205,31 +205,32 @@ const Copy = 'copy';
 
 <style>
   .shortcut-item {
-    animation: fade-slide-in 0.3s ease-out;
+    animation: fade-slide-in var(--duration-300) var(--animation-ease-out);
   }
 
   @keyframes fade-slide-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
       transform: translateX(-8px);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
       transform: translateX(0);
     }
   }
 
   .category-section {
-    animation: fade-in 0.4s ease-out;
+    animation: fade-in var(--duration-400) var(--animation-ease-out);
   }
 
   @keyframes fade-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
     }
   }
 </style>
+
 

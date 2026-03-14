@@ -30,7 +30,7 @@
 <div class={PaymentSummaryStyleManager.root(className)} {...restProps}>
   <div class="border-b px-6 py-4">
     <h3 class="text-lg font-semibold">{title}</h3>
-    {#if subtitle}<p class="text-sm text-gray-600">{subtitle}</p>{/if}
+    {#if subtitle}<p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>{/if}
   </div>
   <div class="p-6 grid gap-6 md:grid-cols-2">
     <div>
@@ -44,7 +44,7 @@
         {/each}
       </div>
     </div>
-    <div class="border rounded p-4 bg-gray-50 text-sm space-y-2">
+    <div class="border rounded p-4 bg-[var(--color-background-secondary)] text-sm space-y-2">
       <div class="flex justify-between"><span>Subtotal</span><span>{money(subtotal)}</span></div>
       <div class="flex justify-between"><span>Discounts</span><span>-{money(discountTotal)}</span></div>
       <div class="flex justify-between"><span>Taxes</span><span>{money(taxTotal)}</span></div>
@@ -56,4 +56,7 @@
     </div>
   </div>
 </div>
+
+
+
 

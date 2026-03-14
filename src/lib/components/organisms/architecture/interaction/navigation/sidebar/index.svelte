@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { ComponentType, Snippet } from 'svelte';
   import { Icon } from '$stylist/components/atoms';
   import { SidebarStyleManager } from '$stylist/design-system/styles';
-  import type { SidebarProps, NavItem } from '$stylist/design-system/contracts';
+  import type { SidebarProps, NavItem } from '$stylist/design-system/types/architecture/sidebar';
 
   let {
     items = [],
@@ -21,8 +21,8 @@
     class: className = '',
     navClass = '',
     itemClass = '',
-    activeItemClass = 'bg-[--color-surface-selected] text-[--color-text-accent] border-r-2 border-[--color-border-accent]',
-    disabledItemClass = 'opacity-50 cursor-not-allowed',
+    activeItemClass = 'bg-[--color-primary-50] text-[--color-text-primary] border-r-2 border-[--color-border-primary]',
+    disabledItemClass = 'opacity-[var(--opacity-50)] cursor-not-allowed',
     titleClass = '',
     logoClass = '',
     footerClass = '',
@@ -188,6 +188,10 @@
     <!-- Actual content would go here -->
   </div>
 </div>
+
+
+
+
 
 
 

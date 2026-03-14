@@ -84,65 +84,65 @@ const Loader2 = 'loader-2';
       id: 'google',
       name: 'Google',
       icon: Chrome,
-      color: 'bg-white',
-      textColor: 'text-gray-700',
-      borderColor: 'border-gray-300'
+      color: 'bg-[var(--color-background-primary)]',
+      textColor: 'text-[var(--color-text-primary)]',
+      borderColor: 'border-[var(--color-border-primary)]'
     },
     facebook: {
       id: 'facebook',
       name: 'Facebook',
       icon: Facebook,
-      color: 'bg-blue-600',
-      textColor: 'text-white',
-      borderColor: 'border-blue-600'
+      color: 'bg-[var(--color-primary-600)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-primary-600)]'
     },
     github: {
       id: 'github',
       name: 'GitHub',
       icon: Github,
-      color: 'bg-gray-900',
-      textColor: 'text-white',
-      borderColor: 'border-gray-900'
+      color: 'bg-[var(--color-neutral-900)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-border-primary)]'
     },
     twitter: {
       id: 'twitter',
       name: 'Twitter',
       icon: Twitter,
-      color: 'bg-blue-400',
-      textColor: 'text-white',
-      borderColor: 'border-blue-400'
+      color: 'bg-[var(--color-primary-400)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-primary-400)]'
     },
     apple: {
       id: 'apple',
       name: 'Apple',
       icon: Apple,
-      color: 'bg-black',
-      textColor: 'text-white',
-      borderColor: 'border-black'
+      color: 'bg-[var(--color-neutral-900)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-border-primary)]'
     },
     linkedin: {
       id: 'linkedin',
       name: 'LinkedIn',
       icon: Linkedin,
-      color: 'bg-blue-700',
-      textColor: 'text-white',
-      borderColor: 'border-blue-700'
+      color: 'bg-[var(--color-primary-700)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-primary-700)]'
     },
     microsoft: {
       id: 'microsoft',
       name: 'Microsoft',
       icon: Laptop2,
-      color: 'bg-green-600',
-      textColor: 'text-white',
-      borderColor: 'border-green-600'
+      color: 'bg-[var(--color-success-600)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-success-600)]'
     },
     slack: {
       id: 'slack',
       name: 'Slack',
       icon: Slack,
-      color: 'bg-purple-600',
-      textColor: 'text-white',
-      borderColor: 'border-purple-600'
+      color: 'bg-[var(--color-secondary-600)]',
+      textColor: 'text-[var(--color-text-inverse)]',
+      borderColor: 'border-[var(--color-secondary-600)]'
     }
   };
 
@@ -185,33 +185,33 @@ const Loader2 = 'loader-2';
 </script>
 
 <div class={`social-login ${hostClass}`} {...restProps}>
-  <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+  <div class="max-w-md mx-auto bg-[var(--color-background-primary)] p-8 rounded-lg shadow-md">
     <div class="text-center">
-      <div class="mx-auto h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
-        <BaseIcon name={UserRoundPlus} class="h-6 w-6 text-blue-600" />
+      <div class="mx-auto h-12 w-12 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center">
+        <BaseIcon name={UserRoundPlus} class="h-6 w-6 text-[var(--color-primary-600)]" />
       </div>
-      <h2 class="mt-4 text-2xl font-bold text-gray-900">{title}</h2>
+      <h2 class="mt-4 text-2xl font-bold text-[var(--color-text-primary)]">{title}</h2>
       {#if description}
-        <p class="mt-2 text-gray-600">{description}</p>
+        <p class="mt-2 text-[var(--color-text-secondary)]">{description}</p>
       {/if}
     </div>
 
     {#if providers.length > 0}
       <div class="mt-8">
-        <p class="text-center text-sm font-medium text-gray-700 mb-4">{socialLoginText}</p>
+        <p class="text-center text-sm font-medium text-[var(--color-text-primary)] mb-4">{socialLoginText}</p>
         
         <div class="grid grid-cols-1 gap-3">
           {#each providers as provider}
             {@const config = providerConfigs[provider]}
             <button
               type="button"
-              class={`w-full inline-flex justify-center py-2 px-4 border ${config.borderColor} ${config.color} rounded-md shadow-sm text-sm font-medium hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${buttonClass}`}
+              class={`w-full inline-flex justify-center py-2 px-4 border ${config.borderColor} ${config.color} rounded-md shadow-sm text-sm font-medium hover:opacity-[var(--opacity-90)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${buttonClass}`}
               onclick={() => handleSocialLogin(provider)}
               disabled={isLoading}
               aria-label={`Sign in with ${config.name}`}
             >
               {#if config.icon}
-                <config.icon class={`h-5 w-5 mr-2 ${config.textColor === 'text-white' ? 'text-white' : 'text-gray-800'}`} />
+                <config.icon class={`h-5 w-5 mr-2 ${config.textColor === 'text-[var(--color-text-inverse)]' ? 'text-[var(--color-text-inverse)]' : 'text-[var(--color-text-primary)]'}`} />
               {/if}
               Continue with {config.name}
             </button>
@@ -224,10 +224,10 @@ const Loader2 = 'loader-2';
       <div class="mt-6">
         <div class="relative">
           <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-gray-300"></div>
+            <div class="w-full border-t border-[var(--color-border-primary)]"></div>
           </div>
           <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-500">{emailLoginText}</span>
+            <span class="px-2 bg-[var(--color-background-primary)] text-[var(--color-text-secondary)]">{emailLoginText}</span>
           </div>
         </div>
 
@@ -239,10 +239,10 @@ const Loader2 = 'loader-2';
           }}
         >
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+            <label for="email" class="block text-sm font-medium text-[var(--color-text-primary)]">Email address</label>
             <div class="mt-1 relative rounded-md shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <BaseIcon name={Mail} class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={Mail} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
               </div>
               <input
                 id="email"
@@ -250,7 +250,7 @@ const Loader2 = 'loader-2';
                 type="email"
                 autocomplete="email"
                 required
-                class={`focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md ${inputClass}`}
+                class={`focus:ring-blue-500 focus:border-[var(--color-primary-500)] block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md ${inputClass}`}
                 placeholder="name@company.com"
                 value={email}
                 oninput={(e) => email = (e.target as HTMLInputElement).value}
@@ -260,10 +260,10 @@ const Loader2 = 'loader-2';
 
           {#if showPasswordForm}
             <div>
-              <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+              <label for="password" class="block text-sm font-medium text-[var(--color-text-primary)]">Password</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <BaseIcon name={Lock} class="h-5 w-5 text-gray-400" />
+                  <BaseIcon name={Lock} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
                 </div>
                 <input
                   id="password"
@@ -271,7 +271,7 @@ const Loader2 = 'loader-2';
                   type="password"
                   autocomplete="current-password"
                   required
-                  class={`focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md ${inputClass}`}
+                  class={`focus:ring-blue-500 focus:border-[var(--color-primary-500)] block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md ${inputClass}`}
                   placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў"
                   value={password}
                   oninput={(e) => password = (e.target as HTMLInputElement).value}
@@ -283,7 +283,7 @@ const Loader2 = 'loader-2';
               <div class="flex items-center justify-end">
                 <button
                   type="button"
-                  class="text-sm font-medium text-blue-600 hover:text-blue-500"
+                  class="text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-500)]"
                   onclick={handleForgotPassword}
                 >
                   Forgot your password?
@@ -297,10 +297,10 @@ const Loader2 = 'loader-2';
               id="remember-me"
               name="remember-me"
               type="checkbox"
-              class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)] rounded"
               bind:checked={rememberMe}
             />
-            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+            <label for="remember-me" class="ml-2 block text-sm text-[var(--color-text-primary)]">
               Remember me
             </label>
           </div>
@@ -308,8 +308,8 @@ const Loader2 = 'loader-2';
           <div>
             <button
               type="submit"
-              class={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-                isLoading ? 'opacity-75 cursor-not-allowed' : ''
+              class={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                isLoading ? 'opacity-[var(--opacity-75)] cursor-not-allowed' : ''
               }`}
               disabled={isLoading}
             >
@@ -327,11 +327,11 @@ const Loader2 = 'loader-2';
     
     {#if showSignUp}
       <div class="mt-6 text-center">
-        <p class="text-sm text-gray-600">
+        <p class="text-sm text-[var(--color-text-secondary)]">
           Don't have an account?{' '}
           <button
             type="button"
-            class="font-medium text-blue-600 hover:text-blue-500"
+            class="font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-500)]"
             onclick={handleSignUp}
           >
             Sign up
@@ -341,4 +341,8 @@ const Loader2 = 'loader-2';
     {/if}
   </div>
 </div>
+
+
+
+
 

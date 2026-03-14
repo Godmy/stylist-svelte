@@ -77,23 +77,23 @@ const Filter = 'filter';
   const maxValue = Math.max(...trafficData.map(d => d.value), 100);
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`} {...restProps}>
   <div class={`border-b ${headerClass}`}>
     <div class="p-4 flex flex-col md:flex-row md:items-center md:justify-between">
       <div>
         <div class="flex items-center">
-          <BaseIcon name={Globe} class="h-5 w-5 text-gray-500 mr-2" />
-          <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+          <BaseIcon name={Globe} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
+          <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
         </div>
         {#if subtitle}
-          <p class="text-sm text-gray-500 mt-1">{subtitle}</p>
+          <p class="text-sm text-[var(--color-text-secondary)] mt-1">{subtitle}</p>
         {/if}
       </div>
       
       <div class="mt-4 md:mt-0 flex items-center space-x-3">
         <div class="relative">
           <select
-            class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-10 py-2 text-left text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+            class="appearance-none bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md pl-3 pr-10 py-2 text-left text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)]"
             bind:value={selectedTimeRange}
             onchange={() => handleTimeRangeChange(selectedTimeRange as TimeRange)}
           >
@@ -103,7 +103,7 @@ const Filter = 'filter';
             <option value="90d">Last 90 days</option>
             <option value="1y">Last year</option>
           </select>
-          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-[var(--color-text-primary)]">
             <BaseIcon name={Calendar} class="h-4 w-4" />
           </div>
         </div>
@@ -115,35 +115,35 @@ const Filter = 'filter';
   <div class={`p-4 border-b ${summaryClass}`}>
     <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
       <div class="text-center p-3">
-        <div class="text-lg font-semibold text-gray-900">{totalVisitors}</div>
-        <div class="text-xs text-gray-500 flex items-center justify-center">
+        <div class="text-lg font-semibold text-[var(--color-text-primary)]">{totalVisitors}</div>
+        <div class="text-xs text-[var(--color-text-secondary)] flex items-center justify-center">
           <BaseIcon name={Users} class="h-3 w-3 mr-1" />
           Total Visitors
         </div>
       </div>
       <div class="text-center p-3">
-        <div class="text-lg font-semibold text-gray-900">{uniqueVisitors}</div>
-        <div class="text-xs text-gray-500 flex items-center justify-center">
+        <div class="text-lg font-semibold text-[var(--color-text-primary)]">{uniqueVisitors}</div>
+        <div class="text-xs text-[var(--color-text-secondary)] flex items-center justify-center">
           <BaseIcon name={Users} class="h-3 w-3 mr-1" />
           Unique Visitors
         </div>
       </div>
       <div class="text-center p-3">
-        <div class="text-lg font-semibold text-gray-900">{pageViews}</div>
-        <div class="text-xs text-gray-500 flex items-center justify-center">
+        <div class="text-lg font-semibold text-[var(--color-text-primary)]">{pageViews}</div>
+        <div class="text-xs text-[var(--color-text-secondary)] flex items-center justify-center">
           <BaseIcon name={Eye} class="h-3 w-3 mr-1" />
           Page Views
         </div>
       </div>
       <div class="text-center p-3">
-        <div class="text-lg font-semibold text-gray-900">{timeOnPage}</div>
-        <div class="text-xs text-gray-500 flex items-center justify-center">
+        <div class="text-lg font-semibold text-[var(--color-text-primary)]">{timeOnPage}</div>
+        <div class="text-xs text-[var(--color-text-secondary)] flex items-center justify-center">
           <BaseIcon name={Clock} class="h-3 w-3 mr-1" />
           Time on Page
         </div>
       </div>
       <div class={`text-center p-3 ${
-        bounceRate > 60 ? 'text-red-600' : bounceRate > 40 ? 'text-yellow-600' : 'text-green-600'
+        bounceRate > 60 ? 'text-[var(--color-danger-600)]' : bounceRate > 40 ? 'text-yellow-600' : 'text-[var(--color-success-600)]'
       }`}>
         <div class="text-lg font-semibold">{bounceRate}%</div>
         <div class="text-xs flex items-center justify-center">
@@ -156,7 +156,7 @@ const Filter = 'filter';
 
   <!-- Traffic chart -->
   <div class={`p-4 border-b ${chartClass}`}>
-    <h4 class="text-sm font-medium text-gray-900 mb-4">Traffic Overview</h4>
+    <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Traffic Overview</h4>
     <div class="h-64 flex items-end space-x-1 md:space-x-2">
       {#each trafficData as dataPoint, i}
         {@const barHeight = (dataPoint.value / maxValue) * 200}
@@ -165,12 +165,12 @@ const Filter = 'filter';
           style="min-width: 15px;"
         >
           <div 
-            class="w-full bg-blue-500 rounded-t hover:bg-blue-600 transition-colors"
+            class="w-full bg-[var(--color-primary-500)] rounded-t hover:bg-[var(--color-primary-600)] transition-colors"
             style={`height: ${barHeight}px;`}
             title={`${dataPoint.date.toLocaleDateString()}: ${dataPoint.value}`}
           ></div>
           {#if i % 3 === 0}  <!-- Show date every third bar to avoid clutter -->
-            <div class="text-xs text-gray-500 mt-1">
+            <div class="text-xs text-[var(--color-text-secondary)] mt-1">
               {dataPoint.date.toLocaleDateString([], { month: 'short', day: 'numeric' })}
             </div>
           {/if}
@@ -181,7 +181,7 @@ const Filter = 'filter';
 
   <!-- Traffic sources -->
   <div class={`p-4 ${sourcesClass}`}>
-    <h4 class="text-sm font-medium text-gray-900 mb-4">Traffic Sources</h4>
+    <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Traffic Sources</h4>
     <div class="space-y-3">
       {#each trafficSources as source}
         <div>
@@ -191,11 +191,11 @@ const Filter = 'filter';
                 class="w-3 h-3 rounded-full mr-2" 
                 style={`background-color: ${source.color}`}
               ></div>
-              <span class="text-gray-700">{source.name}</span>
+              <span class="text-[var(--color-text-primary)]">{source.name}</span>
             </div>
-            <span class="text-gray-900">{source.value} ({source.percentage}%)</span>
+            <span class="text-[var(--color-text-primary)]">{source.value} ({source.percentage}%)</span>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-2">
+          <div class="w-full bg-[var(--color-background-tertiary)] rounded-full h-2">
             <div 
               class="h-2 rounded-full" 
               style={`width: ${source.percentage}%; background-color: ${source.color};`}
@@ -206,3 +206,6 @@ const Filter = 'filter';
     </div>
   </div>
 </div>
+
+
+

@@ -160,10 +160,10 @@ const Circle = 'circle';
 
   function getStatusColor(status: FriendStatus): string {
     const statusColors: Record<FriendStatus, string> = {
-      'online': 'bg-green-500',
+      'online': 'bg-[var(--color-success-500)]',
       'away': 'bg-yellow-500',
-      'busy': 'bg-red-500',
-      'offline': 'bg-gray-400'
+      'busy': 'bg-[var(--color-danger-500)]',
+      'offline': 'bg-[var(--color-neutral-400)]'
     };
     return statusColors[status];
   }
@@ -195,7 +195,7 @@ const Circle = 'circle';
 
 {#snippet friendEntry(friend: Friend)}
   <div 
-    class={`p-4 flex items-center justify-between hover:bg-gray-50 cursor-pointer ${itemClass}`}
+    class={`p-4 flex items-center justify-between hover:bg-[var(--color-background-secondary)] cursor-pointer ${itemClass}`}
     role="button"
     tabindex="0"
     onclick={() => handleFriendClick(friend)}
@@ -219,19 +219,19 @@ const Circle = 'circle';
       </div>
       
       <div class="ml-4 min-w-0">
-        <p class="text-sm font-medium text-gray-900 truncate">{friend.name}</p>
+        <p class="text-sm font-medium text-[var(--color-text-primary)] truncate">{friend.name}</p>
         {#if friend.username}
-          <p class="text-sm text-gray-500 truncate">@{friend.username}</p>
+          <p class="text-sm text-[var(--color-text-secondary)] truncate">@{friend.username}</p>
         {/if}
         
         {#if showLastSeen && friend.lastSeen && friend.status !== 'online'}
-          <p class="text-xs text-gray-500">Last seen {formatLastSeen(friend.lastSeen)}</p>
+          <p class="text-xs text-[var(--color-text-secondary)]">Last seen {formatLastSeen(friend.lastSeen)}</p>
         {/if}
         
         {#if showTags && friend.tags && friend.tags.length > 0}
           <div class="mt-1 flex flex-wrap gap-1">
             {#each friend.tags as tag}
-              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800">
+              <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                 {tag}
               </span>
             {/each}
@@ -243,7 +243,7 @@ const Circle = 'circle';
     <div class="flex items-center space-x-2">
       <button
         type="button"
-        class="p-1.5 rounded-full text-gray-500 hover:text-blue-600 hover:bg-blue-100"
+        class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-primary-600)] hover:bg-[var(--color-primary-100)]"
         onclick={(e) => {
           e.stopPropagation();
           handleSendMessage(friend);
@@ -255,7 +255,7 @@ const Circle = 'circle';
       
       <button
         type="button"
-        class="p-1.5 rounded-full text-gray-500 hover:text-green-600 hover:bg-green-100"
+        class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-success-600)] hover:bg-[var(--color-success-100)]"
         onclick={(e) => {
           e.stopPropagation();
           handleCall(friend);
@@ -267,7 +267,7 @@ const Circle = 'circle';
       
       <button
         type="button"
-        class="p-1.5 rounded-full text-gray-500 hover:text-purple-600 hover:bg-purple-100"
+        class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-secondary-600)] hover:bg-[var(--color-secondary-100)]"
         onclick={(e) => {
           e.stopPropagation();
           handleVideoCall(friend);
@@ -279,7 +279,7 @@ const Circle = 'circle';
       
       <button
         type="button"
-        class="p-1.5 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+        class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]"
         onclick={(e) => {
           e.stopPropagation();
           // Handle more actions
@@ -293,10 +293,10 @@ const Circle = 'circle';
 {/snippet}
 
 <div class={`friend-list ${hostClass}`} {...restProps}>
-  <div class={`border-b border-gray-200 p-4 ${headerClass}`}>
+  <div class={`border-b border-[var(--color-border-primary)] p-4 ${headerClass}`}>
     <div class="flex items-center justify-between">
-      <h2 class="text-lg font-medium text-gray-900">Friends</h2>
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+      <h2 class="text-lg font-medium text-[var(--color-text-primary)]">Friends</h2>
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
         {friends.length} Friends
       </span>
     </div>
@@ -304,11 +304,11 @@ const Circle = 'circle';
     {#if showSearch}
       <div class="mt-4 relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         </div>
         <input
           type="text"
-          class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`}
+          class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
           placeholder="Search friends..."
           value={searchQuery}
           oninput={handleSearchInput}
@@ -321,9 +321,9 @@ const Circle = 'circle';
     {#if Object.keys(friendsByStatus).length > 1}
       {#each Object.entries(friendsByStatus) as [status, friendsList]}
         {#if friendsList.length > 0}
-          <div class="border-t border-gray-200">
-            <div class="px-4 py-2 bg-gray-50">
-              <h3 class="text-xs font-medium text-gray-500 uppercase tracking-wide">
+          <div class="border-t border-[var(--color-border-primary)]">
+            <div class="px-4 py-2 bg-[var(--color-background-secondary)]">
+              <h3 class="text-xs font-medium text-[var(--color-text-secondary)] uppercase tracking-wide">
                 {status.charAt(0).toUpperCase() + status.slice(1)} ({friendsList.length})
               </h3>
             </div>
@@ -342,10 +342,10 @@ const Circle = 'circle';
   </div>
   
   {#if showInviteButton}
-    <div class="p-4 border-t border-gray-200">
+    <div class="p-4 border-t border-[var(--color-border-primary)]">
       <button
         type="button"
-        class="w-full flex items-center justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        class="w-full flex items-center justify-center px-4 py-2 border border-[var(--color-border-primary)] shadow-sm text-sm font-medium rounded-md text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         onclick={handleAddFriend}
       >
         <BaseIcon name={UserPlus} class="h-5 w-5 mr-2" />
@@ -354,4 +354,8 @@ const Circle = 'circle';
     </div>
   {/if}
 </div>
+
+
+
+
 

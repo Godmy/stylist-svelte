@@ -5,6 +5,10 @@
 </script>
 <div class={InteractionFormsStyleManager.root('c-screen-reader border rounded-lg p-4', className)} {...restProps}>
   <h3 class="font-semibold">{title}</h3>
-  <p class="text-sm text-gray-700">{content}</p>
+  <p class="text-sm text-[var(--color-text-primary)]">{content}</p>
   <button class="sr-only" aria-label="Hidden accessible action">Action</button>
 </div>
+
+
+
+

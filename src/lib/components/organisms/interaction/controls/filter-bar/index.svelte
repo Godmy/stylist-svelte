@@ -80,19 +80,19 @@
   }
 </script>
 
-<section class={`c-filter-bar rounded-xl border border-gray-200 bg-white p-4 shadow-sm ${className}`}>
+<section class={`c-filter-bar rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm ${className}`}>
   <div class="flex flex-wrap items-center gap-2">
-    <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">
+    <h3 class="text-sm font-semibold uppercase tracking-wide text-[var(--color-text-secondary)]">
       Filters
     </h3>
     {#if hasActiveFilters()}
-      <span class="rounded-full bg-indigo-50 px-2 py-0.5 text-xs font-medium text-indigo-600">
+      <span class="rounded-full bg-[var(--color-primary-50)] px-2 py-0.5 text-xs font-medium text-[var(--color-primary-600)]">
         Active
       </span>
     {/if}
     <button
       type="button"
-      class="ml-auto text-sm font-medium text-indigo-600 hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
+      class="ml-auto text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
       onclick={clearFilters}
     >
       Clear
@@ -102,7 +102,7 @@
   {#if toggles.length > 0}
     <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {#each toggles as toggle (toggle.id)}
-        <div class="rounded-lg border border-gray-200 px-3 py-2">
+        <div class="rounded-lg border border-[var(--color-border-primary)] px-3 py-2">
           <Switch
             id={`filter-toggle-${toggle.id}`}
             label={toggle.label}
@@ -134,26 +134,30 @@
 
   {#if range}
     <div class="mt-4">
-      <label for={`filter-range-${range.id}`} class="block text-sm font-medium text-gray-700 mb-1">
+      <label for={`filter-range-${range.id}`} class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
         {range.label}
       </label>
       <div class="flex items-center gap-3">
         <input
           type="range"
           id={`filter-range-${range.id}`}
-          class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+          class="w-full h-2 bg-[var(--color-background-tertiary)] rounded-lg appearance-none cursor-pointer"
           min={range.min}
           max={range.max}
           step={range.step ?? 1}
           bind:value={rangeValue}
         />
-        <span class="text-sm text-gray-600 min-w-[40px]">{rangeValue}{range.unit ? ` ${range.unit}` : ''}</span>
+        <span class="text-sm text-[var(--color-text-secondary)] min-w-[40px]">{rangeValue}{range.unit ? ` ${range.unit}` : ''}</span>
       </div>
       {#if range.unit}
-        <p class="mt-1 text-xs text-gray-500">Units: {range.unit}</p>
+        <p class="mt-1 text-xs text-[var(--color-text-secondary)]">Units: {range.unit}</p>
       {/if}
     </div>
   {/if}
 </section>
+
+
+
+
 
 

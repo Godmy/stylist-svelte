@@ -97,33 +97,33 @@ const Settings = 'settings';
   function getStatusInfo() {
     switch(subscription.status) {
       case 'active':
-        return { color: 'text-green-600', bg: 'bg-green-100', icon: CheckCircle, text: 'Active' };
+        return { color: 'text-[var(--color-success-600)]', bg: 'bg-[var(--color-success-100)]', icon: CheckCircle, text: 'Active' };
       case 'cancelled':
-        return { color: 'text-gray-600', bg: 'bg-gray-100', icon: X, text: 'Cancelled' };
+        return { color: 'text-[var(--color-text-secondary)]', bg: 'bg-[var(--color-background-secondary)]', icon: X, text: 'Cancelled' };
       case 'expired':
-        return { color: 'text-red-600', bg: 'bg-red-100', icon: X, text: 'Expired' };
+        return { color: 'text-[var(--color-danger-600)]', bg: 'bg-[var(--color-danger-100)]', icon: X, text: 'Expired' };
       case 'trialing':
-        return { color: 'text-blue-600', bg: 'bg-blue-100', icon: AlertCircle, text: 'Trial' };
+        return { color: 'text-[var(--color-primary-600)]', bg: 'bg-[var(--color-primary-100)]', icon: AlertCircle, text: 'Trial' };
       case 'paused':
         return { color: 'text-yellow-600', bg: 'bg-yellow-100', icon: AlertCircle, text: 'Paused' };
       case 'past_due':
-        return { color: 'text-red-600', bg: 'bg-red-100', icon: AlertCircle, text: 'Past Due' };
+        return { color: 'text-[var(--color-danger-600)]', bg: 'bg-[var(--color-danger-100)]', icon: AlertCircle, text: 'Past Due' };
       default:
-        return { color: 'text-gray-600', bg: 'bg-gray-100', icon: AlertCircle, text: 'Unknown' };
+        return { color: 'text-[var(--color-text-secondary)]', bg: 'bg-[var(--color-background-secondary)]', icon: AlertCircle, text: 'Unknown' };
     }
   }
 </script>
 
-<div class={`c-subscription-manager bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`} {...restProps}>
+<div class={`c-subscription-manager bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`} {...restProps}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center justify-between">
       <div>
         <div class="flex items-center">
-          <BaseIcon name={RefreshCw} class="h-6 w-6 text-gray-500 mr-2" />
-          <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+          <BaseIcon name={RefreshCw} class="h-6 w-6 text-[var(--color-text-secondary)] mr-2" />
+          <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
         </div>
         {#if subtitle}
-          <p class="mt-1 text-sm text-gray-500">{subtitle}</p>
+          <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
         {/if}
       </div>
 
@@ -141,26 +141,26 @@ const Settings = 'settings';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- Plan Information -->
       <div class={`border rounded-lg p-5 ${planClass}`}>
-        <h4 class="text-sm font-medium text-gray-900 mb-4">Plan Information</h4>
+        <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Plan Information</h4>
         <div class="flex items-center">
-          <div class="p-2 rounded-md bg-blue-100">
-            <BaseIcon name={DollarSign} class="h-5 w-5 text-blue-600" />
+          <div class="p-2 rounded-md bg-[var(--color-primary-100)]">
+            <BaseIcon name={DollarSign} class="h-5 w-5 text-[var(--color-primary-600)]" />
           </div>
           <div class="ml-4">
-            <h5 class="font-medium text-gray-900">{subscription.plan.name}</h5>
-            <p class="text-sm text-gray-500">{subscription.plan.description}</p>
-            <p class="text-lg font-semibold text-gray-900 mt-2">
+            <h5 class="font-medium text-[var(--color-text-primary)]">{subscription.plan.name}</h5>
+            <p class="text-sm text-[var(--color-text-secondary)]">{subscription.plan.description}</p>
+            <p class="text-lg font-semibold text-[var(--color-text-primary)] mt-2">
               {formatCurrency(subscription.plan.price, subscription.plan.currency)} / {subscription.plan.period}
             </p>
           </div>
         </div>
 
         <div class="mt-4">
-          <h6 class="text-sm font-medium text-gray-700 mb-2">Features</h6>
+          <h6 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Features</h6>
           <ul class="space-y-1">
             {#each subscription.plan.features as feature}
-              <li class="flex items-center text-sm text-gray-600">
-                <BaseIcon name={CheckCircle} class="h-4 w-4 text-green-500 mr-2" />
+              <li class="flex items-center text-sm text-[var(--color-text-secondary)]">
+                <BaseIcon name={CheckCircle} class="h-4 w-4 text-[var(--color-success-500)] mr-2" />
                 <span>{feature}</span>
               </li>
             {/each}
@@ -170,25 +170,25 @@ const Settings = 'settings';
 
       <!-- Subscription Details -->
       <div class="border rounded-lg p-5">
-        <h4 class="text-sm font-medium text-gray-900 mb-4">Subscription Details</h4>
+        <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Subscription Details</h4>
         <div class="space-y-3">
           <div class="flex justify-between">
-            <span class="text-sm text-gray-500">Started</span>
-            <span class="text-sm font-medium text-gray-900">{formatDate(subscription.startDate)}</span>
+            <span class="text-sm text-[var(--color-text-secondary)]">Started</span>
+            <span class="text-sm font-medium text-[var(--color-text-primary)]">{formatDate(subscription.startDate)}</span>
           </div>
 
           {#if subscription.endDate}
             <div class="flex justify-between">
-              <span class="text-sm text-gray-500">Ends</span>
-              <span class="text-sm font-medium text-gray-900">{formatDate(subscription.endDate)}</span>
+              <span class="text-sm text-[var(--color-text-secondary)]">Ends</span>
+              <span class="text-sm font-medium text-[var(--color-text-primary)]">{formatDate(subscription.endDate)}</span>
             </div>
           {/if}
 
           {#if subscription.nextBillingDate}
             <div class="flex justify-between">
-              <span class="text-sm text-gray-500">Next Billing</span>
+              <span class="text-sm text-[var(--color-text-secondary)]">Next Billing</span>
               <span class={`text-sm font-medium ${
-                subscription.status === 'past_due' ? 'text-red-600' : 'text-gray-900'
+                subscription.status === 'past_due' ? 'text-[var(--color-danger-600)]' : 'text-[var(--color-text-primary)]'
               }`}>
                 {formatDate(subscription.nextBillingDate)}
               </span>
@@ -196,9 +196,9 @@ const Settings = 'settings';
           {/if}
 
           <div class="flex justify-between">
-            <span class="text-sm text-gray-500">Auto Renew</span>
+            <span class="text-sm text-[var(--color-text-secondary)]">Auto Renew</span>
             <span class={`text-sm font-medium ${
-              subscription.autoRenew ? 'text-green-600' : 'text-red-600'
+              subscription.autoRenew ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'
             }`}>
               {subscription.autoRenew ? 'On' : 'Off'}
             </span>
@@ -209,16 +209,16 @@ const Settings = 'settings';
       <!-- Payment Information -->
       {#if showPaymentMethod && subscription.paymentMethod}
         <div class="border rounded-lg p-5">
-          <h4 class="text-sm font-medium text-gray-900 mb-4">Payment Method</h4>
+          <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Payment Method</h4>
           <div class="flex items-center">
-            <div class="p-2 rounded-md bg-gray-100">
-              <BaseIcon name={CreditCard} class="h-5 w-5 text-gray-600" />
+            <div class="p-2 rounded-md bg-[var(--color-background-secondary)]">
+              <BaseIcon name={CreditCard} class="h-5 w-5 text-[var(--color-text-secondary)]" />
             </div>
             <div class="ml-4">
-              <p class="text-sm font-medium text-gray-900">{subscription.paymentMethod}</p>
+              <p class="text-sm font-medium text-[var(--color-text-primary)]">{subscription.paymentMethod}</p>
               <button
                 type="button"
-                class="mt-2 text-sm font-medium text-blue-600 hover:text-blue-800"
+                class="mt-2 text-sm font-medium text-[var(--color-primary-600)] hover:text-[var(--color-primary-800)]"
                 onclick={() => onPaymentMethodChange && onPaymentMethodChange()}
               >
                 Change Payment Method
@@ -232,13 +232,13 @@ const Settings = 'settings';
     <!-- Actions -->
     {#if showActions}
       <div class={`mt-6 ${actionsClass}`}>
-        <h4 class="text-sm font-medium text-gray-900 mb-4">Subscription Actions</h4>
+        <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-4">Subscription Actions</h4>
         <div class="flex flex-wrap gap-3">
           {#if subscription.status === 'active' || subscription.status === 'trialing'}
             {#if onUpgrade}
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-success-600)] hover:bg-[var(--color-success-700)] focus:outline-none"
                 onclick={onUpgrade}
               >
                 Upgrade Plan
@@ -248,7 +248,7 @@ const Settings = 'settings';
             {#if onDowngrade}
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+                class="inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md shadow-sm text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none"
                 onclick={onDowngrade}
               >
                 Downgrade Plan
@@ -268,7 +268,7 @@ const Settings = 'settings';
             {#if onCancel}
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md shadow-sm text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none"
+                class="inline-flex items-center px-4 py-2 border border-[var(--color-danger-300)] text-sm font-medium rounded-md shadow-sm text-[var(--color-danger-700)] bg-[var(--color-danger-50)] hover:bg-[var(--color-danger-100)] focus:outline-none"
                 onclick={onCancel}
               >
                 Cancel Subscription
@@ -278,7 +278,7 @@ const Settings = 'settings';
             {#if onResume}
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
                 onclick={onResume}
               >
                 Resume Subscription
@@ -288,7 +288,7 @@ const Settings = 'settings';
             {#if onCancel}
               <button
                 type="button"
-                class="inline-flex items-center px-4 py-2 border border-red-300 text-sm font-medium rounded-md shadow-sm text-red-700 bg-red-50 hover:bg-red-100 focus:outline-none"
+                class="inline-flex items-center px-4 py-2 border border-[var(--color-danger-300)] text-sm font-medium rounded-md shadow-sm text-[var(--color-danger-700)] bg-[var(--color-danger-50)] hover:bg-[var(--color-danger-100)] focus:outline-none"
                 onclick={onCancel}
               >
                 Cancel Subscription
@@ -299,7 +299,7 @@ const Settings = 'settings';
           {#if showBillingInfo && subscription.status === 'active' && onBillingChange}
             <button
               type="button"
-              class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
+              class="inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md shadow-sm text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none"
               onclick={onBillingChange}
             >
               <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
@@ -312,10 +312,14 @@ const Settings = 'settings';
   </div>
 
   <div class={`border-t px-6 py-4 ${footerClass}`}>
-    <div class="flex items-center text-xs text-gray-500">
+    <div class="flex items-center text-xs text-[var(--color-text-secondary)]">
       <BaseIcon name={AlertCircle} class="h-4 w-4 mr-1" />
       <span>Changes to your subscription will take effect at the start of the next billing cycle</span>
     </div>
   </div>
 </div>
+
+
+
+
 

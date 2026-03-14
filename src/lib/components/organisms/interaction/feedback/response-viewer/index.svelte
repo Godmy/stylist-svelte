@@ -5,6 +5,10 @@
 </script>
 <div class={InteractionFeedbackStyleManager.root('c-response-viewer border rounded-lg p-4', className)} {...restProps}>
   <div class="font-semibold">{title}</div>
-  <div class="text-xs text-gray-500 mb-2">Status: {status}</div>
-  <pre class="text-xs bg-gray-50 border rounded p-2 overflow-auto">{response}</pre>
+  <div class="text-xs text-[var(--color-text-secondary)] mb-2">Status: {status}</div>
+  <pre class="text-xs bg-[var(--color-background-secondary)] border rounded p-2 overflow-auto">{response}</pre>
 </div>
+
+
+
+

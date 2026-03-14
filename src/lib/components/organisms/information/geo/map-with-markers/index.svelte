@@ -197,11 +197,11 @@ const Locate = 'locate';
       <div class="mb-4">
         <div class="relative">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
           </div>
           <input
             type="text"
-            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
             placeholder="Search for places..."
             value={searchQuery}
             oninput={(e) => searchQuery = (e.target as HTMLInputElement).value}
@@ -211,7 +211,7 @@ const Locate = 'locate';
     {/if}
 
     <div
-      class={`relative rounded-lg overflow-hidden border border-gray-200 ${mapClass}`}
+      class={`relative rounded-lg overflow-hidden border border-[var(--color-border-primary)] ${mapClass}`}
       style="height: 500px;"
       bind:this={mapContainer}
       onclick={handleMapClick}
@@ -226,36 +226,36 @@ const Locate = 'locate';
       }}
     >
       <!-- Simplified map representation -->
-      <div class="absolute inset-0 bg-blue-50">
+      <div class="absolute inset-0 bg-[var(--color-primary-50)]">
         <!-- Grid lines to simulate map -->
         {#each Array(20) as _, i}
           <div
-            class="absolute w-full h-px bg-gray-300 opacity-20"
+            class="absolute w-full h-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
             style={`top: ${i * 5}%`}
           ></div>
           <div
-            class="absolute h-full w-px bg-gray-300 opacity-20"
+            class="absolute h-full w-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
             style={`left: ${i * 5}%`}
           ></div>
         {/each}
 
         <!-- Water bodies simulation -->
-        <div class="absolute w-1/3 h-1/4 bg-blue-200 rounded-lg opacity-50" style="top: 20%; left: 30%;"></div>
-        <div class="absolute w-1/5 h-1/5 bg-blue-200 rounded-full opacity-50" style="top: 60%; left: 20%;"></div>
+        <div class="absolute w-1/3 h-1/4 bg-[var(--color-primary-200)] rounded-lg opacity-[var(--opacity-50)]" style="top: 20%; left: 30%;"></div>
+        <div class="absolute w-1/5 h-1/5 bg-[var(--color-primary-200)] rounded-full opacity-[var(--opacity-50)]" style="top: 60%; left: 20%;"></div>
 
         <!-- Roads simulation -->
-        <div class="absolute w-full h-1 bg-gray-400 opacity-40" style="top: 30%;"></div>
-        <div class="absolute h-full w-1 bg-gray-400 opacity-40" style="left: 40%;"></div>
+        <div class="absolute w-full h-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="top: 30%;"></div>
+        <div class="absolute h-full w-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="left: 40%;"></div>
 
         <!-- Parks/green spaces -->
-        <div class="absolute w-1/4 h-1/6 bg-green-200 rounded opacity-60" style="top: 50%; left: 60%;"></div>
+        <div class="absolute w-1/4 h-1/6 bg-[var(--color-success-200)] rounded opacity-[var(--opacity-60)]" style="top: 50%; left: 60%;"></div>
       </div>
 
       <!-- Map markers -->
       {#each markers as marker}
         {@const pos = latLngToPixel(marker.lat, marker.lng, 100, 100)} <!-- Using placeholder size, will recalculate in effect -->
         <div
-          class={`absolute transform -translate-x-1/2 -translate-y-1/2 z-10 cursor-pointer ${markerClass}`}
+          class={`absolute transform -translate-x-1/2 -translate-y-1/2 z-[var(--z-index-docked)] cursor-pointer ${markerClass}`}
           style={`left: calc(50% + ${(marker.lng - currentView.center.lng) * 10000 * Math.pow(2, currentView.zoom - 10) + mapOffset.x}px); top: calc(50% + ${(currentView.center.lat - marker.lat) * 10000 * Math.pow(2, currentView.zoom - 10) + mapOffset.y}px);`}
           onclick={(e) => handleMarkerClick(marker, e)}
           onmouseover={() => hoveredMarker = marker.id}
@@ -274,20 +274,20 @@ const Locate = 'locate';
                 marker.size === 'sm' ? 'w-6 h-6' :
                 marker.size === 'lg' ? 'w-10 h-10' : 'w-8 h-8'
               } ${
-                marker.color || 'bg-blue-500'
-              } border-2 border-white shadow-lg`}
+                marker.color || 'bg-[var(--color-primary-500)]'
+              } border-2 border-[var(--color-background-primary)] shadow-lg`}
             >
               <BaseIcon name={MapPin} class={`${
                 marker.size === 'sm' ? 'w-4 h-4' :
                 marker.size === 'lg' ? 'w-6 h-6' : 'w-5 h-5'
-              } text-white`} />
+              } text-[var(--color-text-inverse)]`} />
             </div>
 
             {#if hoveredMarker === marker.id && marker.title}
-              <div class="absolute top-full mt-2 bg-white shadow-lg rounded px-3 py-2 text-sm whitespace-nowrap z-20">
+              <div class="absolute top-full mt-2 bg-[var(--color-background-primary)] shadow-lg rounded px-3 py-2 text-sm whitespace-nowrap z-[var(--z-index-popover)]">
                 <div class="font-medium">{marker.title}</div>
                 {#if marker.description}
-                  <div class="text-gray-600">{marker.description}</div>
+                  <div class="text-[var(--color-text-secondary)]">{marker.description}</div>
                 {/if}
               </div>
             {/if}
@@ -340,7 +340,7 @@ const Locate = 'locate';
       </div>
 
       <!-- Map info -->
-      <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
+      <div class="absolute bottom-4 left-4 bg-[var(--color-background-primary)]/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
         {#if showScale}
           <div>Scale: 1:{Math.round(Math.pow(2, 20 - currentView.zoom) * 100)}m</div>
         {/if}
@@ -358,8 +358,13 @@ const Locate = 'locate';
 
   .map-controls {
     position: absolute;
-    z-index: 100;
+    z-index: var(--z-index-layer100);
   }
 </style>
+
+
+
+
+
 
 

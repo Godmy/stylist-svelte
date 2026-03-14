@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
@@ -53,123 +53,123 @@ const X = 'x';
 	const categories: StylistCategory[] = [
 		{
 			id: 'architecture',
-			label: 'РђСЂС…РёС‚РµРєС‚СѓСЂРЅС‹Рµ',
-			description: 'Р Р°Р·РјРµСЂ, РєРѕРјРїРѕРЅРѕРІРєР° Рё РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРµРЅРЅР°СЏ СЃС‚СЂСѓРєС‚СѓСЂР° РєРѕРјРїРѕРЅРµРЅС‚Р°.',
-			accent: '#2563eb',
+			label: 'Р С’РЎР‚РЎвЂ¦Р С‘РЎвЂљР ВµР С”РЎвЂљРЎС“РЎР‚Р Р…РЎвЂ№Р Вµ',
+			description: 'Р В Р В°Р В·Р СР ВµРЎР‚, Р С”Р С•Р СР С—Р С•Р Р…Р С•Р Р†Р С”Р В° Р С‘ Р С—РЎР‚Р С•РЎРѓРЎвЂљРЎР‚Р В°Р Р…РЎРѓРЎвЂљР Р†Р ВµР Р…Р Р…Р В°РЎРЏ РЎРѓРЎвЂљРЎР‚РЎС“Р С”РЎвЂљРЎС“РЎР‚Р В° Р С”Р С•Р СР С—Р С•Р Р…Р ВµР Р…РЎвЂљР В°.',
+			accent: 'var(--color-primary-600)',
 			icon: Building2,
 			options: [
 				{
 					id: 'size',
-					label: 'Р Р°Р·РјРµСЂ',
-					description: 'РљРѕРЅС‚СЂРѕР»РёСЂСѓРµС‚ РѕР±С‰РёР№ РјР°СЃС€С‚Р°Р± Рё РїР»РѕС‚РЅРѕСЃС‚СЊ Р±Р»РѕРєР°.',
-					hint: 'РњРµРЅСЏР№С‚Рµ РІС‹СЃРѕС‚Сѓ, С€РёСЂРёРЅСѓ Рё РІРёР·СѓР°Р»СЊРЅС‹Р№ РІРµСЃ РєРѕРјРїРѕРЅРµРЅС‚Р°.',
-					accent: '#2563eb',
+					label: 'Р В Р В°Р В·Р СР ВµРЎР‚',
+					description: 'Р С™Р С•Р Р…РЎвЂљРЎР‚Р С•Р В»Р С‘РЎР‚РЎС“Р ВµРЎвЂљ Р С•Р В±РЎвЂ°Р С‘Р в„– Р СР В°РЎРѓРЎв‚¬РЎвЂљР В°Р В± Р С‘ Р С—Р В»Р С•РЎвЂљР Р…Р С•РЎРѓРЎвЂљРЎРЉ Р В±Р В»Р С•Р С”Р В°.',
+					hint: 'Р СљР ВµР Р…РЎРЏР в„–РЎвЂљР Вµ Р Р†РЎвЂ№РЎРѓР С•РЎвЂљРЎС“, РЎв‚¬Р С‘РЎР‚Р С‘Р Р…РЎС“ Р С‘ Р Р†Р С‘Р В·РЎС“Р В°Р В»РЎРЉР Р…РЎвЂ№Р в„– Р Р†Р ВµРЎРѓ Р С”Р С•Р СР С—Р С•Р Р…Р ВµР Р…РЎвЂљР В°.',
+					accent: 'var(--color-primary-600)',
 					icon: Ruler
 				},
 				{
 					id: 'layout',
-					label: 'Р Р°СЃРїРѕР»РѕР¶РµРЅРёРµ',
-					description: 'РћС‚РІРµС‡Р°РµС‚ Р·Р° РІС‹СЂР°РІРЅРёРІР°РЅРёРµ Рё РЅР°РїСЂР°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРѕРІРєРё.',
-					hint: 'РџРѕРґС…РѕРґРёС‚ РґР»СЏ РІС‹Р±РѕСЂР° СЃРµС‚РєРё, РІС‹СЂР°РІРЅРёРІР°РЅРёСЏ Рё РѕСЂРёРµРЅС‚Р°С†РёРё.',
-					accent: '#1d4ed8',
+					label: 'Р В Р В°РЎРѓР С—Р С•Р В»Р С•Р В¶Р ВµР Р…Р С‘Р Вµ',
+					description: 'Р С›РЎвЂљР Р†Р ВµРЎвЂЎР В°Р ВµРЎвЂљ Р В·Р В° Р Р†РЎвЂ№РЎР‚Р В°Р Р†Р Р…Р С‘Р Р†Р В°Р Р…Р С‘Р Вµ Р С‘ Р Р…Р В°Р С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ Р С”Р С•Р СР С—Р С•Р Р…Р С•Р Р†Р С”Р С‘.',
+					hint: 'Р СџР С•Р Т‘РЎвЂ¦Р С•Р Т‘Р С‘РЎвЂљ Р Т‘Р В»РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р В° РЎРѓР ВµРЎвЂљР С”Р С‘, Р Р†РЎвЂ№РЎР‚Р В°Р Р†Р Р…Р С‘Р Р†Р В°Р Р…Р С‘РЎРЏ Р С‘ Р С•РЎР‚Р С‘Р ВµР Р…РЎвЂљР В°РЎвЂ Р С‘Р С‘.',
+					accent: 'var(--color-primary-700)',
 					icon: Layout
 				},
 				{
 					id: 'padding',
-					label: 'РџР°РґРґРёРЅРіРё',
-					description: 'РЈРїСЂР°РІР»СЏРµС‚ РІРЅСѓС‚СЂРµРЅРЅРёРјРё РѕС‚СЃС‚СѓРїР°РјРё Рё РґС‹С…Р°РЅРёРµРј РёРЅС‚РµСЂС„РµР№СЃР°.',
-					hint: 'РџРѕРјРѕРіР°РµС‚ СЂРµРіСѓР»РёСЂРѕРІР°С‚СЊ РІРЅСѓС‚СЂРµРЅРЅРёР№ РІРѕР·РґСѓС… РІРЅСѓС‚СЂРё РєР°СЂС‚РѕС‡РєРё РёР»Рё РїР°РЅРµР»Рё.',
-					accent: '#3b82f6',
+					label: 'Р СџР В°Р Т‘Р Т‘Р С‘Р Р…Р С–Р С‘',
+					description: 'Р Р€Р С—РЎР‚Р В°Р Р†Р В»РЎРЏР ВµРЎвЂљ Р Р†Р Р…РЎС“РЎвЂљРЎР‚Р ВµР Р…Р Р…Р С‘Р СР С‘ Р С•РЎвЂљРЎРѓРЎвЂљРЎС“Р С—Р В°Р СР С‘ Р С‘ Р Т‘РЎвЂ№РЎвЂ¦Р В°Р Р…Р С‘Р ВµР С Р С‘Р Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓР В°.',
+					hint: 'Р СџР С•Р СР С•Р С–Р В°Р ВµРЎвЂљ РЎР‚Р ВµР С–РЎС“Р В»Р С‘РЎР‚Р С•Р Р†Р В°РЎвЂљРЎРЉ Р Р†Р Р…РЎС“РЎвЂљРЎР‚Р ВµР Р…Р Р…Р С‘Р в„– Р Р†Р С•Р В·Р Т‘РЎС“РЎвЂ¦ Р Р†Р Р…РЎС“РЎвЂљРЎР‚Р С‘ Р С”Р В°РЎР‚РЎвЂљР С•РЎвЂЎР С”Р С‘ Р С‘Р В»Р С‘ Р С—Р В°Р Р…Р ВµР В»Р С‘.',
+					accent: 'var(--color-primary-500)',
 					icon: Grid
 				},
 				{
 					id: 'margin',
-					label: 'РњР°СЂРґР¶РёРЅС‹',
-					description: 'РќР°СЃС‚СЂР°РёРІР°РµС‚ РІРЅРµС€РЅРёР№ СЂРёС‚Рј РјРµР¶РґСѓ СЃРѕСЃРµРґРЅРёРјРё Р±Р»РѕРєР°РјРё.',
-					hint: 'РСЃРїРѕР»СЊР·СѓР№С‚Рµ РґР»СЏ СЂР°Р·РґРµР»РµРЅРёСЏ СЃРµРєС†РёР№ Рё СЃС‚Р°Р±РёР»РёР·Р°С†РёРё РєРѕРјРїРѕР·РёС†РёРё.',
-					accent: '#60a5fa',
+					label: 'Р СљР В°РЎР‚Р Т‘Р В¶Р С‘Р Р…РЎвЂ№',
+					description: 'Р СњР В°РЎРѓРЎвЂљРЎР‚Р В°Р С‘Р Р†Р В°Р ВµРЎвЂљ Р Р†Р Р…Р ВµРЎв‚¬Р Р…Р С‘Р в„– РЎР‚Р С‘РЎвЂљР С Р СР ВµР В¶Р Т‘РЎС“ РЎРѓР С•РЎРѓР ВµР Т‘Р Р…Р С‘Р СР С‘ Р В±Р В»Р С•Р С”Р В°Р СР С‘.',
+					hint: 'Р ВРЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р в„–РЎвЂљР Вµ Р Т‘Р В»РЎРЏ РЎР‚Р В°Р В·Р Т‘Р ВµР В»Р ВµР Р…Р С‘РЎРЏ РЎРѓР ВµР С”РЎвЂ Р С‘Р в„– Р С‘ РЎРѓРЎвЂљР В°Р В±Р С‘Р В»Р С‘Р В·Р В°РЎвЂ Р С‘Р С‘ Р С”Р С•Р СР С—Р С•Р В·Р С‘РЎвЂ Р С‘Р С‘.',
+					accent: 'var(--color-primary-400)',
 					icon: Layers
 				}
 			]
 		},
 		{
 			id: 'information',
-			label: 'РРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рµ',
-			description: 'Р¦РІРµС‚, С‚РёРїРѕРіСЂР°С„РёРєР° Рё С‡РёС‚Р°РµРјРѕСЃС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ.',
-			accent: '#d97706',
+			label: 'Р ВР Р…РЎвЂћР С•РЎР‚Р СР В°РЎвЂ Р С‘Р С•Р Р…Р Р…РЎвЂ№Р Вµ',
+			description: 'Р В¦Р Р†Р ВµРЎвЂљ, РЎвЂљР С‘Р С—Р С•Р С–РЎР‚Р В°РЎвЂћР С‘Р С”Р В° Р С‘ РЎвЂЎР С‘РЎвЂљР В°Р ВµР СР С•РЎРѓРЎвЂљРЎРЉ РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р С‘Р СР С•Р С–Р С•.',
+			accent: 'var(--color-warning-600)',
 			icon: Info,
 			options: [
 				{
 					id: 'color',
-					label: 'Р¦РІРµС‚',
-					description: 'РќР°СЃС‚СЂР°РёРІР°РµС‚ РїР°Р»РёС‚СЂСѓ, Р°РєС†РµРЅС‚С‹ Рё РєРѕРЅС‚СЂР°СЃС‚.',
-					hint: 'Р’Р»РёСЏРµС‚ РЅР° С„РѕРЅС‹, Р°РєС†РµРЅС‚С‹, С‚РµРєСЃС‚ Рё СЌРјРѕС†РёРѕРЅР°Р»СЊРЅС‹Р№ С‚РѕРЅ РёРЅС‚РµСЂС„РµР№СЃР°.',
-					accent: '#f59e0b',
+					label: 'Р В¦Р Р†Р ВµРЎвЂљ',
+					description: 'Р СњР В°РЎРѓРЎвЂљРЎР‚Р В°Р С‘Р Р†Р В°Р ВµРЎвЂљ Р С—Р В°Р В»Р С‘РЎвЂљРЎР‚РЎС“, Р В°Р С”РЎвЂ Р ВµР Р…РЎвЂљРЎвЂ№ Р С‘ Р С”Р С•Р Р…РЎвЂљРЎР‚Р В°РЎРѓРЎвЂљ.',
+					hint: 'Р вЂ™Р В»Р С‘РЎРЏР ВµРЎвЂљ Р Р…Р В° РЎвЂћР С•Р Р…РЎвЂ№, Р В°Р С”РЎвЂ Р ВµР Р…РЎвЂљРЎвЂ№, РЎвЂљР ВµР С”РЎРѓРЎвЂљ Р С‘ РЎРЊР СР С•РЎвЂ Р С‘Р С•Р Р…Р В°Р В»РЎРЉР Р…РЎвЂ№Р в„– РЎвЂљР С•Р Р… Р С‘Р Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓР В°.',
+					accent: 'var(--color-warning-500)',
 					icon: Palette
 				},
 				{
 					id: 'font-family',
-					label: 'РЁСЂРёС„С‚',
-					description: 'Р’С‹Р±РёСЂР°РµС‚ С…Р°СЂР°РєС‚РµСЂ С‚РёРїРѕРіСЂР°С„РёРєРё РґР»СЏ Р±Р»РѕРєР°.',
-					hint: 'РџРµСЂРµРєР»СЋС‡Р°Р№С‚РµСЃСЊ РјРµР¶РґСѓ РЅРµР№С‚СЂР°Р»СЊРЅС‹Рј, СЂРµРґР°РєС†РёРѕРЅРЅС‹Рј Рё С‚РµС…РЅРёС‡РµСЃРєРёРј СЃС‚РёР»РµРј.',
-					accent: '#f97316',
+					label: 'Р РЃРЎР‚Р С‘РЎвЂћРЎвЂљ',
+					description: 'Р вЂ™РЎвЂ№Р В±Р С‘РЎР‚Р В°Р ВµРЎвЂљ РЎвЂ¦Р В°РЎР‚Р В°Р С”РЎвЂљР ВµРЎР‚ РЎвЂљР С‘Р С—Р С•Р С–РЎР‚Р В°РЎвЂћР С‘Р С”Р С‘ Р Т‘Р В»РЎРЏ Р В±Р В»Р С•Р С”Р В°.',
+					hint: 'Р СџР ВµРЎР‚Р ВµР С”Р В»РЎР‹РЎвЂЎР В°Р в„–РЎвЂљР ВµРЎРѓРЎРЉ Р СР ВµР В¶Р Т‘РЎС“ Р Р…Р ВµР в„–РЎвЂљРЎР‚Р В°Р В»РЎРЉР Р…РЎвЂ№Р С, РЎР‚Р ВµР Т‘Р В°Р С”РЎвЂ Р С‘Р С•Р Р…Р Р…РЎвЂ№Р С Р С‘ РЎвЂљР ВµРЎвЂ¦Р Р…Р С‘РЎвЂЎР ВµРЎРѓР С”Р С‘Р С РЎРѓРЎвЂљР С‘Р В»Р ВµР С.',
+					accent: 'var(--color-warning-500)',
 					icon: Type
 				},
 				{
 					id: 'font-size',
-					label: 'Р Р°Р·РјРµСЂ С€СЂРёС„С‚Р°',
-					description: 'Р РµРіСѓР»РёСЂСѓРµС‚ РёРµСЂР°СЂС…РёСЋ С‚РµРєСЃС‚Р° Рё РїР»РѕС‚РЅРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ.',
-					hint: 'РџРѕР»РµР·РЅРѕ РґР»СЏ СѓСЃРёР»РµРЅРёСЏ Р·Р°РіРѕР»РѕРІРєРѕРІ Рё Р±Р°Р»Р°РЅСЃРёСЂРѕРІРєРё secondary-copy.',
-					accent: '#fb923c',
+					label: 'Р В Р В°Р В·Р СР ВµРЎР‚ РЎв‚¬РЎР‚Р С‘РЎвЂћРЎвЂљР В°',
+					description: 'Р В Р ВµР С–РЎС“Р В»Р С‘РЎР‚РЎС“Р ВµРЎвЂљ Р С‘Р ВµРЎР‚Р В°РЎР‚РЎвЂ¦Р С‘РЎР‹ РЎвЂљР ВµР С”РЎРѓРЎвЂљР В° Р С‘ Р С—Р В»Р С•РЎвЂљР Р…Р С•РЎРѓРЎвЂљРЎРЉ РЎвЂЎРЎвЂљР ВµР Р…Р С‘РЎРЏ.',
+					hint: 'Р СџР С•Р В»Р ВµР В·Р Р…Р С• Р Т‘Р В»РЎРЏ РЎС“РЎРѓР С‘Р В»Р ВµР Р…Р С‘РЎРЏ Р В·Р В°Р С–Р С•Р В»Р С•Р Р†Р С”Р С•Р Р† Р С‘ Р В±Р В°Р В»Р В°Р Р…РЎРѓР С‘РЎР‚Р С•Р Р†Р С”Р С‘ secondary-copy.',
+					accent: 'var(--color-warning-400)',
 					icon: Ruler
 				},
 				{
 					id: 'contrast',
-					label: 'РљРѕРЅС‚СЂР°СЃС‚',
-					description: 'РџРѕРґС‚СЏРіРёРІР°РµС‚ С‡РёС‚Р°РµРјРѕСЃС‚СЊ Рё РІРёР·СѓР°Р»СЊРЅС‹Р№ С„РѕРєСѓСЃ.',
-					hint: 'РСЃРїРѕР»СЊР·СѓР№С‚Рµ РґР»СЏ СЂРµР¶РёРјРѕРІ РїРѕРІС‹С€РµРЅРЅРѕР№ РґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё Рё СЃРІРµС‚РѕС‚РµРЅРё.',
-					accent: '#fdba74',
+					label: 'Р С™Р С•Р Р…РЎвЂљРЎР‚Р В°РЎРѓРЎвЂљ',
+					description: 'Р СџР С•Р Т‘РЎвЂљРЎРЏР С–Р С‘Р Р†Р В°Р ВµРЎвЂљ РЎвЂЎР С‘РЎвЂљР В°Р ВµР СР С•РЎРѓРЎвЂљРЎРЉ Р С‘ Р Р†Р С‘Р В·РЎС“Р В°Р В»РЎРЉР Р…РЎвЂ№Р в„– РЎвЂћР С•Р С”РЎС“РЎРѓ.',
+					hint: 'Р ВРЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р в„–РЎвЂљР Вµ Р Т‘Р В»РЎРЏ РЎР‚Р ВµР В¶Р С‘Р СР С•Р Р† Р С—Р С•Р Р†РЎвЂ№РЎв‚¬Р ВµР Р…Р Р…Р С•Р в„– Р Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р Р…Р С•РЎРѓРЎвЂљР С‘ Р С‘ РЎРѓР Р†Р ВµРЎвЂљР С•РЎвЂљР ВµР Р…Р С‘.',
+					accent: 'var(--color-warning-300)',
 					icon: Layers
 				}
 			]
 		},
 		{
 			id: 'interaction',
-			label: 'РРЅС‚РµСЂР°РєС‚РёРІРЅС‹Рµ',
-			description: 'РџРѕРІРµРґРµРЅРёРµ РЅР° РєР»РёРє, hover Рё РѕС‚РІРµС‚ РёРЅС‚РµСЂС„РµР№СЃР° РЅР° РґРµР№СЃС‚РІРёСЏ.',
-			accent: '#059669',
+			label: 'Р ВР Р…РЎвЂљР ВµРЎР‚Р В°Р С”РЎвЂљР С‘Р Р†Р Р…РЎвЂ№Р Вµ',
+			description: 'Р СџР С•Р Р†Р ВµР Т‘Р ВµР Р…Р С‘Р Вµ Р Р…Р В° Р С”Р В»Р С‘Р С”, hover Р С‘ Р С•РЎвЂљР Р†Р ВµРЎвЂљ Р С‘Р Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓР В° Р Р…Р В° Р Т‘Р ВµР в„–РЎРѓРЎвЂљР Р†Р С‘РЎРЏ.',
+			accent: 'var(--color-success-600)',
 			icon: Hand,
 			options: [
 				{
 					id: 'press-action',
-					label: 'РќР°Р¶Р°С‚РёРµ',
-					description: 'РћРїСЂРµРґРµР»СЏРµС‚ РґРµР№СЃС‚РІРёРµ РїРѕ РєР»РёРєСѓ РёР»Рё tap-Р¶РµСЃС‚Сѓ.',
-					hint: 'РћС‚РєСЂС‹С‚СЊ РјРѕРґР°Р»РєСѓ, РѕС‚РїСЂР°РІРёС‚СЊ СЃРѕР±С‹С‚РёРµ, Р·Р°РїСѓСЃС‚РёС‚СЊ СЃС†РµРЅР°СЂРёР№ РёР»Рё РїРµСЂРµРєР»СЋС‡РµРЅРёРµ.',
-					accent: '#10b981',
+					label: 'Р СњР В°Р В¶Р В°РЎвЂљР С‘Р Вµ',
+					description: 'Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµРЎвЂљ Р Т‘Р ВµР в„–РЎРѓРЎвЂљР Р†Р С‘Р Вµ Р С—Р С• Р С”Р В»Р С‘Р С”РЎС“ Р С‘Р В»Р С‘ tap-Р В¶Р ВµРЎРѓРЎвЂљРЎС“.',
+					hint: 'Р С›РЎвЂљР С”РЎР‚РЎвЂ№РЎвЂљРЎРЉ Р СР С•Р Т‘Р В°Р В»Р С”РЎС“, Р С•РЎвЂљР С—РЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРЉ РЎРѓР С•Р В±РЎвЂ№РЎвЂљР С‘Р Вµ, Р В·Р В°Р С—РЎС“РЎРѓРЎвЂљР С‘РЎвЂљРЎРЉ РЎРѓРЎвЂ Р ВµР Р…Р В°РЎР‚Р С‘Р в„– Р С‘Р В»Р С‘ Р С—Р ВµРЎР‚Р ВµР С”Р В»РЎР‹РЎвЂЎР ВµР Р…Р С‘Р Вµ.',
+					accent: 'var(--color-success-500)',
 					icon: Hand
 				},
 				{
 					id: 'verdict',
-					label: 'Р’РµСЂРґРёРєС‚',
-					description: 'Р—Р°РґР°С‘С‚ СЃС‚Р°С‚СѓСЃ, РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РёР»Рё СЂРµР°РєС†РёСЋ РїРѕСЃР»Рµ РґРµР№СЃС‚РІРёСЏ.',
-					hint: 'РџРѕРґС…РѕРґРёС‚ РґР»СЏ success, warning, validation Рё async-result СЃРѕСЃС‚РѕСЏРЅРёР№.',
-					accent: '#34d399',
+					label: 'Р вЂ™Р ВµРЎР‚Р Т‘Р С‘Р С”РЎвЂљ',
+					description: 'Р вЂ”Р В°Р Т‘Р В°РЎвЂРЎвЂљ РЎРѓРЎвЂљР В°РЎвЂљРЎС“РЎРѓ, Р С—Р С•Р Т‘РЎвЂљР Р†Р ВµРЎР‚Р В¶Р Т‘Р ВµР Р…Р С‘Р Вµ Р С‘Р В»Р С‘ РЎР‚Р ВµР В°Р С”РЎвЂ Р С‘РЎР‹ Р С—Р С•РЎРѓР В»Р Вµ Р Т‘Р ВµР в„–РЎРѓРЎвЂљР Р†Р С‘РЎРЏ.',
+					hint: 'Р СџР С•Р Т‘РЎвЂ¦Р С•Р Т‘Р С‘РЎвЂљ Р Т‘Р В»РЎРЏ success, warning, validation Р С‘ async-result РЎРѓР С•РЎРѓРЎвЂљР С•РЎРЏР Р…Р С‘Р в„–.',
+					accent: 'var(--color-success-400)',
 					icon: CheckCircle
 				},
 				{
 					id: 'tooltips',
-					label: 'РўСѓР»С‚РёРїС‹',
-					description: 'Р”РѕР±Р°РІР»СЏРµС‚ РїРѕСЏСЃРЅРµРЅРёСЏ РїСЂРё РЅР°РІРµРґРµРЅРёРё РєСѓСЂСЃРѕСЂР°.',
-					hint: 'РџРѕРєР°Р·С‹РІР°Р№С‚Рµ РєСЂР°С‚РєСѓСЋ РїРѕРґСЃРєР°Р·РєСѓ РёР»Рё СЂР°СЃС€РёСЂРµРЅРЅРѕРµ РѕР±СЉСЏСЃРЅРµРЅРёРµ РїРѕ hover.',
-					accent: '#6ee7b7',
+					label: 'Р СћРЎС“Р В»РЎвЂљР С‘Р С—РЎвЂ№',
+					description: 'Р вЂќР С•Р В±Р В°Р Р†Р В»РЎРЏР ВµРЎвЂљ Р С—Р С•РЎРЏРЎРѓР Р…Р ВµР Р…Р С‘РЎРЏ Р С—РЎР‚Р С‘ Р Р…Р В°Р Р†Р ВµР Т‘Р ВµР Р…Р С‘Р С‘ Р С”РЎС“РЎР‚РЎРѓР С•РЎР‚Р В°.',
+					hint: 'Р СџР С•Р С”Р В°Р В·РЎвЂ№Р Р†Р В°Р в„–РЎвЂљР Вµ Р С”РЎР‚Р В°РЎвЂљР С”РЎС“РЎР‹ Р С—Р С•Р Т‘РЎРѓР С”Р В°Р В·Р С”РЎС“ Р С‘Р В»Р С‘ РЎР‚Р В°РЎРѓРЎв‚¬Р С‘РЎР‚Р ВµР Р…Р Р…Р С•Р Вµ Р С•Р В±РЎР‰РЎРЏРЎРѓР Р…Р ВµР Р…Р С‘Р Вµ Р С—Р С• hover.',
+					accent: 'var(--color-success-300)',
 					icon: Info
 				},
 				{
 					id: 'hover-state',
-					label: 'Hover-СЃРѕР±С‹С‚РёСЏ',
-					description: 'РќР°СЃС‚СЂР°РёРІР°РµС‚ СЂРµР°РєС†РёРё РЅР° РЅР°РІРµРґРµРЅРёРµ Рё С„РѕРєСѓСЃ.',
-					hint: 'РџРѕРґСЃРІРµС‚РєР°, Р·РІСѓРєРѕРІРѕР№ РѕС‚РєР»РёРє, РїРѕРєР°Р· Р±РµР№РґР¶РµР№ Рё РІС‚РѕСЂРёС‡РЅС‹С… РґРµР№СЃС‚РІРёР№.',
-					accent: '#a7f3d0',
+					label: 'Hover-РЎРѓР С•Р В±РЎвЂ№РЎвЂљР С‘РЎРЏ',
+					description: 'Р СњР В°РЎРѓРЎвЂљРЎР‚Р В°Р С‘Р Р†Р В°Р ВµРЎвЂљ РЎР‚Р ВµР В°Р С”РЎвЂ Р С‘Р С‘ Р Р…Р В° Р Р…Р В°Р Р†Р ВµР Т‘Р ВµР Р…Р С‘Р Вµ Р С‘ РЎвЂћР С•Р С”РЎС“РЎРѓ.',
+					hint: 'Р СџР С•Р Т‘РЎРѓР Р†Р ВµРЎвЂљР С”Р В°, Р В·Р Р†РЎС“Р С”Р С•Р Р†Р С•Р в„– Р С•РЎвЂљР С”Р В»Р С‘Р С”, Р С—Р С•Р С”Р В°Р В· Р В±Р ВµР в„–Р Т‘Р В¶Р ВµР в„– Р С‘ Р Р†РЎвЂљР С•РЎР‚Р С‘РЎвЂЎР Р…РЎвЂ№РЎвЂ¦ Р Т‘Р ВµР в„–РЎРѓРЎвЂљР Р†Р С‘Р в„–.',
+					accent: 'var(--color-success-200)',
 					icon: Bell
 				}
 			]
@@ -255,7 +255,7 @@ const X = 'x';
 		type="button"
 		class:is-open={isOpen}
 		class="stylist-trigger"
-		aria-label="РћС‚РєСЂС‹С‚СЊ Stylist"
+		aria-label="Р С›РЎвЂљР С”РЎР‚РЎвЂ№РЎвЂљРЎРЉ Stylist"
 		aria-haspopup="dialog"
 		aria-expanded={isOpen}
 		aria-controls={panelId}
@@ -273,12 +273,12 @@ const X = 'x';
 			<div class="panel-header">
 				<div>
 					<p class="eyebrow">Stylist</p>
-					<h3>Р“СЂСѓРїРїР° РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹С… РЅР°СЃС‚СЂРѕРµРє</h3>
+					<h3>Р вЂњРЎР‚РЎС“Р С—Р С—Р В° Р Т‘Р С•Р С—Р С•Р В»Р Р…Р С‘РЎвЂљР ВµР В»РЎРЉР Р…РЎвЂ№РЎвЂ¦ Р Р…Р В°РЎРѓРЎвЂљРЎР‚Р С•Р ВµР С”</h3>
 				</div>
 				<button
 					type="button"
 					class="close-button"
-					aria-label="Р—Р°РєСЂС‹С‚СЊ Stylist"
+					aria-label="Р вЂ”Р В°Р С”РЎР‚РЎвЂ№РЎвЂљРЎРЉ Stylist"
 					onclick={closePanel}
 				>
 					<BaseIcon name={X} class="close-icon" />
@@ -286,11 +286,11 @@ const X = 'x';
 			</div>
 
 			<p class="panel-copy">
-				Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚РµРіРѕСЂРёСЋ СЃРІРѕР№СЃС‚РІ, Р·Р°С‚РµРј СѓС‚РѕС‡РЅСЏСЋС‰СѓСЋ РёРєРѕРЅРєСѓ. РљРѕРјРїРѕРЅРµРЅС‚ С…СЂР°РЅРёС‚ РІС‹Р±РѕСЂ РїРѕ
-				РєР°Р¶РґРѕР№ РіСЂСѓРїРїРµ РѕС‚РґРµР»СЊРЅРѕ.
+				Р вЂ™РЎвЂ№Р В±Р ВµРЎР‚Р С‘РЎвЂљР Вµ Р С”Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘РЎР‹ РЎРѓР Р†Р С•Р в„–РЎРѓРЎвЂљР Р†, Р В·Р В°РЎвЂљР ВµР С РЎС“РЎвЂљР С•РЎвЂЎР Р…РЎРЏРЎР‹РЎвЂ°РЎС“РЎР‹ Р С‘Р С”Р С•Р Р…Р С”РЎС“. Р С™Р С•Р СР С—Р С•Р Р…Р ВµР Р…РЎвЂљ РЎвЂ¦РЎР‚Р В°Р Р…Р С‘РЎвЂљ Р Р†РЎвЂ№Р В±Р С•РЎР‚ Р С—Р С•
+				Р С”Р В°Р В¶Р Т‘Р С•Р в„– Р С–РЎР‚РЎС“Р С—Р С—Р Вµ Р С•РЎвЂљР Т‘Р ВµР В»РЎРЉР Р…Р С•.
 			</p>
 
-			<div class="category-list" role="tablist" aria-label="РљР°С‚РµРіРѕСЂРёРё Stylist">
+			<div class="category-list" role="tablist" aria-label="Р С™Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘Р С‘ Stylist">
 				{#each categories as category}
 					<button
 						type="button"
@@ -315,7 +315,7 @@ const X = 'x';
 			<section class="option-section" style={`--option-accent: ${activeCategory.accent};`}>
 				<div class="section-heading">
 					<div>
-						<p class="eyebrow">РђРєС‚РёРІРЅР°СЏ РіСЂСѓРїРїР°</p>
+						<p class="eyebrow">Р С’Р С”РЎвЂљР С‘Р Р†Р Р…Р В°РЎРЏ Р С–РЎР‚РЎС“Р С—Р С—Р В°</p>
 						<h4>{activeCategory.label}</h4>
 					</div>
 					<span class="section-pill">{activeOption.label}</span>
@@ -349,8 +349,8 @@ const X = 'x';
 			<section class="selection-summary">
 				<div class="section-heading compact">
 					<div>
-						<p class="eyebrow">РўРµРєСѓС‰РёРµ СЂРµС€РµРЅРёСЏ</p>
-						<h4>РЎРЅРёРјРѕРє РІС‹Р±РѕСЂР°</h4>
+						<p class="eyebrow">Р СћР ВµР С”РЎС“РЎвЂ°Р С‘Р Вµ РЎР‚Р ВµРЎв‚¬Р ВµР Р…Р С‘РЎРЏ</p>
+						<h4>Р РЋР Р…Р С‘Р СР С•Р С” Р Р†РЎвЂ№Р В±Р С•РЎР‚Р В°</h4>
 					</div>
 				</div>
 
@@ -383,17 +383,13 @@ const X = 'x';
 		position: relative;
 		display: grid;
 		place-items: center;
-		width: 4.5rem;
-		height: 4.5rem;
+		width: var(--size-custom45);
+		height: var(--size-custom45);
 		padding: 0;
 		border: 0;
-		border-radius: 999px;
-		background:
-			radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.2) 38%, transparent 42%),
-			linear-gradient(145deg, #0f172a, #1e3a8a 40%, #0f766e 100%);
-		box-shadow:
-			0 16px 34px rgba(15, 23, 42, 0.28),
-			inset 0 1px 0 rgba(255, 255, 255, 0.2);
+		border-radius: var(--border-radius-full);
+		background: var(--gradient-custom192);
+		box-shadow: var(--shadow-custom25);
 		cursor: pointer;
 		transition:
 			transform 180ms ease,
@@ -403,16 +399,14 @@ const X = 'x';
 	.stylist-trigger:hover,
 	.stylist-trigger.is-open {
 		transform: translateY(-1px) scale(1.02);
-		box-shadow:
-			0 20px 40px rgba(15, 23, 42, 0.35),
-			inset 0 1px 0 rgba(255, 255, 255, 0.24);
+		box-shadow: var(--shadow-custom32);
 	}
 
 	.stylist-trigger:focus-visible,
 	.category-button:focus-visible,
 	.option-button:focus-visible,
 	.close-button:focus-visible {
-		outline: 2px solid #2563eb;
+		outline: 2px solid var(--color-primary-600);
 		outline-offset: 3px;
 	}
 
@@ -426,31 +420,31 @@ const X = 'x';
 
 	.trigger-ring {
 		inset: 0.34rem;
-		border: 1px solid rgba(255, 255, 255, 0.22);
+		border: 1px solid color-mix(in srgb, var(--color-background-primary) 22%, transparent);
 	}
 
 	.trigger-core {
 		display: grid;
 		place-items: center;
 		inset: 0.7rem;
-		background: rgba(255, 255, 255, 0.1);
+		background: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
 		backdrop-filter: blur(10px);
 	}
 
 	.trigger-ping {
 		inset: auto 0.46rem 0.46rem auto;
-		width: 0.72rem;
-		height: 0.72rem;
-		background: #34d399;
-		box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
-		animation: pulse 2.2s infinite;
+		width: var(--size-custom072);
+		height: var(--size-custom072);
+		background: var(--color-success-400);
+		box-shadow: var(--shadow-custom02);
+		animation: pulse var(--duration-2200) infinite;
 	}
 
 	.trigger-icon,
 	.close-icon,
 	.mini-icon {
-		width: 1.2rem;
-		height: 1.2rem;
+		width: var(--size-custom12);
+		height: var(--size-custom12);
 	}
 
 	.trigger-icon {
@@ -461,17 +455,13 @@ const X = 'x';
 		position: absolute;
 		top: calc(100% + 1rem);
 		right: 0;
-		z-index: 30;
+		z-index: var(--z-index-layer30);
 		width: min(26rem, calc(100vw - 2rem));
-		padding: 1rem;
-		border: 1px solid rgba(148, 163, 184, 0.28);
-		border-radius: 1.5rem;
-		background:
-			radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 28%),
-			linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 250, 252, 0.96));
-		box-shadow:
-			0 28px 80px rgba(15, 23, 42, 0.22),
-			0 10px 24px rgba(15, 23, 42, 0.12);
+		padding: var(--spacing-4);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 28%, transparent);
+		border-radius: var(--border-radius-xxxl);
+		background: var(--gradient-custom232);
+		box-shadow: var(--shadow-custom33);
 		backdrop-filter: blur(16px);
 	}
 
@@ -480,7 +470,7 @@ const X = 'x';
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: var(--spacing-4);
 	}
 
 	.section-heading.compact {
@@ -488,45 +478,45 @@ const X = 'x';
 	}
 
 	.eyebrow {
-		margin: 0 0 0.2rem;
-		font-size: 0.68rem;
-		font-weight: 700;
-		letter-spacing: 0.12em;
+		margin: 0 0 var(--spacing-1);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-bold);
+		letter-spacing: var(--letter-spacing-expanded);
 		text-transform: uppercase;
-		color: #64748b;
+		color: var(--color-text-secondary);
 	}
 
 	h3,
 	h4 {
 		margin: 0;
-		color: #0f172a;
+		color: var(--color-text-primary);
 	}
 
 	h3 {
-		font-size: 1.05rem;
+		font-size: var(--font-size-4);
 	}
 
 	h4 {
-		font-size: 0.94rem;
+		font-size: var(--font-size-4);
 	}
 
 	.panel-copy {
-		margin: 0.75rem 0 1rem;
-		font-size: 0.92rem;
-		line-height: 1.5;
-		color: #475569;
+		margin: var(--spacing-3) 0 var(--spacing-4);
+		font-size: var(--font-size-4);
+		line-height: var(--line-height-normal);
+		color: var(--color-text-secondary);
 	}
 
 	.close-button {
 		display: grid;
 		place-items: center;
-		width: 2rem;
-		height: 2rem;
+		width: var(--spacing-8);
+		height: var(--spacing-8);
 		padding: 0;
-		border: 1px solid rgba(148, 163, 184, 0.3);
-		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.82);
-		color: #0f172a;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 30%, transparent);
+		border-radius: var(--border-radius-full);
+		background: color-mix(in srgb, var(--color-background-primary) 82%, transparent);
+		color: var(--color-text-primary);
 		cursor: pointer;
 	}
 
@@ -534,19 +524,19 @@ const X = 'x';
 	.option-grid,
 	.summary-list {
 		display: grid;
-		gap: 0.75rem;
+		gap: var(--spacing-3);
 	}
 
 	.category-button,
 	.option-button {
 		display: grid;
 		grid-template-columns: auto 1fr;
-		gap: 0.75rem;
+		gap: var(--spacing-3);
 		width: 100%;
-		padding: 0.82rem 0.9rem;
-		border: 1px solid rgba(148, 163, 184, 0.24);
-		border-radius: 1rem;
-		background: rgba(255, 255, 255, 0.72);
+		padding: var(--spacing-3) var(--spacing-4);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 24%, transparent);
+		border-radius: var(--border-radius-xxl);
+		background: color-mix(in srgb, var(--color-background-primary) 72%, transparent);
 		text-align: left;
 		cursor: pointer;
 		transition:
@@ -559,19 +549,19 @@ const X = 'x';
 	.category-button:hover,
 	.option-button:hover {
 		transform: translateY(-1px);
-		border-color: rgba(37, 99, 235, 0.28);
-		box-shadow: 0 10px 28px rgba(148, 163, 184, 0.16);
+		border-color: color-mix(in srgb, var(--color-primary-600) 28%, transparent);
+		box-shadow: var(--shadow-custom22);
 	}
 
 	.category-button.selected,
 	.option-button.selected {
-		border-color: color-mix(in srgb, var(--category-accent, #2563eb) 58%, white);
-		background: color-mix(in srgb, var(--category-accent, #2563eb) 10%, white);
+		border-color: color-mix(in srgb, var(--category-accent, var(--color-primary-600)) 58%, white);
+		background: color-mix(in srgb, var(--category-accent, var(--color-primary-600)) 10%, white);
 	}
 
 	.option-button.selected {
-		border-color: color-mix(in srgb, var(--option-card-accent, #2563eb) 58%, white);
-		background: color-mix(in srgb, var(--option-card-accent, #2563eb) 10%, white);
+		border-color: color-mix(in srgb, var(--option-card-accent, var(--color-primary-600)) 58%, white);
+		background: color-mix(in srgb, var(--option-card-accent, var(--color-primary-600)) 10%, white);
 	}
 
 	.category-icon,
@@ -586,51 +576,51 @@ const X = 'x';
 	.category-icon,
 	.option-icon,
 	.summary-icon {
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 0.9rem;
-		background: color-mix(in srgb, var(--category-accent, var(--option-card-accent, #2563eb)) 14%, white);
-		color: var(--category-accent, var(--option-card-accent, #2563eb));
+		width: var(--spacing-10);
+		height: var(--spacing-10);
+		border-radius: var(--border-radius-xxl);
+		background: color-mix(in srgb, var(--category-accent, var(--option-card-accent, var(--color-primary-600))) 14%, white);
+		color: var(--category-accent, var(--option-card-accent, var(--color-primary-600)));
 	}
 
 	.category-text,
 	.option-meta,
 	.summary-copy {
 		display: grid;
-		gap: 0.22rem;
+		gap: var(--spacing-1);
 	}
 
 	.category-text strong,
 	.option-meta strong,
 	.summary-copy strong {
-		font-size: 0.92rem;
-		color: #0f172a;
+		font-size: var(--font-size-4);
+		color: var(--color-text-primary);
 	}
 
 	.category-text span,
 	.option-meta span,
 	.summary-copy span {
-		font-size: 0.8rem;
+		font-size: var(--font-size-3);
 		line-height: 1.45;
-		color: #475569;
+		color: var(--color-text-secondary);
 	}
 
 	.option-section,
 	.selection-summary {
-		margin-top: 1rem;
-		padding: 0.95rem;
-		border-radius: 1.15rem;
-		background: rgba(255, 255, 255, 0.5);
-		border: 1px solid rgba(226, 232, 240, 0.88);
+		margin-top: var(--spacing-4);
+		padding: var(--spacing-4);
+		border-radius: var(--border-radius-xxl);
+		background: color-mix(in srgb, var(--color-background-primary) 50%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 88%, transparent);
 	}
 
 	.section-pill {
-		padding: 0.42rem 0.72rem;
-		border-radius: 999px;
-		background: color-mix(in srgb, var(--option-accent, #2563eb) 12%, white);
-		color: #0f172a;
-		font-size: 0.75rem;
-		font-weight: 700;
+		padding: var(--spacing-2) var(--spacing-3);
+		border-radius: var(--border-radius-full);
+		background: color-mix(in srgb, var(--option-accent, var(--color-primary-600)) 12%, white);
+		color: var(--color-text-primary);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-bold);
 	}
 
 	.option-grid {
@@ -646,28 +636,28 @@ const X = 'x';
 		display: grid;
 		grid-template-columns: auto 1fr;
 		align-items: center;
-		gap: 0.75rem;
-		padding: 0.72rem 0.8rem;
-		border-radius: 1rem;
-		background: color-mix(in srgb, var(--summary-accent, #2563eb) 8%, white);
+		gap: var(--spacing-3);
+		padding: var(--spacing-3) var(--spacing-3);
+		border-radius: var(--border-radius-xxl);
+		background: color-mix(in srgb, var(--summary-accent, var(--color-primary-600)) 8%, white);
 	}
 
 	.summary-item .summary-icon {
-		background: color-mix(in srgb, var(--summary-accent, #2563eb) 14%, white);
-		color: var(--summary-accent, #2563eb);
+		background: color-mix(in srgb, var(--summary-accent, var(--color-primary-600)) 14%, white);
+		color: var(--summary-accent, var(--color-primary-600));
 	}
 
 	@keyframes pulse {
 		0% {
-			box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+			box-shadow: var(--shadow-custom02);
 		}
 
 		70% {
-			box-shadow: 0 0 0 10px rgba(52, 211, 153, 0);
+			box-shadow: var(--shadow-custom03);
 		}
 
 		100% {
-			box-shadow: 0 0 0 0 rgba(52, 211, 153, 0);
+			box-shadow: var(--shadow-custom01);
 		}
 	}
 
@@ -684,4 +674,7 @@ const X = 'x';
 		}
 	}
 </style>
+
+
+
 

@@ -110,7 +110,7 @@ const RotateCcw = 'rotate-ccw';
   }
 </script>
 
-<div class={`audio-player bg-white rounded-lg p-4 border border-gray-200 ${hostClass}`} {...restProps}>
+<div class={`audio-player bg-[var(--color-background-primary)] rounded-lg p-4 border border-[var(--color-border-primary)] ${hostClass}`} {...restProps}>
   <audio
     bind:this={audioRef}
     src={src}
@@ -122,7 +122,7 @@ const RotateCcw = 'rotate-ccw';
   ></audio>
 
   {#if title}
-    <div class="font-medium text-gray-900 mb-2 truncate">
+    <div class="font-medium text-[var(--color-text-primary)] mb-2 truncate">
       {title}
     </div>
   {/if}
@@ -158,7 +158,7 @@ const RotateCcw = 'rotate-ccw';
       </div>
       
       <div class="flex items-center space-x-2 flex-1 mx-4">
-        <span class="text-xs text-gray-500 w-10">{formatTime(currentTime)}</span>
+        <span class="text-xs text-[var(--color-text-secondary)] w-10">{formatTime(currentTime)}</span>
         <input
           type="range"
           min="0"
@@ -167,7 +167,7 @@ const RotateCcw = 'rotate-ccw';
           oninput={handleProgressChange}
           class="flex-1 accent-blue-500"
         />
-        <span class="text-xs text-gray-500 w-10">{formatTime(duration)}</span>
+        <span class="text-xs text-[var(--color-text-secondary)] w-10">{formatTime(duration)}</span>
       </div>
       
       <div class="flex items-center space-x-2">
@@ -192,4 +192,7 @@ const RotateCcw = 'rotate-ccw';
     </div>
   {/if}
 </div>
+
+
+
 

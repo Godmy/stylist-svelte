@@ -63,7 +63,7 @@ const MoreHorizontal = 'more-horizontal';
   // Compute CSS classes using the style manager
   const rootClass = $derived(
     DraggableCardStyleManager.getRootClass(
-      `${isDragging ? DraggableCardStyleManager.getDraggingClass() : 'opacity-100'} ${
+      `${isDragging ? DraggableCardStyleManager.getDraggingClass() : 'opacity-[var(--opacity-100)]'} ${
         variant === 'compact' ? DraggableCardStyleManager.getCompactClass() : DraggableCardStyleManager.getDefaultClass()
       } ${hostClass}`
     )
@@ -132,7 +132,7 @@ const MoreHorizontal = 'more-horizontal';
       </div>
       {#if showMenu}
         <Button variant="ghost" size="sm" class="ml-2">
-          <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-gray-500" />
+          <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-[var(--color-text-secondary)]" />
         </Button>
       {/if}
     </div>
@@ -163,4 +163,7 @@ const MoreHorizontal = 'more-horizontal';
     {/if}
   </BaseCard>
 </div>
+
+
+
 

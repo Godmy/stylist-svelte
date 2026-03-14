@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import { InteractionInputStyleManager } from '$stylist/design-system/styles/interaction/interaction-input';
 
   interface ExtendedRangeInputProps {
@@ -48,7 +48,7 @@
 
 <div class={InteractionInputStyleManager.root('c-range-input w-full', className)} {...restProps}>
   <div class="relative h-8">
-    <div class={`absolute top-1/2 -translate-y-1/2 h-2 w-full bg-gray-200 rounded ${rangeClass}`}></div>
+    <div class={`absolute top-1/2 -translate-y-1/2 h-2 w-full bg-[var(--color-background-tertiary)] rounded ${rangeClass}`}></div>
     <input type="range" class="absolute w-full" min={min} max={max} step={step} bind:value={minVal} oninput={(e) => update('min', Number((e.target as HTMLInputElement).value))} onchange={commit} disabled={disabled} />
     <input type="range" class="absolute w-full" min={min} max={max} step={step} bind:value={maxVal} oninput={(e) => update('max', Number((e.target as HTMLInputElement).value))} onchange={commit} disabled={disabled} />
   </div>
@@ -60,3 +60,6 @@
     </div>
   {/if}
 </div>
+
+
+

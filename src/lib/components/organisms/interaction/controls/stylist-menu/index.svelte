@@ -46,15 +46,15 @@
 	};
 
 	const menuItems: PrimaryMenuItem[] = [
-		{ id: 'components', label: 'РљРѕРјРїРѕРЅРµРЅС‚С‹', icon: 'components' },
-		{ id: 'models', label: 'РњРѕРґРµР»Рё', icon: 'models' },
+		{ id: 'components', label: 'Components', icon: 'components' },
+		{ id: 'models', label: 'Models', icon: 'models' },
 		{ id: 'samo', label: 'SAMO', icon: 'models' },
-		{ id: 'contracts', label: 'РљРѕРЅС‚СЂР°РєС‚С‹', icon: 'contracts' },
-		{ id: 'styles', label: 'РЎС‚РёР»Рё', icon: 'styles' },
-		{ id: 'themes', label: 'РўРµРјС‹', icon: 'themes' },
-		{ id: 'colors', label: 'Р¦РІРµС‚Р°', icon: 'colors' },
-		{ id: 'tokens', label: 'РўРѕРєРµРЅС‹', icon: 'tokens' },
-		{ id: 'icons', label: 'РРєРѕРЅРєРё', icon: 'icons' },
+		{ id: 'contracts', label: 'Contracts', icon: 'contracts' },
+		{ id: 'styles', label: 'Styles', icon: 'styles' },
+		{ id: 'themes', label: 'Themes', icon: 'themes' },
+		{ id: 'colors', label: 'Colors', icon: 'colors' },
+		{ id: 'tokens', label: 'Tokens', icon: 'tokens' },
+		{ id: 'icons', label: 'Icons', icon: 'icons' },
 		{ id: 'json', label: 'JSON', icon: 'json' }
 	];
 
@@ -239,14 +239,14 @@
 
 <svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
-<nav class={`stylist-menu ${className}`} aria-label="Р“Р»Р°РІРЅРѕРµ РјРµРЅСЋ" {...restProps}>
+<nav class={`stylist-menu ${className}`} aria-label="Main menu" {...restProps}>
 	<div class="menu-main">
 		<div class="menu-logo" aria-hidden="true">
 			<BaseIcon name={triggerIcon} class="menu-icon" />
 		</div>
 
-		<div class="menu-left" aria-label="Р Р°Р·РґРµР»С‹ Рё С‚Р°РєСЃРѕРЅРѕРјРёРё">
-			<div class="menu-track" aria-label="Р Р°Р·РґРµР»С‹">
+		<div class="menu-left" aria-label="Sections and taxonomies">
+			<div class="menu-track" aria-label="Sections">
 				{#each menuItems as item}
 					{@const expanded = expandedItemId === item.id}
 					<div class="menu-item-shell" class:expanded>
@@ -286,11 +286,11 @@
 		</div>
 	</div>
 
-	<div class="menu-tools" aria-label="РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РґРµР№СЃС‚РІРёСЏ">
-		<button type="button" class="tool-btn" onclick={() => onThemeButtonClick?.()} aria-label="РўРµРјР°">
+	<div class="menu-tools" aria-label="User actions">
+		<button type="button" class="tool-btn" onclick={() => onThemeButtonClick?.()} aria-label="Theme">
 			Theme
 		</button>
-		<button type="button" class="tool-btn" onclick={() => onSettingsButtonClick?.()} aria-label="РќР°СЃС‚СЂРѕР№РєРё">
+		<button type="button" class="tool-btn" onclick={() => onSettingsButtonClick?.()} aria-label="Settings">
 			Settings
 		</button>
 		<div class="avatar-menu-shell">
@@ -299,14 +299,14 @@
 				class="tool-btn tool-btn-avatar"
 				class:is-active={avatarMenuOpen}
 				onclick={toggleAvatarMenu}
-				aria-label="РџСЂРѕС„РёР»СЊ"
+				aria-label="Profile"
 				aria-haspopup="menu"
 				aria-expanded={avatarMenuOpen}
 			>
 				{avatarLabel}
 			</button>
 			{#if avatarMenuOpen}
-				<div class="avatar-menu" role="menu" tabindex="0" aria-label="РњРµРЅСЋ РїСЂРѕС„РёР»СЏ" onkeydown={handleAvatarMenuKeydown}>
+				<div class="avatar-menu" role="menu" tabindex="0" aria-label="Profile menu" onkeydown={handleAvatarMenuKeydown}>
 					<div class="avatar-menu-header">
 						<strong>{avatarName}</strong>
 						<small>{avatarEmail}</small>
@@ -321,7 +321,7 @@
 						bind:this={avatarProfileButton}
 					>
 						<BaseIcon name="user" class="avatar-menu-item-icon" />
-						РџСЂРѕС„РёР»СЊ
+						Profile
 					</button>
 					<button
 						type="button"
@@ -332,7 +332,7 @@
 						bind:this={avatarSettingsButton}
 					>
 						<BaseIcon name="settings" class="avatar-menu-item-icon" />
-						РќР°СЃС‚СЂРѕР№РєРё
+						Settings
 					</button>
 					<button
 						type="button"
@@ -342,7 +342,7 @@
 						bind:this={avatarLogoutButton}
 					>
 						<BaseIcon name="x" class="avatar-menu-item-icon" />
-						Р’С‹С…РѕРґ
+						Log out
 					</button>
 				</div>
 			{/if}
@@ -354,25 +354,25 @@
 	.stylist-menu {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: var(--spacing-3);
 		width: min(100%, 78rem);
 	}
 
 	.menu-main {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		min-width: 0;
+		gap: var(--spacing-2);
+		min-width: var(--size-0);
 		flex: 1 1 auto;
 	}
 
 	.menu-left {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
-		min-width: 0;
+		gap: var(--spacing-1);
+		min-width: var(--size-0);
 		overflow-x: auto;
-		padding: 0.2rem;
+		padding: var(--spacing-1);
 		scrollbar-width: thin;
 	}
 
@@ -380,19 +380,19 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border: 1px solid rgba(148, 163, 184, 0.4);
-		border-radius: 0.8rem;
-		background: #ffffff;
-		color: #0f172a;
+		width: var(--spacing-10);
+		height: var(--spacing-10);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 40%, transparent);
+		border-radius: var(--border-radius-xl);
+		background: var(--color-background-primary);
+		color: var(--color-text-primary);
 		flex: 0 0 auto;
 	}
 
 	.menu-track {
 		display: flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 		flex: 0 0 auto;
 	}
 
@@ -407,14 +407,14 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: flex-start;
-		gap: 0.45rem;
-		width: 2.5rem;
-		height: 2.5rem;
-		padding: 0 0.7rem;
-		border: 1px solid rgba(148, 163, 184, 0.28);
-		border-radius: 0.8rem;
-		background: rgba(255, 255, 255, 0.88);
-		color: #0f172a;
+		gap: var(--spacing-2);
+		width: var(--spacing-10);
+		height: var(--spacing-10);
+		padding: 0 var(--spacing-3);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 28%, transparent);
+		border-radius: var(--border-radius-xl);
+		background: color-mix(in srgb, var(--color-background-primary) 88%, transparent);
+		color: var(--color-text-primary);
 		white-space: nowrap;
 		cursor: pointer;
 		overflow: hidden;
@@ -425,31 +425,31 @@
 	}
 
 	.menu-item:hover {
-		background: #ffffff;
-		border-color: rgba(59, 130, 246, 0.35);
+		background: var(--color-background-primary);
+		border-color: color-mix(in srgb, var(--color-primary-500) 35%, transparent);
 	}
 
 	.menu-item:focus-visible {
-		outline: 2px solid #2563eb;
+		outline: 2px solid var(--color-primary-600);
 		outline-offset: 2px;
 	}
 
 	.menu-item.is-expanded {
 		width: clamp(8.5rem, 16vw, 11rem);
-		border-color: rgba(37, 99, 235, 0.45);
-		background: #eff6ff;
+		border-color: color-mix(in srgb, var(--color-primary-600) 45%, transparent);
+		background: var(--color-primary-50);
 	}
 
 	.menu-text {
-		font-size: 0.8rem;
-		font-weight: 600;
-		opacity: 0;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
+		opacity: var(--opacity-0);
 		transform: translateX(-0.25rem);
-		transition: opacity 150ms ease, transform 150ms ease;
+		transition: opacity var(--duration-120) var(--animation-ease), transform var(--duration-150) var(--animation-ease);
 	}
 
 	.menu-item.is-expanded .menu-text {
-		opacity: 1;
+		opacity: var(--opacity-100);
 		transform: translateX(0);
 	}
 
@@ -459,29 +459,29 @@
 		left: 50%;
 		top: calc(100% + 0.35rem);
 		transform: translateX(-50%);
-		padding: 0.25rem 0.5rem;
-		border-radius: 0.4rem;
-		font-size: 0.72rem;
-		font-weight: 600;
-		background: #0f172a;
-		color: #f8fafc;
-		opacity: 0;
+		padding: var(--spacing-1) var(--spacing-2);
+		border-radius: var(--border-radius-md);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
+		background: var(--color-text-primary);
+		color: var(--color-text-inverse);
+		opacity: var(--opacity-0);
 		pointer-events: none;
-		transition: opacity 120ms ease;
-		z-index: 45;
+		transition: opacity var(--duration-120) var(--animation-ease);
+		z-index: var(--z-index-layer45);
 	}
 
 	.menu-item:hover::after {
-		opacity: 1;
+		opacity: var(--opacity-100);
 	}
 
 	.menu-item.is-expanded::after {
-		opacity: 0;
+		opacity: var(--opacity-0);
 	}
 
 	.menu-icon {
-		width: 1.05rem;
-		height: 1.05rem;
+		width: var(--size-custom105);
+		height: var(--size-custom105);
 		flex: 0 0 auto;
 	}
 
@@ -489,41 +489,41 @@
 		margin-left: auto;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 		flex: 0 0 auto;
 	}
 
 	.tool-btn {
-		height: 2.3rem;
-		padding: 0 0.7rem;
-		border: 1px solid rgba(148, 163, 184, 0.28);
-		border-radius: 0.75rem;
-		background: rgba(255, 255, 255, 0.92);
-		color: #0f172a;
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.02em;
+		height: var(--size-custom23);
+		padding: 0 var(--spacing-3);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 28%, transparent);
+		border-radius: var(--border-radius-xl);
+		background: color-mix(in srgb, var(--color-background-primary) 92%, transparent);
+		color: var(--color-text-primary);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-bold);
+		letter-spacing: var(--letter-spacing-normal);
 		cursor: pointer;
 	}
 
 	.tool-btn:hover {
-		border-color: rgba(37, 99, 235, 0.45);
-		background: #ffffff;
+		border-color: color-mix(in srgb, var(--color-primary-600) 45%, transparent);
+		background: var(--color-background-primary);
 	}
 
 	.tool-btn:focus-visible {
-		outline: 2px solid #2563eb;
+		outline: 2px solid var(--color-primary-600);
 		outline-offset: 2px;
 	}
 
 	.tool-btn-avatar {
-		min-width: 2.3rem;
-		padding: 0 0.5rem;
+		min-width: var(--size-custom23);
+		padding: 0 var(--spacing-2);
 	}
 
 	.tool-btn-avatar.is-active {
-		border-color: rgba(37, 99, 235, 0.55);
-		background: #eff6ff;
+		border-color: color-mix(in srgb, var(--color-primary-600) 55%, transparent);
+		background: var(--color-primary-50);
 	}
 
 	.avatar-menu-shell {
@@ -534,93 +534,93 @@
 		position: absolute;
 		right: 0;
 		top: calc(100% + 0.35rem);
-		min-width: 10rem;
+		min-width: var(--size-40);
 		display: grid;
-		gap: 0.2rem;
-		padding: 0.35rem;
-		border: 1px solid rgba(148, 163, 184, 0.35);
-		border-radius: 0.75rem;
-		background: #ffffff;
-		box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
-		z-index: 50;
+		gap: var(--spacing-1);
+		padding: var(--spacing-1);
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 35%, transparent);
+		border-radius: var(--border-radius-xl);
+		background: var(--color-background-primary);
+		box-shadow: var(--shadow-custom24);
+		z-index: var(--z-index-layer50);
 	}
 
 	.avatar-menu-item {
-		height: 2rem;
-		padding: 0 0.6rem;
+		height: var(--spacing-8);
+		padding: 0 var(--spacing-2);
 		border: none;
-		border-radius: 0.55rem;
+		border-radius: var(--border-radius-lg);
 		background: transparent;
-		color: #0f172a;
-		font-size: 0.78rem;
-		font-weight: 600;
+		color: var(--color-text-primary);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
 		text-align: left;
 		cursor: pointer;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.45rem;
+		gap: var(--spacing-2);
 	}
 
 	.avatar-menu-item:hover {
-		background: #f8fafc;
+		background: var(--color-background-secondary);
 	}
 
 	.avatar-menu-item.is-active {
-		background: #eff6ff;
-		color: #1d4ed8;
+		background: var(--color-primary-50);
+		color: var(--color-primary-700);
 	}
 
 	.avatar-menu-item:focus-visible {
-		outline: 2px solid #2563eb;
+		outline: 2px solid var(--color-primary-600);
 		outline-offset: 1px;
 	}
 
 	.avatar-menu-item-danger {
-		color: #b91c1c;
+		color: var(--color-danger-700);
 	}
 
 	.avatar-menu-header {
 		display: grid;
-		gap: 0.15rem;
-		padding: 0.35rem 0.6rem 0.2rem;
+		gap: var(--spacing-1);
+		padding: var(--spacing-1) var(--spacing-2) var(--spacing-1);
 	}
 
 	.avatar-menu-header strong {
-		font-size: 0.8rem;
-		color: #0f172a;
+		font-size: var(--font-size-3);
+		color: var(--color-text-primary);
 		line-height: 1.2;
 	}
 
 	.avatar-menu-header small {
-		font-size: 0.7rem;
-		color: #64748b;
+		font-size: var(--font-size-3);
+		color: var(--color-text-secondary);
 		line-height: 1.2;
 	}
 
 	.avatar-menu-divider {
 		height: 1px;
-		background: #e2e8f0;
-		margin: 0.15rem 0.15rem 0.25rem;
+		background: var(--color-border-secondary);
+		margin: var(--spacing-1) var(--spacing-1) var(--spacing-1);
 	}
 
 	.avatar-menu-item-icon {
-		width: 0.9rem;
-		height: 0.9rem;
+		width: var(--size-custom09);
+		height: var(--size-custom09);
 		flex: 0 0 auto;
 	}
 
 	@media (max-width: 920px) {
 		.stylist-menu {
-			gap: 0.5rem;
+			gap: var(--spacing-2);
 		}
 
 		.menu-item.is-expanded {
-			width: 8rem;
+			width: var(--size-32);
 		}
 
 		.tool-btn {
-			padding: 0 0.5rem;
-			font-size: 0.68rem;
+			padding: 0 var(--spacing-2);
+			font-size: var(--font-size-3);
 		}
 	}
 
@@ -630,3 +630,6 @@
 		}
 	}
 </style>
+
+
+

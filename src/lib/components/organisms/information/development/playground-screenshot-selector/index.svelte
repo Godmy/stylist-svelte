@@ -1,10 +1,10 @@
-﻿<script lang="ts">
+<script lang="ts">
   interface Props {
     drawingMode?: boolean;
     drawColor?: string;
   }
 
-  let { drawingMode = false, drawColor = '#ef4444' }: Props = $props();
+  let { drawingMode = false, drawColor = 'var(--color-error-500)' }: Props = $props();
 
   // Selection rectangle state
   let isSelecting = $state(false);
@@ -126,14 +126,14 @@
   .screenshot-overlay {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: var(--z-index-layer9999);
     cursor: crosshair;
   }
 
   .selection-rect {
     position: absolute;
-    border: 2px dashed var(--playground-accent, #ff6b35);
-    background: rgba(255, 107, 53, 0.1);
+    border: 2px dashed var(--playground-accent, var(--color-warning-500));
+    background: color-mix(in srgb, var(--color-warning-500) 10%, transparent);
     pointer-events: none;
   }
 
@@ -154,7 +154,7 @@
   onpointerdown={handlePointerDown}
   onpointermove={handlePointerMove}
   onpointerup={handlePointerUp}
-  style="background: rgba(0, 0, 0, {selectionFixed ? '0.3' : '0.5'});"
+  style="background: {selectionFixed ? 'color-mix(in srgb, var(--color-text-primary) 30%, transparent)' : 'color-mix(in srgb, var(--color-text-primary) 50%, transparent)'};"
 >
   <!-- Selection rectangle -->
   {#if (isSelecting || selectionFixed) && rect.width > 5 && rect.height > 5}
@@ -173,4 +173,5 @@
     ></canvas>
   {/if}
 </div>
+
 

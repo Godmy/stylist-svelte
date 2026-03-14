@@ -23,7 +23,7 @@ const Palette = 'palette';
   };
 
   let {
-    value = '#000000',
+    value = 'var(--color-text-primary)',
     class: hostClass = '',
     inputClass = '',
     pickerClass = '',
@@ -61,12 +61,12 @@ const Palette = 'palette';
 
 <div class={`color-picker-container ${hostClass}`}>
   <div class="flex items-center gap-3">
-    <label for="color-picker-input" class="block text-sm font-medium text-gray-700">
+    <label for="color-picker-input" class="block text-sm font-medium text-[var(--color-text-primary)]">
       {label || 'Color'}
     </label>
     <div class="flex items-center gap-2">
       <div
-        class={`w-8 h-8 rounded-md border border-gray-300 ${pickerClass}`}
+        class={`w-8 h-8 rounded-md border border-[var(--color-border-primary)] ${pickerClass}`}
         style={`background-color: ${selectedColor};`}
         role="button"
         tabindex="0"
@@ -75,7 +75,7 @@ const Palette = 'palette';
         <input
           id="color-picker-input"
           type="color"
-          class={`w-8 h-8 opacity-0 cursor-pointer ${inputClass}`}
+          class={`w-8 h-8 opacity-[var(--opacity-0)] cursor-pointer ${inputClass}`}
           value={selectedColor}
           oninput={handleInput}
           onchange={handleChange}
@@ -84,7 +84,7 @@ const Palette = 'palette';
       </div>
       <input
         type="text"
-        class={`w-24 px-3 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm ${inputClass}`}
+        class={`w-24 px-3 py-1 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] text-sm ${inputClass}`}
         value={selectedColor}
         oninput={handleInput}
         onchange={handleChange}
@@ -94,11 +94,15 @@ const Palette = 'palette';
   </div>
 
   {#if helperText}
-    <p class="mt-1 text-xs text-gray-500">{helperText}</p>
+    <p class="mt-1 text-xs text-[var(--color-text-secondary)]">{helperText}</p>
   {/if}
 
   {#if error}
-    <p class="mt-1 text-xs text-red-600">{error}</p>
+    <p class="mt-1 text-xs text-[var(--color-danger-600)]">{error}</p>
   {/if}
 </div>
+
+
+
+
 

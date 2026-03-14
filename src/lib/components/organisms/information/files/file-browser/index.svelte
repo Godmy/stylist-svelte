@@ -125,8 +125,8 @@ const ChevronDown = 'chevron-down';
   >
     <div 
       class={`flex items-center rounded-md px-3 py-2 text-sm cursor-pointer ${
-        selectedItem?.id === item.id ? 'bg-blue-100 text-blue-700' : 'hover:bg-gray-100'
-      } ${disabled ? 'opacity-50' : ''} ${itemClass}`}
+        selectedItem?.id === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'hover:bg-[var(--color-background-secondary)]'
+      } ${disabled ? 'opacity-[var(--opacity-50)]' : ''} ${itemClass}`}
       role="button"
       tabindex={disabled ? -1 : 0}
       onclick={() => {
@@ -152,7 +152,7 @@ const ChevronDown = 'chevron-down';
       {#if item.children}
         <button
           type="button"
-          class="flex h-5 w-5 items-center justify-center rounded hover:bg-gray-200 focus:outline-none mr-1"
+          class="flex h-5 w-5 items-center justify-center rounded hover:bg-[var(--color-background-tertiary)] focus:outline-none mr-1"
           aria-label={isExpanded(item.id) ? `Collapse ${item.name}` : `Expand ${item.name}`}
           onclick={(e) => {
             e.stopPropagation();
@@ -161,9 +161,9 @@ const ChevronDown = 'chevron-down';
           disabled={disabled}
         >
           {#if isExpanded(item.id)}
-            <BaseIcon name={ChevronDown} class="h-4 w-4 text-gray-600" />
+            <BaseIcon name={ChevronDown} class="h-4 w-4 text-[var(--color-text-secondary)]" />
           {:else}
-            <BaseIcon name={ChevronRight} class="h-4 w-4 text-gray-600" />
+            <BaseIcon name={ChevronRight} class="h-4 w-4 text-[var(--color-text-secondary)]" />
           {/if}
         </button>
       {:else}
@@ -173,19 +173,19 @@ const ChevronDown = 'chevron-down';
       <div class="flex items-center flex-1 min-w-0">
         {#if item.type === 'folder'}
           {#if isExpanded(item.id)}
-            <BaseIcon name={FolderOpen} class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
+            <BaseIcon name={FolderOpen} class="h-5 w-5 flex-shrink-0 text-[var(--color-primary-600)] mr-2" />
           {:else}
-            <BaseIcon name={Folder} class="h-5 w-5 flex-shrink-0 text-blue-600 mr-2" />
+            <BaseIcon name={Folder} class="h-5 w-5 flex-shrink-0 text-[var(--color-primary-600)] mr-2" />
           {/if}
         {:else}
-          <BaseIcon name={File} class="h-5 w-5 flex-shrink-0 text-gray-600 mr-2" />
+          <BaseIcon name={File} class="h-5 w-5 flex-shrink-0 text-[var(--color-text-secondary)] mr-2" />
         {/if}
 
         <span class="truncate">{item.name}</span>
       </div>
 
       {#if showItemCount && item.children}
-        <span class="ml-2 text-xs px-2 py-0.5 bg-gray-200 rounded-full">
+        <span class="ml-2 text-xs px-2 py-0.5 bg-[var(--color-background-tertiary)] rounded-full">
           {getItemCount(item)}
         </span>
       {/if}
@@ -200,4 +200,7 @@ const ChevronDown = 'chevron-down';
     {/if}
   </li>
 {/snippet}
+
+
+
 

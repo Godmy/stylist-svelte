@@ -159,32 +159,32 @@ const Dot = 'dot';
 </script>
 
 <div class={`store-locator ${hostClass}`} {...restProps}>
-  <div class={`border border-gray-200 rounded-lg p-6 mb-6 ${headerClass}`}>
+  <div class={`border border-[var(--color-border-primary)] rounded-lg p-6 mb-6 ${headerClass}`}>
     <div class="flex items-center">
-      <BaseIcon name={MapPin} class="h-6 w-6 text-blue-500 mr-3" />
-      <h2 class="text-xl font-bold text-gray-900">Find a Store</h2>
+      <BaseIcon name={MapPin} class="h-6 w-6 text-[var(--color-primary-500)] mr-3" />
+      <h2 class="text-xl font-bold text-[var(--color-text-primary)]">Find a Store</h2>
     </div>
     
-    <p class="mt-1 text-gray-600">Locate stores near you and check product availability</p>
+    <p class="mt-1 text-[var(--color-text-secondary)]">Locate stores near you and check product availability</p>
   </div>
   
   <div class="flex flex-col lg:flex-row gap-6">
     <!-- Search and filters -->
     <div class="lg:w-1/4">
-      <div class="border border-gray-200 rounded-lg p-4 mb-4">
+      <div class="border border-[var(--color-border-primary)] rounded-lg p-4 mb-4">
         {#if showSearch}
           <div class="mb-4">
-            <label for="store-search" class="block text-sm font-medium text-gray-700 mb-1">
+            <label for="store-search" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
               Search Location
             </label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+                <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
               </div>
               <input
                 id="store-search"
                 type="text"
-                class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`}
+                class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
                 placeholder="City, state, or ZIP code"
                 value={searchTerm}
                 oninput={handleSearchInput}
@@ -195,18 +195,18 @@ const Dot = 'dot';
         
         {#if showFilters}
           <div>
-            <h3 class="text-sm font-medium text-gray-900 mb-3">Filters</h3>
+            <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-3">Filters</h3>
             
             {#if enablePickupFilter}
               <div class="flex items-center mb-3">
                 <input
                   id="pickup-only"
                   type="checkbox"
-                  class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)] rounded"
                   checked={showPickupOnly}
                   onchange={handlePickupFilterChange}
                 />
-                <label for="pickup-only" class="ml-2 block text-sm text-gray-900">
+                <label for="pickup-only" class="ml-2 block text-sm text-[var(--color-text-primary)]">
                   Pickup Only
                 </label>
               </div>
@@ -214,18 +214,18 @@ const Dot = 'dot';
             
             {#if enableServiceFilter && availableServices.length > 0}
               <div class="mb-3">
-                <p class="block text-sm font-medium text-gray-900 mb-2">Services</p>
+                <p class="block text-sm font-medium text-[var(--color-text-primary)] mb-2">Services</p>
                 <div class="space-y-2">
                   {#each availableServices as service}
                     <div class="flex items-center">
                       <input
                         id={`service-${service}`}
                         type="checkbox"
-                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                        class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)] rounded"
                         checked={selectedService === service}
                         onchange={() => handleServiceFilterChange(service)}
                       />
-                      <label for={`service-${service}`} class="ml-2 block text-sm text-gray-900">
+                      <label for={`service-${service}`} class="ml-2 block text-sm text-[var(--color-text-primary)]">
                         {service}
                       </label>
                     </div>
@@ -235,7 +235,7 @@ const Dot = 'dot';
             {/if}
             
             <div>
-              <label for="search-radius" class="block text-sm font-medium text-gray-900 mb-1">Search Radius</label>
+              <label for="search-radius" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Search Radius</label>
               <div class="flex items-center">
                 <input
                   id="search-radius"
@@ -244,9 +244,9 @@ const Dot = 'dot';
                   max="100"
                   value={radius}
                   oninput={(e) => radius = parseInt((e.target as HTMLInputElement).value)}
-                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  class="w-full h-2 bg-[var(--color-background-tertiary)] rounded-lg appearance-none cursor-pointer"
                 />
-                <span class="ml-3 text-sm text-gray-700 min-w-[50px]">{radius} km</span>
+                <span class="ml-3 text-sm text-[var(--color-text-primary)] min-w-[50px]">{radius} km</span>
               </div>
             </div>
           </div>
@@ -257,27 +257,27 @@ const Dot = 'dot';
     <!-- Map section -->
     {#if showMap}
       <div class="lg:w-2/4">
-        <div class={`border border-gray-200 rounded-lg overflow-hidden ${mapClass}`}>
+        <div class={`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${mapClass}`}>
           <!-- Simplified map representation -->
-          <div class="relative h-96 w-full bg-blue-50">
+          <div class="relative h-96 w-full bg-[var(--color-primary-50)]">
             <!-- Grid lines to simulate map -->
             {#each Array(10) as _, i}
               <div 
-                class="absolute w-full h-px bg-gray-300 opacity-20"
+                class="absolute w-full h-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
                 style={`top: ${i * 10}%`}
               ></div>
               <div 
-                class="absolute h-full w-px bg-gray-300 opacity-20"
+                class="absolute h-full w-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-20)]"
                 style={`left: ${i * 10}%`}
               ></div>
             {/each}
             
             <!-- Water bodies simulation -->
-            <div class="absolute w-1/3 h-1/4 bg-blue-200 rounded-lg opacity-50" style="top: 20%; left: 30%;"></div>
+            <div class="absolute w-1/3 h-1/4 bg-[var(--color-primary-200)] rounded-lg opacity-[var(--opacity-50)]" style="top: 20%; left: 30%;"></div>
             
             <!-- Road simulation -->
-            <div class="absolute w-full h-1 bg-gray-400 opacity-40" style="top: 30%;"></div>
-            <div class="absolute h-full w-1 bg-gray-400 opacity-40" style="left: 40%;"></div>
+            <div class="absolute w-full h-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="top: 30%;"></div>
+            <div class="absolute h-full w-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="left: 40%;"></div>
             
             <!-- Store markers -->
             {#each filteredStores as store}
@@ -286,16 +286,16 @@ const Dot = 'dot';
               
               <button
                 type="button"
-                class="absolute transform -translate-x-1/2 -translate-y-1/2 z-10"
+                class="absolute transform -translate-x-1/2 -translate-y-1/2 z-[var(--z-index-docked)]"
                 style={`left: ${x}%; top: ${y}%;`}
                 onclick={() => handleStoreSelect(store)}
                 aria-label={`Select ${store.name}`}
               >
                 <div class="flex flex-col items-center">
-                  <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg border-2 border-white">
+                  <div class="w-8 h-8 rounded-full bg-[var(--color-primary-500)] flex items-center justify-center text-[var(--color-text-inverse)] shadow-lg border-2 border-[var(--color-background-primary)]">
                     <BaseIcon name={MapPin} class="h-4 w-4" />
                   </div>
-                  <div class="mt-1 text-xs bg-white px-2 py-1 rounded shadow whitespace-nowrap">
+                  <div class="mt-1 text-xs bg-[var(--color-background-primary)] px-2 py-1 rounded shadow whitespace-nowrap">
                     {store.name}
                   </div>
                 </div>
@@ -303,8 +303,8 @@ const Dot = 'dot';
             {/each}
             
             <!-- Current user position -->
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-              <div class="w-6 h-6 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[var(--z-index-docked)]">
+              <div class="w-6 h-6 rounded-full bg-[var(--color-danger-500)] flex items-center justify-center text-[var(--color-text-inverse)] shadow-lg">
                 <BaseIcon name={Dot} class="h-3 w-3" />
               </div>
             </div>
@@ -315,46 +315,46 @@ const Dot = 'dot';
     
     <!-- Store list -->
     <div class={`${showMap ? 'lg:w-1/4' : 'lg:w-3/4'}`}>
-      <div class="border border-gray-200 rounded-lg overflow-hidden">
+      <div class="border border-[var(--color-border-primary)] rounded-lg overflow-hidden">
         {#if filteredStores.length === 0}
           <div class="text-center py-12">
-            <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-gray-400" />
-            <h3 class="mt-2 text-sm font-medium text-gray-900">No stores found</h3>
-            <p class="mt-1 text-sm text-gray-500">Try adjusting your search or moving the map.</p>
+            <BaseIcon name={MapPin} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" />
+            <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No stores found</h3>
+            <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Try adjusting your search or moving the map.</p>
           </div>
         {:else}
           <ul class="divide-y divide-gray-200 max-h-96 overflow-y-auto">
             {#each filteredStores as store}
-              <li class={`p-4 hover:bg-gray-50 ${storeClass}`}>
+              <li class={`p-4 hover:bg-[var(--color-background-secondary)] ${storeClass}`}>
                 <div class="flex justify-between">
                   <div>
-                    <h3 class="text-sm font-medium text-gray-900">{store.name}</h3>
-                    <p class="mt-1 text-xs text-gray-500">{store.address}, {store.city}, {store.state} {store.zipCode}</p>
+                    <h3 class="text-sm font-medium text-[var(--color-text-primary)]">{store.name}</h3>
+                    <p class="mt-1 text-xs text-[var(--color-text-secondary)]">{store.address}, {store.city}, {store.state} {store.zipCode}</p>
                     
                     <div class="mt-2 flex items-center">
                       {#if showRating}
                         <div class="flex items-center">
                           <BaseIcon name={Star} class="h-4 w-4 text-yellow-400 fill-current" />
-                          <span class="ml-1 text-xs text-gray-600">{store.rating.toFixed(1)}</span>
+                          <span class="ml-1 text-xs text-[var(--color-text-secondary)]">{store.rating.toFixed(1)}</span>
                         </div>
                       {/if}
                       
                       {#if showDistance}
-                        <div class="ml-3 flex items-center text-xs text-gray-500">
-                          <BaseIcon name={Navigation} class="h-3 w-3 mr-1 text-gray-400" />
+                        <div class="ml-3 flex items-center text-xs text-[var(--color-text-secondary)]">
+                          <BaseIcon name={Navigation} class="h-3 w-3 mr-1 text-[var(--color-text-tertiary)]" />
                           {formatDistance(store.distance)}
                         </div>
                       {/if}
                       
                       {#if store.pickupAvailable}
-                        <span class="ml-3 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <span class="ml-3 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
                           Pickup Available
                         </span>
                       {/if}
                     </div>
                     
                     {#if showHours}
-                      <div class="mt-2 flex items-center text-xs text-gray-500">
+                      <div class="mt-2 flex items-center text-xs text-[var(--color-text-secondary)]">
                         <BaseIcon name={Clock} class="h-3 w-3 mr-1" />
                         {store.hours}
                       </div>
@@ -363,7 +363,7 @@ const Dot = 'dot';
                     {#if showServices && store.services && store.services.length > 0}
                       <div class="mt-2 flex flex-wrap gap-1">
                         {#each store.services as service}
-                          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                          <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                             {service}
                           </span>
                         {/each}
@@ -390,12 +390,17 @@ const Dot = 'dot';
         {/if}
       </div>
       
-      <div class="mt-4 text-sm text-gray-500 text-center">
+      <div class="mt-4 text-sm text-[var(--color-text-secondary)] text-center">
         Showing {filteredStores.length} of {stores.length} stores
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+
 
 
 

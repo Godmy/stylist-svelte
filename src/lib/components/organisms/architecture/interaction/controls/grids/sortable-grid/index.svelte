@@ -5,7 +5,8 @@
 const GripVertical = 'grip-vertical';
 
   import { SortableGridStyleManager } from '$stylist/design-system/styles';
-  import type { SortableGridProps, SortableGridItem, GridItem } from '$stylist/design-system/contracts';
+  import type { SortableGridProps, SortableGridItem } from '$stylist/design-system/contracts/information/sortable-grid';
+  import type { GridItem } from '$stylist/design-system/types/architecture/layout';
 
   let {
     items = [],
@@ -157,4 +158,6 @@ const GripVertical = 'grip-vertical';
     {/each}
   </div>
 </div>
+
+
 

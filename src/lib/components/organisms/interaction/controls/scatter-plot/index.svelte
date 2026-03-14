@@ -32,12 +32,12 @@
     <svg width={width} height={height}>
       {#if showGrid}
         {#each Array(5).fill(0) as _, i}
-          <line x1="50" y1={10 + i * (chartHeight / 4)} x2={width - 20} y2={10 + i * (chartHeight / 4)} stroke="#e5e7eb" stroke-width="1" />
+          <line x1="50" y1={10 + i * (chartHeight / 4)} x2={width - 20} y2={10 + i * (chartHeight / 4)} stroke="var(--color-border-primary)" stroke-width="1" />
         {/each}
       {/if}
       {#if showAxis}
-        <line x1="50" y1={height - 30} x2={width - 20} y2={height - 30} stroke="#9ca3af" />
-        <line x1="50" y1="10" x2="50" y2={height - 30} stroke="#9ca3af" />
+        <line x1="50" y1={height - 30} x2={width - 20} y2={height - 30} stroke="var(--color-text-secondary)" />
+        <line x1="50" y1="10" x2="50" y2={height - 30} stroke="var(--color-text-secondary)" />
       {/if}
       {#each data as d}
         <g
@@ -51,7 +51,7 @@
             }
           }}
         >
-          <circle cx={pointX(d.x)} cy={pointY(d.y)} r={d.size || pointSize} fill={d.color || '#3b82f6'} />
+          <circle cx={pointX(d.x)} cy={pointY(d.y)} r={d.size || pointSize} fill={d.color || 'var(--color-primary-500)'} />
           {#if showLabels && d.name}
             <text x={pointX(d.x)} y={pointY(d.y) - 8} text-anchor="middle" font-size="10">{d.name}</text>
           {/if}
@@ -60,7 +60,10 @@
     </svg>
   </div>
   {#if showLegend}
-    <div class="mt-2 text-xs text-gray-600">X max: {Math.round(maxX)}, Y max: {Math.round(maxY)}</div>
+    <div class="mt-2 text-xs text-[var(--color-text-secondary)]">X max: {Math.round(maxX)}, Y max: {Math.round(maxY)}</div>
   {/if}
 </div>
+
+
+
 

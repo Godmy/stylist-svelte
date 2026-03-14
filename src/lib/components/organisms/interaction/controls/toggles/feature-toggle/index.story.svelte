@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import FeatureToggle from './index.svelte';
   type Props={checked:boolean;disabled:boolean};
   const controls: ControlConfig[]=[{name:'checked',type:'boolean',defaultValue:true},{name:'disabled',type:'boolean',defaultValue:false}];
@@ -11,4 +11,6 @@
     <div class="sb-organisms-feature-toggle p-4"><FeatureToggle checked={p.checked} disabled={p.disabled} /></div>
   {/snippet}
 </Story>
+
+
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/contracts/information/event-calendar';
+import type { CalendarEvent, CalendarDay, CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
   import type { HTMLAttributes } from 'svelte/elements';
@@ -304,7 +304,7 @@ This component follows SOLID principles:
           {/each}
         {/if}
         {#each days as day}
-          <div class="border-r border-[--color-border-default]">
+          <div class="border-r border-[--color-border-primary]">
             <div class={EventCalendarStyleManager.getDateHeaderClasses(day.isToday)}>
               {day.date.toLocaleDateString('en-US', { weekday: 'short' })}, {day.date.getDate()}
             </div>
@@ -326,12 +326,12 @@ This component follows SOLID principles:
                   >
                     {event.title}
                     {#if showEventDuration && !event.allDay}
-                      <span class="text-[--text-size-xs] text-[--color-text-muted] ml-1">
+                      <span class="text-[--text-size-xs] text-[--color-text-secondary] ml-1">
                         ({formatTimeRange(event.start, event.end)})
                       </span>
                     {/if}
                     {#if showEventDuration && event.allDay}
-                      <span class="text-[--text-size-xs] text-[--color-text-muted] ml-1"> (all day)</span>
+                      <span class="text-[--text-size-xs] text-[--color-text-secondary] ml-1"> (all day)</span>
                     {/if}
                   </div>
                 {/each}
@@ -383,7 +383,7 @@ This component follows SOLID principles:
                   >
                     {event.title}
                     {#if showEventDuration && event.allDay}
-                      <span class="text-[--text-size-xs] text-[--color-text-muted] ml-1"> (all day)</span>
+                      <span class="text-[--text-size-xs] text-[--color-text-secondary] ml-1"> (all day)</span>
                     {/if}
                   </div>
                 {/each}
@@ -403,7 +403,7 @@ This component follows SOLID principles:
           <h3 class="text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">{selectedEvent.title}</h3>
           <button
             onclick={() => showEventActions = false}
-            class="text-[--color-text-muted] hover:text-[--color-text-primary]"
+            class="text-[--color-text-secondary] hover:text-[--color-text-primary]"
           >
             вњ•
           </button>
@@ -411,7 +411,7 @@ This component follows SOLID principles:
 
         <div class="py-[--spacing-sm]">
           <p class="text-[--text-size-sm] text-[--color-text-secondary]">{selectedEvent.description}</p>
-          <div class="mt-[--spacing-sm] text-[--text-size-xs] text-[--color-text-muted]">
+          <div class="mt-[--spacing-sm] text-[--text-size-xs] text-[--color-text-secondary]">
             <p>Start: {selectedEvent.start.toLocaleString()}</p>
             <p>End: {selectedEvent.end.toLocaleString()}</p>
             {#if selectedEvent.location}
@@ -434,5 +434,9 @@ This component follows SOLID principles:
     </div>
   {/if}
 </div>
+
+
+
+
 
 

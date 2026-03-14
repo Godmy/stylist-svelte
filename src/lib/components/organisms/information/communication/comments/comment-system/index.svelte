@@ -11,7 +11,8 @@ const Trash2 = 'trash-2';
 const UserIcon = 'user';
 
   import { Button } from '$lib/components/atoms';
-  import type { CommentItem, CommentSystemProps } from '$lib/design-system/contracts/information/comment-system';
+  import type { CommentSystemProps } from '$lib/design-system/contracts/information/comment-system';
+  import type { CommentItem } from '$lib/design-system/types/information/comment-system';
   import { CommentSystemStyleManager } from '$lib/design-system/styles/information/comment-system';
 
   let {
@@ -231,4 +232,6 @@ const UserIcon = 'user';
     </div>
   </div>
 </div>
+
+
 

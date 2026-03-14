@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronRight = 'chevron-right';
 const Folder = 'folder';
@@ -86,12 +86,12 @@ const FileCode = 'file-code';
   <div class="space-y-0.5">
     <button
       onclick={() => onToggle(node.path)}
-      class="w-full flex items-center gap-2 pr-2 py-2 rounded-lg transition-all duration-200 hover:bg-gray-100 dark:hover:bg-gray-800 group"
+      class="w-full flex items-center gap-2 pr-2 py-2 rounded-lg transition-all duration-[var(--duration-200)] hover:bg-gray-100 dark:hover:bg-gray-800 group"
       class:focused={isFocused}
       style="padding-left: 0px"
     >
       <!-- Chevron -->
-      <div class="flex-shrink-0 w-3.5 transition-transform duration-200 {isExpanded ? 'rotate-90' : ''}">
+      <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {isExpanded ? 'rotate-90' : ''}">
         <BaseIcon name={ChevronRight} class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
       </div>
 
@@ -149,7 +149,7 @@ const FileCode = 'file-code';
         }
       }}
       style={leftPadding}
-      class="folder-node w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
+      class="folder-node w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-[var(--duration-200)] hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
       class:auto-selectable={isAutoSelectable}
       class:auto-selected={isAutoSelectable && node.autoStory?.id === selectedStoryId}
       class:focused={isFocused}
@@ -157,22 +157,22 @@ const FileCode = 'file-code';
     >
       <!-- Chevron -->
       {#if !isAutoSelectable}
-        <div class="flex-shrink-0 w-3.5 transition-transform duration-200 {isExpanded ? 'rotate-90' : ''}">
+        <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {isExpanded ? 'rotate-90' : ''}">
           <BaseIcon name={ChevronRight} class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
         </div>
       {:else}
         <div class="flex-shrink-0 w-3.5">
-          <span class="inline-flex w-2 h-2 rounded-full bg-[var(--playground-accent,#FF6B35)]"></span>
+          <span class="inline-flex w-2 h-2 rounded-full bg-[var(--playground-accent,var(--color-warning-500))]"></span>
         </div>
       {/if}
 
       <!-- Folder Icon -->
       <div class="flex-shrink-0 w-3.5">
         {#if isAutoSelectable}
-          <BaseIcon name={Folder} class="w-3.5 h-3.5 text-[var(--playground-accent,#FF6B35)]" />
+          <BaseIcon name={Folder} class="w-3.5 h-3.5 text-[var(--playground-accent,var(--color-warning-500))]" />
         {:else}
           {#if isExpanded}
-            <BaseIcon name={FolderOpen} class="w-3.5 h-3.5 {config.color} opacity-70" />
+            <BaseIcon name={FolderOpen} class="w-3.5 h-3.5 {config.color} opacity-[var(--opacity-70)]" />
           {:else}
             <BaseIcon name={Folder} class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
           {/if}
@@ -219,7 +219,7 @@ const FileCode = 'file-code';
   <button
     onclick={() => onComponentClick(node.story!)}
     style={leftPadding}
-    class="component-node w-full flex items-center gap-2 pr-2 pl-1 py-1.5 text-xs rounded-md border border-transparent transition-all duration-150 group text-gray-600 dark:text-gray-400"
+    class="component-node w-full flex items-center gap-2 pr-2 pl-1 py-1.5 text-xs rounded-md border border-transparent transition-all duration-[var(--duration-150)] group text-gray-600 dark:text-gray-400"
     class:selected={isSelected}
     class:focused={isFocused}
     aria-current={isSelected ? 'true' : undefined}
@@ -227,7 +227,7 @@ const FileCode = 'file-code';
     <span class="component-indicator" aria-hidden="true"></span>
     <div class="flex items-center gap-2 flex-1 min-w-0">
       <div class="flex-shrink-0 w-3.5">
-        <BaseIcon name={FileCode} class="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity" />
+        <BaseIcon name={FileCode} class="w-3.5 h-3.5 opacity-[var(--opacity-40)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
       </div>
       <span class="flex-1 text-left truncate font-medium min-w-0">
         {node.name}
@@ -242,25 +242,23 @@ const FileCode = 'file-code';
   }
 
   .component-node.selected {
-    color: var(--playground-accent, #FF6B35);
-    background-color: var(--playground-accent-surface, rgba(255, 107, 53, 0.12));
-    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 45%, transparent);
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--playground-accent, #FF6B35) 35%, transparent),
-      0 12px 25px var(--playground-accent-shadow, rgba(255, 107, 53, 0.2));
+    color: var(--playground-accent, var(--color-warning-500));
+    background-color: var(--playground-accent-surface, color-mix(in srgb, var(--color-warning-500) 12%, transparent));
+    border-color: color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 45%, transparent);
+    box-shadow: var(--shadow-custom06);
   }
 
   .component-indicator {
-    width: 0.35rem;
-    height: 1.25rem;
-    border-radius: 9999px;
+    width: var(--size-custom035);
+    height: var(--spacing-5);
+    border-radius: var(--border-radius-full);
     background-color: transparent;
-    transition: background-color 120ms ease;
+    transition: background-color var(--duration-120) var(--animation-ease);
     flex-shrink: 0;
   }
 
   .component-node.selected .component-indicator {
-    background-color: var(--playground-accent, #FF6B35);
+    background-color: var(--playground-accent, var(--color-warning-500));
   }
 
   .folder-node.auto-selectable {
@@ -268,30 +266,31 @@ const FileCode = 'file-code';
   }
 
   .folder-node.auto-selected {
-    background-color: var(--playground-accent-surface, rgba(255, 107, 53, 0.12));
-    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 30%, transparent);
-    color: var(--playground-accent, #FF6B35);
-    box-shadow:
-      0 0 0 1px color-mix(in srgb, var(--playground-accent, #FF6B35) 12%, transparent),
-      0 10px 20px -6px var(--playground-accent-shadow, rgba(255, 107, 53, 0.18));
+    background-color: var(--playground-accent-surface, color-mix(in srgb, var(--color-warning-500) 12%, transparent));
+    border-color: color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 30%, transparent);
+    color: var(--playground-accent, var(--color-warning-500));
+    box-shadow: var(--shadow-custom05);
   }
 
   .folder-node.auto-selectable:hover {
-    border-color: color-mix(in srgb, var(--playground-accent, #FF6B35) 25%, transparent);
+    border-color: color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 25%, transparent);
   }
 
   /* Keyboard navigation focus styles */
   button.focused {
-    background-color: rgba(59, 130, 246, 0.1);
-    outline: 2px solid rgba(59, 130, 246, 0.5);
+    background-color: color-mix(in srgb, var(--color-primary-500) 10%, transparent);
+    outline: 2px solid color-mix(in srgb, var(--color-primary-500) 50%, transparent);
     outline-offset: -2px;
   }
 
   :global(.dark) button.focused {
-    background-color: rgba(59, 130, 246, 0.15);
-    outline-color: rgba(59, 130, 246, 0.6);
+    background-color: color-mix(in srgb, var(--color-primary-500) 15%, transparent);
+    outline-color: color-mix(in srgb, var(--color-primary-500) 60%, transparent);
   }
 </style>
+
+
+
 
 
 

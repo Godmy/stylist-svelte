@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { LineChartStyleManager } from '$stylist/design-system/styles/architecture/line-chart';
   import { Icon } from '$stylist/components/atoms';
@@ -53,7 +53,7 @@
     colorScheme = 'default',
     maxValue,
     showAxis = true,
-    axisColor = '#E5E7EB',
+    axisColor = 'var(--color-border-secondary)',
     smooth = true,
     strokeWidth = 2,
     onPointClick,
@@ -64,7 +64,7 @@
     ...restProps
   }: ILineChartProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // РћРїСЂРµРґРµР»СЏРµРј СЃС‚РёР»Рё
+  // Определяем стили
   const baseClasses = $derived(`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(variant)} ${hostClass}`);
   const titleContainerClasses = $derived(LineChartStyleManager.getTitleContainerClasses());
   const titleClasses = $derived(LineChartStyleManager.getTitleClasses());
@@ -123,10 +123,35 @@
   // Get default color based on index and scheme
   function getDefaultColor(index: number, scheme: string): string {
     const schemes: Record<string, string[]> = {
-      default: ['#3B82F6', '#10B981', '#EF4444', '#F59E0B', '#8B5CF6', '#EC4899'],
-      warm: ['#F87171', '#FB923C', '#FBBF24', '#FCD34D', '#FDE68A'],
-      cool: ['#60A5FA', '#34D399', '#6EE7B7', '#93C5FD', '#BFDBFE'],
-      neutral: ['#6B7280', '#9CA3AF', '#D1D5DB', '#E5E7EB', '#F3F4F6']
+      default: [
+        'var(--color-primary-500)',
+        'var(--color-success-500)',
+        'var(--color-error-500)',
+        'var(--color-warning-500)',
+        'var(--color-secondary-500)',
+        'var(--color-danger-500)'
+      ],
+      warm: [
+        'var(--color-danger-400)',
+        'var(--color-warning-500)',
+        'var(--color-warning-400)',
+        'var(--color-warning-300)',
+        'var(--color-warning-200)'
+      ],
+      cool: [
+        'var(--color-primary-400)',
+        'var(--color-success-400)',
+        'var(--color-success-300)',
+        'var(--color-info-400)',
+        'var(--color-info-300)'
+      ],
+      neutral: [
+        'var(--color-text-tertiary)',
+        'var(--color-text-secondary)',
+        'var(--color-border-secondary)',
+        'var(--color-border-primary)',
+        'var(--color-background-tertiary)'
+      ]
     };
 
     const colorList = schemes[scheme] || schemes.default;
@@ -181,7 +206,7 @@
             y={height - 15 - (i * (chartHeight / 4))}
             text-anchor="end"
             font-size="10"
-            fill="#6B7280"
+            fill="var(--color-text-secondary)"
           >
             {Math.round(val)}
           </text>
@@ -204,7 +229,7 @@
               y={height - 5}
               text-anchor="middle"
               font-size="10"
-              fill="#6B7280"
+              fill="var(--color-text-secondary)"
             >
               {item.name}
             </text>
@@ -219,7 +244,7 @@
           fill="none"
           stroke={series.color || getDefaultColor(seriesIndex, colorScheme)}
           stroke-width={strokeWidth}
-          class="transition-all duration-300 ease-in-out"
+          class="transition-all duration-[var(--duration-300)] ease-in-out"
         />
 
         <!-- Points -->
@@ -231,7 +256,7 @@
             cy={y}
             r={hoveredPoint?.seriesIndex === seriesIndex && hoveredPoint?.pointIndex === pointIndex ? 6 : 4}
             fill={series.color || getDefaultColor(seriesIndex, colorScheme)}
-            class="cursor-pointer transition-all duration-200 ease-in-out"
+            class="cursor-pointer transition-all duration-[var(--duration-200)] ease-in-out"
             onclick={() => onPointClick?.(point, series)}
             onkeydown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
@@ -264,6 +289,8 @@
     </div>
   {/if}
 </div>
+
+
 
 
 

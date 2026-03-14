@@ -76,13 +76,13 @@ const Activity = 'activity';
   const bestVariant = getBestVariant(testResults);
 </script>
 
-<div class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${className}`}>
+<div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`}>
   <div class={`border-b px-6 py-5 ${headerClass}`}>
     <div class="flex items-center">
-      <BaseIcon name={BarChart3} class="h-6 w-6 text-gray-500 mr-2" />
-      <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+      <BaseIcon name={BarChart3} class="h-6 w-6 text-[var(--color-text-secondary)] mr-2" />
+      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
     </div>
-    <p class="mt-1 text-sm text-gray-500">{description}</p>
+    <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{description}</p>
   </div>
 
   <div class={`p-6 ${resultsClass}`}>
@@ -90,14 +90,14 @@ const Activity = 'activity';
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
-          <div class="p-2 rounded-md bg-blue-100">
-            <BaseIcon name={Activity} class="h-5 w-5 text-blue-600" />
+          <div class="p-2 rounded-md bg-[var(--color-primary-100)]">
+            <BaseIcon name={Activity} class="h-5 w-5 text-[var(--color-primary-600)]" />
           </div>
           <div class="ml-4">
-            <p class="text-sm font-medium text-gray-500">Test Status</p>
+            <p class="text-sm font-medium text-[var(--color-text-secondary)]">Test Status</p>
             <p class={`text-xl font-semibold ${
-              testOverview.status === 'completed' ? 'text-green-600' :
-              testOverview.status === 'running' ? 'text-blue-600' : 'text-yellow-600'
+              testOverview.status === 'completed' ? 'text-[var(--color-success-600)]' :
+              testOverview.status === 'running' ? 'text-[var(--color-primary-600)]' : 'text-yellow-600'
             }`}>
               {testOverview.status.charAt(0).toUpperCase() + testOverview.status.slice(1)}
             </p>
@@ -107,36 +107,36 @@ const Activity = 'activity';
 
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
-          <div class="p-2 rounded-md bg-blue-100">
-            <BaseIcon name={Users} class="h-5 w-5 text-blue-600" />
+          <div class="p-2 rounded-md bg-[var(--color-primary-100)]">
+            <BaseIcon name={Users} class="h-5 w-5 text-[var(--color-primary-600)]" />
           </div>
           <div class="ml-4">
-            <p class="text-sm font-medium text-gray-500">Total Visitors</p>
-            <p class="text-xl font-semibold text-gray-900">{totalVisitors.toLocaleString()}</p>
+            <p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Visitors</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{totalVisitors.toLocaleString()}</p>
           </div>
         </div>
       </div>
 
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
-          <div class="p-2 rounded-md bg-green-100">
-            <BaseIcon name={CheckCircle} class="h-5 w-5 text-green-600" />
+          <div class="p-2 rounded-md bg-[var(--color-success-100)]">
+            <BaseIcon name={CheckCircle} class="h-5 w-5 text-[var(--color-success-600)]" />
           </div>
           <div class="ml-4">
-            <p class="text-sm font-medium text-gray-500">Total Conversions</p>
-            <p class="text-xl font-semibold text-gray-900">{totalConversions.toLocaleString()}</p>
+            <p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Conversions</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{totalConversions.toLocaleString()}</p>
           </div>
         </div>
       </div>
 
       <div class="border rounded-lg p-4">
         <div class="flex items-center">
-          <div class="p-2 rounded-md bg-purple-100">
-            <BaseIcon name={TrendingUp} class="h-5 w-5 text-purple-600" />
+          <div class="p-2 rounded-md bg-[var(--color-secondary-100)]">
+            <BaseIcon name={TrendingUp} class="h-5 w-5 text-[var(--color-secondary-600)]" />
           </div>
           <div class="ml-4">
-            <p class="text-sm font-medium text-gray-500">Overall CR</p>
-            <p class="text-xl font-semibold text-gray-900">{overallConversionRate.toFixed(2)}%</p>
+            <p class="text-sm font-medium text-[var(--color-text-secondary)]">Overall CR</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{overallConversionRate.toFixed(2)}%</p>
           </div>
         </div>
       </div>
@@ -144,21 +144,21 @@ const Activity = 'activity';
 
     <!-- Variants Detail -->
     <div class="mb-8">
-      <h4 class="text-md font-medium text-gray-900 mb-4">Variant Performance</h4>
+      <h4 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Variant Performance</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {#each testResults as result}
           <div class={`border rounded-lg p-5 ${
-            result.status === 'winning' ? 'border-green-500 ring-2 ring-green-200' :
-            result.status === 'losing' ? 'border-red-500' : 'border-gray-200'
+            result.status === 'winning' ? 'border-[var(--color-success-500)] ring-2 ring-green-200' :
+            result.status === 'losing' ? 'border-[var(--color-danger-500)]' : 'border-[var(--color-border-primary)]'
           }`}>
             <div class={`flex justify-between items-start ${
-              result.status === 'winning' ? 'text-green-700' : 
-              result.status === 'losing' ? 'text-red-700' : 'text-gray-900'
+              result.status === 'winning' ? 'text-[var(--color-success-700)]' : 
+              result.status === 'losing' ? 'text-[var(--color-danger-700)]' : 'text-[var(--color-text-primary)]'
             }`}>
               <h5 class="font-medium text-lg">{result.variantName}</h5>
               <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                result.status === 'winning' ? 'bg-green-100 text-green-800' :
-                result.status === 'losing' ? 'bg-red-100 text-red-800' : 'bg-gray-100 text-gray-800'
+                result.status === 'winning' ? 'bg-[var(--color-success-100)] text-[var(--color-success-800)]' :
+                result.status === 'losing' ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]' : 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
               }`}>
                 {result.status.charAt(0).toUpperCase() + result.status.slice(1)}
               </span>
@@ -166,25 +166,25 @@ const Activity = 'activity';
             
             <div class="mt-4 space-y-3">
               <div class="flex justify-between">
-                <span class="text-sm text-gray-500">Visitors</span>
-                <span class="text-sm font-medium text-gray-900">{result.visitors.toLocaleString()}</span>
+                <span class="text-sm text-[var(--color-text-secondary)]">Visitors</span>
+                <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.visitors.toLocaleString()}</span>
               </div>
               
               <div class="flex justify-between">
-                <span class="text-sm text-gray-500">Conversions</span>
-                <span class="text-sm font-medium text-gray-900">{result.conversions.toLocaleString()}</span>
+                <span class="text-sm text-[var(--color-text-secondary)]">Conversions</span>
+                <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.conversions.toLocaleString()}</span>
               </div>
               
               <div class="flex justify-between">
-                <span class="text-sm text-gray-500">Conversion Rate</span>
-                <span class="text-sm font-medium text-gray-900">{result.conversionRate.toFixed(2)}%</span>
+                <span class="text-sm text-[var(--color-text-secondary)]">Conversion Rate</span>
+                <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.conversionRate.toFixed(2)}%</span>
               </div>
               
               {#if result.improvement !== 0}
                 <div class="flex justify-between">
-                  <span class="text-sm text-gray-500">Improvement</span>
+                  <span class="text-sm text-[var(--color-text-secondary)]">Improvement</span>
                   <span class={`text-sm font-medium ${
-                    result.improvement > 0 ? 'text-green-600' : 'text-red-600'
+                    result.improvement > 0 ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'
                   }`}>
                     {result.improvement > 0 ? '+' : ''}{result.improvement.toFixed(2)}%
                   </span>
@@ -193,10 +193,10 @@ const Activity = 'activity';
               
               {#if showStatisticalSignificance}
                 <div class="flex justify-between">
-                  <span class="text-sm text-gray-500">Significance</span>
+                  <span class="text-sm text-[var(--color-text-secondary)]">Significance</span>
                   <span class={`text-sm font-medium ${
-                    result.statisticalSignificance >= 95 ? 'text-green-600' : 
-                    result.statisticalSignificance >= 90 ? 'text-yellow-600' : 'text-red-600'
+                    result.statisticalSignificance >= 95 ? 'text-[var(--color-success-600)]' : 
+                    result.statisticalSignificance >= 90 ? 'text-yellow-600' : 'text-[var(--color-danger-600)]'
                   }`}>
                     {result.statisticalSignificance.toFixed(1)}%
                   </span>
@@ -211,21 +211,21 @@ const Activity = 'activity';
     <!-- Charts -->
     {#if showCharts}
       <div class={`border rounded-lg p-4 mb-8 ${chartClass}`}>
-        <h4 class="text-md font-medium text-gray-900 mb-4">Performance Visualization</h4>
+        <h4 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Performance Visualization</h4>
         
         <!-- Conversion Rate Chart -->
         <div class="mb-6">
-          <h5 class="text-sm font-medium text-gray-700 mb-2">Conversion Rates by Variant</h5>
+          <h5 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Conversion Rates by Variant</h5>
           <div class="flex items-end h-32 space-x-2">
             {#each testResults as result}
               <div class="flex flex-col items-center flex-1">
                 <div 
-                  class="w-full bg-blue-500 rounded-t hover:bg-blue-600 transition-colors"
-                  style={`height: ${result.conversionRate * 2}px; min-height: 4px;`}
+                  class="w-full bg-[var(--color-primary-500)] rounded-t hover:bg-[var(--color-primary-600)] transition-colors"
+                  style={`height: ${result.conversionRate * 2}px; min-height: var(--spacing-1);`}
                   title={`${result.variantName}: ${result.conversionRate.toFixed(2)}%`}
                 ></div>
-                <span class="text-xs text-gray-600 mt-2">{result.variantName}</span>
-                <span class="text-xs text-gray-900">{result.conversionRate.toFixed(2)}%</span>
+                <span class="text-xs text-[var(--color-text-secondary)] mt-2">{result.variantName}</span>
+                <span class="text-xs text-[var(--color-text-primary)]">{result.conversionRate.toFixed(2)}%</span>
               </div>
             {/each}
           </div>
@@ -234,7 +234,7 @@ const Activity = 'activity';
         <!-- Statistical Significance Chart -->
         {#if showStatisticalSignificance}
           <div>
-            <h5 class="text-sm font-medium text-gray-700 mb-2">Statistical Significance</h5>
+            <h5 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Statistical Significance</h5>
             <div class="space-y-4">
               {#each testResults as result}
                 <div>
@@ -242,11 +242,11 @@ const Activity = 'activity';
                     <span>{result.variantName}</span>
                     <span>{result.statisticalSignificance.toFixed(1)}%</span>
                   </div>
-                  <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="w-full bg-[var(--color-background-tertiary)] rounded-full h-2.5">
                     <div 
                       class={`h-2.5 rounded-full ${
-                        result.statisticalSignificance >= 95 ? 'bg-green-500' : 
-                        result.statisticalSignificance >= 90 ? 'bg-yellow-500' : 'bg-red-500'
+                        result.statisticalSignificance >= 95 ? 'bg-[var(--color-success-500)]' : 
+                        result.statisticalSignificance >= 90 ? 'bg-yellow-500' : 'bg-[var(--color-danger-500)]'
                       }`}
                       style={`width: ${result.statisticalSignificance}%`}
                     ></div>
@@ -261,14 +261,14 @@ const Activity = 'activity';
 
     <!-- Recommendation -->
     {#if bestVariant}
-      <div class="border rounded-lg p-4 bg-blue-50">
+      <div class="border rounded-lg p-4 bg-[var(--color-primary-50)]">
         <div class="flex items-start">
           <div class="flex-shrink-0">
-            <BaseIcon name={CheckCircle} class="h-5 w-5 text-blue-400" />
+            <BaseIcon name={CheckCircle} class="h-5 w-5 text-[var(--color-primary-400)]" />
           </div>
           <div class="ml-3">
-            <h4 class="text-sm font-medium text-blue-800">Recommendation</h4>
-            <div class="mt-2 text-sm text-blue-700">
+            <h4 class="text-sm font-medium text-[var(--color-primary-800)]">Recommendation</h4>
+            <div class="mt-2 text-sm text-[var(--color-primary-700)]">
               <p>
                 {bestVariant.variantName} is the winning variant with a conversion rate of 
                 {bestVariant.conversionRate.toFixed(2)}%. {bestVariant.improvement > 0 ? 
@@ -283,11 +283,11 @@ const Activity = 'activity';
   </div>
 
   <div class={`border-t px-6 py-4 ${footerClass}`}>
-    <div class="flex items-center justify-between text-xs text-gray-500">
+    <div class="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
       <div>Test Results Analysis</div>
       <div>
         {#if testOverview.confidence >= 95}
-          <span class="inline-flex items-center text-green-600">
+          <span class="inline-flex items-center text-[var(--color-success-600)]">
             <BaseIcon name={CheckCircle} class="h-4 w-4 mr-1" />
             Results are statistically significant ({testOverview.confidence.toFixed(1)}% confidence)
           </span>
@@ -301,3 +301,7 @@ const Activity = 'activity';
     </div>
   </div>
 </div>
+
+
+
+

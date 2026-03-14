@@ -108,7 +108,7 @@
       <Button
         size="sm"
         variant="ghost"
-        class="p-2 rounded-md hover:bg-[--color-bg-hover]"
+        class="p-2 rounded-md hover:bg-[--color-background-hover]"
         onclick={handleClear}
         aria-label="Clear search"
         disabled={disabled}
@@ -127,4 +127,9 @@
     </Button>
   </div>
 </div>
+
+
+
+
+
 

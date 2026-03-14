@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import * as ChatHeaderModule from './index.svelte';
   const ChatHeader = ChatHeaderModule.default ?? ChatHeaderModule;
@@ -164,7 +164,7 @@
                   {scenario.chat.name} • {scenario.chat.participants.length} participants
                 </p>
               </div>
-              <div class="border border-[--color-border-primary] rounded-lg bg-white">
+              <div class="border border-[--color-border-primary] rounded-lg bg-[var(--color-background-primary)]">
                 <ChatHeader
                   chat={scenario.chat}
                   currentUser={scenario.currentUser}
@@ -181,5 +181,8 @@
     </section>
   {/snippet}
 </Story>
+
+
+
 
 

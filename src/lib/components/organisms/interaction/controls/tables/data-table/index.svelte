@@ -39,7 +39,7 @@ const ChevronUp = 'chevron-up';
 
 <div class={DataTableStyleManager.root(className)} style={maxHeight !== 'none' ? `max-height:${maxHeight}` : ''} {...restProps}>
   <table class="min-w-full border rounded-md overflow-hidden">
-    <thead class="bg-gray-50">
+    <thead class="bg-[var(--color-background-secondary)]">
       <tr>
         {#each columns as column}
           <th class="text-left px-3 py-2 text-xs uppercase">
@@ -55,7 +55,7 @@ const ChevronUp = 'chevron-up';
     </thead>
     <tbody>
       {#each sortedData as item, index}
-        <tr class={`${striped && index % 2 === 1 ? 'bg-gray-50' : ''} ${hoverable ? 'hover:bg-gray-100' : ''}`} onclick={() => onRowClick?.(item)}>
+        <tr class={`${striped && index % 2 === 1 ? 'bg-[var(--color-background-secondary)]' : ''} ${hoverable ? 'hover:bg-[var(--color-background-secondary)]' : ''}`} onclick={() => onRowClick?.(item)}>
           {#each columns as column}
             <td class="px-3 py-2 text-sm border-t">{item[column.key]}</td>
           {/each}
@@ -64,5 +64,8 @@ const ChevronUp = 'chevron-up';
     </tbody>
   </table>
 </div>
+
+
+
 
 

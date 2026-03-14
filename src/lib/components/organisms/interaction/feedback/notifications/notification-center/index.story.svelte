@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import type { NotificationCenterProps, NotificationItem } from '$stylist/design-system/contracts';
   import { NotificationStyleManager } from '$stylist/design-system/styles';
   import NotificationCenter from './index.svelte';
@@ -114,4 +114,6 @@
     </div>
   {/snippet}
 </Story>
+
+
 

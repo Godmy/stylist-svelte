@@ -183,18 +183,18 @@ const Search = 'search';
 
 <div class={`social-feed ${hostClass}`} {...restProps}>
   <!-- Feed header -->
-  <div class={`border-b border-gray-200 p-4 ${headerClass}`}>
+  <div class={`border-b border-[var(--color-border-primary)] p-4 ${headerClass}`}>
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-xl font-bold text-gray-900">Social Feed</h2>
+      <h2 class="text-xl font-bold text-[var(--color-text-primary)]">Social Feed</h2>
 
       {#if showSearch}
         <div class="relative w-64">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+            <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
           </div>
           <input
             type="text"
-            class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
             placeholder="Search posts..."
             value={searchQuery}
             oninput={handleSearchInput}
@@ -210,8 +210,8 @@ const Search = 'search';
             type="button"
             class={`flex items-center px-3 py-2 text-sm font-medium rounded-full ${
               activeFilter === filter.id
-                ? 'bg-blue-100 text-blue-800'
-                : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]'
+                : 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
             }`}
             onclick={() => handleFilterChange(filter.id)}
           >
@@ -224,7 +224,7 @@ const Search = 'search';
 
   <!-- Create post section -->
   {#if showCreatePost}
-    <div class="border-b border-gray-200 p-4">
+    <div class="border-b border-[var(--color-border-primary)] p-4">
       <div class="flex space-x-3">
         {#if currentUser?.avatar}
           <img
@@ -233,8 +233,8 @@ const Search = 'search';
             alt={currentUser.name}
           />
         {:else}
-          <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
-            <BaseIcon name={User} class="h-6 w-6 text-gray-600" />
+          <div class="h-10 w-10 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
+            <BaseIcon name={User} class="h-6 w-6 text-[var(--color-text-secondary)]" />
           </div>
         {/if}
 
@@ -242,7 +242,7 @@ const Search = 'search';
           {#if showCreateForm}
             <div>
               <textarea
-                class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
                 placeholder="What's on your mind?"
                 rows="3"
                 bind:value={newPostContent}
@@ -251,14 +251,14 @@ const Search = 'search';
               <div class="mt-3 flex justify-end space-x-3">
                 <button
                   type="button"
-                  class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  class="inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   onclick={() => showCreateForm = false}
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
-                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   onclick={handleCreatePost}
                   disabled={!newPostContent.trim()}
                 >
@@ -269,7 +269,7 @@ const Search = 'search';
           {:else}
             <button
               type="button"
-              class="w-full flex items-center justify-start px-4 py-3 border border-gray-300 rounded-md shadow-sm text-left text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              class="w-full flex items-center justify-start px-4 py-3 border border-[var(--color-border-primary)] rounded-md shadow-sm text-left text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-blue-500"
               onclick={() => showCreateForm = true}
             >
               {#if currentUser?.avatar}
@@ -290,17 +290,17 @@ const Search = 'search';
   <!-- Feed items -->
   <div>
     {#if filteredPosts.length === 0}
-      <div class="text-center py-12 border-b border-gray-200">
-        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100">
-          <BaseIcon name={MessageCircle} class="h-6 w-6 text-gray-400" />
+      <div class="text-center py-12 border-b border-[var(--color-border-primary)]">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-background-secondary)]">
+          <BaseIcon name={MessageCircle} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
         </div>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No posts</h3>
-        <p class="mt-1 text-sm text-gray-500">Get started by creating your first post.</p>
+        <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No posts</h3>
+        <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Get started by creating your first post.</p>
       </div>
     {/if}
 
     {#each filteredPosts as post}
-      <div class={`border-b border-gray-200 last:border-0 ${feedItemClass}`}>
+      <div class={`border-b border-[var(--color-border-primary)] last:border-0 ${feedItemClass}`}>
         <PostCard
           title={post.title}
           subtitle={post.subtitle}
@@ -325,7 +325,7 @@ const Search = 'search';
       {#if filteredPosts.length > 0}
         <button
           type="button"
-          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           onclick={handleLoadMore}
         >
           Load more posts
@@ -334,4 +334,8 @@ const Search = 'search';
     </div>
   {/if}
 </div>
+
+
+
+
 

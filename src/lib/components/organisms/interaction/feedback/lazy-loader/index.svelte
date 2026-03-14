@@ -5,10 +5,14 @@
 </script>
 <div class={InteractionFeedbackStyleManager.root('c-lazy-loader border rounded-lg p-4', className)} {...restProps}>
   {#if loading}
-    <div class="animate-pulse text-sm text-gray-600">{text}</div>
+    <div class="animate-pulse text-sm text-[var(--color-text-secondary)]">{text}</div>
   {:else if children}
     {@render children()}
   {:else}
     Loaded content
   {/if}
 </div>
+
+
+
+

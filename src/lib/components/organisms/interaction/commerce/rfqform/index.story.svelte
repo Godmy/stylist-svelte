@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import RFQForm from './index.svelte';
 
@@ -114,15 +114,15 @@
   {#snippet children(values: any)}
     <div class="sb-organisms-rfqform space-y-6 p-6">
       <div>
-        <h1 class="text-2xl font-semibold text-gray-900">RFQForm</h1>
-        <p class="text-gray-600">
+        <h1 class="text-2xl font-semibold text-[var(--color-text-primary)]">RFQForm</h1>
+        <p class="text-[var(--color-text-secondary)]">
           Полноценная форма запроса коммерческого предложения со множеством секций. Управляйте их отображением и
           проверяйте сценарии с вложениями, срочностью и дополнительными условиями.
         </p>
       </div>
 
       <div class="grid gap-6 xl:grid-cols-[2fr_1fr]">
-        <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
           <RFQForm
             {title}
             {description}
@@ -140,67 +140,67 @@
           />
         </div>
 
-        <div class="space-y-5 rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-          <h2 class="text-lg font-semibold text-gray-900">Панель управления</h2>
+        <div class="space-y-5 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)]">Панель управления</h2>
 
           <div>
-            <label for="rfq-title" class="block text-sm font-medium text-gray-700">Заголовок формы</label>
+            <label for="rfq-title" class="block text-sm font-medium text-[var(--color-text-primary)]">Заголовок формы</label>
             <input
               id="rfq-title"
               type="text"
               bind:value={title}
-              class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+              class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
             />
           </div>
 
           <div>
-            <label for="rfq-description" class="block text-sm font-medium text-gray-700">Подзаголовок</label>
+            <label for="rfq-description" class="block text-sm font-medium text-[var(--color-text-primary)]">Подзаголовок</label>
             <textarea
               id="rfq-description"
               rows="3"
               bind:value={description}
-              class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+              class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
             ></textarea>
           </div>
 
           <div class="grid gap-3 sm:grid-cols-2">
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showCompanyFields} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showCompanyFields} class="rounded border-[var(--color-border-primary)]" />
               Реквизиты компании
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showShippingFields} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showShippingFields} class="rounded border-[var(--color-border-primary)]" />
               Адрес доставки
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showUrgentOption} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showUrgentOption} class="rounded border-[var(--color-border-primary)]" />
               Флаг срочности
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showValidUntil} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showValidUntil} class="rounded border-[var(--color-border-primary)]" />
               Дата истечения
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showDeliveryTerms} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showDeliveryTerms} class="rounded border-[var(--color-border-primary)]" />
               Условия поставки
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showPaymentTerms} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showPaymentTerms} class="rounded border-[var(--color-border-primary)]" />
               Условия оплаты
             </label>
-            <label class="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" bind:checked={showAttachments} class="rounded border-gray-300" />
+            <label class="flex items-center gap-2 text-sm text-[var(--color-text-primary)]">
+              <input type="checkbox" bind:checked={showAttachments} class="rounded border-[var(--color-border-primary)]" />
               Вложения
             </label>
           </div>
 
           <div class="grid gap-3 sm:grid-cols-2">
             <div>
-              <label for="rfq-currency" class="block text-sm font-medium text-gray-700">Валюта по умолчанию</label>
+              <label for="rfq-currency" class="block text-sm font-medium text-[var(--color-text-primary)]">Валюта по умолчанию</label>
               <select
                 id="rfq-currency"
                 bind:value={defaultCurrency}
-                class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+                class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
               >
                 {#each currencies as currency}
                   <option value={currency}>{currency}</option>
@@ -208,38 +208,38 @@
               </select>
             </div>
             <div>
-              <label for="rfq-attachments" class="block text-sm font-medium text-gray-700">Макс. вложений</label>
+              <label for="rfq-attachments" class="block text-sm font-medium text-[var(--color-text-primary)]">Макс. вложений</label>
               <input
                 id="rfq-attachments"
                 type="number"
                 min="1"
                 max="15"
                 bind:value={maxAttachments}
-                class="mt-1 w-full rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none"
+                class="mt-1 w-full rounded border border-[var(--color-border-primary)] p-2 focus:border-[var(--color-primary-500)] focus:outline-none"
               />
             </div>
           </div>
 
           <div>
-            <h3 class="text-sm font-semibold text-gray-800">Предустановки</h3>
+            <h3 class="text-sm font-semibold text-[var(--color-text-primary)]">Предустановки</h3>
             <div class="mt-2 flex flex-wrap gap-2">
               <button
                 type="button"
-                class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+                class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
                 onclick={() => applyPreset('minimal')}
               >
                 Минимальный бриф
               </button>
               <button
                 type="button"
-                class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+                class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
                 onclick={() => applyPreset('detailed')}
               >
                 Подробный
               </button>
               <button
                 type="button"
-                class="rounded-md border border-gray-200 px-3 py-1 text-sm hover:border-blue-500"
+                class="rounded-md border border-[var(--color-border-primary)] px-3 py-1 text-sm hover:border-[var(--color-primary-500)]"
                 onclick={() => applyPreset('attachments')}
               >
                 С документацией
@@ -250,49 +250,52 @@
       </div>
 
       <div class="grid gap-4 md:grid-cols-2">
-        <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-          <h3 class="text-lg font-semibold text-gray-900">Сводка последней отправки</h3>
+        <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+          <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Сводка последней отправки</h3>
           {#if lastSubmission}
             <dl class="mt-3 space-y-2 text-sm">
               <div class="flex justify-between">
-                <dt class="text-gray-500">Контактное лицо</dt>
-                <dd class="font-medium text-gray-900">{lastSubmission.requesterName}</dd>
+                <dt class="text-[var(--color-text-secondary)]">Контактное лицо</dt>
+                <dd class="font-medium text-[var(--color-text-primary)]">{lastSubmission.requesterName}</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Количество позиций</dt>
-                <dd class="font-medium text-gray-900">{lastSubmission.items}</dd>
+                <dt class="text-[var(--color-text-secondary)]">Количество позиций</dt>
+                <dd class="font-medium text-[var(--color-text-primary)]">{lastSubmission.items}</dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Срочно?</dt>
-                <dd class="font-medium text-gray-900">
+                <dt class="text-[var(--color-text-secondary)]">Срочно?</dt>
+                <dd class="font-medium text-[var(--color-text-primary)]">
                   {lastSubmission.urgency ? 'Да' : 'Нет'}
                 </dd>
               </div>
               <div class="flex justify-between">
-                <dt class="text-gray-500">Валюта</dt>
-                <dd class="font-medium text-gray-900">{lastSubmission.currency || 'не указана'}</dd>
+                <dt class="text-[var(--color-text-secondary)]">Валюта</dt>
+                <dd class="font-medium text-[var(--color-text-primary)]">{lastSubmission.currency || 'не указана'}</dd>
               </div>
             </dl>
           {:else}
-            <p class="mt-2 text-sm text-gray-500">Отправьте форму, чтобы увидеть живую статистику.</p>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">Отправьте форму, чтобы увидеть живую статистику.</p>
           {/if}
         </div>
 
-        <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-          <h3 class="text-lg font-semibold text-gray-900">Лента событий</h3>
+        <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+          <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Лента событий</h3>
           {#if submissionLog.length > 0}
-            <ul class="mt-3 space-y-2 text-sm text-gray-700">
+            <ul class="mt-3 space-y-2 text-sm text-[var(--color-text-primary)]">
               {#each submissionLog as entry}
-                <li class="rounded bg-gray-50 px-3 py-2">{entry}</li>
+                <li class="rounded bg-[var(--color-background-secondary)] px-3 py-2">{entry}</li>
               {/each}
             </ul>
           {:else}
-            <p class="mt-2 text-sm text-gray-500">События появятся после взаимодействия с формой.</p>
+            <p class="mt-2 text-sm text-[var(--color-text-secondary)]">События появятся после взаимодействия с формой.</p>
           {/if}
         </div>
       </div>
     </div>
   {/snippet}
 </Story>
+
+
+
 
 

@@ -40,11 +40,11 @@
 		miniMapZoom = 0.1,
 		showZoomControls = true,
 		showViewport = true,
-		nodeColor = '#3b82f6',
-		activeNodeColor = '#60a5fa',
-		viewportColor = 'rgba(59, 130, 246, 0.3)',
-		backgroundColor = '#1e1e1e',
-		gridColor = 'rgba(128, 128, 128, 0.2)',
+		nodeColor = 'var(--color-primary-500)',
+		activeNodeColor = 'var(--color-primary-400)',
+		viewportColor = 'var(--color-primary-500)',
+		backgroundColor = 'var(--color-background-primary)',
+		gridColor = 'var(--color-border-primary)',
 		onOffsetChange,
 		onZoomChange,
 		onMapClick,
@@ -213,6 +213,7 @@
 				fill="none"
 				stroke={viewportColor}
 				stroke-width={2}
+				stroke-opacity={0.35}
 				rx={4}
 				class="minimap__viewport"
 			/>
@@ -264,48 +265,49 @@
 	}
 
 	:global(.minimap__canvas) {
-		border: 1px solid #374151;
-		border-radius: 8px;
-		box-shadow: 0 4px 6px rgb(0 0 0 / 0.3);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-custom39);
 		cursor: pointer;
-		transition: border-color 120ms ease;
+		transition: border-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.minimap__canvas:hover) {
-		border-color: #4b5563;
+		border-color: var(--color-border-secondary);
 	}
 
 	:global(.minimap__node) {
-		transition: fill 120ms ease;
+		transition: fill var(--duration-120) var(--animation-ease);
 		cursor: pointer;
 	}
 
 	:global(.minimap__node:hover) {
-		fill: #60a5fa;
+		fill: var(--color-primary-400);
 		filter: brightness(1.2);
 	}
 
 	:global(.minimap__viewport) {
 		cursor: move;
-		transition: all 120ms ease;
-		animation: minimap-viewport-pulse 2s ease-in-out infinite;
+		transition: all var(--duration-120) var(--animation-ease);
+		animation: minimap-viewport-pulse var(--duration-2000) var(--animation-ease-in-out) infinite;
 	}
 
 	@keyframes minimap-viewport-pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.7; }
+		0%, 100% { opacity: var(--opacity-100); }
+		50% { opacity: var(--opacity-70); }
 	}
 
 	:global(.minimap__controls) {
 		position: absolute;
-		top: 0.5rem;
-		right: 0.5rem;
+		top: var(--spacing-2);
+		right: var(--spacing-2);
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
-		background: rgb(30 30 30 / 0.9);
-		border-radius: 4px;
-		padding: 0.25rem;
+		gap: var(--spacing-1);
+		background: color-mix(in srgb, var(--color-background-primary) 90%, transparent);
+		border-radius: var(--border-radius-base);
+		padding: var(--spacing-1);
 		backdrop-filter: blur(4px);
 	}
 </style>
+

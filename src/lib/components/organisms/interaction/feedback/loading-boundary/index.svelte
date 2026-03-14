@@ -7,10 +7,14 @@
   {#if loading}
     <div class="text-sm">Loading...</div>
   {:else if error}
-    <div class="text-sm text-red-600">{error}</div>
+    <div class="text-sm text-[var(--color-danger-600)]">{error}</div>
   {:else if children}
     {@render children()}
   {:else}
     Ready
   {/if}
 </div>
+
+
+
+

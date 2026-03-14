@@ -153,19 +153,19 @@ const RotateCcw = 'rotate-ccw';
     <!-- Cart items -->
     <div class="md:col-span-2">
       <div class="flex items-center justify-between mb-6">
-        <h2 class="text-xl font-bold text-gray-900 flex items-center">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] flex items-center">
           <BaseIcon name={ShoppingCart} class="h-6 w-6 mr-2" />
           Shopping Cart
         </h2>
-        <span class="text-gray-500">{items.length} {items.length === 1 ? 'item' : 'items'}</span>
+        <span class="text-[var(--color-text-secondary)]">{items.length} {items.length === 1 ? 'item' : 'items'}</span>
       </div>
 
       <div class="space-y-6">
         {#if items.length === 0}
           <div class="text-center py-12">
-            <BaseIcon name={Package} class="h-12 w-12 text-gray-400 mx-auto" />
-            <h3 class="mt-2 text-lg font-medium text-gray-900">Your cart is empty</h3>
-            <p class="mt-1 text-gray-500">Start adding some products to your cart</p>
+            <BaseIcon name={Package} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto" />
+            <h3 class="mt-2 text-lg font-medium text-[var(--color-text-primary)]">Your cart is empty</h3>
+            <p class="mt-1 text-[var(--color-text-secondary)]">Start adding some products to your cart</p>
           </div>
         {:else}
           {#each items as item}
@@ -179,8 +179,8 @@ const RotateCcw = 'rotate-ccw';
                       class="w-full h-full object-cover"
                     />
                   {:else}
-                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                      <BaseIcon name={Package} class="h-8 w-8 text-gray-400" />
+                    <div class="w-full h-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
+                      <BaseIcon name={Package} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
                     </div>
                   {/if}
                 </div>
@@ -188,20 +188,20 @@ const RotateCcw = 'rotate-ccw';
 
               <div class="flex-1 min-w-0">
                 <div class="flex items-baseline justify-between">
-                  <h3 class="text-sm font-medium text-gray-900 truncate">{item.name}</h3>
-                  <p class="ml-4 text-sm font-medium text-gray-900">
+                  <h3 class="text-sm font-medium text-[var(--color-text-primary)] truncate">{item.name}</h3>
+                  <p class="ml-4 text-sm font-medium text-[var(--color-text-primary)]">
                     {formatCurrency(item.price * item.quantity)}
                   </p>
                 </div>
 
                 {#if item.originalPrice && item.originalPrice > item.price}
-                  <p class="mt-1 text-sm text-gray-500 line-through">
+                  <p class="mt-1 text-sm text-[var(--color-text-secondary)] line-through">
                     {formatCurrency(item.originalPrice * item.quantity)}
                   </p>
                 {/if}
 
                 {#if item.discountPercent}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mt-1">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)] mt-1">
                     -{item.discountPercent}% OFF
                   </span>
                 {/if}
@@ -210,7 +210,7 @@ const RotateCcw = 'rotate-ccw';
                   <div class="flex items-center border rounded-md">
                     <button
                       type="button"
-                      class="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+                      class="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus:outline-none"
                       onclick={() => decrementQuantity(item)}
                       disabled={!item.inStock}
                     >
@@ -219,7 +219,7 @@ const RotateCcw = 'rotate-ccw';
 
                     <input
                       type="number"
-                      class="w-10 text-center border-y-0 border-gray-300 focus:outline-none"
+                      class="w-10 text-center border-y-0 border-[var(--color-border-primary)] focus:outline-none"
                       value={item.quantity}
                       min="1"
                       max={item.maxQuantity}
@@ -228,7 +228,7 @@ const RotateCcw = 'rotate-ccw';
 
                     <button
                       type="button"
-                      class="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+                      class="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus:outline-none"
                       onclick={() => incrementQuantity(item)}
                       disabled={
                         !item.inStock ||
@@ -241,7 +241,7 @@ const RotateCcw = 'rotate-ccw';
 
                   <button
                     type="button"
-                    class="ml-4 flex items-center text-sm font-medium text-red-600 hover:text-red-500"
+                    class="ml-4 flex items-center text-sm font-medium text-[var(--color-danger-600)] hover:text-[var(--color-danger-500)]"
                     onclick={() => removeItem(item.id)}
                   >
                     <BaseIcon name={X} class="h-4 w-4 mr-1" />
@@ -249,7 +249,7 @@ const RotateCcw = 'rotate-ccw';
                   </button>
 
                   {#if !item.inStock}
-                    <span class="ml-4 text-sm text-red-600">Out of stock</span>
+                    <span class="ml-4 text-sm text-[var(--color-danger-600)]">Out of stock</span>
                   {/if}
                 </div>
               </div>
@@ -261,45 +261,45 @@ const RotateCcw = 'rotate-ccw';
 
     <!-- Order summary -->
     <div class={`border rounded-lg p-6 ${summaryClass}`}>
-      <h3 class="text-lg font-medium text-gray-900">Order Summary</h3>
+      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">Order Summary</h3>
 
       <div class="mt-6 space-y-4">
         <div class="flex justify-between text-sm">
-          <dt class="text-gray-600">Subtotal</dt>
-          <dd class="text-gray-900">{formattedSubtotal}</dd>
+          <dt class="text-[var(--color-text-secondary)]">Subtotal</dt>
+          <dd class="text-[var(--color-text-primary)]">{formattedSubtotal}</dd>
         </div>
 
         {#if showDiscounts && discountAmount > 0}
           <div class="flex justify-between text-sm">
-            <dt class="text-gray-600">Discount</dt>
-            <dd class="text-green-600">-{formattedDiscount}</dd>
+            <dt class="text-[var(--color-text-secondary)]">Discount</dt>
+            <dd class="text-[var(--color-success-600)]">-{formattedDiscount}</dd>
           </div>
         {/if}
 
         {#if showShipping && shippingCost > 0}
           <div class="flex justify-between text-sm">
-            <dt class="text-gray-600">Shipping</dt>
-            <dd class="text-gray-900">{formattedShipping}</dd>
+            <dt class="text-[var(--color-text-secondary)]">Shipping</dt>
+            <dd class="text-[var(--color-text-primary)]">{formattedShipping}</dd>
           </div>
         {/if}
 
         {#if showTaxes && taxCost > 0}
           <div class="flex justify-between text-sm">
-            <dt class="text-gray-600">Taxes</dt>
-            <dd class="text-gray-900">{formattedTax}</dd>
+            <dt class="text-[var(--color-text-secondary)]">Taxes</dt>
+            <dd class="text-[var(--color-text-primary)]">{formattedTax}</dd>
           </div>
         {/if}
 
         <!-- Applied promotions -->
         {#if appliedPromotions.length > 0}
-          <div class="pt-4 border-t border-gray-200">
+          <div class="pt-4 border-t border-[var(--color-border-primary)]">
             {#each appliedPromotions as promotion}
               <div class="flex justify-between text-sm">
-                <dt class="text-gray-600 flex items-center">
-                  <BaseIcon name={BadgePercent} class="h-4 w-4 mr-1 text-green-600" />
+                <dt class="text-[var(--color-text-secondary)] flex items-center">
+                  <BaseIcon name={BadgePercent} class="h-4 w-4 mr-1 text-[var(--color-success-600)]" />
                   Promotion: {promotion.code}
                 </dt>
-                <dd class="text-green-600">
+                <dd class="text-[var(--color-success-600)]">
                   {promotion.discountType === 'percentage'
                     ? `-${promotion.discountValue}%`
                     : `-${formatCurrency(promotion.discountValue)}`}
@@ -311,11 +311,11 @@ const RotateCcw = 'rotate-ccw';
 
         <!-- Promo code input -->
         {#if showPromoCode}
-          <div class="pt-4 border-t border-gray-200">
+          <div class="pt-4 border-t border-[var(--color-border-primary)]">
             <div class="flex">
               <input
                 type="text"
-                class="flex-1 min-w-0 block w-full px-3 py-2 rounded-l-md border border-gray-300 shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                class="flex-1 min-w-0 block w-full px-3 py-2 rounded-l-md border border-[var(--color-border-primary)] shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
                 placeholder="Promo code"
                 value={promoCode}
                 oninput={(e) => promoCode = (e.target as HTMLInputElement).value}
@@ -323,7 +323,7 @@ const RotateCcw = 'rotate-ccw';
               />
               <button
                 type="button"
-                class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-gray-300 bg-gray-50 text-gray-500 hover:bg-gray-100 sm:text-sm"
+                class="inline-flex items-center px-3 rounded-r-md border border-l-0 border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] sm:text-sm"
                 onclick={applyPromoCode}
               >
                 Apply
@@ -332,7 +332,7 @@ const RotateCcw = 'rotate-ccw';
           </div>
         {/if}
 
-        <div class="flex justify-between text-base font-medium text-gray-900 pt-4 border-t border-gray-200">
+        <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)] pt-4 border-t border-[var(--color-border-primary)]">
           <dt>Total</dt>
           <dd>{formattedTotal}</dd>
         </div>
@@ -350,9 +350,9 @@ const RotateCcw = 'rotate-ccw';
         </Button>
       </div>
 
-      <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
+      <div class="mt-6 flex justify-center text-sm text-center text-[var(--color-text-secondary)]">
         <p>
-          or <button type="button" class="text-blue-600 font-medium hover:text-blue-500" onclick={() => window.history.back()}>
+          or <button type="button" class="text-[var(--color-primary-600)] font-medium hover:text-[var(--color-primary-500)]" onclick={() => window.history.back()}>
             Continue Shopping
           </button>
         </p>
@@ -360,5 +360,9 @@ const RotateCcw = 'rotate-ccw';
     </div>
   </div>
 </div>
+
+
+
+
 
 

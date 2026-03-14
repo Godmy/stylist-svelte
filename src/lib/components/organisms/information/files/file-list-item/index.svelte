@@ -115,12 +115,12 @@ const MoreHorizontal = 'more-horizontal';
 </script>
 
 <div 
-  class={`file-list-item flex items-center p-3 border-b border-gray-200 cursor-pointer ${
-    isSelected ? 'bg-blue-50' : 'hover:bg-gray-50'
+  class={`file-list-item flex items-center p-3 border-b border-[var(--color-border-primary)] cursor-pointer ${
+    isSelected ? 'bg-[var(--color-primary-50)]' : 'hover:bg-[var(--color-background-secondary)]'
   } ${
     variant === 'compact' ? 'py-2' : ''
   } ${
-    disabled ? 'opacity-50 cursor-not-allowed' : ''
+    disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
   } ${hostClass}`}
   onclick={handleSelect}
   ondblclick={handleDoubleClick}
@@ -129,7 +129,7 @@ const MoreHorizontal = 'more-horizontal';
   {#if enableSelection}
     <input
       type="checkbox"
-      class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+      class="h-4 w-4 text-[var(--color-primary-600)] rounded focus:ring-blue-500"
       checked={isSelected}
       onclick={(e) => e.stopPropagation()}
       onchange={handleSelect}
@@ -138,11 +138,11 @@ const MoreHorizontal = 'more-horizontal';
   {/if}
   
   <div class="ml-3 flex-shrink-0">
-    <BaseIcon name={File} class="h-5 w-5 text-gray-500" />
+    <BaseIcon name={File} class="h-5 w-5 text-[var(--color-text-secondary)]" />
   </div>
   
   {#if showThumbnail && item.thumbnail}
-    <div class="ml-3 flex-shrink-0 w-8 h-8 rounded border border-gray-200 overflow-hidden">
+    <div class="ml-3 flex-shrink-0 w-8 h-8 rounded border border-[var(--color-border-primary)] overflow-hidden">
       <img 
         src={item.thumbnail} 
         alt={item.name} 
@@ -155,14 +155,14 @@ const MoreHorizontal = 'more-horizontal';
     <div class={`font-medium truncate ${cellClass}`}>
       {item.name}
       {#if item.type === 'folder'}
-        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+        <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
           Folder
         </span>
       {/if}
     </div>
     
     {#if variant !== 'compact'}
-      <div class="flex items-center text-xs text-gray-500 mt-1">
+      <div class="flex items-center text-xs text-[var(--color-text-secondary)] mt-1">
         {#if showSize && item.size}
           <span>{formatFileSize(item.size)}</span>
         {/if}
@@ -188,7 +188,7 @@ const MoreHorizontal = 'more-horizontal';
       }}
       disabled={disabled}
     >
-      <BaseIcon name={Eye} class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={Eye} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>
     <Button 
       variant="ghost" 
@@ -199,7 +199,7 @@ const MoreHorizontal = 'more-horizontal';
       }}
       disabled={disabled}
     >
-      <BaseIcon name={Download} class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={Download} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>
     <Button 
       variant="ghost" 
@@ -210,8 +210,12 @@ const MoreHorizontal = 'more-horizontal';
       }}
       disabled={disabled}
     >
-      <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-gray-500" />
+      <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>
   </div>
 </div>
+
+
+
+
 

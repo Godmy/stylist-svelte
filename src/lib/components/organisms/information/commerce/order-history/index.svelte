@@ -222,11 +222,11 @@ const TrendingUp = 'trending-up';
   function getStatusConfig(status: OrderStatus) {
     const config: Record<OrderStatus, { text: string; color: string; icon: any }> = {
       pending: { text: 'Pending', color: 'text-yellow-800 bg-yellow-100', icon: Clock },
-      processing: { text: 'Processing', color: 'text-blue-800 bg-blue-100', icon: Package },
-      shipped: { text: 'Shipped', color: 'text-indigo-800 bg-indigo-100', icon: Truck },
-      delivered: { text: 'Delivered', color: 'text-green-800 bg-green-100', icon: CheckCircle },
-      cancelled: { text: 'Cancelled', color: 'text-red-800 bg-red-100', icon: XCircle },
-      refunded: { text: 'Refunded', color: 'text-purple-800 bg-purple-100', icon: RotateCcw }
+      processing: { text: 'Processing', color: 'text-[var(--color-primary-800)] bg-[var(--color-primary-100)]', icon: Package },
+      shipped: { text: 'Shipped', color: 'text-[var(--color-primary-800)] bg-[var(--color-primary-100)]', icon: Truck },
+      delivered: { text: 'Delivered', color: 'text-[var(--color-success-800)] bg-[var(--color-success-100)]', icon: CheckCircle },
+      cancelled: { text: 'Cancelled', color: 'text-[var(--color-danger-800)] bg-[var(--color-danger-100)]', icon: XCircle },
+      refunded: { text: 'Refunded', color: 'text-[var(--color-secondary-800)] bg-[var(--color-secondary-100)]', icon: RotateCcw }
     };
 
     return config[status];
@@ -237,22 +237,22 @@ const TrendingUp = 'trending-up';
   <div class={`mb-6 ${headerClass}`}>
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
-        <h2 class="text-xl font-bold text-gray-900 flex items-center">
-          <BaseIcon name={Package} class="h-5 w-5 mr-2 text-blue-500" />
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] flex items-center">
+          <BaseIcon name={Package} class="h-5 w-5 mr-2 text-[var(--color-primary-500)]" />
           Order History
         </h2>
-        <p class="mt-1 text-sm text-gray-500">Review your past orders and re-order items</p>
+        <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Review your past orders and re-order items</p>
       </div>
 
       <div class="flex flex-col sm:flex-row gap-2">
         {#if showSearch}
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
             </div>
             <input
               type="text"
-              class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${inputClass}`}
+              class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${inputClass}`}
               placeholder="Search orders..."
               oninput={handleSearchInput}
             />
@@ -261,7 +261,7 @@ const TrendingUp = 'trending-up';
 
         {#if showStatusFilter}
           <select
-            class={`block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md leading-5 bg-white focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${inputClass}`}
+            class={`block w-full pl-3 pr-10 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${inputClass}`}
             value={selectedStatus}
             onchange={handleStatusFilterChange}
           >
@@ -279,23 +279,23 @@ const TrendingUp = 'trending-up';
   </div>
 
   {#if orders.length === 0}
-    <div class="text-center py-12 border-2 border-dashed border-gray-300 rounded-lg">
-      <BaseIcon name={Package} class="mx-auto h-12 w-12 text-gray-400" />
-      <h3 class="mt-2 text-sm font-medium text-gray-900">No orders yet</h3>
-      <p class="mt-1 text-sm text-gray-500">Get started by placing your first order.</p>
+    <div class="text-center py-12 border-2 border-dashed border-[var(--color-border-primary)] rounded-lg">
+      <BaseIcon name={Package} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" />
+      <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No orders yet</h3>
+      <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Get started by placing your first order.</p>
     </div>
   {:else}
-    <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <div class="bg-[var(--color-background-primary)] shadow overflow-hidden sm:rounded-md">
       <ul class="divide-y divide-gray-200">
         {#each paginatedOrders as order}
           {@const StatusIcon = getStatusConfig(order.status).icon}
-          <li class={`hover:bg-gray-50 ${itemClass}`}>
+          <li class={`hover:bg-[var(--color-background-secondary)] ${itemClass}`}>
             <div class="px-4 py-4 sm:px-6">
               <div class="flex items-center justify-between">
                 <div class="flex items-center">
                   <button
                     type="button"
-                    class="text-sm font-medium text-blue-600 truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[--color-primary-500] text-left"
+                    class="text-sm font-medium text-[var(--color-primary-600)] truncate focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[--color-primary-500] text-left"
                     onclick={() => handleOrderClick(order)}
                   >
                     #{order.orderNumber}
@@ -305,7 +305,7 @@ const TrendingUp = 'trending-up';
                     {getStatusConfig(order.status).text}
                   </div>
                 </div>
-                <div class="text-sm text-gray-500 flex items-center">
+                <div class="text-sm text-[var(--color-text-secondary)] flex items-center">
                   <BaseIcon name={Calendar} class="h-4 w-4 mr-1" />
                   {formatDate(order.date)}
                 </div>
@@ -313,12 +313,12 @@ const TrendingUp = 'trending-up';
 
               <div class="mt-2 sm:flex sm:justify-between">
                 <div class="sm:flex">
-                  <div class="flex items-center text-sm text-gray-500">
+                  <div class="flex items-center text-sm text-[var(--color-text-secondary)]">
                     <BaseIcon name={DollarSign} class="h-4 w-4 mr-1" />
                     {formatCurrency(order.total)}
                   </div>
 
-                  <div class="mt-2 sm:mt-0 sm:ml-4 flex items-center text-sm text-gray-500">
+                  <div class="mt-2 sm:mt-0 sm:ml-4 flex items-center text-sm text-[var(--color-text-secondary)]">
                     <BaseIcon name={Package} class="h-4 w-4 mr-1" />
                     {order.items.length} {order.items.length === 1 ? 'item' : 'items'}
                   </div>
@@ -359,22 +359,22 @@ const TrendingUp = 'trending-up';
                         <img
                           src={item.thumbnail}
                           alt={item.name}
-                          class="h-12 w-12 rounded-md object-cover border border-gray-200"
+                          class="h-12 w-12 rounded-md object-cover border border-[var(--color-border-primary)]"
                         />
                       {:else}
-                        <div class="h-12 w-12 rounded-md bg-gray-200 flex items-center justify-center">
-                          <BaseIcon name={Package} class="h-6 w-6 text-gray-400" />
+                        <div class="h-12 w-12 rounded-md bg-[var(--color-background-tertiary)] flex items-center justify-center">
+                          <BaseIcon name={Package} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
                         </div>
                       {/if}
-                      <p class="mt-1 text-xs text-gray-500 truncate max-w-[80px]">{item.name}</p>
+                      <p class="mt-1 text-xs text-[var(--color-text-secondary)] truncate max-w-[80px]">{item.name}</p>
                     </div>
                   {/each}
                   {#if order.items.length > 5}
                     <div class="flex flex-col items-center">
-                      <div class="h-12 w-12 rounded-md bg-gray-100 flex items-center justify-center">
-                        <span class="text-xs font-medium text-gray-700">+{order.items.length - 5}</span>
+                      <div class="h-12 w-12 rounded-md bg-[var(--color-background-secondary)] flex items-center justify-center">
+                        <span class="text-xs font-medium text-[var(--color-text-primary)]">+{order.items.length - 5}</span>
                       </div>
-                      <p class="mt-1 text-xs text-gray-500">more</p>
+                      <p class="mt-1 text-xs text-[var(--color-text-secondary)]">more</p>
                     </div>
                   {/if}
                 </div>
@@ -384,12 +384,12 @@ const TrendingUp = 'trending-up';
               {#if showOrderRating}
                 <div class="mt-4">
                   <div class="flex items-center">
-                    <span class="text-sm font-medium text-gray-700 mr-2">Rate this order:</span>
+                    <span class="text-sm font-medium text-[var(--color-text-primary)] mr-2">Rate this order:</span>
                     <div class="flex">
                       {#each Array(5) as _, i}
                         <button
                           type="button"
-                          class={`h-5 w-5 ${i < Math.floor(order.rating || 0) ? 'text-yellow-400 fill-current' : 'text-gray-300'} focus:outline-none`}
+                          class={`h-5 w-5 ${i < Math.floor(order.rating || 0) ? 'text-yellow-400 fill-current' : 'text-[var(--color-text-tertiary)]'} focus:outline-none`}
                           onclick={() => onOrderRated?.(order.id, i + 1)}
                           aria-label={`Rate ${i + 1} out of 5`}
                         >
@@ -398,7 +398,7 @@ const TrendingUp = 'trending-up';
                       {/each}
                     </div>
                     {#if order.review}
-                      <span class="ml-3 text-sm text-gray-500 truncate">{order.review}</span>
+                      <span class="ml-3 text-sm text-[var(--color-text-secondary)] truncate">{order.review}</span>
                     {/if}
                   </div>
                 </div>
@@ -411,7 +411,7 @@ const TrendingUp = 'trending-up';
 
     {#if showPagination && totalPages > 1}
       <div class="mt-6 flex items-center justify-between">
-        <div class="text-sm text-gray-700">
+        <div class="text-sm text-[var(--color-text-primary)]">
           Showing <span class="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> to
           <span class="font-medium">{Math.min(currentPage * itemsPerPage, filteredOrders.length)}</span> of
           <span class="font-medium">{filteredOrders.length}</span> orders
@@ -420,10 +420,10 @@ const TrendingUp = 'trending-up';
         <div class="flex space-x-2">
           <button
             type="button"
-            class={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md ${
+            class={`relative inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md ${
               currentPage === 1
-                ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
+                ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-secondary)] cursor-not-allowed'
+                : 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
@@ -439,8 +439,8 @@ const TrendingUp = 'trending-up';
               type="button"
               class={`relative inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md ${
                 currentPage === pageNum
-                  ? 'bg-blue-500 border-blue-500 text-white'
-                  : 'bg-white border-gray-300 text-gray-700 hover:bg-gray-50'
+                  ? 'bg-[var(--color-primary-500)] border-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
+                  : 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
               }`}
               onclick={() => handlePageChange(pageNum)}
             >
@@ -450,10 +450,10 @@ const TrendingUp = 'trending-up';
 
           <button
             type="button"
-            class={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md ${
+            class={`relative inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md ${
               currentPage === totalPages
-                ? 'bg-gray-100 text-gray-500 cursor-not-allowed'
-                : 'bg-white text-gray-700 hover:bg-gray-50'
+                ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-secondary)] cursor-not-allowed'
+                : 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
@@ -465,6 +465,10 @@ const TrendingUp = 'trending-up';
     {/if}
   {/if}
 </div>
+
+
+
+
 
 
 

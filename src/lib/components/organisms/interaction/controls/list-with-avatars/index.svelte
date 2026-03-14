@@ -67,7 +67,7 @@
   }
 </script>
 
-<div class={`c-list-with-avatars divide-y divide-gray-200 rounded-md border border-gray-200 ${className}`} {...restProps}>
+<div class={`c-list-with-avatars divide-y divide-gray-200 rounded-md border border-[var(--color-border-primary)] ${className}`} {...restProps}>
   {#each items as item}
     <div class={`flex items-center ${paddingClass} px-4 ${itemClass}`}>
       {#if showAvatar}
@@ -79,37 +79,37 @@
               class={`${avatarSize} rounded-full object-cover ${avatarClass}`}
             />
           {:else}
-            <div class={`${avatarSize} rounded-full bg-gray-200 flex items-center justify-center ${avatarClass}`}>
-              <span class="text-gray-600 font-medium">
+            <div class={`${avatarSize} rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center ${avatarClass}`}>
+              <span class="text-[var(--color-text-secondary)] font-medium">
                 {item.title ? item.title.charAt(0).toUpperCase() : '?'}
               </span>
             </div>
           {/if}
 
           {#if showStatus && item.status}
-            <div class={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border border-white ${
-              item.status === 'online' ? 'bg-green-500' :
+            <div class={`absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border border-[var(--color-background-primary)] ${
+              item.status === 'online' ? 'bg-[var(--color-success-500)]' :
               item.status === 'away' ? 'bg-yellow-500' :
-              item.status === 'busy' ? 'bg-red-500' :
-              'bg-gray-400'
+              item.status === 'busy' ? 'bg-[var(--color-danger-500)]' :
+              'bg-[var(--color-neutral-400)]'
             }`}></div>
           {/if}
         </div>
       {/if}
 
       <div class={`flex-1 min-w-0 ${contentClass}`}>
-        <p class={`font-medium text-gray-900 truncate ${textSize}`}>
+        <p class={`font-medium text-[var(--color-text-primary)] truncate ${textSize}`}>
           {item.title}
         </p>
 
         {#if showSubtitle && item.subtitle}
-          <p class={`text-gray-500 truncate ${textSize}`}>
+          <p class={`text-[var(--color-text-secondary)] truncate ${textSize}`}>
             {item.subtitle}
           </p>
         {/if}
 
         {#if showDescription && item.description}
-          <p class={`text-gray-400 truncate ${textSize}`}>
+          <p class={`text-[var(--color-text-tertiary)] truncate ${textSize}`}>
             {item.description}
           </p>
         {/if}
@@ -121,9 +121,9 @@
             <button
               type="button"
               class={`px-3 py-1 rounded text-xs font-medium ${
-                action.variant === 'primary' ? 'bg-blue-100 text-blue-700 hover:bg-blue-200' :
-                action.variant === 'danger' ? 'bg-red-100 text-red-700 hover:bg-red-200' :
-                'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                action.variant === 'primary' ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)] hover:bg-[var(--color-primary-200)]' :
+                action.variant === 'danger' ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-700)] hover:bg-[var(--color-danger-200)]' :
+                'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
               }`}
               onclick={action.onClick}
             >
@@ -135,3 +135,7 @@
     </div>
   {/each}
 </div>
+
+
+
+

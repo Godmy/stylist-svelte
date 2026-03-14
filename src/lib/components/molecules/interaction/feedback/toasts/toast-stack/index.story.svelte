@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ToastStack from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -60,7 +60,7 @@
   {#snippet children(controlValues: any)}
   <div class="p-4">
     <button
-      class="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+      class="bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] px-4 py-2 rounded mb-4"
       onclick={addToast}
     >
       Add Toast
@@ -73,3 +73,5 @@
 
   {/snippet}
 </Story>
+
+

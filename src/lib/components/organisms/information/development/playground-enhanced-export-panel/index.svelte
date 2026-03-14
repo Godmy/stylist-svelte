@@ -185,7 +185,7 @@ const Terminal = 'terminal';
       >
         <div class="flex items-center justify-between mb-2">
           <div class="text-2xl">РІвЂ”вЂ </div>
-          <BaseIcon name={ExternalLink} class="w-4 h-4 text-yellow-600 dark:text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <BaseIcon name={ExternalLink} class="w-4 h-4 text-yellow-600 dark:text-yellow-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </div>
         <div class="text-left">
           <h4 class="text-sm font-bold text-yellow-900 dark:text-yellow-200 mb-1">
@@ -204,7 +204,7 @@ const Terminal = 'terminal';
       >
         <div class="flex items-center justify-between mb-2">
           <div class="text-2xl">РІвЂ”вЂ </div>
-          <BaseIcon name={ExternalLink} class="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <BaseIcon name={ExternalLink} class="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </div>
         <div class="text-left">
           <h4 class="text-sm font-bold text-blue-900 dark:text-blue-200 mb-1">
@@ -281,11 +281,11 @@ const Terminal = 'terminal';
 <style>
   @keyframes fade-in {
     from {
-      opacity: 0;
+      opacity: var(--opacity-0);
       transform: scale(0.95);
     }
     to {
-      opacity: 1;
+      opacity: var(--opacity-100);
       transform: scale(1);
     }
   }
@@ -300,6 +300,10 @@ const Terminal = 'terminal';
     display: block;
   }
 </style>
+
+
+
+
 
 
 

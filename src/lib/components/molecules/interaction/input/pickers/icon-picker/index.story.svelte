@@ -23,7 +23,7 @@ const Trash2 = 'trash-2';
 const Edit3 = 'edit-3';
 const Copy = 'copy';
 
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -119,3 +119,5 @@ const Copy = 'copy';
 
   {/snippet}
 </Story>
+
+

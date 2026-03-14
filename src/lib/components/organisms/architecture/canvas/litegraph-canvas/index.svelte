@@ -283,7 +283,7 @@
 			type: 'custom',
 			x: Math.round(position.x),
 			y: Math.round(position.y),
-			color: '#6366f1',
+			color: 'var(--color-secondary-500)',
 			inputs: [{ id: 'in-1', direction: 'input', dataType: 'any', label: 'In' }],
 			outputs: [{ id: 'out-1', direction: 'output', dataType: 'any', label: 'Out' }],
 			properties: []
@@ -423,7 +423,7 @@
 						endX={connectionCurrentPosition.x}
 						endY={connectionCurrentPosition.y}
 						type="bezier"
-						color="#3b82f6"
+						color="var(--color-primary-500)"
 						active={true}
 						showArrow={false}
 						animated={true}
@@ -482,17 +482,17 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		background: #0f0f0f;
-		border-radius: 8px;
+		background: var(--color-background-primary);
+		border-radius: var(--border-radius-lg);
 		overflow: hidden;
 	}
 
 	:global(.litegraph-canvas__toolbar) {
 		display: flex;
 		align-items: center;
-		padding: 0.75rem;
-		background: #141414;
-		border-bottom: 1px solid #374151;
+		padding: var(--spacing-3);
+		background: color-mix(in srgb, var(--color-background-primary) 90%, var(--color-background-secondary) 10%);
+		border-bottom: 1px solid var(--color-border-primary);
 	}
 
 	:global(.litegraph-canvas__container) {
@@ -513,7 +513,7 @@
 		width: 100%;
 		height: 100%;
 		pointer-events: none;
-		z-index: 5;
+		z-index: var(--z-index-layer5);
 	}
 
 	:global(.litegraph-canvas__connections > *) {
@@ -522,8 +522,9 @@
 
 	:global(.litegraph-canvas__minimap) {
 		position: absolute;
-		bottom: 1rem;
-		right: 1rem;
-		z-index: 10;
+		bottom: var(--spacing-4);
+		right: var(--spacing-4);
+		z-index: var(--z-index-docked);
 	}
 </style>
+

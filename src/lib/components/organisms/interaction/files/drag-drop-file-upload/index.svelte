@@ -138,8 +138,8 @@ const X = 'x';
   <!-- Drop Zone -->
   <div
     class={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
-      isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-gray-400'
-    } ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${dropZoneClass}`}
+      isDragging ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
+    } ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${dropZoneClass}`}
     ondragover={(e: DragEvent) => {
       e.preventDefault();
       isDragging = true;
@@ -156,10 +156,10 @@ const X = 'x';
     role="button"
     tabindex={0}
   >
-    <BaseIcon name={Upload} class="mx-auto h-12 w-12 text-gray-400 mb-4" />
-    <p class="text-lg font-medium text-gray-900">Drag and drop files here</p>
-    <p class="text-sm text-gray-500 mt-1">or click to browse</p>
-    <p class="text-xs text-gray-400 mt-2">Supports: {accept || 'All files'} | Max: {formatFileSize(maxSize)}</p>
+    <BaseIcon name={Upload} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)] mb-4" />
+    <p class="text-lg font-medium text-[var(--color-text-primary)]">Drag and drop files here</p>
+    <p class="text-sm text-[var(--color-text-secondary)] mt-1">or click to browse</p>
+    <p class="text-xs text-[var(--color-text-tertiary)] mt-2">Supports: {accept || 'All files'} | Max: {formatFileSize(maxSize)}</p>
 
     <input
       type="file"
@@ -175,40 +175,40 @@ const X = 'x';
   <!-- Selected Files List -->
   {#if files.length > 0}
     <div class={`mt-4 ${fileListClass}`}>
-      <h4 class="text-sm font-medium text-gray-700 mb-2">Selected Files:</h4>
+      <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Selected Files:</h4>
       <ul class="space-y-2">
         {#each files as file}
           <li class={`flex items-center justify-between p-3 border rounded-md ${fileItemClass} ${
-            file.status === 'error' ? 'border-red-200 bg-red-50' :
-            file.status === 'success' ? 'border-green-200 bg-green-50' :
-            'border-gray-200 bg-gray-50'
+            file.status === 'error' ? 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]' :
+            file.status === 'success' ? 'border-[var(--color-success-200)] bg-[var(--color-success-50)]' :
+            'border-[var(--color-border-primary)] bg-[var(--color-background-secondary)]'
           }`}>
             <div class="flex items-center">
-              <BaseIcon name={FileText} class="h-5 w-5 text-gray-500 mr-2" />
+              <BaseIcon name={FileText} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
               <div>
-                <p class="text-sm font-medium text-gray-900">{file.name}</p>
-                <p class="text-xs text-gray-500">{formatFileSize(file.size)}</p>
+                <p class="text-sm font-medium text-[var(--color-text-primary)]">{file.name}</p>
+                <p class="text-xs text-[var(--color-text-secondary)]">{formatFileSize(file.size)}</p>
               </div>
             </div>
 
             <div class="flex items-center space-x-2">
               {#if file.status === 'uploading'}
-                <div class="w-24 bg-gray-200 rounded-full h-2 mr-2">
+                <div class="w-24 bg-[var(--color-background-tertiary)] rounded-full h-2 mr-2">
                   <div
-                    class="bg-blue-600 h-2 rounded-full"
+                    class="bg-[var(--color-primary-600)] h-2 rounded-full"
                     style={`width: ${file.progress}%`}
                   ></div>
                 </div>
-                <span class="text-xs text-gray-500">{file.progress}%</span>
+                <span class="text-xs text-[var(--color-text-secondary)]">{file.progress}%</span>
               {:else if file.status === 'error'}
-                <span class="text-xs text-red-600">Error</span>
+                <span class="text-xs text-[var(--color-danger-600)]">Error</span>
               {:else if file.status === 'success'}
-                <span class="text-xs text-green-600">вњ“ Uploaded</span>
+                <span class="text-xs text-[var(--color-success-600)]">вњ“ Uploaded</span>
               {/if}
 
               <button
                 type="button"
-                class="text-gray-400 hover:text-gray-600"
+                class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
                 onclick={() => removeFile(file.id)}
               >
                 <BaseIcon name={X} class="h-4 w-4" />
@@ -220,4 +220,8 @@ const X = 'x';
     </div>
   {/if}
 </div>
+
+
+
+
 

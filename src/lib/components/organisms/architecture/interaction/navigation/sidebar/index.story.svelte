@@ -8,7 +8,7 @@ const User = 'user';
 const Bell = 'bell';
 const Mail = 'mail';
 
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   type NavItem = {
     id: string;
@@ -64,6 +64,8 @@ const Mail = 'mail';
     />
   {/snippet}
 </Story>
+
+
 
 
 

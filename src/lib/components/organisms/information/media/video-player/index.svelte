@@ -119,7 +119,7 @@ const RotateCcw = 'rotate-ccw';
   }
 </script>
 
-<div class={`video-player bg-black rounded-lg overflow-hidden ${hostClass}`} style={`width: ${width}; height: ${height};`} {...restProps}>
+<div class={`video-player bg-[var(--color-neutral-900)] rounded-lg overflow-hidden ${hostClass}`} style={`width: ${width}; height: ${height};`} {...restProps}>
   <video
     bind:this={videoRef}
     src={src}
@@ -136,7 +136,10 @@ const RotateCcw = 'rotate-ccw';
   ></video>
 
   {#if showControls}
-    <div class={`absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white ${controlsClass}`}>
+    <div
+      class={`absolute bottom-0 left-0 right-0 p-4 text-[var(--color-text-inverse)] ${controlsClass}`}
+      style="--gradient-start: transparent; --gradient-end: color-mix(in srgb, var(--color-text-primary) 80%, transparent); background-image: var(--gradient-directional-vertical);"
+    >
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center space-x-2">
           <Button
@@ -202,9 +205,13 @@ const RotateCcw = 'rotate-ccw';
   {/if}
   
   {#if title}
-    <div class="p-2 text-white bg-black/50 text-sm">
+    <div class="p-2 text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)]/50 text-sm">
       {title}
     </div>
   {/if}
 </div>
+
+
+
+
 

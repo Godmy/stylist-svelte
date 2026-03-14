@@ -42,7 +42,7 @@ const ChevronDown = 'chevron-down';
 
   let sectionClasses = $derived(`
     form-section
-    ${border ? 'border border-gray-200 rounded-lg' : ''}
+    ${border ? 'border border-[var(--color-border-primary)] rounded-lg' : ''}
     ${padding ? 'p-6' : 'p-0'}
     ${className}
   `);
@@ -59,17 +59,17 @@ const ChevronDown = 'chevron-down';
       aria-expanded={collapsible ? !isCollapsed : undefined}
     >
       <div class="header-content flex items-start gap-3">
-        <h2 class="text-lg font-medium text-gray-900 flex items-center">
+        <h2 class="text-lg font-medium text-[var(--color-text-primary)] flex items-center">
           {title}
           {#if required}
-            <span class="text-red-500 ml-1" aria-label="required section">*</span>
+            <span class="text-[var(--color-danger-500)] ml-1" aria-label="required section">*</span>
           {/if}
         </h2>
       </div>
 
       {#if collapsible}
         <button
-          class="mt-1 flex items-center justify-center w-6 h-6 rounded-full hover:bg-gray-100 focus:outline-none"
+          class="mt-1 flex items-center justify-center w-6 h-6 rounded-full hover:bg-[var(--color-background-secondary)] focus:outline-none"
           aria-label={isCollapsed ? `Expand ${title} section` : `Collapse ${title} section`}
           onclick={(e) => {
             e.stopPropagation();
@@ -77,7 +77,7 @@ const ChevronDown = 'chevron-down';
           }}
         >
           <BaseIcon name={ChevronDown}
-            class="w-4 h-4 transform transition-transform text-gray-500 {isCollapsed ? 'rotate-180' : ''}"
+            class="w-4 h-4 transform transition-transform text-[var(--color-text-secondary)] {isCollapsed ? 'rotate-180' : ''}"
           />
         </button>
       {/if}
@@ -85,7 +85,7 @@ const ChevronDown = 'chevron-down';
   {/if}
 
   {#if description}
-    <p class="section-description text-sm text-gray-500 mb-4">
+    <p class="section-description text-sm text-[var(--color-text-secondary)] mb-4">
       {description}
     </p>
   {/if}
@@ -115,4 +115,7 @@ const ChevronDown = 'chevron-down';
     width: 100%;
   }
 </style>
+
+
+
 

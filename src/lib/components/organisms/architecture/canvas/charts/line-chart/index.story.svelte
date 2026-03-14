@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import LineChart from './index.svelte';
   import type { ILineChartProps } from './types';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   // Define sample data for the chart
   const data: ILineChartProps['data'] = [
@@ -123,5 +123,7 @@
     />
   {/snippet}
 </Story>
+
+
 
 

@@ -146,7 +146,7 @@ This component follows SOLID principles:
   <!-- Calendar grid -->
   <div class={gridClasses}>
     {#if showWeekNumbers}
-      <div class="p-[--spacing-xs] text-center text-[--color-text-muted]"></div>
+      <div class="p-[--spacing-xs] text-center text-[--color-text-secondary]"></div>
     {/if}
 
     {#each weekdays as day}
@@ -165,7 +165,7 @@ This component follows SOLID principles:
         <div class={MiniCalendarStyleManager.getDateNumberClasses()}>
           <span>{day.date.getDate()}</span>
           {#if day.hasEvent && !compact}
-            <div class="flex flex-wrap justify-center gap-[--spacing-0.5] mt-[--spacing-0.5]">
+            <div class="flex flex-wrap justify-center gap-[var(--spacing-1)] mt-[var(--spacing-1)]">
               {#each day.events.slice(0, 2) as event, index}
                 <div
                   class={MiniCalendarStyleManager.getEventIndicatorClasses(event.color, eventClass)}
@@ -182,7 +182,7 @@ This component follows SOLID principles:
                 ></div>
               {/each}
               {#if day.events.length > 2}
-                <div class="text-[--text-size-2xs] text-[--color-text-muted]">+{day.events.length - 2}</div>
+                <div class="text-[--text-size-2xs] text-[--color-text-secondary]">+{day.events.length - 2}</div>
               {/if}
             </div>
           {/if}
@@ -191,5 +191,9 @@ This component follows SOLID principles:
     {/each}
   </div>
 </div>
+
+
+
+
 
 

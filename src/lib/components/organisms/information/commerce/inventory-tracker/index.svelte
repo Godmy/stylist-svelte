@@ -147,9 +147,9 @@ const Search = 'search';
     const config: Record<string, { icon: any, color: string, bgColor: string, borderColor: string }> = {
       'in-stock': {
         icon: CheckCircle,
-        color: 'text-green-600',
-        bgColor: 'bg-green-100',
-        borderColor: 'border-green-200'
+        color: 'text-[var(--color-success-600)]',
+        bgColor: 'bg-[var(--color-success-100)]',
+        borderColor: 'border-[var(--color-success-200)]'
       },
       'low-stock': {
         icon: AlertTriangle,
@@ -159,15 +159,15 @@ const Search = 'search';
       },
       'out-of-stock': {
         icon: XCircle,
-        color: 'text-red-600',
-        bgColor: 'bg-red-100',
-        borderColor: 'border-red-200'
+        color: 'text-[var(--color-danger-600)]',
+        bgColor: 'bg-[var(--color-danger-100)]',
+        borderColor: 'border-[var(--color-danger-200)]'
       },
       'overstocked': {
         icon: Package,
-        color: 'text-blue-600',
-        bgColor: 'bg-blue-100',
-        borderColor: 'border-blue-200'
+        color: 'text-[var(--color-primary-600)]',
+        bgColor: 'bg-[var(--color-primary-100)]',
+        borderColor: 'border-[var(--color-primary-200)]'
       }
     };
 
@@ -189,11 +189,11 @@ const Search = 'search';
   <div class="mb-6">
     <div class="flex flex-wrap items-center justify-between gap-4">
       <div>
-        <h2 class="text-xl font-bold text-gray-900 flex items-center">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] flex items-center">
           <BaseIcon name={Package} class="h-5 w-5 mr-2" />
           Inventory Tracker
         </h2>
-        <p class="text-sm text-gray-500 mt-1">
+        <p class="text-sm text-[var(--color-text-secondary)] mt-1">
           Manage and monitor your product inventory levels
         </p>
       </div>
@@ -202,11 +202,11 @@ const Search = 'search';
         {#if showSearch}
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
             </div>
             <input
               type="text"
-              class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
               placeholder="Search items..."
               value={searchTerm}
               oninput={(e) => searchTerm = (e.target as HTMLInputElement).value}
@@ -216,7 +216,7 @@ const Search = 'search';
 
         {#if showStatusFilter}
           <select
-            class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+            class="block w-full pl-3 pr-10 py-2 text-base border-[var(--color-border-primary)] focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm rounded-md"
             value={selectedStatus}
             onchange={(e) => selectedStatus = (e.target as HTMLSelectElement).value}
           >
@@ -236,35 +236,35 @@ const Search = 'search';
 
     <!-- Inventory stats -->
     <div class="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
-      <div class="bg-white p-4 rounded-lg border border-gray-200">
-        <div class="text-sm font-medium text-gray-500">Total Items</div>
-        <div class="mt-1 text-2xl font-semibold text-gray-900">{inventoryStats.totalItems}</div>
+      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
+        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Total Items</div>
+        <div class="mt-1 text-2xl font-semibold text-[var(--color-text-primary)]">{inventoryStats.totalItems}</div>
       </div>
 
-      <div class="bg-white p-4 rounded-lg border border-gray-200">
-        <div class="text-sm font-medium text-gray-500">In Stock</div>
-        <div class="mt-1 text-2xl font-semibold text-green-600">{inventoryStats.inStockItems}</div>
+      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
+        <div class="text-sm font-medium text-[var(--color-text-secondary)]">In Stock</div>
+        <div class="mt-1 text-2xl font-semibold text-[var(--color-success-600)]">{inventoryStats.inStockItems}</div>
       </div>
 
-      <div class="bg-white p-4 rounded-lg border border-gray-200">
-        <div class="text-sm font-medium text-gray-500">Low Stock</div>
+      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
+        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Low Stock</div>
         <div class="mt-1 text-2xl font-semibold text-yellow-600">{inventoryStats.lowStockItems}</div>
       </div>
 
-      <div class="bg-white p-4 rounded-lg border border-gray-200">
-        <div class="text-sm font-medium text-gray-500">Out of Stock</div>
-        <div class="mt-1 text-2xl font-semibold text-red-600">{inventoryStats.outOfStockItems}</div>
+      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
+        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Out of Stock</div>
+        <div class="mt-1 text-2xl font-semibold text-[var(--color-danger-600)]">{inventoryStats.outOfStockItems}</div>
       </div>
 
-      <div class="bg-white p-4 rounded-lg border border-gray-200">
-        <div class="text-sm font-medium text-gray-500">Fill Rate</div>
-        <div class="mt-1 text-2xl font-semibold text-blue-600">{inventoryStats.stockPercentage}%</div>
+      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
+        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Fill Rate</div>
+        <div class="mt-1 text-2xl font-semibold text-[var(--color-primary-600)]">{inventoryStats.stockPercentage}%</div>
       </div>
     </div>
 
     <!-- Progress bar for overall inventory health -->
     <div class="mt-4">
-      <div class="flex justify-between text-sm text-gray-600 mb-1">
+      <div class="flex justify-between text-sm text-[var(--color-text-secondary)] mb-1">
         <span>Inventory Health</span>
         <span>{inventoryStats.stockPercentage}% in stock</span>
       </div>
@@ -290,10 +290,10 @@ const Search = 'search';
       </h3>
       <div class="mt-2 space-y-2">
         {#each unacknowledgedAlerts as alert}
-          <div class="flex items-center justify-between p-3 bg-white rounded border border-yellow-100">
+          <div class="flex items-center justify-between p-3 bg-[var(--color-background-primary)] rounded border border-yellow-100">
             <div>
-              <p class="text-sm font-medium text-gray-900">{alert.itemName}</p>
-              <p class="text-xs text-gray-500">
+              <p class="text-sm font-medium text-[var(--color-text-primary)]">{alert.itemName}</p>
+              <p class="text-xs text-[var(--color-text-secondary)]">
                 Current: {alert.currentLevel}, Threshold: {alert.threshold}
               </p>
             </div>
@@ -311,59 +311,59 @@ const Search = 'search';
   {/if}
 
   <!-- Inventory items list -->
-  <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
+  <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-[var(--opacity-5)] rounded-lg">
     <table class="min-w-full divide-y divide-gray-300">
-      <thead class="bg-gray-50">
+      <thead class="bg-[var(--color-background-secondary)]">
         <tr>
-          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Item</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">SKU</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Current Stock</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Reserved</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Available</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
+          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-[var(--color-text-primary)] sm:pl-6">Item</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">SKU</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Current Stock</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Reserved</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Available</th>
+          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Status</th>
           <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
             <span class="sr-only">Actions</span>
           </th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-gray-200 bg-white">
+      <tbody class="divide-y divide-gray-200 bg-[var(--color-background-primary)]">
         {#each filteredItems as item}
           {@const statusConfig = getStatusConfig(item.status)}
           <tr class={`${itemClass}`}>
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[var(--color-text-primary)] sm:pl-6">
               <div class="flex items-center">
                 {#if item.thumbnail}
                   <img class="h-10 w-10 rounded-md" src={item.thumbnail} alt={item.name} />
                 {:else}
-                  <div class="h-10 w-10 rounded-md bg-gray-200 flex items-center justify-center">
-                    <BaseIcon name={Package} class="h-5 w-5 text-gray-500" />
+                  <div class="h-10 w-10 rounded-md bg-[var(--color-background-tertiary)] flex items-center justify-center">
+                    <BaseIcon name={Package} class="h-5 w-5 text-[var(--color-text-secondary)]" />
                   </div>
                 {/if}
                 <div class="ml-4">
                   <div class="font-medium">{item.name}</div>
                   {#if item.category}
-                    <div class="text-gray-500 text-xs">{item.category}</div>
+                    <div class="text-[var(--color-text-secondary)] text-xs">{item.category}</div>
                   {/if}
                 </div>
               </div>
             </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.sku}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">{item.sku}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
               <div class="flex items-center">
                 <span>{item.currentStock}</span>
                 {#if item.maxStock}
-                  <span class="text-gray-400 ml-1">/ {item.maxStock}</span>
+                  <span class="text-[var(--color-text-tertiary)] ml-1">/ {item.maxStock}</span>
                 {/if}
               </div>
             </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
               {item.reserved || 0}
             </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
               <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                item.available > item.minStock * 2 ? 'bg-green-100 text-green-800' :
-                item.available <= 0 ? 'bg-red-100 text-red-800' :
-                item.available <= item.minStock ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'
+                item.available > item.minStock * 2 ? 'bg-[var(--color-success-100)] text-[var(--color-success-800)]' :
+                item.available <= 0 ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]' :
+                item.available <= item.minStock ? 'bg-yellow-100 text-yellow-800' : 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]'
               }`}>
                 {item.available}
               </span>
@@ -402,15 +402,19 @@ const Search = 'search';
 
     {#if filteredItems.length === 0}
       <div class="text-center py-12">
-        <BaseIcon name={Package} class="h-12 w-12 text-gray-400 mx-auto" />
-        <h3 class="mt-2 text-sm font-medium text-gray-900">No inventory items</h3>
-        <p class="mt-1 text-sm text-gray-500">
+        <BaseIcon name={Package} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto" />
+        <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No inventory items</h3>
+        <p class="mt-1 text-sm text-[var(--color-text-secondary)]">
           {searchTerm ? 'No items match your search.' : 'Get started by adding some inventory items.'}
         </p>
       </div>
     {/if}
   </div>
 </div>
+
+
+
+
 
 
 

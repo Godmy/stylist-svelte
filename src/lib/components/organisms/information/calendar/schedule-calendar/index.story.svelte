@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import * as ScheduleCalendarModule from './index.svelte';
   const ScheduleCalendar: any = ScheduleCalendarModule.default ?? ScheduleCalendarModule;
@@ -148,6 +148,8 @@
     </section>
   {/snippet}
 </Story>
+
+
 
 
 

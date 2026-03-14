@@ -176,20 +176,20 @@ const RotateCcw = 'rotate-ccw';
 
 <div class={`c-map-selector ${hostClass}`} style={`width: ${width}; height: ${height};`} {...restProps}>
   {#if showSearch}
-    <div class="relative z-10 mb-4">
+    <div class="relative z-[var(--z-index-docked)] mb-4">
       <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <BaseIcon name={Search} class="h-5 w-5 text-gray-400" />
+        <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
       </div>
       <input
         type="text"
-        class={`block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`}
+        class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
         placeholder="Search for places..."
         value={searchQuery}
         oninput={(e) => searchQuery = (e.target as HTMLInputElement).value}
         onkeypress={(e) => e.key === 'Enter' && handleSearch()}
       />
       <button
-        class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700"
+        class="absolute inset-y-0 right-0 px-3 flex items-center text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
         onclick={handleSearch}
       >
         <BaseIcon name={Search} class="h-5 w-5" />
@@ -197,10 +197,10 @@ const RotateCcw = 'rotate-ccw';
     </div>
   {/if}
 
-  <div class={`relative rounded-lg overflow-hidden border border-gray-300 ${mapClass}`}>
+  <div class={`relative rounded-lg overflow-hidden border border-[var(--color-border-primary)] ${mapClass}`}>
     <!-- Map visualization -->
     <div
-      class="w-full h-full bg-blue-50 relative"
+      class="w-full h-full bg-[var(--color-primary-50)] relative"
       onclick={handleMapClick}
       onmousedown={handleMouseDown}
       onmousemove={handleMouseMove}
@@ -213,35 +213,35 @@ const RotateCcw = 'rotate-ccw';
       }}
     >
       <!-- Simplified map representation with grid -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100">
+      <div class="absolute inset-0 [background-image:var(--gradient-forest)]">
         <!-- Grid lines to simulate map -->
         {#each Array(10) as _, i}
           <div
-            class="absolute w-full h-px bg-gray-300 opacity-30"
+            class="absolute w-full h-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-30)]"
             style={`top: ${i * 10}%`}
           ></div>
           <div
-            class="absolute h-full w-px bg-gray-300 opacity-30"
+            class="absolute h-full w-px bg-[var(--color-background-tertiary)] opacity-[var(--opacity-30)]"
             style={`left: ${i * 10}%`}
           ></div>
         {/each}
 
         <!-- Water bodies simulation -->
-        <div class="absolute w-1/3 h-1/4 bg-blue-200 rounded-lg opacity-50" style="top: 20%; left: 30%;"></div>
-        <div class="absolute w-1/5 h-1/5 bg-blue-200 rounded-full opacity-50" style="top: 60%; left: 20%;"></div>
+        <div class="absolute w-1/3 h-1/4 bg-[var(--color-primary-200)] rounded-lg opacity-[var(--opacity-50)]" style="top: 20%; left: 30%;"></div>
+        <div class="absolute w-1/5 h-1/5 bg-[var(--color-primary-200)] rounded-full opacity-[var(--opacity-50)]" style="top: 60%; left: 20%;"></div>
 
         <!-- Roads simulation -->
-        <div class="absolute w-full h-1 bg-gray-400 opacity-40" style="top: 30%;"></div>
-        <div class="absolute h-full w-1 bg-gray-400 opacity-40" style="left: 40%;"></div>
+        <div class="absolute w-full h-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="top: 30%;"></div>
+        <div class="absolute h-full w-1 bg-[var(--color-neutral-400)] opacity-[var(--opacity-40)]" style="left: 40%;"></div>
 
         <!-- Parks/green spaces -->
-        <div class="absolute w-1/4 h-1/6 bg-green-200 rounded opacity-60" style="top: 50%; left: 60%;"></div>
+        <div class="absolute w-1/4 h-1/6 bg-[var(--color-success-200)] rounded opacity-[var(--opacity-60)]" style="top: 50%; left: 60%;"></div>
       </div>
 
       <!-- Center marker -->
       <div
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-red-500 rounded-full border-2 border-white shadow-lg"
-        style="z-index: 10;"
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-[var(--color-danger-500)] rounded-full border-2 border-[var(--color-background-primary)] shadow-lg"
+        style="z-index: var(--z-index-docked);"
       ></div>
 
       <!-- Location markers -->
@@ -249,8 +249,8 @@ const RotateCcw = 'rotate-ccw';
         {#each locations as location}
           {@const pos = calculateMarkerPosition(location)}
           <div
-            class="absolute w-6 h-6 bg-blue-500 rounded-full border-2 border-white shadow-md cursor-pointer transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-white text-xs"
-            style={`left: ${pos.x}%; top: ${pos.y}%; z-index: 20;`}
+            class="absolute w-6 h-6 bg-[var(--color-primary-500)] rounded-full border-2 border-[var(--color-background-primary)] shadow-md cursor-pointer transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center text-[var(--color-text-inverse)] text-xs"
+            style={`left: ${pos.x}%; top: ${pos.y}%; z-index: var(--z-index-layer20);`}
             onclick={(e) => handleMarkerClick(location, e)}
             title={location.name}
             role="button"
@@ -261,7 +261,7 @@ const RotateCcw = 'rotate-ccw';
           >
             <BaseIcon name={MapPin} class="h-4 w-4" />
             {#if pos.y > 50}  <!-- Show label below if marker is in upper half of map -->
-              <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-white shadow-md rounded px-2 py-1 text-xs whitespace-nowrap">
+              <div class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-[var(--color-background-primary)] shadow-md rounded px-2 py-1 text-xs whitespace-nowrap">
                 {location.name}
               </div>
             {/if}
@@ -314,12 +314,18 @@ const RotateCcw = 'rotate-ccw';
     {/if}
 
     <!-- Map info -->
-    <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
+    <div class="absolute bottom-4 left-4 bg-[var(--color-background-primary)]/80 backdrop-blur-sm rounded-md px-3 py-2 text-sm">
       <div>Zoom: {currentZoom}</div>
       <div>Center: {currentCenter.lat.toFixed(4)}, {currentCenter.lng.toFixed(4)}</div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 

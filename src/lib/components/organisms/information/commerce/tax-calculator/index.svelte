@@ -247,8 +247,8 @@ const LoaderCircle = 'loader-circle';
 
 <div class={`c-tax-calculator ${hostClass}`} {...restProps}>
   <div class="flex items-center mb-4">
-    <BaseIcon name={Calculator} class="h-5 w-5 text-blue-500 mr-2" />
-    <h2 class="text-lg font-medium text-gray-900">Tax Calculator</h2>
+    <BaseIcon name={Calculator} class="h-5 w-5 text-[var(--color-primary-500)] mr-2" />
+    <h2 class="text-lg font-medium text-[var(--color-text-primary)]">Tax Calculator</h2>
   </div>
 
   <div class={`space-y-4 ${formClass}`}>
@@ -265,14 +265,14 @@ const LoaderCircle = 'loader-circle';
 
     {#if showTaxRateSelector}
       <div>
-        <p class="block text-sm font-medium text-gray-700 mb-1">Tax Rates</p>
+        <p class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Tax Rates</p>
         <div class="space-y-2">
           {#each availableTaxRates as rate}
             <div class="flex items-start">
               <input
                 type="checkbox"
                 id={`tax-rate-${rate.id}`}
-                class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                class="h-4 w-4 text-[var(--color-primary-600)] rounded focus:ring-blue-500 border-[var(--color-border-primary)]"
                 checked={selectedTaxRates.includes(rate.id)}
                 onchange={(e) => {
                   const target = e.target as HTMLInputElement;
@@ -283,19 +283,19 @@ const LoaderCircle = 'loader-circle';
                   }
                 }}
               />
-              <label for={`tax-rate-${rate.id}`} class="ml-2 text-sm text-gray-700">
+              <label for={`tax-rate-${rate.id}`} class="ml-2 text-sm text-[var(--color-text-primary)]">
                 <div class="font-medium">{rate.name}</div>
-                <div class="flex items-center text-xs text-gray-500">
+                <div class="flex items-center text-xs text-[var(--color-text-secondary)]">
                   <BaseIcon name={Percent} class="h-3 w-3 mr-1" />
                   {rate.rate}%
                   {#if rate.compound}
-                    <span class="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span class="ml-1 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
                       Compound
                     </span>
                   {/if}
                 </div>
                 {#if rate.description}
-                  <div class="text-gray-500 mt-1">{rate.description}</div>
+                  <div class="text-[var(--color-text-secondary)] mt-1">{rate.description}</div>
                 {/if}
               </label>
             </div>
@@ -305,10 +305,10 @@ const LoaderCircle = 'loader-circle';
     {/if}
 
     <div>
-      <label for="tax-amount" class="block text-sm font-medium text-gray-700 mb-1">Amount</label>
+      <label for="tax-amount" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Amount</label>
       <div class="relative">
         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <BaseIcon name={DollarSign} class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={DollarSign} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         </div>
         <input
           id="tax-amount"
@@ -317,7 +317,7 @@ const LoaderCircle = 'loader-circle';
           step={0.01}
           placeholder="0.00"
           value={amount}
-          class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
           oninput={(e) => amount = parseFloat((e.target as HTMLInputElement).value) || 0}
         />
       </div>
@@ -328,11 +328,11 @@ const LoaderCircle = 'loader-circle';
         <input
           id="include-tax"
           type="checkbox"
-          class="h-4 w-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+          class="h-4 w-4 text-[var(--color-primary-600)] rounded focus:ring-blue-500 border-[var(--color-border-primary)]"
           checked={includeTax}
           onchange={(e) => includeTax = (e.target as HTMLInputElement).checked}
         />
-        <label for="include-tax" class="ml-2 block text-sm text-gray-700">
+        <label for="include-tax" class="ml-2 block text-sm text-[var(--color-text-primary)]">
           Amount includes tax
         </label>
       </div>
@@ -341,25 +341,25 @@ const LoaderCircle = 'loader-circle';
 
   {#if isCalculating}
     <div class="mt-6 flex justify-center items-center py-4">
-      <BaseIcon name={LoaderCircle} class="h-6 w-6 animate-spin text-gray-500" />
+      <BaseIcon name={LoaderCircle} class="h-6 w-6 animate-spin text-[var(--color-text-secondary)]" />
     </div>
   {:else if result}
     <div class={`mt-6 border rounded-lg p-6 ${resultClass}`}>
       <div class="space-y-4">
         <div class="flex justify-between">
-          <span class="text-gray-600">Subtotal</span>
+          <span class="text-[var(--color-text-secondary)]">Subtotal</span>
           <span class="font-medium">{formatCurrency(result.subtotal)}</span>
         </div>
 
         {#if result.breakdown.length > 0}
-          <div class="border-t border-gray-200 pt-4">
-            <h3 class="text-sm font-medium text-gray-900 mb-2">Tax Breakdown</h3>
+          <div class="border-t border-[var(--color-border-primary)] pt-4">
+            <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Tax Breakdown</h3>
             <div class="space-y-2">
               {#each result.breakdown as tax}
                 <div class="flex justify-between text-sm">
                   <div>
                     <span>{tax.rateName}</span>
-                    <span class="text-gray-500 ml-1">{tax.rateValue}%</span>
+                    <span class="text-[var(--color-text-secondary)] ml-1">{tax.rateValue}%</span>
                   </div>
                   <span>+{formatCurrency(tax.taxAmount)}</span>
                 </div>
@@ -368,24 +368,28 @@ const LoaderCircle = 'loader-circle';
           </div>
         {/if}
 
-        <div class="border-t border-gray-200 pt-4 flex justify-between text-lg font-medium">
+        <div class="border-t border-[var(--color-border-primary)] pt-4 flex justify-between text-lg font-medium">
           <span>Tax Total</span>
           <span>{formatCurrency(result.taxAmount)}</span>
         </div>
 
-        <div class="pt-2 flex justify-between text-xl font-bold border-t border-gray-300">
+        <div class="pt-2 flex justify-between text-xl font-bold border-t border-[var(--color-border-primary)]">
           <span>Total</span>
-          <span class="text-blue-600">{formatCurrency(result.total)}</span>
+          <span class="text-[var(--color-primary-600)]">{formatCurrency(result.total)}</span>
         </div>
       </div>
     </div>
   {/if}
 
   {#if error}
-    <div class="mt-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-md text-sm">
+    <div class="mt-4 p-3 bg-[var(--color-danger-50)] border border-[var(--color-danger-200)] text-[var(--color-danger-700)] rounded-md text-sm">
       {error}
     </div>
   {/if}
 </div>
+
+
+
+
 
 
