@@ -65,6 +65,8 @@
   .tree-viewer {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--spacing-1);
   }
 </style>
+
+

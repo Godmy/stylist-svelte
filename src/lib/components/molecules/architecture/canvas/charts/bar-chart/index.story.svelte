@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import BarChart from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -9,7 +9,7 @@
 		{ name: 'height', type: 'number', defaultValue: 360, min: 220, max: 600, step: 20 },
 		{ name: 'showLegend', type: 'boolean', defaultValue: true },
 		{ name: 'showAxis', type: 'boolean', defaultValue: true },
-		{ name: 'colorScheme', type: 'select', defaultValue: 'default', options: ['default', 'warm', 'cool', 'neutral'] }
+		{ name: 'colorScheme', type: 'select', defaultValue: 'minimal', options: ['minimal', 'ocean', 'forest', 'sunset'] }
 	];
 
 	const data = [
@@ -25,3 +25,5 @@
 		<BarChart data={data} title={values.title} width={values.width} height={values.height} showLegend={values.showLegend} showAxis={values.showAxis} colorScheme={values.colorScheme} />
 	{/snippet}
 </Story>
+
+

@@ -100,13 +100,13 @@
         index === 0 ? 'rounded-l-md' : 
         index === options.length - 1 ? 'rounded-r-md' : 
         '-ml-px'
-      } border-gray-300 font-medium focus:z-10 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 ${
+      } border-[var(--color-border-primary)] font-medium focus:z-[var(--z-index-docked)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${
         isSelected(option.value) 
-          ? `bg-blue-500 text-white ${activeButtonClass}` 
-          : `bg-white text-gray-700 hover:bg-gray-50 ${inactiveButtonClass}`
+          ? `bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] ${activeButtonClass}` 
+          : `bg-[var(--color-background-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)] ${inactiveButtonClass}`
       } ${
         option.disabled || disabled 
-          ? 'opacity-50 cursor-not-allowed' 
+          ? 'opacity-[var(--opacity-50)] cursor-not-allowed' 
           : 'cursor-pointer'
       } ${sizeClasses} ${buttonClass}`}
       onclick={() => handleToggle(option.value)}
@@ -117,3 +117,8 @@
     </button>
   {/each}
 </div>
+
+
+
+
+

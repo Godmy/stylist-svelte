@@ -51,7 +51,7 @@
 
 <div class={`relative w-full ${className}`}>
   <button
-    class="w-full px-4 py-2 text-left bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    class="w-full px-4 py-2 text-left bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
     onclick={() => (isOpen = !isOpen)}
     onkeydown={handleKeyDown}
     aria-haspopup="listbox"
@@ -72,13 +72,13 @@
   </button>
 
   {#if isOpen}
-    <div role="listbox" class="absolute z-10 mt-1 w-full bg-white shadow-lg rounded-md border border-gray-200 max-h-60 overflow-auto">
+    <div role="listbox" class="absolute z-[var(--z-index-docked)] mt-1 w-full bg-[var(--color-background-primary)] shadow-lg rounded-md border border-[var(--color-border-primary)] max-h-60 overflow-auto">
       {#each options as option, i}
         <div
           role="option"
           aria-selected={localValue === option.value}
           tabindex={0}
-          class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+          class="px-4 py-2 hover:bg-[var(--color-background-secondary)] cursor-pointer"
           onclick={() => handleSelect(option)}
           onkeydown={(e) => handleOptionKeyDown(e, option)}
         >
@@ -88,3 +88,8 @@
     </div>
   {/if}
 </div>
+
+
+
+
+

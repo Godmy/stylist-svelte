@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   /**
    * @component CategoryCard
    * @description Card for component categories (for /stylist page)
@@ -71,5 +71,8 @@
     {/if}
   </div>
 </a>
+
+
+
 
 

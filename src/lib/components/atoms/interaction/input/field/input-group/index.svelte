@@ -1,7 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputGroupProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens';
@@ -9,14 +9,14 @@
 	import { Button } from '$stylist/components/atoms';
 
 	/**
-	 * InputGroup component - Input СЃ РєРЅРѕРїРєРѕР№ СЃРїСЂР°РІР°
+	 * InputGroup component - Input с кнопкой справа
 	 *
 	 * @example
 	 * ```svelte
 	 * <InputGroup
-	 *   label="РџРѕРёСЃРє"
+	 *   label="Поиск"
 	 *   bind:value={searchQuery}
-	 *   buttonLabel="РќР°Р№С‚Рё"
+	 *   buttonLabel="Найти"
 	 *   onButtonClick={handleSearch}
 	 * />
 	 * ```
@@ -60,7 +60,7 @@
 		maxlength,
 
 		// Button props
-		buttonLabel = 'Р”РµР№СЃС‚РІРёРµ',
+		buttonLabel = 'Действие',
 		buttonVariant = 'primary',
 		buttonDisabled = false,
 		onButtonClick,
@@ -83,7 +83,7 @@
 			size,
 			disabled,
 			error: hasError,
-			block: false, // Input РІ РіСЂСѓРїРїРµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ block
+			block: false, // Input в группе не может быть block
 			class: className
 		})
 	);
@@ -174,6 +174,10 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+
+
+
+
 
 
 

@@ -9,7 +9,7 @@
     targetX = 100,
     targetY = 100,
     label = '',
-    color = '#000000',
+    color = 'var(--color-text-primary)',
     width = 2,
     style = 'solid',
     class: className = ''
@@ -40,3 +40,5 @@
     <text x={(sourceX + targetX) / 2} y={(sourceY + targetY) / 2 - 10} text-anchor="middle" fill={color} font-size="12" class="select-none pointer-events-none">{label}</text>
   {/if}
 </svg>
+
+

@@ -32,13 +32,13 @@
   }: Props = $props();
 </script>
 
-<div class={`border-t border-gray-200 pt-5 ${className}`} {...restProps}>
+<div class={`border-t border-[var(--color-border-primary)] pt-5 ${className}`} {...restProps}>
   <div class="flex justify-end space-x-3">
     {#if showSecondaryButton}
       <button
         type="button"
-        class={`px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-          secondaryButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''
+        class={`px-4 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm text-sm font-medium text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+          secondaryButtonDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
         } ${secondaryButtonClass}`}
         onclick={onSecondaryClick}
         disabled={secondaryButtonDisabled}
@@ -49,8 +49,8 @@
     
     <button
       type="button"
-      class={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
-        primaryButtonDisabled ? 'opacity-50 cursor-not-allowed' : ''
+      class={`px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+        primaryButtonDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
       } ${primaryButtonClass}`}
       onclick={onPrimaryClick}
       disabled={primaryButtonDisabled}
@@ -59,6 +59,10 @@
     </button>
   </div>
 </div>
+
+
+
+
 
 
 

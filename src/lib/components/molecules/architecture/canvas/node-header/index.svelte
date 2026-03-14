@@ -166,11 +166,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.5rem;
-		padding: 0.5rem 0.75rem;
-		background: var(--node-header-color, #2563eb);
-		color: #f8fafc;
-		border-radius: 6px 6px 0 0;
+		gap: var(--spacing-2);
+		padding: var(--spacing-2) var(--spacing-3);
+		background: var(--node-header-color, var(--color-primary-600));
+		color: var(--color-text-inverse);
+		border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
 		cursor: grab;
 		user-select: none;
 	}
@@ -181,8 +181,8 @@
 
 	:global(.node-header__title) {
 		flex: 1 1 auto;
-		font-size: 0.8125rem;
-		font-weight: 600;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
 		line-height: 1.2;
 		white-space: nowrap;
 		overflow: hidden;
@@ -191,14 +191,14 @@
 
 	:global(.node-header__title-input) {
 		flex: 1 1 auto;
-		padding: 0.25rem 0.5rem;
+		padding: var(--spacing-1) var(--spacing-2);
 		font-size: inherit;
 		font-weight: inherit;
 		font-family: inherit;
-		color: #0f172a;
-		background: #f8fafc;
-		border: 2px solid #60a5fa;
-		border-radius: 4px;
+		color: var(--color-text-primary);
+		background: var(--color-background-primary);
+		border: 2px solid var(--color-primary-400);
+		border-radius: var(--border-radius-base);
 		outline: none;
 	}
 
@@ -207,19 +207,19 @@
 	}
 
 	:global(.node-header__title[role='button']:hover) {
-		background: rgb(255 255 255 / 0.1);
-		border-radius: 4px;
+		background: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
+		border-radius: var(--border-radius-base);
 	}
 
 	:global(.node-header__title[role='button']:focus-visible) {
-		outline: 2px solid #f8fafc;
+		outline: 2px solid var(--color-text-inverse);
 		outline-offset: 2px;
 	}
 
 	:global(.node-header__actions) {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: var(--spacing-1);
 		flex-shrink: 0;
 	}
 
@@ -227,62 +227,63 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.25rem;
+		padding: var(--spacing-1);
 		background: transparent;
 		border: none;
-		border-radius: 4px;
+		border-radius: var(--border-radius-base);
 		color: inherit;
-		opacity: 0.7;
+		opacity: var(--opacity-70);
 		cursor: pointer;
-		transition: opacity 120ms ease, background-color 120ms ease;
+		transition: opacity var(--duration-120) var(--animation-ease), background-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.node-header__action-btn:hover) {
-		opacity: 1;
-		background: rgb(255 255 255 / 0.15);
+		opacity: var(--opacity-100);
+		background: color-mix(in srgb, var(--color-background-primary) 15%, transparent);
 	}
 
 	:global(.node-header__action-btn:active) {
-		background: rgb(255 255 255 / 0.2);
+		background: color-mix(in srgb, var(--color-background-primary) 20%, transparent);
 	}
 
 	:global(.node-header__action-btn--danger:hover) {
-		background: rgb(239 68 68 / 0.3);
+		background: color-mix(in srgb, var(--color-danger-500) 30%, transparent);
 	}
 
 	:global(.node-header--selected) {
-		box-shadow: 0 0 0 2px #60a5fa;
+		box-shadow: var(--shadow-custom13);
 	}
 
 	:global(.node-header--size-xs) {
-		padding: 0.375rem 0.5rem;
+		padding: var(--spacing-1) var(--spacing-2);
 	}
 
 	:global(.node-header--size-xs .node-header__title) {
-		font-size: 0.6875rem;
+		font-size: var(--font-size-3);
 	}
 
 	:global(.node-header--size-sm) {
-		padding: 0.4375rem 0.625rem;
+		padding: var(--spacing-2) var(--spacing-2);
 	}
 
 	:global(.node-header--size-sm .node-header__title) {
-		font-size: 0.75rem;
+		font-size: var(--font-size-3);
 	}
 
 	:global(.node-header--size-md) {
-		padding: 0.5rem 0.75rem;
+		padding: var(--spacing-2) var(--spacing-3);
 	}
 
 	:global(.node-header--size-md .node-header__title) {
-		font-size: 0.8125rem;
+		font-size: var(--font-size-3);
 	}
 
 	:global(.node-header--size-lg) {
-		padding: 0.625rem 0.875rem;
+		padding: var(--spacing-2) var(--spacing-3);
 	}
 
 	:global(.node-header--size-lg .node-header__title) {
-		font-size: 0.875rem;
+		font-size: var(--font-size-3);
 	}
 </style>
+

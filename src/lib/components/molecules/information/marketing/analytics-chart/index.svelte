@@ -110,7 +110,7 @@
       <div class={AnalyticsChartStyleManager.getLegendContainerClass(legendClass)}>
         {#each data as item}
           <div class={AnalyticsChartStyleManager.getLegendItemClass()}>
-            <div class={AnalyticsChartStyleManager.getLegendColorClass()} style={`background-color: ${item.color || '#3B82F6'};`}></div>
+            <div class={AnalyticsChartStyleManager.getLegendColorClass()} style={`background-color: ${item.color || 'var(--color-primary-500)'};`}></div>
             <span class={AnalyticsChartStyleManager.getLegendLabelClass()}>{item.label}</span>
             <span class={AnalyticsChartStyleManager.getLegendValueClass()}>({item.value})</span>
           </div>
@@ -119,4 +119,6 @@
     {/if}
   </div>
 </div>
+
+
 

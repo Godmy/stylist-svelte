@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import OperationsHistory from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -40,11 +40,14 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
+    <div class="p-6 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
       <OperationsHistory
         operations={buildOperations(args.count, args.includePending)}
       />
-      <p class="text-sm text-gray-600">Search/filter interactions are available in the component toolbar.</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Search/filter interactions are available in the component toolbar.</p>
     </div>
   {/snippet}
 </Story>
+
+
+

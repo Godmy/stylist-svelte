@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import MetricCard from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -17,3 +17,5 @@
 		<MetricCard title={values.title} value={values.value} max={100} percentage={values.percentage} description="Monthly goal tracking" variant={values.variant} showProgressBar={values.showProgressBar} />
 	{/snippet}
 </Story>
+
+

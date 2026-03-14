@@ -3,7 +3,7 @@
     data = [],
     width = 200,
     height = 200,
-    colors = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'],
+    colors = ['var(--color-primary-500)', 'var(--color-success-500)', 'var(--color-warning-500)', 'var(--color-error-500)', 'var(--color-secondary-500)'],
     class: className = ''
   } = $props<{
     data: Array<{ label: string; value: number }>;
@@ -61,3 +61,5 @@
     {/each}
   </div>
 </div>
+
+

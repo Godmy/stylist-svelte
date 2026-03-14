@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import PriceAlert from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -16,3 +16,5 @@
 		<PriceAlert productName={values.productName} currentPrice={values.currentPrice} targetPrice={values.targetPrice} currency={values.currency} />
 	{/snippet}
 </Story>
+
+

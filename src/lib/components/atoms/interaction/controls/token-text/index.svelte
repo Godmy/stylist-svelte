@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenTextControlDefinition } from '../token-controls/types';
+	import type { TokenTextControlDefinition } from '$stylist/design-system/types/interaction/token-controls';
 
 	type TokenTextControlProps = {
 		definition: TokenTextControlDefinition;
@@ -37,11 +37,14 @@
 <style>
 	.token-text-control {
 		border: 1px solid var(--line);
-		border-radius: 0.45rem;
+		border-radius: var(--border-radius-lg);
 		background: color-mix(in srgb, var(--surface) 90%, var(--bg) 10%);
 		color: var(--text);
-		padding: 0.35rem 0.45rem;
-		font-size: 0.72rem;
+		padding: var(--spacing-1) var(--spacing-2);
+		font-size: var(--font-size-3);
 		min-width: 220px;
 	}
 </style>
+
+
+

@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import ProcessStep from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -35,7 +35,7 @@
 
 <Story {controls} component={ProcessStep} title="ProcessStep Component" description="A component to display process steps in a workflow">
 	{#snippet children(values: any)}
-		<div class="max-w-md rounded-lg border border-slate-200 bg-slate-50 p-4">
+		<div class="max-w-md rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
 			<ProcessStep
 				number={Number(values.number) || 1}
 				title={values.title as string}
@@ -46,3 +46,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

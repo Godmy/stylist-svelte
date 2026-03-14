@@ -1,7 +1,7 @@
 <script lang="ts">
 	// @ts-nocheck
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import KanbanBoard, { type KanbanBoardType } from './index.svelte';
 
   let moves = $state(0);
@@ -38,8 +38,8 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-4 rounded-xl bg-gray-50 space-y-3">
-      <div class={`rounded border border-gray-200 ${args.compact ? 'h-[500px]' : 'h-[640px]'} bg-white`}>
+    <div class="p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
+      <div class={`rounded border border-[var(--color-border-primary)] ${args.compact ? 'h-[500px]' : 'h-[640px]'} bg-[var(--color-background-primary)]`}>
         <KanbanBoard
           board={board}
           controlled={args.controlled}
@@ -55,7 +55,10 @@
           }}
         />
       </div>
-      <p class="text-sm text-gray-600">Actions: move {moves}, add column {newColumns}, add card {newCards}, external sync {externalUpdates}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Actions: move {moves}, add column {newColumns}, add card {newCards}, external sync {externalUpdates}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

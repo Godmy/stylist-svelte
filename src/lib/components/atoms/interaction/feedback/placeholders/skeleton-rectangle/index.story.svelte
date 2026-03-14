@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SkeletonRectangle from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	let width = $state(180);
 	let height = $state(32);
@@ -24,8 +24,8 @@
 		<div class="space-y-6 p-6">
 			<div class="flex flex-col gap-3">
 				<SkeletonRectangle {...({ width: widthValue, height: heightValue, class: animate ? '' : '!animate-none' } as any)} />
-				<SkeletonRectangle {...({ width: compactWidthValue, height: heightValue, class: 'opacity-80' } as any)} />
-				<SkeletonRectangle {...({ width: tallWidthValue, height: tallHeightValue, class: 'opacity-90' } as any)} />
+				<SkeletonRectangle {...({ width: compactWidthValue, height: heightValue, class: 'opacity-[var(--opacity-80)]' } as any)} />
+				<SkeletonRectangle {...({ width: tallWidthValue, height: tallHeightValue, class: 'opacity-[var(--opacity-90)]' } as any)} />
 			</div>
 
 			<div class="grid gap-4 sm:grid-cols-2">
@@ -45,6 +45,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
 
 
 

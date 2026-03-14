@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { PriceAlertElementProps } from '$stylist/design-system/contracts/information/price-alert';
+  import type { IPriceAlertElementProps } from '$stylist/design-system/contracts/information/price-alert';
   import { createPriceAlertState } from '$stylist/design-system/models/information/price-alert.svelte';
   import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
@@ -18,7 +18,7 @@
    * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ С†РµРЅРµ
    */
 
-  let props: PriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
+  let props: IPriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createPriceAlertState(
@@ -49,7 +49,7 @@
   const PRICE_ALERT_TITLE_CLASSES = 'font-semibold mb-2';
   const PRICE_ALERT_CONTENT_CLASSES = 'flex justify-between items-center';
   const PRICE_ALERT_PRICE_INFO_CLASSES = 'space-y-1';
-  const PRICE_ALERT_CURRENT_PRICE_CLASSES = 'text-sm text-gray-600';
+  const PRICE_ALERT_CURRENT_PRICE_CLASSES = 'text-sm text-[var(--color-text-secondary)]';
   const PRICE_ALERT_TARGET_PRICE_CLASSES = 'text-sm font-medium';
   const PRICE_ALERT_STATUS_BADGE_CLASSES = 'px-2 py-1 rounded text-xs font-medium';
   
@@ -61,8 +61,8 @@
     
   // Determine status-specific classes
   const statusBadgeTypeClass = $derived(isTargetReached 
-    ? 'bg-green-100 text-green-800' 
-    : 'bg-blue-100 text-blue-800');
+    ? 'bg-[var(--color-success-100)] text-[var(--color-success-800)]' 
+    : 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]');
 </script>
 
 <div {...restProps} class={state.classes} {...state.attrs}>
@@ -77,6 +77,15 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 

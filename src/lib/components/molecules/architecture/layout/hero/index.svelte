@@ -66,14 +66,14 @@
   {#if backgroundVariant === 'image' && backgroundImage}
     <div 
       class={backgroundClasses} 
-      style={`background-image: url('${backgroundImage}'); opacity: 0.3;`}
+      style={`background-image: url('${backgroundImage}'); opacity: var(--opacity-30);`}
       aria-hidden="true"
     ></div>
   {:else if backgroundVariant === 'gradient'}
     <div class={backgroundClasses} aria-hidden="true"></div>
   {:else if backgroundVariant === 'particles'}
     <!-- Пока что простой градиент вместо частиц -->
-    <div class={backgroundClasses + ' bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100'} aria-hidden="true"></div>
+    <div class={backgroundClasses + ' [background-image:var(--gradient-cosmic)]'} aria-hidden="true"></div>
   {/if}
 
   <!-- Основной контент -->
@@ -134,3 +134,7 @@
     {/if}
   </div>
 </div>
+
+
+
+

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0ConnectorProps } from '$stylist/design-system';
 	import { createIdef0ConnectorState } from '$stylist/design-system/models/information/idef0.svelte';
 	import Idef0PortLabel from '$stylist/components/atoms/information/data-display/diagrams/idef-zero-port-label/index.svelte';
@@ -42,4 +42,6 @@
 		class={state.labelClasses}
 	/>
 </g>
+
+
 

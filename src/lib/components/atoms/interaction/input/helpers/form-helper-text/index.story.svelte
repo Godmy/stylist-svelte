@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import FormHelperText from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -15,3 +15,5 @@
 		<FormHelperText text={values.text} variant={values.variant} size={values.size} />
 	{/snippet}
 </Story>
+
+

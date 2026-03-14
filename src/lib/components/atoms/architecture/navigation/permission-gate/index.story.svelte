@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import PermissionGate from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -26,7 +26,7 @@
 	controls={controls}
 >
 	{#snippet children(values: any)}
-		<div class="rounded-lg border border-slate-200 bg-slate-50 p-6">
+		<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-6">
 			{#if values.useCustomFallback}
 				<PermissionGate hasPermission={values.hasPermission as boolean}>
 					{#snippet children()}
@@ -52,3 +52,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

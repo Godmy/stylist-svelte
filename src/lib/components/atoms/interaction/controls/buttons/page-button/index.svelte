@@ -4,8 +4,8 @@ const Loader2 = 'loader-2';
 
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { PageButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
-import { createPageButtonState } from '$stylist/design-system/models/interaction/button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -44,7 +44,7 @@ import { createPageButtonState } from '$stylist/design-system/models/interaction
 
 	// Use centralized state management with adjusted props
 	let state = $derived(
-		createPageButtonState(
+		createButtonState(
 			createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 				variant: 'outline',
 				size: 'md'
@@ -75,6 +75,9 @@ import { createPageButtonState } from '$stylist/design-system/models/interaction
 		{props.page}
 	{/if}
 </button>
+
+
+
 
 
 

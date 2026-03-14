@@ -17,3 +17,5 @@
 		{@render props.content()}
 	{/if}
 </thead>
+
+

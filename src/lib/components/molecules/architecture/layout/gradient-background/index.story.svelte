@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import GradientBackground from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -21,11 +21,14 @@
 			class="min-h-52 rounded-2xl"
 		>
 			{#snippet children()}
-				<div class="p-6 text-white">
+				<div class="p-6 text-[var(--color-text-inverse)]">
 					<h3 class="text-xl font-semibold">Background Preview</h3>
-					<p class="text-sm opacity-90">Use this for hero sections or feature callouts.</p>
+					<p class="text-sm opacity-[var(--opacity-90)]">Use this for hero sections or feature callouts.</p>
 				</div>
 			{/snippet}
 		</GradientBackground>
 	{/snippet}
 </Story>
+
+
+

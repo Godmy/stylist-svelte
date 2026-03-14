@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+<script lang="ts">
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import ChartAxisZ from './index.svelte';
 
@@ -24,4 +24,6 @@
 		</svg>
 	{/snippet}
 </Story>
+
+
 

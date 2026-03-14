@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import type { Message, User } from '$stylist/design-system/contracts/information/chat';
   import MessageItem from './index.svelte';
 
@@ -41,7 +41,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
+    <div class="p-6 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
       <MessageItem
         message={args.withAttachment ? attachmentMessage : baseMessage}
         isOwn={args.isOwn}
@@ -52,7 +52,11 @@
         on:reply={() => (lastEvent = 'reply')}
         on:forward={() => (lastEvent = 'forward')}
       />
-      <p class="text-sm text-gray-600">Last event: {lastEvent}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Last event: {lastEvent}</p>
     </div>
   {/snippet}
 </Story>
+
+
+
+

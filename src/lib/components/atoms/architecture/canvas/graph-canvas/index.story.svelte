@@ -34,7 +34,7 @@
 	const Template: Story<StoryArgs> = (args) => ({
 		Component: GraphCanvas,
 		props: args,
-		style: 'background: #0f0f0f; padding: 20px; border-radius: 8px;'
+		style: 'background: #0f0f0f; padding: var(--spacing-5); border-radius: var(--border-radius-lg);'
 	});
 
 	export const Default = Template.bind({});
@@ -81,7 +81,7 @@
 	export const WithNodes = (args: StoryArgs) => ({
 		Component: GraphCanvas,
 		props: args,
-		style: 'background: #0f0f0f; padding: 20px; border-radius: 8px;'
+		style: 'background: #0f0f0f; padding: var(--spacing-5); border-radius: var(--border-radius-lg);'
 	});
 
 	export const CustomGridSize = Template.bind({});
@@ -113,7 +113,7 @@
 </Story>
 
 <Story name="AllGridModes">
-	<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+	<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-5);">
 		<div>
 			<h4 style="color: #fff; margin-bottom: 10px;">Dots</h4>
 			<GraphCanvas gridMode="dots" width={300} height={200} />
@@ -134,24 +134,25 @@
 </Story>
 
 <Story name="AllZoomLevels">
-	<div style="display: flex; flex-direction: column; gap: 20px;">
+	<div style="display: flex; flex-direction: column; gap: var(--spacing-5);">
 		<div>
 			<h4 style="color: #fff; margin-bottom: 10px;">Zoom 0.5</h4>
 			<GraphCanvas zoom={0.5} width={400} height={150} gridMode="lines">
-				<div style="position: absolute; left: 50px; top: 50px; width: 100px; height: 50px; background: #3b82f6; border-radius: 4px;"></div>
+				<div style="position: absolute; left: var(--border-radius-full); top: var(--border-radius-full); width: var(--border-radius-full); height: var(--border-radius-full); background: #3b82f6; border-radius: var(--border-radius-base);"></div>
 			</GraphCanvas>
 		</div>
 		<div>
 			<h4 style="color: #fff; margin-bottom: 10px;">Zoom 1.0</h4>
 			<GraphCanvas zoom={1} width={400} height={150} gridMode="lines">
-				<div style="position: absolute; left: 50px; top: 50px; width: 100px; height: 50px; background: #3b82f6; border-radius: 4px;"></div>
+				<div style="position: absolute; left: var(--border-radius-full); top: var(--border-radius-full); width: var(--border-radius-full); height: var(--border-radius-full); background: #3b82f6; border-radius: var(--border-radius-base);"></div>
 			</GraphCanvas>
 		</div>
 		<div>
 			<h4 style="color: #fff; margin-bottom: 10px;">Zoom 2.0</h4>
 			<GraphCanvas zoom={2} width={400} height={150} gridMode="lines">
-				<div style="position: absolute; left: 50px; top: 50px; width: 100px; height: 50px; background: #3b82f6; border-radius: 4px;"></div>
+				<div style="position: absolute; left: var(--border-radius-full); top: var(--border-radius-full); width: var(--border-radius-full); height: var(--border-radius-full); background: #3b82f6; border-radius: var(--border-radius-base);"></div>
 			</GraphCanvas>
 		</div>
 	</div>
 </Story>
+

@@ -1,22 +1,22 @@
-﻿<script lang="ts">
-	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+<script lang="ts">
+	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputDoubleProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
-	 * InputDouble component - Р”РІР° input РІ РѕРґРЅРѕРј СЂСЏРґСѓ
+	 * InputDouble component - Два input в одном ряду
 	 *
 	 * @example
 	 * ```svelte
 	 * <InputDouble
-	 *   label1="РРјСЏ"
-	 *   label2="Р¤Р°РјРёР»РёСЏ"
+	 *   label1="Имя"
+	 *   label2="Фамилия"
 	 *   bind:value1={firstName}
 	 *   bind:value2={lastName}
-	 *   placeholder1="РРІР°РЅ"
-	 *   placeholder2="РРІР°РЅРѕРІ"
+	 *   placeholder1="Иван"
+	 *   placeholder2="Иванов"
 	 * />
 	 * ```
 	 */
@@ -25,8 +25,8 @@
 
 	let {
 		// Label props
-		label1 = 'РџРѕР»Рµ 1',
-		label2 = 'РџРѕР»Рµ 2',
+		label1 = 'Поле 1',
+		label2 = 'Поле 2',
 		id1,
 		id2,
 
@@ -164,6 +164,10 @@
 		{/if}
 	</div>
 </div>
+
+
+
+
 
 
 

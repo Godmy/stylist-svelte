@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
   import TableHeader from './index.svelte';
   import TableRow from '../table-row/index.svelte';
@@ -72,3 +72,5 @@
     </section>
   {/snippet}
 </Story>
+
+

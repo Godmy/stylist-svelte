@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
@@ -45,7 +45,7 @@ const ChevronUp = 'chevron-up';
 <tr {...restProps} class="parent-row {className}">
   <!-- Cell for expand icon -->
   {#if expandable}
-    <td class="expand-cell px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-12">
+    <td class="expand-cell px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-secondary)] w-12">
       <button
         class="expand-toggle focus:outline-none"
         onclick={toggle}
@@ -56,13 +56,13 @@ const ChevronUp = 'chevron-up';
           {#if collapseIcon}
             {@html collapseIcon}
           {:else}
-            <BaseIcon name={ChevronUp} class="h-5 w-5 text-gray-500" />
+            <BaseIcon name={ChevronUp} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
         {:else}
           {#if expandIcon}
             {@html expandIcon}
           {:else}
-            <BaseIcon name={ChevronDown} class="h-5 w-5 text-gray-500" />
+            <BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
         {/if}
       </button>
@@ -78,7 +78,7 @@ const ChevronUp = 'chevron-up';
   <tr class="expanded-row">
     <td
       colspan={expandable ? colspan : colspan - 1}
-      class="expanded-cell px-6 py-4 bg-gray-50 text-sm text-gray-700"
+      class="expanded-cell px-6 py-4 bg-[var(--color-background-secondary)] text-sm text-[var(--color-text-primary)]"
     >
       <div class="details-content p-4">
         {@render details()}
@@ -89,7 +89,7 @@ const ChevronUp = 'chevron-up';
 
 <style>
   .expand-toggle {
-    transition: transform 0.2s ease;
+    transition: transform var(--duration-200) var(--animation-ease);
   }
 
   .expand-toggle:active {
@@ -101,20 +101,25 @@ const ChevronUp = 'chevron-up';
   }
 
   .details-content {
-    animation: slideDown 0.3s ease-out;
+    animation: slideDown var(--duration-300) var(--animation-ease-out);
   }
 
   @keyframes slideDown {
     from {
-      max-height: 0;
-      opacity: 0;
+      max-height: var(--size-0);
+      opacity: var(--opacity-0);
       transform: translateY(-10px);
     }
     to {
       max-height: 500px;
-      opacity: 1;
+      opacity: var(--opacity-100);
       transform: translateY(0);
     }
   }
 </style>
+
+
+
+
+
 

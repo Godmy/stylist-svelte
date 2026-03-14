@@ -97,18 +97,18 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 1000;
+        z-index: var(--z-index-dropdown);
         display: flex;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+        opacity: var(--opacity-0);
+        transition: opacity var(--duration-300) var(--animation-ease);
     }
 
     .drawer-backdrop.show {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: color-mix(in srgb, var(--color-text-primary) 50%, transparent);
     }
 
     .drawer-backdrop.show {
-        opacity: 1;
+        opacity: var(--opacity-100);
     }
 
     .drawer {
@@ -117,21 +117,21 @@
         min-width: var(--size);
         max-width: 90vw;
         height: 100%;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
+        background-color: var(--color-background-primary);
+        box-shadow: var(--shadow-custom17);
+        transition: transform var(--duration-300) var(--animation-ease);
     }
 
     .drawer.left {
         order: -1;
         transform: translateX(-100%);
-        border-right: 1px solid #e0e0e0;
+        border-right: 1px solid var(--color-border-primary);
     }
 
     .drawer.right {
         order: 1;
         transform: translateX(100%);
-        border-left: 1px solid #e0e0e0;
+        border-left: 1px solid var(--color-border-primary);
     }
 
     .drawer.top {
@@ -139,7 +139,7 @@
         max-width: none;
         max-height: 40vh;
         transform: translateY(-100%);
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid var(--color-border-primary);
     }
 
     .drawer.bottom {
@@ -148,7 +148,7 @@
         max-height: 40vh;
         transform: translateY(100%);
         order: 1;
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid var(--color-border-primary);
     }
 
     .drawer.open.left { transform: translateX(0); }
@@ -160,31 +160,32 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
-        border-bottom: 1px solid #e0e0e0;
+        padding: var(--spacing-4);
+        border-bottom: 1px solid var(--color-border-primary);
     }
 
     .drawer-content {
         flex: 1;
         overflow-y: auto;
-        padding: 1rem;
+        padding: var(--spacing-4);
     }
 
     .drawer-actions {
-        padding: 1rem;
-        border-top: 1px solid #e0e0e0;
+        padding: var(--spacing-4);
+        border-top: 1px solid var(--color-border-primary);
     }
 
     .close-button {
         background: none;
         border: none;
-        font-size: 1.5rem;
+        font-size: var(--font-size-6);
         cursor: pointer;
-        padding: 0.25rem;
-        border-radius: 0.25rem;
+        padding: var(--spacing-1);
+        border-radius: var(--border-radius-base);
     }
 
     .close-button:hover {
-        background-color: #f0f0f0;
+        background-color: var(--color-background-secondary);
     }
 </style>
+

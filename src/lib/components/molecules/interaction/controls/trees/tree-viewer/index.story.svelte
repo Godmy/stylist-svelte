@@ -127,7 +127,7 @@
   description="Interactive tree viewer with hierarchical data display"
 >
   <div class="p-4">
-    <p class="text-sm text-gray-600 mb-2">Selected node: {selectedKey || 'None'}</p>
+    <p class="text-sm text-[var(--color-text-secondary)] mb-2">Selected node: {selectedKey || 'None'}</p>
     <div class="border rounded">
       <TreeViewer
         tree={treeData}
@@ -137,3 +137,5 @@
     </div>
   </div>
 </Story>
+
+

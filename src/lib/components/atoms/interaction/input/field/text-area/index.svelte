@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
 	import { createTextareaState } from '$stylist/design-system/models/interaction/text-area.svelte';
@@ -8,12 +8,12 @@
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
-	 * Textarea component - РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅРѕРµ С‚РµРєСЃС‚РѕРІРѕРµ РїРѕР»Рµ
+	 * Textarea component - Многострочное текстовое поле
 	 *
 	 * @example
 	 * ```svelte
 	 * <Textarea
-	 *   label="РЎРѕРѕР±С‰РµРЅРёРµ"
+	 *   label="Сообщение"
 	 *   bind:value={message}
 	 *   variant="default"
 	 *   size="md"
@@ -165,14 +165,18 @@
 	{/if}
 
 	{#if maxlength}
-		<p class="text-xs text-gray-500 mt-1">
+		<p class="text-xs text-[var(--color-text-secondary)] mt-1">
 			{currentLength} / {maxlength}
 			{#if remainingChars !== null && remainingChars <= 10}
-				<span class="text-orange-600 ml-2">РћСЃС‚Р°Р»РѕСЃСЊ СЃРёРјРІРѕР»РѕРІ: {remainingChars}</span>
+				<span class="text-orange-600 ml-2">Осталось символов: {remainingChars}</span>
 			{/if}
 		</p>
 	{/if}
 </div>
+
+
+
+
 
 
 

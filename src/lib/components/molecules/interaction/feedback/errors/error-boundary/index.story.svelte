@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ErrorBoundary from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -33,15 +33,15 @@
 >
   {#snippet children(controlValues: any)}
   <div class="p-6">
-    <div class="border border-gray-200 rounded-lg p-4 max-w-md">
+    <div class="border border-[var(--color-border-primary)] rounded-lg p-4 max-w-md">
       <ErrorBoundary title={controlValues.title} message={controlValues.message}>
         {#if !controlValues.showError}
           <div class="text-center py-8">
-            <h3 class="text-lg font-medium text-gray-900 mb-2">Normal Content</h3>
-            <p class="text-gray-500">This content displays when no error occurs</p>
+            <h3 class="text-lg font-medium text-[var(--color-text-primary)] mb-2">Normal Content</h3>
+            <p class="text-[var(--color-text-secondary)]">This content displays when no error occurs</p>
           </div>
         {:else}
-          <div class="text-center py-8 text-red-500">
+          <div class="text-center py-8 text-[var(--color-danger-500)]">
             <h3 class="text-lg font-medium mb-2">Simulated Error</h3>
             <p>This would trigger the error boundary in a real scenario</p>
           </div>
@@ -52,3 +52,5 @@
 
   {/snippet}
 </Story>
+
+

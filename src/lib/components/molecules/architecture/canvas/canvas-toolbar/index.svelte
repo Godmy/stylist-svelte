@@ -28,7 +28,7 @@
     selectedTool = 'pen' as DrawingTool,
     drawingOptions = {
       lineWidth: 2,
-      strokeColor: '#000000',
+      strokeColor: 'black',
       tool: 'pen',
       mode: 'draw'
     } as DrawingOptions
@@ -71,87 +71,87 @@
   .canvas-toolbar {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    padding: 16px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    gap: var(--spacing-3);
+    padding: var(--spacing-4);
+    background-color: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-custom36);
     width: 250px;
   }
 
   .tool-selector {
     display: flex;
-    gap: 8px;
+    gap: var(--spacing-2);
     justify-content: space-between;
   }
 
   .tool-btn {
     flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: white;
+    padding: var(--spacing-2) var(--spacing-3);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-base);
+    background-color: var(--color-background-primary);
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.875rem;
+    transition: all var(--duration-200);
+    font-size: var(--font-size-3);
   }
 
   .tool-btn:hover {
-    background-color: #e9ecef;
+    background-color: var(--color-background-tertiary);
   }
 
   .tool-btn.active {
-    background-color: #2563eb;
-    color: white;
-    border-color: #2563eb;
+    background-color: var(--color-primary-600);
+    color: var(--color-text-inverse);
+    border-color: var(--color-primary-600);
   }
 
   .action-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: var(--spacing-2);
   }
 
   .action-btn {
-    padding: 8px;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    background-color: white;
+    padding: var(--spacing-2);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-base);
+    background-color: var(--color-background-primary);
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.875rem;
+    transition: all var(--duration-200);
+    font-size: var(--font-size-3);
   }
 
   .action-btn:hover {
-    background-color: #e9ecef;
+    background-color: var(--color-background-tertiary);
   }
 
   .tool-specific-options {
-    margin-top: 12px;
+    margin-top: var(--spacing-3);
   }
   
   .option-group {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 12px;
+    gap: var(--spacing-1);
+    margin-bottom: var(--spacing-3);
   }
   
   .option-label {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #495057;
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
   }
   
   .option-input {
     width: 100%;
-    margin-top: 4px;
+    margin-top: var(--spacing-1);
   }
   
   .option-value {
-    font-size: 0.75rem;
-    color: #6c757d;
+    font-size: var(--font-size-3);
+    color: var(--color-text-secondary);
     text-align: center;
   }
 </style>
@@ -216,3 +216,4 @@
     </button>
   </div>
 </div>
+

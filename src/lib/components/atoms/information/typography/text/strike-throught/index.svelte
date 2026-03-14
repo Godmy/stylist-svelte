@@ -38,7 +38,7 @@
 	);
 
 	const classes = $derived(
-		`line-through ${disabled ? 'text-gray-400' : 'text-gray-700'} ${block ? 'block' : ''} ${props.class ?? ''}`.trim()
+		`line-through ${disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]'} ${block ? 'block' : ''} ${props.class ?? ''}`.trim()
 	);
 </script>
 
@@ -47,4 +47,8 @@
 		{@render children?.()}
 	{/if}
 </span>
+
+
+
+
 

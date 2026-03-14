@@ -111,9 +111,9 @@
 }
 
 .dropdown-menu-base {
-  min-width: 14rem;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0;
+  min-width: var(--size-56);
+  margin-top: var(--spacing-2);
+  padding: var(--spacing-1) 0;
 }
 
 .dropdown-position-left {
@@ -133,19 +133,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.25rem;
+  gap: var(--spacing-1);
 }
 
 .dropdown-content {
-  padding: 0.25rem 0;
+  padding: var(--spacing-1) 0;
 }
 
 .dropdown-chevron {
-  margin-left: 0.25rem;
-  transition: transform 0.2s ease-in-out;
+  margin-left: var(--spacing-1);
+  transition: transform var(--duration-200) var(--animation-ease-in-out);
 }
 
 .dropdown-chevron.rotated {
   transform: rotate(180deg);
 }
 </style>
+
+
+

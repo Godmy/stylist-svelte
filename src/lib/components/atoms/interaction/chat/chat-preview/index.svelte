@@ -16,10 +16,10 @@
 
 	const getChatMessageBubbleClasses = (isOwn: boolean) => {
 		if (isOwn) {
-			return 'bg-blue-500 text-white rounded-br-none ml-auto';
+			return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-br-none ml-auto';
 		}
 
-		return 'bg-gray-100 text-gray-800 rounded-bl-none';
+		return 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] rounded-bl-none';
 	};
 </script>
 
@@ -38,7 +38,7 @@
 			<div class="flex {getChatMessageAlignmentClass(!!message.isOwn)}">
 				<div class="max-w-xs md:max-w-md">
 					{#if !message.isOwn}
-						<div class="mb-1 flex items-center text-xs font-semibold text-gray-600">
+						<div class="mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]">
 							{#if state.showAvatars && message.avatar}
 								<Avatar src={message.avatar} alt={message.sender} size="sm" class="mr-2" />
 							{/if}
@@ -50,15 +50,15 @@
 						<p class="text-sm">{message.text}</p>
 					</div>
 
-					<div class="mt-1 flex items-center justify-end text-xs text-gray-500">
+					<div class="mt-1 flex items-center justify-end text-xs text-[var(--color-text-secondary)]">
 						{#if message.timestamp}
 							<span>{message.timestamp}</span>
 						{/if}
 						{#if message.isOwn && message.status}
 							{#if message.status === 'read'}
-								<BaseIcon name={CheckCheck} class="ml-1 h-3 w-3 text-blue-500" />
+								<BaseIcon name={CheckCheck} class="ml-1 h-3 w-3 text-[var(--color-primary-500)]" />
 							{:else}
-								<BaseIcon name={Check} class="ml-1 h-3 w-3 text-gray-400" />
+								<BaseIcon name={Check} class="ml-1 h-3 w-3 text-[var(--color-text-tertiary)]" />
 							{/if}
 						{/if}
 					</div>
@@ -67,3 +67,7 @@
 		{/each}
 	</div>
 </div>
+
+
+
+

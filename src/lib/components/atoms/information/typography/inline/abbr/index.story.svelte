@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Abbr from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	const controls: ControlConfig[] = [
 		{ name: 'label', type: 'text', defaultValue: 'API' },
@@ -27,13 +27,13 @@
 	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<div
-				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
+				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-5 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
 			>
-				<p class="text-base leading-relaxed text-gray-700 dark:text-gray-200">
+				<p class="text-base leading-relaxed text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]">
 					Build brilliant experiences by connecting your
 					<Abbr
 						title={values.title}
-						class={values.emphasize ? 'font-semibold text-indigo-600' : ''}
+						class={values.emphasize ? 'font-semibold text-[var(--color-primary-600)]' : ''}
 					>
 						{values.label}
 					</Abbr>
@@ -41,11 +41,11 @@
 				</p>
 			</div>
 
-			<div class="rounded-2xl border border-dashed border-gray-200/80 p-4 dark:border-gray-700">
-				<p class="mb-3 text-sm font-semibold text-gray-600 dark:text-gray-300">Glossary</p>
-				<div class="flex flex-wrap gap-4 text-sm text-gray-700 dark:text-gray-200">
+			<div class="rounded-2xl border border-dashed border-[var(--color-border-primary)]/80 p-4 dark:border-[var(--color-border-primary)]">
+				<p class="mb-3 text-sm font-semibold text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">Glossary</p>
+				<div class="flex flex-wrap gap-4 text-sm text-[var(--color-text-primary)] dark:text-[var(--color-neutral-200)]">
 					{#each glossary as term}
-						<Abbr title={term.title} class="rounded-full bg-gray-100 px-2 py-1 dark:bg-gray-800">
+						<Abbr title={term.title} class="rounded-full bg-[var(--color-background-secondary)] px-2 py-1 dark:bg-[var(--color-neutral-800)]">
 							{term.label}
 						</Abbr>
 					{/each}
@@ -54,6 +54,10 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
 
 
 

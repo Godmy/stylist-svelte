@@ -60,7 +60,7 @@
 
 <div class={containerClass} {...restProps}>
 	<svg class={svgClass} viewBox="0 0 100 100">
-		<!-- Фоновый круг -->
+		<!-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ -->
 		<circle
 			cx="50"
 			cy="50"
@@ -70,7 +70,7 @@
 			stroke-width={strokeWidth}
 			class={backgroundCircleClass}
 		/>
-		<!-- Прогресс-круг -->
+		<!-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅ -->
 		<circle
 			cx="50"
 			cy="50"
@@ -90,6 +90,9 @@
 		{normalizedProgress}%
 	</span>
 </div>
+
+
+
 
 
 

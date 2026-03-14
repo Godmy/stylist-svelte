@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Caption from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -31,10 +31,13 @@
 				{values.content as string}
 			</Caption>
 
-			<div class="grid gap-2 text-sm text-slate-600">
+			<div class="grid gap-2 text-sm text-[var(--color-text-secondary)]">
 				<p>State preview:</p>
 				<p>variant={values.variant}, size={values.size}, disabled={String(values.disabled)}, block={String(values.block)}</p>
 			</div>
 		</div>
 	{/snippet}
 </Story>
+
+
+

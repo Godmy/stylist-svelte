@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   /**
    * @component ProcessStep
    * @description Process step for timeline
@@ -50,4 +50,7 @@
     <p class={descriptionClasses}>{description}</p>
   </div>
 </div>
+
+
+
 

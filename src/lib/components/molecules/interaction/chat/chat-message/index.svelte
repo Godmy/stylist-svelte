@@ -42,11 +42,11 @@
   }: Props = $props();
 
   let alignmentClass = $derived(isOwn ? 'justify-end' : 'justify-start');
-  let bgClass = $derived(isOwn ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-800');
+  let bgClass = $derived(isOwn ? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]' : 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]');
   let variantClass = $derived({
-    'default': 'bg-gray-100 text-gray-800',
-    'primary': 'bg-blue-100 text-blue-800',
-    'secondary': 'bg-gray-200 text-gray-900'
+    'default': 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
+    'primary': 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
+    'secondary': 'bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]'
   }[variant]);
 
   let statusIcon = $derived({
@@ -63,7 +63,7 @@
         {#if senderAvatar}
           <Avatar src={senderAvatar} alt={sender} size="sm" class="mr-2" />
         {/if}
-        <span class="text-xs font-semibold text-gray-600">{sender}</span>
+        <span class="text-xs font-semibold text-[var(--color-text-secondary)]">{sender}</span>
       </div>
     {/if}
     
@@ -78,12 +78,16 @@
       {/if}
     </div>
     
-    <div class={`flex items-center justify-end mt-1 text-xs text-gray-500 ${footerClass}`}>
+    <div class={`flex items-center justify-end mt-1 text-xs text-[var(--color-text-secondary)] ${footerClass}`}>
       <span>{timestamp}</span>
       {#if isOwn && status}
-        <BaseIcon name={statusIcon} class={`ml-1 h-3 w-3 ${status === 'read' ? 'text-blue-500' : 'text-gray-400'}`} />
+        <BaseIcon name={statusIcon} class={`ml-1 h-3 w-3 ${status === 'read' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-tertiary)]'}`} />
       {/if}
     </div>
   </div>
 </div>
+
+
+
+
 

@@ -22,7 +22,7 @@
 		<div class="flex items-center">
 			<div
 				class={i <= localCurrentStep
-					? 'flex h-8 w-8 items-center justify-center rounded-full bg-[--color-primary-500] text-white'
+					? 'flex h-8 w-8 items-center justify-center rounded-full bg-[--color-primary-500] text-[var(--color-text-inverse)]'
 					: 'flex h-8 w-8 items-center justify-center rounded-full border-2 border-[--color-border-primary]'}
 			>
 				{i + 1}
@@ -40,6 +40,9 @@
 		<p>Step {localCurrentStep + 1} of {steps.length}: {steps[localCurrentStep]}</p>
 	</div>
 </div>
+
+
+
 
 
 

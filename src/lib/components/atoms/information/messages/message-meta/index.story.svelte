@@ -2,7 +2,7 @@
   import MessageMeta from './index.svelte';
   import Story from '$stylist/design-system/playground/Story.svelte';
   import type { Message } from '$stylist/design-system/contracts/information/chat';
-  import { CONTROL_TYPES } from '$stylist/design-system/tokens/interaction/controls';
+  import { CONTROL_TYPES } from '$stylist/design-system/defaults/interaction/controls';
 
   const message = {
     id: '1',
@@ -87,3 +87,5 @@
     </div>
   {/snippet}
 </Story>
+
+

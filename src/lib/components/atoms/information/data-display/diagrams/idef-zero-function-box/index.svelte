@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0FunctionBoxProps } from '$stylist/design-system';
 	import { createIdef0FunctionBoxState } from '$stylist/design-system/models/information/idef0.svelte';
 
@@ -22,3 +22,5 @@
 		</text>
 	{/if}
 </g>
+
+

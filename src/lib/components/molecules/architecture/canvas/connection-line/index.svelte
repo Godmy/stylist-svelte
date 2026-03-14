@@ -118,9 +118,9 @@
 				y="-10"
 				width="40"
 				height="20"
-				fill="#1e1e1e"
+				fill="var(--color-background-primary)"
 				fill-opacity="0.9"
-				stroke="#374151"
+				stroke="var(--color-border-primary)"
 				stroke-width="1"
 				rx="4"
 			/>
@@ -130,7 +130,7 @@
 				text-anchor="middle"
 				dominant-baseline="middle"
 				class="connection-line__label"
-				fill="#e5e7eb"
+				fill="var(--color-text-primary)"
 				font-size="10"
 				font-weight="500"
 			>
@@ -143,11 +143,11 @@
 <style>
 	:global(.connection-line) {
 		cursor: pointer;
-		transition: opacity 120ms ease;
+		transition: opacity var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.connection-line__path) {
-		transition: stroke 120ms ease, stroke-width 120ms ease;
+		transition: stroke var(--duration-120) var(--animation-ease), stroke-width var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.connection-line--animated .connection-line__path) {
@@ -155,13 +155,13 @@
 	}
 
 	:global(.connection-line--active .connection-line__path) {
-		stroke: var(--connection-active-color, #3b82f6);
+		stroke: var(--connection-active-color, var(--color-primary-500));
 		stroke-width: calc(var(--connection-stroke-width) + 2px);
-		filter: drop-shadow(0 0 4px var(--connection-active-color, #3b82f6));
+		filter: drop-shadow(0 0 4px var(--connection-active-color, var(--color-primary-500)));
 	}
 
 	:global(.connection-line:hover .connection-line__path) {
-		stroke: var(--connection-hover-color, #60a5fa);
+		stroke: var(--connection-hover-color, var(--color-primary-400));
 	}
 
 	:global(.connection-line__hit-area) {
@@ -182,3 +182,4 @@
 		stroke-dasharray: 2, 4;
 	}
 </style>
+

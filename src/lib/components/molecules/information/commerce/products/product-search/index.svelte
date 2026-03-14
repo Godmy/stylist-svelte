@@ -39,18 +39,18 @@
       oninput={handleInput}
       onkeydown={(e) => e.key === 'Enter' && handleSearch()}
       placeholder={placeholder}
-      class="flex-1 p-3 border border-[var(--color-border-default)] rounded-l-lg focus:outline-none"
+      class="flex-1 p-3 border border-[var(--color-border-primary)] rounded-l-lg focus:outline-none"
     />
-    <button type="button" onclick={handleSearch} class="bg-blue-600 text-white px-6 py-3 rounded-r-lg">Search</button>
+    <button type="button" onclick={handleSearch} class="bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] px-6 py-3 rounded-r-lg">Search</button>
   </div>
 
   {#if showSuggestions}
-    <div class="absolute z-10 w-full mt-1 bg-white border border-[var(--color-border-default)] rounded-lg shadow-lg max-h-60 overflow-y-auto">
+    <div class="absolute z-[var(--z-index-docked)] w-full mt-1 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-lg shadow-lg max-h-60 overflow-y-auto">
       {#each suggestions as suggestion}
         <button
           type="button"
           onclick={() => selectSuggestion(suggestion)}
-          class="block w-full text-left p-3 hover:bg-gray-100 border-b border-gray-100 last:border-b-0"
+          class="block w-full text-left p-3 hover:bg-[var(--color-background-secondary)] border-b border-[var(--color-border-primary)] last:border-b-0"
         >
           {suggestion}
         </button>
@@ -58,3 +58,9 @@
     </div>
   {/if}
 </div>
+
+
+
+
+
+

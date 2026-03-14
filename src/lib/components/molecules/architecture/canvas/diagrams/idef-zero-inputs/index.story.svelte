@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Idef0Inputs from './index.svelte';
 
@@ -17,3 +17,5 @@
 		</svg>
 	{/snippet}
 </Story>
+
+

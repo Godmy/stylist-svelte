@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductCarousel from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -29,9 +29,12 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 bg-gray-50 rounded-xl space-y-3">
+    <div class="p-6 bg-[var(--color-background-secondary)] rounded-xl space-y-3">
       <ProductCarousel products={getProducts(args.items, args.basePrice, args.currency)} />
-      <p class="text-sm text-gray-600">Use arrows or dots to switch slides.</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Use arrows or dots to switch slides.</p>
     </div>
   {/snippet}
 </Story>
+
+
+

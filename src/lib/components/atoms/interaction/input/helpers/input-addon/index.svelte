@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputAddonState } from '$stylist/design-system/models/interaction/input-addon.svelte';
+	import { createInputAddonState } from '$stylist/design-system/utils/model-helpers/input-state';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
@@ -44,4 +44,7 @@
 <div class={classes} {...restProps}>
 	{@render children?.()}
 </div>
+
+
+
 

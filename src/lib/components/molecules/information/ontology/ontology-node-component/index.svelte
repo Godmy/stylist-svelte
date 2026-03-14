@@ -40,10 +40,12 @@
   </div>
 
   {#if node.attributes && node.attributes.length > 0}
-    <div class="mt-1 text-[0.6rem] opacity-75 flex flex-wrap justify-center gap-1">
+    <div class="mt-1 text-[0.6rem] opacity-[var(--opacity-75)] flex flex-wrap justify-center gap-1">
       {#each node.attributes as attr}
-        <span class="bg-current bg-opacity-10 px-1 rounded">{attr}</span>
+        <span class="bg-current bg-opacity-[var(--opacity-10)] px-1 rounded">{attr}</span>
       {/each}
     </div>
   {/if}
 </div>
+
+

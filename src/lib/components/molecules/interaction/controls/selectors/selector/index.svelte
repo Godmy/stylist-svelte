@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { ISelectProps } from '$stylist/design-system/contracts/interaction/selector';
 
   /**
@@ -93,7 +93,7 @@
     <select
       id={nativeId}
       bind:value={value}
-      class="absolute opacity-0 w-0 h-0 overflow-hidden"
+      class="absolute opacity-[var(--opacity-0)] w-0 h-0 overflow-hidden"
       disabled={disabled}
       required={required}
       aria-hidden="true"
@@ -128,7 +128,7 @@
   --select-option-hover: color-mix(in srgb, var(--color-primary-500) 12%, var(--color-background-primary));
   --select-option-selected-bg: var(--color-primary-600);
   --select-option-selected-color: var(--color-text-inverse);
-  --select-option-border: rgba(15, 23, 42, 0.08);
+  --select-option-border: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
 }
 
 [data-theme='dark'],
@@ -138,7 +138,7 @@
   --select-option-hover: color-mix(in srgb, var(--color-primary-300) 25%, var(--color-background-secondary));
   --select-option-selected-bg: color-mix(in srgb, var(--color-primary-400) 80%, transparent);
   --select-option-selected-color: var(--color-text-inverse);
-  --select-option-border: rgba(15, 23, 42, 0.35);
+  --select-option-border: color-mix(in srgb, var(--color-text-primary) 35%, transparent);
 }
 
 .select-native {
@@ -146,18 +146,14 @@
   inset: 0;
   width: 1px;
   height: 1px;
-  opacity: 0;
+  opacity: var(--opacity-0);
   pointer-events: none;
 }
 
 .select-trigger {
-  min-height: 2.875rem;
-  letter-spacing: -0.01em;
-  background-image: linear-gradient(
-    120deg,
-    color-mix(in srgb, var(--color-background-primary) 95%, transparent),
-    color-mix(in srgb, var(--color-background-secondary) 85%, transparent)
-  );
+  min-height: var(--size-custom2875);
+  letter-spacing: var(--letter-spacing-narrow);
+  background-image: var(--gradient-custom12);
   color-scheme: var(--theme, light);
 }
 
@@ -169,18 +165,18 @@
   background: color-mix(in srgb, var(--color-background-primary) 98%, transparent);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  animation: select-dropdown-appear 180ms cubic-bezier(0.2, 0.8, 0.4, 1);
+  animation: select-dropdown-appear var(--duration-180) var(--easing-ease-entrance);
 }
 
 .select-option,
 .select-native option {
   background-color: var(--select-option-bg);
   color: var(--select-option-color);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
 }
 
 .select-option {
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background var(--duration-150) var(--animation-ease), color var(--duration-150) var(--animation-ease), transform var(--duration-150) var(--animation-ease);
   border: 1px solid transparent;
 }
 
@@ -199,7 +195,7 @@
 .select-option.is-selected {
   background-color: var(--select-option-selected-bg);
   color: var(--select-option-selected-color);
-  box-shadow: 0 12px 20px rgba(14, 165, 233, 0.25);
+  box-shadow: var(--shadow-custom23);
 }
 
 /* Native select fallback */
@@ -217,13 +213,19 @@
 
 @keyframes select-dropdown-appear {
   0% {
-    opacity: 0;
+    opacity: var(--opacity-0);
     transform: translateY(-6px) scale(0.98);
   }
   100% {
-    opacity: 1;
+    opacity: var(--opacity-100);
     transform: translateY(0) scale(1);
   }
 }
 
 </style>
+
+
+
+
+
+

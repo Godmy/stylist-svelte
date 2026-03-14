@@ -47,7 +47,7 @@ const CheckCircle = 'check-circle';
 <div class={WishlistButtonStyleManager.root(className)} {...restProps}>
   <button
     type="button"
-    class={`inline-flex items-center px-3 py-2 border rounded-md ${inWishlist ? 'bg-red-100 text-red-600 border-red-200' : 'bg-white border-[var(--color-border-default)]'} ${buttonClass}`}
+    class={`inline-flex items-center px-3 py-2 border rounded-md ${inWishlist ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-600)] border-[var(--color-danger-200)]' : 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)]'} ${buttonClass}`}
     onclick={toggleWishlist}
     disabled={disabled || isLoading}
     aria-pressed={inWishlist}
@@ -63,11 +63,16 @@ const CheckCircle = 'check-circle';
   </button>
 
   {#if showMessage}
-    <div class="fixed bottom-4 right-4 bg-white border border-[var(--color-border-default)] rounded-md shadow-lg px-3 py-2 flex items-center gap-2 z-50">
-      <BaseIcon name={CheckCircle} class="h-4 w-4 text-green-500" />
+    <div class="fixed bottom-4 right-4 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg px-3 py-2 flex items-center gap-2 z-[var(--z-index-modal)]">
+      <BaseIcon name={CheckCircle} class="h-4 w-4 text-[var(--color-success-500)]" />
       <span class="text-sm">{message}</span>
       <button type="button" onclick={() => (showMessage = false)}><BaseIcon name={X} class="h-4 w-4" /></button>
     </div>
   {/if}
 </div>
+
+
+
+
+
 

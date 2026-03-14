@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import CopyButton from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -22,7 +22,7 @@
 >
 	{#snippet children(values: any)}
 		<div class="space-y-3">
-			<pre class="overflow-auto rounded border bg-slate-50 p-3 text-sm">{values.text as string}</pre>
+			<pre class="overflow-auto rounded border bg-[var(--color-background-secondary)] p-3 text-sm">{values.text as string}</pre>
 			<CopyButton
 				text={values.text as string}
 				label={values.label as string}
@@ -34,3 +34,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

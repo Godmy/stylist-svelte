@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TabContainerProps } from '$stylist/design-system/contracts';
+	import type { TabContainerProps } from '$stylist/design-system/types/interaction/tabs';
 	import { createTabListState } from '$stylist/design-system/models/interaction/tab-list.svelte';
 
 	let props: TabContainerProps = $props();
@@ -17,6 +17,8 @@
 <div {...restProps} role="tablist" aria-orientation="horizontal" class={state.classes}>
 	{@render props.children?.()}
 </div>
+
+
 
 
 

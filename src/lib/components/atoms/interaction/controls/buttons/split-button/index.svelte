@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonElementProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
-	import { createSplitButtonState } from '$stylist/design-system/models/interaction/split-button.svelte';
+	import type { ButtonElementProps } from '$stylist/design-system/types/interaction/button';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+	import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -41,7 +41,7 @@
 	let props: ISplitButtonElementProps = $props();
 
 	// Use centralized state management for base button properties
-	let buttonState = createSplitButtonState(
+	let buttonState = createButtonState(
 		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'primary',
 			size: 'md'
@@ -124,19 +124,19 @@
 	const menuClasses = $derived(
 		[
 			'split-button-menu',
-			'absolute z-10 mt-1 w-48 rounded-md',
+			'absolute z-[var(--z-index-docked)] mt-1 w-48 rounded-md',
 			'border border-[var(--color-border-primary)]',
-			'bg-[var(--color-surface)] text-[var(--color-text-primary)]',
-			'shadow-[0_10px_15px_-3px_rgba(0,0,0,0.2),0_4px_6px_-2px_rgba(0,0,0,0.12)]',
+			'bg-[var(--color-background-primary)] text-[var(--color-text-primary)]',
+			'shadow-[0_10px_15px_-3px_color-mix(in srgb, var(--color-text-primary) 20%, transparent),0_4px_6px_-2px_color-mix(in srgb, var(--color-text-primary) 12%, transparent)]',
 			'outline-none'
 		].join(' ')
 	);
 
 	const menuItemBaseClasses =
-		'split-button-menu__item w-full px-4 py-2 text-sm text-left rounded-md bg-transparent text-[inherit] transition-colors duration-150 focus-visible:outline-none hover:bg-[var(--color-secondary-100)] focus-visible:bg-[var(--color-secondary-100)]';
+		'split-button-menu__item w-full px-4 py-2 text-sm text-left rounded-md bg-transparent text-[inherit] transition-colors duration-[var(--duration-150)] focus-visible:outline-none hover:bg-[var(--color-secondary-100)] focus-visible:bg-[var(--color-secondary-100)]';
 
 	const menuItemDisabledClasses =
-		'split-button-menu__item--disabled opacity-50 cursor-not-allowed pointer-events-none';
+		'split-button-menu__item--disabled opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none';
 </script>
 
 <div {...restProps} class={wrapperClasses} id={buttonId}>
@@ -187,6 +187,12 @@
 		</div>
 	{/if}
 </div>
+
+
+
+
+
+
 
 
 

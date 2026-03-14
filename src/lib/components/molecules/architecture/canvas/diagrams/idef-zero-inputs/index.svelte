@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0InputsProps } from '$stylist/design-system';
 	import { createIdef0InputsState } from '$stylist/design-system/models/information/idef0.svelte';
 	import Idef0Connector from '$stylist/components/atoms/information/data-display/diagrams/idef-zero-connector/index.svelte';
@@ -22,4 +22,6 @@
 		/>
 	{/each}
 </g>
+
+
 

@@ -60,11 +60,11 @@ const ArrowRight = 'arrow-right';
 <div class={ConversionFunnelStyleManager.getContainerClass(className)} {...restProps}>
   <div class={ConversionFunnelStyleManager.getHeaderClass(headerClass)}>
     <div class="flex items-center">
-      <BaseIcon name={BarChart3} class="h-5 w-5 text-gray-500 mr-2" />
-      <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+      <BaseIcon name={BarChart3} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
+      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
     </div>
     {#if subtitle}
-      <p class="text-sm text-gray-500 mt-1">{subtitle}</p>
+      <p class="text-sm text-[var(--color-text-secondary)] mt-1">{subtitle}</p>
     {/if}
   </div>
 
@@ -74,17 +74,17 @@ const ArrowRight = 'arrow-right';
         <div>
           <div class="flex justify-between items-center mb-2">
             <div class="flex items-center">
-              <span class="text-sm font-medium text-gray-900">{step.name}</span>
+              <span class="text-sm font-medium text-[var(--color-text-primary)]">{step.name}</span>
               {#if showValues}
-                <span class="ml-2 text-sm text-gray-500">({step.value})</span>
+                <span class="ml-2 text-sm text-[var(--color-text-secondary)]">({step.value})</span>
               {/if}
               {#if showPercentage}
-                <span class="ml-2 text-sm text-gray-500">({Math.round((step.value / steps[0].value) * 100)}% of initial)</span>
+                <span class="ml-2 text-sm text-[var(--color-text-secondary)]">({Math.round((step.value / steps[0].value) * 100)}% of initial)</span>
               {/if}
             </div>
 
             {#if showConversionRate && index > 0}
-              <div class="text-sm text-gray-500">
+              <div class="text-sm text-[var(--color-text-secondary)]">
                 Conversion: {getConversionRate(index)}%
                 {#if showTrend}
                   <span class="ml-2 text-xs">(Dropoff: {getDropoff(index)}%)</span>
@@ -95,7 +95,7 @@ const ArrowRight = 'arrow-right';
 
           <div class="relative">
             <div class={ConversionFunnelStyleManager.getFunnelStepVisualizationClass()} style={ConversionFunnelStyleManager.getFunnelStepVisualizationStyle(step.value, maxValue, step.color)}>
-              <span class="text-xs text-white font-medium ml-3">{step.value} ({Math.round((step.value / steps[0].value) * 100)}%)</span>
+              <span class="text-xs text-[var(--color-text-inverse)] font-medium ml-3">{step.value} ({Math.round((step.value / steps[0].value) * 100)}%)</span>
             </div>
 
             {#if showPercentage}
@@ -107,7 +107,7 @@ const ArrowRight = 'arrow-right';
 
           {#if index < steps.length - 1}
             <div class="flex justify-center mt-4">
-              <BaseIcon name={ArrowRight} class="h-5 w-5 text-gray-400" />
+              <BaseIcon name={ArrowRight} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
             </div>
           {/if}
         </div>
@@ -115,3 +115,6 @@ const ArrowRight = 'arrow-right';
     </div>
   </div>
 </div>
+
+
+

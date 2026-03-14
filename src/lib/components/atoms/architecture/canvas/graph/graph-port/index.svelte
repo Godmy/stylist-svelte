@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
-	import type { GraphPortProps, GraphPortDataType } from '$stylist/design-system/contracts';
+	import type { GraphPortProps } from '$stylist/design-system/contracts/information/graph-port';
+	import type { GraphPortDataType } from '$stylist/design-system/tokens/information/graph-port';
 	import { createGraphPortState } from '$stylist/design-system/models/architecture/graph-port.svelte';
 	import { GRAPH_PORT_COLORS } from '$stylist/design-system/tokens';
 
@@ -91,10 +92,10 @@
 		top: 50%;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.375rem;
+		gap: var(--spacing-2);
 		cursor: crosshair;
 		user-select: none;
-		transition: transform 120ms ease, opacity 120ms ease;
+		transition: transform var(--duration-120) var(--animation-ease), opacity var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.graph-port:hover) {
@@ -102,7 +103,7 @@
 	}
 
 	:global(.graph-port:focus-visible) {
-		outline: 2px solid var(--graph-port-color, #9e9e9e);
+		outline: 2px solid var(--graph-port-color, var(--color-border-secondary));
 		outline-offset: 2px;
 	}
 
@@ -116,12 +117,12 @@
 		height: var(--hit-area-size, 24px);
 		border-radius: 50%;
 		cursor: crosshair;
-		opacity: 0;
+		opacity: var(--opacity-0);
 	}
 
 	:global(.graph-port:hover .graph-port__hit-area) {
-		opacity: 0.1;
-		background: var(--graph-port-color, #9e9e9e);
+		opacity: var(--opacity-10);
+		background: var(--graph-port-color, var(--color-border-secondary));
 	}
 
 	/* Port circle */
@@ -130,54 +131,54 @@
 		width: var(--port-size, 12px);
 		height: var(--port-size, 12px);
 		border-radius: 50%;
-		border: 2px solid #1e1e1e;
-		box-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
-		transition: transform 120ms ease, box-shadow 120ms ease;
-		z-index: 1;
+		border: 2px solid var(--color-background-primary);
+		box-shadow: var(--shadow-custom27);
+		transition: transform var(--duration-120) var(--animation-ease), box-shadow var(--duration-120) var(--animation-ease);
+		z-index: var(--z-index-layer1);
 	}
 
 	:global(.graph-port:hover .graph-port__circle) {
 		transform: scale(1.2);
-		box-shadow: 0 2px 4px rgb(0 0 0 / 0.4);
+		box-shadow: var(--shadow-custom34);
 	}
 
 	:global(.graph-port--connected .graph-port__circle) {
-		border-color: #1e1e1e;
-		box-shadow: 0 0 0 2px #1e1e1e, 0 2px 4px rgb(0 0 0 / 0.3);
+		border-color: var(--color-background-primary);
+		box-shadow: var(--shadow-custom12);
 	}
 
 	:global(.graph-port--active .graph-port__circle) {
-		animation: graph-port-pulse 1.5s ease-in-out infinite;
+		animation: graph-port-pulse var(--duration-1500) var(--animation-ease-in-out) infinite;
 	}
 
 	@keyframes graph-port-pulse {
 		0%, 100% {
 			transform: scale(1);
-			opacity: 1;
+			opacity: var(--opacity-100);
 		}
 		50% {
 			transform: scale(1.3);
-			opacity: 0.8;
+			opacity: var(--opacity-80);
 		}
 	}
 
 	/* Port label */
 	:global(.graph-port__label) {
 		position: relative;
-		font-size: 0.6875rem;
-		font-weight: 500;
-		color: #e5e7eb;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-medium);
+		color: var(--color-text-primary);
 		white-space: nowrap;
 		pointer-events: none;
-		z-index: 1;
+		z-index: var(--z-index-layer1);
 	}
 
 	:global(.graph-port[data-port-direction="input"] .graph-port__label) {
-		margin-left: 0.75rem;
+		margin-left: var(--spacing-3);
 	}
 
 	:global(.graph-port[data-port-direction="output"] .graph-port__label) {
-		margin-right: 0.75rem;
+		margin-right: var(--spacing-3);
 	}
 
 	/* Port icon */
@@ -186,7 +187,7 @@
 		align-items: center;
 		justify-content: center;
 		color: inherit;
-		z-index: 1;
+		z-index: var(--z-index-layer1);
 	}
 
 	/* Size variants */
@@ -233,3 +234,7 @@
 		transform: translate(100%, -50%) scale(1.1);
 	}
 </style>
+
+
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import MessageThread from './index.svelte';
 
   let lastAction = $state('none');
@@ -29,7 +29,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="h-96 p-4 rounded-xl bg-gray-50 space-y-3">
+    <div class="h-96 p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
       <MessageThread
         title={args.title}
         messages={allMessages.slice(0, args.messageCount)}
@@ -37,7 +37,10 @@
         class="h-[320px]"
         onMessageAction={(action: string, message: { id: string }) => (lastAction = `${action}:${message.id}`)}
       />
-      <p class="text-sm text-gray-600">Last action: {lastAction}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Last action: {lastAction}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

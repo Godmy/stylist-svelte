@@ -8,7 +8,8 @@ const Info = 'info';
 const XCircle = 'x-circle';
 
 
-  import type { INotificationProps, NotificationType } from '$stylist/design-system/contracts/interaction/notification';
+  import type { INotificationProps } from '$stylist/design-system/contracts/interaction/notification';
+  import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
   import { NotificationAtomStyleManager } from '$stylist/design-system/styles/interaction/notification';
 
   /**
@@ -140,5 +141,8 @@ const XCircle = 'x-circle';
     </div>
   </div>
 {/if}
+
+
+
 
 

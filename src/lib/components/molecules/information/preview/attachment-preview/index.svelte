@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { Button, Icon } from '$stylist/components/atoms';
 
@@ -61,33 +61,33 @@
   .attachment-preview {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-primary);
   }
 
   .attachment-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 0.375rem;
-    background-color: #e2e8f0;
-    color: #64748b;
+    width: var(--spacing-12);
+    height: var(--spacing-12);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--color-background-tertiary);
+    color: var(--color-text-secondary);
   }
 
   .attachment-details {
     flex: 1;
-    min-width: 0;
+    min-width: var(--size-0);
   }
 
   .attachment-name {
-    font-weight: 500;
-    color: #1e293b;
-    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-3);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -95,14 +95,14 @@
 
   .attachment-info {
     display: flex;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    color: #64748b;
+    gap: var(--spacing-2);
+    font-size: var(--font-size-3);
+    color: var(--color-text-secondary);
   }
 
   .attachment-actions {
     display: flex;
-    gap: 0.25rem;
+    gap: var(--spacing-1);
   }
 </style>
 
@@ -126,7 +126,7 @@
         variant="ghost" 
         size="sm" 
         onclick={handleDownload}
-        title="Скачать"
+        title="РЎРєР°С‡Р°С‚СЊ"
       >
         <Icon name="download" size="sm" />
       </Button>
@@ -134,10 +134,14 @@
         variant="ghost" 
         size="sm" 
         onclick={handleRemove}
-        title="Удалить"
+        title="РЈРґР°Р»РёС‚СЊ"
       >
         <Icon name="x" size="sm" />
       </Button>
     </div>
   {/if}
 </div>
+
+
+
+

@@ -27,3 +27,5 @@
 <span class={state.classes} {...restProps}>
 	{state.prefix}{state.formattedValue}{state.suffix}
 </span>
+
+

@@ -22,11 +22,11 @@
   }>();
 
   const variantClasses: Record<'primary' | 'secondary' | 'success' | 'warning' | 'danger', string> = {
-    primary: 'bg-blue-50 border-blue-200 text-blue-800',
-    secondary: 'bg-gray-50 border-gray-200 text-gray-800',
-    success: 'bg-green-50 border-green-200 text-green-800',
+    primary: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
+    secondary: 'bg-[var(--color-background-secondary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]',
+    success: 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
     warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-    danger: 'bg-red-50 border-red-200 text-red-800'
+    danger: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
   };
 </script>
 
@@ -36,7 +36,7 @@
     <p class="mb-4">{description}</p>
     <button
       onclick={onCtaClick}
-      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      class="px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]"
     >
       {cta}
     </button>
@@ -47,3 +47,7 @@
     </div>
   {/if}
 </div>
+
+
+
+

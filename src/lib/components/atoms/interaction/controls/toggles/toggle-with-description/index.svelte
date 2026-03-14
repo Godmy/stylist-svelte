@@ -64,7 +64,7 @@
   }
 </script>
 
-<div class={`flex items-start p-4 border border-gray-200 rounded-lg ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`} 
+<div class={`flex items-start p-4 border border-[var(--color-border-primary)] rounded-lg ${className} ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer'}`} 
      onclick={handleToggle}
      onkeydown={handleKeyDown}
      tabindex={disabled ? -1 : 0}
@@ -83,22 +83,25 @@
       disabled={disabled}
     />
     <div class={`absolute h-full w-full rounded-full transition-colors ${
-      isChecked ? 'bg-blue-600' : 'bg-gray-200'
+      isChecked ? 'bg-[var(--color-primary-600)]' : 'bg-[var(--color-background-tertiary)]'
     }`}></div>
-    <div class={`absolute left-0 inline-block h-4 w-4 transform rounded-full border-2 bg-white transition-transform ${
+    <div class={`absolute left-0 inline-block h-4 w-4 transform rounded-full border-2 bg-[var(--color-background-primary)] transition-transform ${
       isChecked ? 'translate-x-6' : 'translate-x-1'
     } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}></div>
   </div>
   
   <!-- Label and Description -->
   <div class="ml-3 flex-1">
-    <label for="toggle-input" class={`text-sm font-medium text-gray-900 ${labelClass}`}>
+    <label for="toggle-input" class={`text-sm font-medium text-[var(--color-text-primary)] ${labelClass}`}>
       {label}
     </label>
-    <p class={`text-sm text-gray-500 ${descriptionClass}`}>
+    <p class={`text-sm text-[var(--color-text-secondary)] ${descriptionClass}`}>
       {description}
     </p>
   </div>
 </div>
+
+
+
 
 

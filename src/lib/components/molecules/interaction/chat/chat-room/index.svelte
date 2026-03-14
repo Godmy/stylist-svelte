@@ -71,23 +71,23 @@
 
 <div class={`chat-room flex flex-col h-full border rounded-lg shadow-sm ${hostClass}`} {...restProps}>
   <!-- Header -->
-  <header class={`bg-white border-b p-4 flex items-center ${headerClass}`}>
+  <header class={`bg-[var(--color-background-primary)] border-b p-4 flex items-center ${headerClass}`}>
     <div class="flex-1">
       {#if title}
         <h2 class="font-semibold text-lg">{title}</h2>
       {/if}
       {#if subtitle}
-        <p class="text-sm text-gray-500">{subtitle}</p>
+        <p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
       {/if}
     </div>
     <div class="flex items-center">
       {#each participants.slice(0, 3) as participant, index}
-        <div class={`w-8 h-8 rounded-full overflow-hidden -ml-2 first:ml-0 border-2 border-white`} style="z-index: {10 - index};">
+        <div class={`w-8 h-8 rounded-full overflow-hidden -ml-2 first:ml-0 border-2 border-[var(--color-background-primary)]`} style="z-index: {10 - index};">
           <img src={participant.avatar} alt={participant.name} class="w-full h-full object-cover" />
         </div>
       {/each}
       {#if participants.length > 3}
-        <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center -ml-2 border-2 border-white" style="z-index: 0;">
+        <div class="w-8 h-8 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center -ml-2 border-2 border-[var(--color-background-primary)]" style="z-index: var(--z-index-base);">
           <span class="text-xs">+{participants.length - 3}</span>
         </div>
       {/if}
@@ -98,7 +98,7 @@
   <div class={`flex-1 overflow-y-auto p-4 space-y-4 ${messagesClass} ${variantClass}`}>
     {#if loading}
       <div class="flex justify-center items-center h-full">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary-500)]"></div>
       </div>
     {:else}
       {#each messages as message}
@@ -115,7 +115,7 @@
   </div>
 
   <!-- Message composer -->
-  <footer class={`bg-gray-50 border-t p-4 ${footerClass}`}>
+  <footer class={`bg-[var(--color-background-secondary)] border-t p-4 ${footerClass}`}>
     <MessageComposer
       value={newMessage}
       onSendMessage={(text: string) => handleSend(text)}
@@ -123,3 +123,7 @@
     />
   </footer>
 </div>
+
+
+
+

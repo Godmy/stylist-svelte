@@ -58,25 +58,25 @@ const Maximize2 = 'maximize-2';
 
 <div 
   bind:this={widgetRef}
-  class={`bg-white rounded-lg shadow border border-gray-200 overflow-hidden ${
-    isMaximized ? 'fixed inset-0 z-50' : ''
+  class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${
+    isMaximized ? 'fixed inset-0 z-[var(--z-index-modal)]' : ''
   } ${className}`} 
   class:collapsed={isCollapsed}
   {...restProps}
 >
   <div class={`flex items-center justify-between p-4 border-b ${headerClass}`}>
     {#if draggable}
-      <div class="cursor-move text-gray-400">
+      <div class="cursor-move text-[var(--color-text-tertiary)]">
         <BaseIcon name={GripVertical} class="h-5 w-5" />
       </div>
     {/if}
     
     <div class="flex-1 ml-2">
       {#if title}
-        <h3 class="text-lg font-medium text-gray-900">{title}</h3>
+        <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
       {/if}
       {#if subtitle}
-        <p class="text-sm text-gray-500">{subtitle}</p>
+        <p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
       {/if}
     </div>
     
@@ -88,7 +88,7 @@ const Maximize2 = 'maximize-2';
       {#if maximizable}
         <button
           type="button"
-          class="text-gray-400 hover:text-gray-600"
+          class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
           onclick={toggleMaximize}
           aria-label={isMaximized ? 'Minimize' : 'Maximize'}
         >
@@ -103,7 +103,7 @@ const Maximize2 = 'maximize-2';
       {#if collapsible}
         <button
           type="button"
-          class="text-gray-400 hover:text-gray-600"
+          class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
           onclick={toggleCollapse}
           aria-label={isCollapsed ? 'Expand' : 'Collapse'}
         >
@@ -121,7 +121,7 @@ const Maximize2 = 'maximize-2';
       
       <button
         type="button"
-        class="text-gray-400 hover:text-gray-600"
+        class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
         aria-label="More options"
       >
         <BaseIcon name={MoreHorizontal} class="h-5 w-5" />
@@ -135,4 +135,8 @@ const Maximize2 = 'maximize-2';
     </div>
   {/if}
 </div>
+
+
+
+
 

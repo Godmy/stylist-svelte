@@ -32,7 +32,7 @@
       aria-hidden="true"
     ></span>
     <span
-      class={`${state.lineClasses} ${state.open ? 'opacity-0' : 'opacity-100'}`}
+      class={`${state.lineClasses} ${state.open ? 'opacity-[var(--opacity-0)]' : 'opacity-[var(--opacity-100)]'}`}
       style={`top: 50%; transform: translateY(-50%); background-color: ${state.color};`}
       aria-hidden="true"
     ></span>
@@ -43,3 +43,6 @@
     ></span>
   </div>
 </button>
+
+
+

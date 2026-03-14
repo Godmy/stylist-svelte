@@ -127,13 +127,16 @@ const Check = 'check';
 
   :global(pre) {
     margin: 0;
-    background-color: #f8fafc;
+    background-color: var(--color-background-secondary);
   }
 
   :global(code) {
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
   }
 </style>
+
+
+
 
 

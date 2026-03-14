@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Favicon from './index.svelte';
 
@@ -29,3 +29,5 @@
 		<Favicon url={values.url as string} size={Number.isNaN(parsedSize) ? 24 : parsedSize} />
 	{/snippet}
 </Story>
+
+

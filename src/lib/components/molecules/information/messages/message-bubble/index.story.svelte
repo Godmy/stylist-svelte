@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import MessageBubble from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -22,8 +22,11 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 rounded-xl bg-gray-50 space-y-4">
+    <div class="p-6 rounded-xl bg-[var(--color-background-secondary)] space-y-4">
       <MessageBubble author={args.author} message={args.message} timestamp={args.timestamp} align={args.align} variant={args.variant} avatar={args.avatar} />
     </div>
   {/snippet}
 </Story>
+
+
+

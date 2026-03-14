@@ -57,7 +57,7 @@
         <!-- Price line -->
         <polyline
           fill="none"
-          stroke="#3B82F6"
+          stroke="var(--color-primary-500)"
           stroke-width="2"
           points={
             data.map((d: { date: string; price: number }, i: number) => {
@@ -75,7 +75,7 @@
             cx={(i / (data.length - 1)) * chartWidth}
             cy={chartHeight - ((d.price - minPrice) / priceRange) * chartHeight}
             r="3"
-            fill="#3B82F6"
+            fill="var(--color-primary-500)"
             class={PriceHistoryStyleManager.getDataPointClass()}
           />
         {/each}
@@ -92,3 +92,5 @@
     {/if}
   </div>
 </div>
+
+

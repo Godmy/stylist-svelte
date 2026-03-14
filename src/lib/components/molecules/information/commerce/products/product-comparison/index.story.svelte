@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductComparison from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -31,7 +31,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 bg-gray-50 rounded-xl">
+    <div class="p-6 bg-[var(--color-background-secondary)] rounded-xl">
       <ProductComparison
         products={args.includeThirdProduct ? baseProducts : baseProducts.slice(0, 2)}
         features={parseFeatures(args.features)}
@@ -39,3 +39,6 @@
     </div>
   {/snippet}
 </Story>
+
+
+

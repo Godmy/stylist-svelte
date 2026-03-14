@@ -107,12 +107,12 @@ const GripVertical = 'grip-vertical';
         draggable={!disabled}
         role="listitem"
         class={`relative ${
-          isDragging && draggedItem?.id === item.id ? 'opacity-50' : 'opacity-100'
+          isDragging && draggedItem?.id === item.id ? 'opacity-[var(--opacity-50)]' : 'opacity-[var(--opacity-100)]'
         } ${
           draggedOverIndex === index && draggedItem && draggedItem.id !== item.id 
-            ? 'border-t-2 border-blue-500'
-            : 'border border-gray-200'
-        } rounded-lg ${variant === 'card' ? 'bg-white' : ''} ${itemClass}`}
+            ? 'border-t-2 border-[var(--color-primary-500)]'
+            : 'border border-[var(--color-border-primary)]'
+        } rounded-lg ${variant === 'card' ? 'bg-[var(--color-background-primary)]' : ''} ${itemClass}`}
         ondragstart={(e) => handleDragStart(e, item, index)}
         ondragover={(e) => handleDragOver(e, index)}
         ondragleave={handleDragLeave}
@@ -129,17 +129,17 @@ const GripVertical = 'grip-vertical';
           >
             <div class="flex items-center justify-between">
               <div class="flex items-center">
-                <BaseIcon name={GripVertical} class="h-4 w-4 text-gray-400 cursor-move mr-2" />
+                <BaseIcon name={GripVertical} class="h-4 w-4 text-[var(--color-text-tertiary)] cursor-move mr-2" />
                 {item.title}
               </div>
-              <div class="text-sm text-gray-500">
+              <div class="text-sm text-[var(--color-text-secondary)]">
                 <!-- Item-specific actions could go here -->
               </div>
             </div>
           </BaseCard>
         {:else}
           <div class="flex items-center p-3">
-            <BaseIcon name={GripVertical} class="h-4 w-4 text-gray-400 cursor-move mr-2" />
+            <BaseIcon name={GripVertical} class="h-4 w-4 text-[var(--color-text-tertiary)] cursor-move mr-2" />
             <span class={`flex-1 ${bodyClass}`}>{item.title}</span>
           </div>
         {/if}
@@ -147,4 +147,7 @@ const GripVertical = 'grip-vertical';
     {/each}
   </div>
 </div>
+
+
+
 

@@ -66,26 +66,26 @@ import type { Message, User } from '$stylist/design-system/contracts/information
     flex-direction: column;
     flex: 1;
     overflow-y: auto;
-    padding: 1rem;
-    gap: 1rem;
-    background-color: #f0f4f8;
+    padding: var(--spacing-4);
+    gap: var(--spacing-4);
+    background-color: var(--color-background-secondary);
   }
 
   .message-list::-webkit-scrollbar {
-    width: 6px;
+    width: var(--spacing-2);
   }
 
   .message-list::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: var(--color-background-secondary);
   }
 
   .message-list::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 3px;
+    background: var(--color-border-secondary);
+    border-radius: var(--border-radius-sm);
   }
 
   .message-list::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: var(--color-text-secondary);
   }
 </style>
 
@@ -99,3 +99,6 @@ import type { Message, User } from '$stylist/design-system/contracts/information
     />
   {/each}
 </div>
+
+
+

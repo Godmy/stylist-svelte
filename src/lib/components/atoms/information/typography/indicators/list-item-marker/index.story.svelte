@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ListItemMarker from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	const controls: ControlConfig[] = [
 		{
@@ -96,6 +96,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
 
 
 

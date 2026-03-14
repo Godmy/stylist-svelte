@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { GraphCanvasProps, GraphCanvasPosition } from '$stylist/design-system/contracts';
 	import { createGraphCanvasState } from '$stylist/design-system/models/architecture/graph-canvas.svelte';
-	import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/tokens';
+	import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/defaults';
 
 	let props: GraphCanvasProps = $props();
 
@@ -194,8 +194,8 @@
 		position: relative;
 		display: block;
 		overflow: hidden;
-		background: var(--background-color, #1e1e1e);
-		border-radius: 8px;
+		background: var(--background-color, var(--color-background-primary));
+		border-radius: var(--border-radius-lg);
 		user-select: none;
 	}
 
@@ -216,22 +216,17 @@
 	}
 
 	:global(.graph-canvas__grid--dots) {
-		background-image: radial-gradient(var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px);
+		background-image: var(--gradient-custom142);
 		background-size: var(--grid-size, 20px) var(--grid-size, 20px);
 	}
 
 	:global(.graph-canvas__grid--lines) {
-		background-image:
-			linear-gradient(to right, var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px),
-			linear-gradient(to bottom, var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px);
+		background-image: var(--gradient-custom42);
 		background-size: var(--grid-size, 20px) var(--grid-size, 20px);
 	}
 
 	:global(.graph-canvas__grid--cross) {
-		background-image:
-			linear-gradient(to right, var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px),
-			linear-gradient(to bottom, var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px),
-			radial-gradient(var(--grid-color, rgba(128, 128, 128, 0.2)) 1px, transparent 1px);
+		background-image: var(--gradient-custom52);
 		background-size: var(--grid-size, 20px) var(--grid-size, 20px);
 	}
 
@@ -259,3 +254,6 @@
 		cursor: zoom-in;
 	}
 </style>
+
+
+

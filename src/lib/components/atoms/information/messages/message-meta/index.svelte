@@ -40,13 +40,13 @@
   .message-meta {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
-    margin-top: 0.25rem;
+    gap: var(--spacing-1);
+    margin-top: var(--spacing-1);
   }
 
   .meta-separator {
-    color: #94a3b8;
-    font-size: 0.6rem;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-3);
   }
 </style>
 
@@ -71,3 +71,5 @@
     {/if}
   </div>
 {/if}
+
+

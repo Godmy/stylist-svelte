@@ -136,12 +136,12 @@
   role="list"
   aria-label="Kanban column: {column.title}"
 >
-  <div class="p-4 border-b border-slate-200/80 bg-gradient-to-r from-white to-slate-50/80">
+  <div class="p-4 border-b border-[var(--color-border-primary)]/80 [background-image:var(--gradient-neutral)]">
     <div class="flex justify-between items-center mb-2">
       {#if isEditingTitle}
         <div class="flex min-w-0 flex-1 items-center gap-1">
           <input
-            class="w-full rounded border border-gray-300 px-2 py-1 text-sm text-gray-900 outline-none focus:border-indigo-500"
+            class="w-full rounded border border-[var(--color-border-primary)] px-2 py-1 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary-500)]"
             bind:value={draftTitle}
             onkeydown={(e) => {
               if (e.key === 'Enter') commitTitleEdit();
@@ -152,17 +152,17 @@
           <button type="button" class="text-emerald-600 hover:text-emerald-700" onclick={commitTitleEdit} aria-label="Save column title">
             <BaseIcon name={Check} class="h-4 w-4" />
           </button>
-          <button type="button" class="text-gray-500 hover:text-gray-700" onclick={cancelTitleEdit} aria-label="Cancel column title edit">
+          <button type="button" class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]" onclick={cancelTitleEdit} aria-label="Cancel column title edit">
             <BaseIcon name={X} class="h-4 w-4" />
           </button>
         </div>
       {:else}
-        <h3 class="font-semibold text-slate-800 tracking-tight">{column.title}</h3>
+        <h3 class="font-semibold text-[var(--color-text-primary)] tracking-tight">{column.title}</h3>
       {/if}
       <div class="flex items-center gap-2">
         <Badge variant="default" size="sm">{visibleCards.length}</Badge>
         {#if editable && !isEditingTitle}
-          <button type="button" class="text-slate-400 hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit column title">
+          <button type="button" class="text-[var(--color-text-tertiary)] hover:text-cyan-600 transition-colors" onclick={startTitleEdit} aria-label="Edit column title">
             <BaseIcon name={Pencil} class="h-4 w-4" />
           </button>
         {/if}
@@ -170,18 +170,21 @@
     </div>
 
     {#if column.description}
-      <p class="text-sm text-slate-500">{column.description}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">{column.description}</p>
     {/if}
 
     <div class="mt-3">
-      <Button variant="ghost" size="sm" onclick={handleAddCard} class="rounded-lg text-slate-600 hover:text-slate-900">
+      <Button variant="ghost" size="sm" onclick={handleAddCard} class="rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]">
         <BaseIcon name={Plus} class="w-4 h-4 mr-1" />
         Add Card
       </Button>
     </div>
   </div>
 
-  <div class="flex-grow p-3 space-y-3 overflow-y-auto max-h-[calc(100vh-250px)] bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.08),_transparent_60%)]">
+  <div
+    class="flex-grow p-3 space-y-3 overflow-y-auto max-h-[calc(100vh-250px)]"
+    style="--gradient-inner: color-mix(in srgb, var(--color-border-primary) 8%, transparent); --gradient-outer: transparent; background-image: var(--gradient-radial-center);"
+  >
     {#each visibleCards as card, index (card.id)}
       {#if dragOverIndex === index}
         <div class="h-2 rounded-full bg-cyan-300/80 ring-2 ring-cyan-200/70 animate-pulse" aria-hidden="true"></div>
@@ -226,4 +229,9 @@
     </div>
   {/if}
 </div>
+
+
+
+
+
 

@@ -88,8 +88,8 @@
 
 	// Генерируем CSS классы
 	const baseClasses = 'block max-w-full h-auto object-cover';
-	const loadedClass = $derived(isLoaded ? 'opacity-100' : 'opacity-0');
-	const transitionClass = 'transition-opacity duration-200';
+	const loadedClass = $derived(isLoaded ? 'opacity-[var(--opacity-100)]' : 'opacity-[var(--opacity-0)]');
+	const transitionClass = 'transition-opacity duration-[var(--duration-200)]';
 	const imageClasses = $derived(
 		`${baseClasses} ${loadedClass} ${transitionClass} ${sizeClasses} ${props.class ?? ''}`
 	);
@@ -119,4 +119,6 @@
 		onload={handleLoad}
 	/>
 </div>
+
+
 

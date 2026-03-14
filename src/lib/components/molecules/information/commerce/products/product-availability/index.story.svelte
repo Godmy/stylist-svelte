@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductAvailability from './index.svelte';
 
   let notified = $state(false);
@@ -22,7 +22,7 @@
   controls={controls}
 >
   {#snippet children(args: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
+    <div class="p-8 bg-[var(--color-background-secondary)] rounded-lg">
       <ProductAvailability
         available={args.available}
         stock={args.stock}
@@ -30,7 +30,10 @@
         estimatedRestock={args.estimatedRestock}
         onNotifyMe={() => (notified = true)}
       />
-      <p class="mt-3 text-sm text-gray-600">Notify status: {notified ? 'Requested' : 'Not requested'}</p>
+      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">Notify status: {notified ? 'Requested' : 'Not requested'}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

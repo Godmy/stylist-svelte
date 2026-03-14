@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Stack from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -45,3 +45,5 @@
 		</div>
 	{/snippet}
 </Story>
+
+

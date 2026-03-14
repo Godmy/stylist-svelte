@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Spacer from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -23,13 +23,13 @@
 <Story {controls} component={Spacer} title="Spacer Component" description="A flexible space component for layout purposes">
 	{#snippet children(values: any)}
 		{#if values.axis === 'vertical'}
-			<div class="inline-flex flex-col items-center rounded bg-slate-100 p-2">
-				<span class="text-xs text-slate-500">Top</span>
+			<div class="inline-flex flex-col items-center rounded bg-[var(--color-background-secondary)] p-2">
+				<span class="text-xs text-[var(--color-text-secondary)]">Top</span>
 				<Spacer {...values} />
-				<span class="text-xs text-slate-500">Bottom</span>
+				<span class="text-xs text-[var(--color-text-secondary)]">Bottom</span>
 			</div>
 		{:else}
-			<div class="flex items-center rounded bg-slate-100 p-2">
+			<div class="flex items-center rounded bg-[var(--color-background-secondary)] p-2">
 				<span>Left</span>
 				<Spacer {...values} />
 				<span>Right</span>
@@ -37,3 +37,6 @@
 		{/if}
 	{/snippet}
 </Story>
+
+
+

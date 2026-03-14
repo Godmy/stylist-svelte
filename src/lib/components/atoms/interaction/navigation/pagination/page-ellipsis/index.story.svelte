@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import PageEllipsis from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -14,10 +14,13 @@
 			<button class="rounded border px-3 py-1 text-sm">1</button>
 			<PageEllipsis class={values.class} />
 			<button class="rounded border px-3 py-1 text-sm">8</button>
-			<button class="rounded border bg-[--color-primary-600] px-3 py-1 text-sm text-white">9</button>
+			<button class="rounded border bg-[--color-primary-600] px-3 py-1 text-sm text-[var(--color-text-inverse)]">9</button>
 			<button class="rounded border px-3 py-1 text-sm">10</button>
 			<PageEllipsis class={values.class} />
 			<button class="rounded border px-3 py-1 text-sm">24</button>
 		</nav>
 	{/snippet}
 </Story>
+
+
+

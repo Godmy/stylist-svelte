@@ -35,7 +35,7 @@ const Circle = 'circle';
 	const Template: Story<StoryArgs> = (args) => ({
 		Component: NodeTitle,
 		props: args,
-		style: 'background: #1e1e1e; padding: 20px; border-radius: 8px;'
+		style: 'background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg);'
 	});
 
 	export const Default = Template.bind({});
@@ -91,10 +91,10 @@ const Circle = 'circle';
 		style: `
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: var(--spacing-2);
 			background: #1e1e1e;
-			padding: 20px;
-			border-radius: 8px;
+			padding: var(--spacing-5);
+			border-radius: var(--border-radius-lg);
 		`
 	});
 </script>
@@ -130,4 +130,5 @@ const Circle = 'circle';
 	<NodeTitle variant="error" title="Error Variant" />
 	<NodeTitle variant="warning" title="Warning Variant" />
 </Story>
+
 

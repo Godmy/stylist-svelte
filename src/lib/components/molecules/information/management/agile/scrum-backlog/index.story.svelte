@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ScrumBacklog from './index.svelte';
 
   let added = $state(0);
@@ -42,8 +42,8 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-4 rounded-xl bg-gray-50 space-y-3">
-      <div class="h-[680px] rounded border border-gray-200 bg-white">
+    <div class="p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
+      <div class="h-[680px] rounded border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]">
         <ScrumBacklog
           data={{ items: args.showOnlyHighPriority ? baseItems.filter((item) => item.priority === 'high') : baseItems }}
           showFilters={args.showFilters}
@@ -52,7 +52,10 @@
           onItemDelete={() => (removed += 1)}
         />
       </div>
-      <p class="text-sm text-gray-600">Events: add {added}, update {updated}, delete {removed}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Events: add {added}, update {updated}, delete {removed}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

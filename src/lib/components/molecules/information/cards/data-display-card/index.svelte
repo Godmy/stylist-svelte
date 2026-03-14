@@ -34,7 +34,7 @@
   }: Props = $props();
 </script>
 
-<div class={`bg-white rounded-lg shadow-md overflow-hidden ${className}`} {...restProps}>
+<div class={`bg-[var(--color-background-primary)] rounded-lg shadow-md overflow-hidden ${className}`} {...restProps}>
   {#if image}
     <img 
       src={image} 
@@ -47,17 +47,17 @@
     {#if title || subtitle}
       <div class={`mb-4 ${headerClass}`}>
         {#if title}
-          <h3 class="text-xl font-bold text-gray-900">{title}</h3>
+          <h3 class="text-xl font-bold text-[var(--color-text-primary)]">{title}</h3>
         {/if}
         {#if subtitle}
-          <p class="text-sm text-gray-500">{subtitle}</p>
+          <p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
         {/if}
       </div>
     {/if}
     
     {#if description}
       <div class={`mb-4 ${bodyClass}`}>
-        <p class="text-gray-700">{description}</p>
+        <p class="text-[var(--color-text-primary)]">{description}</p>
       </div>
     {/if}
     
@@ -69,8 +69,11 @@
   </div>
   
   {#if footer}
-    <div class={`px-6 py-3 bg-gray-50 border-t border-gray-200 ${footerClass}`}>
+    <div class={`px-6 py-3 bg-[var(--color-background-secondary)] border-t border-[var(--color-border-primary)] ${footerClass}`}>
       {@render footer()}
     </div>
   {/if}
 </div>
+
+
+

@@ -1,5 +1,6 @@
-﻿<script lang="ts">
-	import { createFileInputState as createInputState } from '$stylist/design-system/models/interaction/file-input.svelte';
+<script lang="ts">
+	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 	import { getFileSelectionLabel } from '$stylist/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
@@ -29,6 +30,8 @@
 		class: className = '',
 		...restProps
 	}: Props = $props();
+	const createInputState = (props: Props & Record<string, unknown>) =>
+		createBaseInputState(INPUT_FIELD_PRESET, props);
 	const inputState = $derived(createInputState({ variant, size, disabled, class: className }));
 	let inputElement: HTMLInputElement | null = $state(null);
 
@@ -94,7 +97,7 @@
 				<span class="mr-2 truncate">{fileName}</span>
 				<button
 					type="button"
-					class="text-gray-500 hover:text-gray-700"
+					class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
 					onclick={(e) => {
 						e.stopPropagation();
 						clearFile();
@@ -132,6 +135,9 @@
 		</span>
 	</label>
 </div>
+
+
+
 
 
 

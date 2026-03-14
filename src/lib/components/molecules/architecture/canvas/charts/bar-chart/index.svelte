@@ -27,12 +27,12 @@ const Info = 'info';
     height = 400,
     showTooltip = true,
     showLegend = true,
-    colorScheme = 'default',
+    colorScheme = 'minimal',
     maxValue,
     barGap = 10,
     barWidth = 30,
     showAxis = true,
-    axisColor = '#E5E7EB',
+    axisColor = 'var(--color-border-primary)',
     onBarClick,
     class: hostClass = '',
     chartClass = '',
@@ -72,15 +72,15 @@ const Info = 'info';
   });
 
   // Get default color based on index and scheme
-  function getDefaultColor(index: number, scheme: string): string {
-    const schemes: Record<string, string[]> = {
-      default: ['var(--color-primary-500)', 'var(--color-success-500)', 'var(--color-error-500)', 'var(--color-warning-500)', 'var(--color-info-500)', 'var(--color-pink-500)'],
-      warm: ['var(--color-red-400)', 'var(--color-orange-400)', 'var(--color-amber-400)', 'var(--color-yellow-400)', 'var(--color-yellow-200)'],
-      cool: ['var(--color-blue-400)', 'var(--color-emerald-400)', 'var(--color-teal-300)', 'var(--color-sky-300)', 'var(--color-slate-300)'],
-      neutral: ['var(--color-gray-500)', 'var(--color-gray-400)', 'var(--color-gray-300)', 'var(--color-gray-200)', 'var(--color-gray-100)']
-    };
+  function getDefaultColor(index: number, scheme: IBarChartProps['colorScheme']): string {
+    const schemes = {
+      minimal: ['var(--color-primary-500)', 'var(--color-success-500)', 'var(--color-error-500)', 'var(--color-warning-500)', 'var(--color-info-500)', 'var(--color-secondary-500)'],
+      ocean: ['var(--color-primary-400)', 'var(--color-info-400)', 'var(--color-secondary-400)', 'var(--color-success-300)', 'var(--color-info-300)'],
+      forest: ['var(--color-success-600)', 'var(--color-success-500)', 'var(--color-success-400)', 'var(--color-neutral-500)', 'var(--color-neutral-400)'],
+      sunset: ['var(--color-danger-400)', 'var(--color-error-500)', 'var(--color-warning-400)', 'var(--color-warning-500)', 'var(--color-warning-200)']
+    } as const;
 
-    const colorList = schemes[scheme] || schemes.default;
+    const colorList = schemes[scheme ?? 'minimal'];
     return colorList[index % colorList.length];
   }
 
@@ -210,4 +210,7 @@ const Info = 'info';
     </div>
   {/if}
 </div>
+
+
+
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import AdvancedToggle from './index.svelte';
 
 	type AdvancedToggleStoryProps = {
@@ -39,7 +39,7 @@
 >
 	{#snippet children(values: any)}
 		{@const storyProps = values as AdvancedToggleStoryProps}
-		<div class="rounded-lg bg-gray-50 p-8">
+		<div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
 			<h2 class="mb-4 text-xl font-bold">AdvancedToggle Story</h2>
 			<AdvancedToggle
 				label={storyProps.label}
@@ -49,6 +49,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

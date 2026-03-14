@@ -73,10 +73,10 @@
   };
 </script>
 
-<div class="variables-editor border border-gray-300 rounded-md dark:border-gray-600 bg-white dark:bg-gray-800 overflow-hidden {className}">
-  <div class="toolbar bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600 p-2 flex items-center justify-between">
+<div class="variables-editor border border-[var(--color-border-primary)] rounded-md dark:border-[var(--color-border-primary)] bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)] overflow-hidden {className}">
+  <div class="toolbar bg-[var(--color-background-secondary)] dark:bg-[var(--color-neutral-700)] border-b border-[var(--color-border-primary)] dark:border-[var(--color-border-primary)] p-2 flex items-center justify-between">
     <div class="flex items-center space-x-1">
-      <span class="text-xs font-medium text-gray-700 dark:text-gray-300">Query Variables</span>
+      <span class="text-xs font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-tertiary)]">Query Variables</span>
     </div>
     <div class="flex items-center space-x-1">
       <Button 
@@ -110,7 +110,7 @@
     <textarea
       value={variablesContent}
       oninput={handleInput}
-      class="w-full h-full p-4 font-mono text-sm border-none focus:outline-none resize-none bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 {isValid ? '' : 'text-red-500'}"
+      class="w-full h-full p-4 font-mono text-sm border-none focus:outline-none resize-none bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)] text-[var(--color-text-primary)] dark:text-[var(--color-neutral-100)] {isValid ? '' : 'text-[var(--color-danger-500)]'}"
       style="font-family: monospace; tab-size: 2;"
       placeholder={placeholderText}
       spellcheck={false}
@@ -118,7 +118,7 @@
     
     {#if !variablesContent || variablesContent === '{}'}
       <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="text-gray-400 dark:text-gray-500 text-center p-4">
+        <div class="text-[var(--color-text-tertiary)] dark:text-[var(--color-text-secondary)] text-center p-4">
           <Icon name="file-json" class="h-8 w-8 mx-auto mb-1" />
           <p class="text-xs">Variables (JSON)</p>
         </div>
@@ -126,7 +126,7 @@
     {/if}
     
     {#if !isValid}
-      <div class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
+      <div class="absolute top-2 right-2 bg-[var(--color-danger-500)] text-[var(--color-text-inverse)] text-xs px-2 py-1 rounded">
         Invalid JSON
       </div>
     {/if}
@@ -148,3 +148,7 @@
     font-family: monospace;
   }
 </style>
+
+
+
+

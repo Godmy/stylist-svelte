@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormHelperTextState } from '$stylist/design-system/models/interaction/form-helper-text.svelte';
+	import { createFormHelperTextState } from '$stylist/design-system/utils/model-helpers/input-state';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -47,6 +47,10 @@
 		{text}
 	{/if}
 </p>
+
+
+
+
 
 
 

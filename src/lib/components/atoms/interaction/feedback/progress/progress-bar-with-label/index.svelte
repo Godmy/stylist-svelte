@@ -22,11 +22,11 @@
 	let percentage = $derived(Math.round((value / max) * 100));
 
 	const colorClasses: Record<string, string> = {
-		blue: 'bg-blue-500',
-		green: 'bg-green-500',
-		red: 'bg-red-500',
+		blue: 'bg-[var(--color-primary-500)]',
+		green: 'bg-[var(--color-success-500)]',
+		red: 'bg-[var(--color-danger-500)]',
 		yellow: 'bg-yellow-500',
-		purple: 'bg-purple-500'
+		purple: 'bg-[var(--color-secondary-500)]'
 	};
 </script>
 
@@ -39,7 +39,7 @@
 			{/if}
 		</div>
 	{/if}
-	<div class="w-full rounded-full bg-gray-200 ${height}">
+	<div class="w-full rounded-full bg-[var(--color-background-tertiary)] ${height}">
 		<div
 			class="h-full rounded-full ${colorClasses[color as keyof typeof colorClasses] ||
 				colorClasses.blue}"
@@ -52,6 +52,10 @@
 		</div>
 	{/if}
 </div>
+
+
+
+
 
 
 

@@ -94,12 +94,12 @@
 <style>
 	:global(.graph-toolbar) {
 		display: flex;
-		gap: 0.25rem;
-		padding: 0.5rem;
-		background: #1e1e1e;
-		border: 1px solid #374151;
-		border-radius: 8px;
-		box-shadow: 0 1px 2px rgb(0 0 0 / 0.3);
+		gap: var(--spacing-1);
+		padding: var(--spacing-2);
+		background: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-custom27);
 	}
 
 	:global(.graph-toolbar--horizontal) {
@@ -114,42 +114,43 @@
 	}
 
 	:global(.graph-toolbar--compact) {
-		padding: 0.375rem;
-		gap: 0.125rem;
+		padding: var(--spacing-2);
+		gap: var(--spacing-1);
 	}
 
 	:global(.graph-toolbar__separator) {
-		margin: 0 0.25rem;
+		margin: 0 var(--spacing-1);
 	}
 
 	:global(.graph-toolbar__select),
 	:global(.graph-toolbar__input) {
-		padding: 0.375rem 0.5rem;
-		font-size: 0.75rem;
-		color: #f8fafc;
-		background: #2d2d2d;
-		border: 1px solid #374151;
-		border-radius: 4px;
+		padding: var(--spacing-1) var(--spacing-2);
+		font-size: var(--font-size-3);
+		color: var(--color-text-primary);
+		background: var(--color-background-secondary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-base);
 		outline: none;
 		cursor: pointer;
-		transition: border-color 120ms ease, box-shadow 120ms ease;
+		transition: border-color var(--duration-120) var(--animation-ease), box-shadow var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.graph-toolbar__select:hover),
 	:global(.graph-toolbar__input:hover) {
-		border-color: #4b5563;
+		border-color: var(--color-border-secondary);
 	}
 
 	:global(.graph-toolbar__select:focus),
 	:global(.graph-toolbar__input:focus) {
-		border-color: #3b82f6;
-		box-shadow: 0 0 0 2px rgb(59 130 246 / 0.2);
+		border-color: var(--color-primary-500);
+		box-shadow: var(--shadow-custom07);
 	}
 
 	:global(.graph-toolbar__select:disabled),
 	:global(.graph-toolbar__input:disabled) {
-		background: #1f1f1f;
-		color: #6b7280;
+		background: color-mix(in srgb, var(--color-background-primary) 85%, var(--color-background-secondary) 15%);
+		color: var(--color-text-tertiary);
 		cursor: not-allowed;
 	}
 </style>
+

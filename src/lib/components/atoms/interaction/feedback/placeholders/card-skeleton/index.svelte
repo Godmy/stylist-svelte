@@ -15,7 +15,7 @@
 
 <div class={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ${className}`} {...restProps}>
 	{#each cards as _}
-		<div class="overflow-hidden rounded-lg bg-white p-6 shadow">
+		<div class="overflow-hidden rounded-lg bg-[var(--color-background-primary)] p-6 shadow">
 			<div class="flex items-center space-x-4">
 				{#if showAvatar}
 					<Skeleton variant="icon" width="48px" height="48px" />
@@ -33,6 +33,9 @@
 		</div>
 	{/each}
 </div>
+
+
+
 
 
 

@@ -47,7 +47,7 @@ const RefreshCw = 'refresh-cw';
 </script>
 
 <div class={CodeEditorStyleManager.root(className)} {...restProps}>
-  <div class="flex items-center justify-between border-b border-[var(--color-border-default)] p-2">
+  <div class="flex items-center justify-between border-b border-[var(--color-border-primary)] p-2">
     <span class="text-xs uppercase text-gray-500">{language}</span>
     <div class="flex gap-2">
       {#if showCopyButton}<button type="button" class={CodeEditorStyleManager.button()} onclick={handleCopy}><BaseIcon name={Copy} class="w-3 h-3 inline mr-1" />Copy</button>{/if}
@@ -57,11 +57,14 @@ const RefreshCw = 'refresh-cw';
   </div>
   <textarea
     class="w-full font-mono p-3 resize-none focus:outline-none"
-    style={`height:${height};width:${width};font-size:${FONT_SIZE}px;${showLineNumbers ? 'padding-left:40px;' : ''}`}
+    style={`height:${height};width:${width};font-size:${FONT_SIZE}px;${showLineNumbers ? 'padding-left: var(--spacing-10);' : ''}`}
     bind:value={internalCode}
     oninput={(e) => handleCodeChange((e.target as HTMLTextAreaElement).value)}
     readonly={readOnly}
   ></textarea>
 </div>
+
+
+
 
 

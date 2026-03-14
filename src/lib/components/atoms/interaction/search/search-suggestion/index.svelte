@@ -44,13 +44,13 @@
   }
 </script>
 
-<div class={`search-suggestions bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden z-10 ${hostClass}`} {...restProps}>
+<div class={`search-suggestions bg-[var(--color-background-primary)] rounded-md shadow-lg ring-1 ring-black ring-opacity-[var(--opacity-5)] overflow-hidden z-[var(--z-index-docked)] ${hostClass}`} {...restProps}>
   {#if loading}
     <div class="p-4 flex justify-center items-center">
-      <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-500"></div>
+      <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-[var(--color-primary-500)]"></div>
     </div>
   {:else if displayedSuggestions.length === 0 && query}
-    <div class="p-4 text-center text-sm text-gray-500">
+    <div class="p-4 text-center text-sm text-[var(--color-text-secondary)]">
       No suggestions found
     </div>
   {:else}
@@ -59,7 +59,7 @@
         <li>
           <button
             type="button"
-            class={`w-full text-left px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-700 ${suggestionClass}`}
+            class={`w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-primary-50)] hover:text-[var(--color-primary-700)] ${suggestionClass}`}
             onclick={() => handleSuggestionClick(suggestion)}
           >
             <div class="flex items-center">
@@ -68,11 +68,11 @@
               {/if}
               <span>{suggestion.text}</span>
               {#if suggestion.count}
-                <span class="ml-auto text-xs text-gray-500">({suggestion.count})</span>
+                <span class="ml-auto text-xs text-[var(--color-text-secondary)]">({suggestion.count})</span>
               {/if}
             </div>
             {#if suggestion.category}
-              <div class="ml-6 text-xs text-gray-500">{suggestion.category}</div>
+              <div class="ml-6 text-xs text-[var(--color-text-secondary)]">{suggestion.category}</div>
             {/if}
           </button>
         </li>
@@ -80,6 +80,10 @@
     </ul>
   {/if}
 </div>
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenRangeControlDefinition } from '../token-controls/types';
+	import type { TokenRangeControlDefinition } from '$stylist/design-system/types/interaction/token-controls';
 
 	type TokenRangeControlProps = {
 		definition: TokenRangeControlDefinition;
@@ -50,16 +50,19 @@
 	.token-range-control {
 		display: grid;
 		grid-template-columns: 1fr auto;
-		gap: 0.5rem;
+		gap: var(--spacing-2);
 		align-items: center;
 		min-width: 220px;
 	}
 
 	.token-range-control__value {
-		font-size: 0.72rem;
-		font-weight: 600;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
 		color: var(--text);
-		min-width: 2rem;
+		min-width: var(--spacing-8);
 		text-align: right;
 	}
 </style>
+
+
+

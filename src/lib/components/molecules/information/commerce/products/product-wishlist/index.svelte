@@ -23,7 +23,7 @@
 <div class={ProductWishlistStyleManager.getContainerClass(className)}>
   <h2 class="text-xl font-bold p-4 border-b">Wishlist ({items.length})</h2>
   {#if items.length === 0}
-    <div class="p-8 text-center text-gray-500">
+    <div class="p-8 text-center text-[var(--color-text-secondary)]">
       Your wishlist is empty
     </div>
   {:else}
@@ -52,13 +52,13 @@
           <div class="flex flex-col space-y-2 ml-4">
             <button
               onclick={() => onMoveToCart(item.id)}
-              class="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600"
+              class="px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] text-sm rounded hover:bg-[var(--color-primary-600)]"
             >
               Add to Cart
             </button>
             <button
               onclick={() => onRemove(item.id)}
-              class="px-3 py-1 border border-gray-300 text-sm rounded hover:bg-gray-100"
+              class="px-3 py-1 border border-[var(--color-border-primary)] text-sm rounded hover:bg-[var(--color-background-secondary)]"
             >
               Remove
             </button>
@@ -68,3 +68,5 @@
     </div>
   {/if}
 </div>
+
+

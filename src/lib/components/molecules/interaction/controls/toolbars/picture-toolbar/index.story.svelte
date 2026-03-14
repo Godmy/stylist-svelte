@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import PictureToolbar from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -32,7 +32,7 @@
  
 >
   {#snippet children(controlValues: any)}
-  <div class="rounded-lg bg-gray-50 p-8">
+  <div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
     <PictureToolbar
       tools={tools}
       activeTool={controlValues.activeTool}
@@ -42,3 +42,5 @@
 
   {/snippet}
 </Story>
+
+

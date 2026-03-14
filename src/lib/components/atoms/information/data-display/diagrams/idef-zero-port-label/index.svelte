@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0PortLabelProps } from '$stylist/design-system';
 	import { createIdef0PortLabelState } from '$stylist/design-system/models/information/idef0.svelte';
 
@@ -15,3 +15,5 @@
 >
 	{props.text}
 </text>
+
+

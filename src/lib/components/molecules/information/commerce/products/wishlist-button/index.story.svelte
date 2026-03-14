@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import WishlistButton from './index.svelte';
 
   let toggles = $state(0);
@@ -21,7 +21,10 @@
         disabled={values.disabled}
         onToggle={() => (toggles += 1)}
       />
-      <p class="text-sm text-gray-600">Toggle count: {toggles}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Toggle count: {toggles}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

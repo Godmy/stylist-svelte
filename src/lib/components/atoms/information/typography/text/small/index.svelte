@@ -38,7 +38,7 @@
 	);
 
 	const classes = $derived(
-		`text-sm ${disabled ? 'text-gray-400' : 'text-gray-600'} ${block ? 'block' : ''} ${props.class ?? ''}`.trim()
+		`text-sm ${disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-secondary)]'} ${block ? 'block' : ''} ${props.class ?? ''}`.trim()
 	);
 </script>
 
@@ -47,4 +47,8 @@
 		{@render children?.()}
 	{/if}
 </small>
+
+
+
+
 

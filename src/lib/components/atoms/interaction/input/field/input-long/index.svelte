@@ -1,19 +1,19 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputLongProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
-	 * InputLong component - РњРЅРѕРіРѕСЃС‚СЂРѕС‡РЅС‹Р№ input РґР»СЏ РґР»РёРЅРЅРѕРіРѕ С‚РµРєСЃС‚Р°
+	 * InputLong component - Многострочный input для длинного текста
 	 *
 	 * @example
 	 * ```svelte
 	 * <InputLong
-	 *   label="РљРѕРјРјРµРЅС‚Р°СЂРёР№"
+	 *   label="Комментарий"
 	 *   bind:value={comment}
 	 *   rows={4}
 	 *   autoResize={true}
@@ -165,6 +165,10 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+
+
+
+
 
 
 

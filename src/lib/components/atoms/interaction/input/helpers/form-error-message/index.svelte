@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormErrorMessageState } from '$stylist/design-system/models/interaction/form-error-message.svelte';
+	import { createFormErrorMessageState } from '$stylist/design-system/utils/model-helpers/input-state';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -51,6 +51,10 @@
 		{/if}
 	</p>
 {/if}
+
+
+
+
 
 
 

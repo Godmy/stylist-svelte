@@ -115,7 +115,7 @@
             <div class="flex items-start justify-between">
               <div class="flex-1 min-w-0">
                 <div class="flex items-center">
-                  <h4 class="text-sm font-medium text-[--color-gray-900] dark:text-white truncate">{operation.name || 'Untitled Operation'}</h4>
+                  <h4 class="text-sm font-medium text-[--color-gray-900] dark:text-[var(--color-text-inverse)] truncate">{operation.name || 'Untitled Operation'}</h4>
                   <Badge variant={getStatusVariant(operation.status)} size="sm" class="ml-2">{getStatusText(operation.status)}</Badge>
                 </div>
                 <p class="text-xs text-[--color-gray-500] dark:text-[--color-gray-400] mt-1 truncate">
@@ -156,3 +156,6 @@
     flex-shrink: 0;
   }
 </style>
+
+
+

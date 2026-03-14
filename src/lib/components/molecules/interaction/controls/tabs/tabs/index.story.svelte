@@ -5,7 +5,7 @@
   import { Tab } from '$stylist/components/atoms/interaction/controls/tabs/tab';
   import TabPanel from '../tab-panel/index.svelte';
   import TabPanels from '../tab-panels/index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -46,7 +46,7 @@
         <div>
           <h3 class="mb-2 text-lg font-semibold">Secondary Content</h3>
           <p>This is the content for the second tab.</p>
-          <div class="mt-2 rounded bg-purple-100 p-3">
+          <div class="mt-2 rounded bg-[var(--color-secondary-100)] p-3">
             <p>
               The Tabs component provides context to TabList, Tab, TabPanels, and TabPanel
               components.
@@ -68,3 +68,5 @@
 
   {/snippet}
 </Story>
+
+

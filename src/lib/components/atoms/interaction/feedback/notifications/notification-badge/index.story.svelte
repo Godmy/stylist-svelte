@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import NotificationBadge from './index.svelte';
 
 	type Props = {
@@ -51,7 +51,7 @@
 			<h2 class="mb-6 text-xl font-semibold">Notification Badge</h2>
 			<div class="flex items-center justify-center space-x-8">
 				<div class="relative">
-					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200">
+					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-background-tertiary)]">
 						Icon
 					</div>
 					<NotificationBadge
@@ -62,7 +62,7 @@
 				</div>
 
 				<div class="relative">
-					<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-300">
+					<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-background-tertiary)]">
 						Button
 					</div>
 					<NotificationBadge {count} {maxCount} variant="dot" />
@@ -71,6 +71,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

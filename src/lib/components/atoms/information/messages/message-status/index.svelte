@@ -92,24 +92,24 @@ const XCircle = 'x-circle';
 
   // Style mapping based on variant
   let variantClasses = $derived({
-    success: 'border-green-200 bg-green-50 text-green-800',
+    success: 'border-[var(--color-success-200)] bg-[var(--color-success-50)] text-[var(--color-success-800)]',
     warning: 'border-yellow-200 bg-yellow-50 text-yellow-800',
-    error: 'border-red-200 bg-red-50 text-red-800',
-    info: 'border-blue-200 bg-blue-50 text-blue-800'
+    error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)] text-[var(--color-danger-800)]',
+    info: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)] text-[var(--color-primary-800)]'
   }[variant]);
 
   let iconColorClasses = $derived({
-    success: 'text-green-500',
+    success: 'text-[var(--color-success-500)]',
     warning: 'text-yellow-500',
-    error: 'text-red-500',
-    info: 'text-blue-500'
+    error: 'text-[var(--color-danger-500)]',
+    info: 'text-[var(--color-primary-500)]'
   }[variant]);
 
   let closeButtonColorClasses = $derived({
-    success: 'text-green-500 hover:text-green-600',
+    success: 'text-[var(--color-success-500)] hover:text-[var(--color-success-600)]',
     warning: 'text-yellow-500 hover:text-yellow-600',
-    error: 'text-red-500 hover:text-red-600',
-    info: 'text-blue-500 hover:text-blue-600'
+    error: 'text-[var(--color-danger-500)] hover:text-[var(--color-danger-600)]',
+    info: 'text-[var(--color-primary-500)] hover:text-[var(--color-primary-600)]'
   }[variant]);
 
   let positionClasses = $derived({
@@ -124,7 +124,7 @@ const XCircle = 'x-circle';
 
 {#if isVisible}
   <div
-    class={`fixed z-50 max-w-sm w-full p-4 rounded-lg shadow-lg border ${variantClasses} ${positionClasses} ${hostClass}`}
+    class={`fixed z-[var(--z-index-modal)] max-w-sm w-full p-4 rounded-lg shadow-lg border ${variantClasses} ${positionClasses} ${hostClass}`}
     role="alert"
     {...restProps}
   >
@@ -166,4 +166,9 @@ const XCircle = 'x-circle';
     </div>
   </div>
 {/if}
+
+
+
+
+
 

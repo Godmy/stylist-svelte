@@ -64,7 +64,7 @@ const RotateCcw = 'rotate-ccw';
 <div class={zoomState.containerClasses} {...restProps}>
   <div class={zoomState.indicatorContainerClasses}>
     <div class={zoomState.indicatorClasses}>
-      <span class="text-sm font-medium text-gray-700">
+      <span class="text-sm font-medium text-[var(--color-text-primary)]">
         {zoomState.showPercentage ? `${zoomLevel}%` : zoomLevel}
       </span>
     </div>
@@ -110,4 +110,8 @@ const RotateCcw = 'rotate-ccw';
     </div>
   </div>
 </div>
+
+
+
+
 

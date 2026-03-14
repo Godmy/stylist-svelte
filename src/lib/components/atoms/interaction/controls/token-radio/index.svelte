@@ -1,6 +1,6 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenRadioControlDefinition, TokenValue } from '../token-controls/types';
+	import type { TokenRadioControlDefinition, TokenValue } from '$stylist/design-system/types/interaction/token-controls';
 
 	type TokenRadioControlProps = {
 		definition: TokenRadioControlDefinition;
@@ -42,22 +42,25 @@
 	.token-radio-control {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 	}
 
 	.token-radio-control__chip {
 		border: 1px solid var(--line);
 		background: var(--surface);
 		color: var(--text);
-		padding: 0.2rem 0.5rem;
-		border-radius: 999px;
-		font-size: 0.68rem;
+		padding: var(--spacing-1) var(--spacing-2);
+		border-radius: var(--border-radius-full);
+		font-size: var(--font-size-3);
 		cursor: pointer;
 	}
 
 	.token-radio-control__chip--active {
-		border-color: color-mix(in srgb, var(--accent, #3b82f6) 70%, var(--line, #d9e2ef) 30%);
-		background: color-mix(in srgb, var(--accent, #3b82f6) 18%, var(--surface, #ffffff) 82%);
-		box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #3b82f6) 55%, transparent 45%);
+		border-color: color-mix(in srgb, var(--accent, var(--color-primary-500)) 70%, var(--line, var(--color-border-primary)) 30%);
+		background: color-mix(in srgb, var(--accent, var(--color-primary-500)) 18%, var(--surface, var(--color-background-primary)) 82%);
+		box-shadow: var(--shadow-custom43);
 	}
 </style>
+
+
+

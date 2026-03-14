@@ -40,10 +40,10 @@
           type="button"
           class={`flex flex-shrink-0 items-center justify-center w-10 h-10 rounded-full border-2 ${
             step.status === 'completed' 
-              ? 'bg-blue-500 border-blue-500 text-white' 
+              ? 'bg-[var(--color-primary-500)] border-[var(--color-primary-500)] text-[var(--color-text-inverse)]' 
               : step.status === 'current' 
-                ? 'bg-white border-blue-500 text-blue-500' 
-                : 'bg-white border-gray-300 text-gray-500'
+                ? 'bg-[var(--color-background-primary)] border-[var(--color-primary-500)] text-[var(--color-primary-500)]' 
+                : 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)] text-[var(--color-text-secondary)]'
           } ${stepClass} ${step.onClick ? 'cursor-pointer' : 'cursor-default'}`}
           onclick={() => step.onClick && step.onClick()}
           aria-current={step.status === 'current' ? 'step' : undefined}
@@ -60,15 +60,15 @@
         
         <div class={`ml-3 text-left ${orientation === 'vertical' ? 'mt-0' : 'mt-2'} ${labelClass}`}>
           <span class={`text-sm font-medium ${
-            step.status === 'current' ? 'text-blue-600' : 
-            step.status === 'completed' ? 'text-gray-900' : 'text-gray-500'
+            step.status === 'current' ? 'text-[var(--color-primary-600)]' : 
+            step.status === 'completed' ? 'text-[var(--color-text-primary)]' : 'text-[var(--color-text-secondary)]'
           }`}>
             {step.title}
           </span>
           {#if step.description}
             <p class={`text-xs ${descriptionClass} ${
-              step.status === 'current' ? 'text-blue-600' : 
-              step.status === 'completed' ? 'text-gray-500' : 'text-gray-400'
+              step.status === 'current' ? 'text-[var(--color-primary-600)]' : 
+              step.status === 'completed' ? 'text-[var(--color-text-secondary)]' : 'text-[var(--color-text-tertiary)]'
             }`}>
               {step.description}
             </p>
@@ -84,10 +84,13 @@
             : 'w-0.5 h-full ml-4 mt-4'
         } ${
           steps[index + 1].status === 'completed' 
-            ? 'bg-blue-500' 
-            : 'bg-gray-300'
+            ? 'bg-[var(--color-primary-500)]' 
+            : 'bg-[var(--color-background-tertiary)]'
         } ${connectorClass}`}></div>
       {/if}
     </div>
   {/each}
 </div>
+
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ChatStatusIndicator from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -18,7 +18,7 @@
 	description="User presence indicator for chat interfaces"
 >
 	{#snippet children(values: any)}
-		<div class="rounded border border-slate-200 bg-slate-50 p-4">
+		<div class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
 			<ChatStatusIndicator
 				status={values.status as 'online' | 'offline' | 'away' | 'typing'}
 				size={values.size as 'sm' | 'md' | 'lg'}
@@ -27,3 +27,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

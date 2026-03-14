@@ -1,9 +1,6 @@
 <script lang="ts">
 	import type { ChartPolylineProps } from '$stylist/design-system';
-	import {
-		createChartPolylineState,
-		mapPointsToViewBox
-	} from '$stylist/design-system/models/information/chart-function.svelte';
+	import { createChartPolylineState, mapPointsToViewBox } from '$stylist/design-system/models/information/chart-function.svelte';
 
 	let props: ChartPolylineProps = $props();
 	const state = createChartPolylineState(props);
@@ -51,3 +48,5 @@
 	stroke-linejoin="round"
 	fill="none"
 />
+
+

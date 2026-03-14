@@ -258,8 +258,8 @@
 <section class="flex h-full flex-col gap-3">
   {#if boardState.title}
     <header class="px-1">
-      <h2 class="text-lg font-semibold tracking-tight text-slate-800">{boardState.title}</h2>
-      <p class="text-xs text-slate-500">Drag tasks between lanes, edit inline, archive or delete when done.</p>
+      <h2 class="text-lg font-semibold tracking-tight text-[var(--color-text-primary)]">{boardState.title}</h2>
+      <p class="text-xs text-[var(--color-text-secondary)]">Drag tasks between lanes, edit inline, archive or delete when done.</p>
     </header>
   {/if}
 
@@ -301,4 +301,7 @@
     {/if}
   </div>
 </section>
+
+
+
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import AutoSearch from './index.svelte';
 
 	let query = $state('');
@@ -18,3 +18,5 @@
 		</div>
 	{/snippet}
 </Story>
+
+

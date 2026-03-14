@@ -106,22 +106,22 @@ const Laptop = 'laptop';
 	.c-dark-mode-toggle {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 0.45rem 0.7rem;
-		border-radius: 0.6rem;
-		border: 1px solid var(--line, #d8deea);
-		background: var(--surface, #fff);
-		color: var(--text, #171923);
+		gap: var(--spacing-2);
+		padding: var(--spacing-2) var(--spacing-3);
+		border-radius: var(--border-radius-lg);
+		border: 1px solid var(--line, var(--color-border-primary));
+		background: var(--surface, var(--color-background-primary));
+		color: var(--text, var(--color-text-primary));
 		cursor: pointer;
-		transition: background-color 120ms ease, border-color 120ms ease;
+		transition: background-color var(--duration-120) var(--animation-ease), border-color var(--duration-120) var(--animation-ease);
 	}
 
 	.c-dark-mode-toggle:hover:not(:disabled) {
-		background: color-mix(in srgb, var(--surface, #fff) 88%, var(--accent, #3253d4) 12%);
+		background: color-mix(in srgb, var(--surface, var(--color-background-primary)) 88%, var(--accent, var(--color-primary-600)) 12%);
 	}
 
 	.c-dark-mode-toggle:disabled {
-		opacity: 0.5;
+		opacity: var(--opacity-50);
 		cursor: not-allowed;
 	}
 </style>

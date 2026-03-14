@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import NPMBadge from './index.svelte';
 
@@ -36,7 +36,7 @@
 	tags={['information', 'data-display', 'badge', 'npm']}
 >
 	{#snippet children(values: any)}
-		<div class="rounded border border-slate-200 bg-slate-50 p-4">
+		<div class="rounded border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
 			<NPMBadge
 				type={values.type as 'version' | 'downloads' | 'license' | 'size' | 'custom'}
 				value={values.value as string}
@@ -46,3 +46,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

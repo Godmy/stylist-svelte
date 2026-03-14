@@ -33,8 +33,8 @@
 
   // Positioning for own vs other messages
   const messageAlignment = $derived(isOwn ? 'items-end' : 'items-start');
-  const messageBackground = $derived(isOwn ? 'bg-blue-500 text-white' : 'bg-white text-gray-800');
-  const messageBorder = $derived(isOwn ? 'border-blue-600' : 'border-gray-200');
+  const messageBackground = $derived(isOwn ? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]' : 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)]');
+  const messageBorder = $derived(isOwn ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]');
   const messageMargin = $derived(isOwn ? 'ml-auto' : '');
 
   // Handle reaction click
@@ -63,7 +63,7 @@
 <style>
   .message-container {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     width: 100%;
   }
 
@@ -71,10 +71,10 @@
     display: flex;
     flex-direction: column;
     max-width: 75%;
-    padding: 0.75rem;
-    border-radius: 0.75rem;
+    padding: var(--spacing-3);
+    border-radius: var(--border-radius-xl);
     border: 1px solid;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-custom28);
     position: relative;
   }
 
@@ -85,50 +85,50 @@
 
   .message-actions {
     display: flex;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
-    opacity: 0.7;
+    gap: var(--spacing-2);
+    margin-top: var(--spacing-1);
+    opacity: var(--opacity-70);
   }
 
   .message-actions:hover {
-    opacity: 1;
+    opacity: var(--opacity-100);
   }
 
   .action-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius-base);
   }
 
   .action-button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: color-mix(in srgb, var(--color-text-primary) 5%, transparent);
   }
 
   .reactions-picker {
     position: absolute;
     bottom: 100%;
     left: 0;
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2);
     display: flex;
-    gap: 0.25rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
+    gap: var(--spacing-1);
+    box-shadow: var(--shadow-custom38);
+    z-index: var(--z-index-docked);
   }
 
   .reaction-option {
-    font-size: 1.25rem;
+    font-size: var(--font-size-5);
     cursor: pointer;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+    padding: var(--spacing-1);
+    border-radius: var(--border-radius-base);
   }
 
   .reaction-option:hover {
-    background-color: #f1f5f9;
+    background-color: var(--color-background-secondary);
   }
 </style>
 
@@ -148,7 +148,7 @@
     {/if}
     
     {#if message.replyTo}
-      <div class="text-xs italic mb-1" style="border-left: 2px solid #94a3b8; padding-left: 0.5rem;">
+      <div class="text-xs italic mb-1" style="border-left: 2px solid var(--color-border-secondary); padding-left: var(--spacing-2);">
         В ответ на сообщение
       </div>
     {/if}
@@ -211,5 +211,11 @@
     {/if}
   </div>
 </div>
+
+
+
+
+
+
 
 

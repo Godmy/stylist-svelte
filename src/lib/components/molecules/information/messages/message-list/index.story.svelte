@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import type { Message, User } from '$stylist/design-system/contracts/information/chat';
   import MessageList from './index.svelte';
 
@@ -38,8 +38,8 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-4 rounded-xl bg-gray-50 space-y-3">
-      <div class="h-80 rounded border border-gray-200 overflow-hidden bg-white">
+    <div class="p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
+      <div class="h-80 rounded border border-[var(--color-border-primary)] overflow-hidden bg-[var(--color-background-primary)]">
         <MessageList
           messages={(args.includeAttachments ? messagesWithAttachments : messages).slice(0, args.messageCount)}
           {currentUser}
@@ -48,7 +48,11 @@
           onMessageAction={(action, message) => (lastAction = `${action}:${message.id}`)}
         />
       </div>
-      <p class="text-sm text-gray-600">Last action: {lastAction}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Last action: {lastAction}</p>
     </div>
   {/snippet}
 </Story>
+
+
+
+

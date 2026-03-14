@@ -102,18 +102,18 @@
 	:global(.port-group) {
 		display: flex;
 		flex-direction: column;
-		gap: 0.25rem;
-		padding: 0.5rem 0;
+		gap: var(--spacing-1);
+		padding: var(--spacing-2) 0;
 	}
 
 	:global(.port-group__title) {
-		font-size: 0.6875rem;
-		font-weight: 600;
-		color: #9ca3af;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-text-secondary);
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		padding: 0 0.75rem;
-		margin-bottom: 0.25rem;
+		letter-spacing: var(--letter-spacing-wider);
+		padding: 0 var(--spacing-3);
+		margin-bottom: var(--spacing-1);
 	}
 
 	:global(.port-group__list) {
@@ -128,13 +128,13 @@
 	}
 
 	:global(.port-group__item--divider) {
-		padding-top: 0.5rem;
-		margin-top: 0.5rem;
+		padding-top: var(--spacing-2);
+		margin-top: var(--spacing-2);
 	}
 
 	:global(.port-group__divider) {
-		margin: 0.5rem 0.75rem;
-		opacity: 0.3;
+		margin: var(--spacing-2) var(--spacing-3);
+		opacity: var(--opacity-30);
 	}
 
 	/* Input ports - left aligned */
@@ -158,10 +158,13 @@
 	/* Compact mode */
 	:global(.port-group--compact) {
 		gap: 0;
-		padding: 0.25rem 0;
+		padding: var(--spacing-1) 0;
 	}
 
 	:global(.port-group--compact .port-group__item) {
-		padding: 0.125rem 0;
+		padding: var(--spacing-1) 0;
 	}
 </style>
+
+
+

@@ -1,8 +1,8 @@
 ﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
-  import type { AlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
+  import type { IAlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
   import { createAlertCardState } from '$stylist/design-system/models/information/alert-card.svelte';
-  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+  import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
   import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
@@ -17,7 +17,7 @@
    * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР° Р°Р»РµСЂС‚Р°
    */
 
-  let props: AlertCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
+  let props: IAlertCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
   // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createAlertCardState(
@@ -82,6 +82,13 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 

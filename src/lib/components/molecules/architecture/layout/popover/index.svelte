@@ -34,7 +34,7 @@
   {#if isVisible}
     <div 
       bind:this={popoverElement}
-      class={`absolute z-10 bg-white border border-gray-200 rounded-lg shadow-lg p-4 min-w-[200px] ${
+      class={`absolute z-[var(--z-index-docked)] bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-lg shadow-lg p-4 min-w-[200px] ${
         position === 'top' ? 'bottom-full left-0 mb-2' :
         position === 'bottom' ? 'top-full left-0 mt-2' :
         position === 'left' ? 'right-full top-0 mr-2' :
@@ -50,3 +50,7 @@
     </div>
   {/if}
 </div>
+
+
+
+

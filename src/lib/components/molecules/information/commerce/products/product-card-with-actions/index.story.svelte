@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductCardWithActions from './index.svelte';
 
   let buyClicks = $state(0);
@@ -26,7 +26,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 bg-gray-50 rounded-xl space-y-4">
+    <div class="p-6 bg-[var(--color-background-secondary)] rounded-xl space-y-4">
       <ProductCardWithActions
         title={args.title}
         price={args.price}
@@ -38,12 +38,15 @@
       >
         {#snippet actions()}
           <div class="flex gap-2">
-            <button class="px-3 py-1.5 text-sm rounded bg-blue-600 text-white" onclick={() => (buyClicks += 1)}>Buy now</button>
-            <button class="px-3 py-1.5 text-sm rounded border border-gray-300 bg-white" onclick={() => (wishlistClicks += 1)}>Wishlist</button>
+            <button class="px-3 py-1.5 text-sm rounded bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]" onclick={() => (buyClicks += 1)}>Buy now</button>
+            <button class="px-3 py-1.5 text-sm rounded border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]" onclick={() => (wishlistClicks += 1)}>Wishlist</button>
           </div>
         {/snippet}
       </ProductCardWithActions>
-      <div class="text-sm text-gray-600">Clicks: buy {buyClicks}, wishlist {wishlistClicks}</div>
+      <div class="text-sm text-[var(--color-text-secondary)]">Clicks: buy {buyClicks}, wishlist {wishlistClicks}</div>
     </div>
   {/snippet}
 </Story>
+
+
+

@@ -25,9 +25,9 @@
     height = 600,
     drawingEnabled = true,
     tool = 'pen',
-    strokeColor = '#000000',
+    strokeColor = 'var(--color-text-primary)',
     strokeWidth = 2,
-    backgroundColor = '#ffffff',
+    backgroundColor = 'var(--color-background-primary)',
     ...restProps
   } = $props() as Props;
 
@@ -77,7 +77,7 @@
     
     if (tool === 'eraser') {
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.strokeStyle = 'rgba(0,0,0,1)';
+      ctx.strokeStyle = 'var(--color-text-primary)';
     } else {
       ctx.globalCompositeOperation = 'source-over';
       ctx.strokeStyle = strokeColor;
@@ -126,10 +126,13 @@
   bind:this={canvasRef}
   width={width}
   height={height}
-  class="border border-gray-300 rounded-md"
+  class="border border-[var(--color-border-primary)] rounded-md"
   onmousedown={startDrawing}
   onmousemove={draw}
   onmouseup={stopDrawing}
   onmouseleave={stopDrawing}
   {...restProps}
 ></canvas>
+
+
+

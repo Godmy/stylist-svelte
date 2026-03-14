@@ -49,7 +49,7 @@
     />
     <div class={viewState.indicatorClasses}>
       {#if localChecked}
-        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg class="w-4 h-4 text-[var(--color-text-inverse)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
         </svg>
       {/if}
@@ -57,6 +57,9 @@
     <span class={viewState.labelClasses}>{label}</span>
   </label>
 </div>
+
+
+
 
 
 

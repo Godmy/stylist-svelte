@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import DefinitionTerm from './index.svelte';
 	import { DefinitionDescription } from '../../../typography/inline/definition-description';
 
@@ -41,9 +41,9 @@
 	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<dl
-				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
+				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-5 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
 			>
-				<DefinitionTerm class={values.highlight ? 'text-indigo-600' : ''}>
+				<DefinitionTerm class={values.highlight ? 'text-[var(--color-primary-600)]' : ''}>
 					{values.term}
 				</DefinitionTerm>
 				<DefinitionDescription class="text-sm leading-relaxed">
@@ -52,7 +52,7 @@
 			</dl>
 
 			<dl
-				class="space-y-4 rounded-2xl border border-dashed border-gray-200/80 p-5 text-sm dark:border-gray-800"
+				class="space-y-4 rounded-2xl border border-dashed border-[var(--color-border-primary)]/80 p-5 text-sm dark:border-[var(--color-border-primary)]"
 			>
 				{#each definitions as item}
 					<div class="space-y-1">
@@ -64,6 +64,10 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
 
 
 

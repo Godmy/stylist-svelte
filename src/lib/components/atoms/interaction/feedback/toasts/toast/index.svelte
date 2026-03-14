@@ -107,14 +107,14 @@
 }
 
 .toast-hidden {
-  opacity: 0;
-  max-height: 0;
+  opacity: var(--opacity-0);
+  max-height: var(--size-0);
   overflow: hidden;
   margin: 0;
 }
 
 .toast-visible {
-  opacity: 1;
+  opacity: var(--opacity-100);
   max-height: 300px;
 }
 
@@ -149,8 +149,8 @@
   border: none;
   color: var(--color-text-secondary);
   cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.25rem;
+  padding: var(--spacing-1);
+  border-radius: var(--border-radius-base);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,15 +163,19 @@
 
 .toast-content {
   flex: 1;
-  min-width: 0;
+  min-width: var(--size-0);
 }
 
 .toast-title {
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-1);
 }
 
 .toast-description {
-  font-size: 0.875rem;
+  font-size: var(--font-size-3);
 }
 </style>
+
+
+
+

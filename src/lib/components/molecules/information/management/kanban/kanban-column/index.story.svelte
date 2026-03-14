@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import KanbanColumn, { type KanbanColumnType } from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -33,8 +33,11 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-4 rounded-xl bg-gray-50">
+    <div class="p-4 rounded-xl bg-[var(--color-background-secondary)]">
       <KanbanColumn column={getColumn(args.cardCount)} droppable={args.droppable} />
     </div>
   {/snippet}
 </Story>
+
+
+

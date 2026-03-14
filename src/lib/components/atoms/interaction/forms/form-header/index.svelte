@@ -34,14 +34,14 @@
   }: Props = $props();
 </script>
 
-<div class={`border-b border-gray-200 pb-5 ${className}`} {...restProps}>
+<div class={`border-b border-[var(--color-border-primary)] pb-5 ${className}`} {...restProps}>
   <div class="flex items-center justify-between">
     <div>
       <div class="flex items-center">
         {#if backAction}
           <button
             type="button"
-            class={`mr-4 -ml-4 p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 ${backButtonClass}`}
+            class={`mr-4 -ml-4 p-2 rounded-md text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)] ${backButtonClass}`}
             onclick={backAction}
             aria-label={backButtonLabel}
           >
@@ -50,11 +50,11 @@
             </svg>
           </button>
         {/if}
-        <h1 class={`text-2xl font-bold text-gray-900 ${titleClass}`}>{title}</h1>
+        <h1 class={`text-2xl font-bold text-[var(--color-text-primary)] ${titleClass}`}>{title}</h1>
       </div>
       
       {#if subtitle}
-        <p class={`mt-1 text-sm text-gray-500 ${subtitleClass}`}>{subtitle}</p>
+        <p class={`mt-1 text-sm text-[var(--color-text-secondary)] ${subtitleClass}`}>{subtitle}</p>
       {/if}
     </div>
     
@@ -66,9 +66,12 @@
   </div>
   
   {#if description}
-    <p class={`mt-2 text-sm text-gray-500 ${descriptionClass}`}>{description}</p>
+    <p class={`mt-2 text-sm text-[var(--color-text-secondary)] ${descriptionClass}`}>{description}</p>
   {/if}
 </div>
+
+
+
 
 
 

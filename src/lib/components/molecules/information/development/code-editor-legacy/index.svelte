@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   /**
    * CodeEditor - Legacy wrapper for unified Code
    * 
@@ -29,4 +29,7 @@
   copyable={showCopyButton}
   class={className}
 />
+
+
+
 

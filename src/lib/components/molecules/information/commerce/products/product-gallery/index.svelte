@@ -31,11 +31,11 @@
 <div class={ProductGalleryStyleManager.getContainerClass(className)}>
   <!-- Main image display -->
   <div class="md:w-3/4 mb-4 md:mb-0 md:pr-4">
-    <div class="bg-gray-100 rounded-lg p-4 flex items-center justify-center h-96">
+    <div class="bg-[var(--color-background-secondary)] rounded-lg p-4 flex items-center justify-center h-96">
       {#if currentImage}
         <img src={currentImage} alt="Product" class="max-h-80 object-contain" />
       {:else}
-        <div class="text-gray-500">No image available</div>
+        <div class="text-[var(--color-text-secondary)]">No image available</div>
       {/if}
     </div>
   </div>
@@ -48,7 +48,7 @@
         class={`flex-1 md:flex-none ${
           currentImage === image
             ? 'ring-2 ring-blue-500 rounded'
-            : 'opacity-70 hover:opacity-100'
+            : 'opacity-[var(--opacity-70)] hover:opacity-[var(--opacity-100)]'
         }`}
       >
         <img 
@@ -60,3 +60,5 @@
     {/each}
   </div>
 </div>
+
+

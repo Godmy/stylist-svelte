@@ -1,16 +1,16 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	type Props = {
-		/** Р Р°Р·РјРµСЂ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
+		/** Размер переключателя */
 		size?: ComponentSize;
-		/** РћС‚РєР»СЋС‡РµРЅ Р»Рё РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ */
+		/** Отключен ли переключатель */
 		disabled?: boolean;
-		/** РЎРѕСЃС‚РѕСЏРЅРёРµ checked (РїРѕРґРґРµСЂР¶РёРІР°РµС‚ two-way binding) */
+		/** Состояние checked (поддерживает two-way binding) */
 		checked?: boolean;
-		/** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ CSS РєР»Р°СЃСЃС‹ */
+		/** Дополнительные CSS классы */
 		class?: string;
 		/** Aria label */
 		ariaLabel?: string;
@@ -54,5 +54,8 @@
 		<span class={thumbClasses}></span>
 	</span>
 </div>
+
+
+
 
 

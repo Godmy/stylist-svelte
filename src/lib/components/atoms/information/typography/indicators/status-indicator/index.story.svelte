@@ -1,7 +1,7 @@
 <script lang="ts">
 	import StatusIndicator from './index.svelte';
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	const controls: ControlConfig[] = [
 		{
@@ -36,31 +36,31 @@
 	{#snippet children(values: any)}
 		<div class="space-y-8">
 			<div
-				class="flex items-center justify-between rounded-2xl border border-gray-200/80 bg-white/70 p-4 shadow-sm dark:border-gray-700/80 dark:bg-gray-900/40"
+				class="flex items-center justify-between rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/70 p-4 shadow-sm dark:border-[var(--color-border-primary)]/80 dark:bg-[var(--color-neutral-900)]/40"
 			>
 				<div>
-					<p class="text-sm font-semibold text-gray-900 dark:text-white">Current selection</p>
-					<p class="text-sm text-gray-500 dark:text-gray-400">
+					<p class="text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">Current selection</p>
+					<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
 						Combine label overrides with semantic states.
 					</p>
 				</div>
 				<StatusIndicator
 					status={values.status}
 					label={values.label}
-					class="text-sm font-medium text-gray-800 dark:text-gray-100"
+					class="text-sm font-medium text-[var(--color-text-primary)] dark:text-[var(--color-neutral-100)]"
 				/>
 			</div>
 
 			<div
-				class="rounded-2xl border border-gray-200/80 bg-white/80 p-4 shadow-sm dark:border-gray-800 dark:bg-gray-900/40"
+				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-4 shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40"
 			>
-				<p class="mb-4 text-sm font-semibold text-gray-900 dark:text-white">Team presence</p>
+				<p class="mb-4 text-sm font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">Team presence</p>
 				<ul class="divide-y divide-gray-100 text-sm dark:divide-gray-800">
 					{#each team as member}
 						<li class="flex items-center justify-between py-3">
 							<div>
-								<p class="font-medium text-gray-900 dark:text-white">{member.name}</p>
-								<p class="text-xs text-gray-500 dark:text-gray-400">{member.role}</p>
+								<p class="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-inverse)]">{member.name}</p>
+								<p class="text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{member.role}</p>
 							</div>
 							<StatusIndicator status={member.status} />
 						</li>
@@ -70,6 +70,10 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
 
 
 

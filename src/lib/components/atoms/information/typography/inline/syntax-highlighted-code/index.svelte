@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { SyntaxHighlightedCodeProps } from '$stylist/design-system';
 	import { createSyntaxHighlightedCodeState } from '$stylist/design-system/models/information/syntax-highlighted-code.svelte';
 	import Code from '$stylist/components/molecules/information/development/code-block/index.svelte';
@@ -31,4 +31,6 @@
 	showLineNumbers={state.showLineNumbers}
 	class={state.containerClasses}
 />
+
+
 

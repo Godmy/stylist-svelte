@@ -30,8 +30,8 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 					const roundedClass =
 						index === 0 ? 'rounded-l-lg' : index === totalItems - 1 ? 'rounded-r-lg' : '';
 					const stateClass = isSelected
-						? 'bg-blue-500 text-white'
-						: 'bg-white text-gray-700 hover:bg-gray-100';
+						? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
+						: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]';
 
 					return `px-4 py-2 rounded-lg transition-colors ${roundedClass} ${stateClass}`.trim();
 				};
@@ -82,6 +82,9 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 		</button>
 	{/each}
 </div>
+
+
+
 
 
 

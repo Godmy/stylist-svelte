@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ConfirmationDialog from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -75,7 +75,7 @@
   {#snippet children(controlValues: any)}
   <div class="p-4">
     <button
-      class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      class="px-4 py-2 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-700)]"
       onclick={showDialog}
     >
       Show Confirmation Dialog
@@ -97,3 +97,6 @@
 
   {/snippet}
 </Story>
+
+
+

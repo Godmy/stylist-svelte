@@ -4,8 +4,8 @@ const Loader2 = 'loader-2';
 
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { IconButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
-	import { createIconButtonState } from '$stylist/design-system/models/interaction/icon-button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+	import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -39,7 +39,7 @@ const Loader2 = 'loader-2';
 	} = props;
 
 	// Use centralized state management
-	let state = createIconButtonState(
+	let state = createButtonState(
 		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'secondary',
 			size: 'md'
@@ -65,6 +65,9 @@ const Loader2 = 'loader-2';
 		{@render props.children?.()}
 	{/if}
 </button>
+
+
+
 
 
 

@@ -42,7 +42,7 @@
   .user-status {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 
   .user-info {
@@ -51,14 +51,14 @@
   }
 
   .user-name {
-    font-weight: 500;
-    color: #1e293b;
-    font-size: 0.875rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-3);
   }
 
   .status-text {
-    font-size: 0.75rem;
-    color: #64748b;
+    font-size: var(--font-size-3);
+    color: var(--color-text-secondary);
   }
 </style>
 
@@ -82,5 +82,6 @@
     </div>
   {/if}
 </div>
+
 
 

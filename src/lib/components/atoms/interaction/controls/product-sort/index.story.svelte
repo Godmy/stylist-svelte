@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ProductSort from './index.svelte';
 
 	type ProductSortStoryProps = {
@@ -19,7 +19,7 @@
 
 <Story component={ProductSort} {controls}>
 	{#snippet children(values: any)}
-		<div class="rounded-lg bg-gray-50 p-8">
+		<div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
 			<h2 class="mb-4 text-xl font-bold">ProductSort Story</h2>
 			<ProductSort
 				selectedOption={values.selectedOption as string}
@@ -35,6 +35,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

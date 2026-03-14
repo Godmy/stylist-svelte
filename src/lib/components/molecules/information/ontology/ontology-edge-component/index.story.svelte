@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import OntologyEdgeComponent from './index.svelte';
 
   type Position2D = { x: number; y: number };
@@ -26,10 +26,13 @@
 >
   {#snippet children(values: any)}
     <div class="sb-molecules-ontology-edge-component p-6">
-      <div class="max-w-md mx-auto h-64 relative border rounded-lg bg-white overflow-hidden">
+      <div class="max-w-md mx-auto h-64 relative border rounded-lg bg-[var(--color-background-primary)] overflow-hidden">
         <OntologyEdgeComponent showLabel={values.showLabel} edge={relationship} sourceNode={accountNode} targetNode={subscriptionNode} />
       </div>
     </div>
   {/snippet}
 </Story>
+
+
+
 

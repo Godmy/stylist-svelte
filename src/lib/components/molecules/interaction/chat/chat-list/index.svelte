@@ -38,25 +38,25 @@ import type { Chat, User } from '$stylist/design-system/contracts/information/ch
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
-    background-color: white;
-    border-right: 1px solid #e2e8f0;
+    background-color: var(--color-background-primary);
+    border-right: 1px solid var(--color-border-primary);
   }
 
   .chat-list::-webkit-scrollbar {
-    width: 6px;
+    width: var(--spacing-2);
   }
 
   .chat-list::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: var(--color-background-secondary);
   }
 
   .chat-list::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 3px;
+    background: var(--color-border-secondary);
+    border-radius: var(--border-radius-sm);
   }
 
   .chat-list::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
+    background: var(--color-text-secondary);
   }
 </style>
 
@@ -71,3 +71,6 @@ import type { Chat, User } from '$stylist/design-system/contracts/information/ch
     />
   {/each}
 </div>
+
+
+

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import Avatar from './index.svelte';
 	import type { AvatarUserStatus } from './index.svelte';
@@ -58,3 +58,5 @@
 		/>
 	{/snippet}
 </Story>
+
+

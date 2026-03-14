@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ProgressCircle from './index.svelte';
 
 	const sizeOptions = ['sm', 'md', 'lg'] as const;
@@ -46,7 +46,7 @@
 				strokeWidth={storyProps.strokeWidth ?? 4}
 				color={storyProps.color ?? 'primary'}
 			/>
-			<span class="text-gray-700">Task Progress</span>
+			<span class="text-[var(--color-text-primary)]">Task Progress</span>
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Different Progress Values and Sizes</h3>
@@ -58,6 +58,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

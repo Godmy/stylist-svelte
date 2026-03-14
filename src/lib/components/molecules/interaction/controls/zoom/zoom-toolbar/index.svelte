@@ -58,14 +58,14 @@ const RotateCcw = 'rotate-ccw';
   }
 </script>
 
-<div class={`zoom-controls flex items-center border border-gray-300 rounded-md ${hostClass}`} {...restProps}>
+<div class={`zoom-controls flex items-center border border-[var(--color-border-primary)] rounded-md ${hostClass}`} {...restProps}>
   <Button
     variant="ghost"
     size="sm"
     onclick={zoomOut}
     aria-label="Zoom out"
     disabled={currentZoom <= minZoom}
-    class={`border-r border-gray-300 ${buttonClass}`}
+    class={`border-r border-[var(--color-border-primary)] ${buttonClass}`}
   >
     <BaseIcon name={ZoomOut} class="h-4 w-4" />
   </Button>
@@ -82,22 +82,25 @@ const RotateCcw = 'rotate-ccw';
     onclick={zoomIn}
     aria-label="Zoom in"
     disabled={currentZoom >= maxZoom}
-    class={`border-l border-gray-300 ${buttonClass}`}
+    class={`border-l border-[var(--color-border-primary)] ${buttonClass}`}
   >
     <BaseIcon name={ZoomIn} class="h-4 w-4" />
   </Button>
   
   {#if showReset}
-    <div class="border-l border-gray-300"></div>
+    <div class="border-l border-[var(--color-border-primary)]"></div>
     <Button
       variant="ghost"
       size="sm"
       onclick={resetZoom}
       aria-label="Reset zoom"
-      class={`border-l border-gray-300 ${buttonClass}`}
+      class={`border-l border-[var(--color-border-primary)] ${buttonClass}`}
     >
       <BaseIcon name={RotateCcw} class="h-4 w-4" />
     </Button>
   {/if}
 </div>
+
+
+
 

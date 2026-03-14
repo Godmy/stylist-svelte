@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import AccountProgressTracker from './index.svelte';
 
 	type Props = {
@@ -31,7 +31,7 @@
 	{#snippet children(values: any)}
 		{@const currentStep = typeof values.currentStep === 'number' ? values.currentStep : 0}
 		{@const className = typeof values.class === 'string' ? values.class : undefined}
-		<div class="rounded-lg bg-gray-50 p-8">
+		<div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
 			<h2 class="mb-4 text-xl font-bold">AccountProgressTracker Story</h2>
 			<AccountProgressTracker
 				steps={['Account Info', 'Verification', 'Preferences', 'Complete']}
@@ -41,6 +41,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

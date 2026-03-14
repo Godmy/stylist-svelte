@@ -39,12 +39,12 @@
 <style>
   .toolbar {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
     align-items: center;
-    padding: 0.5rem;
-    background-color: #f1f5f9;
-    border-radius: 0.375rem;
-    border: 1px solid #cbd5e1;
+    padding: var(--spacing-2);
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-secondary);
   }
 </style>
 
@@ -65,3 +65,6 @@
     </Button>
   {/each}
 </div>
+
+
+

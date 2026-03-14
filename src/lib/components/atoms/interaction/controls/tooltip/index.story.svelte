@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Tooltip from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -25,9 +25,12 @@
 				disabled={values.disabled}
 			>
 				{#snippet children()}
-					<button class="rounded-lg bg-[--color-primary-600] px-4 py-2 text-sm font-semibold text-white">Target element</button>
+					<button class="rounded-lg bg-[--color-primary-600] px-4 py-2 text-sm font-semibold text-[var(--color-text-inverse)]">Target element</button>
 				{/snippet}
 			</Tooltip>
 		</div>
 	{/snippet}
 </Story>
+
+
+

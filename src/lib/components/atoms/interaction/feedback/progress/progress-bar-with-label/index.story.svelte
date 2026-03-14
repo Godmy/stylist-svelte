@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ProgressBarWithLabel from './index.svelte';
 
 	const colorOptions = ['blue', 'green', 'red', 'yellow', 'purple'] as const;
@@ -70,7 +70,7 @@
 		{@const color =
 			typeof values.color === 'string' ? (values.color as ProgressBarWithLabelStoryProps['color']) : 'blue'}
 		{@const height = typeof values.height === 'string' ? values.height : 'h-2'}
-		<div class="rounded-lg bg-gray-50 p-8">
+		<div class="rounded-lg bg-[var(--color-background-secondary)] p-8">
 			<h2 class="mb-4 text-xl font-bold">ProgressBarWithLabel Story</h2>
 			<ProgressBarWithLabel
 				{value}
@@ -83,6 +83,9 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

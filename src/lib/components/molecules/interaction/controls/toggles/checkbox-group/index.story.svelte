@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import CheckboxGroup from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const options = [
     { id: 'option1', label: 'Option 1', value: 'option1', description: 'First option description' },
@@ -61,3 +61,4 @@
 
   {/snippet}
 </Story>
+

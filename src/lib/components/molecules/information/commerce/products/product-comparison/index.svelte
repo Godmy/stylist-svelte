@@ -19,7 +19,7 @@
 </script>
 
 <div class={ProductComparisonStyleManager.getContainerClass(className)}>
-  <table class="min-w-full bg-white border border-gray-200">
+  <table class="min-w-full bg-[var(--color-background-primary)] border border-[var(--color-border-primary)]">
     <thead>
       <tr>
         <th class="py-2 px-4 border-b text-left">Feature</th>
@@ -48,16 +48,16 @@
     </thead>
     <tbody>
       {#each features as feature}
-        <tr class={feature.index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+        <tr class={feature.index % 2 === 0 ? 'bg-[var(--color-background-secondary)]' : 'bg-[var(--color-background-primary)]'}>
           <td class="py-2 px-4 border-b font-medium">{feature}</td>
           {#each products as product}
             <td class="py-2 px-4 border-b text-center">
               {#if Math.random() > 0.3} 
-                <svg class="w-5 h-5 text-green-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-5 h-5 text-[var(--color-success-500)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
               {:else}
-                <svg class="w-5 h-5 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-5 h-5 text-[var(--color-danger-500)] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               {/if}
@@ -68,3 +68,5 @@
     </tbody>
   </table>
 </div>
+
+

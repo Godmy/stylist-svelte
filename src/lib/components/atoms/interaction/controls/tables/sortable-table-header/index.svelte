@@ -47,3 +47,6 @@ const ChevronsUpDown = 'chevrons-up-down';
     <Icon name={sortIcon} class={state.iconClasses} />
   </div>
 </th>
+
+
+

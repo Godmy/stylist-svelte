@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import CubeControl from './index.svelte';
   import type { CubeDebugLogEntry, CubeRotation, CubeSelectionState } from './index.svelte';
 
@@ -62,7 +62,7 @@
       <p class="mt-2 text-xs text-[--color-text-secondary]">
         Selected icon: {selectionState.selectedIconId ?? 'none'} | Selected title face: {selectionState.selectedTitleFace ?? 'none'}
       </p>
-      <div class="mt-3 rounded-md border border-[--color-border-primary] bg-white/50 p-2 text-xs text-[--color-text-secondary]">
+      <div class="mt-3 rounded-md border border-[--color-border-primary] bg-[var(--color-background-primary)]/50 p-2 text-xs text-[--color-text-secondary]">
         <p class="font-semibold mb-1">Click Log (last {debugLogs.length})</p>
         <div class="max-h-40 overflow-auto space-y-1">
           {#each debugLogs as log}
@@ -78,3 +78,6 @@
     </div>
   {/snippet}
 </Story>
+
+
+

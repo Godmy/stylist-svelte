@@ -2,7 +2,7 @@
 	import Story from '$stylist/design-system/playground/Story.svelte';
 	import HorizontalLayout from './index.svelte';
 	
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	
 	const controls: ControlConfig[] = [
 		{
@@ -33,14 +33,17 @@
 
 <Story {controls} component={HorizontalLayout} title="HorizontalLayout Component" description="A flexible horizontal layout component">
 	{#snippet children(values: any)}
-		<div class="rounded border border-slate-200 p-3">
+		<div class="rounded border border-[var(--color-border-primary)] p-3">
 			<HorizontalLayout {...values}>
 				{#snippet children()}
-					<div class="rounded bg-slate-100 p-2">Item 1</div>
-					<div class="rounded bg-slate-100 p-2">Item 2</div>
-					<div class="rounded bg-slate-100 p-2">Item 3</div>
+					<div class="rounded bg-[var(--color-background-secondary)] p-2">Item 1</div>
+					<div class="rounded bg-[var(--color-background-secondary)] p-2">Item 2</div>
+					<div class="rounded bg-[var(--color-background-secondary)] p-2">Item 3</div>
 				{/snippet}
 			</HorizontalLayout>
 		</div>
 	{/snippet}
 </Story>
+
+
+

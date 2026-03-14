@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SkeletonText from './index.svelte';
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	let lines = $state(3);
 	let width = $state(80);
@@ -39,6 +39,8 @@
 		</div>
 	</div>
 </Story>
+
+
 
 
 

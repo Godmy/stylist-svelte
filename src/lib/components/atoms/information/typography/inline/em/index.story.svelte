@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import Em from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -16,11 +16,11 @@
 	function toneClass(tone: 'default' | 'accent' | 'warning') {
 		switch (tone) {
 			case 'accent':
-				return 'text-indigo-600';
+				return 'text-[var(--color-primary-600)]';
 			case 'warning':
 				return 'text-amber-600';
 			default:
-				return 'text-gray-900 dark:text-gray-50';
+				return 'text-[var(--color-text-primary)] dark:text-[var(--color-neutral-50)]';
 		}
 	}
 </script>
@@ -36,7 +36,7 @@
 	{#snippet children(values: any)}
 		<div class="space-y-6">
 			<p
-				class="rounded-2xl border border-gray-200/80 bg-white/80 p-5 text-base text-gray-700 shadow-sm dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-200"
+				class="rounded-2xl border border-[var(--color-border-primary)]/80 bg-[var(--color-background-primary)]/80 p-5 text-base text-[var(--color-text-primary)] shadow-sm dark:border-[var(--color-border-primary)] dark:bg-[var(--color-neutral-900)]/40 dark:text-[var(--color-neutral-200)]"
 			>
 				Ship confidently by carving time for <Em class={toneClass(values.tone)}>
 					{values.text}
@@ -44,12 +44,16 @@
 				launch.
 			</p>
 
-			<p class="text-sm text-gray-500 dark:text-gray-400">
+			<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
 				Use {'<Em>'} when you need voice or tone emphasis without changing semantics.
 			</p>
 		</div>
 	{/snippet}
 </Story>
+
+
+
+
 
 
 

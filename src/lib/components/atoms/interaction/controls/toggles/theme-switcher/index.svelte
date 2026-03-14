@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
-  import type { ThemeMode } from '$stylist/themes/runtime/utils/css';
-  import { applyThemeModeAndScheme } from '$stylist/themes/runtime/utils/css';
+  import type { ThemeMode } from '$stylist/themes/runtime/css';
+  import { applyThemeModeAndScheme } from '$stylist/themes/runtime/css';
   import {
     THEME_SCHEMES,
     type ThemeScheme,
@@ -92,19 +92,19 @@ const Palette = 'palette';
 <style>
   .theme-switcher {
     display: grid;
-    gap: 0.65rem;
+    gap: var(--spacing-3);
   }
 
   .switcher-title {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    color: var(--text, #171923);
+    gap: var(--spacing-2);
+    color: var(--text, var(--color-text-primary));
   }
 
   .theme-list {
     display: grid;
-    gap: 0.45rem;
+    gap: var(--spacing-2);
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   }
 
@@ -114,46 +114,46 @@ const Palette = 'palette';
 
   .theme-item {
     display: grid;
-    gap: 0.25rem;
+    gap: var(--spacing-1);
     align-items: center;
     grid-template-columns: 0.75rem 1fr;
-    border: 1px solid var(--line, #d8deea);
-    background: var(--surface, #fff);
-    color: var(--text, #171923);
-    border-radius: 0.65rem;
-    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--line, var(--color-border-primary));
+    background: var(--surface, var(--color-background-primary));
+    color: var(--text, var(--color-text-primary));
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-2) var(--spacing-3);
     cursor: pointer;
     text-align: left;
   }
 
   .theme-list.compact .theme-item {
     grid-template-columns: 0.65rem 1fr;
-    padding: 0.42rem 0.55rem;
-    min-height: 2rem;
+    padding: var(--spacing-2) var(--spacing-2);
+    min-height: var(--spacing-8);
   }
 
   .theme-item.active {
-    border-color: var(--accent, #3253d4);
-    box-shadow: inset 0 0 0 1px var(--accent, #3253d4);
+    border-color: var(--accent, var(--color-primary-600));
+    box-shadow: var(--shadow-custom45);
   }
 
   .chip {
-    width: 0.75rem;
-    height: 0.75rem;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.18);
+    width: var(--spacing-3);
+    height: var(--spacing-3);
+    border-radius: var(--border-radius-full);
+    border: 1px solid color-mix(in srgb, var(--color-text-primary) 18%, transparent);
   }
 
   .name {
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     line-height: 1.2;
   }
 
   .description {
     grid-column: 2;
-    color: var(--muted, #5f6572);
-    font-size: 0.78rem;
-    line-height: 1.25;
+    color: var(--muted, var(--color-text-secondary));
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-tight);
   }
 </style>
 

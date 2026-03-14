@@ -33,10 +33,10 @@
   });
 
   const typeStyles: Record<'info' | 'success' | 'warning' | 'error', string> = {
-    info: 'bg-blue-50 border-blue-200 text-blue-800',
-    success: 'bg-green-50 border-green-200 text-green-800',
+    info: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
+    success: 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
     warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-    error: 'bg-red-50 border-red-200 text-red-800'
+    error: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
   };
 
   const typeIcons: Record<'info' | 'success' | 'warning' | 'error', string> = {
@@ -66,7 +66,7 @@
         onClose();
       }}
       aria-label="Close notification"
-      class="ml-4 text-gray-500 hover:text-gray-700"
+      class="ml-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -74,3 +74,7 @@
     </button>
   </div>
 {/if}
+
+
+
+

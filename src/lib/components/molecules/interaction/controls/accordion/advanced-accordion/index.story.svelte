@@ -42,11 +42,11 @@
             <div class="space-y-2">
               <div>
                 <p class="font-medium">How do I reset my password?</p>
-                <p class="text-gray-700">Visit the account settings page and click on "Forgot Password".</p>
+                <p class="text-[var(--color-text-primary)]">Visit the account settings page and click on "Forgot Password".</p>
               </div>
               <div>
                 <p class="font-medium">Can I upgrade my plan later?</p>
-                <p class="text-gray-700">Yes, you can upgrade or downgrade your plan at any time.</p>
+                <p class="text-[var(--color-text-primary)]">Yes, you can upgrade or downgrade your plan at any time.</p>
               </div>
             </div>
           </div>`)
@@ -66,3 +66,5 @@
     </div>
   </div>
 </Story>
+
+

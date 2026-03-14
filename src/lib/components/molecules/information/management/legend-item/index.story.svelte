@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import LegendItem from './index.svelte';
 
   let clickCount = $state(0);
@@ -24,7 +24,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
+    <div class="p-6 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
       <LegendItem
         label={args.label}
         type={args.type}
@@ -33,7 +33,10 @@
         active={args.active}
         onClick={args.interactive ? () => (clickCount += 1) : undefined}
       />
-      <p class="text-sm text-gray-600">Click count: {clickCount}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Click count: {clickCount}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

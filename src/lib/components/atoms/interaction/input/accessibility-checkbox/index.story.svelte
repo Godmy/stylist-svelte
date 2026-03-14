@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import AccessibilityCheckbox from './index.svelte';
 
   type AccessibilityCheckboxStoryProps = {
@@ -38,7 +38,7 @@
   controls={controls}
 >
   {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
+    <div class="p-8 bg-[var(--color-background-secondary)] rounded-lg">
       <h2 class="text-xl font-bold mb-4">AccessibilityCheckbox Story</h2>
       <AccessibilityCheckbox
         label={values.label}
@@ -48,6 +48,9 @@
     </div>
   {/snippet}
 </Story>
+
+
+
 
 
 

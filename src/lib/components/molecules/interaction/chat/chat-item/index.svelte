@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { Chat, User } from '$stylist/design-system/contracts/information/chat';
   import { Avatar, Badge } from '$stylist/components/atoms';
   import { MessageTimestamp } from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp';
@@ -56,40 +56,40 @@
   .chat-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) var(--spacing-4);
     cursor: pointer;
-    border-bottom: 1px solid #f1f5f9;
-    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--color-border-primary);
+    transition: background-color var(--duration-200);
     position: relative;
   }
 
   .chat-item:hover {
-    background-color: #f8fafc;
+    background-color: var(--color-background-secondary);
   }
 
   .chat-item.active {
-    background-color: #eff6ff;
+    background-color: var(--color-primary-50);
   }
 
   .chat-info {
     flex: 1;
-    min-width: 0;
+    min-width: var(--size-0);
   }
 
   .chat-name {
-    font-weight: 600;
-    color: #1e293b;
-    font-size: 0.95rem;
-    margin-bottom: 0.125rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-4);
+    margin-bottom: var(--spacing-1);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .last-message {
-    font-size: 0.8rem;
-    color: #64748b;
+    font-size: var(--font-size-3);
+    color: var(--color-text-secondary);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -99,18 +99,18 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 0.25rem;
+    gap: var(--spacing-1);
   }
 
   .chat-actions {
     position: absolute;
-    right: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.2s;
+    right: var(--spacing-2);
+    opacity: var(--opacity-0);
+    transition: opacity var(--duration-200);
   }
 
   .chat-item:hover .chat-actions {
-    opacity: 1;
+    opacity: var(--opacity-100);
   }
 </style>
 
@@ -167,3 +167,6 @@
     <!-- Context menu or actions can go here -->
   </div>
 </div>
+
+
+

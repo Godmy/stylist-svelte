@@ -115,12 +115,12 @@ const Minus = 'minus';
   }
 </script>
 
-<div class={`border border-gray-200 rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`} {...restProps}>
   {#if showToolbar && toolbarPosition === 'top'}
-    <div class={`flex items-center flex-wrap p-2 border-b border-gray-200 bg-gray-50 space-x-1 ${toolbarClass}`}>
+    <div class={`flex items-center flex-wrap p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1 ${toolbarClass}`}>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('bold')}
         title="Bold"
       >
@@ -128,7 +128,7 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('italic')}
         title="Italic"
       >
@@ -136,18 +136,18 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('underline')}
         title="Underline"
       >
         <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
       
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
@@ -155,7 +155,7 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
@@ -163,18 +163,18 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
         <BaseIcon name={AlignRight} class="h-4 w-4" />
       </button>
       
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertUnorderedList')}
         title="Bullet List"
       >
@@ -182,18 +182,18 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('insertOrderedList')}
         title="Numbered List"
       >
         <BaseIcon name={ListOrdered} class="h-4 w-4" />
       </button>
       
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={toggleBlockquote}
         title="Quote"
       >
@@ -203,7 +203,7 @@ const Minus = 'minus';
       <div class="relative">
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
           onclick={() => showLinkInput = !showLinkInput}
           title="Insert Link"
         >
@@ -211,18 +211,18 @@ const Minus = 'minus';
         </button>
         
         {#if showLinkInput}
-          <div class="absolute z-10 mt-1 w-64 p-3 bg-white border border-gray-200 rounded-md shadow-lg">
+          <div class="absolute z-[var(--z-index-docked)] mt-1 w-64 p-3 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg">
             <div class="flex">
               <input
                 type="text"
-                class="flex-1 px-2 py-1 border border-gray-300 rounded-l text-sm"
+                class="flex-1 px-2 py-1 border border-[var(--color-border-primary)] rounded-l text-sm"
                 placeholder="https://example.com"
                 bind:value={linkUrl}
                 onkeydown={(e) => e.key === 'Enter' && insertLink()}
               />
               <button
                 type="button"
-                class="px-3 py-1 bg-blue-500 text-white rounded-r text-sm"
+                class="px-3 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-r text-sm"
                 onclick={insertLink}
               >
                 Add
@@ -230,7 +230,7 @@ const Minus = 'minus';
             </div>
             <button
               type="button"
-              class="mt-2 text-xs text-gray-500"
+              class="mt-2 text-xs text-[var(--color-text-secondary)]"
               onclick={() => showLinkInput = false}
             >
               Cancel
@@ -241,28 +241,28 @@ const Minus = 'minus';
       
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={insertImage}
         title="Insert Image"
       >
         <BaseIcon name={Image} class="h-4 w-4" />
       </button>
       
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       
       <div class="relative group">
         <button
           type="button"
-          class="p-2 rounded hover:bg-gray-200"
+          class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
           title="More options"
         >
           <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
         </button>
         
-        <div class="absolute z-10 mt-1 w-40 p-2 bg-white border border-gray-200 rounded-md shadow-lg hidden group-hover:block">
+        <div class="absolute z-[var(--z-index-docked)] mt-1 w-40 p-2 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg hidden group-hover:block">
           <button
             type="button"
-            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
+            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-[var(--color-background-secondary)]"
             onclick={() => toggleHeading(2)}
           >
             <BaseIcon name={Hash} class="h-4 w-4 mr-2" />
@@ -270,7 +270,7 @@ const Minus = 'minus';
           </button>
           <button
             type="button"
-            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
+            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-[var(--color-background-secondary)]"
             onclick={() => toggleHeading(3)}
           >
             <BaseIcon name={Hash} class="h-4 w-4 mr-2" />
@@ -278,7 +278,7 @@ const Minus = 'minus';
           </button>
           <button
             type="button"
-            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-gray-100"
+            class="flex items-center w-full px-2 py-1 text-sm rounded hover:bg-[var(--color-background-secondary)]"
             onclick={toggleHorizontalRule}
           >
             <BaseIcon name={Minus} class="h-4 w-4 mr-2" />
@@ -305,10 +305,10 @@ const Minus = 'minus';
   </div>
 
   {#if showToolbar && toolbarPosition === 'bottom'}
-    <div class={`flex items-center flex-wrap p-2 border-t border-gray-200 bg-gray-50 space-x-1 ${toolbarClass}`}>
+    <div class={`flex items-center flex-wrap p-2 border-t border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1 ${toolbarClass}`}>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('bold')}
         title="Bold"
       >
@@ -316,7 +316,7 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('italic')}
         title="Italic"
       >
@@ -324,18 +324,18 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('underline')}
         title="Underline"
       >
         <BaseIcon name={Underline} class="h-4 w-4" />
       </button>
       
-      <div class="w-px h-6 bg-gray-300 mx-1"></div>
+      <div class="w-px h-6 bg-[var(--color-background-tertiary)] mx-1"></div>
       
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyLeft')}
         title="Align Left"
       >
@@ -343,7 +343,7 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyCenter')}
         title="Align Center"
       >
@@ -351,7 +351,7 @@ const Minus = 'minus';
       </button>
       <button
         type="button"
-        class="p-2 rounded hover:bg-gray-200"
+        class="p-2 rounded hover:bg-[var(--color-background-tertiary)]"
         onclick={() => formatText('justifyRight')}
         title="Align Right"
       >
@@ -360,4 +360,9 @@ const Minus = 'minus';
     </div>
   {/if}
 </div>
+
+
+
+
+
 

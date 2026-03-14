@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   /**
    * CopyableCode - Legacy wrapper for unified Code
    * 
@@ -31,4 +31,7 @@
   headerClass={props.headerClass}
   {...props}
 />
+
+
+
 

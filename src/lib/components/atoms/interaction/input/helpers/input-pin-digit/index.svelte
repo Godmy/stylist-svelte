@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPinInputDigitState } from '$stylist/design-system/models/interaction/input-pin-digit.svelte';
+	import { createPinInputDigitState } from '$stylist/design-system/utils/model-helpers/input-state';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
@@ -58,4 +58,7 @@
 </script>
 
 <input class={classes} maxLength={1} {value} {...restProps} />
+
+
+
 

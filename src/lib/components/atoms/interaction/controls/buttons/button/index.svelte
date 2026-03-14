@@ -3,8 +3,8 @@
 const Loader2 = 'loader-2';
 
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonElementProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import type { ButtonElementProps } from '$stylist/design-system/types/interaction/button';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
 	import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
@@ -58,6 +58,9 @@ const Loader2 = 'loader-2';
 		{props.loadingLabel ?? 'Loading...'}
 	{/if}
 </button>
+
+
+
 
 
 

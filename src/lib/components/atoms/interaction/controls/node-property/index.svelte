@@ -162,7 +162,7 @@
 						id={props.id}
 						type="color"
 						class="node-property__input node-property__input--color"
-						value={String(currentValue ?? '#000000')}
+						value={String(currentValue ?? 'var(--color-text-primary)')}
 						disabled={!propertyState.editable}
 						onfocus={props.onfocus}
 						onblur={props.onblur}
@@ -213,114 +213,114 @@
 	:global(.node-property) {
 		display: flex;
 		flex-direction: column;
-		gap: 0.375rem;
-		padding: 0.5rem;
-		background: rgb(30 30 30 / 0.5);
-		border-radius: 4px;
+		gap: var(--spacing-2);
+		padding: var(--spacing-2);
+		background: color-mix(in srgb, var(--color-background-primary) 50%, transparent);
+		border-radius: var(--border-radius-base);
 		border: 1px solid transparent;
-		transition: border-color 120ms ease, background-color 120ms ease;
+		transition: border-color var(--duration-120) var(--animation-ease), background-color var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.node-property:hover) {
-		background: rgb(30 30 30 / 0.8);
+		background: color-mix(in srgb, var(--color-background-primary) 80%, transparent);
 	}
 
 	:global(.node-property--error) {
-		border-color: #f44336;
+		border-color: var(--color-error-500);
 	}
 
 	:global(.node-property--readonly) {
-		opacity: 0.7;
+		opacity: var(--opacity-70);
 		pointer-events: none;
 	}
 
 	:global(.node-property__header) {
 		display: flex;
 		align-items: center;
-		gap: 0.375rem;
+		gap: var(--spacing-2);
 	}
 
 	:global(.node-property__label) {
-		font-size: 0.75rem;
-		font-weight: 500;
-		color: #e5e7eb;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-medium);
+		color: var(--color-text-primary);
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: var(--spacing-1);
 	}
 
 	:global(.node-property__required) {
-		color: #f44336;
+		color: var(--color-error-500);
 	}
 
 	:global(.node-property__icon) {
 		display: inline-flex;
-		color: #9ca3af;
+		color: var(--color-text-secondary);
 	}
 
 	:global(.node-property__description) {
-		font-size: 0.6875rem;
-		color: #9ca3af;
+		font-size: var(--font-size-3);
+		color: var(--color-text-secondary);
 		margin: 0;
 	}
 
 	:global(.node-property__control-container) {
 		display: flex;
 		align-items: center;
-		gap: 0.375rem;
+		gap: var(--spacing-2);
 	}
 
 	:global(.node-property__prefix),
 	:global(.node-property__suffix) {
-		font-size: 0.75rem;
-		color: #9ca3af;
+		font-size: var(--font-size-3);
+		color: var(--color-text-secondary);
 	}
 
 	:global(.node-property__input) {
 		flex: 1 1 auto;
-		padding: 0.375rem 0.5rem;
-		font-size: 0.75rem;
-		color: #f8fafc;
-		background: #1e1e1e;
-		border: 1px solid #374151;
-		border-radius: 4px;
+		padding: var(--spacing-1) var(--spacing-2);
+		font-size: var(--font-size-3);
+		color: var(--color-text-primary);
+		background: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-base);
 		outline: none;
 	}
 
 	:global(.node-property__input--color) {
-		width: 2rem;
-		height: 2rem;
+		width: var(--spacing-8);
+		height: var(--spacing-8);
 		padding: 0;
 		border: none;
 	}
 
 	:global(.node-property__toggle) {
 		position: relative;
-		width: 2.5rem;
-		height: 1.25rem;
+		width: var(--spacing-10);
+		height: var(--spacing-5);
 		padding: 0;
-		background: #374151;
+		background: var(--color-border-primary);
 		border: none;
-		border-radius: 999px;
+		border-radius: var(--border-radius-full);
 		cursor: pointer;
 	}
 
 	:global(.node-property__toggle--active) {
-		background: #3b82f6;
+		background: var(--color-primary-500);
 	}
 
 	:global(.node-property__toggle-track) {
 		position: absolute;
-		top: 2px;
-		left: 2px;
+		top: var(--spacing-1);
+		left: var(--spacing-1);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: calc(1.25rem - 4px);
 		height: calc(1.25rem - 4px);
-		background: #f8fafc;
-		border-radius: 999px;
-		transition: transform 120ms ease;
+		background: var(--color-background-secondary);
+		border-radius: var(--border-radius-full);
+		transition: transform var(--duration-120) var(--animation-ease);
 	}
 
 	:global(.node-property__toggle--active .node-property__toggle-track) {
@@ -331,49 +331,49 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: #1e1e1e;
+		color: var(--color-text-primary);
 	}
 
 	:global(.node-property__select) {
 		flex: 1 1 auto;
-		padding: 0.375rem 0.5rem;
-		font-size: 0.75rem;
-		color: #f8fafc;
-		background: #1e1e1e;
-		border: 1px solid #374151;
-		border-radius: 4px;
+		padding: var(--spacing-1) var(--spacing-2);
+		font-size: var(--font-size-3);
+		color: var(--color-text-primary);
+		background: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-base);
 	}
 
 	:global(.node-property__color-picker) {
 		display: flex;
 		align-items: center;
-		gap: 0.5rem;
+		gap: var(--spacing-2);
 	}
 
 	:global(.node-property__color-value) {
-		font-size: 0.75rem;
-		color: #9ca3af;
+		font-size: var(--font-size-3);
+		color: var(--color-text-secondary);
 		font-family: monospace;
 	}
 
 	:global(.node-property__vector) {
 		display: flex;
-		gap: 0.25rem;
+		gap: var(--spacing-1);
 	}
 
 	:global(.node-property__vector-input) {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: var(--spacing-1);
 		flex: 1 1 0;
-		min-width: 0;
+		min-width: var(--size-0);
 	}
 
 	:global(.node-property__vector-label) {
-		font-size: 0.625rem;
-		font-weight: 600;
-		color: #9ca3af;
-		width: 1rem;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-text-secondary);
+		width: var(--spacing-4);
 		text-align: center;
 	}
 
@@ -381,21 +381,23 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.5rem;
-		background: rgb(255 255 255 / 0.05);
-		border-radius: 4px;
-		border: 1px dashed #4b5563;
+		padding: var(--spacing-2);
+		background: color-mix(in srgb, var(--color-background-secondary) 35%, transparent);
+		border-radius: var(--border-radius-base);
+		border: 1px dashed var(--color-border-secondary);
 	}
 
 	:global(.node-property__placeholder-text) {
-		font-size: 0.6875rem;
-		color: #6b7280;
+		font-size: var(--font-size-3);
+		color: var(--color-text-tertiary);
 		font-style: italic;
 	}
 
 	:global(.node-property__error) {
-		font-size: 0.6875rem;
-		color: #f44336;
+		font-size: var(--font-size-3);
+		color: var(--color-error-500);
 		margin: 0;
 	}
 </style>
+
+

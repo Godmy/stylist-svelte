@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ConversionFunnel from './index.svelte';
 
   const controls: ControlConfig[] = [
@@ -27,7 +27,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-4 rounded-xl bg-gray-50">
+    <div class="p-4 rounded-xl bg-[var(--color-background-secondary)]">
       <ConversionFunnel
         title="Checkout funnel"
         subtitle="Website sales"
@@ -40,3 +40,6 @@
     </div>
   {/snippet}
 </Story>
+
+
+

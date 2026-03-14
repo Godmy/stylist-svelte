@@ -1,11 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import Svg from '../svg/index.svelte';
 	import { IconStyleManager } from '$stylist/design-system/styles';
-	import {
-		TOKEN_ICON_DIRECTION_ROTATION_CLASSES,
-		TOKEN_ICON_VARIANT_CLASSES
-	} from '$stylist/design-system/styles/information/icons';
 
 	export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 	export type IconDirection = 'up' | 'down' | 'left' | 'right';
@@ -114,18 +110,14 @@
 
 	const numericSize = $derived.by(() => (typeof size === 'number' ? size : undefined));
 
-	const rotationClass = $derived.by(() => {
-		if (!direction) return '';
-		return TOKEN_ICON_DIRECTION_ROTATION_CLASSES[direction];
-	});
-
-	const iconClasses = $derived(
-		joinClasses(
-			typeof size === 'number' ? className : IconStyleManager.getIconClasses(size, className),
-			TOKEN_ICON_VARIANT_CLASSES[variant],
-			rotationClass,
-			disabled && 'opacity-50'
-		)
+	const iconClasses = $derived.by(() =>
+		IconStyleManager.getIconChevronClasses({
+			size: typeof size === 'number' ? 'md' : size,
+			direction,
+			variant,
+			disabled,
+			className
+		})
 	);
 
 	const containerClasses = $derived.by(() => {
@@ -185,3 +177,5 @@
 		</span>
 	</span>
 {/if}
+
+

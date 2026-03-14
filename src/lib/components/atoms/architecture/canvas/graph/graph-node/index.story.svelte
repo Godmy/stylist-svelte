@@ -5,7 +5,7 @@
 	import type { GraphNodeSize } from '$stylist/design-system/contracts';
 	import { AMBER as amber, BLUE as blue, SLATE as slate, TEAL as teal } from '$stylist/design-system/tokens';
 
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 
 	type Position = { x: number; y: number };
 	type NodeKind = 'source' | 'gateway' | 'target';
@@ -199,16 +199,16 @@
 >
 	{#snippet children(values: any)}
 		{@const nodeSize = (values.size as GraphNodeSize) ?? 'md'}
-		<div class="rounded-lg border border-slate-300 bg-white p-4 shadow-sm">
-			<div class="mb-3 flex flex-wrap gap-2 text-xs text-slate-600">
-				<span class="rounded-full border border-slate-200 bg-slate-50 px-2 py-1">
+		<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+			<div class="mb-3 flex flex-wrap gap-2 text-xs text-[var(--color-text-secondary)]">
+				<span class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1">
 					click to select, drag to move
 				</span>
 			</div>
 
 			<div
 				data-graph-canvas="node-story"
-				class="relative overflow-hidden rounded border border-slate-300 bg-[radial-gradient(circle_at_1px_1px,#cbd5e1_1px,transparent_0)] [background-size:20px_20px]"
+				class="relative overflow-hidden rounded border border-[var(--color-border-primary)] [background-size:20px_20px]" style="--gradient-inner: var(--color-border-primary); --gradient-outer: transparent; background-image: var(--gradient-radial-center);"
 				style={`width:${CANVAS_WIDTH}px;height:${CANVAS_HEIGHT}px;`}
 				onpointermove={(event) => dragNode(event, Boolean(values.snapToGrid), nodeSize)}
 				onpointerup={stopDrag}
@@ -247,12 +247,16 @@
 				{/each}
 			</div>
 
-			<div class="mt-3 text-xs text-slate-600">
-				selected: <span class="font-semibold text-slate-800">{selectedNodeId}</span>
+			<div class="mt-3 text-xs text-[var(--color-text-secondary)]">
+				selected: <span class="font-semibold text-[var(--color-text-primary)]">{selectedNodeId}</span>
 				{#if values.snapToGrid}
-					<span class="ml-2 rounded bg-slate-100 px-2 py-0.5">snap: {GRID_SIZE}px</span>
+					<span class="ml-2 rounded bg-[var(--color-background-secondary)] px-2 py-0.5">snap: {GRID_SIZE}px</span>
 				{/if}
 			</div>
 		</div>
 	{/snippet}
 </Story>
+
+
+
+

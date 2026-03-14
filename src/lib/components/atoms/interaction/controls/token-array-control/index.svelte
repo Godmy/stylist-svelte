@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	type TokenArrayControlProps = {
 		title: string;
 		tokens: readonly string[];
@@ -39,29 +39,29 @@
 	.token-array-control {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 		align-items: center;
 	}
 
 	.token-array-control__title {
-		width: 9rem;
-		font-size: 0.72rem;
+		width: var(--size-custom90);
+		font-size: var(--font-size-3);
 		color: var(--muted);
 	}
 
 	.token-array-control__items {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 	}
 
 	.token-array-control__chip {
 		border: 1px solid var(--line);
 		background: var(--surface);
 		color: var(--text);
-		padding: 0.2rem 0.5rem;
-		border-radius: 999px;
-		font-size: 0.7rem;
+		padding: var(--spacing-1) var(--spacing-2);
+		border-radius: var(--border-radius-full);
+		font-size: var(--font-size-3);
 		cursor: pointer;
 	}
 
@@ -77,3 +77,5 @@
 		}
 	}
 </style>
+
+

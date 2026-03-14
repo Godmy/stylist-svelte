@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { GraphEdgeProps } from '$stylist/design-system';
 	import { createGraphEdgeState } from '$stylist/design-system/models/architecture/graph-edge.svelte';
 
@@ -51,8 +51,8 @@
 		transform-origin: left center;
 		display: inline-flex;
 		align-items: center;
-		gap: 0.25rem;
-		color: var(--edge-color, #64748b);
+		gap: var(--spacing-1);
+		color: var(--edge-color, var(--color-text-secondary));
 		pointer-events: none;
 	}
 
@@ -60,13 +60,13 @@
 		flex: 1 1 auto;
 		height: var(--edge-thickness, 2px);
 		background: currentColor;
-		border-radius: 999px;
-		opacity: 0.8;
+		border-radius: var(--border-radius-full);
+		opacity: var(--opacity-80);
 	}
 
 	:global(.graph-edge__arrow) {
-		width: 0;
-		height: 0;
+		width: var(--size-0);
+		height: var(--size-0);
 		border-top: 6px solid transparent;
 		border-bottom: 6px solid transparent;
 		border-left: 8px solid currentColor;
@@ -79,39 +79,38 @@
 		top: calc(-0.75rem - var(--edge-label-offset, 0px));
 		transform: translateX(-50%) rotate(calc(-1 * var(--edge-angle, 0deg)));
 		transform-origin: center;
-		padding: 0.125rem 0.375rem;
-		border-radius: 999px;
-		background: rgb(248 250 252 / 0.95);
-		border: 1px solid rgb(203 213 225 / 0.8);
-		color: #0f172a;
-		font-size: 0.65rem;
-		font-weight: 600;
-		line-height: 1;
+		padding: var(--spacing-1) var(--spacing-1);
+		border-radius: var(--border-radius-full);
+		background: color-mix(in srgb, var(--color-background-secondary) 95%, transparent);
+		border: 1px solid color-mix(in srgb, var(--color-border-secondary) 80%, transparent);
+		color: var(--color-text-primary);
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-semibold);
+		line-height: var(--line-height-none);
 		white-space: nowrap;
 	}
 
 	:global(.graph-edge.graph-edge--curve .graph-edge__line) {
-		height: 12px;
+		height: var(--spacing-3);
 		background: transparent;
 		border-top: var(--edge-thickness, 2px) solid currentColor;
 		border-right: var(--edge-thickness, 2px) solid currentColor;
-		border-radius: 0 999px 0 0;
-		opacity: 1;
+		border-radius: 0 var(--border-radius-full) 0 0;
+		opacity: var(--opacity-100);
 	}
 
 	:global(.graph-edge.graph-edge--polyline .graph-edge__line) {
 		height: var(--edge-thickness, 2px);
-		background:
-			linear-gradient(currentColor, currentColor) left center / 45% 100% no-repeat,
-			linear-gradient(currentColor, currentColor) center center / 1px 8px no-repeat,
-			linear-gradient(currentColor, currentColor) right center / 45% 100% no-repeat;
+		background: var(--gradient-custom122);
 	}
 
 	:global(.graph-edge.directed) {
-		color: var(--edge-directed-color, var(--edge-color, #2563eb));
+		color: var(--edge-directed-color, var(--edge-color, var(--color-primary-600)));
 	}
 
 	:global(.graph-edge.active) {
-		color: var(--edge-active-color, #0f172a);
+		color: var(--edge-active-color, var(--color-text-primary));
 	}
 </style>
+
+

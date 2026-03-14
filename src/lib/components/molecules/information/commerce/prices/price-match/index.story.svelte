@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import PriceMatch from './index.svelte';
 
 	const competitors = [
@@ -21,3 +21,5 @@
 		<PriceMatch productName={values.productName} targetPrice={values.targetPrice} currency={values.currency} competitorPrices={competitors} onFindLower={() => {}} />
 	{/snippet}
 </Story>
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductDemo from './index.svelte';
 
   let demoClicks = $state(0);
@@ -25,7 +25,7 @@
   controls={controls}
 >
   {#snippet children(values: any)}
-    <div class="p-8 bg-gray-50 rounded-lg">
+    <div class="p-8 bg-[var(--color-background-secondary)] rounded-lg">
       <ProductDemo
         title={values.title}
         description={values.description}
@@ -33,10 +33,13 @@
         onDemo={() => (demoClicks += 1)}
       >
         {#snippet demoContent()}
-          <div class="text-gray-600 italic">Interactive demo area</div>
+          <div class="text-[var(--color-text-secondary)] italic">Interactive demo area</div>
         {/snippet}
       </ProductDemo>
-      <p class="mt-3 text-sm text-gray-600">Demo started: {demoClicks} times</p>
+      <p class="mt-3 text-sm text-[var(--color-text-secondary)]">Demo started: {demoClicks} times</p>
     </div>
   {/snippet}
 </Story>
+
+
+

@@ -200,35 +200,35 @@
 		flex-direction: column;
 		min-width: var(--node-min-width, 150px);
 		width: var(--node-width, 200px);
-		background: #1e1e1e;
-		border: 1px solid #374151;
-		border-radius: 8px;
-		box-shadow: 0 4px 6px rgb(0 0 0 / 0.3);
-		transition: box-shadow 120ms ease, border-color 120ms ease;
-		z-index: 10;
+		background: var(--color-background-primary);
+		border: 1px solid var(--color-border-primary);
+		border-radius: var(--border-radius-lg);
+		box-shadow: var(--shadow-custom39);
+		transition: box-shadow var(--duration-120) var(--animation-ease), border-color var(--duration-120) var(--animation-ease);
+		z-index: var(--z-index-docked);
 	}
 
 	:global(.litegraph-node:hover) {
-		box-shadow: 0 8px 12px rgb(0 0 0 / 0.4);
+		box-shadow: var(--shadow-custom41);
 	}
 
 	:global(.litegraph-node--selected) {
-		border-color: #3b82f6;
-		box-shadow: 0 0 0 2px #3b82f6, 0 8px 12px rgb(0 0 0 / 0.4);
+		border-color: var(--color-primary-500);
+		box-shadow: var(--shadow-custom14);
 	}
 
 	:global(.litegraph-node__body) {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		padding: 0.75rem;
-		border-radius: 0 0 8px 8px;
+		gap: var(--spacing-2);
+		padding: var(--spacing-3);
+		border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
 	}
 
 	:global(.litegraph-node__ports) {
 		display: flex;
 		justify-content: space-between;
-		gap: 0.5rem;
+		gap: var(--spacing-2);
 	}
 
 	:global(.litegraph-node__ports > *:first-child) {
@@ -242,12 +242,13 @@
 	:global(.litegraph-node__properties) {
 		display: flex;
 		flex-direction: column;
-		gap: 0.375rem;
+		gap: var(--spacing-2);
 	}
 
 	:global(.litegraph-node__content) {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
+		gap: var(--spacing-2);
 	}
 </style>
+

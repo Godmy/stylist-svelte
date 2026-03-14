@@ -26,43 +26,43 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: color-mix(in srgb, var(--color-background-primary) 80%, transparent);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 50;
-    transition: opacity 0.3s ease;
+    z-index: var(--z-index-layer50);
+    transition: opacity var(--duration-300) var(--animation-ease);
   }
 
   .loading-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    gap: var(--spacing-4);
+    padding: var(--spacing-8);
+    background-color: var(--color-background-primary);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-custom21);
   }
 
   .loading-message {
-    font-size: 1rem;
-    color: #475569;
+    font-size: var(--font-size-4);
+    color: var(--color-text-secondary);
     text-align: center;
   }
 
   .spinner {
     display: inline-block;
-    border: 3px solid #e2e8f0; /* Light grey */
-    border-top: 3px solid #3b82f6; /* Blue */
+    border: 3px solid var(--color-border-primary);
+    border-top: 3px solid var(--color-primary-500);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin var(--duration-1000) var(--animation-linear) infinite;
   }
 
-  .spinner.sm { width: 20px; height: 20px; }
-  .spinner.md { width: 32px; height: 32px; }
-  .spinner.lg { width: 48px; height: 48px; }
+  .spinner.sm { width: var(--spacing-5); height: var(--spacing-5); }
+  .spinner.md { width: var(--spacing-8); height: var(--spacing-8); }
+  .spinner.lg { width: var(--spacing-12); height: var(--spacing-12); }
 
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -78,5 +78,6 @@
     </div>
   </div>
 {/if}
+
 
 

@@ -31,19 +31,19 @@ const Minus = 'minus';
   const trendClasses = $derived(() => {
     if (trend === 'up') return 'text-emerald-600';
     if (trend === 'down') return 'text-rose-600';
-    return 'text-gray-500';
+    return 'text-[var(--color-text-secondary)]';
   });
 </script>
 
-<article class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm hover:shadow transition {className}">
+<article class="rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-5 shadow-sm hover:shadow transition {className}">
   <div class="flex items-start justify-between">
     <div>
-      <p class="text-sm font-medium text-gray-500">{label}</p>
-      <p class="mt-2 text-2xl font-semibold text-gray-900">{value}</p>
+      <p class="text-sm font-medium text-[var(--color-text-secondary)]">{label}</p>
+      <p class="mt-2 text-2xl font-semibold text-[var(--color-text-primary)]">{value}</p>
     </div>
 
     {#if icon}
-      <div class="rounded-full bg-indigo-50 p-3 text-indigo-500">
+      <div class="rounded-full bg-[var(--color-primary-50)] p-3 text-[var(--color-primary-500)]">
         {@render icon()}
       </div>
     {/if}
@@ -64,8 +64,12 @@ const Minus = 'minus';
     {/if}
 
     {#if description}
-      <span class="text-gray-500">{description}</span>
+      <span class="text-[var(--color-text-secondary)]">{description}</span>
     {/if}
   </div>
 </article>
+
+
+
+
 

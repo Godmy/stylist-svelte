@@ -84,18 +84,20 @@
 <style>
     .data-exporter {
         display: flex;
-        gap: 0.5rem;
+        gap: var(--spacing-2);
         align-items: center;
     }
     
     select, button {
-        padding: 0.5rem;
-        border-radius: 0.25rem;
-        border: 1px solid #ccc;
+        padding: var(--spacing-2);
+        border-radius: var(--border-radius-base);
+        border: 1px solid var(--color-border-secondary);
     }
     
     button:disabled {
-        opacity: 0.5;
+        opacity: var(--opacity-50);
         cursor: not-allowed;
     }
 </style>
+
+

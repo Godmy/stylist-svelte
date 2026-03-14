@@ -37,7 +37,7 @@
 	const Template: Story<StoryArgs> = (args) => ({
 		Component: GraphPort,
 		props: args,
-		style: 'position: relative; height: 60px; display: flex; align-items: center; justify-content: center; background: #1e1e1e; border-radius: 8px;'
+		style: 'position: relative; height: var(--border-radius-full); display: flex; align-items: center; justify-content: center; background: #1e1e1e; border-radius: var(--border-radius-lg);'
 	});
 
 	export const Default = Template.bind({});
@@ -99,12 +99,12 @@
 			height: 120px;
 			display: flex;
 			flex-direction: column;
-			gap: 20px;
+			gap: var(--spacing-5);
 			align-items: flex-end;
 			justify-content: center;
 			background: #1e1e1e;
-			border-radius: 8px;
-			padding: 20px;
+			border-radius: var(--border-radius-lg);
+			padding: var(--spacing-5);
 		`
 	});
 
@@ -120,11 +120,11 @@
 			height: 300px;
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: var(--spacing-2);
 			justify-content: center;
 			background: #1e1e1e;
-			border-radius: 8px;
-			padding: 20px;
+			border-radius: var(--border-radius-lg);
+			padding: var(--spacing-5);
 		`
 	});
 </script>
@@ -146,3 +146,4 @@
 	<GraphPort dataType="event" label="Event (red)" />
 	<GraphPort dataType="action" label="Action (pink)" />
 </Story>
+

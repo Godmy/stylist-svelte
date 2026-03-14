@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ComplexAccordion from '$stylist/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte';
 	import AccordionItem from '../accordion-item/index.svelte';
 	import AccordionHeader from './index.svelte';
@@ -30,3 +30,5 @@
 		</ComplexAccordion>
 	{/snippet}
 </Story>
+
+

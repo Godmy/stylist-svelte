@@ -59,26 +59,26 @@
   .toolbar {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
+    gap: var(--spacing-2);
+    padding: var(--spacing-2);
     background-color: white;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-primary);
+    box-shadow: var(--shadow-custom40);
   }
 
   .toolbar-group {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--spacing-1);
   }
 
 
 
   .toolbar-separator {
     height: 1px;
-    background-color: #e2e8f0;
-    margin: 0.25rem 0;
+    background-color: var(--color-border-primary);
+    margin: var(--spacing-1) 0;
   }
 </style>
 
@@ -131,3 +131,4 @@
     </Button>
   </div>
 </div>
+

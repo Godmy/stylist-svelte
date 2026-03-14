@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Atom = 'atom';
 const Biohazard = 'biohazard';
@@ -12,22 +12,22 @@ const Radiation = 'radiation';
   const FACE_TITLES = ['Atomic Design', 'Contracts', 'Tokens', 'Styles Managers', 'Classes', 'Models'] as const;
   const FACE_NAMES = ['front', 'back', 'right', 'left', 'top', 'bottom'] as const;
   const FACE_THEMES = [
-    { accent: '#2563eb', tint: 'rgba(191, 219, 254, 0.6)' },
-    { accent: '#4f46e5', tint: 'rgba(199, 210, 254, 0.62)' },
-    { accent: '#0d9488', tint: 'rgba(153, 246, 228, 0.58)' },
-    { accent: '#ea580c', tint: 'rgba(254, 215, 170, 0.62)' },
-    { accent: '#7c3aed', tint: 'rgba(221, 214, 254, 0.64)' },
-    { accent: '#be123c', tint: 'rgba(254, 205, 211, 0.62)' }
+    { accent: 'var(--color-primary-600)', tint: 'color-mix(in srgb, var(--color-primary-200) 60%, transparent)' },
+    { accent: 'var(--color-secondary-600)', tint: 'color-mix(in srgb, var(--color-secondary-200) 62%, transparent)' },
+    { accent: 'var(--color-success-600)', tint: 'color-mix(in srgb, var(--color-success-200) 58%, transparent)' },
+    { accent: 'var(--color-warning-600)', tint: 'color-mix(in srgb, var(--color-warning-200) 62%, transparent)' },
+    { accent: 'var(--color-info-600)', tint: 'color-mix(in srgb, var(--color-info-200) 64%, transparent)' },
+    { accent: 'var(--color-danger-600)', tint: 'color-mix(in srgb, var(--color-danger-200) 62%, transparent)' }
   ] as const;
   const VERTICAL_ICONS = [
-    { type: 'atom', label: 'Atom', tone: 'radial-gradient(circle at 30% 25%, #dbeafe 0%, #60a5fa 55%, #1d4ed8 100%)' },
-    { type: 'molecule', label: 'Molecule', tone: 'radial-gradient(circle at 30% 25%, #dcfce7 0%, #4ade80 55%, #166534 100%)' },
-    { type: 'organism', label: 'Organism', tone: 'radial-gradient(circle at 30% 25%, #f5d0fe 0%, #c084fc 55%, #7e22ce 100%)' }
+    { type: 'atom', label: 'Atom', tone: 'var(--gradient-primary)' },
+    { type: 'molecule', label: 'Molecule', tone: 'var(--gradient-success)' },
+    { type: 'organism', label: 'Organism', tone: 'var(--gradient-secondary)' }
   ] as const;
   const HORIZONTAL_ICONS = [
-    { type: 'architecture', label: 'Architecture', tone: 'linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%)' },
-    { type: 'information', label: 'Information', tone: 'linear-gradient(135deg, #0284c7 0%, #22d3ee 100%)' },
-    { type: 'interaction', label: 'Interaction', tone: 'linear-gradient(135deg, #7c2d12 0%, #f97316 100%)' }
+    { type: 'architecture', label: 'Architecture', tone: 'var(--gradient-info)' },
+    { type: 'information', label: 'Information', tone: 'var(--gradient-primary)' },
+    { type: 'interaction', label: 'Interaction', tone: 'var(--gradient-warning)' }
   ] as const;
   const FACE_NUMBERS_SNAPSHOT: number[][] = [
     // Atomic Design: rows=Atom/Molecule/Organism, cols=Architecture/Information/Interaction.
@@ -635,7 +635,7 @@ const Radiation = 'radiation';
   .c-cube-control {
     display: inline-flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--spacing-3);
     user-select: none;
     touch-action: none;
   }
@@ -646,9 +646,9 @@ const Radiation = 'radiation';
     width: calc(var(--cube-size) + 140px);
     height: calc(var(--cube-size) + 140px);
     perspective: var(--perspective);
-    border-radius: 0.9rem;
-    background: radial-gradient(circle at 50% 30%, rgb(241 245 249) 0%, rgb(226 232 240) 55%, rgb(203 213 225) 100%);
-    border: 1px solid rgb(148 163 184 / 0.45);
+    border-radius: var(--border-radius-xxl);
+    background: var(--gradient-custom132);
+    border: 1px solid color-mix(in srgb, var(--color-border-primary) 45%, transparent);
     cursor: grab;
   }
 
@@ -673,34 +673,32 @@ const Radiation = 'radiation';
     position: absolute;
     inset: 0;
     display: block;
-    color: rgb(15 23 42);
-    border: 1px solid rgb(15 23 42 / 0.12);
-    box-shadow: inset 0 0 18px rgb(255 255 255 / 0.25);
+    color: var(--color-text-primary);
+    border: 1px solid color-mix(in srgb, var(--color-text-primary) 12%, transparent);
+    box-shadow: var(--shadow-custom46);
     backface-visibility: hidden;
     overflow: hidden;
-    padding: 0.45rem;
+    padding: var(--spacing-2);
     pointer-events: auto;
   }
 
-  .cube-face-front { transform: translateZ(calc(var(--cube-size) / 2)); background: rgb(147 197 253 / 0.85); }
-  .cube-face-back { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); background: rgb(253 186 116 / 0.85); }
-  .cube-face-right { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); background: rgb(134 239 172 / 0.85); }
-  .cube-face-left { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); background: rgb(251 146 60 / 0.8); }
-  .cube-face-top { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); background: rgb(196 181 253 / 0.85); }
-  .cube-face-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); background: rgb(244 114 182 / 0.78); }
+  .cube-face-front { transform: translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-primary-300) 85%, transparent); }
+  .cube-face-back { transform: rotateY(180deg) translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-warning-300) 85%, transparent); }
+  .cube-face-right { transform: rotateY(90deg) translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-success-300) 85%, transparent); }
+  .cube-face-left { transform: rotateY(-90deg) translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-warning-400) 80%, transparent); }
+  .cube-face-top { transform: rotateX(90deg) translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-secondary-300) 85%, transparent); }
+  .cube-face-bottom { transform: rotateX(-90deg) translateZ(calc(var(--cube-size) / 2)); background: color-mix(in srgb, var(--color-danger-300) 78%, transparent); }
 
   .face-template {
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: 0.35rem;
+    gap: var(--spacing-1);
     height: 100%;
     position: relative;
-    border-radius: 0.5rem;
-    padding: 0.38rem;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-2);
     border: 1px solid color-mix(in srgb, var(--face-accent) 35%, transparent);
-    background:
-      radial-gradient(circle at 18% 15%, color-mix(in srgb, var(--face-tint) 90%, white 10%) 0%, transparent 38%),
-      linear-gradient(155deg, color-mix(in srgb, white 70%, var(--face-tint) 30%) 0%, color-mix(in srgb, white 35%, var(--face-tint) 65%) 100%);
+    background: var(--gradient-custom162);
   }
 
   .face-template::after {
@@ -709,7 +707,7 @@ const Radiation = 'radiation';
     inset: 0;
     border-radius: inherit;
     pointer-events: none;
-    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.45), inset 0 -18px 24px rgb(15 23 42 / 0.08);
+    box-shadow: var(--shadow-custom44);
   }
 
   .face-title {
@@ -718,14 +716,14 @@ const Radiation = 'radiation';
     background: transparent;
     text-align: left;
     cursor: pointer;
-    font-size: clamp(1.12rem, calc(var(--cube-size) / 101), 1.88rem);
-    font-weight: 900;
+    font-size: clamp(var(--font-size-4), calc(var(--cube-size) / 101), var(--font-size-8));
+    font-weight: var(--font-weight-black);
     line-height: 1.1;
-    letter-spacing: 0.015em;
-    color: color-mix(in srgb, #0f172a 82%, var(--face-accent) 18%);
-    text-shadow: 0 1px 0 rgb(255 255 255 / 0.4);
-    border-radius: 0.5rem;
-    padding: 0.08rem 0.24rem;
+    letter-spacing: var(--letter-spacing-tight);
+    color: color-mix(in srgb, var(--color-text-primary) 82%, var(--face-accent) 18%);
+    text-shadow: 0 1px 0 color-mix(in srgb, var(--color-background-primary) 40%, transparent);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-1) var(--spacing-1);
     width: fit-content;
   }
 
@@ -735,22 +733,22 @@ const Radiation = 'radiation';
 
   .face-title-selected {
     background: color-mix(in srgb, white 56%, var(--face-tint) 44%);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--face-accent) 40%, transparent);
-    color: color-mix(in srgb, #0f172a 8%, var(--face-accent) 92%);
+    box-shadow: var(--shadow-custom08);
+    color: color-mix(in srgb, var(--color-text-primary) 8%, var(--face-accent) 92%);
   }
 
   .face-content {
     display: block;
-    min-height: 0;
+    min-height: var(--size-0);
   }
 
   .face-matrix {
     display: grid;
     grid-template-columns: auto repeat(3, minmax(0, 1fr));
     grid-template-rows: auto repeat(3, auto);
-    gap: 0.3rem;
+    gap: var(--spacing-1);
     align-items: start;
-    min-height: 0;
+    min-height: var(--size-0);
     width: 100%;
     transform: translate(0.32rem, 0.04rem) scale(0.87);
     transform-origin: top left;
@@ -760,39 +758,39 @@ const Radiation = 'radiation';
     display: grid;
     place-items: center;
     background: transparent;
-    color: color-mix(in srgb, var(--face-accent) 78%, #0f172a 22%);
+    color: color-mix(in srgb, var(--face-accent) 78%, var(--color-text-primary) 22%);
     border: none;
     padding: 0;
     cursor: pointer;
-    border-radius: 0.45rem;
-    transition: transform 140ms ease, color 140ms ease, filter 140ms ease;
+    border-radius: var(--border-radius-lg);
+    transition: transform var(--duration-140) var(--animation-ease), color var(--duration-140) var(--animation-ease), filter var(--duration-140) var(--animation-ease);
     pointer-events: auto;
     touch-action: manipulation;
     position: relative;
-    z-index: 3;
+    z-index: var(--z-index-layer3);
   }
 
   .template-icon:hover {
     transform: translateY(-1px);
-    color: color-mix(in srgb, var(--face-accent) 88%, #0f172a 12%);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--face-accent) 46%, transparent);
-    border-radius: 999px;
+    color: color-mix(in srgb, var(--face-accent) 88%, var(--color-text-primary) 12%);
+    box-shadow: var(--shadow-custom10);
+    border-radius: var(--border-radius-full);
     background: color-mix(in srgb, white 72%, var(--face-tint) 28%);
   }
 
   .template-icon-selected {
-    color: color-mix(in srgb, #0f172a 5%, var(--face-accent) 95%);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--face-accent) 55%, transparent), 0 0 11px color-mix(in srgb, var(--face-accent) 35%, transparent);
-    border-radius: 999px;
-    background: radial-gradient(circle at 50% 45%, color-mix(in srgb, white 30%, var(--face-tint) 70%) 0%, color-mix(in srgb, var(--face-accent) 26%, transparent) 78%);
-    z-index: 5;
+    color: color-mix(in srgb, var(--color-text-primary) 5%, var(--face-accent) 95%);
+    box-shadow: var(--shadow-custom11);
+    border-radius: var(--border-radius-full);
+    background: var(--gradient-custom222);
+    z-index: var(--z-index-layer5);
   }
 
   .template-icon-selected .template-icon-lucide {
-    color: color-mix(in srgb, #ffffff 78%, var(--face-accent) 22%);
-    stroke: color-mix(in srgb, #ffffff 78%, var(--face-accent) 22%);
-    fill: color-mix(in srgb, #ffffff 78%, var(--face-accent) 22%);
-    filter: drop-shadow(0 0 2px rgb(15 23 42 / 0.45));
+    color: color-mix(in srgb, var(--color-text-inverse) 78%, var(--face-accent) 22%);
+    stroke: color-mix(in srgb, var(--color-text-inverse) 78%, var(--face-accent) 22%);
+    fill: color-mix(in srgb, var(--color-text-inverse) 78%, var(--face-accent) 22%);
+    filter: drop-shadow(0 0 2px color-mix(in srgb, var(--color-text-primary) 45%, transparent));
   }
 
   .template-icon:focus-visible {
@@ -803,18 +801,18 @@ const Radiation = 'radiation';
   .template-icon-svg {
     width: clamp(1.75rem, calc(var(--cube-size) / 96), 2.4rem);
     height: clamp(1.75rem, calc(var(--cube-size) / 96), 2.4rem);
-    filter: drop-shadow(0 1px 2px rgb(15 23 42 / 0.26));
+    filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--color-text-primary) 26%, transparent));
   }
 
   .template-icon-lucide {
     width: clamp(2.1rem, calc(var(--cube-size) / 82), 2.9rem);
     height: clamp(2.1rem, calc(var(--cube-size) / 82), 2.9rem);
-    filter: drop-shadow(0 1px 2px rgb(15 23 42 / 0.26));
+    filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--color-text-primary) 26%, transparent));
     color: currentColor;
     fill: currentColor;
     stroke: currentColor;
     position: relative;
-    z-index: 1;
+    z-index: var(--z-index-layer1);
   }
 
   .template-axis-icon {
@@ -840,60 +838,60 @@ const Radiation = 'radiation';
     place-items: center;
     aspect-ratio: 1 / 1;
     width: 100%;
-    border: 1px solid rgb(15 23 42 / 0.2);
+    border: 1px solid color-mix(in srgb, var(--color-text-primary) 20%, transparent);
     cursor: pointer;
     padding: 0;
-    border-radius: 0.32rem;
-    background: linear-gradient(145deg, rgb(255 255 255 / 0.56) 0%, rgb(248 250 252 / 0.32) 100%);
-    font-size: clamp(1.08rem, calc(var(--cube-size) / 140), 1.49rem);
-    font-weight: 800;
-    line-height: 1;
-    color: color-mix(in srgb, #0f172a 86%, var(--face-accent) 14%);
-    animation: number-pulse 1.2s ease-in-out infinite;
+    border-radius: var(--border-radius-md);
+    background: var(--gradient-custom22);
+    font-size: clamp(var(--font-size-4), calc(var(--cube-size) / 140), var(--font-size-6));
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-none);
+    color: color-mix(in srgb, var(--color-text-primary) 86%, var(--face-accent) 14%);
+    animation: number-pulse var(--duration-1200) var(--animation-ease-in-out) infinite;
     animation-delay: var(--cell-delay);
-    transition: transform 280ms ease, box-shadow 280ms ease, background-color 280ms ease, border-color 280ms ease;
+    transition: transform var(--duration-280) var(--animation-ease), box-shadow var(--duration-280) var(--animation-ease), background-color var(--duration-280) var(--animation-ease), border-color var(--duration-280) var(--animation-ease);
   }
 
   .number-cell:hover {
     border-color: color-mix(in srgb, var(--face-accent) 45%, transparent);
-    background: linear-gradient(145deg, color-mix(in srgb, white 72%, var(--face-tint) 28%) 0%, color-mix(in srgb, white 60%, var(--face-tint) 40%) 100%);
+    background: var(--gradient-custom92);
   }
 
   .number-cell-active {
     transform: scale(1.09);
     border-color: color-mix(in srgb, var(--face-accent) 55%, transparent);
-    background: linear-gradient(145deg, color-mix(in srgb, var(--face-tint) 75%, white 25%) 0%, color-mix(in srgb, var(--face-accent) 20%, white 80%) 100%);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--face-accent) 24%, transparent), 0 0 10px color-mix(in srgb, var(--face-accent) 33%, transparent);
+    background: var(--gradient-custom72);
+    box-shadow: var(--shadow-custom04);
   }
 
   .number-cell-selected {
     border-color: color-mix(in srgb, var(--face-accent) 68%, transparent);
-    background: linear-gradient(145deg, color-mix(in srgb, white 40%, var(--face-tint) 60%) 0%, color-mix(in srgb, white 24%, var(--face-accent) 76%) 100%);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--face-accent) 42%, transparent), 0 0 14px color-mix(in srgb, var(--face-accent) 38%, transparent);
-    color: color-mix(in srgb, #0f172a 8%, white 92%);
+    background: var(--gradient-custom82);
+    box-shadow: var(--shadow-custom09);
+    color: color-mix(in srgb, var(--color-text-primary) 8%, var(--color-background-primary) 92%);
     transform: scale(1.04);
   }
 
   .cube-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem;
+    gap: var(--spacing-2);
   }
 
   .cube-button {
-    border: 1px solid rgb(148 163 184 / 0.55);
-    background: rgb(248 250 252);
-    color: rgb(30 41 59);
-    border-radius: 0.55rem;
-    padding: 0.34rem 0.7rem;
-    font-size: 0.78rem;
-    line-height: 1;
-    transition: background-color 150ms ease, border-color 150ms ease, transform 120ms ease;
+    border: 1px solid color-mix(in srgb, var(--color-border-primary) 55%, transparent);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-1) var(--spacing-3);
+    font-size: var(--font-size-3);
+    line-height: var(--line-height-none);
+    transition: background-color var(--duration-120) var(--animation-ease), border-color var(--duration-150) var(--animation-ease), transform var(--duration-120) var(--animation-ease);
   }
 
   .cube-button:hover {
-    background: rgb(226 232 240);
-    border-color: rgb(100 116 139 / 0.7);
+    background: var(--color-background-tertiary);
+    border-color: color-mix(in srgb, var(--color-border-primary) 70%, transparent);
   }
 
   .cube-button:active {
@@ -901,25 +899,28 @@ const Radiation = 'radiation';
   }
 
   .cube-button-reset {
-    background: rgb(15 23 42);
-    color: rgb(241 245 249);
-    border-color: rgb(15 23 42);
+    background: var(--color-text-primary);
+    color: var(--color-text-inverse);
+    border-color: var(--color-text-primary);
   }
 
   .cube-button-reset:hover {
-    background: rgb(30 41 59);
-    border-color: rgb(30 41 59);
+    background: color-mix(in srgb, var(--color-text-primary) 82%, var(--color-border-primary) 18%);
+    border-color: color-mix(in srgb, var(--color-text-primary) 82%, var(--color-border-primary) 18%);
   }
 
   @keyframes number-pulse {
     0%, 100% {
       transform: scale(1);
-      box-shadow: 0 0 0 rgb(255 255 255 / 0);
+      box-shadow: var(--shadow-custom16);
     }
     50% {
       transform: scale(1.06);
-      box-shadow: 0 0 8px rgb(255 255 255 / 0.45);
+      box-shadow: var(--shadow-custom20);
     }
   }
 </style>
+
+
+
 

@@ -6,8 +6,8 @@ const Check = 'check';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
-import { createCopyButtonState } from '$stylist/design-system/models/interaction/button.svelte';
+	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/constants';
+import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -29,7 +29,7 @@ import { createCopyButtonState } from '$stylist/design-system/models/interaction
 	} = props;
 
 	// Use centralized state management for base button properties
-	let buttonState = createCopyButtonState(
+	let buttonState = createButtonState(
 		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
 			variant: 'outline',
 			size: 'sm'
@@ -57,7 +57,7 @@ import { createCopyButtonState } from '$stylist/design-system/models/interaction
 	}
 
 	let iconClasses = $derived(
-		`copy-button-icon transition-colors duration-150 ${
+		`copy-button-icon transition-colors duration-[var(--duration-150)] ${
 			copied ? 'text-[var(--color-success-600)]' : 'text-current'
 		}`.trim()
 	);
@@ -80,6 +80,8 @@ import { createCopyButtonState } from '$stylist/design-system/models/interaction
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
+
+
 
 
 

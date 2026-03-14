@@ -58,7 +58,7 @@
   let trackContainerClass = 'relative h-2';
   let trackClass = 'w-full h-2 bg-[--color-border-secondary] rounded-full';
   let fillClass = `absolute h-2 bg-[--color-primary-500] rounded-full ${disabled ? 'bg-[--color-border-secondary]' : ''}`;
-  let thumbClass = `w-4 h-4 rounded-full ${disabled ? 'bg-[--color-text-disabled]' : 'bg-[--color-primary-600]'} cursor-pointer appearance-none absolute top-1/2 -translate-y-1/2`;
+  let thumbClass = `w-4 h-4 rounded-full ${disabled ? 'bg-[--color-text-tertiary]' : 'bg-[--color-primary-600]'} cursor-pointer appearance-none absolute top-1/2 -translate-y-1/2`;
   let minMaxLabelClass = 'flex justify-between text-xs text-[--color-text-secondary] mt-1';
   let descriptionClass = 'text-xs text-[--color-text-secondary] mt-1';
 
@@ -167,13 +167,13 @@
   border-radius: var(--border-radius-full);
   background-color: var(--range-slider-thumb-background);
   border: 2px solid var(--range-slider-thumb-border-color);
-  box-shadow: var(--range-slider-thumb-shadow);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
 }
 
 .slider-thumb:disabled::-webkit-slider-thumb {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: var(--opacity-60);
 }
 
 .slider-thumb::-moz-range-thumb {
@@ -182,13 +182,13 @@
   border-radius: var(--border-radius-full);
   background-color: var(--range-slider-thumb-background);
   border: 2px solid var(--range-slider-thumb-border-color);
-  box-shadow: var(--range-slider-thumb-shadow);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
 }
 
 .slider-thumb:disabled::-moz-range-thumb {
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: var(--opacity-60);
 }
 
 .slider-thumb::-moz-range-track,
@@ -197,3 +197,8 @@
 }
 
 </style>
+
+
+
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import FormHeader from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -14,7 +14,7 @@
 
 <Story component={FormHeader} title="FormHeader" description="Consistent heading section for multi-step forms." {controls}>
 	{#snippet children(values: any)}
-		<div class="rounded-xl border border-[--color-border-primary] bg-white p-5">
+		<div class="rounded-xl border border-[--color-border-primary] bg-[var(--color-background-primary)] p-5">
 			<FormHeader
 				title={values.title}
 				subtitle={values.subtitle}
@@ -25,3 +25,6 @@
 		</div>
 	{/snippet}
 </Story>
+
+
+

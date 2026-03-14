@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ThemeSwitcher from './index.svelte';
 
 	let selectedTheme = $state<'minimal' | 'ocean' | 'forest' | 'sunset'>('minimal');
@@ -23,3 +23,5 @@
 		</div>
 	{/snippet}
 </Story>
+
+

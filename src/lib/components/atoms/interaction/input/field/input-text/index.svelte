@@ -1,14 +1,14 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputBaseProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
-	 * InputText component - Р‘Р°Р·РѕРІС‹Р№ С‚РµРєСЃС‚РѕРІС‹Р№ input СЃ РїРѕРґРґРµСЂР¶РєРѕР№ variant, size, error states
+	 * InputText component - Базовый текстовый input с поддержкой variant, size, error states
 	 *
 	 * @example
 	 * ```svelte
@@ -18,8 +18,8 @@
 	 *   variant="default"
 	 *   size="md"
 	 *   error={hasError}
-	 *   errors={['РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ email']}
-	 *   helperText="Р’РІРµРґРёС‚Рµ РІР°С€ email"
+	 *   errors={['Некорректный email']}
+	 *   helperText="Введите ваш email"
 	 * />
 	 * ```
 	 */
@@ -148,6 +148,10 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+
+
+
+
 
 
 

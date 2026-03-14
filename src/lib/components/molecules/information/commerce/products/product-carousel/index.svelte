@@ -27,10 +27,10 @@
 </script>
 
 <div class={ProductCarouselStyleManager.getContainerClass(className)}>
-  <div class="flex transition-transform duration-300" style={`transform: translateX(-${currentIndex * 100}%)`}>
+  <div class="flex transition-transform duration-[var(--duration-300)]" style={`transform: translateX(-${currentIndex * 100}%)`}>
     {#each products as product}
       <div class="w-full min-w-0 flex-shrink-0">
-        <div class="bg-white rounded-lg shadow p-4 flex">
+        <div class="bg-[var(--color-background-primary)] rounded-lg shadow p-4 flex">
           {#if product.image}
             <img src={product.image} alt={product.title} class="w-24 h-24 object-cover rounded mr-4" />
           {/if}
@@ -60,7 +60,7 @@
   <button
     onclick={prevSlide}
     aria-label="Previous slide"
-    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100"
+    class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[var(--color-background-primary)] rounded-full p-2 shadow-md hover:bg-[var(--color-background-secondary)]"
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -70,7 +70,7 @@
   <button
     onclick={nextSlide}
     aria-label="Next slide"
-    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100"
+    class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[var(--color-background-primary)] rounded-full p-2 shadow-md hover:bg-[var(--color-background-secondary)]"
   >
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -83,9 +83,11 @@
         onclick={() => currentIndex = i}
         aria-label={`Go to slide ${i + 1}`}
         class={`w-3 h-3 rounded-full ${
-          i === currentIndex ? 'bg-blue-500' : 'bg-gray-300'
+          i === currentIndex ? 'bg-[var(--color-primary-500)]' : 'bg-[var(--color-background-tertiary)]'
         }`}
       ></button>
     {/each}
   </div>
 </div>
+
+

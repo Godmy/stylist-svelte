@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Idef0BlackBoxProps } from '$stylist/design-system';
 	import { createIdef0BlackBoxState } from '$stylist/design-system/models/information/idef0.svelte';
 	import Idef0FunctionBox from '$stylist/components/atoms/information/data-display/diagrams/idef-zero-function-box/index.svelte';
@@ -39,4 +39,6 @@
 		endX={state.width - rightMargin}
 	/>
 </g>
+
+
 

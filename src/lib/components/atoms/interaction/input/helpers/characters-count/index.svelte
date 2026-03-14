@@ -1,5 +1,5 @@
-﻿<script lang="ts">
-	import { createCharacterCountState } from '$stylist/design-system/models/interaction/characters-count.svelte';
+<script lang="ts">
+	import { createCharacterCountState } from '$stylist/design-system/utils/model-helpers/input-state';
 	import type { HTMLAttributes } from 'svelte/elements';
 	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
@@ -61,6 +61,10 @@
 		{message}
 	{/if}
 </div>
+
+
+
+
 
 
 

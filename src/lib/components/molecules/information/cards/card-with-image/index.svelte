@@ -34,7 +34,7 @@
   }: Props = $props();
 </script>
 
-<div class={className + ' bg-white rounded-lg shadow overflow-hidden'} {...restProps}>
+<div class={className + ' bg-[var(--color-background-primary)] rounded-lg shadow overflow-hidden'} {...restProps}>
   {#if image}
     <img src={image} alt="" class={imageClass} />
   {/if}
@@ -43,16 +43,16 @@
     {#if title || subtitle}
       <div class="mb-4">
         {#if title}
-          <h3 class="text-lg font-semibold text-gray-900">{title}</h3>
+          <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{title}</h3>
         {/if}
         {#if subtitle}
-          <p class="text-sm text-gray-500">{subtitle}</p>
+          <p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
         {/if}
       </div>
     {/if}
     
     {#if description}
-      <p class="text-gray-700 mb-4">{description}</p>
+      <p class="text-[var(--color-text-primary)] mb-4">{description}</p>
     {/if}
     
     {#if footer}
@@ -68,3 +68,6 @@
     {/if}
   </div>
 </div>
+
+
+

@@ -49,12 +49,12 @@ const Loader2 = 'loader-2';
   // Color classes mapping for SVG variant
   const colorClasses = $derived(() => {
     const colorMap: Record<string, string> = {
-      blue: 'text-blue-500',
-      gray: 'text-gray-500',
-      green: 'text-green-500',
-      red: 'text-red-500',
+      blue: 'text-[var(--color-primary-500)]',
+      gray: 'text-[var(--color-text-secondary)]',
+      green: 'text-[var(--color-success-500)]',
+      red: 'text-[var(--color-danger-500)]',
       yellow: 'text-yellow-500',
-      white: 'text-white'
+      white: 'text-[var(--color-text-inverse)]'
     };
     return colorMap[color] || `text-[${color}]`;
   });
@@ -62,18 +62,18 @@ const Loader2 = 'loader-2';
   // Variant color for icon
   const iconColorClasses = $derived(() => {
     const variantColorMap: Record<string, string> = {
-      primary: 'text-blue-500',
-      white: 'text-white',
-      gray: 'text-gray-500'
+      primary: 'text-[var(--color-primary-500)]',
+      white: 'text-[var(--color-text-inverse)]',
+      gray: 'text-[var(--color-text-secondary)]'
     };
     // Map color prop to variant colors
-    if (color === 'blue') return 'text-blue-500';
-    if (color === 'gray') return 'text-gray-500';
-    if (color === 'green') return 'text-green-500';
-    if (color === 'red') return 'text-red-500';
+    if (color === 'blue') return 'text-[var(--color-primary-500)]';
+    if (color === 'gray') return 'text-[var(--color-text-secondary)]';
+    if (color === 'green') return 'text-[var(--color-success-500)]';
+    if (color === 'red') return 'text-[var(--color-danger-500)]';
     if (color === 'yellow') return 'text-yellow-500';
-    if (color === 'white') return 'text-white';
-    return variantColorMap[variant] || 'text-blue-500';
+    if (color === 'white') return 'text-[var(--color-text-inverse)]';
+    return variantColorMap[variant] || 'text-[var(--color-primary-500)]';
   });
 </script>
 
@@ -88,7 +88,7 @@ const Loader2 = 'loader-2';
       aria-hidden="true"
     >
       <circle
-        class="opacity-25"
+        class="opacity-[var(--opacity-25)]"
         cx="12"
         cy="12"
         r="10"
@@ -96,7 +96,7 @@ const Loader2 = 'loader-2';
         stroke-width="4"
       ></circle>
       <path
-        class="opacity-75"
+        class="opacity-[var(--opacity-75)]"
         fill="currentColor"
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
       ></path>
@@ -122,7 +122,7 @@ const Loader2 = 'loader-2';
           border: 3px solid currentColor;
           border-radius: 50%;
           border-color: currentColor transparent currentColor transparent;
-          animation: spin 1s linear infinite;
+          animation: spin var(--duration-1000) var(--animation-linear) infinite;
         }
         @keyframes spin {
           0% { transform: rotate(0deg); }
@@ -139,9 +139,12 @@ const Loader2 = 'loader-2';
   {/if}
 
   {#if showLabel}
-    <span class="mt-2 text-sm text-gray-600">{label}</span>
+    <span class="mt-2 text-sm text-[var(--color-text-secondary)]">{label}</span>
   {/if}
   
   <span class="sr-only">{label}</span>
 </div>
+
+
+
 

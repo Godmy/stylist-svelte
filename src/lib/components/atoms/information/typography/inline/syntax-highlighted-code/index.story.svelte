@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import SyntaxHighlightedCode from './index.svelte';
 
 	const sampleCode = `function greet(name) {
@@ -70,6 +70,8 @@
 		</div>
 	{/snippet}
 </Story>
+
+
 
 
 

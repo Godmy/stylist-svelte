@@ -1,6 +1,7 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { createAdvancedInputState as createInputState } from '$stylist/design-system/models/interaction/advanced-input.svelte';
+	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -43,6 +44,8 @@
 		class: className = '',
 		...restProps
 	}: AdvancedInputProps = $props();
+	const createInputState = (props: AdvancedInputProps & Record<string, unknown>) =>
+		createBaseInputState(INPUT_FIELD_PRESET, props);
 	const state = $derived(createInputState({ variant, size, disabled, error }));
 
 	// Calculate derived values
@@ -51,7 +54,7 @@
 	const labelClass = $derived(
 		[
 			'block text-sm font-medium text-[--color-text-primary] mb-[--spacing-xs]',
-			state.isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''
+			state.isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : ''
 		]
 			.filter(Boolean)
 			.join(' ')
@@ -74,6 +77,9 @@
 		{...restProps}
 	/>
 </div>
+
+
+
 
 
 

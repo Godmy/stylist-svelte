@@ -10,13 +10,16 @@
 	// This component is automatically the default export in Svelte
 </script>
 
-<span class={`mx-2 text-gray-400 ${className}`} aria-hidden="true" {...restProps}>
+<span class={`mx-2 text-[var(--color-text-tertiary)] ${className}`} aria-hidden="true" {...restProps}>
 	{#if children}
 		{@render children?.()}
 	{:else}
 		/
 	{/if}
 </span>
+
+
+
 
 
 

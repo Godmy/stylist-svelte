@@ -67,19 +67,19 @@
         <img 
           src={avatar.src} 
           alt={avatar.name} 
-          class={`${sizeClasses} rounded-full object-cover border-2 border-white`}
+          class={`${sizeClasses} rounded-full object-cover border-2 border-[var(--color-background-primary)]`}
         />
       {:else}
-        <div class={`${sizeClasses} rounded-full bg-gray-200 border-2 border-white flex items-center justify-center ${fontSizeClasses} font-medium text-gray-700`}>
+        <div class={`${sizeClasses} rounded-full bg-[var(--color-background-tertiary)] border-2 border-[var(--color-background-primary)] flex items-center justify-center ${fontSizeClasses} font-medium text-[var(--color-text-primary)]`}>
           {avatar.name ? avatar.name.charAt(0).toUpperCase() : '?'}
         </div>
       {/if}
       
       {#if avatar.status}
-        <div class={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white ${
-          avatar.status === 'online' ? 'bg-green-500' :
+        <div class={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[var(--color-background-primary)] ${
+          avatar.status === 'online' ? 'bg-[var(--color-success-500)]' :
           avatar.status === 'away' ? 'bg-yellow-500' :
-          avatar.status === 'busy' ? 'bg-red-500' : 'bg-gray-400'
+          avatar.status === 'busy' ? 'bg-[var(--color-danger-500)]' : 'bg-[var(--color-neutral-400)]'
         }`}></div>
       {/if}
     </div>
@@ -87,9 +87,13 @@
   
   {#if overflowCount > 0}
     <div class={`relative -ml-2 ${overflowClass}`}>
-      <div class={`w-8 h-8 rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-xs font-medium text-gray-700`}>
+      <div class={`w-8 h-8 rounded-full bg-[var(--color-background-tertiary)] border-2 border-[var(--color-background-primary)] flex items-center justify-center text-xs font-medium text-[var(--color-text-primary)]`}>
         +{overflowCount}
       </div>
     </div>
   {/if}
 </div>
+
+
+
+

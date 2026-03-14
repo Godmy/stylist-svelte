@@ -1,24 +1,24 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	type Props = {
-		/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ ID РґР»СЏ switch */
+		/** Уникальный ID для switch */
 		id?: string;
-		/** Р›РµР№Р±Р» РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
+		/** Лейбл переключателя */
 		label?: string;
-		/** РћРїРёСЃР°РЅРёРµ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
+		/** Описание переключателя */
 		description?: string;
-		/** Р Р°Р·РјРµСЂ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЏ */
+		/** Размер переключателя */
 		size?: ComponentSize;
-		/** РћС‚РєР»СЋС‡РµРЅ Р»Рё РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ */
+		/** Отключен ли переключатель */
 		disabled?: boolean;
-		/** РЎРѕСЃС‚РѕСЏРЅРёРµ checked (РїРѕРґРґРµСЂР¶РёРІР°РµС‚ two-way binding) */
+		/** Состояние checked (поддерживает two-way binding) */
 		checked?: boolean;
-		/** РћР±СЏР·Р°С‚РµР»СЊРЅРѕРµ Р»Рё РїРѕР»Рµ */
+		/** Обязательное ли поле */
 		required?: boolean;
-		/** Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ CSS РєР»Р°СЃСЃС‹ */
+		/** Дополнительные CSS классы */
 		class?: string;
 		/** Aria label */
 		ariaLabel?: string;
@@ -44,7 +44,7 @@
 
 	// Classes using style manager
 	const containerClasses = $derived(
-		`flex items-start gap-3 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`
+		`flex items-start gap-3 ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''}`
 	);
 	const trackClasses = $derived(TogglesStyleManager.getSwitchTrackClasses(size, disabled, checked));
 	const knobClasses = $derived(TogglesStyleManager.getSwitchKnobClasses(size, disabled, checked));
@@ -91,5 +91,8 @@
 		</span>
 	{/if}
 </label>
+
+
+
 
 

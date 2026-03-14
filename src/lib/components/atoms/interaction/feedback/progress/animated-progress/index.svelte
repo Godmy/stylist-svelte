@@ -27,10 +27,13 @@
 			<span class="text-sm font-medium">{percentage}%</span>
 		{/if}
 	</div>
-	<div class="h-2.5 w-full rounded-full bg-gray-200">
-		<div class="h-2.5 rounded-full bg-blue-600" style={`width: ${percentage}%`}></div>
+	<div class="h-2.5 w-full rounded-full bg-[var(--color-background-tertiary)]">
+		<div class="h-2.5 rounded-full bg-[var(--color-primary-600)]" style={`width: ${percentage}%`}></div>
 	</div>
 </div>
+
+
+
 
 
 

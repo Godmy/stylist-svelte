@@ -67,3 +67,4 @@
     <text x={(startX + endX) / 2} y={(startY + endY) / 2 + 10} text-anchor="middle" class="fill-current text-xs font-medium" fill="currentColor">{edge.cardinality}</text>
   {/if}
 </svg>
+

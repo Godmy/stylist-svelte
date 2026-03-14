@@ -1,6 +1,6 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { TokenControlDefinition } from '../token-controls/types';
+	import type { TokenControlDefinition } from '$stylist/design-system/types/interaction/token-controls';
 
 	type TokenControlBaseProps = {
 		definition: TokenControlDefinition;
@@ -188,11 +188,11 @@
 <style>
 	.token-control-base {
 		border: 1px solid var(--line);
-		border-radius: 0.75rem;
+		border-radius: var(--border-radius-xl);
 		background: color-mix(in srgb, var(--surface) 93%, var(--bg) 7%);
-		padding: 0.65rem;
+		padding: var(--spacing-3);
 		display: grid;
-		gap: 0.45rem;
+		gap: var(--spacing-2);
 		justify-self: start;
 		width: fit-content;
 		max-width: 100%;
@@ -200,54 +200,54 @@
 
 	.token-control-base__header {
 		display: grid;
-		gap: 0.15rem;
+		gap: var(--spacing-1);
 	}
 
 	.token-control-base__name-row {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: var(--spacing-1);
 	}
 
 	.token-control-base__icon {
-		width: 0.86rem;
-		height: 0.86rem;
+		width: var(--size-custom086);
+		height: var(--size-custom086);
 		flex: 0 0 auto;
 		color: var(--muted);
 	}
 
 	.token-control-base__name {
-		font-size: 0.78rem;
-		font-weight: 700;
+		font-size: var(--font-size-3);
+		font-weight: var(--font-weight-bold);
 		color: var(--text);
 	}
 
 	.token-control-base__count {
-		font-size: 0.58rem;
-		line-height: 1;
-		font-weight: 700;
+		font-size: var(--font-size-3);
+		line-height: var(--line-height-none);
+		font-weight: var(--font-weight-bold);
 		color: var(--muted);
 		border: 1px solid color-mix(in srgb, var(--line) 78%, transparent 22%);
-		border-radius: 999px;
-		padding: 0.02rem 0.25rem;
+		border-radius: var(--border-radius-full);
+		padding: var(--spacing-1) var(--spacing-1);
 		transform: translateY(-0.22rem);
 	}
 
 	.token-control-base__description {
 		margin: 0;
-		font-size: 0.67rem;
+		font-size: var(--font-size-3);
 		color: var(--muted);
 	}
 
 	.token-control-base__body {
 		display: grid;
-		gap: 0.45rem;
+		gap: var(--spacing-2);
 	}
 
 	.token-control-base--inline {
 		grid-template-columns: auto 1fr;
 		align-items: center;
-		gap: 0.55rem;
+		gap: var(--spacing-2);
 	}
 
 	.token-control-base--inline .token-control-base__header {
@@ -258,6 +258,8 @@
 		display: block;
 	}
 </style>
+
+
 
 
 

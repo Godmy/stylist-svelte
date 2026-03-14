@@ -50,10 +50,10 @@ const User = 'user';
   // Status color mapping
   function getStatusColor(status?: string) {
     switch(status) {
-      case 'online': return 'bg-green-500';
+      case 'online': return 'bg-[var(--color-success-500)]';
       case 'away': return 'bg-yellow-500';
-      case 'busy': return 'bg-red-500';
-      default: return 'bg-gray-400';
+      case 'busy': return 'bg-[var(--color-danger-500)]';
+      default: return 'bg-[var(--color-neutral-400)]';
     }
   }
 </script>
@@ -70,21 +70,21 @@ const User = 'user';
           <img 
             src={member.avatar} 
             alt={member.name} 
-            class={`rounded-full border-2 border-white ${sizeClasses}`}
+            class={`rounded-full border-2 border-[var(--color-background-primary)] ${sizeClasses}`}
           />
         {:else}
-          <div class={`rounded-full border-2 border-white flex items-center justify-center text-white font-medium ${sizeClasses} bg-gray-300 text-gray-700`}>
+          <div class={`rounded-full border-2 border-[var(--color-background-primary)] flex items-center justify-center text-[var(--color-text-inverse)] font-medium ${sizeClasses} bg-[var(--color-background-tertiary)] text-[var(--color-text-primary)]`}>
             {member.name.charAt(0).toUpperCase()}
           </div>
         {/if}
         
         {#if showStatus && member.status}
-          <div class={`absolute bottom-0 right-0 rounded-full border-2 border-white ${statusSize} ${getStatusColor(member.status)}`}></div>
+          <div class={`absolute bottom-0 right-0 rounded-full border-2 border-[var(--color-background-primary)] ${statusSize} ${getStatusColor(member.status)}`}></div>
         {/if}
       </div>
       
       {#if showTooltip}
-        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block z-10 bg-black bg-opacity-75 text-white text-xs rounded py-1 px-2">
+        <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block z-[var(--z-index-docked)] bg-[var(--color-neutral-900)] bg-opacity-[var(--opacity-75)] text-[var(--color-text-inverse)] text-xs rounded py-1 px-2">
           {member.name}
           {#if member.role && member.role !== ''}
             <div class="text-xs">{member.role}</div>
@@ -100,11 +100,16 @@ const User = 'user';
   <!-- Overflow indicator -->
   {#if overflowCount > 0}
     <div 
-      class={`relative ${stackDirection === 'horizontal' ? '-ml-2' : '-mt-2'} flex items-center justify-center rounded-full border-2 border-white bg-indigo-100 text-indigo-800 font-medium ${sizeClasses} ${size === 'sm' ? 'text-xs' : size === 'md' ? 'text-sm' : 'text-base'}`}
+      class={`relative ${stackDirection === 'horizontal' ? '-ml-2' : '-mt-2'} flex items-center justify-center rounded-full border-2 border-[var(--color-background-primary)] bg-[var(--color-primary-100)] text-[var(--color-primary-800)] font-medium ${sizeClasses} ${size === 'sm' ? 'text-xs' : size === 'md' ? 'text-sm' : 'text-base'}`}
     >
       +{overflowCount}
       <BaseIcon name={Users} class="ml-1" style={`width: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}; height: ${size === 'sm' ? '0.75rem' : size === 'md' ? '1rem' : '1.25rem'}`} />
     </div>
   {/if}
 </div>
+
+
+
+
+
 

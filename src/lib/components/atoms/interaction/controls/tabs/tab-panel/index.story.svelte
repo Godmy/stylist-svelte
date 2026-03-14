@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import { Tabs } from '$stylist/components/molecules/interaction/controls/tabs';
 	import TabPanel from './index.svelte';
 	import TabList from '../tab-list/index.svelte';
@@ -30,3 +30,5 @@
 		</Tabs>
 	{/snippet}
 </Story>
+
+

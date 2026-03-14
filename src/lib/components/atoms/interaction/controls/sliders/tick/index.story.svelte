@@ -6,3 +6,5 @@
 	<Tick value={50} position={50} active={true} label="50%" />
 </div>
 
+
+

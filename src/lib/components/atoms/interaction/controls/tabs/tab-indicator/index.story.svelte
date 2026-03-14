@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import TabIndicator from './index.svelte';
 
 	const colorOptions = ['primary', 'secondary', 'success', 'warning', 'danger', 'gray'] as const;
@@ -42,11 +42,11 @@
 		{@const color = storyProps.color ?? 'primary'}
 		{@const width = typeof storyProps.width === 'string' ? storyProps.width : '50px'}
 		{@const left = typeof storyProps.left === 'string' ? storyProps.left : '0px'}
-		<div class="relative w-full max-w-md border-b border-gray-200">
+		<div class="relative w-full max-w-md border-b border-[var(--color-border-primary)]">
 			<div class="flex">
 				{#each tabs as tab, i}
 					<button
-						class={`px-4 py-2 text-sm font-medium ${activeTab === i ? 'text-primary-600' : 'text-gray-600'}`}
+						class={`px-4 py-2 text-sm font-medium ${activeTab === i ? 'text-primary-600' : 'text-[var(--color-text-secondary)]'}`}
 						onclick={() => handleClick(i)}
 					>
 						{tab.label}
@@ -57,16 +57,19 @@
 		</div>
 
 		<h3 class="mt-8 mb-4 text-lg font-bold">Customizable Indicator</h3>
-		<div class="relative w-full max-w-md border-b border-gray-200">
+		<div class="relative w-full max-w-md border-b border-[var(--color-border-primary)]">
 			<div class="flex justify-between">
-				<button class="px-4 py-2 text-sm font-medium text-gray-600">Item A</button>
-				<button class="px-4 py-2 text-sm font-medium text-gray-600">Item B</button>
-				<button class="px-4 py-2 text-sm font-medium text-gray-600">Item C</button>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item A</button>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item B</button>
+				<button class="px-4 py-2 text-sm font-medium text-[var(--color-text-secondary)]">Item C</button>
 			</div>
 			<TabIndicator {width} {left} {color} />
 		</div>
 	{/snippet}
 </Story>
+
+
+
 
 
 

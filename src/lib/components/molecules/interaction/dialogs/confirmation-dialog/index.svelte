@@ -57,8 +57,8 @@ import { Button } from '$stylist/components/atoms';
 </script>
 
 {#if open}
-  <div class={`fixed inset-0 z-40 flex items-center justify-center bg-black/40 ${hostClass}`} {...restProps}>
-    <div class={`w-full max-w-lg rounded-lg bg-white p-6 shadow-lg ${contentClass}`}>
+  <div class={`fixed inset-0 z-[var(--z-index-overlay)] flex items-center justify-center bg-[var(--color-neutral-900)]/40 ${hostClass}`} {...restProps}>
+    <div class={`w-full max-w-lg rounded-lg bg-[var(--color-background-primary)] p-6 shadow-lg ${contentClass}`}>
       <h3 class={`text-lg font-semibold ${headerClass}`}>{title}</h3>
       <p class={`mt-2 ${bodyClass}`}>{message}</p>
       <div class={`mt-6 flex justify-end space-x-3 ${footerClass}`}>
@@ -72,3 +72,8 @@ import { Button } from '$stylist/components/atoms';
     </div>
   </div>
 {/if}
+
+
+
+
+

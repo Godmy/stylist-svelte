@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import ProductSearch from './index.svelte';
 
   let query = $state('');
@@ -22,8 +22,11 @@
         onSearch={(value) => (query = value)}
         onSuggestionSelect={(value) => (picked = value)}
       />
-      <p class="text-sm text-gray-600">Search query: {query || 'none'}</p>
-      <p class="text-sm text-gray-600">Suggestion picked: {picked || 'none'}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Search query: {query || 'none'}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Suggestion picked: {picked || 'none'}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

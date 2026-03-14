@@ -76,3 +76,5 @@
     <span>{currency}{maxPrice}</span>
   </div>
 </div>
+
+

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/design-system/playground';
-  import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
   import MessageComposer from './index.svelte';
 
   let lastSent = $state('none');
@@ -24,7 +24,7 @@
   {controls}
 >
   {#snippet children(args: any)}
-    <div class="p-6 rounded-xl bg-gray-50 space-y-3">
+    <div class="p-6 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
       <MessageComposer
         placeholder={args.placeholder}
         disabled={args.disabled}
@@ -34,8 +34,11 @@
         onAttachmentClick={() => (attachmentClicks += 1)}
         onVoiceClick={() => (voiceClicks += 1)}
       />
-      <p class="text-sm text-gray-600">Last sent: {lastSent}</p>
-      <p class="text-sm text-gray-600">Attachment: {attachmentClicks} | Voice: {voiceClicks}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Last sent: {lastSent}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">Attachment: {attachmentClicks} | Voice: {voiceClicks}</p>
     </div>
   {/snippet}
 </Story>
+
+
+

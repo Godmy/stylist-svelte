@@ -37,7 +37,7 @@
 	const Template: Story<StoryArgs> = (args) => ({
 		Component: NodeProperty,
 		props: args,
-		style: 'background: #1e1e1e; padding: 20px; border-radius: 8px; max-width: 400px;'
+		style: 'background: #1e1e1e; padding: var(--spacing-5); border-radius: var(--border-radius-lg); max-width: var(--border-radius-full);'
 	});
 
 	export const Default = Template.bind({});
@@ -157,10 +157,10 @@
 		style: `
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: var(--spacing-2);
 			background: #1e1e1e;
-			padding: 20px;
-			border-radius: 8px;
+			padding: var(--spacing-5);
+			border-radius: var(--border-radius-lg);
 			max-width: 500px;
 		`
 	});
@@ -197,3 +197,4 @@
 	<NodeProperty name="md" label="MD Size" type="string" value="Medium" size="md" />
 	<NodeProperty name="lg" label="LG Size" type="string" value="Large" size="lg" />
 </Story>
+

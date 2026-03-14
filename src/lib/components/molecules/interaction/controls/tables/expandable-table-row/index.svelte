@@ -42,17 +42,17 @@ const ChevronRight = 'chevron-right';
 </script>
 
   <!-- Main row -->
-  <tr class={`border-b border-gray-200 ${hostClass}`} {...restProps}>
-    <td class={`py-4 px-6 text-sm font-medium text-gray-900 ${headerCellClass}`}>
+  <tr class={`border-b border-[var(--color-border-primary)] ${hostClass}`} {...restProps}>
+    <td class={`py-4 px-6 text-sm font-medium text-[var(--color-text-primary)] ${headerCellClass}`}>
       <button 
         type="button" 
-        class="flex items-center text-gray-500 hover:text-gray-700 focus:outline-none"
+        class="flex items-center text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus:outline-none"
         onclick={toggleExpanded}
       >
         {#if expanded}
-          <BaseIcon name={ChevronDown} class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         {:else}
-          <BaseIcon name={ChevronRight} class="h-5 w-5 text-gray-400" />
+          <BaseIcon name={ChevronRight} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         {/if}
       </button>
     </td>
@@ -61,10 +61,13 @@ const ChevronRight = 'chevron-right';
 
   <!-- Expanded content row -->
   {#if expanded}
-    <tr class={`border-b border-gray-200 ${hostClass}`}>
-      <td class={`py-4 px-6 text-sm text-gray-500 ${cellClass}`} colspan="999">
+    <tr class={`border-b border-[var(--color-border-primary)] ${hostClass}`}>
+      <td class={`py-4 px-6 text-sm text-[var(--color-text-secondary)] ${cellClass}`} colspan="999">
         {@render expandableContent()}
       </td>
     </tr>
   {/if}
+
+
+
 

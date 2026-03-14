@@ -2,7 +2,7 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
-	import { createInputTextState } from '$stylist/design-system/models/interaction/input-text.svelte';
+	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputPasswordProps } from '$stylist/design-system/contracts';
 	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
@@ -79,7 +79,7 @@
 		if (/[^a-zA-Z0-9]/.test(value)) strength++;
 
 		const labels = ['����� ������', '������', '�������', '�������', '�������'];
-		const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-green-500'];
+		const colors = ['bg-[var(--color-danger-500)]', 'bg-orange-500', 'bg-yellow-500', 'bg-lime-500', 'bg-[var(--color-success-500)]'];
 
 		return {
 			value: strength,
@@ -161,12 +161,17 @@
 	{#if showPasswordStrength && passwordStrength}
 		<div class="mt-2">
 			<div class="flex items-center gap-2">
-				<div class="h-2 flex-1 overflow-hidden rounded-full bg-gray-200">
-					<div class="h-full transition-all duration-300 {passwordStrength.color}" style="width: {passwordStrength.percentage}%"></div>
+				<div class="h-2 flex-1 overflow-hidden rounded-full bg-[var(--color-background-tertiary)]">
+					<div class="h-full transition-all duration-[var(--duration-300)] {passwordStrength.color}" style="width: {passwordStrength.percentage}%"></div>
 				</div>
-				<span class="text-xs text-gray-600">{passwordStrength.label}</span>
+				<span class="text-xs text-[var(--color-text-secondary)]">{passwordStrength.label}</span>
 			</div>
 		</div>
 	{/if}
 </div>
+
+
+
+
+
 

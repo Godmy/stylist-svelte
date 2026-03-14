@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/design-system/playground/Story.svelte';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import InputGroup from './index.svelte';
 
 	const controls: ControlConfig[] = [
@@ -42,4 +42,6 @@
 		/>
 	{/snippet}
 </Story>
+
+
 

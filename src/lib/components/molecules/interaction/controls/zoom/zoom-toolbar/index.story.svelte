@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ZoomToolbar from './index.svelte';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const controls = [
     {
@@ -52,7 +52,7 @@
 >
   {#snippet children(controlValues: any)}
   <div class="p-4">
-    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+    <div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
       <ZoomToolbar
         zoomLevel={controlValues.zoomLevel}
         minZoom={controlValues.minZoom}
@@ -64,19 +64,22 @@
       />
     </div>
 
-    <div class="mt-4 rounded-lg border border-gray-100 bg-gray-50 p-4">
-      <h3 class="text-sm font-semibold text-gray-800">История</h3>
+    <div class="mt-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+      <h3 class="text-sm font-semibold text-[var(--color-text-primary)]">История</h3>
       {#if log.length > 0}
-        <ul class="mt-2 space-y-1 text-sm text-gray-700">
+        <ul class="mt-2 space-y-1 text-sm text-[var(--color-text-primary)]">
           {#each log as entry}
-            <li class="rounded-md bg-white px-3 py-1 shadow-sm">{entry}</li>
+            <li class="rounded-md bg-[var(--color-background-primary)] px-3 py-1 shadow-sm">{entry}</li>
           {/each}
         </ul>
       {:else}
-        <p class="mt-2 text-sm text-gray-500">История появится после взаимодействия с панелью.</p>
+        <p class="mt-2 text-sm text-[var(--color-text-secondary)]">История появится после взаимодействия с панелью.</p>
       {/if}
     </div>
   </div>
 
   {/snippet}
 </Story>
+
+
+

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TabContainerProps } from '$stylist/design-system/contracts';
+	import type { TabContainerProps } from '$stylist/design-system/types/interaction/tabs';
 	import { createTabPanelsState } from '$stylist/design-system/models/interaction/tab-panels.svelte';
 
 	let props: TabContainerProps = $props();
@@ -17,6 +17,8 @@
 <div {...restProps} class={state.classes}>
 	{@render props.children?.()}
 </div>
+
+
 
 
 

@@ -18,8 +18,11 @@
   {#if fallback}
     {@render fallback()}
   {:else}
-    <div class="p-4 text-center text-gray-500">
+    <div class="p-4 text-center text-[var(--color-text-secondary)]">
       You do not have permission to view this content.
     </div>
   {/if}
 {/if}
+
+
+

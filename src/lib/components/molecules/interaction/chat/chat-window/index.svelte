@@ -79,10 +79,10 @@ import MessageList from '$stylist/components/molecules/information/messages/mess
     flex-direction: column;
     height: 100%;
     width: 100%;
-    background-color: #f0f4f8;
-    border-radius: 0.5rem;
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-custom40);
   }
 
   .chat-messages {
@@ -91,19 +91,19 @@ import MessageList from '$stylist/components/molecules/information/messages/mess
   }
 
   .chat-input {
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--color-border-primary);
     background-color: white;
   }
 </style>
 
   <div class="chat-window">
   {#if chat}
-    <div class="flex items-center justify-between border-b border-gray-200 bg-white p-3">
-      <div class="font-semibold text-gray-800">{compatibleChat.name}</div>
+    <div class="flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3">
+      <div class="font-semibold text-[var(--color-text-primary)]">{compatibleChat.name}</div>
       <div class="flex gap-2">
-        <button type="button" class="text-sm text-gray-600" onclick={() => dispatch('call', { chat })}>Call</button>
-        <button type="button" class="text-sm text-gray-600" onclick={() => dispatch('videoCall', { chat })}>Video</button>
-        <button type="button" class="text-sm text-gray-600" onclick={() => dispatch('chatInfo', { chat })}>Info</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('call', { chat })}>Call</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('videoCall', { chat })}>Video</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('chatInfo', { chat })}>Info</button>
       </div>
     </div>
   {/if}
@@ -122,3 +122,7 @@ import MessageList from '$stylist/components/molecules/information/messages/mess
     />
   </div>
 </div>
+
+
+
+

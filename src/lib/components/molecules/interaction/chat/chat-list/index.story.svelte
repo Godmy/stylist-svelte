@@ -2,7 +2,7 @@
   import Story from '$stylist/design-system/playground/Story.svelte';
   import ChatList from './index.svelte';
   import type { Chat, User } from '$stylist/design-system/contracts/information/chat';
-  import type { ControlType } from '$stylist/design-system/tokens/interaction/controls';
+  import type { ControlType } from '$stylist/design-system/defaults/interaction/controls';
 
   const currentUser: User = {
     id: '1',
@@ -107,3 +107,6 @@
 
   {/snippet}
 </Story>
+
+
+

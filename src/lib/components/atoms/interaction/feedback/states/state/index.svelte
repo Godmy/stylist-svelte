@@ -33,19 +33,19 @@ const Plus = 'plus';
   {:else if icon}
     {@render icon()}
   {:else}
-    <BaseIcon name={Inbox} class="mx-auto h-12 w-12 text-gray-400" aria-hidden="true" />
+    <BaseIcon name={Inbox} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" aria-hidden="true" />
   {/if}
 
-  <h3 class="mt-2 text-sm font-medium text-gray-900">{title}</h3>
+  <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">{title}</h3>
   {#if description}
-    <p class="mt-1 text-sm text-gray-500 max-w-md mx-auto">{description}</p>
+    <p class="mt-1 text-sm text-[var(--color-text-secondary)] max-w-md mx-auto">{description}</p>
   {/if}
   {#if action}
     <div class="mt-6">
       <button
         type="button"
         onclick={action.onClick}
-        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         <BaseIcon name={Plus} class="-ml-1 mr-2 h-5 w-5" />
         {action.label}
@@ -53,6 +53,11 @@ const Plus = 'plus';
     </div>
   {/if}
 </div>
+
+
+
+
+
 
 
 

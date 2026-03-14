@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { INotificationBadgeProps } from '$stylist/design-system/contracts';
-	import { NotificationBadgeStyleManager } from '$stylist/design-system/styles/interaction/feedback';
+	import { NotificationBadgeStyleManager } from '$stylist/design-system/constants';
 
 	/**
 	 * NotificationBadge component - A badge component to display notifications count or status
@@ -74,6 +74,9 @@
 		{/if}
 	</div>
 {/if}
+
+
+
 
 
 

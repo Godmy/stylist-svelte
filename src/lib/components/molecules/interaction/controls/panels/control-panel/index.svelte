@@ -1,5 +1,6 @@
 <script lang="ts">
-  import SearchBar from '$stylist/components/molecules/interaction/search/search-bar/index.svelte';
+  import SearchBar from '$stylist/components/molecules/interaction/search/search-bar/index.svelte';
+
   import FilterPanel from '$stylist/components/molecules/interaction/forms/filter-panel/index.svelte';
   import Toolbar from '$stylist/components/molecules/interaction/controls/toolbars/toolbar/index.svelte';
 
@@ -36,17 +37,17 @@
   .control-panel {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    background-color: #f8fafc;
-    border-radius: 0.5rem;
-    border: 1px solid #e2e8f0;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    background-color: var(--color-background-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border-primary);
   }
 
   .panel-section {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-2);
   }
 </style>
 
@@ -78,6 +79,8 @@
     </div>
   {/if}
 </div>
+
+
 
 
 

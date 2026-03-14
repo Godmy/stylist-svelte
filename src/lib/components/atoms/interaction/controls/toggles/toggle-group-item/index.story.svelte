@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import ToggleGroupItem from './index.svelte';
 	import ToggleGroupRoot from '../toggle-group-root/index.svelte';
 
@@ -27,3 +27,5 @@
 		</div>
 	{/snippet}
 </Story>
+
+

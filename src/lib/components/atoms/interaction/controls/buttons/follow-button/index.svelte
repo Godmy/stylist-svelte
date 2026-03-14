@@ -61,17 +61,17 @@ const Loader2 = 'loader-2';
 <button
   type="button"
   class={`follow-button ${
-    isFollowing ? 'text-gray-900 bg-gray-100 hover:bg-gray-200' : 
-    variant === 'primary' ? 'text-white bg-blue-600 hover:bg-blue-700' : 
-    variant === 'secondary' ? 'text-white bg-purple-600 hover:bg-purple-700' : 
-    variant === 'outline' ? 'text-gray-700 bg-white hover:bg-gray-50 border border-gray-300' : 
-    'text-gray-700 hover:bg-gray-100'
+    isFollowing ? 'text-[var(--color-text-primary)] bg-[var(--color-background-secondary)] hover:bg-[var(--color-background-tertiary)]' : 
+    variant === 'primary' ? 'text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)]' : 
+    variant === 'secondary' ? 'text-[var(--color-text-inverse)] bg-[var(--color-secondary-600)] hover:bg-[var(--color-secondary-700)]' : 
+    variant === 'outline' ? 'text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] border border-[var(--color-border-primary)]' : 
+    'text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
   } ${
     size === 'sm' ? 'text-xs px-2 py-1' : 
     size === 'lg' ? 'text-base px-4 py-2' : 
     'text-sm px-3 py-1.5'
   } font-medium rounded-md ${
-    disabled || isPending ? 'opacity-75 cursor-not-allowed' : 'cursor-pointer'
+    disabled || isPending ? 'opacity-[var(--opacity-75)] cursor-not-allowed' : 'cursor-pointer'
   } ${hostClass}`}
   onclick={handleToggle}
   disabled={disabled || isPending}
@@ -94,6 +94,10 @@ const Loader2 = 'loader-2';
     </div>
   {/if}
 </button>
+
+
+
+
 
 
 

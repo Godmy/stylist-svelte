@@ -19,7 +19,7 @@
 </script>
 
 <div class={ProductComparisonTableStyleManager.getContainerClass(className)}>
-  <table class="min-w-full bg-white border border-gray-200">
+  <table class="min-w-full bg-[var(--color-background-primary)] border border-[var(--color-border-primary)]">
     <thead>
       <tr>
         <th class="py-3 px-4 border-b text-left"></th>
@@ -48,7 +48,7 @@
     </thead>
     <tbody>
       {#each specifications as spec, i}
-        <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+        <tr class={i % 2 === 0 ? 'bg-[var(--color-background-primary)]' : 'bg-[var(--color-background-secondary)]'}>
           <td class="py-3 px-4 border-b font-medium">{spec.name}</td>
           {#each spec.values as value, j}
             <td class="py-3 px-4 border-b text-center">{value}</td>
@@ -58,3 +58,5 @@
     </tbody>
   </table>
 </div>
+
+

@@ -1,4 +1,4 @@
-﻿<script lang="ts">
+<script lang="ts">
   /**
    * CodeWithLineNumbers - Legacy wrapper for unified Code
    * 
@@ -39,4 +39,7 @@
   headerClass={props.headerClass}
   {...props}
 />
+
+
+
 

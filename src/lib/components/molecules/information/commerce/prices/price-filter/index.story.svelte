@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Story } from '$stylist/design-system/playground';
-	import type { ControlConfig } from '$stylist/design-system/tokens/interaction/controls';
+	import type { ControlConfig } from '$stylist/design-system/defaults/interaction/controls';
 	import PriceFilter from './index.svelte';
 
 	let selected = $state('0 - 1000');
@@ -22,3 +22,5 @@
 		</div>
 	{/snippet}
 </Story>
+
+

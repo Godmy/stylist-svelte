@@ -1,25 +1,11 @@
 <script lang="ts">
-  /**
-   * GradientBackground - компонент для отображения анимированного градиентного фона
-   * 
-   * Следует принципам SOLID:
-   * 
-   * Single Responsibility: Отвечает только за отображение анимированного градиента
-   * Open/Closed: Легко расширяется через пропсы, не требует изменений в коде
-   * Liskov Substitution: Может быть заменен другим компонентом фона при необходимости
-   * Interface Segregation: Имеет минимальный, конкретный интерфейс для градиента
-   * Dependency Inversion: Зависит от абстракции стилей через GradientBackgroundStyleManager
-   * 
-   * Использует подход Atomic Design (Molecule) - создает визуальный эффект,
-   * который может быть использован в других компонентах, таких как Hero
-   */
-  
-  import type { IGradientBackgroundProps, GradientVariant } from '$stylist/design-system/contracts/architecture/gradient-background';
+  import type { IGradientBackgroundProps } from '$stylist/design-system/contracts/architecture/gradient-background';
+  import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
   import { GradientBackgroundStyleManager } from '$stylist/design-system/styles/architecture/gradient-background';
-  
+
   let {
     variant = 'dynamic',
-    colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57'],
+    colors = ['var(--color-danger-400)', 'var(--color-success-400)', 'var(--color-info-500)', 'var(--color-success-300)', 'var(--color-warning-300)'],
     speed = 20,
     intensity = 50,
     direction = 'diagonal',
@@ -27,39 +13,40 @@
     children
   } = $props();
 
-  // Define the variants for type checking
   const typedVariant = variant as 'dynamic' | 'static' | 'particles';
   const typedDirection = direction as 'diagonal' | 'horizontal' | 'vertical' | 'radial';
 
-  // Вычисляемые стили через derived для изоляции логики стилизации
   const containerClasses = $derived(GradientBackgroundStyleManager.getContainerClasses(className));
   const gradientClasses = $derived(GradientBackgroundStyleManager.getGradientClasses(typedVariant, typedDirection));
   const contentWrapperClasses = $derived(GradientBackgroundStyleManager.getContentWrapperClasses());
 
-  // Формируем строку градиента из цветов
-  const gradientStyle = $derived(() => {
-    // Масштабируем скорость анимации: чем больше значение speed, тем медленнее анимация
-    const animationDuration = `${speed * 0.75}s`;
+  const gradientImageByDirection = (value: GradientVariant): string => {
+    if (value === 'radial') return 'var(--gradient-radial-center)';
+    if (value === 'horizontal') return 'var(--gradient-directional-horizontal)';
+    if (value === 'vertical') return 'var(--gradient-directional-vertical)';
+    return 'var(--gradient-directional-diagonal)';
+  };
 
-    // Регулируем интенсивность: чем выше значение, тем дальше друг от друга цвета в градиенте
-    const colorStops = colors.map((color: string, index: number) => {
-      const position = Math.round((index / (colors.length - 1)) * 100);
-      return `${color} ${position}%`;
-    }).join(', ');
+  const gradientStyle = $derived(() => {
+    const animationDuration = `${speed * 0.75}s`;
+    const startColor = colors[0] ?? 'var(--color-primary-500)';
+    const endColor = colors[colors.length - 1] ?? startColor;
 
     return {
-      backgroundImage: `linear-gradient(45deg, ${colorStops})`,
+      backgroundImage: gradientImageByDirection(typedDirection),
+      gradientStart: startColor,
+      gradientEnd: endColor,
+      gradientInner: startColor,
+      gradientOuter: endColor,
       animationDuration: variant === 'dynamic' ? animationDuration : undefined
     };
   });
-
 </script>
 
 <style>
-  /* Dynamically inject styles - using a CSS variable approach instead of @html */
   .gradient-background {
     background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
+    animation: gradientAnimation var(--duration-s15) var(--animation-ease) infinite;
   }
 
   @keyframes gradientAnimation {
@@ -70,14 +57,12 @@
 </style>
 
 <div class={containerClasses} role="presentation">
-  <!-- Анимированный градиент -->
   <div
     class={gradientClasses}
-    style={`background-image: ${gradientStyle().backgroundImage}; ${variant === 'dynamic' && gradientStyle().animationDuration ? `animation-duration: ${gradientStyle().animationDuration};` : ''}`}
+    style={`--gradient-start: ${gradientStyle().gradientStart}; --gradient-end: ${gradientStyle().gradientEnd}; --gradient-inner: ${gradientStyle().gradientInner}; --gradient-outer: ${gradientStyle().gradientOuter}; background-image: ${gradientStyle().backgroundImage}; ${variant === 'dynamic' && gradientStyle().animationDuration ? `animation-duration: ${gradientStyle().animationDuration};` : ''}`}
     aria-hidden="true"
   ></div>
 
-  <!-- Контент поверх градиента -->
   {#if children}
     <div class={contentWrapperClasses}>
       {@render children()}
