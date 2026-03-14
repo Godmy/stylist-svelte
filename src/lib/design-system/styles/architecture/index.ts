@@ -13,4 +13,3 @@ export { SharedCanvasStyleManager } from './shared-canvas';
 export { SidebarStyleManager } from './sidebar';
 export { StackStyleManager } from './stack';
 export { TimeGridStyleManager } from './time-grid';
-export type { SharedCanvasStyleManagerInterface } from './shared-canvas';

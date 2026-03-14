@@ -7,21 +7,7 @@ const SHARED_CANVAS_SIZE_CLASSES = {
 } as const;
 
 const DEFAULT_SHARED_CANVAS_SIZE: keyof typeof SHARED_CANVAS_SIZE_CLASSES = 'md';
-
-
-
-export interface SharedCanvasStyleManagerInterface {
-	getContainerClass: (variant: string, size: string, className?: string) => string;
-	getToolbarClass: (className?: string) => string;
-	getCanvasClass: (className?: string) => string;
-	getUserPanelClass: () => string;
-	getUserItemClass: () => string;
-	getToolButtonClass: (isActive: boolean) => string;
-	getActionButtonClass: () => string;
-}
-
-
-export class SharedCanvasStyleManager implements SharedCanvasStyleManagerInterface {
+export class SharedCanvasStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses =
 			SHARED_CANVAS_SIZE_CLASSES[size as keyof typeof SHARED_CANVAS_SIZE_CLASSES] ||

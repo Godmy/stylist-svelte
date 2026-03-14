@@ -1,4 +1,6 @@
-import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../information/badge';
+import type { ComponentSize } from '../../tokens/architecture/component-size';
+import type { Code } from '../../tokens/interaction/variants';
+import { BadgeStyleManager } from '../information/badge';
 import { cn } from '../../utils/cn/index';
 
 const SEPARATOR_CLASSES = {
@@ -9,8 +11,8 @@ const SEPARATOR_CLASSES = {
 const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
 
 const SEPARATOR_CODE_BLOCK_DEFAULTS = {
-	variant: 'default' as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
-	size: 'md' as keyof typeof CODE_BLOCK_SIZE_CLASSES
+	variant: 'default' as Code,
+	size: 'md' as ComponentSize
 };
 
 
@@ -26,14 +28,14 @@ export class SeparatorStyleManager {
 	}
 
 	static getSyntaxHighlightedCodeContainerClasses(
-		variant: keyof typeof CODE_BLOCK_VARIANT_CLASSES = SEPARATOR_CODE_BLOCK_DEFAULTS.variant,
-		size: keyof typeof CODE_BLOCK_SIZE_CLASSES = SEPARATOR_CODE_BLOCK_DEFAULTS.size,
+		variant: Code = SEPARATOR_CODE_BLOCK_DEFAULTS.variant,
+		size: ComponentSize = SEPARATOR_CODE_BLOCK_DEFAULTS.size,
 		className = ''
 	): string {
 		return cn(
 			'rounded-md',
-			CODE_BLOCK_VARIANT_CLASSES[variant],
-			CODE_BLOCK_SIZE_CLASSES[size],
+			BadgeStyleManager.getCodeVariantClass(variant),
+			BadgeStyleManager.getCodeSizeClass(size),
 			className
 		);
 	}
@@ -42,5 +44,4 @@ export class SeparatorStyleManager {
 		return 'font-mono text-sm';
 	}
 }
-
 

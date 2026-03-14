@@ -1,13 +1,13 @@
 import { cn } from '../../utils/cn/index';
-import { CODE_HEADER_BASE_CLASSES, CODE_SURFACE_BASE_CLASSES } from './code-block';
+import { CodeStyleManager } from './code-block';
 
 export class CodeSectionStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-section', CODE_SURFACE_BASE_CLASSES, extraClasses);
+		return cn('c-code-section', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getHeaderContainerClass(): string {
-		return cn(CODE_HEADER_BASE_CLASSES, 'px-4 py-3');
+		return cn(CodeStyleManager.getHeaderBaseClasses(), 'px-4 py-3');
 	}
 
 	static getHeaderContentClass(): string {
@@ -26,5 +26,4 @@ export class CodeSectionStyleManager {
 		return 'text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
 

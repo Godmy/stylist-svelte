@@ -1,12 +1,12 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
-import { PRODUCT_CARD_STAR_EMPTY_CLASSES, PRODUCT_CARD_STAR_FILLED_CLASSES } from './product-card';
+import { CardStyleManager } from './card';
+import { ProductCardStyleManager } from './product-card';
 
 export class ProductCardWithActionsStyleManager {
 	static getContainerClass(extraClasses = ''): string {
 		return cn(
 			'c-product-card-with-actions max-w-sm border border-[var(--color-border-primary)] shadow-md',
-			CARD_BASE_CLASSES,
+			CardStyleManager.getBaseClasses(),
 			extraClasses
 		);
 	}
@@ -32,7 +32,7 @@ export class ProductCardWithActionsStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return cn('h-4 w-4', isFilled ? PRODUCT_CARD_STAR_FILLED_CLASSES : PRODUCT_CARD_STAR_EMPTY_CLASSES);
+		return cn('h-4 w-4', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
 	}
 
 	static getReviewCountClass(): string {
@@ -55,5 +55,4 @@ export class ProductCardWithActionsStyleManager {
 		return 'flex items-center gap-2';
 	}
 }
-
 

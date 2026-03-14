@@ -2,13 +2,13 @@ import type { DefaultVariants } from '../../tokens/interaction/variants';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
 
-export const INTERACTIVE_BASE_CLASS = BASE_CLASSES.interactive;
+const INTERACTIVE_BASE_CLASS = BASE_CLASSES.interactive;
 
-export const PRIMARY_SOLID_CLASSES =
+const PRIMARY_SOLID_CLASSES =
 	'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] ' +
 	'border border-transparent hover:bg-[var(--color-primary-700)]';
 
-export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default:
 		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] ' +
 		'border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
@@ -58,11 +58,15 @@ export const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 		'border border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-200)]'
 };
 
-export const INTERACTIVE_VARIANTS = Object.keys(VARIANT_CLASSES) as (keyof typeof VARIANT_CLASSES)[];
+const INTERACTIVE_VARIANTS = Object.keys(VARIANT_CLASSES) as (keyof typeof VARIANT_CLASSES)[];
 
 export class InteractionStyleManager {
 	static getInteractiveBaseClasses(className = ''): string {
 		return cn(INTERACTIVE_BASE_CLASS, className);
+	}
+
+	static getInteractiveBaseClass(): string {
+		return INTERACTIVE_BASE_CLASS;
 	}
 
 	static getVariantClasses(
@@ -85,5 +89,13 @@ export class InteractionStyleManager {
 
 	static getInteractiveVariants(): readonly (keyof typeof VARIANT_CLASSES)[] {
 		return INTERACTIVE_VARIANTS;
+	}
+
+	static getVariantClassMap(): typeof VARIANT_CLASSES {
+		return VARIANT_CLASSES;
+	}
+
+	static getPrimarySolidClasses(): string {
+		return PRIMARY_SOLID_CLASSES;
 	}
 }

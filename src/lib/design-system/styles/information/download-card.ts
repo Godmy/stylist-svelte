@@ -9,7 +9,7 @@
  */
 
 import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
-import { CARD_BASE_CLASSES, CARD_ICON_CONTAINER_CLASSES, CARD_ICON_SIZE_CLASSES, CARD_TEXT_CONTENT_CLASSES, CARD_TRUNCATE_CLASSES, CARD_ACTIONS_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class DownloadCardStyleManager {
   /**
@@ -17,7 +17,7 @@ export class DownloadCardStyleManager {
    * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ Р±Р°Р·РѕРІС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РєР°СЂС‚РѕС‡РµРє
    */
   static getContainerClasses(className?: string): string {
-    return `${CARD_BASE_CLASSES} download-card flex items-center p-4 hover:shadow-md transition-shadow duration-[var(--duration-200)] ${className || ''}`.trim();
+    return `${CardStyleManager.getBaseClasses()} download-card flex items-center p-4 hover:shadow-md transition-shadow duration-[var(--duration-200)] ${className || ''}`.trim();
   }
 
   /**
@@ -25,7 +25,7 @@ export class DownloadCardStyleManager {
    * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРѕРє
    */
   static getIconContainerClasses(): string {
-    return CARD_ICON_CONTAINER_CLASSES;
+    return CardStyleManager.getIconContainerBaseClasses();
   }
 
   /**
@@ -42,7 +42,7 @@ export class DownloadCardStyleManager {
       info: 'text-[--color-info-500] bg-[--color-info-50]'
     };
 
-    return `${CARD_ICON_SIZE_CLASSES.md} ${variantClasses[variant] || variantClasses.primary}`;
+    return `${CardStyleManager.getIconClasses('md')} ${variantClasses[variant] || variantClasses.primary}`;
   }
 
   /**
@@ -50,7 +50,7 @@ export class DownloadCardStyleManager {
    * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°
    */
   static getInfoContainerClasses(): string {
-    return CARD_TEXT_CONTENT_CLASSES;
+    return CardStyleManager.getTextContentBaseClasses();
   }
 
   /**
@@ -58,7 +58,7 @@ export class DownloadCardStyleManager {
    * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ СѓСЃРµС‡РµРЅРёСЏ С‚РµРєСЃС‚Р°
    */
   static getFileNameClasses(): string {
-    return `text-sm font-medium text-[--color-text-primary] ${CARD_TRUNCATE_CLASSES} block`;
+    return `text-sm font-medium text-[--color-text-primary] ${CardStyleManager.getTruncateBaseClasses()} block`;
   }
 
   /**
@@ -93,7 +93,6 @@ export class DownloadCardStyleManager {
     return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-[var(--duration-150)] ${variantClasses[variant] || variantClasses.primary}`;
   }
 }
-
 
 
 

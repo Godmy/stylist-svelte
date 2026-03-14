@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class PricingTableStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
@@ -7,7 +7,7 @@ export class PricingTableStyleManager {
   }
 
   static getPlanCardClass(highlightClass: string = ''): string {
-    return cn(CARD_BASE_CLASSES, 'border border-[var(--color-border-primary)] p-6', highlightClass);
+    return cn(CardStyleManager.getBaseClasses(), 'border border-[var(--color-border-primary)] p-6', highlightClass);
   }
 
   static getDefaultPlanClass(): string {
@@ -62,6 +62,5 @@ export class PricingTableStyleManager {
     return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }
-
 
 

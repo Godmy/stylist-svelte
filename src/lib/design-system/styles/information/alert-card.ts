@@ -1,11 +1,11 @@
 import { cn } from '../../utils/cn/index';
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../interaction/interaction';
+import { InteractionStyleManager } from '../interaction/interaction';
 
 const ALERT_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
 
 const ALERT_CARD_VARIANT_CLASSES = {
-	...VARIANT_CLASSES,
+	...InteractionStyleManager.getVariantClassMap(),
 	info: 'border-l-4 border-[--color-info-500]',
 	success: 'border-l-4 border-[--color-success-500]',
 	warning: 'border-l-4 border-[--color-warning-500]',

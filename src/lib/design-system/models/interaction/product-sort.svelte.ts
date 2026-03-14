@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 import type { ProductSortProps } from '$stylist/design-system/contracts';
-import { INPUT_BASE_CLASS } from '$stylist/design-system/styles/interaction/input';
+import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 import { LabelStyleManager } from '$stylist/design-system/styles/information/label';
 
 export function createProductSortState(props: ProductSortProps) {
@@ -10,7 +10,7 @@ export function createProductSortState(props: ProductSortProps) {
 	const containerClasses = $derived(`flex items-center ${props.class ?? ''}`.trim());
 	const labelClasses = $derived(mergeClasses('mr-2', LabelStyleManager.getLabelClasses('sm', false)));
 	const selectClasses = $derived(
-		mergeClasses(INPUT_BASE_CLASS, 'w-auto rounded-lg p-2 text-sm', 'focus:ring-[var(--color-primary-500)]')
+		mergeClasses(InputStyleManager.getInputBaseClass(), 'w-auto rounded-lg p-2 text-sm', 'focus:ring-[var(--color-primary-500)]')
 	);
 
 	return {

@@ -1,13 +1,13 @@
 import type { MessageAlign as MessageAlignment } from '../../tokens/information/message-align';
 import type { MessageAvatarSize, MessageStatus, MessageVariant } from '../../tokens/information/message';
 
-export const MESSAGE_ALIGNMENT_CLASSES = {
+const MESSAGE_ALIGNMENT_CLASSES = {
 	left: 'items-start',
 	right: 'items-end',
 	center: 'items-center'
 } as const;
 
-export const MESSAGE_VARIANT_BG_CLASSES = {
+const MESSAGE_VARIANT_BG_CLASSES = {
 	default: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
 	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
 	incoming: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
@@ -17,7 +17,7 @@ export const MESSAGE_VARIANT_BG_CLASSES = {
 	success: 'bg-[--color-success-50] border-[--color-success-200]'
 } as const;
 
-export const MESSAGE_VARIANT_TEXT_CLASSES = {
+const MESSAGE_VARIANT_TEXT_CLASSES = {
 	default: 'text-[--color-text-primary]',
 	system: 'text-[--color-text-secondary]',
 	incoming: 'text-[--color-text-primary]',
@@ -27,14 +27,14 @@ export const MESSAGE_VARIANT_TEXT_CLASSES = {
 	success: 'text-[--color-success-800]'
 } as const;
 
-export const MESSAGE_STATUS_CLASSES = {
+const MESSAGE_STATUS_CLASSES = {
 	sent: 'text-[--color-primary-500]',
 	delivered: 'text-[--color-text-tertiary]',
 	read: 'text-[--color-success-500]',
 	error: 'text-[--color-danger-500]'
 } as const;
 
-export const MESSAGE_AVATAR_SIZE_CLASSES = {
+const MESSAGE_AVATAR_SIZE_CLASSES = {
 	sm: 'w-6 h-6',
 	md: 'w-8 h-8',
 	lg: 'w-10 h-10'
@@ -82,6 +82,26 @@ export class MessageStyleManager {
 	}
 
 	static getAvatarSizeClasses(size: MessageAvatarSize = 'md'): string {
+		return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
+	}
+
+	static getAlignmentClass(align: MessageAlignment = 'left'): string {
+		return MESSAGE_ALIGNMENT_CLASSES[align];
+	}
+
+	static getBubbleVariantClass(variant: MessageVariant = 'default'): string {
+		return MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
+	}
+
+	static getTextVariantClass(variant: MessageVariant = 'default'): string {
+		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+	}
+
+	static getStatusClass(status: MessageStatus = 'delivered'): string {
+		return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
+	}
+
+	static getAvatarSizeClass(size: MessageAvatarSize = 'md'): string {
 		return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
 	}
 

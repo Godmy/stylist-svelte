@@ -5,7 +5,7 @@ const Loader2 = 'loader-2';
 
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/contracts/interaction/button';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
@@ -25,7 +25,7 @@ import { createButtonState } from '../../../../../../design-system/models/intera
 
 	// Use centralized state management
 	let state = createButtonState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
 			variant: 'ghost',
 			size: 'sm'
 		}),
@@ -54,7 +54,6 @@ import { createButtonState } from '../../../../../../design-system/models/intera
 		<BaseIcon name={X} class="h-4 w-4" />
 	{/if}
 </button>
-
 
 
 

@@ -1,6 +1,6 @@
 import type { DefaultVariants as LinkCardVariant } from '$stylist/design-system/tokens/interaction/variants';
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 const LINK_CARD_VARIANT_CLASSES = {
 	default:
@@ -45,7 +45,7 @@ export class LinkCardStyleManager {
 	static getContainerClasses(variant: LinkCardVariant = 'default'): string {
 		return cn(
 			'link-card group block p-6 transition-all duration-[var(--duration-200)]',
-			CARD_BASE_CLASSES,
+			CardStyleManager.getBaseClasses(),
 			LINK_CARD_VARIANT_CLASSES[variant] ?? LINK_CARD_VARIANT_CLASSES.default
 		);
 	}
@@ -78,7 +78,6 @@ export class LinkCardStyleManager {
 		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-primary-600)]';
 	}
 }
-
 
 
 

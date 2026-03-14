@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 const ORDER_STATUS_CLASSES = {
 	pending: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',
@@ -26,7 +26,7 @@ export class OrderConfirmationStyleManager {
 
   static getContainerClasses(): string { return 'max-w-5xl mx-auto p-6'; }
   static getHeaderClasses(headerClass: string = ''): string { return `mt-6 text-3xl font-semibold text-[--color-text-primary] ${headerClass}`.trim(); }
-  static getOrderContainerClasses(): string { return cn(CARD_BASE_CLASSES, 'border border-[var(--color-border-primary)]'); }
+  static getOrderContainerClasses(): string { return cn(CardStyleManager.getBaseClasses(), 'border border-[var(--color-border-primary)]'); }
   static getOrderHeaderClasses(): string { return 'border-b border-[var(--color-border-primary)] p-6'; }
   static getOrderContentClasses(): string { return 'p-6'; }
   static getMainGridClasses(): string { return 'grid grid-cols-1 md:grid-cols-3 gap-6'; }
@@ -42,5 +42,4 @@ export class OrderConfirmationStyleManager {
     return PAYMENT_STATUS_CLASSES[status];
   }
 }
-
 

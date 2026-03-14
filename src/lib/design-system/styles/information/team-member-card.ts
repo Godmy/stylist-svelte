@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
 	default: '',
@@ -20,7 +20,7 @@ export class TeamMemberCardStyleManager {
 	): string {
 		return cn(
 			'team-member-card overflow-hidden',
-			CARD_BASE_CLASSES,
+			CardStyleManager.getBaseClasses(),
 			TEAM_MEMBER_CARD_VARIANT_CLASSES[variant],
 			className
 		);
@@ -86,5 +86,4 @@ export class TeamMemberCardStyleManager {
 		return 'mt-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
 

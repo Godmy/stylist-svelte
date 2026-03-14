@@ -6,7 +6,7 @@ const Check = 'check';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/contracts';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
@@ -30,7 +30,7 @@ import { createButtonState } from '../../../../../../design-system/models/intera
 
 	// Use centralized state management for base button properties
 	let buttonState = createButtonState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
 			variant: 'outline',
 			size: 'sm'
 		}),
@@ -80,7 +80,6 @@ import { createButtonState } from '../../../../../../design-system/models/intera
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
-
 
 
 

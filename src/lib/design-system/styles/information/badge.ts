@@ -4,7 +4,7 @@ import type { DefaultVariants } from '../../tokens';
 import { cn } from '../../utils/cn/index';
 import { BADGE_DEFAULTS, CODE_BLOCK_DEFAULTS } from '../../defaults/information/badge';
 
-export const BADGE_VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const BADGE_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
 	primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
 	secondary: 'bg-[var(--color-secondary-100)] text-[var(--color-secondary-800)]',
@@ -24,7 +24,7 @@ export const BADGE_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)]'
 };
 
-export const BADGE_SIZE_CLASSES: Record<ComponentSize, string> = {
+const BADGE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'text-[10px] px-1.5 py-0.5',
 	sm: 'text-xs px-2 py-0.5',
 	md: 'text-sm px-2.5 py-0.5',
@@ -33,13 +33,13 @@ export const BADGE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'text-xl px-4 py-2'
 };
 
-export const CODE_BLOCK_VARIANT_CLASSES: Record<Code, string> = {
+const CODE_BLOCK_VARIANT_CLASSES: Record<Code, string> = {
 	default: 'bg-[--color-neutral-900] text-[--color-text-inverse]',
 	terminal: 'bg-[var(--color-neutral-900)] text-[--color-success-400] font-mono',
 	diff: 'bg-[--color-background-secondary] text-[--color-text-primary]'
 };
 
-export const CODE_BLOCK_SIZE_CLASSES: Record<ComponentSize, string> = {
+const CODE_BLOCK_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'text-[10px] p-1.5',
 	sm: 'text-xs p-2',
 	md: 'text-sm p-4',
@@ -60,6 +60,14 @@ export class BadgeStyleManager {
 			BADGE_SIZE_CLASSES[size],
 			className
 		);
+	}
+
+	static getBadgeVariantClass(variant: DefaultVariants = BADGE_DEFAULTS.variant): string {
+		return BADGE_VARIANT_CLASSES[variant];
+	}
+
+	static getBadgeSizeClass(size: ComponentSize = BADGE_DEFAULTS.size): string {
+		return BADGE_SIZE_CLASSES[size];
 	}
 
 	static getBadgeGroupContainerClasses(className = ''): string {
@@ -84,5 +92,13 @@ export class BadgeStyleManager {
 			CODE_BLOCK_SIZE_CLASSES[size],
 			className
 		);
+	}
+
+	static getCodeVariantClass(variant: Code = CODE_BLOCK_DEFAULTS.variant): string {
+		return CODE_BLOCK_VARIANT_CLASSES[variant];
+	}
+
+	static getCodeSizeClass(size: ComponentSize = CODE_BLOCK_DEFAULTS.size): string {
+		return CODE_BLOCK_SIZE_CLASSES[size];
 	}
 }

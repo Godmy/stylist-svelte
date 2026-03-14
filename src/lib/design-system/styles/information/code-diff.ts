@@ -1,23 +1,23 @@
 import { cn } from '../../utils/cn/index';
-import { CODE_CHANGED_CONTAINER_CLASSES, CODE_DIFF_LINE_BASE_CLASSES, CODE_DIFF_LINE_VARIANT_CLASSES, CODE_HEADER_BASE_CLASSES, CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES, CODE_MAIN_CONTENT_CLASSES, CODE_SURFACE_BASE_CLASSES } from './code-block';
+import { CodeStyleManager } from './code-block';
 import type { DiffLineType } from '../../tokens/information/diff';
 
 
 export class CodeDiffStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-diff relative', CODE_SURFACE_BASE_CLASSES, extraClasses);
+		return cn('c-code-diff relative', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
-		return cn(CODE_HEADER_BASE_CLASSES, extraClasses);
+		return cn(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
 	}
 
 	static getMainContentClass(): string {
-		return CODE_MAIN_CONTENT_CLASSES;
+		return CodeStyleManager.getMainContentClass();
 	}
 
 	static getLineNumbersContainerClass(): string {
-		return cn('w-16 py-2', CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES);
+		return cn('w-16 py-2', CodeStyleManager.getLineNumbersContainerBaseClasses());
 	}
 
 	static getLineNumberItemClass(): string {
@@ -35,7 +35,7 @@ export class CodeDiffStyleManager {
 	static getDiffLineClass(type: string): string {
 		const normalizedType: DiffLineType =
 			type === 'added' || type === 'removed' ? type : 'unchanged';
-		return cn(CODE_DIFF_LINE_BASE_CLASSES, CODE_DIFF_LINE_VARIANT_CLASSES[normalizedType]);
+		return cn(CodeStyleManager.getDiffLineBaseClasses(), CodeStyleManager.getDiffLineVariantClass(normalizedType));
 	}
 
 	static getDiffSpanClass(type: string): string {
@@ -52,8 +52,7 @@ export class CodeDiffStyleManager {
 	}
 
 	static getChangedContainerClass(): string {
-		return CODE_CHANGED_CONTAINER_CLASSES;
+		return CodeStyleManager.getChangedContainerBaseClasses();
 	}
 }
-
 

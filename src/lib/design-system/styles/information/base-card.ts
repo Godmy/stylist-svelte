@@ -1,11 +1,11 @@
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../interaction/interaction';
+import { InteractionStyleManager } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
 
 const BASE_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
 
 const BASE_CARD_VARIANT_CLASSES = {
-	...VARIANT_CLASSES,
+	...InteractionStyleManager.getVariantClassMap(),
 	outline: 'bg-transparent',
 	ghost: 'bg-transparent border-none shadow-none'
 } as const;
@@ -38,5 +38,3 @@ export class BaseCardStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
-
-

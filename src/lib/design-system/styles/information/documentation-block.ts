@@ -1,11 +1,11 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class DocumentationBlockStyleManager {
   static getContainerClass(variantClasses: string, extraClasses: string = ''): string {
     return cn(
       'c-documentation-block border border-[var(--color-border-primary)]',
-      CARD_BASE_CLASSES,
+      CardStyleManager.getBaseClasses(),
       variantClasses,
       extraClasses
     );
@@ -43,5 +43,4 @@ export class DocumentationBlockStyleManager {
     return '';
   }
 }
-
 

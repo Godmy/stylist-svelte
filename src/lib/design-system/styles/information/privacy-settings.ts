@@ -1,11 +1,11 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class PrivacySettingsStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
     return cn(
       'c-privacy-settings border border-[var(--color-border-primary)] p-6 shadow-sm',
-      CARD_BASE_CLASSES,
+      CardStyleManager.getBaseClasses(),
       extraClasses
     );
   }
@@ -58,5 +58,4 @@ export class PrivacySettingsStyleManager {
     return 'rounded bg-[var(--color-primary-500)] px-4 py-2 text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }
-
 

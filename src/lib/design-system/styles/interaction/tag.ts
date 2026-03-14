@@ -1,5 +1,5 @@
 import type { ComponentSize } from '../../tokens';
-import { VARIANT_CLASSES } from './interaction';
+import { InteractionStyleManager } from './interaction';
 
 const TAG_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'px-1 py-0.5 text-[10px]',
@@ -16,7 +16,7 @@ export class TagStyleManager {
 	}
 
 	static getVariantClass(variant?: string): string {
-		return VARIANT_CLASSES[(variant ?? 'default') as keyof typeof VARIANT_CLASSES] ?? VARIANT_CLASSES.default;
+		return InteractionStyleManager.getVariantClasses((variant ?? 'default') as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]);
 	}
 
 	static getSizeClass(size: ComponentSize = 'md'): string {

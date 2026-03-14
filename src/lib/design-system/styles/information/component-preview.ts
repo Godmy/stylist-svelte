@@ -9,7 +9,7 @@
  */
 
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 /**
  * Style manager for ComponentPreview component
@@ -24,7 +24,7 @@ export class ComponentPreviewStyleManager {
   static getBaseClasses(className?: string): string {
     return cn(
       'c-component-preview border border-[var(--color-border-primary)] shadow-sm',
-      CARD_BASE_CLASSES,
+      CardStyleManager.getBaseClasses(),
       className
     );
   }
@@ -107,6 +107,5 @@ export class ComponentPreviewStyleManager {
     );
   }
 }
-
 
 

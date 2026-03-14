@@ -11,26 +11,7 @@ const PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES =
 
 const DEFAULT_PERFORMANCE_DASHBOARD_SIZE: keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES = 'md';
 
-
-
-
-export interface PerformanceDashboardStyleManagerInterface {
-	getContainerClass: (variant: string, size: string, className?: string) => string;
-	getHeaderClass: (className?: string) => string;
-	getTimeRangeButtonClass: () => string;
-	getActiveTimeRangeButtonClass: () => string;
-	getMetricsGridClass: (className?: string) => string;
-	getMetricCardClass: (className?: string) => string;
-	getMetricHeaderClass: () => string;
-	getMetricTitleClass: () => string;
-	getMetricValueClass: () => string;
-	getTrendPositiveClass: () => string;
-	getTrendNegativeClass: () => string;
-	getChartContainerClass: () => string;
-	getChartBarClass: () => string;
-}
-
-export class PerformanceDashboardStyleManager implements PerformanceDashboardStyleManagerInterface {
+export class PerformanceDashboardStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses = PERFORMANCE_DASHBOARD_SIZE_CLASSES[size as keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES] || PERFORMANCE_DASHBOARD_SIZE_CLASSES[DEFAULT_PERFORMANCE_DASHBOARD_SIZE];
 		return cn('bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden', sizeClasses, className);

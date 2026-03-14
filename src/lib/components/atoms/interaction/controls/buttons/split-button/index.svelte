@@ -2,7 +2,7 @@
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import type { ButtonElementProps } from '$stylist/design-system/contracts/interaction/button';
-	import { INTERACTIVE_VARIANTS } from '$stylist/design-system/styles/interaction/interaction';
+	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 	import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
@@ -42,7 +42,7 @@
 
 	// Use centralized state management for base button properties
 	let buttonState = createButtonState(
-		createBasePreset(INTERACTIVE_VARIANTS, COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
 			variant: 'primary',
 			size: 'md'
 		}),
@@ -187,7 +187,6 @@
 		</div>
 	{/if}
 </div>
-
 
 
 

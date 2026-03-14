@@ -1,6 +1,6 @@
 import { mergeClasses } from '$stylist/utils/classes';
 import type { CodeProps } from '$stylist/design-system/contracts';
-import { CODE_BLOCK_VARIANT_CLASSES, CODE_BLOCK_SIZE_CLASSES } from '$stylist/design-system/styles/information/badge';
+import { BadgeStyleManager } from '$stylist/design-system/styles/information/badge';
 
 /**
  * Code state creator
@@ -18,8 +18,8 @@ export function createCodeState(props: CodeProps) {
 	const classes = $derived(
 		mergeClasses(
 			'rounded-md overflow-x-auto font-mono',
-			CODE_BLOCK_VARIANT_CLASSES[variant as keyof typeof CODE_BLOCK_VARIANT_CLASSES],
-			CODE_BLOCK_SIZE_CLASSES[size as keyof typeof CODE_BLOCK_SIZE_CLASSES],
+			BadgeStyleManager.getCodeVariantClass(variant as CodeProps['variant']),
+			BadgeStyleManager.getCodeSizeClass(size as CodeProps['size']),
 			props.class ?? ''
 		)
 	);
@@ -47,7 +47,6 @@ export function createCodeState(props: CodeProps) {
 }
 
 export default createCodeState;
-
 
 
 

@@ -9,7 +9,7 @@
  */
 
 import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
-import { CARD_BASE_CLASSES, CARD_TITLE_CLASSES, CARD_DESCRIPTION_CLASSES, CARD_PROGRESS_CONTAINER_CLASSES, CARD_PROGRESS_FILL_CLASSES, CARD_PROGRESS_VARIANT_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class MetricCardStyleManager {
   /**
@@ -17,7 +17,7 @@ export class MetricCardStyleManager {
    * Использует нормализованные базовые классы для карточек
    */
   static getContainerClasses(className?: string): string {
-    return `${CARD_BASE_CLASSES} metric-card bg-[--color-background-primary] p-6 ${className || ''}`.trim();
+    return `${CardStyleManager.getBaseClasses()} metric-card bg-[--color-background-primary] p-6 ${className || ''}`.trim();
   }
 
   /**
@@ -25,7 +25,7 @@ export class MetricCardStyleManager {
    * Использует нормализованные классы заголовков
    */
   static getTitleClasses(): string {
-    return CARD_TITLE_CLASSES;
+    return CardStyleManager.getTitleBaseClasses();
   }
 
   /**
@@ -40,7 +40,7 @@ export class MetricCardStyleManager {
    * Использует нормализованные классы описаний
    */
   static getDescriptionClasses(): string {
-    return CARD_DESCRIPTION_CLASSES;
+    return CardStyleManager.getDescriptionBaseClasses();
   }
 
   /**
@@ -48,7 +48,7 @@ export class MetricCardStyleManager {
    * Использует нормализованные классы прогресс-баров
    */
   static getProgressBarContainerClasses(): string {
-    return CARD_PROGRESS_CONTAINER_CLASSES;
+    return CardStyleManager.getProgressContainerBaseClasses();
   }
 
   /**
@@ -65,16 +65,16 @@ export class MetricCardStyleManager {
    */
   static getProgressBarFillClasses(variant: ToneVariant = 'info', percentage: number): string {
     const variantClasses: Record<ToneVariant, string> = {
-      primary: CARD_PROGRESS_VARIANT_CLASSES.primary,
-      secondary: CARD_PROGRESS_VARIANT_CLASSES.secondary,
-      success: CARD_PROGRESS_VARIANT_CLASSES.success,
-      warning: CARD_PROGRESS_VARIANT_CLASSES.warning,
-      danger: CARD_PROGRESS_VARIANT_CLASSES.danger,
-      error: CARD_PROGRESS_VARIANT_CLASSES.danger,
-      info: CARD_PROGRESS_VARIANT_CLASSES.info
+      primary: CardStyleManager.getProgressVariantClass('primary'),
+      secondary: CardStyleManager.getProgressVariantClass('secondary'),
+      success: CardStyleManager.getProgressVariantClass('success'),
+      warning: CardStyleManager.getProgressVariantClass('warning'),
+      danger: CardStyleManager.getProgressVariantClass('danger'),
+      error: CardStyleManager.getProgressVariantClass('danger'),
+      info: CardStyleManager.getProgressVariantClass('info')
     };
 
-    return `${CARD_PROGRESS_FILL_CLASSES} ${variantClasses[variant] || variantClasses.info}`;
+    return `${CardStyleManager.getProgressFillBaseClasses()} ${variantClasses[variant] || variantClasses.info}`;
   }
 
   /**
@@ -94,7 +94,6 @@ export class MetricCardStyleManager {
     return `text-xs font-medium mt-1 ${variantClasses[variant] || variantClasses.info}`;
   }
 }
-
 
 
 

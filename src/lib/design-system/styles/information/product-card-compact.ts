@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { PRODUCT_CARD_BADGE_BASE_CLASSES, PRODUCT_CARD_BADGE_DEFAULT_CLASSES, PRODUCT_CARD_BADGE_NEW_CLASSES, PRODUCT_CARD_BADGE_POPULAR_CLASSES, PRODUCT_CARD_BADGE_SALE_CLASSES, PRODUCT_CARD_STAR_EMPTY_CLASSES, PRODUCT_CARD_STAR_FILLED_CLASSES } from './product-card';
+import { ProductCardStyleManager } from './product-card';
 
 export class ProductCardCompactStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -26,23 +26,23 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getBadgeClass(badgeTypeClass = ''): string {
-		return cn('static px-1.5 py-0.5 text-[10px]', PRODUCT_CARD_BADGE_BASE_CLASSES, badgeTypeClass);
+		return cn('static px-1.5 py-0.5 text-[10px]', ProductCardStyleManager.getBadgeBaseClasses(), badgeTypeClass);
 	}
 
 	static getSaleBadgeClass(): string {
-		return PRODUCT_CARD_BADGE_SALE_CLASSES;
+		return ProductCardStyleManager.getSaleBadgeClass();
 	}
 
 	static getNewBadgeClass(): string {
-		return PRODUCT_CARD_BADGE_NEW_CLASSES;
+		return ProductCardStyleManager.getNewBadgeClass();
 	}
 
 	static getPopularBadgeClass(): string {
-		return PRODUCT_CARD_BADGE_POPULAR_CLASSES;
+		return ProductCardStyleManager.getPopularBadgeClass();
 	}
 
 	static getDefaultBadgeClass(): string {
-		return PRODUCT_CARD_BADGE_DEFAULT_CLASSES;
+		return ProductCardStyleManager.getDefaultBadgeClass();
 	}
 
 	static getRatingContainerClass(): string {
@@ -54,7 +54,7 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return cn('h-3 w-3', isFilled ? PRODUCT_CARD_STAR_FILLED_CLASSES : PRODUCT_CARD_STAR_EMPTY_CLASSES);
+		return cn('h-3 w-3', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
 	}
 
 	static getPriceContainerClass(): string {
@@ -65,5 +65,4 @@ export class ProductCardCompactStyleManager {
 		return 'text-sm font-semibold text-[var(--color-text-primary)]';
 	}
 }
-
 

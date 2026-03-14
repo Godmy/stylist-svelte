@@ -1,12 +1,12 @@
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../interaction/interaction';
+import { InteractionStyleManager } from '../interaction/interaction';
 import { cn } from '../../utils/cn/index';
 import type { AlertType } from '../../tokens/interaction/alert-types';
 
 const PRICE_ALERT_BASE_CLASSES = `${BASE_CLASSES.card} p-4`;
 
 const PRICE_ALERT_VARIANT_CLASSES: Record<AlertType, string> = {
-	...VARIANT_CLASSES,
+	...InteractionStyleManager.getVariantClassMap(),
 	monitoring: 'border-[--color-info-200] bg-[--color-info-50]',
 	reached: 'border-[--color-success-200] bg-[--color-success-50]',
 	exceeded: 'border-[--color-danger-200] bg-[--color-danger-50]'
@@ -40,7 +40,5 @@ export class PriceAlertStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
-
-
 
 

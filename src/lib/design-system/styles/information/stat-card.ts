@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 import type { Background } from '$stylist/design-system/tokens/information/background';
 
 const STAT_CARD_VARIANT_CLASSES = {
@@ -26,7 +26,7 @@ export class StatCardStyleManager {
 		const resolvedVariant = variant in STAT_CARD_VARIANT_CLASSES ? variant : 'default';
 		return cn(
 			'stat-card p-6',
-			CARD_BASE_CLASSES,
+			CardStyleManager.getBaseClasses(),
 			STAT_CARD_VARIANT_CLASSES[resolvedVariant as keyof typeof STAT_CARD_VARIANT_CLASSES],
 			className
 		);
@@ -64,5 +64,4 @@ export class StatCardStyleManager {
 		return 'stat-card-description mt-2 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
 

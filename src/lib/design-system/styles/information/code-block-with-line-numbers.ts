@@ -1,25 +1,25 @@
 import { cn } from '../../utils/cn/index';
-import { CODE_COPY_BUTTON_CONTAINER_CLASSES, CODE_HEADER_BASE_CLASSES, CODE_ICON_CLASSES, CODE_LINE_NUMBER_HIGHLIGHT_CLASSES, CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES, CODE_MAIN_CONTENT_CLASSES, CODE_PRE_BASE_CLASSES, CODE_SURFACE_BASE_CLASSES } from './code-block';
+import { CodeStyleManager } from './code-block';
 
 export class CodeWithLineNumbersStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-block-with-line-numbers', CODE_SURFACE_BASE_CLASSES, extraClasses);
+		return cn('c-code-block-with-line-numbers', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getMainContentClass(): string {
-		return CODE_MAIN_CONTENT_CLASSES;
+		return CodeStyleManager.getMainContentClass();
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
-		return cn(CODE_HEADER_BASE_CLASSES, extraClasses);
+		return cn(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
 	}
 
 	static getLineNumbersContainerClass(extraClasses = ''): string {
-		return cn(CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES, extraClasses);
+		return cn(CodeStyleManager.getLineNumbersContainerBaseClasses(), extraClasses);
 	}
 
 	static getLineNumberItemClass(isHighlighted: boolean): string {
-		return cn('pl-2 pr-3', isHighlighted ? CODE_LINE_NUMBER_HIGHLIGHT_CLASSES : '');
+		return cn('pl-2 pr-3', isHighlighted ? CodeStyleManager.getLineNumberHighlightClass() : '');
 	}
 
 	static getContentContainerClass(extraClasses = ''): string {
@@ -27,16 +27,15 @@ export class CodeWithLineNumbersStyleManager {
 	}
 
 	static getPreClass(extraClasses = ''): string {
-		return cn(CODE_PRE_BASE_CLASSES, 'max-w-full overflow-x-auto', extraClasses);
+		return cn(CodeStyleManager.getPreBaseClasses(), 'max-w-full overflow-x-auto', extraClasses);
 	}
 
 	static getCopyButtonContainerClass(): string {
-		return CODE_COPY_BUTTON_CONTAINER_CLASSES;
+		return CodeStyleManager.getCopyButtonContainerClass();
 	}
 
 	static getIconClass(): string {
-		return CODE_ICON_CLASSES;
+		return CodeStyleManager.getIconBaseClasses();
 	}
 }
-
 

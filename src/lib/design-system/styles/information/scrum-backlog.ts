@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class ScrumBacklogStyleManager {
   static getContainerClass(): string {
@@ -29,7 +29,7 @@ export class ScrumBacklogStyleManager {
   static getAddFormContainerClass(): string {
     return cn(
       'add-form mb-4 border border-[var(--color-border-primary)] p-4 shadow-md',
-      CARD_BASE_CLASSES
+      CardStyleManager.getBaseClasses()
     );
   }
 
@@ -64,7 +64,7 @@ export class ScrumBacklogStyleManager {
   static getFiltersContainerClass(): string {
     return cn(
       'filters mb-4 border border-[var(--color-border-primary)] p-4 shadow-sm',
-      CARD_BASE_CLASSES
+      CardStyleManager.getBaseClasses()
     );
   }
 
@@ -99,7 +99,7 @@ export class ScrumBacklogStyleManager {
   static getItemCardClass(): string {
     return cn(
       'relative border border-[var(--color-border-primary)] p-4 shadow-sm',
-      CARD_BASE_CLASSES
+      CardStyleManager.getBaseClasses()
     );
   }
 
@@ -135,5 +135,4 @@ export class ScrumBacklogStyleManager {
     return 'w-4 h-4 mr-1 inline';
   }
 }
-
 

@@ -1,22 +1,4 @@
-export interface StatusDashboardStyleManagerInterface {
-	getContainerClass: (variant: string, size: string, className?: string) => string;
-	getHeaderClass: (className?: string) => string;
-	getTitleClass: () => string;
-	getSubtitleClass: () => string;
-	getItemsGridClass: (layout: 'horizontal' | 'vertical') => string;
-	getItemCardClass: (className?: string) => string;
-	getItemContentClass: () => string;
-	getItemHeaderClass: () => string;
-	getItemTitleClass: (size: string) => string;
-	getItemValueClass: () => string;
-	getItemDescriptionClass: (size: string) => string;
-	getItemFooterClass: () => string;
-	getItemActionsClass: () => string;
-	getStatusIconWrapperClass: () => string;
-	getStatusIconClass: () => string;
-}
-
-export const StatusDashboardStyleManager: StatusDashboardStyleManagerInterface = {
+export const StatusDashboardStyleManager = {
 	getContainerClass: (_variant, _size, className = '') =>
 		['status-dashboard', 'space-y-4', className].filter(Boolean).join(' '),
 	getHeaderClass: (className = '') => ['space-y-1', className].filter(Boolean).join(' '),

@@ -1,9 +1,9 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class ComparisonCardStyleManager {
 	static getBaseClasses(className = ''): string {
-		return cn('comparison-card overflow-hidden', CARD_BASE_CLASSES, className);
+		return cn('comparison-card overflow-hidden', CardStyleManager.getBaseClasses(), className);
 	}
 
 	static getHeaderClasses(): string {
@@ -50,6 +50,5 @@ export class ComparisonCardStyleManager {
 		return 'mb-4 text-center text-lg font-semibold text-[var(--color-success-600)]';
 	}
 }
-
 
 

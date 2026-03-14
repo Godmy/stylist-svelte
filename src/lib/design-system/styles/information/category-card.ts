@@ -1,11 +1,11 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CardStyleManager } from './card';
 
 export class CategoryCardStyleManager {
 	static getBaseClasses(className = ''): string {
 		return cn(
 			'category-card cursor-pointer overflow-hidden transition-all duration-[var(--duration-200)] hover:border-[var(--color-primary-300)] hover:shadow-md',
-			CARD_BASE_CLASSES,
+			CardStyleManager.getBaseClasses(),
 			className
 		);
 	}
@@ -54,5 +54,4 @@ export class CategoryCardStyleManager {
 		return 'rounded bg-[var(--color-background-secondary)] px-2 py-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
 

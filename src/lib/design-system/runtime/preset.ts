@@ -2,11 +2,7 @@ import type { Preset } from '../runtime/types';
 import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
 import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from './foundation';
 import { ICON_SIZES, SIZE_CLASSES } from './sizing';
-import {
-	INTERACTIVE_BASE_CLASS,
-	INTERACTIVE_VARIANTS,
-	VARIANT_CLASSES
-} from '../styles/interaction/interaction';
+import { InteractionStyleManager } from '../styles/interaction/interaction';
 
 const DEFAULT_STATE_FLAGS = {
 	disabled: false,
@@ -17,13 +13,18 @@ const DEFAULT_STATE_FLAGS = {
 } as const;
 
 export const INTERACTION_TOKENS = {
-	INTERACTIVE_VARIANTS,
+	INTERACTIVE_VARIANTS: InteractionStyleManager.getInteractiveVariants(),
 	COMPONENT_SIZE,
 	DEFAULT_STATE_FLAGS,
 	STATE_CLASSES,
-	INTERACTIVE_BASE_CLASS,
+	INTERACTIVE_BASE_CLASS: InteractionStyleManager.getInteractiveBaseClass(),
 	ACCESSIBILITY_CLASSES,
-	VARIANT_CLASSES,
+	VARIANT_CLASSES: Object.fromEntries(
+		InteractionStyleManager.getInteractiveVariants().map((variant) => [
+			variant,
+			InteractionStyleManager.getVariantClasses(variant)
+		])
+	),
 	SIZE_CLASSES,
 	ICON_SIZES
 } as const;
@@ -49,7 +50,7 @@ export const createBasePreset = <V extends string, S extends string>(
 		variant: Object.fromEntries(
 			variants.map((v) => [
 				v,
-				VARIANT_CLASSES[v as keyof typeof VARIANT_CLASSES] ??
+				InteractionStyleManager.getVariantClasses(v as Parameters<typeof InteractionStyleManager.getVariantClasses>[0]) ??
 					(v === 'outline'
 						? 'border bg-transparent'
 						: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]')
@@ -61,6 +62,5 @@ export const createBasePreset = <V extends string, S extends string>(
 		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
 	) as Record<S, string>
 });
-
 
 

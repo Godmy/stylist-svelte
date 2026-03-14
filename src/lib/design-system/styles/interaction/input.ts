@@ -6,8 +6,8 @@ import { BASE_CLASSES } from '../../runtime/foundation';
 
 export { INPUT_VARIANTS };
 
-export const INPUT_BASE_CLASS = BASE_CLASSES.input;
-export const INPUT_VARIANT_CLASSES = {
+const INPUT_BASE_CLASS = BASE_CLASSES.input;
+const INPUT_VARIANT_CLASSES = {
 	default:
 		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
 	filled:
@@ -27,8 +27,8 @@ export const INPUT_VARIANT_CLASSES = {
 	solid:
 		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]'
 } as const;
-export const INPUT_ERROR_CLASS = 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]';
-export const INPUT_SIZE_CLASSES = {
+const INPUT_ERROR_CLASS = 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]';
+const INPUT_SIZE_CLASSES = {
 	xs: 'h-7 px-2.5 text-[10px] rounded',
 	sm: 'h-8 px-3 text-xs rounded-md',
 	md: 'h-9 px-4 text-sm rounded-md',
@@ -36,7 +36,7 @@ export const INPUT_SIZE_CLASSES = {
 	xl: 'h-12 px-7 text-lg rounded-xl',
 	'2xl': 'h-14 px-8 text-xl rounded-xl'
 } as const;
-export const TEXTAREA_SIZE_CLASSES = {
+const TEXTAREA_SIZE_CLASSES = {
 	xs: 'px-2.5 text-[10px] rounded min-h-[64px]',
 	sm: 'px-3 text-xs rounded-md min-h-[80px]',
 	md: 'px-4 text-sm rounded-md min-h-[100px]',
@@ -44,16 +44,16 @@ export const TEXTAREA_SIZE_CLASSES = {
 	xl: 'px-6 text-base rounded-lg min-h-[200px]',
 	'2xl': 'px-7 text-xl rounded-xl min-h-[240px]'
 } as const;
-export const INPUT_FIELD_CONTAINER_CLASS = 'input-field-container flex flex-col gap-1';
-export const INPUT_FIELD_HELPER_TEXT_CLASS = 'input-field-helper-text text-xs text-[var(--color-text-secondary)]';
-export const INPUT_FIELD_ERROR_TEXT_CLASS = 'input-field-error-text text-xs text-[var(--color-danger-600)]';
-export const INPUT_FIELD_LABEL_CLASS = 'input-field-label text-sm font-medium text-[var(--color-text-primary)]';
-export const INPUT_GROUP_CONTAINER_CLASS = 'input-group-container flex items-stretch gap-0';
-export const INPUT_GROUP_INPUT_CLASS = 'input-group-input flex-1 rounded-r-none';
-export const INPUT_GROUP_BUTTON_CLASS = 'input-group-button rounded-l-none';
-export const INPUT_PASSWORD_TOGGLE_CLASS = 'input-password-toggle p-2 hover:bg-[var(--color-background-secondary)] rounded-md';
-export const INPUT_LONG_RESIZE_HANDLE_CLASS = 'input-long-resize-handle absolute bottom-0 right-0 p-1 cursor-nwse-resize';
-export const INPUT_DOUBLE_CONTAINER_CLASS = 'input-double-container grid grid-cols-2 gap-4';
+const INPUT_FIELD_CONTAINER_CLASS = 'input-field-container flex flex-col gap-1';
+const INPUT_FIELD_HELPER_TEXT_CLASS = 'input-field-helper-text text-xs text-[var(--color-text-secondary)]';
+const INPUT_FIELD_ERROR_TEXT_CLASS = 'input-field-error-text text-xs text-[var(--color-danger-600)]';
+const INPUT_FIELD_LABEL_CLASS = 'input-field-label text-sm font-medium text-[var(--color-text-primary)]';
+const INPUT_GROUP_CONTAINER_CLASS = 'input-group-container flex items-stretch gap-0';
+const INPUT_GROUP_INPUT_CLASS = 'input-group-input flex-1 rounded-r-none';
+const INPUT_GROUP_BUTTON_CLASS = 'input-group-button rounded-l-none';
+const INPUT_PASSWORD_TOGGLE_CLASS = 'input-password-toggle p-2 hover:bg-[var(--color-background-secondary)] rounded-md';
+const INPUT_LONG_RESIZE_HANDLE_CLASS = 'input-long-resize-handle absolute bottom-0 right-0 p-1 cursor-nwse-resize';
+const INPUT_DOUBLE_CONTAINER_CLASS = 'input-double-container grid grid-cols-2 gap-4';
 
 export class InputStyleManager {
 	static getInputClasses(
@@ -71,6 +71,14 @@ export class InputStyleManager {
 		const blockClass = block ? 'w-full' : '';
 		return mergeClasses(INPUT_BASE_CLASS, variantClass, sizeClass, errorClass, disabledClass, blockClass, className);
 	}
+
+	static getInputBaseClass(): string { return INPUT_BASE_CLASS; }
+	static getInputVariantClass(variant: InputVariant = 'default'): string {
+		return (INPUT_VARIANT_CLASSES as Record<string, string>)[variant] ?? INPUT_VARIANT_CLASSES.default;
+	}
+	static getInputErrorClass(): string { return INPUT_ERROR_CLASS; }
+	static getInputSizeClass(size: ComponentSize = 'md'): string { return INPUT_SIZE_CLASSES[size] ?? INPUT_SIZE_CLASSES.md; }
+	static getTextareaSizeClass(size: ComponentSize = 'md'): string { return TEXTAREA_SIZE_CLASSES[size] ?? TEXTAREA_SIZE_CLASSES.md; }
 
 	static getTextareaClasses(
 		variant: InputVariant = 'default',
