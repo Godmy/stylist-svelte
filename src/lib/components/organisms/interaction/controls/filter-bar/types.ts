@@ -45,3 +45,4 @@ export interface IFilterBarStyleClasses {
   active: string;
   inactive: string;
 }
+

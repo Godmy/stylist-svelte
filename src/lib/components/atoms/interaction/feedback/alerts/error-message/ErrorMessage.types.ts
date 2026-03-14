@@ -6,3 +6,5 @@ export interface IErrorMessageProps {
 	class?: string;
 	[key: string]: any; // Для остальных свойств
 }
+
+

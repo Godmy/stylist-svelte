@@ -152,7 +152,7 @@ export class ChatInterfaceStyleManager {
   static getSendButtonClass(isDisabled: boolean): string {
     const baseClass = 'flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--color-primary-500]';
     const disabledClass = isDisabled
-      ? 'opacity-50 cursor-not-allowed'
+      ? 'opacity-[var(--opacity-50)] cursor-not-allowed'
       : '';
 
     return [baseClass, disabledClass].filter(Boolean).join(' ');
@@ -166,3 +166,5 @@ export class ChatInterfaceStyleManager {
     return 'h-5 w-5';
   }
 }
+
+

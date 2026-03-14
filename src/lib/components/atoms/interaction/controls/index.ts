@@ -23,4 +23,3 @@ export { TokenSelect } from './token-select';
 export { TokenText } from './token-text';
 export { Tooltip } from './tooltip';
 export { ZoomControls } from './zoom';
-export type { TokenControlDefinition, TokenControlKind, TokenDomain, TokenOption, TokenRadioControlDefinition, TokenRangeControlDefinition, TokenSelectControlDefinition, TokenTextControlDefinition, TokenValue } from './token-controls';

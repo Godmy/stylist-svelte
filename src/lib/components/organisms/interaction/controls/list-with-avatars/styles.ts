@@ -7,7 +7,7 @@ import type { IListWithAvatarsStyleClasses } from './types';
  */
 export class ListWithAvatarsStyleManager {
   static getBaseClasses(className: string): string {
-    const baseClasses = 'c-list-with-avatars divide-y divide-gray-200 rounded-md border border-gray-200';
+    const baseClasses = 'c-list-with-avatars divide-y divide-gray-200 rounded-md border border-[var(--color-border-primary)]';
 
     return `${baseClasses} ${className}`;
   }
@@ -42,13 +42,13 @@ export class ListWithAvatarsStyleManager {
 
   static getStatusClasses(status: 'online' | 'away' | 'busy' | 'offline'): string {
     const statusClasses = {
-      online: 'bg-green-500',
+      online: 'bg-[var(--color-success-500)]',
       away: 'bg-yellow-500',
-      busy: 'bg-red-500',
-      offline: 'bg-gray-400'
+      busy: 'bg-[var(--color-danger-500)]',
+      offline: 'bg-[var(--color-neutral-400)]'
     };
 
-    return `absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border border-white ${statusClasses[status] || statusClasses.offline}`;
+    return `absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full border border-[var(--color-background-primary)] ${statusClasses[status] || statusClasses.offline}`;
   }
 
   static getActionsClasses(actionsClass: string): string {
@@ -67,9 +67,9 @@ export class ListWithAvatarsStyleManager {
 
   static getActionClasses(variant: 'primary' | 'danger' | 'secondary'): string {
     const variantClasses = {
-      primary: 'bg-blue-100 text-blue-700 hover:bg-blue-200',
-      danger: 'bg-red-100 text-red-700 hover:bg-red-200',
-      secondary: 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+      primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)] hover:bg-[var(--color-primary-200)]',
+      danger: 'bg-[var(--color-danger-100)] text-[var(--color-danger-700)] hover:bg-[var(--color-danger-200)]',
+      secondary: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
     };
 
     return `px-3 py-1 rounded text-xs font-medium ${variantClasses[variant] || variantClasses.secondary}`;
@@ -82,3 +82,7 @@ export class ListWithAvatarsStyleManager {
     return `${baseClasses} ${itemClasses}`;
   }
 }
+
+
+
+

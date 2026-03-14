@@ -87,3 +87,4 @@ export interface IMiniCalendarProps {
    */
   onEventClick?: (event: CalendarEvent) => void;
 }
+

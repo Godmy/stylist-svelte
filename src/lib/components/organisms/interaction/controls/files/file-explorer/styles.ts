@@ -19,17 +19,17 @@ export class FileExplorerStyleManager {
   }
 
   static getSearchClasses(searchClass: string): string {
-    return `block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm ${searchClass}`;
+    return `block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`;
   }
 
   static getPathClasses(pathClass: string): string {
-    return `flex items-center text-sm text-gray-600 mb-2 ${pathClass}`;
+    return `flex items-center text-sm text-[var(--color-text-secondary)] mb-2 ${pathClass}`;
   }
 
   static getItemClasses(isSelected: boolean, type: string, itemClass: string): string {
     const baseClasses = 'cursor-pointer';
-    const selectedClass = isSelected ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:bg-gray-50';
-    const typeClass = type === 'folder' ? 'text-blue-500' : 'text-gray-500';
+    const selectedClass = isSelected ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]';
+    const typeClass = type === 'folder' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]';
 
     return `${baseClasses} ${selectedClass} ${typeClass} ${itemClass}`;
   }
@@ -43,11 +43,11 @@ export class FileExplorerStyleManager {
   }
 
   static getSelectedItemClass(): string {
-    return 'bg-blue-50';
+    return 'bg-[var(--color-primary-50)]';
   }
 
   static getHoveredItemClass(): string {
-    return 'hover:bg-gray-50';
+    return 'hover:bg-[var(--color-background-secondary)]';
   }
 
   static getAllClasses(hostClass: string, headerClass: string, toolbarClass: string): string {
@@ -58,3 +58,6 @@ export class FileExplorerStyleManager {
     return `${baseClasses} ${headerClasses} ${toolbarClasses}`;
   }
 }
+
+
+

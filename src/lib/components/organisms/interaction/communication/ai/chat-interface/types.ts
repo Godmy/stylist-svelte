@@ -29,3 +29,4 @@ export type ChatInterfaceProps = {
   inputClass?: string;
   footerClass?: string;
 } & HTMLAttributes<HTMLDivElement>;
+

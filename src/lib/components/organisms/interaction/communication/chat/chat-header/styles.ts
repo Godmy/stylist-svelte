@@ -32,3 +32,5 @@ export class ChatHeaderStyleManager {
     return `${baseClasses} ${className}`;
   }
 }
+
+

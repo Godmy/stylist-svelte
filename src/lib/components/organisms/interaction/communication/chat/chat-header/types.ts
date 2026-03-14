@@ -39,3 +39,5 @@ export interface IChatHeaderStyleClasses {
   actions: string;
   name: string;
 }
+
+

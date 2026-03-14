@@ -13,14 +13,14 @@ export class RealTimePresenceStyleManager {
   }
 
   static getUserClasses(): string {
-    return 'presence-user flex items-center space-x-2 p-2 rounded-lg hover:bg-gray-50';
+    return 'presence-user flex items-center space-x-2 p-2 rounded-lg hover:bg-[var(--color-background-secondary)]';
   }
 
   static getStatusClasses(status: string): string {
     const statusClasses: Record<string, string> = {
-      online: 'status-online text-green-500',
+      online: 'status-online text-[var(--color-success-500)]',
       away: 'status-away text-yellow-500',
-      offline: 'status-offline text-gray-400'
+      offline: 'status-offline text-[var(--color-text-tertiary)]'
     };
 
     return statusClasses[status] || 'status-default';
@@ -45,3 +45,6 @@ export class RealTimePresenceStyleManager {
     return `${baseClasses} ${statusClass}`;
   }
 }
+
+
+

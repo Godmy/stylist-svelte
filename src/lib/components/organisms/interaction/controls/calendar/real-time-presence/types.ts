@@ -19,3 +19,4 @@ export interface IRealTimePresenceStyleClasses {
   away: string;
   offline: string;
 }
+

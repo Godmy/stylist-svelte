@@ -48,7 +48,7 @@ export class UploadProgressStyleManager {
       'border',
       'rounded-lg',
       'transition-all',
-      'duration-200'
+      'duration-[var(--duration-200)]'
     ];
 
     // Добавляем стили в зависимости от статуса
@@ -79,7 +79,7 @@ export class UploadProgressStyleManager {
       'rounded-full',
       'overflow-hidden',
       'transition-all',
-      'duration-300'
+      'duration-[var(--duration-300)]'
     ];
 
     // Добавляем цвет в зависимости от прогресса
@@ -104,7 +104,7 @@ export class UploadProgressStyleManager {
       'h-full',
       'rounded-full',
       'transition-all',
-      'duration-300'
+      'duration-[var(--duration-300)]'
     ];
 
     // Добавляем цвет в зависимости от прогресса
@@ -221,3 +221,5 @@ export class UploadProgressStyleManager {
     return 'text-center py-4 text-[--color-text-secondary]';
   }
 }
+
+

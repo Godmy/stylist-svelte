@@ -7,7 +7,7 @@ import type { IExportPanelStyleClasses } from './types';
  */
 export class ExportPanelStyleManager {
   static getBaseClasses(className: string): string {
-    const baseClasses = 'c-export-panel flex flex-col gap-4 p-4 bg-white border border-[--color-border-default] rounded-lg min-w-[300px]';
+    const baseClasses = 'c-export-panel flex flex-col gap-4 p-4 bg-[var(--color-background-primary)] border border-[--color-border-primary] rounded-lg min-w-[300px]';
 
     return `${baseClasses} ${className}`;
   }
@@ -29,7 +29,7 @@ export class ExportPanelStyleManager {
   }
 
   static getOptionClasses(isActive: boolean): string {
-    const baseClasses = 'format-option flex-1 text-center p-2 border border-[--color-border-default] rounded cursor-pointer transition-all';
+    const baseClasses = 'format-option flex-1 text-center p-2 border border-[--color-border-primary] rounded cursor-pointer transition-all';
     const activeClasses = isActive 
       ? 'bg-[--color-primary-100] border-[--color-primary-500] text-[--color-primary-700]' 
       : 'hover:bg-[--color-background-secondary]';
@@ -48,3 +48,7 @@ export class ExportPanelStyleManager {
     return `${baseClasses} ${optionClasses}`;
   }
 }
+
+
+
+

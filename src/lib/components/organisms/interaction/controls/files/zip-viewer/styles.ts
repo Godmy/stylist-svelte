@@ -13,22 +13,22 @@ export class ZipViewerStyleManager {
   }
 
   static getHeaderClasses(headerClass: string): string {
-    return `p-4 bg-gray-50 border-b ${headerClass}`;
+    return `p-4 bg-[var(--color-background-secondary)] border-b ${headerClass}`;
   }
 
   static getEntryClasses(isDirectory: boolean, entryClass: string): string {
-    const baseClasses = 'flex items-center p-3 hover:bg-gray-50';
-    const dirClass = isDirectory ? 'bg-gray-25' : '';
+    const baseClasses = 'flex items-center p-3 hover:bg-[var(--color-background-secondary)]';
+    const dirClass = isDirectory ? 'bg-[var(--color-background-secondary)]' : '';
 
     return `${baseClasses} ${dirClass} ${entryClass}`;
   }
 
   static getSearchClasses(): string {
-    return 'block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm';
+    return 'block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm';
   }
 
   static getIconClasses(type: string): string {
-    return `h-5 w-5 mr-3 ${type === 'directory' ? 'text-blue-500' : 'text-gray-500'}`;
+    return `h-5 w-5 mr-3 ${type === 'directory' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]'}`;
   }
 
   static getExpandedClasses(): string {
@@ -47,3 +47,7 @@ export class ZipViewerStyleManager {
     return `${baseClasses} ${headerClasses} ${entryClasses}`;
   }
 }
+
+
+
+

@@ -10,7 +10,7 @@ export class MiniCalendarStyleManager {
    * Gets the main wrapper classes for the mini calendar
    */
   static getWrapperClasses(compact: boolean, hostClass: string): string {
-    const baseClasses = 'c-mini-calendar border border-[--color-border-default] rounded-[--radius-lg] overflow-hidden';
+    const baseClasses = 'c-mini-calendar border border-[--color-border-primary] rounded-[--radius-lg] overflow-hidden';
     const sizeClass = compact ? 'text-[--text-size-xs]' : 'text-[--text-size-sm]';
 
     return `${baseClasses} ${sizeClass} ${hostClass}`;
@@ -20,23 +20,23 @@ export class MiniCalendarStyleManager {
    * Gets the header classes for the calendar
    */
   static getHeaderClasses(headerClass: string): string {
-    return `flex items-center justify-between p-[--spacing-xs] border-b border-[--color-border-default] ${headerClass}`;
+    return `flex items-center justify-between p-[--spacing-xs] border-b border-[--color-border-primary] ${headerClass}`;
   }
 
   /**
    * Gets the weekday header classes
    */
   static getWeekdayHeaderClasses(headerClass: string): string {
-    return `p-[--spacing-xs] text-center font-[--font-weight-medium] text-[--color-text-muted] ${headerClass}`;
+    return `p-[--spacing-xs] text-center font-[--font-weight-medium] text-[--color-text-secondary] ${headerClass}`;
   }
 
   /**
    * Gets the day cell classes based on its properties
    */
   static getDayCellClasses(isToday: boolean, isCurrentMonth: boolean, hasEvent: boolean, dayClass: string): string {
-    const baseClasses = 'min-h-[--spacing-xl] p-[--spacing-xs] text-center border-t border-r border-[--color-border-subtle] cursor-pointer';
+    const baseClasses = 'min-h-[--spacing-xl] p-[--spacing-xs] text-center border-t border-r border-[--color-border-tertiary] cursor-pointer';
     const todayClass = isToday ? 'bg-[--color-primary-100] font-[--font-weight-bold]' : '';
-    const currentMonthClass = isCurrentMonth ? 'text-[--color-text-primary]' : 'text-[--color-text-disabled]';
+    const currentMonthClass = isCurrentMonth ? 'text-[--color-text-primary]' : 'text-[--color-text-tertiary]';
     const eventClass = hasEvent ? 'text-[--color-primary-600]' : '';
 
     return `${baseClasses} ${todayClass} ${currentMonthClass} ${eventClass} ${dayClass}`;
@@ -66,3 +66,5 @@ export class MiniCalendarStyleManager {
     return 'grid grid-cols-7';
   }
 }
+
+

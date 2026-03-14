@@ -7,7 +7,7 @@ import type { IFilterBarStyleClasses } from './types';
  */
 export class FilterBarStyleManager {
   static getBaseClasses(className: string): string {
-    const baseClasses = 'c-filter-bar rounded-xl border border-gray-200 bg-white p-4 shadow-sm';
+    const baseClasses = 'c-filter-bar rounded-xl border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm';
 
     return `${baseClasses} ${className}`;
   }
@@ -17,7 +17,7 @@ export class FilterBarStyleManager {
   }
 
   static getToggleClasses(): string {
-    return 'rounded-lg border border-gray-200 px-3 py-2';
+    return 'rounded-lg border border-[var(--color-border-primary)] px-3 py-2';
   }
 
   static getTagClasses(): string {
@@ -29,11 +29,11 @@ export class FilterBarStyleManager {
   }
 
   static getActiveClasses(): string {
-    return 'bg-indigo-50 text-indigo-600';
+    return 'bg-[var(--color-primary-50)] text-[var(--color-primary-600)]';
   }
 
   static getInactiveClasses(): string {
-    return 'text-gray-500';
+    return 'text-[var(--color-text-secondary)]';
   }
 
   static getAllClasses(className: string): string {
@@ -42,3 +42,7 @@ export class FilterBarStyleManager {
     return baseClasses;
   }
 }
+
+
+
+

@@ -13,7 +13,7 @@ export class LanguageSelectorStyleManager {
   }
 
   static getButtonBaseClasses(): string {
-    return 'inline-flex items-center justify-between rounded-md border border-[--color-border-default] bg-[--color-background-primary] px-3 py-2 text-sm font-medium shadow-sm hover:bg-[--color-background-secondary] focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-2';
+    return 'inline-flex items-center justify-between rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 text-sm font-medium shadow-sm hover:bg-[--color-background-secondary] focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-2';
   }
 
   static getButtonVariantClasses(variant: string): string {
@@ -39,7 +39,7 @@ export class LanguageSelectorStyleManager {
   }
 
   static getDropdownBaseClasses(): string {
-    return 'absolute z-10 mt-1 max-h-60 w-48 overflow-auto rounded-md bg-[--color-background-primary] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none';
+    return 'absolute z-[var(--z-index-docked)] mt-1 max-h-60 w-48 overflow-auto rounded-md bg-[--color-background-primary] shadow-lg ring-1 ring-black ring-opacity-[var(--opacity-5)] focus:outline-none';
   }
 
   static getDropdownPositionClasses(position: string): string {
@@ -54,7 +54,7 @@ export class LanguageSelectorStyleManager {
   }
 
   static getSearchInputClasses(): string {
-    return 'block w-full rounded-md border border-[--color-border-default] bg-[--color-background-primary] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500]';
+    return 'block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500]';
   }
 
   static getFlagClasses(): string {
@@ -81,3 +81,7 @@ export class LanguageSelectorStyleManager {
     return `${baseClasses} ${buttonClasses} ${buttonVariantClasses} ${buttonSizeClasses} ${dropdownClasses} ${positionClasses}`;
   }
 }
+
+
+
+

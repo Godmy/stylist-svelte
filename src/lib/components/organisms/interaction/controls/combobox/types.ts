@@ -35,3 +35,4 @@ export interface IComboboxStyleClasses {
   selected: string;
   highlighted: string;
 }
+

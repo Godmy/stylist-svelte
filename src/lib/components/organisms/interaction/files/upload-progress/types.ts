@@ -87,3 +87,4 @@ export interface IUploadProgressProps extends IUploadProgressClasses,
   /** Дополнительные атрибуты для корневого элемента */
   [key: string]: any;
 }
+

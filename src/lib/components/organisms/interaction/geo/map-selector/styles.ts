@@ -16,3 +16,5 @@ export class MapSelectorStyleManager {
     return this.getBaseClasses(className);
   }
 }
+
+
