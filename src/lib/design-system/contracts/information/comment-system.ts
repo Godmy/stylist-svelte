@@ -1,27 +1,6 @@
 import type { HtmlAttributesBase } from './common';
 
-export type CommentUser = {
-  id: string;
-  name: string;
-  avatar?: string;
-  role?: string;
-  isOnline?: boolean;
-};
-
-export type CommentItem = {
-  id: string;
-  author: CommentUser;
-  content: string;
-  timestamp: Date;
-  likes?: number;
-  dislikes?: number;
-  isLiked?: boolean;
-  isDisliked?: boolean;
-  isEdited?: boolean;
-  replies?: CommentItem[];
-  parentId?: string;
-};
-
+import type { CommentItem, CommentUser } from '../../types/information/comment-system';
 export interface CommentSystemProps extends HtmlAttributesBase<HTMLDivElement> {
   comments: CommentItem[];
   currentUser: CommentUser;
@@ -49,3 +28,6 @@ export interface CommentSystemProps extends HtmlAttributesBase<HTMLDivElement> {
   locale?: string;
   timezone?: string;
 }
+
+
+

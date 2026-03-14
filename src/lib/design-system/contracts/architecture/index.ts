@@ -1,11 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DASHBOARD_LAYOUT_COMPACT_PRESET, DASHBOARD_LAYOUT_FIXED_SIDEBAR_PRESET, DASHBOARD_LAYOUT_PRESET, DASHBOARD_LAYOUT_SPACIOUS_PRESET, getDashboardLayoutPreset } from './dashboard-layout';
-export type { DividerOrientation } from './divider';
-export type { GradientVariant } from './gradient-background';
-export type { GridItem, GridItemContent, SpacerAxis } from './layout';
-export type { SideBySideLayoutProps, SplitLayoutProps, StackedLayoutProps } from './layout-extended';
-export type { LineChartData, LineChartPoint } from './line-chart';
-export type { NavItem, SidebarProps } from './sidebar';
 export type { AspectRatioProps } from './aspect-ratio';
 export type { IBarChartProps, IBarPosition, IChartDataPoint } from './bar-chart';
 export type { ContainerProps } from './container';

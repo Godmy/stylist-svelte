@@ -10,13 +10,6 @@ import type {
 	VisibilityState
 } from '$stylist/design-system/tokens/interaction/statuses';
 
-export type {
-	PrimitiveTrajectory as GraphEdgeType,
-	Density,
-	PrimitiveSkeleton as Skeleton,
-	TableCell,
-} from '$stylist/design-system/tokens';
-
 export interface ClassProp {
 	class?: string;
 }
@@ -61,8 +54,6 @@ export interface HtmlVariantSizeAttr {
 	variant?: DefaultVariants;
 	size?: ComponentSize;
 }
-
-export type ValueChangeHandler<T> = (value: T) => void;
 
 export interface InputLabelProps {
 	id?: string;
@@ -183,12 +174,5 @@ export interface StateStyleProps {
 }
 
 export interface ComponentStateProps extends StateProps, StateStyleProps {}
-
-export type {
-	InteractionState,
-	LoadingState,
-	ValidationState,
-	VisibilityState
-};
 
 

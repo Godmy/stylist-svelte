@@ -1,4 +1,4 @@
-﻿import type { AnnouncementBannerProps } from '$stylist/design-system/contracts';
+import type { AnnouncementBannerProps } from '$stylist/design-system/contracts';
 import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
 
 export function createAnnouncementBannerState(props: AnnouncementBannerProps) {
@@ -36,6 +36,9 @@ export function createAnnouncementBannerState(props: AnnouncementBannerProps) {
 }
 
 export default createAnnouncementBannerState;
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
-import type { GraphPortProps, GraphPortDirection } from './graph-port';
+import type { GraphPortProps } from './graph-port';
+import type { GraphPortDirection } from '../../tokens/information/graph-port';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
@@ -34,3 +35,7 @@ export interface PortGroupProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
+
+
+

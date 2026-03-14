@@ -1,24 +1,6 @@
-import type { HtmlAttributesBase } from '../information/common';
+import type { HtmlAttributesBase } from './common';
 
-export type PromptVariable = {
-	id: string;
-	name: string;
-	description: string;
-	type: 'text' | 'number' | 'boolean' | 'select';
-	required?: boolean;
-	defaultValue?: string | number | boolean;
-	options?: { value: string; label: string }[];
-};
-
-export type PromptTemplate = {
-	id: string;
-	name: string;
-	description: string;
-	content: string;
-	variables: PromptVariable[];
-	tags?: string[];
-};
-
+import type { PromptTemplate, PromptVariable } from '../../types/information/prompt-builder';
 export interface PromptBuilderProps extends HtmlAttributesBase<HTMLDivElement> {
 	templates?: PromptTemplate[];
 	initialPrompt?: string;
@@ -33,3 +15,6 @@ export interface PromptBuilderProps extends HtmlAttributesBase<HTMLDivElement> {
 	variablesClass?: string;
 	footerClass?: string;
 }
+
+
+

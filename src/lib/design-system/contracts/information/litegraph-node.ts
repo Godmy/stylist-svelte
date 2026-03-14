@@ -1,8 +1,9 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
-import type { GraphPortDataType, GraphPortDirection } from './graph-port';
+import type { GraphPortDataType, GraphPortDirection } from '../../tokens/information/graph-port';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
+import type { LiteGraphNodeState, LiteGraphNodeType } from '../../tokens/information/litegraph-node';
 /**
  * Порт узла графа
  */
@@ -44,28 +45,6 @@ export interface LiteGraphNodeProperty {
 	/** Опции для enum */
 	options?: readonly string[];
 }
-
-/**
- * Тип узла графа
- */
-export type LiteGraphNodeType =
-	| 'default'
-	| 'source'
-	| 'processor'
-	| 'output'
-	| 'gateway'
-	| 'custom';
-
-/**
- * Состояние узла графа
- */
-export type LiteGraphNodeState =
-	| 'default'
-	| 'selected'
-	| 'active'
-	| 'error'
-	| 'warning'
-	| 'disabled';
 
 /**
  * Свойства узла графа LiteGraph
@@ -144,3 +123,7 @@ export interface LiteGraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Контент тела */
 	bodyContent?: Snippet;
 }
+
+
+
+

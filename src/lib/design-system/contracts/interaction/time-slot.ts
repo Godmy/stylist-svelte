@@ -74,3 +74,6 @@ export interface ITimeSlotProps extends ITimeSlot {
    */
   onKeyDown?: (e: KeyboardEvent) => void;
 }
+
+
+

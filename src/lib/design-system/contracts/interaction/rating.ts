@@ -53,3 +53,5 @@ export interface IRatingProps extends HTMLAttributes<HTMLDivElement> {
    */
   onRatingChange?: (rating: number) => void;
 }
+
+

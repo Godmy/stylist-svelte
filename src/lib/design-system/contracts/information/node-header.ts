@@ -41,3 +41,7 @@ export interface NodeHeaderProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
+
+
+

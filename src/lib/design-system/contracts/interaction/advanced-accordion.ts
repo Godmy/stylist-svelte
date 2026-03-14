@@ -16,3 +16,4 @@ export interface IAdvancedAccordionProps {
   items: IAdvancedAccordionItem[];
   class?: string;
 }
+

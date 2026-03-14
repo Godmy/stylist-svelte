@@ -1,4 +1,4 @@
-import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
+import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
 
 export interface IHeatmapCell {
   /** Unique identifier for the cell */
@@ -44,7 +44,7 @@ export interface IHeatmapProps {
   /** Whether to show legend */
   showLegend?: boolean;
   /** Color scheme for display */
-  colorScheme?: ColorScheme;
+  colorScheme?: ThemeSchemeId;
   /** Whether to show coordinate axes */
   showAxis?: boolean;
   /** Axis color */
@@ -62,5 +62,8 @@ export interface IHeatmapProps {
   /** Minimum value for color normalization */
   minValue?: number;
 }
+
+
+
 
 

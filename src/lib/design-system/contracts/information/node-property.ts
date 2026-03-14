@@ -2,20 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from './common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
-/**
- * Тип свойства узла
- */
-export type NodePropertyType =
-	| 'string'
-	| 'number'
-	| 'boolean'
-	| 'enum'
-	| 'color'
-	| 'vector2'
-	| 'vector3'
-	| 'object'
-	| 'function';
-
+import type { NodePropertyType } from '../../tokens/information/node-property';
 /**
  * Свойства свойства узла графа
  */
@@ -67,3 +54,7 @@ export interface NodePropertyProps extends Omit<HtmlAttributesBase<HTMLDivElemen
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
+
+
+

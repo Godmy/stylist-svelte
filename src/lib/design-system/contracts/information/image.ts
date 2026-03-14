@@ -1,4 +1,4 @@
-﻿import type { ChildrenProp, ContentProp, HtmlAttributesBase } from './common';
+import type { ChildrenProp, ContentProp, HtmlAttributesBase } from './common';
 
 export interface MediaHtmlProps<T extends HTMLElement = HTMLElement> extends HtmlAttributesBase<T> {}
 
@@ -42,3 +42,6 @@ export interface FaviconProps extends ContentProp {
 	error?: boolean;
 	onError?: () => void;
 }
+
+
+

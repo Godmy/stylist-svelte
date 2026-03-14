@@ -1,37 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type GeoJsonGeometry = {
-  type: 'Point' | 'MultiPoint' | 'LineString' | 'MultiLineString' | 'Polygon' | 'MultiPolygon' | 'GeometryCollection';
-  coordinates: any[] | any[][];
-};
-
-export type GeoJsonFeature = {
-  type: 'Feature';
-  geometry: GeoJsonGeometry;
-  properties?: Record<string, any>;
-};
-
-export type GeoJsonFeatureCollection = {
-  type: 'FeatureCollection';
-  features: GeoJsonFeature[];
-};
-
-export type GeoJsonLayer = {
-  id: string;
-  name: string;
-  data: GeoJsonFeatureCollection;
-  visible: boolean;
-  color: string;
-  opacity: number;
-};
-
-export type MapView = {
-  center: { lat: number; lng: number };
-  zoom: number;
-};
-
-export type GeoJSONViewerRestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
-
+import type { GeoJSONViewerRestProps, GeoJsonFeature, GeoJsonFeatureCollection, GeoJsonLayer, MapView } from '../../types/information/geo-jsonviewer';
 export interface IGeoJSONViewerProps extends GeoJSONViewerRestProps {
   geojsonData?: GeoJsonFeatureCollection;
   layers?: GeoJsonLayer[];
@@ -48,3 +17,5 @@ export interface IGeoJSONViewerProps extends GeoJSONViewerRestProps {
   onMapClick?: (coordinates: { lat: number; lng: number }) => void;
   onDataChange?: (data: GeoJsonFeatureCollection) => void;
 }
+
+

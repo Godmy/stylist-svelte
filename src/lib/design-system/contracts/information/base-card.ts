@@ -16,7 +16,5 @@ export interface IBaseCardElementProps extends Omit<Props, 'variant' | 'size' | 
   children?: Snippet;
 }
 
-export type BaseCardElementProps = IBaseCardElementProps;
-
 
 

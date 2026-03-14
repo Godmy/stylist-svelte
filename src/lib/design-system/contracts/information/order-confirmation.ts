@@ -1,20 +1,16 @@
 import type { HtmlAttributesBase } from './common';
-import type { OrderStatus as _OrderStatus } from '$stylist/design-system/tokens/interaction/statuses';
-import type { BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { OrderStatus, BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
-type OrderStatus = _OrderStatus;
-type PaymentStatus = BillingItemStatus;
-
-export type OrderItem = {
+export interface IOrderItem {
   id: string;
   name: string;
   price: number;
   quantity: number;
   variant?: string;
   thumbnail?: string;
-};
+}
 
-export type ShippingAddress = {
+export interface IShippingAddress {
   firstName: string;
   lastName: string;
   address1: string;
@@ -23,28 +19,28 @@ export type ShippingAddress = {
   state: string;
   zipCode: string;
   country: string;
-};
+}
 
-export type OrderConfirmationPaymentInfo = {
+export interface IOrderConfirmationPaymentInfo {
   method: string;
   lastFour?: string;
-  status: PaymentStatus;
-};
+  status: BillingItemStatus;
+}
 
-export type IOrderConfirmationEvents = {
+export interface IOrderConfirmationEvents {
   onDownloadInvoice?: () => void;
   onShareOrder?: () => void;
   onContinueShopping?: () => void;
   onTrackOrder?: () => void;
-};
+}
 
-export type IOrderConfirmationProps = HtmlAttributesBase<HTMLDivElement> & {
+export interface IOrderConfirmationProps extends HtmlAttributesBase<HTMLDivElement>, IOrderConfirmationEvents {
   orderId: string;
   orderDate: Date;
-  items: OrderItem[];
+  items: IOrderItem[];
   total: number;
-  shippingAddress: ShippingAddress;
-  paymentInfo: OrderConfirmationPaymentInfo;
+  shippingAddress: IShippingAddress;
+  paymentInfo: IOrderConfirmationPaymentInfo;
   estimatedDelivery?: Date;
   trackingNumber?: string;
   orderStatus?: OrderStatus;
@@ -60,9 +56,5 @@ export type IOrderConfirmationProps = HtmlAttributesBase<HTMLDivElement> & {
   showShareOrder?: boolean;
   currency?: string;
   locale?: string;
-} & IOrderConfirmationEvents;
-
-
-
-
+}
 

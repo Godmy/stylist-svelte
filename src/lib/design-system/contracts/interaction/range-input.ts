@@ -6,3 +6,5 @@ export interface RangeInputProps extends HTMLAttributes<HTMLInputElement> {
   step?: number;
   class?: string;
 }
+
+

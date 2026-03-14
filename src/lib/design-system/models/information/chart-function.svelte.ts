@@ -1,4 +1,4 @@
-﻿import type {
+import type {
 	ChartAxisXProps,
 	ChartAxisYProps,
 	ChartAxisZProps,
@@ -188,3 +188,5 @@ export function createChartState(props: ChartProps) {
 }
 
 export default createChartState;
+
+

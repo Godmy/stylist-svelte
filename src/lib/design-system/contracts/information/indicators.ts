@@ -40,12 +40,10 @@ export interface StatusIndicatorProps extends HtmlAttributesWithChildren<HTMLSpa
 	labelClass?: string;
 }
 
-/**
- * @deprecated Используйте StatusIndicatorProps
- */
-export type StatusIndicatorWithLabelProps = StatusIndicatorProps;
-
 export interface MessageStatusProps {
 	status?: MessageStatusType;
 	size?: ComponentSize;
 }
+
+
+

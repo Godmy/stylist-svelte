@@ -17,3 +17,4 @@ export interface IReactionPickerStyleClasses {
   reaction: string;
   selected: string;
 }
+

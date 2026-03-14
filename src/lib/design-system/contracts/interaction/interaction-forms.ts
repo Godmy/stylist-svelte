@@ -64,3 +64,5 @@ export interface SecuritySettingsProps extends HTMLAttributes<HTMLFormElement> {
   loginAlerts?: boolean;
   class?: string;
 }
+
+

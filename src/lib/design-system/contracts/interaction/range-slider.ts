@@ -17,3 +17,5 @@ export interface IRangeSliderProps extends Omit<HTMLInputAttributes, 'type' | 'v
   range?: boolean;
   class?: string;
 }
+
+

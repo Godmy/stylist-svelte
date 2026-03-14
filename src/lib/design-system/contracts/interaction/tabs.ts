@@ -15,12 +15,10 @@ export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'oncli
 	disabled?: boolean;
 }
 
-export type TabIndicatorColor = DefaultVariants;
-
 export interface TabIndicatorProps extends HtmlAttributesBase<HTMLDivElement> {
 	left?: string;
 	width?: string;
-	color?: TabIndicatorColor;
+	color?: DefaultVariants;
 	size?: ComponentSize;
 	disabled?: boolean;
 }
@@ -30,8 +28,6 @@ export interface TabPanelProps extends HtmlAttributesWithChildren<HTMLDivElement
 	disabled?: boolean;
 }
 
-export type TabContainerProps = HtmlAttributesWithChildren<HTMLDivElement> & IDisableable;
-
 export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	selectedId?: string;
 	onValueChange?: (id: string) => void;
@@ -39,11 +35,6 @@ export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	size?: ComponentSize;
 	disabled?: boolean;
 }
-
-
-
-
-
 
 
 

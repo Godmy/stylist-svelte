@@ -1,28 +1,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type ColumnConfig = {
-  key: string;
-  header: string;
-  visible: boolean;
-  sortable?: boolean;
-  filterable?: boolean;
-  width?: string;
-};
-
+import type { AdvancedColumnDefinition, ColumnConfig, DataTableColumn, SortableListItem } from '../../types/interaction/table-controls';
 export interface ColumnManagerProps extends HTMLAttributes<HTMLDivElement> {
   columns: ColumnConfig[];
   onColumnsChange?: (columns: ColumnConfig[]) => void;
   class?: string;
 }
-
-export type DataTableColumn<T extends Record<string, unknown>> = {
-  key: keyof T;
-  title: string;
-  sortable?: boolean;
-  headerClass?: string;
-  cellClass?: string;
-  render?: (value: unknown, row: T) => string;
-};
 
 export interface DataTableProps<T extends Record<string, unknown>> extends HTMLAttributes<HTMLDivElement> {
   data: T[];
@@ -33,15 +16,6 @@ export interface DataTableProps<T extends Record<string, unknown>> extends HTMLA
   class?: string;
   onRowClick?: (row: T) => void;
 }
-
-export type AdvancedColumnDefinition<T extends Record<string, unknown>> = {
-  key: keyof T;
-  header: string;
-  sortable?: boolean;
-  filterable?: boolean;
-  renderCell?: (item: T) => unknown;
-  width?: string;
-};
 
 export interface DataTableAdvancedProps<T extends Record<string, unknown>> extends HTMLAttributes<HTMLDivElement> {
   data: T[];
@@ -59,15 +33,6 @@ export interface DataTableAdvancedProps<T extends Record<string, unknown>> exten
   loading?: boolean;
 }
 
-export type SortableListItem = {
-  id: string;
-  title: string;
-  description?: string;
-  content?: string;
-  status?: string;
-  data?: unknown;
-};
-
 export interface SortableListProps extends HTMLAttributes<HTMLDivElement> {
   items: SortableListItem[];
   class?: string;
@@ -78,4 +43,5 @@ export interface SortableListProps extends HTMLAttributes<HTMLDivElement> {
   showActions?: boolean;
   variant?: 'minimal' | 'card' | 'compact';
 }
+
 

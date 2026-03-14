@@ -3,37 +3,4 @@ import type { ComponentType, Snippet } from 'svelte';
 import type { Alignment } from '../../tokens/architecture/alignments';
 import type { SidebarVariant } from '../../tokens/interaction/variants';
 
-export type NavItem = {
-  id: string;
-  label: string;
-  href?: string;
-  icon?: ComponentType;
-  onClick?: () => void;
-  disabled?: boolean;
-  active?: boolean;
-  badge?: string | number;
-};
-
-export type SidebarProps = {
-  items: NavItem[];
-  title?: string;
-  logo?: Snippet;
-  footer?: Snippet;
-  collapsed?: boolean;
-  collapsible?: boolean;
-  mobileBreakpoint?: number;
-  width?: string;
-  mobileWidth?: string;
-  variant?: SidebarVariant;
-  position?: Alignment;
-  disabled?: boolean;
-  class?: string;
-  navClass?: string;
-  itemClass?: string;
-  activeItemClass?: string;
-  disabledItemClass?: string;
-  titleClass?: string;
-  logoClass?: string;
-  footerClass?: string;
-} & HTMLAttributes<HTMLElement>;
 

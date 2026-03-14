@@ -18,6 +18,7 @@ import type {
 	InputValueProps,
 	TextInputBaseProps
 } from '../information/common';
+import type { InputAddonPosition } from '../../tokens/interaction/horizontal-positions';
 
 export interface InputCoreProps<V extends string = InputVariant, S extends string = ComponentSize> {
 	variant?: V;
@@ -159,7 +160,6 @@ export interface ICharacterCountProps extends InputHelperProps<HTMLDivElement> {
 	max?: number;
 	showPercentage?: boolean;
 }
-export type InputAddonPosition = Extract<Alignment, 'left' | 'right'>;
 export interface IInputAddonProps extends InputHelperChildrenProps<HTMLDivElement> {
 	position?: InputAddonPosition;
 	variant?: AppearanceStyle;
@@ -187,13 +187,5 @@ export interface IAdvancedInputProps {
 	class?: string;
 }
 
-export type {
-	InputFieldBaseProps,
-	InputFieldRequiredProps,
-	InputLabelProps,
-	InputValueProps,
-	InputValidationProps,
-	InputAttributesBase,
-	TextInputBaseProps
-};
+
 

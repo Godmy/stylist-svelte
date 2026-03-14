@@ -1,4 +1,4 @@
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 
 import type { HtmlAttributesWithChildren } from './common';
 
@@ -26,3 +26,6 @@ export interface IBreadcrumbsProps {
 	crumbs?: Array<{ href?: string; label: string }>;
 	class?: string;
 }
+
+
+

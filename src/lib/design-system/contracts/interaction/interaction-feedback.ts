@@ -1,8 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-// Import notification types from the primary source
-export type { NotificationItem } from '../information/notifications';
-export type { NotificationCenterProps, NotificationListProps, NotificationPreferencesProps, ScheduledNotificationProps } from '../information/notifications';
 
 export interface SimpleModalProps extends HTMLAttributes<HTMLDivElement> {
   open?: boolean;
@@ -31,3 +28,5 @@ export interface ResponseViewerProps extends HTMLAttributes<HTMLDivElement> {
   status?: 'success' | 'error' | 'info';
   class?: string;
 }
+
+

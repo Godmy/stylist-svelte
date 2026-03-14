@@ -52,3 +52,7 @@ export interface GraphToolbarProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
+
+
+

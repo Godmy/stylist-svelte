@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import { createChatStatusIndicatorStyles } from '../../styles/information/chat-status-indicator';
+import { createChatStatusIndicatorStyles } from '../../functions/information/chat-status-indicator';
 import type { ChatStatusIndicatorProps } from '../../contracts/interaction/chat-status-indicator';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -45,3 +45,6 @@ export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) 
 }
 
 export default createChatStatusIndicatorState;
+
+
+

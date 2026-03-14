@@ -8,11 +8,7 @@ import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../informat
 import type { NotificationBadgeVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { StepIconStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
-export type NotificationBadgePosition = Extract<
-	Alignment,
-	'top-end' | 'top-start' | 'bottom-end' | 'bottom-start'
->;
-
+import type { NotificationBadgePosition } from '$stylist/design-system/tokens/interaction/notification-positions';
 export interface IBaseFeedbackProps extends HtmlAttributesBase<HTMLElement> {}
 
 export interface IErrorMessageProps extends IBaseFeedbackProps {
@@ -48,10 +44,6 @@ export interface ISpinnerProps extends HtmlAttributesBase<HTMLDivElement> {
 }
 
 export interface ILoaderProps extends HtmlAttributesBase<HTMLDivElement> {}
-
-// ����� ��� �������� �������������
-/** @deprecated ����������� DefaultVariants */
-export type ProgressBarVariant = DefaultVariants;
 
 export interface IProgressBarProps extends HtmlAttributesBase<HTMLDivElement> {
 	value: number;
@@ -104,9 +96,6 @@ export interface IAlertProps {
 	class?: string;
 	children?: Snippet;
 }
-
-
-
 
 
 

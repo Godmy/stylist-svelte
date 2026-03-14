@@ -15,12 +15,12 @@ export function createBlockquoteState(props: BlockquoteProps) {
 	const classes = $derived(
 		mergeClasses(
 			'text-lg italic',
-			withBorder && 'bg-gray-50 p-4 rounded',
-			withBackground && 'border-l-4 border-indigo-500 pl-4',
+			withBorder && 'bg-[var(--color-background-secondary)] p-4 rounded',
+			withBackground && 'border-l-4 border-[var(--color-primary-500)] pl-4',
 			props.class ?? ''
 		)
 	);
-	const footerClasses = $derived('mt-2 text-sm text-gray-500');
+	const footerClasses = $derived('mt-2 text-sm text-[var(--color-text-secondary)]');
 
 	return {
 		get cite() {
@@ -45,3 +45,9 @@ export function createBlockquoteState(props: BlockquoteProps) {
 }
 
 export default createBlockquoteState;
+
+
+
+
+
+

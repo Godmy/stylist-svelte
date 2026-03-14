@@ -61,3 +61,5 @@ export interface IComparisonCardProps {
    */
   class?: string;
 }
+
+

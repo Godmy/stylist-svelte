@@ -1,5 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
+import type { IIconPickerRestProps } from '../../types/interaction/icon-picker';
 /**
  * @interface IIconItem
  * @description Определяет структуру элемента иконки для IconPicker компонента
@@ -15,13 +16,6 @@ export interface IIconItem {
   /** Ключевые слова для поиска (опционально) */
   keywords?: string[];
 }
-
-/**
- * @interface IIconPickerRestProps
- * @description Определяет остальные свойства компонента, исключая class
- * Следует принципу открытости/закрытости (OCP) - можно расширять без изменения
- */
-export type IIconPickerRestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
 /**
  * @interface IIconPickerProps
@@ -53,9 +47,5 @@ export interface IIconPickerProps extends IIconPickerRestProps {
   showCategories?: boolean;
 }
 
-/**
- * @type TColumns
- * @description Тип для количества колонок
- * Следует принципу инверсии зависимостей (DIP) - абстракции не зависят от деталей
- */
-export type TColumns = 2 | 3 | 4 | 5 | 6 | 7 | 8;
+
+

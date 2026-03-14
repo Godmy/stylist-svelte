@@ -1,6 +1,6 @@
 import type { AnimatedNumberProps } from '$stylist/design-system/contracts';
 import { DataDisplayStyleManager } from '$stylist/design-system/styles/information/data-display';
-import { BADGE_LABELS } from '$stylist/design-system/tokens';
+import { BADGE_LABELS } from '$stylist/design-system/defaults';
 
 export function createAnimatedNumberState(props: AnimatedNumberProps) {
 	const value = $derived(props.value ?? 0);
@@ -38,5 +38,8 @@ export function createAnimatedNumberState(props: AnimatedNumberProps) {
 }
 
 export default createAnimatedNumberState;
+
+
+
 
 

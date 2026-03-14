@@ -18,3 +18,5 @@ export interface IMessageComposerProps extends HTMLAttributes<HTMLDivElement> {
   onAttachmentClick?: () => void;
   onVoiceClick?: () => void;
 }
+
+

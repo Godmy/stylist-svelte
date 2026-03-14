@@ -4,17 +4,8 @@ import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
+import type { PriceAlertStateProps } from '../../types/information/price-alert';
 
-type PriceAlertStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
-  variant?: V;
-  size?: S;
-  currentPrice?: number;
-  targetPrice?: number;
-  currency?: string;
-  status?: AlertType;
-  productName?: string;
-  onStatusChange?: (status: AlertType) => void;
-};
 
 /**
  * Универсальный state creator для PriceAlert
@@ -37,7 +28,7 @@ export function createPriceAlertState<V extends string, S extends string>(
       variant,
       size,
       disabled,
-      className: props.class
+      className: props.class ? String(props.class) : ''
     })
   );
 
@@ -73,5 +64,10 @@ export function createPriceAlertState<V extends string, S extends string>(
 }
 
 export default createPriceAlertState;
+
+
+
+
+
 
 

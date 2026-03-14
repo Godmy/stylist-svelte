@@ -5,3 +5,5 @@ export interface TranslationEditorProps extends HTMLAttributes<HTMLDivElement> {
   targetLocale?: string;
   class?: string;
 }
+
+

@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import { createColorPaletteStyles } from '../../styles/information/color-palette';
+import { createColorPaletteStyles } from '../../functions/information/color-palette';
 import type { ColorPaletteProps } from '../../contracts/interaction/color-palette';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -49,3 +49,6 @@ export function createColorPaletteState(props: ColorPaletteProps) {
 }
 
 export default createColorPaletteState;
+
+
+

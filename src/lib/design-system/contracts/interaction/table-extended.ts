@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type TableRecord = Record<string, unknown>;
-
+import type { TableRecord } from '../../types/interaction/table-extended';
 export interface TableWithFiltersProps extends HTMLAttributes<HTMLDivElement> {
   data: TableRecord[];
   columns: string[];
@@ -19,3 +18,5 @@ export interface TableWithStripesProps extends HTMLAttributes<HTMLDivElement> {
   columns: string[];
   class?: string;
 }
+
+

@@ -4,11 +4,8 @@ import { ICON_SIZES } from '$stylist/design-system/runtime/sizing';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { computeAriaLabel } from '$stylist/utils/aria';
 import { buildClasses } from '$stylist/utils/classes';
+import type { ButtonStateProps } from '../../types/interaction/button';
 
-type ButtonStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
-	variant?: V;
-	size?: S;
-};
 
 function createSharedButtonState<V extends string, S extends string>(
 	preset: Preset<V, S> & { loaderSize?: Record<string, string> },
@@ -89,8 +86,7 @@ export function createButtonState<V extends string, S extends string>(
 	return createSharedButtonState(preset, props);
 }
 
-export const createCloseButtonState = createButtonState;
-export const createCopyButtonState = createButtonState;
-export const createPageButtonState = createButtonState;
-
 export default createButtonState;
+
+
+

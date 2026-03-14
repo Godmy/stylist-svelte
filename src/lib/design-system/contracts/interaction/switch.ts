@@ -25,3 +25,6 @@ export interface SwitchProps extends Omit<HTMLAttributes<HTMLInputElement>, 'siz
   /** Size variant */
   size?: ComponentSize;
 }
+
+
+

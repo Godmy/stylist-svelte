@@ -70,3 +70,6 @@ export interface IExpandableCardProps extends Omit<HTMLAttributes<HTMLDivElement
    */
   chevronClass?: string;
 }
+
+
+

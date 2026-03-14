@@ -20,7 +20,7 @@ export const createRadioState = (props: RadioProps) => {
 	);
 	const labelClasses = mergeClasses(
 		'block text-sm font-medium leading-5',
-		disabled ? 'opacity-50 cursor-not-allowed' : ''
+		disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 	);
 
 	return {
@@ -40,6 +40,8 @@ export const createRadioState = (props: RadioProps) => {
 
 
 export default createRadioState;
+
+
 
 
 

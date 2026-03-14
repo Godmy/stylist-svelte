@@ -5,6 +5,7 @@ import type { SemanticVariant } from '$stylist/design-system/tokens/interaction/
 import type { PropType } from '$stylist/design-system/tokens/interaction/prop-types';
 import type { Style as LineStyle } from '$stylist/design-system/tokens/architecture/style';
 
+import type { CodeLanguage } from '$stylist/design-system/tokens/information/code-language';
 export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
   class?: string;
@@ -28,24 +29,6 @@ export interface WishlistButtonProps extends Omit<HTMLAttributes<HTMLDivElement>
   onSuccess?: () => void;
   onError?: (error: string) => void;
 }
-
-export type CodeLanguage =
-  | 'javascript'
-  | 'typescript'
-  | 'html'
-  | 'css'
-  | 'svelte'
-  | 'json'
-  | 'markdown'
-  | 'python'
-  | 'java'
-  | 'csharp'
-  | 'cpp'
-  | 'go'
-  | 'rust'
-  | 'sql'
-  | 'yaml'
-  | 'xml';
 
 export interface CodeEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
   code?: string;
@@ -93,7 +76,5 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   highlight?: boolean;
   class?: string;
 }
-
-
 
 

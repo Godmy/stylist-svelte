@@ -3,24 +3,7 @@ import type { Snippet } from 'svelte';
 import type { Alignment } from '../../tokens/architecture/alignments';
 import type { TooltipTrigger } from '../../tokens/interaction/triggers';
 
-export type TooltipVariant = 'default' | 'with-arrow' | 'simple';
-
-export type TooltipPlacement = Extract<
-	Alignment,
-	| 'top'
-	| 'top-start'
-	| 'top-end'
-	| 'bottom'
-	| 'bottom-start'
-	| 'bottom-end'
-	| 'left'
-	| 'left-start'
-	| 'left-end'
-	| 'right'
-	| 'right-start'
-	| 'right-end'
->;
-
+import type { TooltipPlacement, TooltipVariant } from '../../tokens/interaction/tooltip';
 /**
  * Unified Tooltip props following SOLID principles
  */

@@ -1,25 +1,6 @@
 import type { ABTestStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
-export type ABTestVariant = {
-  id: string;
-  name: string;
-  description: string;
-  weight: number;
-  isActive: boolean;
-};
-
-export type ABTest = {
-  id: string;
-  name: string;
-  description: string;
-  variants: ABTestVariant[];
-  startDate: Date;
-  endDate?: Date;
-  status: ABTestStatus;
-  targetAudience?: string;
-  successMetrics: string[];
-};
-
+import type { ABTest } from '../../types/information/abtest-configurator';
 export interface IABTestConfiguratorProps {
   initialTest?: ABTest;
   onSave?: (test: ABTest) => void;

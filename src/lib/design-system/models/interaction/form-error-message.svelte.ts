@@ -1,4 +1,11 @@
-import { createFormErrorMessageState as createSharedFormErrorMessageState } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createFormErrorMessageState as createFormErrorMessageStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
 
-export const createFormErrorMessageState = createSharedFormErrorMessageState;
+export function createFormErrorMessageState(
+	...args: Parameters<typeof createFormErrorMessageStateImpl>
+): ReturnType<typeof createFormErrorMessageStateImpl> {
+	return createFormErrorMessageStateImpl(...args);
+}
+
 export default createFormErrorMessageState;
+
+

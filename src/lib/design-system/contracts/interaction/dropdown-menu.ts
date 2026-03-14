@@ -1,3 +1,5 @@
+import type { DropdownPosition } from '../../tokens/interaction/dropdown';
+
 /**
  * DropdownMenu types and interfaces following SOLID principles
  */
@@ -5,10 +7,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { Alignment } from '../../tokens/architecture/alignments';
-
-export type DropdownPosition = Extract<Alignment, 'left' | 'right' | 'center'>;
-
-interface CloseDropdownFunc {
+export interface CloseDropdownFunc {
   closeDropdown: () => void;
 }
 
@@ -25,4 +24,6 @@ export interface IDropdownMenuStyleClasses {
   disabled: string;
   menu: string;
 }
+
+
 

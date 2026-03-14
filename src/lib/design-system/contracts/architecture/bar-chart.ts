@@ -1,4 +1,4 @@
-import type { ColorScheme } from '$stylist/design-system/tokens/information/color-schemes';
+import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
 
 /**
  * Типы для компонента BarChart
@@ -94,7 +94,7 @@ export interface IBarChartProps {
    * Цветовая схема диаграммы
    * @default 'default'
    */
-  colorScheme?: ColorScheme;
+  colorScheme?: ThemeSchemeId;
   
   /**
    * Максимальное значение для шкалы Y
@@ -140,5 +140,8 @@ export interface IBarChartProps {
    */
   chartClass?: string;
 }
+
+
+
 
 

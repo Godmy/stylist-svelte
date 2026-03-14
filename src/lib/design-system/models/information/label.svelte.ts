@@ -1,11 +1,5 @@
 import type { LabelProps } from '$stylist/design-system/contracts';
-import {
-	BASE_LABEL_CLASSES,
-	LABEL_DISABLED_CLASSES,
-	LABEL_ENABLED_CLASSES,
-	LABEL_SIZE_CLASSES,
-	REQUIRED_INDICATOR_CLASSES
-} from '$stylist/design-system/styles/information/label';
+import { LabelStyleManager } from '$stylist/design-system/styles/information/label';
 import { mergeClasses } from '$stylist/utils/classes';
 
 /**
@@ -23,13 +17,11 @@ export function createLabelState(props: LabelProps) {
 	const text = $derived(props.text);
 	const classes = $derived(
 		mergeClasses(
-			BASE_LABEL_CLASSES,
-			LABEL_SIZE_CLASSES[size],
-			disabled ? LABEL_DISABLED_CLASSES : LABEL_ENABLED_CLASSES,
+			LabelStyleManager.getLabelClasses(size, disabled),
 			props.class ?? ''
 		)
 	);
-	const requiredIndicatorClasses = $derived(REQUIRED_INDICATOR_CLASSES);
+	const requiredIndicatorClasses = $derived('text-[--color-danger-500]');
 
 	return {
 		get size() {
@@ -57,3 +49,7 @@ export function createLabelState(props: LabelProps) {
 }
 
 export default createLabelState;
+
+
+
+

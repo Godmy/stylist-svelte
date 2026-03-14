@@ -18,6 +18,5 @@ export interface IPriceAlertElementProps extends Omit<Props, 'variant' | 'size' 
   children?: Snippet;
 }
 
-export type PriceAlertElementProps = IPriceAlertElementProps;
 
 

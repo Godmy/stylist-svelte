@@ -2,25 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { PaymentMethodType } from '../../tokens/interaction/payment-methods';
 import type { PaymentStatus } from '../../tokens/interaction/statuses';
 
-export type PaymentMethod = {
-  id: string;
-  type: PaymentMethodType;
-  name: string;
-  description?: string;
-  details?: string;
-  lastFour?: string;
-  expiry?: string;
-  issuer?: string;
-  enabled?: boolean;
-  fee?: number;
-  processingTime?: string;
-  limitations?: string[];
-  disabled?: boolean;
-  isDefault?: boolean;
-  isVerified?: boolean;
-  nickname?: string;
-};
-
+import type { PaymentMethod, PaymentSummaryDiscount, PaymentSummaryItem, PaymentSummaryTax } from '../../types/interaction/payment-controls';
 export interface PaymentInfoProps extends HTMLAttributes<HTMLDivElement> {
   paymentMethods: PaymentMethod[];
   acceptedCards?: string[];
@@ -66,29 +48,6 @@ export interface PaymentSelectorProps extends HTMLAttributes<HTMLDivElement> {
   onSetDefault?: (id: string) => void;
 }
 
-export type PaymentSummaryItem = {
-  id: string;
-  name: string;
-  description?: string;
-  quantity: number;
-  price: number;
-  total: number;
-};
-
-export type PaymentSummaryDiscount = {
-  id: string;
-  name: string;
-  amount: number;
-  type: 'percentage' | 'fixed';
-};
-
-export type PaymentSummaryTax = {
-  id: string;
-  name: string;
-  rate: number;
-  amount: number;
-};
-
 export interface PaymentSummaryProps extends HTMLAttributes<HTMLDivElement> {
   title?: string;
   subtitle?: string;
@@ -103,6 +62,5 @@ export interface PaymentSummaryProps extends HTMLAttributes<HTMLDivElement> {
   status?: PaymentStatus;
   class?: string;
 }
-
 
 

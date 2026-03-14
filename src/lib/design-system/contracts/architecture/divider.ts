@@ -1,16 +1,13 @@
 import type { DividerAlign } from '$stylist/design-system/tokens/architecture/alignments';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { HTMLAttributes } from 'svelte/elements';
-
-export type DividerOrientation = Orientation;
-
 /**
  * Divider Props
  * Used for visual dividers/separators
  */
 export interface DividerProps extends HTMLAttributes<HTMLHRElement> {
   /** Orientation of the divider */
-  orientation?: DividerOrientation;
+  orientation?: Orientation;
   /** Whether the divider is inset */
   inset?: boolean;
   /** Custom class name */
@@ -22,3 +19,6 @@ export interface DividerProps extends HTMLAttributes<HTMLHRElement> {
   /** Label text to display on the divider */
   label?: string;
 }
+
+
+

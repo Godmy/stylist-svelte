@@ -46,3 +46,4 @@ export interface ICategoryCardProps {
    */
   class?: string;
 }
+

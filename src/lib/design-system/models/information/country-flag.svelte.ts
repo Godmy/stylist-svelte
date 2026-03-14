@@ -1,10 +1,6 @@
-﻿import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
+import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
+import type { CountryFlagProps } from '../../types/information/country-flag';
 
-interface CountryFlagProps {
-	countryCode?: string;
-	size?: number;
-	class?: string;
-}
 
 export function createCountryFlagState(props: CountryFlagProps) {
 	const countryCode = $derived(props.countryCode ?? '');
@@ -45,6 +41,8 @@ export function createCountryFlagState(props: CountryFlagProps) {
 }
 
 export default createCountryFlagState;
+
+
 
 
 

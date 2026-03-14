@@ -13,3 +13,5 @@ export interface UserProfileCardProps extends HTMLAttributes<HTMLDivElement> {
   email?: string;
   class?: string;
 }
+
+

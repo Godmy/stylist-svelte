@@ -72,3 +72,6 @@ export interface ISearchBarEvents {
    */
   input: { value: string };
 }
+
+
+

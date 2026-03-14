@@ -1,23 +1,6 @@
 import type { HtmlAttributesBase } from './common';
 
-export type CommentThreadUser = {
-  id: string;
-  name: string;
-  avatar?: string;
-  role?: string;
-};
-
-export type CommentThreadItem = {
-  id: string;
-  author: CommentThreadUser;
-  content: string;
-  timestamp: Date;
-  replies?: CommentThreadItem[];
-  likes?: number;
-  liked?: boolean;
-  isEdited?: boolean;
-};
-
+import type { CommentThreadItem } from '../../types/information/comment-thread';
 export interface CommentThreadProps extends HtmlAttributesBase<HTMLDivElement> {
   title?: string;
   comments: CommentThreadItem[];
@@ -35,3 +18,6 @@ export interface CommentThreadProps extends HtmlAttributesBase<HTMLDivElement> {
   replyClass?: string;
   inputClass?: string;
 }
+
+
+

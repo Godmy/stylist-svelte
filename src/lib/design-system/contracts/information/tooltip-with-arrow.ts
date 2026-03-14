@@ -5,3 +5,5 @@ export interface TooltipWithArrowProps extends HTMLAttributes<HTMLDivElement> {
   position?: 'top' | 'bottom' | 'left' | 'right';
   class?: string;
 }
+
+

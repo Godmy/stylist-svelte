@@ -1,15 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type PageBuilderElementType =
-  | 'text'
-  | 'image'
-  | 'video'
-  | 'button'
-  | 'divider'
-  | 'heading'
-  | 'container'
-  | 'grid';
-
+import type { PageBuilderElementType } from '../../tokens/interaction/page-builder';
 export interface PageBuilderTextAttributes {
   FONT_SIZE?: string;
   color?: string;
@@ -31,13 +22,6 @@ export interface PageBuilderImageAttributes {
   width?: string;
   height?: string;
 }
-
-export type PageBuilderElementAttributes =
-  | PageBuilderTextAttributes
-  | PageBuilderHeadingAttributes
-  | PageBuilderButtonAttributes
-  | PageBuilderImageAttributes
-  | Record<string, unknown>;
 
 export interface PageBuilderElement {
   id: string;
@@ -64,4 +48,5 @@ export interface PageBuilderProps extends HTMLAttributes<HTMLDivElement> {
   canvasClass?: string;
   elementClass?: string;
 }
+
 

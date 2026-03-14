@@ -39,8 +39,5 @@ export interface IAlertCardElementProps extends IDisableable, ILoadable, IStylea
   loadingLabel?: string;
 }
 
-export type AlertCardElementProps = IAlertCardElementProps;
-
-
 
 

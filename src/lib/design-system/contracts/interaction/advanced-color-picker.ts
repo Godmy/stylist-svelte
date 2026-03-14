@@ -9,3 +9,5 @@ export interface AdvancedColorPickerProps extends HTMLAttributes<HTMLDivElement>
   onChange?: (value: string) => void;
   class?: string;
 }
+
+

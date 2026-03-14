@@ -1,4 +1,5 @@
-import type { NodePropertyProps, NodePropertyType } from '$stylist/design-system/contracts';
+import type { NodePropertyProps } from '$stylist/design-system/contracts';
+import type { NodePropertyType } from '$stylist/design-system/tokens/information/node-property';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
 import { NodePropertyStyleManager } from '$stylist/design-system/styles';
 
@@ -43,3 +44,5 @@ export function createNodePropertyState(props: NodePropertyProps) {
 }
 
 export default createNodePropertyState;
+
+

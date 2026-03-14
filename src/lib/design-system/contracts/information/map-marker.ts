@@ -7,32 +7,8 @@ import type {
 	PrimitivePin,
 	PrimitiveShape
 } from '$stylist/design-system/tokens/architecture/primitives';
-
-export type MapMarkerType = PrimitivePin | PrimitiveOwnership;
-export type PinStyle = Extract<PrimitiveConnector, 'line' | 'anchor' | 'ring'> | Extract<PrimitiveShape, 'flag'>;
-
-export type MarkerCategory =
-  | 'restaurant'
-  | 'hotel'
-  | 'attraction'
-  | 'service'
-  | 'transport'
-  | 'health'
-  | 'education'
-  | 'shopping'
-  | 'emergency';
-
-export type Coordinates = {
-  lat: number;
-  lng: number;
-};
-
-export type ContactInfo = {
-  phone?: string;
-  email?: string;
-  website?: string;
-  hours?: string;
-};
+import type { ContactInfo, Coordinates } from '../../types/information/map-marker';
+import type { MapMarkerType, MarkerCategory, PinStyle } from '../../tokens/information/map-marker';
 
 export interface IMapMarkerProps extends HTMLAttributes<HTMLDivElement> {
   coordinates: Coordinates;

@@ -16,3 +16,6 @@ export interface AccessibilityCheckboxProps extends HTMLAttributes<HTMLInputElem
   /** Callback when checkbox changes */
   onChange?: (checked: boolean) => void;
 }
+
+
+

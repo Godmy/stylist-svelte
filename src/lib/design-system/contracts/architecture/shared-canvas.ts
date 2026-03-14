@@ -39,3 +39,4 @@ export interface CanvasUser {
   color: string;
   cursorPosition?: { x: number; y: number };
 }
+

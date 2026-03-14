@@ -1,4 +1,4 @@
-﻿import type { ImageWithCaptionProps } from '$stylist/design-system/contracts';
+import type { ImageWithCaptionProps } from '$stylist/design-system/contracts';
 import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
 
 
@@ -38,6 +38,9 @@ export function createImageWithCaptionState(props: ImageWithCaptionProps) {
 }
 
 export default createImageWithCaptionState;
+
+
+
 
 
 

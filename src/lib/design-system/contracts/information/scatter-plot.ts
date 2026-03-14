@@ -1,16 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type ScatterPlotDataPoint = {
-  id: string;
-  x: number;
-  y: number;
-  name?: string;
-  size?: number;
-  color?: string;
-  category?: string;
-  description?: string;
-};
-
+import type { ScatterPlotDataPoint } from '../../types/information/scatter-plot';
 export interface ScatterPlotProps extends HTMLAttributes<HTMLDivElement> {
   data: ScatterPlotDataPoint[];
   title?: string;
@@ -25,4 +15,5 @@ export interface ScatterPlotProps extends HTMLAttributes<HTMLDivElement> {
   class?: string;
   onPointClick?: (item: ScatterPlotDataPoint) => void;
 }
+
 

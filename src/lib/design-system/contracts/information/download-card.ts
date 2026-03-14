@@ -1,3 +1,4 @@
+
 /**
  * Типы и интерфейсы для компонента DownloadCard
  *
@@ -12,9 +13,6 @@
  */
 
 import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
-
-export type DownloadCardVariant = ToneVariant;
-
 export interface IFileMetadata {
   /** Имя файла */
   name: string;
@@ -34,7 +32,7 @@ export interface IDownloadCardProps {
   file: IFileMetadata;
   
   /** Вариант оформления */
-  variant?: DownloadCardVariant;
+  variant?: ToneVariant;
   
   /** URL для скачивания файла */
   downloadUrl: string;
@@ -51,3 +49,8 @@ export interface IDownloadCardProps {
   /** Дополнительные CSS классы */
   class?: string;
 }
+
+
+
+
+

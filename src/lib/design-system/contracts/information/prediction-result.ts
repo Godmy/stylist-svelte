@@ -1,12 +1,7 @@
 import type { HtmlAttributesBase } from './common';
 import type { PredictionResultStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
-export type Prediction = {
-	label: string;
-	value: number;
-	confidence?: number;
-};
-
+import type { Prediction } from '../../types/information/prediction-result';
 export interface PredictionResultProps extends HtmlAttributesBase<HTMLDivElement> {
 	title?: string;
 	description?: string;
@@ -23,5 +18,6 @@ export interface PredictionResultProps extends HtmlAttributesBase<HTMLDivElement
 	contentClass?: string;
 	footerClass?: string;
 }
+
 
 

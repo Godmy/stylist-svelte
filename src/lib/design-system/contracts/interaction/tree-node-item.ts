@@ -1,7 +1,3 @@
-/**
- * TreeNodeItem types and interfaces following SOLID principles
- */
-
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
@@ -29,3 +25,5 @@ export interface ITreeNodeItemStyleClasses {
   selected: string;
   disabled: string;
 }
+
+

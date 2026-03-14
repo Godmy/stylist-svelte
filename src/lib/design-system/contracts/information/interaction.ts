@@ -5,22 +5,10 @@ import type {
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,
 	HtmlStateAttr,
-	HtmlVariantSizeAttr,
-	ValueChangeHandler
+	HtmlVariantSizeAttr
 } from './common';
-
-export type ToolbarVariant =
-	| 'default'
-	| 'primary'
-	| 'secondary'
-	| 'success'
-	| 'warning'
-	| 'danger'
-	| 'error'
-	| 'info'
-	| 'neutral'
-	| 'dark'
-	| 'light';
+import type { ValueChangeHandler } from '$stylist/design-system/types/information/common';
+import type { ToolbarVariant } from '../../types/information/interaction';
 
 export interface ToolbarInteractiveProps {
 	variant?: ToolbarVariant;
@@ -107,8 +95,6 @@ export interface SelectOption {
 	disabled?: boolean;
 }
 
-export type SelectVariant = DefaultVariants | NeutralVariant;
-
 export interface SelectProps extends HtmlAttributesWithChildren<HTMLElement>, HtmlStateAttr {
 	options: SelectOption[] | string[];
 	value?: string;
@@ -160,9 +146,6 @@ export interface ToolbarProps<T extends EventTarget = HTMLElement>
 	collapsed?: boolean;
 }
 
-export type ToolbarInteractiveItemProps<T extends EventTarget = HTMLElement> =
-	HtmlAttributesWithChildren<T> & ToolbarInteractiveProps;
-
 export interface ToolbarGroupProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
 	variant?: ToolbarVariant;
@@ -174,9 +157,6 @@ export interface ToolbarSeparatorProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesBase<T> {
 	orientation?: Orientation;
 }
-
-export type ToolbarFieldItemProps<T extends EventTarget = HTMLElement> =
-	HtmlAttributesWithChildren<T> & ToolbarFieldProps;
 
 export interface PictureToolbarTool {
 	id: string;
@@ -195,6 +175,7 @@ export interface ProductSortOption {
 	value: string;
 	label: string;
 }
+
 
 
 

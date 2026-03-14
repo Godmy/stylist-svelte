@@ -1,11 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type MultiSelectOption = {
-  value: string;
-  label: string;
-  disabled?: boolean;
-};
-
+import type { MultiSelectOption } from '../../types/interaction/multi-select';
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {
   options: MultiSelectOption[];
   value?: string[];
@@ -22,4 +17,5 @@ export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {
   onInput?: (value: string[]) => void;
   onChange?: (value: string[]) => void;
 }
+
 

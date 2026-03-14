@@ -14,3 +14,5 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   class?: string;
   onClose?: () => void;
 }
+
+

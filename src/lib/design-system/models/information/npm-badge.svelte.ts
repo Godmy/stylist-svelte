@@ -1,6 +1,6 @@
 import type { NpmBadgeProps } from '$stylist/design-system/contracts';
 import { DataDisplayStyleManager } from '$stylist/design-system/styles/information/data-display';
-import { BADGE_LABELS } from '$stylist/design-system/tokens';
+import { BADGE_LABELS } from '$stylist/design-system/defaults';
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);
@@ -25,6 +25,9 @@ export function createNpmBadgeState(props: NpmBadgeProps) {
 }
 
 export default createNpmBadgeState;
+
+
+
 
 
 

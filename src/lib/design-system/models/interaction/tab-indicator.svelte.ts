@@ -18,7 +18,7 @@ export const createTabIndicatorState = (props: TabIndicatorProps) => {
 						: color === 'danger'
 							? 'bg-[--color-danger-500]'
 							: 'bg-[--color-primary-500]',
-			disabled ? 'opacity-50' : '',
+			disabled ? 'opacity-[var(--opacity-50)]' : '',
 			props.class
 		)
 	);
@@ -41,6 +41,8 @@ export const createTabIndicatorState = (props: TabIndicatorProps) => {
 };
 
 export default createTabIndicatorState;
+
+
 
 
 

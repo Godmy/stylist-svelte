@@ -1,8 +1,5 @@
 import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { TimeRange as TimeRangeToken } from '../../tokens/information/date-time';
-
-export type TimeRange = TimeRangeToken;
-
+import type { TimeRange } from '../../tokens/information/date-time';
 // Props for PerformanceDashboard component
 export interface PerformanceDashboardProps {
   title?: string;
@@ -28,3 +25,6 @@ export interface Metric {
   icon: any;
   color: string;
 }
+
+
+

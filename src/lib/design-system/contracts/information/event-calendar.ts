@@ -5,9 +5,7 @@
  * following SOLID principles and proper type safety.
  */
 
-import type { CalendarViewMode, CalendarEvent, CalendarDay } from './calendar';
-
-export type { CalendarViewMode, CalendarEvent, CalendarDay } from './calendar';
+import type { CalendarViewMode, CalendarEvent, CalendarDay } from '../../types/information/calendar';
 
 /**
  * Props for the EventCalendar component
@@ -98,3 +96,6 @@ export interface IEventCalendarProps {
    */
   onViewModeChange?: (mode: CalendarViewMode) => void;
 }
+
+
+

@@ -126,3 +126,6 @@ export interface ChartProps extends HtmlAttributesBase<HTMLDivElement> {
 	showAxisArrows?: boolean;
 }
 
+
+
+

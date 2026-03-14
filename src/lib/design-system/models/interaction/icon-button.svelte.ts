@@ -1,7 +1,13 @@
-import { createButtonState as createSharedButtonState } from './button.svelte';
+import { createButtonState as createButtonStateImpl } from './button.svelte';
 
-export const createIconButtonState = createSharedButtonState;
+export function createIconButtonState(
+	...args: Parameters<typeof createButtonStateImpl>
+): ReturnType<typeof createButtonStateImpl> {
+	return createButtonStateImpl(...args);
+}
+
 export default createIconButtonState;
+
 
 
 

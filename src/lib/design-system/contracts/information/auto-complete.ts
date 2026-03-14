@@ -15,3 +15,5 @@ export interface AutoCompleteProps extends HTMLAttributes<HTMLInputElement> {
   showAllSuggestions?: boolean;
   class?: string;
 }
+
+

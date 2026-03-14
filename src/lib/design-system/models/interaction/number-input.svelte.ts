@@ -1,10 +1,6 @@
-﻿type NumberInputStateProps = {
-	disabled?: boolean;
-	readonly?: boolean;
-	class?: string;
-	inputClass?: string;
-	buttonClass?: string;
-};
+import type { NumberInputStateProps } from '../../types/interaction/number-input';
+
+
 
 export const createNumberInputState = (props: NumberInputStateProps) => {
 	const disabled = $derived(props.disabled ?? false);
@@ -12,8 +8,8 @@ export const createNumberInputState = (props: NumberInputStateProps) => {
 	const containerClasses = $derived(['relative inline-flex items-center', props.class ?? ''].join(' ').trim());
 	const inputClasses = $derived(
 		[
-			'w-20 p-2 text-center border-y border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-			disabled ? 'bg-gray-100' : 'bg-white',
+			'w-20 p-2 text-center border-y border-[var(--color-border-primary)] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
+			disabled ? 'bg-[var(--color-background-secondary)]' : 'bg-[var(--color-background-primary)]',
 			props.inputClass ?? ''
 		]
 			.join(' ')
@@ -21,9 +17,9 @@ export const createNumberInputState = (props: NumberInputStateProps) => {
 	);
 	const buttonClasses = $derived(
 		[
-			'p-2 border border-gray-300 bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed',
+			'p-2 border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] hover:bg-[var(--color-background-tertiary)] disabled:opacity-[var(--opacity-50)] disabled:cursor-not-allowed',
 			props.buttonClass ?? '',
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		]
 			.join(' ')
 			.trim()
@@ -52,5 +48,8 @@ export const createNumberInputState = (props: NumberInputStateProps) => {
 };
 
 export default createNumberInputState;
+
+
+
 
 

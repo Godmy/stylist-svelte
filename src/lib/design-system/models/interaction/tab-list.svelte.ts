@@ -1,10 +1,10 @@
 import { mergeClasses } from '$stylist/utils/classes';
-﻿import type { TabContainerProps } from '$stylist/design-system/contracts';
+import type { TabContainerProps } from '$stylist/design-system/types/interaction/tabs';
 
 export const createTabListState = (props: TabContainerProps) => {
 	const disabled = $derived(props.disabled ?? false);
 	const classes = $derived(
-		mergeClasses('flex items-center gap-1', disabled ? 'opacity-50' : '', props.class)
+		mergeClasses('flex items-center gap-1', disabled ? 'opacity-[var(--opacity-50)]' : '', props.class)
 	);
 	return {
 		get disabled() {
@@ -16,8 +16,9 @@ export const createTabListState = (props: TabContainerProps) => {
 	};
 };
 
-
 export default createTabListState;
+
+
 
 
 

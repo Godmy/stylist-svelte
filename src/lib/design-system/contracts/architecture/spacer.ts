@@ -14,3 +14,6 @@ export interface SpacerProps extends HTMLAttributes<HTMLDivElement> {
   /** Custom class name */
   class?: string;
 }
+
+
+

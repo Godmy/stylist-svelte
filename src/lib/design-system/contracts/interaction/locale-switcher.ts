@@ -1,17 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export type LocaleSwitcherLocale = {
-  code: string;
-  name: string;
-  region?: string;
-  flag?: string;
-};
-
-export type LocaleSwitcherTimezoneOption = {
-  value: string;
-  label: string;
-};
-
+import type { LocaleSwitcherLocale, LocaleSwitcherTimezoneOption } from '../../types/interaction/locale-switcher';
 export interface LocaleSwitcherProps extends HTMLAttributes<HTMLDivElement> {
   locales: LocaleSwitcherLocale[];
   currentLocale: string;
@@ -28,4 +17,5 @@ export interface LocaleSwitcherProps extends HTMLAttributes<HTMLDivElement> {
   localeClass?: string;
   footerClass?: string;
 }
+
 

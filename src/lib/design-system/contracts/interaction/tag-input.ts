@@ -5,3 +5,5 @@ export interface TagInputProps extends HTMLAttributes<HTMLDivElement> {
   placeholder?: string;
   class?: string;
 }
+
+

@@ -5,20 +5,7 @@ import type { ComponentSize } from '$stylist/design-system/tokens/architecture/c
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { Props, ClassProp } from '../information/common';
 
-type ButtonAttributesBase = Omit<HTMLButtonAttributes, 'class'> & ClassProp;
-
-export type ButtonElementBaseProps<TCore, TDom> = Omit<TCore, 'children'> &
-	TDom & {
-		class?: string;
-		children?: Snippet;
-	};
-
-type ButtonDomProps = Omit<HTMLButtonAttributes, 'class' | 'disabled' | 'onclick'>;
-
-type ButtonCoreProps = Omit<Props, 'class'>;
-
-export type ButtonElementProps = ButtonElementBaseProps<ButtonCoreProps, ButtonDomProps>;
-
+import type { ButtonAttributesBase, ButtonCoreProps, ButtonDomProps } from '../../types/interaction/button';
 export interface CopyButtonProps
 	extends Omit<
 			ButtonCoreProps,
@@ -59,5 +46,5 @@ export interface ButtonControlProps extends ButtonAttributesBase {
 	onClick?: () => void;
 }
 
-export type { ClassProp };
+
 

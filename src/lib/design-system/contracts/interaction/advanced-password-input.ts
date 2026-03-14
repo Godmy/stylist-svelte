@@ -22,3 +22,6 @@ export interface IAdvancedPasswordInputProps {
   /** @deprecated use onValueChange */
   onChange?: (value: string) => void;
 }
+
+
+

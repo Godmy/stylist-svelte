@@ -1,6 +1,4 @@
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
-
 import type { Alignment, Justification, Orientation, ComponentSize } from '../../tokens';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
 
@@ -54,20 +52,6 @@ export interface GridLayoutExtendedProps extends HtmlAttributesWithChildren<HTML
 	justifyContent?: Justification;
 }
 
-/**
- * Устаревшие типы для обратной совместимости
- * @deprecated Используйте HorizontalLayoutProps
- */
-export type StackedLayoutProps = HorizontalLayoutProps;
 
-/**
- * Устаревшие типы для обратной совместимости
- * @deprecated Используйте HorizontalLayoutProps с sections=[primary, secondary]
- */
-export type SplitLayoutProps = HorizontalLayoutProps;
 
-/**
- * Устаревшие типы для обратной совместимости
- * @deprecated Используйте HorizontalLayoutProps с sections
- */
-export type SideBySideLayoutProps = HorizontalLayoutProps;
+

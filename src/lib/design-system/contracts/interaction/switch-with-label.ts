@@ -1,13 +1,6 @@
 import type { Alignment } from '../../tokens/architecture/alignments';
 
-/**
- * SwitchWithLabel component types and interfaces
- * Following SOLID principles with proper type definitions
- */
-
-/** Position of the label relative to the switch */
-export type LabelPosition = Extract<Alignment, 'left' | 'right'>;
-
+import type { LabelPosition } from '../../tokens/interaction/horizontal-positions';
 /** Props interface for SwitchWithLabel component */
 export interface ISwitchWithLabelProps {
   /**
@@ -70,3 +63,6 @@ export interface ISwitchWithLabelProps {
    */
   onChange?: (checked: boolean) => void;
 }
+
+
+

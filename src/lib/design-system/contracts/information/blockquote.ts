@@ -7,3 +7,6 @@ export interface BlockquoteProps extends Omit<HTMLBlockquoteAttributes, 'class'>
 	withBackground?: boolean;
 	children?: ChildrenProp['children'];
 }
+
+
+

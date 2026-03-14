@@ -29,7 +29,7 @@ export function createCheckboxState(props: CheckboxProps) {
 	const labelClasses = mergeClasses(
 		'block leading-5',
 		'text-sm font-medium',
-		disabled ? 'opacity-50 cursor-not-allowed' : ''
+		disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 	);
 	const descriptionClasses = 'block text-sm text-[--color-text-secondary]';
 	const errorClasses = 'mt-1 text-sm text-[--color-danger-500]';
@@ -58,6 +58,8 @@ export function createCheckboxState(props: CheckboxProps) {
 
 
 export default createCheckboxState;
+
+
 
 
 

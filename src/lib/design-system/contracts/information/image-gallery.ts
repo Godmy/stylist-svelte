@@ -19,3 +19,5 @@ export interface IImageGalleryProps extends HTMLAttributes<HTMLDivElement> {
   navigationClass?: string;
   captionClass?: string;
 }
+
+

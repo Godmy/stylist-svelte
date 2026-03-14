@@ -1,21 +1,11 @@
+import type { ScheduleEvent } from '../../types/information/schedule-calendar';
+
 /**
  * ScheduleCalendar Component Types
  */
 
-import type { CalendarEvent } from './calendar';
+import type { CalendarEvent } from '../../types/information/calendar';
 import type { Priority } from '$stylist/design-system/tokens/information/priorities';
-
-export type { CalendarEvent } from './calendar';
-/**
- * Represents a schedule event
- */
-export type ScheduleEvent = CalendarEvent & {
-  /**
-   * Priority level of the event
-   */
-  priority?: Priority;
-};
-
 /**
  * Represents a time slot in the schedule calendar
  */

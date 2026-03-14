@@ -48,3 +48,4 @@ export interface IProcessStepProps {
    */
   class?: string;
 }
+

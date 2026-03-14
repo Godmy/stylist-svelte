@@ -1,4 +1,4 @@
-﻿import type {
+import type {
 	Idef0BlackBoxProps,
 	Idef0ConnectorProps,
 	Idef0DiagramProps,
@@ -9,11 +9,8 @@
 	Idef0PortLabelProps
 } from '../../contracts/information/idef0';
 import { Idef0StyleManager } from '../../styles/information/idef0';
+import type { Idef0PortPosition } from '../../types/information/idef0';
 
-export type Idef0PortPosition = {
-	port: Idef0Port;
-	y: number;
-};
 
 function calculatePortPositions(ports: Idef0Port[], top: number, height: number): Idef0PortPosition[] {
 	if (ports.length === 0) {
@@ -150,3 +147,5 @@ export function createIdef0DiagramState(props: Idef0DiagramProps) {
 }
 
 export default createIdef0DiagramState;
+
+

@@ -39,19 +39,5 @@ export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeader
   onValueChange?: (key: string) => void;
 }
 
-// Presets moved from presets\sortable-table-header.ts
 
-export const sortableTableHeaderPresets: Record<string, Partial<SortableTableHeaderProps>> = {
-  default: {
-    title: 'Column',
-    currentSortDirection: 'none'
-  },
-  ascending: {
-    title: 'Column',
-    currentSortDirection: 'asc'
-  },
-  descending: {
-    title: 'Column',
-    currentSortDirection: 'desc'
-  }
-};
+

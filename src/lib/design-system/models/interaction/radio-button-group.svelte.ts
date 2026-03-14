@@ -13,20 +13,20 @@ export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
 	const getOptionClass = (isDisabled: boolean) => {
 		return mergeClasses(
 			'flex items-center space-x-2 cursor-pointer',
-			isDisabled ? 'opacity-50 cursor-not-allowed' : ''
+			isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		);
 	};
 	
 	const radioInputClass = $derived(
 		mergeClasses(
-			'h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500'
+			'h-4 w-4 border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500'
 		)
 	);
 	
 	const optionLabelClass = $derived(
 		mergeClasses(
-			'text-sm font-medium text-gray-700',
-			disabled ? 'opacity-50' : ''
+			'text-sm font-medium text-[var(--color-text-primary)]',
+			disabled ? 'opacity-[var(--opacity-50)]' : ''
 		)
 	);
 
@@ -60,6 +60,9 @@ export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
 };
 
 export default createRadioButtonGroupState;
+
+
+
 
 
 

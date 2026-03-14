@@ -1,19 +1,13 @@
+import type { NotificationPosition } from '../../tokens/interaction/notification-positions';
+import type { NotificationType } from '../../tokens/interaction/statuses';
+
 /**
  * Notification types and interfaces following SOLID principles
  */
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { ToneVariant } from '../../tokens/interaction/variants';
 import type { Alignment } from '../../tokens/architecture/alignments';
-
-export type NotificationPosition = Extract<
-	Alignment,
-	'top-end' | 'top-start' | 'bottom-end' | 'bottom-start' | 'top-center' | 'bottom-center'
->;
-
-export type NotificationType = ToneVariant;
-
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;
   title?: string;
@@ -30,5 +24,6 @@ export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   headerClass?: string;
   bodyClass?: string;
 }
+
 
 

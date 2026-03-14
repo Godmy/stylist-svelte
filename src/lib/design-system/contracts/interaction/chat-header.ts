@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ChatHeader types and interfaces following SOLID principles
  */
 
@@ -24,35 +24,5 @@ export interface ChatHeaderChat {
   avatar?: string;
 }
 
-export type ChatHeaderRestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
 
-export type ChatHeaderProps = ChatHeaderRestProps & {
-  chat: ChatHeaderChat;
-  currentUser: ChatHeaderUser;
-  showActions?: boolean;
-  class?: string;
-  children?: Snippet;
-};
-
-// Presets moved from presets\chat-header.ts
-// Default values for ChatHeader component
-export const DEFAULT_CHAT_HEADER_PROPS = {
-  showActions: true
-};
-
-// Preset configurations for common use cases
-export const CHAT_HEADER_PRESETS = {
-  minimal: {
-    showActions: false
-  },
-  fullFeatured: {
-    showActions: true
-  },
-  groupChat: {
-    showActions: true
-  },
-  oneOnOne: {
-    showActions: true
-  }
-};
 

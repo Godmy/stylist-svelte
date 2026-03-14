@@ -4,15 +4,8 @@ import type { Props } from '$stylist/design-system/contracts';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
+import type { AlertCardStateProps } from '../../types/information/alert-card';
 
-type AlertCardStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
-  variant?: V;
-  size?: S;
-  title?: string;
-  subtitle?: string;
-  icon?: string | Snippet<[]>;
-  actions?: { label: string; onClick: () => void }[];
-};
 
 /**
  * Универсальный state creator для AlertCard
@@ -35,7 +28,7 @@ export function createAlertCardState<V extends string, S extends string>(
       variant,
       size,
       disabled,
-      className: props.class
+      className: props.class ? String(props.class) : ''
     })
   );
 
@@ -71,3 +64,8 @@ export function createAlertCardState<V extends string, S extends string>(
 }
 
 export default createAlertCardState;
+
+
+
+
+

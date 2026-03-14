@@ -84,8 +84,5 @@ export interface Session {
   current: boolean;
 }
 
-/**
- * Session Manager Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { SessionManagerProps } from './interaction-forms';
+
+

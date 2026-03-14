@@ -1,12 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
 /**
- * Form With Validation Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { FormWithValidationProps } from './interaction-forms';
-
-/**
  * Form Data structure
  */
 export interface FormData {
@@ -27,30 +21,6 @@ export interface ValidationErrors {
 }
 
 /**
- * Screen Reader Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { ScreenReaderProps } from './interaction-forms';
-
-/**
- * Search Form Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { SearchFormProps } from './interaction-forms';
-
-/**
- * Secure Form Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { SecureFormProps } from './interaction-forms';
-
-/**
- * Login Form Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { LoginFormProps } from './interaction-forms';
-
-/**
  * Login Credentials structure
  */
 export interface LoginCredentials {
@@ -58,12 +28,6 @@ export interface LoginCredentials {
   password: string;
   rememberMe?: boolean;
 }
-
-/**
- * Address Form Props
- */
-// Re-export from interaction-forms to avoid duplicates
-export type { AddressFormProps } from './interaction-forms';
 
 /**
  * Address Data structure
@@ -77,3 +41,6 @@ export interface AddressData {
   apartment?: string;
   phone?: string;
 }
+
+
+

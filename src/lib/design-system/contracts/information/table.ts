@@ -1,3 +1,4 @@
+import type { Alignment } from '../../tokens/architecture/alignments';
 ﻿import type { HTMLAttributes } from 'svelte/elements';
 
 import type { TableCell } from '../../tokens';
@@ -19,17 +20,15 @@ export interface TableProps extends TableAttributesBase, ContentProp {
 	hoverable?: boolean;
 }
 
-export type TableSectionProps = TableElementAttributesBase<HTMLTableSectionElement> &
-	ContentProp;
-
 export interface TableRowProps extends TableElementAttributesBase<HTMLTableRowElement>, ContentProp {
 	striped?: boolean;
 	active?: boolean;
 }
 
-export type TableCellAlign = string;
-
 export interface TableCellProps extends TableElementAttributesBase<HTMLTableCellElement>, ContentProp {
 	variant?: TableCell;
-	align?: TableCellAlign;
+	align?: Alignment;
 }
+
+
+

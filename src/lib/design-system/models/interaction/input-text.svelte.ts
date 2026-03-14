@@ -1,31 +1,14 @@
-﻿import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
-import type { InputVariant } from '$stylist/design-system/tokens';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { InputTextStateOptions } from '../../types/interaction/input-text';
 
-type InputStateOptions = {
-	variant?: InputVariant;
-	size?: ComponentSize;
-	disabled?: boolean;
-	loading?: boolean;
-	error?: boolean;
-	block?: boolean;
-	class?: string;
-	ariaLabel?: string;
-};
+export function createInputTextState(
+	props: InputTextStateOptions & Record<string, unknown>
+) {
+	return createBaseInputState(INPUT_FIELD_PRESET, props);
+}
 
-const createInputFieldState = (
-	props: InputStateOptions & Record<string, unknown>
-) => createBaseInputState(INPUT_FIELD_PRESET, props);
-
-export { createInputFieldState };
-export const createInputTextState = createInputFieldState;
 export default createInputTextState;
-
-
-
-
-
 
 
 

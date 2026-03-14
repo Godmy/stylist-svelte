@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import { createErrorMessageStyles } from '../../styles/information/error-message';
+import { createErrorMessageStyles } from '../../functions/information/error-message';
 import type { ErrorMessageProps } from '../../contracts/interaction/error-message';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -48,3 +48,6 @@ export function createErrorMessageState(props: ErrorMessageProps) {
 }
 
 export default createErrorMessageState;
+
+
+

@@ -1,25 +1,7 @@
-﻿import type { Snippet } from 'svelte';
+import type { Snippet } from 'svelte';
 
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { HtmlAttributesBase } from '../information/common';
-
-// Re-export from source files to avoid duplicates
-export type { AspectRatioProps } from './aspect-ratio';
-export type { DividerProps } from './divider';
-export type { SpacerProps } from './spacer';
-export type { HorizontalLayoutProps } from './layout-extended';
-
-export type SpacerAxis = Orientation;
-
-export type GridItemContent = Snippet | string;
-
-export type GridItem = {
-	id: string;
-	content: GridItemContent;
-	colSpan?: number;
-	rowSpan?: number;
-	class?: string;
-};
+import type { GridItem } from '$stylist/design-system/tokens/architecture/layout';
 
 export interface GridLayoutProps extends HtmlAttributesBase<HTMLDivElement> {
 	items: GridItem[];
@@ -27,3 +9,6 @@ export interface GridLayoutProps extends HtmlAttributesBase<HTMLDivElement> {
 	gap?: string;
 	itemClass?: string;
 }
+
+
+

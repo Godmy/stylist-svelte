@@ -6,7 +6,7 @@ export const createTabsState = (props: TabsProps) => {
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);
 	const classes = $derived(
-		mergeClasses('inline-flex items-center gap-1', disabled ? 'opacity-50 pointer-events-none' : '', props.class)
+		mergeClasses('inline-flex items-center gap-1', disabled ? 'opacity-[var(--opacity-50)] pointer-events-none' : '', props.class)
 	);
 
 	return {
@@ -27,6 +27,8 @@ export const createTabsState = (props: TabsProps) => {
 
 
 export default createTabsState;
+
+
 
 
 

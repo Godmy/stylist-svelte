@@ -1,5 +1,5 @@
 import type { GraphCanvasProps, GraphCanvasViewport, GraphCanvasPosition } from '$stylist/design-system/contracts';
-import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/tokens/information/graph-canvas';
+import { GRAPH_CANVAS_DEFAULTS } from '$stylist/design-system/defaults/information/graph-canvas';
 import { GraphCanvasStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphCanvasState(props: GraphCanvasProps) {
@@ -83,3 +83,6 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 }
 
 export default createGraphCanvasState;
+
+
+

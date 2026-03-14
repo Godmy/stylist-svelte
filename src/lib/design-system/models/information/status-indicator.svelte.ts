@@ -1,17 +1,7 @@
 import type { StatusIndicatorProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
+import type { StatusIndicatorStatus } from '$stylist/design-system/tokens/information/status-indicator';
 
-export type StatusIndicatorStatus =
-	| 'online'
-	| 'offline'
-	| 'away'
-	| 'busy'
-	| 'success'
-	| 'warning'
-	| 'error'
-	| 'info'
-	| 'neutral'
-	| 'custom';
 
 /**
  * Unified StatusIndicator state creator
@@ -116,3 +106,7 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 }
 
 export default createStatusIndicatorState;
+
+
+
+

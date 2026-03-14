@@ -1,4 +1,4 @@
-﻿import { mergeClasses } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/utils/classes';
 import type { BadgeGroupProps } from '$stylist/design-system/contracts';
 
 /**
@@ -56,3 +56,7 @@ export function createBadgeGroupState(props: BadgeGroupProps) {
 }
 
 export default createBadgeGroupState;
+
+
+
+

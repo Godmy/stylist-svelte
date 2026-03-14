@@ -1,4 +1,11 @@
-import { createPinInputDigitState as createSharedPinInputDigitState } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createPinInputDigitState as createPinInputDigitStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
 
-export const createPinInputDigitState = createSharedPinInputDigitState;
+export function createPinInputDigitState(
+	...args: Parameters<typeof createPinInputDigitStateImpl>
+): ReturnType<typeof createPinInputDigitStateImpl> {
+	return createPinInputDigitStateImpl(...args);
+}
+
 export default createPinInputDigitState;
+
+

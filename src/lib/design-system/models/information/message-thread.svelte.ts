@@ -11,13 +11,13 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 	
 	const headerClasses = $derived(
 		mergeClasses(
-			'px-4 py-3 border-b bg-gray-50'
+			'px-4 py-3 border-b bg-[var(--color-background-secondary)]'
 		)
 	);
 	
 	const containerClasses = $derived(
 		mergeClasses(
-			'flex-1 overflow-y-auto p-4 bg-white'
+			'flex-1 overflow-y-auto p-4 bg-[var(--color-background-primary)]'
 		)
 	);
 	
@@ -39,7 +39,7 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 	
 	const spinnerClasses = $derived(
 		mergeClasses(
-			'animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900'
+			'animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-border-primary)]'
 		)
 	);
 
@@ -81,6 +81,10 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 };
 
 export default createMessageThreadState;
+
+
+
+
 
 
 

@@ -46,5 +46,3 @@ export { default as createTableCellState } from './table-cell.svelte';
 export { default as createTableHeaderState } from './table-header.svelte';
 export { default as createTableRowState } from './table-row.svelte';
 export { default as createTableState } from './table.svelte';
-export type { Idef0PortPosition } from './idef0.svelte';
-export type { StatusIndicatorStatus } from './status-indicator.svelte';

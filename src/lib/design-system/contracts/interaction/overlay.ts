@@ -19,3 +19,5 @@ export interface ILoadingOverlayProps {
    */
   spinnerSize?: ComponentSize;
 }
+
+

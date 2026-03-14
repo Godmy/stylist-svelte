@@ -1,12 +1,10 @@
-import type { HtmlAttributesBase } from '../information/common';
-
-export type AuthRole = string;
+import type { HtmlAttributesBase } from './common';
 
 export interface AuthGuardProps extends HtmlAttributesBase<HTMLDivElement> {
 	isAuthenticated?: boolean;
-	requiredRole?: AuthRole;
-	allowedRoles?: AuthRole[];
-	userRoles?: AuthRole[];
+	requiredRole?: string;
+	allowedRoles?: string[];
+	userRoles?: string[];
 	redirectUrl?: string;
 	showLoadingState?: boolean;
 	class?: string;
@@ -15,3 +13,6 @@ export interface AuthGuardProps extends HtmlAttributesBase<HTMLDivElement> {
 	onAuthChange?: (isAuthenticated: boolean) => void;
 	onContactAdmin?: () => void;
 }
+
+
+

@@ -1,8 +1,4 @@
-﻿type AccessibilityCheckboxStateProps = {
-	checked?: boolean;
-	disabled?: boolean;
-	class?: string;
-};
+import type { AccessibilityCheckboxStateProps } from '../../types/interaction/accessibility-checkbox';
 
 export const createAccessibilityCheckboxState = (props: AccessibilityCheckboxStateProps) => {
 	const checked = $derived(props.checked ?? false);
@@ -11,13 +7,13 @@ export const createAccessibilityCheckboxState = (props: AccessibilityCheckboxSta
 	const indicatorClasses = $derived(
 		[
 			'w-6 h-6 flex items-center justify-center rounded border',
-			checked ? 'bg-blue-500 border-blue-500' : 'bg-white border-gray-300',
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
+			checked ? 'bg-[var(--color-primary-500)] border-[var(--color-primary-500)]' : 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)]',
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		]
 			.filter(Boolean)
 			.join(' ')
 	);
-	const labelClasses = $derived(['ml-2', disabled ? 'text-gray-400' : 'text-gray-700'].join(' '));
+	const labelClasses = $derived(['ml-2', disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]'].join(' '));
 
 	return {
 		get checked() {
@@ -39,5 +35,8 @@ export const createAccessibilityCheckboxState = (props: AccessibilityCheckboxSta
 };
 
 export default createAccessibilityCheckboxState;
+
+
+
 
 

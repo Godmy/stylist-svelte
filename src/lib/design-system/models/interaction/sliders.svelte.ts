@@ -25,7 +25,7 @@ export function createSliderState(props: SliderProps) {
 	const thumbClasses = mergeClasses(
 		'slider-thumb',
 		'absolute top-1/2 transform -translate-y-1/2 w-5 h-5 bg-[var(--color-primary-500)] rounded-full cursor-pointer',
-		props.disabled ? 'cursor-not-allowed opacity-50' : ''
+		props.disabled ? 'cursor-not-allowed opacity-[var(--opacity-50)]' : ''
 	);
 
 	return {
@@ -41,6 +41,9 @@ export function createSliderState(props: SliderProps) {
 }
 
 export default createSliderState;
+
+
+
 
 
 

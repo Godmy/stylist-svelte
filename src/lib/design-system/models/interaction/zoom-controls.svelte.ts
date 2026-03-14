@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import { createZoomControlsStyles } from '../../styles/interaction/zoom-controls';
+import { createZoomControlsStyles } from '../../functions/interaction/zoom-controls';
 import type { ZoomControlsProps } from '../../contracts/interaction/zoom-controls';
 import { mergeClasses } from '$stylist/utils/classes';
 
@@ -51,3 +51,7 @@ export function createZoomControlsState(props: ZoomControlsProps) {
 }
 
 export default createZoomControlsState;
+
+
+
+

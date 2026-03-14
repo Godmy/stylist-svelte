@@ -13,3 +13,4 @@ export interface IAiResultCardProps {
   icon?: string;
   class?: string;
 }
+

@@ -1,7 +1,6 @@
-﻿type PhoneNumberInputStateProps = {
-	error?: boolean;
-	disabled?: boolean;
-};
+import type { PhoneNumberInputStateProps } from '../../types/interaction/phone-number-input';
+
+
 
 export const formatPhoneNumber = (value: string): string => {
 	if (!value) return '';
@@ -72,5 +71,7 @@ export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) =
 };
 
 export default createPhoneNumberInputState;
+
+
 
 

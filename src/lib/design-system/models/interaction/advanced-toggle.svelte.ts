@@ -25,7 +25,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	);
 	const hiddenInputClasses = $derived(
 		mergeClasses(
-			'absolute left-0 top-0 opacity-0 w-full h-full cursor-pointer',
+			'absolute left-0 top-0 opacity-[var(--opacity-0)] w-full h-full cursor-pointer',
 			disabled ? 'cursor-not-allowed' : ''
 		)
 	);
@@ -34,7 +34,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	const sizeClasses = $derived(TogglesStyleManager.getToggleSizeClasses(size));
 	const disabledClass = $derived(TogglesStyleManager.getToggleDisabledClass(disabled));
 	const labelTextClasses = $derived(
-		mergeClasses('text-sm font-medium', disabled ? 'text-gray-400' : 'text-gray-700')
+		mergeClasses('text-sm font-medium', disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]')
 	);
 
 	return {
@@ -89,6 +89,9 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 
 
 export default createAdvancedToggleState;
+
+
+
 
 
 

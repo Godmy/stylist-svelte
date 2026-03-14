@@ -5,3 +5,5 @@ export interface IPageHeaderProps extends HTMLAttributes<HTMLElement> {
   subtitle?: string;
   class?: string;
 }
+
+

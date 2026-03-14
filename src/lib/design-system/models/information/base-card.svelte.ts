@@ -3,15 +3,8 @@ import type { Props } from '$stylist/design-system/contracts';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/utils/classes';
 import { computeAriaLabel } from '$stylist/utils/aria';
+import type { BaseCardStateProps } from '../../types/information/base-card';
 
-type BaseCardStateProps<V extends string, S extends string> = Omit<Props, 'variant' | 'size'> & {
-  variant?: V;
-  size?: S;
-  title?: string;
-  description?: string;
-  headerClass?: string;
-  bodyClass?: string;
-};
 
 /**
  * Универсальный state creator для BaseCard
@@ -34,7 +27,7 @@ export function createBaseCardState<V extends string, S extends string>(
       variant,
       size,
       disabled,
-      className: props.class
+      className: props.class ? String(props.class) : ''
     })
   );
 
@@ -70,3 +63,8 @@ export function createBaseCardState<V extends string, S extends string>(
 }
 
 export default createBaseCardState;
+
+
+
+
+

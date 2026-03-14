@@ -1,8 +1,7 @@
 import type { TooltipProps } from '../../contracts/interaction/tooltip';
-import type { TooltipPlacement } from '../../contracts/interaction/tooltip';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { TooltipPlacement } from '$stylist/design-system/tokens/interaction/tooltip';
+import type { TooltipStateProps } from '../../types/interaction/tooltip';
 
-type TooltipStateProps = TooltipProps & HTMLAttributes<HTMLElement>;
 
 /**
  * Unified Tooltip state creator
@@ -104,7 +103,7 @@ export function createTooltipState(props: TooltipStateProps) {
 
 	// Compute position classes
 	const positionClasses = $derived(() => {
-		const base = 'absolute z-50';
+		const base = 'absolute z-[var(--z-index-modal)]';
 		const positions: Record<TooltipPlacement, string> = {
 			top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
 			'top-start': 'bottom-full left-0 mb-2',
@@ -126,7 +125,7 @@ export function createTooltipState(props: TooltipStateProps) {
 	const tooltipClasses = $derived(() => {
 		const baseClasses = variant === 'simple'
 			? 'px-3 py-2 text-sm font-medium rounded-lg shadow-sm bg-[--color-tooltip-bg] text-[--color-text-inverse]'
-			: 'px-2 py-1 text-xs text-white bg-gray-900 rounded whitespace-nowrap';
+			: 'px-2 py-1 text-xs text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)] rounded whitespace-nowrap';
 
 		return `${positionClasses()} ${baseClasses} ${tooltipClassName}`.trim();
 	});
@@ -135,7 +134,7 @@ export function createTooltipState(props: TooltipStateProps) {
 	const arrowClasses = $derived(() => {
 		if (variant !== 'with-arrow') return '';
 
-		const arrowBase = 'absolute w-2 h-2 bg-gray-900 transform rotate-45';
+		const arrowBase = 'absolute w-2 h-2 bg-[var(--color-neutral-900)] transform rotate-45';
 		const arrowPositions: Record<TooltipPlacement, string> = {
 			top: 'top-full left-1/2 -translate-x-1/2 -mt-1',
 			'top-start': 'top-full left-2 -mt-1',
@@ -214,4 +213,10 @@ export function createTooltipState(props: TooltipStateProps) {
 }
 
 export default createTooltipState;
+
+
+
+
+
+
 

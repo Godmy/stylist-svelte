@@ -1,3 +1,5 @@
+import type { MessageAlign } from '$stylist/design-system/tokens/information/message-align';
+
 /**
  * @file MessageBubble Types
  * @description Type definitions for MessageBubble component following Atomic Design principles
@@ -7,9 +9,6 @@
 
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 import type { MessageBubbleVariant } from '$stylist/design-system/tokens/architecture/message-bubble';
-
-export type MessageAlign = Extract<Alignment, 'left' | 'right'>;
-
 /**
  * Alignment options for MessageBubble
  */
@@ -60,4 +59,6 @@ export interface IMessageBubbleProps {
    */
   class?: string;
 }
+
+
 
