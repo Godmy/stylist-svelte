@@ -38,7 +38,7 @@ export class PageHeaderStyleManager {
   static getBreadcrumbItemClasses(isLast: boolean): string {
     return isLast
       ? 'font-medium text-[var(--color-text-primary)]'
-      : 'transition-colors duration-150 hover:text-[var(--color-text-primary)]';
+      : 'transition-colors duration-[var(--duration-150)] hover:text-[var(--color-text-primary)]';
   }
 
   /**
@@ -76,3 +76,6 @@ export class PageHeaderStyleManager {
     return 'flex-1';
   }
 }
+
+
+

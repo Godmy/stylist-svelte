@@ -7,3 +7,4 @@ export class CanvasImageEditorStyleManager {
     return 'c-canvas-image-editor border border-[--color-border-primary] rounded-[--radius-md]';
   }
 }
+

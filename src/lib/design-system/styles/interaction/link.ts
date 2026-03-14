@@ -2,12 +2,12 @@ import type { ComponentSize } from '../../tokens/architecture/component-size';
 import type { InlineCodeVariant } from '../../tokens/interaction/variants';
 import type { DefaultVariants } from '../../tokens/interaction/variants';
 
-export const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
+const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
 	default: 'bg-[--color-background-secondary] text-[--color-text-primary]',
 	subtle: 'bg-[--color-background-tertiary] text-[--color-text-secondary]'
 };
 
-export const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default: 'text-[var(--color-text-primary)]',
 	primary: 'text-[var(--color-primary-600)]',
 	secondary: 'text-[var(--color-secondary-600)]',
@@ -27,7 +27,7 @@ export const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	light: 'text-[var(--color-text-primary)]'
 };
 
-export const LINK_SIZE_CLASSES: Record<ComponentSize, string> = {
+const LINK_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'text-xs',
 	sm: 'text-sm',
 	md: 'text-base',
@@ -35,6 +35,10 @@ export const LINK_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xl: 'text-xl',
 	'2xl': 'text-2xl'
 };
+
+
+
+
 
 export class LinkStyleManager {
 	private static join(classes: Array<string | false | null | undefined>): string {
@@ -84,13 +88,15 @@ export class LinkStyleManager {
 		return this.join([
 			variantClass,
 			sizeClass,
-			disabled ? 'opacity-50 pointer-events-none' : '',
-			!disabled ? 'hover:opacity-80' : '',
+			disabled ? 'opacity-[var(--opacity-50)] pointer-events-none' : '',
+			!disabled ? 'hover:opacity-[var(--opacity-80)]' : '',
 			underline ? 'underline underline-offset-2' : '',
 			className
 		]);
 	}
 }
+
+
 
 
 

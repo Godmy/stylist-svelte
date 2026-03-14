@@ -9,7 +9,7 @@
  */
 
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 /**
  * Style manager for ComponentPreview component
@@ -107,3 +107,6 @@ export class ComponentPreviewStyleManager {
     );
   }
 }
+
+
+

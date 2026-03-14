@@ -1,11 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import {
-	CODE_COPY_BUTTON_CONTAINER_CLASSES,
-	CODE_HEADER_BASE_CLASSES,
-	CODE_ICON_CLASSES,
-	CODE_PRE_BASE_CLASSES,
-	CODE_SURFACE_BASE_CLASSES
-} from './code-block';
+import { CODE_COPY_BUTTON_CONTAINER_CLASSES, CODE_HEADER_BASE_CLASSES, CODE_ICON_CLASSES, CODE_PRE_BASE_CLASSES, CODE_SURFACE_BASE_CLASSES } from '../../constants/information/code-block';
 
 export class CopyableCodeStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -32,3 +26,5 @@ export class CopyableCodeStyleManager {
 		return cn(CODE_ICON_CLASSES, isCopied ? 'text-[var(--color-success-600)]' : '');
 	}
 }
+
+

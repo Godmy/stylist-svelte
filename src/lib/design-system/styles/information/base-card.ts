@@ -1,5 +1,5 @@
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../interaction/interaction';
+import { VARIANT_CLASSES } from '../../constants/interaction/interaction';
 import { cn } from '../../utils/cn/index';
 
 const BASE_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
@@ -15,6 +15,10 @@ const BASE_CARD_SIZE_CLASSES = {
 	md: 'p-4',
 	lg: 'p-6'
 } as const;
+
+
+
+
 
 export class BaseCardStyleManager {
   static getClasses(
@@ -34,3 +38,5 @@ export class BaseCardStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
+
+

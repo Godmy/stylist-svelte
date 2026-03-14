@@ -1,43 +1,35 @@
-/**
- * Менеджер стилей для компонента DownloadCard
+﻿/**
+ * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚Р° DownloadCard
  *
- * Следует принципу единственной ответственности (SRP) из SOLID:
- * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
- * и не содержит никакой логики отображения или поведения.
+ * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїСѓ РµРґРёРЅСЃС‚РІРµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚Рё (SRP) РёР· SOLID:
+ * РћС‚РІРµС‡Р°РµС‚ РёСЃРєР»СЋС‡РёС‚РµР»СЊРЅРѕ Р·Р° РіРµРЅРµСЂР°С†РёСЋ CSS-РєР»Р°СЃСЃРѕРІ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РїСЂРѕРїСЃРѕРІ
+ * Рё РЅРµ СЃРѕРґРµСЂР¶РёС‚ РЅРёРєР°РєРѕР№ Р»РѕРіРёРєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РёР»Рё РїРѕРІРµРґРµРЅРёСЏ.
  *
- * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
+ * РќРћР РњРђР›РР—РћР’РђРќРќРђРЇ Р’Р•Р РЎРРЇ - РёСЃРїРѕР»СЊР·СѓРµС‚ РѕР±С‰РёРµ Р±Р°Р·РѕРІС‹Рµ РєР»Р°СЃСЃС‹ РёР· cards.ts
  */
 
-import type { DownloadCardVariant } from '$stylist/design-system/contracts/information/download-card';
 import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
-import {
-	CARD_BASE_CLASSES,
-	CARD_ICON_CONTAINER_CLASSES,
-	CARD_ICON_SIZE_CLASSES,
-	CARD_TEXT_CONTENT_CLASSES,
-	CARD_TRUNCATE_CLASSES,
-	CARD_ACTIONS_CLASSES
-} from './card';
+import { CARD_BASE_CLASSES, CARD_ICON_CONTAINER_CLASSES, CARD_ICON_SIZE_CLASSES, CARD_TEXT_CONTENT_CLASSES, CARD_TRUNCATE_CLASSES, CARD_ACTIONS_CLASSES } from '../../constants/information/card';
 
 export class DownloadCardStyleManager {
   /**
-   * Возвращает CSS-классы для основного контейнера DownloadCard
-   * Использует нормализованные базовые классы для карточек
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµР№РЅРµСЂР° DownloadCard
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ Р±Р°Р·РѕРІС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РєР°СЂС‚РѕС‡РµРє
    */
   static getContainerClasses(className?: string): string {
-    return `${CARD_BASE_CLASSES} download-card flex items-center p-4 hover:shadow-md transition-shadow duration-200 ${className || ''}`.trim();
+    return `${CARD_BASE_CLASSES} download-card flex items-center p-4 hover:shadow-md transition-shadow duration-[var(--duration-200)] ${className || ''}`.trim();
   }
 
   /**
-   * Возвращает CSS-классы для иконки файла
-   * Использует нормализованные классы для иконок
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё С„Р°Р№Р»Р°
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРѕРє
    */
   static getIconContainerClasses(): string {
     return CARD_ICON_CONTAINER_CLASSES;
   }
 
   /**
-   * Возвращает CSS-классы для иконки в зависимости от варианта
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ РІР°СЂРёР°РЅС‚Р°
    */
   static getIconClasses(variant: ToneVariant = 'primary'): string {
     const variantClasses: Record<ToneVariant, string> = {
@@ -54,41 +46,41 @@ export class DownloadCardStyleManager {
   }
 
   /**
-   * Возвращает CSS-классы для контейнера информации о файле
-   * Использует нормализованные классы для текстового контента
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РєРѕРЅС‚РµР№РЅРµСЂР° РёРЅС„РѕСЂРјР°С†РёРё Рѕ С„Р°Р№Р»Рµ
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚РѕРІРѕРіРѕ РєРѕРЅС‚РµРЅС‚Р°
    */
   static getInfoContainerClasses(): string {
     return CARD_TEXT_CONTENT_CLASSES;
   }
 
   /**
-   * Возвращает CSS-классы для имени файла
-   * Использует нормализованные классы для усечения текста
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРјРµРЅРё С„Р°Р№Р»Р°
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ СѓСЃРµС‡РµРЅРёСЏ С‚РµРєСЃС‚Р°
    */
   static getFileNameClasses(): string {
     return `text-sm font-medium text-[--color-text-primary] ${CARD_TRUNCATE_CLASSES} block`;
   }
 
   /**
-   * Возвращает CSS-классы для метаданных файла
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РјРµС‚Р°РґР°РЅРЅС‹С… С„Р°Р№Р»Р°
    */
   static getMetadataClasses(): string {
     return 'text-xs text-[--color-text-secondary] mt-1 flex flex-wrap gap-2';
   }
 
   /**
-   * Возвращает CSS-классы для отдельного элемента метаданных
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕС‚РґРµР»СЊРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РјРµС‚Р°РґР°РЅРЅС‹С…
    */
   static getMetadataItemClasses(): string {
     return 'inline-flex items-center';
   }
 
   /**
-   * Возвращает CSS-классы для кнопки скачивания
-   * Использует нормализованные классы для действий
+   * Р’РѕР·РІСЂР°С‰Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РєРЅРѕРїРєРё СЃРєР°С‡РёРІР°РЅРёСЏ
+   * РСЃРїРѕР»СЊР·СѓРµС‚ РЅРѕСЂРјР°Р»РёР·РѕРІР°РЅРЅС‹Рµ РєР»Р°СЃСЃС‹ РґР»СЏ РґРµР№СЃС‚РІРёР№
    */
-  static getDownloadButtonClasses(variant: DownloadCardVariant = 'primary'): string {
-    const variantClasses: Record<DownloadCardVariant, string> = {
+  static getDownloadButtonClasses(variant: ToneVariant = 'primary'): string {
+    const variantClasses: Record<ToneVariant, string> = {
       primary: 'text-[--color-primary-600] hover:text-[--color-primary-700]',
       secondary: 'text-[--color-neutral-600] hover:text-[--color-neutral-700]',
       success: 'text-[--color-success-600] hover:text-[--color-success-700]',
@@ -98,7 +90,16 @@ export class DownloadCardStyleManager {
       info: 'text-[--color-info-600] hover:text-[--color-info-700]'
     };
 
-    return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-150 ${variantClasses[variant] || variantClasses.primary}`;
+    return `ml-4 p-2 rounded-full hover:bg-[--color-background-secondary] transition-colors duration-[var(--duration-150)] ${variantClasses[variant] || variantClasses.primary}`;
   }
 }
+
+
+
+
+
+
+
+
+
 

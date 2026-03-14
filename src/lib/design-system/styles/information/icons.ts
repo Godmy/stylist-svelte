@@ -2,10 +2,9 @@ import type { DefaultVariants } from '../../tokens/interaction/variants';
 import type { ComponentSize } from '../../tokens/architecture/component-size';
 import type { PrimitiveCorner, PrimitiveShape } from '../../tokens/architecture/primitives';
 import { cn } from '../../utils/cn/index';
+import type { IconWrapperShape } from '../../tokens/information/icon-wrapper';
 
-type IconWrapperShape = Extract<PrimitiveShape, 'circle' | 'square' | 'pill'> | Extract<PrimitiveCorner, 'rounded'>;
-
-export const TOKEN_ICON_SIZE_CLASSES: Record<ComponentSize, string> = {
+const TOKEN_ICON_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'w-3 h-3',
 	sm: 'w-4 h-4',
 	md: 'w-5 h-5',
@@ -14,7 +13,7 @@ export const TOKEN_ICON_SIZE_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'w-10 h-10'
 };
 
-export const TOKEN_ICON_VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const TOKEN_ICON_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	default: 'text-current',
 	primary: 'text-[--color-primary-500]',
 	secondary: 'text-[--color-secondary-500]',
@@ -34,7 +33,7 @@ export const TOKEN_ICON_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	light: 'text-[--color-text-primary]'
 };
 
-export const TOKEN_ICON_WRAPPER_PADDING_CLASSES: Record<ComponentSize, string> = {
+const TOKEN_ICON_WRAPPER_PADDING_CLASSES: Record<ComponentSize, string> = {
 	xs: 'p-0.5',
 	sm: 'p-1',
 	md: 'p-1.5',
@@ -43,15 +42,15 @@ export const TOKEN_ICON_WRAPPER_PADDING_CLASSES: Record<ComponentSize, string> =
 	'2xl': 'p-4'
 };
 
-export const TOKEN_ICON_WRAPPER_SHAPE_CLASSES: Record<IconWrapperShape, string> = {
+const TOKEN_ICON_WRAPPER_SHAPE_CLASSES: Record<IconWrapperShape, string> = {
 	circle: 'rounded-full',
 	square: 'rounded-none',
 	rounded: 'rounded-md',
 	pill: 'rounded-full px-2'
 };
 
-export const TOKEN_ICON_WRAPPER_COLOR_CLASSES: Record<DefaultVariants, string> = {
-	default: 'text-[--color-text-primary] bg-[--color-bg-secondary]',
+const TOKEN_ICON_WRAPPER_COLOR_CLASSES: Record<DefaultVariants, string> = {
+	default: 'text-[--color-text-primary] bg-[--color-background-secondary]',
 	primary: 'text-[--color-primary-500] bg-[--color-primary-100]',
 	secondary: 'text-[--color-secondary-500] bg-[--color-secondary-100]',
 	success: 'text-[--color-success-500] bg-[--color-success-100]',
@@ -65,35 +64,38 @@ export const TOKEN_ICON_WRAPPER_COLOR_CLASSES: Record<DefaultVariants, string> =
 		'text-[--color-text-primary] bg-transparent border border-[--color-border-primary]',
 	ghost: 'text-[--color-text-primary] bg-transparent',
 	link: 'text-[--color-primary-600] bg-transparent',
-	subtle: 'text-[--color-text-primary] bg-[--color-bg-secondary]',
+	subtle: 'text-[--color-text-primary] bg-[--color-background-secondary]',
 	neutral: 'text-[--color-neutral-500] bg-[--color-neutral-100]',
 	dark: 'text-[--color-text-inverse] bg-[--color-neutral-800]',
 	light: 'text-[--color-text-primary] bg-[--color-neutral-50]'
 };
 
-export const TOKEN_ICON_DIRECTION_ROTATION_CLASSES = {
+const TOKEN_ICON_DIRECTION_ROTATION_CLASSES = {
 	up: 'rotate-0',
 	right: 'rotate-90',
 	down: 'rotate-180',
 	left: '-rotate-90'
 } as const;
 
-export const TOKEN_ICON_CHEVRON_DEFAULTS = {
+const TOKEN_ICON_CHEVRON_DEFAULTS = {
 	isOpen: false,
 	size: 'md' as const
 };
 
-export const TOKEN_ICON_CIRCLE_DEFAULTS = {
+const TOKEN_ICON_CIRCLE_DEFAULTS = {
 	variant: 'default' as const,
 	size: 'md' as const
 };
 
-export const TOKEN_ICON_WRAPPER_DEFAULTS = {
+const TOKEN_ICON_WRAPPER_DEFAULTS = {
 	size: 'md' as const,
 	variant: 'default' as const,
 	shape: 'circle' as const,
 	color: 'primary' as const
 };
+
+
+
 
 export class IconStyleManager {
 	static getIconClasses(
@@ -120,7 +122,7 @@ export class IconStyleManager {
 			TOKEN_ICON_SIZE_CLASSES[size],
 			TOKEN_ICON_DIRECTION_ROTATION_CLASSES[direction],
 			variant !== 'default' ? TOKEN_ICON_VARIANT_CLASSES[variant] : '',
-			disabled ? 'opacity-50' : '',
+			disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
 		);
 	}
@@ -139,7 +141,7 @@ export class IconStyleManager {
 			TOKEN_ICON_VARIANT_CLASSES[variant],
 			TOKEN_ICON_SIZE_CLASSES[size],
 			options.filled ? 'fill-current' : '',
-			options.disabled ? 'opacity-50' : '',
+			options.disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
 		);
 	}
@@ -163,10 +165,13 @@ export class IconStyleManager {
 			TOKEN_ICON_WRAPPER_SHAPE_CLASSES[shape],
 			TOKEN_ICON_WRAPPER_COLOR_CLASSES[color],
 			variant !== 'default' ? TOKEN_ICON_VARIANT_CLASSES[variant] : '',
-			options.disabled ? 'opacity-50' : '',
+			options.disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
 		);
 	}
 }
+
+
+
 
 

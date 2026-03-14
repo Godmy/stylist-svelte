@@ -8,7 +8,7 @@ export class ConversionFunnelStyleManager {
   }
 
   static getFunnelStepVisualizationClass(): string {
-    return 'h-12 flex items-center transition-all duration-500';
+    return 'h-12 flex items-center transition-all duration-[var(--duration-500)]';
   }
 
   static getFunnelStepVisualizationStyle(value: number, maxValue: number, color?: string): string {
@@ -19,3 +19,4 @@ export class ConversionFunnelStyleManager {
     return 'absolute top-0 h-12 flex items-center pl-3 text-xs font-medium text-[--color-text-inverse]';
   }
 }
+

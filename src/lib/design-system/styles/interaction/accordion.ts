@@ -36,7 +36,7 @@ export class AccordionStyleManager {
   static getHeaderClass(expanded: boolean, disabled: boolean, headerClass: string = ''): string {
     const baseClass = 'w-full flex justify-between items-center p-[--spacing-md] text-left font-medium text-[--color-text-primary] hover:bg-[--color-background-secondary] rounded-lg';
     const expandedClass = expanded ? 'bg-[--color-background-secondary]' : '';
-    const disabledClass = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
+    const disabledClass = disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer';
 
     return [baseClass, expandedClass, disabledClass, headerClass].filter(Boolean).join(' ');
   }
@@ -47,7 +47,7 @@ export class AccordionStyleManager {
    * @returns CSS class string for the chevron icon
    */
   static getChevronClass(expanded: boolean): string {
-    const baseClass = 'w-5 h-5 transition-transform duration-200 ease-in-out';
+    const baseClass = 'w-5 h-5 transition-transform duration-[var(--duration-200)] ease-in-out';
     const rotationClass = expanded ? 'rotate-180' : '';
 
     return `${baseClass} ${rotationClass}`;
@@ -60,8 +60,8 @@ export class AccordionStyleManager {
    * @returns Combined CSS class string for the content panel
    */
   static getContentPanelClass(expanded: boolean, contentClass: string = ''): string {
-    const baseClass = 'overflow-hidden transition-all duration-200 ease-in-out';
-    const sizeClass = expanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0';
+    const baseClass = 'overflow-hidden transition-all duration-[var(--duration-200)] ease-in-out';
+    const sizeClass = expanded ? 'max-h-96 opacity-[var(--opacity-100)]' : 'max-h-0 opacity-[var(--opacity-0)]';
 
     return [baseClass, sizeClass, contentClass].filter(Boolean).join(' ');
   }
@@ -74,3 +74,5 @@ export class AccordionStyleManager {
     return 'p-[--spacing-md] border-t border-[--color-border-primary]';
   }
 }
+
+

@@ -1,10 +1,10 @@
 export class PageBuilderStyleManager {
   static getContainerClasses(className: string): string {
-    return `c-page-builder border border-[--color-border] rounded-lg overflow-hidden ${className}`.trim();
+    return `c-page-builder border border-[--color-border-primary] rounded-lg overflow-hidden ${className}`.trim();
   }
 
   static getToolbarClasses(toolbarClass: string): string {
-    return `flex items-center p-3 border-b border-[--color-border] bg-[--color-background-secondary] ${toolbarClass}`.trim();
+    return `flex items-center p-3 border-b border-[--color-border-primary] bg-[--color-background-secondary] ${toolbarClass}`.trim();
   }
 
   static getToolbarButtonClasses(): string {
@@ -22,7 +22,7 @@ export class PageBuilderStyleManager {
   }
 
   static getDragHandleClasses(): string {
-    return 'absolute -left-6 top-0 p-1 cursor-move text-[--color-text-secondary] opacity-0 group-hover:opacity-100';
+    return 'absolute -left-6 top-0 p-1 cursor-move text-[--color-text-secondary] opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)]';
   }
 
   static getElementControlButtonClasses(isDeleteButton: boolean): string {
@@ -32,11 +32,11 @@ export class PageBuilderStyleManager {
   }
 
   static getAddElementButtonClasses(): string {
-    return 'inline-flex items-center px-3 py-1 border border-[--color-border] shadow-sm text-sm leading-4 font-medium rounded-md text-[--color-text-primary] bg-[--color-background-primary] hover:bg-[--color-background-secondary]';
+    return 'inline-flex items-center px-3 py-1 border border-[--color-border-primary] shadow-sm text-sm leading-4 font-medium rounded-md text-[--color-text-primary] bg-[--color-background-primary] hover:bg-[--color-background-secondary]';
   }
 
   static getPropertiesPanelClasses(): string {
-    return 'w-80 border-l border-[--color-border] p-4 bg-[--color-background-primary]';
+    return 'w-80 border-l border-[--color-border-primary] p-4 bg-[--color-background-primary]';
   }
 
   static getPropertiesPanelHeaderClasses(): string {
@@ -44,11 +44,12 @@ export class PageBuilderStyleManager {
   }
 
   static getInputFieldClasses(): string {
-    return 'block w-full px-3 py-2 border border-[--color-border] rounded-md shadow-sm focus:outline-none focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm';
+    return 'block w-full px-3 py-2 border border-[--color-border-primary] rounded-md shadow-sm focus:outline-none focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm';
   }
 
   static getSliderClasses(): string {
     return 'block w-full';
   }
 }
+
 

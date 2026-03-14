@@ -1,12 +1,9 @@
-import type { ConnectionLineType, ConnectionLineStyle, Point } from '$stylist/design-system/contracts';
+import type { Point } from '$stylist/design-system/contracts/information/connection-line';
+import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
+import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
 import { cn } from '$stylist/design-system/utils/cn';
+import type { ConnectionPathResult } from '../../contracts/information/connection-line';
 
-export interface ConnectionPathResult {
-	path: string;
-	length: number;
-	midPoint: Point;
-	angle: number;
-}
 
 /**
  * Менеджер стилей для линии соединения
@@ -16,8 +13,8 @@ export class ConnectionLineStyleManager {
 	 * Получает классы линии
 	 */
 	static getLineClasses(
-		type: ConnectionLineType,
-		lineStyle: ConnectionLineStyle,
+		type: PrimitiveTrajectory,
+		lineStyle: LineStyleToken,
 		active: boolean,
 		animated: boolean
 	): string {
@@ -152,3 +149,9 @@ export class ConnectionLineStyleManager {
 }
 
 export default ConnectionLineStyleManager;
+
+
+
+
+
+

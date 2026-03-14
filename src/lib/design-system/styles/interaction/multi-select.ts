@@ -15,7 +15,7 @@ export class MultiSelectStyleManager {
   }
 
   static getPlaceholderClasses(placeholderClass: string): string {
-    return `text-[--color-text-disabled] ${placeholderClass}`.trim();
+    return `text-[--color-text-tertiary] ${placeholderClass}`.trim();
   }
 
   static getSelectedValueContainerClasses(selectedClass: string): string {
@@ -27,7 +27,7 @@ export class MultiSelectStyleManager {
   }
 
   static getClearButtonClasses(disabled: boolean, hasSelections: boolean): string {
-    const disabledClass = disabled || !hasSelections ? 'opacity-50 cursor-not-allowed' : '';
+    const disabledClass = disabled || !hasSelections ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
     return `ml-auto pl-1 text-[--color-text-secondary] hover:text-[--color-text-primary] ${disabledClass}`.trim();
   }
 
@@ -36,7 +36,7 @@ export class MultiSelectStyleManager {
   }
 
   static getDropdownClasses(dropdownClass: string): string {
-    return `absolute z-10 mt-1 w-full bg-[--color-background-surface] border border-[--color-border-primary] rounded-md shadow-lg max-h-60 overflow-auto ${dropdownClass}`.trim();
+    return `absolute z-[var(--z-index-docked)] mt-1 w-full bg-[--color-background-surface] border border-[--color-border-primary] rounded-md shadow-lg max-h-60 overflow-auto ${dropdownClass}`.trim();
   }
 
   static getSearchContainerClasses(): string {
@@ -49,7 +49,7 @@ export class MultiSelectStyleManager {
 
   static getOptionClasses(optionClass: string, isSelected: boolean, isDisabled: boolean): string {
     const baseClasses = 'px-4 py-2 hover:bg-[--color-secondary-100]';
-    const disabledClass = isDisabled ? 'text-[--color-text-disabled] cursor-not-allowed' : 'cursor-pointer';
+    const disabledClass = isDisabled ? 'text-[--color-text-tertiary] cursor-not-allowed' : 'cursor-pointer';
     const selectedClass = isSelected ? 'bg-[--color-primary-50] text-[--color-primary-700]' : '';
     return `${baseClasses} ${disabledClass} ${optionClass} ${selectedClass}`.trim();
   }
@@ -58,4 +58,6 @@ export class MultiSelectStyleManager {
     return 'px-4 py-2 text-[--color-text-secondary]';
   }
 }
+
+
 

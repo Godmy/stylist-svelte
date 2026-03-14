@@ -35,3 +35,5 @@ export const SIZE_CLASSES: Record<ComponentSize, string> = {
 	xl: `${PADDING_SIZES.xl} ${TEXT_SIZES.xl}`,
 	'2xl': `${PADDING_SIZES['2xl']} ${TEXT_SIZES['2xl']}`
 };
+
+

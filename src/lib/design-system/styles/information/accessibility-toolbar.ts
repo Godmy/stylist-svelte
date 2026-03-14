@@ -1,6 +1,6 @@
 export class AccessibilityToolbarStyleManager {
   static getContainerClass(customClass: string = ''): string {
-    const baseClass = 'c-accessibility-toolbar fixed bottom-[--spacing-md] left-1/2 transform -translate-x-1/2 bg-[--color-background-primary] shadow-lg rounded-full p-[--spacing-sm] z-50';
+    const baseClass = 'c-accessibility-toolbar fixed bottom-[--spacing-md] left-1/2 transform -translate-x-1/2 bg-[--color-background-primary] shadow-lg rounded-full p-[--spacing-sm] z-[var(--z-index-modal)]';
 
     return customClass ? `${baseClass} ${customClass}`.trim() : baseClass;
   }
@@ -27,3 +27,5 @@ export class AccessibilityToolbarStyleManager {
     return 'text-sm font-medium px-[--spacing-sm] text-[--color-text-primary]';
   }
 }
+
+

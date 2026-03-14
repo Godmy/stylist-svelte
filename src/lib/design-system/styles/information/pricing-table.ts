@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class PricingTableStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
@@ -15,7 +15,7 @@ export class PricingTableStyleManager {
   }
 
   static getHighlightedPlanClass(): string {
-    return 'relative z-10 scale-105 border-[var(--color-primary-500)] bg-[var(--color-primary-50)] shadow-lg';
+    return 'relative z-[var(--z-index-docked)] scale-105 border-[var(--color-primary-500)] bg-[var(--color-primary-50)] shadow-lg';
   }
 
   static getPopularBadgeClass(): string {
@@ -62,3 +62,6 @@ export class PricingTableStyleManager {
     return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }
+
+
+

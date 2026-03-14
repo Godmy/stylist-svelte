@@ -13,6 +13,6 @@ export class OntologyNodeComponentStyleManager {
 
   static getBaseClasses(nodeType: string, additionalClass: string = ''): string {
     const style = this.getNodeStyle(nodeType);
-    return `c-ontology-node-component border-2 p-2 flex flex-col items-center justify-center text-center text-xs font-medium shadow-sm hover:shadow-md transition-shadow duration-200 ${style.shape} ${style.border} ${style.bg} ${style.text} ${additionalClass}`.trim();
+    return `c-ontology-node-component border-2 p-2 flex flex-col items-center justify-center text-center text-xs font-medium shadow-sm hover:shadow-md transition-shadow duration-[var(--duration-200)] ${style.shape} ${style.border} ${style.bg} ${style.text} ${additionalClass}`.trim();
   }
 }

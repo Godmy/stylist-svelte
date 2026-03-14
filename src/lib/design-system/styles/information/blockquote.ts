@@ -1,7 +1,12 @@
 import { cn } from '../../utils/cn/index';
 
 const DEFAULT_WITH_BACKGROUND = false;
+
 const DEFAULT_WITH_BORDER = true;
+
+
+
+
 
 export class BlockquoteStyleManager {
 	static getBlockquoteClasses(
@@ -17,3 +22,5 @@ export class BlockquoteStyleManager {
 		);
 	}
 }
+
+

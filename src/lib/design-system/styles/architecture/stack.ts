@@ -1,13 +1,13 @@
-﻿import type { Justification, Orientation } from '../../tokens';
+import type { Justification, Orientation } from '../../tokens';
 import type { Alignment } from '../../tokens/architecture/alignments';
 import { cn } from '../../utils/cn/index';
 
-export const STACK_DIRECTION_CLASSES: Record<Orientation, string> = {
+const STACK_DIRECTION_CLASSES: Record<Orientation, string> = {
 	vertical: 'flex-col',
 	horizontal: 'flex-row'
 };
 
-export const STACK_ALIGN_CLASSES: Record<Alignment, string> = {
+const STACK_ALIGN_CLASSES: Record<Alignment, string> = {
 	top: 'items-start',
 	'top-center': 'items-start',
 	'top-start': 'items-start',
@@ -28,7 +28,7 @@ export const STACK_ALIGN_CLASSES: Record<Alignment, string> = {
 	justify: 'items-center',
 };
 
-export const STACK_JUSTIFY_CLASSES: Record<Justification, string> = {
+const STACK_JUSTIFY_CLASSES: Record<Justification, string> = {
 	stretch: 'justify-stretch',
 	baseline: 'justify-start',
 	between: 'justify-between',
@@ -36,6 +36,10 @@ export const STACK_JUSTIFY_CLASSES: Record<Justification, string> = {
 	evenly: 'justify-evenly',
 	justify: 'justify-center'
 };
+
+
+
+
 
 export class StackStyleManager {
 	static getStackClasses(
@@ -72,3 +76,5 @@ export class StackStyleManager {
 		}
 	}
 }
+
+

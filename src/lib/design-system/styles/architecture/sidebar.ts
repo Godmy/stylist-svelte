@@ -10,16 +10,16 @@ export class SidebarStyleManager {
   }
 
   static getMobileButtonClasses(): string {
-    return 'absolute top-[--spacing-4] left-[--spacing-4] z-50 p-[--spacing-2] rounded-[--radius-md] text-[--color-text-primary] lg:hidden';
+    return 'absolute top-[--spacing-4] left-[--spacing-4] z-[var(--z-index-modal)] p-[--spacing-2] rounded-[--radius-md] text-[--color-text-primary] lg:hidden';
   }
 
   static getOverlayClasses(): string {
-    return 'fixed inset-0 z-40 bg-[--color-overlay-backdrop] lg:hidden';
+    return 'fixed inset-0 z-[var(--z-index-overlay)] bg-[--color-overlay-backdrop] lg:hidden';
   }
 
   static getSidebarClasses(isMobile: boolean, isSidebarOpen: boolean, width: string, mobileWidth: string): string {
     return cn(
-      'fixed left-0 top-0 z-40 h-screen bg-[--color-background-primary] shadow-[--shadow-lg] transition-[transform,margin] duration-300 ease-in-out lg:sticky',
+      'fixed left-0 top-0 z-[var(--z-index-overlay)] h-screen bg-[--color-background-primary] shadow-[--shadow-lg] transition-[transform,margin] duration-[var(--duration-300)] ease-in-out lg:sticky',
       isMobile
         ? isSidebarOpen
           ? 'translate-x-0'
@@ -69,8 +69,8 @@ export class SidebarStyleManager {
     return cn(
       'flex items-center rounded-[--radius-lg] p-[--spacing-3] transition-colors',
       isActive
-        ? activeClass || 'border-r-[--border-width-2] border-[--color-border-accent] bg-[--color-surface-selected] text-[--color-text-accent]'
-        : 'text-[--color-text-primary] hover:bg-[--color-surface-hover]',
+        ? activeClass || 'border-r-[--border-width-2] border-[--color-border-primary] bg-[--color-primary-50] text-[--color-text-primary]'
+        : 'text-[--color-text-primary] hover:bg-[--color-background-hover]',
       isDisabled
         ? disabledClass || 'cursor-not-allowed opacity-[--opacity-medium]'
         : 'cursor-pointer',
@@ -87,7 +87,7 @@ export class SidebarStyleManager {
   }
 
   static getNavItemBadgeClasses(): string {
-    return 'rounded-full bg-[--color-surface-muted] px-[--spacing-2] py-[--spacing-0.5] text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-primary]';
+    return 'rounded-full bg-[--color-background-tertiary] px-[--spacing-2] py-[--spacing-0.5] text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-primary]';
   }
 
   static getFooterClasses(customClass: string = ''): string {
@@ -98,7 +98,7 @@ export class SidebarStyleManager {
   }
 
   static getContentAreaClasses(isSidebarOpen: boolean, isMobile: boolean): string {
-    let classes = 'flex-1 lg:ml-0 transition-all duration-300 ';
+    let classes = 'flex-1 lg:ml-0 transition-all duration-[var(--duration-300)] ';
     
     if (isSidebarOpen && !isMobile) {
       // Space occupied when sidebar is open on desktop
@@ -107,3 +107,9 @@ export class SidebarStyleManager {
     return classes;
   }
 }
+
+
+
+
+
+

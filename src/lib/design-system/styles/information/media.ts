@@ -169,3 +169,6 @@ export class MediaStyleManager {
 		return ImageStyleManager.getAnnouncementBannerChildrenContainerClasses(className);
 	}
 }
+
+
+

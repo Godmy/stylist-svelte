@@ -16,7 +16,7 @@ export class GeoJSONViewerStyleManager {
   }
 
   static getMapContainerStyles(): string {
-    return 'border-color: var(--color-border-default); background-color: var(--color-background-default);';
+    return 'border-color: var(--color-border-primary); background-color: var(--color-background-default);';
   }
 
   static getLayerControlItemClasses(): string {
@@ -24,7 +24,7 @@ export class GeoJSONViewerStyleManager {
   }
 
   static getLayerControlItemStyles(): string {
-    return 'background-color: var(--color-background-default); border-color: var(--color-border-default);';
+    return 'background-color: var(--color-background-default); border-color: var(--color-border-primary);';
   }
 
   static getLayerVisibilityCheckboxClasses(): string {
@@ -64,7 +64,7 @@ export class GeoJSONViewerStyleManager {
   }
 
   static getFeatureInfoPanelStyles(): string {
-    return 'background-color: var(--color-background-default); border: 1px solid var(--color-border-default);';
+    return 'background-color: var(--color-background-default); border: 1px solid var(--color-border-primary);';
   }
 
   static getMapControlButtonClasses(): string {
@@ -95,5 +95,9 @@ export class GeoJSONViewerStyleManager {
     return `fill: ${color}; fill-opacity: ${opacity * 0.5}; stroke: ${color}; stroke-opacity: ${opacity}; stroke-width: 1;`;
   }
 }
+
+
+
+
 
 

@@ -1,4 +1,4 @@
-﻿import { cn } from '../../utils/cn/index';
+import { cn } from '../../utils/cn/index';
 
 export class ChartStyleManager {
 	static getPieChartContainerClasses(className = ''): string {
@@ -30,7 +30,7 @@ export class ChartStyleManager {
 	}
 
 	static getChartAxisGridClasses(className = ''): string {
-		return cn('c-chart-axis__grid stroke-[--color-border-secondary] opacity-40', className);
+		return cn('c-chart-axis__grid stroke-[--color-border-secondary] opacity-[var(--opacity-40)]', className);
 	}
 
 	static getChartAxisLabelClasses(className = ''): string {
@@ -38,7 +38,7 @@ export class ChartStyleManager {
 	}
 
 	static getChartPolylineClasses(className = ''): string {
-		return cn('c-chart-polyline fill-none stroke-[--color-primary-500] transition-[stroke] duration-200', className);
+		return cn('c-chart-polyline fill-none stroke-[--color-primary-500] transition-[stroke] duration-[var(--duration-200)]', className);
 	}
 
 	static getChartNameClasses(className = ''): string {
@@ -57,3 +57,5 @@ export class ChartStyleManager {
 		return cn('c-chart-legend__dot h-2.5 w-2.5 rounded-full', className);
 	}
 }
+
+

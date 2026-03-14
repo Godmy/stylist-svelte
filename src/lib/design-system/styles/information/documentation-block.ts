@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class DocumentationBlockStyleManager {
   static getContainerClass(variantClasses: string, extraClasses: string = ''): string {
@@ -43,3 +43,5 @@ export class DocumentationBlockStyleManager {
     return '';
   }
 }
+
+

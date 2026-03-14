@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
 	default: '',
@@ -8,6 +8,10 @@ const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
 	featured:
 		'ring-2 ring-[var(--color-primary-500)] shadow-lg scale-[1.02] border-[var(--color-primary-300)]'
 } as const;
+
+
+
+
 
 export class TeamMemberCardStyleManager {
 	static getBaseClasses(
@@ -82,3 +86,5 @@ export class TeamMemberCardStyleManager {
 		return 'mt-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
+
+

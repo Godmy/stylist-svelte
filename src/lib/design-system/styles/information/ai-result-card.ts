@@ -1,8 +1,3 @@
-/**
- * Style utility class following Single Responsibility Principle
- * Responsible only for managing AI result card styling logic
- * Uses CSS variables from the theme system
- */
 export class AiResultCardStyleManager {
   /**
    * Creates CSS class string for the main container
@@ -10,7 +5,7 @@ export class AiResultCardStyleManager {
    * @returns Combined CSS class string for the main container
    */
   static getContainerClass(customClass: string = ''): string {
-    const baseClass = 'bg-gradient-to-r from-[--color-primary-50] to-[--color-secondary-50] rounded-xl p-[--spacing-lg] border border-[--color-primary-100]';
+    const baseClass = '[background-image:var(--gradient-ocean)] rounded-xl p-[--spacing-lg] border border-[--color-primary-100]';
 
     return customClass ? `${baseClass} ${customClass}`.trim() : baseClass;
   }
@@ -63,3 +58,5 @@ export class AiResultCardStyleManager {
     return 'text-[--color-text-secondary] mb-[--spacing-md]';
   }
 }
+
+

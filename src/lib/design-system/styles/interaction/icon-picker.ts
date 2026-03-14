@@ -52,7 +52,7 @@ export class IconPickerStyleManager {
    * @returns Строка с CSS классами
    */
   static getSearchInputClasses(): string {
-    return 'block w-full pl-10 pr-3 py-2 border border-[--color-border-default] rounded-md leading-5 bg-[--color-bg-default] placeholder-[--color-text-placeholder] focus:outline-none focus:placeholder-[--color-text-secondary] focus:ring-1 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm';
+    return 'block w-full pl-10 pr-3 py-2 border border-[--color-border-primary] rounded-md leading-5 bg-[--color-background-default] placeholder-[--color-text-placeholder] focus:outline-none focus:placeholder-[--color-text-secondary] focus:ring-1 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm';
   }
 
   /**
@@ -82,7 +82,7 @@ export class IconPickerStyleManager {
    * @returns Строка с CSS классами
    */
   static getItemClasses(itemClass: string = '', isSelected: boolean): string {
-    const baseClasses = 'flex flex-col items-center p-3 cursor-pointer rounded-lg transition-colors hover:bg-[--color-bg-hover]';
+    const baseClasses = 'flex flex-col items-center p-3 cursor-pointer rounded-lg transition-colors hover:bg-[--color-background-hover]';
     const selectedClass = isSelected ? 'ring-2 ring-[--color-primary-500] ring-offset-2' : '';
     
     return `${baseClasses} ${itemClass} ${selectedClass}`.trim();
@@ -104,3 +104,5 @@ export class IconPickerStyleManager {
     return 'mt-1 text-xs text-[--color-text-primary] truncate w-full text-center';
   }
 }
+
+

@@ -2,7 +2,7 @@ export class KanbanBoardStyleManager {
   static getContainerClass(): string {
     return [
       'c-kanban-board flex h-full overflow-x-auto gap-5 rounded-2xl p-4 pb-6',
-      'bg-gradient-to-br from-[--color-neutral-100] via-[--color-background-primary] to-[--color-info-50]',
+      '[background-image:var(--gradient-neutral)]',
       'border border-[--color-border-secondary]/80 shadow-inner'
     ].join(' ');
   }
@@ -27,3 +27,5 @@ export class KanbanBoardStyleManager {
     return 'ml-2 flex items-start';
   }
 }
+
+

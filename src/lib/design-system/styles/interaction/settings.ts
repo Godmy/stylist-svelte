@@ -57,7 +57,7 @@ export class SettingsStyleManager {
    * Get classes for settings toggle description
    */
   static toggleDescription(base: string, className?: string): string {
-    return `${base} text-sm text-gray-500 ${className || ''}`.trim();
+    return `${base} text-sm text-[var(--color-text-secondary)] ${className || ''}`.trim();
   }
 }
 
@@ -112,7 +112,7 @@ export class SecuritySettingsStyleManager {
    * Get classes for two-factor setup
    */
   static twoFactorSetup(base: string, className?: string): string {
-    return `${base} border rounded-lg p-4 bg-gray-50 ${className || ''}`.trim();
+    return `${base} border rounded-lg p-4 bg-[var(--color-background-secondary)] ${className || ''}`.trim();
   }
 }
 
@@ -156,7 +156,7 @@ export class AppearanceSettingsStyleManager {
    * Get classes for preview panel
    */
   static preview(base: string, className?: string): string {
-    return `${base} border rounded-lg p-4 bg-gray-50 ${className || ''}`.trim();
+    return `${base} border rounded-lg p-4 bg-[var(--color-background-secondary)] ${className || ''}`.trim();
   }
 
   /**
@@ -208,3 +208,6 @@ export class AccountSettingsStyleManager {
     return `${base} ${enabledClass} border rounded-lg p-4 ${className || ''}`.trim();
   }
 }
+
+
+

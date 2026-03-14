@@ -9,6 +9,13 @@ import type { Background } from '$stylist/design-system/tokens/information/backg
 import type { Height } from '$stylist/design-system/tokens/architecture/size';
 import { cn } from '../../utils/cn/index';
 
+/**
+ * Менеджер стилей для компонента Hero
+ * 
+ * Следует принципу единственной ответственности (SRP) из SOLID:
+ * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
+ * и не содержит никакой логики отображения или поведения.
+ */
 const HERO_HEIGHT_CLASSES: Record<Height, string> = {
 	screen: 'min-h-screen',
 	large: 'min-h-[80vh]',
@@ -19,10 +26,15 @@ const HERO_BACKGROUND_VARIANT_CLASSES: Record<Background, string> = {
 	default:
 		'absolute inset-0 bg-[var(--color-background-secondary)]',
 	gradient:
-		'absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--color-background-secondary)] to-[var(--color-primary-100)]',
+		'absolute inset-0 [background-image:var(--gradient-primary)]',
 	particles: 'absolute inset-0',
 	image: 'absolute inset-0 bg-cover bg-center'
 };
+
+
+
+
+
 
 export class HeroStyleManager {
   /**
@@ -47,7 +59,7 @@ export class HeroStyleManager {
    * Возвращает CSS-классы для контента Hero
    */
   static getContentClasses(): string {
-    return 'relative z-10 mx-auto max-w-4xl px-4 py-16 text-center';
+    return 'relative z-[var(--z-index-docked)] mx-auto max-w-4xl px-4 py-16 text-center';
   }
 
   /**
@@ -104,13 +116,17 @@ export class HeroStyleManager {
    */
   static getCTAButtonClasses(isPrimary: boolean): string {
     return cn(
-      'rounded-lg px-6 py-3 font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary-500)]',
+      'rounded-lg px-6 py-3 font-medium transition-colors duration-[var(--duration-200)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary-500)]',
       isPrimary
         ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-700)]'
         : 'border border-[var(--color-primary-200)] bg-[var(--color-background-primary)] text-[var(--color-primary-600)] hover:bg-[var(--color-primary-50)]'
     );
   }
 }
+
+
+
+
 
 
 

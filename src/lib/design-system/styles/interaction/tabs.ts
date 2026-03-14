@@ -2,7 +2,7 @@ import { cn } from '../../utils/cn/index';
 import type { ComponentSize } from '../../tokens/architecture/component-size';
 import { STATE_CLASSES } from '../../runtime/foundation';
 
-export const TAB_SIZE_CLASSES: Record<ComponentSize, string> = {
+const TAB_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'px-1.5 py-0.5 text-xs',
 	sm: 'px-2 py-1 text-sm',
 	md: 'px-3 py-1.5 text-base',
@@ -11,7 +11,7 @@ export const TAB_SIZE_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'px-6 py-3 text-2xl'
 };
 
-export const TAB_VARIANT_CLASSES: Record<string, string> = {
+const TAB_VARIANT_CLASSES: Record<string, string> = {
 	primary: 'text-[var(--color-primary-600)]',
 	secondary: 'text-[var(--color-secondary-600)]',
 	success: 'text-[var(--color-success-600)]',
@@ -20,12 +20,16 @@ export const TAB_VARIANT_CLASSES: Record<string, string> = {
 	ghost: 'text-[var(--color-text-primary)]',
 	link: 'text-[var(--color-primary-600)] underline underline-offset-4',
 	info: 'text-[var(--color-info-600)]',
-	solid: 'bg-[var(--color-primary-600)] text-white',
+	solid: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]',
 	outline: 'border-2 border-[var(--color-primary-600)] text-[var(--color-primary-600)]',
 	subtle: 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]'
 };
 
-export const DISABLED_CLASSES = STATE_CLASSES.disabled;
+const DISABLED_CLASSES = STATE_CLASSES.disabled;
+
+
+
+
 
 export class TabsStyleManager {
 	static getTabClasses(options: {
@@ -54,3 +58,6 @@ export class TabsStyleManager {
 		return cn('flex items-center gap-2', vertical ? 'flex flex-col' : '', className);
 	}
 }
+
+
+

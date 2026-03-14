@@ -10,6 +10,10 @@ const PRODUCT_AVAILABILITY_BADGE_CLASSES = {
 	outOfStock: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
 } as const;
 
+
+
+
+
 export class ProductAvailabilityStyleManager {
   static getContainerClass(statusClass: string = '', extraClasses: string = ''): string {
     return cn('c-product-availability rounded-lg border p-4', statusClass, extraClasses);
@@ -71,3 +75,5 @@ export class ProductAvailabilityStyleManager {
     return 'rounded-r bg-[var(--color-primary-500)] px-4 py-2 text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }
+
+

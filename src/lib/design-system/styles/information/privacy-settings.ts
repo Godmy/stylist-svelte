@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class PrivacySettingsStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
@@ -58,3 +58,5 @@ export class PrivacySettingsStyleManager {
     return 'rounded bg-[var(--color-primary-500)] px-4 py-2 text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]';
   }
 }
+
+

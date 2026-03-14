@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class PriceHistoryStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
@@ -50,3 +50,5 @@ export class PriceHistoryStyleManager {
     return '';
   }
 }
+
+

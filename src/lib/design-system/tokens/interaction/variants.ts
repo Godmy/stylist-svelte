@@ -74,3 +74,6 @@ export type NeutralVariant = (typeof INPUT_VARIANTS.neutral)[number];
 export type DefaultVariants = (typeof INPUT_VARIANTS.all)[number];
 export type InputVariant = (typeof INPUT_VARIANTS.input)[number];
 export type NotificationBadgeVariant = DefaultVariants | 'number' | 'dot';
+export type SelectVariant = DefaultVariants | NeutralVariant;
+
+

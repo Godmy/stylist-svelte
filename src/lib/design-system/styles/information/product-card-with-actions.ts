@@ -1,9 +1,6 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
-import {
-	PRODUCT_CARD_STAR_EMPTY_CLASSES,
-	PRODUCT_CARD_STAR_FILLED_CLASSES
-} from './product-card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
+import { PRODUCT_CARD_STAR_EMPTY_CLASSES, PRODUCT_CARD_STAR_FILLED_CLASSES } from '../../constants/information/product-card';
 
 export class ProductCardWithActionsStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -58,3 +55,5 @@ export class ProductCardWithActionsStyleManager {
 		return 'flex items-center gap-2';
 	}
 }
+
+

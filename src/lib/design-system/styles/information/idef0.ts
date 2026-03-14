@@ -1,4 +1,4 @@
-﻿import { cn } from '../../utils/cn/index';
+import { cn } from '../../utils/cn/index';
 
 export class Idef0StyleManager {
 	static getDiagramContainerClasses(className = ''): string {
@@ -41,4 +41,6 @@ export class Idef0StyleManager {
 		return cn('c-idef0-port-label fill-[--color-text-secondary] text-xs font-medium', className);
 	}
 }
+
+
 

@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CODE_HEADER_BASE_CLASSES, CODE_SURFACE_BASE_CLASSES } from './code-block';
+import { CODE_HEADER_BASE_CLASSES, CODE_SURFACE_BASE_CLASSES } from '../../constants/information/code-block';
 
 export class CodeSectionStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -26,3 +26,5 @@ export class CodeSectionStyleManager {
 		return 'text-xs text-[var(--color-text-secondary)]';
 	}
 }
+
+

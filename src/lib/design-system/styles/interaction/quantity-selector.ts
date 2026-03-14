@@ -40,12 +40,12 @@ export class QuantitySelectorStyleManager {
     buttonClass?: string
   ): string {
     const sizeClasses = this.getSizeClasses(size);
-    const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
+    const disabledClass = isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer';
     const borderClasses = isLeftButton
       ? 'rounded-l-md border border-r-0 border-[--color-border-secondary]'
       : 'rounded-r-md border border-l-0 border-[--color-border-secondary]';
 
-    return `flex items-center justify-center ${borderClasses} bg-[--color-background-primary] text-[--color-text-secondary] hover:text-[--color-text-primary] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500] focus:z-10 ${disabledClass} ${sizeClasses} ${buttonClass || ''}`.trim();
+    return `flex items-center justify-center ${borderClasses} bg-[--color-background-primary] text-[--color-text-secondary] hover:text-[--color-text-primary] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500] focus:z-[var(--z-index-docked)] ${disabledClass} ${sizeClasses} ${buttonClass || ''}`.trim();
   }
 
   /**
@@ -103,5 +103,9 @@ export class QuantitySelectorStyleManager {
     return variantClasses[variant];
   }
 }
+
+
+
+
 
 

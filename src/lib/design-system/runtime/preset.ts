@@ -1,4 +1,4 @@
-﻿import type { Preset } from '../runtime/types';
+import type { Preset } from '../runtime/types';
 import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
 import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from './foundation';
 import { ICON_SIZES, SIZE_CLASSES } from './sizing';
@@ -6,7 +6,7 @@ import {
 	INTERACTIVE_BASE_CLASS,
 	INTERACTIVE_VARIANTS,
 	VARIANT_CLASSES
-} from '../styles/interaction/interaction';
+} from '../constants/interaction/interaction';
 
 const DEFAULT_STATE_FLAGS = {
 	disabled: false,
@@ -55,10 +55,12 @@ export const createBasePreset = <V extends string, S extends string>(
 						: 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]')
 			])
 		) as Record<V, string>,
-		state: { disabled: 'opacity-50 cursor-not-allowed', block: 'w-full' }
+		state: { disabled: 'opacity-[var(--opacity-50)] cursor-not-allowed', block: 'w-full' }
 	},
 	loaderSize: Object.fromEntries(
 		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
 	) as Record<S, string>
 });
+
+
 

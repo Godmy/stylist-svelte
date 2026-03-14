@@ -1,6 +1,6 @@
 import { cn } from '../../utils/cn/index';
+import type { DashboardLayoutVariant } from '../../tokens/architecture/dashboard-layout';
 
-export type DashboardLayoutVariant = 'default' | 'compact' | 'spacious';
 
 export class DashboardLayoutStyleManager {
   static getWrapperClasses(className = ''): string {
@@ -25,7 +25,7 @@ export class DashboardLayoutStyleManager {
       'flex',
       'flex-col',
       'transition-all',
-      'duration-300',
+      'duration-[var(--duration-300)]',
       'ease-in-out',
       isOpen ? 'w-64' : 'w-16',
       collapsible ? 'c-dashboard-layout__sidebar--collapsible' : '',
@@ -110,7 +110,7 @@ export class DashboardLayoutStyleManager {
       'fixed',
       'top-4',
       'left-4',
-      'z-50',
+      'z-[var(--z-index-modal)]',
       className
     );
   }
@@ -122,10 +122,10 @@ export class DashboardLayoutStyleManager {
       'fixed',
       'inset-0',
       'bg-[--color-overlay-backdrop]',
-      'z-40',
+      'z-[var(--z-index-overlay)]',
       'transition-opacity',
-      'duration-300',
-      isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none',
+      'duration-[var(--duration-300)]',
+      isOpen ? 'opacity-[var(--opacity-100)]' : 'opacity-[var(--opacity-0)] pointer-events-none',
       className
     );
   }
@@ -142,9 +142,9 @@ export class DashboardLayoutStyleManager {
       'border-r',
       'border-[--color-border-primary]',
       'shadow-lg',
-      'z-50',
+      'z-[var(--z-index-modal)]',
       'transition-transform',
-      'duration-300',
+      'duration-[var(--duration-300)]',
       'ease-in-out',
       isOpen ? 'translate-x-0' : '-translate-x-full',
       'w-64',
@@ -152,3 +152,6 @@ export class DashboardLayoutStyleManager {
     );
   }
 }
+
+
+

@@ -35,7 +35,7 @@ export class RangeSliderStyleManager {
   }
 
   static getSliderThumbClasses(): string {
-    return 'w-full h-2 appearance-none rounded-full slider-thumb focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-0 disabled:opacity-50';
+    return 'w-full h-2 appearance-none rounded-full slider-thumb focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:ring-offset-0 disabled:opacity-[var(--opacity-50)]';
   }
 
   static getMinMaxLabelClasses(): string {
@@ -59,3 +59,7 @@ export class RangeSliderStyleManager {
       ${trackColor} 100%)`;
   }
 }
+
+
+
+

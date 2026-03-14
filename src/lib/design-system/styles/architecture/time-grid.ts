@@ -1,10 +1,10 @@
 export class TimeGridStyleManager {
   static getWrapperClasses(): string {
-    return 'c-time-grid border border-[--color-border-default] rounded-[--radius-lg] overflow-auto';
+    return 'c-time-grid border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto';
   }
 
   static getHeaderClasses(): string {
-    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-default]';
+    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
   }
 
   static getTimeGridClasses(): string {
@@ -12,12 +12,12 @@ export class TimeGridStyleManager {
   }
 
   static getTimeSlotClasses(): string {
-    return 'border-b border-[--color-border-subtle] relative';
+    return 'border-b border-[--color-border-tertiary] relative';
   }
 
   static getDayColumnClasses(isWeekend: boolean): string {
-    const baseClasses = 'border-r border-[--color-border-default]';
-    const weekendClass = isWeekend ? 'bg-[--color-surface-muted]' : '';
+    const baseClasses = 'border-r border-[--color-border-primary]';
+    const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
 
     return `${baseClasses} ${weekendClass}`;
   }
@@ -35,7 +35,7 @@ export class TimeGridStyleManager {
 
   static getEventClasses(color?: string, eventClass: string = ''): string {
     const baseClasses = 'absolute left-[--spacing-xs] right-[--spacing-xs] p-[--spacing-xs] text-[--text-size-xs] rounded-[--radius-sm] m-[--spacing-0.5] truncate';
-    const colorClass = color || 'bg-[--color-surface-accent] text-[--color-text-primary]';
+    const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
 
     return `${baseClasses} ${colorClass} ${eventClass}`;
   }
@@ -46,16 +46,17 @@ export class TimeGridStyleManager {
 
   static getTimeLabelClasses(isFirstSlot: boolean): string {
     const baseClasses = 'absolute top-0 right-0 w-full text-right pr-[--spacing-sm] pt-[--spacing-xs] text-[--text-size-xs]';
-    const colorClass = isFirstSlot ? 'text-[--color-text-primary]' : 'text-[--color-text-muted]';
+    const colorClass = isFirstSlot ? 'text-[--color-text-primary]' : 'text-[--color-text-secondary]';
 
     return `${baseClasses} ${colorClass}`;
   }
 
   static getNavigationButtonClasses(): string {
-    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 
   static getViewToggleButtonClasses(): string {
-    return 'h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+    return 'h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 }
+

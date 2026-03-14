@@ -1,6 +1,6 @@
 import type { ComponentSize } from '../../tokens/architecture/component-size';
 
-export const TOKEN_TOGGLE_SIZE_CLASSES: Record<ComponentSize, string> = {
+const TOKEN_TOGGLE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'w-7 h-3.5',
 	sm: 'w-8 h-4',
 	md: 'w-10 h-5',
@@ -9,7 +9,7 @@ export const TOKEN_TOGGLE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'w-16 h-8'
 };
 
-export const TOKEN_TOGGLE_HANDLE_SIZE_CLASSES: Record<ComponentSize, string> = {
+const TOKEN_TOGGLE_HANDLE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'h-2.5 w-2.5',
 	sm: 'h-3 w-3',
 	md: 'h-4 w-4',
@@ -17,6 +17,10 @@ export const TOKEN_TOGGLE_HANDLE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xl: 'h-6 w-6',
 	'2xl': 'h-7 w-7'
 };
+
+
+
+
 
 export class TogglesStyleManager {
 	private static join(classes: Array<string | false | null | undefined>): string {
@@ -39,7 +43,7 @@ export class TogglesStyleManager {
 			return this.join([
 				'relative inline-flex h-6 w-11 rounded-full transition-colors',
 				switchSizeOrClass,
-				disabled ? 'opacity-50' : ''
+				disabled ? 'opacity-[var(--opacity-50)]' : ''
 			]);
 		}
 
@@ -66,7 +70,7 @@ export class TogglesStyleManager {
 			'relative inline-flex cursor-pointer rounded-full border-2 border-transparent transition-colors',
 			sizeClass,
 			state,
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		]);
 	}
 
@@ -93,7 +97,7 @@ export class TogglesStyleManager {
 			'pointer-events-none block rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition-transform',
 			sizeClasses,
 			state,
-			disabled ? 'opacity-50' : ''
+			disabled ? 'opacity-[var(--opacity-50)]' : ''
 		]);
 	}
 
@@ -109,9 +113,9 @@ export class TogglesStyleManager {
 					? 'bg-[--color-primary-500]'
 					: 'bg-[--color-border-primary]';
 		return this.join([
-			'relative inline-flex h-6 w-11 cursor-pointer rounded-full transition-colors duration-200 ease-in-out',
+			'relative inline-flex h-6 w-11 cursor-pointer rounded-full transition-colors duration-[var(--duration-200)] ease-in-out',
 			state,
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		]);
 	}
 
@@ -135,10 +139,10 @@ export class TogglesStyleManager {
 								: 'translate-x-5';
 		const state = checked === undefined ? 'translate-x-0.5' : checked ? translateClass : 'translate-x-0.5';
 		return this.join([
-			'pointer-events-none inline-block transform rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition duration-200 ease-in-out',
+			'pointer-events-none inline-block transform rounded-full bg-[--color-background-primary] shadow-lg ring-0 transition duration-[var(--duration-200)] ease-in-out',
 			sizeClasses,
 			state,
-			disabled ? 'opacity-50 cursor-not-allowed' : ''
+			disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 		]);
 	}
 
@@ -147,19 +151,21 @@ export class TogglesStyleManager {
 	}
 
 	static getToggleDisabledClass(disabled = true): string {
-		return disabled ? 'opacity-50 cursor-not-allowed' : '';
+		return disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
 	}
 
 	static getToggleGroupItemClasses(isActive: boolean, disabled: boolean): string {
 		const baseClasses =
-			'inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50';
+			'inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-[var(--opacity-50)]';
 		const activeClasses = isActive
 			? 'bg-primary text-primary-foreground shadow-sm'
 			: 'text-muted-foreground hover:bg-muted hover:text-foreground';
-		return this.join([baseClasses, activeClasses, disabled ? 'opacity-50 cursor-not-allowed' : '']);
+		return this.join([baseClasses, activeClasses, disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '']);
 	}
 
 	static getToggleHandleSizeClass(size: ComponentSize = 'md'): string {
 		return TOKEN_TOGGLE_HANDLE_SIZE_CLASSES[size];
 	}
 }
+
+

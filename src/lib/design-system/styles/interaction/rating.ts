@@ -18,7 +18,7 @@ export class RatingStyleManager {
    * Получает CSS-классы для кнопки-звезды
    */
   static getStarButtonClasses(isDisabled: boolean, isReadonly: boolean, isFilled: boolean, currentRating: number, maxRating: number): string {
-    const disabledClass = isDisabled ? 'text-[--color-neutral-300] opacity-50' : '';
+    const disabledClass = isDisabled ? 'text-[--color-neutral-300] opacity-[var(--opacity-50)]' : '';
     const readonlyClass = isReadonly || isDisabled ? 'cursor-default' : 'cursor-pointer hover:text-[--color-warning-500]';
     const filledClass = isFilled ? 'text-[--color-warning-400]' : 'text-[--color-neutral-300]';
 
@@ -54,3 +54,5 @@ export class RatingStyleManager {
     return `${disabledClass} text-sm`.trim();
   }
 }
+
+

@@ -9,23 +9,25 @@ export class NumberInputStyleManager {
   }
 
   static getDecrementButtonClasses(isDisabled: boolean, buttonClass: string): string {
-    const baseClasses = 'p-2 rounded-l-md border border-r-0 border-[--color-border-primary] bg-[--color-surface-secondary] hover:bg-[--color-surface-tertiary] disabled:opacity-50 disabled:cursor-not-allowed';
-    const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : '';
+    const baseClasses = 'p-2 rounded-l-md border border-r-0 border-[--color-border-primary] bg-[--color-background-secondary] hover:bg-[--color-background-primary-tertiary] disabled:opacity-[var(--opacity-50)] disabled:cursor-not-allowed';
+    const disabledClass = isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
     
     return `${baseClasses} ${buttonClass} ${disabledClass}`;
   }
 
   static getIncrementButtonClasses(isDisabled: boolean, buttonClass: string): string {
-    const baseClasses = 'p-2 rounded-r-md border border-l-0 border-[--color-border-primary] bg-[--color-surface-secondary] hover:bg-[--color-surface-tertiary] disabled:opacity-50 disabled:cursor-not-allowed';
-    const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : '';
+    const baseClasses = 'p-2 rounded-r-md border border-l-0 border-[--color-border-primary] bg-[--color-background-secondary] hover:bg-[--color-background-primary-tertiary] disabled:opacity-[var(--opacity-50)] disabled:cursor-not-allowed';
+    const disabledClass = isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
     
     return `${baseClasses} ${buttonClass} ${disabledClass}`;
   }
 
   static getInputClasses(isDisabled: boolean, inputClass: string): string {
     const baseClasses = 'w-20 p-2 text-center border-y border-[--color-border-primary] focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-transparent';
-    const disabledClass = isDisabled ? 'bg-[--color-surface-secondary]' : 'bg-[--color-surface-primary]';
+    const disabledClass = isDisabled ? 'bg-[--color-background-secondary]' : 'bg-[--color-background-primary]';
     
     return `${baseClasses} ${disabledClass} ${inputClass}`;
   }
 }
+
+

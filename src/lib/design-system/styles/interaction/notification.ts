@@ -1,5 +1,5 @@
 import type { ToneVariant as NotificationType } from '$stylist/design-system/tokens/interaction/variants';
-import type { NotificationPosition } from '$stylist/design-system/contracts/interaction/notification';
+import type { NotificationPosition } from '$stylist/design-system/tokens/interaction/notification-positions';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -35,7 +35,7 @@ export class NotificationAtomStyleManager {
   }
 
   static getBaseClasses(type: NotificationType, position: NotificationPosition, className: string): string {
-    const baseClasses = 'fixed z-50 max-w-sm w-full p-4 rounded-lg shadow-lg border';
+    const baseClasses = 'fixed z-[var(--z-index-modal)] max-w-sm w-full p-4 rounded-lg shadow-lg border';
     const typeClasses = this.getTypeClasses(type);
     const positionClasses = this.getPositionClasses(position);
 
@@ -58,5 +58,11 @@ export class NotificationAtomStyleManager {
     return 'inline-flex text-[--color-text-secondary] hover:text-[--color-text-primary] focus:outline-none';
   }
 }
+
+
+
+
+
+
 
 

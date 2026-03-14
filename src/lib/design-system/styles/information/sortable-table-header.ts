@@ -10,25 +10,3 @@ export interface SortableTableHeaderStyleManagerInterface {
   getContentClass: () => string;
   getIconClass: () => string;
 }
-
-export const createSortableTableHeaderStyles = <TOptions extends { isCurrentSort: boolean; sortDirection: string }>(
-  { isCurrentSort, sortDirection }: TOptions,
-  baseClasses?: Partial<SortableTableHeaderStyles>
-): SortableTableHeaderStyles => {
-  return {
-    container: [
-      'px-6 py-3 text-left text-xs font-medium text-[--color-text-secondary] uppercase tracking-wider cursor-pointer hover:bg-[--color-background-hover]',
-      baseClasses?.container || ''
-    ].join(' '),
-
-    content: [
-      'flex items-center',
-      baseClasses?.content || ''
-    ].join(' '),
-
-    icon: [
-      'ml-1 h-4 w-4',
-      baseClasses?.icon || ''
-    ].join(' ')
-  };
-};

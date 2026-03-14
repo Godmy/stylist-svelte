@@ -1,7 +1,5 @@
 import { cn } from '../../utils/cn/index';
 
-export type ChartType = 'line' | 'bar' | 'pie';
-
 export class CanvasChartStyleManager {
   static getWrapperClasses(className = ''): string {
     return cn(
@@ -88,7 +86,7 @@ export class CanvasChartStyleManager {
       'c-canvas-chart__grid',
       'absolute',
       'inset-0',
-      showGrid ? 'opacity-100' : 'opacity-0',
+      showGrid ? 'opacity-[var(--opacity-100)]' : 'opacity-[var(--opacity-0)]',
       'pointer-events-none',
       className
     );
@@ -113,3 +111,5 @@ export class CanvasChartStyleManager {
     );
   }
 }
+
+

@@ -1,4 +1,5 @@
-import type { ToastType, IToastStyleClasses } from '$stylist/design-system/contracts/interaction/toast';
+import type { IToastStyleClasses } from '$stylist/design-system/contracts/interaction/toast';
+import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -6,8 +7,8 @@ import type { ToastType, IToastStyleClasses } from '$stylist/design-system/contr
  * Uses CSS variables from the theme system
  */
 export class ToastStyleManager {
-  static getTypeClasses(type: ToastType): string {
-    const typeClasses: Record<ToastType, string> = {
+  static getTypeClasses(type: NotificationType): string {
+    const typeClasses: Record<NotificationType, string> = {
       silent: 'toast-variant-info',
       info: 'toast-variant-info',
       success: 'toast-variant-success', 
@@ -22,11 +23,18 @@ export class ToastStyleManager {
     return isVisible ? 'toast-visible' : 'toast-hidden';
   }
 
-  static getAllClasses(type: ToastType, isVisible: boolean, className: string): string {
-    const baseClasses = 'toast-base border rounded-md p-4 mb-2 transition-opacity duration-300';
+  static getAllClasses(type: NotificationType, isVisible: boolean, className: string): string {
+    const baseClasses = 'toast-base border rounded-md p-4 mb-2 transition-opacity duration-[var(--duration-300)]';
     const typeClass = this.getTypeClasses(type);
     const visibilityClass = this.getVisibilityClass(isVisible);
 
     return `${baseClasses} ${typeClass} ${visibilityClass} ${className}`;
   }
 }
+
+
+
+
+
+
+

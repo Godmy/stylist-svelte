@@ -15,11 +15,11 @@ export class PaginationStyleManager {
     let classes = 'px-[--spacing-3] py-[--spacing-2] rounded-[--radius-md] text-[--text-size-sm] font-[--font-weight-medium] ';
 
     if (isDisabled) {
-      classes += 'bg-[--color-surface-muted] text-[--color-text-disabled] cursor-not-allowed ';
+      classes += 'bg-[--color-background-tertiary] text-[--color-text-tertiary] cursor-not-allowed ';
     } else if (isActive) {
       classes += 'bg-[--color-primary-500] text-[--color-text-inverse] ';
     } else {
-      classes += 'text-[--color-text-primary] hover:bg-[--color-surface-hover] ';
+      classes += 'text-[--color-text-primary] hover:bg-[--color-background-hover] ';
     }
 
     return classes + customClass;
@@ -29,11 +29,11 @@ export class PaginationStyleManager {
     let classes = 'inline-flex items-center px-[--spacing-3] py-[--spacing-2] rounded-[--radius-md] text-[--text-size-sm] font-[--font-weight-medium] ';
 
     if (isDisabled) {
-      classes += 'bg-[--color-surface-muted] text-[--color-text-disabled] cursor-not-allowed ';
+      classes += 'bg-[--color-background-tertiary] text-[--color-text-tertiary] cursor-not-allowed ';
     } else if (isActive) {
       classes += 'bg-[--color-primary-500] text-[--color-text-inverse] ';
     } else {
-      classes += 'text-[--color-text-primary] hover:bg-[--color-surface-hover] ';
+      classes += 'text-[--color-text-primary] hover:bg-[--color-background-hover] ';
     }
 
     return classes + customClass;
@@ -43,3 +43,6 @@ export class PaginationStyleManager {
     return 'px-[--spacing-3] py-[--spacing-2] text-[--text-size-sm] text-[--color-text-secondary]';
   }
 }
+
+
+

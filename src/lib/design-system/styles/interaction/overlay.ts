@@ -26,7 +26,7 @@ export class LoadingOverlayStyleManager {
       'justify-center',
       'z-[50]',
       'transition-opacity',
-      'duration-300',
+      'duration-[var(--duration-300)]',
       'ease-in-out'
     ].join(' ');
   }
@@ -93,3 +93,5 @@ export class LoadingOverlayStyleManager {
     }
   }
 }
+
+

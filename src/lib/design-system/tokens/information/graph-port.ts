@@ -5,6 +5,22 @@ import type { ComponentSize } from '../architecture/component-size';
  * Определяют цвета для различных типов данных
  */
 
+export const GRAPH_PORT_DATA_TYPES = [
+	'number',
+	'string',
+	'boolean',
+	'object',
+	'array',
+	'any',
+	'event',
+	'action'
+] as const;
+
+export const GRAPH_PORT_DIRECTIONS = ['input', 'output'] as const;
+
+export type GraphPortDataType = (typeof GRAPH_PORT_DATA_TYPES)[number];
+export type GraphPortDirection = (typeof GRAPH_PORT_DIRECTIONS)[number];
+
 export const GRAPH_PORT_COLORS = {
 	// Типы данных
 	number: '#4CAF50', // зелёный для чисел
@@ -77,3 +93,6 @@ export type GraphPortType = keyof typeof GRAPH_PORT_COLORS;
  */
 export type GraphPortSize = ComponentSize;
 export type GraphPortSizeKey = keyof typeof GRAPH_PORT_SIZE_MAP;
+
+
+

@@ -18,9 +18,9 @@ export class SearchBarStyleManager {
       'max-w-md',
       'p-2',
       'border',
-      'border-[--color-border-default]',
+      'border-[--color-border-primary]',
       'rounded-lg',
-      'bg-[--color-bg-default]',
+      'bg-[--color-background-default]',
       'shadow-sm',
       'focus-within:ring-2',
       'focus-within:ring-[--color-primary-500]',
@@ -37,7 +37,7 @@ export class SearchBarStyleManager {
       'flex',
       'items-center',
       'justify-center',
-      'text-[--color-text-muted]'
+      'text-[--color-text-secondary]'
     ].join(' ');
   }
 
@@ -52,7 +52,7 @@ export class SearchBarStyleManager {
       'py-2',
       'px-1',
       'text-[--color-text-primary]',
-      'placeholder-[--color-text-muted]',
+      'placeholder-[--color-text-secondary]',
       'bg-transparent'
     ].join(' ');
   }
@@ -78,7 +78,7 @@ export class SearchBarStyleManager {
       'justify-center',
       'p-2',
       'rounded-md',
-      'hover:bg-[--color-bg-hover]',
+      'hover:bg-[--color-background-hover]',
       'focus:outline-none',
       'focus:ring-2',
       'focus:ring-[--color-primary-500]'
@@ -92,3 +92,7 @@ export class SearchBarStyleManager {
     return this.getBaseClasses(props.class);
   }
 }
+
+
+
+

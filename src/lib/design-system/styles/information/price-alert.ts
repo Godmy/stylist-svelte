@@ -1,5 +1,5 @@
 import { BASE_CLASSES } from '../../runtime/foundation';
-import { VARIANT_CLASSES } from '../interaction/interaction';
+import { VARIANT_CLASSES } from '../../constants/interaction/interaction';
 import { cn } from '../../utils/cn/index';
 import type { AlertType } from '../../tokens/interaction/alert-types';
 
@@ -17,6 +17,10 @@ const PRICE_ALERT_SIZE_CLASSES = {
 	md: 'p-4 text-base',
 	lg: 'p-6 text-lg'
 } as const;
+
+
+
+
 
 export class PriceAlertStyleManager {
   static getClasses(
@@ -36,5 +40,7 @@ export class PriceAlertStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
+
+
 
 

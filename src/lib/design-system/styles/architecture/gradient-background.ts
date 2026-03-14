@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 
-import type { GradientVariant } from '$stylist/design-system/contracts/architecture/gradient-background';
+import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
 
 export class GradientBackgroundStyleManager {
   /**
@@ -21,13 +21,13 @@ export class GradientBackgroundStyleManager {
    */
   static getGradientClasses(variant: GradientVariant = 'dynamic', direction: string = 'diagonal'): string {
     const directionClasses = {
-      diagonal: 'bg-gradient-to-br',
-      horizontal: 'bg-gradient-to-r',
-      vertical: 'bg-gradient-to-b',
-      radial: 'bg-gradient-radial'
+      diagonal: '[background-image:var(--gradient-directional-diagonal)]',
+      horizontal: '[background-image:var(--gradient-directional-horizontal)]',
+      vertical: '[background-image:var(--gradient-directional-vertical)]',
+      radial: '[background-image:var(--gradient-radial-center)]'
     };
 
-    const baseClasses = `absolute inset-0 opacity-70`;
+    const baseClasses = `absolute inset-0 opacity-[var(--opacity-70)]`;
     const directionClass = directionClasses[direction as keyof typeof directionClasses] || directionClasses.diagonal;
 
     if (variant === 'dynamic') {
@@ -41,7 +41,7 @@ export class GradientBackgroundStyleManager {
    * Возвращает CSS-классы для обертки дочернего контента
    */
   static getContentWrapperClasses(): string {
-    return 'relative z-10';
+    return 'relative z-[var(--z-index-docked)]';
   }
 
   /**
@@ -61,3 +61,9 @@ export class GradientBackgroundStyleManager {
     `;
   }
 }
+
+
+
+
+
+

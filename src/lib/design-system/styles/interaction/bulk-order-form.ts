@@ -74,14 +74,14 @@ export class BulkOrderFormStyleManager {
    * Получает CSS-классы для выпадающего списка
    */
   static getSelectClasses(): string {
-    return 'block w-full pl-3 pr-10 py-2 text-base border-[--color-border-base] focus:outline-none focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm rounded-md';
+    return 'block w-full pl-3 pr-10 py-2 text-base border-[--color-border-secondary] focus:outline-none focus:ring-[--color-primary-500] focus:border-[--color-primary-500] sm:text-sm rounded-md';
   }
 
   /**
    * Получает CSS-классы для инпута
    */
   static getInputClasses(): string {
-    return 'block w-full pl-3 pr-12 py-2 sm:text-sm border-[--color-border-base] rounded-md focus:ring-[--color-primary-500] focus:border-[--color-primary-500]';
+    return 'block w-full pl-3 pr-12 py-2 sm:text-sm border-[--color-border-secondary] rounded-md focus:ring-[--color-primary-500] focus:border-[--color-primary-500]';
   }
 
   /**
@@ -124,7 +124,7 @@ export class BulkOrderFormStyleManager {
    * Получает CSS-классы для области изображения элемента
    */
   static getItemImageAreaClasses(): string {
-    return 'flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-[--color-surface-secondary]';
+    return 'flex-shrink-0 w-16 h-16 rounded-md overflow-hidden bg-[--color-background-secondary]';
   }
 
   /**
@@ -201,7 +201,7 @@ export class BulkOrderFormStyleManager {
    * Получает CSS-классы для инпута количества
    */
   static getQuantityInputClasses(): string {
-    return 'w-12 text-center border-y-0 border-[--color-border-base] focus:outline-none';
+    return 'w-12 text-center border-y-0 border-[--color-border-secondary] focus:outline-none';
   }
 
   /**
@@ -233,3 +233,5 @@ export class BulkOrderFormStyleManager {
     return additionalClass ? `${baseClasses} ${additionalClass}` : baseClasses;
   }
 }
+
+

@@ -2,7 +2,7 @@ import { cn } from '../../utils/cn/index';
 
 const ANNOUNCEMENT_BANNER_CLASSES = {
 	container:
-		'rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm p-6',
+		'rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-sm p-6',
 	icon: 'w-12 h-12 mr-4',
 	content: 'flex-1',
 	title: 'text-xl font-semibold mb-2',
@@ -18,10 +18,14 @@ const IMAGE_WITH_CAPTION_CLASSES = {
 	caption: 'text-sm text-[--color-text-secondary]',
 	decoration: {
 		rounded: 'rounded-lg',
-		bordered: 'border border-[var(--color-border-default)]',
+		bordered: 'border border-[var(--color-border-primary)]',
 		shadow: 'shadow-md'
 	}
 } as const;
+
+
+
+
 
 export class ImageStyleManager {
 	static getFaviconUrl(url?: string): string | null {
@@ -108,3 +112,7 @@ export class ImageStyleManager {
 		return cn(ANNOUNCEMENT_BANNER_CLASSES.childrenContainer, className);
 	}
 }
+
+
+
+

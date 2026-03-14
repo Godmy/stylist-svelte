@@ -11,7 +11,7 @@ export class TreeNodeItemStyleManager {
   }
 
   static getNodeHeaderClasses(isExpanded: boolean): string {
-    const baseClasses = 'tree-node-header flex items-center p-1 rounded transition-colors duration-150 min-h-8 cursor-pointer';
+    const baseClasses = 'tree-node-header flex items-center p-1 rounded transition-colors duration-[var(--duration-150)] min-h-8 cursor-pointer';
     const expandedClass = isExpanded ? 'tree-node-header-expanded bg-[--color-secondary-50]' : '';
     
     return `${baseClasses} ${expandedClass}`;
@@ -41,3 +41,7 @@ export class TreeNodeItemStyleManager {
     return 'tree-node-children ml-6 border-l-2 border-[--color-border-secondary] pl-2';
   }
 }
+
+
+
+

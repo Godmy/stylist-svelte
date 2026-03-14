@@ -10,11 +10,26 @@
 
 import { cn } from '../../utils/cn/index';
 
+/**
+ * @file MessageBubble Style Manager
+ * @description Style management for MessageBubble component following Atomic Design principles
+ * @author Vibe Management Pro
+ * @version 1.0.0
+ * 
+ * SOLID Principles Applied:
+ * - Single Responsibility: Only handles styling logic for MessageBubble
+ */
+
 const MESSAGE_BUBBLE_WRAPPER_VARIANTS = {
 	left: 'rounded-bl-none bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-br-lg',
 	right: 'rounded-bl-lg rounded-br-none bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]',
 	system: 'rounded-lg bg-[var(--color-neutral-200)] text-[var(--color-text-secondary)]'
 } as const;
+
+
+
+
+
 
 /**
  * Style manager for MessageBubble component
@@ -115,3 +130,6 @@ export class MessageBubbleStyleManager {
     return `flex ${align === 'left' ? 'mr-3' : 'ml-3'}`;
   }
 }
+
+
+

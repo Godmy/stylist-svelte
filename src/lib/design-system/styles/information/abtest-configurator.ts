@@ -101,7 +101,7 @@ export class ABTestConfiguratorStyleManager {
 
   static getButtonClass(variant: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' = 'primary', isDisabled: boolean = false): string {
     const baseClass = 'inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[--color-text-inverse] focus:outline-none';
-    const disabledClass = isDisabled ? 'opacity-50 cursor-not-allowed' : '';
+    const disabledClass = isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
 
     const variantClasses: Record<string, string> = {
       primary: 'bg-[--color-primary-600] hover:bg-[--color-primary-700]',

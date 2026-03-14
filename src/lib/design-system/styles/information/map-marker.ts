@@ -1,8 +1,8 @@
-import type { MapMarkerType, PinStyle } from '$stylist/design-system/contracts/information/map-marker';
+import type { MapMarkerType, PinStyle } from '$stylist/design-system/tokens/information/map-marker';
 
 export class MapMarkerStyleManager {
   static getBaseClasses(selected: boolean, hostClass: string): string {
-    return `map-marker relative ${selected ? 'z-10' : 'z-0'} ${hostClass}`;
+    return `map-marker relative ${selected ? 'z-[var(--z-index-docked)]' : 'z-[var(--z-index-base)]'} ${hostClass}`;
   }
 
   static getMarkerContainerClasses(iconClass: string): string {
@@ -18,7 +18,7 @@ export class MapMarkerStyleManager {
       '2xl': 'h-12 w-12'
     }[size] ?? 'h-6 w-6';
 
-    const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-200`;
+    const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-[var(--duration-200)]`;
 
     switch (pinStyle) {
       case 'line':
@@ -38,7 +38,7 @@ export class MapMarkerStyleManager {
   }
 
   static getPopupClasses(popupClass: string): string {
-    return `absolute z-20 mt-2 w-64 bg-[--color-background-surface] rounded-lg shadow-lg border border-[--color-border-primary] p-4 ${popupClass}`;
+    return `absolute z-[var(--z-index-popover)] mt-2 w-64 bg-[--color-background-surface] rounded-lg shadow-lg border border-[--color-border-primary] p-4 ${popupClass}`;
   }
 
   static getTitleClasses(titleClass: string): string {

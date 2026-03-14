@@ -141,3 +141,4 @@ export class AdvancedPasswordInputStyleManager {
     return `h-1.5 rounded-full ${colorClass}`;
   }
 }
+

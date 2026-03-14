@@ -1,13 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import {
-	PRODUCT_CARD_BADGE_BASE_CLASSES,
-	PRODUCT_CARD_BADGE_DEFAULT_CLASSES,
-	PRODUCT_CARD_BADGE_NEW_CLASSES,
-	PRODUCT_CARD_BADGE_POPULAR_CLASSES,
-	PRODUCT_CARD_BADGE_SALE_CLASSES,
-	PRODUCT_CARD_STAR_EMPTY_CLASSES,
-	PRODUCT_CARD_STAR_FILLED_CLASSES
-} from './product-card';
+import { PRODUCT_CARD_BADGE_BASE_CLASSES, PRODUCT_CARD_BADGE_DEFAULT_CLASSES, PRODUCT_CARD_BADGE_NEW_CLASSES, PRODUCT_CARD_BADGE_POPULAR_CLASSES, PRODUCT_CARD_BADGE_SALE_CLASSES, PRODUCT_CARD_STAR_EMPTY_CLASSES, PRODUCT_CARD_STAR_FILLED_CLASSES } from '../../constants/information/product-card';
 
 export class ProductCardCompactStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -73,3 +65,5 @@ export class ProductCardCompactStyleManager {
 		return 'text-sm font-semibold text-[var(--color-text-primary)]';
 	}
 }
+
+

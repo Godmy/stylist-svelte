@@ -1,6 +1,6 @@
+import { cn } from '../../utils/cn/index';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { VARIANT_CLASSES } from '../interaction/interaction';
-import { cn } from '../../utils/cn/index';
 
 const ALERT_CARD_BASE_CLASSES = `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden`;
 
@@ -17,6 +17,9 @@ const ALERT_CARD_SIZE_CLASSES = {
 	md: 'p-4',
 	lg: 'p-6'
 } as const;
+
+
+
 
 export class AlertCardStyleManager {
   static getClasses(
@@ -36,3 +39,5 @@ export class AlertCardStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
+
+

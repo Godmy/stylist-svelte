@@ -12,7 +12,7 @@ export class SelectStyleManager {
     const stateClasses = hasError
       ? 'border-[--color-danger-500] focus-visible:ring-[--color-danger-300]'
       : 'border-[--color-border-primary] hover:border-[--color-primary-400] focus-visible:ring-[--color-primary-300]';
-    const disabledClasses = disabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer';
+    const disabledClasses = disabled ? 'cursor-not-allowed opacity-[var(--opacity-60)]' : 'cursor-pointer';
 
     return `${baseClasses} ${stateClasses} ${disabledClasses} ${className}`.trim();
   }
@@ -37,7 +37,7 @@ export class SelectStyleManager {
     const baseClasses =
       'pointer-events-none absolute inset-y-0 right-4 flex h-full items-center text-[--color-text-secondary] transition';
     const errorClasses = hasError ? 'text-[--color-danger-500]' : '';
-    const disabledClasses = disabled ? 'opacity-40' : '';
+    const disabledClasses = disabled ? 'opacity-[var(--opacity-40)]' : '';
 
     return `${baseClasses} ${errorClasses} ${disabledClasses}`.trim();
   }
@@ -47,7 +47,7 @@ export class SelectStyleManager {
     const placeholderClasses = hasValue
       ? 'text-[--color-text-primary]'
       : 'text-[--color-text-secondary]';
-    const disabledClasses = disabled ? 'opacity-70' : '';
+    const disabledClasses = disabled ? 'opacity-[var(--opacity-70)]' : '';
 
     return `${baseClasses} ${placeholderClasses} ${disabledClasses}`.trim();
   }
@@ -65,7 +65,7 @@ export class SelectStyleManager {
     const highlightedClasses = highlighted && !selected
       ? 'bg-[--color-background-secondary]'
       : '';
-    const disabledClasses = disabled ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer';
+    const disabledClasses = disabled ? 'opacity-[var(--opacity-70)] cursor-not-allowed' : 'cursor-pointer';
 
     const stateTokens = [
       selected ? 'is-selected' : '',
@@ -79,3 +79,7 @@ export class SelectStyleManager {
     return 'px-4 py-3 text-center text-sm text-[--color-text-secondary]';
   }
 }
+
+
+
+

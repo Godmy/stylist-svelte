@@ -1,4 +1,4 @@
-﻿/** Grid columns tokens */
+/** Grid columns tokens */
 export const GRID_COLUMNS = {
 	1: 'repeat(1, minmax(0, 1fr))',
 	2: 'repeat(2, minmax(0, 1fr))',
@@ -10,3 +10,5 @@ export const GRID_COLUMNS = {
 } as const;
 
 export type GridColumnsKey = keyof typeof GRID_COLUMNS;
+
+

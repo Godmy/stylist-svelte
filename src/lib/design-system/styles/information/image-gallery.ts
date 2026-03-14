@@ -12,19 +12,19 @@ export class ImageGalleryStyleManager {
   }
 
   static getNavigationButtonClasses(navigationClass: string = ''): string {
-    return `absolute top-1/2 transform -translate-y-1/2 bg-[--color-bg-overlay] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover] ${navigationClass}`.trim();
+    return `absolute top-1/2 transform -translate-y-1/2 bg-[--color-background-tertiary] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary] ${navigationClass}`.trim();
   }
 
   static getLeftNavigationButtonClasses(navigationClass: string = ''): string {
-    return `absolute top-1/2 left-2 transform -translate-y-1/2 bg-[--color-bg-overlay] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover] ${navigationClass}`.trim();
+    return `absolute top-1/2 left-2 transform -translate-y-1/2 bg-[--color-background-tertiary] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary] ${navigationClass}`.trim();
   }
 
   static getRightNavigationButtonClasses(navigationClass: string = ''): string {
-    return `absolute top-1/2 right-2 transform -translate-y-1/2 bg-[--color-bg-overlay] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover] ${navigationClass}`.trim();
+    return `absolute top-1/2 right-2 transform -translate-y-1/2 bg-[--color-background-tertiary] text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary] ${navigationClass}`.trim();
   }
 
   static getImageCounterClasses(): string {
-    return 'absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[--color-bg-overlay] text-[--color-text-inverse] text-sm px-3 py-1 rounded-full';
+    return 'absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[--color-background-tertiary] text-[--color-text-inverse] text-sm px-3 py-1 rounded-full';
   }
 
   static getCaptionClasses(captionClass: string = ''): string {
@@ -47,19 +47,19 @@ export class ImageGalleryStyleManager {
   }
 
   static getFullscreenOverlayClasses(): string {
-    return 'fixed inset-0 bg-[--color-bg-overlay] z-50 flex items-center justify-center';
+    return 'fixed inset-0 bg-[--color-background-tertiary] z-[var(--z-index-modal)] flex items-center justify-center';
   }
 
   static getFullscreenCloseButtonClasses(): string {
-    return 'absolute top-4 right-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover]';
+    return 'absolute top-4 right-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary]';
   }
 
   static getFullscreenLeftButtonClasses(): string {
-    return 'absolute left-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover]';
+    return 'absolute left-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary]';
   }
 
   static getFullscreenRightButtonClasses(): string {
-    return 'absolute right-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-bg-overlay-hover]';
+    return 'absolute right-4 text-[--color-text-inverse] p-2 rounded-full hover:bg-[--color-background-secondary]';
   }
 
   static getFullscreenImageContainerClasses(): string {
@@ -78,3 +78,7 @@ export class ImageGalleryStyleManager {
     return 'mt-4 text-[--color-text-inverse] text-sm';
   }
 }
+
+
+
+

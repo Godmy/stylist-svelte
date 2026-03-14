@@ -1,6 +1,6 @@
 import type { DefaultVariants as LinkCardVariant } from '$stylist/design-system/tokens/interaction/variants';
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 const LINK_CARD_VARIANT_CLASSES = {
 	default:
@@ -37,10 +37,14 @@ const LINK_CARD_VARIANT_CLASSES = {
 		'bg-[--color-neutral-50] border-[--color-neutral-200]'
 } as const;
 
+
+
+
+
 export class LinkCardStyleManager {
 	static getContainerClasses(variant: LinkCardVariant = 'default'): string {
 		return cn(
-			'link-card group block p-6 transition-all duration-200',
+			'link-card group block p-6 transition-all duration-[var(--duration-200)]',
 			CARD_BASE_CLASSES,
 			LINK_CARD_VARIANT_CLASSES[variant] ?? LINK_CARD_VARIANT_CLASSES.default
 		);
@@ -55,7 +59,7 @@ export class LinkCardStyleManager {
 	}
 
 	static getIconClasses(): string {
-		return 'h-6 w-6 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-text-secondary)]';
+		return 'h-6 w-6 text-[var(--color-text-tertiary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-text-secondary)]';
 	}
 
 	static getTextContainerClasses(): string {
@@ -63,7 +67,7 @@ export class LinkCardStyleManager {
 	}
 
 	static getTitleClasses(): string {
-		return 'text-lg font-semibold text-[var(--color-text-primary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
+		return 'text-lg font-semibold text-[var(--color-text-primary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-primary-600)]';
 	}
 
 	static getDescriptionClasses(): string {
@@ -71,9 +75,11 @@ export class LinkCardStyleManager {
 	}
 
 	static getArrowClasses(): string {
-		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-200 group-hover:text-[var(--color-primary-600)]';
+		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-primary-600)]';
 	}
 }
+
+
 
 
 

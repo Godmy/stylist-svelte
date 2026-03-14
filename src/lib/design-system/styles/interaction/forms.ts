@@ -38,7 +38,7 @@ export class FormStyleManager {
    */
   static input(base: string, error?: boolean, disabled?: boolean, className?: string): string {
     const errorClass = error ? 'border-[--color-danger-500] focus:border-[--color-danger-500] focus:ring-[--color-danger-200]' : 'border-[--color-border-secondary] focus:border-[--color-primary-500] focus:ring-[--color-primary-200]';
-    const disabledClass = disabled ? 'bg-[--color-background-secondary] cursor-not-allowed opacity-60' : 'bg-[--color-background-primary]';
+    const disabledClass = disabled ? 'bg-[--color-background-secondary] cursor-not-allowed opacity-[var(--opacity-60)]' : 'bg-[--color-background-primary]';
     return `${base} ${errorClass} ${disabledClass} border rounded-md px-3 py-2 w-full transition-colors ${className || ''}`.trim();
   }
 
@@ -189,7 +189,7 @@ export class SecureFormStyleManager {
    * Get classes for session timeout warning
    */
   static timeoutWarning(base: string, className?: string): string {
-    return `${base} fixed top-4 right-4 z-50 bg-[--color-warning-100] border border-[--color-warning-400] text-[--color-warning-700] px-4 py-3 rounded shadow-lg ${className || ''}`.trim();
+    return `${base} fixed top-4 right-4 z-[var(--z-index-modal)] bg-[--color-warning-100] border border-[--color-warning-400] text-[--color-warning-700] px-4 py-3 rounded shadow-lg ${className || ''}`.trim();
   }
 
   /**
@@ -208,7 +208,7 @@ export class ScreenReaderStyleManager {
    * Get classes for skip link
    */
   static skipLink(base: string, className?: string): string {
-    return `${base} sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[--color-primary-600] text-[--color-text-inverse] px-4 py-2 rounded-md z-50 ${className || ''}`.trim();
+    return `${base} sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-[--color-primary-600] text-[--color-text-inverse] px-4 py-2 rounded-md z-[var(--z-index-modal)] ${className || ''}`.trim();
   }
 
   /**
@@ -225,3 +225,7 @@ export class ScreenReaderStyleManager {
     return `${base} ${className || ''}`.trim();
   }
 }
+
+
+
+

@@ -1,14 +1,11 @@
-import type { Alignment, Justification } from '../../tokens';
-import type { SpacerAxis } from '../../contracts';
+﻿import type { Alignment, Justification } from '../../tokens';
+import type { Orientation } from '../../tokens/architecture/orientations';
 import type { ComponentSize } from '../../tokens';
-import type { ContainerMaxWidth as LayoutContainerMaxWidth } from '../../tokens/architecture/size';
 import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
+import type { ContainerMaxWidth as LayoutContainerMaxWidth, LayoutSize } from '../../tokens/architecture/size';
 
-export type LayoutSizeToken = '1/4' | '1/3' | '2/5' | '1/2' | '3/5' | '2/3' | '3/4' | 'full';
-export type LayoutSize = LayoutSizeToken;
-
-export const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string> = {
+const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string> = {
 	xs: 'max-w-screen-xs',
 	sm: 'max-w-screen-sm',
 	md: 'max-w-screen-md',
@@ -18,9 +15,7 @@ export const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string
 	full: 'max-w-full'
 } as const;
 
-export type TokenContainerMaxWidth = keyof typeof CONTAINER_MAX_WIDTH_CLASSES;
-
-export const HORIZONTAL_GAP_CLASSES: Record<ComponentSize, string> = {
+const HORIZONTAL_GAP_CLASSES: Record<ComponentSize, string> = {
 	xs: 'gap-1',
 	sm: 'gap-2',
 	md: 'gap-4',
@@ -29,9 +24,7 @@ export const HORIZONTAL_GAP_CLASSES: Record<ComponentSize, string> = {
 	'2xl': 'gap-12'
 } as const;
 
-export type HorizontalGap = ComponentSize;
-
-export const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
+const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
 	top: 'items-start',
 	'top-center': 'items-start',
 	'top-start': 'items-start',
@@ -52,7 +45,7 @@ export const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
 	justify: 'items-center',
 };
 
-export const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> = {
+const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> = {
 	stretch: 'justify-stretch',
 	baseline: 'justify-start',
 	between: 'justify-between',
@@ -61,17 +54,17 @@ export const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> =
 	justify: 'justify-center'
 };
 
-export const SPACER_AXIS_CLASSES: Record<SpacerAxis, string> = {
+const SPACER_AXIS_CLASSES: Record<Orientation, string> = {
 	horizontal: 'w-[var(--spacer-size)]',
 	vertical: 'h-[var(--spacer-size)]'
 } as const;
 
-export const LAYOUT_DIRECTION_CLASSES = {
+const LAYOUT_DIRECTION_CLASSES = {
 	vertical: 'flex-col',
 	horizontal: 'flex-row'
 } as const;
 
-export const LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
+const LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
 	'1/4': 'w-1/4',
 	'1/3': 'w-1/3',
 	'2/5': 'w-2/5',
@@ -82,7 +75,7 @@ export const LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
 	full: 'w-full'
 } as const;
 
-export const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
+const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
 	'1/4': 'md:w-1/4',
 	'1/3': 'md:w-1/3',
 	'2/5': 'md:w-2/5',
@@ -92,6 +85,8 @@ export const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSizeToken, string> = {
 	'3/4': 'md:w-3/4',
 	full: 'md:w-full'
 } as const;
+
+
 
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className = ''): string {
@@ -146,7 +141,7 @@ export class LayoutStyleManager {
 		);
 	}
 
-	static getSpacerClasses(axis: SpacerAxis, className = ''): string {
+	static getSpacerClasses(axis: Orientation, className = ''): string {
 		const axisClass = SPACER_AXIS_CLASSES[axis];
 		return `inline-block flex-shrink-0 ${axisClass} ${className}`.trim();
 	}

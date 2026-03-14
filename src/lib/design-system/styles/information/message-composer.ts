@@ -34,3 +34,7 @@ export class MessageComposerStyleManager {
     return `ml-2 ${buttonClass}`;
   }
 }
+
+
+
+

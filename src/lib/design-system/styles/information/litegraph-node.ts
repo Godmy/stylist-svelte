@@ -1,4 +1,4 @@
-import type { LiteGraphNodeState, LiteGraphNodeType } from '$stylist/design-system/contracts';
+import type { LiteGraphNodeState, LiteGraphNodeType } from '$stylist/design-system/tokens/information/litegraph-node';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
@@ -105,3 +105,9 @@ export class LiteGraphNodeStyleManager {
 }
 
 export default LiteGraphNodeStyleManager;
+
+
+
+
+
+

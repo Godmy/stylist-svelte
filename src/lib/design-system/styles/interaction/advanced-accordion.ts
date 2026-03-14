@@ -43,7 +43,7 @@ export class AdvancedAccordionStyleManager {
    * @returns CSS class string for chevron icon
    */
   static getChevronClass(isActive: boolean): string {
-    const baseClass = 'w-5 h-5 transform transition-transform duration-200';
+    const baseClass = 'w-5 h-5 transform transition-transform duration-[var(--duration-200)]';
     const rotationClass = isActive ? 'rotate-180' : '';
 
     return `${baseClass} ${rotationClass}`;
@@ -57,3 +57,4 @@ export class AdvancedAccordionStyleManager {
     return 'p-[--spacing-md] border-t bg-[--color-background-primary]';
   }
 }
+

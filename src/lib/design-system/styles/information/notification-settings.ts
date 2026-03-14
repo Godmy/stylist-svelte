@@ -5,7 +5,7 @@
  */
 export class NotificationSettingsStyleManager {
   static getContainerClasses(className: string): string {
-    return `bg-[--color-surface-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden ${className}`;
+    return `bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden ${className}`;
   }
 
   static getHeaderClasses(headerClass: string): string {
@@ -13,7 +13,7 @@ export class NotificationSettingsStyleManager {
   }
 
   static getChannelHeaderClasses(): string {
-    return 'grid grid-cols-5 gap-4 px-6 py-3 bg-[--color-surface-secondary] text-xs font-medium text-[--color-text-secondary]';
+    return 'grid grid-cols-5 gap-4 px-6 py-3 bg-[--color-background-secondary] text-xs font-medium text-[--color-text-secondary]';
   }
 
   static getSectionClasses(sectionClass: string): string {
@@ -36,3 +36,6 @@ export class NotificationSettingsStyleManager {
     return 'flex items-center text-xs text-[--color-text-secondary]';
   }
 }
+
+
+

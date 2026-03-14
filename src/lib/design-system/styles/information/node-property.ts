@@ -1,11 +1,8 @@
-import type { NodePropertyType } from '$stylist/design-system/contracts';
+import type { NodePropertyType } from '$stylist/design-system/tokens/information/node-property';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import { cn } from '$stylist/design-system/utils/cn';
+import type { NodePropertyState } from '../../types/information/node-property';
 
-interface NodePropertyState {
-	error?: boolean;
-	editable?: boolean;
-}
 
 /**
  * Менеджер стилей для свойств узлов графа
@@ -69,3 +66,9 @@ export class NodePropertyStyleManager {
 }
 
 export default NodePropertyStyleManager;
+
+
+
+
+
+

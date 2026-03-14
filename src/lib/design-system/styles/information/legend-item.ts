@@ -1,6 +1,6 @@
 export class LegendItemStyleManager {
   static getBaseClasses(): string {
-    return 'c-legend-item flex items-center p-2 rounded gap-2 transition-all duration-200 cursor-default';
+    return 'c-legend-item flex items-center p-2 rounded gap-2 transition-all duration-[var(--duration-200)] cursor-default';
   }
 
   static getVariantClasses(variant: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' = 'default', active = false, clickable = false): string {
@@ -17,11 +17,11 @@ export class LegendItemStyleManager {
     let classes = variantClasses[variant];
 
     if (active) {
-      classes += ' bg-[--color-bg-selected] border-l-4 border-[--color-primary-500]';
+      classes += ' bg-[--color-primary-50] border-l-4 border-[--color-primary-500]';
     }
 
     if (clickable) {
-      classes += ' cursor-pointer hover:bg-[--color-bg-hover]';
+      classes += ' cursor-pointer hover:bg-[--color-background-hover]';
     }
 
     return classes.trim();
@@ -36,6 +36,9 @@ export class LegendItemStyleManager {
   }
 
   static getCountClasses(): string {
-    return 'legend-count text-xs text-[--color-text-secondary] bg-[--color-bg-badge] rounded-full px-2 py-0.5';
+    return 'legend-count text-xs text-[--color-text-secondary] bg-[--color-background-secondary] rounded-full px-2 py-0.5';
   }
 }
+
+
+

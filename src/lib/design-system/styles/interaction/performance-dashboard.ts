@@ -1,15 +1,18 @@
 import { cn } from '../../utils/cn/index';
 
-export const PERFORMANCE_DASHBOARD_SIZE_CLASSES = {
+const PERFORMANCE_DASHBOARD_SIZE_CLASSES = {
 	sm: 'text-sm',
 	md: 'text-base',
 	lg: 'text-lg'
 } as const;
 
-export const PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES =
-	'px-3 py-1.5 text-sm rounded-md border border-[--color-border-default] transition-colors';
+const PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES =
+	'px-3 py-1.5 text-sm rounded-md border border-[--color-border-primary] transition-colors';
 
-export const DEFAULT_PERFORMANCE_DASHBOARD_SIZE: keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES = 'md';
+const DEFAULT_PERFORMANCE_DASHBOARD_SIZE: keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES = 'md';
+
+
+
 
 export interface PerformanceDashboardStyleManagerInterface {
 	getContainerClass: (variant: string, size: string, className?: string) => string;
@@ -30,11 +33,11 @@ export interface PerformanceDashboardStyleManagerInterface {
 export class PerformanceDashboardStyleManager implements PerformanceDashboardStyleManagerInterface {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses = PERFORMANCE_DASHBOARD_SIZE_CLASSES[size as keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES] || PERFORMANCE_DASHBOARD_SIZE_CLASSES[DEFAULT_PERFORMANCE_DASHBOARD_SIZE];
-		return cn('bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-default] overflow-hidden', sizeClasses, className);
+		return cn('bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-primary] overflow-hidden', sizeClasses, className);
 	}
 
 	static getHeaderClass(className?: string): string {
-		return cn('flex justify-between items-center p-4 border-b border-[--color-border-default]', className);
+		return cn('flex justify-between items-center p-4 border-b border-[--color-border-primary]', className);
 	}
 
 	static getTimeRangeButtonClass(): string {
@@ -50,7 +53,7 @@ export class PerformanceDashboardStyleManager implements PerformanceDashboardSty
 	}
 
 	static getMetricCardClass(className?: string): string {
-		return cn('bg-[--color-surface] rounded-lg border border-[--color-border-default] p-4', className);
+		return cn('bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-4', className);
 	}
 
 	static getMetricHeaderClass(): string {
@@ -134,3 +137,6 @@ export class PerformanceDashboardStyleManager implements PerformanceDashboardSty
 		return PerformanceDashboardStyleManager.getChartBarClass();
 	}
 }
+
+
+

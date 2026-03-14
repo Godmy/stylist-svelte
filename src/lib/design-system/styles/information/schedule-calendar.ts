@@ -10,14 +10,14 @@ export class ScheduleCalendarStyleManager {
    * Gets the main wrapper classes for the schedule calendar
    */
   static getWrapperClasses(hostClass: string): string {
-    return `schedule-calendar border border-[--color-border-default] rounded-[--radius-lg] overflow-auto ${hostClass}`;
+    return `schedule-calendar border border-[--color-border-primary] rounded-[--radius-lg] overflow-auto ${hostClass}`;
   }
 
   /**
    * Gets the header classes for the schedule calendar
    */
   static getHeaderClasses(headerClass: string): string {
-    return `flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-default] ${headerClass}`;
+    return `flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary] ${headerClass}`;
   }
 
   /**
@@ -31,22 +31,22 @@ export class ScheduleCalendarStyleManager {
    * Gets the time gutter classes
    */
   static getTimeGutterClasses(): string {
-    return 'border-r border-[--color-border-default]';
+    return 'border-r border-[--color-border-primary]';
   }
 
   /**
    * Gets the time slot classes
    */
   static getTimeSlotClasses(): string {
-    return 'p-[--spacing-sm] border-b border-[--color-border-subtle] text-right text-[--text-size-xs] text-[--color-text-muted]';
+    return 'p-[--spacing-sm] border-b border-[--color-border-tertiary] text-right text-[--text-size-xs] text-[--color-text-secondary]';
   }
 
   /**
    * Gets the day column classes
    */
   static getDayColumnClasses(isWeekend: boolean): string {
-    const baseClasses = 'border-r border-[--color-border-default]';
-    const weekendClass = isWeekend ? 'bg-[--color-surface-muted]' : '';
+    const baseClasses = 'border-r border-[--color-border-primary]';
+    const weekendClass = isWeekend ? 'bg-[--color-background-tertiary]' : '';
 
     return `${baseClasses} ${weekendClass}`;
   }
@@ -65,7 +65,7 @@ export class ScheduleCalendarStyleManager {
    * Gets the time slot cell classes
    */
   static getTimeSlotCellClasses(slotClass: string): string {
-    return `p-[--spacing-xs] border-b border-[--color-border-subtle] relative ${slotClass}`;
+    return `p-[--spacing-xs] border-b border-[--color-border-tertiary] relative ${slotClass}`;
   }
 
   /**
@@ -73,7 +73,7 @@ export class ScheduleCalendarStyleManager {
    */
   static getEventClasses(color?: string, eventClass: string = ''): string {
     const baseClasses = 'text-[--text-size-xs] p-[--spacing-xs] rounded-[--radius-sm] mb-[--spacing-xs] cursor-pointer truncate';
-    const colorClass = color || 'bg-[--color-surface-accent] text-[--color-text-primary]';
+    const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
 
     return `${baseClasses} ${colorClass} ${eventClass}`;
   }
@@ -90,7 +90,7 @@ export class ScheduleCalendarStyleManager {
       case 'low':
         return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-success-100] text-[--color-success-800]';
       default:
-        return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-surface-muted] text-[--color-text-secondary]';
+        return 'inline-flex items-center px-[--spacing-2xs] py-[--spacing-3xs] rounded-full text-[--text-size-2xs] font-[--font-weight-medium] bg-[--color-background-tertiary] text-[--color-text-secondary]';
     }
   }
 
@@ -105,6 +105,9 @@ export class ScheduleCalendarStyleManager {
    * Gets the navigation button classes
    */
   static getNavigationButtonClasses(): string {
-    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 }
+
+
+

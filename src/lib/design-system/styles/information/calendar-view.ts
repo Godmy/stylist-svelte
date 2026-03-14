@@ -1,24 +1,24 @@
 export class CalendarViewStyleManager {
   static getWrapperClasses(): string {
-    return 'c-calendar-view border border-[--color-border-default] rounded-[--radius-lg] overflow-hidden';
+    return 'c-calendar-view border border-[--color-border-primary] rounded-[--radius-lg] overflow-hidden';
   }
 
   static getHeaderClasses(): string {
-    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-default]';
+    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
   }
 
   static getNavigationButtonClasses(): string {
-    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+    return 'h-[--spacing-xl] w-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 
   static getTodayButtonClasses(): string {
-    return 'mx-[--spacing-sm] h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+    return 'mx-[--spacing-sm] h-[--spacing-xl] flex items-center justify-center rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 
   static getViewToggleButtonClasses(isActive: boolean): string {
     return isActive 
       ? 'h-[--spacing-xl] px-[--spacing-md] rounded-[--radius-md] bg-[--color-primary-500] text-[--color-text-inverse]' 
-      : 'h-[--spacing-xl] px-[--spacing-md] rounded-[--radius-md] hover:bg-[--color-surface-hover]';
+      : 'h-[--spacing-xl] px-[--spacing-md] rounded-[--radius-md] hover:bg-[--color-background-hover]';
   }
 
   static getGridClasses(): string {
@@ -26,13 +26,13 @@ export class CalendarViewStyleManager {
   }
 
   static getWeekdayHeaderClasses(): string {
-    return 'p-[--spacing-sm] text-center text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-secondary] bg-[--color-surface-subtle]';
+    return 'p-[--spacing-sm] text-center text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-secondary] bg-[--color-background-primary-subtle]';
   }
 
   static getDayCellClasses(isToday: boolean, isCurrentMonth: boolean): string {
-    const baseClasses = 'min-h-[--spacing-24] p-[--spacing-sm] border-t border-[--color-border-default] border-r border-[--color-border-default]';
+    const baseClasses = 'min-h-[--spacing-24] p-[--spacing-sm] border-t border-[--color-border-primary] border-r border-[--color-border-primary]';
     const todayClass = isToday ? 'bg-[--color-primary-50] bg-[--color-primary-50]' : '';
-    const monthClass = !isCurrentMonth ? 'bg-[--color-surface-muted] text-[--color-text-disabled]' : '';
+    const monthClass = !isCurrentMonth ? 'bg-[--color-background-tertiary] text-[--color-text-tertiary]' : '';
 
     return `${baseClasses} ${todayClass} ${monthClass}`;
   }
@@ -50,12 +50,13 @@ export class CalendarViewStyleManager {
 
   static getEventItemClasses(color?: string): string {
     const baseClasses = 'text-[--text-size-xs] p-[--spacing-xs] rounded truncate cursor-pointer';
-    const colorClass = color || 'bg-[--color-surface-accent] text-[--color-text-primary]';
+    const colorClass = color || 'bg-[--color-primary-100] text-[--color-text-primary]';
 
     return `${baseClasses} ${colorClass}`;
   }
 
   static getWeekNumberClasses(): string {
-    return 'p-[--spacing-sm] text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-secondary] bg-[--color-surface-muted]';
+    return 'p-[--spacing-sm] text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-secondary] bg-[--color-background-tertiary]';
   }
 }
+

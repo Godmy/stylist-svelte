@@ -47,6 +47,10 @@ const TABLE_ALIGNMENT_CLASSES: Record<string, string[]> = {
 	right: ['text-right']
 };
 
+
+
+
+
 export class TableStyleManager {
 	static getTableClasses(className = ''): string {
 		return cn(...TABLE_CLASSES.table, className);
@@ -85,3 +89,5 @@ export class TableStyleManager {
 		);
 	}
 }
+
+

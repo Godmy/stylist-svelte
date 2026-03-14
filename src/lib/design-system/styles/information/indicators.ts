@@ -33,18 +33,18 @@ const COUNTER_VARIANT_CLASSES = {
 	default: 'bg-[--color-neutral-100] text-[--color-text-primary]',
 	primary: 'bg-[--color-primary-500] text-[--color-text-inverse]',
 	secondary: 'bg-[--color-secondary-500] text-[--color-text-inverse]',
-	danger: 'bg-[--color-danger-500] text-white',
-	success: 'bg-[--color-success-500] text-white',
+	danger: 'bg-[--color-danger-500] text-[var(--color-text-inverse)]',
+	success: 'bg-[--color-success-500] text-[var(--color-text-inverse)]',
 	warning: 'bg-[--color-warning-500] text-[--color-text-primary]',
-	info: 'bg-[--color-info-500] text-white',
-	gray: 'bg-[--color-neutral-500] text-white',
-	solid: 'bg-[--color-neutral-500] text-white',
+	info: 'bg-[--color-info-500] text-[var(--color-text-inverse)]',
+	gray: 'bg-[--color-neutral-500] text-[var(--color-text-inverse)]',
+	solid: 'bg-[--color-neutral-500] text-[var(--color-text-inverse)]',
 	outline: 'bg-transparent text-[--color-text-primary] border border-[--color-border-secondary]',
 	ghost: 'bg-transparent text-[--color-text-primary]',
 	link: 'bg-transparent text-[--color-info-600] underline',
 	subtle: 'bg-[--color-neutral-100] text-[--color-text-primary]',
 	neutral: 'bg-[--color-neutral-200] text-[--color-text-primary]',
-	dark: 'bg-[--color-neutral-800] text-white',
+	dark: 'bg-[--color-neutral-800] text-[var(--color-text-inverse)]',
 	light: 'bg-[--color-neutral-100] text-[--color-text-primary]'
 } as const;
 
@@ -142,6 +142,10 @@ const STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES = {
 	custom: 'bg-[--color-neutral-500]'
 } as const;
 
+
+
+
+
 export class IndicatorsStyleManager {
 	static getDotClasses(
 		color:
@@ -189,7 +193,7 @@ export class IndicatorsStyleManager {
 
 	static getCountBadgeClasses(className = ''): string {
 		return cn(
-			'inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-500 rounded-full',
+			'inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-[var(--color-text-inverse)] bg-[var(--color-danger-500)] rounded-full',
 			className
 		);
 	}
@@ -254,7 +258,7 @@ export class IndicatorsStyleManager {
 			status === 'custom'
 				? customColor
 					? `bg-[${customColor}]`
-					: 'bg-gray-500'
+					: 'bg-[var(--color-neutral-500)]'
 				: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status],
 			indicatorClass
 		);
@@ -264,5 +268,9 @@ export class IndicatorsStyleManager {
 		return cn('text-sm', labelClass);
 	}
 }
+
+
+
+
 
 

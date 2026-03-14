@@ -1,11 +1,11 @@
 export class DraggableCardStyleManager {
   static getRootClass(extraClasses: string = ''): string {
-    const baseClass = 'c-draggable-card relative shadow-md rounded-lg bg-[--color-background-primary] transition-all duration-200 ease-in-out';
+    const baseClass = 'c-draggable-card relative shadow-md rounded-lg bg-[--color-background-primary] transition-all duration-[var(--duration-200)] ease-in-out';
     return extraClasses ? `${baseClass} ${extraClasses}`.trim() : baseClass;
   }
 
   static getDraggingClass(): string {
-    return 'opacity-50 scale-95';
+    return 'opacity-[var(--opacity-50)] scale-95';
   }
 
   static getCompactClass(): string {

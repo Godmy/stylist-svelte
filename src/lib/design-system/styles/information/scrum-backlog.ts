@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class ScrumBacklogStyleManager {
   static getContainerClass(): string {
@@ -135,3 +135,5 @@ export class ScrumBacklogStyleManager {
     return 'w-4 h-4 mr-1 inline';
   }
 }
+
+

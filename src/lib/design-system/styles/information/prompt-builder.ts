@@ -25,7 +25,7 @@ export class PromptBuilderStyleManager {
 
   static getRunButtonClass(isRunning: boolean): string {
     const baseClass = 'inline-flex items-center px-[--spacing-sm] py-[--spacing-xs] border border-transparent text-sm font-medium rounded-md shadow-sm text-[--color-text-inverse] bg-[--color-primary-600] hover:bg-[--color-primary-700] focus:outline-none';
-    const disabledClass = isRunning ? 'opacity-50 cursor-not-allowed' : '';
+    const disabledClass = isRunning ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : '';
     return [baseClass, disabledClass].filter(Boolean).join(' ').trim();
   }
 

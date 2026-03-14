@@ -19,7 +19,7 @@ export class HeatmapStyleManager {
       'rounded-lg',
       'p-4',
       'bg-[var(--color-background-primary)]',
-      'border-[var(--color-border-default)]'
+      'border-[var(--color-border-primary)]'
     ];
 
     if (additionalClass) {
@@ -47,14 +47,14 @@ export class HeatmapStyleManager {
     const baseClasses = [
       'cursor-pointer',
       'transition-all',
-      'duration-200',
+      'duration-[var(--duration-200)]',
       'ease-in-out'
     ];
 
     if (isHovered) {
-      baseClasses.push('opacity-80');
+      baseClasses.push('opacity-[var(--opacity-80)]');
     } else {
-      baseClasses.push('opacity-100');
+      baseClasses.push('opacity-[var(--opacity-100)]');
     }
 
     return baseClasses.join(' ');
@@ -77,7 +77,7 @@ export class HeatmapStyleManager {
 
   static getAxisClasses(): string {
     return [
-      'stroke-[--color-border-default]'
+      'stroke-[--color-border-primary]'
     ].join(' ');
   }
 
@@ -130,5 +130,6 @@ export class HeatmapStyleManager {
     ].join(' ');
   }
 }
+
 
 

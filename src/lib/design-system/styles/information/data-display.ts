@@ -1,7 +1,7 @@
 import { formatAnimatedValue, formatNumberFlowValue } from '../../utils/format/index';
 import { cn } from '../../utils/cn/index';
 
-const NUMBER_FLOW_BASE_CLASSES = {
+const DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES = {
 	container: 'flex items-center',
 	prefix: 'mr-1',
 	suffix: 'ml-1',
@@ -21,7 +21,8 @@ const NPM_BADGE_TYPE_CLASSES: Record<string, string> = {
 		'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] dark:bg-[var(--color-neutral-700)] dark:text-[var(--color-neutral-300)]'
 };
 
-const NPM_BADGE_LINK_BASE_CLASSES = 'inline-flex items-center gap-1 hover:opacity-80';
+const NPM_BADGE_LINK_BASE_CLASSES = 'inline-flex items-center gap-1 hover:opacity-[var(--opacity-80)]';
+
 
 export class DataDisplayStyleManager {
 	static getAnimatedNumberClasses(className = ''): string {
@@ -77,7 +78,7 @@ export class DataDisplayStyleManager {
 	}
 
 	static getNumberFlowContainerClasses(className = ''): string {
-		return cn(NUMBER_FLOW_BASE_CLASSES.container, className);
+		return cn(DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES.container, className);
 	}
 
 	static getNumberFlowClasses(className = ''): {
@@ -87,10 +88,10 @@ export class DataDisplayStyleManager {
 		srOnly: string;
 	} {
 		return {
-			container: cn(NUMBER_FLOW_BASE_CLASSES.container, className),
-			prefix: NUMBER_FLOW_BASE_CLASSES.prefix,
-			suffix: NUMBER_FLOW_BASE_CLASSES.suffix,
-			srOnly: NUMBER_FLOW_BASE_CLASSES.srOnly
+			container: cn(DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES.container, className),
+			prefix: DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES.prefix,
+			suffix: DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES.suffix,
+			srOnly: DATA_DISPLAY_NUMBER_FLOW_BASE_CLASSES.srOnly
 		};
 	}
 
@@ -102,3 +103,6 @@ export class DataDisplayStyleManager {
 		return formatNumberFlowValue(value, locales, format);
 	}
 }
+
+
+

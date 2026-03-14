@@ -1,15 +1,7 @@
 import { cn } from '../../utils/cn/index';
-import {
-	CODE_CHANGED_CONTAINER_CLASSES,
-	CODE_DIFF_LINE_BASE_CLASSES,
-	CODE_DIFF_LINE_VARIANT_CLASSES,
-	CODE_HEADER_BASE_CLASSES,
-	CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES,
-	CODE_MAIN_CONTENT_CLASSES,
-	CODE_SURFACE_BASE_CLASSES
-} from './code-block';
+import { CODE_CHANGED_CONTAINER_CLASSES, CODE_DIFF_LINE_BASE_CLASSES, CODE_DIFF_LINE_VARIANT_CLASSES, CODE_HEADER_BASE_CLASSES, CODE_LINE_NUMBERS_CONTAINER_BASE_CLASSES, CODE_MAIN_CONTENT_CLASSES, CODE_SURFACE_BASE_CLASSES } from '../../constants/information/code-block';
+import type { DiffLineType } from '../../tokens/information/diff';
 
-type DiffLineType = 'added' | 'removed' | 'unchanged';
 
 export class CodeDiffStyleManager {
 	static getContainerClass(extraClasses = ''): string {
@@ -63,3 +55,5 @@ export class CodeDiffStyleManager {
 		return CODE_CHANGED_CONTAINER_CLASSES;
 	}
 }
+
+

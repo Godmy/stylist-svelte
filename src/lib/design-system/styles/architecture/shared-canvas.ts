@@ -1,12 +1,14 @@
 import { cn } from '../../utils/cn/index';
 
-export const SHARED_CANVAS_SIZE_CLASSES = {
+const SHARED_CANVAS_SIZE_CLASSES = {
 	sm: 'text-sm',
 	md: 'text-base',
 	lg: 'text-lg'
 } as const;
 
-export const DEFAULT_SHARED_CANVAS_SIZE: keyof typeof SHARED_CANVAS_SIZE_CLASSES = 'md';
+const DEFAULT_SHARED_CANVAS_SIZE: keyof typeof SHARED_CANVAS_SIZE_CLASSES = 'md';
+
+
 
 export interface SharedCanvasStyleManagerInterface {
 	getContainerClass: (variant: string, size: string, className?: string) => string;
@@ -18,20 +20,21 @@ export interface SharedCanvasStyleManagerInterface {
 	getActionButtonClass: () => string;
 }
 
+
 export class SharedCanvasStyleManager implements SharedCanvasStyleManagerInterface {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses =
 			SHARED_CANVAS_SIZE_CLASSES[size as keyof typeof SHARED_CANVAS_SIZE_CLASSES] ||
 			SHARED_CANVAS_SIZE_CLASSES[DEFAULT_SHARED_CANVAS_SIZE];
 		return cn(
-			'c-shared-canvas border border-[--color-border-default] rounded-lg overflow-hidden bg-[--color-background-primary]',
+			'c-shared-canvas border border-[--color-border-primary] rounded-lg overflow-hidden bg-[--color-background-primary]',
 			sizeClasses,
 			className
 		);
 	}
 
 	static getToolbarClass(className?: string): string {
-		return cn('flex items-center gap-2 p-3 border-b border-[--color-border-default] bg-[--color-surface]', className);
+		return cn('flex items-center gap-2 p-3 border-b border-[--color-border-primary] bg-[--color-background-primary]', className);
 	}
 
 	static getCanvasClass(className?: string): string {
@@ -39,17 +42,17 @@ export class SharedCanvasStyleManager implements SharedCanvasStyleManagerInterfa
 	}
 
 	static getUserPanelClass(): string {
-		return 'flex items-center gap-2 p-2 border-t border-[--color-border-default]';
+		return 'flex items-center gap-2 p-2 border-t border-[--color-border-primary]';
 	}
 
 	static getUserItemClass(): string {
-		return 'flex items-center gap-1 px-2 py-1 rounded hover:bg-[--color-surface-hover]';
+		return 'flex items-center gap-1 px-2 py-1 rounded hover:bg-[--color-background-hover]';
 	}
 
 	static getToolButtonClass(isActive: boolean): string {
 		const activeClasses = isActive
 			? 'bg-[--color-primary-500] text-[--color-text-inverse]'
-			: 'hover:bg-[--color-surface-hover]';
+			: 'hover:bg-[--color-background-hover]';
 		return cn('p-2 rounded transition-colors', activeClasses);
 	}
 
@@ -85,3 +88,6 @@ export class SharedCanvasStyleManager implements SharedCanvasStyleManagerInterfa
 		return SharedCanvasStyleManager.getActionButtonClass();
 	}
 }
+
+
+

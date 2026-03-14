@@ -1,23 +1,23 @@
-/**
- * Менеджер стилей для компонента BillingSummary
+﻿/**
+ * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚Р° BillingSummary
  *
- * Следует принципу единственной ответственности (SRP) из SOLID -
- * данный класс отвечает только за генерацию CSS-классов для компонента BillingSummary
+ * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїСѓ РµРґРёРЅСЃС‚РІРµРЅРЅРѕР№ РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚Рё (SRP) РёР· SOLID -
+ * РґР°РЅРЅС‹Р№ РєР»Р°СЃСЃ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РіРµРЅРµСЂР°С†РёСЋ CSS-РєР»Р°СЃСЃРѕРІ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚Р° BillingSummary
  */
 
-import type { BillingSummaryStatus, BillingItemStatus } from '$stylist/design-system/contracts/information/billing-summary';
+import type { BillingSummaryStatus, BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export class BillingSummaryStyleManager {
   /**
-   * Получает CSS-классы для основного контейнера
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕСЃРЅРѕРІРЅРѕРіРѕ РєРѕРЅС‚РµР№РЅРµСЂР°
    */
   static getContainerClasses(additionalClass: string = ''): string {
-    const baseClasses = 'bg-[--color-surface-primary] rounded-lg shadow border border-[--color-border-base] overflow-hidden';
+    const baseClasses = 'bg-[--color-background-primary] rounded-lg shadow border border-[--color-border-secondary] overflow-hidden';
     return additionalClass ? `${baseClasses} ${additionalClass}` : baseClasses;
   }
 
   /**
-   * Получает CSS-классы для заголовка
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ Р·Р°РіРѕР»РѕРІРєР°
    */
   static getHeaderClasses(additionalClass: string = ''): string {
     const baseClasses = 'border-b px-6 py-5';
@@ -25,28 +25,28 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для заголовка
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ Р·Р°РіРѕР»РѕРІРєР°
    */
   static getTitleClasses(): string {
     return 'text-lg font-medium text-[--color-text-primary]';
   }
 
   /**
-   * Получает CSS-классы для подзаголовка
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РїРѕРґР·Р°РіРѕР»РѕРІРєР°
    */
   static getSubtitleClasses(): string {
     return 'mt-1 text-sm text-[--color-text-secondary]';
   }
 
   /**
-   * Получает CSS-классы для общей суммы
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕР±С‰РµР№ СЃСѓРјРјС‹
    */
   static getTotalAmountClasses(): string {
     return 'text-2xl font-semibold text-[--color-text-primary]';
   }
 
   /**
-   * Получает CSS-классы для статуса
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃС‚Р°С‚СѓСЃР°
    */
   static getStatusBadgeClasses(status: BillingSummaryStatus): string {
     switch(status) {
@@ -62,7 +62,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для основного содержимого
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕСЃРЅРѕРІРЅРѕРіРѕ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ
    */
   static getSummaryClasses(additionalClass: string = ''): string {
     const baseClasses = 'p-6';
@@ -70,14 +70,14 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для карточки метрики
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РєР°СЂС‚РѕС‡РєРё РјРµС‚СЂРёРєРё
    */
   static getMetricCardClasses(): string {
     return 'border rounded-lg p-4';
   }
 
   /**
-   * Получает CSS-классы для иконки метрики
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё РјРµС‚СЂРёРєРё
    */
   static getMetricIconContainerClasses(status?: BillingSummaryStatus): string {
     if (status === 'overdue') {
@@ -94,7 +94,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для иконки календаря
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё РєР°Р»РµРЅРґР°СЂСЏ
    */
   static getCalendarIconClasses(status?: BillingSummaryStatus): string {
     if (status === 'overdue') {
@@ -104,7 +104,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для текста даты
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚Р° РґР°С‚С‹
    */
   static getDueDateTextClasses(status?: BillingSummaryStatus): string {
     if (status === 'overdue') {
@@ -114,7 +114,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для текста метрики
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚Р° РјРµС‚СЂРёРєРё
    */
   static getMetricTextClasses(status?: BillingSummaryStatus): string {
     if (status === 'paid') {
@@ -131,7 +131,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для списка элементов счета
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃРїРёСЃРєР° СЌР»РµРјРµРЅС‚РѕРІ СЃС‡РµС‚Р°
    */
   static getItemsListContainerClasses(additionalClass: string = ''): string {
     const baseClasses = 'border rounded-lg';
@@ -139,35 +139,35 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для элемента списка
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЌР»РµРјРµРЅС‚Р° СЃРїРёСЃРєР°
    */
   static getItemsListItemClasses(): string {
     return 'p-4';
   }
 
   /**
-   * Получает CSS-классы для описания элемента
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РѕРїРёСЃР°РЅРёСЏ СЌР»РµРјРµРЅС‚Р°
    */
   static getItemDescriptionClasses(): string {
     return 'text-sm font-medium text-[--color-text-primary]';
   }
 
   /**
-   * Получает CSS-классы для даты элемента
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РґР°С‚С‹ СЌР»РµРјРµРЅС‚Р°
    */
   static getItemDateClasses(): string {
     return 'text-sm text-[--color-text-secondary]';
   }
 
   /**
-   * Получает CSS-классы для суммы элемента
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃСѓРјРјС‹ СЌР»РµРјРµРЅС‚Р°
    */
   static getItemAmountClasses(): string {
     return 'text-sm font-medium text-[--color-text-primary]';
   }
 
   /**
-   * Получает CSS-классы для статуса элемента
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃС‚Р°С‚СѓСЃР° СЌР»РµРјРµРЅС‚Р°
    */
   static getItemStatusBadgeClasses(status: BillingItemStatus): string {
     switch(status) {
@@ -183,7 +183,7 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для нижнего колонтитула
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РЅРёР¶РЅРµРіРѕ РєРѕР»РѕРЅС‚РёС‚СѓР»Р°
    */
   static getFooterClasses(additionalClass: string = ''): string {
     const baseClasses = 'border-t px-6 py-4';
@@ -191,23 +191,33 @@ export class BillingSummaryStyleManager {
   }
 
   /**
-   * Получает CSS-классы для ID счета
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ ID СЃС‡РµС‚Р°
    */
   static getInvoiceIdClasses(): string {
     return 'text-xs text-[--color-text-secondary]';
   }
 
   /**
-   * Получает CSS-классы для шрифта ID счета
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ С€СЂРёС„С‚Р° ID СЃС‡РµС‚Р°
    */
   static getInvoiceIdFontClass(): string {
     return 'font-mono';
   }
 
   /**
-   * Получает CSS-классы для даты генерации
+   * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РґР°С‚С‹ РіРµРЅРµСЂР°С†РёРё
    */
   static getGeneratedDateClasses(): string {
     return 'text-sm text-[--color-text-secondary]';
   }
 }
+
+
+
+
+
+
+
+
+
+

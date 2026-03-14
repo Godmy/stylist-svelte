@@ -19,6 +19,10 @@ const RESPONSE_VIEWER_STATUS_CLASSES = {
 	info: 'border-[var(--color-neutral-200)] bg-[var(--color-background-secondary)]'
 } as const;
 
+
+
+
+
 /**
  * Notification Components Style Manager
  * Provides consistent styling for notification-related components
@@ -136,3 +140,6 @@ export class DocumentPreviewStyleManager {
     );
   }
 }
+
+
+

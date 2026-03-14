@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 
 export class ComparisonCardStyleManager {
 	static getBaseClasses(className = ''): string {
@@ -31,7 +31,7 @@ export class ComparisonCardStyleManager {
 	}
 
 	static getComparisonItemClasses(): string {
-		return 'flex items-center justify-between border-b border-[var(--color-border-subtle)] py-2 last:border-0';
+		return 'flex items-center justify-between border-b border-[var(--color-border-tertiary)] py-2 last:border-0';
 	}
 
 	static getComparisonLabelClasses(): string {
@@ -50,3 +50,6 @@ export class ComparisonCardStyleManager {
 		return 'mb-4 text-center text-lg font-semibold text-[var(--color-success-600)]';
 	}
 }
+
+
+

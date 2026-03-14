@@ -105,7 +105,7 @@ export class SentimentAnalysisStyleManager {
   }
 
   static getGradientScaleClass(): string {
-    return 'w-full h-4 bg-gradient-to-r from-[--color-danger-500] via-[--color-warning-500] to-[--color-success-500] rounded-full relative';
+    return 'w-full h-4 [background-image:linear-gradient(to_right,var(--color-danger-500),var(--color-warning-500),var(--color-success-500))] rounded-full relative';
   }
 
   static getScoreIndicatorClass(score: number): string {
@@ -124,3 +124,5 @@ export class SentimentAnalysisStyleManager {
     return footerClass ? `${baseClass} ${footerClass}`.trim() : baseClass;
   }
 }
+
+

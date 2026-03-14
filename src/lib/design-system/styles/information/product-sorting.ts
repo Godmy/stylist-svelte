@@ -25,3 +25,5 @@ export class ProductSortingStyleManager {
     return `${baseClasses} ${selectClasses}`;
   }
 }
+
+

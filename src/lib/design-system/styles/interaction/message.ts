@@ -1,79 +1,8 @@
-/**
- * Base StyleManager for all message components
- *
- * Provides common styling methods that can be extended
- * by specific message style managers
- *
- * @example
- * // In a specific message style manager:
- * import { MessageStyleManager } from '$stylist/design-system/styles/interaction/message';
- *
- * class CustomMessageStyleManager extends MessageStyleManager {
- *   static getContainerClasses(align: 'left' | 'right' = 'left', className?: string): string {
- *     return `${super.getMessageContainerClasses(align)} ${className || ''}`;
- *   }
- * }
- */
+import { MESSAGE_ALIGNMENT_CLASSES } from '../../constants/interaction/message';
+import type { MessageAlignment, MessageAvatarSize, MessageStatus, MessageVariant } from '../../types/interaction/message';
+import { getMessageAvatarSizeClasses, getMessageStatusClasses, getMessageVariantBgClasses, getMessageVariantTextClasses } from '../../functions/interaction/message';
 
-const MESSAGE_ALIGNMENT_CLASSES = {
-	left: 'items-start',
-	right: 'items-end',
-	center: 'items-center'
-} as const;
 
-const MESSAGE_VARIANT_BG_CLASSES = {
-	default: 'bg-white border-[--color-border-secondary]',
-	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
-	incoming: 'bg-white border-[--color-border-secondary]',
-	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]',
-	error: 'bg-[--color-danger-50] border-[--color-danger-200]',
-	warning: 'bg-[--color-warning-50] border-[--color-warning-200]',
-	success: 'bg-[--color-success-50] border-[--color-success-200]'
-} as const;
-
-const MESSAGE_VARIANT_TEXT_CLASSES = {
-	default: 'text-[--color-text-primary]',
-	system: 'text-[--color-text-secondary]',
-	incoming: 'text-[--color-text-primary]',
-	outgoing: 'text-[--color-text-inverse]',
-	error: 'text-[--color-danger-800]',
-	warning: 'text-[--color-warning-800]',
-	success: 'text-[--color-success-800]'
-} as const;
-
-const MESSAGE_STATUS_CLASSES = {
-	sent: 'text-[--color-primary-500]',
-	delivered: 'text-[--color-text-tertiary]',
-	read: 'text-[--color-success-500]',
-	error: 'text-[--color-danger-500]'
-} as const;
-
-const MESSAGE_AVATAR_SIZE_CLASSES = {
-	sm: 'w-6 h-6',
-	md: 'w-8 h-8',
-	lg: 'w-10 h-10'
-} as const;
-
-type MessageAlignment = keyof typeof MESSAGE_ALIGNMENT_CLASSES;
-type MessageVariant = keyof typeof MESSAGE_VARIANT_BG_CLASSES;
-type MessageStatus = keyof typeof MESSAGE_STATUS_CLASSES;
-type MessageAvatarSize = keyof typeof MESSAGE_AVATAR_SIZE_CLASSES;
-
-function getMessageVariantBgClasses(variant: MessageVariant): string {
-	return MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
-}
-
-function getMessageVariantTextClasses(variant: keyof typeof MESSAGE_VARIANT_TEXT_CLASSES): string {
-	return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
-}
-
-function getMessageStatusClasses(status: MessageStatus): string {
-	return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
-}
-
-function getMessageAvatarSizeClasses(size: MessageAvatarSize): string {
-	return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
-}
 
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
@@ -121,7 +50,7 @@ export class MessageStyleManager {
 	}
 
 	static getActionsClasses(): string {
-		return 'flex items-center gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity';
+		return 'flex items-center gap-1 mt-2 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity';
 	}
 
 	static getActionButtonClasses(): string {
@@ -166,3 +95,6 @@ export class MessageStyleManager {
 }
 
 export default MessageStyleManager;
+
+
+

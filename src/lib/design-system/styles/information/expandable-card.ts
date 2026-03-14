@@ -29,11 +29,11 @@ export class ExpandableCardStyleManager {
         variantClasses = 'shadow-none border-2';
         break;
       case 'filled':
-        variantClasses = 'bg-[--color-background-surface-selected] border-[--color-border-accent]';
+        variantClasses = 'bg-[--color-background-surface-selected] border-[--color-border-primary]';
         break;
       case 'default':
       default:
-        variantClasses = 'border-[--color-border-default] bg-[--color-background-surface]';
+        variantClasses = 'border-[--color-border-primary] bg-[--color-background-surface]';
         break;
     }
 
@@ -49,7 +49,7 @@ export class ExpandableCardStyleManager {
   static getHeaderClasses(isDisabled: boolean = false): string {
     const baseClasses = 'w-full flex justify-between items-center p-4 text-left';
     const stateClasses = isDisabled
-      ? 'opacity-50 cursor-not-allowed'
+      ? 'opacity-[var(--opacity-50)] cursor-not-allowed'
       : 'hover:bg-[--color-background-surface-hover] cursor-pointer';
 
     return `${baseClasses} ${stateClasses}`;
@@ -80,8 +80,8 @@ export class ExpandableCardStyleManager {
    * Get details container classes
    */
   static getDetailsContainerClasses(isExpanded: boolean): string {
-    return `overflow-hidden transition-all duration-300 ease-in-out ${
-      isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+    return `overflow-hidden transition-all duration-[var(--duration-300)] ease-in-out ${
+      isExpanded ? 'max-h-96 opacity-[var(--opacity-100)]' : 'max-h-0 opacity-[var(--opacity-0)]'
     }`;
   }
 
@@ -89,16 +89,22 @@ export class ExpandableCardStyleManager {
    * Get details content classes
    */
   static getDetailsContentClasses(): string {
-    return 'p-4 border-t border-[--color-border-default]';
+    return 'p-4 border-t border-[--color-border-primary]';
   }
 
   /**
    * Get chevron icon classes
    */
   static getChevronClasses(isExpanded: boolean, hasCustomClass?: string): string {
-    const baseClasses = `ml-4 h-5 w-5 text-[--color-icon-secondary] transition-transform duration-200`;
+    const baseClasses = `ml-4 h-5 w-5 text-[--color-icon-secondary] transition-transform duration-[var(--duration-200)]`;
     const rotationClass = isExpanded ? 'rotate-180' : '';
 
     return `${baseClasses} ${rotationClass} ${hasCustomClass || ''}`;
   }
 }
+
+
+
+
+
+

@@ -16,7 +16,7 @@ import {
 	INPUT_PASSWORD_TOGGLE_CLASS,
 	INPUT_LONG_RESIZE_HANDLE_CLASS,
 	INPUT_DOUBLE_CONTAINER_CLASS
-} from '../styles/interaction/input';
+} from '../constants/interaction/input';
 
 // ============================================================================
 // Input Field Preset
@@ -92,6 +92,8 @@ export const INPUT_CONTAINER_PRESET = {
 	errorTextClass: INPUT_FIELD_ERROR_TEXT_CLASS,
 	labelClass: INPUT_FIELD_LABEL_CLASS
 } as const;
+
+
 
 
 

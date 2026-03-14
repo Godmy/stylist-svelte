@@ -1,11 +1,11 @@
 import { cn } from '../../utils/cn/index';
-import { CARD_BASE_CLASSES } from './card';
+import { CARD_BASE_CLASSES } from '../../constants/information/card';
 import type { Background } from '$stylist/design-system/tokens/information/background';
 
 const STAT_CARD_VARIANT_CLASSES = {
 	default: '',
 	gradient:
-		'bg-gradient-to-br from-[var(--color-primary-50)] to-[var(--color-background-secondary)] border-[var(--color-primary-200)]'
+		'[background-image:var(--gradient-primary)] border-[var(--color-primary-200)]'
 } as const;
 
 const STAT_CARD_TREND_TEXT_CLASSES = {
@@ -13,6 +13,10 @@ const STAT_CARD_TREND_TEXT_CLASSES = {
 	down: 'text-[var(--color-danger-700)]',
 	neutral: 'text-[var(--color-text-secondary)]'
 } as const;
+
+
+
+
 
 export class StatCardStyleManager {
 	static getBaseClasses(
@@ -60,3 +64,5 @@ export class StatCardStyleManager {
 		return 'stat-card-description mt-2 text-xs text-[var(--color-text-secondary)]';
 	}
 }
+
+

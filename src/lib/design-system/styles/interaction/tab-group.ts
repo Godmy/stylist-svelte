@@ -1,4 +1,4 @@
-import type { TabGroupVariant } from '$stylist/design-system/contracts/interaction/tab-group';
+import type { TabGroupVariant } from '$stylist/design-system/tokens/interaction/tab-group';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -46,7 +46,7 @@ export class TabGroupStyleManager {
       : `${variantClasses.inactive} ${inactiveTabClass}`;
     
     const disabledClass = isDisabled 
-      ? 'opacity-50 cursor-not-allowed' 
+      ? 'opacity-[var(--opacity-50)] cursor-not-allowed' 
       : 'cursor-pointer';
 
     return `${baseClasses} ${stateClasses} ${disabledClass} ${baseTabClass}`;
@@ -91,5 +91,10 @@ export class TabGroupStyleManager {
     };
   }
 }
+
+
+
+
+
 
 

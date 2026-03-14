@@ -1,5 +1,5 @@
 import type { IDropdownMenuStyleClasses } from '$stylist/design-system/contracts/interaction/dropdown-menu';
-import type { DropdownPosition } from '$stylist/design-system/contracts/interaction/dropdown-menu';
+import type { DropdownPosition } from '$stylist/design-system/tokens/interaction/dropdown';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -18,11 +18,11 @@ export class DropdownMenuStyleManager {
   }
 
   static getDisabledClass(isDisabled: boolean): string {
-    return isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
+    return isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '';
   }
 
   static getMenuClasses(position: DropdownPosition): string {
-    const baseClasses = 'dropdown-menu-base origin-top-right absolute rounded-md shadow-lg bg-[--color-background-primary] ring-1 ring-[--color-border-primary] focus:outline-none z-50';
+    const baseClasses = 'dropdown-menu-base origin-top-right absolute rounded-md shadow-lg bg-[--color-background-primary] ring-1 ring-[--color-border-primary] focus:outline-none z-[var(--z-index-modal)]';
     const positionClass = this.getPositionClasses(position);
     
     return `${baseClasses} ${positionClass}`;
@@ -36,4 +36,10 @@ export class DropdownMenuStyleManager {
     return `${baseClasses} ${positionClass} ${disabledClass} ${className}`;
   }
 }
+
+
+
+
+
+
 

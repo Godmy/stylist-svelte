@@ -40,7 +40,7 @@ export class BarChartStyleManager {
    * Получает CSS-классы для бара (столбца) диаграммы
    */
   static getBarClasses(isHovered: boolean = false): string {
-    const baseClasses = 'transition-all duration-200 ease-in-out';
+    const baseClasses = 'transition-all duration-[var(--duration-200)] ease-in-out';
     const hoverClasses = isHovered ? 'scale-y-[1.05]' : 'scale-y-100';
     return `${baseClasses} ${hoverClasses}`;
   }
@@ -87,3 +87,4 @@ export class BarChartStyleManager {
     return 'h-4 w-4 text-[--color-text-secondary]';
   }
 }
+

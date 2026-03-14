@@ -1,19 +1,21 @@
-import {
-	CODE_BLOCK_SIZE_CLASSES,
-	CODE_BLOCK_VARIANT_CLASSES
-} from '../information/badge';
+import { CODE_BLOCK_SIZE_CLASSES, CODE_BLOCK_VARIANT_CLASSES } from '../../constants/information/badge';
 import { cn } from '../../utils/cn/index';
 
-export const SEPARATOR_CLASSES = {
+const SEPARATOR_CLASSES = {
 	horizontal: 'w-full border-t border-[var(--color-border-secondary)]',
 	vertical: 'h-full border-l border-[var(--color-border-secondary)]'
 } as const;
 
-export const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
-export const SEPARATOR_CODE_BLOCK_DEFAULTS = {
+const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
+
+const SEPARATOR_CODE_BLOCK_DEFAULTS = {
 	variant: 'default' as keyof typeof CODE_BLOCK_VARIANT_CLASSES,
 	size: 'md' as keyof typeof CODE_BLOCK_SIZE_CLASSES
 };
+
+
+
+
 
 export class SeparatorStyleManager {
 	static getSeparatorClasses(
@@ -40,3 +42,5 @@ export class SeparatorStyleManager {
 		return 'font-mono text-sm';
 	}
 }
+
+

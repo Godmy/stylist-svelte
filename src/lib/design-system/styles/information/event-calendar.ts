@@ -10,7 +10,7 @@ export class EventCalendarStyleManager {
    * Gets the main wrapper classes for the event calendar based on view mode
    */
   static getWrapperClasses(viewMode: string): string {
-    const baseClasses = 'event-calendar border border-[--color-border-default] rounded-[--radius-lg] overflow-hidden bg-[--color-surface-primary] shadow-[--shadow-sm]';
+    const baseClasses = 'event-calendar border border-[--color-border-primary] rounded-[--radius-lg] overflow-hidden bg-[--color-background-primary] shadow-[--shadow-sm]';
     const modeSpecificClasses = viewMode === 'day' ? 'flex flex-col' : 'block';
 
     return `${baseClasses} ${modeSpecificClasses}`;
@@ -20,14 +20,14 @@ export class EventCalendarStyleManager {
    * Gets the header classes for the calendar
    */
   static getHeaderClasses(): string {
-    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-default] bg-[--color-surface-secondary]';
+    return 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary] bg-[--color-background-secondary]';
   }
 
   /**
    * Gets the weekday header classes
    */
   static getWeekdayHeaderClasses(): string {
-    return 'p-[--spacing-sm] text-center text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-muted]';
+    return 'p-[--spacing-sm] text-center text-[--text-size-xs] font-[--font-weight-medium] text-[--color-text-secondary]';
   }
 
   /**
@@ -44,9 +44,9 @@ export class EventCalendarStyleManager {
    * Gets the day cell classes based on its properties
    */
   static getDayCellClasses(isToday: boolean, isCurrentMonth: boolean): string {
-    const baseClasses = 'min-h-[6rem] p-[--spacing-xs] border-t border-r border-[--color-border-subtle] relative group';
+    const baseClasses = 'min-h-[6rem] p-[--spacing-xs] border-t border-r border-[--color-border-tertiary] relative group';
     const todayClass = isToday ? 'bg-[--color-primary-50]' : '';
-    const notCurrentMonthClass = !isCurrentMonth ? 'bg-[--color-surface-muted] text-[--color-text-disabled]' : 'hover:bg-[--color-surface-hover]';
+    const notCurrentMonthClass = !isCurrentMonth ? 'bg-[--color-background-tertiary] text-[--color-text-tertiary]' : 'hover:bg-[--color-background-hover]';
 
     return `${baseClasses} ${todayClass} ${notCurrentMonthClass}`;
   }
@@ -67,8 +67,8 @@ export class EventCalendarStyleManager {
    * Gets the event display classes
    */
   static getEventClasses(hasColor: boolean, customColor?: string): string {
-    const baseClasses = 'text-[--text-size-xs] p-[--spacing-xs] rounded-[--radius-sm] truncate cursor-pointer text-[--color-text-primary] hover:opacity-90 transition-opacity';
-    const customColorClass = hasColor && customColor ? customColor : 'bg-[--color-surface-accent]';
+    const baseClasses = 'text-[--text-size-xs] p-[--spacing-xs] rounded-[--radius-sm] truncate cursor-pointer text-[--color-text-primary] hover:opacity-[var(--opacity-90)] transition-opacity';
+    const customColorClass = hasColor && customColor ? customColor : 'bg-[--color-primary-100]';
 
     return `${baseClasses} ${customColorClass}`;
   }
@@ -84,7 +84,7 @@ export class EventCalendarStyleManager {
    * Gets the modal content classes
    */
   static getModalContentClasses(): string {
-    return 'bg-[--color-surface-primary] rounded-[--radius-lg] shadow-[--shadow-lg] p-[--spacing-xl] max-w-md w-full mx-[--spacing-md]';
+    return 'bg-[--color-background-primary] rounded-[--radius-lg] shadow-[--shadow-lg] p-[--spacing-xl] max-w-md w-full mx-[--spacing-md]';
   }
 
   /**
@@ -108,3 +108,7 @@ export class EventCalendarStyleManager {
     return 'grid grid-cols-7';
   }
 }
+
+
+
+

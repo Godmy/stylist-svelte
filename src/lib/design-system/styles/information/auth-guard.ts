@@ -4,7 +4,7 @@ export class AuthGuardStyleManager {
 	}
 
 	static getSectionClasses(fallbackClass: string): string {
-		return `${'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[--radius-lg] border border-[--color-border-default] bg-[--color-background-primary] p-[--spacing-xl] text-center'} ${fallbackClass}`.trim();
+		return `${'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[--radius-lg] border border-[--color-border-primary] bg-[--color-background-primary] p-[--spacing-xl] text-center'} ${fallbackClass}`.trim();
 	}
 
 	static getTitleClasses(contentClass: string): string {
@@ -19,3 +19,4 @@ export class AuthGuardStyleManager {
 		return 'inline-flex items-center rounded-[--radius-md] bg-[--color-primary-600] px-[--spacing-md] py-[--spacing-sm] text-[--text-size-sm] font-[--font-weight-medium] text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]';
 	}
 }
+

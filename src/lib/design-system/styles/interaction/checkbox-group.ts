@@ -90,3 +90,4 @@ export class CheckboxGroupStyleManager {
     return 'text-[--color-danger-500]';
   }
 }
+

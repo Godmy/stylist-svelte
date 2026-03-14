@@ -23,6 +23,10 @@ const GRAPH_EDGE_TYPE_CLASSES: Record<PrimitiveTrajectory, string> = {
 	'smooth-step': 'graph-edge--curve'
 };
 
+
+
+
+
 export class GraphStyleManager {
 	static getGraphNodeSizeClasses(size: ComponentSize): string {
 		return GRAPH_NODE_SIZE_CLASSES[size];
@@ -59,4 +63,6 @@ export class GraphStyleManager {
 		return key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 	}
 }
+
+
 

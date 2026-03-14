@@ -30,6 +30,10 @@ const CHAT_MESSAGE_STATUS_ICON_CLASSES: Record<MessageStatusType, string> = {
 	read: 'ml-1 h-3 w-3 text-[var(--color-primary-500)]'
 };
 
+
+
+
+
 export class ChatStyleManager {
 	static getChatMessageAlignmentClass(isOwn: boolean): string {
 		return isOwn ? CHAT_MESSAGE_ALIGNMENT_CLASSES.own : CHAT_MESSAGE_ALIGNMENT_CLASSES.other;
@@ -62,6 +66,8 @@ export class ChatStyleManager {
 		return CHAT_MESSAGE_STATUS_ICON_CLASSES[status];
 	}
 }
+
+
 
 
 

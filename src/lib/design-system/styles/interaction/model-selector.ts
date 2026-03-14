@@ -76,7 +76,7 @@ export class ModelSelectorStyleManager {
    * @returns Combined CSS class string for the dropdown menu
    */
   static getDropdownMenuClass(dropdownClass: string = ''): string {
-    const baseClass = 'absolute z-10 mt-1 w-full bg-[--color-background-primary] shadow-lg max-h-60 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm';
+    const baseClass = 'absolute z-[var(--z-index-docked)] mt-1 w-full bg-[--color-background-primary] shadow-lg max-h-60 rounded-md py-1 text-base overflow-auto focus:outline-none sm:text-sm';
     
     return dropdownClass ? `${baseClass} ${dropdownClass}`.trim() : baseClass;
   }
@@ -166,3 +166,5 @@ export class ModelSelectorStyleManager {
     return 'inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-[--color-background-tertiary] text-[--color-text-secondary]';
   }
 }
+
+

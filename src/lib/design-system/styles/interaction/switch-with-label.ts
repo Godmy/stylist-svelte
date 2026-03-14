@@ -4,7 +4,7 @@
  * Uses the Stylist-Svelte theming system with CSS variables
  */
 
-import type { LabelPosition } from '$stylist/design-system/contracts/interaction/switch-with-label';
+import type { LabelPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
 
 export class SwitchWithLabelStyleManager {
   /**
@@ -25,7 +25,7 @@ export class SwitchWithLabelStyleManager {
    * Gets the CSS classes for the label element
    */
   static getLabelClasses(disabled: boolean, labelClass: string = ''): string {
-    const disabledClass = disabled ? 'opacity-50' : '';
+    const disabledClass = disabled ? 'opacity-[var(--opacity-50)]' : '';
     
     return [
       'text-sm',
@@ -50,7 +50,7 @@ export class SwitchWithLabelStyleManager {
       'h-6',
       'rounded-full',
       'transition-colors',
-      'duration-200',
+      'duration-[var(--duration-200)]',
       bgClass,
       cursorClass,
       'w-11',
@@ -72,7 +72,7 @@ export class SwitchWithLabelStyleManager {
       'bg-[--color-background-primary]',
       'rounded-full',
       'transition-transform',
-      'duration-200',
+      'duration-[var(--duration-200)]',
       'shadow-sm',
       positionClass
     ].filter(Boolean).join(' ');
@@ -85,3 +85,8 @@ export class SwitchWithLabelStyleManager {
     return labelPosition === 'right' ? 'mr-3' : 'ml-3';
   }
 }
+
+
+
+
+
