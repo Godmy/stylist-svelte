@@ -7,7 +7,6 @@ export { cn, conditionalClasses, mergeClasses, twJoin, twMerge } from './classes
 export { isClipboardSupported } from './clipboard';
 export { generateCode } from './code-preview';
 export { getComponentClasses, getSizeClasses, getStateClasses, getVariantClasses } from './components';
-export { getCSSVariable, getCurrentTheme, isDarkTheme, mergeStyles, normalizeClassNames, setCSSVariables, supportsTheme, toggleTheme } from './css';
 export { getCharacterCountState, getFileSelectionLabel, getInputFieldContainerClass, getInputFieldHelperTextClass, getInputGroupButtonClass, getInputGroupContainerClass, getInputGroupInputClass, getSharedPasswordInputClass, getSharedPasswordInputContainerClass, getSharedPasswordInputHelpTextClass, getSharedPasswordInputToggleButtonClass } from './input';
 export { molecularTimeSlotToAtomic, scheduleTimeSlotToAtomic } from './molecules';
 export { getCountryFlagEmoji } from './strings';

@@ -1,17 +1,13 @@
 import { cn } from '../../utils/cn/index';
 
-const SHARED_CANVAS_SIZE_CLASSES = {
-	sm: 'text-sm',
-	md: 'text-base',
-	lg: 'text-lg'
-} as const;
-
-const DEFAULT_SHARED_CANVAS_SIZE: keyof typeof SHARED_CANVAS_SIZE_CLASSES = 'md';
 export class SharedCanvasStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {
 		const sizeClasses =
-			SHARED_CANVAS_SIZE_CLASSES[size as keyof typeof SHARED_CANVAS_SIZE_CLASSES] ||
-			SHARED_CANVAS_SIZE_CLASSES[DEFAULT_SHARED_CANVAS_SIZE];
+			{
+				sm: 'text-sm',
+				md: 'text-base',
+				lg: 'text-lg'
+			}[size as 'sm' | 'md' | 'lg'] || 'text-base';
 		return cn(
 			'c-shared-canvas border border-[--color-border-primary] rounded-lg overflow-hidden bg-[--color-background-primary]',
 			sizeClasses,

@@ -1,7 +1,7 @@
 /**
  * Auto-generated icon registry
  * Generated at: 2026-03-14T20:28:59.351Z
- * Do not edit manually - run 'npx tsx scripts/svg/generate-registry/generate.ts' to regenerate
+ * Do not edit manually - run 'npx tsx scripts/svg/index.ts' to regenerate
  */
 
 export interface IconEntry {

@@ -1,4 +1,4 @@
-import { createInputAddonState as createInputAddonStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createInputAddonState as createInputAddonStateImpl } from '$stylist/design-system/runtime/input-state';
 
 export function createInputAddonState(
 	...args: Parameters<typeof createInputAddonStateImpl>

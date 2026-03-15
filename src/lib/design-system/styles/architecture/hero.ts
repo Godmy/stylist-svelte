@@ -16,26 +16,6 @@ import { cn } from '../../utils/cn/index';
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-const HERO_HEIGHT_CLASSES: Record<Height, string> = {
-	screen: 'min-h-screen',
-	large: 'min-h-[80vh]',
-	medium: 'min-h-[60vh]'
-};
-
-const HERO_BACKGROUND_VARIANT_CLASSES: Record<Background, string> = {
-	default:
-		'absolute inset-0 bg-[var(--color-background-secondary)]',
-	gradient:
-		'absolute inset-0 [background-image:var(--gradient-primary)]',
-	particles: 'absolute inset-0',
-	image: 'absolute inset-0 bg-cover bg-center'
-};
-
-
-
-
-
-
 export class HeroStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера Hero
@@ -43,7 +23,11 @@ export class HeroStyleManager {
   static getContainerClasses(height: Height = 'screen', className?: string): string {
     return cn(
       'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
-      HERO_HEIGHT_CLASSES[height],
+      {
+        screen: 'min-h-screen',
+        large: 'min-h-[80vh]',
+        medium: 'min-h-[60vh]'
+      }[height],
       className
     );
   }
@@ -52,7 +36,12 @@ export class HeroStyleManager {
    * Возвращает CSS-классы для фонового элемента
    */
   static getBackgroundClasses(backgroundVariant: Background = 'gradient'): string {
-    return HERO_BACKGROUND_VARIANT_CLASSES[backgroundVariant];
+    return {
+      default: 'absolute inset-0 bg-[var(--color-background-secondary)]',
+      gradient: 'absolute inset-0 [background-image:var(--gradient-primary)]',
+      particles: 'absolute inset-0',
+      image: 'absolute inset-0 bg-cover bg-center'
+    }[backgroundVariant];
   }
 
   /**

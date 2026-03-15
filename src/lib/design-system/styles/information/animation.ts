@@ -1,12 +1,5 @@
 import { formatAnimatedValue, formatNumberFlowValue } from '../../utils/format/index';
 
-const NUMBER_FLOW_BASE_CLASSES = {
-	container: 'flex items-center',
-	prefix: 'mr-1',
-	suffix: 'ml-1',
-	srOnly: 'sr-only'
-} as const;
-
 
 
 
@@ -15,19 +8,19 @@ export class AnimationStyleManager {
 	static readonly defaultLanguage = 'en';
 
 	static getNumberFlowContainerClasses(className = ''): string {
-		return [NUMBER_FLOW_BASE_CLASSES.container, className].filter(Boolean).join(' ');
+		return ['flex items-center', className].filter(Boolean).join(' ');
 	}
 
 	static getNumberFlowPrefixClasses(className = ''): string {
-		return [NUMBER_FLOW_BASE_CLASSES.prefix, className].filter(Boolean).join(' ');
+		return ['mr-1', className].filter(Boolean).join(' ');
 	}
 
 	static getNumberFlowSuffixClasses(className = ''): string {
-		return [NUMBER_FLOW_BASE_CLASSES.suffix, className].filter(Boolean).join(' ');
+		return ['ml-1', className].filter(Boolean).join(' ');
 	}
 
 	static getNumberFlowScreenReaderClasses(className = ''): string {
-		return [NUMBER_FLOW_BASE_CLASSES.srOnly, className].filter(Boolean).join(' ');
+		return ['sr-only', className].filter(Boolean).join(' ');
 	}
 
 	static formatNumberFlow(

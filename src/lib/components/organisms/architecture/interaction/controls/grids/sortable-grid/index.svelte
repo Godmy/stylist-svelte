@@ -112,12 +112,12 @@ const GripVertical = 'grip-vertical';
   const containerClass = $derived(SortableGridStyleManager.getContainerClass(variant, size, disabled, hostClass));
   const gridClassComputed = $derived(SortableGridStyleManager.getGridClass(gridClass, gridColsClass, gapClass));
   const itemClassComputed = $derived(SortableGridStyleManager.getItemClass(variant, size, isDragging, draggedItem, itemClass));
-  const itemDraggingClass = $derived(SortableGridStyleManager.getItemDraggingClass());
-  const itemDragOverClass = $derived(SortableGridStyleManager.getItemDragOverClass());
+  const itemDraggingClass = SortableGridStyleManager.getItemDraggingClass();
+  const itemDragOverClass = SortableGridStyleManager.getItemDragOverClass();
   const itemContentClass = $derived(SortableGridStyleManager.getItemContentClass(variant));
-  const itemTitleClass = $derived(SortableGridStyleManager.getItemTitleClass());
-  const itemContentTextClass = $derived(SortableGridStyleManager.getItemContentTextClass());
-  const gripIconClass = $derived(SortableGridStyleManager.getGripIconClass());
+  const itemTitleClass = SortableGridStyleManager.getItemTitleClass();
+  const itemContentTextClass = SortableGridStyleManager.getItemContentTextClass();
+  const gripIconClass = SortableGridStyleManager.getGripIconClass();
 </script>
 
 <div class={containerClass} {...restProps}>

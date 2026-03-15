@@ -43,19 +43,19 @@ const MoreHorizontal = 'more-horizontal';
   // Generate CSS classes using the style manager
   const containerClass = $derived(StatusDashboardStyleManager.getContainerClass(variant, size, className));
   const headerClassComputed = $derived(StatusDashboardStyleManager.getHeaderClass(headerClass));
-  const titleClass = $derived(StatusDashboardStyleManager.getTitleClass());
-  const subtitleClass = $derived(StatusDashboardStyleManager.getSubtitleClass());
+  const titleClass = StatusDashboardStyleManager.getTitleClass();
+  const subtitleClass = StatusDashboardStyleManager.getSubtitleClass();
   const itemsGridClass = $derived(StatusDashboardStyleManager.getItemsGridClass(layout));
   const itemCardClass = $derived(StatusDashboardStyleManager.getItemCardClass(itemClass));
-  const itemContentClass = $derived(StatusDashboardStyleManager.getItemContentClass());
-  const itemHeaderClass = $derived(StatusDashboardStyleManager.getItemHeaderClass());
+  const itemContentClass = StatusDashboardStyleManager.getItemContentClass();
+  const itemHeaderClass = StatusDashboardStyleManager.getItemHeaderClass();
   const itemTitleClass = $derived(StatusDashboardStyleManager.getItemTitleClass(size));
-  const itemValueClass = $derived(StatusDashboardStyleManager.getItemValueClass());
+  const itemValueClass = StatusDashboardStyleManager.getItemValueClass();
   const itemDescriptionClass = $derived(StatusDashboardStyleManager.getItemDescriptionClass(size));
-  const itemFooterClass = $derived(StatusDashboardStyleManager.getItemFooterClass());
-  const itemActionsClass = $derived(StatusDashboardStyleManager.getItemActionsClass());
-  const statusIconWrapperClass = $derived(StatusDashboardStyleManager.getStatusIconWrapperClass());
-  const statusIconClass = $derived(StatusDashboardStyleManager.getStatusIconClass());
+  const itemFooterClass = StatusDashboardStyleManager.getItemFooterClass();
+  const itemActionsClass = StatusDashboardStyleManager.getItemActionsClass();
+  const statusIconWrapperClass = StatusDashboardStyleManager.getStatusIconWrapperClass();
+  const statusIconClass = StatusDashboardStyleManager.getStatusIconClass();
 </script>
 
 <div class={containerClass} {...restProps}>

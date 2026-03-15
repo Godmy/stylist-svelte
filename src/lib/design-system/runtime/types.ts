@@ -67,13 +67,3 @@ export interface ComponentStateOptions<V extends string, S extends string> {
 	class?: string;
 	ariaLabel?: string;
 }
-
-
-
-
-
-
-
-
-export type InputSize = ComponentSize;
-export type InputVariant = (typeof INPUT_VARIANTS.input)[number];

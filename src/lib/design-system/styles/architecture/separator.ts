@@ -3,33 +3,23 @@ import type { Code } from '../../tokens/interaction/variants';
 import { BadgeStyleManager } from '../information/badge';
 import { cn } from '../../utils/cn/index';
 
-const SEPARATOR_CLASSES = {
-	horizontal: 'w-full border-t border-[var(--color-border-secondary)]',
-	vertical: 'h-full border-l border-[var(--color-border-secondary)]'
-} as const;
-
-const DEFAULT_SEPARATOR_ORIENTATION: keyof typeof SEPARATOR_CLASSES = 'horizontal';
-
-const SEPARATOR_CODE_BLOCK_DEFAULTS = {
-	variant: 'default' as Code,
-	size: 'md' as ComponentSize
-};
-
-
-
-
-
 export class SeparatorStyleManager {
 	static getSeparatorClasses(
-		orientation: keyof typeof SEPARATOR_CLASSES = DEFAULT_SEPARATOR_ORIENTATION,
+		orientation: 'horizontal' | 'vertical' = 'horizontal',
 		className = ''
 	): string {
-		return cn(SEPARATOR_CLASSES[orientation], className);
+		return cn(
+			{
+				horizontal: 'w-full border-t border-[var(--color-border-secondary)]',
+				vertical: 'h-full border-l border-[var(--color-border-secondary)]'
+			}[orientation],
+			className
+		);
 	}
 
 	static getSyntaxHighlightedCodeContainerClasses(
-		variant: Code = SEPARATOR_CODE_BLOCK_DEFAULTS.variant,
-		size: ComponentSize = SEPARATOR_CODE_BLOCK_DEFAULTS.size,
+		variant: Code = 'default',
+		size: ComponentSize = 'md',
 		className = ''
 	): string {
 		return cn(
@@ -44,4 +34,3 @@ export class SeparatorStyleManager {
 		return 'font-mono text-sm';
 	}
 }
-

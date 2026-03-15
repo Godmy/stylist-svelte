@@ -64,17 +64,17 @@
 
   // Generate CSS classes using the style manager
   const containerClass = $derived(GraphNodeCardStyleManager.getContainerClass(variant, size, selected, highlight, className));
-  const headerClass = $derived(GraphNodeCardStyleManager.getHeaderClass());
-  const titleClass = $derived(GraphNodeCardStyleManager.getTitleClass());
+  const headerClass = GraphNodeCardStyleManager.getHeaderClass();
+  const titleClass = GraphNodeCardStyleManager.getTitleClass();
   const typeClass = $derived(GraphNodeCardStyleManager.getTypeClass(node.type));
-  const contentClass = $derived(GraphNodeCardStyleManager.getContentClass());
-  const descriptionClass = $derived(GraphNodeCardStyleManager.getDescriptionClass());
-  const fieldsListClass = $derived(GraphNodeCardStyleManager.getFieldsListClass());
-  const fieldItemClass = $derived(GraphNodeCardStyleManager.getFieldItemClass());
-  const fieldNameClass = $derived(GraphNodeCardStyleManager.getFieldNameClass());
-  const fieldTypeClass = $derived(GraphNodeCardStyleManager.getFieldTypeClass());
-  const fieldRequiredClass = $derived(GraphNodeCardStyleManager.getFieldRequiredClass());
-  const actionsClass = $derived(GraphNodeCardStyleManager.getActionsClass());
+  const contentClass = GraphNodeCardStyleManager.getContentClass();
+  const descriptionClass = GraphNodeCardStyleManager.getDescriptionClass();
+  const fieldsListClass = GraphNodeCardStyleManager.getFieldsListClass();
+  const fieldItemClass = GraphNodeCardStyleManager.getFieldItemClass();
+  const fieldNameClass = GraphNodeCardStyleManager.getFieldNameClass();
+  const fieldTypeClass = GraphNodeCardStyleManager.getFieldTypeClass();
+  const fieldRequiredClass = GraphNodeCardStyleManager.getFieldRequiredClass();
+  const actionsClass = GraphNodeCardStyleManager.getActionsClass();
 </script>
 
 <div class={containerClass} {...restProps}>

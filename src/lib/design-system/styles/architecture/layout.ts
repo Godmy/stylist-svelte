@@ -5,89 +5,6 @@ import { BASE_CLASSES } from '../../runtime/foundation';
 import { cn } from '../../utils/cn/index';
 import type { ContainerMaxWidth as LayoutContainerMaxWidth, LayoutSize } from '../../tokens/architecture/size';
 
-const CONTAINER_MAX_WIDTH_CLASSES: Record<LayoutContainerMaxWidth, string> = {
-	xs: 'max-w-screen-xs',
-	sm: 'max-w-screen-sm',
-	md: 'max-w-screen-md',
-	lg: 'max-w-screen-lg',
-	xl: 'max-w-screen-xl',
-	'2xl': 'max-w-screen-2xl',
-	full: 'max-w-full'
-} as const;
-
-const HORIZONTAL_GAP_CLASSES: Record<ComponentSize, string> = {
-	xs: 'gap-1',
-	sm: 'gap-2',
-	md: 'gap-4',
-	lg: 'gap-6',
-	xl: 'gap-8',
-	'2xl': 'gap-12'
-} as const;
-
-const HORIZONTAL_ALIGN_ITEMS_CLASSES: Record<Alignment, string> = {
-	top: 'items-start',
-	'top-center': 'items-start',
-	'top-start': 'items-start',
-	'top-end': 'items-start',
-	bottom: 'items-end',
-	'bottom-center': 'items-end',
-	'bottom-start': 'items-end',
-	'bottom-end': 'items-end',
-	left: 'items-center',
-	'left-center': 'items-center',
-	'left-start': 'items-start',
-	'left-end': 'items-end',
-	right: 'items-center',
-	'right-center': 'items-center',
-	'right-start': 'items-start',
-	'right-end': 'items-end',
-	center: 'items-center',
-	justify: 'items-center',
-};
-
-const HORIZONTAL_JUSTIFY_CONTENT_CLASSES: Record<Justification, string> = {
-	stretch: 'justify-stretch',
-	baseline: 'justify-start',
-	between: 'justify-between',
-	around: 'justify-around',
-	evenly: 'justify-evenly',
-	justify: 'justify-center'
-};
-
-const SPACER_AXIS_CLASSES: Record<Orientation, string> = {
-	horizontal: 'w-[var(--spacer-size)]',
-	vertical: 'h-[var(--spacer-size)]'
-} as const;
-
-const LAYOUT_DIRECTION_CLASSES = {
-	vertical: 'flex-col',
-	horizontal: 'flex-row'
-} as const;
-
-const LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
-	'1/4': 'w-1/4',
-	'1/3': 'w-1/3',
-	'2/5': 'w-2/5',
-	'1/2': 'w-1/2',
-	'3/5': 'w-3/5',
-	'2/3': 'w-2/3',
-	'3/4': 'w-3/4',
-	full: 'w-full'
-} as const;
-
-const RESPONSIVE_LAYOUT_SIZE_CLASSES: Record<LayoutSize, string> = {
-	'1/4': 'md:w-1/4',
-	'1/3': 'md:w-1/3',
-	'2/5': 'md:w-2/5',
-	'1/2': 'md:w-1/2',
-	'3/5': 'md:w-3/5',
-	'2/3': 'md:w-2/3',
-	'3/4': 'md:w-3/4',
-	full: 'md:w-full'
-} as const;
-
-
-
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className = ''): string {
 		return ['relative', 'w-full', '[aspect-ratio:var(--aspect-ratio)]', className]
@@ -96,7 +13,16 @@ export class LayoutStyleManager {
 	}
 
 	static getContainerClasses(size: LayoutContainerMaxWidth, className = ''): string {
-		const maxWidthClass = CONTAINER_MAX_WIDTH_CLASSES[size] ?? CONTAINER_MAX_WIDTH_CLASSES.full;
+		const maxWidthClass =
+			{
+				xs: 'max-w-screen-xs',
+				sm: 'max-w-screen-sm',
+				md: 'max-w-screen-md',
+				lg: 'max-w-screen-lg',
+				xl: 'max-w-screen-xl',
+				'2xl': 'max-w-screen-2xl',
+				full: 'max-w-full'
+			}[size] ?? 'max-w-full';
 		return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
 	}
 
@@ -133,16 +59,53 @@ export class LayoutStyleManager {
 	): string {
 		return cn(
 			'flex',
-			HORIZONTAL_ALIGN_ITEMS_CLASSES[alignItems],
-			HORIZONTAL_JUSTIFY_CONTENT_CLASSES[justifyContent],
+			{
+				top: 'items-start',
+				'top-center': 'items-start',
+				'top-start': 'items-start',
+				'top-end': 'items-start',
+				bottom: 'items-end',
+				'bottom-center': 'items-end',
+				'bottom-start': 'items-end',
+				'bottom-end': 'items-end',
+				left: 'items-center',
+				'left-center': 'items-center',
+				'left-start': 'items-start',
+				'left-end': 'items-end',
+				right: 'items-center',
+				'right-center': 'items-center',
+				'right-start': 'items-start',
+				'right-end': 'items-end',
+				center: 'items-center',
+				justify: 'items-center'
+			}[alignItems],
+			{
+				stretch: 'justify-stretch',
+				baseline: 'justify-start',
+				between: 'justify-between',
+				around: 'justify-around',
+				evenly: 'justify-evenly',
+				justify: 'justify-center'
+			}[justifyContent],
 			wrap ? 'flex-wrap' : 'flex-nowrap',
-			HORIZONTAL_GAP_CLASSES[gap],
+			{
+				xs: 'gap-1',
+				sm: 'gap-2',
+				md: 'gap-4',
+				lg: 'gap-6',
+				xl: 'gap-8',
+				'2xl': 'gap-12'
+			}[gap],
 			className
 		);
 	}
 
 	static getSpacerClasses(axis: Orientation, className = ''): string {
-		const axisClass = SPACER_AXIS_CLASSES[axis];
+		const axisClass =
+			{
+				horizontal: 'w-[var(--spacer-size)]',
+				vertical: 'h-[var(--spacer-size)]'
+			}[axis];
 		return `inline-block flex-shrink-0 ${axisClass} ${className}`.trim();
 	}
 

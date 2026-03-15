@@ -1,17 +1,9 @@
 import { cn } from '../../utils/cn/index';
 
-const DEFAULT_WITH_BACKGROUND = false;
-
-const DEFAULT_WITH_BORDER = true;
-
-
-
-
-
 export class BlockquoteStyleManager {
 	static getBlockquoteClasses(
-		withBackground = DEFAULT_WITH_BACKGROUND,
-		withBorder = DEFAULT_WITH_BORDER,
+		withBackground = false,
+		withBorder = true,
 		className = ''
 	): string {
 		return cn(

@@ -1,4 +1,4 @@
-import { createPinInputDigitState as createPinInputDigitStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createPinInputDigitState as createPinInputDigitStateImpl } from '$stylist/design-system/runtime/input-state';
 
 export function createPinInputDigitState(
 	...args: Parameters<typeof createPinInputDigitStateImpl>

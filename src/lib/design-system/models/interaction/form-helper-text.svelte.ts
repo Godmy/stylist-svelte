@@ -1,4 +1,4 @@
-import { createFormHelperTextState as createFormHelperTextStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createFormHelperTextState as createFormHelperTextStateImpl } from '$stylist/design-system/runtime/input-state';
 
 export function createFormHelperTextState(
 	...args: Parameters<typeof createFormHelperTextStateImpl>

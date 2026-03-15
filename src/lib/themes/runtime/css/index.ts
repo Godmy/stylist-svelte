@@ -145,6 +145,22 @@ export function applyCSSVars(element: HTMLElement, vars: Record<string, string>)
 	});
 }
 
+export function setCSSVariables(vars: Record<string, string>): void {
+	if (typeof document === 'undefined') {
+		return;
+	}
+
+	applyCSSVars(document.documentElement, vars);
+}
+
+export function getCSSVariable(key: string): string | null {
+	if (typeof window === 'undefined') {
+		return null;
+	}
+
+	return getComputedStyle(document.documentElement).getPropertyValue(key);
+}
+
 export function removeCSSVars(element: HTMLElement, varNames: string[]): void {
 	varNames.forEach((name) => {
 		element.style.removeProperty(`--${name}`);
@@ -161,6 +177,61 @@ export function applyThemeToDOM(
 }
 
 export type ThemeMode = ThemeName | 'system';
+
+const THEMES: Record<ThemeName, Theme> = {
+	light: lightTheme,
+	dark: darkTheme
+};
+
+const THEME_NAMES = Object.keys(THEMES) as ThemeName[];
+
+export function supportsTheme(theme: ThemeName): theme is ThemeName {
+	return THEME_NAMES.includes(theme);
+}
+
+export function getCurrentTheme(): ThemeName {
+	if (typeof window === 'undefined') {
+		return 'light';
+	}
+
+	const stored = localStorage.getItem('stylist-theme');
+	if (stored && supportsTheme(stored as ThemeName)) {
+		return stored as ThemeName;
+	}
+
+	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+export function toggleTheme(): ThemeName {
+	const current = getCurrentTheme();
+	const next = current === 'light' ? 'dark' : 'light';
+
+	if (typeof window !== 'undefined') {
+		applyThemeToDOM(THEMES[next]);
+		localStorage.setItem('stylist-theme', next);
+		document.documentElement.classList.remove(...THEME_NAMES);
+		document.documentElement.classList.add(next);
+	}
+
+	return next;
+}
+
+export function isDarkTheme(theme?: ThemeName): boolean {
+	return (theme ?? getCurrentTheme()) === 'dark';
+}
+
+export function normalizeClassNames(...classes: (string | boolean | null | undefined)[]): string {
+	return classes
+		.filter(Boolean)
+		.map((value) => String(value).trim())
+		.join(' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+export function mergeStyles(...styles: (string | null | undefined)[]): string {
+	return styles.filter(Boolean).join('; ');
+}
 
 export function resolveThemeMode(mode: ThemeMode): ThemeName {
 	if (mode === 'system') {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createPinInputDigitState } from '$stylist/design-system/utils/model-helpers/input-state';
+	import { createPinInputDigitState } from '$stylist/design-system/runtime/input-state';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';

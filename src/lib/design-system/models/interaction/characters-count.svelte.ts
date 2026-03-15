@@ -1,4 +1,4 @@
-import { createCharacterCountState as createCharacterCountStateImpl } from '$stylist/design-system/utils/model-helpers/input-state';
+import { createCharacterCountState as createCharacterCountStateImpl } from '$stylist/design-system/runtime/input-state';
 
 export function createCharacterCountState(
 	...args: Parameters<typeof createCharacterCountStateImpl>

@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createCharacterCountState, createFormErrorMessageState, createFormHelperTextState, createInputAddonState, createInputFieldState, createPinInputDigitState } from './input-state';
