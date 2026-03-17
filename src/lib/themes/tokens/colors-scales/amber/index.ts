@@ -1,4 +1,4 @@
-import type { Scale } from '../../scale';
+import type { Scale } from '$stylist/themes/tokens/scale';
 
 export const COLORS_SCALES_AMBER: Scale = {
 	50: '#fffbeb',

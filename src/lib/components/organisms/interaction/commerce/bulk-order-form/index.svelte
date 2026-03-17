@@ -23,7 +23,7 @@ const Download = 'download';
 const ImageIcon = 'image';
 
   import { Button } from '$stylist/components/atoms';
-  import { cn } from '$stylist/utils';
+  import { cn } from '$stylist/design-system/utils/classes';
   import { BulkOrderFormModel } from '../../../../../design-system/models/interaction/bulk-order-form.svelte';
   import type { BulkOrderFormProps } from '$stylist/design-system/contracts/interaction/bulk-order-form';
   import { BulkOrderFormStyleManager } from '$stylist/design-system/styles/interaction/bulk-order-form';

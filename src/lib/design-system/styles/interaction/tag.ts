@@ -1,5 +1,5 @@
-import type { ComponentSize } from '../../tokens';
-import { InteractionStyleManager } from './interaction';
+import type { ComponentSize } from '$stylist/design-system/tokens';
+import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 
 const TAG_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'px-1 py-0.5 text-[10px]',

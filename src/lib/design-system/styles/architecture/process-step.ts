@@ -8,7 +8,7 @@
  * - Single Responsibility: Only handles styling logic for ProcessStep
  */
 
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 /**
  * Style manager for ProcessStep component

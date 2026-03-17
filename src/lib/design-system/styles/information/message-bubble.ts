@@ -8,7 +8,7 @@
  * - Single Responsibility: Only handles styling logic for MessageBubble
  */
 
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 /**
  * @file MessageBubble Style Manager

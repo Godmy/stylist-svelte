@@ -1,4 +1,4 @@
-import type { IZipViewerStyleClasses } from './types';
+import type { IZipViewerStyleClasses } from '$stylist/components/organisms/interaction/controls/files/zip-viewer/types';
 
 /**
  * Style utility class following Single Responsibility Principle

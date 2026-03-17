@@ -1,6 +1,6 @@
 import type { DefaultVariants as LinkCardVariant } from '$stylist/design-system/tokens/interaction/variants';
-import { cn } from '../../utils/cn/index';
-import { CardStyleManager } from './card';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
 const LINK_CARD_VARIANT_CLASSES = {
 	default:

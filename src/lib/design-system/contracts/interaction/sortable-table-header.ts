@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SortDirection } from '../../tokens/interaction/sort-directions';
+import type { SortDirection } from '$stylist/design-system/tokens/interaction/sort-directions';
 
 export interface SortableTableHeaderProps extends HTMLAttributes<HTMLTableHeaderCellElement> {
   /**

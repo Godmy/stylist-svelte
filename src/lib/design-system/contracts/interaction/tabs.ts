@@ -1,8 +1,8 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { DefaultVariants } from '../../tokens/interaction/variants';
-import type { ChildrenProp, HtmlAttributesBase, HtmlAttributesWithChildren, IDisableable } from '../information/common';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { ChildrenProp, HtmlAttributesBase, HtmlAttributesWithChildren, IDisableable } from '$stylist/design-system/contracts/information/common';
 
 export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'onclick'> {
 	id: string;

@@ -1,8 +1,8 @@
-import { Scale } from '../../tokens/scale';
-import { TYPOGRAPHY_FONT_FAMILY } from '../../tokens/typography/font-family';
-import { TYPOGRAPHY_FONT_SIZE } from '../../tokens/typography/font-size';
-import { TYPOGRAPHY_LETTER_SPACING } from '../../tokens/typography/letter-spacing';
-import { TYPOGRAPHY_LINE_HEIGHT } from '../../tokens/typography/line-height';
+import { Scale } from '$stylist/themes/tokens/scale';
+import { TYPOGRAPHY_FONT_FAMILY } from '$stylist/themes/tokens/typography/font-family';
+import { TYPOGRAPHY_FONT_SIZE } from '$stylist/themes/tokens/typography/font-size';
+import { TYPOGRAPHY_LETTER_SPACING } from '$stylist/themes/tokens/typography/letter-spacing';
+import { TYPOGRAPHY_LINE_HEIGHT } from '$stylist/themes/tokens/typography/line-height';
 
 export interface ThemeTypography {
 	fontFamily: string;

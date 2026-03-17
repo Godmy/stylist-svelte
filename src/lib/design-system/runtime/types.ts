@@ -1,5 +1,5 @@
-import type { ComponentSize } from '../tokens/architecture/component-size';
-import type { INPUT_VARIANTS } from '../tokens/interaction/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { INPUT_VARIANTS } from '$stylist/design-system/tokens/interaction/variants';
 
 export interface Preset<V extends string, S extends string> {
 	variants: readonly V[];

@@ -2,8 +2,8 @@ import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/contracts';
 import { ICON_SIZES } from '$stylist/design-system/runtime/sizing';
 import type { Preset } from '$stylist/design-system/runtime/types';
-import { computeAriaLabel } from '$stylist/utils/aria';
-import { buildClasses } from '$stylist/utils/classes';
+import { computeAriaLabel } from '$stylist/design-system/utils/aria';
+import { buildClasses } from '$stylist/design-system/utils/classes';
 
 interface ButtonStateProps<V extends string, S extends string> extends Omit<Props, 'variant' | 'size'> {
 	variant?: V;

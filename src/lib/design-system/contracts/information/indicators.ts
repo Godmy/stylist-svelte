@@ -3,7 +3,7 @@ import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface DotProps extends HtmlAttributesBase<HTMLSpanElement> {
 	color?: DefaultVariants;

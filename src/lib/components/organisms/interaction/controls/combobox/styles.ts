@@ -1,4 +1,4 @@
-import type { IComboboxStyleClasses } from './types';
+import type { IComboboxStyleClasses } from '$stylist/components/organisms/interaction/controls/combobox/types';
 
 /**
  * Style utility class following Single Responsibility Principle

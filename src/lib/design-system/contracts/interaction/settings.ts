@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SecuritySettingsProps, AppearanceSettingsProps } from './interaction-forms';
+import type { SecuritySettingsProps, AppearanceSettingsProps } from '$stylist/design-system/contracts/interaction/interaction-forms';
 
 /**
  * Account Settings Form Props

@@ -1,5 +1,5 @@
-import { cn } from '../../utils/cn/index';
-import { CodeStyleManager } from './code-block';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CodeStyleManager } from '$stylist/design-system/styles/information/code-block';
 
 export class CodeSectionStyleManager {
 	static getContainerClass(extraClasses = ''): string {

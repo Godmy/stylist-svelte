@@ -1,4 +1,4 @@
-import { Size } from '../../size';
+import { Size } from '$stylist/themes/tokens/size';
 
 export const TYPOGRAPHY_FONT_SIZE = {
 	'3': Size['3'],

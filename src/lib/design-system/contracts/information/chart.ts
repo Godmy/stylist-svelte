@@ -1,5 +1,5 @@
-import type { HtmlAttributesBase, HtmlAttributesWithContent } from './common';
-import type { ChartDataPoint } from './canvas-chart';
+import type { HtmlAttributesBase, HtmlAttributesWithContent } from '$stylist/design-system/contracts/information/common';
+import type { ChartDataPoint } from '$stylist/design-system/contracts/information/canvas-chart';
 
 export interface PieChartProps extends HtmlAttributesBase<HTMLDivElement> {
 	data: ChartDataPoint[];

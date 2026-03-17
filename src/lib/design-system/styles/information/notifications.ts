@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const NOTIFICATION_ITEM_TYPE_CLASSES = {
 	info: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',

@@ -1,7 +1,7 @@
 import type { NodePropertyType } from '$stylist/design-system/tokens/information/node-property';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import { cn } from '$stylist/design-system/utils/cn';
-import type { NodePropertyState } from '../../contracts/information/node-property';
+import type { NodePropertyState } from '$stylist/design-system/contracts/information/node-property';
 
 
 /**

@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/utils/classes';
-﻿import { cn } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
+import { cn } from '$stylist/design-system/utils/classes';
 import type { SliderTickProps } from '$stylist/design-system/contracts';
 
 // Определение состояния для Slider Tick

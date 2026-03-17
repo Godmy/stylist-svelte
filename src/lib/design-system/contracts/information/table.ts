@@ -1,8 +1,8 @@
-import type { Alignment } from '../../tokens/architecture/alignments';
-﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { HTMLAttributes } from 'svelte/elements';
 
-import type { TableCell } from '../../tokens';
-import type { ContentProp } from './common';
+import type { TableCell } from '$stylist/design-system/tokens';
+import type { ContentProp } from '$stylist/design-system/contracts/information/common';
 
 export interface TableAttributesBase extends HTMLAttributes<HTMLTableElement> {
 	class?: string;

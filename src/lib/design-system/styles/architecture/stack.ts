@@ -1,6 +1,6 @@
-import type { Justification, Orientation } from '../../tokens';
-import type { Alignment } from '../../tokens/architecture/alignments';
-import { cn } from '../../utils/cn/index';
+import type { Justification, Orientation } from '$stylist/design-system/tokens';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class StackStyleManager {
 	static getStackClasses(

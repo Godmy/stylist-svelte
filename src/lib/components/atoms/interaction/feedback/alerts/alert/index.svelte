@@ -7,7 +7,7 @@ const AlertTriangle = 'alert-triangle';
 const XCircle = 'x-circle';
 const X = 'x';
 
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	/**
 	 * Компонент Alert - отображает важные сообщения пользователю с разными вариантами

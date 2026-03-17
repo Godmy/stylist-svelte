@@ -1,4 +1,4 @@
-import type { CtaBannerBackgroundVariant } from '../../tokens/information/cta-banner';
+import type { CtaBannerBackgroundVariant } from '$stylist/design-system/tokens/information/cta-banner';
 
 
 

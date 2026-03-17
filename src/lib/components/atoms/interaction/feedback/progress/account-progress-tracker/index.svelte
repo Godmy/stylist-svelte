@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { IAccountProgressTrackerProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	let {
 		steps = [],

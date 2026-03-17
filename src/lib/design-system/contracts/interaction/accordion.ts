@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes, HTMLButtonAttributes } from 'svelte/elements';
 
-import type { ContentProp, HtmlAttributesWithContent } from '../information/common';
+import type { ContentProp, HtmlAttributesWithContent } from '$stylist/design-system/contracts/information/common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export interface AccordionDataItem {

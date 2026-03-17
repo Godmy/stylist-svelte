@@ -1,4 +1,4 @@
-import type { ComponentSize } from '../../tokens/architecture/component-size';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 const TOKEN_TOGGLE_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'w-7 h-3.5',

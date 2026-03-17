@@ -4,7 +4,7 @@ import type { Alignment } from '$stylist/design-system/tokens/architecture/align
 import type { Justification } from '$stylist/design-system/tokens/architecture/alignments';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { HtmlAttributesWithChildren } from '../information/common';
+import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface StackProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	direction?: Orientation;

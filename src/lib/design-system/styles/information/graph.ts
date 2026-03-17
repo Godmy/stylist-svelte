@@ -1,6 +1,6 @@
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { PrimitiveTrajectory } from '../../tokens/architecture/primitives';
-import { cn } from '../../utils/cn/index';
+import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class GraphStyleManager {
 	static getGraphNodeSizeClasses(size: ComponentSize): string {

@@ -1,4 +1,4 @@
-import type { IRealTimePresenceStyleClasses } from './types';
+import type { IRealTimePresenceStyleClasses } from '$stylist/components/organisms/interaction/controls/calendar/real-time-presence/types';
 
 /**
  * Style utility class following Single Responsibility Principle

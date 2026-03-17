@@ -1,5 +1,5 @@
 import { MediaStyleManager } from '$stylist/design-system/styles/information/media';
-import type { FaviconProps } from '../../contracts/information/image';
+import type { FaviconProps } from '$stylist/design-system/contracts/information/image';
 
 
 export function createFaviconState(props: FaviconProps) {

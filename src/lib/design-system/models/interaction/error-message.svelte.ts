@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { ErrorMessageProps } from '../../contracts/interaction/error-message';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { ErrorMessageProps } from '$stylist/design-system/contracts/interaction/error-message';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createErrorMessageState(props: ErrorMessageProps) {
   // Initialize props with defaults

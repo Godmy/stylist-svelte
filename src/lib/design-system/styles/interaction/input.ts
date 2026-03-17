@@ -1,8 +1,8 @@
-import { cn, mergeClasses } from '../../utils/cn/index';
-import type { InputVariant } from '../../tokens/interaction/variants';
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import { INPUT_VARIANTS } from '../../tokens/interaction/variants';
-import { BASE_CLASSES } from '../../runtime/foundation';
+import { cn, mergeClasses } from '$stylist/design-system/utils/cn/index';
+import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import { INPUT_VARIANTS } from '$stylist/design-system/tokens/interaction/variants';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 
 export { INPUT_VARIANTS };
 

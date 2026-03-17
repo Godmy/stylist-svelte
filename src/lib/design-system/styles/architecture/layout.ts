@@ -1,9 +1,9 @@
-﻿import type { Alignment, Justification } from '../../tokens';
-import type { Orientation } from '../../tokens/architecture/orientations';
-import type { ComponentSize } from '../../tokens';
-import { BASE_CLASSES } from '../../runtime/foundation';
-import { cn } from '../../utils/cn/index';
-import type { ContainerMaxWidth as LayoutContainerMaxWidth, LayoutSize } from '../../tokens/architecture/size';
+﻿import type { Alignment, Justification } from '$stylist/design-system/tokens';
+import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { ComponentSize } from '$stylist/design-system/tokens';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import type { ContainerMaxWidth as LayoutContainerMaxWidth, LayoutSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className = ''): string {

@@ -1,4 +1,4 @@
-import type { ThemeSchemeId } from '../../contracts/theme-scheme-id';
+import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
 
 export type ThemeScheme = {
 	id: ThemeSchemeId;

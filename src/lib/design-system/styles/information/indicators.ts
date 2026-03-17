@@ -1,5 +1,5 @@
-import type { PresenceStatus } from '../../tokens/interaction/statuses';
-import { cn } from '../../utils/cn/index';
+import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const DOT_COLOR_CLASSES = {
 	default: 'bg-[--color-neutral-500]',

@@ -1,7 +1,7 @@
-import { BASE_CLASSES } from '../../runtime/foundation';
-import { InteractionStyleManager } from '../interaction/interaction';
-import { cn } from '../../utils/cn/index';
-import type { AlertType } from '../../tokens/interaction/alert-types';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
 
 const PRICE_ALERT_BASE_CLASSES = `${BASE_CLASSES.card} p-4`;
 

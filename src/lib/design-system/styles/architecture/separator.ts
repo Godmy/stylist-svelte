@@ -1,7 +1,7 @@
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { Code } from '../../tokens/interaction/variants';
-import { BadgeStyleManager } from '../information/badge';
-import { cn } from '../../utils/cn/index';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Code } from '$stylist/design-system/tokens/interaction/variants';
+import { BadgeStyleManager } from '$stylist/design-system/styles/information/badge';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class SeparatorStyleManager {
 	static getSeparatorClasses(

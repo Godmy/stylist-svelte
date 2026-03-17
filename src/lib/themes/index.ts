@@ -7,4 +7,4 @@ export type { ThemeName, ThemeScheme, ThemeSchemeId } from './contracts';
 export type { ThemeMode } from './runtime';
 export type { Animations, BorderRadiusContract, BoxShadowContract, Colors, DirectionalGradientKey, DurationKey, GradientKey, OpacityKey, RadialGradientKey, ScaleKey, SizeKey, SpacingContract, TransitionEasingKey, TransitionKey, ZIndexKey } from './tokens';
 export type { Theme, ThemeColors, ThemeTypography } from './contracts';
-export type { ThemeContext } from './runtime';
+export type { BaseComponentConfig, CSSVariableConfig, ThemeContext } from './runtime';

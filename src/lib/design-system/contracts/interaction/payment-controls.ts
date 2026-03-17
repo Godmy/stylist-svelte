@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { PaymentStatus } from '../../tokens/interaction/statuses';
-import type { PaymentMethodType } from '../../tokens/interaction/payment-methods';
+import type { PaymentStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { PaymentMethodType } from '$stylist/design-system/tokens/interaction/payment-methods';
 
 export interface PaymentMethod {
 	id: string;

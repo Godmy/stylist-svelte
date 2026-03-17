@@ -1,4 +1,4 @@
-import type { Scale } from '../../scale';
+import type { Scale } from '$stylist/themes/tokens/scale';
 
 export const COLORS_SCALES_TEAL: Scale = {
 	50: '#f0fdf9',

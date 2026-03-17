@@ -15,7 +15,7 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Snippet } from 'svelte';
 	import type { IBreadcrumbLinkProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	let { current = false, href, children, ...restProps }: IBreadcrumbLinkProps = $props();
 

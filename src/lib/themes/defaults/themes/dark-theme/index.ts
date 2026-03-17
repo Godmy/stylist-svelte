@@ -1,19 +1,19 @@
-﻿import { COLORS_SCALES_AMBER } from '../../../tokens/colors-scales/amber';
-import { COLORS_SCALES_BLUE } from '../../../tokens/colors-scales/blue';
-import { COLORS_SCALES_NEUTRAL } from '../../../tokens/colors-scales/neutral';
-import { COLORS_SCALES_RED } from '../../../tokens/colors-scales/red';
-import { COLORS_SCALES_SLATE } from '../../../tokens/colors-scales/slate';
-import { COLORS_SCALES_TEAL } from '../../../tokens/colors-scales/teal';
-import { THEME_TYPOGRAPHY } from '../../../contracts/theme-typography';
-import { THEME_RADIUS } from '../../../tokens/border-radius';
-import { THEME_BOX_SHADOW } from '../../../tokens/box-shadows';
-import { DIRECTIONAL_GRADIENTS, GRADIENTS, RADIAL_GRADIENTS } from '../../../tokens/gradients';
-import { ANIMATIONS, DURATION, TRANSITION, TRANSITION_EASING } from '../../../tokens/motion';
-import { OPACITY } from '../../../tokens/opacity';
-import { Size } from '../../../tokens/size';
-import { THEME_SPACING } from '../../../tokens/spacing';
-import { Z_INDEX } from '../../../tokens/z-index';
-import type { Theme } from '../../../contracts/theme';
+﻿import { COLORS_SCALES_AMBER } from '$stylist/themes/tokens/colors-scales/amber';
+import { COLORS_SCALES_BLUE } from '$stylist/themes/tokens/colors-scales/blue';
+import { COLORS_SCALES_NEUTRAL } from '$stylist/themes/tokens/colors-scales/neutral';
+import { COLORS_SCALES_RED } from '$stylist/themes/tokens/colors-scales/red';
+import { COLORS_SCALES_SLATE } from '$stylist/themes/tokens/colors-scales/slate';
+import { COLORS_SCALES_TEAL } from '$stylist/themes/tokens/colors-scales/teal';
+import { THEME_TYPOGRAPHY } from '$stylist/themes/contracts/theme-typography';
+import { THEME_RADIUS } from '$stylist/themes/tokens/border-radius';
+import { THEME_BOX_SHADOW } from '$stylist/themes/tokens/box-shadows';
+import { DIRECTIONAL_GRADIENTS, GRADIENTS, RADIAL_GRADIENTS } from '$stylist/themes/tokens/gradients';
+import { ANIMATIONS, DURATION, TRANSITION, TRANSITION_EASING } from '$stylist/themes/tokens/motion';
+import { OPACITY } from '$stylist/themes/tokens/opacity';
+import { Size } from '$stylist/themes/tokens/size';
+import { THEME_SPACING } from '$stylist/themes/tokens/spacing';
+import { Z_INDEX } from '$stylist/themes/tokens/z-index';
+import type { Theme } from '$stylist/themes/contracts/theme';
 
 export const darkTheme: Theme = {
 	name: 'dark',

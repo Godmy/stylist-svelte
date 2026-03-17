@@ -1,5 +1,5 @@
-import type { HtmlAttributesBase } from './common';
-import type { GraphPortDirection } from '../../tokens/information/graph-port';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
+import type { GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
 
 export interface Idef0Port {
 	id: string;

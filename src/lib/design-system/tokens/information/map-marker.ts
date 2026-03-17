@@ -1,4 +1,4 @@
-import type { PrimitiveOwnership, PrimitivePin } from '../architecture/primitives';
+import type { PrimitiveOwnership, PrimitivePin } from '$stylist/design-system/tokens/architecture/primitives';
 
 export const MAP_MARKER_PIN_STYLES = ['line', 'anchor', 'ring', 'flag'] as const;
 export const MAP_MARKER_CATEGORIES = [

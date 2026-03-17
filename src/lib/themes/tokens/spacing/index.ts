@@ -1,4 +1,4 @@
-import { Size } from '../size';
+import { Size } from '$stylist/themes/tokens/size';
 
 export type SpacingContract = Record<string, string>;
 

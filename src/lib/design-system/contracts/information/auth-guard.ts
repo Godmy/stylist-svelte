@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 
 export interface AuthGuardProps extends HtmlAttributesBase<HTMLDivElement> {
 	isAuthenticated?: boolean;

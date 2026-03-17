@@ -5,7 +5,7 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class PageHeaderStyleManager {
   /**

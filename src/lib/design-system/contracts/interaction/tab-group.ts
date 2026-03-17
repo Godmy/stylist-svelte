@@ -1,10 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 
-import type { TabGroupVariant } from '../../tokens/interaction/tab-group';
-/**
- * TabGroup types and interfaces following SOLID principles
- */
+import type { TabGroupVariant } from '$stylist/design-system/tokens/interaction/tab-group';
 
 export interface ITab {
   id: string;

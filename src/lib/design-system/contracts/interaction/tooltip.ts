@@ -1,9 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { Alignment } from '../../tokens/architecture/alignments';
-import type { TooltipTrigger } from '../../tokens/interaction/triggers';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { TooltipTrigger } from '$stylist/design-system/tokens/interaction/triggers';
 
-import type { TooltipPlacement, TooltipVariant } from '../../tokens/interaction/tooltip';
+import type { TooltipPlacement, TooltipVariant } from '$stylist/design-system/tokens/interaction/tooltip';
 /**
  * Unified Tooltip props following SOLID principles
  */

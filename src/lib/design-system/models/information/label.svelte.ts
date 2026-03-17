@@ -1,6 +1,6 @@
 import type { LabelProps } from '$stylist/design-system/contracts';
 import { LabelStyleManager } from '$stylist/design-system/styles/information/label';
-import { mergeClasses } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 /**
  * Label state creator

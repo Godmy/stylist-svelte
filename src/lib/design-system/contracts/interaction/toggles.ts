@@ -1,7 +1,7 @@
 import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { HtmlAttributesWithChildren } from '../information/common';
+import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/selection-type';
 

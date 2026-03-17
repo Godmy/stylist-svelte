@@ -4,7 +4,7 @@ import type { BadgeType } from '$stylist/design-system/tokens/information/badge'
 import type { Code } from '$stylist/design-system/tokens/interaction/variants';
 import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
+import type { ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface BadgeProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
 	variant?: DefaultVariants;

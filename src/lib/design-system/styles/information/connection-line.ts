@@ -2,7 +2,7 @@ import type { Point } from '$stylist/design-system/contracts/information/connect
 import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
 import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
 import { cn } from '$stylist/design-system/utils/cn';
-import type { ConnectionPathResult } from '../../contracts/information/connection-line';
+import type { ConnectionPathResult } from '$stylist/design-system/contracts/information/connection-line';
 
 
 /**

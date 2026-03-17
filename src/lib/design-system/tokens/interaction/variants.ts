@@ -1,4 +1,4 @@
-import { STATUSES } from './statuses';
+import { STATUSES } from '$stylist/design-system/tokens/interaction/statuses';
 
 const INPUT_APPEARANCE = ['solid', 'outline', 'ghost', 'link', 'subtle'] as const;
 const INPUT_NEUTRAL = ['default', 'neutral', 'dark', 'light'] as const;

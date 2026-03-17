@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
-import type { Alignment, Justification, Orientation, ComponentSize } from '../../tokens';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
+import type { Alignment, Justification, Orientation, ComponentSize } from '$stylist/design-system/tokens';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 /**
  * Секция для layout с динамическими элементами

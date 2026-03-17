@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ISkeletonProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	/**
 	 * SkeletonText component - displays a text-like loading placeholder

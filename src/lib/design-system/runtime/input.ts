@@ -1,9 +1,9 @@
-import type { InputPreset } from '../runtime/types';
-import type { ComponentSize } from '../tokens/architecture/component-size';
-import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
-import { INPUT_VARIANTS } from '../tokens/interaction/variants';
-import { createBasePreset } from './preset';
-import { InputStyleManager } from '../styles/interaction/input';
+import type { InputPreset } from '$stylist/design-system/runtime/types';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+import { INPUT_VARIANTS } from '$stylist/design-system/tokens/interaction/variants';
+import { createBasePreset } from '$stylist/design-system/runtime/preset';
+import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 
 // ============================================================================
 // Input Field Preset

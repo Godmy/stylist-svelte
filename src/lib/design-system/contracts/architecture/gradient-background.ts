@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';  // Градиент с эффектом частиц
-import type { GradientVariant } from '../../tokens/architecture/gradient';
+import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
 
 export interface IGradientBackgroundProps {
   /** Вариант градиента */

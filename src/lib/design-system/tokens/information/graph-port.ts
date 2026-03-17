@@ -1,4 +1,4 @@
-import type { ComponentSize } from '../architecture/component-size';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Токены для портов графа

@@ -3,7 +3,7 @@
  * SVG Registry Generator - РЎРѓР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р Р†РЎРѓР ВµРЎвЂ¦ SVG Р С‘Р С”Р С•Р Р…Р С•Р С”
  *
  * Р ВРЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°Р Р…Р С‘Р Вµ:
- *   npx tsx scripts/svg/generate-registry/generate.ts
+ *   npx tsx scripts/svg/index.ts
  */
 
 import fs from 'fs';
@@ -11,7 +11,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(__dirname, '../../..');
+const ROOT_DIR = path.resolve(__dirname, '../..');
 const SVG_DIR = path.join(ROOT_DIR, 'src/lib/svg');
 const JSON_DIR = path.join(ROOT_DIR, 'src/lib/json/core');
 const ICONS_DIR = path.join(ROOT_DIR, 'src/lib/svg/icons');
@@ -141,7 +141,7 @@ function generateTypeScriptRegistry(registry: IconRegistry): void {
   let content = `/**
  * Auto-generated icon registry
  * Generated at: ${new Date().toISOString()}
- * Do not edit manually - run 'npx tsx scripts/svg/generate-registry/generate.ts' to regenerate
+ * Do not edit manually - run 'npx tsx scripts/svg/index.ts' to regenerate
  */
 
 export interface IconEntry {

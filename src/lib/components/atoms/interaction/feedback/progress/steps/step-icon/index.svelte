@@ -7,7 +7,7 @@ const X = 'x';
 	import type { Snippet } from 'svelte';
 
 	import type { IStepIconProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 	/**
 	 * StepIcon component - Represents the icon for a step in a progress indicator
 	 *

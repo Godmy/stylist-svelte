@@ -1,17 +1,17 @@
-﻿import type { BorderRadiusContract } from '../../tokens/border-radius';
-import type { BoxShadowContract } from '../../tokens/box-shadows';
-import type { ThemeColors } from '../theme-colors';
-import type { SpacingContract } from '../../tokens/spacing';
-import type { ThemeTypography } from '../theme-typography';
+import type { BorderRadiusContract } from '$stylist/themes/tokens/border-radius';
+import type { BoxShadowContract } from '$stylist/themes/tokens/box-shadows';
+import type { ThemeColors } from '$stylist/themes/contracts/theme-colors';
+import type { SpacingContract } from '$stylist/themes/tokens/spacing';
+import type { ThemeTypography } from '$stylist/themes/contracts/theme-typography';
 import type {
 	DirectionalGradientKey,
 	GradientKey,
 	RadialGradientKey
 } from '../../tokens/gradients';
-import type { DurationKey, TransitionEasingKey, TransitionKey } from '../../tokens/motion';
-import type { OpacityKey } from '../../tokens/opacity';
-import type { SizeKey } from '../../tokens/size';
-import type { ZIndexKey } from '../../tokens/z-index';
+import type { DurationKey, TransitionEasingKey, TransitionKey } from '$stylist/themes/tokens/motion';
+import type { OpacityKey } from '$stylist/themes/tokens/opacity';
+import type { SizeKey } from '$stylist/themes/tokens/size';
+import type { ZIndexKey } from '$stylist/themes/tokens/z-index';
 
 type GradientTokenGroup<K extends string = string> = Record<K, string>;
 

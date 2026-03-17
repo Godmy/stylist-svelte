@@ -2,9 +2,9 @@
  * Base StyleManager for all card components
  */
 
-import { BASE_CLASSES } from '../../runtime/foundation';
-import { InteractionStyleManager } from '../interaction/interaction';
-import type { CardSize, CardVariant, ProgressVariant } from '../../tokens/information/card';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
+import type { CardSize, CardVariant, ProgressVariant } from '$stylist/design-system/tokens/information/card';
 
 export class CardStyleManager {
 	static getBaseClasses(): string {

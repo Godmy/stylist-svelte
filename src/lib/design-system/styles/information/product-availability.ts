@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const PRODUCT_AVAILABILITY_STATUS_CLASSES = {
 	inStock: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',

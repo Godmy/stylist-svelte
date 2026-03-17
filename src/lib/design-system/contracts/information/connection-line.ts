@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
 import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
 

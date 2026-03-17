@@ -9,7 +9,7 @@
  * - DIP: Зависимости от абстракций, а не от деталей реализации
  */
 
-import type { UploadProgressVariant } from './types';
+import type { UploadProgressVariant } from '$stylist/components/organisms/interaction/files/upload-progress/types';
 
 export class UploadProgressStyleManager {
   /**

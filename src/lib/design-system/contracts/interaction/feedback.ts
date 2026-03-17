@@ -4,7 +4,7 @@ import type { ComponentSize } from '$stylist/design-system/tokens/architecture/c
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 import type { PrimitiveSkeleton } from '$stylist/design-system/tokens/architecture/primitives';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '../information/common';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 import type { NotificationBadgeVariant } from '$stylist/design-system/tokens/interaction/variants';
 import type { StepIconStatus } from '$stylist/design-system/tokens/interaction/statuses';
 

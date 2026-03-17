@@ -1,5 +1,5 @@
 import type { Priority } from '$stylist/design-system/tokens/information/priorities';
-import type { CalendarEvent } from './event-calendar';
+import type { CalendarEvent } from '$stylist/design-system/contracts/information/event-calendar';
 
 export interface ScheduleEvent extends CalendarEvent {
 	priority?: Priority;

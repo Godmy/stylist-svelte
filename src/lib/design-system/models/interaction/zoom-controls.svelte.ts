@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { ZoomControlsProps } from '../../contracts/interaction/zoom-controls';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { ZoomControlsProps } from '$stylist/design-system/contracts/interaction/zoom-controls';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createZoomControlsState(props: ZoomControlsProps) {
   // Initialize props with defaults

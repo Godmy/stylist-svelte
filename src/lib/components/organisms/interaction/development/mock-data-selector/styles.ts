@@ -1,4 +1,4 @@
-import type { IMockDataSelectorStyleClasses } from './types';
+import type { IMockDataSelectorStyleClasses } from '$stylist/components/organisms/interaction/development/mock-data-selector/types';
 
 /**
  * Style utility class following Single Responsibility Principle

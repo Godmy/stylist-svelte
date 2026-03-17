@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { MapMarkerType, MarkerCategory, PinStyle } from '../../tokens/information/map-marker';
+import type { MapMarkerType, MarkerCategory, PinStyle } from '$stylist/design-system/tokens/information/map-marker';
 
 export interface Coordinates {
 	lat: number;

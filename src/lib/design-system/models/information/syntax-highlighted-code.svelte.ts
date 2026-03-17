@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
 import { BadgeStyleManager } from '$stylist/design-system/styles/information/badge';
 

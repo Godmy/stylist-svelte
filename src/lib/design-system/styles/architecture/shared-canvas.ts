@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class SharedCanvasStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {

@@ -1,6 +1,6 @@
 import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
-import type { DefaultVariants, NeutralVariant } from '../../tokens/interaction/variants';
-import { cn } from '../../utils/cn/index';
+import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 
 

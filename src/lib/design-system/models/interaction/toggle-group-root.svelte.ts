@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 ﻿import type { ToggleGroupRootProps } from '$stylist/design-system/contracts';
 
 export const createToggleGroupRootState = (props: ToggleGroupRootProps) => {

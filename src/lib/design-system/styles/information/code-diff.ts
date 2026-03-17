@@ -1,6 +1,6 @@
-import { cn } from '../../utils/cn/index';
-import { CodeStyleManager } from './code-block';
-import type { DiffLineType } from '../../tokens/information/diff';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CodeStyleManager } from '$stylist/design-system/styles/information/code-block';
+import type { DiffLineType } from '$stylist/design-system/tokens/information/diff';
 
 
 export class CodeDiffStyleManager {

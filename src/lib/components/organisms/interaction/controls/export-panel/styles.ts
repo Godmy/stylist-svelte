@@ -1,4 +1,4 @@
-import type { IExportPanelStyleClasses } from './types';
+import type { IExportPanelStyleClasses } from '$stylist/components/organisms/interaction/controls/export-panel/types';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -1,4 +1,4 @@
-import type { ChildrenProp, ContentProp, HtmlAttributesBase } from './common';
+import type { ChildrenProp, ContentProp, HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 
 export interface MediaHtmlProps<T extends HTMLElement = HTMLElement> extends HtmlAttributesBase<T> {}
 

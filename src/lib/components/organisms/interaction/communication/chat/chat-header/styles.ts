@@ -1,4 +1,4 @@
-import type { IChatHeaderStyleClasses } from './types';
+import type { IChatHeaderStyleClasses } from '$stylist/components/organisms/interaction/communication/chat/chat-header/types';
 
 /**
  * Style utility class following Single Responsibility Principle

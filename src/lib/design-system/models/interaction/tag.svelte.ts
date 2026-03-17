@@ -1,6 +1,6 @@
 import type { TagProps } from '$stylist/design-system/contracts';
 import type { ComponentSize } from '$stylist/design-system/tokens';
-import { TagStyleManager } from '../../styles/interaction/tag';
+import { TagStyleManager } from '$stylist/design-system/styles/interaction/tag';
 
 
 export const createTagState = (props: TagProps) => {

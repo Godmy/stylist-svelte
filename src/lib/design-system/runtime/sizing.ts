@@ -1,4 +1,4 @@
-import type { ComponentSize } from '../tokens/architecture/component-size';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 export const PADDING_SIZES: Record<ComponentSize, string> = {
 	xs: 'px-2 py-1',

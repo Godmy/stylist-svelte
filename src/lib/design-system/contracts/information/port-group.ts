@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
-import type { HtmlAttributesBase } from './common';
-import type { GraphPortProps } from './graph-port';
-import type { GraphPortDirection } from '../../tokens/information/graph-port';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
+import type { GraphPortProps } from '$stylist/design-system/contracts/information/graph-port';
+import type { GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**

@@ -1,8 +1,8 @@
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { Code } from '../../tokens/interaction/variants';
-import type { DefaultVariants } from '../../tokens';
-import { cn } from '../../utils/cn/index';
-import { BADGE_DEFAULTS, CODE_BLOCK_DEFAULTS } from '../../defaults/information/badge';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { Code } from '$stylist/design-system/tokens/interaction/variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { BADGE_DEFAULTS, CODE_BLOCK_DEFAULTS } from '$stylist/design-system/defaults/information/badge';
 
 export class BadgeStyleManager {
 	static getBadgeClasses(

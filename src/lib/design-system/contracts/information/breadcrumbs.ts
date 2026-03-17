@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { HtmlAttributesWithChildren } from './common';
+import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface IBreadcrumbLinkProps extends HtmlAttributesWithChildren<HTMLElement> {
 	current?: boolean;

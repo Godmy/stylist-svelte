@@ -18,7 +18,7 @@ const Check = 'check';
 const CheckCircle = 'check-circle';
 
   import { Button } from '$stylist/components/atoms';
-  import { cn } from '$stylist/utils';
+  import { cn } from '$stylist/design-system/utils/classes';
 
   type CheckoutStep = 'cart' | 'information' | 'shipping' | 'payment' | 'review' | 'confirmation';
 

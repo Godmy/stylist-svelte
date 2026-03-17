@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { PrimitiveRelationship } from '$stylist/design-system/tokens/architecture/primitives';
 
-import type { GraphPortDataType, GraphPortDirection, GraphPortSize } from '../../tokens/information/graph-port';
+import type { GraphPortDataType, GraphPortDirection, GraphPortSize } from '$stylist/design-system/tokens/information/graph-port';
 /**
  * Направление порта
  */

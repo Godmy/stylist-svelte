@@ -18,7 +18,7 @@ import type {
 	InputValueProps,
 	TextInputBaseProps
 } from '../information/common';
-import type { InputAddonPosition } from '../../tokens/interaction/horizontal-positions';
+import type { InputAddonPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
 
 export interface InputCoreProps<V extends string = InputVariant, S extends string = ComponentSize> {
 	variant?: V;

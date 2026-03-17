@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { BurgerMenuProps } from '../../contracts/interaction/burger-menu';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { BurgerMenuProps } from '$stylist/design-system/contracts/interaction/burger-menu';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createBurgerMenuState(props: BurgerMenuProps) {
   // Initialize props with defaults

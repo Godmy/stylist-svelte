@@ -1,5 +1,5 @@
-import type { ThemeScheme } from '../../contracts/theme-scheme';
-import type { ThemeSchemeId } from '../../contracts/theme-scheme-id';
+import type { ThemeScheme } from '$stylist/themes/contracts/theme-scheme';
+import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
 export type { ThemeScheme } from '../../contracts/theme-scheme';
 export type { ThemeSchemeId } from '../../contracts/theme-scheme-id';
 

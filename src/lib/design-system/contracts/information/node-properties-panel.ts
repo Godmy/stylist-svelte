@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { LiteGraphNodeProperty } from '../../contracts/information/litegraph-node';
+import type { LiteGraphNodeProperty } from '$stylist/design-system/contracts/information/litegraph-node';
 
 /**
  * Свойства панели свойств узла

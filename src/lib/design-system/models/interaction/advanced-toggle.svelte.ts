@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/utils/classes';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 ﻿import type { AdvancedToggleProps } from '$stylist/design-system/contracts';
 import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 

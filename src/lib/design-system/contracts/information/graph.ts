@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { PrimitiveTrajectory as GraphEdgeType } from '$stylist/design-system/tokens';
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 
 export interface GraphEdgeProps extends Omit<HtmlAttributesBase<HTMLDivElement>, 'style'> {
 	fromNodeId: string;

@@ -1,5 +1,5 @@
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { TimeRange } from '../../tokens/information/date-time';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TimeRange } from '$stylist/design-system/tokens/information/date-time';
 // Props for PerformanceDashboard component
 export interface PerformanceDashboardProps {
   title?: string;

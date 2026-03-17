@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { OrderStatus, BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
 
 export interface IOrderItem {

@@ -1,8 +1,10 @@
-﻿import type { Theme } from '../../contracts/theme';
-import { darkTheme, lightTheme } from '../../defaults/themes';
-import type { ThemeName } from '../../contracts/theme-name';
-import type { ThemeSchemeId } from '../../contracts/theme-scheme-id';
-import { THEME_SCHEMES_BY_ID } from '../../defaults/theme-schemes';
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
+import type { Theme } from '$stylist/themes/contracts/theme';
+import { darkTheme, lightTheme } from '$stylist/themes/defaults/themes';
+import type { ThemeName } from '$stylist/themes/contracts/theme-name';
+import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
+import { THEME_SCHEMES_BY_ID } from '$stylist/themes/defaults/theme-schemes';
 
 function stringEntries(value: object): [string, string][] {
 	return Object.entries(value as Record<string, string>);
@@ -316,5 +318,15 @@ export function generateThemeCSS(theme: Theme, selector = ':root'): string {
 	return `${selector} {\n${cssVars}\n}`;
 }
 
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export interface BaseComponentConfig {
+	theme: Theme;
+	className?: string;
+	style?: string;
+	animation?: boolean;
+	responsive?: boolean;
+}
 
-
+export interface CSSVariableConfig {
+	[key: string]: string;
+}

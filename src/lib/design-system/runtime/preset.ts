@@ -1,8 +1,8 @@
-import type { Preset } from '../runtime/types';
-import { COMPONENT_SIZE } from '../tokens/architecture/component-size';
-import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from './foundation';
-import { ICON_SIZES, SIZE_CLASSES } from './sizing';
-import { InteractionStyleManager } from '../styles/interaction/interaction';
+import type { Preset } from '$stylist/design-system/runtime/types';
+import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+import { ACCESSIBILITY_CLASSES, STATE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { ICON_SIZES, SIZE_CLASSES } from '$stylist/design-system/runtime/sizing';
+import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 
 const DEFAULT_STATE_FLAGS = {
 	disabled: false,

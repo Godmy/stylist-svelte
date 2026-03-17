@@ -1,4 +1,4 @@
-import type { Scale } from '../../tokens/scale';
+import type { Scale } from '$stylist/themes/tokens/scale';
 
 export interface ThemeColors {
 	primary: Scale;

@@ -1,5 +1,5 @@
-import { DURATION } from '../duration';
-import { TRANSITION_EASING } from '../easing';
+import { DURATION } from '$stylist/themes/tokens/motion/duration';
+import { TRANSITION_EASING } from '$stylist/themes/tokens/motion/easing';
 
 export const TRANSITION = {
 	instant: `all ${DURATION[0]} ${TRANSITION_EASING.easeInOut}`,

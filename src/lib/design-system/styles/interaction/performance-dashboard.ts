@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const PERFORMANCE_DASHBOARD_SIZE_CLASSES = {
 	sm: 'text-sm',

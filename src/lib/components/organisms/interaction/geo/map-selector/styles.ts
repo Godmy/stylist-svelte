@@ -1,4 +1,4 @@
-import type { IMapSelectorStyleClasses } from './types';
+import type { IMapSelectorStyleClasses } from '$stylist/components/organisms/interaction/geo/map-selector/types';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -7,7 +7,7 @@
  */
 import type { Background } from '$stylist/design-system/tokens/information/background';
 import type { Height } from '$stylist/design-system/tokens/architecture/size';
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 /**
  * Менеджер стилей для компонента Hero

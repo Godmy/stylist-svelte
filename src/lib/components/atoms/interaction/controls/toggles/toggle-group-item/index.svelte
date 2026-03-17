@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import type { ToggleGroupItemProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	let props: ToggleGroupItemProps = $props();
 

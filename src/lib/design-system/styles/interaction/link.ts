@@ -1,6 +1,6 @@
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import type { InlineCodeVariant } from '../../tokens/interaction/variants';
-import type { DefaultVariants } from '../../tokens/interaction/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { InlineCodeVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 
 const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
 	default: 'bg-[--color-background-secondary] text-[--color-text-primary]',

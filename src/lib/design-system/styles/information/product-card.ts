@@ -1,6 +1,6 @@
-import { cn } from '../../utils/cn/index';
-import { CardStyleManager } from './card';
-import type { ProductCardVariant } from '../../tokens/information/product-card';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
+import type { ProductCardVariant } from '$stylist/design-system/tokens/information/product-card';
 
 const PRODUCT_CARD_CONTAINER_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
 	default: 'max-w-sm shadow-md',

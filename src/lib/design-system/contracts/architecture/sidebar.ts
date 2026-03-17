@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentType, Snippet } from 'svelte';
-import type { Alignment } from '../../tokens/architecture/alignments';
-import type { SidebarVariant } from '../../tokens/interaction/variants';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 export interface NavItem {
 	id: string;

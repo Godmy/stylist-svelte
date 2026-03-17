@@ -1,6 +1,6 @@
-import { cn } from '../../utils/cn/index';
-import { CardStyleManager } from './card';
-import { ProductCardStyleManager } from './product-card';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
+import { ProductCardStyleManager } from '$stylist/design-system/styles/information/product-card';
 
 export class ProductCardWithActionsStyleManager {
 	static getContainerClass(extraClasses = ''): string {

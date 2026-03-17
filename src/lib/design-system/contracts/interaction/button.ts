@@ -3,7 +3,7 @@ import type { HTMLButtonAttributes } from 'svelte/elements';
 
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { Props, ClassProp } from '../information/common';
+import type { Props, ClassProp } from '$stylist/design-system/contracts/information/common';
 
 export interface ButtonAttributesBase extends Omit<HTMLButtonAttributes, 'class'>, ClassProp {}
 

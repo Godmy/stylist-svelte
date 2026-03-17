@@ -1,4 +1,4 @@
-import type { ILanguageSelectorStyleClasses } from './types';
+import type { ILanguageSelectorStyleClasses } from '$stylist/components/organisms/interaction/controls/language-selector/types';
 
 /**
  * Style utility class following Single Responsibility Principle

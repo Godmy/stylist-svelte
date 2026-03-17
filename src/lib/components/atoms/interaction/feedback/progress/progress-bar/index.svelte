@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { IProgressBarProps } from '$stylist/design-system/contracts';
-	import { mergeClasses } from '$stylist/utils/classes';
+	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 	/**
 	 * ProgressBar component - Visual indicator of task completion

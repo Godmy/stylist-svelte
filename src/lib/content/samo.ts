@@ -1,4 +1,3 @@
-import atomInventoryJson from '$stylist/json/samo/atom-inventory/report.json';
 import atomicDesignJson from '$stylist/json/samo/atomic-design/report.json';
 import componentReuseJson from '$stylist/json/samo/component-reuse/report.json';
 import designSystemDependenciesJson from '$stylist/json/samo/design-system-dependencies/report.json';
@@ -77,7 +76,6 @@ export type ReportPackPageData = {
 };
 
 const SAMO_REPORTS = {
-  atomInventory: atomInventoryJson,
   atomicDesign: atomicDesignJson,
   componentReuse: componentReuseJson,
   designSystemDependencies: designSystemDependenciesJson,
@@ -99,3 +97,5 @@ export function getSamoReportPackData(): ReportPackPageData {
   assertObject(reportPackJson as unknown, 'samo/report-pack/report.json');
   return reportPackJson as ReportPackPageData;
 }
+
+

@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { ColorPaletteProps } from '../../contracts/interaction/color-palette';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { ColorPaletteProps } from '$stylist/design-system/contracts/interaction/color-palette';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createColorPaletteState(props: ColorPaletteProps) {
   // Initialize props with defaults

@@ -1,6 +1,6 @@
 /**
  * Auto-generated icon registry
- * Generated at: 2026-03-14T20:28:59.351Z
+ * Generated at: 2026-03-16T20:06:21.304Z
  * Do not edit manually - run 'npx tsx scripts/svg/index.ts' to regenerate
  */
 
@@ -13,8 +13,8 @@ export interface IconEntry {
 
 export const ICON_REGISTRY = {
   "$schema": "https://stylist-svelte.dev/schema/icon-registry.json",
-  "generated": "2026-03-14T20:28:59.345Z",
-  "total": 355,
+  "generated": "2026-03-16T20:06:21.299Z",
+  "total": 394,
   "categories": {
     "architecture": [
       {
@@ -30,6 +30,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/architecture/animated-expandable-table-row.svg"
       },
       {
+        "name": "architecture",
+        "category": "architecture",
+        "path": "./architecture/architecture.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/architecture.svg"
+      },
+      {
         "name": "aspect-ratio",
         "category": "architecture",
         "path": "./architecture/aspect-ratio.svg",
@@ -42,10 +48,22 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/architecture/aspect-ratio-atom.svg"
       },
       {
+        "name": "atom",
+        "category": "architecture",
+        "path": "./architecture/atom.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/atom.svg"
+      },
+      {
         "name": "blur",
         "category": "architecture",
         "path": "./architecture/blur.svg",
         "fullPath": "stylist-svelte/src/lib/svg/architecture/blur.svg"
+      },
+      {
+        "name": "box-sizing",
+        "category": "architecture",
+        "path": "./architecture/box-sizing.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/box-sizing.svg"
       },
       {
         "name": "breakpoints",
@@ -132,6 +150,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/architecture/event-calendar.svg"
       },
       {
+        "name": "gap",
+        "category": "architecture",
+        "path": "./architecture/gap.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/gap.svg"
+      },
+      {
         "name": "general-toolbar",
         "category": "architecture",
         "path": "./architecture/general-toolbar.svg",
@@ -198,6 +222,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/architecture/heatmap.svg"
       },
       {
+        "name": "height",
+        "category": "architecture",
+        "path": "./architecture/height.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/height.svg"
+      },
+      {
         "name": "hero",
         "category": "architecture",
         "path": "./architecture/hero.svg",
@@ -208,6 +238,12 @@ export const ICON_REGISTRY = {
         "category": "architecture",
         "path": "./architecture/horizontal-layout.svg",
         "fullPath": "stylist-svelte/src/lib/svg/architecture/horizontal-layout.svg"
+      },
+      {
+        "name": "inset",
+        "category": "architecture",
+        "path": "./architecture/inset.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/inset.svg"
       },
       {
         "name": "justifications",
@@ -222,10 +258,46 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/architecture/lines.svg"
       },
       {
+        "name": "margin",
+        "category": "architecture",
+        "path": "./architecture/margin.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/margin.svg"
+      },
+      {
         "name": "markers",
         "category": "architecture",
         "path": "./architecture/markers.svg",
         "fullPath": "stylist-svelte/src/lib/svg/architecture/markers.svg"
+      },
+      {
+        "name": "max-height",
+        "category": "architecture",
+        "path": "./architecture/max-height.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/max-height.svg"
+      },
+      {
+        "name": "max-width",
+        "category": "architecture",
+        "path": "./architecture/max-width.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/max-width.svg"
+      },
+      {
+        "name": "min-height",
+        "category": "architecture",
+        "path": "./architecture/min-height.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/min-height.svg"
+      },
+      {
+        "name": "min-width",
+        "category": "architecture",
+        "path": "./architecture/min-width.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/min-width.svg"
+      },
+      {
+        "name": "molecule",
+        "category": "architecture",
+        "path": "./architecture/molecule.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/molecule.svg"
       },
       {
         "name": "navigation-organism",
@@ -238,6 +310,12 @@ export const ICON_REGISTRY = {
         "category": "architecture",
         "path": "./architecture/opacity.svg",
         "fullPath": "stylist-svelte/src/lib/svg/architecture/opacity.svg"
+      },
+      {
+        "name": "organism",
+        "category": "architecture",
+        "path": "./architecture/organism.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/organism.svg"
       },
       {
         "name": "orientations",
@@ -292,6 +370,12 @@ export const ICON_REGISTRY = {
         "category": "architecture",
         "path": "./architecture/radius.svg",
         "fullPath": "stylist-svelte/src/lib/svg/architecture/radius.svg"
+      },
+      {
+        "name": "scale",
+        "category": "architecture",
+        "path": "./architecture/scale.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/architecture/scale.svg"
       },
       {
         "name": "schedule-calendar",
@@ -422,6 +506,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/information/abtest-configurator.svg"
       },
       {
+        "name": "active",
+        "category": "information",
+        "path": "./information/active.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/active.svg"
+      },
+      {
         "name": "agile",
         "category": "information",
         "path": "./information/agile.svg",
@@ -462,6 +552,12 @@ export const ICON_REGISTRY = {
         "category": "information",
         "path": "./information/announcement-banner.svg",
         "fullPath": "stylist-svelte/src/lib/svg/information/announcement-banner.svg"
+      },
+      {
+        "name": "archived",
+        "category": "information",
+        "path": "./information/archived.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/archived.svg"
       },
       {
         "name": "article-card",
@@ -692,6 +788,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/information/diagrams-molecule.svg"
       },
       {
+        "name": "disabled",
+        "category": "information",
+        "path": "./information/disabled.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/disabled.svg"
+      },
+      {
         "name": "discount-applier",
         "category": "information",
         "path": "./information/discount-applier.svg",
@@ -708,6 +810,18 @@ export const ICON_REGISTRY = {
         "category": "information",
         "path": "./information/download-card.svg",
         "fullPath": "stylist-svelte/src/lib/svg/information/download-card.svg"
+      },
+      {
+        "name": "empty",
+        "category": "information",
+        "path": "./information/empty.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/empty.svg"
+      },
+      {
+        "name": "error",
+        "category": "information",
+        "path": "./information/error.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/error.svg"
       },
       {
         "name": "expandable-card",
@@ -770,6 +884,18 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/information/image-with-caption.svg"
       },
       {
+        "name": "info-status",
+        "category": "information",
+        "path": "./information/info-status.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/info-status.svg"
+      },
+      {
+        "name": "information",
+        "category": "information",
+        "path": "./information/information.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/information.svg"
+      },
+      {
         "name": "inline-text",
         "category": "information",
         "path": "./information/inline-text.svg",
@@ -810,6 +936,12 @@ export const ICON_REGISTRY = {
         "category": "information",
         "path": "./information/link-card.svg",
         "fullPath": "stylist-svelte/src/lib/svg/information/link-card.svg"
+      },
+      {
+        "name": "loading",
+        "category": "information",
+        "path": "./information/loading.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/loading.svg"
       },
       {
         "name": "map-marker-organism",
@@ -924,6 +1056,12 @@ export const ICON_REGISTRY = {
         "category": "information",
         "path": "./information/order-tracking.svg",
         "fullPath": "stylist-svelte/src/lib/svg/information/order-tracking.svg"
+      },
+      {
+        "name": "pending",
+        "category": "information",
+        "path": "./information/pending.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/pending.svg"
       },
       {
         "name": "playground",
@@ -1208,6 +1346,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/information/subscription-manager.svg"
       },
       {
+        "name": "success",
+        "category": "information",
+        "path": "./information/success.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/success.svg"
+      },
+      {
         "name": "table",
         "category": "information",
         "path": "./information/table.svg",
@@ -1310,6 +1454,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/information/video-player.svg"
       },
       {
+        "name": "warning",
+        "category": "information",
+        "path": "./information/warning.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/information/warning.svg"
+      },
+      {
         "name": "warranty-info",
         "category": "information",
         "path": "./information/warranty-info.svg",
@@ -1334,6 +1484,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/activity.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/activity.svg"
+      },
+      {
+        "name": "add",
+        "category": "interaction",
+        "path": "./interaction/add.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/add.svg"
       },
       {
         "name": "advanced-password-input",
@@ -1364,6 +1520,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/animations.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/animations.svg"
+      },
+      {
+        "name": "archive",
+        "category": "interaction",
+        "path": "./interaction/archive.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/archive.svg"
       },
       {
         "name": "arrow-down",
@@ -1576,6 +1738,24 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/controls-organism.svg"
       },
       {
+        "name": "copy",
+        "category": "interaction",
+        "path": "./interaction/copy.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/copy.svg"
+      },
+      {
+        "name": "cut",
+        "category": "interaction",
+        "path": "./interaction/cut.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/cut.svg"
+      },
+      {
+        "name": "delete",
+        "category": "interaction",
+        "path": "./interaction/delete.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/delete.svg"
+      },
+      {
         "name": "dialog-confirm",
         "category": "interaction",
         "path": "./interaction/dialog-confirm.svg",
@@ -1606,10 +1786,28 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/draggable-card.svg"
       },
       {
+        "name": "duplicate",
+        "category": "interaction",
+        "path": "./interaction/duplicate.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/duplicate.svg"
+      },
+      {
+        "name": "edit",
+        "category": "interaction",
+        "path": "./interaction/edit.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/edit.svg"
+      },
+      {
         "name": "errors",
         "category": "interaction",
         "path": "./interaction/errors.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/errors.svg"
+      },
+      {
+        "name": "export",
+        "category": "interaction",
+        "path": "./interaction/export.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/export.svg"
       },
       {
         "name": "feedback-organism",
@@ -1684,6 +1882,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/icons.svg"
       },
       {
+        "name": "import",
+        "category": "interaction",
+        "path": "./interaction/import.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/import.svg"
+      },
+      {
         "name": "indicators",
         "category": "interaction",
         "path": "./interaction/indicators.svg",
@@ -1706,6 +1910,12 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/input-organism.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/input-organism.svg"
+      },
+      {
+        "name": "interaction",
+        "category": "interaction",
+        "path": "./interaction/interaction.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/interaction.svg"
       },
       {
         "name": "json",
@@ -1828,6 +2038,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/panels.svg"
       },
       {
+        "name": "paste",
+        "category": "interaction",
+        "path": "./interaction/paste.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/paste.svg"
+      },
+      {
         "name": "performance-monitor",
         "category": "interaction",
         "path": "./interaction/performance-monitor.svg",
@@ -1874,6 +2090,18 @@ export const ICON_REGISTRY = {
         "category": "interaction",
         "path": "./interaction/rating.svg",
         "fullPath": "stylist-svelte/src/lib/svg/interaction/rating.svg"
+      },
+      {
+        "name": "redo",
+        "category": "interaction",
+        "path": "./interaction/redo.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/redo.svg"
+      },
+      {
+        "name": "restore",
+        "category": "interaction",
+        "path": "./interaction/restore.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/restore.svg"
       },
       {
         "name": "rfqform",
@@ -2080,6 +2308,12 @@ export const ICON_REGISTRY = {
         "fullPath": "stylist-svelte/src/lib/svg/interaction/trending-up.svg"
       },
       {
+        "name": "undo",
+        "category": "interaction",
+        "path": "./interaction/undo.svg",
+        "fullPath": "stylist-svelte/src/lib/svg/interaction/undo.svg"
+      },
+      {
         "name": "upload",
         "category": "interaction",
         "path": "./interaction/upload.svg",
@@ -2166,6 +2400,12 @@ export const ICON_REGISTRY = {
       "path": "./architecture/animated-expandable-table-row.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/animated-expandable-table-row.svg"
     },
+    "architecture": {
+      "name": "architecture",
+      "category": "architecture",
+      "path": "./architecture/architecture.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/architecture.svg"
+    },
     "aspect-ratio": {
       "name": "aspect-ratio",
       "category": "architecture",
@@ -2178,11 +2418,23 @@ export const ICON_REGISTRY = {
       "path": "./architecture/aspect-ratio-atom.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/aspect-ratio-atom.svg"
     },
+    "atom": {
+      "name": "atom",
+      "category": "architecture",
+      "path": "./architecture/atom.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/atom.svg"
+    },
     "blur": {
       "name": "blur",
       "category": "architecture",
       "path": "./architecture/blur.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/blur.svg"
+    },
+    "box-sizing": {
+      "name": "box-sizing",
+      "category": "architecture",
+      "path": "./architecture/box-sizing.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/box-sizing.svg"
     },
     "breakpoints": {
       "name": "breakpoints",
@@ -2268,6 +2520,12 @@ export const ICON_REGISTRY = {
       "path": "./architecture/event-calendar.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/event-calendar.svg"
     },
+    "gap": {
+      "name": "gap",
+      "category": "architecture",
+      "path": "./architecture/gap.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/gap.svg"
+    },
     "general-toolbar": {
       "name": "general-toolbar",
       "category": "architecture",
@@ -2334,6 +2592,12 @@ export const ICON_REGISTRY = {
       "path": "./architecture/heatmap.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/heatmap.svg"
     },
+    "height": {
+      "name": "height",
+      "category": "architecture",
+      "path": "./architecture/height.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/height.svg"
+    },
     "hero": {
       "name": "hero",
       "category": "architecture",
@@ -2345,6 +2609,12 @@ export const ICON_REGISTRY = {
       "category": "architecture",
       "path": "./architecture/horizontal-layout.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/horizontal-layout.svg"
+    },
+    "inset": {
+      "name": "inset",
+      "category": "architecture",
+      "path": "./architecture/inset.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/inset.svg"
     },
     "justifications": {
       "name": "justifications",
@@ -2358,11 +2628,47 @@ export const ICON_REGISTRY = {
       "path": "./architecture/lines.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/lines.svg"
     },
+    "margin": {
+      "name": "margin",
+      "category": "architecture",
+      "path": "./architecture/margin.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/margin.svg"
+    },
     "markers": {
       "name": "markers",
       "category": "architecture",
       "path": "./architecture/markers.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/markers.svg"
+    },
+    "max-height": {
+      "name": "max-height",
+      "category": "architecture",
+      "path": "./architecture/max-height.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/max-height.svg"
+    },
+    "max-width": {
+      "name": "max-width",
+      "category": "architecture",
+      "path": "./architecture/max-width.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/max-width.svg"
+    },
+    "min-height": {
+      "name": "min-height",
+      "category": "architecture",
+      "path": "./architecture/min-height.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/min-height.svg"
+    },
+    "min-width": {
+      "name": "min-width",
+      "category": "architecture",
+      "path": "./architecture/min-width.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/min-width.svg"
+    },
+    "molecule": {
+      "name": "molecule",
+      "category": "architecture",
+      "path": "./architecture/molecule.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/molecule.svg"
     },
     "navigation-organism": {
       "name": "navigation-organism",
@@ -2375,6 +2681,12 @@ export const ICON_REGISTRY = {
       "category": "architecture",
       "path": "./architecture/opacity.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/opacity.svg"
+    },
+    "organism": {
+      "name": "organism",
+      "category": "architecture",
+      "path": "./architecture/organism.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/organism.svg"
     },
     "orientations": {
       "name": "orientations",
@@ -2429,6 +2741,12 @@ export const ICON_REGISTRY = {
       "category": "architecture",
       "path": "./architecture/radius.svg",
       "fullPath": "stylist-svelte/src/lib/svg/architecture/radius.svg"
+    },
+    "scale": {
+      "name": "scale",
+      "category": "architecture",
+      "path": "./architecture/scale.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/architecture/scale.svg"
     },
     "schedule-calendar": {
       "name": "schedule-calendar",
@@ -2556,6 +2874,12 @@ export const ICON_REGISTRY = {
       "path": "./information/abtest-configurator.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/abtest-configurator.svg"
     },
+    "active": {
+      "name": "active",
+      "category": "information",
+      "path": "./information/active.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/active.svg"
+    },
     "agile": {
       "name": "agile",
       "category": "information",
@@ -2597,6 +2921,12 @@ export const ICON_REGISTRY = {
       "category": "information",
       "path": "./information/announcement-banner.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/announcement-banner.svg"
+    },
+    "archived": {
+      "name": "archived",
+      "category": "information",
+      "path": "./information/archived.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/archived.svg"
     },
     "article-card": {
       "name": "article-card",
@@ -2826,6 +3156,12 @@ export const ICON_REGISTRY = {
       "path": "./information/diagrams-molecule.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/diagrams-molecule.svg"
     },
+    "disabled": {
+      "name": "disabled",
+      "category": "information",
+      "path": "./information/disabled.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/disabled.svg"
+    },
     "discount-applier": {
       "name": "discount-applier",
       "category": "information",
@@ -2843,6 +3179,18 @@ export const ICON_REGISTRY = {
       "category": "information",
       "path": "./information/download-card.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/download-card.svg"
+    },
+    "empty": {
+      "name": "empty",
+      "category": "information",
+      "path": "./information/empty.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/empty.svg"
+    },
+    "error": {
+      "name": "error",
+      "category": "information",
+      "path": "./information/error.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/error.svg"
     },
     "expandable-card": {
       "name": "expandable-card",
@@ -2904,6 +3252,18 @@ export const ICON_REGISTRY = {
       "path": "./information/image-with-caption.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/image-with-caption.svg"
     },
+    "info-status": {
+      "name": "info-status",
+      "category": "information",
+      "path": "./information/info-status.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/info-status.svg"
+    },
+    "information": {
+      "name": "information",
+      "category": "information",
+      "path": "./information/information.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/information.svg"
+    },
     "inline-text": {
       "name": "inline-text",
       "category": "information",
@@ -2945,6 +3305,12 @@ export const ICON_REGISTRY = {
       "category": "information",
       "path": "./information/link-card.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/link-card.svg"
+    },
+    "loading": {
+      "name": "loading",
+      "category": "information",
+      "path": "./information/loading.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/loading.svg"
     },
     "map-marker-organism": {
       "name": "map-marker-organism",
@@ -3059,6 +3425,12 @@ export const ICON_REGISTRY = {
       "category": "information",
       "path": "./information/order-tracking.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/order-tracking.svg"
+    },
+    "pending": {
+      "name": "pending",
+      "category": "information",
+      "path": "./information/pending.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/pending.svg"
     },
     "playground": {
       "name": "playground",
@@ -3342,6 +3714,12 @@ export const ICON_REGISTRY = {
       "path": "./information/subscription-manager.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/subscription-manager.svg"
     },
+    "success": {
+      "name": "success",
+      "category": "information",
+      "path": "./information/success.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/success.svg"
+    },
     "table": {
       "name": "table",
       "category": "information",
@@ -3444,6 +3822,12 @@ export const ICON_REGISTRY = {
       "path": "./information/video-player.svg",
       "fullPath": "stylist-svelte/src/lib/svg/information/video-player.svg"
     },
+    "warning": {
+      "name": "warning",
+      "category": "information",
+      "path": "./information/warning.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/information/warning.svg"
+    },
     "warranty-info": {
       "name": "warranty-info",
       "category": "information",
@@ -3467,6 +3851,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/activity.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/activity.svg"
+    },
+    "add": {
+      "name": "add",
+      "category": "interaction",
+      "path": "./interaction/add.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/add.svg"
     },
     "advanced-password-input": {
       "name": "advanced-password-input",
@@ -3497,6 +3887,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/animations.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/animations.svg"
+    },
+    "archive": {
+      "name": "archive",
+      "category": "interaction",
+      "path": "./interaction/archive.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/archive.svg"
     },
     "arrow-down": {
       "name": "arrow-down",
@@ -3708,6 +4104,24 @@ export const ICON_REGISTRY = {
       "path": "./interaction/controls-organism.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/controls-organism.svg"
     },
+    "copy": {
+      "name": "copy",
+      "category": "interaction",
+      "path": "./interaction/copy.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/copy.svg"
+    },
+    "cut": {
+      "name": "cut",
+      "category": "interaction",
+      "path": "./interaction/cut.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/cut.svg"
+    },
+    "delete": {
+      "name": "delete",
+      "category": "interaction",
+      "path": "./interaction/delete.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/delete.svg"
+    },
     "dialog-confirm": {
       "name": "dialog-confirm",
       "category": "interaction",
@@ -3738,11 +4152,29 @@ export const ICON_REGISTRY = {
       "path": "./interaction/draggable-card.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/draggable-card.svg"
     },
+    "duplicate": {
+      "name": "duplicate",
+      "category": "interaction",
+      "path": "./interaction/duplicate.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/duplicate.svg"
+    },
+    "edit": {
+      "name": "edit",
+      "category": "interaction",
+      "path": "./interaction/edit.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/edit.svg"
+    },
     "errors": {
       "name": "errors",
       "category": "interaction",
       "path": "./interaction/errors.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/errors.svg"
+    },
+    "export": {
+      "name": "export",
+      "category": "interaction",
+      "path": "./interaction/export.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/export.svg"
     },
     "feedback-organism": {
       "name": "feedback-organism",
@@ -3816,6 +4248,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/icons.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/icons.svg"
     },
+    "import": {
+      "name": "import",
+      "category": "interaction",
+      "path": "./interaction/import.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/import.svg"
+    },
     "indicators": {
       "name": "indicators",
       "category": "interaction",
@@ -3839,6 +4277,12 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/input-organism.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/input-organism.svg"
+    },
+    "interaction": {
+      "name": "interaction",
+      "category": "interaction",
+      "path": "./interaction/interaction.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/interaction.svg"
     },
     "json": {
       "name": "json",
@@ -3960,6 +4404,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/panels.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/panels.svg"
     },
+    "paste": {
+      "name": "paste",
+      "category": "interaction",
+      "path": "./interaction/paste.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/paste.svg"
+    },
     "performance-monitor": {
       "name": "performance-monitor",
       "category": "interaction",
@@ -4007,6 +4457,18 @@ export const ICON_REGISTRY = {
       "category": "interaction",
       "path": "./interaction/rating.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/rating.svg"
+    },
+    "redo": {
+      "name": "redo",
+      "category": "interaction",
+      "path": "./interaction/redo.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/redo.svg"
+    },
+    "restore": {
+      "name": "restore",
+      "category": "interaction",
+      "path": "./interaction/restore.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/restore.svg"
     },
     "rfqform": {
       "name": "rfqform",
@@ -4212,6 +4674,12 @@ export const ICON_REGISTRY = {
       "path": "./interaction/trending-up.svg",
       "fullPath": "stylist-svelte/src/lib/svg/interaction/trending-up.svg"
     },
+    "undo": {
+      "name": "undo",
+      "category": "interaction",
+      "path": "./interaction/undo.svg",
+      "fullPath": "stylist-svelte/src/lib/svg/interaction/undo.svg"
+    },
     "upload": {
       "name": "upload",
       "category": "interaction",
@@ -4289,15 +4757,18 @@ export const ICON_REGISTRY = {
 
 export type IconCategory = 'architecture' | 'information' | 'interaction';
 
-export type IconName = 'alignments' | 'animated-expandable-table-row' | 'aspect-ratio' | 'aspect-ratio-atom' | 'blur' | 'breakpoints' | 'calendar-view' | 'canvas-chart' | 'canvas-organism' | 'canvas-toolbar' | 'charts-organism' | 'component-size' | 'container' | 'dashboard-layout' | 'diagrams-organism' | 'divider' | 'drawer' | 'drawing-surface' | 'event-calendar' | 'general-toolbar' | 'gradient-background' | 'graph-edge' | 'graph-node' | 'graph-node-card' | 'grid-3x3' | 'grid-columns' | 'grid-gaps' | 'grid-layout' | 'grid-molecule' | 'heatmap' | 'hero' | 'horizontal-layout' | 'justifications' | 'lines' | 'markers' | 'navigation-organism' | 'opacity' | 'orientations' | 'padding' | 'page-header' | 'performance-dashboard' | 'permission-gate' | 'popover' | 'positions' | 'process-step' | 'radius' | 'schedule-calendar' | 'shadows' | 'shapes' | 'shared-canvas' | 'side-by-side-layout' | 'spacer' | 'spacing' | 'split-layout' | 'stack' | 'stacked-layout' | 'status-dashboard' | 'stepper' | 'style' | 'table-cells' | 'text-alignments' | 'time-grid' | 'vertical-layout' | 'widget-container' | 'width' | 'z-index' | 'abtest-configurator' | 'agile' | 'ai-organism' | 'ai-result-card' | 'alert-card' | 'analytics-chart' | 'animated-number' | 'announcement-banner' | 'article-card' | 'atomic-principles-showcase' | 'attachment-preview' | 'audio-player' | 'audio-slider' | 'audio-visualizer' | 'avatar' | 'avatar-group' | 'badge' | 'base-card' | 'billing-summary' | 'card-with-image' | 'cart-summary' | 'category-card' | 'chart' | 'charts-molecule' | 'code-block-molecule' | 'code-diff' | 'code-editor-molecule' | 'code-section' | 'color-swatch' | 'colors' | 'comments' | 'comparison-card' | 'component-library-stats' | 'component-preview' | 'conversion-funnel' | 'country-flag' | 'cta-banner' | 'currency-converter' | 'data-display-card' | 'data-exporter' | 'debug-console' | 'densities' | 'design-tokens-organism' | 'development-error-boundary' | 'diagram' | 'diagrams-molecule' | 'discount-applier' | 'documentation-block' | 'download-card' | 'expandable-card' | 'favicon' | 'file-browser' | 'file-list-item' | 'geo-jsonviewer' | 'gradients' | 'graphviz-directed-edge' | 'image' | 'image-gallery' | 'image-with-caption' | 'inline-text' | 'inventory-tracker' | 'kanban' | 'kanban-card' | 'kpi-indicator' | 'legend-item' | 'link-card' | 'map-marker-organism' | 'map-with-markers' | 'media-library' | 'message-bubble' | 'message-composer' | 'message-item' | 'message-list' | 'message-meta' | 'message-status' | 'message-thread' | 'metric-card' | 'npm-badge' | 'number-flow' | 'ontology-edge-component' | 'ontology-node-component' | 'operations-history' | 'order-confirmation' | 'order-history' | 'order-tracking' | 'playground' | 'playground-ai-assistant' | 'playground-ai-chat' | 'playground-ai-panel' | 'playground-animated-background' | 'playground-canvas-shell' | 'playground-code-viewer' | 'playground-component-catalog' | 'playground-component-info-card' | 'playground-component-tree' | 'playground-cta-buttons' | 'playground-device-frame' | 'playground-drawing-overlay' | 'playground-enhanced-export-panel' | 'playground-error-boundary' | 'playground-feature-grid' | 'playground-generic-code-viewer' | 'playground-hero' | 'playground-live-code-section' | 'playground-markdown-renderer' | 'playground-mission-banner' | 'playground-screenshot-selector' | 'playground-shell-header' | 'playground-shortcuts-panel' | 'playground-toast' | 'playground-tree-node' | 'post-card' | 'prices' | 'privacy-settings' | 'product-card-extended' | 'product-catalog' | 'product-reviews' | 'product-sorting' | 'product-tour' | 'products' | 'promo-banner' | 'resource-optimizer' | 'return-policy' | 'route-planner' | 'shipping-calculator' | 'shipping-info' | 'skeletons' | 'social' | 'stat-card' | 'stats-card' | 'store-locator' | 'subscription-manager' | 'table' | 'tax-calculator' | 'team-avatar-stack' | 'team-member-card' | 'test-results-viewer' | 'text' | 'text-block' | 'text-element' | 'traffic-analytics' | 'typography' | 'typography-indicator' | 'upsell' | 'user-behavior-metrics' | 'user-card' | 'variants' | 'verdicts' | 'video-player' | 'warranty-info' | 'accordion' | 'accordion-molecule' | 'activity' | 'advanced-password-input' | 'ai-interaction' | 'alert' | 'alert-circle' | 'animations' | 'arrow-down' | 'arrow-up' | 'auto-search' | 'autocomplete' | 'box' | 'breadcrumb' | 'bulk-order-form' | 'button' | 'calendar' | 'calendar-molecule' | 'characters-count' | 'chat-item' | 'chat-list' | 'chat-message' | 'chat-organism' | 'chat-preview' | 'chat-room' | 'chat-window' | 'check' | 'check-circle' | 'checkout-form' | 'chevron-down' | 'chevron-up' | 'chip' | 'clock' | 'code' | 'code-editor-dev' | 'collaborate' | 'components' | 'confirmation-dialog' | 'content-editor' | 'contracts' | 'controls' | 'controls-interaction' | 'controls-organism' | 'dialog-confirm' | 'dialogs-organism' | 'download' | 'drag-drop-file-upload' | 'draggable-card' | 'errors' | 'feedback-organism' | 'field-highlighter' | 'file-input' | 'file-upload' | 'filter-panel' | 'form-error' | 'form-footer' | 'form-header' | 'form-helper' | 'form-selection' | 'forms-organism' | 'icons' | 'indicators' | 'info' | 'input-field' | 'input-organism' | 'json' | 'list' | 'lists' | 'location-picker' | 'location-selector' | 'map-pin' | 'map-selector' | 'maximize' | 'menu' | 'menus-molecule' | 'message-input' | 'minus' | 'mock-data-selector' | 'models' | 'notification' | 'notifications-molecule' | 'number-input' | 'overlay' | 'pagination' | 'panels' | 'performance-monitor' | 'pickers' | 'placeholder' | 'plus' | 'process' | 'progress' | 'radio-group' | 'rating' | 'rfqform' | 'rich-text-editor' | 'save' | 'search' | 'search-bar' | 'search-suggestion' | 'selector' | 'selectors-molecule' | 'settings' | 'slider' | 'slider-with-input' | 'sliders-molecule' | 'spinner' | 'state' | 'styles' | 'stylist-organism' | 'tab' | 'tables-molecule' | 'tabs-molecule' | 'tag' | 'tag-input' | 'themes' | 'toast' | 'toasts-molecule' | 'toggle' | 'toggles-molecule' | 'tokens' | 'toolbars-molecule' | 'tooltip' | 'transitions' | 'trash' | 'trees' | 'trending-down' | 'trending-up' | 'upload' | 'upload-progress' | 'user' | 'user-status' | 'validation' | 'variables-editor' | 'x' | 'x-circle' | 'zoom' | 'zoom-in' | 'zoom-molecule' | 'zoom-out';
+export type IconName = 'alignments' | 'animated-expandable-table-row' | 'architecture' | 'aspect-ratio' | 'aspect-ratio-atom' | 'atom' | 'blur' | 'box-sizing' | 'breakpoints' | 'calendar-view' | 'canvas-chart' | 'canvas-organism' | 'canvas-toolbar' | 'charts-organism' | 'component-size' | 'container' | 'dashboard-layout' | 'diagrams-organism' | 'divider' | 'drawer' | 'drawing-surface' | 'event-calendar' | 'gap' | 'general-toolbar' | 'gradient-background' | 'graph-edge' | 'graph-node' | 'graph-node-card' | 'grid-3x3' | 'grid-columns' | 'grid-gaps' | 'grid-layout' | 'grid-molecule' | 'heatmap' | 'height' | 'hero' | 'horizontal-layout' | 'inset' | 'justifications' | 'lines' | 'margin' | 'markers' | 'max-height' | 'max-width' | 'min-height' | 'min-width' | 'molecule' | 'navigation-organism' | 'opacity' | 'organism' | 'orientations' | 'padding' | 'page-header' | 'performance-dashboard' | 'permission-gate' | 'popover' | 'positions' | 'process-step' | 'radius' | 'scale' | 'schedule-calendar' | 'shadows' | 'shapes' | 'shared-canvas' | 'side-by-side-layout' | 'spacer' | 'spacing' | 'split-layout' | 'stack' | 'stacked-layout' | 'status-dashboard' | 'stepper' | 'style' | 'table-cells' | 'text-alignments' | 'time-grid' | 'vertical-layout' | 'widget-container' | 'width' | 'z-index' | 'abtest-configurator' | 'active' | 'agile' | 'ai-organism' | 'ai-result-card' | 'alert-card' | 'analytics-chart' | 'animated-number' | 'announcement-banner' | 'archived' | 'article-card' | 'atomic-principles-showcase' | 'attachment-preview' | 'audio-player' | 'audio-slider' | 'audio-visualizer' | 'avatar' | 'avatar-group' | 'badge' | 'base-card' | 'billing-summary' | 'card-with-image' | 'cart-summary' | 'category-card' | 'chart' | 'charts-molecule' | 'code-block-molecule' | 'code-diff' | 'code-editor-molecule' | 'code-section' | 'color-swatch' | 'colors' | 'comments' | 'comparison-card' | 'component-library-stats' | 'component-preview' | 'conversion-funnel' | 'country-flag' | 'cta-banner' | 'currency-converter' | 'data-display-card' | 'data-exporter' | 'debug-console' | 'densities' | 'design-tokens-organism' | 'development-error-boundary' | 'diagram' | 'diagrams-molecule' | 'disabled' | 'discount-applier' | 'documentation-block' | 'download-card' | 'empty' | 'error' | 'expandable-card' | 'favicon' | 'file-browser' | 'file-list-item' | 'geo-jsonviewer' | 'gradients' | 'graphviz-directed-edge' | 'image' | 'image-gallery' | 'image-with-caption' | 'info-status' | 'information' | 'inline-text' | 'inventory-tracker' | 'kanban' | 'kanban-card' | 'kpi-indicator' | 'legend-item' | 'link-card' | 'loading' | 'map-marker-organism' | 'map-with-markers' | 'media-library' | 'message-bubble' | 'message-composer' | 'message-item' | 'message-list' | 'message-meta' | 'message-status' | 'message-thread' | 'metric-card' | 'npm-badge' | 'number-flow' | 'ontology-edge-component' | 'ontology-node-component' | 'operations-history' | 'order-confirmation' | 'order-history' | 'order-tracking' | 'pending' | 'playground' | 'playground-ai-assistant' | 'playground-ai-chat' | 'playground-ai-panel' | 'playground-animated-background' | 'playground-canvas-shell' | 'playground-code-viewer' | 'playground-component-catalog' | 'playground-component-info-card' | 'playground-component-tree' | 'playground-cta-buttons' | 'playground-device-frame' | 'playground-drawing-overlay' | 'playground-enhanced-export-panel' | 'playground-error-boundary' | 'playground-feature-grid' | 'playground-generic-code-viewer' | 'playground-hero' | 'playground-live-code-section' | 'playground-markdown-renderer' | 'playground-mission-banner' | 'playground-screenshot-selector' | 'playground-shell-header' | 'playground-shortcuts-panel' | 'playground-toast' | 'playground-tree-node' | 'post-card' | 'prices' | 'privacy-settings' | 'product-card-extended' | 'product-catalog' | 'product-reviews' | 'product-sorting' | 'product-tour' | 'products' | 'promo-banner' | 'resource-optimizer' | 'return-policy' | 'route-planner' | 'shipping-calculator' | 'shipping-info' | 'skeletons' | 'social' | 'stat-card' | 'stats-card' | 'store-locator' | 'subscription-manager' | 'success' | 'table' | 'tax-calculator' | 'team-avatar-stack' | 'team-member-card' | 'test-results-viewer' | 'text' | 'text-block' | 'text-element' | 'traffic-analytics' | 'typography' | 'typography-indicator' | 'upsell' | 'user-behavior-metrics' | 'user-card' | 'variants' | 'verdicts' | 'video-player' | 'warning' | 'warranty-info' | 'accordion' | 'accordion-molecule' | 'activity' | 'add' | 'advanced-password-input' | 'ai-interaction' | 'alert' | 'alert-circle' | 'animations' | 'archive' | 'arrow-down' | 'arrow-up' | 'auto-search' | 'autocomplete' | 'box' | 'breadcrumb' | 'bulk-order-form' | 'button' | 'calendar' | 'calendar-molecule' | 'characters-count' | 'chat-item' | 'chat-list' | 'chat-message' | 'chat-organism' | 'chat-preview' | 'chat-room' | 'chat-window' | 'check' | 'check-circle' | 'checkout-form' | 'chevron-down' | 'chevron-up' | 'chip' | 'clock' | 'code' | 'code-editor-dev' | 'collaborate' | 'components' | 'confirmation-dialog' | 'content-editor' | 'contracts' | 'controls' | 'controls-interaction' | 'controls-organism' | 'copy' | 'cut' | 'delete' | 'dialog-confirm' | 'dialogs-organism' | 'download' | 'drag-drop-file-upload' | 'draggable-card' | 'duplicate' | 'edit' | 'errors' | 'export' | 'feedback-organism' | 'field-highlighter' | 'file-input' | 'file-upload' | 'filter-panel' | 'form-error' | 'form-footer' | 'form-header' | 'form-helper' | 'form-selection' | 'forms-organism' | 'icons' | 'import' | 'indicators' | 'info' | 'input-field' | 'input-organism' | 'interaction' | 'json' | 'list' | 'lists' | 'location-picker' | 'location-selector' | 'map-pin' | 'map-selector' | 'maximize' | 'menu' | 'menus-molecule' | 'message-input' | 'minus' | 'mock-data-selector' | 'models' | 'notification' | 'notifications-molecule' | 'number-input' | 'overlay' | 'pagination' | 'panels' | 'paste' | 'performance-monitor' | 'pickers' | 'placeholder' | 'plus' | 'process' | 'progress' | 'radio-group' | 'rating' | 'redo' | 'restore' | 'rfqform' | 'rich-text-editor' | 'save' | 'search' | 'search-bar' | 'search-suggestion' | 'selector' | 'selectors-molecule' | 'settings' | 'slider' | 'slider-with-input' | 'sliders-molecule' | 'spinner' | 'state' | 'styles' | 'stylist-organism' | 'tab' | 'tables-molecule' | 'tabs-molecule' | 'tag' | 'tag-input' | 'themes' | 'toast' | 'toasts-molecule' | 'toggle' | 'toggles-molecule' | 'tokens' | 'toolbars-molecule' | 'tooltip' | 'transitions' | 'trash' | 'trees' | 'trending-down' | 'trending-up' | 'undo' | 'upload' | 'upload-progress' | 'user' | 'user-status' | 'validation' | 'variables-editor' | 'x' | 'x-circle' | 'zoom' | 'zoom-in' | 'zoom-molecule' | 'zoom-out';
 
 export const ICONS_BY_CATEGORY = {
   architecture: [
   "alignments",
   "animated-expandable-table-row",
+  "architecture",
   "aspect-ratio",
   "aspect-ratio-atom",
+  "atom",
   "blur",
+  "box-sizing",
   "breakpoints",
   "calendar-view",
   "canvas-chart",
@@ -4312,6 +4783,7 @@ export const ICONS_BY_CATEGORY = {
   "drawer",
   "drawing-surface",
   "event-calendar",
+  "gap",
   "general-toolbar",
   "gradient-background",
   "graph-edge",
@@ -4323,13 +4795,22 @@ export const ICONS_BY_CATEGORY = {
   "grid-layout",
   "grid-molecule",
   "heatmap",
+  "height",
   "hero",
   "horizontal-layout",
+  "inset",
   "justifications",
   "lines",
+  "margin",
   "markers",
+  "max-height",
+  "max-width",
+  "min-height",
+  "min-width",
+  "molecule",
   "navigation-organism",
   "opacity",
+  "organism",
   "orientations",
   "padding",
   "page-header",
@@ -4339,6 +4820,7 @@ export const ICONS_BY_CATEGORY = {
   "positions",
   "process-step",
   "radius",
+  "scale",
   "schedule-calendar",
   "shadows",
   "shapes",
@@ -4362,6 +4844,7 @@ export const ICONS_BY_CATEGORY = {
 ],
   information: [
   "abtest-configurator",
+  "active",
   "agile",
   "ai-organism",
   "ai-result-card",
@@ -4369,6 +4852,7 @@ export const ICONS_BY_CATEGORY = {
   "analytics-chart",
   "animated-number",
   "announcement-banner",
+  "archived",
   "article-card",
   "atomic-principles-showcase",
   "attachment-preview",
@@ -4407,9 +4891,12 @@ export const ICONS_BY_CATEGORY = {
   "development-error-boundary",
   "diagram",
   "diagrams-molecule",
+  "disabled",
   "discount-applier",
   "documentation-block",
   "download-card",
+  "empty",
+  "error",
   "expandable-card",
   "favicon",
   "file-browser",
@@ -4420,6 +4907,8 @@ export const ICONS_BY_CATEGORY = {
   "image",
   "image-gallery",
   "image-with-caption",
+  "info-status",
+  "information",
   "inline-text",
   "inventory-tracker",
   "kanban",
@@ -4427,6 +4916,7 @@ export const ICONS_BY_CATEGORY = {
   "kpi-indicator",
   "legend-item",
   "link-card",
+  "loading",
   "map-marker-organism",
   "map-with-markers",
   "media-library",
@@ -4446,6 +4936,7 @@ export const ICONS_BY_CATEGORY = {
   "order-confirmation",
   "order-history",
   "order-tracking",
+  "pending",
   "playground",
   "playground-ai-assistant",
   "playground-ai-chat",
@@ -4493,6 +4984,7 @@ export const ICONS_BY_CATEGORY = {
   "stats-card",
   "store-locator",
   "subscription-manager",
+  "success",
   "table",
   "tax-calculator",
   "team-avatar-stack",
@@ -4510,17 +5002,20 @@ export const ICONS_BY_CATEGORY = {
   "variants",
   "verdicts",
   "video-player",
+  "warning",
   "warranty-info"
 ],
   interaction: [
   "accordion",
   "accordion-molecule",
   "activity",
+  "add",
   "advanced-password-input",
   "ai-interaction",
   "alert",
   "alert-circle",
   "animations",
+  "archive",
   "arrow-down",
   "arrow-up",
   "auto-search",
@@ -4556,12 +5051,18 @@ export const ICONS_BY_CATEGORY = {
   "controls",
   "controls-interaction",
   "controls-organism",
+  "copy",
+  "cut",
+  "delete",
   "dialog-confirm",
   "dialogs-organism",
   "download",
   "drag-drop-file-upload",
   "draggable-card",
+  "duplicate",
+  "edit",
   "errors",
+  "export",
   "feedback-organism",
   "field-highlighter",
   "file-input",
@@ -4574,10 +5075,12 @@ export const ICONS_BY_CATEGORY = {
   "form-selection",
   "forms-organism",
   "icons",
+  "import",
   "indicators",
   "info",
   "input-field",
   "input-organism",
+  "interaction",
   "json",
   "list",
   "lists",
@@ -4598,6 +5101,7 @@ export const ICONS_BY_CATEGORY = {
   "overlay",
   "pagination",
   "panels",
+  "paste",
   "performance-monitor",
   "pickers",
   "placeholder",
@@ -4606,6 +5110,8 @@ export const ICONS_BY_CATEGORY = {
   "progress",
   "radio-group",
   "rating",
+  "redo",
+  "restore",
   "rfqform",
   "rich-text-editor",
   "save",
@@ -4640,6 +5146,7 @@ export const ICONS_BY_CATEGORY = {
   "trees",
   "trending-down",
   "trending-up",
+  "undo",
   "upload",
   "upload-progress",
   "user",
@@ -4655,7 +5162,7 @@ export const ICONS_BY_CATEGORY = {
 ]
 } as const;
 
-export const ICONS_TOTAL = 355;
+export const ICONS_TOTAL = 394;
 
 export function getIconPath(name: IconName): string {
   return ICON_REGISTRY.byName[name]?.path ?? '';

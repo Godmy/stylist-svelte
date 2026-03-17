@@ -9,7 +9,7 @@
  */
 
 import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
-import { CardStyleManager } from './card';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
 export class DownloadCardStyleManager {
   /**

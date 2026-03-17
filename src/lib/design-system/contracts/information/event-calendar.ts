@@ -1,4 +1,4 @@
-import type { CalendarViewMode } from '../../tokens/information/date-time';
+import type { CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
 
 export interface CalendarEvent {
 	id: string;

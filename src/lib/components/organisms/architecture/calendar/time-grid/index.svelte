@@ -191,7 +191,7 @@
   }
   
   // Apply CSS classes using design system utilities
-  import { cn } from '$stylist/utils';
+  import { cn } from '$stylist/design-system/utils/classes';
   import { TimeGridStyleManager } from '$stylist/design-system/styles/architecture/time-grid';
   
   // Derived values for styling

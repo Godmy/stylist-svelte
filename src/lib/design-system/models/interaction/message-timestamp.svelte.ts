@@ -1,5 +1,5 @@
-import type { MessageTimestampProps } from '../../contracts/interaction/message-timestamp';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { MessageTimestampProps } from '$stylist/design-system/contracts/interaction/message-timestamp';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createMessageTimestampState(props: MessageTimestampProps) {
   // Initialize props with defaults

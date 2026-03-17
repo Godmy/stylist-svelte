@@ -1,7 +1,7 @@
-import type { DefaultVariants } from '../../tokens/interaction/variants';
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import { cn } from '../../utils/cn/index';
-import type { IconWrapperShape } from '../../tokens/information/icon-wrapper';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import type { IconWrapperShape } from '$stylist/design-system/tokens/information/icon-wrapper';
 
 export class IconStyleManager {
 	static getIconClasses(

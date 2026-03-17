@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
 

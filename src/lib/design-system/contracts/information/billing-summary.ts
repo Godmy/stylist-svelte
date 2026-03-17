@@ -1,5 +1,5 @@
-import type { BillingItemStatus, BillingSummaryStatus } from '../../tokens/interaction/statuses';
-import type { HtmlAttributesBase } from './common';
+import type { BillingItemStatus, BillingSummaryStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 
 export interface IBillingItem {
   id: string;

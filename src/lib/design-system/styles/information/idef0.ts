@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class Idef0StyleManager {
 	static getDiagramContainerClasses(className = ''): string {

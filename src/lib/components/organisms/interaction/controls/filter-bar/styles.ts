@@ -1,4 +1,4 @@
-import type { IFilterBarStyleClasses } from './types';
+import type { IFilterBarStyleClasses } from '$stylist/components/organisms/interaction/controls/filter-bar/types';
 
 /**
  * Style utility class following Single Responsibility Principle

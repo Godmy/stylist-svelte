@@ -1,4 +1,4 @@
-import type { CanvasChartPreset } from '../../contracts/information/canvas-chart';
+import type { CanvasChartPreset } from '$stylist/design-system/contracts/information/canvas-chart';
 
 export const CANVAS_CHART_PRESET: CanvasChartPreset = {
 	width: 800,

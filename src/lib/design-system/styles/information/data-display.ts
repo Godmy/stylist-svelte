@@ -1,5 +1,5 @@
-import { formatAnimatedValue, formatNumberFlowValue } from '../../utils/format/index';
-import { cn } from '../../utils/cn/index';
+import { formatAnimatedValue, formatNumberFlowValue } from '$stylist/design-system/utils/format/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 
 export class DataDisplayStyleManager {

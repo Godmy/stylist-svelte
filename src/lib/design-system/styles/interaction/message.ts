@@ -1,5 +1,5 @@
-import type { MessageAlign as MessageAlignment } from '../../tokens/information/message-align';
-import type { MessageAvatarSize, MessageStatus, MessageVariant } from '../../tokens/information/message';
+import type { MessageAlign as MessageAlignment } from '$stylist/design-system/tokens/information/message-align';
+import type { MessageAvatarSize, MessageStatus, MessageVariant } from '$stylist/design-system/tokens/information/message';
 
 const MESSAGE_ALIGNMENT_CLASSES = {
 	left: 'items-start',

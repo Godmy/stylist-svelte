@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { ChatStatusIndicatorProps } from '../../contracts/interaction/chat-status-indicator';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { ChatStatusIndicatorProps } from '$stylist/design-system/contracts/interaction/chat-status-indicator';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) {
   // Initialize props with defaults

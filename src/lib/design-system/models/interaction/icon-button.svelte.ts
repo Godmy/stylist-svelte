@@ -1,4 +1,4 @@
-import { createButtonState as createButtonStateImpl } from './button.svelte';
+import { createButtonState as createButtonStateImpl } from '$stylist/design-system/models/interaction/button.svelte';
 
 export function createIconButtonState(
 	...args: Parameters<typeof createButtonStateImpl>

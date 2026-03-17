@@ -11,7 +11,7 @@ import type {
 	ChartProps,
 	ChartSeries
 } from '../../contracts/information/chart';
-import { ChartStyleManager } from '../../styles/information/chart';
+import { ChartStyleManager } from '$stylist/design-system/styles/information/chart';
 
 function getChartBounds(series: ChartSeries[]): { minX: number; maxX: number; minY: number; maxY: number } {
 	const points = series.flatMap((item) => item.points);

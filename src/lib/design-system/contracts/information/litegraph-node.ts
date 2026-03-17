@@ -1,9 +1,9 @@
 import type { Snippet } from 'svelte';
-import type { HtmlAttributesBase } from './common';
-import type { GraphPortDataType, GraphPortDirection } from '../../tokens/information/graph-port';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
+import type { GraphPortDataType, GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
-import type { LiteGraphNodeState, LiteGraphNodeType } from '../../tokens/information/litegraph-node';
+import type { LiteGraphNodeState, LiteGraphNodeType } from '$stylist/design-system/tokens/information/litegraph-node';
 /**
  * Порт узла графа
  */

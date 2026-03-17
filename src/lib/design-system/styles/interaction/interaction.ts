@@ -1,6 +1,6 @@
-import type { DefaultVariants } from '../../tokens/interaction/variants';
-import { BASE_CLASSES } from '../../runtime/foundation';
-import { cn } from '../../utils/cn/index';
+import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const INTERACTIVE_BASE_CLASS = BASE_CLASSES.interactive;
 

@@ -1,6 +1,6 @@
-import type { Alignment } from '../../tokens/architecture/alignments';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 
-import type { LabelPosition } from '../../tokens/interaction/horizontal-positions';
+import type { LabelPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
 /** Props interface for SwitchWithLabel component */
 export interface ISwitchWithLabelProps {
   /**

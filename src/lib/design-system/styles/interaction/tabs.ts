@@ -1,6 +1,6 @@
-import { cn } from '../../utils/cn/index';
-import type { ComponentSize } from '../../tokens/architecture/component-size';
-import { STATE_CLASSES } from '../../runtime/foundation';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import { STATE_CLASSES } from '$stylist/design-system/runtime/foundation';
 
 const TAB_SIZE_CLASSES: Record<ComponentSize, string> = {
 	xs: 'px-1.5 py-0.5 text-xs',

@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { HtmlAttributesBase } from './common';
+import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture/primitives';
 import type { PanMode } from '$stylist/design-system/tokens/architecture/pan-modes';
 

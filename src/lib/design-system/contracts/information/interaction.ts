@@ -6,8 +6,8 @@ import type {
 	HtmlAttributesWithChildren,
 	HtmlStateAttr,
 	HtmlVariantSizeAttr
-} from './common';
-import type { ToolbarVariant } from '../../tokens/interaction/toolbar';
+} from '$stylist/design-system/contracts/information/common';
+import type { ToolbarVariant } from '$stylist/design-system/tokens/interaction/toolbar';
 
 export interface ToolbarInteractiveProps {
 	variant?: ToolbarVariant;

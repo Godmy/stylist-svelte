@@ -1,5 +1,5 @@
-import type { NotificationPosition } from '../../tokens/interaction/notification-positions';
-import type { NotificationType } from '../../tokens/interaction/statuses';
+import type { NotificationPosition } from '$stylist/design-system/tokens/interaction/notification-positions';
+import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
 
 /**
  * Notification types and interfaces following SOLID principles
@@ -7,7 +7,7 @@ import type { NotificationType } from '../../tokens/interaction/statuses';
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { Alignment } from '../../tokens/architecture/alignments';
+import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;
   title?: string;

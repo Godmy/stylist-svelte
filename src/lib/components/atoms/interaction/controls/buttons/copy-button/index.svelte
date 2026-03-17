@@ -7,7 +7,7 @@ const Check = 'check';
 	import { copyToClipboard } from '$stylist/utils/clipboard/';
 	import type { CopyButtonProps } from '$stylist/design-system/contracts';
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
-import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
+import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 

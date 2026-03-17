@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { PageBuilderElementType } from '../../tokens/interaction/page-builder';
+import type { PageBuilderElementType } from '$stylist/design-system/tokens/interaction/page-builder';
 export interface PageBuilderTextAttributes {
   FONT_SIZE?: string;
   color?: string;

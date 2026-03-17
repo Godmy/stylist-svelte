@@ -1,5 +1,5 @@
 import type { IMessageMetaStyleClasses } from '$stylist/design-system/contracts/information/message-meta';
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 /**
  * Style utility class following Single Responsibility Principle

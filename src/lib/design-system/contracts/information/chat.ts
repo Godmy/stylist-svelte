@@ -1,6 +1,6 @@
 import type { Density } from '$stylist/design-system/tokens';
 import type { NeutralVariant, DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from './common';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
 

@@ -1,4 +1,4 @@
-import type { IDropZoneStyleClasses } from './types';
+import type { IDropZoneStyleClasses } from '$stylist/components/organisms/interaction/controls/files/drop-zone/types';
 
 /**
  * Style utility class following Single Responsibility Principle

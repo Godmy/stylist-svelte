@@ -1,8 +1,8 @@
 <script lang="ts">
-import TokenRadioControl from '../token-radio/index.svelte';
-import TokenRangeControl from '../token-range/index.svelte';
-import TokenSelectControl from '../token-select/index.svelte';
-import TokenTextControl from '../token-text/index.svelte';
+import TokenRadioControl from '$stylist/components/atoms/interaction/controls/token-radio/index.svelte';
+import TokenRangeControl from '$stylist/components/atoms/interaction/controls/token-range/index.svelte';
+import TokenSelectControl from '$stylist/components/atoms/interaction/controls/token-select/index.svelte';
+import TokenTextControl from '$stylist/components/atoms/interaction/controls/token-text/index.svelte';
 	import type { TokenControlDefinition, TokenValue } from '$stylist/design-system/runtime/token-controls';
 
 	type TokenControlComposerProps = {

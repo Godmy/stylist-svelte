@@ -1,4 +1,4 @@
-import type { DashboardLayoutPreset } from '../../contracts/architecture/dashboard-layout';
+import type { DashboardLayoutPreset } from '$stylist/design-system/contracts/architecture/dashboard-layout';
 
 export const DASHBOARD_LAYOUT_PRESET: DashboardLayoutPreset = {
 	sidebarOpen: true,

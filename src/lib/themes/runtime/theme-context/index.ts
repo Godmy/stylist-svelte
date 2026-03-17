@@ -1,6 +1,6 @@
 import { getContext, setContext } from 'svelte';
-import type { Theme } from '../../contracts/theme';
-import type { ThemeName } from '../../contracts/theme-name';
+import type { Theme } from '$stylist/themes/contracts/theme';
+import type { ThemeName } from '$stylist/themes/contracts/theme-name';
 
 export const THEME_CONTEXT_KEY = Symbol('stylist-theme');
 

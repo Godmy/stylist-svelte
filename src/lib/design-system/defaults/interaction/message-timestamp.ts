@@ -1,4 +1,4 @@
-import type { MessageTimestampProps } from '../../contracts/interaction/message-timestamp';
+import type { MessageTimestampProps } from '$stylist/design-system/contracts/interaction/message-timestamp';
 
 export const messageTimestampPresets: Record<string, Partial<MessageTimestampProps>> = {
 	currentTime: {

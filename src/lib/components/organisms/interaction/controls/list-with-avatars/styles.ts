@@ -1,4 +1,4 @@
-import type { IListWithAvatarsStyleClasses } from './types';
+import type { IListWithAvatarsStyleClasses } from '$stylist/components/organisms/interaction/controls/list-with-avatars/types';
 
 /**
  * Style utility class following Single Responsibility Principle

@@ -1,5 +1,5 @@
-import type { ChatPreviewProps } from '../../contracts/interaction/chat-preview';
-import { mergeClasses } from '$stylist/utils/classes';
+import type { ChatPreviewProps } from '$stylist/design-system/contracts/interaction/chat-preview';
+import { mergeClasses } from '$stylist/design-system/utils/classes';
 
 export function createChatPreviewState(props: ChatPreviewProps) {
   // Initialize props with defaults

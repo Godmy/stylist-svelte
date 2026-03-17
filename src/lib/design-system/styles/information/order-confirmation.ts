@@ -1,5 +1,5 @@
-import { cn } from '../../utils/cn/index';
-import { CardStyleManager } from './card';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
 const ORDER_STATUS_CLASSES = {
 	pending: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',

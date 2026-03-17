@@ -1,4 +1,4 @@
-import { cn } from '../../utils/cn/index';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const TABLE_CLASSES = {
 	table: ['min-w-full', 'divide-y', 'divide-[var(--color-border-secondary)]'] as const,

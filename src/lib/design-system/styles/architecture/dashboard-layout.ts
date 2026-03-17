@@ -1,5 +1,5 @@
-import { cn } from '../../utils/cn/index';
-import type { Density } from '../../tokens/architecture/densities';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import type { Density } from '$stylist/design-system/tokens/architecture/densities';
 
 
 export class DashboardLayoutStyleManager {

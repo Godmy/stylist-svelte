@@ -8,8 +8,8 @@
  * - Single Responsibility: Only handles styling logic for ComponentPreview
  */
 
-import { cn } from '../../utils/cn/index';
-import { CardStyleManager } from './card';
+import { cn } from '$stylist/design-system/utils/cn/index';
+import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
 /**
  * Style manager for ComponentPreview component

@@ -2,7 +2,7 @@ import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { IDisableable, ILoadable, IStyleable } from './common';
+import type { IDisableable, ILoadable, IStyleable } from '$stylist/design-system/contracts/information/common';
 
 export interface IAlertAction {
   label: string;

@@ -1,5 +1,5 @@
-import type { ComponentSize } from '../../tokens';
-import type { HtmlAttributesWithChildren } from './common';
+import type { ComponentSize } from '$stylist/design-system/tokens';
+import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface LabelProps extends HtmlAttributesWithChildren<HTMLLabelElement> {
 	size?: ComponentSize;

@@ -1,6 +1,6 @@
-import type { NotificationBadgePosition } from '../../tokens/interaction/notification-positions';
-import type { NotificationBadgeVariant } from '../../tokens/interaction/variants';
-import { cn } from '../../utils/cn/index';
+import type { NotificationBadgePosition } from '$stylist/design-system/tokens/interaction/notification-positions';
+import type { NotificationBadgeVariant } from '$stylist/design-system/tokens/interaction/variants';
+import { cn } from '$stylist/design-system/utils/cn/index';
 
 const NOTIFICATION_BADGE_BASE_CLASSES =
 	'absolute inline-flex items-center justify-center rounded-full font-medium ring-2 ring-[var(--color-background-primary)]';

@@ -1,8 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/contracts';
 import type { Preset } from '$stylist/design-system/runtime/types';
-import { buildClasses } from '$stylist/utils/classes';
-import { computeAriaLabel } from '$stylist/utils/aria';
+import { buildClasses } from '$stylist/design-system/utils/classes';
+import { computeAriaLabel } from '$stylist/design-system/utils/aria';
 
 interface BaseCardStateProps<V extends string, S extends string>
 	extends Omit<Props, 'variant' | 'size'> {

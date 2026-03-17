@@ -1,6 +1,6 @@
-import { CountryFlagStyleManager } from './countryflag';
-import { IconStyleManager } from './icons';
-import { ImageStyleManager } from './image';
+import { CountryFlagStyleManager } from '$stylist/design-system/styles/information/countryflag';
+import { IconStyleManager } from '$stylist/design-system/styles/information/icons';
+import { ImageStyleManager } from '$stylist/design-system/styles/information/image';
 
 /**
  * Backward-compatible facade.
