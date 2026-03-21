@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createFormErrorMessageState } from '$stylist/design-system/runtime/input-state';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
@@ -31,7 +31,7 @@
 		content,
 		class: className = '',
 		...restProps
-	}: FormErrorMessageProps & HTMLAttributes<HTMLParagraphElement> = $props();
+	}: FormErrorMessageProps & InteractionHTMLAttributes<HTMLParagraphElement> = $props();
 
 	const formErrorState = $derived(createFormErrorMessageState({
 		variant: variant satisfies FormErrorVariant,

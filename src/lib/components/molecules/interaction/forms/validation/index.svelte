@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -13,7 +13,7 @@
     class?: string;
     id?: string; // Added for accessibility
     children: Snippet; // Explicitly define children as a slot prop
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     label,

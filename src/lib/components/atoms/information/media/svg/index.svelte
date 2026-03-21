@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
-	export type SvgProps = HTMLAttributes<HTMLSpanElement> & {
+	export type SvgProps = InformationHTMLAttributes<HTMLSpanElement> & {
 		svg: string;
 		size?: number | string;
 		strokeWidth?: number;

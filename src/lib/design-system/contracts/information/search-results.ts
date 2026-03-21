@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 export interface SearchResultItem {
 	id: string;
@@ -15,7 +15,7 @@ export interface SearchResultItem {
 	actions?: Snippet;
 }
 
-export interface SearchResultsProps extends Omit<HTMLAttributes<HTMLDivElement>, 'results'> {
+export interface SearchResultsProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'results'> {
 	results: SearchResultItem[];
 	query?: string;
 	loading?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import type { LiteGraphNodeProperty, NodePropertiesPanelProps } from '$stylist/design-system/contracts';
 	import { createNodePropertiesPanelState } from '$stylist/design-system/models/information/node-properties-panel.svelte';
 	import { IconButton, NodeProperty } from '$stylist/components/atoms';
@@ -34,7 +34,7 @@
 		} = props;
 
 		// Приводим restProps к правильному типу для aside
-		return rest as Omit<HTMLAttributes<HTMLElement>, 
+		return rest as Omit<InformationHTMLAttributes<HTMLElement>,
 			'class' | 'id' | 'oncopy' | 'oncut' | 'onpaste'>;
 	});
 

@@ -8,7 +8,7 @@
    * Interface Segregation: Provides clear interface through well-defined props
    * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
    */
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { SwitchWithLabelStyleManager } from '$stylist/design-system/styles/interaction/switch-with-label';
   import type { ISwitchWithLabelProps } from '$stylist/design-system/contracts/interaction/switch-with-label';
 
@@ -25,7 +25,7 @@
     onInput,
     onChange,
     ...restProps
-  }: ISwitchWithLabelProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
   let isChecked = $state(checked);
 

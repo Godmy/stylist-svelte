@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 /**
  * Notification Item data structure
@@ -16,7 +16,7 @@ export interface NotificationItem {
  * Notification Preferences Component Props
  * Used for managing user notification settings across different channels
  */
-export interface NotificationPreferencesProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationPreferencesProps extends InformationHTMLAttributes<HTMLDivElement> {
   /** Show email notification settings */
   showEmail?: boolean;
   /** Show push notification settings */
@@ -60,7 +60,7 @@ export interface ScheduledNotificationItem {
 /**
  * Scheduled Notification Component Props
  */
-export interface ScheduledNotificationProps extends HTMLAttributes<HTMLDivElement> {
+export interface ScheduledNotificationProps extends InformationHTMLAttributes<HTMLDivElement> {
   /** List of scheduled notifications */
   notifications?: ScheduledNotificationItem[];
   /** Show edit button for each notification */
@@ -84,7 +84,7 @@ export interface ScheduledNotificationProps extends HTMLAttributes<HTMLDivElemen
 /**
  * Notification Center Props
  */
-export interface NotificationCenterProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationCenterProps extends InformationHTMLAttributes<HTMLDivElement> {
   /** List of notifications */
   notifications?: NotificationItem[];
   /** Show unread count badge */
@@ -112,7 +112,7 @@ export interface NotificationCenterProps extends HTMLAttributes<HTMLDivElement> 
 /**
  * Notification List Props
  */
-export interface NotificationListProps extends HTMLAttributes<HTMLDivElement> {
+export interface NotificationListProps extends InformationHTMLAttributes<HTMLDivElement> {
   /** List of notifications */
   notifications?: NotificationItem[];
   /** Show dismiss button for each notification */

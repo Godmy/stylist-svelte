@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
   export type Step = {
     id: string;
@@ -17,7 +17,7 @@
     connectorClass?: string;
     labelClass?: string;
     descriptionClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & ArchitectureHTMLAttributes<HTMLDivElement>;
 
   let {
     steps = [],

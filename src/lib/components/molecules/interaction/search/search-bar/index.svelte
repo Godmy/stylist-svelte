@@ -12,12 +12,12 @@
   import { debounce } from '$stylist/utils/debounce';
   import { SearchBarStyleManager } from '$stylist/design-system/styles/interaction/search-bar';
   import type { ISearchBarProps } from '$stylist/design-system/contracts/interaction/search-bar';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   const Search = 'search';
   const X = 'x';
 
-  type Props = ISearchBarProps & HTMLAttributes<HTMLDivElement>;
+  type Props = ISearchBarProps & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     placeholder = 'Search nodes...',

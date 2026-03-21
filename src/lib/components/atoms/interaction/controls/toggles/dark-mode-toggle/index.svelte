@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Sun = 'sun';
 const Moon = 'moon';
@@ -9,7 +9,7 @@ const Laptop = 'laptop';
 
 	type ThemeMode = 'light' | 'dark' | 'system';
 	type Props = DarkModeToggleProps &
-		HTMLAttributes<HTMLButtonElement> & {
+		InteractionHTMLAttributes<HTMLButtonElement> & {
 			currentTheme?: ThemeMode;
 			showLabels?: boolean;
 			onThemeChange?: (theme: ThemeMode) => void;

@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-export interface AdvancedColorPickerProps extends HTMLAttributes<HTMLDivElement> {
+export interface AdvancedColorPickerProps extends InteractionHTMLAttributes<HTMLDivElement> {
   value?: string;
   disabled?: boolean;
   showInput?: boolean;

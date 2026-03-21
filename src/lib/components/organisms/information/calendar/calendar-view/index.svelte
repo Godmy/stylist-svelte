@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronLeft = 'chevron-left';
@@ -27,7 +28,7 @@ const Plus = 'plus';
 
   type ViewMode = 'day' | 'week' | 'month';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     events?: CalendarEvent[];
@@ -285,7 +286,6 @@ const Plus = 'plus';
     </div>
   {/if}
 </div>
-
 
 
 

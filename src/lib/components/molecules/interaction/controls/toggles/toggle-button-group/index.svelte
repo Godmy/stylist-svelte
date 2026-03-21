@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   type Option = {
     value: string;
@@ -24,7 +24,7 @@
     onInput?: (value: string | string[]) => void;
     /** @deprecated use onValueChange */
     onChange?: (value: string | string[]) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     options = [],

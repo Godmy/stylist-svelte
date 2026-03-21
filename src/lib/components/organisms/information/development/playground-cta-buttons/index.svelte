@@ -4,7 +4,7 @@ const Package = 'package';
 const Layers = 'layers';
 const ArrowRight = 'arrow-right';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type Props = {
     totalComponents: number;
@@ -15,7 +15,7 @@ const ArrowRight = 'arrow-right';
     playgroundTitle?: string;
     playgroundDescription?: string;
     class?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     totalComponents,

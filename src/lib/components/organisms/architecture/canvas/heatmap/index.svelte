@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 
@@ -46,7 +46,7 @@
   /**
    * Типы для пропсов компонента Heatmap
    */
-  export interface IHeatmapProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+  export interface IHeatmapProps extends Omit<ArchitectureHTMLAttributes<HTMLDivElement>, 'class'> {
     /** Данные для отображения на тепловой карте */
     data: IHeatmapCell[];
     /** Заголовок тепловой карты */

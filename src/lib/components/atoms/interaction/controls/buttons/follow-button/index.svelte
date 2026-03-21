@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const UserPlus = 'user-plus';
 const UserCheck = 'user-check';
@@ -8,7 +8,7 @@ const Loader2 = 'loader-2';
 
   import { Button } from '$stylist/components/atoms';
 
-  type RestProps = Omit<HTMLAttributes<HTMLButtonElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLButtonElement>, 'class'>;
 
   type Props = RestProps & {
     isFollowing?: boolean;

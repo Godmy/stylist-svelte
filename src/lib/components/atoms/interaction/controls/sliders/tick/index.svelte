@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { SliderTickProps } from '$stylist/design-system/contracts';
 	import { createSliderTickState } from '$stylist/design-system/models/interaction/tick.svelte';
 
-	type Props = SliderTickProps & HTMLAttributes<HTMLDivElement>;
+	type Props = SliderTickProps & InteractionHTMLAttributes<HTMLDivElement>;
 
 	let props: Props = $props();
 

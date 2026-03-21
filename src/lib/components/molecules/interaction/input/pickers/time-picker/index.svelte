@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { createEventDispatcher } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   const Clock = 'clock';
 
@@ -15,7 +15,7 @@
     onValueChange?: (time: string) => void;
     /** @deprecated use onValueChange */
     onChange?: (time: string) => void;
-  } & HTMLAttributes<HTMLInputElement>;
+  } & InteractionHTMLAttributes<HTMLInputElement>;
 
   const dispatch = createEventDispatcher<{ change: { time: string } }>();
 

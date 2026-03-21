@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 import type { PageBuilderElementType } from '$stylist/design-system/tokens/interaction/page-builder';
 export interface PageBuilderTextAttributes {
@@ -54,7 +54,7 @@ export interface PageBuilderToolbarItem {
   icon: string;
 }
 
-export interface PageBuilderProps extends HTMLAttributes<HTMLDivElement> {
+export interface PageBuilderProps extends InteractionHTMLAttributes<HTMLDivElement> {
   initialElements?: PageBuilderElement[];
   onSave?: (elements: PageBuilderElement[]) => void;
   showToolbar?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { IAccountProgressTrackerProps } from '$stylist/design-system/contracts';
 	import { mergeClasses } from '$stylist/design-system/utils/classes';
 
@@ -8,7 +8,7 @@
 		currentStep = 0,
 		class: className = '',
 		...restProps
-	}: IAccountProgressTrackerProps & HTMLAttributes<HTMLDivElement> = $props();
+	}: IAccountProgressTrackerProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
 	let localCurrentStep = $state(currentStep);
 

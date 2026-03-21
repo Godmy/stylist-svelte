@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -14,7 +14,7 @@
     primaryButtonClass?: string;
     secondaryButtonClass?: string;
     actionsClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     primaryButtonLabel = 'Submit',

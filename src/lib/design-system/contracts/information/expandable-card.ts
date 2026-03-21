@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { Snippet } from 'svelte';
 
 /**
@@ -6,7 +6,7 @@ import type { Snippet } from 'svelte';
  * @description Interface for ExpandableCard component props following SOLID principles
  * Separates the concerns of the component by defining all external contracts
  */
-export interface IExpandableCardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface IExpandableCardProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
   /**
    * Title of the expandable card
    */

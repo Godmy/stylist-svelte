@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Snippet } from 'svelte';
 
 export interface TreeNodeItemNode {
@@ -8,7 +8,7 @@ export interface TreeNodeItemNode {
   [key: string]: unknown;
 }
 
-export interface ITreeNodeItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITreeNodeItemProps extends InteractionHTMLAttributes<HTMLDivElement> {
   node: TreeNodeItemNode;
   onSelectCallback?: (key: string | undefined) => void;
   secondaryIcon?: any;

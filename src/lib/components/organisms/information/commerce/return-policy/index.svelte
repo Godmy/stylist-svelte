@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const RotateCcw = 'rotate-ccw';
 const Calendar = 'calendar';
@@ -30,7 +30,7 @@ const ChevronDown = 'chevron-down';
     icon: any; // Lucide icon
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     policyPeriod: number; // in days

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Bell = 'bell';
@@ -44,7 +44,7 @@ const X = 'x';
 		selections: Record<StylistCategoryId, string>;
 	};
 
-	type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
+	type Props = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {
 		initialCategory?: StylistCategoryId;
 		class?: string;
 		onSelectionChange?: (selection: StylistSelection) => void;

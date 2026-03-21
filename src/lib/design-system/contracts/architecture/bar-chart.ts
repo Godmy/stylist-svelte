@@ -1,8 +1,9 @@
 import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
 /**
  * Типы для компонента BarChart
- * 
+ *
  * Следует принципу единственной ответственности (SRP) из SOLID -
  * данный файл отвечает только за типизацию компонента BarChart
  */
@@ -18,22 +19,22 @@ export interface IChartDataPoint {
    * Уникальный идентификатор точки данных
    */
   id: string;
-  
+
   /**
    * Название/метка точки данных
    */
   name: string;
-  
+
   /**
    * Значение точки данных
    */
   value: number;
-  
+
   /**
    * Цвет точки данных
    */
   color?: string;
-  
+
   /**
    * Описание точки данных
    */
@@ -54,87 +55,82 @@ export interface IBarPosition {
 /**
  * Интерфейс пропсов компонента BarChart
  */
-export interface IBarChartProps {
+export interface IBarChartProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
   /**
    * Данные для отображения на диаграмме
    */
   data: IChartDataPoint[];
-  
+
   /**
    * Заголовок диаграммы
    * @default 'Bar Chart'
    */
   title?: string;
-  
+
   /**
    * Ширина диаграммы
    * @default 600
    */
   width?: number;
-  
+
   /**
    * Высота диаграммы
    * @default 400
    */
   height?: number;
-  
+
   /**
    * Показывать ли подсказку (тултип)
    * @default true
    */
   showTooltip?: boolean;
-  
+
   /**
    * Показывать ли легенду
    * @default true
    */
   showLegend?: boolean;
-  
+
   /**
    * Цветовая схема диаграммы
    * @default 'default'
    */
   colorScheme?: ThemeSchemeId;
-  
+
   /**
    * Максимальное значение для шкалы Y
    */
   maxValue?: number;
-  
+
   /**
    * Расстояние между барами
    * @default 10
    */
   barGap?: number;
-  
+
   /**
    * Ширина бара
    * @default 30
    */
   barWidth?: number;
-  
+
   /**
    * Показывать ли оси
    * @default true
    */
   showAxis?: boolean;
-  
+
   /**
    * Цвет осей
    * @default '#E5E7EB'
    */
   axisColor?: string;
-  
+
   /**
    * Обработчик клика по бару
    */
   onBarClick?: (item: IChartDataPoint) => void;
-  
-  /**
-   * Дополнительный CSS класс для контейнера
-   */
-  class?: string;
-  
+
   /**
    * Дополнительный CSS класс для области диаграммы
    */

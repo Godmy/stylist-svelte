@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { ChartAxisXProps } from '$stylist/design-system';
+	import type { ChartAxisXProps } from '$stylist/design-system/contracts/information/chart';
 	import { createChartAxisXState } from '$stylist/design-system/models/information/chart-function.svelte';
 
-	let props: ChartAxisXProps = $props();
+	let props: ChartAxisXProps = $props();``
 	const state = createChartAxisXState(props);
 
 	const y = $derived(props.y ?? 0);

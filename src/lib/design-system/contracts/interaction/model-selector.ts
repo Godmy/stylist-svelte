@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export interface Model {
 	id: string;
@@ -10,7 +10,7 @@ export interface Model {
 	tags?: string[];
 }
 
-export interface ModelSelectorProps extends HTMLAttributes<HTMLDivElement> {
+export interface ModelSelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	models?: Model[];
 	selectedModel?: string;
 	onModelSelect?: (modelId: string) => void;

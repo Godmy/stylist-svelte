@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const GripVertical = 'grip-vertical';
@@ -21,7 +21,7 @@ const GripVertical = 'grip-vertical';
     variant = 'card',
     size = 'md',
     ...restProps
-  }: SortableGridProps & Omit<HTMLAttributes<HTMLDivElement>, 'class'> = $props();
+  }: SortableGridProps & Omit<ArchitectureHTMLAttributes<HTMLDivElement>, 'class'> = $props();
 
   let draggedItem: SortableGridItem | null = $state(null);
   let draggedOverIndex: number | null = $state(null);

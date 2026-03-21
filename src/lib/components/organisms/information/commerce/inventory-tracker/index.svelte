@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Package = 'package';
 const AlertTriangle = 'alert-triangle';
@@ -38,7 +38,7 @@ const Search = 'search';
     acknowledged?: boolean;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     items: InventoryItem[];

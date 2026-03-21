@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { ILanguageSelectorProps } from './types';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { LanguageSelectorStyleManager } from './styles';
@@ -22,7 +22,7 @@
     buttonClass = '',
     dropdownClass = '',
     languageClass = '',
-  }: ILanguageSelectorProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: ILanguageSelectorProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
   let isOpen = $state(false);
   let searchQuery = $state('');

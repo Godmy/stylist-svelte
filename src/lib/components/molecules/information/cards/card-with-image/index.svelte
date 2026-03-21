@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { Snippet } from 'svelte';
 
   type Props = {
@@ -15,7 +15,7 @@
     bodyClass?: string;
     footerClass?: string;
     actionsClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     title,

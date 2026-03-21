@@ -1,5 +1,6 @@
 import type { HorizontalLayoutProps } from '$stylist/design-system/contracts/architecture/layout-extended';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
+import { clsx } from 'clsx';
 
 export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
 	const gap = $derived(props.gap ?? 'md');
@@ -7,7 +8,7 @@ export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
 	const justifyContent = $derived(props.justifyContent ?? 'justify');
 	const wrap = $derived(props.wrap ?? true);
 	const classes = $derived(
-		LayoutStyleManager.getHorizontalLayoutClasses(gap, alignItems, justifyContent, wrap, props.class ?? '')
+		LayoutStyleManager.getHorizontalLayoutClasses(gap, alignItems, justifyContent, wrap, clsx(props.class ?? ''))
 	);
 
 	return {

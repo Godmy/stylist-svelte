@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Accessibility = 'accessibility';
 const Volume2 = 'volume-2';
@@ -21,7 +22,7 @@ const Grid = 'grid';
     buttonClass?: string;
     variant?: 'default' | 'minimal' | 'compact';
     size?: 'sm' | 'md' | 'lg';
-  } & HTMLAttributes<HTMLDivElement>;
+  } & ArchitectureHTMLAttributes<HTMLDivElement>;
 
   let {
     showFontSizeControls = true,
@@ -35,6 +36,7 @@ const Grid = 'grid';
     size = 'md',
     ...restProps
   }: AccessibilityToolbarProps & HTMLAttributes<HTMLDivElement> = $props();
+  const hostClass = className == null ? undefined : String(className);
 
   let fontSizeScale = $state(1);
   let screenReaderMode = $state(false);
@@ -87,7 +89,7 @@ const Grid = 'grid';
   }
 
   // Generate CSS classes using the style manager
-  const containerClass = $derived(AccessibilityToolbarStyleManager.getContainerClass(className));
+  const containerClass = $derived(AccessibilityToolbarStyleManager.getContainerClass(hostClass));
   const toolbarClassComputed = $derived(AccessibilityToolbarStyleManager.getToolbarClass(toolbarClass));
   const buttonClassComputed = $derived(AccessibilityToolbarStyleManager.getButtonClass(buttonClass));
   const activeButtonClass = $derived(AccessibilityToolbarStyleManager.getActiveButtonClass(buttonClass));
@@ -163,7 +165,6 @@ const Grid = 'grid';
     </button>
   </div>
 </div>
-
 
 
 

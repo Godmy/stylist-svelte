@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const CheckCircle = 'check-circle';
@@ -8,7 +8,7 @@ const Info = 'info';
 const XCircle = 'x-circle';
 
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type MessageVariant = 'success' | 'warning' | 'error' | 'info';
 

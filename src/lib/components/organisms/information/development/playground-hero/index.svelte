@@ -5,7 +5,7 @@ const ExternalLink = 'external-link';
 const Heart = 'heart';
 const ArrowRight = 'arrow-right';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type AIModel = {
     name: string;
@@ -24,7 +24,7 @@ const ArrowRight = 'arrow-right';
     poweredByLabel?: string;
     aiModels?: AIModel[];
     class?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     title = 'Stylist',

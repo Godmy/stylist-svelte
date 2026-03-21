@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import Checkbox from '$stylist/components/atoms/interaction/controls/toggles/checkbox/index.svelte';
   import { CheckboxGroupStyleManager } from '$stylist/design-system/styles/interaction/checkbox-group';
 
@@ -11,7 +11,7 @@
     description?: string;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLFieldSetElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLFieldSetElement>, 'class'>;
 
   type Props = RestProps & {
     options: Option[];

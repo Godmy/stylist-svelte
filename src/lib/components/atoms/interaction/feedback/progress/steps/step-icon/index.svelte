@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Check = 'check';
 const X = 'x';
@@ -33,7 +33,7 @@ const X = 'x';
 		class: className = '',
 		children,
 		...restProps
-	}: IStepIconProps & HTMLAttributes<HTMLSpanElement> = $props();
+	}: IStepIconProps & InteractionHTMLAttributes<HTMLSpanElement> = $props();
 
 	const iconSize = $derived(size === 'sm' ? 14 : size === 'lg' ? 22 : 18);
 	let classes = $derived(

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
 
   type TimelineItem = {
@@ -18,7 +18,7 @@
     itemClass?: string;
     connectorClass?: string;
     iconClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     items = [],

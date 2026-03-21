@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronDown = 'chevron-down';
 const ChevronRight = 'chevron-right';
 
 
-  type RestProps = Omit<HTMLAttributes<HTMLTableRowElement>, 'class'>;
+  type RestProps = Omit<ArchitectureHTMLAttributes<HTMLTableRowElement>, 'class'>;
 
   type Props = RestProps & {
     expandableContent: Snippet;

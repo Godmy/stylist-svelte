@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Snippet } from 'svelte';
 
 export interface ChatHeaderUser {
@@ -20,7 +20,7 @@ export interface ChatHeaderChat {
 	avatar?: string;
 }
 
-export interface ChatHeaderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface ChatHeaderProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
 	chat: ChatHeaderChat;
 	currentUser: ChatHeaderUser;
 	showActions?: boolean;

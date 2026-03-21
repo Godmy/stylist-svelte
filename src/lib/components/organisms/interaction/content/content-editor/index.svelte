@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Bold = 'bold';
 const Italic = 'italic';
@@ -39,7 +39,7 @@ const FileText = 'file-text';
     toolbarClass?: string;
     editorClass?: string;
     contentClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     initialContent = [{ id: '1', type: 'text', content: '' }],

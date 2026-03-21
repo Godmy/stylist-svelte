@@ -3,7 +3,7 @@ import type { CalendarEvent, CalendarDay } from '$stylist/design-system/contract
 import type { CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { Snippet } from 'svelte';
 
   const ChevronLeft = 'chevron-left';
@@ -24,7 +24,7 @@ import type { CalendarViewMode } from '$stylist/design-system/tokens/information
     onEventCreate?: (date: Date) => void;
     onEventEdit?: (e: CalendarEvent) => void;
     onEventDelete?: (e: CalendarEvent) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   // Component props with proper typing
   let {

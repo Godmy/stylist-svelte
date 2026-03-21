@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { DocumentationBlockStyleManager } from '$stylist/design-system/styles/information/documentation-block';
   import CodeSection from '$stylist/components/molecules/information/development/code-section/index.svelte';
   import { Badge } from '$stylist/components/atoms';
@@ -33,7 +33,7 @@
      * Optional tags to display
      */
     tags?: string[];
-  } & HTMLAttributes<HTMLElement>;
+  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     title = '',

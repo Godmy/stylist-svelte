@@ -1,11 +1,11 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
  * Switch Props
  * Used for toggle switch controls
  */
-export interface SwitchProps extends Omit<HTMLAttributes<HTMLInputElement>, 'size'> {
+export interface SwitchProps extends Omit<InteractionHTMLAttributes<HTMLInputElement>, 'size'> {
   /** Whether the switch is checked */
   checked?: boolean;
   /** Whether the switch is disabled */

@@ -2,7 +2,7 @@
  * ChatHeader types and interfaces following SOLID principles
  */
 
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Snippet } from 'svelte';
 
 export interface User {
@@ -24,7 +24,7 @@ export interface Chat {
   avatar?: string;
 }
 
-export interface IChatHeaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface IChatHeaderProps extends InteractionHTMLAttributes<HTMLDivElement> {
   chat: Chat;
   currentUser: User;
   showActions?: boolean;

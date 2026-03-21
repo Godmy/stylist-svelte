@@ -3,13 +3,13 @@
   import { Avatar, Badge } from '$stylist/components/atoms';
   import { MessageTimestamp } from '$stylist/components/atoms/interaction/chat/atoms/message-timestamp';
   import { createEventDispatcher } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   type Props = {
     chat: Chat;
     currentUser: User;
     isActive?: boolean;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   const dispatch = createEventDispatcher<{
     select: void;

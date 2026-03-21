@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   type ListItem = {
     id: string;
@@ -28,7 +28,7 @@
     avatarClass?: string;
     contentClass?: string;
     actionsClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     items = [],

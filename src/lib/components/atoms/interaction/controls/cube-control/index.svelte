@@ -7,7 +7,7 @@ const House = 'house';
 const Info = 'info';
 const Radiation = 'radiation';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   const FACE_TITLES = ['Atomic Design', 'Contracts', 'Tokens', 'Styles Managers', 'Classes', 'Models'] as const;
   const FACE_NAMES = ['front', 'back', 'right', 'left', 'top', 'bottom'] as const;
@@ -81,7 +81,7 @@ const Radiation = 'radiation';
     onRotate?: (rotation: CubeRotation) => void;
     onSelectionChange?: (selection: CubeSelectionState) => void;
     onDebugLog?: (entry: CubeDebugLogEntry) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     size = 380,

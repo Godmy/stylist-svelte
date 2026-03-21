@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Copy = 'copy';
 const Check = 'check';
@@ -7,7 +7,7 @@ const Check = 'check';
   import { Button } from '$stylist/components/atoms';
   import { CodeStyleManager } from '$stylist/design-system/styles/information/code-block';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   /**
    * Unified Code Component

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { GraphEdgeProps } from '$stylist/design-system';
+	import type { GraphEdgeProps } from '$stylist/design-system/contracts/information/graph';
 	import { createGraphEdgeState } from '$stylist/design-system/models/architecture/graph-edge.svelte';
 
 	let props: GraphEdgeProps = $props();
@@ -112,5 +112,4 @@
 		color: var(--edge-active-color, var(--color-text-primary));
 	}
 </style>
-
 

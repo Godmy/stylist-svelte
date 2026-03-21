@@ -1,3 +1,4 @@
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
 
@@ -16,7 +17,7 @@ export interface LineChartData {
 	color?: string;
 }
 
-export interface ILineChartProps {
+export interface ILineChartProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
 	data: LineChartData[];
 	title?: string;
 	width?: number;
@@ -32,6 +33,5 @@ export interface ILineChartProps {
 	onPointClick?: (item: LineChartPoint, series: LineChartData) => void;
 	variant?: LineChartVariant;
 	size?: ComponentSize;
-	class?: string;
 	chartClass?: string;
 }

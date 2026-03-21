@@ -1,5 +1,6 @@
 import { mergeClasses } from '$stylist/design-system/utils/classes';
 import type { SeparatorProps } from '$stylist/design-system/contracts';
+import { clsx } from 'clsx';
 
 /**
  * Separator state creator
@@ -16,7 +17,7 @@ export function createSeparatorState(props: SeparatorProps) {
 			orientation === 'vertical'
 				? 'h-full border-l border-[var(--color-border-secondary)]'
 				: 'w-full border-t border-[var(--color-border-secondary)]',
-			props.class ?? ''
+			clsx(props.class ?? '')
 		)
 	);
 

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export type Message = {
   id: string;
@@ -28,5 +28,5 @@ export type ChatInterfaceProps = {
   messageClass?: string;
   inputClass?: string;
   footerClass?: string;
-} & HTMLAttributes<HTMLDivElement>;
+} & InteractionHTMLAttributes<HTMLDivElement>;
 

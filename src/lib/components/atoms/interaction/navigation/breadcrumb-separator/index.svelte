@@ -1,10 +1,10 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	type Props = {
 		class?: string;
 		children?: Snippet;
-	} & HTMLAttributes<HTMLSpanElement>;
+	} & InteractionHTMLAttributes<HTMLSpanElement>;
 	let { class: className = '', children = undefined, ...restProps } = $props() as Props;
 
 	// This component is automatically the default export in Svelte

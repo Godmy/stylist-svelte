@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Globe = 'globe';
 const Users = 'users';
@@ -42,7 +42,7 @@ const Filter = 'filter';
     summaryClass?: string;
     chartClass?: string;
     sourcesClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     title = 'Traffic Analytics',

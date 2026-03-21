@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export interface MultiSelectOption {
 	value: string;
@@ -6,7 +6,7 @@ export interface MultiSelectOption {
 	disabled?: boolean;
 }
 
-export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {
+export interface MultiSelectProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	options: MultiSelectOption[];
 	value?: string[];
 	placeholder?: string;

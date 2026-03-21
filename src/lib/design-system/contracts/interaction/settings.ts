@@ -1,10 +1,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { SecuritySettingsProps, AppearanceSettingsProps } from '$stylist/design-system/contracts/interaction/interaction-forms';
 
 /**
  * Account Settings Form Props
  */
-export interface AccountSettingsFormElementProps extends HTMLAttributes<HTMLFormElement> {
+export interface AccountSettingsFormElementProps extends InteractionHTMLAttributes<HTMLFormElement> {
   /** Show email change section */
   showEmailChange?: boolean;
   /** Show password change section */
@@ -83,6 +84,5 @@ export interface Session {
   lastActive: string;
   current: boolean;
 }
-
 
 

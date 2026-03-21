@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
-export interface QuoteRequestProps extends HTMLAttributes<HTMLDivElement> {
+export interface QuoteRequestProps extends InformationHTMLAttributes<HTMLDivElement> {
   class?: string;
 }
 

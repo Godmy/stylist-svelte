@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 export interface ScatterPlotDataPoint {
 	id: string;
@@ -11,7 +11,7 @@ export interface ScatterPlotDataPoint {
 	description?: string;
 }
 
-export interface ScatterPlotProps extends HTMLAttributes<HTMLDivElement> {
+export interface ScatterPlotProps extends InformationHTMLAttributes<HTMLDivElement> {
 	data: ScatterPlotDataPoint[];
 	title?: string;
 	width?: number;

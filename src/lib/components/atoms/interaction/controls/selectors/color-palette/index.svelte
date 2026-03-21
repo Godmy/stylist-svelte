@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createColorPaletteState } from '$stylist/design-system/models/interaction/color-palette.svelte';
   import type { ColorPaletteProps } from '$stylist/design-system/contracts/interaction/color-palette';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-  type Props = ColorPaletteProps & HTMLAttributes<HTMLDivElement>;
+  type Props = ColorPaletteProps & InteractionHTMLAttributes<HTMLDivElement>;
   let props: Props = $props();
 
   const state = createColorPaletteState(props);

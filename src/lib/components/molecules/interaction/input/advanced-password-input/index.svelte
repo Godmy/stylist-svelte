@@ -20,7 +20,7 @@
  */
 -->
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Eye = 'eye';
 const EyeOff = 'eye-off';
@@ -42,7 +42,7 @@ const EyeOff = 'eye-off';
     onInput,
     onChange,
     ...restProps
-  }: IAdvancedPasswordInputProps & HTMLAttributes<HTMLInputElement> = $props();
+  }: IAdvancedPasswordInputProps & InteractionHTMLAttributes<HTMLInputElement> = $props();
 
   let showPassword = $state(false);
   let inputValue = $state(value);

@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-export interface FeatureToggleProps extends HTMLAttributes<HTMLDivElement> {
+export interface FeatureToggleProps extends InteractionHTMLAttributes<HTMLDivElement> {
   label?: string;
   description?: string;
   checked?: boolean;

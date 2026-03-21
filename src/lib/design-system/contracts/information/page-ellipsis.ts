@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
-export interface PageEllipsisProps extends HTMLAttributes<HTMLSpanElement> {
+export interface PageEllipsisProps extends InformationHTMLAttributes<HTMLSpanElement> {
   class?: string;
 }
 

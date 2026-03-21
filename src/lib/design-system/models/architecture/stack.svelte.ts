@@ -2,6 +2,7 @@ import type { StackProps } from '$stylist/design-system/contracts';
 import type { Alignment, Orientation, Justification } from '$stylist/design-system/tokens';
 import { StackStyleManager } from '$stylist/design-system/styles';
 import { Size } from '$stylist/themes';
+import { clsx } from 'clsx';
 
 export function createStackState(props: StackProps) {
 	const direction = $derived((props.direction ?? 'vertical') as Orientation);
@@ -10,7 +11,7 @@ export function createStackState(props: StackProps) {
 	const justify = $derived((props.justify ?? 'justify') as Justification);
 	const gap = $derived(StackStyleManager.getStackGap(spacing));
 	const classes = $derived(
-		StackStyleManager.getStackClasses(direction, align, justify, props.class ?? '')
+		StackStyleManager.getStackClasses(direction, align, justify, clsx(props.class ?? ''))
 	);
 
 	return {

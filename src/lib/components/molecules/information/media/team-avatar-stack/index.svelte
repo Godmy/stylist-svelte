@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Users = 'users';
 const User = 'user';
@@ -24,7 +24,7 @@ const User = 'user';
     class?: string;
     avatarClass?: string;
     tooltipClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     members = [],

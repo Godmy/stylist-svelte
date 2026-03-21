@@ -1,13 +1,13 @@
 <script lang="ts">
   /**
    * CopyableCode - Legacy wrapper for unified Code
-   * 
+   *
    * @deprecated Use Code with copyable={true} instead
    */
   import Code from '../code-block/index.svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     code?: string;

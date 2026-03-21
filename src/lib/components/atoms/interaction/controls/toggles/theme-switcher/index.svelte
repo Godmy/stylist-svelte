@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
   import type { ThemeMode } from '$stylist/themes/runtime/css';
   import { applyThemeModeAndScheme } from '$stylist/themes/runtime/css';
@@ -11,7 +11,7 @@
 const Palette = 'palette';
 
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     currentTheme?: ThemeSchemeId;

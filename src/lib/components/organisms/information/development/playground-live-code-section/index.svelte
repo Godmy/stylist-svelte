@@ -4,7 +4,7 @@ const Play = 'play';
 const ArrowRight = 'arrow-right';
 
   import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type Props = {
     badgeText?: string;
@@ -15,7 +15,7 @@ const ArrowRight = 'arrow-right';
     ctaHref?: string;
     class?: string;
     children?: Snippet;
-  } & HTMLAttributes<HTMLElement>;
+  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     badgeText = 'Live Preview',

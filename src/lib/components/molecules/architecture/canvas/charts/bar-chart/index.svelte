@@ -12,7 +12,7 @@
    * РЎР»РµРґСѓРµС‚ Atomic Design: Р­С‚Рѕ РјРѕР»РµРєСѓР»Р°, РІРёР·СѓР°Р»РёР·РёСЂСѓСЋС‰Р°СЏ РЅР°Р±РѕСЂ РґР°РЅРЅС‹С…
    */
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Info = 'info';
 
@@ -37,7 +37,8 @@ const Info = 'info';
     class: hostClass = '',
     chartClass = '',
     ...restProps
-  }: IBarChartProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: IBarChartProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
+  const containerHostClass = hostClass == null ? undefined : String(hostClass);
 
   // Calculate max value if not provided
   let calculatedMaxValue = $derived(maxValue || Math.max(...data.map(d => d.value), 0));
@@ -87,7 +88,7 @@ const Info = 'info';
   let hoveredBar: number | null = $state(null);
 </script>
 
-<div class={BarChartStyleManager.getContainerClasses(hostClass)} style={`width: ${width}px; height: ${height}px;`} {...restProps}>
+<div class={BarChartStyleManager.getContainerClasses(containerHostClass)} style={`width: ${width}px; height: ${height}px;`} {...restProps}>
   {#if title}
     <div class={BarChartStyleManager.getTitleContainerClasses()}>
       <h3 class={BarChartStyleManager.getTitleClasses()}>{title}</h3>
@@ -210,7 +211,6 @@ const Info = 'info';
     </div>
   {/if}
 </div>
-
 
 
 

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { AdvancedToggleProps } from '$stylist/design-system/contracts';
 	import { createAdvancedToggleState } from '$stylist/design-system/models/interaction/advanced-toggle.svelte';
 
-	type Props = AdvancedToggleProps & HTMLAttributes<HTMLDivElement>;
+	type Props = AdvancedToggleProps & InteractionHTMLAttributes<HTMLDivElement>;
 	let props: Props = $props();
 	const restProps = $derived(
 		(() => {

@@ -2,10 +2,10 @@
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Slash = 'slash';
 
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { IBreadcrumbsProps } from '$stylist/design-system/contracts';
 
-	type Props = IBreadcrumbsProps & HTMLAttributes<HTMLElement>;
+	type Props = IBreadcrumbsProps & InteractionHTMLAttributes<HTMLElement>;
 
 	let { crumbs = [], class: className = '', ...restProps }: Props = $props();
 

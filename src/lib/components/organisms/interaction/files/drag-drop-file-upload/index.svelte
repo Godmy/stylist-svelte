@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Upload = 'upload';
 const FileText = 'file-text';
@@ -28,7 +28,7 @@ const X = 'x';
     preview?: boolean;
     onFileSelect?: (files: FileList) => void;
     onFileUpload?: (file: File) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     multiple = false,

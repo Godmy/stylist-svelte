@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Sparkles = 'sparkles';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type Props = {
     badgeText?: string;
@@ -13,7 +13,7 @@ const Sparkles = 'sparkles';
     secondaryLabel?: string;
     secondaryHref?: string;
     class?: string;
-  } & HTMLAttributes<HTMLElement>;
+  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     badgeText = 'Our Mission',

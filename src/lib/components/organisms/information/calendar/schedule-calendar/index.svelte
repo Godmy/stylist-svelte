@@ -1,11 +1,9 @@
 <script lang="ts">
-  import type { IScheduleCalendarProps, ScheduleTimeSlot, DaySchedule } from '$stylist/design-system/contracts/information/schedule-calendar';
-  import type { ScheduleEvent } from '$stylist/design-system/contracts/information/schedule-calendar';
+  import type { IScheduleCalendarProps, ScheduleTimeSlot, DaySchedule, ScheduleEvent } from '$stylist/design-system/contracts/information/schedule-calendar';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { TimeSlot } from '$stylist/components/atoms/interaction/controls/calendar/time-slot';
   import { ScheduleCalendarStyleManager } from '$stylist/design-system/styles/information/schedule-calendar';
-  import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   const ChevronLeft = 'chevron-left';
   const ChevronRight = 'chevron-right';
@@ -13,9 +11,7 @@
   const MapPin = 'map-pin';
   const Users = 'users';
 
-  type Props = IScheduleCalendarProps & {
-    children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement>;
+  type ScheduleCalendarProps = IScheduleCalendarProps & InformationHTMLAttributes<HTMLDivElement>;
 
   // Destructure props with defaults - using $props() only once
   let {
@@ -34,7 +30,7 @@
     headerClass = '',
     onEventClick,
     onSlotClick
-  } = $props() as Props;
+  } = $props() as ScheduleCalendarProps;
 
   let viewStartDate = $state(new Date(startDate));
   let viewEndDate = $state(new Date(endDate));

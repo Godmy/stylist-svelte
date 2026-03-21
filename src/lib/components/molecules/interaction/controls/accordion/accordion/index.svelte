@@ -20,7 +20,7 @@
  */
 -->
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronDown = 'chevron-down';
 
@@ -35,7 +35,7 @@ const ChevronDown = 'chevron-down';
     headerClass = '',
     contentClass = '',
     ...restProps
-  }: IAccordionProps & HTMLAttributes<HTMLElement> = $props();
+  }: IAccordionProps & InteractionHTMLAttributes<HTMLElement> = $props();
 
   let activeIds = $state<string[]>([]);
 

@@ -3,7 +3,7 @@
  * Соответствует принципу SOLID - обеспечивает строгую типизацию и изоляцию контрактов компонента
  */
 
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
 import type { KPIStatus } from '$stylist/design-system/tokens/interaction/statuses';
@@ -25,7 +25,7 @@ import type { KPIStatus } from '$stylist/design-system/tokens/interaction/status
  * - SRP: Интерфейс определяет только то, что нужно для KPIIndicator
  * - ISP: Пользователи могут использовать только нужные им свойства
  */
-export interface IKPIIndicatorProps extends HTMLAttributes<HTMLDivElement> {
+export interface IKPIIndicatorProps extends InformationHTMLAttributes<HTMLDivElement> {
   /**
    * Заголовок KPI индикатора
    */

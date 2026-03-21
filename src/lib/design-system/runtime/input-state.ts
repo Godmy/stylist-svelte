@@ -5,7 +5,7 @@ import { getCharacterCountState } from '$stylist/design-system/utils/input';
 type InputVariant = (typeof INPUT_FIELD_PRESET.variants)[number];
 type InputSize = (typeof INPUT_FIELD_PRESET.sizes)[number];
 
-export type InputStateOptions<V extends string = InputVariant, S extends string = InputSize> = {
+type InputStateOptions<V extends string = InputVariant, S extends string = InputSize> = {
 	variant?: V;
 	size?: S;
 	disabled?: boolean;

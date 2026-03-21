@@ -1,11 +1,15 @@
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
+import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
 import type { Density } from '$stylist/design-system/tokens/architecture/densities';
+
 /**
  * DashboardLayout props interface
  * @description Properties for configuring the dashboard layout component
  */
-export interface DashboardLayoutProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface DashboardLayoutProps
+	extends ArchitectureHTMLAttributes<HTMLDivElement>,
+		ChildrenHtmlAttributes<HTMLDivElement> {
   /**
    * Snippet content for the header section
    * @description Renders custom header content
@@ -23,18 +27,6 @@ export interface DashboardLayoutProps extends Omit<HTMLAttributes<HTMLDivElement
    * @description Renders custom footer content
    */
   footer?: Snippet;
-
-  /**
-   * Snippet content for the main content area
-   * @description Renders the primary content of the dashboard
-   */
-  children: Snippet;
-
-  /**
-   * Additional CSS class for the wrapper element
-   * @default ''
-   */
-  class?: string;
 
   /**
    * Additional CSS class for the header element
@@ -144,6 +136,5 @@ export interface DashboardLayoutPreset {
    */
   mobileBreakpoint: string;
 }
-
 
 

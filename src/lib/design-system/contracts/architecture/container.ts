@@ -1,9 +1,8 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ContainerMaxWidth } from '$stylist/design-system/tokens/architecture/size';
 
-export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+export interface ContainerProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
   size?: ContainerMaxWidth;
-  class?: string;
 }
 
 

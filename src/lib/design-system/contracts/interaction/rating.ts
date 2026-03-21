@@ -2,7 +2,7 @@
  * Типы и интерфейсы для компонента Rating
  */
 
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 /**
@@ -12,7 +12,7 @@ import type { ComponentSize } from '$stylist/design-system/tokens/architecture/c
 /**
  * Пропсы для компонента Rating
  */
-export interface IRatingProps extends HTMLAttributes<HTMLDivElement> {
+export interface IRatingProps extends InteractionHTMLAttributes<HTMLDivElement> {
   /**
    * Текущий рейтинг (0-5)
    * @default 0

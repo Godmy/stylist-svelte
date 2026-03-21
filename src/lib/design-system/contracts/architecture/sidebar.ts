@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ComponentType, Snippet } from 'svelte';
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
@@ -14,7 +14,7 @@ export interface NavItem {
 	badge?: string | number;
 }
 
-export interface SidebarProps extends HTMLAttributes<HTMLElement> {
+export interface SidebarProps extends ArchitectureHTMLAttributes<HTMLElement> {
 	items: NavItem[];
 	title?: string;
 	logo?: Snippet;
@@ -27,7 +27,6 @@ export interface SidebarProps extends HTMLAttributes<HTMLElement> {
 	variant?: SidebarVariant;
 	position?: Alignment;
 	disabled?: boolean;
-	class?: string;
 	navClass?: string;
 	itemClass?: string;
 	activeItemClass?: string;

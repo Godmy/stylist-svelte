@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import Svg from '../svg/index.svelte';
 	import { IconStyleManager } from '$stylist/design-system/styles';
 
@@ -24,7 +24,7 @@
 	export type IconShape = 'circle' | 'square' | 'rounded' | 'pill';
 	export type IconColor = IconVariant | 'gray';
 
-	export type IconProps = HTMLAttributes<HTMLSpanElement> & {
+	export type IconProps = InformationHTMLAttributes<HTMLSpanElement> & {
 		name?: string;
 		svg?: string;
 		size?: IconSize;

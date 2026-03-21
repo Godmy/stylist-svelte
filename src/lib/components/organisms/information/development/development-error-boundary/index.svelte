@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Bug = 'bug';
 const RotateCcw = 'rotate-ccw';
@@ -30,7 +30,7 @@ const ExternalLink = 'external-link';
     detailsClass?: string;
     actionsClass?: string;
     children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     fallback = undefined,

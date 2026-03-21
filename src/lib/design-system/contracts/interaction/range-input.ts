@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-export interface RangeInputProps extends HTMLAttributes<HTMLInputElement> {
+export interface RangeInputProps extends InteractionHTMLAttributes<HTMLInputElement> {
   min?: number;
   max?: number;
   step?: number;

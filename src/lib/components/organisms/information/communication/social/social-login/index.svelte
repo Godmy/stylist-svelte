@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const UserRoundPlus = 'user-round-plus';
 const Github = 'github';
@@ -27,7 +27,7 @@ const Loader2 = 'loader-2';
     borderColor: string;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     providers?: Provider[];

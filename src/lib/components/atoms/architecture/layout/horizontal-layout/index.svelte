@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HorizontalLayoutProps } from '$stylist/design-system';
+	import type { HorizontalLayoutProps } from '$stylist/design-system/contracts/architecture/layout-extended';
 	import { createHorizontalLayoutState } from '$stylist/design-system/models/architecture/horizontal-layout.svelte';
 
 	let props: HorizontalLayoutProps = $props();

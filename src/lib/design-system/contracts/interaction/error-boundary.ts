@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Snippet } from 'svelte';
 
 /**
@@ -6,7 +6,7 @@ import type { Snippet } from 'svelte';
  * @description Interface for ErrorBoundary component props following SOLID principles
  * Separates the concerns of the component by defining all external contracts
  */
-export interface IErrorBoundaryProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface IErrorBoundaryProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
   /**
    * The content to be wrapped by the error boundary
    */

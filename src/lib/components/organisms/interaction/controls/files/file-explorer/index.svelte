@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Folder = 'folder';
 const File = 'file';
@@ -15,7 +15,7 @@ const ChevronDown = 'chevron-down';
   import { Button } from '$stylist/components/atoms';
   import type { FileSystemItem, ViewMode } from './types';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     items: FileSystemItem[];

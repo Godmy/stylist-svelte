@@ -3,7 +3,7 @@
 	import type { GraphPortProps } from '$stylist/design-system/contracts/information/graph-port';
 	import type { GraphPortDataType } from '$stylist/design-system/tokens/information/graph-port';
 	import { createGraphPortState } from '$stylist/design-system/models/architecture/graph-port.svelte';
-	import { GRAPH_PORT_COLORS } from '$stylist/design-system/tokens';
+	import { GRAPH_PORT_COLORS } from '$stylist/design-system/tokens/information/graph-port';
 
 	let props: GraphPortProps = $props();
 

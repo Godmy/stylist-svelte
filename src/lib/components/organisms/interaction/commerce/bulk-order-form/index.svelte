@@ -12,7 +12,7 @@
    * РЎР»РµРґСѓРµС‚ Atomic Design: Р­С‚Рѕ РјРѕР»РµРєСѓР»Р°, РѕР±СЉРµРґРёРЅСЏСЋС‰Р°СЏ СЂР°Р·Р»РёС‡РЅС‹Рµ Р°С‚РѕРјС‹ Рё РјРѕР»РµРєСѓР»С‹
    */
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Package = 'package';
 const Plus = 'plus';
@@ -28,7 +28,7 @@ const ImageIcon = 'image';
   import type { BulkOrderFormProps } from '$stylist/design-system/contracts/interaction/bulk-order-form';
   import { BulkOrderFormStyleManager } from '$stylist/design-system/styles/interaction/bulk-order-form';
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'>;
 
   type Props = RestProps & BulkOrderFormProps;
 

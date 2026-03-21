@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
   import ChatMessage from '../chat-message/index.svelte';
   import MessageComposer from '../../../information/messages/message-composer/index.svelte';
@@ -14,7 +14,7 @@
     isOwn: boolean;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     messages: Message[];

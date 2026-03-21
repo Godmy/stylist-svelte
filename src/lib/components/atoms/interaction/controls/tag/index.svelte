@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 const X = 'x';
 
@@ -7,7 +7,7 @@ const X = 'x';
 	import type { TagProps } from '$stylist/design-system/contracts';
 	import { createTagState } from '$stylist/design-system/models/interaction/tag.svelte';
 
-	type Props = TagProps & HTMLAttributes<HTMLSpanElement>;
+	type Props = TagProps & InteractionHTMLAttributes<HTMLSpanElement>;
 	let props: Props = $props();
 	const restProps = $derived(
 		(() => {

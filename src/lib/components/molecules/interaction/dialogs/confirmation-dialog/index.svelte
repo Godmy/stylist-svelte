@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import { Button } from '$stylist/components/atoms';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     open?: boolean;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import FormDatePicker from '../form-date-picker/index.svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Calendar = 'calendar';
@@ -14,7 +14,7 @@ const Calendar = 'calendar';
     dateClass?: string;
     timeClass?: string;
     dropdownClass?: string;
-  } & HTMLAttributes<HTMLInputElement>;
+  } & InteractionHTMLAttributes<HTMLInputElement>;
 
   let {
     value = new Date(),

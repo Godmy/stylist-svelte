@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Translation } from '$stylist/design-system/tokens/information/translations';
 
 export interface AutoCompleteOption {
@@ -54,7 +54,7 @@ export interface TranslationLocale {
 	flag?: string;
 }
 
-export interface DateRangePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> {
+export interface DateRangePickerProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> {
 	value?: DateRangeValue;
 	disabled?: boolean;
 	placeholder?: string;
@@ -66,7 +66,7 @@ export interface DateRangePickerProps extends Omit<HTMLAttributes<HTMLDivElement
 	onChange?: (value: DateRangeValue) => void;
 }
 
-export interface DateTimeRangePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> {
+export interface DateTimeRangePickerProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> {
 	value?: DateTimeRangeValue;
 	disabled?: boolean;
 	placeholder?: string;

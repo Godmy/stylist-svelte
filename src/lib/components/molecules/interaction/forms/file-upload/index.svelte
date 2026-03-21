@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
   import { Button } from '$stylist/components/atoms';
 
@@ -46,7 +46,7 @@
      * Text to display in the upload area
      */
     uploadText?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     accept = '.pdf,.doc,.docx,.xls,.xlsx,.txt',

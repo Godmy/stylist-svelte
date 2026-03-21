@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { createTooltipState } from '$stylist/design-system/models/interaction/tooltip.svelte';
 	import type { TooltipProps } from '$stylist/design-system/contracts/interaction/tooltip';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-	type Props = TooltipProps & HTMLAttributes<HTMLElement>;
+	type Props = TooltipProps & InteractionHTMLAttributes<HTMLElement>;
 	let props: Props = $props();
 
 	const tooltipState = createTooltipState(props);

@@ -5,11 +5,13 @@
  * @version 1.0.0
  */
 
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
+
 /**
  * Props interface for ProcessStep component
  * Single Responsibility: Define the contract for ProcessStep component
  */
-export interface IProcessStepProps {
+export interface IProcessStepProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
   /**
    * Step number for the process
    */
@@ -42,10 +44,5 @@ export interface IProcessStepProps {
    * @default false
    */
   active?: boolean;
-
-  /**
-   * Additional CSS classes to apply to the component
-   */
-  class?: string;
 }
 

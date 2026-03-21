@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import MessageList from '../message-list/index.svelte';
 	import type { Message, MessageThreadMessage, MessageThreadProps, User } from '$stylist/design-system/contracts/information/chat';
 	import { createMessageThreadState } from '$stylist/design-system/models/information/message-thread.svelte';
@@ -7,7 +7,7 @@
 	type Props = MessageThreadProps & {
 		currentUser?: User;
 		onMessageAction?: (action: string, message: MessageThreadMessage) => void;
-	} & HTMLAttributes<HTMLDivElement>;
+	} & InformationHTMLAttributes<HTMLDivElement>;
 
 	let props: Props = $props();
 

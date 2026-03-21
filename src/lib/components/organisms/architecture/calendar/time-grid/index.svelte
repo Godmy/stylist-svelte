@@ -3,13 +3,13 @@
   import { Icon } from '$stylist/components/atoms';
   import { Button } from '$stylist/components/atoms';
   import type { Snippet } from 'svelte';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { TimeSlotStyleManager } from '$stylist/design-system/styles';
   import type { ExtendedTimeSlot, DayTimeGrid, ITimeGridProps, CalendarEvent } from './types';
 
   type Props = ITimeGridProps & {
     children?: Snippet;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & ArchitectureHTMLAttributes<HTMLDivElement>;
 
   // Destructure props with defaults - using $props() only once
   let {

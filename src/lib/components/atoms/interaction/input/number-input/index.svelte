@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Minus = 'minus';
 const Plus = 'plus';
@@ -20,7 +20,7 @@ const Plus = 'plus';
     onValueInput?: (value: number) => void;
     onValueChange?: (value: number) => void;
     onChange?: (value: number) => void;
-  } & HTMLAttributes<HTMLInputElement>;
+  } & InteractionHTMLAttributes<HTMLInputElement>;
 
   let {
     value = 0,

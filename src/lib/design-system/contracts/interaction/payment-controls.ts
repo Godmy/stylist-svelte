@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { PaymentStatus } from '$stylist/design-system/tokens/interaction/statuses';
 import type { PaymentMethodType } from '$stylist/design-system/tokens/interaction/payment-methods';
 
@@ -44,7 +44,7 @@ export interface PaymentSummaryTax {
 	amount: number;
 }
 
-export interface PaymentInfoProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaymentInfoProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	paymentMethods: PaymentMethod[];
 	acceptedCards?: string[];
 	showMethods?: boolean;
@@ -56,7 +56,7 @@ export interface PaymentInfoProps extends HTMLAttributes<HTMLDivElement> {
 	onMethodSelect?: (method: PaymentMethod) => void;
 }
 
-export interface PaymentMethodSelectorProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaymentMethodSelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	methods: PaymentMethod[];
 	selectedMethod?: string;
 	class?: string;
@@ -72,7 +72,7 @@ export interface PaymentMethodSelectorProps extends HTMLAttributes<HTMLDivElemen
 	disabled?: boolean;
 }
 
-export interface PaymentSelectorProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaymentSelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	methods: PaymentMethod[];
 	selectedMethod?: string;
 	showAddButton?: boolean;
@@ -89,7 +89,7 @@ export interface PaymentSelectorProps extends HTMLAttributes<HTMLDivElement> {
 	onSetDefault?: (id: string) => void;
 }
 
-export interface PaymentSummaryProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaymentSummaryProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	title?: string;
 	subtitle?: string;
 	items: PaymentSummaryItem[];

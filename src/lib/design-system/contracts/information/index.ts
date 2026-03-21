@@ -1,9 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AtomicPrinciplesProps, AtomicStats } from './atomic-principles';
 export type { ABTest, ABTestVariant, IABTestConfiguratorProps } from './abtest-configurator';
 export type { AccessibilityCheckboxProps } from './accessibility-checkbox';
 export type { IAiResultCardProps } from './ai-result-card';
 export type { IAlertAction, IAlertCardElementProps, IAlertCardProps } from './alert-card';
 export type { AnimatedNumberProps, NumberFlowProps } from './animation';
+export type { AtomicPrinciplesContract } from './atomic-principles';
 export type { AuthGuardProps } from './auth-guard';
 export type { AutoCompleteProps } from './auto-complete';
 export type { BadgeGroupItem, BadgeGroupProps, BadgeProps, BaseTagProps, ChipProps, CodeProps, NpmBadgeProps, TagProps } from './badge';

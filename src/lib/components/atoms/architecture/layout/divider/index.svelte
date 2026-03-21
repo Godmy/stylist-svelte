@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { DividerProps } from '$stylist/design-system';
+	import type { DividerProps } from '$stylist/design-system/contracts/architecture/divider';
 	import { createDividerState } from '$stylist/design-system/models/architecture/divider.svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
 
 	let props: DividerProps = $props();
 	const state = createDividerState(props);
@@ -15,7 +14,7 @@
 				dashed: _dashed,
 				...rest
 			} = props;
-			return rest as HTMLAttributes<HTMLDivElement>;
+			return rest;
 		})()
 	);
 </script>

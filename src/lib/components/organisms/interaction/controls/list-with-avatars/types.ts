@@ -3,7 +3,7 @@
  */
 
 import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export type ListItem = {
   id: string;
@@ -19,7 +19,7 @@ export type ListItem = {
   }>;
 };
 
-export interface IListWithAvatarsProps extends HTMLAttributes<HTMLDivElement> {
+export interface IListWithAvatarsProps extends InteractionHTMLAttributes<HTMLDivElement> {
   items: ListItem[];
   showAvatar?: boolean;
   showStatus?: boolean;

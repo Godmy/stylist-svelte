@@ -1,7 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { QuantitySelectorVariant } from '$stylist/design-system/tokens/interaction/variants';
-export interface IQuantitySelectorProps extends HTMLAttributes<HTMLDivElement> {
+export interface IQuantitySelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	value?: number;
 	min?: number;
 	max?: number;

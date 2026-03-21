@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const GripVertical = 'grip-vertical';
@@ -22,7 +22,7 @@ const Maximize2 = 'maximize-2';
     class?: string;
     headerClass?: string;
     bodyClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & ArchitectureHTMLAttributes<HTMLDivElement>;
 
   let props: Props = $props();
   

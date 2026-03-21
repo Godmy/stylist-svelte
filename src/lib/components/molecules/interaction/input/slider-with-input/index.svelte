@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   type Props = {
     value?: number;
@@ -18,7 +18,7 @@
     onInput?: (value: number) => void;
     /** @deprecated use onValueChange */
     onChange?: (value: number) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     value = 0,

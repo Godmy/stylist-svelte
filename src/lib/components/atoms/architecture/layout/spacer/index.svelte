@@ -1,6 +1,6 @@
-<script lang="ts">
+	<script lang="ts">
 	import type { HTMLAttributes } from 'svelte/elements';
-	import type { SpacerProps } from '$stylist/design-system/constants/architecture/spacer';
+	import type { SpacerProps } from '$stylist/design-system/contracts/architecture/spacer';
 	import { createSpacerState } from '$stylist/design-system/models/architecture/spacer.svelte';
 
 	type Props = SpacerProps & HTMLAttributes<HTMLDivElement>;

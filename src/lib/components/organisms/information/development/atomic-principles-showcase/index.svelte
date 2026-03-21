@@ -5,21 +5,10 @@ const Code = 'code';
 const Layers = 'layers';
 const Package = 'package';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
+  import type { AtomicPrinciplesContract } from '$stylist/design-system/contracts/information/atomic-principles';
 
-  type AtomicStats = {
-    atoms: number;
-    molecules: number;
-    organisms: number;
-  };
-
-  type Props = {
-    stats: AtomicStats;
-    badgeText?: string;
-    title?: string;
-    description?: string;
-    class?: string;
-  } & HTMLAttributes<HTMLElement>;
+  type AtomicPrinciplesProps = AtomicPrinciplesContract & InformationHTMLAttributes<HTMLElement>;
 
   let {
     stats,
@@ -28,7 +17,7 @@ const Package = 'package';
     description = 'Every component follows the proven Atomic Design methodology',
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: AtomicPrinciplesProps = $props();
 </script>
 
 <style>

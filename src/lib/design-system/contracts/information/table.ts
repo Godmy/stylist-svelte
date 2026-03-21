@@ -1,15 +1,15 @@
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 import type { TableCell } from '$stylist/design-system/tokens';
 import type { ContentProp } from '$stylist/design-system/contracts/information/common';
 
-export interface TableAttributesBase extends HTMLAttributes<HTMLTableElement> {
+export interface TableAttributesBase extends InformationHTMLAttributes<HTMLTableElement> {
 	class?: string;
 }
 
-export interface TableElementAttributesBase<T extends EventTarget = HTMLElement>
-	extends HTMLAttributes<T> {
+export interface TableElementAttributesBase<T extends HTMLElement = HTMLElement>
+	extends InformationHTMLAttributes<T> {
 	class?: string;
 }
 
@@ -33,6 +33,5 @@ export interface TableCellProps extends TableElementAttributesBase<HTMLTableCell
 export interface TableSectionProps
 	extends TableElementAttributesBase<HTMLTableSectionElement>,
 		ContentProp {}
-
 
 

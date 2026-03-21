@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Avatar, Icon as BaseIcon } from '$stylist/components/atoms';
 	import { createChatPreviewState } from '$stylist/design-system/models/interaction/chat-preview.svelte';
 	import type { ChatPreviewProps } from '$stylist/design-system/contracts/interaction/chat-preview';
@@ -7,7 +7,7 @@
 	const Check = 'check';
 	const CheckCheck = 'check-check';
 
-	type Props = ChatPreviewProps & HTMLAttributes<HTMLDivElement>;
+	type Props = ChatPreviewProps & InteractionHTMLAttributes<HTMLDivElement>;
 	let props: Props = $props();
 
 	const state = createChatPreviewState(props);

@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export interface TreeNode {
 	id: string;
@@ -7,22 +7,22 @@ export interface TreeNode {
 	expanded?: boolean;
 }
 
-export interface VirtualTreeProps extends HTMLAttributes<HTMLDivElement> {
+export interface VirtualTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	nodes: TreeNode[];
 	class?: string;
 }
 
-export interface FlatTreeProps extends HTMLAttributes<HTMLDivElement> {
+export interface FlatTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	nodes: TreeNode[];
 	class?: string;
 }
 
-export interface FolderTreeProps extends HTMLAttributes<HTMLDivElement> {
+export interface FolderTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	nodes: TreeNode[];
 	class?: string;
 }
 
-export interface AdvancedVirtualTreeProps extends HTMLAttributes<HTMLDivElement> {
+export interface AdvancedVirtualTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	nodes: TreeNode[];
 	class?: string;
 }

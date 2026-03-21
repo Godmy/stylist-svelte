@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 export interface IImageItem {
   id: string;
@@ -7,7 +7,7 @@ export interface IImageItem {
   caption?: string;
 }
 
-export interface IImageGalleryProps extends HTMLAttributes<HTMLDivElement> {
+export interface IImageGalleryProps extends InformationHTMLAttributes<HTMLDivElement> {
   images: IImageItem[];
   showThumbnails?: boolean;
   autoPlay?: boolean;

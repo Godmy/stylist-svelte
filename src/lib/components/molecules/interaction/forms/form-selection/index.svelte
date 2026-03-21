@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronDown = 'chevron-down';
@@ -17,7 +17,7 @@ const ChevronDown = 'chevron-down';
     headerClass?: string;
     contentClass?: string;
     children: Snippet;
-  } & HTMLAttributes<HTMLElement>;
+  } & InteractionHTMLAttributes<HTMLElement>;
 
   let {
     title,

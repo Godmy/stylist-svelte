@@ -1,9 +1,9 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
 
-export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
+export interface IconChevronProps extends InformationHTMLAttributes<HTMLSpanElement> {
   direction?: 'up' | 'down' | 'left' | 'right';
   size?: ComponentSize | '2xl';
   class?: string;
@@ -12,7 +12,7 @@ export interface IconChevronProps extends HTMLAttributes<HTMLSpanElement> {
   disabled?: boolean;
 }
 
-export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
+export interface IconCircleProps extends InformationHTMLAttributes<HTMLDivElement> {
   size?: ComponentSize;
   class?: string;
   variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
@@ -21,7 +21,7 @@ export interface IconCircleProps extends HTMLAttributes<HTMLDivElement> {
   icon?: Snippet;
 }
 
-export interface IconWrapperProps extends HTMLAttributes<HTMLDivElement> {
+export interface IconWrapperProps extends InformationHTMLAttributes<HTMLDivElement> {
   size?: ComponentSize;
   variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
   shape?: 'circle' | 'square' | 'rounded' | 'pill';

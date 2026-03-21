@@ -1,8 +1,8 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
 
-export interface PaginationProps extends HTMLAttributes<HTMLDivElement> {
+export interface PaginationProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	currentPage: number;
 	totalPages: number;
 	showFirstLast?: boolean;

@@ -4,7 +4,7 @@
   import { GraphNodeCardStyleManager } from '$stylist/design-system/styles/information/graph-node-card';
   import type { GraphNodeCardProps, GraphNodeData } from '$stylist/design-system/contracts';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
   // Props
   let {
@@ -17,7 +17,7 @@
     size = 'md',
     class: className = '',
     ...restProps
-  }: GraphNodeCardProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: GraphNodeCardProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
 
   // Events
   const dispatch = createEventDispatcher<{

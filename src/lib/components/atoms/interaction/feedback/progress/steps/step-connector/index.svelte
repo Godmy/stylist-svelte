@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { Snippet } from 'svelte';
 
 	import type { IStepConnectorProps } from '$stylist/design-system/contracts';
@@ -28,7 +28,7 @@
 			status?: 'pending' | 'active' | 'completed' | 'error';
 			class?: string;
 			children?: Snippet;
-		} & HTMLAttributes<HTMLDivElement>
+		} & InteractionHTMLAttributes<HTMLDivElement>
 	>();
 
 	let classes = $derived(

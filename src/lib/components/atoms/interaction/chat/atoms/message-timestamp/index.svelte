@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createMessageTimestampState } from '$stylist/design-system/models/interaction/message-timestamp.svelte';
   import type { MessageTimestampProps } from '$stylist/design-system/contracts/interaction/message-timestamp';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-  type Props = MessageTimestampProps & HTMLAttributes<HTMLTimeElement>;
+  type Props = MessageTimestampProps & InteractionHTMLAttributes<HTMLTimeElement>;
   let props: Props = $props();
 
   const state = createMessageTimestampState(props);

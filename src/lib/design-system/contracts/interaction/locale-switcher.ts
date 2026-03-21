@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export interface LocaleSwitcherLocale {
 	code: string;
@@ -12,7 +12,7 @@ export interface LocaleSwitcherTimezoneOption {
 	label: string;
 }
 
-export interface LocaleSwitcherProps extends HTMLAttributes<HTMLDivElement> {
+export interface LocaleSwitcherProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	locales: LocaleSwitcherLocale[];
 	currentLocale: string;
 	onLocaleChange?: (localeCode: string) => void;

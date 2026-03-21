@@ -6,9 +6,9 @@ const RotateCcw = 'rotate-ccw';
 
   import { createZoomControlsState } from '$stylist/design-system/models/interaction/zoom-controls.svelte';
   import type { ZoomControlsProps } from '$stylist/design-system/contracts/interaction/zoom-controls';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-  type Props = ZoomControlsProps & HTMLAttributes<HTMLDivElement>;
+  type Props = ZoomControlsProps & InteractionHTMLAttributes<HTMLDivElement>;
   let props: Props = $props();
 
   const zoomState = createZoomControlsState(props);

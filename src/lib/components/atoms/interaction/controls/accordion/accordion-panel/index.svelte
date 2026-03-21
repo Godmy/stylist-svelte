@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { AccordionPanelProps } from '$stylist/design-system/contracts';
 	import { createAccordionPanelState } from '$stylist/design-system/models/interaction/accordion-panel.svelte';
 
-	type Props = AccordionPanelProps & HTMLAttributes<HTMLDivElement>;
+	type Props = AccordionPanelProps & InteractionHTMLAttributes<HTMLDivElement>;
 
 	let props: Props = $props();
 

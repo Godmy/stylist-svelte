@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { IAlertCardElementProps } from '$stylist/design-system/contracts/information/alert-card';
   import { createAlertCardState } from '$stylist/design-system/models/information/alert-card.svelte';
   import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
@@ -17,7 +17,7 @@
    * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР° Р°Р»РµСЂС‚Р°
    */
 
-  let props: IAlertCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
+  let props: IAlertCardElementProps & InformationHTMLAttributes<HTMLDivElement> = $props();
 
   // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createAlertCardState(

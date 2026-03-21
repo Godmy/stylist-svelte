@@ -26,9 +26,10 @@
     active = false,
     class: className = ''
   }: IProcessStepProps = $props();
+  const hostClass = className == null ? undefined : String(className);
 
   // Get CSS classes from style manager
-  let classes = $derived(ProcessStepStyleManager.getBaseClasses(active, className));
+  let classes = $derived(ProcessStepStyleManager.getBaseClasses(active, hostClass));
   let numberContainerClasses = $derived(ProcessStepStyleManager.getNumberContainerClasses(active));
   let contentContainerClasses = $derived(ProcessStepStyleManager.getContentContainerClasses());
   let titleClasses = $derived(ProcessStepStyleManager.getTitleClasses(active));

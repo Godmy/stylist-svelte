@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Database = 'database';
 const Shuffle = 'shuffle';
@@ -46,7 +46,7 @@ const Filter = 'filter';
     selectorClass?: string;
     previewClass?: string;
     footerClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     schemas = [],

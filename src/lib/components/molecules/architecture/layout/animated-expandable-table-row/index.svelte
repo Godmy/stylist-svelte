@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const ChevronDown = 'chevron-down';
@@ -14,7 +14,7 @@ const ChevronUp = 'chevron-up';
     colspan?: number;
     children: Snippet;
     details: Snippet;
-  } & HTMLAttributes<HTMLTableRowElement>;
+  } & ArchitectureHTMLAttributes<HTMLTableRowElement>;
 
   let {
     expanded = false,

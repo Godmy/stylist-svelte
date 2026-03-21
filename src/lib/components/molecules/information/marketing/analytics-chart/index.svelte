@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { AnalyticsChartStyleManager } from '$stylist/design-system/styles/information/analytics-chart';
   import BarChart from '$stylist/components/molecules/architecture/canvas/charts/bar-chart/index.svelte';
   import LineChart from '$stylist/components/organisms/architecture/canvas/charts/line-chart/index.svelte';
@@ -13,7 +13,7 @@
     color?: string;
   };
 
-  interface AnalyticsChartProps extends HTMLAttributes<HTMLDivElement> {
+  interface AnalyticsChartProps extends InformationHTMLAttributes<HTMLDivElement> {
     title?: string;
     subtitle?: string;
     data: ChartDataPoint[];

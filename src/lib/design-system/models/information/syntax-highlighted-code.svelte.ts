@@ -1,6 +1,7 @@
 import { mergeClasses } from '$stylist/design-system/utils/classes';
 import type { SyntaxHighlightedCodeProps } from '$stylist/design-system/contracts';
 import { BadgeStyleManager } from '$stylist/design-system/styles/information/badge';
+import { clsx } from 'clsx';
 
 /**
  * SyntaxHighlightedCode state creator
@@ -21,7 +22,7 @@ export function createSyntaxHighlightedCodeState(props: SyntaxHighlightedCodePro
 			'rounded-md',
 			BadgeStyleManager.getCodeVariantClass(variant as SyntaxHighlightedCodeProps['variant']),
 			BadgeStyleManager.getCodeSizeClass(size as SyntaxHighlightedCodeProps['size']),
-			props.class ?? ''
+			clsx(props.class ?? '')
 		)
 	);
 	const codeClasses = $derived('font-mono text-sm');

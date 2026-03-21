@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { LineChartStyleManager } from '$stylist/design-system/styles/architecture/line-chart';
   import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';
@@ -62,7 +62,7 @@
     class: hostClass = '',
     chartClass = '',
     ...restProps
-  }: ILineChartProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: ILineChartProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
 
   // Определяем стили
   const baseClasses = $derived(`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(variant)} ${hostClass}`);

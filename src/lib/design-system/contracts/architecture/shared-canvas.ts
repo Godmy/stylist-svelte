@@ -1,6 +1,8 @@
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+
 // Props for SharedCanvas component
-export interface SharedCanvasProps {
+export interface SharedCanvasProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
   width?: number;
   height?: number;
   objects?: CanvasObject[];
@@ -12,7 +14,6 @@ export interface SharedCanvasProps {
   onObjectDelete?: (id: string) => void;
   showUsers?: boolean;
   showToolbar?: boolean;
-  class?: string;
   toolbarClass?: string;
   canvasClass?: string;
   variant?: 'default' | 'minimal';

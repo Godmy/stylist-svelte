@@ -2,9 +2,9 @@
   import { Icon } from '$stylist/components/atoms';
   import { createMenuItemState } from '$stylist/design-system/models/interaction/menu-item.svelte';
   import type { MenuItemProps } from '$stylist/design-system/contracts/interaction/menu-item';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-  type Props = MenuItemProps & HTMLAttributes<HTMLElement>;
+  type Props = MenuItemProps & InteractionHTMLAttributes<HTMLElement>;
   let props: Props = $props();
 
   const state = createMenuItemState(props);

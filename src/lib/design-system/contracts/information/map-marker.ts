@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { Snippet } from 'svelte';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { MapMarkerType, MarkerCategory, PinStyle } from '$stylist/design-system/tokens/information/map-marker';
@@ -15,7 +15,7 @@ export interface ContactInfo {
 	hours?: string;
 }
 
-export interface IMapMarkerProps extends HTMLAttributes<HTMLDivElement> {
+export interface IMapMarkerProps extends InformationHTMLAttributes<HTMLDivElement> {
 	coordinates: Coordinates;
 	title?: string;
 	description?: string;

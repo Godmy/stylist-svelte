@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const BarChart3 = 'bar-chart-3';
 const ArrowRight = 'arrow-right';
@@ -25,7 +25,7 @@ const ArrowRight = 'arrow-right';
     class?: string;
     headerClass?: string;
     stepClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     title = 'Conversion Funnel',

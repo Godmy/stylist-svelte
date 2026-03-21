@@ -7,30 +7,16 @@
 
 	const state = createSyntaxHighlightedCodeState(props);
 
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				language: _language,
-				code: _code,
-				variant: _variant,
-				size: _size,
-				showLineNumbers: _showLineNumbers,
-				startLineNumber: _startLineNumber,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
 </script>
 
-<Code
-	{...restProps}
-	code={state.code}
-	language={state.language}
-	showLineNumbers={state.showLineNumbers}
-	class={state.containerClasses}
-/>
+<div {...props}>
+	<Code
+		code={state.code}
+		language={state.language}
+		showLineNumbers={state.showLineNumbers}
+		class={state.containerClasses}
+	/>
+</div>
 
 
 

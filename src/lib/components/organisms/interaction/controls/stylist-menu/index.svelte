@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
 	import { tick } from 'svelte';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import StylistTab from '$stylist/components/molecules/interaction/controls/tabs/stylist-tab/index.svelte';
 
@@ -25,7 +25,7 @@
 		icon: string;
 	};
 
-	type Props = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
+	type Props = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'> & {
 		class?: string;
 		triggerIcon?: string;
 		currentItemId?: string;

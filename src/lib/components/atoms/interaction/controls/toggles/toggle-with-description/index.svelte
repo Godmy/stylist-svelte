@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
   type Props = {
     checked?: boolean;
@@ -14,7 +14,7 @@
     onValueChange?: (checked: boolean) => void;
     onInput?: (checked: boolean) => void;
     onChange?: (checked: boolean) => void;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     checked = false,

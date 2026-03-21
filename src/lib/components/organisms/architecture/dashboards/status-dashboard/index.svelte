@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const CheckCircle = 'check-circle';
@@ -22,7 +22,7 @@ const MoreHorizontal = 'more-horizontal';
     headerClass = '',
     variant = 'default',
     ...restProps
-  }: StatusDashboardProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: StatusDashboardProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
 
   // Define status classes
   function getStatusClasses(status: string) {

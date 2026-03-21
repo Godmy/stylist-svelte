@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon } from '$stylist/components/atoms';
 	import type { MessageInputProps } from '$stylist/design-system/contracts/information/chat';
 	import { createMessageInputState } from '$stylist/design-system/models/interaction/message-input.svelte';
 
-	type Props = MessageInputProps & HTMLAttributes<HTMLDivElement>;
+	type Props = MessageInputProps & InteractionHTMLAttributes<HTMLDivElement>;
 	let props: Props = $props();
 	const restProps = $derived(
 		(() => {

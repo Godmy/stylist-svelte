@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Skeleton } from '../skeleton';
 
 	type Props = {
 		count?: number;
 		showAvatar?: boolean;
 		class?: string;
-	} & HTMLAttributes<HTMLDivElement>;
+	} & InteractionHTMLAttributes<HTMLDivElement>;
 
 	let { count = 3, showAvatar = false, class: className = '', ...restProps }: Props = $props();
 

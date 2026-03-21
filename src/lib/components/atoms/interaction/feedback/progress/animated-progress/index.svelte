@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	let {
 		value = 0,
 		min = 0,
@@ -15,7 +15,7 @@
 		label?: string;
 		showPercentage?: boolean;
 		class?: string;
-	} & HTMLAttributes<HTMLDivElement>>();
+	} & InteractionHTMLAttributes<HTMLDivElement>>();
 
 	let percentage = $derived(Math.round(((value - min) / (max - min)) * 100));
 </script>

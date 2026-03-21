@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { ComponentType, Snippet } from 'svelte';
   import { Icon } from '$stylist/components/atoms';
   import { SidebarStyleManager } from '$stylist/design-system/styles';
@@ -27,7 +27,8 @@
     logoClass = '',
     footerClass = '',
     ...restProps
-  }: SidebarProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: SidebarProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
+  const hostClass = className == null ? undefined : String(className);
 
   let isMobile = $state(window.innerWidth < mobileBreakpoint);
   let isSidebarOpen = $state(!collapsed);
@@ -62,7 +63,7 @@
   }
 
   // Generate CSS classes using the style manager
-  const containerClass = $derived(SidebarStyleManager.getHostClasses(className));
+  const containerClass = $derived(SidebarStyleManager.getHostClasses(hostClass));
   const mobileButtonClass = $derived(SidebarStyleManager.getMobileButtonClasses());
   const overlayClass = $derived(SidebarStyleManager.getOverlayClasses());
   const sidebarClass = $derived(SidebarStyleManager.getSidebarClasses(isMobile, isSidebarOpen, width, mobileWidth));
@@ -188,7 +189,6 @@
     <!-- Actual content would go here -->
   </div>
 </div>
-
 
 
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -16,7 +16,7 @@
 		ariaLabel?: string;
 		/** HTML name attribute */
 		name?: string;
-	} & Omit<HTMLAttributes<HTMLInputElement>, 'size' | 'checked'>;
+	} & Omit<InteractionHTMLAttributes<HTMLInputElement>, 'size' | 'checked'>;
 
 	let {
 		size = 'md',

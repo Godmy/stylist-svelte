@@ -1,17 +1,15 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
+import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
 
 /**
  * Aspect Ratio Props
  * Used for maintaining aspect ratios in containers
  */
-export interface AspectRatioProps extends HTMLAttributes<HTMLDivElement> {
+export interface AspectRatioProps
+	extends ArchitectureHTMLAttributes<HTMLDivElement>,
+		ChildrenHtmlAttributes<HTMLDivElement> {
   /** Aspect ratio value (e.g., 16/9, 4/3, 1) */
   ratio?: number;
-  /** Custom class name */
-  class?: string;
-  /** Content to display within the aspect ratio container */
-  children?: any;
 }
-
 
 

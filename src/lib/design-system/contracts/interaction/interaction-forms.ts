@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-export interface AddressFormProps extends HTMLAttributes<HTMLFormElement> {
+export interface AddressFormProps extends InteractionHTMLAttributes<HTMLFormElement> {
   street?: string;
   city?: string;
   region?: string;
@@ -9,49 +9,49 @@ export interface AddressFormProps extends HTMLAttributes<HTMLFormElement> {
   class?: string;
 }
 
-export interface DocumentPreviewProps extends HTMLAttributes<HTMLDivElement> {
+export interface DocumentPreviewProps extends InteractionHTMLAttributes<HTMLDivElement> {
   title?: string;
   content?: string;
   format?: 'text' | 'json' | 'markdown';
   class?: string;
 }
 
-export interface FormWithValidationProps extends HTMLAttributes<HTMLFormElement> {
+export interface FormWithValidationProps extends InteractionHTMLAttributes<HTMLFormElement> {
   email?: string;
   password?: string;
   class?: string;
 }
 
-export interface LoginFormProps extends HTMLAttributes<HTMLFormElement> {
+export interface LoginFormProps extends InteractionHTMLAttributes<HTMLFormElement> {
   email?: string;
   rememberMe?: boolean;
   class?: string;
 }
 
-export interface ScreenReaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface ScreenReaderProps extends InteractionHTMLAttributes<HTMLDivElement> {
   title?: string;
   content?: string;
   class?: string;
 }
 
-export interface SearchFormProps extends HTMLAttributes<HTMLFormElement> {
+export interface SearchFormProps extends InteractionHTMLAttributes<HTMLFormElement> {
   query?: string;
   placeholder?: string;
   class?: string;
 }
 
-export interface SecureFormProps extends HTMLAttributes<HTMLFormElement> {
+export interface SecureFormProps extends InteractionHTMLAttributes<HTMLFormElement> {
   token?: string;
   class?: string;
 }
 
-export interface SessionManagerProps extends HTMLAttributes<HTMLDivElement> {
+export interface SessionManagerProps extends InteractionHTMLAttributes<HTMLDivElement> {
   activeSessions?: number;
   expiresAt?: string;
   class?: string;
 }
 
-export interface AppearanceSettingsProps extends HTMLAttributes<HTMLFormElement> {
+export interface AppearanceSettingsProps extends InteractionHTMLAttributes<HTMLFormElement> {
   theme?: 'light' | 'dark' | 'system';
   uiTheme?: 'minimal' | 'ocean' | 'forest' | 'sunset';
   onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
@@ -59,7 +59,7 @@ export interface AppearanceSettingsProps extends HTMLAttributes<HTMLFormElement>
   class?: string;
 }
 
-export interface SecuritySettingsProps extends HTMLAttributes<HTMLFormElement> {
+export interface SecuritySettingsProps extends InteractionHTMLAttributes<HTMLFormElement> {
   twoFactor?: boolean;
   loginAlerts?: boolean;
   class?: string;

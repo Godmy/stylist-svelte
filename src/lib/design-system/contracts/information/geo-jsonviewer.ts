@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 export interface GeoJsonGeometry {
 	type:
@@ -37,7 +37,7 @@ export interface MapView {
 	zoom: number;
 }
 
-export interface IGeoJSONViewerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
+export interface IGeoJSONViewerProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	geojsonData?: GeoJsonFeatureCollection;
 	layers?: GeoJsonLayer[];
 	class?: string;

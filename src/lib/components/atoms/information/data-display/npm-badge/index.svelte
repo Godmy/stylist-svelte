@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import type { NpmBadgeProps } from '$stylist/design-system';
 	import { createNpmBadgeState } from '$stylist/design-system/models/information/npm-badge.svelte';
 
-	type Props = NpmBadgeProps & HTMLAttributes<HTMLElement>;
+	type Props = NpmBadgeProps & InformationHTMLAttributes<HTMLElement>;
 
 	let props: Props = $props();
 

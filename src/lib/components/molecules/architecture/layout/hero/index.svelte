@@ -32,9 +32,10 @@
     class: className = '',
     children
   }: IHeroProps = $props();
+  const hostClass = className == null ? undefined : String(className);
   
   // Вычисляемые стили через derived для изоляции логики стилизации
-  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as Height, className));
+  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as Height, hostClass));
   const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as Background));
   const contentClasses = $derived(HeroStyleManager.getContentClasses());
   const titleClasses = $derived(HeroStyleManager.getTitleClasses());

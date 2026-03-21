@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon } from '$stylist/components/atoms';
   import { PaginationStyleManager } from '$stylist/design-system/styles';
   import type { PaginationProps } from '$stylist/design-system/contracts/interaction/pagination';
@@ -20,7 +20,7 @@
     disabledButtonClass = '',
     onPageChange,
     ...restProps
-  }: PaginationProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: PaginationProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
   // Calculate visible page range
   function getVisiblePages() {

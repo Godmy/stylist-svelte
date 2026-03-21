@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const HardDrive = 'hard-drive';
 const Zap = 'zap';
@@ -51,7 +51,7 @@ const Settings = 'settings';
     resourceClass?: string;
     suggestionClass?: string;
     footerClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     resources = [],

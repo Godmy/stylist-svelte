@@ -12,7 +12,7 @@ const Sparkles = 'sparkles';
 const Pencil = 'pencil';
 const X = 'x';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
 
@@ -48,7 +48,7 @@ const X = 'x';
     onToggleDarkMode?: () => void;
     onSetColorScheme?: (id: string) => void;
     class?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     showComponentTree = false,

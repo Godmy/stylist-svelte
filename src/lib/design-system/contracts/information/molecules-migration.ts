@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
 import type { SemanticVariant } from '$stylist/design-system/tokens/interaction/variants';
@@ -6,7 +7,7 @@ import type { PropType } from '$stylist/design-system/tokens/interaction/prop-ty
 import type { Style as LineStyle } from '$stylist/design-system/tokens/architecture/style';
 
 import type { CodeLanguage } from '$stylist/design-system/tokens/information/code-language';
-export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
+export interface ProductSearchProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
   class?: string;
   suggestions?: string[];
@@ -14,7 +15,7 @@ export interface ProductSearchProps extends Omit<HTMLAttributes<HTMLDivElement>,
   onSuggestionSelect?: (suggestion: string) => void;
 }
 
-export interface WishlistButtonProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onchange'> {
+export interface WishlistButtonProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'onchange'> {
   inWishlist?: boolean;
   class?: string;
   buttonClass?: string;
@@ -30,7 +31,7 @@ export interface WishlistButtonProps extends Omit<HTMLAttributes<HTMLDivElement>
   onError?: (error: string) => void;
 }
 
-export interface CodeEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'oninput'> {
+export interface CodeEditorProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'oninput'> {
   code?: string;
   language?: CodeLanguage;
   height?: string;
@@ -55,7 +56,7 @@ export interface PropDefinition {
   step?: number;
 }
 
-export interface PropsEditorProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onchange'> {
+export interface PropsEditorProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'onchange'> {
   propDefinitions?: PropDefinition[];
   propValues?: Record<string, unknown>;
   class?: string;
@@ -76,5 +77,4 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   highlight?: boolean;
   class?: string;
 }
-
 

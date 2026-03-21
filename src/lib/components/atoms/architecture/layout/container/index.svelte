@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ContainerProps } from '$stylist/design-system';
+	import type { ContainerProps } from '$stylist/design-system/contracts/architecture/container';
 	import { createContainerState } from '$stylist/design-system/models/architecture/container.svelte';
 
 	let props: ContainerProps = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { CanvasImageEditorStyleManager } from '$stylist/design-system/styles';
   import type { CanvasImageEditorProps } from '$stylist/design-system/contracts/information/canvas-image-editor';
 
@@ -16,7 +16,7 @@
     hue = 0,
     class: className = '',
     ...restProps
-  }: CanvasImageEditorProps & HTMLAttributes<HTMLCanvasElement> = $props();
+  }: CanvasImageEditorProps & ArchitectureHTMLAttributes<HTMLCanvasElement> = $props();
 
   let canvasRef: HTMLCanvasElement | null = null;
   let image: HTMLImageElement | null = null;

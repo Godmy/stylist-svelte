@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Palette = 'palette';
 
 
-  type RestProps = Omit<HTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>;
 
   type Props = RestProps & {
     value?: string;

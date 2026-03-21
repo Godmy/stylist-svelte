@@ -1,9 +1,9 @@
 <script lang="ts">
   import { createChatStatusIndicatorState } from '$stylist/design-system/models/interaction/chat-status-indicator.svelte';
   import type { ChatStatusIndicatorProps } from '$stylist/design-system/contracts/interaction/chat-status-indicator';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-  type Props = ChatStatusIndicatorProps & HTMLAttributes<HTMLSpanElement>;
+  type Props = ChatStatusIndicatorProps & InteractionHTMLAttributes<HTMLSpanElement>;
   let props: Props = $props();
 
   const state = createChatStatusIndicatorState(props);

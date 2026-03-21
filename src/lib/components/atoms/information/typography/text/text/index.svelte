@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import type { Snippet } from 'svelte';
 
 	import type { TextProps } from '$stylist/design-system/contracts';
@@ -15,7 +15,7 @@
 	 * @returns An accessible, styled text element
 	 */
 
-	let props: TextProps & HTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
+	let props: TextProps & InformationHTMLAttributes<HTMLElement> & { children?: Snippet } = $props();
 
 	const variant = $derived(props.variant ?? 'default');
 	const size = $derived(props.size ?? 'md');

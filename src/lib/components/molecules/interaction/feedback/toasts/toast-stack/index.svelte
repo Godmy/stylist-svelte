@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const X = 'x';
 const CheckCircle = 'check-circle';
@@ -30,7 +30,7 @@ const AlertTriangle = 'alert-triangle';
     maxToasts?: number;
     class?: string;
     toastClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     toasts = [],

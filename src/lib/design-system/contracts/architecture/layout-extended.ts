@@ -1,6 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { Alignment, Justification, Orientation, ComponentSize } from '$stylist/design-system/tokens';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
+import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
 
 /**
  * Секция для layout с динамическими элементами
@@ -15,8 +16,9 @@ export interface LayoutSection {
 /**
  * Вертикальный layout - базовый компонент для вертикального выравнивания
  */
-export interface VerticalLayoutProps extends HtmlAttributesWithChildren<HTMLDivElement> {
-	children: Snippet;
+export interface VerticalLayoutProps
+	extends ArchitectureHTMLAttributes<HTMLDivElement>,
+		ChildrenHtmlAttributes<HTMLDivElement> {
 	gap?: ComponentSize;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
@@ -27,8 +29,9 @@ export interface VerticalLayoutProps extends HtmlAttributesWithChildren<HTMLDivE
  * Горизонтальный layout - универсальный компонент для горизонтального/вертикального выравнивания
  * Объединяет функциональность stacked-layout, side-by-side-layout и split-layout
  */
-export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDivElement> {
-	children?: Snippet;
+export interface HorizontalLayoutProps
+	extends ArchitectureHTMLAttributes<HTMLDivElement>,
+		ChildrenHtmlAttributes<HTMLDivElement> {
 	sections?: LayoutSection[];
 	direction?: Orientation;
 	gap?: ComponentSize;
@@ -43,15 +46,15 @@ export interface HorizontalLayoutProps extends HtmlAttributesWithChildren<HTMLDi
 /**
  * Grid layout - компонент для сеточной раскладки
  */
-export interface GridLayoutExtendedProps extends HtmlAttributesWithChildren<HTMLDivElement> {
-	children: Snippet;
+export interface GridLayoutExtendedProps
+	extends ArchitectureHTMLAttributes<HTMLDivElement>,
+		ChildrenHtmlAttributes<HTMLDivElement> {
 	cols?: number;
 	gap?: ComponentSize;
 	responsive?: boolean;
 	alignItems?: Alignment;
 	justifyContent?: Justification;
 }
-
 
 
 

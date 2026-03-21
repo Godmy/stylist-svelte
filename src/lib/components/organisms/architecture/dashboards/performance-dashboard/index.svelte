@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon } from '$stylist/components/atoms';
   import { PerformanceDashboardStyleManager } from '$stylist/design-system/styles';
   import type { PerformanceDashboardProps, Metric } from '$stylist/design-system/contracts/interaction/performance-dashboard';
@@ -19,7 +19,7 @@
     variant = 'default',
     size = 'md',
     ...restProps
-  }: PerformanceDashboardProps & HTMLAttributes<HTMLDivElement> = $props();
+  }: PerformanceDashboardProps & ArchitectureHTMLAttributes<HTMLDivElement> = $props();
 
   let selectedTimeRange = $state(timeRange);
 

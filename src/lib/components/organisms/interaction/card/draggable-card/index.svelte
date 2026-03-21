@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const GripVertical = 'grip-vertical';
 const MoreHorizontal = 'more-horizontal';
@@ -19,7 +19,7 @@ const MoreHorizontal = 'more-horizontal';
     assignedTo?: string;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLElement>, 'class'>;
+  type RestProps = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'>;
 
   type Props = RestProps & {
     data: CardData;

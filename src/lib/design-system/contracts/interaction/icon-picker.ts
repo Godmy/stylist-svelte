@@ -1,6 +1,6 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
-export interface IIconPickerRestProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {}
+export interface IIconPickerRestProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {}
 
 export interface IIconItem {
 	name: string;

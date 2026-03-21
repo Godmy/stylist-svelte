@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 
 	type StylistTabItem = {
@@ -8,7 +8,7 @@
 		icon: string;
 	};
 
-	type Props = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
+	type Props = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {
 		class?: string;
 		items?: StylistTabItem[];
 		selectedId?: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createFormHelperTextState } from '$stylist/design-system/runtime/input-state';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
@@ -29,7 +29,7 @@
 		content,
 		class: className = '',
 		...restProps
-	}: FormHelperTextProps & HTMLAttributes<HTMLParagraphElement> = $props();
+	}: FormHelperTextProps & InteractionHTMLAttributes<HTMLParagraphElement> = $props();
 
 	const formHelperState = $derived(createFormHelperTextState({
 		variant,

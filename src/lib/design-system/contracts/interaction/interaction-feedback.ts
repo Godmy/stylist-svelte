@@ -1,21 +1,22 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 import type { Snippet } from 'svelte';
 
-export interface SimpleModalProps extends HTMLAttributes<HTMLDivElement> {
+export interface SimpleModalProps extends InteractionHTMLAttributes<HTMLDivElement> {
   open?: boolean;
   title?: string;
   class?: string;
   onClose?: () => void;
 }
 
-export interface LazyLoaderProps extends HTMLAttributes<HTMLDivElement> {
+export interface LazyLoaderProps extends InteractionHTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   text?: string;
   class?: string;
   children?: Snippet;
 }
 
-export interface LoadingBoundaryProps extends HTMLAttributes<HTMLDivElement> {
+export interface LoadingBoundaryProps extends InteractionHTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   error?: string;
   class?: string;
@@ -28,5 +29,4 @@ export interface ResponseViewerProps extends HTMLAttributes<HTMLDivElement> {
   status?: 'success' | 'error' | 'info';
   class?: string;
 }
-
 

@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
+import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 
 export interface ColumnConfig {
 	key: string;
@@ -36,13 +37,13 @@ export interface SortableListItem {
 	data?: unknown;
 }
 
-export interface ColumnManagerProps extends HTMLAttributes<HTMLDivElement> {
+export interface ColumnManagerProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	columns: ColumnConfig[];
 	onColumnsChange?: (columns: ColumnConfig[]) => void;
 	class?: string;
 }
 
-export interface DataTableProps<T extends Record<string, unknown>> extends HTMLAttributes<HTMLDivElement> {
+export interface DataTableProps<T extends Record<string, unknown>> extends InteractionHTMLAttributes<HTMLDivElement> {
 	data: T[];
 	columns: DataTableColumn<T>[];
 	striped?: boolean;
@@ -52,7 +53,7 @@ export interface DataTableProps<T extends Record<string, unknown>> extends HTMLA
 	onRowClick?: (row: T) => void;
 }
 
-export interface DataTableAdvancedProps<T extends Record<string, unknown>> extends HTMLAttributes<HTMLDivElement> {
+export interface DataTableAdvancedProps<T extends Record<string, unknown>> extends InteractionHTMLAttributes<HTMLDivElement> {
 	data: T[];
 	columns: AdvancedColumnDefinition<T>[];
 	title?: string;

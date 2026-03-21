@@ -1,4 +1,5 @@
 import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
 export interface IHeatmapCell {
   /** Unique identifier for the cell */
@@ -30,7 +31,7 @@ export interface IExtendedHeatmapCell extends IHeatmapCell {
   intensity: number;
 }
 
-export interface IHeatmapProps {
+export interface IHeatmapProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
   /** Data to display on the heatmap */
   data: IHeatmapCell[];
   /** Heatmap title */
@@ -53,8 +54,6 @@ export interface IHeatmapProps {
   cellPadding?: number;
   /** Handler for clicking on a cell */
   onCellClick?: (item: IHeatmapCell) => void;
-  /** Additional CSS classes for the container */
-  class?: string;
   /** Additional CSS classes for the chart area */
   chartClass?: string;
   /** Maximum value for color normalization (if not specified, will be calculated automatically) */

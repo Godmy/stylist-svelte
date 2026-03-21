@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import type { Snippet } from 'svelte';
 
   type SideBySideSection = {
@@ -9,7 +9,7 @@
     className?: string;
   };
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
+  type RestProps = Omit<ArchitectureHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
     sections: SideBySideSection[];

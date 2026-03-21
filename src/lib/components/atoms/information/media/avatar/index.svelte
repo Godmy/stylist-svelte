@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
 	// Типы для аватара
 	export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
@@ -18,7 +18,7 @@
 		class?: string;
 	};
 
-	let props: AvatarProps & HTMLAttributes<HTMLDivElement> = $props();
+	let props: AvatarProps & InformationHTMLAttributes<HTMLDivElement> = $props();
 
 	const name = $derived(props.name ?? '');
 	const status = $derived(props.status);

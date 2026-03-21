@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { ArchitectureHTMLAttributes, BorderAura, BorderStyle, ChildrenHtmlAttributes, ContentHtmlAttributes, FontIntent, InformationHTMLAttributes, InteractionFeedback, InteractionHTMLAttributes, InteractionIntent, LayoutGravity, LayoutLevel, LayoutShape, ThemeTone, ThemeVariant } from './attributes';
+export type { ThemeAttributes } from './attributes';

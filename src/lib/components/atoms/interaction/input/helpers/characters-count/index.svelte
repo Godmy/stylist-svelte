@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createCharacterCountState } from '$stylist/design-system/runtime/input-state';
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
 	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
 
@@ -34,7 +34,7 @@
 		content,
 		class: className = '',
 		...restProps
-	}: CharacterCountProps & HTMLAttributes<HTMLDivElement> = $props();
+	}: CharacterCountProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
 	// Calculate derived values
 	const percentage = $derived(max > 0 ? Math.min(100, (current / max) * 100) : 0);

@@ -46,6 +46,17 @@ export class LayoutStyleManager {
 		return [BASE_CLASSES.card, 'p-4', className, itemClass].filter(Boolean).join(' ');
 	}
 
+	static getGridItemStyle(colSpan?: number, rowSpan?: number): string {
+		let style = '';
+		if (colSpan) {
+			style += `grid-column: span ${colSpan};`;
+		}
+		if (rowSpan) {
+			style += `grid-row: span ${rowSpan};`;
+		}
+		return style;
+	}
+
 	static getGridLayoutStyle(columns: string, gap: string): string {
 		return `grid-template-columns: ${columns}; gap: ${gap};`;
 	}

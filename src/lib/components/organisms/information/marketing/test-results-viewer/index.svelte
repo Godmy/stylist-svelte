@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const BarChart3 = 'bar-chart-3';
 const TrendingUp = 'trending-up';
@@ -44,7 +44,7 @@ const Activity = 'activity';
     resultsClass?: string;
     chartClass?: string;
     footerClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     testResults = [],

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Check = 'check';
 const Copy = 'copy';
@@ -38,7 +38,7 @@ const Copy = 'copy';
      * Content to render inside the component
      */
     children: import('svelte').Snippet;
-  } & HTMLAttributes<HTMLElement>;
+  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     language = 'text',

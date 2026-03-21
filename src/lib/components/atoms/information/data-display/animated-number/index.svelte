@@ -1,11 +1,9 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import type { AnimatedNumberProps } from '$stylist/design-system';
 	import { createAnimatedNumberState } from '$stylist/design-system/models/information/animated-number.svelte';
 
-	type Props = AnimatedNumberProps & HTMLAttributes<HTMLSpanElement>;
-
-	let props: Props = $props();
+	let props: AnimatedNumberProps & InformationHTMLAttributes<HTMLSpanElement> = $props();
 	const state = createAnimatedNumberState(props);
 	const restProps = $derived(
 		(() => {

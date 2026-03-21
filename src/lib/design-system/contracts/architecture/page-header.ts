@@ -1,9 +1,8 @@
-import type { HTMLAttributes } from 'svelte/elements';
+import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
-export interface IPageHeaderProps extends HTMLAttributes<HTMLElement> {
+export interface IPageHeaderProps extends ArchitectureHTMLAttributes<HTMLElement> {
   title?: string;
   subtitle?: string;
-  class?: string;
 }
 
 

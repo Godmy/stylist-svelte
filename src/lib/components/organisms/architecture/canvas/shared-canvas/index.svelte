@@ -35,6 +35,7 @@ const Palette = 'palette';
     size = 'md',
     ...restProps
   }: SharedCanvasProps & HTMLAttributes<HTMLDivElement> = $props();
+  const hostClass = className == null ? undefined : String(className);
 
   let selectedTool: Tool = $state('select');
   let selectedColor = $state('var(--color-primary-500)'); // Default blue
@@ -237,7 +238,7 @@ const Palette = 'palette';
   }
 
   // Generate CSS classes using the style manager
-  const containerClass = $derived(SharedCanvasStyleManager.getContainerClass(variant, size, className));
+  const containerClass = $derived(SharedCanvasStyleManager.getContainerClass(variant, size, hostClass));
   const toolbarClassComputed = $derived(SharedCanvasStyleManager.getToolbarClass(toolbarClass));
   const canvasClassComputed = $derived(SharedCanvasStyleManager.getCanvasClass(canvasClass));
   const userPanelClass = $derived(SharedCanvasStyleManager.getUserPanelClass());

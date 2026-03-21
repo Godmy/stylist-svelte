@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { ITableSkeletonProps } from '$stylist/design-system/contracts';
 
 	/**
@@ -18,7 +18,7 @@
 			rows?: number;
 			columns?: number;
 			class?: string;
-		} & ITableSkeletonProps & HTMLAttributes<HTMLDivElement>
+		} & ITableSkeletonProps & InteractionHTMLAttributes<HTMLDivElement>
 	>();
 	const restProps = $derived(
 		(() => {

@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { IBaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
   import { createBaseCardState } from '$stylist/design-system/models/information/base-card.svelte';
   import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
@@ -17,7 +17,7 @@
    * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР°
    */
 
-  let props: IBaseCardElementProps & HTMLAttributes<HTMLDivElement> = $props();
+  let props: IBaseCardElementProps & InformationHTMLAttributes<HTMLDivElement> = $props();
 
   // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
   let state = createBaseCardState(

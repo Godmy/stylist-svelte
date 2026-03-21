@@ -7,7 +7,7 @@ const Code = 'code';
 const Layers = 'layers';
 const Users = 'users';
 
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 
   type FeatureCard = {
     title: string;
@@ -22,7 +22,7 @@ const Users = 'users';
     subtitle?: string;
     features?: FeatureCard[];
     class?: string;
-  } & HTMLAttributes<HTMLElement>;
+  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     title = 'Why Stylist?',

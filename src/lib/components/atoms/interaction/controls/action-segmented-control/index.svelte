@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { ActionSegmentedControlProps } from '$stylist/design-system/contracts';
 
 export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
@@ -39,7 +39,7 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 		};
 	}
 
-	type Props = ActionSegmentedControlProps & HTMLAttributes<HTMLDivElement>;
+	type Props = ActionSegmentedControlProps & InteractionHTMLAttributes<HTMLDivElement>;
 
 	let props: Props = $props();
 	const restProps = $derived(

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
 const Loader2 = 'loader-2';
 
@@ -21,7 +21,7 @@ const Loader2 = 'loader-2';
     class?: string;
     /** Additional CSS classes for the spinner element */
     spinnerClass?: string;
-  } & HTMLAttributes<HTMLDivElement>;
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
   let {
     variant = 'icon',
