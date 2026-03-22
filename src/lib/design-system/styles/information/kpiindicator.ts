@@ -5,15 +5,15 @@
  * - SRP: Класс отвечает только за генерацию CSS-классов для KPIIndicator
  * - Использует CSS-переменные из темы для стилизации
  */
-import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
-import type { KPIStatus } from '$stylist/design-system/tokens/interaction/statuses';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenTrend } from '$stylist/design-system/tokens/information/trend';
+import type { TokenKPI } from '$stylist/design-system/tokens/interaction/kpi';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для основного контейнера
    */
-  static getContainerClasses(size: ComponentSize, additionalClass: string = ''): string {
+  static getContainerClasses(size: TokenSize, additionalClass: string = ''): string {
     const sizeClasses = this.getSizeClasses(size);
     return `bg-[--stylist-kpi-bg] border border-[--stylist-kpi-border] rounded-lg p-4 ${sizeClasses} ${additionalClass}`.trim();
   }
@@ -21,14 +21,22 @@ export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для размера
    */
-  static getSizeClasses(size: ComponentSize): string {
-    const sizeClasses: Record<ComponentSize, string> = {
+  static getSizeClasses(size: TokenSize): string {
+    const sizeClasses: Record<TokenSize, string> = {
       xs: 'p-2 text-xs',
       sm: 'p-3 text-sm',
       md: 'p-4',
       lg: 'p-5 text-lg',
       xl: 'p-6 text-xl',
-      '2xl': 'p-8 text-2xl'
+      '2xl': 'p-8 text-2xl',
+      '1/4': 'p-2 text-xs',
+      '1/3': 'p-3 text-sm',
+      '2/5': 'p-3 text-sm',
+      '1/2': 'p-4',
+      '3/5': 'p-4',
+      '2/3': 'p-5 text-lg',
+      '3/4': 'p-6 text-xl',
+      full: 'p-8 text-2xl'
     };
 
     return sizeClasses[size];
@@ -37,8 +45,8 @@ export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для статуса
    */
-  static getStatusColorClasses(status: KPIStatus): string {
-    const statusColorClasses: Record<KPIStatus, string> = {
+  static getStatusColorClasses(status: TokenKPI): string {
+    const statusColorClasses: Record<TokenKPI, string> = {
       'on-track': 'bg-[--stylist-kpi-on-track-bg] border-[--stylist-kpi-on-track-border] [--stylist-kpi-progress-color:var(--stylist-kpi-on-track-progress)]',
       'at-risk': 'bg-[--stylist-kpi-at-risk-bg] border-[--stylist-kpi-at-risk-border] [--stylist-kpi-progress-color:var(--stylist-kpi-at-risk-progress)]',
       'off-track': 'bg-[--stylist-kpi-off-track-bg] border-[--stylist-kpi-off-track-border] [--stylist-kpi-progress-color:var(--stylist-kpi-off-track-progress)]',
@@ -51,8 +59,8 @@ export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для статуса текста
    */
-  static getStatusText(status: KPIStatus): string {
-    const statusText: Record<KPIStatus, string> = {
+  static getStatusText(status: TokenKPI): string {
+    const statusText: Record<TokenKPI, string> = {
       'on-track': 'On track',
       'at-risk': 'At risk',
       'off-track': 'Off track',
@@ -65,8 +73,8 @@ export class KPIIndicatorStyleManager {
   /**
    * Получает CSS-классы для цвета тренда
    */
-  static getTrendColorClasses(trend: KPITrend): string {
-    const trendColorClasses: Record<KPITrend, string> = {
+  static getTrendColorClasses(trend: TokenTrend): string {
+    const trendColorClasses: Record<TokenTrend, string> = {
       up: 'text-[--stylist-kpi-trend-up]',
       down: 'text-[--stylist-kpi-trend-down]',
       neutral: 'text-[--stylist-kpi-trend-neutral]'
@@ -103,6 +111,8 @@ export class KPIIndicatorStyleManager {
     return 'h-2 rounded-full bg-[var(--stylist-kpi-progress-color)]';
   }
 }
+
+
 
 
 

@@ -1,5 +1,5 @@
 import type { GraphPortState } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -9,14 +9,22 @@ export class GraphPortStyleManager {
 	/**
 	 * Получает классы размера порта
 	 */
-	static getPortSizeClasses(size: ComponentSize): string {
-		const sizeMap: Record<ComponentSize, string> = {
+	static getPortSizeClasses(size: TokenSize): string {
+		const sizeMap: Record<TokenSize, string> = {
 			xs: 'graph-port--xs',
 			sm: 'graph-port--sm',
 			md: 'graph-port--md',
 			lg: 'graph-port--lg',
 			xl: 'graph-port--xl',
-			'2xl': 'graph-port--2xl'
+			'2xl': 'graph-port--2xl',
+			'1/4': 'graph-port--xs',
+			'1/3': 'graph-port--sm',
+			'2/5': 'graph-port--sm',
+			'1/2': 'graph-port--md',
+			'3/5': 'graph-port--md',
+			'2/3': 'graph-port--lg',
+			'3/4': 'graph-port--xl',
+			full: 'graph-port--2xl'
 		};
 		return sizeMap[size] || sizeMap.md;
 	}
@@ -64,6 +72,7 @@ export class GraphPortStyleManager {
 }
 
 export default GraphPortStyleManager;
+
 
 
 

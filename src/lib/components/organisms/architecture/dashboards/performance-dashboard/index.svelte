@@ -1,9 +1,9 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon } from '$stylist/components/atoms';
   import { PerformanceDashboardStyleManager } from '$stylist/design-system/styles';
   import type { PerformanceDashboardProps, Metric } from '$stylist/design-system/contracts/interaction/performance-dashboard';
-  import type { TimeRange } from '$stylist/design-system/tokens/information/date-time';
+  import type { TokenTimeRange } from '$stylist/design-system/tokens/information/time-range';
 
   let {
     title = 'Performance Dashboard',
@@ -23,7 +23,7 @@
 
   let selectedTimeRange = $state(timeRange);
 
-  function handleTimeRangeChange(range: TimeRange) {
+  function handleTimeRangeChange(range: TokenTimeRange) {
     selectedTimeRange = range;
     if (onTimeRangeChange) {
       onTimeRangeChange(range);
@@ -66,7 +66,7 @@
               <button
                 type="button"
                 class={selectedTimeRange === range ? activeTimeRangeButtonClass : timeRangeButtonClass}
-                onclick={() => handleTimeRangeChange(range as TimeRange)}
+                onclick={() => handleTimeRangeChange(range as TokenTimeRange)}
                 aria-label={`Set time range to ${range}`}
               >
                 {range === '1d' ? '1D' : range === '7d' ? '7D' : range === '30d' ? '30D' : '90D'}
@@ -130,6 +130,7 @@
     </div>
   </div>
 </div>
+
 
 
 

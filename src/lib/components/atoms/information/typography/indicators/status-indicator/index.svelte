@@ -11,6 +11,7 @@
 			const {
 				class: _class,
 				status: _status,
+				appearance: _appearance,
 				label: _label,
 				customColor: _customColor,
 				size: _size,

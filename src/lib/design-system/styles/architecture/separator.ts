@@ -1,5 +1,5 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Code } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenCodeView } from '$stylist/design-system/tokens/information/code-view';
 import { BadgeStyleManager } from '$stylist/design-system/styles/information/badge';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
@@ -18,8 +18,8 @@ export class SeparatorStyleManager {
 	}
 
 	static getSyntaxHighlightedCodeContainerClasses(
-		variant: Code = 'default',
-		size: ComponentSize = 'md',
+		variant: TokenCodeView = 'default',
+		size: TokenSize = 'md',
 		className = ''
 	): string {
 		return cn(
@@ -34,3 +34,4 @@ export class SeparatorStyleManager {
 		return 'font-mono text-sm';
 	}
 }
+

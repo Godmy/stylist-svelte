@@ -1,6 +1,6 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenLineType } from '$stylist/design-system/tokens/architecture/line-type';
 
 export interface LineChartPoint {
 	id: string;
@@ -31,7 +31,8 @@ export interface ILineChartProps extends ArchitectureHTMLAttributes<HTMLDivEleme
 	smooth?: boolean;
 	strokeWidth?: number;
 	onPointClick?: (item: LineChartPoint, series: LineChartData) => void;
-	variant?: LineChartVariant;
-	size?: ComponentSize;
+	variant?: TokenLineType;
+	size?: TokenSize;
 	chartClass?: string;
 }
+

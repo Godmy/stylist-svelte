@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { createInputAddonState } from '$stylist/design-system/runtime/input-state';
 	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
+	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 	type InputAddonProps = {
 		position?: 'left' | 'right';
-		variant?: InputVariant;
-		size?: ComponentSize;
+		variant?: TokenAppearance;
+		size?: TokenSize;
 		class?: string;
 		children?: import('svelte').Snippet;
 	};
@@ -23,7 +23,7 @@
 
 	const inputAddonState = $derived(
 		createInputAddonState({
-			variant: variant satisfies InputVariant,
+			variant: variant satisfies TokenAppearance,
 			size,
 			class: className
 		})
@@ -44,6 +44,7 @@
 <div class={classes} {...restProps}>
 	{@render children?.()}
 </div>
+
 
 
 

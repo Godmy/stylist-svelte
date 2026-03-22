@@ -3,7 +3,7 @@
  */
 
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Размеры звезд в компоненте рейтинга
@@ -41,7 +41,7 @@ export interface IRatingProps extends InteractionHTMLAttributes<HTMLDivElement> 
    * Размер звезд
    * @default 'md'
    */
-  size?: ComponentSize;
+  size?: TokenSize;
   
   /**
    * Дополнительные CSS классы
@@ -53,5 +53,6 @@ export interface IRatingProps extends InteractionHTMLAttributes<HTMLDivElement> 
    */
   onRatingChange?: (rating: number) => void;
 }
+
 
 

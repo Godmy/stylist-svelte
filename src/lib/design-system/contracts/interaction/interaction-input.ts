@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { Translation } from '$stylist/design-system/tokens/information/translations';
+import type { TokenTranslation } from '$stylist/design-system/tokens/information/translation';
 
 export interface AutoCompleteOption {
 	id: string;
@@ -45,7 +45,7 @@ export interface TranslatableText {
 	original: string;
 	translations: Record<string, string>;
 	context?: string;
-	status: Translation;
+	status: TokenTranslation;
 }
 
 export interface TranslationLocale {
@@ -77,3 +77,4 @@ export interface DateTimeRangePickerProps extends Omit<InteractionHTMLAttributes
 	onInput?: (value: DateTimeRangeValue) => void;
 	onChange?: (value: DateTimeRangeValue) => void;
 }
+

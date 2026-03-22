@@ -1,6 +1,6 @@
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
-import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
+import type { TokenTrajectory } from '$stylist/design-system/tokens/architecture/trajectory';
+import type { TokenBorderStyle as LineStyleToken } from '$stylist/design-system/tokens/architecture/border-style';
 
 export interface ConnectionLineProps extends HtmlAttributesBase<SVGElement> {
 	id: string;
@@ -8,7 +8,7 @@ export interface ConnectionLineProps extends HtmlAttributesBase<SVGElement> {
 	startY: number;
 	endX: number;
 	endY: number;
-	type?: PrimitiveTrajectory;
+	type?: TokenTrajectory;
 	lineStyle?: LineStyleToken;
 	strokeWidth?: number;
 	color?: string;
@@ -36,6 +36,8 @@ export interface ConnectionPathResult {
 	midPoint: Point;
 	angle: number;
 }
+
+
 
 
 

@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 	type Props = {
 		/** Размер переключателя */
-		size?: ComponentSize;
+		size?: TokenSize;
 		/** Отключен ли переключатель */
 		disabled?: boolean;
 		/** Состояние checked (поддерживает two-way binding) */
@@ -54,6 +54,7 @@
 		<span class={thumbClasses}></span>
 	</span>
 </div>
+
 
 
 

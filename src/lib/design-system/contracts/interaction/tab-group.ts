@@ -1,7 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-
-import type { TabGroupVariant } from '$stylist/design-system/tokens/interaction/tab-group';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
 
 export interface ITab {
   id: string;
@@ -13,7 +12,7 @@ export interface ITab {
 export interface ITabGroupProps extends HTMLAttributes<HTMLDivElement> {
   tabs: ITab[];
   activeTab?: string;
-  variant?: TabGroupVariant;
+  variant?: TokenShape;
   class?: string;
   tabListClass?: string;
   tabClass?: string;
@@ -32,6 +31,5 @@ export interface ITabStyleClasses {
   inactive: string;
   disabled: string;
 }
-
 
 

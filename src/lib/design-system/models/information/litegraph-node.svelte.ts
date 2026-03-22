@@ -1,12 +1,15 @@
 import type { LiteGraphNodeProps } from '$stylist/design-system/contracts/information/litegraph-node';
-import type { LiteGraphNodeState, LiteGraphNodeType } from '$stylist/design-system/tokens/information/litegraph-node';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenInteration } from '$stylist/design-system/tokens/interaction/interaction';
+import type { TokenSeverity } from '$stylist/design-system/tokens/interaction/sevetity';
+import type { TokenNodeType } from '$stylist/design-system/tokens/architecture/node-type';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { LiteGraphNodeStyleManager } from '$stylist/design-system/styles';
 
 export function createLiteGraphNodeState(props: LiteGraphNodeProps) {
-	const type = $derived((props.type ?? 'default') as LiteGraphNodeType);
-	const state = $derived((props.state ?? 'default') as LiteGraphNodeState);
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const type = $derived((props.type ?? 'default') as TokenNodeType);
+	const mode = $derived((props.mode ?? 'default') as TokenSeverity);
+	const status = $derived((props.status ?? 'enabled') as TokenInteration);
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const selected = $derived(Boolean(props.selected));
 	const draggable = $derived(props.draggable ?? true);
 	const width = $derived(props.width ?? 200);
@@ -16,7 +19,7 @@ export function createLiteGraphNodeState(props: LiteGraphNodeProps) {
 	const headerColor = $derived(props.headerColor ?? props.color ?? '#2563eb');
 
 	const classes = $derived(
-		LiteGraphNodeStyleManager.getNodeClasses(type, state, size, selected)
+		LiteGraphNodeStyleManager.getNodeClasses(type, mode, status, size, selected)
 	);
 	const styles = $derived(
 		LiteGraphNodeStyleManager.getNodeStyles({
@@ -32,8 +35,11 @@ export function createLiteGraphNodeState(props: LiteGraphNodeProps) {
 		get type() {
 			return type;
 		},
-		get state() {
-			return state;
+		get mode() {
+			return mode;
+		},
+		get status() {
+			return status;
 		},
 		get size() {
 			return size;
@@ -69,6 +75,7 @@ export function createLiteGraphNodeState(props: LiteGraphNodeProps) {
 }
 
 export default createLiteGraphNodeState;
+
 
 
 

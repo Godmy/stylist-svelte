@@ -1,4 +1,4 @@
-import type { ABTestStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenTest } from '$stylist/design-system/tokens/interaction/test';
 
 export interface ABTestVariant {
 	id: string;
@@ -15,7 +15,7 @@ export interface ABTest {
 	variants: ABTestVariant[];
 	startDate: Date;
 	endDate?: Date;
-	status: ABTestStatus;
+	status: TokenTest;
 	targetAudience?: string;
 	successMetrics: string[];
 }

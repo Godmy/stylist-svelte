@@ -5,9 +5,9 @@ export interface NodePropertyState {
 
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
-import type { NodePropertyType } from '$stylist/design-system/tokens/information/node-property';
+import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
 /**
  * Свойства свойства узла графа
  */
@@ -17,13 +17,13 @@ export interface NodePropertyProps extends Omit<HtmlAttributesBase<HTMLDivElemen
 	/** Имя свойства */
 	name: string;
 	/** Тип свойства */
-	type?: NodePropertyType;
+	type?: TokenPropertyType;
 	/** Значение свойства */
 	value?: unknown;
 	/** Значение по умолчанию */
 	defaultValue?: unknown;
 	/** Размер компонента */
-	size?: ComponentSize;
+	size?: TokenSize;
 	/** Можно ли редактировать */
 	editable?: boolean;
 	/** Можно ли изменять тип */
@@ -59,6 +59,8 @@ export interface NodePropertyProps extends Omit<HtmlAttributesBase<HTMLDivElemen
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
+
 
 
 

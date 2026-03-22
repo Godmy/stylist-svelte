@@ -6,7 +6,8 @@
 	type Props = {
 		count: number;
 		maxCount: number;
-		variant: 'dot' | 'number';
+		marker: 'dot' | 'number' | 'letter' | 'check' | 'x';
+		appearance: 'danger' | 'primary' | 'secondary' | 'success' | 'warning' | 'info';
 	};
 
 	const controls: ControlConfig[] = [
@@ -25,10 +26,16 @@
 			max: 999
 		},
 		{
-			name: 'variant',
+			name: 'marker',
 			type: 'select',
 			defaultValue: 'number',
-			options: ['dot', 'number']
+			options: ['dot', 'number', 'letter', 'check', 'x']
+		},
+		{
+			name: 'appearance',
+			type: 'select',
+			defaultValue: 'danger',
+			options: ['danger', 'primary', 'secondary', 'success', 'warning', 'info']
 		}
 	];
 </script>
@@ -46,7 +53,8 @@
 		{@const storyProps = values as Partial<Props>}
 		{@const count = typeof storyProps.count === 'number' ? storyProps.count : 3}
 		{@const maxCount = typeof storyProps.maxCount === 'number' ? storyProps.maxCount : 99}
-		{@const variant = storyProps.variant ?? 'number'}
+		{@const marker = storyProps.marker ?? 'number'}
+		{@const appearance = storyProps.appearance ?? 'danger'}
 		<div class="p-6">
 			<h2 class="mb-6 text-xl font-semibold">Notification Badge</h2>
 			<div class="flex items-center justify-center space-x-8">
@@ -57,7 +65,8 @@
 					<NotificationBadge
 						{count}
 						{maxCount}
-						{variant}
+						{marker}
+						{appearance}
 					/>
 				</div>
 
@@ -65,7 +74,7 @@
 					<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-background-tertiary)]">
 						Button
 					</div>
-					<NotificationBadge {count} {maxCount} variant="dot" />
+					<NotificationBadge {count} {maxCount} marker="dot" appearance="danger" />
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,6 @@
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { OrderStatus, BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenBillingItem } from '$stylist/design-system/tokens/commerce/billing-item';
+import type { TokenOrderStatus } from '$stylist/design-system/tokens/commerce/order-status';
 
 export interface IOrderItem {
   id: string;
@@ -24,7 +25,7 @@ export interface IShippingAddress {
 export interface IOrderConfirmationPaymentInfo {
   method: string;
   lastFour?: string;
-  status: BillingItemStatus;
+  status: TokenBillingItem;
 }
 
 export interface IOrderConfirmationEvents {
@@ -43,7 +44,7 @@ export interface IOrderConfirmationProps extends HtmlAttributesBase<HTMLDivEleme
   paymentInfo: IOrderConfirmationPaymentInfo;
   estimatedDelivery?: Date;
   trackingNumber?: string;
-  orderStatus?: OrderStatus;
+  orderStatus?: TokenOrderStatus;
   shippingCost?: number;
   taxAmount?: number;
   class?: string;

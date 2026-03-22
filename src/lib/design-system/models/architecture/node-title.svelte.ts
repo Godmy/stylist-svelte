@@ -1,11 +1,12 @@
 import type { NodeTitleProps } from '$stylist/design-system/contracts';
-import type { NodeTitleVariant } from '$stylist/design-system/tokens/interaction/statuses';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { NodeTitleStyleManager } from '$stylist/design-system/styles';
 
 export function createNodeTitleState(props: NodeTitleProps) {
-	const variant = $derived((props.variant ?? 'default') as NodeTitleVariant);
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const variant = $derived(
+		(props.variant ?? 'default') as NonNullable<NodeTitleProps['variant']>
+	);
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const selected = $derived(Boolean(props.selected));
 	const editable = $derived(Boolean(props.editable));
 	const color = $derived(props.color);

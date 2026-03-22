@@ -3,16 +3,16 @@
 	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 	import { getFileSelectionLabel } from '$stylist/design-system/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	type Props = {
 		value?: File | File[];
 		multiple?: boolean;
 		accept?: string;
 		disabled?: boolean;
-		variant?: (typeof INPUT_VARIANTS.input)[number];
-		size?: (typeof COMPONENT_SIZE)[number];
+		variant?: TokenAppearance;
+		size?: (typeof TOKEN_SIZE)[number];
 		placeholder?: string;
 		onFileChange?: (files: File | File[] | null) => void;
 		class?: string;
@@ -135,6 +135,7 @@
 		</span>
 	</label>
 </div>
+
 
 
 

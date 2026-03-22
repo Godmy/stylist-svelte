@@ -1,7 +1,7 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
-import type { Background } from '$stylist/design-system/tokens/information/background';
-import type { Height } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Типы и интерфейсы для компонента Hero
@@ -45,16 +45,13 @@ export interface IHeroProps
   secondaryCTA?: IHeroCTA;
 
   /** Вариант фона */
-  backgroundVariant?: Background;
+  backgroundVariant?: TokenBackground;
 
   /** URL фонового изображения */
   backgroundImage?: string;
 
   /** Высота секции */
-  height?: Height; // default: 'screen'
+  height?: TokenSize; // default: 'full'
 }
-
-
-
 
 

@@ -5,7 +5,8 @@
  * РґР°РЅРЅС‹Р№ РєР»Р°СЃСЃ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РіРµРЅРµСЂР°С†РёСЋ CSS-РєР»Р°СЃСЃРѕРІ РґР»СЏ РєРѕРјРїРѕРЅРµРЅС‚Р° BillingSummary
  */
 
-import type { BillingSummaryStatus, BillingItemStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenBillingItem } from '$stylist/design-system/tokens/commerce/billing-item';
+import type { TokenBillingSummary } from '$stylist/design-system/tokens/commerce/billing-summary';
 
 export class BillingSummaryStyleManager {
   /**
@@ -48,7 +49,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃС‚Р°С‚СѓСЃР°
    */
-  static getStatusBadgeClasses(status: BillingSummaryStatus): string {
+  static getStatusBadgeClasses(status: TokenBillingSummary): string {
     switch(status) {
       case 'paid':
         return 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-[--color-success-600] bg-[--color-success-100]';
@@ -79,7 +80,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё РјРµС‚СЂРёРєРё
    */
-  static getMetricIconContainerClasses(status?: BillingSummaryStatus): string {
+  static getMetricIconContainerClasses(status?: TokenBillingSummary): string {
     if (status === 'overdue') {
       return 'p-2 rounded-md bg-[--color-error-100]';
     }
@@ -96,7 +97,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ РёРєРѕРЅРєРё РєР°Р»РµРЅРґР°СЂСЏ
    */
-  static getCalendarIconClasses(status?: BillingSummaryStatus): string {
+  static getCalendarIconClasses(status?: TokenBillingSummary): string {
     if (status === 'overdue') {
       return 'h-5 w-5 text-[--color-error-600]';
     }
@@ -106,7 +107,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚Р° РґР°С‚С‹
    */
-  static getDueDateTextClasses(status?: BillingSummaryStatus): string {
+  static getDueDateTextClasses(status?: TokenBillingSummary): string {
     if (status === 'overdue') {
       return 'text-lg font-semibold text-[--color-error-600]';
     }
@@ -116,7 +117,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ С‚РµРєСЃС‚Р° РјРµС‚СЂРёРєРё
    */
-  static getMetricTextClasses(status?: BillingSummaryStatus): string {
+  static getMetricTextClasses(status?: TokenBillingSummary): string {
     if (status === 'paid') {
       return 'text-lg font-semibold text-[--color-success-600]';
     }
@@ -169,7 +170,7 @@ export class BillingSummaryStyleManager {
   /**
    * РџРѕР»СѓС‡Р°РµС‚ CSS-РєР»Р°СЃСЃС‹ РґР»СЏ СЃС‚Р°С‚СѓСЃР° СЌР»РµРјРµРЅС‚Р°
    */
-  static getItemStatusBadgeClasses(status: BillingItemStatus): string {
+  static getItemStatusBadgeClasses(status: TokenBillingItem): string {
     switch(status) {
       case 'paid':
         return 'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-[--color-success-800] bg-[--color-success-100]';

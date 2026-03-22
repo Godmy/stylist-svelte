@@ -4,7 +4,10 @@
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+export type NotificationType =
+	| 'silent'
+	| Extract<TokenAppearance, 'info' | 'success' | 'warning' | 'error'>;
 export interface IToastProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
   type?: NotificationType;
   visible?: boolean;

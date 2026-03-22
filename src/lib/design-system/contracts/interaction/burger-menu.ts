@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export interface BurgerMenuProps {
   /**
@@ -11,7 +11,7 @@ export interface BurgerMenuProps {
    * Size of the burger menu
    * @default 'md'
    */
-  size?: ComponentSize;
+  size?: TokenSize;
   
   /**
    * Color of the burger menu when closed
@@ -45,6 +45,7 @@ export interface BurgerMenuProps {
    */
   onClick?: (event: MouseEvent) => void;
 }
+
 
 
 

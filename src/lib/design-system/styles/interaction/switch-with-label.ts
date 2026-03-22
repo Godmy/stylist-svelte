@@ -1,17 +1,21 @@
 /**
- * Style manager for SwitchWithLabel component
+ * TokenBorderStyle manager for SwitchWithLabel component
  * Following SOLID principles by separating styling logic from component logic
  * Uses the Stylist-Svelte theming system with CSS variables
  */
 
-import type { LabelPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
+import type { TokenAlignment as LabelPosition } from '$stylist/design-system/tokens/architecture/alignment';
 
 export class SwitchWithLabelStyleManager {
+  private static normalizePosition(labelPosition: LabelPosition): 'left' | 'right' {
+    return labelPosition === 'right' || labelPosition.startsWith('right') ? 'right' : 'left';
+  }
+
   /**
    * Gets the CSS classes for the container based on label position
    */
   static getContainerClasses(labelPosition: LabelPosition, baseClass: string = ''): string {
-    const positionClass = labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row';
+    const positionClass = this.normalizePosition(labelPosition) === 'left' ? 'flex-row-reverse' : 'flex-row';
     
     return [
       'flex',
@@ -82,7 +86,7 @@ export class SwitchWithLabelStyleManager {
    * Gets the CSS classes for the label position (start or end)
    */
   static getLabelPositionClasses(labelPosition: LabelPosition): string {
-    return labelPosition === 'right' ? 'mr-3' : 'ml-3';
+    return this.normalizePosition(labelPosition) === 'right' ? 'mr-3' : 'ml-3';
   }
 }
 

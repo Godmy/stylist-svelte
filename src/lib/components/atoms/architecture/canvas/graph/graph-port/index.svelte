@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist/components/atoms';
 	import type { GraphPortProps } from '$stylist/design-system/contracts/information/graph-port';
-	import type { GraphPortDataType } from '$stylist/design-system/tokens/information/graph-port';
+	import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
+	import { GRAPH_PORT_COLORS } from '$stylist/design-system/defaults/information/graph-port-colors';
 	import { createGraphPortState } from '$stylist/design-system/models/architecture/graph-port.svelte';
-	import { GRAPH_PORT_COLORS } from '$stylist/design-system/tokens/information/graph-port';
 
 	let props: GraphPortProps = $props();
 
 	const state = createGraphPortState(props);
 	const label = $derived(props.label ?? '');
-	const dataType = $derived((props.dataType ?? 'any') as GraphPortDataType);
+	const dataType = $derived((props.dataType ?? 'any') as TokenPropertyType);
 	const portColor = $derived(props.color ?? GRAPH_PORT_COLORS[dataType as keyof typeof GRAPH_PORT_COLORS]);
 
 	const restProps = $derived(
@@ -234,6 +234,7 @@
 		transform: translate(100%, -50%) scale(1.1);
 	}
 </style>
+
 
 
 

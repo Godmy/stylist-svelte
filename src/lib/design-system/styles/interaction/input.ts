@@ -1,13 +1,13 @@
 import { cn, mergeClasses } from '$stylist/design-system/utils/cn/index';
-import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import { INPUT_VARIANTS } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import { TOKEN_APPEARANCE } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 
-export { INPUT_VARIANTS };
+export { TOKEN_APPEARANCE };
 
 const INPUT_BASE_CLASS = BASE_CLASSES.input;
-const INPUT_VARIANT_CLASSES = {
+const INPUT_VARIANT_CLASSES: Record<TokenAppearance | 'filled', string> = {
 	default:
 		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
 	filled:
@@ -24,9 +24,31 @@ const INPUT_VARIANT_CLASSES = {
 		'bg-[var(--color-warning-50)] text-[var(--color-text-primary)] border border-[var(--color-warning-200)] focus:ring-2 focus:ring-[var(--color-warning-500)] focus:border-[var(--color-warning-500)]',
 	danger:
 		'bg-[var(--color-danger-50)] text-[var(--color-text-primary)] border border-[var(--color-danger-200)] focus:ring-2 focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
+	error:
+		'bg-[var(--color-danger-50)] text-[var(--color-text-primary)] border border-[var(--color-danger-200)] focus:ring-2 focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
+	primary:
+		'bg-[var(--color-primary-50)] text-[var(--color-text-primary)] border border-[var(--color-primary-200)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
 	solid:
-		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]'
-} as const;
+		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
+	secondary:
+		'bg-[var(--color-secondary-50)] text-[var(--color-text-primary)] border border-[var(--color-secondary-200)] focus:ring-2 focus:ring-[var(--color-secondary-500)] focus:border-[var(--color-secondary-500)]',
+	link:
+		'bg-transparent text-[var(--color-primary-600)] border border-transparent underline underline-offset-2 focus:ring-2 focus:ring-[var(--color-primary-500)]',
+	subtle:
+		'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] border border-[var(--color-neutral-100)] focus:ring-2 focus:ring-[var(--color-primary-500)]',
+	neutral:
+		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] border border-[var(--color-neutral-300)] focus:ring-2 focus:ring-[var(--color-neutral-400)]',
+	gray:
+		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] border border-[var(--color-neutral-300)] focus:ring-2 focus:ring-[var(--color-neutral-400)]',
+	dark:
+		'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)] border border-[var(--color-neutral-800)] focus:ring-2 focus:ring-[var(--color-neutral-700)]',
+	light:
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)]',
+	elevated:
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-secondary)] shadow-sm focus:ring-2 focus:ring-[var(--color-primary-500)]',
+	flat:
+		'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)]'
+};
 const INPUT_ERROR_CLASS = 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]';
 const INPUT_SIZE_CLASSES = {
 	xs: 'h-7 px-2.5 text-[10px] rounded',
@@ -34,7 +56,15 @@ const INPUT_SIZE_CLASSES = {
 	md: 'h-9 px-4 text-sm rounded-md',
 	lg: 'h-11 px-6 text-base rounded-lg',
 	xl: 'h-12 px-7 text-lg rounded-xl',
-	'2xl': 'h-14 px-8 text-xl rounded-xl'
+	'2xl': 'h-14 px-8 text-xl rounded-xl',
+	'1/4': 'h-7 px-2.5 text-[10px] rounded',
+	'1/3': 'h-8 px-3 text-xs rounded-md',
+	'2/5': 'h-8 px-3 text-xs rounded-md',
+	'1/2': 'h-9 px-4 text-sm rounded-md',
+	'3/5': 'h-9 px-4 text-sm rounded-md',
+	'2/3': 'h-11 px-6 text-base rounded-lg',
+	'3/4': 'h-12 px-7 text-lg rounded-xl',
+	full: 'h-14 px-8 text-xl rounded-xl w-full'
 } as const;
 const TEXTAREA_SIZE_CLASSES = {
 	xs: 'px-2.5 text-[10px] rounded min-h-[64px]',
@@ -42,7 +72,15 @@ const TEXTAREA_SIZE_CLASSES = {
 	md: 'px-4 text-sm rounded-md min-h-[100px]',
 	lg: 'px-6 text-base rounded-lg min-h-[140px]',
 	xl: 'px-6 text-base rounded-lg min-h-[200px]',
-	'2xl': 'px-7 text-xl rounded-xl min-h-[240px]'
+	'2xl': 'px-7 text-xl rounded-xl min-h-[240px]',
+	'1/4': 'px-2.5 text-[10px] rounded min-h-[64px]',
+	'1/3': 'px-3 text-xs rounded-md min-h-[80px]',
+	'2/5': 'px-3 text-xs rounded-md min-h-[80px]',
+	'1/2': 'px-4 text-sm rounded-md min-h-[100px]',
+	'3/5': 'px-4 text-sm rounded-md min-h-[100px]',
+	'2/3': 'px-6 text-base rounded-lg min-h-[140px]',
+	'3/4': 'px-6 text-base rounded-lg min-h-[200px]',
+	full: 'px-7 text-xl rounded-xl min-h-[240px] w-full'
 } as const;
 const INPUT_FIELD_CONTAINER_CLASS = 'input-field-container flex flex-col gap-1';
 const INPUT_FIELD_HELPER_TEXT_CLASS = 'input-field-helper-text text-xs text-[var(--color-text-secondary)]';
@@ -57,8 +95,8 @@ const INPUT_DOUBLE_CONTAINER_CLASS = 'input-double-container grid grid-cols-2 ga
 
 export class InputStyleManager {
 	static getInputClasses(
-		variant: InputVariant = 'default',
-		size: ComponentSize = 'md',
+		variant: TokenAppearance = 'default',
+		size: TokenSize = 'md',
 		error = false,
 		disabled = false,
 		block = false,
@@ -73,16 +111,16 @@ export class InputStyleManager {
 	}
 
 	static getInputBaseClass(): string { return INPUT_BASE_CLASS; }
-	static getInputVariantClass(variant: InputVariant = 'default'): string {
+	static getInputVariantClass(variant: TokenAppearance = 'default'): string {
 		return (INPUT_VARIANT_CLASSES as Record<string, string>)[variant] ?? INPUT_VARIANT_CLASSES.default;
 	}
 	static getInputErrorClass(): string { return INPUT_ERROR_CLASS; }
-	static getInputSizeClass(size: ComponentSize = 'md'): string { return INPUT_SIZE_CLASSES[size] ?? INPUT_SIZE_CLASSES.md; }
-	static getTextareaSizeClass(size: ComponentSize = 'md'): string { return TEXTAREA_SIZE_CLASSES[size] ?? TEXTAREA_SIZE_CLASSES.md; }
+	static getInputSizeClass(size: TokenSize = 'md'): string { return INPUT_SIZE_CLASSES[size] ?? INPUT_SIZE_CLASSES.md; }
+	static getTextareaSizeClass(size: TokenSize = 'md'): string { return TEXTAREA_SIZE_CLASSES[size] ?? TEXTAREA_SIZE_CLASSES.md; }
 
 	static getTextareaClasses(
-		variant: InputVariant = 'default',
-		size: ComponentSize = 'md',
+		variant: TokenAppearance = 'default',
+		size: TokenSize = 'md',
 		error = false,
 		disabled = false,
 		block = false,
@@ -118,3 +156,4 @@ export class InputStyleManager {
 }
 
 export default InputStyleManager;
+

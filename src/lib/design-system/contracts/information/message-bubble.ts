@@ -1,4 +1,5 @@
-import type { MessageAlign } from '$stylist/design-system/tokens/information/message-align';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 /**
  * @file MessageBubble Types
@@ -6,11 +7,8 @@ import type { MessageAlign } from '$stylist/design-system/tokens/information/mes
  * @author Vibe Management Pro
  * @version 1.0.0
  */
-
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { MessageBubbleVariant } from '$stylist/design-system/tokens/architecture/message-bubble';
 /**
- * Alignment options for MessageBubble
+ * TokenAlignment options for MessageBubble
  */
 /**
  * Variant options for MessageBubble
@@ -37,10 +35,10 @@ export interface IMessageBubbleProps {
   timestamp?: string;
 
   /**
-   * Alignment of the message bubble
+   * TokenAlignment of the message bubble
    * @default 'left'
    */
-  align?: MessageAlign;
+  align?: TokenAlignment;
 
   /**
    * URL of the avatar image
@@ -50,15 +48,16 @@ export interface IMessageBubbleProps {
 
   /**
    * Visual variant of the message bubble
-   * @default 'default'
+   * @default 'primary'
    */
-  variant?: MessageBubbleVariant;
+  variant?: TokenAppearance;
 
   /**
    * Additional CSS classes to apply to the component
    */
   class?: string;
 }
+
 
 
 

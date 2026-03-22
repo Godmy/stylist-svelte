@@ -1,8 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import type { IInputEmailProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 	import InputText from '../input-text/index.svelte';
 
 	/**
@@ -91,6 +89,7 @@
 	{maxlength}
 	{...restProps}
 />
+
 
 
 

@@ -1,10 +1,10 @@
 import type { GraphEdgeProps } from '$stylist/design-system/contracts';
-import type { PrimitiveTrajectory } from '$stylist/design-system/tokens';
+import type { TokenTrajectory } from '$stylist/design-system/tokens';
 import { GraphStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphEdgeState(props: GraphEdgeProps) {
 	const directed = $derived(props.directed ?? false);
-	const type = $derived((props.type ?? 'straight') as PrimitiveTrajectory);
+	const type = $derived((props.type ?? 'straight') as TokenTrajectory);
 	const active = $derived(Boolean(props.active));
 	const style = $derived(props.style ?? {});
 

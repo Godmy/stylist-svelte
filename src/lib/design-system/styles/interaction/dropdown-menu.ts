@@ -1,34 +1,40 @@
 import type { IDropdownMenuStyleClasses } from '$stylist/design-system/contracts/interaction/dropdown-menu';
-import type { DropdownPosition } from '$stylist/design-system/tokens/interaction/dropdown';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
 
 /**
- * Style utility class following Single Responsibility Principle
+ * TokenBorderStyle utility class following Single Responsibility Principle
  * Responsible only for managing dropdown menu styling logic
  * Uses CSS variables from the theme system
  */
 export class DropdownMenuStyleManager {
-  static getPositionClasses(position: DropdownPosition): string {
-    const positionClasses: Record<DropdownPosition, string> = {
+  private static normalizePosition(position: TokenAlignment): 'left' | 'right' | 'center' {
+    if (position === 'right' || position.startsWith('right')) return 'right';
+    if (position === 'center' || position === 'justify') return 'center';
+    return 'left';
+  }
+
+  static getPositionClasses(position: TokenAlignment): string {
+    const positionClasses = {
       left: 'dropdown-position-left',
       right: 'dropdown-position-right', 
       center: 'dropdown-position-center'
-    };
+    } as const;
 
-    return positionClasses[position];
+    return positionClasses[this.normalizePosition(position)];
   }
 
   static getDisabledClass(isDisabled: boolean): string {
     return isDisabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '';
   }
 
-  static getMenuClasses(position: DropdownPosition): string {
+  static getMenuClasses(position: TokenAlignment): string {
     const baseClasses = 'dropdown-menu-base origin-top-right absolute rounded-md shadow-lg bg-[--color-background-primary] ring-1 ring-[--color-border-primary] focus:outline-none z-[var(--z-index-modal)]';
     const positionClass = this.getPositionClasses(position);
     
     return `${baseClasses} ${positionClass}`;
   }
 
-  static getAllClasses(position: DropdownPosition, isDisabled: boolean, className: string): string {
+  static getAllClasses(position: TokenAlignment, isDisabled: boolean, className: string): string {
     const baseClasses = 'dropdown-base relative inline-block text-left';
     const positionClass = this.getPositionClasses(position);
     const disabledClass = this.getDisabledClass(isDisabled);

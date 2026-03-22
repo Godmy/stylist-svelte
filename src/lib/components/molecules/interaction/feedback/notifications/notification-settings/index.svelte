@@ -10,7 +10,7 @@ import type {
     INotificationSettingsProps,
     INotificationSettingsPreference
   } from '$stylist/design-system/contracts/interaction/notification-settings';
-import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channels';
+import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channel';
 
   let {
     preferences = [],

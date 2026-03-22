@@ -1,31 +1,31 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
+	import type { Theme } from '$stylist/design-system/contracts/theme/theme';
+	import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
+	import { darkTheme, lightTheme } from '$stylist/design-system/defaults/themes';
 	import type { Snippet } from 'svelte';
 	import { applyThemeToDOM } from '../css';
 	import { setThemeContext } from '../theme-context';
-	import { darkTheme, lightTheme } from '../../defaults/themes';
-	import type { Theme } from '../../contracts/theme';
-	import type { ThemeName } from '../../contracts/theme-name';
 
 	type ThemeProviderContract = {
-		initialTheme?: ThemeName;
+		initialTheme?: TokenThemeName;
 		class?: string;
 		children: Snippet;
-	} & HTMLAttributes<HTMLDivElement>;
+	} & InformationHTMLAttributes<HTMLDivElement>;
 
 	let { initialTheme = 'light', class: className = '', children, ...restProps }: ThemeProviderContract = $props();
 
-	const themes: Record<ThemeName, Theme> = {
+	const themes: Record<TokenThemeName, Theme> = {
 		light: lightTheme,
 		dark: darkTheme
 	};
 
-	let currentTheme = $state<ThemeName>(initialTheme);
+	let currentTheme = $state<TokenThemeName>(initialTheme);
 
 	/**
 	 * Change the current theme
 	 */
-	function setTheme(themeName: ThemeName): void {
+	function setTheme(themeName: TokenThemeName): void {
 		currentTheme = themeName;
 		const theme = themes[themeName];
 
@@ -57,7 +57,6 @@
 <div class={containerClass} {...restProps}>
 	{@render children()}
 </div>
-
 
 
 

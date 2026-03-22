@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
-import type { Density } from '$stylist/design-system/tokens/architecture/densities';
+import type { TokenDensity } from '$stylist/design-system/tokens/architecture/density';
 
 /**
  * DashboardLayout props interface
@@ -86,7 +86,7 @@ export interface DashboardLayoutProps
    * Visual variant controlling spacing density
    * @default 'default'
    */
-  variant?: Density;
+  variant?: TokenDensity;
 }
 
 /**
@@ -96,7 +96,7 @@ export interface DashboardLayoutProps
 export interface DashboardLayoutState {
   isSidebarOpen: boolean;
   isMobile: boolean;
-  currentVariant: Density;
+  currentVariant: TokenDensity;
 }
 
 // Presets moved from presets\dashboard-layout.ts
@@ -128,7 +128,7 @@ export interface DashboardLayoutPreset {
    * Default variant
    * @default 'default'
    */
-  variant: Density;
+  variant: TokenDensity;
 
   /**
    * Default mobile breakpoint
@@ -136,5 +136,6 @@ export interface DashboardLayoutPreset {
    */
   mobileBreakpoint: string;
 }
+
 
 

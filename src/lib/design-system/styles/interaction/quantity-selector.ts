@@ -4,8 +4,8 @@
  * Следует принципу единственной ответственности (SRP) из SOLID -
  * только генерирует CSS-классы на основе переданных props
  */
-import type { QuantitySelectorVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSelectorKind } from '$stylist/design-system/tokens/interaction/selection-kind';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class QuantitySelectorStyleManager {
   /**
@@ -36,7 +36,7 @@ export class QuantitySelectorStyleManager {
     isDisabled: boolean,
     showButtons: boolean,
     isLeftButton: boolean,
-    size: ComponentSize,
+    size: TokenSize,
     buttonClass?: string
   ): string {
     const sizeClasses = this.getSizeClasses(size);
@@ -53,8 +53,8 @@ export class QuantitySelectorStyleManager {
    */
   static getInputClasses(
     showButtons: boolean,
-    size: ComponentSize,
-    variant: QuantitySelectorVariant,
+    size: TokenSize,
+    variant: TokenSelectorKind,
     inputClass?: string
   ): string {
     const sizeClasses = this.getSizeClasses(size);
@@ -77,14 +77,22 @@ export class QuantitySelectorStyleManager {
   /**
    * Возвращает CSS-классы размера на основе параметра
    */
-  static getSizeClasses(size: ComponentSize): string {
-    const sizeClasses: Record<ComponentSize, string> = {
+  static getSizeClasses(size: TokenSize): string {
+    const sizeClasses: Record<TokenSize, string> = {
       'xs': 'text-xs px-1 py-0.5',
       'sm': 'text-sm px-2 py-1',
       'md': 'text-base px-3 py-2',
       'lg': 'text-lg px-4 py-3',
       'xl': 'text-xl px-5 py-4',
-      '2xl': 'text-2xl px-6 py-5'
+      '2xl': 'text-2xl px-6 py-5',
+      '1/4': 'text-xs px-1 py-0.5',
+      '1/3': 'text-sm px-2 py-1',
+      '2/5': 'text-sm px-2 py-1',
+      '1/2': 'text-base px-3 py-2',
+      '3/5': 'text-base px-3 py-2',
+      '2/3': 'text-lg px-4 py-3',
+      '3/4': 'text-xl px-5 py-4',
+      full: 'text-2xl px-6 py-5 w-full'
     };
 
     return sizeClasses[size];
@@ -93,8 +101,8 @@ export class QuantitySelectorStyleManager {
   /**
    * Возвращает CSS-классы варианта на основе параметра
    */
-  static getVariantClasses(variant: QuantitySelectorVariant): string {
-    const variantClasses: Record<QuantitySelectorVariant, string> = {
+  static getVariantClasses(variant: TokenSelectorKind): string {
+    const variantClasses: Record<TokenSelectorKind, string> = {
       'default': 'border border-[--color-border-secondary] rounded-md shadow-sm',
       'minimal': 'border-b border-[--color-border-secondary] focus:border-[--color-primary-500] focus:outline-none',
       'filled': 'bg-[--color-background-secondary] border border-transparent rounded-md'
@@ -103,6 +111,7 @@ export class QuantitySelectorStyleManager {
     return variantClasses[variant];
   }
 }
+
 
 
 

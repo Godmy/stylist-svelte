@@ -1,6 +1,6 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { CardStyleManager } from '$stylist/design-system/styles/information/card';
-import type { Background } from '$stylist/design-system/tokens/information/background';
+import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
 
 const STAT_CARD_VARIANT_CLASSES = {
 	default: '',
@@ -20,7 +20,7 @@ const STAT_CARD_TREND_TEXT_CLASSES = {
 
 export class StatCardStyleManager {
 	static getBaseClasses(
-		variant: Background = 'default',
+		variant: TokenBackground = 'default',
 		className = ''
 	): string {
 		const resolvedVariant = variant in STAT_CARD_VARIANT_CLASSES ? variant : 'default';
@@ -64,4 +64,3 @@ export class StatCardStyleManager {
 		return 'stat-card-description mt-2 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-

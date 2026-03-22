@@ -1,5 +1,5 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
-import type { Density } from '$stylist/design-system/tokens/architecture/densities';
+import type { TokenDensity } from '$stylist/design-system/tokens/architecture/density';
 
 
 export class DashboardLayoutStyleManager {
@@ -75,8 +75,8 @@ export class DashboardLayoutStyleManager {
     );
   }
 
-  static getContentClasses(variant: Density, className = ''): string {
-    const variantClasses: Record<Density, string> = {
+  static getContentClasses(variant: TokenDensity, className = ''): string {
+    const variantClasses: Record<TokenDensity, string> = {
       default: 'p-4',
       compact: 'p-2',
       spacious: 'p-6'
@@ -152,6 +152,7 @@ export class DashboardLayoutStyleManager {
     );
   }
 }
+
 
 
 

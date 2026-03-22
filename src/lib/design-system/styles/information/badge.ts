@@ -1,13 +1,13 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Code } from '$stylist/design-system/tokens/interaction/variants';
-import type { DefaultVariants } from '$stylist/design-system/tokens';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenCodeView } from '$stylist/design-system/tokens/information/code-view';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { BADGE_DEFAULTS, CODE_BLOCK_DEFAULTS } from '$stylist/design-system/defaults/information/badge';
 
 export class BadgeStyleManager {
 	static getBadgeClasses(
-		variant: DefaultVariants = BADGE_DEFAULTS.variant,
-		size: ComponentSize = BADGE_DEFAULTS.size,
+		variant: TokenAppearance = BADGE_DEFAULTS.variant,
+		size: TokenSize = BADGE_DEFAULTS.size,
 		className = ''
 	): string {
 		return cn(
@@ -18,8 +18,8 @@ export class BadgeStyleManager {
 		);
 	}
 
-	static getBadgeVariantClass(variant: DefaultVariants = BADGE_DEFAULTS.variant): string {
-		return {
+	static getBadgeVariantClass(variant: TokenAppearance = BADGE_DEFAULTS.variant): string {
+		const badgeVariantClassMap: Record<TokenAppearance, string> = {
 			default: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]',
 			primary: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
 			secondary: 'bg-[var(--color-secondary-100)] text-[var(--color-secondary-800)]',
@@ -36,19 +36,31 @@ export class BadgeStyleManager {
 			link: 'bg-transparent text-[var(--color-primary-600)] underline underline-offset-2',
 			subtle: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)]',
 			dark: 'bg-[var(--color-neutral-800)] text-[var(--color-text-inverse)]',
-			light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)]'
-		}[variant];
+			light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)]',
+			elevated: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] shadow-sm',
+			flat: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]'
+		};
+
+		return badgeVariantClassMap[variant];
 	}
 
-	static getBadgeSizeClass(size: ComponentSize = BADGE_DEFAULTS.size): string {
-		return {
+	static getBadgeSizeClass(size: TokenSize = BADGE_DEFAULTS.size): string {
+		return ({
 			xs: 'text-[10px] px-1.5 py-0.5',
 			sm: 'text-xs px-2 py-0.5',
 			md: 'text-sm px-2.5 py-0.5',
 			lg: 'text-base px-3 py-1',
 			xl: 'text-lg px-3.5 py-1.5',
-			'2xl': 'text-xl px-4 py-2'
-		}[size];
+			'2xl': 'text-xl px-4 py-2',
+			'1/4': 'text-[10px] px-1.5 py-0.5',
+			'1/3': 'text-xs px-2 py-0.5',
+			'2/5': 'text-xs px-2 py-0.5',
+			'1/2': 'text-sm px-2.5 py-0.5',
+			'3/5': 'text-sm px-2.5 py-0.5',
+			'2/3': 'text-base px-3 py-1',
+			'3/4': 'text-lg px-3.5 py-1.5',
+			full: 'text-xl px-4 py-2'
+		}[size] ?? 'text-sm px-2.5 py-0.5');
 	}
 
 	static getBadgeGroupContainerClasses(className = ''): string {
@@ -63,8 +75,8 @@ export class BadgeStyleManager {
 	}
 
 	static getCodeClasses(
-		variant: Code = CODE_BLOCK_DEFAULTS.variant,
-		size: ComponentSize = CODE_BLOCK_DEFAULTS.size,
+		variant: TokenCodeView = CODE_BLOCK_DEFAULTS.variant,
+		size: TokenSize = CODE_BLOCK_DEFAULTS.size,
 		className = ''
 	): string {
 		return cn(
@@ -75,7 +87,7 @@ export class BadgeStyleManager {
 		);
 	}
 
-	static getCodeVariantClass(variant: Code = CODE_BLOCK_DEFAULTS.variant): string {
+	static getCodeVariantClass(variant: TokenCodeView = CODE_BLOCK_DEFAULTS.variant): string {
 		return {
 			default: 'bg-[--color-neutral-900] text-[--color-text-inverse]',
 			terminal: 'bg-[var(--color-neutral-900)] text-[--color-success-400] font-mono',
@@ -83,14 +95,23 @@ export class BadgeStyleManager {
 		}[variant];
 	}
 
-	static getCodeSizeClass(size: ComponentSize = CODE_BLOCK_DEFAULTS.size): string {
-		return {
+	static getCodeSizeClass(size: TokenSize = CODE_BLOCK_DEFAULTS.size): string {
+		return ({
 			xs: 'text-[10px] p-1.5',
 			sm: 'text-xs p-2',
 			md: 'text-sm p-4',
 			lg: 'text-base p-6',
 			xl: 'text-lg p-8',
-			'2xl': 'text-xl p-10'
-		}[size];
+			'2xl': 'text-xl p-10',
+			'1/4': 'text-[10px] p-1.5',
+			'1/3': 'text-xs p-2',
+			'2/5': 'text-xs p-2',
+			'1/2': 'text-sm p-4',
+			'3/5': 'text-sm p-4',
+			'2/3': 'text-base p-6',
+			'3/4': 'text-lg p-8',
+			full: 'text-xl p-10'
+		}[size] ?? 'text-sm p-4');
 	}
 }
+

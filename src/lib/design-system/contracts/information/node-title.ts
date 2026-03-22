@@ -1,7 +1,8 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { NodeTitleVariant } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+
+export type NodeTitleVariant = 'default' | 'selected' | 'error' | 'warning';
 
 /**
  * Варианты заголовка узла
@@ -15,7 +16,7 @@ export interface NodeTitleProps extends Omit<HtmlAttributesBase<HTMLHeadingEleme
 	/** Вариант отображения */
 	variant?: NodeTitleVariant;
 	/** Размер заголовка */
-	size?: ComponentSize;
+	size?: TokenSize;
 	/** Цвет заголовка */
 	color?: string;
 	/** Иконка слева от заголовка */
@@ -33,6 +34,7 @@ export interface NodeTitleProps extends Omit<HtmlAttributesBase<HTMLHeadingEleme
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
 
 
 

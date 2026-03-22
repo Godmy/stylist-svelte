@@ -1,8 +1,8 @@
 import type { Snippet } from 'svelte';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import type { Props, ClassProp } from '$stylist/design-system/contracts/information/common';
 
 export interface ButtonAttributesBase extends Omit<HTMLButtonAttributes, 'class'>, ClassProp {}
@@ -48,10 +48,11 @@ export interface PageButtonProps
 }
 
 export interface ButtonControlProps extends ButtonAttributesBase {
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	disabled?: boolean;
 	loading?: boolean;
 	block?: boolean;
 	onClick?: () => void;
 }
+

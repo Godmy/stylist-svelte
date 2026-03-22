@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { TogglesStyleManager } from '$stylist/design-system/styles/interaction/toggles';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 	type Props = {
 		/** Уникальный ID для switch */
@@ -11,7 +11,7 @@
 		/** Описание переключателя */
 		description?: string;
 		/** Размер переключателя */
-		size?: ComponentSize;
+		size?: TokenSize;
 		/** Отключен ли переключатель */
 		disabled?: boolean;
 		/** Состояние checked (поддерживает two-way binding) */
@@ -91,6 +91,7 @@
 		</span>
 	{/if}
 </label>
+
 
 
 

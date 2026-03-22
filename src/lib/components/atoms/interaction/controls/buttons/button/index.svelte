@@ -7,7 +7,7 @@ const Loader2 = 'loader-2';
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 	import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	/**
 	 * Button component - A flexible button component with various styles and states
@@ -25,7 +25,7 @@ const Loader2 = 'loader-2';
 
 	// Use centralized state management
 	let state = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
 			variant: 'primary',
 			size: 'md'
 		}),
@@ -58,6 +58,7 @@ const Loader2 = 'loader-2';
 		{props.loadingLabel ?? 'Loading...'}
 	{/if}
 </button>
+
 
 
 

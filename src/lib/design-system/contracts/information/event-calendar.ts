@@ -1,4 +1,4 @@
-import type { CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
+import type { TokenTimeMeasure } from '$stylist/design-system/tokens/information/time-measure';
 
 export interface CalendarEvent {
 	id: string;
@@ -23,7 +23,7 @@ export interface CalendarDay {
 export interface IEventCalendarProps {
 	events?: CalendarEvent[];
 	initialDate?: Date;
-	viewMode?: CalendarViewMode;
+	viewMode?: TokenTimeMeasure;
 	selectedDate?: Date;
 	dayClass?: string;
 	eventClass?: string;
@@ -36,5 +36,6 @@ export interface IEventCalendarProps {
 	onEventEdit?: (event: CalendarEvent) => void;
 	onEventDelete?: (event: CalendarEvent) => void;
 	onDayClick?: (day: CalendarDay) => void;
-	onViewModeChange?: (mode: CalendarViewMode) => void;
+	onViewModeChange?: (mode: TokenTimeMeasure) => void;
 }
+

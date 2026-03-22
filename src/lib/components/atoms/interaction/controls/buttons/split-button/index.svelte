@@ -5,7 +5,7 @@
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 	import { createButtonState } from '../../../../../../design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	const ChevronDown = 'chevron-down';
 
@@ -42,7 +42,7 @@
 
 	// Use centralized state management for base button properties
 	let buttonState = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
 			variant: 'primary',
 			size: 'md'
 		}),
@@ -187,6 +187,7 @@
 		</div>
 	{/if}
 </div>
+
 
 
 

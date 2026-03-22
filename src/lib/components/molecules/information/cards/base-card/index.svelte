@@ -1,34 +1,34 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
   import type { IBaseCardElementProps } from '$stylist/design-system/contracts/information/base-card';
   import { createBaseCardState } from '$stylist/design-system/models/information/base-card.svelte';
   import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
-  import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+  import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
 
   /**
-   * BaseCard - СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ РєР°СЂС‚РѕС‡РЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё
+   * BaseCard - универсальный карточный компонент для отображения информации
    *
-   * @param variant - Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЃС‚РёР»СЊ РєРѕРјРїРѕРЅРµРЅС‚Р° ('primary' | 'secondary' | 'success' ...)
-   * @param size - Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° ('sm' | 'md' | 'lg')
-   * @param disabled - РћС‚РєР»СЋС‡РµРЅ Р»Рё РєРѕРјРїРѕРЅРµРЅС‚
-   * @param title - Р—Р°РіРѕР»РѕРІРѕРє РєР°СЂС‚РѕС‡РєРё
-   * @param description - РћРїРёСЃР°РЅРёРµ РєР°СЂС‚РѕС‡РєРё
-   * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅР°СЏ РєР°СЂС‚РѕС‡РєР°
+   * @param variant - Визуальный стиль компонента ('primary' | 'secondary' | 'success' ...)
+   * @param size - Размер компонента ('sm' | 'md' | 'lg')
+   * @param disabled - Отключен ли компонент
+   * @param title - Заголовок карточки
+   * @param description - Описание карточки
+   * @returns Стилизованная карточка
    */
 
   let props: IBaseCardElementProps & InformationHTMLAttributes<HTMLDivElement> = $props();
 
-  // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
+  // Централизованное управление состоянием
   let state = createBaseCardState(
-    createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+    createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
       variant: 'default',
       size: 'md'
     }),
     props as any
   );
 
-  // РР·РІР»РµС‡РµРЅРёРµ rest-props РІСЂСѓС‡РЅСѓСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ runes
+  // Извлечение rest-props вручную для работы в режиме runes
   let {
     variant,
     size,
@@ -66,6 +66,7 @@
     {/if}
   </div>
 </div>
+
 
 
 

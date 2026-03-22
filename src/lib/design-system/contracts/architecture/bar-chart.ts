@@ -1,4 +1,4 @@
-import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
 /**
@@ -95,7 +95,7 @@ export interface IBarChartProps extends ArchitectureHTMLAttributes<HTMLDivElemen
    * Цветовая схема диаграммы
    * @default 'default'
    */
-  colorScheme?: ThemeSchemeId;
+  colorScheme?: TokenSchemeId;
 
   /**
    * Максимальное значение для шкалы Y

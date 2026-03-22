@@ -1,6 +1,7 @@
 import type { StatusIndicatorProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
-import type { StatusIndicatorStatus } from '$stylist/design-system/tokens/information/status-indicator';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenAvailability } from '$stylist/design-system/tokens/interaction/availability';
 
 
 /**
@@ -12,8 +13,8 @@ import type { StatusIndicatorStatus } from '$stylist/design-system/tokens/inform
  * @returns Reactive state object with classes and computed values
  */
 export function createStatusIndicatorState(props: StatusIndicatorProps) {
-	// Simple mode props (legacy status-indicator)
-	const status = $derived((props.status ?? 'online') as StatusIndicatorStatus);
+	const status = $derived((props.status ?? 'online') as TokenAvailability);
+	const appearance = $derived((props.appearance ?? 'neutral') as TokenAppearance);
 	const label = $derived(props.label ?? '');
 	
 	// Enhanced mode props (legacy status-indicator-with-label)
@@ -23,8 +24,7 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 	const indicatorClass = $derived(props.indicatorClass ?? '');
 	const labelClass = $derived(props.labelClass ?? '');
 	
-	// Determine mode: simple (online/offline/etc) vs enhanced (success/warning/etc)
-	const isSimpleMode = $derived(['online', 'offline', 'away', 'busy'].includes(status));
+	const isSimpleMode = $derived(props.appearance === undefined && !props.customColor);
 	
 	// Simple mode classes
 	const classes = $derived(IndicatorsStyleManager.getStatusIndicatorContainerClasses(props.class ?? ''));
@@ -46,14 +46,14 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 		isSimpleMode
 			? dotClasses
 			: IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses(
-					status as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses>[0],
+					appearance,
 					size as Parameters<typeof IndicatorsStyleManager.getStatusIndicatorWithLabelIndicatorClasses>[1],
 					customColor,
 					indicatorClass
 			  )
 	);
 	const indicatorStyle = $derived(
-		status === 'custom' && customColor ? `background-color: ${customColor};` : ''
+		customColor ? `background-color: ${customColor};` : ''
 	);
 	const labelClasses = $derived(
 		IndicatorsStyleManager.getStatusIndicatorWithLabelLabelClasses(labelClass)
@@ -65,6 +65,9 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 		},
 		get label() {
 			return label;
+		},
+		get appearance() {
+			return appearance;
 		},
 		get customColor() {
 			return customColor;
@@ -106,6 +109,7 @@ export function createStatusIndicatorState(props: StatusIndicatorProps) {
 }
 
 export default createStatusIndicatorState;
+
 
 
 

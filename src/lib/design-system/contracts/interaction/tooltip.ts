@@ -1,9 +1,8 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { TooltipTrigger } from '$stylist/design-system/tokens/interaction/triggers';
-
-import type { TooltipPlacement, TooltipVariant } from '$stylist/design-system/tokens/interaction/tooltip';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenConnector } from '$stylist/design-system/tokens/architecture/connector';
+import type { TokenTrigger } from '$stylist/design-system/tokens/interaction/trigger';
 /**
  * Unified Tooltip props following SOLID principles
  */
@@ -17,19 +16,19 @@ export interface TooltipProps extends HTMLAttributes<HTMLElement> {
 	 * Placement of the tooltip relative to the trigger
 	 * @default 'top'
 	 */
-	placement?: TooltipPlacement;
+	placement?: TokenAlignment;
 
 	/**
 	 * Trigger mechanism for showing the tooltip
 	 * @default 'hover'
 	 */
-	trigger?: TooltipTrigger;
+	trigger?: TokenTrigger;
 
 	/**
 	 * Visual variant of the tooltip
 	 * @default 'default'
 	 */
-	variant?: TooltipVariant;
+	variant?: TokenConnector;
 
 	/**
 	 * Whether the tooltip is shown (controlled mode)
@@ -85,6 +84,7 @@ export interface TooltipProps extends HTMLAttributes<HTMLElement> {
 	 */
 	onHide?: () => void;
 }
+
 
 
 

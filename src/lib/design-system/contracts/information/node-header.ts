@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Свойства заголовка узла графа
@@ -13,7 +13,7 @@ export interface NodeHeaderProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Цвет заголовка */
 	color?: string;
 	/** Размер компонента */
-	size?: ComponentSize;
+	size?: TokenSize;
 	/** Выделен ли */
 	selected?: boolean;
 	/** Можно ли редактировать */
@@ -41,6 +41,7 @@ export interface NodeHeaderProps extends HtmlAttributesBase<HTMLDivElement> {
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
 
 
 

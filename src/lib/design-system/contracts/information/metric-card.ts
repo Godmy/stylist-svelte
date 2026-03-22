@@ -11,7 +11,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 export interface IMetricCardProps {
   /** Название метрики */
@@ -30,7 +30,7 @@ export interface IMetricCardProps {
   description?: string;
   
   /** Вариант оформления */
-  variant?: ToneVariant;
+  variant?: TokenAppearance;
   
   /** Показывать ли прогресс-бар */
   showProgressBar?: boolean; // default: true

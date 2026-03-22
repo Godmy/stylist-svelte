@@ -1,16 +1,16 @@
 import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { ToggleGroupType } from '$stylist/design-system/tokens/interaction/selection-type';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenSelectionType } from '$stylist/design-system/tokens/interaction/selection-type';
 
 export interface ToggleGroupRootProps
 	extends Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'> {
 	value?: string;
 	disabled?: boolean;
-	orientation?: Orientation;
-	type?: ToggleGroupType;
+	orientation?: TokenOrientation;
+	type?: TokenSelectionType;
 	class?: string;
 	onValueChange?: (event: CustomEvent<{ value: string | string[] | null }>) => void;
 }
@@ -24,7 +24,7 @@ export interface ToggleGroupItemProps extends Omit<HTMLButtonAttributes, 'class'
 export interface ToggleBaseProps {
 	disabled?: boolean;
 	class?: string;
-	size?: ComponentSize;
+	size?: TokenSize;
 }
 
 export interface ToggleInputProps
@@ -34,7 +34,7 @@ export interface ToggleInputProps
 }
 
 export interface ToggleProps extends ToggleInputProps {
-	toggleSize?: ComponentSize;
+	toggleSize?: TokenSize;
 }
 
 export interface CheckboxProps extends ToggleInputProps {
@@ -58,7 +58,7 @@ export interface RadioButtonGroupProps
 	> {
 	value?: string;
 	disabled?: boolean;
-	orientation?: Orientation;
+	orientation?: TokenOrientation;
 	options: Array<{ value: string; label: string; disabled?: boolean }>;
 	optionClass?: string;
 	labelClass?: string;
@@ -96,6 +96,7 @@ export interface DarkModeToggleProps extends ToggleBaseProps {
 	onToggle?: (payload: { darkMode: boolean }) => void;
 	onThemeChange?: (theme: 'light' | 'dark' | 'system') => void;
 }
+
 
 
 

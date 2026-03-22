@@ -1,6 +1,6 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { PrimitiveChart } from '$stylist/design-system/tokens/architecture/primitives';
-import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenChart } from '$stylist/design-system/tokens/architecture/chart';
+import type { TokenLineType } from '$stylist/design-system/tokens/architecture/line-type';
 import type { HTMLCanvasAttributes } from 'svelte/elements';
 
 /**
@@ -70,7 +70,7 @@ export interface CanvasChartProps extends HTMLCanvasAttributes {
    * Type of chart to render
    * @default 'line'
    */
-  type?: PrimitiveChart;
+  type?: TokenChart;
 
   /**
    * Chart title displayed at the top
@@ -106,13 +106,13 @@ export interface CanvasChartProps extends HTMLCanvasAttributes {
    * Visual variant of the chart
    * @default 'default'
    */
-  variant?: LineChartVariant;
+  variant?: TokenLineType;
 
   /**
    * Size preset of the chart
    * @default 'md'
    */
-  size?: ComponentSize;
+  size?: TokenSize;
 
   /**
    * Show legend below the chart
@@ -147,8 +147,8 @@ export interface CanvasChartState {
   isRendering: boolean;
   hoveredPoint: ChartDataPoint | null;
   selectedPoint: ChartDataPoint | null;
-  currentVariant: LineChartVariant;
-  currentSize?: ComponentSize;
+  currentVariant: TokenLineType;
+  currentSize?: TokenSize;
 }
 
 // Presets moved from presets\canvas-chart.ts
@@ -174,19 +174,19 @@ export interface CanvasChartPreset {
    * Default chart type
    * @default 'line'
    */
-  type: PrimitiveChart;
+  type: TokenChart;
 
   /**
    * Default variant
    * @default 'default'
    */
-  variant: LineChartVariant;
+  variant: TokenLineType;
 
   /**
    * Default size
    * @default 'md'
    */
-  size?: ComponentSize;
+  size?: TokenSize;
 
   /**
    * Default show grid state
@@ -212,6 +212,8 @@ export interface CanvasChartPreset {
    */
   colors: string[];
 }
+
+
 
 
 

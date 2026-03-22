@@ -1,10 +1,10 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { PaymentStatus } from '$stylist/design-system/tokens/interaction/statuses';
-import type { PaymentMethodType } from '$stylist/design-system/tokens/interaction/payment-methods';
+import type { TokenPaymentMethod } from '$stylist/design-system/tokens/commerce/payment-method';
+import type { TokenPaymentStatus } from '$stylist/design-system/tokens/commerce/payment-status';
 
 export interface PaymentMethod {
 	id: string;
-	type: PaymentMethodType;
+	type: TokenPaymentMethod;
 	name: string;
 	description?: string;
 	details?: string;
@@ -100,6 +100,6 @@ export interface PaymentSummaryProps extends InteractionHTMLAttributes<HTMLDivEl
 	paymentMethod?: string;
 	transactionId?: string;
 	date?: Date;
-	status?: PaymentStatus;
+	status?: TokenPaymentStatus;
 	class?: string;
 }

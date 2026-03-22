@@ -1,35 +1,37 @@
 import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { Snippet } from 'svelte';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 export interface IconChevronProps extends InformationHTMLAttributes<HTMLSpanElement> {
   direction?: 'up' | 'down' | 'left' | 'right';
-  size?: ComponentSize | '2xl';
+  size?: TokenSize | '2xl';
   class?: string;
   isOpen?: boolean;
-  variant?: DefaultVariants;
+  variant?: TokenAppearance;
   disabled?: boolean;
 }
 
 export interface IconCircleProps extends InformationHTMLAttributes<HTMLDivElement> {
-  size?: ComponentSize;
+  size?: TokenSize;
   class?: string;
-  variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
+  variant?: TokenAppearance | 'success' | 'warning' | 'danger' | 'error';
   filled?: boolean;
   disabled?: boolean;
   icon?: Snippet;
 }
 
 export interface IconWrapperProps extends InformationHTMLAttributes<HTMLDivElement> {
-  size?: ComponentSize;
-  variant?: DefaultVariants | 'success' | 'warning' | 'danger' | 'error';
-  shape?: 'circle' | 'square' | 'rounded' | 'pill';
+  size?: TokenSize;
+  variant?: TokenAppearance | 'success' | 'warning' | 'danger' | 'error';
+  shape?: TokenShape | 'rounded';
   color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'error';
   disabled?: boolean;
   class?: string;
   content?: Snippet;
 }
+
 
 
 

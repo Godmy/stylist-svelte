@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -9,7 +9,7 @@ export class NodePropertiesPanelStyleManager {
 	 * Получает классы панели
 	 */
 	static getPanelClasses(
-		size: ComponentSize,
+		size: TokenSize,
 		compact: boolean,
 		showHeader: boolean
 	): string {

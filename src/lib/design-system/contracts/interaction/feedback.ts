@@ -1,14 +1,11 @@
 import type { Snippet } from 'svelte';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { PrimitiveSkeleton } from '$stylist/design-system/tokens/architecture/primitives';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenMarker } from '$stylist/design-system/tokens/architecture/marker';
+import type { TokenSkeleton } from '$stylist/design-system/tokens/architecture/skeleton';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
-import type { NotificationBadgeVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { StepIconStatus } from '$stylist/design-system/tokens/interaction/statuses';
-
-import type { NotificationBadgePosition } from '$stylist/design-system/tokens/interaction/notification-positions';
 export interface IBaseFeedbackProps extends HtmlAttributesBase<HTMLElement> {}
 
 export interface IErrorMessageProps extends IBaseFeedbackProps {
@@ -25,21 +22,22 @@ export interface ISimpleTooltipProps extends IBaseFeedbackProps {
 export interface INotificationBadgeProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	count?: number;
 	maxCount?: number;
-	variant?: NotificationBadgeVariant;
-	position?: NotificationBadgePosition;
+	marker?: TokenMarker;
+	appearance?: TokenAppearance;
+	position?: TokenAlignment;
 	showZero?: boolean;
 	badgeClass?: string;
 }
 
 export interface ISkeletonProps extends HtmlAttributesBase<HTMLDivElement> {
-	variant?: PrimitiveSkeleton;
+	variant?: TokenSkeleton;
 	width?: string;
 	height?: string;
 }
 
 export interface ISpinnerProps extends HtmlAttributesBase<HTMLDivElement> {
-	size?: ComponentSize;
-	variant?: 'white' | 'gray' | DefaultVariants;
+	size?: TokenSize;
+	variant?: 'white' | 'gray' | TokenAppearance;
 	label?: string;
 }
 
@@ -50,8 +48,8 @@ export interface IProgressBarProps extends HtmlAttributesBase<HTMLDivElement> {
 	max?: number;
 	label?: string;
 	showPercentage?: boolean;
-	size?: ComponentSize;
-	variant?: DefaultVariants;
+	size?: TokenSize;
+	variant?: TokenAppearance;
 }
 
 export interface IProgressCircleProps extends HtmlAttributesBase<HTMLDivElement> {
@@ -61,12 +59,12 @@ export interface IProgressCircleProps extends HtmlAttributesBase<HTMLDivElement>
 	strokeWidth?: number;
 	label?: string;
 	showPercentage?: boolean;
-	variant?: DefaultVariants;
+	variant?: TokenAppearance;
 }
 
 export interface IStepIconProps extends HtmlAttributesBase<HTMLSpanElement> {
-	status?: StepIconStatus;
-	size?: ComponentSize;
+	status?: 'pending' | 'active' | 'completed' | 'error';
+	size?: TokenSize;
 	stepNumber?: number;
 	iconName?: string;
 }
@@ -74,7 +72,7 @@ export interface IStepIconProps extends HtmlAttributesBase<HTMLSpanElement> {
 export interface IStepConnectorProps extends HtmlAttributesBase<HTMLDivElement> {
 	active?: boolean;
 	completed?: boolean;
-	status?: StepIconStatus;
+	status?: 'pending' | 'active' | 'completed' | 'error';
 }
 
 export interface IAccountProgressTrackerProps extends HtmlAttributesBase<HTMLDivElement> {
@@ -90,12 +88,14 @@ export interface ITableSkeletonProps extends HtmlAttributesBase<HTMLTableElement
 }
 
 export interface IAlertProps {
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	disabled?: boolean;
 	class?: string;
 	children?: Snippet;
 }
+
+
 
 
 

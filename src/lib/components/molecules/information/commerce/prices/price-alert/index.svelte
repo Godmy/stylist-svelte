@@ -1,35 +1,35 @@
-﻿<script lang="ts">
+<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import type { IPriceAlertElementProps } from '$stylist/design-system/contracts/information/price-alert';
   import { createPriceAlertState } from '$stylist/design-system/models/information/price-alert.svelte';
-  import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+  import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
   import { createBasePreset } from '$stylist/design-system/runtime/preset';
-  import { ALERT_TYPES } from '$stylist/design-system/tokens/interaction/alert-types';
-  import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
+  import { TOKEN_MONITORING_TYPE } from '$stylist/design-system/tokens/interaction/monitoring-type';
+  import type { TokenMonitoringType } from '$stylist/design-system/tokens/interaction/monitoring-type';
 
   /**
-   * PriceAlert - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ С†РµРЅ Рё СѓРІРµРґРѕРјР»РµРЅРёР№ Рѕ РґРѕСЃС‚РёР¶РµРЅРёРё С†РµР»РµРІРѕР№ С†РµРЅС‹
+   * PriceAlert - компонент для отслеживания цен и уведомлений о достижении целевой цены
    *
-   * @param variant - Р’РёР·СѓР°Р»СЊРЅС‹Р№ СЃС‚РёР»СЊ РєРѕРјРїРѕРЅРµРЅС‚Р° ('monitoring' | 'reached' | 'exceeded' ...)
-   * @param size - Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° ('sm' | 'md' | 'lg')
-   * @param disabled - РћС‚РєР»СЋС‡РµРЅ Р»Рё РєРѕРјРїРѕРЅРµРЅС‚
-   * @param currentPrice - РўРµРєСѓС‰Р°СЏ С†РµРЅР°
-   * @param targetPrice - Р¦РµР»РµРІР°СЏ С†РµРЅР°
-   * @returns РЎС‚РёР»РёР·РѕРІР°РЅРЅС‹Р№ РєРѕРјРїРѕРЅРµРЅС‚ СѓРІРµРґРѕРјР»РµРЅРёСЏ Рѕ С†РµРЅРµ
+   * @param variant - Визуальный стиль компонента ('monitoring' | 'reached' | 'exceeded' ...)
+   * @param size - Размер компонента ('sm' | 'md' | 'lg')
+   * @param disabled - Отключен ли компонент
+   * @param currentPrice - Текущая цена
+   * @param targetPrice - Целевая цена
+   * @returns Стилизованный компонент уведомления о цене
    */
 
   let props: IPriceAlertElementProps & HTMLAttributes<HTMLDivElement> = $props();
 
-  // Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅРѕРµ СѓРїСЂР°РІР»РµРЅРёРµ СЃРѕСЃС‚РѕСЏРЅРёРµРј
+  // Централизованное управление состоянием
   let state = createPriceAlertState(
-    createBasePreset(ALERT_TYPES, COMPONENT_SIZE, {
+    createBasePreset(TOKEN_MONITORING_TYPE, TOKEN_SIZE, {
       variant: 'monitoring',
       size: 'md'
     }),
     props as any
   );
 
-  // РР·РІР»РµС‡РµРЅРёРµ rest-props РІСЂСѓС‡РЅСѓСЋ РґР»СЏ СЂР°Р±РѕС‚С‹ РІ СЂРµР¶РёРјРµ runes
+  // Извлечение rest-props вручную для работы в режиме runes
   let {
     variant,
     size,
@@ -37,9 +37,9 @@
     currentPrice = 0,
     targetPrice = 0,
     currency = '$',
-    status = 'monitoring' as AlertType,
+    status = 'monitoring' as TokenMonitoringType,
     productName = '',
-    onStatusChange = (status: AlertType) => {},
+    onStatusChange = (status: TokenMonitoringType) => {},
     class: classProp,
     children,
     ...restProps
@@ -54,7 +54,7 @@
   const PRICE_ALERT_STATUS_BADGE_CLASSES = 'px-2 py-1 rounded text-xs font-medium';
   
   const isTargetReached = $derived(currentPrice <= targetPrice);
-  const statusText = $derived((isTargetReached ? 'reached' : 'monitoring') as AlertType);
+  const statusText = $derived((isTargetReached ? 'reached' : 'monitoring') as TokenMonitoringType);
   const statusMsg = $derived(isTargetReached
     ? `Target price of ${currency}${targetPrice} reached!`
     : `Waiting for price to reach ${currency}${targetPrice}`);
@@ -77,6 +77,7 @@
     </div>
   </div>
 </div>
+
 
 
 

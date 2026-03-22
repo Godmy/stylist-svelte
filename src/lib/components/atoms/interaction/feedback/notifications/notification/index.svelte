@@ -9,8 +9,8 @@ const XCircle = 'x-circle';
 
 
   import type { INotificationProps } from '$stylist/design-system/contracts/interaction/notification';
-  import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
-  import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
+  import type { NotificationType } from '$stylist/design-system/contracts/interaction/notification';
+  import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
   import { NotificationAtomStyleManager } from '$stylist/design-system/styles/interaction/notification';
 
   /**
@@ -89,7 +89,7 @@ const XCircle = 'x-circle';
   };
 
   let iconComponent = $derived(iconMap[type] ?? Info);
-  let visualType = $derived<ToneVariant>(type === 'silent' ? 'info' : type);
+  let visualType = $derived<TokenAppearance>(type === 'silent' ? 'info' : type);
 
   // Get CSS classes using the style manager
   let containerClasses = $derived(NotificationAtomStyleManager.getBaseClasses(visualType, position, hostClass));

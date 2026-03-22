@@ -4,8 +4,6 @@
 	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputGroupProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 	import { Button } from '$stylist/components/atoms';
 
 	/**
@@ -174,6 +172,7 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+
 
 
 

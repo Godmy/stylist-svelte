@@ -7,7 +7,7 @@
 		{ name: 'content', type: 'text', defaultValue: 'Helpful contextual info' },
 		{ name: 'placement', type: 'select', defaultValue: 'top', options: ['top', 'bottom', 'left', 'right'] },
 		{ name: 'trigger', type: 'select', defaultValue: 'hover', options: ['hover', 'click', 'focus'] },
-		{ name: 'variant', type: 'select', defaultValue: 'with-arrow', options: ['default', 'with-arrow', 'simple'] },
+		{ name: 'variant', type: 'select', defaultValue: 'arrow', options: ['line', 'arrow', 'invisible'] },
 		{ name: 'delay', type: 'number', defaultValue: 0, min: 0, max: 1200, step: 50 },
 		{ name: 'disabled', type: 'boolean', defaultValue: false }
 	];

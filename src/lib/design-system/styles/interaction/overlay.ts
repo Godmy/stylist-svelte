@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Менеджер стилей для компонента LoadingOverlay
@@ -76,7 +76,7 @@ export class LoadingOverlayStyleManager {
   /**
    * Получить CSS-классы для спиннера определенного размера
    */
-  static getSpinnerSizeClasses(size: ComponentSize): string {
+  static getSpinnerSizeClasses(size: TokenSize): string {
     switch (size) {
       case 'sm':
         return 'w-5 h-5 border-2';
@@ -93,5 +93,6 @@ export class LoadingOverlayStyleManager {
     }
   }
 }
+
 
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
+	import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
 	import Svg from '../svg/index.svelte';
 	import { IconStyleManager } from '$stylist/design-system/styles';
 
@@ -21,7 +22,7 @@
 		| 'neutral'
 		| 'dark'
 		| 'light';
-	export type IconShape = 'circle' | 'square' | 'rounded' | 'pill';
+	export type IconShape = TokenShape | 'rounded';
 	export type IconColor = IconVariant | 'gray';
 
 	export type IconProps = InformationHTMLAttributes<HTMLSpanElement> & {
@@ -177,5 +178,4 @@
 		</span>
 	</span>
 {/if}
-
 

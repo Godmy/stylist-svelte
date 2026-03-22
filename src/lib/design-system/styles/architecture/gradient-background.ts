@@ -6,7 +6,7 @@
  * и не содержит никакой логики отображения или поведения.
  */
 
-import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
+import type { TokenGradient } from '$stylist/design-system/tokens/information/gradient';
 
 export class GradientBackgroundStyleManager {
   /**
@@ -19,7 +19,7 @@ export class GradientBackgroundStyleManager {
   /**
    * Возвращает CSS-классы для основного градиента
    */
-  static getGradientClasses(variant: GradientVariant = 'dynamic', direction: string = 'diagonal'): string {
+  static getGradientClasses(variant: TokenGradient = 'dynamic', direction: string = 'diagonal'): string {
     const directionClasses = {
       diagonal: '[background-image:var(--gradient-directional-diagonal)]',
       horizontal: '[background-image:var(--gradient-directional-horizontal)]',
@@ -61,6 +61,7 @@ export class GradientBackgroundStyleManager {
     `;
   }
 }
+
 
 
 

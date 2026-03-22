@@ -1,6 +1,6 @@
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
 
-import type { LabelPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
+type LabelPosition = TokenAlignment;
 /** Props interface for SwitchWithLabel component */
 export interface ISwitchWithLabelProps {
   /**
@@ -63,6 +63,7 @@ export interface ISwitchWithLabelProps {
    */
   onChange?: (checked: boolean) => void;
 }
+
 
 
 

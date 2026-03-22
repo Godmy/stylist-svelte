@@ -1,14 +1,22 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { STATE_CLASSES } from '$stylist/design-system/runtime/foundation';
 
-const TAB_SIZE_CLASSES: Record<ComponentSize, string> = {
+const TAB_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'px-1.5 py-0.5 text-xs',
 	sm: 'px-2 py-1 text-sm',
 	md: 'px-3 py-1.5 text-base',
 	lg: 'px-4 py-2 text-lg',
 	xl: 'px-5 py-2.5 text-xl',
-	'2xl': 'px-6 py-3 text-2xl'
+	'2xl': 'px-6 py-3 text-2xl',
+	'1/4': 'px-1.5 py-0.5 text-xs',
+	'1/3': 'px-2 py-1 text-sm',
+	'2/5': 'px-2 py-1 text-sm',
+	'1/2': 'px-3 py-1.5 text-base',
+	'3/5': 'px-3 py-1.5 text-base',
+	'2/3': 'px-4 py-2 text-lg',
+	'3/4': 'px-5 py-2.5 text-xl',
+	full: 'px-6 py-3 text-2xl w-full'
 };
 
 const TAB_VARIANT_CLASSES: Record<string, string> = {
@@ -58,6 +66,7 @@ export class TabsStyleManager {
 		return cn('flex items-center gap-2', vertical ? 'flex flex-col' : '', className);
 	}
 }
+
 
 
 

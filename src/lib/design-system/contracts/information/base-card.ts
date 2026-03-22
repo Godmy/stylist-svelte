@@ -1,13 +1,13 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import type { Props } from '$stylist/design-system/contracts/information/common';
 
 export interface IBaseCardElementProps extends Omit<Props, 'variant' | 'size' | 'onclick'>, Omit<HTMLAttributes<HTMLDivElement>, 'class' | 'variant' | 'size' | 'onclick'> {
   class?: string;
-  variant?: DefaultVariants;
-  size?: ComponentSize;
+  variant?: TokenAppearance;
+  size?: TokenSize;
   onclick?: ((event: MouseEvent) => void) | undefined;
   title?: string;
   description?: string;
@@ -15,6 +15,7 @@ export interface IBaseCardElementProps extends Omit<Props, 'variant' | 'size' | 
   bodyClass?: string;
   children?: Snippet;
 }
+
 
 
 

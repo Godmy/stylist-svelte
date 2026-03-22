@@ -8,7 +8,7 @@
  * НОРМАЛИЗОВАННАЯ ВЕРСИЯ - использует общие базовые классы из cards.ts
  */
 
-import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
 export class MetricCardStyleManager {
@@ -63,8 +63,8 @@ export class MetricCardStyleManager {
    * Возвращает CSS-классы для заполнения прогресс-бара в зависимости от варианта
    * Использует нормализованные вариант-классы
    */
-  static getProgressBarFillClasses(variant: ToneVariant = 'info', percentage: number): string {
-    const variantClasses: Record<ToneVariant, string> = {
+  static getProgressBarFillClasses(variant: TokenAppearance = 'info', percentage: number): string {
+    const variantClasses: Partial<Record<TokenAppearance, string>> = {
       primary: CardStyleManager.getProgressVariantClass('primary'),
       secondary: CardStyleManager.getProgressVariantClass('secondary'),
       success: CardStyleManager.getProgressVariantClass('success'),
@@ -80,8 +80,8 @@ export class MetricCardStyleManager {
   /**
    * Возвращает CSS-классы для отображения процентного значения
    */
-  static getPercentageClasses(variant: ToneVariant = 'info'): string {
-    const variantClasses: Record<ToneVariant, string> = {
+  static getPercentageClasses(variant: TokenAppearance = 'info'): string {
+    const variantClasses: Partial<Record<TokenAppearance, string>> = {
       primary: 'text-[--color-primary-600]',
       secondary: 'text-[--color-secondary-600]',
       success: 'text-[--color-success-600]',
@@ -94,6 +94,5 @@ export class MetricCardStyleManager {
     return `text-xs font-medium mt-1 ${variantClasses[variant] || variantClasses.info}`;
   }
 }
-
 
 

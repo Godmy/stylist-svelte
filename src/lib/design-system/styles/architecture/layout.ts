@@ -1,9 +1,8 @@
-﻿import type { Alignment, Justification } from '$stylist/design-system/tokens';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { ComponentSize } from '$stylist/design-system/tokens';
+import type { TokenAlignment, TokenJustification } from '$stylist/design-system/tokens';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
 import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 import { cn } from '$stylist/design-system/utils/cn/index';
-import type { ContainerMaxWidth as LayoutContainerMaxWidth, LayoutSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className = ''): string {
@@ -12,7 +11,7 @@ export class LayoutStyleManager {
 			.join(' ');
 	}
 
-	static getContainerClasses(size: LayoutContainerMaxWidth, className = ''): string {
+	static getContainerClasses(size: TokenSize, className = ''): string {
 		const maxWidthClass =
 			{
 				xs: 'max-w-screen-xs',
@@ -21,6 +20,13 @@ export class LayoutStyleManager {
 				lg: 'max-w-screen-lg',
 				xl: 'max-w-screen-xl',
 				'2xl': 'max-w-screen-2xl',
+				'1/4': 'max-w-[25%]',
+				'1/3': 'max-w-[33.333333%]',
+				'2/5': 'max-w-[40%]',
+				'1/2': 'max-w-[50%]',
+				'3/5': 'max-w-[60%]',
+				'2/3': 'max-w-[66.666667%]',
+				'3/4': 'max-w-[75%]',
 				full: 'max-w-full'
 			}[size] ?? 'max-w-full';
 		return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
@@ -32,7 +38,7 @@ export class LayoutStyleManager {
 			: 'border-solid border-[--color-border-secondary]';
 	}
 
-	static getDividerLineFlexClass(align: Alignment, side: 'left' | 'right'): string {
+	static getDividerLineFlexClass(align: TokenAlignment, side: 'left' | 'right'): string {
 		if (side === 'left' && align === 'left') return 'flex-none w-4';
 		if (side === 'right' && align === 'right') return 'flex-none w-4';
 		return 'flex-1';
@@ -62,9 +68,9 @@ export class LayoutStyleManager {
 	}
 
 	static getHorizontalLayoutClasses(
-		gap: ComponentSize,
-		alignItems: Alignment,
-		justifyContent: Justification,
+		gap: TokenSize,
+		alignItems: TokenAlignment,
+		justifyContent: TokenJustification,
 		wrap: boolean,
 		className = ''
 	): string {
@@ -105,13 +111,21 @@ export class LayoutStyleManager {
 				md: 'gap-4',
 				lg: 'gap-6',
 				xl: 'gap-8',
-				'2xl': 'gap-12'
+				'2xl': 'gap-12',
+				'1/4': 'gap-1',
+				'1/3': 'gap-2',
+				'2/5': 'gap-2',
+				'1/2': 'gap-4',
+				'3/5': 'gap-4',
+				'2/3': 'gap-6',
+				'3/4': 'gap-8',
+				full: 'gap-12'
 			}[gap],
 			className
 		);
 	}
 
-	static getSpacerClasses(axis: Orientation, className = ''): string {
+	static getSpacerClasses(axis: TokenOrientation, className = ''): string {
 		const axisClass =
 			{
 				horizontal: 'w-[var(--spacer-size)]',
@@ -141,3 +155,4 @@ export class LayoutStyleManager {
 		}
 	}
 }
+

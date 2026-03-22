@@ -1,10 +1,10 @@
 import type { SpacerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
 import { clsx } from 'clsx';
 
 export function createSpacerState(props: SpacerProps) {
-	const axis = $derived((props.axis ?? 'vertical') as Orientation);
+	const axis = $derived((props.axis ?? 'vertical') as TokenOrientation);
 	const sizeValue = $derived(LayoutStyleManager.getSpacerSize(props.size));
 	const classes = $derived(LayoutStyleManager.getSpacerClasses(axis, clsx(props.class ?? '')));
 
@@ -22,6 +22,7 @@ export function createSpacerState(props: SpacerProps) {
 }
 
 export default createSpacerState;
+
 
 
 

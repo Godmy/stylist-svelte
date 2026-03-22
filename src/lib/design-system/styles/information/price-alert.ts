@@ -1,11 +1,11 @@
 import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { cn } from '$stylist/design-system/utils/cn/index';
-import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
+import type { TokenMonitoringType } from '$stylist/design-system/tokens/interaction/monitoring-type';
 
 const PRICE_ALERT_BASE_CLASSES = `${BASE_CLASSES.card} p-4`;
 
-const PRICE_ALERT_VARIANT_CLASSES: Record<AlertType, string> = {
+const PRICE_ALERT_VARIANT_CLASSES: Record<TokenMonitoringType, string> = {
 	...InteractionStyleManager.getVariantClassMap(),
 	monitoring: 'border-[--color-info-200] bg-[--color-info-50]',
 	reached: 'border-[--color-success-200] bg-[--color-success-50]',
@@ -24,7 +24,7 @@ const PRICE_ALERT_SIZE_CLASSES = {
 
 export class PriceAlertStyleManager {
   static getClasses(
-    variant: AlertType = 'monitoring',
+    variant: TokenMonitoringType = 'monitoring',
     size: keyof typeof PRICE_ALERT_SIZE_CLASSES = 'md',
     className = ''
   ): string {
@@ -40,5 +40,3 @@ export class PriceAlertStyleManager {
     return cn('flex items-center justify-center', className);
   }
 }
-
-

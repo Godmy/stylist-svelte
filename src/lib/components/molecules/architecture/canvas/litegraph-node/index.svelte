@@ -20,7 +20,8 @@
 			id: _id,
 			title: _title,
 			type: _type,
-			state: _state,
+			mode: _mode,
+			status: _status,
 			x: _x,
 			y: _y,
 			width: _width,
@@ -109,7 +110,8 @@
 	style={nodeState.styles}
 	data-node-id={props.id}
 	data-node-type={nodeState.type}
-	data-node-state={nodeState.state}
+	data-node-mode={nodeState.mode}
+	data-node-status={nodeState.status}
 	data-selected={nodeState.selected}
 	onmousedown={handleMouseDown}
 	{...restProps}

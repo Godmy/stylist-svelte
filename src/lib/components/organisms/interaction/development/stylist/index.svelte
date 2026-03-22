@@ -323,7 +323,7 @@ const X = 'x';
 
 				<div class="option-grid">
 					{#each activeCategory.options as option}
-						<Tooltip content={option.hint} placement="top" variant="with-arrow">
+						<Tooltip content={option.hint} placement="top" variant="arrow">
 							{#snippet children()}
 								<button
 									type="button"
@@ -674,7 +674,6 @@ const X = 'x';
 		}
 	}
 </style>
-
 
 
 

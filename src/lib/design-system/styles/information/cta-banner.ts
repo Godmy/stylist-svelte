@@ -1,12 +1,14 @@
-import type { CtaBannerBackgroundVariant } from '$stylist/design-system/tokens/information/cta-banner';
+import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
 
 
 
 export class CtaBannerStyleManager {
   static getContainerClasses(): string { return 'c-cta-banner cta-banner relative py-16 overflow-hidden'; }
-  static getBackgroundClasses(backgroundVariant: CtaBannerBackgroundVariant = 'gradient'): string {
+  static getBackgroundClasses(backgroundVariant: TokenBackground = 'gradient'): string {
     const variantClasses = {
+      default: 'absolute inset-0 bg-[--color-background-secondary]',
       gradient: 'absolute inset-0 [background-image:var(--gradient-primary)]',
+      particles: 'absolute inset-0 bg-[--color-background-secondary]',
       solid: 'absolute inset-0 bg-[--color-background-secondary]',
       image: 'absolute inset-0 bg-cover bg-center opacity-[var(--opacity-30)]'
     };

@@ -1,13 +1,7 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { InlineCodeVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
-const INLINE_CODE_CLASSES: Record<InlineCodeVariant, string> = {
-	default: 'bg-[--color-background-secondary] text-[--color-text-primary]',
-	subtle: 'bg-[--color-background-tertiary] text-[--color-text-secondary]'
-};
-
-const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const LINK_VARIANT_CLASSES: Record<TokenAppearance, string> = {
 	default: 'text-[var(--color-text-primary)]',
 	primary: 'text-[var(--color-primary-600)]',
 	secondary: 'text-[var(--color-secondary-600)]',
@@ -24,16 +18,26 @@ const LINK_VARIANT_CLASSES: Record<DefaultVariants, string> = {
 	neutral: 'text-[var(--color-neutral-600)]',
 	gray: 'text-[var(--color-neutral-600)]',
 	dark: 'text-[var(--color-text-inverse)]',
-	light: 'text-[var(--color-text-primary)]'
+	light: 'text-[var(--color-text-primary)]',
+	elevated: 'text-[var(--color-text-primary)]',
+	flat: 'text-[var(--color-text-primary)]'
 };
 
-const LINK_SIZE_CLASSES: Record<ComponentSize, string> = {
+const LINK_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'text-xs',
 	sm: 'text-sm',
 	md: 'text-base',
 	lg: 'text-lg',
 	xl: 'text-xl',
-	'2xl': 'text-2xl'
+	'2xl': 'text-2xl',
+	'1/4': 'text-xs',
+	'1/3': 'text-sm',
+	'2/5': 'text-sm',
+	'1/2': 'text-base',
+	'3/5': 'text-base',
+	'2/3': 'text-lg',
+	'3/4': 'text-xl',
+	full: 'text-2xl'
 };
 
 
@@ -65,11 +69,11 @@ export class LinkStyleManager {
 		return this.join(['bg-[--color-warning-200] text-[--color-text-primary]', className]);
 	}
 
-	static getInlineCodeClasses(
-		variant: InlineCodeVariant = 'default',
-		className = ''
-	): string {
-		return this.join(['font-mono px-1.5 py-0.5 rounded', INLINE_CODE_CLASSES[variant], className]);
+	static getInlineCodeClasses(className = ''): string {
+		return this.join([
+			'font-mono px-1.5 py-0.5 rounded bg-[--color-background-secondary] text-[--color-text-primary]',
+			className
+		]);
 	}
 
 	static getKbdClasses(className = ''): string {
@@ -77,8 +81,8 @@ export class LinkStyleManager {
 	}
 
 	static getLinkClasses(
-		variant: DefaultVariants = 'default',
-		size: ComponentSize = 'md',
+		variant: TokenAppearance = 'default',
+		size: TokenSize = 'md',
 		disabled = false,
 		underline = true,
 		className = ''
@@ -95,6 +99,7 @@ export class LinkStyleManager {
 		]);
 	}
 }
+
 
 
 

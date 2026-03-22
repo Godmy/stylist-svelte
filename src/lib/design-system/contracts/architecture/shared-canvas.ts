@@ -1,5 +1,5 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 // Props for SharedCanvas component
 export interface SharedCanvasProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
@@ -17,7 +17,7 @@ export interface SharedCanvasProps extends ArchitectureHTMLAttributes<HTMLDivEle
   toolbarClass?: string;
   canvasClass?: string;
   variant?: 'default' | 'minimal';
-  size?: ComponentSize;
+  size?: TokenSize;
 }
 
 export interface CanvasObject {
@@ -40,4 +40,5 @@ export interface CanvasUser {
   color: string;
   cursorPosition?: { x: number; y: number };
 }
+
 

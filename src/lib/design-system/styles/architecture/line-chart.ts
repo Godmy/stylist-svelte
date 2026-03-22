@@ -1,5 +1,5 @@
-import type { LineChartVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenLineType } from '$stylist/design-system/tokens/architecture/line-type';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class LineChartStyleManager {
   static getBaseClasses(): string {
@@ -34,7 +34,7 @@ export class LineChartStyleManager {
     return 'text-sm text-[--color-text-primary]';
   }
 
-  static getVariantClasses(variant?: LineChartVariant): string {
+  static getVariantClasses(variant?: TokenLineType): string {
     switch (variant) {
       case 'minimal':
         return '';
@@ -48,7 +48,7 @@ export class LineChartStyleManager {
     }
   }
 
-  static getSizeClasses(size?: ComponentSize): string {
+  static getSizeClasses(size?: TokenSize): string {
     switch (size) {
       case 'sm':
         return '';
@@ -60,6 +60,7 @@ export class LineChartStyleManager {
     }
   }
 }
+
 
 
 

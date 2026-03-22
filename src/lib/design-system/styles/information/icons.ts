@@ -1,24 +1,36 @@
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
 import { cn } from '$stylist/design-system/utils/cn/index';
-import type { IconWrapperShape } from '$stylist/design-system/tokens/information/icon-wrapper';
 
 export class IconStyleManager {
+	private static getWrapperShapeClass(shape: TokenShape | 'rounded'): string {
+		const shapeClassMap: Partial<Record<TokenShape | 'rounded', string>> = {
+			circle: 'rounded-full',
+			square: 'rounded-none',
+			rectangle: 'rounded-md',
+			rounded: 'rounded-md',
+			pill: 'rounded-full px-2'
+		};
+
+		return shapeClassMap[shape] ?? 'rounded-full';
+	}
+
 	static getIconClasses(
-		size: ComponentSize = 'md',
+		size: TokenSize = 'md',
 		className = ''
 	): string {
 		return cn(
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10' }[size],
+			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
 			className
 		);
 	}
 
 	static getIconChevronClasses(options: {
 		isOpen?: boolean;
-		size?: ComponentSize;
+		size?: TokenSize;
 		direction?: 'up' | 'right' | 'down' | 'left';
-		variant?: DefaultVariants;
+		variant?: TokenAppearance;
 		disabled?: boolean;
 		className?: string;
 	}): string {
@@ -28,7 +40,7 @@ export class IconStyleManager {
 		const disabled = options.disabled ?? false;
 
 		return cn(
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10' }[size],
+			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
 			{ up: 'rotate-0', right: 'rotate-90', down: 'rotate-180', left: '-rotate-90' }[direction],
 			variant !== 'default'
 				? {
@@ -48,8 +60,11 @@ export class IconStyleManager {
 						neutral: 'text-[--color-neutral-500]',
 						gray: 'text-[--color-neutral-500]',
 						dark: 'text-[--color-text-inverse]',
-						light: 'text-[--color-text-primary]'
-					}[variant]
+			light: 'text-[--color-text-primary]'
+			,
+			elevated: 'text-[--color-text-primary]',
+			flat: 'text-[--color-text-primary]'
+		}[variant]
 				: '',
 			disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
@@ -57,8 +72,8 @@ export class IconStyleManager {
 	}
 
 	static getIconCircleClasses(options: {
-		variant?: DefaultVariants;
-		size?: ComponentSize;
+		variant?: TokenAppearance;
+		size?: TokenSize;
 		filled?: boolean;
 		disabled?: boolean;
 		className?: string;
@@ -85,8 +100,11 @@ export class IconStyleManager {
 				gray: 'text-[--color-neutral-500]',
 				dark: 'text-[--color-text-inverse]',
 				light: 'text-[--color-text-primary]'
+				,
+				elevated: 'text-[--color-text-primary]',
+				flat: 'text-[--color-text-primary]'
 			}[variant],
-			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10' }[size],
+			{ xs: 'w-3 h-3', sm: 'w-4 h-4', md: 'w-5 h-5', lg: 'w-6 h-6', xl: 'w-8 h-8', '2xl': 'w-10 h-10', '1/4': 'w-3 h-3', '1/3': 'w-4 h-4', '2/5': 'w-4 h-4', '1/2': 'w-5 h-5', '3/5': 'w-5 h-5', '2/3': 'w-6 h-6', '3/4': 'w-8 h-8', full: 'w-10 h-10' }[size] ?? 'w-5 h-5',
 			options.filled ? 'fill-current' : '',
 			options.disabled ? 'opacity-[var(--opacity-50)]' : '',
 			options.className ?? ''
@@ -94,10 +112,10 @@ export class IconStyleManager {
 	}
 
 	static getIconWrapperClasses(options: {
-		size?: ComponentSize;
-		variant?: DefaultVariants;
-		shape?: IconWrapperShape;
-		color?: DefaultVariants;
+		size?: TokenSize;
+		variant?: TokenAppearance;
+		shape?: TokenShape | 'rounded';
+		color?: TokenAppearance;
 		disabled?: boolean;
 		className?: string;
 	}): string {
@@ -108,8 +126,8 @@ export class IconStyleManager {
 
 		return cn(
 			'inline-flex items-center justify-center',
-			{ xs: 'p-0.5', sm: 'p-1', md: 'p-1.5', lg: 'p-2', xl: 'p-3', '2xl': 'p-4' }[size],
-			{ circle: 'rounded-full', square: 'rounded-none', rounded: 'rounded-md', pill: 'rounded-full px-2' }[shape],
+			{ xs: 'p-0.5', sm: 'p-1', md: 'p-1.5', lg: 'p-2', xl: 'p-3', '2xl': 'p-4', '1/4': 'p-0.5', '1/3': 'p-1', '2/5': 'p-1', '1/2': 'p-1.5', '3/5': 'p-1.5', '2/3': 'p-2', '3/4': 'p-3', full: 'p-4' }[size] ?? 'p-1.5',
+			this.getWrapperShapeClass(shape),
 			{
 				default: 'text-[--color-text-primary] bg-[--color-background-secondary]',
 				primary: 'text-[--color-primary-500] bg-[--color-primary-100]',
@@ -128,6 +146,9 @@ export class IconStyleManager {
 				neutral: 'text-[--color-neutral-500] bg-[--color-neutral-100]',
 				dark: 'text-[--color-text-inverse] bg-[--color-neutral-800]',
 				light: 'text-[--color-text-primary] bg-[--color-neutral-50]'
+				,
+				elevated: 'text-[--color-text-primary] bg-[--color-background-primary] shadow-sm',
+				flat: 'text-[--color-text-primary] bg-[--color-background-secondary]'
 			}[color],
 			variant !== 'default'
 				? {
@@ -148,6 +169,9 @@ export class IconStyleManager {
 						gray: 'text-[--color-neutral-500]',
 						dark: 'text-[--color-text-inverse]',
 						light: 'text-[--color-text-primary]'
+						,
+						elevated: 'text-[--color-text-primary]',
+						flat: 'text-[--color-text-primary]'
 					}[variant]
 				: '',
 			options.disabled ? 'opacity-[var(--opacity-50)]' : '',
@@ -155,6 +179,7 @@ export class IconStyleManager {
 		);
 	}
 }
+
 
 
 

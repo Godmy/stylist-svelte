@@ -1,14 +1,14 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { QuantitySelectorVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenSelectorKind } from '$stylist/design-system/tokens/interaction/selection-kind';
 export interface IQuantitySelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	value?: number;
 	min?: number;
 	max?: number;
 	step?: number;
 	disabled?: boolean;
-	variant?: QuantitySelectorVariant;
-	size?: ComponentSize;
+	variant?: TokenSelectorKind;
+	size?: TokenSize;
 	class?: string;
 	inputClass?: string;
 	buttonClass?: string;
@@ -19,6 +19,7 @@ export interface IQuantitySelectorProps extends InteractionHTMLAttributes<HTMLDi
 	showButtons?: boolean;
 	label?: string;
 }
+
 
 
 

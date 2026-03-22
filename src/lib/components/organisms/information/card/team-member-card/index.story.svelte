@@ -12,7 +12,7 @@
     controls = [
       { name: 'name', type: 'text', defaultValue: 'Claude' },
       { name: 'role', type: 'text', defaultValue: 'Content Strategist' },
-      { name: 'variant', type: 'select', options: ['default', 'featured'], defaultValue: 'default' }
+      { name: 'variant', type: 'select', options: ['default', 'icon', 'compact', 'detailed'], defaultValue: 'default' }
     ]
   } = $props<{
     id?: string;
@@ -59,7 +59,7 @@
         { title: 'Organized technical synthesis', description: 'sessions' },
         { title: 'Facilitated SAMO discussion', description: 'files 33-42' }
       ],
-      variant: 'featured'
+      variant: 'icon'
     }
   ];
 </script>

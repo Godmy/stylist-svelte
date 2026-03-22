@@ -1,40 +1,42 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { GraphPortProps } from '$stylist/design-system/contracts/information/graph-port';
-import type { GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenRelationship } from '$stylist/design-system/tokens/architecture/relationship';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
- * Свойства группы портов
+ * РЎРІРѕР№СЃС‚РІР° РіСЂСѓРїРїС‹ РїРѕСЂС‚РѕРІ
  */
 export interface PortGroupProps extends HtmlAttributesBase<HTMLDivElement> {
-	/** Уникальный идентификатор группы */
+	/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РіСЂСѓРїРїС‹ */
 	id: string;
-	/** Направление портов */
-	direction: GraphPortDirection;
-	/** Порты */
+	/** РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕСЂС‚РѕРІ */
+	direction: TokenRelationship;
+	/** РџРѕСЂС‚С‹ */
 	ports?: readonly GraphPortProps[];
-	/** Размер портов */
-	portSize?: ComponentSize;
-	/** Показывать метки */
+	/** Р Р°Р·РјРµСЂ РїРѕСЂС‚РѕРІ */
+	portSize?: TokenSize;
+	/** РџРѕРєР°Р·С‹РІР°С‚СЊ РјРµС‚РєРё */
 	showLabels?: boolean;
-	/** Показывать иконки типов */
+	/** РџРѕРєР°Р·С‹РІР°С‚СЊ РёРєРѕРЅРєРё С‚РёРїРѕРІ */
 	showTypeIcons?: boolean;
-	/** Компактный режим */
+	/** РљРѕРјРїР°РєС‚РЅС‹Р№ СЂРµР¶РёРј */
 	compact?: boolean;
-	/** Разделитель между портами */
+	/** Р Р°Р·РґРµР»РёС‚РµР»СЊ РјРµР¶РґСѓ РїРѕСЂС‚Р°РјРё */
 	divider?: boolean;
-	/** Заголовок группы */
+	/** Р—Р°РіРѕР»РѕРІРѕРє РіСЂСѓРїРїС‹ */
 	title?: string;
-	/** Обработчик клика по порту */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РєР»РёРєР° РїРѕ РїРѕСЂС‚Сѓ */
 	onPortClick?: (portId: string, event: MouseEvent) => void;
-	/** Обработчик начала подключения */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°С‡Р°Р»Р° РїРѕРґРєР»СЋС‡РµРЅРёСЏ */
 	onConnectionStart?: (port: GraphPortProps, event: MouseEvent) => void;
-	/** Обработчик завершения подключения */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє Р·Р°РІРµСЂС€РµРЅРёСЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ */
 	onConnectionEnd?: (port: GraphPortProps, event: MouseEvent) => void;
-	/** Дочерний контент */
+	/** Р”РѕС‡РµСЂРЅРёР№ РєРѕРЅС‚РµРЅС‚ */
 	children?: Snippet;
 }
+
+
 
 
 

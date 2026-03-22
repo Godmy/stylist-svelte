@@ -1,20 +1,26 @@
-import type { TabGroupVariant } from '$stylist/design-system/tokens/interaction/tab-group';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
 
 /**
- * Style utility class following Single Responsibility Principle
+ * TokenBorderStyle utility class following Single Responsibility Principle
  * Responsible only for managing TabGroup styling logic
  * Uses CSS variables from the theme system
  */
 export class TabGroupStyleManager {
-  static getVariantClasses(variant: TabGroupVariant): Record<string, string> {
-    const variantClasses: Record<TabGroupVariant, Record<string, string>> = {
-      line: {
+  private static normalizeVariant(variant: TokenShape): 'rectangle' | 'square' | 'pill' {
+    if (variant === 'square') return 'square';
+    if (variant === 'pill') return 'pill';
+    return 'rectangle';
+  }
+
+  static getVariantClasses(variant: TokenShape): Record<string, string> {
+    const variantClasses = {
+      rectangle: {
         tabList: 'flex border-b border-[--color-border-primary]',
         tab: 'px-4 py-2 font-medium text-sm rounded-t-lg focus:outline-none transition-colors',
         active: 'border-b-2 border-[--color-primary-500] text-[--color-primary-600]',
         inactive: 'border-transparent text-[--color-text-secondary] hover:text-[--color-text-primary] hover:border-[--color-border-secondary]'
       },
-      boxed: {
+      square: {
         tabList: 'flex',
         tab: 'px-4 py-2 font-medium text-sm focus:outline-none transition-colors border',
         active: 'border-[--color-primary-500] bg-[--color-primary-50] text-[--color-primary-600]',
@@ -26,13 +32,13 @@ export class TabGroupStyleManager {
         active: 'bg-[--color-primary-500] text-[--color-text-inverse]',
         inactive: 'text-[--color-text-secondary] hover:bg-[--color-secondary-100]'
       }
-    };
+    } as const;
 
-    return variantClasses[variant];
+    return variantClasses[this.normalizeVariant(variant)];
   }
 
   static getTabClasses(
-    variant: TabGroupVariant, 
+    variant: TokenShape, 
     isActive: boolean, 
     isDisabled: boolean,
     baseTabClass: string = '',
@@ -52,7 +58,7 @@ export class TabGroupStyleManager {
     return `${baseClasses} ${stateClasses} ${disabledClass} ${baseTabClass}`;
   }
 
-  static getTabListClasses(variant: TabGroupVariant, baseClass: string = ''): string {
+  static getTabListClasses(variant: TokenShape, baseClass: string = ''): string {
     const variantClasses = this.getVariantClasses(variant);
     return `${variantClasses.tabList} ${baseClass}`;
   }
@@ -66,7 +72,7 @@ export class TabGroupStyleManager {
   }
 
   static getAllClasses(
-    variant: TabGroupVariant,
+    variant: TokenShape,
     wrapperClass: string = '',
     tabListClass: string = '',
     tabClass: string = '',

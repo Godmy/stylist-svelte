@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -10,7 +10,7 @@ export class GraphToolbarStyleManager {
 	 */
 	static getToolbarClasses(
 		orientation: 'horizontal' | 'vertical',
-		size: ComponentSize,
+		size: TokenSize,
 		compact: boolean
 	): string {
 		return cn(

@@ -1,5 +1,5 @@
-import type { NodePropertyType } from '$stylist/design-system/tokens/information/node-property';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { cn } from '$stylist/design-system/utils/cn';
 import type { NodePropertyState } from '$stylist/design-system/contracts/information/node-property';
 
@@ -12,8 +12,8 @@ export class NodePropertyStyleManager {
 	 * Получает классы свойства
 	 */
 	static getPropertyClasses(
-		type: NodePropertyType,
-		size: ComponentSize,
+		type: TokenPropertyType,
+		size: TokenSize,
 		state: NodePropertyState
 	): string {
 		return cn(
@@ -35,7 +35,7 @@ export class NodePropertyStyleManager {
 	/**
 	 * Получает классы для значения свойства
 	 */
-	static getValueClasses(type: NodePropertyType): string {
+	static getValueClasses(type: TokenPropertyType): string {
 		return `node-property__value node-property__value--${type}`;
 	}
 
@@ -49,23 +49,29 @@ export class NodePropertyStyleManager {
 	/**
 	 * Получает классы для контрола свойства
 	 */
-	static getControlClasses(type: NodePropertyType): string {
-		const controlMap: Record<NodePropertyType, string> = {
+	static getControlClasses(type: TokenPropertyType): string {
+		const controlMap: Record<TokenPropertyType, string> = {
 			string: 'node-property__control--string',
 			number: 'node-property__control--number',
 			boolean: 'node-property__control--boolean',
+			array: 'node-property__control--object',
+			any: 'node-property__control--string',
 			enum: 'node-property__control--enum',
+			event: 'node-property__control--function',
 			color: 'node-property__control--color',
 			vector2: 'node-property__control--vector',
 			vector3: 'node-property__control--vector',
 			object: 'node-property__control--object',
-			function: 'node-property__control--function'
+			function: 'node-property__control--function',
+			action: 'node-property__control--function'
 		};
 		return controlMap[type] || 'node-property__control';
 	}
 }
 
 export default NodePropertyStyleManager;
+
+
 
 
 

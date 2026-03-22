@@ -1,6 +1,5 @@
 import type { InlineCodeProps } from '$stylist/design-system/contracts';
 import { LinkStyleManager } from '$stylist/design-system/styles/interaction/link';
-import type { InlineCodeVariant } from '$stylist/design-system/tokens/interaction/variants';
 
 /**
  * InlineCode state creator
@@ -10,18 +9,11 @@ import type { InlineCodeVariant } from '$stylist/design-system/tokens/interactio
  * @returns Reactive state object with classes and computed values
  */
 export function createInlineCodeState(props: InlineCodeProps) {
-	const variant = $derived((props.variant ?? 'default') as InlineCodeVariant);
 	const classes = $derived(
-		LinkStyleManager.getInlineCodeClasses(
-			variant,
-			props.class ?? ''
-		)
+		LinkStyleManager.getInlineCodeClasses(props.class ?? '')
 	);
 
 	return {
-		get variant() {
-			return variant;
-		},
 		get classes() {
 			return classes;
 		}

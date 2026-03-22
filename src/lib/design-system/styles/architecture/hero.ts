@@ -5,8 +5,8 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-import type { Background } from '$stylist/design-system/tokens/information/background';
-import type { Height } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
 /**
@@ -20,22 +20,23 @@ export class HeroStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера Hero
    */
-  static getContainerClasses(height: Height = 'screen', className?: string): string {
-    return cn(
-      'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
-      {
-        screen: 'min-h-screen',
-        large: 'min-h-[80vh]',
-        medium: 'min-h-[60vh]'
-      }[height],
-      className
-    );
-  }
+	static getContainerClasses(height: TokenSize = 'full', className?: string): string {
+		const heightClasses: Partial<Record<TokenSize, string>> = {
+			full: 'min-h-screen',
+			'2/3': 'min-h-[80vh]',
+			'3/5': 'min-h-[60vh]'
+		};
+		return cn(
+			'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
+			heightClasses[height] ?? heightClasses.full,
+			className
+		);
+	}
 
   /**
    * Возвращает CSS-классы для фонового элемента
    */
-  static getBackgroundClasses(backgroundVariant: Background = 'gradient'): string {
+  static getBackgroundClasses(backgroundVariant: TokenBackground = 'gradient'): string {
     return {
       default: 'absolute inset-0 bg-[var(--color-background-secondary)]',
       gradient: 'absolute inset-0 [background-image:var(--gradient-primary)]',

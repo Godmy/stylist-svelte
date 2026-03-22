@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { LiteGraphNodeProperty } from '$stylist/design-system/contracts/information/litegraph-node';
 
 /**
@@ -16,7 +16,7 @@ export interface NodePropertiesPanelProps extends HtmlAttributesBase<HTMLDivElem
 	/** Свойства для отображения */
 	properties?: readonly LiteGraphNodeProperty[];
 	/** Размер компонента */
-	size?: ComponentSize;
+	size?: TokenSize;
 	/** Компактный режим */
 	compact?: boolean;
 	/** Показывать заголовок */
@@ -34,6 +34,7 @@ export interface NodePropertiesPanelProps extends HtmlAttributesBase<HTMLDivElem
 	/** Дочерний контент */
 	children?: Snippet;
 }
+
 
 
 

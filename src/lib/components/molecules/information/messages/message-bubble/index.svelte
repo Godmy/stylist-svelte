@@ -24,7 +24,7 @@
     timestamp,
     align = 'left',
     avatar,
-    variant = 'default',
+    variant = 'primary',
     class: className = ''
   }: IMessageBubbleProps = $props();
 

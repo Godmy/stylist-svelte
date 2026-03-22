@@ -1,11 +1,11 @@
 import type { DividerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-import type { DividerAlign } from '$stylist/design-system/tokens/architecture/alignments';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
 
 export function createDividerState(props: DividerProps) {
-	const orientation = $derived((props.orientation ?? 'horizontal') as Orientation);
-	const align = $derived((props.align ?? 'center') as DividerAlign);
+	const orientation = $derived((props.orientation ?? 'horizontal') as TokenOrientation);
+	const align = $derived((props.align ?? 'center') as TokenAlignment);
 	const dashed = $derived(props.dashed ?? false);
 	const baseLineClass = $derived(LayoutStyleManager.getDividerLineClass(dashed));
 	const leftLineFlex = $derived(LayoutStyleManager.getDividerLineFlexClass(align, 'left'));
@@ -38,6 +38,7 @@ export function createDividerState(props: DividerProps) {
 }
 
 export default createDividerState;
+
 
 
 

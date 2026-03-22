@@ -8,7 +8,7 @@ const Loader2 = 'loader-2';
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	/**
 	 * CloseButton component - A standardized close button (X icon)
@@ -25,7 +25,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 
 	// Use centralized state management
 	let state = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
 			variant: 'ghost',
 			size: 'sm'
 		}),
@@ -54,6 +54,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 		<BaseIcon name={X} class="h-4 w-4" />
 	{/if}
 </button>
+
 
 
 

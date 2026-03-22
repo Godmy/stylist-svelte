@@ -1,11 +1,11 @@
 import type { GraphPortProps } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import { GRAPH_PORT_COLORS } from '$stylist/design-system/tokens';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import { GRAPH_PORT_COLORS } from '$stylist/design-system/defaults/information/graph-port-colors';
 import { GraphPortStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphPortState(props: GraphPortProps) {
-	const direction = $derived(props.direction);
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const direction = $derived(props.direction === 'input' ? 'input' : 'output');
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const dataType = $derived(props.dataType ?? 'any');
 	const connected = $derived(Boolean(props.connected));
 	const active = $derived(Boolean(props.active));
@@ -53,6 +53,7 @@ export function createGraphPortState(props: GraphPortProps) {
 }
 
 export default createGraphPortState;
+
 
 
 

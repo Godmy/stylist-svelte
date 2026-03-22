@@ -1,19 +1,19 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { TimeRange } from '$stylist/design-system/tokens/information/date-time';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenTimeRange } from '$stylist/design-system/tokens/information/time-range';
 // Props for PerformanceDashboard component
 export interface PerformanceDashboardProps {
   title?: string;
   subtitle?: string;
   metrics: Metric[];
-  timeRange?: TimeRange;
-  onTimeRangeChange?: (range: TimeRange) => void;
+  timeRange?: TokenTimeRange;
+  onTimeRangeChange?: (range: TokenTimeRange) => void;
   showTimeRangeSelector?: boolean;
   class?: string;
   headerClass?: string;
   metricsClass?: string;
   metricCardClass?: string;
   variant?: 'default' | 'compact' | 'minimal';
-  size?: ComponentSize;
+  size?: TokenSize;
 }
 
 export interface Metric {
@@ -25,6 +25,8 @@ export interface Metric {
   icon: any;
   color: string;
 }
+
+
 
 
 

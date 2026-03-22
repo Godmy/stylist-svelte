@@ -1,7 +1,8 @@
 import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 import type { Snippet } from 'svelte';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { MapMarkerType, MarkerCategory, PinStyle } from '$stylist/design-system/tokens/information/map-marker';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenPin } from '$stylist/design-system/tokens/architecture/pin';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
 
 export interface Coordinates {
 	lat: number;
@@ -20,13 +21,12 @@ export interface IMapMarkerProps extends InformationHTMLAttributes<HTMLDivElemen
 	title?: string;
 	description?: string;
 	snippet?: Snippet;
-	type?: MapMarkerType;
-	category?: MarkerCategory;
+	type?: TokenPin;
 	color?: string;
-	size?: ComponentSize;
+	size?: TokenSize;
 	showPopup?: boolean;
 	popupContent?: Snippet;
-	pinStyle?: PinStyle;
+	pinStyle?: TokenShape;
 	rating?: number;
 	contactInfo?: ContactInfo;
 	distance?: string;
@@ -39,3 +39,4 @@ export interface IMapMarkerProps extends InformationHTMLAttributes<HTMLDivElemen
 	popupClass?: string;
 	contentClass?: string;
 }
+

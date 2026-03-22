@@ -1,10 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GridItemContent } from './grid-item';
 export type { AspectRatioProps } from './aspect-ratio';
 export type { IBarChartProps, IBarPosition, IChartDataPoint } from './bar-chart';
 export type { ContainerProps } from './container';
 export type { DashboardLayoutPreset, DashboardLayoutProps, DashboardLayoutState } from './dashboard-layout';
 export type { DividerProps } from './divider';
 export type { IGradientBackgroundProps } from './gradient-background';
+export type { GridItem } from './grid-item';
 export type { IExtendedHeatmapCell, IHeatmapCell, IHeatmapProps } from './heatmap';
 export type { IHeroCTA, IHeroProps, IHeroStat } from './hero';
 export type { GridLayoutProps } from './layout';

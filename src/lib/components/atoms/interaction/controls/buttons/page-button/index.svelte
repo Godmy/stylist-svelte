@@ -7,7 +7,7 @@ const Loader2 = 'loader-2';
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
@@ -45,7 +45,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 	// Use centralized state management with adjusted props
 	let state = $derived(
 		createButtonState(
-			createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+			createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
 				variant: 'outline',
 				size: 'md'
 			}),
@@ -75,6 +75,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 		{props.page}
 	{/if}
 </button>
+
 
 
 

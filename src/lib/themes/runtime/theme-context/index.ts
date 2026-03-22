@@ -1,19 +1,19 @@
 import { getContext, setContext } from 'svelte';
-import type { Theme } from '$stylist/themes/contracts/theme';
-import type { ThemeName } from '$stylist/themes/contracts/theme-name';
+import type { Theme } from '$stylist/design-system/contracts/theme/theme';
+import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
 
 export const THEME_CONTEXT_KEY = Symbol('stylist-theme');
 
 export interface ThemeContext {
 	theme: Theme;
-	themeName: ThemeName;
-	setTheme: (themeName: ThemeName) => void;
+	themeName: TokenThemeName;
+	setTheme: (themeName: TokenThemeName) => void;
 }
 
 export function setThemeContext(
 	theme: Theme,
-	themeName: ThemeName,
-	setThemeFn: (name: ThemeName) => void
+	themeName: TokenThemeName,
+	setThemeFn: (name: TokenThemeName) => void
 ): ThemeContext {
 	const context: ThemeContext = {
 		theme,

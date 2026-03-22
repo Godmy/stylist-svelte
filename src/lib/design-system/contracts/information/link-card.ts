@@ -1,4 +1,4 @@
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 /**
  * Типы и интерфейсы для компонента LinkCard
  * 
@@ -26,7 +26,7 @@ export interface ILinkCardProps {
   newTab?: boolean; // default: false
   
   /** Вариант оформления */
-  variant?: DefaultVariants;
+  variant?: TokenAppearance;
   
   /** Иконка для карточки */
   icon?: string;

@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AtomicPrinciplesProps, AtomicStats } from './atomic-principles';
+export type { NodeTitleVariant } from './node-title';
+export type { PredictionResultStatus } from './prediction-result';
 export type { ABTest, ABTestVariant, IABTestConfiguratorProps } from './abtest-configurator';
 export type { AccessibilityCheckboxProps } from './accessibility-checkbox';
 export type { IAiResultCardProps } from './ai-result-card';
@@ -31,7 +33,7 @@ export type { GeoJsonFeature, GeoJsonFeatureCollection, GeoJsonGeometry, GeoJson
 export type { GraphEdgeProps, GraphNodeProps } from './graph';
 export type { GraphCanvasPosition, GraphCanvasProps, GraphCanvasViewport } from './graph-canvas';
 export type { GraphNodeCardProps, GraphNodeData } from './graph-node-card';
-export type { GraphPortProps, GraphPortState } from './graph-port';
+export type { GraphPortDimensions, GraphPortProps, GraphPortState } from './graph-port';
 export type { GraphToolbarItem, GraphToolbarProps } from './graph-toolbar';
 export type { IconChevronProps, IconCircleProps, IconWrapperProps } from './icons';
 export type { Idef0BlackBoxModel, Idef0BlackBoxProps, Idef0ConnectorProps, Idef0DiagramProps, Idef0FunctionBoxProps, Idef0InputsProps, Idef0OutputsProps, Idef0Port, Idef0PortLabelProps, Idef0PortPosition } from './idef0';

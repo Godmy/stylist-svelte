@@ -4,7 +4,7 @@
  * Следует принципу единственной ответственности (SRP) из SOLID -
  * только генерирует CSS-классы на основе переданных props
  */
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class RatingStyleManager {
   /**
@@ -28,14 +28,22 @@ export class RatingStyleManager {
   /**
    * Получает CSS-классы для иконки звезды
    */
-  static getStarIconClasses(isFilled: boolean, size: ComponentSize): string {
-    const sizeClassesMap: Record<ComponentSize, string> = {
+  static getStarIconClasses(isFilled: boolean, size: TokenSize): string {
+    const sizeClassesMap: Record<TokenSize, string> = {
       xs: 'w-3 h-3',
       sm: 'w-4 h-4',
       md: 'w-5 h-5',
       lg: 'w-6 h-6',
       xl: 'w-8 h-8',
-      '2xl': 'w-10 h-10'
+      '2xl': 'w-10 h-10',
+      '1/4': 'w-3 h-3',
+      '1/3': 'w-4 h-4',
+      '2/5': 'w-4 h-4',
+      '1/2': 'w-5 h-5',
+      '3/5': 'w-5 h-5',
+      '2/3': 'w-6 h-6',
+      '3/4': 'w-8 h-8',
+      full: 'w-10 h-10'
     };
     const sizeClasses = sizeClassesMap[size];
 
@@ -54,5 +62,6 @@ export class RatingStyleManager {
     return `${disabledClass} text-sm`.trim();
   }
 }
+
 
 

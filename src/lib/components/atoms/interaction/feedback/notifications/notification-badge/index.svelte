@@ -15,7 +15,8 @@
 	 *
 	 * @param count - Number to display on the badge
 	 * @param maxCount - Maximum count to display before showing '+'
-	 * @param variant - Visual variant of the badge ('default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'number' | 'dot')
+	 * @param marker - Badge marker kind ('dot' | 'number' | 'letter' | 'check' | 'x')
+	 * @param appearance - Visual appearance of the badge
 	 * @param position - Position of the badge relative to its parent
 	 * @param showZero - Whether to show the badge when count is 0
 	 * @param badgeClass - Additional CSS classes for the badge element
@@ -25,7 +26,8 @@
 	let {
 		count = 0,
 		maxCount = 99,
-		variant = 'danger',
+		marker = 'number',
+		appearance = 'danger',
 		position = 'top-end',
 		showZero = false,
 		class: className = '',
@@ -34,13 +36,16 @@
 		...restProps
 	}: INotificationBadgeProps = $props();
 
-	// Determine if we should show just a dot (when variant is 'dot')
-	const showDot = variant === 'dot';
+	const showDot = marker === 'dot';
 
 	// Determine badge content
 	const badgeContent = (() => {
 		if (showDot) {
 			return '';
+		} else if (marker === 'check') {
+			return '✓';
+		} else if (marker === 'x') {
+			return '×';
 		} else if (count > maxCount) {
 			return `${maxCount}+`;
 		} else {
@@ -51,7 +56,7 @@
 	// Get CSS classes using the style manager
 	let containerClasses = $derived(NotificationBadgeStyleManager.getContainerClasses(className));
 	let badgeClasses = $derived(
-		NotificationBadgeStyleManager.getBadgeClasses(showDot, variant, position, badgeClass)
+		NotificationBadgeStyleManager.getBadgeClasses(marker, appearance, position, badgeClass)
 	);
 </script>
 

@@ -1,19 +1,19 @@
 import type { Point } from '$stylist/design-system/contracts/information/connection-line';
-import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
-import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
+import type { TokenTrajectory } from '$stylist/design-system/tokens/architecture/trajectory';
+import type { TokenBorderStyle as LineStyleToken } from '$stylist/design-system/tokens/architecture/border-style';
 import { cn } from '$stylist/design-system/utils/cn';
 import type { ConnectionPathResult } from '$stylist/design-system/contracts/information/connection-line';
 
 
 /**
- * Менеджер стилей для линии соединения
+ * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ Р»РёРЅРёРё СЃРѕРµРґРёРЅРµРЅРёСЏ
  */
 export class ConnectionLineStyleManager {
 	/**
-	 * Получает классы линии
+	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ Р»РёРЅРёРё
 	 */
 	static getLineClasses(
-		type: PrimitiveTrajectory,
+		type: TokenTrajectory,
 		lineStyle: LineStyleToken,
 		active: boolean,
 		animated: boolean
@@ -28,7 +28,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Получает стили линии
+	 * РџРѕР»СѓС‡Р°РµС‚ СЃС‚РёР»Рё Р»РёРЅРёРё
 	 */
 	static getLineStyles(
 		color: string,
@@ -44,7 +44,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Рассчитывает путь кривой Безье
+	 * Р Р°СЃСЃС‡РёС‚С‹РІР°РµС‚ РїСѓС‚СЊ РєСЂРёРІРѕР№ Р‘РµР·СЊРµ
 	 */
 	static calculateBezierPath(start: Point, end: Point): ConnectionPathResult {
 		const deltaX = end.x - start.x;
@@ -55,7 +55,7 @@ export class ConnectionLineStyleManager {
 
 		const path = `M ${start.x} ${start.y} C ${control1.x} ${control1.y}, ${control2.x} ${control2.y}, ${end.x} ${end.y}`;
 
-		// Приблизительная длина кривой
+		// РџСЂРёР±Р»РёР·РёС‚РµР»СЊРЅР°СЏ РґР»РёРЅР° РєСЂРёРІРѕР№
 		const length = Math.sqrt(deltaX * deltaX + (end.y - start.y) ** 2);
 
 		const midPoint: Point = {
@@ -69,7 +69,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Рассчитывает прямой путь
+	 * Р Р°СЃСЃС‡РёС‚С‹РІР°РµС‚ РїСЂСЏРјРѕР№ РїСѓС‚СЊ
 	 */
 	static calculateStraightPath(start: Point, end: Point): ConnectionPathResult {
 		const path = `M ${start.x} ${start.y} L ${end.x} ${end.y}`;
@@ -86,7 +86,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Рассчитывает ступенчатый путь
+	 * Р Р°СЃСЃС‡РёС‚С‹РІР°РµС‚ СЃС‚СѓРїРµРЅС‡Р°С‚С‹Р№ РїСѓС‚СЊ
 	 */
 	static calculateStepPath(start: Point, end: Point): ConnectionPathResult {
 		const midX = (start.x + end.x) / 2;
@@ -104,7 +104,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Рассчитывает дуговой путь
+	 * Р Р°СЃСЃС‡РёС‚С‹РІР°РµС‚ РґСѓРіРѕРІРѕР№ РїСѓС‚СЊ
 	 */
 	static calculateArcPath(start: Point, end: Point): ConnectionPathResult {
 		const deltaX = end.x - start.x;
@@ -127,7 +127,7 @@ export class ConnectionLineStyleManager {
 	}
 
 	/**
-	 * Получает SVG для стрелки
+	 * РџРѕР»СѓС‡Р°РµС‚ SVG РґР»СЏ СЃС‚СЂРµР»РєРё
 	 */
 	static getArrowMarker(arrowSize: number, color: string): string {
 		return `
@@ -149,6 +149,8 @@ export class ConnectionLineStyleManager {
 }
 
 export default ConnectionLineStyleManager;
+
+
 
 
 

@@ -13,7 +13,7 @@ const Type = 'type';
 const X = 'x';
 
   import { PageBuilderStyleManager } from '$stylist/design-system/styles';
-  import type { PageBuilderElementType } from '$stylist/design-system/tokens/interaction/page-builder';
+  import type { TokenComponentType as PageBuilderElementType } from '$stylist/design-system/tokens/architecture/component-type';
   import type {
     PageBuilderButtonAttributes,
     PageBuilderElement,

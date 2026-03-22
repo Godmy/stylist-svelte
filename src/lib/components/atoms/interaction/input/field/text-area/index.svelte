@@ -4,8 +4,6 @@
 	import { createTextareaState } from '$stylist/design-system/models/interaction/text-area.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { ITextareaProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
 
 	/**
 	 * Textarea component - Многострочное текстовое поле
@@ -173,6 +171,7 @@
 		</p>
 	{/if}
 </div>
+
 
 
 

@@ -1,0 +1,33 @@
+import { Scale } from '$stylist/design-system/tokens/theme/scale';
+import { TYPOGRAPHY_FONT_FAMILY } from '$stylist/design-system/tokens/theme/typography/font-family';
+import { TYPOGRAPHY_FONT_SIZE } from '$stylist/design-system/tokens/theme/typography/font-size';
+import { TYPOGRAPHY_LETTER_SPACING } from '$stylist/design-system/tokens/theme/typography/letter-spacing';
+import { TYPOGRAPHY_LINE_HEIGHT } from '$stylist/design-system/tokens/theme/typography/line-height';
+
+export interface ThemeTypography {
+	fontFamily: string;
+	fontSize: Record<string, string>;
+	fontWeight: Record<string, string>;
+	lineHeight: Record<string, string>;
+	letterSpacing: Record<string, string>;
+}
+
+export const THEME_TYPOGRAPHY: ThemeTypography = {
+	fontFamily: TYPOGRAPHY_FONT_FAMILY.sans,
+	fontSize: TYPOGRAPHY_FONT_SIZE as Record<string, string>,
+	fontWeight: {
+		thin: Scale[100],
+		extralight: Scale[200],
+		light: Scale[300],
+		normal: Scale[400],
+		medium: Scale[500],
+		semibold: Scale[600],
+		bold: Scale[700],
+		extrabold: Scale[800],
+		black: Scale[900]
+	},
+	lineHeight: TYPOGRAPHY_LINE_HEIGHT as Record<string, string>,
+	letterSpacing: TYPOGRAPHY_LETTER_SPACING as Record<string, string>
+};
+
+

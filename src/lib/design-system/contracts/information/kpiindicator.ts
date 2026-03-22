@@ -4,9 +4,9 @@
  */
 
 import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
-import type { KPIStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenTrend } from '$stylist/design-system/tokens/information/trend';
+import type { TokenKPI } from '$stylist/design-system/tokens/interaction/kpi';
 
 /**
  * Варианты статуса KPI индикатора
@@ -50,13 +50,13 @@ export interface IKPIIndicatorProps extends InformationHTMLAttributes<HTMLDivEle
    * Статус KPI
    * @default 'on-track'
    */
-  status?: KPIStatus;
+  status?: TokenKPI;
   
   /**
    * Направление тренда
    * @default 'neutral'
    */
-  trend?: KPITrend;
+  trend?: TokenTrend;
   
   /**
    * Значение тренда в процентах
@@ -68,7 +68,7 @@ export interface IKPIIndicatorProps extends InformationHTMLAttributes<HTMLDivEle
    * Размер компонента
    * @default 'md'
    */
-  size?: ComponentSize;
+  size?: TokenSize;
   
   /**
    * Дополнительные CSS-классы для контейнера
@@ -85,6 +85,8 @@ export interface IKPIIndicatorProps extends InformationHTMLAttributes<HTMLDivEle
    */
   valueClass?: string;
 }
+
+
 
 
 

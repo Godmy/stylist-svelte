@@ -1,12 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { SemanticVariant } from '$stylist/design-system/tokens/interaction/variants';
-import type { PropType } from '$stylist/design-system/tokens/interaction/prop-types';
-import type { Style as LineStyle } from '$stylist/design-system/tokens/architecture/style';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenPropertyType as PropType } from '$stylist/design-system/tokens/information/property-type';
+import type { TokenBorderStyle as LineStyle } from '$stylist/design-system/tokens/architecture/border-style';
 
-import type { CodeLanguage } from '$stylist/design-system/tokens/information/code-language';
+import type { TokenCodeLanguage } from '$stylist/design-system/tokens/information/code-language';
 export interface ProductSearchProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'oninput'> {
   placeholder?: string;
   class?: string;
@@ -19,12 +19,12 @@ export interface WishlistButtonProps extends Omit<InformationHTMLAttributes<HTML
   inWishlist?: boolean;
   class?: string;
   buttonClass?: string;
-  size?: ComponentSize;
-  variant?: SemanticVariant;
+  size?: TokenSize;
+  variant?: TokenAppearance;
   showLabel?: boolean;
   label?: string;
   tooltip?: string;
-  tooltipPosition?: Alignment;
+  tooltipPosition?: TokenAlignment;
   disabled?: boolean;
   onToggle?: (inWishlist: boolean) => void;
   onSuccess?: () => void;
@@ -33,7 +33,7 @@ export interface WishlistButtonProps extends Omit<InformationHTMLAttributes<HTML
 
 export interface CodeEditorProps extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'oninput'> {
   code?: string;
-  language?: CodeLanguage;
+  language?: TokenCodeLanguage;
   height?: string;
   width?: string;
   readOnly?: boolean;
@@ -77,4 +77,6 @@ export interface GraphvizDirectedEdgeProps extends Omit<HTMLAttributes<SVGElemen
   highlight?: boolean;
   class?: string;
 }
+
+
 

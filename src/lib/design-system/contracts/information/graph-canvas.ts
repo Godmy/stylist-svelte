@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture/primitives';
-import type { PanMode } from '$stylist/design-system/tokens/architecture/pan-modes';
+import type { TokenMarker } from '$stylist/design-system/tokens/architecture/marker';
+import type { TokenPanMode } from '$stylist/design-system/tokens/architecture/pan-mode';
 
 export interface GraphCanvasProps extends HtmlAttributesBase<HTMLDivElement> {
 	width?: number;
@@ -12,10 +12,10 @@ export interface GraphCanvasProps extends HtmlAttributesBase<HTMLDivElement> {
 	offsetX?: number;
 	offsetY?: number;
 	gridSize?: number;
-	gridMode?: PrimitiveMarker;
+	gridMode?: TokenMarker;
 	gridColor?: string;
 	backgroundColor?: string;
-	panMode?: PanMode;
+	panMode?: TokenPanMode;
 	panEnabled?: boolean;
 	zoomEnabled?: boolean;
 	selectionEnabled?: boolean;
@@ -45,6 +45,8 @@ export interface GraphCanvasViewport {
 	width: number;
 	height: number;
 }
+
+
 
 
 

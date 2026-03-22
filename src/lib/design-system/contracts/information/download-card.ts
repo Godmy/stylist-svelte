@@ -12,7 +12,7 @@
  * Dependency Inversion: Зависит от абстракций, а не от конкретных реализаций
  */
 
-import type { ToneVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 export interface IFileMetadata {
   /** Имя файла */
   name: string;
@@ -32,7 +32,7 @@ export interface IDownloadCardProps {
   file: IFileMetadata;
   
   /** Вариант оформления */
-  variant?: ToneVariant;
+  variant?: TokenAppearance;
   
   /** URL для скачивания файла */
   downloadUrl: string;

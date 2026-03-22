@@ -1,8 +1,8 @@
-import type { DefaultVariants as LinkCardVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance as LinkCardVariant } from '$stylist/design-system/tokens/information/appearance';
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
-const LINK_CARD_VARIANT_CLASSES = {
+const LINK_CARD_VARIANT_CLASSES: Partial<Record<LinkCardVariant, string>> = {
 	default:
 		'bg-[--color-background-primary] border-[--color-border-primary] hover:border-[--color-border-secondary] hover:shadow-sm',
 	primary:
@@ -34,8 +34,12 @@ const LINK_CARD_VARIANT_CLASSES = {
 	dark:
 		'bg-[--color-neutral-800] border-[--color-neutral-700] text-[--color-text-inverse]',
 	light:
-		'bg-[--color-neutral-50] border-[--color-neutral-200]'
-} as const;
+		'bg-[--color-neutral-50] border-[--color-neutral-200]',
+	elevated:
+		'bg-[--color-background-primary] border-[--color-border-secondary] shadow-md hover:shadow-lg',
+	flat:
+		'bg-[--color-background-secondary] border-transparent'
+};
 
 
 
@@ -78,7 +82,6 @@ export class LinkCardStyleManager {
 		return 'ml-2 flex-shrink-0 text-[var(--color-text-tertiary)] transition-colors duration-[var(--duration-200)] group-hover:text-[var(--color-primary-600)]';
 	}
 }
-
 
 
 

@@ -1,10 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-import type { Theme } from '$stylist/themes/contracts/theme';
-import { darkTheme, lightTheme } from '$stylist/themes/defaults/themes';
-import type { ThemeName } from '$stylist/themes/contracts/theme-name';
-import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
-import { THEME_SCHEMES_BY_ID } from '$stylist/themes/defaults/theme-schemes';
+import type { Theme } from '$stylist/design-system/contracts/theme/theme';
+import { darkTheme, lightTheme } from '$stylist/design-system/defaults/themes';
+import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+import { THEME_SCHEMES_BY_ID } from '$stylist/design-system/defaults/themes/theme-schemes';
 
 function stringEntries(value: object): [string, string][] {
 	return Object.entries(value as Record<string, string>);
@@ -178,33 +178,33 @@ export function applyThemeToDOM(
 	element.setAttribute('data-theme', theme.name);
 }
 
-export type ThemeMode = ThemeName | 'system';
+export type ThemeMode = TokenThemeName | 'system';
 
-const THEMES: Record<ThemeName, Theme> = {
+const THEMES: Record<TokenThemeName, Theme> = {
 	light: lightTheme,
 	dark: darkTheme
 };
 
-const THEME_NAMES = Object.keys(THEMES) as ThemeName[];
+const THEME_NAMES = Object.keys(THEMES) as TokenThemeName[];
 
-export function supportsTheme(theme: ThemeName): theme is ThemeName {
+export function supportsTheme(theme: TokenThemeName): theme is TokenThemeName {
 	return THEME_NAMES.includes(theme);
 }
 
-export function getCurrentTheme(): ThemeName {
+export function getCurrentTheme(): TokenThemeName {
 	if (typeof window === 'undefined') {
 		return 'light';
 	}
 
 	const stored = localStorage.getItem('stylist-theme');
-	if (stored && supportsTheme(stored as ThemeName)) {
-		return stored as ThemeName;
+	if (stored && supportsTheme(stored as TokenThemeName)) {
+		return stored as TokenThemeName;
 	}
 
 	return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-export function toggleTheme(): ThemeName {
+export function toggleTheme(): TokenThemeName {
 	const current = getCurrentTheme();
 	const next = current === 'light' ? 'dark' : 'light';
 
@@ -218,7 +218,7 @@ export function toggleTheme(): ThemeName {
 	return next;
 }
 
-export function isDarkTheme(theme?: ThemeName): boolean {
+export function isDarkTheme(theme?: TokenThemeName): boolean {
 	return (theme ?? getCurrentTheme()) === 'dark';
 }
 
@@ -235,7 +235,7 @@ export function mergeStyles(...styles: (string | null | undefined)[]): string {
 	return styles.filter(Boolean).join('; ');
 }
 
-export function resolveThemeMode(mode: ThemeMode): ThemeName {
+export function resolveThemeMode(mode: ThemeMode): TokenThemeName {
 	if (mode === 'system') {
 		if (typeof window === 'undefined') {
 			return 'light';
@@ -247,7 +247,7 @@ export function resolveThemeMode(mode: ThemeMode): ThemeName {
 }
 
 export function applySchemeToDOM(
-	schemeId: ThemeSchemeId,
+	schemeId: TokenSchemeId,
 	element: HTMLElement = document.documentElement
 ): void {
 	const scheme = THEME_SCHEMES_BY_ID[schemeId];
@@ -295,9 +295,9 @@ export function applySchemeToDOM(
 
 export function applyThemeModeAndScheme(
 	mode: ThemeMode,
-	schemeId: ThemeSchemeId,
+	schemeId: TokenSchemeId,
 	element: HTMLElement = document.documentElement
-): ThemeName {
+): TokenThemeName {
 	const resolvedMode = resolveThemeMode(mode);
 	const theme = resolvedMode === 'dark' ? darkTheme : lightTheme;
 

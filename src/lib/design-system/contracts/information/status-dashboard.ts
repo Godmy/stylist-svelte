@@ -1,12 +1,12 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
 // Props for StatusDashboard component
 export interface StatusDashboardProps {
   title?: string;
   subtitle?: string;
   items: StatusItem[];
-  layout?: Orientation;
-  size?: ComponentSize;
+  layout?: TokenOrientation;
+  size?: TokenSize;
   class?: string;
   itemClass?: string;
   headerClass?: string;
@@ -22,4 +22,5 @@ export interface StatusItem {
   footer?: any; // Snippet type
   actions?: any; // Snippet type
 }
+
 

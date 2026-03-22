@@ -1,8 +1,8 @@
-import type { Priority } from '$stylist/design-system/tokens/information/priorities';
+import type { TokenPriority } from '$stylist/design-system/tokens/information/priority';
 import type { CalendarEvent } from '$stylist/design-system/contracts/information/event-calendar';
 
 export interface ScheduleEvent extends CalendarEvent {
-	priority?: Priority;
+	priority?: TokenPriority;
 }
 
 export interface ScheduleTimeSlot {
@@ -34,3 +34,4 @@ export interface IScheduleCalendarProps {
 	onSlotClick?: (date: Date) => void;
 	onEventClick?: (event: ScheduleEvent) => void;
 }
+

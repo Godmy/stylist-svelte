@@ -48,7 +48,15 @@ const GripVertical = 'grip-vertical';
     'md': 'gap-4',
     'lg': 'gap-6',
     'xl': 'gap-8',
-    '2xl': 'gap-10'
+    '2xl': 'gap-10',
+    '1/4': 'gap-1',
+    '1/3': 'gap-2',
+    '2/5': 'gap-2',
+    '1/2': 'gap-4',
+    '3/5': 'gap-4',
+    '2/3': 'gap-6',
+    '3/4': 'gap-8',
+    'full': 'gap-10'
   }[gap] || 'gap-4');
 
   function handleDragStart(e: DragEvent, item: SortableGridItem, index: number) {
@@ -157,6 +165,4 @@ const GripVertical = 'grip-vertical';
     {/each}
   </div>
 </div>
-
-
 

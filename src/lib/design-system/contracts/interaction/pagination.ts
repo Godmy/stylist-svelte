@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 
 export interface PaginationProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	currentPage: number;
@@ -9,8 +9,8 @@ export interface PaginationProps extends InteractionHTMLAttributes<HTMLDivElemen
 	showPrevNext?: boolean;
 	showDots?: boolean;
 	maxVisible?: number;
-	variant?: SidebarVariant;
-	size?: ComponentSize;
+	variant?: TokenArchitecture;
+	size?: TokenSize;
 	disabled?: boolean;
 	class?: string;
 	buttonClass?: string;
@@ -18,3 +18,4 @@ export interface PaginationProps extends InteractionHTMLAttributes<HTMLDivElemen
 	disabledButtonClass?: string;
 	onPageChange?: (page: number) => void;
 }
+

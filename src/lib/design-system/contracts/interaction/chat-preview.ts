@@ -1,5 +1,5 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { CardType } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 
 /** Р­Р»РµРјРµРЅС‚ С‡Р°С‚Р° РґР»СЏ РїСЂРµРІСЊСЋ */
 export interface ChatPreviewItem {
@@ -51,19 +51,20 @@ export interface ChatPreviewProps {
    * Variant of the chat preview
    * @default 'default'
    */
-  variant?: CardType;
+  variant?: TokenArchitecture;
   
   /**
    * Size of the chat preview
    * @default 'md'
    */
-  size?: ComponentSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  size?: TokenSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
   
   /**
    * Additional CSS classes
    */
   class?: string;
 }
+
 
 
 

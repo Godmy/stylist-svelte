@@ -1,5 +1,5 @@
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
+import type { TokenRelationship } from '$stylist/design-system/tokens/architecture/relationship';
 
 export interface Idef0Port {
 	id: string;
@@ -40,7 +40,7 @@ export interface Idef0PortLabelProps extends HtmlAttributesBase<SVGTextElement> 
 
 export interface Idef0ConnectorProps extends HtmlAttributesBase<SVGGElement> {
 	label: string;
-	direction: GraphPortDirection;
+	direction: TokenRelationship;
 	x1: number;
 	y1: number;
 	x2: number;
@@ -83,6 +83,7 @@ export interface Idef0DiagramProps extends HtmlAttributesBase<HTMLDivElement> {
 	width?: number;
 	height?: number;
 }
+
 
 
 

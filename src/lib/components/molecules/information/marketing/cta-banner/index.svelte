@@ -1,5 +1,6 @@
 <script lang="ts">
   import { CtaBannerStyleManager } from '$stylist/design-system/styles/information/cta-banner';
+  import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
 
   type CtaBannerButton = {
     label: string;
@@ -7,13 +8,11 @@
     onClick: () => void;
   };
 
-  type CtaBannerBackgroundVariant = 'gradient' | 'solid' | 'image';
-
   interface CtaBannerProps {
     title: string;
     description?: string;
     buttons: CtaBannerButton[];
-    backgroundVariant?: CtaBannerBackgroundVariant;
+    backgroundVariant?: TokenBackground;
     backgroundImage?: string;
     class?: string;
   }

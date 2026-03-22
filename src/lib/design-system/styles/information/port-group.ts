@@ -1,14 +1,14 @@
-import type { GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
+import type { TokenRelationship } from '$stylist/design-system/tokens/architecture/relationship';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
- * Менеджер стилей для группы портов
+ * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ РіСЂСѓРїРїС‹ РїРѕСЂС‚РѕРІ
  */
 export class PortGroupStyleManager {
 	/**
-	 * Получает классы группы
+	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ РіСЂСѓРїРїС‹
 	 */
-	static getGroupClasses(direction: GraphPortDirection, compact: boolean): string {
+	static getGroupClasses(direction: TokenRelationship, compact: boolean): string {
 		return cn(
 			'port-group',
 			`port-group--${direction}`,
@@ -17,21 +17,21 @@ export class PortGroupStyleManager {
 	}
 
 	/**
-	 * Получает классы для заголовка группы
+	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ РґР»СЏ Р·Р°РіРѕР»РѕРІРєР° РіСЂСѓРїРїС‹
 	 */
 	static getTitleClasses(): string {
 		return 'port-group__title';
 	}
 
 	/**
-	 * Получает классы для списка портов
+	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ РґР»СЏ СЃРїРёСЃРєР° РїРѕСЂС‚РѕРІ
 	 */
 	static getListClasses(): string {
 		return 'port-group__list';
 	}
 
 	/**
-	 * Получает классы для элемента порта
+	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃС‹ РґР»СЏ СЌР»РµРјРµРЅС‚Р° РїРѕСЂС‚Р°
 	 */
 	static getItemClasses(hasDivider: boolean): string {
 		return cn('port-group__item', hasDivider && 'port-group__item--divider');
@@ -39,6 +39,7 @@ export class PortGroupStyleManager {
 }
 
 export default PortGroupStyleManager;
+
 
 
 

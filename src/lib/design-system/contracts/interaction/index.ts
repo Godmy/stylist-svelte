@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { NotificationType } from './notification';
+export type { NotificationType } from './toast';
 export type { AccordionBaseProps, AccordionDataItem, AccordionHeaderDoubleProps, AccordionHeaderProps, AccordionItemProps, AccordionPanelProps, ComplexAccordionProps, IAccordionProps } from './accordion';
 export type { AccountSettingsFormProps, UserProfileCardProps } from './account-forms';
 export type { IAdvancedAccordionItem, IAdvancedAccordionProps } from './advanced-accordion';

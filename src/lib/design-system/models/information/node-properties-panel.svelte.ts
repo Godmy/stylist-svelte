@@ -1,9 +1,9 @@
 import type { NodePropertiesPanelProps } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { NodePropertiesPanelStyleManager } from '$stylist/design-system/styles';
 
 export function createNodePropertiesPanelState(props: NodePropertiesPanelProps) {
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const compact = $derived(props.compact ?? false);
 	const showHeader = $derived(props.showHeader ?? true);
 	const showClose = $derived(props.showClose ?? true);

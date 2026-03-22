@@ -1,9 +1,9 @@
 import type { GraphNodeProps } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { GraphStyleManager } from '$stylist/design-system/styles';
 
 export function createGraphNodeState(props: GraphNodeProps) {
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const selected = $derived(Boolean(props.selected));
 	const positionStyle = $derived(GraphStyleManager.getGraphNodePositionStyle(props.x, props.y));
@@ -31,6 +31,7 @@ export function createGraphNodeState(props: GraphNodeProps) {
 }
 
 export default createGraphNodeState;
+
 
 
 

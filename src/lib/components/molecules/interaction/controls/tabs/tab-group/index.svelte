@@ -17,7 +17,7 @@
    *
    * @param tabs - Array of tab objects with id, title and content
    * @param activeTab - ID of the currently active tab
-   * @param variant - Visual style of the tabs ('line' | 'boxed' | 'pill')
+   * @param variant - Visual shape of the tabs ('rectangle' | 'square' | 'pill')
    * @param class - CSS class for the wrapper element
    * @param tabListClass - CSS class for the tab list container
    * @param tabClass - CSS class for individual tabs
@@ -30,7 +30,7 @@
   let {
     tabs = [],
     activeTab = tabs[0]?.id || '',
-    variant = 'line',
+    variant = 'rectangle',
     class: className = '',
     tabListClass = '',
     tabClass = '',
@@ -111,6 +111,5 @@
     {/each}
   </div>
 </div>
-
 
 

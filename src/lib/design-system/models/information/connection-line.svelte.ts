@@ -1,11 +1,11 @@
 import type { ConnectionLineProps, Point } from '$stylist/design-system/contracts/information/connection-line';
-import type { PrimitiveTrajectory } from '$stylist/design-system/tokens/architecture/primitives';
-import type { Style as LineStyleToken } from '$stylist/design-system/tokens/architecture/style';
+import type { TokenTrajectory } from '$stylist/design-system/tokens/architecture/trajectory';
+import type { TokenBorderStyle as LineStyleToken } from '$stylist/design-system/tokens/architecture/border-style';
 import { ConnectionLineStyleManager } from '$stylist/design-system/styles';
 import type { ConnectionPathResult } from '$stylist/design-system/contracts/information/connection-line';
 
 export function createConnectionLineState(props: ConnectionLineProps) {
-	const type = $derived((props.type ?? 'bezier') as PrimitiveTrajectory);
+	const type = $derived((props.type ?? 'bezier') as TokenTrajectory);
 	const lineStyle = $derived((props.lineStyle ?? 'solid') as LineStyleToken);
 	const strokeWidth = $derived(props.strokeWidth ?? 2);
 	const color = $derived(props.color ?? '#64748b');
@@ -110,6 +110,8 @@ export function createConnectionLineState(props: ConnectionLineProps) {
 }
 
 export default createConnectionLineState;
+
+
 
 
 

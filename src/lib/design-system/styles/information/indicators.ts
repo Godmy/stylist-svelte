@@ -1,4 +1,5 @@
-import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenAvailability } from '$stylist/design-system/tokens/interaction/availability';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
 const DOT_COLOR_CLASSES = {
@@ -97,7 +98,8 @@ const BULLET_SIZE_CLASSES = {
 const MESSAGE_STATUS_COLORS = {
 	sent: 'text-[--color-neutral-400]',
 	delivered: 'text-[--color-neutral-400]',
-	read: 'text-[--color-success-500]'
+	read: 'text-[--color-success-500]',
+	error: 'text-[--color-danger-500]'
 } as const;
 
 const MESSAGE_STATUS_SIZE_CLASSES = {
@@ -222,7 +224,7 @@ export class IndicatorsStyleManager {
 		return cn('rounded-full bg-current', BULLET_SIZE_CLASSES[size]);
 	}
 
-	static getMessageStatusContainerClasses(status: 'sent' | 'delivered' | 'read'): string {
+	static getMessageStatusContainerClasses(status: 'sent' | 'delivered' | 'read' | 'error'): string {
 		return MESSAGE_STATUS_COLORS[status];
 	}
 
@@ -234,11 +236,11 @@ export class IndicatorsStyleManager {
 		return cn('flex items-center', className);
 	}
 
-	static getStatusIndicatorDotClasses(status: PresenceStatus): string {
+	static getStatusIndicatorDotClasses(status: TokenAvailability): string {
 		return cn('w-3 h-3 rounded-full mr-2', STATUS_INDICATOR_STATUS_CLASSES[status]);
 	}
 
-	static getStatusIndicatorLabel(status: PresenceStatus, label?: string): string {
+	static getStatusIndicatorLabel(status: TokenAvailability, label?: string): string {
 		return label ?? STATUS_INDICATOR_STATUS_TEXT[status];
 	}
 
@@ -247,19 +249,36 @@ export class IndicatorsStyleManager {
 	}
 
 	static getStatusIndicatorWithLabelIndicatorClasses(
-		status: 'success' | 'warning' | 'error' | 'info' | 'neutral' | 'custom',
+		appearance: TokenAppearance,
 		size: 'sm' | 'md' | 'lg' = 'md',
 		customColor?: string,
 		indicatorClass = ''
 	): string {
+		const appearanceClassMap: Partial<Record<TokenAppearance, string>> = {
+			default: 'bg-[--color-neutral-500]',
+			primary: 'bg-[--color-primary-500]',
+			secondary: 'bg-[--color-secondary-500]',
+			success: 'bg-[--color-success-500]',
+			warning: 'bg-[--color-warning-500]',
+			danger: 'bg-[--color-danger-500]',
+			error: 'bg-[--color-danger-500]',
+			info: 'bg-[--color-info-500]',
+			solid: 'bg-[--color-primary-500]',
+			outline: 'bg-[--color-neutral-500]',
+			ghost: 'bg-[--color-neutral-500]',
+			link: 'bg-[--color-info-500]',
+			subtle: 'bg-[--color-neutral-400]',
+			neutral: 'bg-[--color-neutral-500]',
+			gray: 'bg-[--color-neutral-400]',
+			dark: 'bg-[--color-neutral-800]',
+			light: 'bg-[--color-neutral-300]',
+			elevated: 'bg-[--color-neutral-500]',
+			flat: 'bg-[--color-neutral-500]'
+		};
 		return cn(
 			'inline-block rounded-full mr-2',
 			STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size],
-			status === 'custom'
-				? customColor
-					? `bg-[${customColor}]`
-					: 'bg-[var(--color-neutral-500)]'
-				: STATUS_INDICATOR_WITH_LABEL_COLOR_CLASSES[status],
+			customColor ? `bg-[${customColor}]` : appearanceClassMap[appearance] ?? 'bg-[--color-neutral-500]',
 			indicatorClass
 		);
 	}

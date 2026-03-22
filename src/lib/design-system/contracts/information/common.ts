@@ -1,15 +1,8 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type {
-	InteractionState,
-	LoadingState,
-	ValidationState,
-	VisibilityState
-} from '$stylist/design-system/tokens/interaction/statuses';
-
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 export interface ClassProp {
 	class?: string;
@@ -25,7 +18,7 @@ export interface ContentProp {
 
 export interface TypographyTextProps {
 	variant?: string;
-	size?: ComponentSize;
+	size?: TokenSize;
 	disabled?: boolean;
 	block?: boolean;
 	class?: string;
@@ -52,8 +45,8 @@ export interface HtmlStateAttr {
 }
 
 export interface HtmlVariantSizeAttr {
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 }
 
 export interface InputLabelProps {
@@ -122,7 +115,7 @@ export interface Props
 	extends IDisableable,
 		ILoadable,
 		IClickable,
-		IStyleable<DefaultVariants, ComponentSize> {
+		IStyleable<TokenAppearance, TokenSize> {
 	class?: string;
 	ariaLabel?: string;
 	block?: boolean;
@@ -175,5 +168,6 @@ export interface StateStyleProps {
 }
 
 export interface ComponentStateProps extends StateProps, StateStyleProps {}
+
 
 

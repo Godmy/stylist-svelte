@@ -1,28 +1,28 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { CardStyleManager } from '$stylist/design-system/styles/information/card';
-import type { ProductCardVariant } from '$stylist/design-system/tokens/information/product-card';
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 
-const PRODUCT_CARD_CONTAINER_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+const PRODUCT_CARD_CONTAINER_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: 'max-w-sm shadow-md',
 	compact: 'max-w-xs shadow-sm',
 	'with-actions': 'max-w-sm shadow-md'
 };
-const PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+const PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: 'relative',
 	compact: 'relative h-32 w-full',
 	'with-actions': 'relative'
 };
-const PRODUCT_CARD_CONTENT_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+const PRODUCT_CARD_CONTENT_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: 'flex flex-1 flex-col p-4',
 	compact: 'p-3',
 	'with-actions': 'flex flex-1 flex-col p-4'
 };
-const PRODUCT_CARD_TITLE_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+const PRODUCT_CARD_TITLE_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]',
 	compact: 'mb-1 truncate text-base font-semibold text-[var(--color-text-primary)]',
 	'with-actions': 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]'
 };
-const PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES: Record<ProductCardVariant, string> = {
+const PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: 'mb-2 text-sm text-[var(--color-text-secondary)]',
 	compact: 'hidden',
 	'with-actions': 'mb-2 flex-1 text-sm text-[var(--color-text-secondary)]'
@@ -36,11 +36,11 @@ const PRODUCT_CARD_STAR_FILLED_CLASSES = 'fill-current';
 const PRODUCT_CARD_STAR_EMPTY_CLASSES = 'fill-[var(--color-neutral-300)]';
 
 export class ProductCardStyleManager {
-	static getContainerClass(extraClasses = '', variant: ProductCardVariant = 'default'): string {
+	static getContainerClass(extraClasses = '', variant: TokenArchitecture = 'default'): string {
 		return cn(
 			'c-product-card border border-[var(--color-border-primary)]',
 			CardStyleManager.getBaseClasses(),
-			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant],
+			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_CONTAINER_VARIANT_CLASSES.default,
 			extraClasses
 		);
 	}
@@ -49,8 +49,8 @@ export class ProductCardStyleManager {
 		return PRODUCT_CARD_BADGE_BASE_CLASSES;
 	}
 
-	static getImageContainerClass(variant: ProductCardVariant = 'default'): string {
-		return PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES[variant];
+	static getImageContainerClass(variant: TokenArchitecture = 'default'): string {
+		return PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES.default ?? '';
 	}
 
 	static getImageClass(): string {
@@ -85,20 +85,20 @@ export class ProductCardStyleManager {
 		return PRODUCT_CARD_STAR_EMPTY_CLASSES;
 	}
 
-	static getContentClass(variant: ProductCardVariant = 'default'): string {
-		return PRODUCT_CARD_CONTENT_VARIANT_CLASSES[variant];
+	static getContentClass(variant: TokenArchitecture = 'default'): string {
+		return PRODUCT_CARD_CONTENT_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_CONTENT_VARIANT_CLASSES.default ?? '';
 	}
 
 	static getHeaderClass(): string {
 		return 'mb-2';
 	}
 
-	static getTitleClass(variant: ProductCardVariant = 'default'): string {
-		return PRODUCT_CARD_TITLE_VARIANT_CLASSES[variant];
+	static getTitleClass(variant: TokenArchitecture = 'default'): string {
+		return PRODUCT_CARD_TITLE_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_TITLE_VARIANT_CLASSES.default ?? '';
 	}
 
-	static getDescriptionClass(variant: ProductCardVariant = 'default'): string {
-		return PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES[variant];
+	static getDescriptionClass(variant: TokenArchitecture = 'default'): string {
+		return PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES.default ?? '';
 	}
 
 	static getRatingContainerClass(): string {
@@ -129,3 +129,4 @@ export class ProductCardStyleManager {
 		return 'ml-3 flex items-center gap-2';
 	}
 }
+

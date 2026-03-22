@@ -5,8 +5,8 @@
  * @version 1.0.0
  */
 
-import type { KPITrend } from '$stylist/design-system/tokens/information/kpi-indicator';
-import type { Background } from '$stylist/design-system/tokens/information/background';
+import type { TokenTrend } from '$stylist/design-system/tokens/information/trend';
+import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
 
 /**
  * Trend options for StatCard
@@ -39,7 +39,7 @@ export interface IStatCardProps {
    * Trend direction of the statistic
    * @default undefined
    */
-  trend?: KPITrend;
+  trend?: TokenTrend;
 
   /**
    * Value of the trend (e.g. "+12.5%")
@@ -57,7 +57,7 @@ export interface IStatCardProps {
    * Visual variant of the stat card
    * @default 'default'
    */
-  variant?: Background;
+  variant?: TokenBackground;
 
   /**
    * Whether to use animated number display
@@ -70,6 +70,7 @@ export interface IStatCardProps {
    */
   class?: string;
 }
+
 
 
 

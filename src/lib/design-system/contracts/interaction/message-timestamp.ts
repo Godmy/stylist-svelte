@@ -1,4 +1,4 @@
-import type { MessageTimestampFormatStyle } from '$stylist/design-system/tokens/information/date-time';
+import type { TokenTimeFormat } from '$stylist/design-system/tokens/information/time-format';
 
 export interface MessageTimestampProps {
   /**
@@ -10,7 +10,7 @@ export interface MessageTimestampProps {
    * The format style for displaying the timestamp
    * @default 'datetime'
    */
-  formatStyle?: MessageTimestampFormatStyle;
+  formatStyle?: TokenTimeFormat;
   
   /**
    * Whether to show relative time (e.g., "2 min ago")
@@ -23,6 +23,7 @@ export interface MessageTimestampProps {
    */
   class?: string;
 }
+
 
 
 

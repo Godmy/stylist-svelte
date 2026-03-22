@@ -1,5 +1,5 @@
-import type { NodeTitleVariant } from '$stylist/design-system/tokens/interaction/statuses';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { NodeTitleVariant } from '$stylist/design-system/contracts/information/node-title';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -11,7 +11,7 @@ export class NodeTitleStyleManager {
 	 */
 	static getTitleClasses(
 		variant: NodeTitleVariant,
-		size: ComponentSize,
+		size: TokenSize,
 		selected: boolean
 	): string {
 		return cn(

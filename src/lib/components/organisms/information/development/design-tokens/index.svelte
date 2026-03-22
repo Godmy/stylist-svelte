@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { darkTheme, lightTheme } from '$stylist/themes';
+  import { darkTheme, lightTheme } from '$stylist/design-system/defaults/theme';
   // import { onMount } from 'svelte'; // Removed as its functionality is now covered by $state and $effect
 
   type Theme = typeof lightTheme;

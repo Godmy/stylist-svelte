@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IRatingProps } from '$stylist/design-system/contracts/interaction/rating';
-  import type { ComponentSize } from '$stylist/design-system/tokens';
+  import type { TokenSize } from '$stylist/design-system/tokens';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
   import { RatingStyleManager } from '$stylist/design-system/styles/interaction/rating';
 
@@ -64,7 +64,7 @@
   );
   const starIconClasses = (index: number) => RatingStyleManager.getStarIconClasses(
     index < rating,
-    size as ComponentSize
+    size as TokenSize
   );
   const ratingTextClasses = $derived(RatingStyleManager.getRatingTextClasses(disabled));
 </script>

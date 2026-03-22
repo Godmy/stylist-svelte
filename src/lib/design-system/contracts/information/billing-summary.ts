@@ -1,5 +1,6 @@
-import type { BillingItemStatus, BillingSummaryStatus } from '$stylist/design-system/tokens/interaction/statuses';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
+import type { TokenBillingItem } from '$stylist/design-system/tokens/commerce/billing-item';
+import type { TokenBillingSummary } from '$stylist/design-system/tokens/commerce/billing-summary';
 
 export interface IBillingItem {
   id: string;
@@ -7,7 +8,7 @@ export interface IBillingItem {
   amount: number;
   currency: string;
   date: Date;
-  status: BillingItemStatus;
+  status: TokenBillingItem;
 }
 
 export interface IBillingSummaryProps extends HtmlAttributesBase<HTMLDivElement> {
@@ -16,7 +17,7 @@ export interface IBillingSummaryProps extends HtmlAttributesBase<HTMLDivElement>
   totalAmount?: number;
   currency?: string;
   dueDate?: Date;
-  status?: BillingSummaryStatus;
+  status?: TokenBillingSummary;
   items: IBillingItem[];
   showDetails?: boolean;
   showDueDate?: boolean;

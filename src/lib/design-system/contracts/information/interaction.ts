@@ -1,24 +1,23 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
-import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import type {
 	HtmlAttributesBase,
 	HtmlAttributesWithChildren,
 	HtmlStateAttr,
 	HtmlVariantSizeAttr
 } from '$stylist/design-system/contracts/information/common';
-import type { ToolbarVariant } from '$stylist/design-system/tokens/interaction/toolbar';
 
 export interface ToolbarInteractiveProps {
-	variant?: ToolbarVariant;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	active?: boolean;
 	disabled?: boolean;
 }
 
 export interface ToolbarFieldProps {
-	variant?: ToolbarVariant;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	disabled?: boolean;
 }
 
@@ -98,8 +97,8 @@ export interface SelectProps extends HtmlAttributesWithChildren<HTMLElement>, Ht
 	options: SelectOption[] | string[];
 	value?: string;
 	defaultValue?: string;
-	variant?: DefaultVariants | NeutralVariant;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	placeholder?: string;
 	searchable?: boolean;
 	multiple?: boolean;
@@ -128,7 +127,7 @@ export interface SliderProps extends HtmlAttributesWithChildren<HTMLDivElement> 
 	max?: number;
 	step?: number;
 	disabled?: boolean;
-	orientation?: Orientation;
+	orientation?: TokenOrientation;
 	onValueInput?: (value: number) => void;
 	onValueChange?: (value: number) => void;
 	/** @deprecated use onValueChange */
@@ -137,9 +136,9 @@ export interface SliderProps extends HtmlAttributesWithChildren<HTMLDivElement> 
 
 export interface ToolbarProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: ComponentSize;
-	orientation?: Orientation;
+	variant?: TokenAppearance;
+	size?: TokenSize;
+	orientation?: TokenOrientation;
 	disabled?: boolean;
 	collapsible?: boolean;
 	collapsed?: boolean;
@@ -147,14 +146,14 @@ export interface ToolbarProps<T extends EventTarget = HTMLElement>
 
 export interface ToolbarGroupProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesWithChildren<T> {
-	variant?: ToolbarVariant;
-	size?: ComponentSize;
-	orientation?: Orientation;
+	variant?: TokenAppearance;
+	size?: TokenSize;
+	orientation?: TokenOrientation;
 }
 
 export interface ToolbarSeparatorProps<T extends EventTarget = HTMLElement>
 	extends HtmlAttributesBase<T> {
-	orientation?: Orientation;
+	orientation?: TokenOrientation;
 }
 
 export interface PictureToolbarTool {
@@ -174,6 +173,7 @@ export interface ProductSortOption {
 	value: string;
 	label: string;
 }
+
 
 
 

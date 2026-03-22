@@ -9,7 +9,7 @@
 
 	const restProps = $derived(
 		(() => {
-			const { class: _class, children: _children, variant: _variant, ...rest } = props;
+			const { class: _class, children: _children, ...rest } = props;
 			return rest;
 		})()
 	);

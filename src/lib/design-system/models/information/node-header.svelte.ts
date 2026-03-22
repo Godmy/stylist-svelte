@@ -1,9 +1,9 @@
 import type { NodeHeaderProps } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { NodeHeaderStyleManager } from '$stylist/design-system/styles';
 
 export function createNodeHeaderState(props: NodeHeaderProps) {
-	const size = $derived((props.size ?? 'md') as ComponentSize);
+	const size = $derived((props.size ?? 'md') as TokenSize);
 	const selected = $derived(Boolean(props.selected));
 	const editable = $derived(props.editable ?? false);
 	const showClose = $derived(props.showClose ?? false);

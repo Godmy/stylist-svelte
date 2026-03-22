@@ -85,11 +85,10 @@
 			{:else}
 				{@render tooltipState.content()}
 			{/if}
-			{#if tooltipState.variant === 'with-arrow'}
+			{#if tooltipState.variant === 'arrow'}
 				<span class={tooltipState.arrowClasses}></span>
 			{/if}
 		</span>
 	{/if}
 </span>
-
 

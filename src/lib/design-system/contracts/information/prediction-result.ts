@@ -1,5 +1,7 @@
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { PredictionResultStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenSeverity } from '$stylist/design-system/tokens/interaction/sevetity';
+
+export type PredictionResultStatus = 'loading' | Extract<TokenSeverity, 'success' | 'warning' | 'error'>;
 
 export interface Prediction {
 	label: string;

@@ -15,8 +15,8 @@
    */
   
   import type { IHeroProps } from '$stylist/design-system/contracts/architecture/hero';
-  import type { Background } from '$stylist/design-system/tokens/information/background';
-  import type { Height } from '$stylist/design-system/tokens/architecture/size';
+  import type { TokenBackground } from '$stylist/design-system/tokens/information/background';
+  import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
   import { HeroStyleManager } from '$stylist/design-system/styles/architecture/hero';
   import AnimatedNumber from '$stylist/components/atoms/information/data-display/animated-number/index.svelte';
   
@@ -28,15 +28,15 @@
     secondaryCTA,
     backgroundVariant = 'gradient',
     backgroundImage,
-    height = 'screen',
+    height = 'full',
     class: className = '',
     children
   }: IHeroProps = $props();
   const hostClass = className == null ? undefined : String(className);
   
   // Вычисляемые стили через derived для изоляции логики стилизации
-  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as Height, hostClass));
-  const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as Background));
+  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as TokenSize, hostClass));
+  const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as TokenBackground));
   const contentClasses = $derived(HeroStyleManager.getContentClasses());
   const titleClasses = $derived(HeroStyleManager.getTitleClasses());
   const subtitleClasses = $derived(HeroStyleManager.getSubtitleClasses());

@@ -1,6 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-
-import type { PageBuilderElementType } from '$stylist/design-system/tokens/interaction/page-builder';
+import type { TokenComponentType } from '$stylist/design-system/tokens/architecture/component-type';
 export interface PageBuilderTextAttributes {
   FONT_SIZE?: string;
   color?: string;
@@ -36,7 +35,7 @@ export interface PageBuilderContainerAttributes {
 
 export interface PageBuilderElement {
   id: string;
-  type: PageBuilderElementType;
+  type: TokenComponentType;
   content?: string;
   attributes?:
     | PageBuilderTextAttributes
@@ -49,7 +48,7 @@ export interface PageBuilderElement {
 }
 
 export interface PageBuilderToolbarItem {
-  type: PageBuilderElementType;
+  type: TokenComponentType;
   label: string;
   icon: string;
 }
@@ -65,5 +64,4 @@ export interface PageBuilderProps extends InteractionHTMLAttributes<HTMLDivEleme
   canvasClass?: string;
   elementClass?: string;
 }
-
 

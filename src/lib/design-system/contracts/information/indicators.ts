@@ -1,20 +1,20 @@
-import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
-import type { PrimitiveMarker } from '$stylist/design-system/tokens/architecture/primitives';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { PresenceStatus } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenMessageStatus } from '$stylist/design-system/tokens/interaction/message-status';
+import type { TokenMarker } from '$stylist/design-system/tokens/architecture/marker';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+import type { TokenAvailability } from '$stylist/design-system/tokens/interaction/availability';
 import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
 
 export interface DotProps extends HtmlAttributesBase<HTMLSpanElement> {
-	color?: DefaultVariants;
-	size?: ComponentSize;
+	color?: TokenAppearance;
+	size?: TokenSize;
 }
 
 export interface CounterProps extends HtmlAttributesBase<HTMLSpanElement> {
 	count?: number;
 	max?: number;
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 }
 
 export interface CountBadgeProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
@@ -24,26 +24,29 @@ export interface CountBadgeProps extends HtmlAttributesWithChildren<HTMLSpanElem
 }
 
 export interface ListItemMarkerProps extends HtmlAttributesBase<HTMLSpanElement> {
-	type?: PrimitiveMarker;
+	type?: TokenMarker;
 	value?: string | number;
-	color?: DefaultVariants;
-	size?: ComponentSize;
+	color?: TokenAppearance;
+	size?: TokenSize;
 }
 
 export interface StatusIndicatorProps extends HtmlAttributesWithChildren<HTMLSpanElement> {
-	status?: PresenceStatus;
+	status?: TokenAvailability;
+	appearance?: TokenAppearance;
 	label?: string;
 	customColor?: string;
-	size?: ComponentSize;
+	size?: TokenSize;
 	showLabel?: boolean;
 	indicatorClass?: string;
 	labelClass?: string;
 }
 
 export interface MessageStatusProps {
-	status?: MessageStatusType;
-	size?: ComponentSize;
+	status?: TokenMessageStatus;
+	size?: TokenSize;
 }
+
+
 
 
 

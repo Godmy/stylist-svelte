@@ -5,8 +5,7 @@
 	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputPasswordProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 	const Eye = 'eye';
 	const EyeOff = 'eye-off';

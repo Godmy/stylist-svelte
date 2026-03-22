@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 
 export interface MenuItemProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -13,7 +13,7 @@ export interface MenuItemProps extends HTMLAttributes<HTMLElement> {
    * Variant of the menu item
    * @default 'default'
    */
-  variant?: DefaultVariants;
+  variant?: TokenAppearance;
   
   /**
    * Link URL for the menu item

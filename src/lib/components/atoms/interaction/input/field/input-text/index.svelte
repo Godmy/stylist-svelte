@@ -4,8 +4,8 @@
 	import { createInputTextState } from '../../../../../../design-system/models/interaction/input-text.svelte';
 	import { InputStyleManager } from '$stylist/design-system/styles/interaction/input';
 	import type { IInputBaseProps } from '$stylist/design-system/contracts';
-	import type { InputVariant } from '$stylist/design-system/tokens';
-	import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { TokenAppearance } from '$stylist/design-system/tokens';
+	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 	/**
 	 * InputText component - Базовый текстовый input с поддержкой variant, size, error states
@@ -24,7 +24,7 @@
 	 * ```
 	 */
 
-	type Props = IInputBaseProps<InputVariant, ComponentSize> &
+	type Props = IInputBaseProps<TokenAppearance, TokenSize> &
 		Omit<HTMLInputAttributes, 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
 
 	let {
@@ -148,6 +148,7 @@
 		<p class={helperTextClasses}>{helperText}</p>
 	{/if}
 </div>
+
 
 
 

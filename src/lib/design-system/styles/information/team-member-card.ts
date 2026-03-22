@@ -1,13 +1,13 @@
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { CardStyleManager } from '$stylist/design-system/styles/information/card';
 
-const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
+const TEAM_MEMBER_CARD_VARIANT_CLASSES: Partial<Record<TokenArchitecture, string>> = {
 	default: '',
 	compact: 'p-2',
 	detailed: 'p-8',
-	featured:
-		'ring-2 ring-[var(--color-primary-500)] shadow-lg scale-[1.02] border-[var(--color-primary-300)]'
-} as const;
+	icon: 'ring-2 ring-[var(--color-primary-500)] shadow-lg scale-[1.02] border-[var(--color-primary-300)]'
+};
 
 
 
@@ -15,19 +15,19 @@ const TEAM_MEMBER_CARD_VARIANT_CLASSES = {
 
 export class TeamMemberCardStyleManager {
 	static getBaseClasses(
-		variant: keyof typeof TEAM_MEMBER_CARD_VARIANT_CLASSES = 'default',
+		variant: TokenArchitecture = 'default',
 		className = ''
 	): string {
 		return cn(
 			'team-member-card overflow-hidden',
 			CardStyleManager.getBaseClasses(),
-			TEAM_MEMBER_CARD_VARIANT_CLASSES[variant],
+			TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.default,
 			className
 		);
 	}
 
-	static getVariantClasses(variant: keyof typeof TEAM_MEMBER_CARD_VARIANT_CLASSES): string {
-		return TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.default;
+	static getVariantClasses(variant: TokenArchitecture): string {
+		return TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.default ?? '';
 	}
 
 	static getHeaderClasses(): string {
@@ -86,4 +86,3 @@ export class TeamMemberCardStyleManager {
 		return 'mt-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-

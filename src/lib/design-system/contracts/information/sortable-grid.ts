@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { Snippet } from 'svelte';
 
 export interface SortableGridItem {
@@ -19,10 +19,11 @@ export interface SortableGridProps {
 	onItemDragEnd?: (item: SortableGridItem) => void;
 	disabled?: boolean;
 	cols?: number;
-	gap?: ComponentSize;
+	gap?: TokenSize;
 	variant?: 'card' | 'minimal';
-	size?: ComponentSize;
+	size?: TokenSize;
 }
+
 
 
 

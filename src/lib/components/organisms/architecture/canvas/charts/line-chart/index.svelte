@@ -20,7 +20,7 @@
     color?: string;
   };
 
-  export type LineChartVariant = 'default' | 'minimal' | 'elegant' | 'bold';
+  export type TokenLineType = 'default' | 'minimal' | 'elegant' | 'bold';
   export type LineChartSize = 'sm' | 'md' | 'lg';
 
   export interface ILineChartProps {
@@ -37,7 +37,7 @@
     smooth?: boolean;
     strokeWidth?: number;
     onPointClick?: (item: ChartDataPoint, series: LineChartData) => void;
-    variant?: LineChartVariant;
+    variant?: TokenLineType;
     size?: LineChartSize;
     class?: string;
     chartClass?: string;

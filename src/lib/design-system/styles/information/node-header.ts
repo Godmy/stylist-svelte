@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -8,7 +8,7 @@ export class NodeHeaderStyleManager {
 	/**
 	 * Получает классы заголовка
 	 */
-	static getHeaderClasses(size: ComponentSize, selected: boolean): string {
+	static getHeaderClasses(size: TokenSize, selected: boolean): string {
 		return cn(
 			'node-header',
 			`node-header--size-${size}`,

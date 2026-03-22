@@ -1,4 +1,4 @@
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Типы пропсов для компонента LoadingOverlay
@@ -17,7 +17,8 @@ export interface ILoadingOverlayProps {
   /**
    * Размер спиннера
    */
-  spinnerSize?: ComponentSize;
+  spinnerSize?: TokenSize;
 }
+
 
 

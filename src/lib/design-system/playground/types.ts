@@ -1,1 +1,1 @@
-export type { ControlConfig } from '../tokens/interaction/controls';
+export type { ControlConfig } from '../defaults/interaction/controls';

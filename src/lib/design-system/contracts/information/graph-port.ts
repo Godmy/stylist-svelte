@@ -1,16 +1,22 @@
 import type { Snippet } from 'svelte';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { PrimitiveRelationship } from '$stylist/design-system/tokens/architecture/primitives';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenRelationship } from '$stylist/design-system/tokens/architecture/relationship';
 
-import type { GraphPortDataType, GraphPortDirection, GraphPortSize } from '$stylist/design-system/tokens/information/graph-port';
+import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
+
+export interface GraphPortDimensions {
+	width: string;
+	height: string;
+	hoverArea: string;
+}
 /**
- * Направление порта
+ * РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕСЂС‚Р°
  */
 /**
- * Размер порта
+ * Р Р°Р·РјРµСЂ РїРѕСЂС‚Р°
  */
 /**
- * Состояние порта
+ * РЎРѕСЃС‚РѕСЏРЅРёРµ РїРѕСЂС‚Р°
  */
 export interface GraphPortState {
 	connected?: boolean;
@@ -20,40 +26,43 @@ export interface GraphPortState {
 }
 
 /**
- * Свойства порта графа
+ * РЎРІРѕР№СЃС‚РІР° РїРѕСЂС‚Р° РіСЂР°С„Р°
  */
 export interface GraphPortProps {
-	/** Уникальный идентификатор порта */
+	/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕСЂС‚Р° */
 	id: string;
-	/** Направление порта */
-	direction: GraphPortDirection;
-	/** Тип данных */
-	dataType?: GraphPortDataType;
-	/** Метка порта */
+	/** РќР°РїСЂР°РІР»РµРЅРёРµ РїРѕСЂС‚Р° */
+	direction: TokenRelationship;
+	/** РўРёРї РґР°РЅРЅС‹С… */
+	dataType?: TokenPropertyType;
+	/** РњРµС‚РєР° РїРѕСЂС‚Р° */
 	label?: string;
-	/** Размер порта */
-	size?: GraphPortSize;
-	/** Индекс порта в списке */
+	/** Р Р°Р·РјРµСЂ РїРѕСЂС‚Р° */
+	size?: TokenSize;
+	/** РРЅРґРµРєСЃ РїРѕСЂС‚Р° РІ СЃРїРёСЃРєРµ */
 	index?: number;
-	/** Состояние подключения */
+	/** РЎРѕСЃС‚РѕСЏРЅРёРµ РїРѕРґРєР»СЋС‡РµРЅРёСЏ */
 	connected?: boolean;
-	/** Активное состояние (перетаскивание связи) */
+	/** РђРєС‚РёРІРЅРѕРµ СЃРѕСЃС‚РѕСЏРЅРёРµ (РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёРµ СЃРІСЏР·Рё) */
 	active?: boolean;
-	/** Цвет порта */
+	/** Р¦РІРµС‚ РїРѕСЂС‚Р° */
 	color?: string;
-	/** Иконка порта */
+	/** РРєРѕРЅРєР° РїРѕСЂС‚Р° */
 	icon?: string | Snippet;
-	/** Обработчик клика */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РєР»РёРєР° */
 	onclick?: (event: MouseEvent) => void;
-	/** Обработчик начала перетаскивания связи */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°С‡Р°Р»Р° РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёСЏ СЃРІСЏР·Рё */
 	onConnectionStart?: (event: MouseEvent) => void;
-	/** Обработчик завершения перетаскивания связи */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє Р·Р°РІРµСЂС€РµРЅРёСЏ РїРµСЂРµС‚Р°СЃРєРёРІР°РЅРёСЏ СЃРІСЏР·Рё */
 	onConnectionEnd?: (event: MouseEvent) => void;
-	/** Дочерний контент */
+	/** Р”РѕС‡РµСЂРЅРёР№ РєРѕРЅС‚РµРЅС‚ */
 	children?: Snippet;
-	/** CSS класс */
+	/** CSS РєР»Р°СЃСЃ */
 	class?: string;
 }
+
+
+
 
 
 

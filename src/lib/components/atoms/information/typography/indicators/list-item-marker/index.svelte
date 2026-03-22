@@ -1,12 +1,30 @@
 <script lang="ts">
 	import { Icon } from '$stylist/components/atoms';
+	import type { IconSize } from '$stylist/components/atoms/information/media/icon/index.svelte';
 	import type { ListItemMarkerProps } from '$stylist/design-system/contracts/information/indicators';
 	import { createListItemMarkerState } from '$stylist/design-system/models/information/list-item-marker.svelte';
 
 	let props: ListItemMarkerProps = $props();
 
 	const state = createListItemMarkerState(props);
-	const iconSize = $derived(state.size === '2xl' ? 'xl' : state.size);
+	const iconSize = $derived<IconSize>(
+		({
+			xs: 'xs',
+			sm: 'sm',
+			md: 'md',
+			lg: 'lg',
+			xl: 'xl',
+			'2xl': '2xl',
+			'1/4': 'xs',
+			'1/3': 'sm',
+			'2/5': 'sm',
+			'1/2': 'md',
+			'3/5': 'md',
+			'2/3': 'lg',
+			'3/4': 'xl',
+			full: 'xl'
+		} as const)[state.size]
+	);
 
 	const restProps = $derived(
 		(() => {

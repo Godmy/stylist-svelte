@@ -1,10 +1,10 @@
 import type { PortGroupProps } from '$stylist/design-system/contracts';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import { PortGroupStyleManager } from '$stylist/design-system/styles';
 
 export function createPortGroupState(props: PortGroupProps) {
 	const direction = $derived(props.direction);
-	const portSize = $derived((props.portSize ?? 'md') as ComponentSize);
+	const portSize = $derived((props.portSize ?? 'md') as TokenSize);
 	const showLabels = $derived(props.showLabels ?? true);
 	const compact = $derived(props.compact ?? false);
 	const divider = $derived(props.divider ?? false);
@@ -38,6 +38,7 @@ export function createPortGroupState(props: PortGroupProps) {
 }
 
 export default createPortGroupState;
+
 
 
 

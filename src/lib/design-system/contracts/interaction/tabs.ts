@@ -1,14 +1,14 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import type { ChildrenProp, HtmlAttributesBase, HtmlAttributesWithChildren, IDisableable } from '$stylist/design-system/contracts/information/common';
 
 export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'onclick'> {
 	id: string;
 	selected?: boolean;
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	class?: string;
 	children?: ChildrenProp['children'];
 	ariaLabel?: string;
@@ -18,8 +18,8 @@ export interface TabProps extends Omit<HTMLButtonAttributes, 'disabled' | 'oncli
 export interface TabIndicatorProps extends HtmlAttributesBase<HTMLDivElement> {
 	left?: string;
 	width?: string;
-	color?: DefaultVariants;
-	size?: ComponentSize;
+	color?: TokenAppearance;
+	size?: TokenSize;
 	disabled?: boolean;
 }
 
@@ -36,10 +36,11 @@ export interface TabContainerProps extends HtmlAttributesWithChildren<HTMLDivEle
 export interface TabsProps extends HtmlAttributesWithChildren<HTMLDivElement> {
 	selectedId?: string;
 	onValueChange?: (id: string) => void;
-	variant?: DefaultVariants;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	disabled?: boolean;
 }
+
 
 
 

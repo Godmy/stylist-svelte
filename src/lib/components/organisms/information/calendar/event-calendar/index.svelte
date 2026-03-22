@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { CalendarEvent, CalendarDay } from '$stylist/design-system/contracts/information/event-calendar';
-import type { CalendarViewMode } from '$stylist/design-system/tokens/information/date-time';
+import type { TokenTimeMeasure } from '$stylist/design-system/tokens/information/time-measure';
   import { Icon as BaseIcon, Button } from '$stylist/components/atoms';
   import { EventCalendarStyleManager } from '$stylist/design-system/styles/information/event-calendar';
   import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
@@ -12,7 +12,7 @@ import type { CalendarViewMode } from '$stylist/design-system/tokens/information
   type Props = {
     events?: CalendarEvent[];
     initialDate?: Date;
-    viewMode?: CalendarViewMode;
+    viewMode?: TokenTimeMeasure;
     class?: string;
     dayClass?: string;
     eventClass?: string;
@@ -48,10 +48,10 @@ import type { CalendarViewMode } from '$stylist/design-system/tokens/information
   let currentDate = $state(new Date(initialDate));
   let selectedEvent: CalendarEvent | null = $state(null);
   let showEventActions = $state(false);
-  let currentViewMode = $state<CalendarViewMode>(initialViewMode);
+  let currentViewMode = $state<TokenTimeMeasure>(initialViewMode);
 
   // Strategy pattern for different view modes
-  const viewModeHandler: Record<CalendarViewMode, (date: Date) => CalendarDay[]> = {
+  const viewModeHandler: Record<TokenTimeMeasure, (date: Date) => CalendarDay[]> = {
     month: getDaysInMonth,
     week: getDaysInWeek,
     day: getDayInDay
@@ -167,7 +167,7 @@ import type { CalendarViewMode } from '$stylist/design-system/tokens/information
     currentDate = new Date();
   }
 
-  function changeViewMode(mode: CalendarViewMode) {
+  function changeViewMode(mode: TokenTimeMeasure) {
     currentViewMode = mode;
   }
 
@@ -206,7 +206,7 @@ import type { CalendarViewMode } from '$stylist/design-system/tokens/information
   // Month and year for header
   let displayTitle = $derived(getDisplayTitle(currentDate, currentViewMode));
 
-  function getDisplayTitle(date: Date, viewMode: CalendarViewMode): string {
+  function getDisplayTitle(date: Date, viewMode: TokenTimeMeasure): string {
     switch (viewMode) {
       case 'day':
         return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
@@ -435,6 +435,7 @@ This component follows SOLID principles:
     </div>
   {/if}
 </div>
+
 
 
 

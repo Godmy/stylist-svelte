@@ -1,4 +1,4 @@
-import type { ThemeSchemeId } from '$stylist/themes/contracts/theme-scheme-id';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 
 export interface IHeatmapCell {
@@ -45,7 +45,7 @@ export interface IHeatmapProps extends ArchitectureHTMLAttributes<HTMLDivElement
   /** Whether to show legend */
   showLegend?: boolean;
   /** Color scheme for display */
-  colorScheme?: ThemeSchemeId;
+  colorScheme?: TokenSchemeId;
   /** Whether to show coordinate axes */
   showAxis?: boolean;
   /** Axis color */

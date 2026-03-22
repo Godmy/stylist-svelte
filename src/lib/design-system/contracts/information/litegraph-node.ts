@@ -1,128 +1,133 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
-import type { GraphPortDataType, GraphPortDirection } from '$stylist/design-system/tokens/information/graph-port';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-
-import type { LiteGraphNodeState, LiteGraphNodeType } from '$stylist/design-system/tokens/information/litegraph-node';
+import type { TokenRelationship } from '$stylist/design-system/tokens/architecture/relationship';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenInteration } from '$stylist/design-system/tokens/interaction/interaction';
+import type { TokenSeverity } from '$stylist/design-system/tokens/interaction/sevetity';
+import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
+import type { TokenNodeType } from '$stylist/design-system/tokens/architecture/node-type';
 /**
- * Порт узла графа
+ * РџРѕСЂС‚ СѓР·Р»Р° РіСЂР°С„Р°
  */
 export interface LiteGraphPort {
-	/** Уникальный идентификатор порта */
+	/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРѕСЂС‚Р° */
 	id: string;
-	/** Направление */
-	direction: GraphPortDirection;
-	/** Тип данных */
-	dataType?: GraphPortDataType;
-	/** Метка */
+	/** РќР°РїСЂР°РІР»РµРЅРёРµ */
+	direction: TokenRelationship;
+	/** РўРёРї РґР°РЅРЅС‹С… */
+	dataType?: TokenPropertyType;
+	/** РњРµС‚РєР° */
 	label?: string;
-	/** Размер */
-	size?: ComponentSize;
-	/** Подключён ли */
+	/** Р Р°Р·РјРµСЂ */
+	size?: TokenSize;
+	/** РџРѕРґРєР»СЋС‡С‘РЅ Р»Рё */
 	connected?: boolean;
-	/** Цвет */
+	/** Р¦РІРµС‚ */
 	color?: string;
-	/** CSS класс */
+	/** CSS РєР»Р°СЃСЃ */
 	class?: string;
 }
 
 /**
- * Свойство узла графа
+ * РЎРІРѕР№СЃС‚РІРѕ СѓР·Р»Р° РіСЂР°С„Р°
  */
 export interface LiteGraphNodeProperty {
-	/** Уникальный идентификатор свойства */
+	/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СЃРІРѕР№СЃС‚РІР° */
 	id: string;
-	/** Имя свойства */
+	/** РРјСЏ СЃРІРѕР№СЃС‚РІР° */
 	name: string;
-	/** Тип свойства */
+	/** РўРёРї СЃРІРѕР№СЃС‚РІР° */
 	type?: 'string' | 'number' | 'boolean' | 'enum' | 'color' | 'vector2' | 'vector3';
-	/** Значение */
+	/** Р—РЅР°С‡РµРЅРёРµ */
 	value?: unknown;
-	/** Метка */
+	/** РњРµС‚РєР° */
 	label?: string;
-	/** Описание */
+	/** РћРїРёСЃР°РЅРёРµ */
 	description?: string;
-	/** Опции для enum */
+	/** РћРїС†РёРё РґР»СЏ enum */
 	options?: readonly string[];
 }
 
 /**
- * Свойства узла графа LiteGraph
+ * РЎРІРѕР№СЃС‚РІР° СѓР·Р»Р° РіСЂР°С„Р° LiteGraph
  */
 export interface LiteGraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
-	/** Уникальный идентификатор узла */
+	/** РЈРЅРёРєР°Р»СЊРЅС‹Р№ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ СѓР·Р»Р° */
 	id: string;
-	/** Заголовок узла */
+	/** Р—Р°РіРѕР»РѕРІРѕРє СѓР·Р»Р° */
 	title: string;
-	/** Тип узла */
-	type?: LiteGraphNodeType;
-	/** Состояние узла */
-	state?: LiteGraphNodeState;
-	/** Позиция X */
+	/** РўРёРї СѓР·Р»Р° */
+	type?: TokenNodeType;
+	/** РЎРѕСЃС‚РѕСЏРЅРёРµ СѓР·Р»Р° */
+	mode?: TokenSeverity;
+	status?: TokenInteration;
+	/** РџРѕР·РёС†РёСЏ X */
 	x: number;
-	/** Позиция Y */
+	/** РџРѕР·РёС†РёСЏ Y */
 	y: number;
-	/** Ширина узла */
+	/** РЁРёСЂРёРЅР° СѓР·Р»Р° */
 	width?: number;
-	/** Минимальная ширина */
+	/** РњРёРЅРёРјР°Р»СЊРЅР°СЏ С€РёСЂРёРЅР° */
 	minWidth?: number;
-	/** Высота (авто или фиксированная) */
+	/** Р’С‹СЃРѕС‚Р° (Р°РІС‚Рѕ РёР»Рё С„РёРєСЃРёСЂРѕРІР°РЅРЅР°СЏ) */
 	height?: number | 'auto';
-	/** Цвет узла */
+	/** Р¦РІРµС‚ СѓР·Р»Р° */
 	color?: string;
-	/** Цвет заголовка */
+	/** Р¦РІРµС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	headerColor?: string;
-	/** Размер компонента */
-	size?: ComponentSize;
-	/** Входные порты */
+	/** Р Р°Р·РјРµСЂ РєРѕРјРїРѕРЅРµРЅС‚Р° */
+	size?: TokenSize;
+	/** Р’С…РѕРґРЅС‹Рµ РїРѕСЂС‚С‹ */
 	inputs?: readonly LiteGraphPort[];
-	/** Выходные порты */
+	/** Р’С‹С…РѕРґРЅС‹Рµ РїРѕСЂС‚С‹ */
 	outputs?: readonly LiteGraphPort[];
-	/** Свойства узла */
+	/** РЎРІРѕР№СЃС‚РІР° СѓР·Р»Р° */
 	properties?: readonly LiteGraphNodeProperty[];
-	/** Выделен ли узел */
+	/** Р’С‹РґРµР»РµРЅ Р»Рё СѓР·РµР» */
 	selected?: boolean;
-	/** Можно ли перемещать */
+	/** РњРѕР¶РЅРѕ Р»Рё РїРµСЂРµРјРµС‰Р°С‚СЊ */
 	draggable?: boolean;
-	/** Можно ли выделять */
+	/** РњРѕР¶РЅРѕ Р»Рё РІС‹РґРµР»СЏС‚СЊ */
 	selectable?: boolean;
-	/** Можно ли изменять размер */
+	/** РњРѕР¶РЅРѕ Р»Рё РёР·РјРµРЅСЏС‚СЊ СЂР°Р·РјРµСЂ */
 	resizable?: boolean;
-	/** Можно ли удалять */
+	/** РњРѕР¶РЅРѕ Р»Рё СѓРґР°Р»СЏС‚СЊ */
 	deletable?: boolean;
-	/** Можно ли дублировать */
+	/** РњРѕР¶РЅРѕ Р»Рё РґСѓР±Р»РёСЂРѕРІР°С‚СЊ */
 	duplicable?: boolean;
-	/** Скрыть заголовок */
+	/** РЎРєСЂС‹С‚СЊ Р·Р°РіРѕР»РѕРІРѕРє */
 	hideHeader?: boolean;
-	/** Скрыть порты */
+	/** РЎРєСЂС‹С‚СЊ РїРѕСЂС‚С‹ */
 	hidePorts?: boolean;
-	/** Скрыть свойства */
+	/** РЎРєСЂС‹С‚СЊ СЃРІРѕР№СЃС‚РІР° */
 	hideProperties?: boolean;
-	/** Показывать кнопки действий */
+	/** РџРѕРєР°Р·С‹РІР°С‚СЊ РєРЅРѕРїРєРё РґРµР№СЃС‚РІРёР№ */
 	showActions?: boolean;
-	/** Обработчик выделения (кастомное событие) */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РІС‹РґРµР»РµРЅРёСЏ (РєР°СЃС‚РѕРјРЅРѕРµ СЃРѕР±С‹С‚РёРµ) */
 	onNodeSelect?: (id: string) => void;
-	/** Обработчик перемещения (кастомное событие) */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РїРµСЂРµРјРµС‰РµРЅРёСЏ (РєР°СЃС‚РѕРјРЅРѕРµ СЃРѕР±С‹С‚РёРµ) */
 	onNodeDrag?: (id: string, position: { x: number; y: number }) => void;
-	/** Обработчик изменения размера */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅРµРЅРёСЏ СЂР°Р·РјРµСЂР° */
 	onNodeResize?: (id: string, size: { width: number; height: number }) => void;
-	/** Обработчик удаления */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє СѓРґР°Р»РµРЅРёСЏ */
 	ondelete?: (id: string) => void;
-	/** Обработчик дублирования */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РґСѓР±Р»РёСЂРѕРІР°РЅРёСЏ */
 	onduplicate?: (id: string) => void;
-	/** Обработчик начала подключения */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РЅР°С‡Р°Р»Р° РїРѕРґРєР»СЋС‡РµРЅРёСЏ */
 	onConnectionStart?: (port: LiteGraphPort, event: MouseEvent) => void;
-	/** Обработчик завершения подключения */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє Р·Р°РІРµСЂС€РµРЅРёСЏ РїРѕРґРєР»СЋС‡РµРЅРёСЏ */
 	onConnectionEnd?: (port: LiteGraphPort, event: MouseEvent) => void;
-	/** Обработчик изменения свойства */
+	/** РћР±СЂР°Р±РѕС‚С‡РёРє РёР·РјРµРЅРµРЅРёСЏ СЃРІРѕР№СЃС‚РІР° */
 	onPropertyChange?: (propertyId: string, value: unknown) => void;
-	/** Дочерний контент */
+	/** Р”РѕС‡РµСЂРЅРёР№ РєРѕРЅС‚РµРЅС‚ */
 	children?: Snippet;
-	/** Контент заголовка */
+	/** РљРѕРЅС‚РµРЅС‚ Р·Р°РіРѕР»РѕРІРєР° */
 	headerContent?: Snippet;
-	/** Контент тела */
+	/** РљРѕРЅС‚РµРЅС‚ С‚РµР»Р° */
 	bodyContent?: Snippet;
 }
+
+
 
 
 

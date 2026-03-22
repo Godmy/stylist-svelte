@@ -1,14 +1,14 @@
 import type { StackProps } from '$stylist/design-system/contracts';
-import type { Alignment, Orientation, Justification } from '$stylist/design-system/tokens';
+import type { TokenAlignment, TokenOrientation, TokenJustification } from '$stylist/design-system/tokens';
 import { StackStyleManager } from '$stylist/design-system/styles';
-import { Size } from '$stylist/themes';
+import { Size } from '$stylist/design-system/tokens/theme/size';
 import { clsx } from 'clsx';
 
 export function createStackState(props: StackProps) {
-	const direction = $derived((props.direction ?? 'vertical') as Orientation);
+	const direction = $derived((props.direction ?? 'vertical') as TokenOrientation);
 	const spacing = $derived(props.spacing ?? Size['4']);
-	const align = $derived((props.align ?? 'center') as Alignment);
-	const justify = $derived((props.justify ?? 'justify') as Justification);
+	const align = $derived((props.align ?? 'center') as TokenAlignment);
+	const justify = $derived((props.justify ?? 'justify') as TokenJustification);
 	const gap = $derived(StackStyleManager.getStackGap(spacing));
 	const classes = $derived(
 		StackStyleManager.getStackClasses(direction, align, justify, clsx(props.class ?? ''))
@@ -37,7 +37,6 @@ export function createStackState(props: StackProps) {
 }
 
 export default createStackState;
-
 
 
 

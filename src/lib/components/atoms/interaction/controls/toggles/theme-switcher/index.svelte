@@ -1,27 +1,27 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
   import { Icon as BaseIcon } from '$stylist/components/atoms';
-  import type { ThemeMode } from '$stylist/themes/runtime/css';
-  import { applyThemeModeAndScheme } from '$stylist/themes/runtime/css';
+  import type { ThemeMode } from '$stylist/design-system/runtime/css';
+  import { applyThemeModeAndScheme } from '$stylist/design-system/runtime/css';
   import {
     THEME_SCHEMES,
     type ThemeScheme,
-    type ThemeSchemeId
-  } from '$stylist/themes/defaults/theme-schemes';
+    type TokenSchemeId
+  } from '$stylist/design-system/defaults/theme/theme-schemes';
 const Palette = 'palette';
 
 
   type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
 
   type Props = RestProps & {
-    currentTheme?: ThemeSchemeId;
+    currentTheme?: TokenSchemeId;
     themeMode?: ThemeMode;
     class?: string;
     compact?: boolean;
     showHeader?: boolean;
     showLabels?: boolean;
     themes?: ThemeScheme[];
-    onThemeChange?: (theme: ThemeSchemeId) => void;
+    onThemeChange?: (theme: TokenSchemeId) => void;
   };
 
   let {
@@ -36,13 +36,13 @@ const Palette = 'palette';
     ...restProps
   }: Props = $props();
 
-  let theme = $state<ThemeSchemeId>(currentTheme);
+  let theme = $state<TokenSchemeId>(currentTheme);
 
   $effect(() => {
     theme = currentTheme;
   });
 
-  function applyTheme(newTheme: ThemeSchemeId) {
+  function applyTheme(newTheme: TokenSchemeId) {
     if (typeof document === 'undefined') return;
     const selected = themes.find((item) => item.id === newTheme);
     if (!selected) return;
@@ -53,7 +53,7 @@ const Palette = 'palette';
     }
   }
 
-  function setTheme(newTheme: ThemeSchemeId) {
+  function setTheme(newTheme: TokenSchemeId) {
     theme = newTheme;
     onThemeChange?.(newTheme);
     applyTheme(newTheme);

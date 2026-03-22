@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ControlConfig } from '../tokens/interaction/controls';
+	import type { ControlConfig } from '../defaults/interaction/controls';
 	import type { Snippet } from 'svelte';
 
 	type ChildrenFn = (values: any) => any;

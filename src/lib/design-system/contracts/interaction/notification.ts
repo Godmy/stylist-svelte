@@ -1,5 +1,4 @@
-import type { NotificationPosition } from '$stylist/design-system/tokens/interaction/notification-positions';
-import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenAlignment as NotificationPosition } from '$stylist/design-system/tokens/architecture/alignment';
 
 /**
  * Notification types and interfaces following SOLID principles
@@ -7,7 +6,10 @@ import type { NotificationType } from '$stylist/design-system/tokens/interaction
 
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+export type NotificationType =
+	| 'silent'
+	| Extract<TokenAppearance, 'info' | 'success' | 'warning' | 'error'>;
 export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   show?: boolean;
   title?: string;
@@ -24,6 +26,7 @@ export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
   headerClass?: string;
   bodyClass?: string;
 }
+
 
 
 

@@ -1,8 +1,8 @@
 import type { IToastStyleClasses } from '$stylist/design-system/contracts/interaction/toast';
-import type { NotificationType } from '$stylist/design-system/tokens/interaction/statuses';
+import type { NotificationType } from '$stylist/design-system/contracts/interaction/toast';
 
 /**
- * Style utility class following Single Responsibility Principle
+ * TokenBorderStyle utility class following Single Responsibility Principle
  * Responsible only for managing toast styling logic
  * Uses CSS variables from the theme system
  */

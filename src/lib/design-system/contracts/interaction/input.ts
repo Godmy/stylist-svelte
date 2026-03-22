@@ -1,10 +1,8 @@
 import type { HTMLInputAttributes, HTMLTextareaAttributes, HTMLAttributes } from 'svelte/elements';
 
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { AppearanceStyle } from '$stylist/design-system/tokens/interaction/variants';
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
-import type { InputVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import type {
 	ChildrenProp,
 	ClassProp,
@@ -18,9 +16,7 @@ import type {
 	InputValueProps,
 	TextInputBaseProps
 } from '../information/common';
-import type { InputAddonPosition } from '$stylist/design-system/tokens/interaction/horizontal-positions';
-
-export interface InputCoreProps<V extends string = InputVariant, S extends string = ComponentSize> {
+export interface InputCoreProps<V extends string = TokenAppearance, S extends string = TokenSize> {
 	variant?: V;
 	size?: S;
 	disabled?: boolean;
@@ -45,7 +41,7 @@ export interface InputWithHelperProps {
 	showHelperWhenError?: boolean;
 }
 
-export interface IInputBaseProps<V extends string = InputVariant, S extends string = ComponentSize>
+export interface IInputBaseProps<V extends string = TokenAppearance, S extends string = TokenSize>
 	extends InputCoreProps<V, S>,
 		InputWithLabelProps,
 		InputWithValidationProps,
@@ -68,7 +64,7 @@ export interface IInputBaseProps<V extends string = InputVariant, S extends stri
 }
 
 export interface ITextareaProps
-	extends InputCoreProps<InputVariant, ComponentSize>,
+	extends InputCoreProps<TokenAppearance, TokenSize>,
 		InputWithLabelProps,
 		InputWithValidationProps,
 		InputWithHelperProps,
@@ -100,7 +96,7 @@ export interface IInputGroupProps
 		InputLabelProps,
 		InputValueProps {
 	buttonLabel?: string;
-	buttonVariant?: DefaultVariants;
+	buttonVariant?: TokenAppearance;
 	buttonDisabled?: boolean;
 	onButtonClick?: () => void;
 	onValueInput?: (value: string) => void;
@@ -130,8 +126,8 @@ export interface IInputDoubleProps {
 	errors2?: string[];
 	required1?: boolean;
 	required2?: boolean;
-	variant?: InputVariant;
-	size?: ComponentSize;
+	variant?: TokenAppearance;
+	size?: TokenSize;
 	class?: string;
 }
 
@@ -152,7 +148,7 @@ export interface IFormErrorMessageProps extends InputHelperProps<HTMLParagraphEl
 
 export interface IFormHelperTextProps extends InputHelperProps<HTMLParagraphElement> {
 	text?: string;
-	variant?: InputVariant;
+	variant?: TokenAppearance;
 }
 
 export interface ICharacterCountProps extends InputHelperProps<HTMLDivElement> {
@@ -161,8 +157,8 @@ export interface ICharacterCountProps extends InputHelperProps<HTMLDivElement> {
 	showPercentage?: boolean;
 }
 export interface IInputAddonProps extends InputHelperChildrenProps<HTMLDivElement> {
-	position?: InputAddonPosition;
-	variant?: AppearanceStyle;
+	position?: TokenAlignment;
+	variant?: TokenAppearance;
 }
 
 export interface IPinInputDigitProps extends HtmlAttributesBase<HTMLInputElement> {
@@ -186,6 +182,7 @@ export interface IAdvancedInputProps {
 	onInput?: (value: string) => void;
 	class?: string;
 }
+
 
 
 

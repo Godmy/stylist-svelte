@@ -1,5 +1,5 @@
-import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
-import type { DefaultVariants, NeutralVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenMessageStatus } from '$stylist/design-system/tokens/interaction/message-status';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
 
@@ -13,7 +13,7 @@ export class ChatStyleManager {
 
 	static getChatMessageBubbleClasses(
 		isOwn: boolean,
-		variant: DefaultVariants | NeutralVariant,
+		variant: TokenAppearance | TokenAppearance,
 		className = ''
 	): string {
 		return cn(
@@ -37,7 +37,9 @@ export class ChatStyleManager {
 					gray: 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none',
 					error: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] rounded-bl-none',
 					dark: 'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)] rounded-bl-none',
-					light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none'
+					light: 'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] rounded-bl-none',
+					elevated: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] rounded-bl-none shadow-sm',
+					flat: 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] rounded-bl-none'
 				}[variant] ?? 'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] rounded-bl-none'),
 			className
 		);
@@ -51,11 +53,12 @@ export class ChatStyleManager {
 		return cn('mt-1 flex items-center justify-end text-xs text-[var(--color-text-tertiary)]', className);
 	}
 
-	static getMessageStatusTypeIconClasses(status: MessageStatusType): string {
+	static getMessageStatusTypeIconClasses(status: TokenMessageStatus): string {
 		return {
 			sent: 'ml-1 h-3 w-3 text-[var(--color-text-tertiary)]',
 			delivered: 'ml-1 h-3 w-3 text-[var(--color-text-tertiary)]',
-			read: 'ml-1 h-3 w-3 text-[var(--color-primary-500)]'
+			read: 'ml-1 h-3 w-3 text-[var(--color-primary-500)]',
+			error: 'ml-1 h-3 w-3 text-[var(--color-danger-500)]'
 		}[status];
 	}
 }

@@ -20,7 +20,7 @@ export interface IAchievement {
   description: string;
 }
 
-import type { CardType } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 
 /**
  * Variant options for TeamMemberCard
@@ -69,7 +69,7 @@ export interface ITeamMemberCardProps {
    * Visual variant of the team member card
    * @default 'default'
    */
-  variant?: CardType;
+  variant?: TokenArchitecture;
 
   /**
    * Additional CSS classes to apply to the component

@@ -1,6 +1,6 @@
 import type { MessageStatusProps } from '$stylist/design-system/contracts/information/indicators';
 import { IndicatorsStyleManager } from '$stylist/design-system/styles/information/indicators';
-import type { MessageStatusType } from '$stylist/design-system/tokens/interaction/statuses';
+import type { TokenMessageStatus } from '$stylist/design-system/tokens/interaction/message-status';
 
 /**
  * MessageStatus state creator
@@ -13,7 +13,7 @@ export function createMessageStatusState(props: MessageStatusProps) {
 	const status = $derived(props.status ?? 'sent');
 	const size = $derived(props.size ?? 'sm');
 	const containerClasses = $derived(
-		IndicatorsStyleManager.getMessageStatusContainerClasses(status as MessageStatusType)
+		IndicatorsStyleManager.getMessageStatusContainerClasses(status as TokenMessageStatus)
 	);
 	const iconClasses = $derived(
 		IndicatorsStyleManager.getMessageStatusIconClasses(

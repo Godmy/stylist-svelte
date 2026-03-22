@@ -1,30 +1,32 @@
-import type { MessageAlign as MessageAlignment } from '$stylist/design-system/tokens/information/message-align';
-import type { MessageAvatarSize, MessageStatus, MessageVariant } from '$stylist/design-system/tokens/information/message';
+import type { TokenAlignment as MessageAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenMessageStatus } from '$stylist/design-system/tokens/interaction/message-status';
+import type { TokenMessageState } from '$stylist/design-system/tokens/interaction/message-state';
 
 const MESSAGE_ALIGNMENT_CLASSES = {
 	left: 'items-start',
 	right: 'items-end',
 	center: 'items-center'
-} as const;
+} as const satisfies Partial<Record<MessageAlignment, string>>;
+
+function getMessageAlignmentClass(align: MessageAlignment): string {
+	if (align === 'right') return MESSAGE_ALIGNMENT_CLASSES.right;
+	if (align === 'center') return MESSAGE_ALIGNMENT_CLASSES.center;
+	return MESSAGE_ALIGNMENT_CLASSES.left;
+}
 
 const MESSAGE_VARIANT_BG_CLASSES = {
-	default: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
+	draft: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
 	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
 	incoming: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
-	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]',
-	error: 'bg-[--color-danger-50] border-[--color-danger-200]',
-	warning: 'bg-[--color-warning-50] border-[--color-warning-200]',
-	success: 'bg-[--color-success-50] border-[--color-success-200]'
+	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]'
 } as const;
 
 const MESSAGE_VARIANT_TEXT_CLASSES = {
-	default: 'text-[--color-text-primary]',
+	draft: 'text-[--color-text-primary]',
 	system: 'text-[--color-text-secondary]',
 	incoming: 'text-[--color-text-primary]',
-	outgoing: 'text-[--color-text-inverse]',
-	error: 'text-[--color-danger-800]',
-	warning: 'text-[--color-warning-800]',
-	success: 'text-[--color-success-800]'
+	outgoing: 'text-[--color-text-inverse]'
 } as const;
 
 const MESSAGE_STATUS_CLASSES = {
@@ -34,34 +36,34 @@ const MESSAGE_STATUS_CLASSES = {
 	error: 'text-[--color-danger-500]'
 } as const;
 
-const MESSAGE_AVATAR_SIZE_CLASSES = {
+const MESSAGE_AVATAR_SIZE_CLASSES: Partial<Record<TokenSize, string>> = {
 	sm: 'w-6 h-6',
 	md: 'w-8 h-8',
 	lg: 'w-10 h-10'
-} as const;
+};
 
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
-		const alignmentClass = MESSAGE_ALIGNMENT_CLASSES[align];
+		const alignmentClass = getMessageAlignmentClass(align);
 		return `${'flex items-start gap-3'} ${alignmentClass} ${className || ''}`.trim();
 	}
 
-	static getMessageBubbleClasses(variant: MessageVariant = 'default', className?: string): string {
-		const bgClass = MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
+	static getMessageBubbleClasses(variant: TokenMessageState = 'draft', className?: string): string {
+		const bgClass = MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.draft;
 		return `${'rounded-lg p-4 max-w-[75%] shadow-sm border'} ${bgClass} ${className || ''}`.trim();
 	}
 
-	static getMessageTextClasses(variant: MessageVariant = 'default'): string {
-		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+	static getMessageTextClasses(variant: TokenMessageState = 'draft'): string {
+		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 	}
 
-	static getAuthorClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+	static getAuthorClasses(align: MessageAlignment = 'left', variant: TokenMessageState = 'draft'): string {
+		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 		return `${'text-sm font-semibold mb-1'} ${textClass}`;
 	}
 
-	static getContentClasses(align: MessageAlignment = 'left', variant: MessageVariant = 'default'): string {
-		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+	static getContentClasses(align: MessageAlignment = 'left', variant: TokenMessageState = 'draft'): string {
+		const textClass = MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 		return `${'text-[--color-text-primary] word-wrap-break-word whitespace-pre-wrap'} ${textClass}`;
 	}
 
@@ -73,7 +75,7 @@ export class MessageStyleManager {
 		return 'text-[--color-text-secondary]';
 	}
 
-	static getStatusClasses(status: MessageStatus = 'delivered'): string {
+	static getStatusClasses(status: TokenMessageStatus = 'delivered'): string {
 		return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
 	}
 
@@ -81,28 +83,28 @@ export class MessageStyleManager {
 		return 'flex-shrink-0';
 	}
 
-	static getAvatarSizeClasses(size: MessageAvatarSize = 'md'): string {
-		return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
+	static getAvatarSizeClasses(size: TokenSize = 'md'): string {
+		return MESSAGE_AVATAR_SIZE_CLASSES[size] ?? MESSAGE_AVATAR_SIZE_CLASSES.md ?? 'w-8 h-8';
 	}
 
 	static getAlignmentClass(align: MessageAlignment = 'left'): string {
-		return MESSAGE_ALIGNMENT_CLASSES[align];
+		return getMessageAlignmentClass(align);
 	}
 
-	static getBubbleVariantClass(variant: MessageVariant = 'default'): string {
-		return MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.default;
+	static getBubbleVariantClass(variant: TokenMessageState = 'draft'): string {
+		return MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.draft;
 	}
 
-	static getTextVariantClass(variant: MessageVariant = 'default'): string {
-		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.default;
+	static getTextVariantClass(variant: TokenMessageState = 'draft'): string {
+		return MESSAGE_VARIANT_TEXT_CLASSES[variant] || MESSAGE_VARIANT_TEXT_CLASSES.draft;
 	}
 
-	static getStatusClass(status: MessageStatus = 'delivered'): string {
+	static getStatusClass(status: TokenMessageStatus = 'delivered'): string {
 		return MESSAGE_STATUS_CLASSES[status] || MESSAGE_STATUS_CLASSES.delivered;
 	}
 
-	static getAvatarSizeClass(size: MessageAvatarSize = 'md'): string {
-		return MESSAGE_AVATAR_SIZE_CLASSES[size] || MESSAGE_AVATAR_SIZE_CLASSES.md;
+	static getAvatarSizeClass(size: TokenSize = 'md'): string {
+		return MESSAGE_AVATAR_SIZE_CLASSES[size] ?? MESSAGE_AVATAR_SIZE_CLASSES.md ?? 'w-8 h-8';
 	}
 
 	static getActionsClasses(): string {
@@ -151,3 +153,4 @@ export class MessageStyleManager {
 }
 
 export default MessageStyleManager;
+

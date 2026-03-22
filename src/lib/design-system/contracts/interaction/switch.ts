@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
-import type { ComponentSize } from '$stylist/design-system/tokens/architecture/component-size';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 /**
  * Switch Props
@@ -21,10 +21,11 @@ export interface SwitchProps extends Omit<InteractionHTMLAttributes<HTMLInputEle
   /** Callback when switch changes */
   onChange?: (checked: boolean) => void;
   /** Size of the switch */
-  switchSize?: ComponentSize;
+  switchSize?: TokenSize;
   /** Size variant */
-  size?: ComponentSize;
+  size?: TokenSize;
 }
+
 
 
 

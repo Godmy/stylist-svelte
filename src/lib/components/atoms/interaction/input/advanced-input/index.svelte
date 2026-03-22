@@ -2,8 +2,8 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
 	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
-	import { INPUT_VARIANTS } from '$stylist/design-system/tokens';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	/**
 	 * AdvancedInput component - A flexible input component with various styles and states
@@ -17,8 +17,7 @@
 	 * @returns An accessible, styled input element
 	 */
 
-	type InputVariant = (typeof INPUT_VARIANTS.input)[number];
-	type InputSize = (typeof COMPONENT_SIZE)[number];
+	type InputSize = (typeof TOKEN_SIZE)[number];
 
 	type AdvancedInputProps = {
 		label?: string;
@@ -27,7 +26,7 @@
 		type?: string;
 		disabled?: boolean;
 		error?: boolean;
-		variant?: InputVariant;
+		variant?: TokenAppearance;
 		size?: InputSize;
 		class?: string;
 	} & Omit<HTMLInputAttributes, 'size'>;
@@ -77,6 +76,7 @@
 		{...restProps}
 	/>
 </div>
+
 
 
 

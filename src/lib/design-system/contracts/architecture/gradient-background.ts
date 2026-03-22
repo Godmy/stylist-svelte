@@ -1,12 +1,12 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ChildrenHtmlAttributes } from '$stylist/design-system/html/attributes/children';
-import type { GradientVariant } from '$stylist/design-system/tokens/architecture/gradient';
+import type { TokenGradient } from '$stylist/design-system/tokens/information/gradient';
 
 export interface IGradientBackgroundProps
 	extends ArchitectureHTMLAttributes<HTMLDivElement>,
 		ChildrenHtmlAttributes<HTMLDivElement> {
   /** Вариант градиента */
-  variant?: GradientVariant; // default: 'dynamic'
+  variant?: TokenGradient; // default: 'dynamic'
 
   /** Начальные цвета градиента */
   colors?: string[]; // default: ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57']
@@ -20,5 +20,6 @@ export interface IGradientBackgroundProps
   /** Направление градиента */
   direction?: string; // default: 'diagonal' ('diagonal', 'horizontal', 'vertical', 'radial')
 }
+
 
 

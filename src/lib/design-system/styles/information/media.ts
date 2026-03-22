@@ -79,7 +79,7 @@ export class MediaStyleManager {
 			| 'neutral'
 			| 'dark'
 			| 'light';
-		shape?: 'circle' | 'square' | 'rounded' | 'pill';
+		shape?: 'circle' | 'square' | 'rectangle' | 'rounded' | 'pill';
 		color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
 		disabled?: boolean;
 		className?: string;

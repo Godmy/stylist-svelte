@@ -4,27 +4,47 @@
 
 import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
-import type { CardSize, CardVariant, ProgressVariant } from '$stylist/design-system/tokens/information/card';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
+
+const CARD_SIZE_CLASSES: Partial<Record<TokenSize, string>> = {
+	sm: 'p-3',
+	md: 'p-4',
+	lg: 'p-6',
+	xl: 'p-8'
+};
+
+const PROGRESS_VARIANT_CLASSES: Partial<Record<TokenAppearance, string>> = {
+	success: 'bg-[var(--color-success-500)]',
+	warning: 'bg-yellow-500',
+	danger: 'bg-[var(--color-danger-500)]',
+	info: 'bg-[var(--color-primary-500)]',
+	secondary: 'bg-[--color-secondary-500]',
+	primary: 'bg-[--color-primary-500]',
+	default: 'bg-[--color-primary-500]'
+};
 
 export class CardStyleManager {
 	static getBaseClasses(): string {
 		return `${BASE_CLASSES.card} bg-[--color-background-primary] overflow-hidden rounded-lg`;
 	}
 
-	static getContainerClasses(className?: string, size: CardSize = 'md'): string {
-		const sizeClass = { sm: 'p-3', md: 'p-4', lg: 'p-6', xl: 'p-8' }[size] || 'p-4';
+	static getContainerClasses(className?: string, size: TokenSize = 'md'): string {
+		const sizeClass = CARD_SIZE_CLASSES[size] || CARD_SIZE_CLASSES.md;
 		return `${this.getBaseClasses()} ${sizeClass} ${className || ''}`.trim();
 	}
 
-	static getVariantClasses(variant: CardVariant = 'primary'): string {
+	static getVariantClasses(variant: TokenAppearance = 'primary'): string {
+		const variantMap: Partial<Record<TokenAppearance, string>> = {
+			...InteractionStyleManager.getVariantClassMap(),
+			outline: 'bg-transparent border-2',
+			ghost: 'bg-transparent border-none shadow-none',
+			elevated: 'shadow-lg',
+			flat: 'shadow-none border'
+		};
+
 		return (
-			{
-				...InteractionStyleManager.getVariantClassMap(),
-				outline: 'bg-transparent border-2',
-				ghost: 'bg-transparent border-none shadow-none',
-				elevated: 'shadow-lg',
-				flat: 'shadow-none border'
-			}[variant] || InteractionStyleManager.getVariantClassMap().primary
+			variantMap[variant] || InteractionStyleManager.getVariantClassMap().primary
 		);
 	}
 
@@ -122,7 +142,7 @@ export class CardStyleManager {
 		return 'w-full h-2 bg-[--color-border-secondary] rounded-full overflow-hidden mt-3';
 	}
 
-	static getProgressFillClasses(variant: ProgressVariant = 'info', className?: string): string {
+	static getProgressFillClasses(variant: TokenAppearance = 'info', className?: string): string {
 		const variantClass = this.getProgressVariantClass(variant);
 		return `${this.getProgressFillBaseClasses()} ${variantClass} ${className || ''}`.trim();
 	}
@@ -131,17 +151,8 @@ export class CardStyleManager {
 		return 'h-full transition-all duration-[var(--duration-500)] ease-out';
 	}
 
-	static getProgressVariantClass(variant: ProgressVariant = 'info'): string {
-		return (
-			{
-				success: 'bg-[var(--color-success-500)]',
-				warning: 'bg-yellow-500',
-				danger: 'bg-[var(--color-danger-500)]',
-				info: 'bg-[var(--color-primary-500)]',
-				secondary: 'bg-[--color-secondary-500]',
-				primary: 'bg-[--color-primary-500]'
-			}[variant] || 'bg-[var(--color-primary-500)]'
-		);
+	static getProgressVariantClass(variant: TokenAppearance = 'info'): string {
+		return PROGRESS_VARIANT_CLASSES[variant] || PROGRESS_VARIANT_CLASSES.info || 'bg-[var(--color-primary-500)]';
 	}
 }
 

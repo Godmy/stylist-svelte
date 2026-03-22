@@ -1,7 +1,7 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { ComponentType, Snippet } from 'svelte';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
-import type { SidebarVariant } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenArchitecture } from '$stylist/design-system/tokens/architecture/architecture';
 
 export interface NavItem {
 	id: string;
@@ -24,8 +24,8 @@ export interface SidebarProps extends ArchitectureHTMLAttributes<HTMLElement> {
 	mobileBreakpoint?: number;
 	width?: string;
 	mobileWidth?: string;
-	variant?: SidebarVariant;
-	position?: Alignment;
+	variant?: TokenArchitecture;
+	position?: TokenAlignment;
 	disabled?: boolean;
 	navClass?: string;
 	itemClass?: string;
@@ -35,3 +35,4 @@ export interface SidebarProps extends ArchitectureHTMLAttributes<HTMLElement> {
 	logoClass?: string;
 	footerClass?: string;
 }
+

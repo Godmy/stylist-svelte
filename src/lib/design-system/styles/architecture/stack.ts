@@ -1,12 +1,12 @@
-import type { Justification, Orientation } from '$stylist/design-system/tokens';
-import type { Alignment } from '$stylist/design-system/tokens/architecture/alignments';
+import type { TokenJustification, TokenOrientation } from '$stylist/design-system/tokens';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
 export class StackStyleManager {
 	static getStackClasses(
-		direction: Orientation,
-		align: Alignment,
-		justify: Justification,
+		direction: TokenOrientation,
+		align: TokenAlignment,
+		justify: TokenJustification,
 		className = ''
 	): string {
 		return cn(
@@ -63,5 +63,6 @@ export class StackStyleManager {
 		}
 	}
 }
+
 
 

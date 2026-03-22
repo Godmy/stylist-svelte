@@ -1,6 +1,6 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
 import { CodeStyleManager } from '$stylist/design-system/styles/information/code-block';
-import type { DiffLineType } from '$stylist/design-system/tokens/information/diff';
+import type { TokenDiffType } from '$stylist/design-system/tokens/information/diff-type';
 
 
 export class CodeDiffStyleManager {
@@ -33,7 +33,7 @@ export class CodeDiffStyleManager {
 	}
 
 	static getDiffLineClass(type: string): string {
-		const normalizedType: DiffLineType =
+		const normalizedType: TokenDiffType =
 			type === 'added' || type === 'removed' ? type : 'unchanged';
 		return cn(CodeStyleManager.getDiffLineBaseClasses(), CodeStyleManager.getDiffLineVariantClass(normalizedType));
 	}
@@ -55,4 +55,5 @@ export class CodeDiffStyleManager {
 		return CodeStyleManager.getChangedContainerBaseClasses();
 	}
 }
+
 

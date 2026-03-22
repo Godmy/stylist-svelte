@@ -37,12 +37,11 @@ const Car = 'car';
    * @param description - Description displayed in the popup
    * @param snippet - Additional content snippet
    * @param type - Type of the marker
-   * @param category - Category of the location
    * @param color - Custom color for the marker
    * @param size - Size of the marker ('sm' | 'md' | 'lg')
    * @param showPopup - Whether to initially show the popup
    * @param popupContent - Custom content for the popup
-   * @param pinStyle - Style of the pin ('line' | 'flag' | 'ring' | 'anchor')
+   * @param pinStyle - Shape of the marker ('vector' | 'flag' | 'circle' | 'diamond')
    * @param rating - Rating from 0-5
    * @param contactInfo - Contact information to display
    * @param distance - Distance string to display
@@ -62,12 +61,11 @@ const Car = 'car';
     description,
     snippet,
     type = 'place',
-    category,
     color = '',
     size = 'md',
     showPopup = false,
     popupContent,
-    pinStyle = 'line',
+    pinStyle = 'vector',
     rating,
     contactInfo,
     distance,
@@ -97,26 +95,17 @@ const Car = 'car';
     onNavigateClick?.(coordinates);
   }
 
-  function getIconForCategory(cat?: string): string {
-    if (!cat) return MapPin;
+  function getIconForType(markerType: 'person' | 'place' | 'business'): string {
+    const typeIcons = {
+      person: MapPin,
+      place: Building,
+      business: ShoppingBag
+    } as const;
 
-    const categoryIcons: Record<string, string> = {
-      'restaurant': Utensils,
-      'hotel': Building,
-      'attraction': Star,
-      'service': Settings,
-      'transport': Car,
-      'health': HeartPulse,
-      'education': GraduationCap,
-      'shopping': ShoppingBag,
-      'emergency': AlertTriangle
-    };
-
-    return categoryIcons[cat] || MapPin;
+    return typeIcons[markerType] ?? MapPin;
   }
 
-  // Define icon for categories
-  let CategoryIcon = $derived(getIconForCategory(category));
+  let CategoryIcon = $derived(getIconForType(type));
 
   // Derived classes using StyleManager
   let hostClasses = $derived(MapMarkerStyleManager.getBaseClasses(selected, hostClass));
@@ -157,7 +146,7 @@ const Car = 'car';
       if (e.key === 'Enter' || e.key === ' ') handleClick();
     }}
   >
-    {#if pinStyle === 'line'}
+    {#if pinStyle === 'vector'}
       <BaseIcon
         name={MapPin}
         class={pinStyleClasses}

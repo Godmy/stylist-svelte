@@ -9,7 +9,7 @@ const Check = 'check';
 	import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import { createButtonState } from '$stylist/design-system/models/interaction/button.svelte';
 	import { createBasePreset } from '$stylist/design-system/runtime/preset';
-	import { COMPONENT_SIZE } from '$stylist/design-system/tokens/architecture/component-size';
+	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';
 
 	let props: CopyButtonProps & HTMLButtonAttributes = $props();
 
@@ -30,7 +30,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 
 	// Use centralized state management for base button properties
 	let buttonState = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), COMPONENT_SIZE, {
+		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
 			variant: 'outline',
 			size: 'sm'
 		}),
@@ -80,6 +80,7 @@ import { createButtonState } from '$stylist/design-system/models/interaction/but
 	{/if}
 	<span class="ml-2">{copied ? 'Copied!' : (props.label ?? 'Copy')}</span>
 </button>
+
 
 
 

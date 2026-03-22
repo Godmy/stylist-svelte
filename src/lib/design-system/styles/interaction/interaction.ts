@@ -1,4 +1,4 @@
-import type { DefaultVariants } from '$stylist/design-system/tokens/interaction/variants';
+import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
@@ -8,7 +8,7 @@ const PRIMARY_SOLID_CLASSES =
 	'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] ' +
 	'border border-transparent hover:bg-[var(--color-primary-700)]';
 
-const VARIANT_CLASSES: Record<DefaultVariants, string> = {
+const VARIANT_CLASSES: Record<TokenAppearance, string> = {
 	default:
 		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] ' +
 		'border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
@@ -55,7 +55,13 @@ const VARIANT_CLASSES: Record<DefaultVariants, string> = {
 		'border border-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-700)]',
 	light:
 		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] ' +
-		'border border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-200)]'
+		'border border-[var(--color-neutral-200)] hover:bg-[var(--color-neutral-200)]',
+	elevated:
+		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] ' +
+		'border border-[var(--color-border-secondary)] shadow-sm hover:shadow-md',
+	flat:
+		'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] ' +
+		'border border-transparent hover:bg-[var(--color-background-primary)]'
 };
 
 const INTERACTIVE_VARIANTS = Object.keys(VARIANT_CLASSES) as (keyof typeof VARIANT_CLASSES)[];

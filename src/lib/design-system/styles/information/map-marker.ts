@@ -1,4 +1,6 @@
-import type { MapMarkerType, PinStyle } from '$stylist/design-system/tokens/information/map-marker';
+import type { TokenPin } from '$stylist/design-system/tokens/architecture/pin';
+import type { TokenShape } from '$stylist/design-system/tokens/architecture/shape';
+import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
 export class MapMarkerStyleManager {
   static getBaseClasses(selected: boolean, hostClass: string): string {
@@ -8,26 +10,34 @@ export class MapMarkerStyleManager {
   static getMarkerContainerClasses(iconClass: string): string {
     return `flex flex-col items-center cursor-pointer ${iconClass}`;
   }
-  static getPinStyleClasses(size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl', colorClass: string, selected: boolean, pinStyle: PinStyle): string {
+  static getPinStyleClasses(size: TokenSize, colorClass: string, selected: boolean, pinStyle: TokenShape): string {
     const sizeClasses = {
       xs: 'h-3 w-3',
       sm: 'h-4 w-4',
       md: 'h-6 w-6',
       lg: 'h-8 w-8',
       xl: 'h-10 w-10',
-      '2xl': 'h-12 w-12'
+      '2xl': 'h-12 w-12',
+      '1/4': 'h-3 w-3',
+      '1/3': 'h-4 w-4',
+      '2/5': 'h-4 w-4',
+      '1/2': 'h-6 w-6',
+      '3/5': 'h-6 w-6',
+      '2/3': 'h-8 w-8',
+      '3/4': 'h-10 w-10',
+      full: 'h-12 w-12'
     }[size] ?? 'h-6 w-6';
 
     const basePinClass = `${sizeClasses} ${colorClass} ${selected ? 'scale-125' : ''} transition-transform duration-[var(--duration-200)]`;
 
     switch (pinStyle) {
-      case 'line':
+      case 'vector':
         return basePinClass;
       case 'flag':
         return `relative ${sizeClasses}`;
-      case 'ring':
+      case 'circle':
         return `${sizeClasses} ${colorClass} rounded-full border-2 border-[--color-border-primary] shadow-md`;
-      case 'anchor':
+      case 'diamond':
         return `${sizeClasses} ${colorClass} rotate-45 rounded-br-full`;
       default:
         return basePinClass;
@@ -81,42 +91,55 @@ export class MapMarkerStyleManager {
     return 'flex space-x-2 mt-4';
   }
 
-  static getColorClass(color: string, type: MapMarkerType): string {
+  static getColorClass(color: string, type: TokenPin): string {
     if (color) return color;
 
-    const typeColors: Record<MapMarkerType, string> = {
+    const typeColors: Record<TokenPin, string> = {
       business: 'text-[--color-success-500]',
       person: 'text-[--color-purple-500]',
-      place: 'text-[--color-warning-500]',
-      government: 'text-[--color-primary-500]',
-      private: 'text-[--color-danger-500]',
-      brand: 'text-[--color-info-500]'
+      place: 'text-[--color-warning-500]'
     };
 
     return typeColors[type];
   }
 
-  static getFlagClasses(colorClass: string, size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'): string {
+  static getFlagClasses(colorClass: string, size: TokenSize): string {
     const sizeClasses = {
       xs: 'w-0.5 h-2/3',
       sm: 'w-0.5 h-3/4',
       md: 'w-0.5 h-3/4',
       lg: 'w-0.5 h-3/4',
       xl: 'w-0.5 h-4/5',
-      '2xl': 'w-0.5 h-5/6'
+      '2xl': 'w-0.5 h-5/6',
+      '1/4': 'w-0.5 h-2/3',
+      '1/3': 'w-0.5 h-3/4',
+      '2/5': 'w-0.5 h-3/4',
+      '1/2': 'w-0.5 h-3/4',
+      '3/5': 'w-0.5 h-3/4',
+      '2/3': 'w-0.5 h-3/4',
+      '3/4': 'w-0.5 h-4/5',
+      full: 'w-0.5 h-5/6'
     }[size] ?? 'w-0.5 h-3/4';
 
     return `absolute ${sizeClasses} ${colorClass} bottom-0 left-1/2 transform -translate-x-1/2`;
   }
 
-  static getFlagTopClasses(colorClass: string, size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'): string {
+  static getFlagTopClasses(colorClass: string, size: TokenSize): string {
     const sizeClasses = {
       xs: 'w-3 h-3',
       sm: 'w-4 h-4',
       md: 'w-4 h-4',
       lg: 'w-4 h-4',
       xl: 'w-5 h-5',
-      '2xl': 'w-6 h-6'
+      '2xl': 'w-6 h-6',
+      '1/4': 'w-3 h-3',
+      '1/3': 'w-4 h-4',
+      '2/5': 'w-4 h-4',
+      '1/2': 'w-4 h-4',
+      '3/5': 'w-4 h-4',
+      '2/3': 'w-4 h-4',
+      '3/4': 'w-5 h-5',
+      full: 'w-6 h-6'
     }[size] ?? 'w-4 h-4';
 
     return `absolute top-0 left-1/2 transform -translate-x-full ${colorClass} ${sizeClasses} rounded-full`;

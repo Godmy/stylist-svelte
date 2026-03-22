@@ -1,21 +1,21 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
-import type { DividerAlign } from '$stylist/design-system/tokens/architecture/alignments';
-import type { Orientation } from '$stylist/design-system/tokens/architecture/orientations';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
 
 /**
  * Divider Props
  * Used for visual dividers/separators
  *
- * Note: Использует HTMLDivElement, так как компонент может рендерить
- * как div (для горизонтальных разделителей с label), так и hr
+ * Note: РСЃРїРѕР»СЊР·СѓРµС‚ HTMLDivElement, С‚Р°Рє РєР°Рє РєРѕРјРїРѕРЅРµРЅС‚ РјРѕР¶РµС‚ СЂРµРЅРґРµСЂРёС‚СЊ
+ * РєР°Рє div (РґР»СЏ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹С… СЂР°Р·РґРµР»РёС‚РµР»РµР№ СЃ label), С‚Р°Рє Рё hr
  */
 export interface DividerProps extends ArchitectureHTMLAttributes<HTMLDivElement> {
-  /** Orientation of the divider */
-  orientation?: Orientation;
+  /** TokenOrientation of the divider */
+  orientation?: TokenOrientation;
   /** Whether the divider is inset */
   inset?: boolean;
-  /** Alignment of the divider content */
-  align?: DividerAlign;
+  /** TokenAlignment of the divider content */
+  align?: TokenAlignment;
   /** Whether the divider is dashed */
   dashed?: boolean;
   /** Label text to display on the divider */

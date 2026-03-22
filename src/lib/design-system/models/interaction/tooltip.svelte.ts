@@ -1,8 +1,41 @@
 import type { TooltipProps } from '$stylist/design-system/contracts/interaction/tooltip';
-import type { TooltipPlacement } from '$stylist/design-system/tokens/interaction/tooltip';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
 
 type TooltipStateProps = TooltipProps & HTMLAttributes<HTMLElement>;
+
+function normalizePlacement(
+	placement: TokenAlignment
+): 'top' | 'top-start' | 'top-end' | 'bottom' | 'bottom-start' | 'bottom-end' | 'left' | 'left-start' | 'left-end' | 'right' | 'right-start' | 'right-end' {
+	switch (placement) {
+		case 'top':
+		case 'top-center':
+			return 'top';
+		case 'top-start':
+		case 'left-start':
+			return 'top-start';
+		case 'top-end':
+		case 'right-start':
+			return 'top-end';
+		case 'bottom':
+		case 'bottom-center':
+			return 'bottom';
+		case 'bottom-start':
+		case 'left-end':
+			return 'bottom-start';
+		case 'bottom-end':
+		case 'right-end':
+			return 'bottom-end';
+		case 'left':
+		case 'left-center':
+			return 'left';
+		case 'right':
+		case 'right-center':
+			return 'right';
+		default:
+			return 'top';
+	}
+}
 
 
 /**
@@ -17,7 +50,7 @@ export function createTooltipState(props: TooltipStateProps) {
 	const content = $derived(props.content);
 	const placement = $derived(props.placement ?? 'top');
 	const trigger = $derived(props.trigger ?? 'hover');
-	const variant = $derived(props.variant ?? 'default');
+	const variant = $derived(props.variant ?? 'line');
 	const disabled = $derived(props.disabled ?? false);
 	const delay = $derived(props.delay ?? 0);
 	const hideDelay = $derived(props.hideDelay ?? 0);
@@ -106,7 +139,8 @@ export function createTooltipState(props: TooltipStateProps) {
 	// Compute position classes
 	const positionClasses = $derived(() => {
 		const base = 'absolute z-[var(--z-index-modal)]';
-		const positions: Record<TooltipPlacement, string> = {
+		const normalizedPlacement = normalizePlacement(placement);
+		const positions = {
 			top: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
 			'top-start': 'bottom-full left-0 mb-2',
 			'top-end': 'bottom-full right-0 mb-2',
@@ -119,13 +153,13 @@ export function createTooltipState(props: TooltipStateProps) {
 			right: 'left-full top-1/2 -translate-y-1/2 ml-2',
 			'right-start': 'left-full top-0 ml-2',
 			'right-end': 'left-full bottom-0 ml-2'
-		};
-		return `${base} ${positions[placement]}`;
+		} as const;
+		return `${base} ${positions[normalizedPlacement]}`;
 	});
 
 	// Compute tooltip content classes based on variant
 	const tooltipClasses = $derived(() => {
-		const baseClasses = variant === 'simple'
+		const baseClasses = variant === 'invisible'
 			? 'px-3 py-2 text-sm font-medium rounded-lg shadow-sm bg-[--color-tooltip-bg] text-[--color-text-inverse]'
 			: 'px-2 py-1 text-xs text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)] rounded whitespace-nowrap';
 
@@ -134,10 +168,11 @@ export function createTooltipState(props: TooltipStateProps) {
 
 	// Compute arrow classes based on placement and variant
 	const arrowClasses = $derived(() => {
-		if (variant !== 'with-arrow') return '';
+		if (variant !== 'arrow') return '';
 
 		const arrowBase = 'absolute w-2 h-2 bg-[var(--color-neutral-900)] transform rotate-45';
-		const arrowPositions: Record<TooltipPlacement, string> = {
+		const normalizedPlacement = normalizePlacement(placement);
+		const arrowPositions = {
 			top: 'top-full left-1/2 -translate-x-1/2 -mt-1',
 			'top-start': 'top-full left-2 -mt-1',
 			'top-end': 'top-full right-2 -mt-1',
@@ -150,8 +185,8 @@ export function createTooltipState(props: TooltipStateProps) {
 			right: 'right-full top-1/2 -translate-y-1/2 -mr-1',
 			'right-start': 'right-full top-2 -mr-1',
 			'right-end': 'right-full bottom-2 -mr-1'
-		};
-		return `${arrowBase} ${arrowPositions[placement]} ${arrowClassName}`.trim();
+		} as const;
+		return `${arrowBase} ${arrowPositions[normalizedPlacement]} ${arrowClassName}`.trim();
 	});
 
 	// Container classes

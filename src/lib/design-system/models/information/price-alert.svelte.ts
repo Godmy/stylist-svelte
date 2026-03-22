@@ -3,7 +3,7 @@ import type { Props } from '$stylist/design-system/contracts';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { buildClasses } from '$stylist/design-system/utils/classes';
 import { computeAriaLabel } from '$stylist/design-system/utils/aria';
-import type { AlertType } from '$stylist/design-system/tokens/interaction/alert-types';
+import type { TokenMonitoringType } from '$stylist/design-system/tokens/interaction/monitoring-type';
 
 interface PriceAlertStateProps<V extends string, S extends string>
 	extends Omit<Props, 'variant' | 'size'> {
@@ -12,9 +12,9 @@ interface PriceAlertStateProps<V extends string, S extends string>
 	currentPrice?: number;
 	targetPrice?: number;
 	currency?: string;
-	status?: AlertType;
+	status?: TokenMonitoringType;
 	productName?: string;
-	onStatusChange?: (status: AlertType) => void;
+	onStatusChange?: (status: TokenMonitoringType) => void;
 }
 
 
@@ -75,9 +75,6 @@ export function createPriceAlertState<V extends string, S extends string>(
 }
 
 export default createPriceAlertState;
-
-
-
 
 
 

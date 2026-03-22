@@ -73,15 +73,15 @@
 	function getTokenIconKind(tokenName: string): TokenIconKind {
 		switch (tokenName) {
 			case 'POSITIONS':
-			case 'ORIENTATIONS':
-			case 'ALIGNMENTS':
-			case 'JUSTIFICATIONS':
+			case 'TOKEN_ORIENTATION':
+			case 'TOKEN_ALIGNMENT':
+			case 'TOKEN_JUSTIFICATION':
 				return 'layout';
 			case 'GEOMETRY':
 			case 'shape':
 			case 'corner':
 				return 'shape';
-			case 'COMPONENT_SIZE':
+			case 'TOKEN_SIZE':
 				return 'size';
 			case 'SPACING':
 				return 'SPACING';
@@ -90,7 +90,7 @@
 			case 'SHADOWS':
 				return 'SHADOW';
 			case 'WIDTH':
-			case 'STYLE':
+			case 'TOKEN_BORDER_STYLE':
 				return 'border';
 			case 'OPACITY':
 			case 'OPACITY_ALT':
@@ -101,9 +101,10 @@
 			case 'PADDING':
 				return 'container';
 			case 'GRID_COLUMNS':
+			case 'TOKEN_COLUMN':
 			case 'GRID_GAPS':
 				return 'grid';
-			case 'ASPECT_RATIO':
+			case 'TOKEN_ASPECT_RATIO':
 				return 'aspect';
 			case 'Z_INDEX':
 				return 'layers';
@@ -134,14 +135,15 @@
 			case 'ANIMATION_DELAY':
 				return 'motion';
 			case 'APPEARANCE_STYLES':
+			case 'TOKEN_APPEARANCE':
 			case 'STATE_VARIANTS':
 			case 'FLOW_VARIANTS':
 			case 'ALL_VARIANTS':
-			case 'INPUT_VARIANTS':
-			case 'CODE':
-			case 'DENSITIES':
+			case 'TOKEN_CODE_VIEW':
+			case 'TOKEN_DENSITY':
 			case 'skeleton':
 			case 'TABLE_CELLS':
+			case 'TOKEN_TABLE_CELL':
 				return 'variant';
 			case 'PRESENCE_STATUSES':
 			case 'MESSAGE_STATUSES':
@@ -150,6 +152,8 @@
 			case 'VERDICTS':
 			case 'SEVERITY_LEVELS':
 			case 'PROGRESS_TYPES':
+			case 'TOKEN_PROGRESS_TYPE':
+			case 'TOKEN_MESSAGE_STATUS':
 			case 'BADGE_LABELS':
 				return 'state';
 			default:
@@ -258,9 +262,5 @@
 		display: block;
 	}
 </style>
-
-
-
-
 
 
