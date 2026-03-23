@@ -1,5 +1,5 @@
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
-import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction/index';
 import { getCharacterCountState } from '$stylist/design-system/utils/input';
 
 type TokenAppearance = (typeof INPUT_FIELD_PRESET.variants)[number];

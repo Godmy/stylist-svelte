@@ -1,6 +1,6 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { Props } from '$stylist/design-system/contracts';
-import { ICON_SIZES } from '$stylist/design-system/runtime/sizing';
+import { ICON_SIZES } from '$stylist/design-system/runtime/sizing/index';
 import type { Preset } from '$stylist/design-system/runtime/types';
 import { computeAriaLabel } from '$stylist/design-system/utils/aria';
 import { buildClasses } from '$stylist/design-system/utils/classes';
@@ -91,6 +91,5 @@ export function createButtonState<V extends string, S extends string>(
 }
 
 export default createButtonState;
-
 
 

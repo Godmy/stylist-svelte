@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputAddonState } from '$stylist/design-system/runtime/input-state';
+	import { createInputAddonState } from '$stylist/design-system/runtime/input-state/index';
 	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';

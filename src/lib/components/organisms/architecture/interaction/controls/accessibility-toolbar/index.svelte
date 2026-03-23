@@ -16,7 +16,7 @@ const Grid = 'grid';
     showFontSizeControls?: boolean;
     showScreenReaderTester?: boolean;
     showFocusIndicator?: boolean;
-    showAnimationsToggle?: boolean;
+    showTokenAnimationToggle?: boolean;
     class?: string;
     toolbarClass?: string;
     buttonClass?: string;
@@ -28,7 +28,7 @@ const Grid = 'grid';
     showFontSizeControls = true,
     showScreenReaderTester = true,
     showFocusIndicator = true,
-    showAnimationsToggle = true,
+    showTokenAnimationToggle = true,
     class: className = '',
     toolbarClass = '',
     buttonClass = '',
@@ -41,7 +41,7 @@ const Grid = 'grid';
   let fontSizeScale = $state(1);
   let screenReaderMode = $state(false);
   let focusIndicator = $state(true);
-  let disableAnimations = $state(false);
+  let disableTokenAnimation = $state(false);
 
   // Increase font size
   function increaseFontSize() {
@@ -73,11 +73,11 @@ const Grid = 'grid';
     document.body.classList.toggle('no-focus-outline', !focusIndicator);
   }
 
-  // Toggle ANIMATIONS
-  function toggleAnimations() {
-    disableAnimations = !disableAnimations;
+  // Toggle animations
+  function toggleTokenAnimation() {
+    disableTokenAnimation = !disableTokenAnimation;
 
-    if (disableAnimations) {
+    if (disableTokenAnimation) {
       document.body.classList.add('reduce-motion');
       document.documentElement.style.setProperty('--animation-duration', '0.01ms');
       document.documentElement.style.setProperty('--animation-iteration-count', '1');
@@ -144,13 +144,13 @@ const Grid = 'grid';
       </button>
     {/if}
 
-    {#if showAnimationsToggle}
+    {#if showTokenAnimationToggle}
       <button
         type="button"
-        class={`${buttonClassComputed} ${disableAnimations ? activeButtonClass : 'text-[--color-text-primary]'}`}
-        aria-label={disableAnimations ? "Enable ANIMATIONS" : "Reduce ANIMATIONS"}
-        aria-pressed={disableAnimations}
-        onclick={toggleAnimations}
+        class={`${buttonClassComputed} ${disableTokenAnimation ? activeButtonClass : 'text-[--color-text-primary]'}`}
+        aria-label={disableTokenAnimation ? "Enable animations" : "Reduce animations"}
+        aria-pressed={disableTokenAnimation}
+        onclick={toggleTokenAnimation}
       >
         <BaseIcon name={Grid} class="h-5 w-5" />
       </button>
@@ -165,6 +165,5 @@ const Grid = 'grid';
     </button>
   </div>
 </div>
-
 
 

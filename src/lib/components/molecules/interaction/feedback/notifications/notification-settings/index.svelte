@@ -10,7 +10,7 @@ import type {
     INotificationSettingsProps,
     INotificationSettingsPreference
   } from '$stylist/design-system/contracts/interaction/notification-settings';
-import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channel';
+import type { TokenNotifictionChannel } from '$stylist/design-system/tokens/interaction/notification-channel';
 
   let {
     preferences = [],
@@ -26,7 +26,7 @@ import type { NotificationChannel } from '$stylist/design-system/tokens/interact
     ...restProps
   }: INotificationSettingsProps = $props();
 
-  function updatePreference(id: string, channel: NotificationChannel, enabled: boolean) {
+  function updatePreference(id: string, channel: TokenNotifictionChannel, enabled: boolean) {
     if (onPreferenceChange) {
       onPreferenceChange(id, channel, enabled);
     }

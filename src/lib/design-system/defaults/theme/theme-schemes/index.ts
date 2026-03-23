@@ -1,7 +1,7 @@
 import type { ThemeScheme } from '$stylist/design-system/contracts/theme/theme-scheme';
-import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/information/theme-scheme-id';
 export type { ThemeScheme } from '$stylist/design-system/contracts/theme/theme-scheme';
-export type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+export type { TokenSchemeId } from '$stylist/design-system/tokens/information/theme-scheme-id';
 
 export const THEME_SCHEMES: ThemeScheme[] = [
 	{

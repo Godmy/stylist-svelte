@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createCharacterCountState } from '$stylist/design-system/runtime/input-state';
+	import { createCharacterCountState } from '$stylist/design-system/runtime/input-state/index';
 	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';

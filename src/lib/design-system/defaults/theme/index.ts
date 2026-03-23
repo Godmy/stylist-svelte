@@ -1,5 +1,27 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { THEME_RADIUS } from './border-radius';
+export { THEME_BOX_SHADOW } from './box-shadows';
+export { COLORS } from './colors';
+export { COLORS_SCALES_AMBER, COLORS_SCALES_BLUE, COLORS_SCALES_GRAY, COLORS_SCALES_GREEN, COLORS_SCALES_NEUTRAL, COLORS_SCALES_RED, COLORS_SCALES_SLATE, COLORS_SCALES_TEAL } from './colors-scales';
 export { darkTheme } from './dark-theme';
 export { defaultTheme } from './default-theme';
+export { DIRECTIONAL_GRADIENTS } from './gradient-directional';
+export { RADIAL_GRADIENTS } from './gradient-radial';
+export { GRADIENTS } from './gradient-type';
 export { lightTheme } from './light-theme';
+export { Scale } from './scale';
+export { Size } from './size';
+export { THEME_SPACING } from './spacing';
 export { THEME_SCHEMES, THEME_SCHEMES_BY_ID } from './theme-schemes';
+export { TRANSITION } from './transitions';
+export { TYPOGRAPHY_FONT_SIZE } from './typography';
+export type { BorderRadiusContract } from './border-radius';
+export type { BoxShadowContract } from './box-shadows';
+export type { Colors } from './colors';
+export type { DirectionalGradientKey } from './gradient-directional';
+export type { RadialGradientKey } from './gradient-radial';
+export type { GradientKey } from './gradient-type';
+export type { ScaleKey } from './scale';
+export type { SizeKey } from './size';
+export type { SpacingContract } from './spacing';
+export type { TransitionKey } from './transitions';

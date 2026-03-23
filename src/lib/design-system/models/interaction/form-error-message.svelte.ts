@@ -1,4 +1,4 @@
-import { createFormErrorMessageState as createFormErrorMessageStateImpl } from '$stylist/design-system/runtime/input-state';
+import { createFormErrorMessageState as createFormErrorMessageStateImpl } from '$stylist/design-system/runtime/input-state/index';
 
 export function createFormErrorMessageState(
 	...args: Parameters<typeof createFormErrorMessageStateImpl>

@@ -1,15 +1,15 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { NotificationChannel } from '$stylist/design-system/tokens/interaction/notification-channel';
+import type { TokenNotifictionChannel } from '$stylist/design-system/tokens/interaction/notification-channel';
 export interface INotificationSettingsPreference {
   id: string;
   name: string;
   description?: string;
-  channels: Partial<Record<NotificationChannel, boolean>>;
+  channels: Partial<Record<TokenNotifictionChannel, boolean>>;
 }
 
 export interface INotificationSettingsProps extends HTMLAttributes<HTMLDivElement> {
   preferences: INotificationSettingsPreference[];
-  onPreferenceChange?: (id: string, channel: NotificationChannel, enabled: boolean) => void;
+  onPreferenceChange?: (id: string, channel: TokenNotifictionChannel, enabled: boolean) => void;
   showEmail?: boolean;
   showPush?: boolean;
   showSms?: boolean;

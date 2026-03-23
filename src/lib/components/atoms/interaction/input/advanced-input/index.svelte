@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction/index';
 	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 	import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 	import { TOKEN_SIZE } from '$stylist/design-system/tokens/architecture/size';

@@ -1,6 +1,6 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
-import { STATE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { STATE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 
 const TAB_SIZE_CLASSES: Record<TokenSize, string> = {
 	xs: 'px-1.5 py-0.5 text-xs',

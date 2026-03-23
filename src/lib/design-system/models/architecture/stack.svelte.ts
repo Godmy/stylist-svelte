@@ -1,7 +1,7 @@
 import type { StackProps } from '$stylist/design-system/contracts';
 import type { TokenAlignment, TokenOrientation, TokenJustification } from '$stylist/design-system/tokens';
 import { StackStyleManager } from '$stylist/design-system/styles';
-import { Size } from '$stylist/design-system/tokens/theme/size';
+import { Size } from '$stylist/design-system/defaults/theme/size';
 import { clsx } from 'clsx';
 
 export function createStackState(props: StackProps) {
@@ -37,7 +37,6 @@ export function createStackState(props: StackProps) {
 }
 
 export default createStackState;
-
 
 
 

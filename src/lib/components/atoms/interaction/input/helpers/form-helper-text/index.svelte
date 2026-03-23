@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createFormHelperTextState } from '$stylist/design-system/runtime/input-state';
+	import { createFormHelperTextState } from '$stylist/design-system/runtime/input-state/index';
 	import type { InteractionHTMLAttributes } from '$stylist/design-system/html/attributes/interaction';
 	import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 

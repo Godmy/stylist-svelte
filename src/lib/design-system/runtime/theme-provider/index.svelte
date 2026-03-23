@@ -3,7 +3,7 @@
 
 	import type { InformationHTMLAttributes } from '$stylist/design-system/html/attributes/information';
 	import type { Theme } from '$stylist/design-system/contracts/theme/theme';
-	import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
+	import type { TokenThemeName } from '$stylist/design-system/tokens/information/theme-name';
 	import { darkTheme, lightTheme } from '$stylist/design-system/defaults/theme';
 
 	import { applyThemeToDOM } from '../css';

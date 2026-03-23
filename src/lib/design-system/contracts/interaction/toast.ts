@@ -5,11 +5,11 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
-export type NotificationType =
+export type ToastNotificationType =
 	| 'silent'
 	| Extract<TokenAppearance, 'info' | 'success' | 'warning' | 'error'>;
 export interface IToastProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
-  type?: NotificationType;
+  type?: ToastNotificationType;
   visible?: boolean;
   duration?: number; // in ms, 0 means persistent
   title?: Snippet;

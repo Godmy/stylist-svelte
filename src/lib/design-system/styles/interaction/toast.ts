@@ -1,5 +1,5 @@
 import type { IToastStyleClasses } from '$stylist/design-system/contracts/interaction/toast';
-import type { NotificationType } from '$stylist/design-system/contracts/interaction/toast';
+import type { ToastNotificationType } from '$stylist/design-system/contracts/interaction/toast';
 
 /**
  * TokenBorderStyle utility class following Single Responsibility Principle
@@ -7,8 +7,8 @@ import type { NotificationType } from '$stylist/design-system/contracts/interact
  * Uses CSS variables from the theme system
  */
 export class ToastStyleManager {
-  static getTypeClasses(type: NotificationType): string {
-    const typeClasses: Record<NotificationType, string> = {
+  static getTypeClasses(type: ToastNotificationType): string {
+    const typeClasses: Record<ToastNotificationType, string> = {
       silent: 'toast-variant-info',
       info: 'toast-variant-info',
       success: 'toast-variant-success', 
@@ -23,7 +23,7 @@ export class ToastStyleManager {
     return isVisible ? 'toast-visible' : 'toast-hidden';
   }
 
-  static getAllClasses(type: NotificationType, isVisible: boolean, className: string): string {
+  static getAllClasses(type: ToastNotificationType, isVisible: boolean, className: string): string {
     const baseClasses = 'toast-base border rounded-md p-4 mb-2 transition-opacity duration-[var(--duration-300)]';
     const typeClass = this.getTypeClasses(type);
     const visibilityClass = this.getVisibilityClass(isVisible);

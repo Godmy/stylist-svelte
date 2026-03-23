@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+  import type { TokenSchemeId } from '$stylist/design-system/tokens/information/theme-scheme-id';
   import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
   import { Icon } from '$stylist/components/atoms';
   import Tooltip from '$stylist/components/atoms/interaction/controls/tooltip/index.svelte';

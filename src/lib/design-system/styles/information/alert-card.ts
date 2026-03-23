@@ -1,5 +1,5 @@
 import { cn } from '$stylist/design-system/utils/cn/index';
-import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 
 

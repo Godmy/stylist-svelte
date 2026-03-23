@@ -1,6 +1,6 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { TokenAlignment } from '$stylist/design-system/tokens/architecture/alignment';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 
 /**
  * Divider Props
@@ -21,6 +21,5 @@ export interface DividerProps extends ArchitectureHTMLAttributes<HTMLDivElement>
   /** Label text to display on the divider */
   label?: string;
 }
-
 
 

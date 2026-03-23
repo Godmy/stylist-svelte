@@ -1,4 +1,4 @@
-import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction/index';
 import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 import type { InputStateOptions } from '$stylist/design-system/runtime/types';
 

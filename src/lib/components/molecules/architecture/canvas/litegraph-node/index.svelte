@@ -116,83 +116,104 @@
 	onmousedown={handleMouseDown}
 	{...restProps}
 >
-	{#if !props.hideHeader}
-		<NodeHeader
-			id={`${props.id}-header`}
-			title={props.title}
-			color={nodeState.headerColor}
-			size={props.size}
-			selected={nodeState.selected}
-			editable={true}
-			showClose={props.deletable}
-			showDuplicate={props.duplicable}
-			showSettings={props.showActions}
-			onclose={() => props.ondelete?.(props.id)}
-			onduplicate={() => props.onduplicate?.(props.id)}
-		>
-			{#if props.headerContent}
-				{@render props.headerContent?.()}
+	{#if nodeState.useSemanticShell}
+		<div class="litegraph-node__semantic-shell" data-stage={nodeState.presentation.stage}>
+			{#if nodeState.presentation.showIcon}
+				<div class="litegraph-node__semantic-icon">
+					{props.title.slice(0, 1)}
+				</div>
 			{/if}
-		</NodeHeader>
+
+			{#if nodeState.presentation.showLabel}
+				<div class="litegraph-node__semantic-copy">
+					<div class="litegraph-node__semantic-title">{props.title}</div>
+					{#if nodeState.presentation.showDescription}
+						<div class="litegraph-node__semantic-description">
+							{props.type ?? 'default'} · {nodeState.presentation.stage} · {nodeState.presentation.size}
+						</div>
+					{/if}
+				</div>
+			{/if}
+		</div>
+	{:else}
+		{#if nodeState.renderHeader}
+			<NodeHeader
+				id={`${props.id}-header`}
+				title={props.title}
+				color={nodeState.headerColor}
+				size={props.size}
+				selected={nodeState.selected}
+				editable={true}
+				showClose={props.deletable}
+				showDuplicate={props.duplicable}
+				showSettings={props.showActions}
+				onclose={() => props.ondelete?.(props.id)}
+				onduplicate={() => props.onduplicate?.(props.id)}
+			>
+				{#if props.headerContent}
+					{@render props.headerContent?.()}
+				{/if}
+			</NodeHeader>
+		{/if}
+
+		<div class="litegraph-node__body">
+			{#if nodeState.renderPorts && (hasInputs || hasOutputs)}
+				<div class="litegraph-node__ports">
+					{#if hasInputs}
+						<PortGroup
+							id={`${props.id}-inputs`}
+							direction="input"
+							ports={inputs.map((port, idx) => ({ ...port, index: idx }) as any)}
+							portSize="md"
+							showLabels={true}
+							onConnectionStart={handlePortConnectionStart}
+							onConnectionEnd={handlePortConnectionEnd}
+						/>
+					{/if}
+
+					{#if hasOutputs}
+						<PortGroup
+							id={`${props.id}-outputs`}
+							direction="output"
+							ports={outputs.map((port, idx) => ({ ...port, index: idx }) as any)}
+							portSize="md"
+							showLabels={true}
+							onConnectionStart={handlePortConnectionStart}
+							onConnectionEnd={handlePortConnectionEnd}
+						/>
+					{/if}
+				</div>
+			{/if}
+
+			{#if nodeState.renderProperties && hasProperties}
+				<div class="litegraph-node__properties">
+					{#each properties as property (property.id)}
+						<NodeProperty
+							id={property.id}
+							name={property.name}
+							type={property.type}
+							value={property.value}
+							label={property.label}
+							description={property.description}
+							options={property.options}
+							size="sm"
+							onchange={handlePropertyChange}
+						/>
+					{/each}
+				</div>
+			{/if}
+
+			{#if props.bodyContent}
+				<div class="litegraph-node__content">
+					{@render props.bodyContent?.()}
+				</div>
+			{/if}
+
+			{#if props.children}
+				{@render props.children?.()}
+			{/if}
+		</div>
 	{/if}
-
-	<div class="litegraph-node__body">
-		{#if !props.hidePorts && (hasInputs || hasOutputs)}
-			<div class="litegraph-node__ports">
-				{#if hasInputs}
-					<PortGroup
-						id={`${props.id}-inputs`}
-						direction="input"
-						ports={inputs.map((port, idx) => ({ ...port, index: idx }) as any)}
-						portSize="md"
-						showLabels={true}
-						onConnectionStart={handlePortConnectionStart}
-						onConnectionEnd={handlePortConnectionEnd}
-					/>
-				{/if}
-
-				{#if hasOutputs}
-					<PortGroup
-						id={`${props.id}-outputs`}
-						direction="output"
-						ports={outputs.map((port, idx) => ({ ...port, index: idx }) as any)}
-						portSize="md"
-						showLabels={true}
-						onConnectionStart={handlePortConnectionStart}
-						onConnectionEnd={handlePortConnectionEnd}
-					/>
-				{/if}
-			</div>
-		{/if}
-
-		{#if !props.hideProperties && hasProperties}
-			<div class="litegraph-node__properties">
-				{#each properties as property (property.id)}
-					<NodeProperty
-						id={property.id}
-						name={property.name}
-						type={property.type}
-						value={property.value}
-						label={property.label}
-						description={property.description}
-						options={property.options}
-						size="sm"
-						onchange={handlePropertyChange}
-					/>
-				{/each}
-			</div>
-		{/if}
-
-		{#if props.bodyContent}
-			<div class="litegraph-node__content">
-				{@render props.bodyContent?.()}
-			</div>
-		{/if}
-
-		{#if props.children}
-			{@render props.children?.()}
-		{/if}
-	</div>
 </div>
 
 <style>
@@ -202,12 +223,14 @@
 		flex-direction: column;
 		min-width: var(--node-min-width, 150px);
 		width: var(--node-width, 200px);
+		height: var(--node-height, auto);
 		background: var(--color-background-primary);
 		border: 1px solid var(--color-border-primary);
-		border-radius: var(--border-radius-lg);
+		border-radius: var(--node-radius, var(--border-radius-lg));
 		box-shadow: var(--shadow-custom39);
 		transition: box-shadow var(--duration-120) var(--animation-ease), border-color var(--duration-120) var(--animation-ease);
 		z-index: var(--z-index-docked);
+		overflow: hidden;
 	}
 
 	:global(.litegraph-node:hover) {
@@ -251,6 +274,50 @@
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-2);
+	}
+
+	:global(.litegraph-node__semantic-shell) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--spacing-3);
+		width: 100%;
+		height: 100%;
+		padding: var(--spacing-3);
+		background:
+			linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.86)),
+			color-mix(in srgb, var(--node-color, #3b82f6) 10%, white);
+	}
+
+	:global(.litegraph-node__semantic-icon) {
+		display: grid;
+		place-items: center;
+		width: 2.25rem;
+		height: 2.25rem;
+		border-radius: 999px;
+		background: color-mix(in srgb, var(--node-color, #3b82f6) 82%, white);
+		color: white;
+		font-weight: 700;
+		font-size: 0.92rem;
+		flex: 0 0 auto;
+	}
+
+	:global(.litegraph-node__semantic-copy) {
+		min-width: 0;
+	}
+
+	:global(.litegraph-node__semantic-title) {
+		font-size: 0.92rem;
+		font-weight: 700;
+		line-height: 1.15;
+		color: var(--color-text-primary);
+	}
+
+	:global(.litegraph-node__semantic-description) {
+		margin-top: 0.25rem;
+		font-size: 0.75rem;
+		line-height: 1.35;
+		color: var(--color-text-secondary);
 	}
 </style>
 

@@ -2,6 +2,7 @@ import type { TokenInteration } from '$stylist/design-system/tokens/interaction/
 import type { TokenSeverity } from '$stylist/design-system/tokens/interaction/sevetity';
 import type { TokenNodeType } from '$stylist/design-system/tokens/architecture/node-type';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture';
+import type { SemanticZoomPresentation } from '$stylist/design-system/runtime/semantic-zoom';
 import { cn } from '$stylist/design-system/utils/cn';
 
 /**
@@ -16,7 +17,8 @@ export class LiteGraphNodeStyleManager {
 		mode: TokenSeverity,
 		status: TokenInteration,
 		size: TokenSize,
-		selected: boolean
+		selected: boolean,
+		presentation?: SemanticZoomPresentation
 	): string {
 		return cn(
 			'litegraph-node',
@@ -24,6 +26,9 @@ export class LiteGraphNodeStyleManager {
 			`litegraph-node--mode-${mode}`,
 			`litegraph-node--status-${status}`,
 			`litegraph-node--size-${size}`,
+			presentation && `litegraph-node--stage-${presentation.stage}`,
+			presentation && `litegraph-node--architecture-${presentation.architecture}`,
+			presentation && `litegraph-node--shape-${presentation.shape}`,
 			selected && 'litegraph-node--selected'
 		);
 	}
@@ -35,16 +40,30 @@ export class LiteGraphNodeStyleManager {
 		x: number;
 		y: number;
 		width: number;
+		minWidth?: number;
+		height?: number | 'auto';
 		color?: string;
 		headerColor?: string;
+		presentation?: SemanticZoomPresentation;
 	}): string {
-		const { x, y, width, color, headerColor } = options;
+		const { x, y, width, minWidth, height, color, headerColor, presentation } = options;
+		const borderRadius =
+			presentation?.shape === 'circle'
+				? '999px'
+				: presentation?.shape === 'pill'
+					? '999px'
+					: presentation?.stage === 'screen'
+						? '28px'
+						: '20px';
 		return `
 			--node-x: ${x}px;
 			--node-y: ${y}px;
 			--node-width: ${width}px;
+			--node-min-width: ${minWidth ?? width}px;
+			--node-height: ${typeof height === 'number' ? `${height}px` : height ?? 'auto'};
 			--node-color: ${color ?? '#3b82f6'};
 			--node-header-color: ${headerColor ?? '#2563eb'};
+			--node-radius: ${borderRadius};
 			transform: translate(${x}px, ${y}px);
 		`.trim();
 	}
@@ -108,7 +127,8 @@ export class LiteGraphNodeStyleManager {
 	static getNodeStatusColor(status: TokenInteration): string {
 		const colorMap: Record<TokenInteration, string> = {
 			enabled: '#64748b',
-			disabled: '#9ca3af'
+			disabled: '#9ca3af',
+			readonly: '#94a3b8'
 		};
 		return colorMap[status] || colorMap.enabled;
 	}

@@ -6,6 +6,7 @@ import type { TokenInteration } from '$stylist/design-system/tokens/interaction/
 import type { TokenSeverity } from '$stylist/design-system/tokens/interaction/sevetity';
 import type { TokenPropertyType } from '$stylist/design-system/tokens/information/property-type';
 import type { TokenNodeType } from '$stylist/design-system/tokens/architecture/node-type';
+import type { SemanticZoomPresentation } from '$stylist/design-system/runtime/semantic-zoom';
 /**
  * РџРѕСЂС‚ СѓР·Р»Р° РіСЂР°С„Р°
  */
@@ -125,6 +126,10 @@ export interface LiteGraphNodeProps extends HtmlAttributesBase<HTMLDivElement> {
 	headerContent?: Snippet;
 	/** РљРѕРЅС‚РµРЅС‚ С‚РµР»Р° */
 	bodyContent?: Snippet;
+	worldDepth?: number;
+	cameraDepth?: number;
+	localCameraDepth?: number;
+	presentation?: SemanticZoomPresentation;
 }
 
 

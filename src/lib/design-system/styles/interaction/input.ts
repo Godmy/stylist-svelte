@@ -2,7 +2,7 @@ import { cn, mergeClasses } from '$stylist/design-system/utils/cn/index';
 import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
 import { TOKEN_APPEARANCE } from '$stylist/design-system/tokens/information/appearance';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
-import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 
 export { TOKEN_APPEARANCE };
 

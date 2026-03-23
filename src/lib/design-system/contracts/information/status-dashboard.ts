@@ -1,5 +1,5 @@
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 // Props for StatusDashboard component
 export interface StatusDashboardProps {
   title?: string;

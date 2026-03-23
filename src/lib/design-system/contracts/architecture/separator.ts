@@ -1,7 +1,7 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/design-system/html/attributes/architecture';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { TokenCodeView } from '$stylist/design-system/tokens/information/code-view';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 
 export interface SeparatorProps extends ArchitectureHTMLAttributes<HTMLHRElement> {
 	orientation?: TokenOrientation;
@@ -16,7 +16,6 @@ export interface SyntaxHighlightedCodeProps extends ArchitectureHTMLAttributes<H
 	showLineNumbers?: boolean;
 	startLineNumber?: number;
 }
-
 
 
 

@@ -31,7 +31,7 @@
 		| 'radius'
 		| 'SHADOW'
 		| 'border'
-		| 'OPACITY'
+		| 'TOKEN_OPACITY'
 		| 'blur'
 		| 'container'
 		| 'grid'
@@ -54,7 +54,7 @@
 		radius: 'M5 19V9a4 4 0 0 1 4-4h10v10a4 4 0 0 1-4 4H5Z',
 		SHADOW: 'M6 8h10a4 4 0 0 1 4 4v6H10a4 4 0 0 1-4-4V8Z',
 		border: 'M4 4h16v16H4zM4 9h16M4 15h16M9 4v16M15 4v16',
-		OPACITY: 'M12 3 4 12l8 9 8-9-8-9Z',
+		TOKEN_OPACITY: 'M12 3 4 12l8 9 8-9-8-9Z',
 		blur: 'M4 12a8 8 0 0 1 16 0M7 12a5 5 0 0 1 10 0M10 12a2 2 0 0 1 4 0',
 		container: 'M3 5h18M3 19h18M6 8v8M18 8v8',
 		grid: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
@@ -92,9 +92,9 @@
 			case 'WIDTH':
 			case 'TOKEN_BORDER_STYLE':
 				return 'border';
-			case 'OPACITY':
-			case 'OPACITY_ALT':
-				return 'OPACITY';
+			case 'TOKEN_OPACITY':
+			case 'TOKEN_OPACITY_ALT':
+				return 'TOKEN_OPACITY';
 			case 'BLUR':
 				return 'blur';
 			case 'WIDTH_CONTAINER':
@@ -106,7 +106,7 @@
 				return 'grid';
 			case 'TOKEN_ASPECT_RATIO':
 				return 'aspect';
-			case 'Z_INDEX':
+			case 'TOKEN_Z_INDEX':
 				return 'layers';
 			case 'COLOR_PALETTES':
 			case 'COLORS_PALETTE':
@@ -130,8 +130,8 @@
 			case 'ownership':
 				return 'graph';
 			case 'TRANSITION':
-			case 'TRANSITION_DURATION':
-			case 'TRANSITION_EASING':
+			case 'TOKEN_DURATION':
+			case 'TOKEN_EASING':
 			case 'ANIMATION_DELAY':
 				return 'motion';
 			case 'APPEARANCE_STYLES':
@@ -262,5 +262,4 @@
 		display: block;
 	}
 </style>
-
 

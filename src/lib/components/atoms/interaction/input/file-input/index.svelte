@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction';
+	import { createInputState as createBaseInputState } from '$stylist/design-system/runtime/interaction/index';
 	import { INPUT_FIELD_PRESET } from '$stylist/design-system/runtime/input';
 	import { getFileSelectionLabel } from '$stylist/design-system/utils/input';
 	import type { HTMLInputAttributes } from 'svelte/elements';

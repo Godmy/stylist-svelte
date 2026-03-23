@@ -1,7 +1,7 @@
 import type { Theme } from '$stylist/design-system/contracts/theme/theme';
 import { darkTheme, lightTheme } from '$stylist/design-system/defaults/theme';
-import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
-import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+import type { TokenThemeName } from '$stylist/design-system/tokens/information/theme-name';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/information/theme-scheme-id';
 import { THEME_SCHEMES_BY_ID } from '$stylist/design-system/defaults/theme/theme-schemes';
 
 function stringEntries(value: object): [string, string][] {

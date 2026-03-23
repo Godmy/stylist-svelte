@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { HtmlAttributesBase } from '$stylist/design-system/contracts/information/common';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 
 /**
  * Р­Р»РµРјРµРЅС‚ РїР°РЅРµР»Рё РёРЅСЃС‚СЂСѓРјРµРЅС‚РѕРІ

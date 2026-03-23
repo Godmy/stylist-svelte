@@ -1,8 +1,8 @@
-import { Scale } from '$stylist/design-system/tokens/theme/scale';
-import { TYPOGRAPHY_FONT_FAMILY } from '$stylist/design-system/tokens/theme/typography/font-family';
-import { TYPOGRAPHY_FONT_SIZE } from '$stylist/design-system/tokens/theme/typography/font-size';
-import { TYPOGRAPHY_LETTER_SPACING } from '$stylist/design-system/tokens/theme/typography/letter-spacing';
-import { TYPOGRAPHY_LINE_HEIGHT } from '$stylist/design-system/tokens/theme/typography/line-height';
+import { Scale } from '$stylist/design-system/defaults/theme/scale';
+import { TOKEN_FONT_FAMILY } from '$stylist/design-system/tokens/information/font-family';
+import { TYPOGRAPHY_FONT_SIZE } from '$stylist/design-system/defaults/theme/typography/font-size';
+import { TOKEN_LETTER_SPACING } from '$stylist/design-system/tokens/architecture/letter-spacing';
+import { TOKEN_LINE_HEIGHT } from '$stylist/design-system/tokens/architecture/line-height';
 
 export interface ThemeTypography {
 	fontFamily: string;
@@ -13,7 +13,7 @@ export interface ThemeTypography {
 }
 
 export const THEME_TYPOGRAPHY: ThemeTypography = {
-	fontFamily: TYPOGRAPHY_FONT_FAMILY.sans,
+	fontFamily: TOKEN_FONT_FAMILY.sans,
 	fontSize: TYPOGRAPHY_FONT_SIZE as Record<string, string>,
 	fontWeight: {
 		thin: Scale[100],
@@ -26,8 +26,8 @@ export const THEME_TYPOGRAPHY: ThemeTypography = {
 		extrabold: Scale[800],
 		black: Scale[900]
 	},
-	lineHeight: TYPOGRAPHY_LINE_HEIGHT as Record<string, string>,
-	letterSpacing: TYPOGRAPHY_LETTER_SPACING as Record<string, string>
+	lineHeight: TOKEN_LINE_HEIGHT as Record<string, string>,
+	letterSpacing: TOKEN_LETTER_SPACING as Record<string, string>
 };
 
 

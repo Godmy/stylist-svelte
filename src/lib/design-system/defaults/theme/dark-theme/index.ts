@@ -1,18 +1,23 @@
-import { COLORS_SCALES_AMBER } from '$stylist/design-system/tokens/theme/colors-scales/amber';
-import { COLORS_SCALES_BLUE } from '$stylist/design-system/tokens/theme/colors-scales/blue';
-import { COLORS_SCALES_NEUTRAL } from '$stylist/design-system/tokens/theme/colors-scales/neutral';
-import { COLORS_SCALES_RED } from '$stylist/design-system/tokens/theme/colors-scales/red';
-import { COLORS_SCALES_SLATE } from '$stylist/design-system/tokens/theme/colors-scales/slate';
-import { COLORS_SCALES_TEAL } from '$stylist/design-system/tokens/theme/colors-scales/teal';
+import { COLORS_SCALES_AMBER } from '$stylist/design-system/defaults/theme/colors-scales/amber';
+import { COLORS_SCALES_BLUE } from '$stylist/design-system/defaults/theme/colors-scales/blue';
+import { COLORS_SCALES_NEUTRAL } from '$stylist/design-system/defaults/theme/colors-scales/neutral';
+import { COLORS_SCALES_RED } from '$stylist/design-system/defaults/theme/colors-scales/red';
+import { COLORS_SCALES_SLATE } from '$stylist/design-system/defaults/theme/colors-scales/slate';
+import { COLORS_SCALES_TEAL } from '$stylist/design-system/defaults/theme/colors-scales/teal';
 import { THEME_TYPOGRAPHY } from '$stylist/design-system/contracts/theme/theme-typography';
-import { THEME_RADIUS } from '$stylist/design-system/tokens/theme/border-radius';
-import { THEME_BOX_SHADOW } from '$stylist/design-system/tokens/theme/box-shadows';
-import { DIRECTIONAL_GRADIENTS, GRADIENTS, RADIAL_GRADIENTS } from '$stylist/design-system/tokens/theme/gradients';
-import { ANIMATIONS, DURATION, TRANSITION, TRANSITION_EASING } from '$stylist/design-system/tokens/theme/motion';
-import { OPACITY } from '$stylist/design-system/tokens/theme/opacity';
-import { Size } from '$stylist/design-system/tokens/theme/size';
-import { THEME_SPACING } from '$stylist/design-system/tokens/theme/spacing';
-import { Z_INDEX } from '$stylist/design-system/tokens/theme/z-index';
+import { THEME_RADIUS } from '$stylist/design-system/defaults/theme/border-radius';
+import { THEME_BOX_SHADOW } from '$stylist/design-system/defaults/theme/box-shadows';
+import { DIRECTIONAL_GRADIENTS } from '$stylist/design-system/defaults/theme/gradient-directional';
+import { RADIAL_GRADIENTS } from '$stylist/design-system/defaults/theme/gradient-radial';
+import { GRADIENTS } from '$stylist/design-system/defaults/theme/gradient-type';
+import { TOKEN_ANIMATION } from '$stylist/design-system/tokens/interaction/animation';
+import { TOKEN_DURATION } from '$stylist/design-system/tokens/interaction/duration';
+import { TRANSITION } from '$stylist/design-system/defaults/theme/transitions';
+import { TOKEN_EASING } from '$stylist/design-system/tokens/architecture/easing';
+import { TOKEN_OPACITY } from '$stylist/design-system/tokens/architecture/opacity';
+import { Size } from '$stylist/design-system/defaults/theme/size';
+import { THEME_SPACING } from '$stylist/design-system/defaults/theme/spacing';
+import { TOKEN_Z_INDEX } from '$stylist/design-system/tokens/architecture/z-index';
 import type { Theme } from '$stylist/design-system/contracts/theme/theme';
 
 export const darkTheme: Theme = {
@@ -51,13 +56,13 @@ export const darkTheme: Theme = {
 	borderRadius: THEME_RADIUS,
 	boxShadow: THEME_BOX_SHADOW,
 	size: Size,
-	opacity: OPACITY,
-	zIndex: Z_INDEX,
+	opacity: TOKEN_OPACITY,
+	zIndex: TOKEN_Z_INDEX,
 	motion: {
-		duration: DURATION,
-		easing: TRANSITION_EASING,
+		duration: TOKEN_DURATION,
+		easing: TOKEN_EASING,
 		transitions: TRANSITION,
-		animations: ANIMATIONS
+		animations: TOKEN_ANIMATION
 	},
 	gradients: {
 		types: GRADIENTS,

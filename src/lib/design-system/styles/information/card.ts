@@ -2,7 +2,7 @@
  * Base StyleManager for all card components
  */
 
-import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 import { InteractionStyleManager } from '$stylist/design-system/styles/interaction/interaction';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';

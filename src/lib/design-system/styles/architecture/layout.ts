@@ -1,6 +1,6 @@
 import type { TokenAlignment, TokenJustification } from '$stylist/design-system/tokens';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
-import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 import { cn } from '$stylist/design-system/utils/cn/index';
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 
@@ -155,4 +155,3 @@ export class LayoutStyleManager {
 		}
 	}
 }
-

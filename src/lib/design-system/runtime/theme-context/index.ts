@@ -1,7 +1,7 @@
 import { getContext, hasContext, setContext } from 'svelte';
 
 import type { Theme } from '$stylist/design-system/contracts/theme/theme';
-import type { TokenThemeName } from '$stylist/design-system/tokens/theme/theme-name';
+import type { TokenThemeName } from '$stylist/design-system/tokens/information/theme-name';
 
 export interface ThemeContext {
 	theme: Theme;

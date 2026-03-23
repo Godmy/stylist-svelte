@@ -25,7 +25,7 @@
       defaultValue: true
     },
     {
-      name: 'showAnimationsToggle',
+      name: 'showTokenAnimationToggle',
       type: CONTROL_TYPES.BOOLEAN,
       defaultValue: true
     }
@@ -45,7 +45,7 @@
       showFontSizeControls={values.showFontSizeControls}
       showScreenReaderTester={values.showScreenReaderTester}
       showFocusIndicator={values.showFocusIndicator}
-      showAnimationsToggle={values.showAnimationsToggle}
+      showTokenAnimationToggle={values.showTokenAnimationToggle}
     />
   {/snippet}
 </Story>

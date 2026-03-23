@@ -1,6 +1,6 @@
 import type { SpacerProps } from '$stylist/design-system/contracts';
 import { LayoutStyleManager } from '$stylist/design-system/styles/architecture/layout';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 import { clsx } from 'clsx';
 
 export function createSpacerState(props: SpacerProps) {
@@ -22,7 +22,6 @@ export function createSpacerState(props: SpacerProps) {
 }
 
 export default createSpacerState;
-
 
 
 

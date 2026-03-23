@@ -1,6 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { TOKEN_ACTIVITY } from './activity';
+export { TOKEN_ANIMATION } from './animation';
 export { TOKEN_AVAILABILITY } from './availability';
+export { TOKEN_DURATION } from './duration';
 export { TOKEN_FLOW } from './flow';
 export { TOKEN_INTERACTION } from './interaction';
 export { TOKEN_KPI } from './kpi';
@@ -22,7 +24,9 @@ export { TOKEN_TRIGGER } from './trigger';
 export { TOKEN_VALIDATION } from './validation';
 export { TOKEN_VISIBILITY } from './visibility';
 export type { TokenActivity } from './activity';
+export type { TokenAnimation } from './animation';
 export type { TokenAvailability } from './availability';
+export type { TokenDuration } from './duration';
 export type { TokenFlow } from './flow';
 export type { TokenInteration } from './interaction';
 export type { TokenKPI } from './kpi';
@@ -30,7 +34,7 @@ export type { TokenLoading } from './loading';
 export type { TokenMessageState } from './message-state';
 export type { TokenMessageStatus } from './message-status';
 export type { TokenMonitoringType } from './monitoring-type';
-export type { NotificationChannel } from './notification-channel';
+export type { TokenNotifictionChannel } from './notification-channel';
 export type { TokenProcess } from './process';
 export type { TokenProgressType } from './progress-type';
 export type { TokenRadio } from './radio';

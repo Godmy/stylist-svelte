@@ -1,5 +1,5 @@
 import type { TokenAppearance } from '$stylist/design-system/tokens/information/appearance';
-import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation';
+import { BASE_CLASSES } from '$stylist/design-system/runtime/foundation/index';
 import { cn } from '$stylist/design-system/utils/cn/index';
 
 const INTERACTIVE_BASE_CLASS = BASE_CLASSES.interactive;

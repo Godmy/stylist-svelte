@@ -1,4 +1,4 @@
-import type { TokenSchemeId } from '$stylist/design-system/tokens/theme/theme-scheme-id';
+import type { TokenSchemeId } from '$stylist/design-system/tokens/information/theme-scheme-id';
 
 export type ThemeScheme = {
 	id: TokenSchemeId;

@@ -2,7 +2,7 @@ import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from '
 
 import type { TokenSize } from '$stylist/design-system/tokens/architecture/size';
 import type { HtmlAttributesWithChildren } from '$stylist/design-system/contracts/information/common';
-import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/ownership/orientation';
+import type { TokenOrientation } from '$stylist/design-system/tokens/architecture/orientation';
 import type { TokenSelectionType } from '$stylist/design-system/tokens/interaction/selection-type';
 
 export interface ToggleGroupRootProps
