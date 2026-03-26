@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { INFORMATION_SHADER_CATALOG } from './manifest';

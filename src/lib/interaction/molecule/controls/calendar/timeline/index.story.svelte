@@ -1,0 +1,42 @@
+<script lang="ts">
+  import Story from '$stylist/interaction/playground/Story.svelte';
+  import Timeline from './index.svelte';
+  import type { TokenControllerType } from '$stylist/interaction/type/token/controller-type';
+
+  const defaultItems = [
+    { id: '1', date: '2023-01-15', title: 'Project Started', content: undefined },
+    { id: '2', date: '2023-02-01', title: 'Design Phase', content: undefined },
+    { id: '3', date: '2023-03-10', title: 'Development', content: undefined },
+    { id: '4', date: '2023-04-20', title: 'Testing', content: undefined },
+    { id: '5', date: '2023-05-05', title: 'Launch', content: undefined }
+  ];
+
+  const controls = [
+    {
+      name: 'orientation',
+      type: 'select' as TokenControllerType,
+      defaultValue: 'vertical',
+      options: ['vertical', 'horizontal'],
+      description: 'Orientation of the timeline'
+    }
+  ];
+</script>
+
+<Story
+  {controls}
+  title="Timeline Component"
+  description="Timeline component to show events chronologically"
+ 
+>
+  {#snippet children(controlValues: any)}
+  <div class="p-4">
+    <Timeline
+      items={defaultItems}
+      orientation={controlValues.orientation}
+    />
+  </div>
+
+  {/snippet}
+</Story>
+
+

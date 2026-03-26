@@ -1,0 +1,2449 @@
+{
+  "generatedAt": "2026-03-16T20:21:21.161Z",
+  "keys": {
+    "tokens": [
+      "ABTestStatus",
+      "ActivityStatus",
+      "ALERT_TYPES",
+      "AlertType",
+      "Alignment",
+      "ALIGNMENTS",
+      "AppearanceStyle",
+      "ASPECT_RATIO",
+      "AspectRatio",
+      "Background",
+      "BACKGROUND",
+      "BadgeType",
+      "BILLING_ITEM_STATUSES",
+      "BILLING_SUMMARY_STATUSES",
+      "BillingItemStatus",
+      "BillingSummaryStatus",
+      "CalendarViewMode",
+      "CARD_SIZES",
+      "CARD_TYPES",
+      "CARD_VARIANTS",
+      "CardSize",
+      "CardType",
+      "CardVariant",
+      "CHART_TYPES",
+      "ChartType",
+      "Code",
+      "CODE",
+      "CODE_LANGUAGES",
+      "CodeLanguage",
+      "COMPONENT_SIZE",
+      "ComponentSize",
+      "CONTAINER_MAX_WIDTH",
+      "ContainerMaxWidth",
+      "CTA_BANNER_BACKGROUND_VARIANTS",
+      "CtaBannerBackgroundVariant",
+      "DefaultVariants",
+      "DENSITIES",
+      "Density",
+      "DIFF_LINE_TYPES",
+      "DiffLineType",
+      "DividerAlign",
+      "DOCUMENT_PREVIEW_FORMATS",
+      "DocumentPreviewFormat",
+      "DROPDOWN_POSITIONS",
+      "DropdownPosition",
+      "FlowVariant",
+      "GEOMETRY",
+      "GRADIENT_VARIANTS",
+      "GradientVariant",
+      "GRAPH_PORT_COLORS",
+      "GRAPH_PORT_DATA_TYPES",
+      "GRAPH_PORT_DIRECTIONS",
+      "GRAPH_PORT_SIZE_MAP",
+      "GraphCanvasGridMode",
+      "GraphCanvasPanMode",
+      "GraphPortDataType",
+      "GraphPortDirection",
+      "GraphPortSize",
+      "GraphPortSizeKey",
+      "GraphPortType",
+      "GRID_COLUMNS",
+      "GridColumnsKey",
+      "GridItem",
+      "GridItemContent",
+      "Height",
+      "HierarchyVariant",
+      "HORIZONTAL_POSITIONS",
+      "ICON_PICKER_COLUMN_COUNTS",
+      "ICON_WRAPPER_SHAPES",
+      "IconWrapperShape",
+      "IMAGE_FILTERS",
+      "ImageFilter",
+      "INLINE_CODE_VARIANTS",
+      "InlineCodeVariant",
+      "INPUT_VARIANTS",
+      "InputAddonPosition",
+      "InputStateStatus",
+      "InputVariant",
+      "InteractionState",
+      "Justification",
+      "JUSTIFICATIONS",
+      "KPI_TRENDS",
+      "KPIStatus",
+      "KPITrend",
+      "LabelPosition",
+      "LayoutSize",
+      "LINE_CHART_VARIANTS",
+      "LineChartVariant",
+      "LITEGRAPH_NODE_STATES",
+      "LITEGRAPH_NODE_TYPES",
+      "LiteGraphNodeState",
+      "LiteGraphNodeType",
+      "LoadingState",
+      "MAP_MARKER_CATEGORIES",
+      "MAP_MARKER_PIN_STYLES",
+      "MapMarkerType",
+      "MarkerCategory",
+      "MESSAGE_ALIGNMENTS",
+      "MESSAGE_AVATAR_SIZES",
+      "MESSAGE_BUBBLE_VARIANTS",
+      "MESSAGE_STATUSES",
+      "MESSAGE_VARIANTS",
+      "MessageAlign",
+      "MessageAvatarSize",
+      "MessageBubbleVariant",
+      "MessageDeliveryStatus",
+      "MessageStatus",
+      "MessageStatusType",
+      "MessageTimestampFormatStyle",
+      "MessageVariant",
+      "NeutralVariant",
+      "NODE_PROPERTY_TYPES",
+      "NODE_TITLE",
+      "NodePropertyType",
+      "NodeTitleStatus",
+      "NodeTitleVariant",
+      "NOTIFICATION_BADGE_POSITIONS",
+      "NOTIFICATION_CHANNELS",
+      "NOTIFICATION_POSITIONS",
+      "NotificationBadgePosition",
+      "NotificationBadgeVariant",
+      "NotificationChannel",
+      "NotificationPosition",
+      "NotificationType",
+      "ORDER_STATUSES",
+      "OrderStatus",
+      "Orientation",
+      "ORIENTATIONS",
+      "PAGE_BUILDER_ELEMENT_TYPES",
+      "PageBuilderElementType",
+      "PAN_MODES",
+      "PanMode",
+      "PAYMENT_METHOD_TYPES",
+      "PAYMENT_STATUSES",
+      "PaymentMethodType",
+      "PaymentStatus",
+      "PinStyle",
+      "PredictionResultStatus",
+      "PresenceStatus",
+      "PrimitiveChart",
+      "PrimitiveConnector",
+      "PrimitiveCorner",
+      "PrimitiveGroup",
+      "PrimitiveMarker",
+      "PrimitiveOwnership",
+      "PrimitivePin",
+      "PrimitiveRelationship",
+      "PrimitiveShape",
+      "PrimitiveSkeleton",
+      "PrimitiveTrajectory",
+      "PRIORITES",
+      "Priority",
+      "ProcessStatus",
+      "PRODUCT_CARD_VARIANTS",
+      "ProductCardVariant",
+      "PROGRESS_TYPES",
+      "PROGRESS_VARIANTS",
+      "ProgressType",
+      "ProgressVariant",
+      "PROP_TYPES",
+      "PropType",
+      "QUANTITY_SELECTOR_VARIANTS",
+      "QuantitySelectorVariant",
+      "RESPONSE_VIEWER_STATUSES",
+      "ResponseViewerStatus",
+      "SELECTION_TYPE",
+      "SelectVariant",
+      "SemanticStatus",
+      "SemanticVariant",
+      "SeverityStatus",
+      "SIDEBAR_VARIANTS",
+      "SidebarVariant",
+      "SORT_DIRECTIONS",
+      "SortDirection",
+      "StateVariant",
+      "STATUS_AXES",
+      "STATUS_INDICATOR_STATUSES",
+      "STATUSES",
+      "StatusIndicatorStatus",
+      "StepIconStatus",
+      "Style",
+      "STYLE",
+      "TAB_GROUP_VARIANTS",
+      "TabGroupVariant",
+      "TABLE_CELLS",
+      "TableCell",
+      "TColumns",
+      "TextAlign",
+      "TimeRange",
+      "ToggleGroupType",
+      "TOKEN_CONTROL_KINDS",
+      "TOKEN_DOMAINS",
+      "TokenContainerMaxWidth",
+      "TokenControlKind",
+      "TokenDomain",
+      "TokenValue",
+      "ToneVariant",
+      "TOOLBAR_VARIANTS",
+      "ToolbarVariant",
+      "TOOLTIP_PLACEMENTS",
+      "TOOLTIP_VARIANTS",
+      "TooltipPlacement",
+      "TooltipTrigger",
+      "TooltipVariant",
+      "Translation",
+      "TRANSLATIONS",
+      "TRIGGERS",
+      "ValidationState",
+      "VARIANTS",
+      "VERDICTS",
+      "VerdictStatus",
+      "VisibilityState"
+    ]
+  },
+  "constants": {
+    "ALIGNMENTS": [
+      "top",
+      "top-center",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-center",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-center",
+      "left-start",
+      "left-end",
+      "right",
+      "right-center",
+      "right-start",
+      "right-end",
+      "center",
+      "justify"
+    ],
+    "JUSTIFICATIONS": [
+      "stretch",
+      "baseline",
+      "between",
+      "around",
+      "evenly",
+      "justify"
+    ],
+    "ASPECT_RATIO": {
+      "square": "1 / 1",
+      "video": "16 / 9",
+      "wideVideo": "21 / 9",
+      "portrait": "3 / 4",
+      "landscape": "4 / 3",
+      "golden": "1.618 / 1",
+      "photo": "3 / 2"
+    },
+    "COMPONENT_SIZE": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl"
+    ],
+    "DENSITIES": [
+      "default",
+      "compact",
+      "spacious"
+    ],
+    "GRADIENT_VARIANTS": [
+      "dynamic",
+      "static",
+      "particles"
+    ],
+    "GRID_COLUMNS": {
+      "1": "repeat(1, minmax(0, 1fr))",
+      "2": "repeat(2, minmax(0, 1fr))",
+      "3": "repeat(3, minmax(0, 1fr))",
+      "4": "repeat(4, minmax(0, 1fr))",
+      "6": "repeat(6, minmax(0, 1fr))",
+      "12": "repeat(12, minmax(0, 1fr))",
+      "auto": "repeat(auto-fit, minmax(0, 1fr))"
+    },
+    "MESSAGE_BUBBLE_VARIANTS": [
+      "default",
+      "system"
+    ],
+    "ORIENTATIONS": [
+      "horizontal",
+      "vertical"
+    ],
+    "PAN_MODES": [
+      "drag",
+      "space",
+      "always"
+    ],
+    "GEOMETRY": {
+      "trajectory": [
+        "straight",
+        "curve",
+        "polyline",
+        "bezier",
+        "arc",
+        "loop",
+        "elbow",
+        "step",
+        "smooth-step"
+      ],
+      "connector": [
+        "invisible",
+        "line",
+        "arrow",
+        "ring",
+        "anchor"
+      ],
+      "relationship": [
+        "owner",
+        "input",
+        "output",
+        "one-to-one",
+        "one-to-many",
+        "many-to-many"
+      ],
+      "shape": [
+        "circle",
+        "pill",
+        "square",
+        "rectangle",
+        "diamond",
+        "triangle",
+        "star",
+        "flag"
+      ],
+      "corner": [
+        "rounded",
+        "sharp"
+      ],
+      "chart": [
+        "pie",
+        "bar",
+        "line",
+        "area",
+        "bubble",
+        "radar",
+        "heatmap",
+        "tree",
+        "sankey",
+        "gantt",
+        "timeline",
+        "funnel"
+      ],
+      "skeleton": [
+        "text",
+        "card",
+        "image",
+        "icon"
+      ],
+      "marker": [
+        "dot",
+        "number",
+        "letter",
+        "check",
+        "x"
+      ],
+      "pin": [
+        "person",
+        "place",
+        "business"
+      ],
+      "ownership": [
+        "government",
+        "private",
+        "brand"
+      ]
+    },
+    "CONTAINER_MAX_WIDTH": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "full"
+    ],
+    "STYLE": [
+      "solid",
+      "dashed",
+      "dotted",
+      "double",
+      "none",
+      "bold",
+      "tapered",
+      "invisible"
+    ],
+    "TABLE_CELLS": [
+      "header",
+      "data"
+    ],
+    "BACKGROUND": [
+      "default",
+      "gradient",
+      "particles",
+      "image"
+    ],
+    "CARD_SIZES": [
+      "sm",
+      "md",
+      "lg",
+      "xl"
+    ],
+    "CARD_VARIANTS": [
+      "default",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "solid",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light",
+      "elevated",
+      "flat"
+    ],
+    "PROGRESS_VARIANTS": [
+      "success",
+      "warning",
+      "danger",
+      "info",
+      "secondary",
+      "primary"
+    ],
+    "CHART_TYPES": [
+      "line",
+      "bar",
+      "pie"
+    ],
+    "CODE_LANGUAGES": [
+      "javascript",
+      "typescript",
+      "html",
+      "css",
+      "svelte",
+      "json",
+      "markdown",
+      "python",
+      "java",
+      "csharp",
+      "cpp",
+      "go",
+      "rust",
+      "sql",
+      "yaml",
+      "xml"
+    ],
+    "CTA_BANNER_BACKGROUND_VARIANTS": [
+      "gradient",
+      "solid",
+      "image"
+    ],
+    "DIFF_LINE_TYPES": [
+      "added",
+      "removed",
+      "unchanged"
+    ],
+    "GRAPH_PORT_COLORS": {
+      "number": "#4CAF50",
+      "string": "#2196F3",
+      "boolean": "#FF9800",
+      "object": "#9C27B0",
+      "array": "#00BCD4",
+      "any": "#9E9E9E",
+      "event": "#F44336",
+      "action": "#E91E63",
+      "default": "#9E9E9E",
+      "connected": "#4CAF50",
+      "hovered": "#2196F3",
+      "active": "#FF9800",
+      "error": "#F44336",
+      "selected": "#673AB7"
+    },
+    "GRAPH_PORT_DATA_TYPES": [
+      "number",
+      "string",
+      "boolean",
+      "object",
+      "array",
+      "any",
+      "event",
+      "action"
+    ],
+    "GRAPH_PORT_DIRECTIONS": [
+      "input",
+      "output"
+    ],
+    "GRAPH_PORT_SIZE_MAP": {
+      "xs": {
+        "width": "8px",
+        "height": "8px",
+        "hoverArea": "16px"
+      },
+      "sm": {
+        "width": "10px",
+        "height": "10px",
+        "hoverArea": "20px"
+      },
+      "md": {
+        "width": "12px",
+        "height": "12px",
+        "hoverArea": "24px"
+      },
+      "lg": {
+        "width": "16px",
+        "height": "16px",
+        "hoverArea": "32px"
+      },
+      "xl": {
+        "width": "20px",
+        "height": "20px",
+        "hoverArea": "40px"
+      },
+      "2xl": {
+        "width": "24px",
+        "height": "24px",
+        "hoverArea": "48px"
+      }
+    },
+    "ICON_WRAPPER_SHAPES": [
+      "circle",
+      "square",
+      "pill",
+      "rounded"
+    ],
+    "IMAGE_FILTERS": [
+      "none",
+      "grayscale",
+      "sepia",
+      "invert",
+      "blur",
+      "brightness",
+      "contrast",
+      "hue-rotate",
+      "saturate"
+    ],
+    "KPI_TRENDS": [
+      "up",
+      "down",
+      "neutral"
+    ],
+    "LITEGRAPH_NODE_STATES": [
+      "default",
+      "selected",
+      "active",
+      "error",
+      "warning",
+      "disabled"
+    ],
+    "LITEGRAPH_NODE_TYPES": [
+      "default",
+      "source",
+      "processor",
+      "output",
+      "gateway",
+      "custom"
+    ],
+    "MAP_MARKER_CATEGORIES": [
+      "restaurant",
+      "hotel",
+      "attraction",
+      "service",
+      "transport",
+      "health",
+      "education",
+      "shopping",
+      "emergency"
+    ],
+    "MAP_MARKER_PIN_STYLES": [
+      "line",
+      "anchor",
+      "ring",
+      "flag"
+    ],
+    "MESSAGE_ALIGNMENTS": [
+      "left",
+      "right"
+    ],
+    "MESSAGE_AVATAR_SIZES": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "MESSAGE_STATUSES": [
+      "sent",
+      "delivered",
+      "read",
+      "error"
+    ],
+    "MESSAGE_VARIANTS": [
+      "default",
+      "system",
+      "incoming",
+      "outgoing",
+      "error",
+      "warning",
+      "success"
+    ],
+    "NODE_PROPERTY_TYPES": [
+      "string",
+      "number",
+      "boolean",
+      "enum",
+      "color",
+      "vector2",
+      "vector3",
+      "object",
+      "function"
+    ],
+    "PRIORITES": [
+      "low",
+      "medium",
+      "high",
+      "urgent",
+      "critical"
+    ],
+    "PRODUCT_CARD_VARIANTS": [
+      "default",
+      "compact",
+      "with-actions"
+    ],
+    "STATUS_INDICATOR_STATUSES": [
+      "online",
+      "offline",
+      "away",
+      "busy",
+      "success",
+      "warning",
+      "error",
+      "info",
+      "neutral",
+      "custom"
+    ],
+    "TRANSLATIONS": [
+      "translated",
+      "needs-review",
+      "untranslated"
+    ],
+    "ALERT_TYPES": [
+      "monitoring",
+      "reached",
+      "exceeded"
+    ],
+    "DROPDOWN_POSITIONS": [
+      "left",
+      "right",
+      "center"
+    ],
+    "HORIZONTAL_POSITIONS": [
+      "left",
+      "right"
+    ],
+    "ICON_PICKER_COLUMN_COUNTS": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "NOTIFICATION_CHANNELS": [
+      "email",
+      "push",
+      "sms",
+      "in_app"
+    ],
+    "NOTIFICATION_BADGE_POSITIONS": [
+      "top-end",
+      "top-start",
+      "bottom-end",
+      "bottom-start"
+    ],
+    "NOTIFICATION_POSITIONS": [
+      "top-end",
+      "top-start",
+      "bottom-end",
+      "bottom-start",
+      "top-center",
+      "bottom-center"
+    ],
+    "PAGE_BUILDER_ELEMENT_TYPES": [
+      "text",
+      "image",
+      "video",
+      "button",
+      "divider",
+      "heading",
+      "container",
+      "grid"
+    ],
+    "PAYMENT_METHOD_TYPES": [
+      "credit_card",
+      "debit_card",
+      "paypal",
+      "bank_transfer",
+      "digital_wallet",
+      "cash_on_delivery",
+      "crypto",
+      "apple_pay",
+      "google_pay",
+      "bank_account"
+    ],
+    "PROGRESS_TYPES": [
+      "determinate",
+      "indeterminate"
+    ],
+    "PROP_TYPES": [
+      "string",
+      "number",
+      "boolean",
+      "enum"
+    ],
+    "SELECTION_TYPE": [
+      "single",
+      "multiple"
+    ],
+    "SORT_DIRECTIONS": [
+      "asc",
+      "desc",
+      "none"
+    ],
+    "BILLING_ITEM_STATUSES": [
+      "paid",
+      "pending",
+      "failed",
+      "refunded"
+    ],
+    "BILLING_SUMMARY_STATUSES": [
+      "paid",
+      "pending",
+      "cancelled",
+      "overdue"
+    ],
+    "NODE_TITLE": [
+      "default",
+      "selected",
+      "error",
+      "warning"
+    ],
+    "ORDER_STATUSES": [
+      "pending",
+      "cancelled",
+      "processing",
+      "shipped",
+      "delivered"
+    ],
+    "PAYMENT_STATUSES": [
+      "pending",
+      "failed",
+      "refunded",
+      "processing",
+      "completed"
+    ],
+    "RESPONSE_VIEWER_STATUSES": [
+      "success",
+      "error",
+      "loading",
+      "info"
+    ],
+    "STATUSES": {
+      "workflow": {
+        "abtest": [
+          "draft",
+          "running",
+          "completed",
+          "paused"
+        ],
+        "activity": [
+          "active",
+          "inactive",
+          "pending",
+          "paused",
+          "completed"
+        ],
+        "flow": [
+          "completed",
+          "current",
+          "upcoming",
+          "skipped"
+        ]
+      },
+      "lifecycle": {
+        "loading": [
+          "idle",
+          "loading",
+          "success",
+          "error"
+        ],
+        "validation": [
+          "valid",
+          "invalid",
+          "pending"
+        ],
+        "interaction": [
+          "enabled",
+          "disabled",
+          "readonly"
+        ],
+        "visibility": [
+          "visible",
+          "hidden",
+          "collapsed"
+        ]
+      },
+      "communication": {
+        "message": [
+          "sent",
+          "delivered",
+          "read"
+        ],
+        "presence": [
+          "online",
+          "offline",
+          "away",
+          "busy",
+          "typing"
+        ],
+        "predictionResult": [
+          "success",
+          "error",
+          "loading",
+          "warning"
+        ],
+        "responseViewer": [
+          "success",
+          "error",
+          "loading",
+          "info"
+        ]
+      },
+      "feedback": {
+        "semantic": [
+          "info",
+          "success",
+          "warning",
+          "error"
+        ],
+        "verdict": [
+          "silent",
+          "info",
+          "success",
+          "warning",
+          "error"
+        ],
+        "stepIcon": [
+          "pending",
+          "active",
+          "completed",
+          "error"
+        ],
+        "nodeTitle": [
+          "default",
+          "selected",
+          "error",
+          "warning"
+        ]
+      },
+      "input": {
+        "state": [
+          "error",
+          "valid",
+          "disabled",
+          "readonly",
+          "loading"
+        ]
+      },
+      "business": {
+        "payment": [
+          "pending",
+          "failed",
+          "refunded",
+          "processing",
+          "completed"
+        ],
+        "order": [
+          "pending",
+          "cancelled",
+          "processing",
+          "shipped",
+          "delivered"
+        ],
+        "billingItem": [
+          "paid",
+          "pending",
+          "failed",
+          "refunded"
+        ],
+        "billingSummary": [
+          "paid",
+          "pending",
+          "cancelled",
+          "overdue"
+        ]
+      }
+    },
+    "STATUS_AXES": {
+      "severity": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "process": [
+        "pending",
+        "processing",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "messageDelivery": [
+        "sent",
+        "delivered",
+        "read"
+      ]
+    },
+    "VERDICTS": [
+      "silent",
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "TAB_GROUP_VARIANTS": [
+      "line",
+      "boxed",
+      "pill"
+    ],
+    "TOKEN_CONTROL_KINDS": [
+      "radio",
+      "select",
+      "range",
+      "text"
+    ],
+    "TOKEN_DOMAINS": [
+      "architecture",
+      "information",
+      "interaction"
+    ],
+    "TOOLBAR_VARIANTS": [
+      "default",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "neutral",
+      "dark",
+      "light"
+    ],
+    "TOOLTIP_PLACEMENTS": [
+      "top",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-start",
+      "left-end",
+      "right",
+      "right-start",
+      "right-end"
+    ],
+    "TOOLTIP_VARIANTS": [
+      "default",
+      "with-arrow",
+      "simple"
+    ],
+    "TRIGGERS": [
+      "hover",
+      "click",
+      "focus"
+    ],
+    "CARD_TYPES": [
+      "default",
+      "featured",
+      "compact",
+      "detailed"
+    ],
+    "CODE": [
+      "default",
+      "terminal",
+      "diff"
+    ],
+    "DOCUMENT_PREVIEW_FORMATS": [
+      "json",
+      "xml",
+      "text",
+      "html"
+    ],
+    "INLINE_CODE_VARIANTS": [
+      "default",
+      "subtle"
+    ],
+    "INPUT_VARIANTS": {
+      "appearance": [
+        "solid",
+        "outline",
+        "ghost",
+        "link",
+        "subtle"
+      ],
+      "hierarchy": [
+        "primary",
+        "secondary"
+      ],
+      "semantic": [
+        "info",
+        "success",
+        "warning",
+        "error",
+        "danger"
+      ],
+      "tone": [
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "danger"
+      ],
+      "state": [
+        "error",
+        "valid",
+        "disabled",
+        "readonly",
+        "loading"
+      ],
+      "neutral": [
+        "default",
+        "neutral",
+        "dark",
+        "light"
+      ],
+      "all": [
+        "default",
+        "neutral",
+        "dark",
+        "light",
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "danger",
+        "gray",
+        "solid",
+        "outline",
+        "ghost",
+        "link",
+        "subtle"
+      ],
+      "input": [
+        "solid",
+        "outline",
+        "ghost",
+        "link",
+        "subtle",
+        "filled",
+        "default",
+        "neutral",
+        "dark",
+        "light",
+        "primary",
+        "secondary",
+        "info",
+        "success",
+        "warning",
+        "error",
+        "danger",
+        "error",
+        "valid",
+        "disabled",
+        "readonly",
+        "loading",
+        "gray"
+      ]
+    },
+    "LINE_CHART_VARIANTS": [
+      "default",
+      "minimal",
+      "elegant",
+      "bold"
+    ],
+    "QUANTITY_SELECTOR_VARIANTS": [
+      "default",
+      "minimal",
+      "filled"
+    ],
+    "SIDEBAR_VARIANTS": [
+      "default",
+      "compact",
+      "minimal"
+    ],
+    "VARIANTS": {
+      "card": [
+        "default",
+        "featured",
+        "compact",
+        "detailed"
+      ],
+      "sidebar": [
+        "default",
+        "compact",
+        "minimal"
+      ],
+      "quantitySelector": [
+        "default",
+        "minimal",
+        "filled"
+      ],
+      "lineChart": [
+        "default",
+        "minimal",
+        "elegant",
+        "bold"
+      ],
+      "code": [
+        "default",
+        "terminal",
+        "diff"
+      ],
+      "inlineCode": [
+        "default",
+        "subtle"
+      ],
+      "documentPreviewFormat": [
+        "json",
+        "xml",
+        "text",
+        "html"
+      ],
+      "input": {
+        "appearance": [
+          "solid",
+          "outline",
+          "ghost",
+          "link",
+          "subtle"
+        ],
+        "hierarchy": [
+          "primary",
+          "secondary"
+        ],
+        "semantic": [
+          "info",
+          "success",
+          "warning",
+          "error",
+          "danger"
+        ],
+        "tone": [
+          "primary",
+          "secondary",
+          "info",
+          "success",
+          "warning",
+          "error",
+          "danger"
+        ],
+        "state": [
+          "error",
+          "valid",
+          "disabled",
+          "readonly",
+          "loading"
+        ],
+        "neutral": [
+          "default",
+          "neutral",
+          "dark",
+          "light"
+        ],
+        "all": [
+          "default",
+          "neutral",
+          "dark",
+          "light",
+          "primary",
+          "secondary",
+          "info",
+          "success",
+          "warning",
+          "error",
+          "danger",
+          "gray",
+          "solid",
+          "outline",
+          "ghost",
+          "link",
+          "subtle"
+        ],
+        "input": [
+          "solid",
+          "outline",
+          "ghost",
+          "link",
+          "subtle",
+          "filled",
+          "default",
+          "neutral",
+          "dark",
+          "light",
+          "primary",
+          "secondary",
+          "info",
+          "success",
+          "warning",
+          "error",
+          "danger",
+          "error",
+          "valid",
+          "disabled",
+          "readonly",
+          "loading",
+          "gray"
+        ]
+      }
+    }
+  },
+  "types": {
+    "Alignment": [
+      "top",
+      "top-center",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-center",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-center",
+      "left-start",
+      "left-end",
+      "right",
+      "right-center",
+      "right-start",
+      "right-end",
+      "center",
+      "justify"
+    ],
+    "DividerAlign": [
+      "left",
+      "right",
+      "center"
+    ],
+    "TextAlign": [
+      "top",
+      "top-center",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-center",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-center",
+      "left-start",
+      "left-end",
+      "right",
+      "right-center",
+      "right-start",
+      "right-end",
+      "center",
+      "justify"
+    ],
+    "Justification": [
+      "justify",
+      "stretch",
+      "baseline",
+      "between",
+      "around",
+      "evenly"
+    ],
+    "AspectRatio": [
+      "1 / 1",
+      "16 / 9",
+      "21 / 9",
+      "3 / 4",
+      "4 / 3",
+      "1.618 / 1",
+      "3 / 2"
+    ],
+    "ComponentSize": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl"
+    ],
+    "Density": [
+      "default",
+      "compact",
+      "spacious"
+    ],
+    "GradientVariant": [
+      "dynamic",
+      "static",
+      "particles"
+    ],
+    "GridColumnsKey": [
+      6,
+      3,
+      1,
+      2,
+      4,
+      12,
+      "auto"
+    ],
+    "GridItemContent": "GridItemContent",
+    "GridItem": "GridItem",
+    "MessageBubbleVariant": [
+      "default",
+      "system"
+    ],
+    "Orientation": [
+      "horizontal",
+      "vertical"
+    ],
+    "PanMode": [
+      "drag",
+      "space",
+      "always"
+    ],
+    "PrimitiveGroup": [
+      "trajectory",
+      "connector",
+      "relationship",
+      "shape",
+      "corner",
+      "chart",
+      "skeleton",
+      "marker",
+      "pin",
+      "ownership"
+    ],
+    "PrimitiveTrajectory": [
+      "straight",
+      "curve",
+      "polyline",
+      "bezier",
+      "arc",
+      "loop",
+      "elbow",
+      "step",
+      "smooth-step"
+    ],
+    "PrimitiveConnector": [
+      "invisible",
+      "line",
+      "arrow",
+      "ring",
+      "anchor"
+    ],
+    "PrimitiveRelationship": [
+      "owner",
+      "input",
+      "output",
+      "one-to-one",
+      "one-to-many",
+      "many-to-many"
+    ],
+    "PrimitiveShape": [
+      "square",
+      "circle",
+      "pill",
+      "rectangle",
+      "diamond",
+      "triangle",
+      "star",
+      "flag"
+    ],
+    "PrimitiveCorner": [
+      "rounded",
+      "sharp"
+    ],
+    "PrimitiveChart": [
+      "line",
+      "pie",
+      "bar",
+      "area",
+      "bubble",
+      "radar",
+      "heatmap",
+      "tree",
+      "sankey",
+      "gantt",
+      "timeline",
+      "funnel"
+    ],
+    "PrimitiveSkeleton": [
+      "text",
+      "card",
+      "image",
+      "icon"
+    ],
+    "PrimitiveMarker": [
+      "number",
+      "dot",
+      "letter",
+      "check",
+      "x"
+    ],
+    "PrimitivePin": [
+      "person",
+      "place",
+      "business"
+    ],
+    "PrimitiveOwnership": [
+      "government",
+      "private",
+      "brand"
+    ],
+    "ContainerMaxWidth": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "full"
+    ],
+    "TokenContainerMaxWidth": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl",
+      "full"
+    ],
+    "Height": [
+      "screen",
+      "large",
+      "medium"
+    ],
+    "LayoutSize": [
+      "full",
+      "1/4",
+      "1/3",
+      "2/5",
+      "1/2",
+      "3/5",
+      "2/3",
+      "3/4"
+    ],
+    "Style": [
+      "invisible",
+      "solid",
+      "dashed",
+      "dotted",
+      "double",
+      "none",
+      "bold",
+      "tapered"
+    ],
+    "TableCell": [
+      "header",
+      "data"
+    ],
+    "Background": [
+      "default",
+      "particles",
+      "image",
+      "gradient"
+    ],
+    "BadgeType": [
+      "version",
+      "downloads",
+      "license",
+      "size",
+      "custom"
+    ],
+    "CardSize": [
+      "sm",
+      "md",
+      "lg",
+      "xl"
+    ],
+    "CardVariant": [
+      "default",
+      "solid",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light",
+      "elevated",
+      "flat"
+    ],
+    "ProgressVariant": [
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "info"
+    ],
+    "ChartType": [
+      "line",
+      "pie",
+      "bar"
+    ],
+    "CodeLanguage": [
+      "javascript",
+      "typescript",
+      "html",
+      "css",
+      "svelte",
+      "json",
+      "markdown",
+      "python",
+      "java",
+      "csharp",
+      "cpp",
+      "go",
+      "rust",
+      "sql",
+      "yaml",
+      "xml"
+    ],
+    "CtaBannerBackgroundVariant": [
+      "image",
+      "solid",
+      "gradient"
+    ],
+    "CalendarViewMode": [
+      "day",
+      "week",
+      "month"
+    ],
+    "TimeRange": [
+      "1d",
+      "7d",
+      "30d",
+      "90d"
+    ],
+    "MessageTimestampFormatStyle": [
+      "datetime",
+      "time",
+      "date"
+    ],
+    "DiffLineType": [
+      "added",
+      "removed",
+      "unchanged"
+    ],
+    "GraphCanvasGridMode": [
+      "number",
+      "dot",
+      "letter",
+      "check",
+      "x"
+    ],
+    "GraphCanvasPanMode": [
+      "drag",
+      "space",
+      "always"
+    ],
+    "GraphPortDataType": [
+      "string",
+      "number",
+      "boolean",
+      "object",
+      "array",
+      "any",
+      "event",
+      "action"
+    ],
+    "GraphPortDirection": [
+      "input",
+      "output"
+    ],
+    "GraphPortType": [
+      "string",
+      "number",
+      "boolean",
+      "object",
+      "default",
+      "error",
+      "array",
+      "any",
+      "event",
+      "action",
+      "connected",
+      "hovered",
+      "active",
+      "selected"
+    ],
+    "GraphPortSize": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl"
+    ],
+    "GraphPortSizeKey": [
+      "xs",
+      "sm",
+      "md",
+      "lg",
+      "xl",
+      "2xl"
+    ],
+    "IconWrapperShape": [
+      "square",
+      "circle",
+      "pill",
+      "rounded"
+    ],
+    "ImageFilter": [
+      "none",
+      "grayscale",
+      "sepia",
+      "invert",
+      "blur",
+      "brightness",
+      "contrast",
+      "hue-rotate",
+      "saturate"
+    ],
+    "KPITrend": [
+      "neutral",
+      "up",
+      "down"
+    ],
+    "LiteGraphNodeType": [
+      "default",
+      "output",
+      "custom",
+      "source",
+      "processor",
+      "gateway"
+    ],
+    "LiteGraphNodeState": [
+      "default",
+      "warning",
+      "error",
+      "active",
+      "selected",
+      "disabled"
+    ],
+    "PinStyle": [
+      "line",
+      "ring",
+      "anchor",
+      "flag"
+    ],
+    "MarkerCategory": [
+      "restaurant",
+      "hotel",
+      "attraction",
+      "service",
+      "transport",
+      "health",
+      "education",
+      "shopping",
+      "emergency"
+    ],
+    "MapMarkerType": [
+      "person",
+      "place",
+      "business",
+      "government",
+      "private",
+      "brand"
+    ],
+    "MessageAlign": [
+      "left",
+      "right"
+    ],
+    "MessageVariant": [
+      "default",
+      "system",
+      "success",
+      "warning",
+      "error",
+      "incoming",
+      "outgoing"
+    ],
+    "MessageStatus": [
+      "error",
+      "sent",
+      "delivered",
+      "read"
+    ],
+    "MessageAvatarSize": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "NodePropertyType": [
+      "string",
+      "number",
+      "boolean",
+      "object",
+      "function",
+      "enum",
+      "color",
+      "vector2",
+      "vector3"
+    ],
+    "Priority": [
+      "medium",
+      "low",
+      "high",
+      "urgent",
+      "critical"
+    ],
+    "ProductCardVariant": [
+      "default",
+      "compact",
+      "with-actions"
+    ],
+    "StatusIndicatorStatus": [
+      "custom",
+      "success",
+      "warning",
+      "error",
+      "info",
+      "neutral",
+      "online",
+      "offline",
+      "away",
+      "busy"
+    ],
+    "Translation": [
+      "translated",
+      "needs-review",
+      "untranslated"
+    ],
+    "AlertType": [
+      "monitoring",
+      "reached",
+      "exceeded"
+    ],
+    "DropdownPosition": [
+      "left",
+      "right",
+      "center"
+    ],
+    "InputAddonPosition": [
+      "left",
+      "right"
+    ],
+    "LabelPosition": [
+      "left",
+      "right"
+    ],
+    "TColumns": [
+      6,
+      3,
+      2,
+      4,
+      5,
+      8,
+      7
+    ],
+    "NotificationChannel": [
+      "email",
+      "push",
+      "sms",
+      "in_app"
+    ],
+    "NotificationBadgePosition": [
+      "top-start",
+      "top-end",
+      "bottom-start",
+      "bottom-end"
+    ],
+    "NotificationPosition": [
+      "top-center",
+      "top-start",
+      "top-end",
+      "bottom-center",
+      "bottom-start",
+      "bottom-end"
+    ],
+    "PageBuilderElementType": [
+      "video",
+      "text",
+      "image",
+      "button",
+      "divider",
+      "heading",
+      "container",
+      "grid"
+    ],
+    "PaymentMethodType": [
+      "credit_card",
+      "debit_card",
+      "paypal",
+      "bank_transfer",
+      "digital_wallet",
+      "cash_on_delivery",
+      "crypto",
+      "apple_pay",
+      "google_pay",
+      "bank_account"
+    ],
+    "ProgressType": [
+      "determinate",
+      "indeterminate"
+    ],
+    "PropType": [
+      "string",
+      "number",
+      "boolean",
+      "enum"
+    ],
+    "ToggleGroupType": [
+      "single",
+      "multiple"
+    ],
+    "SortDirection": [
+      "none",
+      "asc",
+      "desc"
+    ],
+    "ABTestStatus": [
+      "draft",
+      "running",
+      "completed",
+      "paused"
+    ],
+    "ActivityStatus": [
+      "active",
+      "completed",
+      "paused",
+      "inactive",
+      "pending"
+    ],
+    "FlowVariant": [
+      "completed",
+      "current",
+      "upcoming",
+      "skipped"
+    ],
+    "LoadingState": [
+      "success",
+      "error",
+      "idle",
+      "loading"
+    ],
+    "ValidationState": [
+      "pending",
+      "valid",
+      "invalid"
+    ],
+    "InteractionState": [
+      "disabled",
+      "enabled",
+      "readonly"
+    ],
+    "VisibilityState": [
+      "visible",
+      "hidden",
+      "collapsed"
+    ],
+    "MessageStatusType": [
+      "sent",
+      "delivered",
+      "read"
+    ],
+    "PresenceStatus": [
+      "online",
+      "offline",
+      "away",
+      "busy",
+      "typing"
+    ],
+    "PredictionResultStatus": [
+      "success",
+      "warning",
+      "error",
+      "loading"
+    ],
+    "SemanticStatus": [
+      "success",
+      "warning",
+      "error",
+      "info"
+    ],
+    "VerdictStatus": [
+      "success",
+      "warning",
+      "error",
+      "info",
+      "silent"
+    ],
+    "StepIconStatus": [
+      "error",
+      "active",
+      "completed",
+      "pending"
+    ],
+    "NodeTitleStatus": [
+      "default",
+      "warning",
+      "error",
+      "selected"
+    ],
+    "InputStateStatus": [
+      "error",
+      "disabled",
+      "loading",
+      "valid",
+      "readonly"
+    ],
+    "KPIStatus": [
+      "exceeded",
+      "on-track",
+      "at-risk",
+      "off-track"
+    ],
+    "SeverityStatus": [
+      "success",
+      "warning",
+      "error",
+      "info"
+    ],
+    "ProcessStatus": [
+      "completed",
+      "pending",
+      "processing",
+      "failed",
+      "cancelled"
+    ],
+    "MessageDeliveryStatus": [
+      "sent",
+      "delivered",
+      "read"
+    ],
+    "NotificationType": [
+      "success",
+      "warning",
+      "error",
+      "info",
+      "silent"
+    ],
+    "NodeTitleVariant": [
+      "default",
+      "warning",
+      "error",
+      "selected"
+    ],
+    "ResponseViewerStatus": [
+      "success",
+      "error",
+      "info",
+      "loading"
+    ],
+    "PaymentStatus": [
+      "completed",
+      "pending",
+      "processing",
+      "failed",
+      "refunded"
+    ],
+    "OrderStatus": [
+      "delivered",
+      "pending",
+      "processing",
+      "cancelled",
+      "shipped"
+    ],
+    "BillingItemStatus": [
+      "pending",
+      "failed",
+      "refunded",
+      "paid"
+    ],
+    "BillingSummaryStatus": [
+      "pending",
+      "cancelled",
+      "paid",
+      "overdue"
+    ],
+    "TabGroupVariant": [
+      "line",
+      "pill",
+      "boxed"
+    ],
+    "TokenDomain": [
+      "architecture",
+      "information",
+      "interaction"
+    ],
+    "TokenControlKind": [
+      "text",
+      "radio",
+      "select",
+      "range"
+    ],
+    "TokenValue": "TokenValue",
+    "ToolbarVariant": [
+      "default",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "neutral",
+      "dark",
+      "light"
+    ],
+    "TooltipVariant": [
+      "default",
+      "with-arrow",
+      "simple"
+    ],
+    "TooltipPlacement": [
+      "top",
+      "top-start",
+      "top-end",
+      "bottom",
+      "bottom-start",
+      "bottom-end",
+      "left",
+      "left-start",
+      "left-end",
+      "right",
+      "right-start",
+      "right-end"
+    ],
+    "TooltipTrigger": [
+      "hover",
+      "click",
+      "focus"
+    ],
+    "CardType": [
+      "default",
+      "compact",
+      "featured",
+      "detailed"
+    ],
+    "SidebarVariant": [
+      "default",
+      "compact",
+      "minimal"
+    ],
+    "QuantitySelectorVariant": [
+      "default",
+      "minimal",
+      "filled"
+    ],
+    "LineChartVariant": [
+      "default",
+      "bold",
+      "minimal",
+      "elegant"
+    ],
+    "Code": [
+      "default",
+      "terminal",
+      "diff"
+    ],
+    "InlineCodeVariant": [
+      "default",
+      "subtle"
+    ],
+    "DocumentPreviewFormat": [
+      "text",
+      "html",
+      "json",
+      "xml"
+    ],
+    "AppearanceStyle": [
+      "solid",
+      "outline",
+      "ghost",
+      "link",
+      "subtle"
+    ],
+    "HierarchyVariant": [
+      "primary",
+      "secondary"
+    ],
+    "SemanticVariant": [
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info"
+    ],
+    "ToneVariant": [
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info"
+    ],
+    "StateVariant": [
+      "error",
+      "disabled",
+      "loading",
+      "valid",
+      "readonly"
+    ],
+    "NeutralVariant": [
+      "default",
+      "neutral",
+      "dark",
+      "light"
+    ],
+    "DefaultVariants": [
+      "default",
+      "solid",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light"
+    ],
+    "InputVariant": [
+      "default",
+      "solid",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light",
+      "disabled",
+      "loading",
+      "valid",
+      "readonly",
+      "filled"
+    ],
+    "NotificationBadgeVariant": [
+      "number",
+      "default",
+      "dot",
+      "solid",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light"
+    ],
+    "SelectVariant": [
+      "default",
+      "solid",
+      "primary",
+      "secondary",
+      "success",
+      "warning",
+      "danger",
+      "error",
+      "info",
+      "outline",
+      "ghost",
+      "link",
+      "subtle",
+      "neutral",
+      "gray",
+      "dark",
+      "light"
+    ]
+  },
+  "classes": {},
+  "functions": {},
+  "interfaces": {},
+  "tokens": {
+    "architecture": [
+      "Alignment",
+      "ALIGNMENTS",
+      "ASPECT_RATIO",
+      "AspectRatio",
+      "COMPONENT_SIZE",
+      "ComponentSize",
+      "CONTAINER_MAX_WIDTH",
+      "ContainerMaxWidth",
+      "DENSITIES",
+      "Density",
+      "DividerAlign",
+      "GEOMETRY",
+      "GRADIENT_VARIANTS",
+      "GradientVariant",
+      "GRID_COLUMNS",
+      "GridColumnsKey",
+      "GridItem",
+      "GridItemContent",
+      "Height",
+      "Justification",
+      "JUSTIFICATIONS",
+      "LayoutSize",
+      "MESSAGE_BUBBLE_VARIANTS",
+      "MessageBubbleVariant",
+      "Orientation",
+      "ORIENTATIONS",
+      "PAN_MODES",
+      "PanMode",
+      "PrimitiveChart",
+      "PrimitiveConnector",
+      "PrimitiveCorner",
+      "PrimitiveGroup",
+      "PrimitiveMarker",
+      "PrimitiveOwnership",
+      "PrimitivePin",
+      "PrimitiveRelationship",
+      "PrimitiveShape",
+      "PrimitiveSkeleton",
+      "PrimitiveTrajectory",
+      "Style",
+      "STYLE",
+      "TABLE_CELLS",
+      "TableCell",
+      "TextAlign",
+      "TokenContainerMaxWidth"
+    ],
+    "information": [
+      "Background",
+      "BACKGROUND",
+      "BadgeType",
+      "CalendarViewMode",
+      "CARD_SIZES",
+      "CARD_VARIANTS",
+      "CardSize",
+      "CardVariant",
+      "CHART_TYPES",
+      "ChartType",
+      "CODE_LANGUAGES",
+      "CodeLanguage",
+      "CTA_BANNER_BACKGROUND_VARIANTS",
+      "CtaBannerBackgroundVariant",
+      "DIFF_LINE_TYPES",
+      "DiffLineType",
+      "GRAPH_PORT_COLORS",
+      "GRAPH_PORT_DATA_TYPES",
+      "GRAPH_PORT_DIRECTIONS",
+      "GRAPH_PORT_SIZE_MAP",
+      "GraphCanvasGridMode",
+      "GraphCanvasPanMode",
+      "GraphPortDataType",
+      "GraphPortDirection",
+      "GraphPortSize",
+      "GraphPortSizeKey",
+      "GraphPortType",
+      "ICON_WRAPPER_SHAPES",
+      "IconWrapperShape",
+      "IMAGE_FILTERS",
+      "ImageFilter",
+      "KPI_TRENDS",
+      "KPITrend",
+      "LITEGRAPH_NODE_STATES",
+      "LITEGRAPH_NODE_TYPES",
+      "LiteGraphNodeState",
+      "LiteGraphNodeType",
+      "MAP_MARKER_CATEGORIES",
+      "MAP_MARKER_PIN_STYLES",
+      "MapMarkerType",
+      "MarkerCategory",
+      "MESSAGE_ALIGNMENTS",
+      "MESSAGE_AVATAR_SIZES",
+      "MESSAGE_STATUSES",
+      "MESSAGE_VARIANTS",
+      "MessageAlign",
+      "MessageAvatarSize",
+      "MessageStatus",
+      "MessageTimestampFormatStyle",
+      "MessageVariant",
+      "NODE_PROPERTY_TYPES",
+      "NodePropertyType",
+      "PinStyle",
+      "PRIORITES",
+      "Priority",
+      "PRODUCT_CARD_VARIANTS",
+      "ProductCardVariant",
+      "PROGRESS_VARIANTS",
+      "ProgressVariant",
+      "STATUS_INDICATOR_STATUSES",
+      "StatusIndicatorStatus",
+      "TimeRange",
+      "Translation",
+      "TRANSLATIONS"
+    ],
+    "interaction": [
+      "ABTestStatus",
+      "ActivityStatus",
+      "ALERT_TYPES",
+      "AlertType",
+      "AppearanceStyle",
+      "BILLING_ITEM_STATUSES",
+      "BILLING_SUMMARY_STATUSES",
+      "BillingItemStatus",
+      "BillingSummaryStatus",
+      "CARD_TYPES",
+      "CardType",
+      "Code",
+      "CODE",
+      "DefaultVariants",
+      "DOCUMENT_PREVIEW_FORMATS",
+      "DocumentPreviewFormat",
+      "DROPDOWN_POSITIONS",
+      "DropdownPosition",
+      "FlowVariant",
+      "HierarchyVariant",
+      "HORIZONTAL_POSITIONS",
+      "ICON_PICKER_COLUMN_COUNTS",
+      "INLINE_CODE_VARIANTS",
+      "InlineCodeVariant",
+      "INPUT_VARIANTS",
+      "InputAddonPosition",
+      "InputStateStatus",
+      "InputVariant",
+      "InteractionState",
+      "KPIStatus",
+      "LabelPosition",
+      "LINE_CHART_VARIANTS",
+      "LineChartVariant",
+      "LoadingState",
+      "MessageDeliveryStatus",
+      "MessageStatusType",
+      "NeutralVariant",
+      "NODE_TITLE",
+      "NodeTitleStatus",
+      "NodeTitleVariant",
+      "NOTIFICATION_BADGE_POSITIONS",
+      "NOTIFICATION_CHANNELS",
+      "NOTIFICATION_POSITIONS",
+      "NotificationBadgePosition",
+      "NotificationBadgeVariant",
+      "NotificationChannel",
+      "NotificationPosition",
+      "NotificationType",
+      "ORDER_STATUSES",
+      "OrderStatus",
+      "PAGE_BUILDER_ELEMENT_TYPES",
+      "PageBuilderElementType",
+      "PAYMENT_METHOD_TYPES",
+      "PAYMENT_STATUSES",
+      "PaymentMethodType",
+      "PaymentStatus",
+      "PredictionResultStatus",
+      "PresenceStatus",
+      "ProcessStatus",
+      "PROGRESS_TYPES",
+      "ProgressType",
+      "PROP_TYPES",
+      "PropType",
+      "QUANTITY_SELECTOR_VARIANTS",
+      "QuantitySelectorVariant",
+      "RESPONSE_VIEWER_STATUSES",
+      "ResponseViewerStatus",
+      "SELECTION_TYPE",
+      "SelectVariant",
+      "SemanticStatus",
+      "SemanticVariant",
+      "SeverityStatus",
+      "SIDEBAR_VARIANTS",
+      "SidebarVariant",
+      "SORT_DIRECTIONS",
+      "SortDirection",
+      "StateVariant",
+      "STATUS_AXES",
+      "STATUSES",
+      "StepIconStatus",
+      "TAB_GROUP_VARIANTS",
+      "TabGroupVariant",
+      "TColumns",
+      "ToggleGroupType",
+      "TOKEN_CONTROL_KINDS",
+      "TOKEN_DOMAINS",
+      "TokenControlKind",
+      "TokenDomain",
+      "TokenValue",
+      "ToneVariant",
+      "TOOLBAR_VARIANTS",
+      "ToolbarVariant",
+      "TOOLTIP_PLACEMENTS",
+      "TOOLTIP_VARIANTS",
+      "TooltipPlacement",
+      "TooltipTrigger",
+      "TooltipVariant",
+      "TRIGGERS",
+      "ValidationState",
+      "VARIANTS",
+      "VERDICTS",
+      "VerdictStatus",
+      "VisibilityState"
+    ]
+  }
+}

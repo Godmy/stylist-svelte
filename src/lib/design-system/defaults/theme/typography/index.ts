@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TYPOGRAPHY_FONT_SIZE } from './font-size';

@@ -1,0 +1,316 @@
+{
+  "timestamp": "2026-03-16T20:21:34.775Z",
+  "summary": {
+    "totalFiles": 158,
+    "totalFindings": 25,
+    "byCategory": [
+      {
+        "category": "architecture",
+        "filesWithFindings": 4,
+        "totalFindings": 4
+      },
+      {
+        "category": "information",
+        "filesWithFindings": 13,
+        "totalFindings": 18
+      },
+      {
+        "category": "interaction",
+        "filesWithFindings": 3,
+        "totalFindings": 3
+      }
+    ]
+  },
+  "results": [
+    {
+      "category": "architecture",
+      "files": [
+        {
+          "file": "architecture\\bar-chart.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "IBarPosition",
+              "line": 46,
+              "suggestion": "Move 'IBarPosition' to tokens/architecture/",
+              "context": "export interface IBarPosition {"
+            }
+          ]
+        },
+        {
+          "file": "architecture\\dashboard-layout.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "DashboardLayoutState",
+              "line": 104,
+              "suggestion": "Move 'DashboardLayoutState' to tokens/interaction/",
+              "context": "export interface DashboardLayoutState {"
+            }
+          ]
+        },
+        {
+          "file": "architecture\\line-chart.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "colorScheme",
+              "line": 26,
+              "suggestion": "Replace with an information token variant set",
+              "context": "colorScheme?: 'default' | 'warm' | 'cool' | 'neutral';"
+            }
+          ]
+        },
+        {
+          "file": "architecture\\shared-canvas.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 18,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'minimal';"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "information",
+      "files": [
+        {
+          "file": "information\\abtest-configurator.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "ABTestVariant",
+              "line": 3,
+              "suggestion": "Move 'ABTestVariant' to tokens/information/",
+              "context": "export interface ABTestVariant {"
+            }
+          ]
+        },
+        {
+          "file": "information\\canvas-chart.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "CanvasChartState",
+              "line": 146,
+              "suggestion": "Move 'CanvasChartState' to tokens/interaction/",
+              "context": "export interface CanvasChartState {"
+            }
+          ]
+        },
+        {
+          "file": "information\\canvas-image-editor.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 23,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'minimal' | 'advanced';"
+            }
+          ]
+        },
+        {
+          "file": "information\\common.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "HtmlState",
+              "line": 47,
+              "suggestion": "Move 'HtmlState' to tokens/interaction/",
+              "context": "export interface HtmlStateAttr {"
+            },
+            {
+              "type": "token-to-move",
+              "name": "HtmlVariantSize",
+              "line": 54,
+              "suggestion": "Move 'HtmlVariantSize' to tokens/architecture/",
+              "context": "export interface HtmlVariantSizeAttr {"
+            },
+            {
+              "type": "token-to-move",
+              "name": "IVariant",
+              "line": 95,
+              "suggestion": "Move 'IVariant' to tokens/information/",
+              "context": "export interface IVariant<T extends string = string> {"
+            },
+            {
+              "type": "token-to-move",
+              "name": "ISize",
+              "line": 99,
+              "suggestion": "Move 'ISize' to tokens/architecture/",
+              "context": "export interface ISize<T extends string = string> {"
+            },
+            {
+              "type": "token-to-move",
+              "name": "ComponentState",
+              "line": 177,
+              "suggestion": "Move 'ComponentState' to tokens/interaction/",
+              "context": "export interface ComponentStateProps extends StateProps, StateStyleProps {}"
+            }
+          ]
+        },
+        {
+          "file": "information\\expandable-card.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 46,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'minimal' | 'outline' | 'filled';"
+            }
+          ]
+        },
+        {
+          "file": "information\\graph-canvas.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "GraphCanvasPosition",
+              "line": 37,
+              "suggestion": "Move 'GraphCanvasPosition' to tokens/architecture/",
+              "context": "export interface GraphCanvasPosition {"
+            }
+          ]
+        },
+        {
+          "file": "information\\graph-node-card.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 9,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'compact' | 'minimal';"
+            }
+          ]
+        },
+        {
+          "file": "information\\graph-port.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "GraphPortState",
+              "line": 15,
+              "suggestion": "Move 'GraphPortState' to tokens/interaction/",
+              "context": "export interface GraphPortState {"
+            }
+          ]
+        },
+        {
+          "file": "information\\icons.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "color",
+              "line": 28,
+              "suggestion": "Replace with an information token variant set",
+              "context": "color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'error';"
+            }
+          ]
+        },
+        {
+          "file": "information\\idef0.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "Idef0PortPosition",
+              "line": 11,
+              "suggestion": "Move 'Idef0PortPosition' to tokens/architecture/",
+              "context": "export interface Idef0PortPosition {"
+            },
+            {
+              "type": "token-to-move",
+              "name": "Idef0BlackBoxMode",
+              "line": 16,
+              "suggestion": "Move 'Idef0BlackBoxMode' to tokens/interaction/",
+              "context": "export interface Idef0BlackBoxModel {"
+            }
+          ]
+        },
+        {
+          "file": "information\\node-property.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "NodePropertyState",
+              "line": 1,
+              "suggestion": "Move 'NodePropertyState' to tokens/interaction/",
+              "context": "export interface NodePropertyState {"
+            }
+          ]
+        },
+        {
+          "file": "information\\scatter-plot.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "colorScheme",
+              "line": 20,
+              "suggestion": "Replace with an information token variant set",
+              "context": "colorScheme?: 'default' | 'warm' | 'cool';"
+            }
+          ]
+        },
+        {
+          "file": "information\\status-dashboard.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 13,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'compact' | 'minimal';"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "interaction",
+      "files": [
+        {
+          "file": "interaction\\chat-status-indicator.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "ChatStatus",
+              "line": 4,
+              "suggestion": "Move 'ChatStatus' to tokens/interaction/",
+              "context": "export interface ChatStatusIndicatorProps {"
+            }
+          ]
+        },
+        {
+          "file": "interaction\\performance-dashboard.ts",
+          "findings": [
+            {
+              "type": "prop-to-token",
+              "name": "variant",
+              "line": 15,
+              "suggestion": "Replace with an information token variant set",
+              "context": "variant?: 'default' | 'compact' | 'minimal';"
+            }
+          ]
+        },
+        {
+          "file": "interaction\\toggles.ts",
+          "findings": [
+            {
+              "type": "token-to-move",
+              "name": "DarkMode",
+              "line": 91,
+              "suggestion": "Move 'DarkMode' to tokens/interaction/",
+              "context": "export interface DarkModeToggleProps extends ToggleBaseProps {"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

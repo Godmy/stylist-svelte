@@ -1,0 +1,3949 @@
+tokens
+  architecture
+    ALIGNMENTS: ["top","top-center","top-start","top-end","bottom","bottom-center","bottom-start","bottom-end","left","left-center","left-start","left-end","right","right-center","right-start","right-end","center","justify"]
+    JUSTIFICATIONS: ["stretch","baseline","between","around","evenly","justify"]
+    ASPECT_RATIO: {"square":"1 / 1","video":"16 / 9","wideVideo":"21 / 9","portrait":"3 / 4","landscape":"4 / 3","golden":"1.618 / 1","photo":"3 / 2"}
+    COMPONENT_SIZE: ["xs","sm","md","lg","xl","2xl"]
+    DENSITIES: ["default","compact","spacious"]
+    GRADIENT_VARIANTS: ["dynamic","static","particles"]
+    GRID_COLUMNS: {"1":"repeat(1, minmax(0, 1fr))","2":"repeat(2, minmax(0, 1fr))","3":"repeat(3, minmax(0, 1fr))","4":"repeat(4, minmax(0, 1fr))","6":"repeat(6, minmax(0, 1fr))","12":"repeat(12, minmax(0, 1fr))","auto":"repeat(auto-fit, minmax(0, 1fr))"}
+    MESSAGE_BUBBLE_VARIANTS: ["default","system"]
+    ORIENTATIONS: ["horizontal","vertical"]
+    PAN_MODES: ["drag","space","always"]
+    GEOMETRY: {"trajectory":["straight","curve","polyline","bezier","arc","loop","elbow","step","smooth-step"],"connector":["invisible","line","arrow","ring","anchor"],"relationship":["owner","input","output","one-to-one","one-to-many","many-to-many"],"shape":["circle","pill","square","rectangle","diamond","triangle","star","flag"],"corner":["rounded","sharp"],"chart":["pie","bar","line","area","bubble","radar","heatmap","tree","sankey","gantt","timeline","funnel"],"skeleton":["text","card","image","icon"],"marker":["dot","number","letter","check","x"],"pin":["person","place","business"],"ownership":["government","private","brand"]}
+    CONTAINER_MAX_WIDTH: ["xs","sm","md","lg","xl","2xl","full"]
+    STYLE: ["solid","dashed","dotted","double","none","bold","tapered","invisible"]
+    TABLE_CELLS: ["header","data"]
+    Alignment (type)
+    DividerAlign (type)
+    TextAlign (type)
+    Justification (type)
+    AspectRatio (type)
+    ComponentSize (type)
+    Density (type)
+    GradientVariant (type)
+    GridColumnsKey (type)
+    GridItemContent (type)
+    GridItem (type)
+    MessageBubbleVariant (type)
+    Orientation (type)
+    PanMode (type)
+    PrimitiveGroup (type)
+    PrimitiveTrajectory (type)
+    PrimitiveConnector (type)
+    PrimitiveRelationship (type)
+    PrimitiveShape (type)
+    PrimitiveCorner (type)
+    PrimitiveChart (type)
+    PrimitiveSkeleton (type)
+    PrimitiveMarker (type)
+    PrimitivePin (type)
+    PrimitiveOwnership (type)
+    ContainerMaxWidth (type)
+    TokenContainerMaxWidth (type)
+    Height (type)
+    LayoutSize (type)
+    Style (type)
+    TableCell (type)
+  information
+    BACKGROUND: ["default","gradient","particles","image"]
+    CARD_SIZES: ["sm","md","lg","xl"]
+    CARD_VARIANTS: ["default","primary","secondary","success","warning","danger","error","info","solid","outline","ghost","link","subtle","neutral","gray","dark","light","elevated","flat"]
+    PROGRESS_VARIANTS: ["success","warning","danger","info","secondary","primary"]
+    CHART_TYPES: ["line","bar","pie"]
+    CODE_LANGUAGES: ["javascript","typescript","html","css","svelte","json","markdown","python","java","csharp","cpp","go","rust","sql","yaml","xml"]
+    CTA_BANNER_BACKGROUND_VARIANTS: ["gradient","solid","image"]
+    DIFF_LINE_TYPES: ["added","removed","unchanged"]
+    GRAPH_PORT_COLORS: {"number":"#4CAF50","string":"#2196F3","boolean":"#FF9800","object":"#9C27B0","array":"#00BCD4","any":"#9E9E9E","event":"#F44336","action":"#E91E63","default":"#9E9E9E","connected":"#4CAF50","hovered":"#2196F3","active":"#FF9800","error":"#F44336","selected":"#673AB7"}
+    GRAPH_PORT_DATA_TYPES: ["number","string","boolean","object","array","any","event","action"]
+    GRAPH_PORT_DIRECTIONS: ["input","output"]
+    GRAPH_PORT_SIZE_MAP: {"xs":{"width":"8px","height":"8px","hoverArea":"16px"},"sm":{"width":"10px","height":"10px","hoverArea":"20px"},"md":{"width":"12px","height":"12px","hoverArea":"24px"},"lg":{"width":"16px","height":"16px","hoverArea":"32px"},"xl":{"width":"20px","height":"20px","hoverArea":"40px"},"2xl":{"width":"24px","height":"24px","hoverArea":"48px"}}
+    ICON_WRAPPER_SHAPES: ["circle","square","pill","rounded"]
+    IMAGE_FILTERS: ["none","grayscale","sepia","invert","blur","brightness","contrast","hue-rotate","saturate"]
+    KPI_TRENDS: ["up","down","neutral"]
+    LITEGRAPH_NODE_STATES: ["default","selected","active","error","warning","disabled"]
+    LITEGRAPH_NODE_TYPES: ["default","source","processor","output","gateway","custom"]
+    MAP_MARKER_CATEGORIES: ["restaurant","hotel","attraction","service","transport","health","education","shopping","emergency"]
+    MAP_MARKER_PIN_STYLES: ["line","anchor","ring","flag"]
+    MESSAGE_ALIGNMENTS: ["left","right"]
+    MESSAGE_AVATAR_SIZES: ["sm","md","lg"]
+    MESSAGE_STATUSES: ["sent","delivered","read","error"]
+    MESSAGE_VARIANTS: ["default","system","incoming","outgoing","error","warning","success"]
+    NODE_PROPERTY_TYPES: ["string","number","boolean","enum","color","vector2","vector3","object","function"]
+    PRIORITES: ["low","medium","high","urgent","critical"]
+    PRODUCT_CARD_VARIANTS: ["default","compact","with-actions"]
+    STATUS_INDICATOR_STATUSES: ["online","offline","away","busy","success","warning","error","info","neutral","custom"]
+    TRANSLATIONS: ["translated","needs-review","untranslated"]
+    Background (type)
+    BadgeType (type)
+    CardSize (type)
+    CardVariant (type)
+    ProgressVariant (type)
+    ChartType (type)
+    CodeLanguage (type)
+    CtaBannerBackgroundVariant (type)
+    CalendarViewMode (type)
+    TimeRange (type)
+    MessageTimestampFormatStyle (type)
+    DiffLineType (type)
+    GraphCanvasGridMode (type)
+    GraphCanvasPanMode (type)
+    GraphPortDataType (type)
+    GraphPortDirection (type)
+    GraphPortType (type)
+    GraphPortSize (type)
+    GraphPortSizeKey (type)
+    IconWrapperShape (type)
+    ImageFilter (type)
+    KPITrend (type)
+    LiteGraphNodeType (type)
+    LiteGraphNodeState (type)
+    PinStyle (type)
+    MarkerCategory (type)
+    MapMarkerType (type)
+    MessageAlign (type)
+    MessageVariant (type)
+    MessageStatus (type)
+    MessageAvatarSize (type)
+    NodePropertyType (type)
+    Priority (type)
+    ProductCardVariant (type)
+    StatusIndicatorStatus (type)
+    Translation (type)
+  interaction
+    ALERT_TYPES: ["monitoring","reached","exceeded"]
+    DROPDOWN_POSITIONS: ["left","right","center"]
+    HORIZONTAL_POSITIONS: ["left","right"]
+    ICON_PICKER_COLUMN_COUNTS: [2,3,4,5,6,7,8]
+    NOTIFICATION_CHANNELS: ["email","push","sms","in_app"]
+    NOTIFICATION_BADGE_POSITIONS: ["top-end","top-start","bottom-end","bottom-start"]
+    NOTIFICATION_POSITIONS: ["top-end","top-start","bottom-end","bottom-start","top-center","bottom-center"]
+    PAGE_BUILDER_ELEMENT_TYPES: ["text","image","video","button","divider","heading","container","grid"]
+    PAYMENT_METHOD_TYPES: ["credit_card","debit_card","paypal","bank_transfer","digital_wallet","cash_on_delivery","crypto","apple_pay","google_pay","bank_account"]
+    PROGRESS_TYPES: ["determinate","indeterminate"]
+    PROP_TYPES: ["string","number","boolean","enum"]
+    SELECTION_TYPE: ["single","multiple"]
+    SORT_DIRECTIONS: ["asc","desc","none"]
+    BILLING_ITEM_STATUSES: ["paid","pending","failed","refunded"]
+    BILLING_SUMMARY_STATUSES: ["paid","pending","cancelled","overdue"]
+    NODE_TITLE: ["default","selected","error","warning"]
+    ORDER_STATUSES: ["pending","cancelled","processing","shipped","delivered"]
+    PAYMENT_STATUSES: ["pending","failed","refunded","processing","completed"]
+    RESPONSE_VIEWER_STATUSES: ["success","error","loading","info"]
+    STATUSES: {"workflow":{"abtest":["draft","running","completed","paused"],"activity":["active","inactive","pending","paused","completed"],"flow":["completed","current","upcoming","skipped"]},"lifecycle":{"loading":["idle","loading","success","error"],"validation":["valid","invalid","pending"],"interaction":["enabled","disabled","readonly"],"visibility":["visible","hidden","collapsed"]},"communication":{"message":["sent","delivered","read"],"presence":["online","offline","away","busy","typing"],"predictionResult":["success","error","loading","warning"],"responseViewer":["success","error","loading","info"]},"feedback":{"semantic":["info","success","warning","error"],"verdict":["silent","info","success","warning","error"],"stepIcon":["pending","active","completed","error"],"nodeTitle":["default","selected","error","warning"]},"input":{"state":["error","valid","disabled","readonly","loading"]},"business":{"payment":["pending","failed","refunded","processing","completed"],"order":["pending","cancelled","processing","shipped","delivered"],"billingItem":["paid","pending","failed","refunded"],"billingSummary":["paid","pending","cancelled","overdue"]}}
+    STATUS_AXES: {"severity":["info","success","warning","error"],"process":["pending","processing","completed","failed","cancelled"],"messageDelivery":["sent","delivered","read"]}
+    VERDICTS: ["silent","info","success","warning","error"]
+    TAB_GROUP_VARIANTS: ["line","boxed","pill"]
+    TOKEN_CONTROL_KINDS: ["radio","select","range","text"]
+    TOKEN_DOMAINS: ["architecture","information","interaction"]
+    TOOLBAR_VARIANTS: ["default","primary","secondary","success","warning","danger","error","info","neutral","dark","light"]
+    TOOLTIP_PLACEMENTS: ["top","top-start","top-end","bottom","bottom-start","bottom-end","left","left-start","left-end","right","right-start","right-end"]
+    TOOLTIP_VARIANTS: ["default","with-arrow","simple"]
+    TRIGGERS: ["hover","click","focus"]
+    CARD_TYPES: ["default","featured","compact","detailed"]
+    CODE: ["default","terminal","diff"]
+    DOCUMENT_PREVIEW_FORMATS: ["json","xml","text","html"]
+    INLINE_CODE_VARIANTS: ["default","subtle"]
+    INPUT_VARIANTS: {"appearance":["solid","outline","ghost","link","subtle"],"hierarchy":["primary","secondary"],"semantic":["info","success","warning","error","danger"],"tone":["primary","secondary","info","success","warning","error","danger"],"state":["error","valid","disabled","readonly","loading"],"neutral":["default","neutral","dark","light"],"all":["default","neutral","dark","light","primary","secondary","info","success","warning","error","danger","gray","solid","outline","ghost","link","subtle"],"input":["solid","outline","ghost","link","subtle","filled","default","neutral","dark","light","primary","secondary","info","success","warning","error","danger","error","valid","disabled","readonly","loading","gray"]}
+    LINE_CHART_VARIANTS: ["default","minimal","elegant","bold"]
+    QUANTITY_SELECTOR_VARIANTS: ["default","minimal","filled"]
+    SIDEBAR_VARIANTS: ["default","compact","minimal"]
+    VARIANTS: {"card":["default","featured","compact","detailed"],"sidebar":["default","compact","minimal"],"quantitySelector":["default","minimal","filled"],"lineChart":["default","minimal","elegant","bold"],"code":["default","terminal","diff"],"inlineCode":["default","subtle"],"documentPreviewFormat":["json","xml","text","html"],"input":{"appearance":["solid","outline","ghost","link","subtle"],"hierarchy":["primary","secondary"],"semantic":["info","success","warning","error","danger"],"tone":["primary","secondary","info","success","warning","error","danger"],"state":["error","valid","disabled","readonly","loading"],"neutral":["default","neutral","dark","light"],"all":["default","neutral","dark","light","primary","secondary","info","success","warning","error","danger","gray","solid","outline","ghost","link","subtle"],"input":["solid","outline","ghost","link","subtle","filled","default","neutral","dark","light","primary","secondary","info","success","warning","error","danger","error","valid","disabled","readonly","loading","gray"]}}
+    AlertType (type)
+    DropdownPosition (type)
+    InputAddonPosition (type)
+    LabelPosition (type)
+    TColumns (type)
+    NotificationChannel (type)
+    NotificationBadgePosition (type)
+    NotificationPosition (type)
+    PageBuilderElementType (type)
+    PaymentMethodType (type)
+    ProgressType (type)
+    PropType (type)
+    ToggleGroupType (type)
+    SortDirection (type)
+    ABTestStatus (type)
+    ActivityStatus (type)
+    FlowVariant (type)
+    LoadingState (type)
+    ValidationState (type)
+    InteractionState (type)
+    VisibilityState (type)
+    MessageStatusType (type)
+    PresenceStatus (type)
+    PredictionResultStatus (type)
+    SemanticStatus (type)
+    VerdictStatus (type)
+    StepIconStatus (type)
+    NodeTitleStatus (type)
+    InputStateStatus (type)
+    KPIStatus (type)
+    SeverityStatus (type)
+    ProcessStatus (type)
+    MessageDeliveryStatus (type)
+    NotificationType (type)
+    NodeTitleVariant (type)
+    ResponseViewerStatus (type)
+    PaymentStatus (type)
+    OrderStatus (type)
+    BillingItemStatus (type)
+    BillingSummaryStatus (type)
+    TabGroupVariant (type)
+    TokenDomain (type)
+    TokenControlKind (type)
+    TokenValue (type)
+    ToolbarVariant (type)
+    TooltipVariant (type)
+    TooltipPlacement (type)
+    TooltipTrigger (type)
+    CardType (type)
+    SidebarVariant (type)
+    QuantitySelectorVariant (type)
+    LineChartVariant (type)
+    Code (type)
+    InlineCodeVariant (type)
+    DocumentPreviewFormat (type)
+    AppearanceStyle (type)
+    HierarchyVariant (type)
+    SemanticVariant (type)
+    ToneVariant (type)
+    StateVariant (type)
+    NeutralVariant (type)
+    DefaultVariants (type)
+    InputVariant (type)
+    NotificationBadgeVariant (type)
+    SelectVariant (type)
+
+contracts
+  architecture
+    aspect-ratio
+      AspectRatioProps
+        ratio: number
+        class: string
+        children: any
+    bar-chart
+      IChartDataPoint
+        id: string
+        name: string
+        value: number
+        color: string
+        description: string
+      IBarPosition
+        x: number
+        y: number
+        width: number
+        height: number
+        color: string
+      IBarChartProps
+        data: IChartDataPoint[]
+        title: string
+        width: number
+        height: number
+        showTooltip: boolean
+        showLegend: boolean
+        colorScheme: ThemeSchemeId
+        maxValue: number
+        barGap: number
+        barWidth: number
+        showAxis: boolean
+        axisColor: string
+        onBarClick: (item: IChartDataPoint) => void
+        class: string
+        chartClass: string
+    container
+      ContainerProps
+        usesTokens: [ContainerMaxWidth]
+        size: ContainerMaxWidth /* ContainerMaxWidth */
+        class: string
+    dashboard-layout
+      DashboardLayoutProps
+        usesTokens: [Density]
+        header: Snippet
+        sidebar: Snippet
+        footer: Snippet
+        children: Snippet
+        class: string
+        headerClass: string
+        sidebarClass: string
+        contentClass: string
+        footerClass: string
+        collapsibleSidebar: boolean
+        sidebarOpen: boolean
+        onSidebarToggle: (open: boolean) => void
+        mobileBreakpoint: string
+        showSidebarToggle: boolean
+        variant: Density /* Density */
+      DashboardLayoutState
+        usesTokens: [Density]
+        isSidebarOpen: boolean
+        isMobile: boolean
+        currentVariant: Density /* Density */
+      DashboardLayoutPreset
+        usesTokens: [Density]
+        sidebarOpen: boolean
+        collapsibleSidebar: boolean
+        showSidebarToggle: boolean
+        variant: Density /* Density */
+        mobileBreakpoint: string
+    divider
+      DividerProps
+        usesTokens: [DividerAlign, Orientation]
+        orientation: Orientation /* Orientation */
+        inset: boolean
+        class: string
+        align: DividerAlign /* DividerAlign */
+        dashed: boolean
+        label: string
+    gradient-background
+      IGradientBackgroundProps
+        usesTokens: [GradientVariant]
+        variant: GradientVariant /* GradientVariant */
+        colors: string[]
+        speed: number
+        intensity: number
+        direction: string
+        class: string
+        children: Snippet
+    heatmap
+      IHeatmapCell
+        id: string
+        row: string
+        column: string
+        value: number
+        color: string
+        description: string
+      IExtendedHeatmapCell
+        x: number
+        y: number
+        width: number
+        height: number
+        color: string
+        intensity: number
+      IHeatmapProps
+        data: IHeatmapCell[]
+        title: string
+        width: number
+        height: number
+        showTooltip: boolean
+        showLegend: boolean
+        colorScheme: ThemeSchemeId
+        showAxis: boolean
+        axisColor: string
+        cellPadding: number
+        onCellClick: (item: IHeatmapCell) => void
+        class: string
+        chartClass: string
+        maxValue: number
+        minValue: number
+    hero
+      IHeroStat
+        label: string
+        value: string | number
+      IHeroCTA
+        label: string
+        onClick: () => void
+      IHeroProps
+        usesTokens: [Background, Height]
+        title: string
+        subtitle: string
+        stats: IHeroStat[]
+        primaryCTA: IHeroCTA
+        secondaryCTA: IHeroCTA
+        backgroundVariant: Background /* Background */
+        backgroundImage: string
+        height: Height /* Height */
+        class: string
+        children: import('svelte').Snippet
+    layout-extended
+      LayoutSection
+        usesTokens: [ComponentSize]
+        id: string
+        content: Snippet
+        size: ComponentSize | 'xl' | '2xl' | 'full' /* ComponentSize */
+        className: string
+      VerticalLayoutProps
+        usesTokens: [Alignment, ComponentSize, Justification]
+        children: Snippet
+        gap: ComponentSize /* ComponentSize */
+        alignItems: Alignment /* Alignment */
+        justifyContent: Justification /* Justification */
+        fillHeight: boolean
+      HorizontalLayoutProps
+        usesTokens: [Alignment, ComponentSize, Justification, Orientation]
+        children: Snippet
+        sections: LayoutSection[]
+        direction: Orientation /* Orientation */
+        gap: ComponentSize /* ComponentSize */
+        alignItems: Alignment /* Alignment */
+        justifyContent: Justification /* Justification */
+        responsive: boolean
+        primarySize: ComponentSize | 'xl' | '2xl' | 'full' /* ComponentSize */
+        secondarySize: ComponentSize | 'xl' | '2xl' | 'full' /* ComponentSize */
+        wrap: boolean
+      GridLayoutExtendedProps
+        usesTokens: [Alignment, ComponentSize, Justification]
+        children: Snippet
+        cols: number
+        gap: ComponentSize /* ComponentSize */
+        responsive: boolean
+        alignItems: Alignment /* Alignment */
+        justifyContent: Justification /* Justification */
+    layout
+      GridLayoutProps
+        usesTokens: [GridItem]
+        items: GridItem[] /* GridItem */
+        columns: string
+        gap: string
+        itemClass: string
+    line-chart
+      LineChartPoint
+        id: string
+        name: string
+        value: number
+        color: string
+        description: string
+      LineChartData
+        id: string
+        label: string
+        data: LineChartPoint[]
+        color: string
+      ILineChartProps
+        usesTokens: [ComponentSize, LineChartVariant]
+        data: LineChartData[]
+        title: string
+        width: number
+        height: number
+        showTooltip: boolean
+        showLegend: boolean
+        colorScheme: 'default' | 'warm' | 'cool' | 'neutral'
+        maxValue: number
+        showAxis: boolean
+        axisColor: string
+        smooth: boolean
+        strokeWidth: number
+        onPointClick: (item: LineChartPoint, series: LineChartData) => void
+        variant: LineChartVariant /* LineChartVariant */
+        size: ComponentSize /* ComponentSize */
+        class: string
+        chartClass: string
+    page-header
+      IPageHeaderProps
+        title: string
+        subtitle: string
+        class: string
+    position2d
+      Position2D
+        x: number
+        y: number
+    process-step
+      IProcessStepProps
+        number: number
+        title: string
+        description: string
+        agent: string
+        icon: string
+        active: boolean
+        class: string
+    separator
+      SeparatorProps
+        usesTokens: [Orientation]
+        orientation: Orientation /* Orientation */
+        decorative: boolean
+        class: string
+      SyntaxHighlightedCodeProps
+        usesTokens: [Code, ComponentSize]
+        language: string
+        code: string
+        variant: Code /* Code */
+        size: ComponentSize /* ComponentSize */
+        showLineNumbers: boolean
+        startLineNumber: number
+        class: string
+    shared-canvas
+      SharedCanvasProps
+        usesTokens: [ComponentSize]
+        width: number
+        height: number
+        objects: CanvasObject[]
+        users: CanvasUser[]
+        currentUserId: string
+        currentUser: CanvasUser
+        onObjectAdd: (obj: CanvasObject) => void
+        onObjectUpdate: (obj: CanvasObject) => void
+        onObjectDelete: (id: string) => void
+        showUsers: boolean
+        showToolbar: boolean
+        class: string
+        toolbarClass: string
+        canvasClass: string
+        variant: 'default' | 'minimal'
+        size: ComponentSize /* ComponentSize */
+      CanvasObject
+        id: string
+        type: 'rectangle' | 'circle' | 'text' | 'path'
+        x: number
+        y: number
+        width: number
+        height: number
+        radius: number
+        text: string
+        points: { x: number; y: number }[]
+        color: string
+        userId: string
+      CanvasUser
+        id: string
+        name: string
+        color: string
+        cursorPosition: { x: number; y: number }
+    sidebar
+      NavItem
+        id: string
+        label: string
+        href: string
+        icon: ComponentType
+        onClick: () => void
+        disabled: boolean
+        active: boolean
+        badge: string | number
+      SidebarProps
+        usesTokens: [Alignment, SidebarVariant]
+        items: NavItem[]
+        title: string
+        logo: Snippet
+        footer: Snippet
+        collapsed: boolean
+        collapsible: boolean
+        mobileBreakpoint: number
+        width: string
+        mobileWidth: string
+        variant: SidebarVariant /* SidebarVariant */
+        position: Alignment /* Alignment */
+        disabled: boolean
+        class: string
+        navClass: string
+        itemClass: string
+        activeItemClass: string
+        disabledItemClass: string
+        titleClass: string
+        logoClass: string
+        footerClass: string
+    spacer
+      SpacerProps
+        usesTokens: [ComponentSize, Orientation]
+        size: ComponentSize /* ComponentSize */
+        axis: Orientation /* Orientation */
+        class: string
+    stack
+      StackProps
+        usesTokens: [Alignment, ComponentSize, Justification, Orientation]
+        direction: Orientation /* Orientation */
+        spacing: ComponentSize | string | number /* ComponentSize */
+        align: Alignment /* Alignment */
+        justify: Justification /* Justification */
+        children: Snippet
+  information
+    common
+      ClassProp
+        class: string
+      ChildrenProp
+        children: Snippet
+      ContentProp
+        content: Snippet
+      TypographyTextProps
+        usesTokens: [ComponentSize]
+        variant: string
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        block: boolean
+        class: string
+        ariaLabel: string
+      HtmlAttributesBase
+      HtmlAttributesWithChildren
+      HtmlAttributesWithContent
+      HtmlStateAttr
+        disabled: boolean
+        required: boolean
+        readonly: boolean
+        error: boolean
+      HtmlVariantSizeAttr
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+      InputLabelProps
+        id: string
+        label: string
+      InputValueProps
+        value: string
+        placeholder: string
+        disabled: boolean
+      InputValidationProps
+        required: boolean
+        errors: string[]
+      InputFieldBaseProps
+        name: string
+      InputFieldRequiredProps
+        id: string
+        label: string
+      InputAttributesBase
+      TextInputBaseProps
+        value: string
+        placeholder: string
+        disabled: boolean
+        required: boolean
+        error: boolean
+        helpText: string
+      IVariant
+        variant: T
+      ISize
+        size: T
+      IStyleable
+        class: string
+      IDisableable
+        disabled: boolean
+      ILoadable
+        loading: boolean
+      IClickable
+        onclick: (event: MouseEvent) => void
+      Props
+        class: string
+        ariaLabel: string
+        block: boolean
+        loadingLabel: string
+        children: Snippet
+        icon: string | Snippet
+      StateProps
+        disabled: boolean
+        loading: boolean
+        error: boolean
+        readonly: boolean
+        required: boolean
+        hidden: boolean
+        visible: boolean
+        focused: boolean
+        hovered: boolean
+        active: boolean
+        selected: boolean
+        checked: boolean
+        indeterminate: boolean
+        expanded: boolean
+        collapsed: boolean
+        open: boolean
+        closed: boolean
+        pending: boolean
+        success: boolean
+        warning: boolean
+        info: boolean
+        primary: boolean
+        secondary: boolean
+        block: boolean
+        inline: boolean
+        sticky: boolean
+        fixed: boolean
+        absolute: boolean
+        relative: boolean
+      StateStyleProps
+        disabledStyle: string
+        loadingStyle: string
+        errorStyle: string
+        readonlyStyle: string
+        successStyle: string
+        warningStyle: string
+        primaryStyle: string
+        secondaryStyle: string
+      ComponentStateProps
+    abtest-configurator
+      ABTestVariant
+        id: string
+        name: string
+        description: string
+        weight: number
+        isActive: boolean
+      ABTest
+        usesTokens: [ABTestStatus]
+        id: string
+        name: string
+        description: string
+        variants: ABTestVariant[]
+        startDate: Date
+        endDate: Date
+        status: ABTestStatus /* ABTestStatus */
+        targetAudience: string
+        successMetrics: string[]
+      IABTestConfiguratorProps
+        initialTest: ABTest
+        onSave: (test: ABTest) => void
+        onStart: (testId: string) => void
+        onPause: (testId: string) => void
+        onComplete: (testId: string) => void
+        class: string
+        headerClass: string
+        formClass: string
+        variantClass: string
+        footerClass: string
+    accessibility-checkbox
+      AccessibilityCheckboxProps
+        label: string
+        checked: boolean
+        disabled: boolean
+        class: string
+        onChange: (checked: boolean) => void
+    ai-result-card
+      IAiResultCardProps
+        children: Snippet
+        title: string
+        description: string
+        icon: string
+        class: string
+    alert-card
+      IAlertAction
+        label: string
+        onClick: () => void
+      IAlertCardProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        class: string
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        onclick: ((event: MouseEvent) => void) | undefined
+        title: string
+        subtitle: string
+        icon: string | Snippet
+        actions: IAlertAction[]
+        children: Snippet
+        ariaLabel: string
+        block: boolean
+        loadingLabel: string
+      IAlertCardElementProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        class: string
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        onclick: ((event: MouseEvent) => void) | undefined
+        title: string
+        subtitle: string
+        icon: string | Snippet
+        actions: IAlertAction[]
+        children: Snippet
+        ariaLabel: string
+        block: boolean
+        loadingLabel: string
+    animation
+      AnimatedNumberProps
+        value: number
+        format: 'number' | 'percent' | 'currency'
+        prefix: string
+        suffix: string
+        separator: string
+        decimals: number
+        class: string
+      NumberFlowProps
+        value: number
+        locales: string | string[]
+        format: Intl.NumberFormatOptions
+        prefix: string
+        suffix: string
+        class: string
+    auth-guard
+      AuthGuardProps
+        isAuthenticated: boolean
+        requiredRole: string
+        allowedRoles: string[]
+        userRoles: string[]
+        redirectUrl: string
+        showLoadingState: boolean
+        class: string
+        contentClass: string
+        fallbackClass: string
+        onAuthChange: (isAuthenticated: boolean) => void
+        onContactAdmin: () => void
+    auto-complete
+      AutoCompleteProps
+        options: string[]
+        suggestions: string[]
+        placeholder: string
+        value: string
+        inputClass: string
+        listClass: string
+        itemClass: string
+        selectedClass: string
+        onInput: (value: string) => void
+        onSelect: (value: string) => void
+        debounce: number
+        showAllSuggestions: boolean
+        class: string
+    badge
+      BadgeProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+      BadgeGroupItem
+        usesTokens: [ComponentSize, DefaultVariants]
+        id: string
+        label: string
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        onClick: () => void
+      BadgeGroupProps
+        badges: BadgeGroupItem[]
+        maxVisible: number
+        showOverflow: boolean
+        badgeClass: string
+        overflowClass: string
+      CodeProps
+        usesTokens: [Code, ComponentSize]
+        language: string
+        variant: Code /* Code */
+        size: ComponentSize /* ComponentSize */
+        showLineNumbers: boolean
+        startLineNumber: number
+      BaseTagProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants | NeutralVariant /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        closable: boolean
+        disabled: boolean
+      TagProps
+        text: string
+        icon: Snippet
+        onClose: () => void
+      ChipProps
+        label: string
+        text: string
+        icon: Snippet
+      NpmBadgeProps
+        usesTokens: [BadgeType]
+        type: BadgeType /* BadgeType */
+        label: string
+        class: string
+        value: string
+        link: string
+    base-card
+      IBaseCardElementProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        class: string
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        onclick: ((event: MouseEvent) => void) | undefined
+        title: string
+        description: string
+        headerClass: string
+        bodyClass: string
+        children: Snippet
+    billing-summary
+      IBillingItem
+        usesTokens: [BillingItemStatus]
+        id: string
+        description: string
+        amount: number
+        currency: string
+        date: Date
+        status: BillingItemStatus /* BillingItemStatus */
+      IBillingSummaryProps
+        usesTokens: [BillingSummaryStatus]
+        title: string
+        subtitle: string
+        totalAmount: number
+        currency: string
+        dueDate: Date
+        status: BillingSummaryStatus /* BillingSummaryStatus */
+        items: IBillingItem[]
+        showDetails: boolean
+        showDueDate: boolean
+        showStatus: boolean
+        class: string
+        headerClass: string
+        summaryClass: string
+        itemsClass: string
+        footerClass: string
+    blockquote
+      BlockquoteProps
+        cite: string
+        withBorder: boolean
+        withBackground: boolean
+        children: ChildrenProp['children']
+    breadcrumbs
+      IBreadcrumbLinkProps
+        current: boolean
+        href: string
+      IBreadcrumbItem
+        href: string
+        label: string
+      IBreadcrumbProps
+        items: Array<{ href?: string; label: string; current?: boolean }>
+        class: string
+      IBreadcrumbsCrumb
+        href: string
+        label: string
+      IBreadcrumbsProps
+        crumbs: Array<{ href?: string; label: string }>
+        class: string
+    canvas-chart
+      ChartDataPoint
+        x: number | string
+        y: number
+        label: string
+        color: string
+      CanvasChartProps
+        usesTokens: [ComponentSize, LineChartVariant, PrimitiveChart]
+        width: number
+        height: number
+        data: ChartDataPoint[]
+        type: PrimitiveChart /* PrimitiveChart */
+        title: string
+        xAxisLabel: string
+        yAxisLabel: string
+        showGrid: boolean
+        colors: string[]
+        variant: LineChartVariant /* LineChartVariant */
+        size: ComponentSize /* ComponentSize */
+        showLegend: boolean
+        showTooltip: boolean
+        onPointClick: (point: ChartDataPoint) => void
+        onPointHover: (point: ChartDataPoint) => void
+      CanvasChartState
+        usesTokens: [ComponentSize, LineChartVariant]
+        isRendering: boolean
+        hoveredPoint: ChartDataPoint | null
+        selectedPoint: ChartDataPoint | null
+        currentVariant: LineChartVariant /* LineChartVariant */
+        currentSize: ComponentSize /* ComponentSize */
+      CanvasChartPreset
+        usesTokens: [ComponentSize, LineChartVariant, PrimitiveChart]
+        width: number
+        height: number
+        type: PrimitiveChart /* PrimitiveChart */
+        variant: LineChartVariant /* LineChartVariant */
+        size: ComponentSize /* ComponentSize */
+        showGrid: boolean
+        showLegend: boolean
+        showTooltip: boolean
+        colors: string[]
+    canvas-image-editor
+      CropArea
+        x: number
+        y: number
+        width: number
+        height: number
+      CanvasImageEditorProps
+        usesTokens: [ComponentSize, ImageFilter]
+        width: number
+        height: number
+        src: string
+        cropEnabled: boolean
+        filter: ImageFilter /* ImageFilter */
+        cropArea: CropArea
+        brightness: number
+        contrast: number
+        saturation: number
+        hue: number
+        variant: 'default' | 'minimal' | 'advanced'
+        size: ComponentSize /* ComponentSize */
+        class: string
+    category-card
+      ICategoryCardProps
+        title: string
+        icon: string
+        count: number
+        description: string
+        link: string
+        examples: string[]
+        class: string
+    chart
+      PieChartProps
+        data: ChartDataPoint[]
+      ColorSwatchProps
+        color: string
+        size: number
+      ChartFunctionPoint
+        x: number
+        y: number
+        z: number
+        label: string
+      ChartSeries
+        id: string
+        name: string
+        color: string
+        points: ChartFunctionPoint[]
+      ChartAxisXProps
+        y: number
+        startX: number
+        endX: number
+      ChartAxisYProps
+        x: number
+        startY: number
+        endY: number
+        gridEndX: number
+      ChartAxisZProps
+        startX: number
+        startY: number
+        endX: number
+        endY: number
+      ChartBackgroundProps
+        width: number
+        height: number
+        fill: string
+        stroke: string
+      ChartPolylineProps
+        points: ChartFunctionPoint[]
+        width: number
+        height: number
+        xDomain: [number, number]
+        yDomain: [number, number]
+        color: string
+        strokeWidth: number
+        smooth: boolean
+      ChartNameProps
+        text: string
+        x: number
+        y: number
+        color: string
+      ChartLegendItem
+        id: string
+        name: string
+        color: string
+      ChartLegendProps
+        items: ChartLegendItem[]
+      ChartCanvasProps
+        width: number
+        height: number
+        title: string
+        series: ChartSeries[]
+        xScale: [number, number]
+        yScale: [number, number]
+        xTickCount: number
+        yTickCount: number
+        zTickCount: number
+        xAxisLabel: string
+        yAxisLabel: string
+        zAxisLabel: string
+        showZAxis: boolean
+        showGrid: boolean
+        showAxisArrows: boolean
+      ChartProps
+        width: number
+        height: number
+        title: string
+        series: ChartSeries[]
+        xScale: [number, number]
+        yScale: [number, number]
+        xTickCount: number
+        yTickCount: number
+        zTickCount: number
+        xAxisLabel: string
+        yAxisLabel: string
+        zAxisLabel: string
+        showLegend: boolean
+        showGrid: boolean
+        showZAxis: boolean
+        showAxisArrows: boolean
+    chat
+      User
+        id: string
+        name: string
+        avatar: string
+        status: 'online' | 'offline' | 'away' | 'typing' | 'idle'
+      MessageAttachment
+        id: string
+        name: string
+        url: string
+        type: string
+        size: number | string
+      MessageReaction
+        emoji: string
+        count: number
+        users: string[]
+      Message
+        usesTokens: [MessageStatusType]
+        id: string
+        senderId: string
+        content: string
+        timestamp: Date
+        type: 'text' | 'image' | 'file' | string
+        status: MessageStatusType | string /* MessageStatusType */
+        replyTo: string
+        attachments: MessageAttachment[]
+        reactions: MessageReaction[]
+      Chat
+        id: string
+        name: string
+        participants: User[]
+        isGroup: boolean
+        lastMessage: Message | string
+        lastMessageTime: Date
+        unreadCount: number
+        avatar: string
+      ChatMessageProps
+        usesTokens: [DefaultVariants, MessageStatusType]
+        text: string
+        sender: string
+        senderAvatar: string
+        timestamp: string
+        status: MessageStatusType /* MessageStatusType */
+        isOwn: boolean
+        contentClass: string
+        headerClass: string
+        footerClass: string
+        variant: DefaultVariants | NeutralVariant /* DefaultVariants */
+      MessageThreadMessage
+        usesTokens: [MessageStatusType]
+        id: string
+        text: string
+        sender: string
+        senderAvatar: string
+        timestamp: string
+        status: MessageStatusType /* MessageStatusType */
+        isOwn: boolean
+      MessageInputProps
+        disabled: boolean
+        placeholder: string
+        showAttachment: boolean
+        showEmoji: boolean
+        showSend: boolean
+        onSendMessage: (content: string) => void
+        onAttachClick: () => void
+        onEmojiClick: () => void
+        onMessageInput: (content: string) => void
+      MessageThreadProps
+        usesTokens: [DefaultVariants, Density]
+        title: string
+        messages: MessageThreadMessage[]
+        containerClass: string
+        messageContainerClass: string
+        headerClass: string
+        loading: boolean
+        variant: Density /* Density */
+        messageVariant: DefaultVariants | NeutralVariant /* DefaultVariants */
+    comment-system
+      CommentUser
+        id: string
+        name: string
+        avatar: string
+        role: string
+        isOnline: boolean
+      CommentItem
+        id: string
+        author: CommentUser
+        content: string
+        timestamp: Date
+        likes: number
+        dislikes: number
+        isLiked: boolean
+        isDisliked: boolean
+        isEdited: boolean
+        replies: CommentItem[]
+        parentId: string
+      CommentSystemProps
+        comments: CommentItem[]
+        currentUser: CommentUser
+        showReply: boolean
+        showLikes: boolean
+        showDislikes: boolean
+        showEdit: boolean
+        showDelete: boolean
+        enableNestedReplies: boolean
+        maxRepliesDepth: number
+        maxRepliesToShow: number
+        showLoadMore: boolean
+        onCommentSubmit: (content: string, parentId?: string) => void
+        onCommentLike: (commentId: string, like: boolean) => void
+        onCommentEdit: (commentId: string, newContent: string) => void
+        onCommentDelete: (commentId: string) => void
+        onReplyToggle: (commentId: string, show: boolean) => void
+        class: string
+        commentClass: string
+        formClass: string
+        inputClass: string
+        headerClass: string
+        actionsClass: string
+        buttonClass: string
+        locale: string
+        timezone: string
+    comment-thread
+      CommentThreadUser
+        id: string
+        name: string
+        avatar: string
+        role: string
+      CommentThreadItem
+        id: string
+        author: CommentThreadUser
+        content: string
+        timestamp: Date
+        replies: CommentThreadItem[]
+        likes: number
+        liked: boolean
+        isEdited: boolean
+      CommentThreadProps
+        title: string
+        comments: CommentThreadItem[]
+        currentUserId: string
+        onCommentSubmit: (content: string, parentId?: string) => void
+        onReplySubmit: (content: string, parentId: string) => void
+        onEditSubmit: (commentId: string, newContent: string) => void
+        onDelete: (commentId: string) => void
+        showTitle: boolean
+        showReply: boolean
+        showLikes: boolean
+        class: string
+        headerClass: string
+        commentClass: string
+        replyClass: string
+        inputClass: string
+    comparison-card
+      IComparisonItem
+        label: string
+        value: string
+      IComparisonData
+        title: string
+        items: IComparisonItem[]
+      IComparisonCardProps
+        before: IComparisonData
+        after: IComparisonData
+        title: string
+        class: string
+    connection-line
+      ConnectionLineProps
+        usesTokens: [LineStyleToken, PrimitiveTrajectory]
+        id: string
+        startX: number
+        startY: number
+        endX: number
+        endY: number
+        type: PrimitiveTrajectory /* PrimitiveTrajectory */
+        lineStyle: LineStyleToken /* LineStyleToken */
+        strokeWidth: number
+        color: string
+        activeColor: string
+        hoverColor: string
+        active: boolean
+        animated: boolean
+        showArrow: boolean
+        arrowSize: number
+        label: string
+        labelPosition: 'start' | 'middle' | 'end'
+        onclick: (event: MouseEvent) => void
+        onmouseenter: (event: MouseEvent) => void
+        onmouseleave: (event: MouseEvent) => void
+      Point
+        x: number
+        y: number
+      ConnectionPathResult
+        path: string
+        length: number
+        midPoint: Point
+        angle: number
+    countryflag
+      CountryFlagProps
+        countryCode: string
+        size: number
+        class: string
+        content: string
+    download-card
+      IFileMetadata
+        name: string
+        size: string | number
+        type: string
+        date: string
+      IDownloadCardProps
+        usesTokens: [ToneVariant]
+        file: IFileMetadata
+        variant: ToneVariant /* ToneVariant */
+        downloadUrl: string
+        iconAlt: string
+        showMetadata: boolean
+        icon: string
+        class: string
+    event-calendar
+      CalendarEvent
+        id: string
+        title: string
+        start: Date
+        end: Date
+        color: string
+        allDay: boolean
+        location: string
+        description: string
+      CalendarDay
+        date: Date
+        isCurrentMonth: boolean
+        isToday: boolean
+        isSelected: boolean
+        hasEvent: boolean
+        events: CalendarEvent[]
+      IEventCalendarProps
+        usesTokens: [CalendarViewMode]
+        events: CalendarEvent[]
+        initialDate: Date
+        viewMode: CalendarViewMode /* CalendarViewMode */
+        selectedDate: Date
+        dayClass: string
+        eventClass: string
+        headerClass: string
+        class: string
+        showAllDayEvents: boolean
+        showEventDuration: boolean
+        onEventClick: (event: CalendarEvent) => void
+        onEventCreate: (date: Date) => void
+        onEventEdit: (event: CalendarEvent) => void
+        onEventDelete: (event: CalendarEvent) => void
+        onDayClick: (day: CalendarDay) => void
+        onViewModeChange: (mode: CalendarViewMode) => void /* CalendarViewMode */
+    expandable-card
+      IExpandableCardProps
+        title: string
+        subtitle: string
+        summary: Snippet
+        details: Snippet
+        defaultExpanded: boolean
+        disabled: boolean
+        variant: 'default' | 'minimal' | 'outline' | 'filled'
+        class: string
+        headerClass: string
+        summaryClass: string
+        detailsClass: string
+        chevronClass: string
+    geo-jsonviewer
+      GeoJsonGeometry
+        type: | 'Point'
+		| 'MultiPoint'
+		| 'LineString'
+		| 'MultiLineString'
+		| 'Polygon'
+		| 'MultiPolygon'
+		| 'GeometryCollection'
+        coordinates: any[] | any[][]
+      GeoJsonFeature
+        type: 'Feature'
+        geometry: GeoJsonGeometry
+        properties: Record<string, any>
+      GeoJsonFeatureCollection
+        type: 'FeatureCollection'
+        features: GeoJsonFeature[]
+      GeoJsonLayer
+        id: string
+        name: string
+        data: GeoJsonFeatureCollection
+        visible: boolean
+        color: string
+        opacity: number
+      MapView
+        center: { lat: number; lng: number }
+        zoom: number
+      IGeoJSONViewerProps
+        geojsonData: GeoJsonFeatureCollection
+        layers: GeoJsonLayer[]
+        class: string
+        mapClass: string
+        initialView: MapView
+        showControls: boolean
+        showLayers: boolean
+        showLegend: boolean
+        maxZoom: number
+        minZoom: number
+        mapType: 'roadmap' | 'satellite' | 'terrain' | 'hybrid'
+        onFeatureClick: (feature: GeoJsonFeature) => void
+        onMapClick: (coordinates: { lat: number; lng: number }) => void
+        onDataChange: (data: GeoJsonFeatureCollection) => void
+    graph-canvas
+      GraphCanvasProps
+        usesTokens: [PanMode, PrimitiveMarker]
+        width: number
+        height: number
+        zoom: number
+        minZoom: number
+        maxZoom: number
+        offsetX: number
+        offsetY: number
+        gridSize: number
+        gridMode: PrimitiveMarker /* PrimitiveMarker */
+        gridColor: string
+        backgroundColor: string
+        panMode: PanMode /* PanMode */
+        panEnabled: boolean
+        zoomEnabled: boolean
+        selectionEnabled: boolean
+        snapToGrid: boolean
+        snapThreshold: number
+        contentClass: string
+        gridClass: string
+        onzoomchange: (zoom: number) => void
+        onoffsetchange: (offset: { x: number; y: number }) => void
+        onpanstart: (event: MouseEvent) => void
+        onpan: (event: MouseEvent) => void
+        onpanend: (event: MouseEvent) => void
+        oncanvasclick: (event: MouseEvent) => void
+        ondblclick: (event: MouseEvent) => void
+        oncontextmenu: (event: MouseEvent) => void
+        children: Snippet
+      GraphCanvasPosition
+        x: number
+        y: number
+      GraphCanvasViewport
+        position: GraphCanvasPosition
+        zoom: number
+        width: number
+        height: number
+    graph-node-card
+      GraphNodeCardProps
+        usesTokens: [ComponentSize]
+        node: GraphNodeData
+        expanded: boolean
+        showDetails: boolean
+        selected: boolean
+        highlight: boolean
+        variant: 'default' | 'compact' | 'minimal'
+        size: ComponentSize /* ComponentSize */
+        class: string
+      GraphNodeData
+        id: string
+        name: string
+        type: string
+        position: { x: number; y: number }
+        width: number
+        height: number
+        attributes: Record<string, any>
+        description: string
+        fields: Array<{
+    name: string;
+    type: string;
+    isRequired?: boolean;
+    description?: string;
+  }>
+    graph-port
+      GraphPortState
+        connected: boolean
+        hovered: boolean
+        active: boolean
+        error: boolean
+      GraphPortProps
+        usesTokens: [GraphPortDataType, GraphPortDirection, GraphPortSize]
+        id: string
+        direction: GraphPortDirection /* GraphPortDirection */
+        dataType: GraphPortDataType /* GraphPortDataType */
+        label: string
+        size: GraphPortSize /* GraphPortSize */
+        index: number
+        connected: boolean
+        active: boolean
+        color: string
+        icon: string | Snippet
+        onclick: (event: MouseEvent) => void
+        onConnectionStart: (event: MouseEvent) => void
+        onConnectionEnd: (event: MouseEvent) => void
+        children: Snippet
+        class: string
+    graph-toolbar
+      GraphToolbarItem
+        id: string
+        type: 'button' | 'separator' | 'select' | 'input' | 'custom'
+        icon: string
+        label: string
+        tooltip: string
+        disabled: boolean
+        active: boolean
+        value: unknown
+        options: readonly string[]
+        onclick: () => void
+      GraphToolbarProps
+        usesTokens: [ComponentSize, Orientation]
+        id: string
+        items: readonly GraphToolbarItem[]
+        size: ComponentSize /* ComponentSize */
+        orientation: Orientation /* Orientation */
+        compact: boolean
+        showTooltips: boolean
+        onItemClick: (itemId: string) => void
+        onValueChange: (itemId: string, value: unknown) => void
+        children: Snippet
+    graph
+      GraphEdgeProps
+        usesTokens: [GraphEdgeType]
+        fromNodeId: string
+        toNodeId: string
+        directed: boolean
+        type: GraphEdgeType /* GraphEdgeType */
+        label: string
+        active: boolean
+        style: Record<string, string>
+      GraphNodeProps
+        usesTokens: [ComponentSize]
+        id: string
+        x: number
+        y: number
+        label: string
+        type: string
+        color: string
+        size: ComponentSize /* ComponentSize */
+        selected: boolean
+        interactive: boolean
+        children: Snippet
+    icons
+      IconChevronProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        direction: 'up' | 'down' | 'left' | 'right'
+        size: ComponentSize | '2xl' /* ComponentSize */
+        class: string
+        isOpen: boolean
+        variant: DefaultVariants /* DefaultVariants */
+        disabled: boolean
+      IconCircleProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        size: ComponentSize /* ComponentSize */
+        class: string
+        variant: DefaultVariants | 'success' | 'warning' | 'danger' | 'error' /* DefaultVariants */
+        filled: boolean
+        disabled: boolean
+        icon: Snippet
+      IconWrapperProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        size: ComponentSize /* ComponentSize */
+        variant: DefaultVariants | 'success' | 'warning' | 'danger' | 'error' /* DefaultVariants */
+        shape: 'circle' | 'square' | 'rounded' | 'pill'
+        color: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'error'
+        disabled: boolean
+        class: string
+        content: Snippet
+    idef0
+      Idef0Port
+        id: string
+        label: string
+        description: string
+        color: string
+      Idef0PortPosition
+        port: Idef0Port
+        y: number
+      Idef0BlackBoxModel
+        id: string
+        title: string
+        subtitle: string
+        inputs: Idef0Port[]
+        outputs: Idef0Port[]
+      Idef0FunctionBoxProps
+        title: string
+        subtitle: string
+        x: number
+        y: number
+        width: number
+        height: number
+      Idef0PortLabelProps
+        text: string
+        x: number
+        y: number
+        anchor: 'start' | 'middle' | 'end'
+        color: string
+      Idef0ConnectorProps
+        usesTokens: [GraphPortDirection]
+        label: string
+        direction: GraphPortDirection /* GraphPortDirection */
+        x1: number
+        y1: number
+        x2: number
+        y2: number
+        color: string
+        showArrow: boolean
+      Idef0InputsProps
+        ports: Idef0Port[]
+        boxX: number
+        boxY: number
+        boxHeight: number
+        startX: number
+      Idef0OutputsProps
+        ports: Idef0Port[]
+        boxX: number
+        boxWidth: number
+        boxY: number
+        boxHeight: number
+        endX: number
+      Idef0BlackBoxProps
+        title: string
+        subtitle: string
+        inputs: Idef0Port[]
+        outputs: Idef0Port[]
+        width: number
+        height: number
+        boxWidth: number
+        boxHeight: number
+      Idef0DiagramProps
+        title: string
+        model: Idef0BlackBoxModel
+        width: number
+        height: number
+    image-gallery
+      IImageItem
+        id: string
+        src: string
+        alt: string
+        caption: string
+      IImageGalleryProps
+        images: IImageItem[]
+        showThumbnails: boolean
+        autoPlay: boolean
+        autoPlayInterval: number
+        showCaptions: boolean
+        class: string
+        imageClass: string
+        thumbnailClass: string
+        navigationClass: string
+        captionClass: string
+    image
+      MediaHtmlProps
+      MediaHtmlChildrenProps
+      MediaContentProps
+        class: string
+      MediaIconBaseProps
+        disabled: boolean
+        class: string
+      ImageWithCaptionProps
+        src: string
+        alt: string
+        caption: string
+        width: string
+        height: string
+        imageClass: string
+        captionClass: string
+        rounded: boolean
+        bordered: boolean
+        shadow: boolean
+        loading: 'lazy' | 'eager'
+      AnnouncementBannerProps
+        title: string
+        description: string
+        icon: string
+      FaviconProps
+        size: number
+        url: string
+        class: string
+        error: boolean
+        onError: () => void
+    indicators
+      DotProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        color: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+      CounterProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        count: number
+        max: number
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+      CountBadgeProps
+        count: number
+        max: number
+        showZero: boolean
+      ListItemMarkerProps
+        usesTokens: [ComponentSize, DefaultVariants, PrimitiveMarker]
+        type: PrimitiveMarker /* PrimitiveMarker */
+        value: string | number
+        color: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+      StatusIndicatorProps
+        usesTokens: [ComponentSize, PresenceStatus]
+        status: PresenceStatus /* PresenceStatus */
+        label: string
+        customColor: string
+        size: ComponentSize /* ComponentSize */
+        showLabel: boolean
+        indicatorClass: string
+        labelClass: string
+      MessageStatusProps
+        usesTokens: [ComponentSize, MessageStatusType]
+        status: MessageStatusType /* MessageStatusType */
+        size: ComponentSize /* ComponentSize */
+    interaction
+      ToolbarInteractiveProps
+        usesTokens: [ComponentSize, ToolbarVariant]
+        variant: ToolbarVariant /* ToolbarVariant */
+        size: ComponentSize /* ComponentSize */
+        active: boolean
+        disabled: boolean
+      ToolbarFieldProps
+        usesTokens: [ComponentSize, ToolbarVariant]
+        variant: ToolbarVariant /* ToolbarVariant */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+      ControlProps
+        value: unknown
+        onValueInput: (value: unknown) => void
+        onValueChange: (value: unknown) => void
+        onChange: (value: unknown) => void
+        onFocus: () => void
+        onBlur: () => void
+        onKeyDown: (event: KeyboardEvent) => void
+        onKeyUp: (event: KeyboardEvent) => void
+      InputControlProps
+        id: string
+        name: string
+        value: string
+        placeholder: string
+        type: string
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onChange: (value: string) => void
+        onFocus: () => void
+        onBlur: () => void
+      TextAreaControlProps
+        id: string
+        name: string
+        value: string
+        placeholder: string
+        rows: number
+        cols: number
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onChange: (value: string) => void
+        onFocus: () => void
+        onBlur: () => void
+      SelectControlProps
+        id: string
+        name: string
+        value: string
+        options: Array<{ value: string; label: string }>
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onChange: (value: string) => void
+        onFocus: () => void
+        onBlur: () => void
+      SelectOption
+        value: string
+        label: string
+        disabled: boolean
+      SelectProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        options: SelectOption[] | string[]
+        value: string
+        defaultValue: string
+        variant: DefaultVariants | NeutralVariant /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        placeholder: string
+        searchable: boolean
+        multiple: boolean
+      SortProps
+        sortDirection: 'asc' | 'desc'
+        onSortDirectionChange: (direction: 'asc' | 'desc') => void
+      ProductSortProps
+        selectedOption: string
+        onValueChange: (option: string) => void
+      SliderTickProps
+        value: number
+        position: number
+        active: boolean
+        label: string
+      SliderProps
+        usesTokens: [Orientation]
+        value: number
+        min: number
+        max: number
+        step: number
+        disabled: boolean
+        orientation: Orientation /* Orientation */
+        onValueInput: (value: number) => void
+        onValueChange: (value: number) => void
+        onChange: (value: number) => void
+      ToolbarProps
+        usesTokens: [ComponentSize, Orientation, ToolbarVariant]
+        variant: ToolbarVariant /* ToolbarVariant */
+        size: ComponentSize /* ComponentSize */
+        orientation: Orientation /* Orientation */
+        disabled: boolean
+        collapsible: boolean
+        collapsed: boolean
+      ToolbarGroupProps
+        usesTokens: [ComponentSize, Orientation, ToolbarVariant]
+        variant: ToolbarVariant /* ToolbarVariant */
+        size: ComponentSize /* ComponentSize */
+        orientation: Orientation /* Orientation */
+      ToolbarSeparatorProps
+        usesTokens: [Orientation]
+        orientation: Orientation /* Orientation */
+      PictureToolbarTool
+        id: string
+        label: string
+        icon: string
+      PictureToolbarProps
+        tools: PictureToolbarTool[]
+        onToolSelect: (tool: string) => void
+        activeTool: string
+        class: string
+      ProductSortOption
+        value: string
+        label: string
+    kpiindicator
+      IKPIIndicatorProps
+        usesTokens: [ComponentSize, KPIStatus, KPITrend]
+        title: string
+        currentValue: number
+        targetValue: number
+        unit: string
+        status: KPIStatus /* KPIStatus */
+        trend: KPITrend /* KPITrend */
+        trendValue: number
+        size: ComponentSize /* ComponentSize */
+        class: string
+        titleClass: string
+        valueClass: string
+    label
+      LabelProps
+        usesTokens: [ComponentSize]
+        size: ComponentSize /* ComponentSize */
+        required: boolean
+        disabled: boolean
+        htmlFor: string
+        text: string
+    link-card
+      ILinkCardProps
+        usesTokens: [DefaultVariants]
+        title: string
+        description: string
+        href: string
+        newTab: boolean
+        variant: DefaultVariants /* DefaultVariants */
+        icon: string
+        showArrow: boolean
+        class: string
+    litegraph-node
+      LiteGraphPort
+        usesTokens: [ComponentSize, GraphPortDataType, GraphPortDirection]
+        id: string
+        direction: GraphPortDirection /* GraphPortDirection */
+        dataType: GraphPortDataType /* GraphPortDataType */
+        label: string
+        size: ComponentSize /* ComponentSize */
+        connected: boolean
+        color: string
+        class: string
+      LiteGraphNodeProperty
+        id: string
+        name: string
+        type: 'string' | 'number' | 'boolean' | 'enum' | 'color' | 'vector2' | 'vector3'
+        value: unknown
+        label: string
+        description: string
+        options: readonly string[]
+      LiteGraphNodeProps
+        usesTokens: [ComponentSize, LiteGraphNodeState, LiteGraphNodeType]
+        id: string
+        title: string
+        type: LiteGraphNodeType /* LiteGraphNodeType */
+        state: LiteGraphNodeState /* LiteGraphNodeState */
+        x: number
+        y: number
+        width: number
+        minWidth: number
+        height: number | 'auto'
+        color: string
+        headerColor: string
+        size: ComponentSize /* ComponentSize */
+        inputs: readonly LiteGraphPort[]
+        outputs: readonly LiteGraphPort[]
+        properties: readonly LiteGraphNodeProperty[]
+        selected: boolean
+        draggable: boolean
+        selectable: boolean
+        resizable: boolean
+        deletable: boolean
+        duplicable: boolean
+        hideHeader: boolean
+        hidePorts: boolean
+        hideProperties: boolean
+        showActions: boolean
+        onNodeSelect: (id: string) => void
+        onNodeDrag: (id: string, position: { x: number; y: number }) => void
+        onNodeResize: (id: string, size: { width: number; height: number }) => void
+        ondelete: (id: string) => void
+        onduplicate: (id: string) => void
+        onConnectionStart: (port: LiteGraphPort, event: MouseEvent) => void
+        onConnectionEnd: (port: LiteGraphPort, event: MouseEvent) => void
+        onPropertyChange: (propertyId: string, value: unknown) => void
+        children: Snippet
+        headerContent: Snippet
+        bodyContent: Snippet
+    map-marker
+      Coordinates
+        lat: number
+        lng: number
+      ContactInfo
+        phone: string
+        email: string
+        website: string
+        hours: string
+      IMapMarkerProps
+        usesTokens: [ComponentSize, MapMarkerType, MarkerCategory, PinStyle]
+        coordinates: Coordinates
+        title: string
+        description: string
+        snippet: Snippet
+        type: MapMarkerType /* MapMarkerType */
+        category: MarkerCategory /* MarkerCategory */
+        color: string
+        size: ComponentSize /* ComponentSize */
+        showPopup: boolean
+        popupContent: Snippet
+        pinStyle: PinStyle /* PinStyle */
+        rating: number
+        contactInfo: ContactInfo
+        distance: string
+        selected: boolean
+        onMarkerClick: (coordinates: Coordinates) => void
+        onInfoClick: (coordinates: Coordinates) => void
+        onNavigateClick: (coordinates: Coordinates) => void
+        class: string
+        iconClass: string
+        popupClass: string
+        contentClass: string
+    message-bubble
+      IMessageBubbleProps
+        usesTokens: [MessageAlign, MessageBubbleVariant]
+        author: string
+        message: string
+        timestamp: string
+        align: MessageAlign /* MessageAlign */
+        avatar: string
+        variant: MessageBubbleVariant /* MessageBubbleVariant */
+        class: string
+    message-composer
+      IMessageComposerProps
+        value: string
+        placeholder: string
+        class: string
+        inputClass: string
+        buttonClass: string
+        disabled: boolean
+        showAttachmentButton: boolean
+        showVoiceButton: boolean
+        onSendMessage: (text: string) => void
+        onAttachmentClick: () => void
+        onVoiceClick: () => void
+    message-meta
+      IMessageMetaProps
+        class: string
+        timestamp: string
+        sender: string
+        status: 'sent' | 'delivered' | 'read'
+        children: Snippet
+      IMessageMetaStyleClasses
+        base: string
+        timestamp: string
+        sender: string
+        status: string
+    metric-card
+      IMetricCardProps
+        usesTokens: [ToneVariant]
+        title: string
+        value: number
+        max: number
+        percentage: number
+        description: string
+        variant: ToneVariant /* ToneVariant */
+        showProgressBar: boolean
+        class: string
+    molecules-migration
+      ProductSearchProps
+        placeholder: string
+        class: string
+        suggestions: string[]
+        onSearch: (query: string) => void
+        onSuggestionSelect: (suggestion: string) => void
+      WishlistButtonProps
+        usesTokens: [Alignment, ComponentSize, SemanticVariant]
+        inWishlist: boolean
+        class: string
+        buttonClass: string
+        size: ComponentSize /* ComponentSize */
+        variant: SemanticVariant /* SemanticVariant */
+        showLabel: boolean
+        label: string
+        tooltip: string
+        tooltipPosition: Alignment /* Alignment */
+        disabled: boolean
+        onToggle: (inWishlist: boolean) => void
+        onSuccess: () => void
+        onError: (error: string) => void
+      CodeEditorProps
+        usesTokens: [CodeLanguage]
+        code: string
+        language: CodeLanguage /* CodeLanguage */
+        height: string
+        width: string
+        readOnly: boolean
+        showLineNumbers: boolean
+        FONT_SIZE: number
+        showCopyButton: boolean
+        class: string
+        onCodeChange: (code: string) => void
+      PropDefinition
+        usesTokens: [PropType]
+        name: string
+        type: PropType /* PropType */
+        required: boolean
+        defaultValue: string | number | boolean
+        description: string
+        options: string[]
+        min: number
+        max: number
+        step: number
+      PropsEditorProps
+        propDefinitions: PropDefinition[]
+        propValues: Record<string, unknown>
+        class: string
+        onPropChange: (name: string, value: unknown) => void
+      GraphvizDirectedEdgeProps
+        usesTokens: [LineStyle]
+        id: string
+        sourceX: number
+        sourceY: number
+        targetX: number
+        targetY: number
+        label: string
+        color: string
+        width: number
+        style: LineStyle /* LineStyle */
+        selected: boolean
+        highlight: boolean
+        class: string
+    node-header
+      NodeHeaderProps
+        usesTokens: [ComponentSize]
+        id: string
+        title: string
+        color: string
+        size: ComponentSize /* ComponentSize */
+        selected: boolean
+        editable: boolean
+        showClose: boolean
+        showSettings: boolean
+        showDuplicate: boolean
+        showDelete: boolean
+        actions: Snippet
+        onTitleChange: (value: string) => void
+        onclose: () => void
+        onsettings: () => void
+        onduplicate: () => void
+        ondelete: () => void
+        children: Snippet
+    node-properties-panel
+      NodePropertiesPanelProps
+        usesTokens: [ComponentSize]
+        id: string
+        nodeId: string
+        title: string
+        properties: readonly LiteGraphNodeProperty[]
+        size: ComponentSize /* ComponentSize */
+        compact: boolean
+        showHeader: boolean
+        showClose: boolean
+        editable: boolean
+        groupByType: boolean
+        onPropertyChange: (propertyId: string, value: unknown) => void
+        onclose: () => void
+        children: Snippet
+    node-property
+      NodePropertyState
+        error: boolean
+        editable: boolean
+      NodePropertyProps
+        usesTokens: [ComponentSize, NodePropertyType]
+        id: string
+        name: string
+        type: NodePropertyType /* NodePropertyType */
+        value: unknown
+        defaultValue: unknown
+        size: ComponentSize /* ComponentSize */
+        editable: boolean
+        typeEditable: boolean
+        options: readonly string[]
+        min: number
+        max: number
+        step: number
+        prefix: string
+        suffix: string
+        label: string
+        description: string
+        icon: string | Snippet
+        error: boolean
+        errorMessage: string
+        onchange: (name: string, value: unknown) => void
+        onfocus: (event: FocusEvent) => void
+        onblur: (event: FocusEvent) => void
+        children: Snippet
+    node-title
+      NodeTitleProps
+        usesTokens: [ComponentSize, NodeTitleVariant]
+        title: string
+        variant: NodeTitleVariant /* NodeTitleVariant */
+        size: ComponentSize /* ComponentSize */
+        color: string
+        icon: string | Snippet
+        trailingIcon: string | Snippet
+        selected: boolean
+        editable: boolean
+        onchange: (value: string) => void
+        ondblclick: (event: MouseEvent) => void
+        children: Snippet
+    notifications
+      NotificationItem
+        id: string
+        title: string
+        message: string
+        type: 'info' | 'success' | 'warning' | 'error'
+        read: boolean
+        timestamp: Date
+      NotificationPreferencesProps
+        showEmail: boolean
+        showPush: boolean
+        showSms: boolean
+        showInApp: boolean
+        allowBulkToggle: boolean
+        class: string
+        onSave: (preferences: NotificationPreferencesData) => void
+        onReset: () => void
+      NotificationPreferencesData
+        email: boolean
+        push: boolean
+        sms: boolean
+        inApp: boolean
+      ScheduledNotificationItem
+        id: string
+        title: string
+        description: string
+        scheduledAt: string
+        enabled: boolean
+        recurrence: 'daily' | 'weekly' | 'monthly' | 'once'
+      ScheduledNotificationProps
+        notifications: ScheduledNotificationItem[]
+        showEditButton: boolean
+        showDeleteButton: boolean
+        showRecurrence: boolean
+        allowReorder: boolean
+        class: string
+        onEdit: (notification: ScheduledNotificationItem) => void
+        onDelete: (id: string) => void
+        onToggle: (id: string) => void
+      NotificationCenterProps
+        notifications: NotificationItem[]
+        showUnreadCount: boolean
+        showMarkAllRead: boolean
+        showClearAll: boolean
+        showTimestamp: boolean
+        pollingInterval: number
+        class: string
+        onNotificationClick: (notification: NotificationItem) => void
+        onMarkAllRead: () => void
+        onClearAll: () => void
+        onFetchMore: () => void
+      NotificationListProps
+        notifications: NotificationItem[]
+        showDismiss: boolean
+        showTypeIcon: boolean
+        showTimestamp: boolean
+        maxVisible: number
+        class: string
+        onDismiss: (id: string) => void
+        onNotificationClick: (notification: NotificationItem) => void
+    order-confirmation
+      IOrderItem
+        id: string
+        name: string
+        price: number
+        quantity: number
+        variant: string
+        thumbnail: string
+      IShippingAddress
+        firstName: string
+        lastName: string
+        address1: string
+        address2: string
+        city: string
+        state: string
+        zipCode: string
+        country: string
+      IOrderConfirmationPaymentInfo
+        usesTokens: [BillingItemStatus]
+        method: string
+        lastFour: string
+        status: BillingItemStatus /* BillingItemStatus */
+      IOrderConfirmationEvents
+        onDownloadInvoice: () => void
+        onShareOrder: () => void
+        onContinueShopping: () => void
+        onTrackOrder: () => void
+      IOrderConfirmationProps
+        usesTokens: [OrderStatus]
+        orderId: string
+        orderDate: Date
+        items: IOrderItem[]
+        total: number
+        shippingAddress: IShippingAddress
+        paymentInfo: IOrderConfirmationPaymentInfo
+        estimatedDelivery: Date
+        trackingNumber: string
+        orderStatus: OrderStatus /* OrderStatus */
+        shippingCost: number
+        taxAmount: number
+        class: string
+        headerClass: string
+        summaryClass: string
+        itemClass: string
+        addressClass: string
+        actionsClass: string
+        showDownloadInvoice: boolean
+        showShareOrder: boolean
+        currency: string
+        locale: string
+    page-ellipsis
+      PageEllipsisProps
+        class: string
+    port-group
+      PortGroupProps
+        usesTokens: [ComponentSize, GraphPortDirection]
+        id: string
+        direction: GraphPortDirection /* GraphPortDirection */
+        ports: readonly GraphPortProps[]
+        portSize: ComponentSize /* ComponentSize */
+        showLabels: boolean
+        showTypeIcons: boolean
+        compact: boolean
+        divider: boolean
+        title: string
+        onPortClick: (portId: string, event: MouseEvent) => void
+        onConnectionStart: (port: GraphPortProps, event: MouseEvent) => void
+        onConnectionEnd: (port: GraphPortProps, event: MouseEvent) => void
+        children: Snippet
+    prediction-result
+      Prediction
+        label: string
+        value: number
+        confidence: number
+      PredictionResultProps
+        usesTokens: [PredictionResultStatus]
+        title: string
+        description: string
+        predictions: Prediction[]
+        actualValue: number
+        predictedValue: number
+        modelUsed: string
+        confidence: number
+        status: PredictionResultStatus /* PredictionResultStatus */
+        onRetry: () => void
+        showChart: boolean
+        class: string
+        headerClass: string
+        contentClass: string
+        footerClass: string
+    price-alert
+      IPriceAlertElementProps
+        usesTokens: [AlertType, ComponentSize]
+        class: string
+        variant: AlertType /* AlertType */
+        size: ComponentSize /* ComponentSize */
+        onclick: ((event: MouseEvent) => void) | undefined
+        currentPrice: number
+        targetPrice: number
+        currency: string
+        status: AlertType /* AlertType */
+        productName: string
+        onStatusChange: (status: AlertType) => void /* AlertType */
+        children: Snippet
+    product-sorting
+      IProductSortingProps
+        class: string
+        options: Array<{ value: string; label: string }>
+        value: string
+        children: Snippet
+        oninput: (event: Event) => void
+        onchange: (event: Event) => void
+      IProductSortingStyleClasses
+        base: string
+        select: string
+        option: string
+    prompt-builder
+      PromptVariable
+        id: string
+        name: string
+        description: string
+        type: 'text' | 'number' | 'boolean' | 'select'
+        required: boolean
+        defaultValue: string | number | boolean
+        options: Array<{ value: string; label: string }>
+      PromptTemplate
+        id: string
+        name: string
+        description: string
+        content: string
+        variables: PromptVariable[]
+        tags: string[]
+      PromptBuilderProps
+        templates: PromptTemplate[]
+        initialPrompt: string
+        variables: PromptVariable[]
+        onSave: (prompt: string, variables: PromptVariable[]) => void
+        onRun: (prompt: string, variables: Record<string, unknown>) => void
+        showTemplates: boolean
+        showVariables: boolean
+        class: string
+        headerClass: string
+        editorClass: string
+        variablesClass: string
+        footerClass: string
+    quote-request
+      QuoteRequestProps
+        class: string
+    scatter-plot
+      ScatterPlotDataPoint
+        id: string
+        x: number
+        y: number
+        name: string
+        size: number
+        color: string
+        category: string
+        description: string
+      ScatterPlotProps
+        data: ScatterPlotDataPoint[]
+        title: string
+        width: number
+        height: number
+        showLegend: boolean
+        colorScheme: 'default' | 'warm' | 'cool'
+        showAxis: boolean
+        showGrid: boolean
+        pointSize: number
+        showLabels: boolean
+        class: string
+        onPointClick: (item: ScatterPlotDataPoint) => void
+    schedule-calendar
+      ScheduleEvent
+        usesTokens: [Priority]
+        priority: Priority /* Priority */
+      ScheduleTimeSlot
+        time: string
+        hour: number
+        events: ScheduleEvent[]
+      DaySchedule
+        date: Date
+        dayOfWeek: string
+        dateStr: string
+        slots: ScheduleTimeSlot[]
+      IScheduleCalendarProps
+        events: ScheduleEvent[]
+        startDate: Date
+        endDate: Date
+        startTime: number
+        endTime: number
+        showHeader: boolean
+        showTimeGutter: boolean
+        timeSlotHeight: number
+        slotClass: string
+        eventClass: string
+        headerClass: string
+        class: string
+        onSlotClick: (date: Date) => void
+        onEventClick: (event: ScheduleEvent) => void
+    search-results
+      SearchResultItem
+        id: string
+        title: string
+        description: string
+        url: string
+        type: 'page' | 'document' | 'user' | 'event' | 'other'
+        metadata: {
+		date?: string;
+		author?: string;
+		location?: string;
+	}
+        actions: Snippet
+      SearchResultsProps
+        results: SearchResultItem[]
+        query: string
+        loading: boolean
+        class: string
+        onResultClick: (result: SearchResultItem) => void
+        showMetadata: boolean
+        maxResults: number
+    sentiment-analysis
+      SentimentResult
+        score: number
+        label: 'very negative' | 'negative' | 'neutral' | 'positive' | 'very positive'
+        confidence: number
+        breakdown: {
+		positive: number;
+		neutral: number;
+		negative: number;
+	}
+      SentimentAnalysisProps
+        text: string
+        result: SentimentResult
+        onAnalyze: (text: string) => void
+        status: 'idle' | 'analyzing' | 'completed' | 'error'
+        errorMessage: string
+        class: string
+        headerClass: string
+        contentClass: string
+        inputClass: string
+        resultClass: string
+        footerClass: string
+    sortable-grid
+      SortableGridItem
+        id: string
+        title: string
+        content: string
+        render: Snippet
+        data: unknown
+      SortableGridProps
+        usesTokens: [ComponentSize]
+        items: SortableGridItem[]
+        class: string
+        itemClass: string
+        gridClass: string
+        onItemsChange: (items: SortableGridItem[]) => void
+        onItemDragStart: (item: SortableGridItem) => void
+        onItemDragEnd: (item: SortableGridItem) => void
+        disabled: boolean
+        cols: number
+        gap: ComponentSize /* ComponentSize */
+        variant: 'card' | 'minimal'
+        size: ComponentSize /* ComponentSize */
+    stat-card
+      IStatCardProps
+        usesTokens: [Background, KPITrend]
+        title: string
+        value: string | number
+        icon: string
+        trend: KPITrend /* KPITrend */
+        trendValue: string
+        description: string
+        variant: Background /* Background */
+        animated: boolean
+        class: string
+    status-dashboard
+      StatusDashboardProps
+        usesTokens: [ComponentSize, Orientation]
+        title: string
+        subtitle: string
+        items: StatusItem[]
+        layout: Orientation /* Orientation */
+        size: ComponentSize /* ComponentSize */
+        class: string
+        itemClass: string
+        headerClass: string
+        variant: 'default' | 'compact' | 'minimal'
+      StatusItem
+        id: string
+        title: string
+        description: string
+        status: 'success' | 'warning' | 'error' | 'pending' | 'info'
+        value: string | number
+        footer: any
+        actions: any
+    table
+      TableAttributesBase
+        class: string
+      TableElementAttributesBase
+        class: string
+      TableProps
+        caption: string
+        striped: boolean
+        bordered: boolean
+        hoverable: boolean
+      TableRowProps
+        striped: boolean
+        active: boolean
+      TableCellProps
+        usesTokens: [Alignment, TableCell]
+        variant: TableCell /* TableCell */
+        align: Alignment /* Alignment */
+      TableSectionProps
+    team-member-card
+      IAchievement
+        title: string
+        description: string
+      ITeamMemberCardProps
+        usesTokens: [CardType]
+        name: string
+        role: string
+        model: string
+        avatar: string
+        badges: string[]
+        description: string
+        achievements: IAchievement[]
+        variant: CardType /* CardType */
+        class: string
+    tooltip-with-arrow
+      TooltipWithArrowProps
+        content: string
+        position: 'top' | 'bottom' | 'left' | 'right'
+        class: string
+  interaction
+    accordion
+      AccordionDataItem
+        id: string
+        title: string
+        content: Snippet | string
+        disabled: boolean
+      AccordionBaseProps
+        value: string
+        class: string
+        children: Snippet
+      AccordionHeaderProps
+        usesTokens: [ComponentSize]
+        header: string
+        chevronSize: ComponentSize /* ComponentSize */
+        padding: ComponentSize /* ComponentSize */
+        paddingClass: string
+        chevronSizeClass: string
+        open: boolean
+      AccordionHeaderDoubleProps
+        open: boolean
+        disabled: boolean
+      ComplexAccordionProps
+        multiple: boolean
+        defaultValue: string[]
+        value: string[]
+        onValueChange: (value: string[]) => void
+      AccordionItemProps
+      AccordionPanelProps
+        paddingClass: string
+        borderClass: string
+        bgClass: string
+        open: boolean
+      IAccordionProps
+        items: AccordionDataItem[]
+        multiple: boolean
+        class: string
+        itemClass: string
+        headerClass: string
+        contentClass: string
+    account-forms
+      AccountSettingsFormProps
+        name: string
+        email: string
+        locale: string
+        class: string
+      UserProfileCardProps
+        name: string
+        role: string
+        email: string
+        class: string
+    advanced-accordion
+      IAdvancedAccordionItem
+        title: string
+        content: Snippet
+      IAdvancedAccordionProps
+        items: IAdvancedAccordionItem[]
+        class: string
+    advanced-color-picker
+      AdvancedColorPickerProps
+        value: string
+        disabled: boolean
+        showInput: boolean
+        showPalette: boolean
+        onInput: (value: string) => void
+        onChange: (value: string) => void
+        class: string
+    advanced-password-input
+      IAdvancedPasswordInputProps
+        value: string
+        placeholder: string
+        disabled: boolean
+        readonly: boolean
+        class: string
+        inputClass: string
+        buttonClass: string
+        showStrengthMeter: boolean
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onInput: (value: string) => void
+        onChange: (value: string) => void
+    bulk-order-form
+      BulkOrderFormProduct
+        id: string
+        name: string
+        price: number
+        originalPrice: number
+        thumbnail: string
+        minOrder: number
+        available: number
+      BulkOrderFormItem
+        id: string
+        productId: string
+        quantity: number
+        price: number
+        note: string
+      BulkOrderFormProps
+        products: BulkOrderFormProduct[]
+        initialItems: BulkOrderFormItem[]
+        title: string
+        description: string
+        showTotal: boolean
+        showNotes: boolean
+        allowFileUpload: boolean
+        class: string
+        headerClass: string
+        formClass: string
+        itemClass: string
+        actionsClass: string
+        onOrderSubmit: (items: BulkOrderFormItem[]) => void
+        onItemsChange: (items: BulkOrderFormItem[]) => void
+        currency: string
+        locale: string
+    burger-menu
+      BurgerMenuProps
+        usesTokens: [ComponentSize]
+        open: boolean
+        size: ComponentSize /* ComponentSize */
+        color: string
+        activeColor: string
+        class: string
+        onValueInput: (event: MouseEvent) => void
+        onValueChange: (event: MouseEvent) => void
+        onClick: (event: MouseEvent) => void
+    button
+      ButtonAttributesBase
+      ButtonDomProps
+      ButtonCoreProps
+      ButtonElementProps
+        class: string
+        children: Snippet
+      CopyButtonProps
+        class: string
+        text: string
+        label: string
+        successMessage: string
+        showIcon: boolean
+        children: Snippet
+        onSuccess: (text: string) => void
+        onError: (error: Error) => void
+      IconButtonProps
+        class: string
+        icon: string | Snippet
+        children: Snippet
+      PageButtonProps
+        class: string
+        page: number
+        isActive: boolean
+        children: Snippet
+      ButtonControlProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        loading: boolean
+        block: boolean
+        onClick: () => void
+    chat-header
+      ChatHeaderUser
+        id: string
+        name: string
+        avatar: string
+        status: 'online' | 'away' | 'offline' | 'typing'
+        lastSeen: Date
+      ChatHeaderChat
+        id: string
+        name: string
+        participants: ChatHeaderUser[]
+        isGroup: boolean
+        lastMessage: string
+        lastMessageTime: Date
+        unreadCount: number
+        avatar: string
+      ChatHeaderProps
+        chat: ChatHeaderChat
+        currentUser: ChatHeaderUser
+        showActions: boolean
+        class: string
+        children: Snippet
+    chat-preview
+      ChatPreviewItem
+        id: string
+        title: string
+        lastMessage: string
+        timestamp: string
+        unreadCount: number
+      ChatPreviewMessage
+        text: string
+        sender: string
+        timestamp: string
+        isOwn: boolean
+        avatar: string
+        status: 'sent' | 'delivered' | 'read'
+      ChatPreviewProps
+        usesTokens: [CardType, ComponentSize]
+        title: string
+        participants: string[]
+        messages: ChatPreviewMessage[]
+        maxMessages: number
+        showAvatars: boolean
+        variant: CardType /* CardType */
+        size: ComponentSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' /* ComponentSize */
+        class: string
+    chat-status-indicator
+      ChatStatusIndicatorProps
+        usesTokens: [ComponentSize, PresenceStatus]
+        status: PresenceStatus /* PresenceStatus */
+        size: ComponentSize /* ComponentSize */
+        showLabel: boolean
+        class: string
+    color-palette
+      ColorItem
+        name: string
+        value: string
+        category: string
+      ColorPaletteProps
+        colors: ColorItem[]
+        title: string
+        showLabels: boolean
+        showValues: boolean
+        columns: number
+        class: string
+        itemClass: string
+        headerClass: string
+        onValueInput: (color: ColorItem) => void
+        onValueChange: (color: ColorItem) => void
+    dialog-controls
+      DialogProps
+        open: boolean
+        title: string
+        description: string
+        class: string
+        onClose: () => void
+      ModalProps
+        open: boolean
+        title: string
+        class: string
+        onClose: () => void
+    dropdown-menu
+      CloseDropdownFunc
+        closeDropdown: () => void
+      IDropdownMenuProps
+        usesTokens: [DropdownPosition]
+        label: string
+        position: DropdownPosition /* DropdownPosition */
+        disabled: boolean
+        class: string
+        children: Snippet<[CloseDropdownFunc]>
+      IDropdownMenuStyleClasses
+        position: string
+        disabled: string
+        menu: string
+    error-boundary
+      IErrorBoundaryProps
+        children: Snippet<[]>
+        fallback: Snippet<[error: unknown, reset: () => void]>
+        class: string
+        contentClass: string
+        headerClass: string
+        bodyClass: string
+        footerClass: string
+        title: string
+        message: string
+        showDetails: boolean
+        onReset: () => void
+      IErrorBoundaryDetails
+        error: Error
+        details: {
+    reset: () => void;
+    componentStack: string;
+  }
+    error-message
+      ErrorMessageProps
+        error: string | Error | null
+        title: string
+        onRetry: () => void
+        showRetry: boolean
+        class: string
+    feature-toggle
+      FeatureToggleProps
+        label: string
+        description: string
+        checked: boolean
+        disabled: boolean
+        class: string
+        onChange: (value: boolean) => void
+    feedback
+      IBaseFeedbackProps
+      IErrorMessageProps
+        message: string
+        showIcon: boolean
+      ISimpleTooltipProps
+        text: string
+        position: 'top' | 'right' | 'bottom' | 'left'
+        show: boolean
+      INotificationBadgeProps
+        usesTokens: [NotificationBadgePosition, NotificationBadgeVariant]
+        count: number
+        maxCount: number
+        variant: NotificationBadgeVariant /* NotificationBadgeVariant */
+        position: NotificationBadgePosition /* NotificationBadgePosition */
+        showZero: boolean
+        badgeClass: string
+      ISkeletonProps
+        usesTokens: [PrimitiveSkeleton]
+        variant: PrimitiveSkeleton /* PrimitiveSkeleton */
+        width: string
+        height: string
+      ISpinnerProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        size: ComponentSize /* ComponentSize */
+        variant: 'white' | 'gray' | DefaultVariants /* DefaultVariants */
+        label: string
+      ILoaderProps
+      IProgressBarProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        value: number
+        max: number
+        label: string
+        showPercentage: boolean
+        size: ComponentSize /* ComponentSize */
+        variant: DefaultVariants /* DefaultVariants */
+      IProgressCircleProps
+        usesTokens: [DefaultVariants]
+        value: number
+        max: number
+        size: number
+        strokeWidth: number
+        label: string
+        showPercentage: boolean
+        variant: DefaultVariants /* DefaultVariants */
+      IStepIconProps
+        usesTokens: [ComponentSize, StepIconStatus]
+        status: StepIconStatus /* StepIconStatus */
+        size: ComponentSize /* ComponentSize */
+        stepNumber: number
+        iconName: string
+      IStepConnectorProps
+        usesTokens: [StepIconStatus]
+        active: boolean
+        completed: boolean
+        status: StepIconStatus /* StepIconStatus */
+      IAccountProgressTrackerProps
+        currentStep: number
+        totalSteps: number
+        completedSteps: number[]
+        steps: string[]
+      ITableSkeletonProps
+        rows: number
+        columns: number
+      IAlertProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        class: string
+        children: Snippet
+    forms
+      FormData
+        email: string
+        password: string
+        phone: string
+        [index:key: string]: any
+      ValidationErrors
+        email: string
+        password: string
+        phone: string
+        [index:key: string]: string | undefined
+      LoginCredentials
+        email: string
+        password: string
+        rememberMe: boolean
+      AddressData
+        country: string
+        state: string
+        city: string
+        zipCode: string
+        street: string
+        apartment: string
+        phone: string
+    icon-picker
+      IIconPickerRestProps
+      IIconItem
+        name: string
+        component: any
+        category: string
+        keywords: string[]
+      IIconPickerProps
+        icons: IIconItem[]
+        title: string
+        searchPlaceholder: string
+        selectedIcon: string
+        columns: number
+        class: string
+        itemClass: string
+        headerClass: string
+        onIconSelect: (icon: IIconItem) => void
+        showSearch: boolean
+        showCategories: boolean
+    input
+      InputCoreProps
+        variant: V
+        size: S
+        disabled: boolean
+        error: boolean
+        class: string
+        block: boolean
+      InputWithLabelProps
+        label: string
+        id: string
+        showRequiredIndicator: boolean
+      InputWithValidationProps
+        errors: string[]
+        showErrors: boolean
+      InputWithHelperProps
+        helperText: string
+        showHelperWhenError: boolean
+      IInputBaseProps
+        type: HTMLInputAttributes['type']
+        value: string
+        placeholder: string
+        min: number | string
+        max: number | string
+        step: number | string
+        autofocus: boolean
+        autocomplete: HTMLInputAttributes['autocomplete']
+        name: string
+        pattern: string
+        maxlength: number
+        minlength: number
+        readonly: boolean
+        required: boolean
+      ITextareaProps
+        value: string
+        placeholder: string
+        rows: number
+        autocomplete: HTMLTextareaAttributes['autocomplete']
+        name: string
+        maxlength: number
+        minlength: number
+        readonly: boolean
+        required: boolean
+        autoResize: boolean
+      IInputEmailProps
+        autocomplete: 'email' | 'off' | 'on'
+      IInputPasswordProps
+        showPassword: boolean
+        allowTogglePassword: boolean
+        showPasswordStrength: boolean
+      IInputGroupProps
+        usesTokens: [DefaultVariants]
+        buttonLabel: string
+        buttonVariant: DefaultVariants /* DefaultVariants */
+        buttonDisabled: boolean
+        onButtonClick: () => void
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+      IInputLongProps
+        rows: number
+        autoResize: boolean
+        maxHeight: string
+      IInputDoubleProps
+        usesTokens: [ComponentSize, InputVariant]
+        label1: string
+        label2: string
+        id1: string
+        id2: string
+        value1: string
+        value2: string
+        placeholder1: string
+        placeholder2: string
+        type1: HTMLInputAttributes['type']
+        type2: HTMLInputAttributes['type']
+        disabled1: boolean
+        disabled2: boolean
+        errors1: string[]
+        errors2: string[]
+        required1: boolean
+        required2: boolean
+        variant: InputVariant /* InputVariant */
+        size: ComponentSize /* ComponentSize */
+        class: string
+      InputHelperProps
+      InputHelperChildrenProps
+      IFormErrorMessageProps
+        text: string
+        visible: boolean
+      IFormHelperTextProps
+        usesTokens: [InputVariant]
+        text: string
+        variant: InputVariant /* InputVariant */
+      ICharacterCountProps
+        current: number
+        max: number
+        showPercentage: boolean
+      IInputAddonProps
+        usesTokens: [AppearanceStyle, InputAddonPosition]
+        position: InputAddonPosition /* InputAddonPosition */
+        variant: AppearanceStyle /* AppearanceStyle */
+      IPinInputDigitProps
+        value: string
+        focused: boolean
+        invalid: boolean
+      IInputFieldProps
+        helperText: string
+      IAdvancedInputProps
+        label: string
+        value: string
+        placeholder: string
+        type: string
+        disabled: boolean
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onInput: (value: string) => void
+        class: string
+    interaction-feedback
+      SimpleModalProps
+        open: boolean
+        title: string
+        class: string
+        onClose: () => void
+      LazyLoaderProps
+        loading: boolean
+        text: string
+        class: string
+        children: Snippet
+      LoadingBoundaryProps
+        loading: boolean
+        error: string
+        class: string
+        children: Snippet
+      ResponseViewerProps
+        title: string
+        response: string
+        status: 'success' | 'error' | 'info'
+        class: string
+    interaction-forms
+      AddressFormProps
+        street: string
+        city: string
+        region: string
+        postalCode: string
+        country: string
+        class: string
+      DocumentPreviewProps
+        title: string
+        content: string
+        format: 'text' | 'json' | 'markdown'
+        class: string
+      FormWithValidationProps
+        email: string
+        password: string
+        class: string
+      LoginFormProps
+        email: string
+        rememberMe: boolean
+        class: string
+      ScreenReaderProps
+        title: string
+        content: string
+        class: string
+      SearchFormProps
+        query: string
+        placeholder: string
+        class: string
+      SecureFormProps
+        token: string
+        class: string
+      SessionManagerProps
+        activeSessions: number
+        expiresAt: string
+        class: string
+      AppearanceSettingsProps
+        theme: 'light' | 'dark' | 'system'
+        uiTheme: 'minimal' | 'ocean' | 'forest' | 'sunset'
+        onThemeChange: (theme: 'light' | 'dark' | 'system') => void
+        onUiThemeChange: (theme: 'minimal' | 'ocean' | 'forest' | 'sunset') => void
+        class: string
+      SecuritySettingsProps
+        twoFactor: boolean
+        loginAlerts: boolean
+        class: string
+    interaction-input
+      AutoCompleteOption
+        id: string
+        label: string
+        value: string
+        meta: string
+      DateRangeValue
+        start: Date | null
+        end: Date | null
+      DateTimeRangeValue
+        start: Date | null
+        end: Date | null
+      ProductForQuote
+        id: string
+        name: string
+        quantity: number
+        unitPrice: number
+        notes: string
+      QuoteRequestValue
+        requesterName: string
+        requesterEmail: string
+        requesterPhone: string
+        companyName: string
+        companyAddress: string
+        shippingAddress: string
+        products: ProductForQuote[]
+        message: string
+        urgent: boolean
+        validUntil: Date
+      TranslatableText
+        usesTokens: [Translation]
+        id: string
+        key: string
+        original: string
+        translations: Record<string, string>
+        context: string
+        status: Translation /* Translation */
+      TranslationLocale
+        code: string
+        name: string
+        flag: string
+      DateRangePickerProps
+        value: DateRangeValue
+        disabled: boolean
+        placeholder: string
+        class: string
+        calendarClass: string
+        inputClass: string
+        buttonClass: string
+        onInput: (value: DateRangeValue) => void
+        onChange: (value: DateRangeValue) => void
+      DateTimeRangePickerProps
+        value: DateTimeRangeValue
+        disabled: boolean
+        placeholder: string
+        class: string
+        calendarClass: string
+        inputClass: string
+        buttonClass: string
+        onInput: (value: DateTimeRangeValue) => void
+        onChange: (value: DateTimeRangeValue) => void
+    link
+      TextProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        block: boolean
+        ariaLabel: string
+      InlineBaseProps
+      AbbrProps
+        title: string
+      InlineCodeProps
+        usesTokens: [InlineCodeVariant]
+        variant: InlineCodeVariant /* InlineCodeVariant */
+      LinkProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        underline: boolean
+        href: string
+        target: string
+        text: string
+    locale-switcher
+      LocaleSwitcherLocale
+        code: string
+        name: string
+        region: string
+        flag: string
+      LocaleSwitcherTimezoneOption
+        value: string
+        label: string
+      LocaleSwitcherProps
+        locales: LocaleSwitcherLocale[]
+        currentLocale: string
+        onLocaleChange: (localeCode: string) => void
+        timezoneOptions: LocaleSwitcherTimezoneOption[]
+        currentTimezone: string
+        onTimezoneChange: (timezone: string) => void
+        showRegional: boolean
+        showDatePreview: boolean
+        showTimePreview: boolean
+        class: string
+        headerClass: string
+        contentClass: string
+        localeClass: string
+        footerClass: string
+    menu-item
+      MenuItemProps
+        usesTokens: [DefaultVariants]
+        active: boolean
+        variant: DefaultVariants /* DefaultVariants */
+        href: string
+        icon: string
+        disabled: boolean
+        external: boolean
+        children: Snippet
+        class: string
+        onValueInput: (event: MouseEvent) => void
+        onValueChange: (event: MouseEvent) => void
+        onClick: (event: MouseEvent) => void
+    message-timestamp
+      MessageTimestampProps
+        usesTokens: [MessageTimestampFormatStyle]
+        timestamp: Date
+        formatStyle: MessageTimestampFormatStyle /* MessageTimestampFormatStyle */
+        showRelative: boolean
+        class: string
+    model-selector
+      Model
+        id: string
+        name: string
+        description: string
+        capabilities: string[]
+        provider: string
+        version: string
+        tags: string[]
+      ModelSelectorProps
+        models: Model[]
+        selectedModel: string
+        onModelSelect: (modelId: string) => void
+        showTags: boolean
+        showCapabilities: boolean
+        placeholder: string
+        class: string
+        dropdownClass: string
+        modelItemClass: string
+        headerClass: string
+    multi-select
+      MultiSelectOption
+        value: string
+        label: string
+        disabled: boolean
+      MultiSelectProps
+        options: MultiSelectOption[]
+        value: string[]
+        placeholder: string
+        disabled: boolean
+        searchable: boolean
+        maxSelections: number
+        class: string
+        dropdownClass: string
+        selectedClass: string
+        optionClass: string
+        placeholderClass: string
+        searchInputClass: string
+        onInput: (value: string[]) => void
+        onChange: (value: string[]) => void
+    notification-settings
+      INotificationSettingsPreference
+        usesTokens: [NotificationChannel]
+        id: string
+        name: string
+        description: string
+        channels: Partial<Record<NotificationChannel, boolean>> /* NotificationChannel */
+      INotificationSettingsProps
+        usesTokens: [NotificationChannel]
+        preferences: INotificationSettingsPreference[]
+        onPreferenceChange: (id: string, channel: NotificationChannel, enabled: boolean) => void /* NotificationChannel */
+        showEmail: boolean
+        showPush: boolean
+        showSms: boolean
+        showInApp: boolean
+        class: string
+        headerClass: string
+        sectionClass: string
+        footerClass: string
+    notification
+      INotificationProps
+        usesTokens: [NotificationPosition, NotificationType]
+        show: boolean
+        title: string
+        message: string
+        children: Snippet
+        type: NotificationType /* NotificationType */
+        duration: number
+        closable: boolean
+        onClose: () => void
+        position: NotificationPosition /* NotificationPosition */
+        showIcon: boolean
+        class: string
+        contentClass: string
+        headerClass: string
+        bodyClass: string
+    number-input
+      INumberInputProps
+        value: number
+        min: number
+        max: number
+        step: number
+        disabled: boolean
+        readonly: boolean
+        class: string
+        inputClass: string
+        buttonClass: string
+        buttonWrapperClass: string
+        onValueInput: (value: number) => void
+        onValueChange: (value: number) => void
+        onChange: (value: number) => void
+    overlay
+      ILoadingOverlayProps
+        usesTokens: [ComponentSize]
+        loading: boolean
+        message: string
+        spinnerSize: ComponentSize /* ComponentSize */
+    page-builder
+      PageBuilderTextAttributes
+        FONT_SIZE: string
+        color: string
+      PageBuilderHeadingAttributes
+        level: number
+      PageBuilderButtonAttributes
+        backgroundColor: string
+        color: string
+        padding: string
+      PageBuilderImageAttributes
+        src: string
+        alt: string
+        width: string
+        height: string
+      PageBuilderDividerAttributes
+        color: string
+      PageBuilderContainerAttributes
+        backgroundColor: string
+        padding: string
+        margin: string
+        BORDER_RADIUS: string
+      PageBuilderElement
+        usesTokens: [PageBuilderElementType]
+        id: string
+        type: PageBuilderElementType /* PageBuilderElementType */
+        content: string
+        attributes: | PageBuilderTextAttributes
+    | PageBuilderHeadingAttributes
+    | PageBuilderButtonAttributes
+    | PageBuilderImageAttributes
+    | PageBuilderDividerAttributes
+    | PageBuilderContainerAttributes
+        children: PageBuilderElement[]
+      PageBuilderToolbarItem
+        usesTokens: [PageBuilderElementType]
+        type: PageBuilderElementType /* PageBuilderElementType */
+        label: string
+        icon: string
+      PageBuilderProps
+        initialElements: PageBuilderElement[]
+        onSave: (elements: PageBuilderElement[]) => void
+        showToolbar: boolean
+        showPreview: boolean
+        editable: boolean
+        class: string
+        toolbarClass: string
+        canvasClass: string
+        elementClass: string
+    pagination
+      PaginationProps
+        usesTokens: [ComponentSize, SidebarVariant]
+        currentPage: number
+        totalPages: number
+        showFirstLast: boolean
+        showPrevNext: boolean
+        showDots: boolean
+        maxVisible: number
+        variant: SidebarVariant /* SidebarVariant */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+        class: string
+        buttonClass: string
+        activeButtonClass: string
+        disabledButtonClass: string
+        onPageChange: (page: number) => void
+    payment-controls
+      PaymentMethod
+        usesTokens: [PaymentMethodType]
+        id: string
+        type: PaymentMethodType /* PaymentMethodType */
+        name: string
+        description: string
+        details: string
+        lastFour: string
+        expiry: string
+        issuer: string
+        enabled: boolean
+        fee: number
+        processingTime: string
+        limitations: string[]
+        disabled: boolean
+        isDefault: boolean
+        isVerified: boolean
+        nickname: string
+      PaymentSummaryItem
+        id: string
+        name: string
+        description: string
+        quantity: number
+        price: number
+        total: number
+      PaymentSummaryDiscount
+        id: string
+        name: string
+        amount: number
+        type: 'percentage' | 'fixed'
+      PaymentSummaryTax
+        id: string
+        name: string
+        rate: number
+        amount: number
+      PaymentInfoProps
+        paymentMethods: PaymentMethod[]
+        acceptedCards: string[]
+        showMethods: boolean
+        showSecurityInfo: boolean
+        showAcceptedCards: boolean
+        showFees: boolean
+        showProcessingTime: boolean
+        class: string
+        onMethodSelect: (method: PaymentMethod) => void
+      PaymentMethodSelectorProps
+        methods: PaymentMethod[]
+        selectedMethod: string
+        class: string
+        onMethodSelect: (method: PaymentMethod) => void
+        onMethodAdd: () => void
+        onMethodEdit: (method: PaymentMethod) => void
+        onMethodRemove: (methodId: string) => void
+        onMethodSetDefault: (methodId: string) => void
+        showAddButton: boolean
+        showEditButton: boolean
+        showRemoveButton: boolean
+        showSetDefaultButton: boolean
+        disabled: boolean
+      PaymentSelectorProps
+        methods: PaymentMethod[]
+        selectedMethod: string
+        showAddButton: boolean
+        showEditButton: boolean
+        showDeleteButton: boolean
+        showSetDefault: boolean
+        title: string
+        subtitle: string
+        class: string
+        onSelect: (id: string) => void
+        onAdd: () => void
+        onEdit: (id: string) => void
+        onDelete: (id: string) => void
+        onSetDefault: (id: string) => void
+      PaymentSummaryProps
+        usesTokens: [PaymentStatus]
+        title: string
+        subtitle: string
+        items: PaymentSummaryItem[]
+        discounts: PaymentSummaryDiscount[]
+        taxes: PaymentSummaryTax[]
+        total: number
+        currency: string
+        paymentMethod: string
+        transactionId: string
+        date: Date
+        status: PaymentStatus /* PaymentStatus */
+        class: string
+    performance-dashboard
+      PerformanceDashboardProps
+        usesTokens: [ComponentSize, TimeRange]
+        title: string
+        subtitle: string
+        metrics: Metric[]
+        timeRange: TimeRange /* TimeRange */
+        onTimeRangeChange: (range: TimeRange) => void /* TimeRange */
+        showTimeRangeSelector: boolean
+        class: string
+        headerClass: string
+        metricsClass: string
+        metricCardClass: string
+        variant: 'default' | 'compact' | 'minimal'
+        size: ComponentSize /* ComponentSize */
+      Metric
+        id: string
+        title: string
+        value: string | number
+        change: number
+        changeType: 'positive' | 'negative'
+        icon: any
+        color: string
+    phone-number-input
+      IPhoneNumberInputProps
+        value: string
+        placeholder: string
+        disabled: boolean
+        required: boolean
+        error: boolean
+        helpText: string
+        onValueInput: (value: string, event: Event) => void
+        onValueChange: (value: string) => void
+        onInput: (event: Event) => void
+    quantity-selector
+      IQuantitySelectorProps
+        usesTokens: [ComponentSize, QuantitySelectorVariant]
+        value: number
+        min: number
+        max: number
+        step: number
+        disabled: boolean
+        variant: QuantitySelectorVariant /* QuantitySelectorVariant */
+        size: ComponentSize /* ComponentSize */
+        class: string
+        inputClass: string
+        buttonClass: string
+        onValueChange: (value: number) => void
+        onIncrement: (value: number) => void
+        onDecrement: (value: number) => void
+        showInput: boolean
+        showButtons: boolean
+        label: string
+    range-input
+      RangeInputProps
+        min: number
+        max: number
+        step: number
+        class: string
+    range-slider
+      IRangeSliderProps
+        id: string
+        label: string
+        value: number | [number, number]
+        min: number
+        max: number
+        step: number
+        showValue: boolean
+        disabled: boolean
+        description: string
+        range: boolean
+        class: string
+    rating
+      IRatingProps
+        usesTokens: [ComponentSize]
+        rating: number
+        max: number
+        readonly: boolean
+        disabled: boolean
+        size: ComponentSize /* ComponentSize */
+        class: string
+        onRatingChange: (rating: number) => void
+    reaction-picker
+      IReactionPickerProps
+        class: string
+        reactions: Array<{id: string, emoji: string, label: string}>
+        selected: string[]
+        children: Snippet
+        onreactionselect: (event: CustomEvent) => void
+      IReactionPickerStyleClasses
+        base: string
+        reaction: string
+        selected: string
+    search-bar
+      ISearchBarProps
+        placeholder: string
+        value: string
+        disabled: boolean
+        debounceMs: number
+        class: string
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+        onSearch: (query: string) => void
+        onClear: () => void
+      ISearchBarEvents
+        search: { query: string }
+        clear: Record<string, never>
+        input: { value: string }
+    selector
+      ISelectOption
+        value: string
+        label: string
+      ISelectProps
+        id: string
+        label: string
+        value: string
+        options: ISelectOption[]
+        errors: string[]
+        required: boolean
+        disabled: boolean
+        placeholder: string
+        class: string
+      ISelectStyleClasses
+        select: string
+        label: string
+        error: string
+    settings
+      AccountSettingsFormElementProps
+        showEmailChange: boolean
+        showPasswordChange: boolean
+        showDeleteAccount: boolean
+        showTwoFactor: boolean
+        loading: boolean
+        class: string
+        onSubmit: (settings: AccountSettings) => void
+        onDeleteAccount: () => void
+      AccountSettings
+        email: string
+        password: string
+        twoFactorEnabled: boolean
+      UserProfileCardElementProps
+        user: UserData
+        showAvatar: boolean
+        showEmail: boolean
+        showPhone: boolean
+        showBio: boolean
+        editable: boolean
+        showEditButton: boolean
+        class: string
+        onEdit: (user: UserData) => void
+        onSave: (user: UserData) => void
+      UserData
+        id: string
+        name: string
+        email: string
+        phone: string
+        bio: string
+        avatar: string
+        role: string
+        location: string
+      Session
+        id: string
+        device: string
+        location: string
+        ip: string
+        lastActive: string
+        current: boolean
+    sortable-table-header
+      SortableTableHeaderProps
+        usesTokens: [SortDirection]
+        title: string
+        sortKey: string
+        currentSortKey: string
+        currentSortDirection: SortDirection /* SortDirection */
+        class: string
+        onValueInput: (key: string) => void
+        onValueChange: (key: string) => void
+    switch-with-label
+      ISwitchWithLabelProps
+        usesTokens: [LabelPosition]
+        checked: boolean
+        disabled: boolean
+        label: string
+        labelPosition: LabelPosition /* LabelPosition */
+        class: string
+        switchClass: string
+        labelClass: string
+        onValueInput: (checked: boolean) => void
+        onValueChange: (checked: boolean) => void
+        onInput: (checked: boolean) => void
+        onChange: (checked: boolean) => void
+    switch
+      SwitchProps
+        usesTokens: [ComponentSize]
+        checked: boolean
+        disabled: boolean
+        label: string
+        description: string
+        required: boolean
+        class: string
+        onChange: (checked: boolean) => void
+        switchSize: ComponentSize /* ComponentSize */
+        size: ComponentSize /* ComponentSize */
+    tab-group
+      ITab
+        id: string
+        title: string
+        content: Snippet
+        disabled: boolean
+      ITabGroupProps
+        usesTokens: [TabGroupVariant]
+        tabs: ITab[]
+        activeTab: string
+        variant: TabGroupVariant /* TabGroupVariant */
+        class: string
+        tabListClass: string
+        tabClass: string
+        activeTabClass: string
+        inactiveTabClass: string
+        panelClass: string
+        onValueInput: (tabId: string) => void
+        onValueChange: (tabId: string) => void
+        onChange: (tabId: string) => void
+      ITabStyleClasses
+        variant: string
+        active: string
+        inactive: string
+        disabled: string
+    table-controls
+      ColumnConfig
+        key: string
+        header: string
+        visible: boolean
+        sortable: boolean
+        filterable: boolean
+        width: string
+      DataTableColumn
+        key: keyof T
+        title: string
+        sortable: boolean
+        headerClass: string
+        cellClass: string
+        render: (value: unknown, row: T) => string
+      AdvancedColumnDefinition
+        key: keyof T
+        header: string
+        sortable: boolean
+        filterable: boolean
+        renderCell: (item: T) => unknown
+        width: string
+      SortableListItem
+        id: string
+        title: string
+        description: string
+        content: string
+        status: string
+        data: unknown
+      ColumnManagerProps
+        columns: ColumnConfig[]
+        onColumnsChange: (columns: ColumnConfig[]) => void
+        class: string
+      DataTableProps
+        data: T[]
+        columns: DataTableColumn<T>[]
+        striped: boolean
+        hoverable: boolean
+        maxHeight: string
+        class: string
+        onRowClick: (row: T) => void
+      DataTableAdvancedProps
+        data: T[]
+        columns: AdvancedColumnDefinition<T>[]
+        title: string
+        searchPlaceholder: string
+        showSearch: boolean
+        showFilters: boolean
+        showExport: boolean
+        pageSizeOptions: number[]
+        defaultPageSize: number
+        class: string
+        onExport: () => void
+        onRowClick: (item: T) => void
+        loading: boolean
+      SortableListProps
+        items: SortableListItem[]
+        class: string
+        onItemsChange: (items: SortableListItem[]) => void
+        onItemAction: (item: SortableListItem, action: string) => void
+        disabled: boolean
+        showHandle: boolean
+        showActions: boolean
+        variant: 'minimal' | 'card' | 'compact'
+    table-extended
+      TableRecord
+        [index:key: string]: unknown
+      TableWithFiltersProps
+        data: TableRecord[]
+        columns: string[]
+        class: string
+      TableWithGroupingProps
+        data: TableRecord[]
+        groupBy: string
+        class: string
+      TableWithStripesProps
+        data: TableRecord[]
+        columns: string[]
+        class: string
+    tabs
+      TabProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        id: string
+        selected: boolean
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        class: string
+        children: ChildrenProp['children']
+        ariaLabel: string
+        disabled: boolean
+      TabIndicatorProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        left: string
+        width: string
+        color: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+      TabPanelProps
+        id: string
+        disabled: boolean
+      TabContainerProps
+        disabled: boolean
+      TabsProps
+        usesTokens: [ComponentSize, DefaultVariants]
+        selectedId: string
+        onValueChange: (id: string) => void
+        variant: DefaultVariants /* DefaultVariants */
+        size: ComponentSize /* ComponentSize */
+        disabled: boolean
+    tag-input
+      TagInputProps
+        tags: string[]
+        placeholder: string
+        class: string
+    time-slot
+      ITimeSlot
+        start: Date
+        end: Date
+        timeLabel: string
+        available: boolean
+        selected: boolean
+        active: boolean
+        events: any[]
+        class: string
+      ITimeSlotProps
+        onValueInput: (slot: ITimeSlot) => void
+        onValueChange: (slot: ITimeSlot) => void
+        onClick: (slot: ITimeSlot) => void
+        onKeyDown: (e: KeyboardEvent) => void
+    toast
+      IToastProps
+        usesTokens: [NotificationType]
+        type: NotificationType /* NotificationType */
+        visible: boolean
+        duration: number
+        title: Snippet
+        description: Snippet
+        class: string
+        children: Snippet
+        ontoastClosed: (event: CustomEvent) => void
+      IToastStyleClasses
+        type: string
+        visible: string
+    toggles
+      ToggleGroupRootProps
+        usesTokens: [Orientation, ToggleGroupType]
+        value: string
+        disabled: boolean
+        orientation: Orientation /* Orientation */
+        type: ToggleGroupType /* ToggleGroupType */
+        class: string
+        onValueChange: (event: CustomEvent<{ value: string | string[] | null }>) => void
+      ToggleGroupItemProps
+        value: string
+        disabled: boolean
+        class: string
+      ToggleBaseProps
+        usesTokens: [ComponentSize]
+        disabled: boolean
+        class: string
+        size: ComponentSize /* ComponentSize */
+      ToggleInputProps
+        checked: boolean
+      ToggleProps
+        usesTokens: [ComponentSize]
+        toggleSize: ComponentSize /* ComponentSize */
+      CheckboxProps
+        id: string
+        label: string
+        description: string
+        errors: string[]
+        required: boolean
+        indeterminate: boolean
+      RadioProps
+        value: string
+        label: string
+      RadioButtonGroupProps
+        usesTokens: [Orientation]
+        value: string
+        disabled: boolean
+        orientation: Orientation /* Orientation */
+        options: Array<{ value: string; label: string; disabled?: boolean }>
+        optionClass: string
+        labelClass: string
+        radioClass: string
+        name: string
+        class: string
+        required: boolean
+        onValueInput: (value: string) => void
+        onValueChange: (value: string) => void
+      ActionSegmentedControlProps
+        items: string[]
+        selectedIndex: number
+        onValueInput: (value: number) => void
+        onValueChange: (value: number) => void
+        onChange: (value: number) => void
+        class: string
+      AdvancedToggleProps
+        label: string
+        checked: boolean
+        onValueInput: (value: boolean) => void
+        onValueChange: (value: boolean) => void
+        onChange: (value: boolean) => void
+      DarkModeToggleProps
+        checked: boolean
+        darkMode: boolean
+        currentTheme: 'light' | 'dark' | 'system'
+        showLabels: boolean
+        onToggle: (payload: { darkMode: boolean }) => void
+        onThemeChange: (theme: 'light' | 'dark' | 'system') => void
+    tooltip
+      TooltipProps
+        usesTokens: [TooltipPlacement, TooltipTrigger, TooltipVariant]
+        content: string | Snippet
+        placement: TooltipPlacement /* TooltipPlacement */
+        trigger: TooltipTrigger /* TooltipTrigger */
+        variant: TooltipVariant /* TooltipVariant */
+        show: boolean
+        class: string
+        tooltipClass: string
+        arrowClass: string
+        disabled: boolean
+        delay: number
+        hideDelay: number
+        children: Snippet
+        onShow: () => void
+        onHide: () => void
+    translation-editor
+      TranslationEditorProps
+        sourceText: string
+        targetLocale: string
+        class: string
+    tree-controls
+      TreeNode
+        id: string
+        label: string
+        children: TreeNode[]
+        expanded: boolean
+      VirtualTreeProps
+        nodes: TreeNode[]
+        class: string
+      FlatTreeProps
+        nodes: TreeNode[]
+        class: string
+      FolderTreeProps
+        nodes: TreeNode[]
+        class: string
+      AdvancedVirtualTreeProps
+        nodes: TreeNode[]
+        class: string
+    tree-node-item
+      TreeNodeItemNode
+        key: string
+        desc: string
+        child: TreeNodeItemNode[]
+        [index:key: string]: unknown
+      ITreeNodeItemProps
+        node: TreeNodeItemNode
+        onSelectCallback: (key: string | undefined) => void
+        secondaryIcon: any
+        faIcon: boolean
+        expandedNodes: Set<string>
+        class: string
+        children: Snippet
+        onNodeSelect: (event: CustomEvent<{ node: TreeNodeItemNode }>) => void
+        onNodeToggle: (event: CustomEvent<{ node: TreeNodeItemNode }>) => void
+      ITreeNodeItemStyleClasses
+        expanded: string
+        selected: string
+        disabled: string
+    zoom-controls
+      ZoomControlsProps
+        initialValue: number
+        minZoom: number
+        maxZoom: number
+        step: number
+        showPercentage: boolean
+        class: string
+        controlsClass: string
+        indicatorClass: string
+        onValueInput: (zoomLevel: number) => void
+        onValueChange: (zoomLevel: number) => void
+        onChange: (zoomLevel: number) => void

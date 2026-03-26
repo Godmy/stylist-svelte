@@ -191,7 +191,7 @@
 1. `src/lib/components/atoms/interaction/controls/buttons/button/index.svelte` - сам компонент
 2. `src/lib/components/atoms/interaction/controls/buttons/button/index.ts` - экспорт
 3. `src/lib/components/atoms/interaction/controls/buttons/button/index.story.svelte` - демонстрация
-4. `src/lib/design-system/props/button.ts` - типы пропсов
+4. `src/lib/design-system/contracts/button.ts` - типы пропсов
 5. `src/lib/design-system/styles/button.ts` - стилевой менеджер
 6. `src/lib/design-system/models/button.svelte.ts` - модель состояния
 7. `src/lib/design-system/state/button.ts` - пресеты и значения по умолчанию

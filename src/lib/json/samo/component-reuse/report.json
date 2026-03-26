@@ -1,0 +1,5302 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-16T19:27:29.814Z",
+    "generator": "",
+    "sourceRoot": ""
+  },
+  "summary": {
+    "totalComponents": 331,
+    "totalAtoms": 177,
+    "uniqueUsedAtoms": 33,
+    "totalMatches": 143,
+    "avgReuseScore": 1.02
+  },
+  "topUsedAtoms": [
+    {
+      "atomName": "Button",
+      "usedInCount": 57
+    },
+    {
+      "atomName": "Icon",
+      "usedInCount": 23
+    },
+    {
+      "atomName": "Avatar",
+      "usedInCount": 9
+    },
+    {
+      "atomName": "Badge",
+      "usedInCount": 8
+    },
+    {
+      "atomName": "IconButton",
+      "usedInCount": 5
+    },
+    {
+      "atomName": "Tooltip",
+      "usedInCount": 5
+    },
+    {
+      "atomName": "Divider",
+      "usedInCount": 3
+    },
+    {
+      "atomName": "Separator",
+      "usedInCount": 3
+    },
+    {
+      "atomName": "AnimatedNumber",
+      "usedInCount": 2
+    },
+    {
+      "atomName": "Checkbox",
+      "usedInCount": 2
+    },
+    {
+      "atomName": "InputField",
+      "usedInCount": 2
+    },
+    {
+      "atomName": "NodeProperty",
+      "usedInCount": 2
+    },
+    {
+      "atomName": "TextArea",
+      "usedInCount": 2
+    },
+    {
+      "atomName": "ChartAxisX",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChartAxisY",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChartAxisZ",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChartBackground",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChartName",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChartPolyline",
+      "usedInCount": 1
+    },
+    {
+      "atomName": "ChatStatusIndicator",
+      "usedInCount": 1
+    }
+  ],
+  "highComplexityLowReuse": [
+    {
+      "componentName": "checkout-form",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/checkout-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 934,
+      "componentCount": 17,
+      "complexityScore": 76.44,
+      "reuseScore": 0.59,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "rfqform",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/rfqform/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "InputField",
+        "TextArea"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 684,
+      "componentCount": 29,
+      "complexityScore": 75.84,
+      "reuseScore": 1.03,
+      "recommendedAtoms": [
+        "Button",
+        "InputField",
+        "TextArea"
+      ]
+    },
+    {
+      "componentName": "route-planner",
+      "componentPath": "src/lib/components/organisms/information/geo/route-planner/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 574,
+      "componentCount": 21,
+      "complexityScore": 59.64,
+      "reuseScore": 0.48,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "warranty-info",
+      "componentPath": "src/lib/components/organisms/information/commerce/warranty-info/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 443,
+      "componentCount": 22,
+      "complexityScore": 52.98,
+      "reuseScore": 0.45,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "stylist",
+      "componentPath": "src/lib/components/organisms/interaction/development/stylist/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 681,
+      "componentCount": 10,
+      "complexityScore": 52.86,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "stylist-menu",
+      "componentPath": "src/lib/components/organisms/interaction/controls/stylist-menu/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 636,
+      "componentCount": 12,
+      "complexityScore": 52.56,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "return-policy",
+      "componentPath": "src/lib/components/organisms/information/commerce/return-policy/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 461,
+      "componentCount": 20,
+      "complexityScore": 51.66,
+      "reuseScore": 0.5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "order-history",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-history/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 475,
+      "componentCount": 17,
+      "complexityScore": 48.9,
+      "reuseScore": 0.59,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "graph-editor",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/graph-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "IconButton",
+        "Separator"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 415,
+      "componentCount": 20,
+      "complexityScore": 48.9,
+      "reuseScore": 1.5,
+      "recommendedAtoms": [
+        "Icon",
+        "IconButton",
+        "Separator"
+      ]
+    },
+    {
+      "componentName": "rich-text-editor",
+      "componentPath": "src/lib/components/molecules/interaction/editors/rich-text-editor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 369,
+      "componentCount": 22,
+      "complexityScore": 48.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "order-tracking",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-tracking/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 406,
+      "componentCount": 18,
+      "complexityScore": 45.96,
+      "reuseScore": 0.56,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "scrum-backlog",
+      "componentPath": "src/lib/components/molecules/information/management/agile/scrum-backlog/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge",
+        "Button",
+        "Icon",
+        "InputField",
+        "TextArea"
+      ],
+      "matchedAtomsCount": 5,
+      "totalLines": 379,
+      "componentCount": 19,
+      "complexityScore": 45.54,
+      "reuseScore": 2.63,
+      "recommendedAtoms": [
+        "Badge",
+        "Button",
+        "Icon",
+        "InputField",
+        "TextArea"
+      ]
+    },
+    {
+      "componentName": "shipping-info",
+      "componentPath": "src/lib/components/organisms/information/commerce/shipping-info/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 376,
+      "componentCount": 18,
+      "complexityScore": 44.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "litegraph-canvas",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/litegraph-canvas/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "GraphCanvas"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 531,
+      "componentCount": 10,
+      "complexityScore": 43.86,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "GraphCanvas"
+      ]
+    },
+    {
+      "componentName": "playground-component-catalog",
+      "componentPath": "src/lib/components/organisms/information/development/playground-component-catalog/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 358,
+      "componentCount": 18,
+      "complexityScore": 43.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "media-library",
+      "componentPath": "src/lib/components/organisms/information/media/media-library/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 406,
+      "componentCount": 15,
+      "complexityScore": 42.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "event-calendar",
+      "componentPath": "src/lib/components/organisms/information/calendar/event-calendar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 444,
+      "componentCount": 13,
+      "complexityScore": 42.24,
+      "reuseScore": 0.77,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "store-locator",
+      "componentPath": "src/lib/components/organisms/information/geo/store-locator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 407,
+      "componentCount": 14,
+      "complexityScore": 41.22,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "content-editor",
+      "componentPath": "src/lib/components/organisms/interaction/content/content-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 382,
+      "componentCount": 15,
+      "complexityScore": 40.92,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "inventory-tracker",
+      "componentPath": "src/lib/components/organisms/information/commerce/inventory-tracker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "ProgressBar"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 421,
+      "componentCount": 13,
+      "complexityScore": 40.86,
+      "reuseScore": 1.54,
+      "recommendedAtoms": [
+        "Button",
+        "ProgressBar"
+      ]
+    },
+    {
+      "componentName": "file-explorer",
+      "componentPath": "src/lib/components/organisms/interaction/controls/files/file-explorer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 289,
+      "componentCount": 19,
+      "complexityScore": 40.14,
+      "reuseScore": 0.53,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "bulk-order-form",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/bulk-order-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 345,
+      "componentCount": 16,
+      "complexityScore": 39.9,
+      "reuseScore": 0.63,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "order-confirmation",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-confirmation/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 356,
+      "componentCount": 15,
+      "complexityScore": 39.36,
+      "reuseScore": 0.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "page-builder",
+      "componentPath": "src/lib/components/organisms/interaction/controls/page-builder/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 400,
+      "componentCount": 12,
+      "complexityScore": 38.4,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "social-share",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-share/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 323,
+      "componentCount": 15,
+      "complexityScore": 37.38,
+      "reuseScore": 0.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "playground-component-info-card",
+      "componentPath": "src/lib/components/organisms/information/development/playground-component-info-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 320,
+      "componentCount": 15,
+      "complexityScore": 37.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "social-activity-feed",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-activity-feed/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 373,
+      "componentCount": 12,
+      "complexityScore": 36.78,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "zip-viewer",
+      "componentPath": "src/lib/components/organisms/interaction/controls/files/zip-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 331,
+      "componentCount": 14,
+      "complexityScore": 36.66,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "map-with-markers",
+      "componentPath": "src/lib/components/organisms/information/geo/map-with-markers/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 371,
+      "componentCount": 12,
+      "complexityScore": 36.66,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "shared-canvas",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/shared-canvas/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 405,
+      "componentCount": 10,
+      "complexityScore": 36.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-shell-header",
+      "componentPath": "src/lib/components/organisms/information/development/playground-shell-header/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 378,
+      "componentCount": 11,
+      "complexityScore": 35.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "geo-jsonviewer",
+      "componentPath": "src/lib/components/organisms/information/geo/geo-jsonviewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 375,
+      "componentCount": 11,
+      "complexityScore": 35.7,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "map-selector",
+      "componentPath": "src/lib/components/organisms/interaction/geo/map-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 334,
+      "componentCount": 13,
+      "complexityScore": 35.64,
+      "reuseScore": 0.77,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "abtest-configurator",
+      "componentPath": "src/lib/components/organisms/information/marketing/abtest-configurator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 374,
+      "componentCount": 11,
+      "complexityScore": 35.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "discount-applier",
+      "componentPath": "src/lib/components/organisms/information/commerce/discount-applier/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 370,
+      "componentCount": 11,
+      "complexityScore": 35.4,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "cart-summary",
+      "componentPath": "src/lib/components/organisms/information/commerce/cart-summary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 369,
+      "componentCount": 11,
+      "complexityScore": 35.34,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "mock-data-selector",
+      "componentPath": "src/lib/components/organisms/interaction/development/mock-data-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 446,
+      "componentCount": 7,
+      "complexityScore": 35.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "friend-list",
+      "componentPath": "src/lib/components/organisms/information/communication/social/friend-list/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 362,
+      "componentCount": 11,
+      "complexityScore": 34.92,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "time-grid",
+      "componentPath": "src/lib/components/organisms/architecture/calendar/time-grid/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 345,
+      "componentCount": 11,
+      "complexityScore": 33.9,
+      "reuseScore": 1.82,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "location-picker",
+      "componentPath": "src/lib/components/organisms/interaction/geo/location-picker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 284,
+      "componentCount": 14,
+      "complexityScore": 33.84,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "tax-calculator",
+      "componentPath": "src/lib/components/organisms/information/commerce/tax-calculator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 396,
+      "componentCount": 8,
+      "complexityScore": 33.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "location-selector",
+      "componentPath": "src/lib/components/organisms/interaction/geo/location-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 330,
+      "componentCount": 11,
+      "complexityScore": 33,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "resource-optimizer",
+      "componentPath": "src/lib/components/organisms/information/development/resource-optimizer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 382,
+      "componentCount": 8,
+      "complexityScore": 32.52,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "calendar-view",
+      "componentPath": "src/lib/components/organisms/information/calendar/calendar-view/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 292,
+      "componentCount": 12,
+      "complexityScore": 31.92,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "schedule-calendar",
+      "componentPath": "src/lib/components/organisms/information/calendar/schedule-calendar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "TimeSlot"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 287,
+      "componentCount": 12,
+      "complexityScore": 31.62,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Button",
+        "TimeSlot"
+      ]
+    },
+    {
+      "componentName": "comment-system",
+      "componentPath": "src/lib/components/organisms/information/communication/comments/comment-system/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 238,
+      "componentCount": 14,
+      "complexityScore": 31.08,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "playground-enhanced-export-panel",
+      "componentPath": "src/lib/components/organisms/information/development/playground-enhanced-export-panel/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 310,
+      "componentCount": 10,
+      "complexityScore": 30.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "shipping-calculator",
+      "componentPath": "src/lib/components/organisms/information/commerce/shipping-calculator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 338,
+      "componentCount": 8,
+      "complexityScore": 29.88,
+      "reuseScore": 1.25,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "playground-ai-assistant",
+      "componentPath": "src/lib/components/organisms/information/development/playground-ai-assistant/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 351,
+      "componentCount": 7,
+      "complexityScore": 29.46,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "social-login",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-login/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 349,
+      "componentCount": 7,
+      "complexityScore": 29.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    }
+  ],
+  "components": [
+    {
+      "componentName": "chart-canvas",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/charts/chart-canvas/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "ChartAxisX",
+        "ChartAxisY",
+        "ChartAxisZ",
+        "ChartBackground",
+        "ChartName",
+        "ChartPolyline"
+      ],
+      "matchedAtomsCount": 6,
+      "totalLines": 132,
+      "componentCount": 6,
+      "complexityScore": 15.12,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "ChartAxisX",
+        "ChartAxisY",
+        "ChartAxisZ",
+        "ChartBackground",
+        "ChartName",
+        "ChartPolyline"
+      ]
+    },
+    {
+      "componentName": "graph-toolbar",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/graph-toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "IconButton",
+        "Separator"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 157,
+      "componentCount": 2,
+      "complexityScore": 11.82,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "IconButton",
+        "Separator"
+      ]
+    },
+    {
+      "componentName": "port-group",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/port-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Divider",
+        "GraphPort"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 171,
+      "componentCount": 2,
+      "complexityScore": 12.66,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Divider",
+        "GraphPort"
+      ]
+    },
+    {
+      "componentName": "hero",
+      "componentPath": "src/lib/components/molecules/architecture/layout/hero/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "AnimatedNumber"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 141,
+      "componentCount": 1,
+      "complexityScore": 9.66,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "AnimatedNumber"
+      ]
+    },
+    {
+      "componentName": "general-toolbar",
+      "componentPath": "src/lib/components/molecules/architecture/navigation/general-toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 71,
+      "componentCount": 1,
+      "complexityScore": 5.46,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "page-header",
+      "componentPath": "src/lib/components/molecules/architecture/navigation/page-header/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Link"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 100,
+      "componentCount": 1,
+      "complexityScore": 7.2,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Link"
+      ]
+    },
+    {
+      "componentName": "category-card",
+      "componentPath": "src/lib/components/molecules/information/cards/category-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 79,
+      "componentCount": 1,
+      "complexityScore": 5.94,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "expandable-card",
+      "componentPath": "src/lib/components/molecules/information/cards/expandable-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 107,
+      "componentCount": 1,
+      "complexityScore": 7.62,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "link-card",
+      "componentPath": "src/lib/components/molecules/information/cards/link-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 82,
+      "componentCount": 1,
+      "complexityScore": 6.12,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "legend-item",
+      "componentPath": "src/lib/components/molecules/information/management/legend-item/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 76,
+      "componentCount": 1,
+      "complexityScore": 5.76,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "ontology-node-component",
+      "componentPath": "src/lib/components/molecules/information/ontology/ontology-node-component/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 52,
+      "componentCount": 1,
+      "complexityScore": 4.32,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "user-status",
+      "componentPath": "src/lib/components/molecules/interaction/chat/user-status/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "ChatStatusIndicator"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 88,
+      "componentCount": 1,
+      "complexityScore": 6.48,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "ChatStatusIndicator"
+      ]
+    },
+    {
+      "componentName": "dropdown-menu",
+      "componentPath": "src/lib/components/molecules/interaction/controls/menus/dropdown-menu/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 155,
+      "componentCount": 2,
+      "complexityScore": 11.7,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "team-member-card",
+      "componentPath": "src/lib/components/organisms/information/card/team-member-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar",
+        "Badge"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 87,
+      "componentCount": 2,
+      "complexityScore": 7.62,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Avatar",
+        "Badge"
+      ]
+    },
+    {
+      "componentName": "export-panel",
+      "componentPath": "src/lib/components/organisms/interaction/controls/export-panel/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 183,
+      "componentCount": 1,
+      "complexityScore": 12.18,
+      "reuseScore": 10,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "chat-item",
+      "componentPath": "src/lib/components/molecules/interaction/chat/chat-item/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Avatar",
+        "Badge",
+        "MessageTimestamp"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 173,
+      "componentCount": 4,
+      "complexityScore": 15.18,
+      "reuseScore": 7.5,
+      "recommendedAtoms": [
+        "Avatar",
+        "Badge",
+        "MessageTimestamp"
+      ]
+    },
+    {
+      "componentName": "line-chart",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/charts/line-chart/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 297,
+      "componentCount": 3,
+      "complexityScore": 21.42,
+      "reuseScore": 6.67,
+      "recommendedAtoms": [
+        "Icon",
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "operations-history",
+      "componentPath": "src/lib/components/molecules/information/management/operations-history/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge",
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 162,
+      "componentCount": 5,
+      "complexityScore": 15.72,
+      "reuseScore": 6,
+      "recommendedAtoms": [
+        "Badge",
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "documentation-block",
+      "componentPath": "src/lib/components/molecules/information/development/documentation-block/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge",
+        "Divider"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 131,
+      "componentCount": 4,
+      "complexityScore": 12.66,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Badge",
+        "Divider"
+      ]
+    },
+    {
+      "componentName": "message-bubble",
+      "componentPath": "src/lib/components/molecules/information/messages/message-bubble/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 64,
+      "componentCount": 2,
+      "complexityScore": 6.24,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "message-item",
+      "componentPath": "src/lib/components/molecules/information/messages/message-item/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Avatar",
+        "Icon",
+        "MessageMeta"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 222,
+      "componentCount": 6,
+      "complexityScore": 20.52,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Avatar",
+        "Icon",
+        "MessageMeta"
+      ]
+    },
+    {
+      "componentName": "chat-window",
+      "componentPath": "src/lib/components/molecules/interaction/chat/chat-window/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "MessageInput"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 129,
+      "componentCount": 2,
+      "complexityScore": 10.14,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "MessageInput"
+      ]
+    },
+    {
+      "componentName": "file-upload",
+      "componentPath": "src/lib/components/molecules/interaction/forms/file-upload/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 189,
+      "componentCount": 2,
+      "complexityScore": 13.74,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "heatmap",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/heatmap/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 333,
+      "componentCount": 4,
+      "complexityScore": 24.78,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Icon",
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "graph-node-card",
+      "componentPath": "src/lib/components/organisms/architecture/card/graph-node-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 158,
+      "componentCount": 4,
+      "complexityScore": 14.28,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "stat-card",
+      "componentPath": "src/lib/components/organisms/information/card/stat-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "AnimatedNumber"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 91,
+      "componentCount": 2,
+      "complexityScore": 7.86,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "AnimatedNumber"
+      ]
+    },
+    {
+      "componentName": "filter-bar",
+      "componentPath": "src/lib/components/organisms/interaction/controls/filter-bar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Switch",
+        "Tag"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 164,
+      "componentCount": 4,
+      "complexityScore": 14.64,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Switch",
+        "Tag"
+      ]
+    },
+    {
+      "componentName": "appearance-settings",
+      "componentPath": "src/lib/components/organisms/interaction/forms/settings/appearance-settings/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "DarkModeToggle",
+        "ThemeSwitcher"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 126,
+      "componentCount": 4,
+      "complexityScore": 12.36,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "DarkModeToggle",
+        "ThemeSwitcher"
+      ]
+    },
+    {
+      "componentName": "node-palette",
+      "componentPath": "src/lib/components/organisms/interaction/palette/node-palette/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "IconButton",
+        "InputText",
+        "Separator"
+      ],
+      "matchedAtomsCount": 4,
+      "totalLines": 511,
+      "componentCount": 8,
+      "complexityScore": 40.26,
+      "reuseScore": 5,
+      "recommendedAtoms": [
+        "Icon",
+        "IconButton",
+        "InputText",
+        "Separator"
+      ]
+    },
+    {
+      "componentName": "attachment-preview",
+      "componentPath": "src/lib/components/molecules/information/preview/attachment-preview/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 148,
+      "componentCount": 5,
+      "complexityScore": 14.88,
+      "reuseScore": 4,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "chat-header",
+      "componentPath": "src/lib/components/organisms/interaction/communication/chat/chat-header/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar",
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 148,
+      "componentCount": 8,
+      "complexityScore": 18.48,
+      "reuseScore": 3.75,
+      "recommendedAtoms": [
+        "Avatar",
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "bar-chart",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/charts/bar-chart/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 217,
+      "componentCount": 3,
+      "complexityScore": 16.62,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "code-section",
+      "componentPath": "src/lib/components/molecules/information/development/code-section/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 108,
+      "componentCount": 3,
+      "complexityScore": 10.08,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Badge"
+      ]
+    },
+    {
+      "componentName": "node-properties-panel",
+      "componentPath": "src/lib/components/molecules/information/panels/node-properties-panel/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "IconButton",
+        "NodeProperty"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 176,
+      "componentCount": 6,
+      "complexityScore": 17.76,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "IconButton",
+        "NodeProperty"
+      ]
+    },
+    {
+      "componentName": "checkbox-group",
+      "componentPath": "src/lib/components/molecules/interaction/controls/toggles/checkbox-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Checkbox"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 127,
+      "componentCount": 3,
+      "complexityScore": 11.22,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Checkbox"
+      ]
+    },
+    {
+      "componentName": "error-boundary",
+      "componentPath": "src/lib/components/molecules/interaction/feedback/errors/error-boundary/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 97,
+      "componentCount": 3,
+      "complexityScore": 9.42,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "pagination",
+      "componentPath": "src/lib/components/organisms/architecture/interaction/navigation/pagination/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 180,
+      "componentCount": 3,
+      "complexityScore": 14.4,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "sidebar",
+      "componentPath": "src/lib/components/organisms/architecture/interaction/navigation/sidebar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 198,
+      "componentCount": 3,
+      "complexityScore": 15.48,
+      "reuseScore": 3.33,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "variables-editor",
+      "componentPath": "src/lib/components/molecules/interaction/editors/variables-editor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 155,
+      "componentCount": 7,
+      "complexityScore": 17.7,
+      "reuseScore": 2.86,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "minimap",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/minimap/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "IconButton"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 314,
+      "componentCount": 7,
+      "complexityScore": 27.24,
+      "reuseScore": 2.86,
+      "recommendedAtoms": [
+        "Icon",
+        "IconButton"
+      ]
+    },
+    {
+      "componentName": "kanban-card",
+      "componentPath": "src/lib/components/organisms/information/card/kanban-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar",
+        "Badge",
+        "Divider"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 245,
+      "componentCount": 11,
+      "complexityScore": 27.9,
+      "reuseScore": 2.73,
+      "recommendedAtoms": [
+        "Avatar",
+        "Badge",
+        "Divider"
+      ]
+    },
+    {
+      "componentName": "scrum-backlog",
+      "componentPath": "src/lib/components/molecules/information/management/agile/scrum-backlog/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge",
+        "Button",
+        "Icon",
+        "InputField",
+        "TextArea"
+      ],
+      "matchedAtomsCount": 5,
+      "totalLines": 379,
+      "componentCount": 19,
+      "complexityScore": 45.54,
+      "reuseScore": 2.63,
+      "recommendedAtoms": [
+        "Badge",
+        "Button",
+        "Icon",
+        "InputField",
+        "TextArea"
+      ]
+    },
+    {
+      "componentName": "litegraph-node",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/litegraph-node/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "NodeProperty"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 255,
+      "componentCount": 4,
+      "complexityScore": 20.1,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "NodeProperty"
+      ]
+    },
+    {
+      "componentName": "kanban-board",
+      "componentPath": "src/lib/components/molecules/information/management/kanban/kanban-board/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 308,
+      "componentCount": 4,
+      "complexityScore": 23.28,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "kanban-column",
+      "componentPath": "src/lib/components/molecules/information/management/kanban/kanban-column/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Badge",
+        "Button"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 238,
+      "componentCount": 8,
+      "complexityScore": 23.88,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Badge",
+        "Button"
+      ]
+    },
+    {
+      "componentName": "chat-message",
+      "componentPath": "src/lib/components/molecules/interaction/chat/chat-message/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 94,
+      "componentCount": 4,
+      "complexityScore": 10.44,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "confirmation-dialog",
+      "componentPath": "src/lib/components/molecules/interaction/dialogs/confirmation-dialog/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 80,
+      "componentCount": 4,
+      "complexityScore": 9.6,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "filter-panel",
+      "componentPath": "src/lib/components/molecules/interaction/forms/filter-panel/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button",
+        "Checkbox"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 218,
+      "componentCount": 8,
+      "complexityScore": 22.68,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Button",
+        "Checkbox"
+      ]
+    },
+    {
+      "componentName": "payment-method-selector",
+      "componentPath": "src/lib/components/organisms/interaction/controls/payment/payment-method-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 60,
+      "componentCount": 4,
+      "complexityScore": 8.4,
+      "reuseScore": 2.5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "dashboard-layout",
+      "componentPath": "src/lib/components/organisms/architecture/dashboards/dashboard-layout/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 175,
+      "componentCount": 9,
+      "complexityScore": 21.3,
+      "reuseScore": 2.22,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "code-block",
+      "componentPath": "src/lib/components/molecules/information/development/code-block/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 143,
+      "componentCount": 5,
+      "complexityScore": 14.58,
+      "reuseScore": 2,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "search-bar",
+      "componentPath": "src/lib/components/molecules/interaction/search/search-bar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 136,
+      "componentCount": 5,
+      "complexityScore": 14.16,
+      "reuseScore": 2,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "time-grid",
+      "componentPath": "src/lib/components/organisms/architecture/calendar/time-grid/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "Icon"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 345,
+      "componentCount": 11,
+      "complexityScore": 33.9,
+      "reuseScore": 1.82,
+      "recommendedAtoms": [
+        "Button",
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "message-composer",
+      "componentPath": "src/lib/components/molecules/information/messages/message-composer/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 150,
+      "componentCount": 6,
+      "complexityScore": 16.2,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "performance-dashboard",
+      "componentPath": "src/lib/components/organisms/architecture/dashboards/performance-dashboard/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 140,
+      "componentCount": 6,
+      "complexityScore": 15.6,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Icon"
+      ]
+    },
+    {
+      "componentName": "schedule-calendar",
+      "componentPath": "src/lib/components/organisms/information/calendar/schedule-calendar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "TimeSlot"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 287,
+      "componentCount": 12,
+      "complexityScore": 31.62,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Button",
+        "TimeSlot"
+      ]
+    },
+    {
+      "componentName": "currency-converter",
+      "componentPath": "src/lib/components/organisms/information/commerce/currency-converter/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 305,
+      "componentCount": 6,
+      "complexityScore": 25.5,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "draggable-card",
+      "componentPath": "src/lib/components/organisms/interaction/card/draggable-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 170,
+      "componentCount": 6,
+      "complexityScore": 17.4,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "mini-calendar",
+      "componentPath": "src/lib/components/organisms/interaction/controls/calendar/mini-calendar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 200,
+      "componentCount": 6,
+      "complexityScore": 19.2,
+      "reuseScore": 1.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "inventory-tracker",
+      "componentPath": "src/lib/components/organisms/information/commerce/inventory-tracker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "ProgressBar"
+      ],
+      "matchedAtomsCount": 2,
+      "totalLines": 421,
+      "componentCount": 13,
+      "complexityScore": 40.86,
+      "reuseScore": 1.54,
+      "recommendedAtoms": [
+        "Button",
+        "ProgressBar"
+      ]
+    },
+    {
+      "componentName": "graph-editor",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/graph-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Icon",
+        "IconButton",
+        "Separator"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 415,
+      "componentCount": 20,
+      "complexityScore": 48.9,
+      "reuseScore": 1.5,
+      "recommendedAtoms": [
+        "Icon",
+        "IconButton",
+        "Separator"
+      ]
+    },
+    {
+      "componentName": "zoom-toolbar",
+      "componentPath": "src/lib/components/molecules/interaction/controls/zoom/zoom-toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 107,
+      "componentCount": 8,
+      "complexityScore": 16.02,
+      "reuseScore": 1.25,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "shipping-calculator",
+      "componentPath": "src/lib/components/organisms/information/commerce/shipping-calculator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 338,
+      "componentCount": 8,
+      "complexityScore": 29.88,
+      "reuseScore": 1.25,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "upsell",
+      "componentPath": "src/lib/components/organisms/information/commerce/upsell/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 217,
+      "componentCount": 8,
+      "complexityScore": 22.62,
+      "reuseScore": 1.25,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "toolbar",
+      "componentPath": "src/lib/components/molecules/interaction/controls/toolbars/toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 135,
+      "componentCount": 9,
+      "complexityScore": 18.9,
+      "reuseScore": 1.11,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "file-list-item",
+      "componentPath": "src/lib/components/organisms/information/files/file-list-item/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 222,
+      "componentCount": 9,
+      "complexityScore": 24.12,
+      "reuseScore": 1.11,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "map-marker",
+      "componentPath": "src/lib/components/organisms/information/geo/map-marker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 268,
+      "componentCount": 9,
+      "complexityScore": 26.88,
+      "reuseScore": 1.11,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "drop-zone",
+      "componentPath": "src/lib/components/organisms/interaction/controls/files/drop-zone/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 266,
+      "componentCount": 9,
+      "complexityScore": 26.76,
+      "reuseScore": 1.11,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "rfqform",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/rfqform/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button",
+        "InputField",
+        "TextArea"
+      ],
+      "matchedAtomsCount": 3,
+      "totalLines": 684,
+      "componentCount": 29,
+      "complexityScore": 75.84,
+      "reuseScore": 1.03,
+      "recommendedAtoms": [
+        "Button",
+        "InputField",
+        "TextArea"
+      ]
+    },
+    {
+      "componentName": "litegraph-canvas",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/litegraph-canvas/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "GraphCanvas"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 531,
+      "componentCount": 10,
+      "complexityScore": 43.86,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "GraphCanvas"
+      ]
+    },
+    {
+      "componentName": "audio-player",
+      "componentPath": "src/lib/components/organisms/information/media/audio-player/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 199,
+      "componentCount": 10,
+      "complexityScore": 23.94,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "video-player",
+      "componentPath": "src/lib/components/organisms/information/media/video-player/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 218,
+      "componentCount": 10,
+      "complexityScore": 25.08,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "stylist",
+      "componentPath": "src/lib/components/organisms/interaction/development/stylist/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Tooltip"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 681,
+      "componentCount": 10,
+      "complexityScore": 52.86,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "Tooltip"
+      ]
+    },
+    {
+      "componentName": "upload-progress",
+      "componentPath": "src/lib/components/organisms/interaction/files/upload-progress/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 187,
+      "componentCount": 10,
+      "complexityScore": 23.22,
+      "reuseScore": 1,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "cart-summary",
+      "componentPath": "src/lib/components/organisms/information/commerce/cart-summary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 369,
+      "componentCount": 11,
+      "complexityScore": 35.34,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "discount-applier",
+      "componentPath": "src/lib/components/organisms/information/commerce/discount-applier/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 370,
+      "componentCount": 11,
+      "complexityScore": 35.4,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "friend-list",
+      "componentPath": "src/lib/components/organisms/information/communication/social/friend-list/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 362,
+      "componentCount": 11,
+      "complexityScore": 34.92,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "geo-jsonviewer",
+      "componentPath": "src/lib/components/organisms/information/geo/geo-jsonviewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 375,
+      "componentCount": 11,
+      "complexityScore": 35.7,
+      "reuseScore": 0.91,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "calendar-view",
+      "componentPath": "src/lib/components/organisms/information/calendar/calendar-view/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 292,
+      "componentCount": 12,
+      "complexityScore": 31.92,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "social-activity-feed",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-activity-feed/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Avatar"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 373,
+      "componentCount": 12,
+      "complexityScore": 36.78,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Avatar"
+      ]
+    },
+    {
+      "componentName": "map-with-markers",
+      "componentPath": "src/lib/components/organisms/information/geo/map-with-markers/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 371,
+      "componentCount": 12,
+      "complexityScore": 36.66,
+      "reuseScore": 0.83,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "event-calendar",
+      "componentPath": "src/lib/components/organisms/information/calendar/event-calendar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 444,
+      "componentCount": 13,
+      "complexityScore": 42.24,
+      "reuseScore": 0.77,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "map-selector",
+      "componentPath": "src/lib/components/organisms/interaction/geo/map-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 334,
+      "componentCount": 13,
+      "complexityScore": 35.64,
+      "reuseScore": 0.77,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "comment-system",
+      "componentPath": "src/lib/components/organisms/information/communication/comments/comment-system/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 238,
+      "componentCount": 14,
+      "complexityScore": 31.08,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "store-locator",
+      "componentPath": "src/lib/components/organisms/information/geo/store-locator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 407,
+      "componentCount": 14,
+      "complexityScore": 41.22,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "zip-viewer",
+      "componentPath": "src/lib/components/organisms/interaction/controls/files/zip-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 331,
+      "componentCount": 14,
+      "complexityScore": 36.66,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "location-picker",
+      "componentPath": "src/lib/components/organisms/interaction/geo/location-picker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 284,
+      "componentCount": 14,
+      "complexityScore": 33.84,
+      "reuseScore": 0.71,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "order-confirmation",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-confirmation/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 356,
+      "componentCount": 15,
+      "complexityScore": 39.36,
+      "reuseScore": 0.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "social-share",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-share/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 323,
+      "componentCount": 15,
+      "complexityScore": 37.38,
+      "reuseScore": 0.67,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "bulk-order-form",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/bulk-order-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 345,
+      "componentCount": 16,
+      "complexityScore": 39.9,
+      "reuseScore": 0.63,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "order-history",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-history/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 475,
+      "componentCount": 17,
+      "complexityScore": 48.9,
+      "reuseScore": 0.59,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "checkout-form",
+      "componentPath": "src/lib/components/organisms/interaction/commerce/checkout-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 934,
+      "componentCount": 17,
+      "complexityScore": 76.44,
+      "reuseScore": 0.59,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "order-tracking",
+      "componentPath": "src/lib/components/organisms/information/commerce/order-tracking/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 406,
+      "componentCount": 18,
+      "complexityScore": 45.96,
+      "reuseScore": 0.56,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "file-explorer",
+      "componentPath": "src/lib/components/organisms/interaction/controls/files/file-explorer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 289,
+      "componentCount": 19,
+      "complexityScore": 40.14,
+      "reuseScore": 0.53,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "return-policy",
+      "componentPath": "src/lib/components/organisms/information/commerce/return-policy/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 461,
+      "componentCount": 20,
+      "complexityScore": 51.66,
+      "reuseScore": 0.5,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "route-planner",
+      "componentPath": "src/lib/components/organisms/information/geo/route-planner/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 574,
+      "componentCount": 21,
+      "complexityScore": 59.64,
+      "reuseScore": 0.48,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "warranty-info",
+      "componentPath": "src/lib/components/organisms/information/commerce/warranty-info/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [
+        "Button"
+      ],
+      "matchedAtomsCount": 1,
+      "totalLines": 443,
+      "componentCount": 22,
+      "complexityScore": 52.98,
+      "reuseScore": 0.45,
+      "recommendedAtoms": [
+        "Button"
+      ]
+    },
+    {
+      "componentName": "canvas-toolbar",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/canvas-toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 220,
+      "componentCount": 2,
+      "complexityScore": 15.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "chart-legend",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/charts/chart-legend/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 22,
+      "componentCount": 0,
+      "complexityScore": 1.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "pie-chart",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/charts/pie-chart/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 66,
+      "componentCount": 0,
+      "complexityScore": 3.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "connection-line",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/connection-line/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 186,
+      "componentCount": 0,
+      "complexityScore": 11.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "idef-zero-black-box",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/diagrams/idef-zero-black-box/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 45,
+      "componentCount": 3,
+      "complexityScore": 6.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "idef-zero-inputs",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/diagrams/idef-zero-inputs/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 28,
+      "componentCount": 1,
+      "complexityScore": 2.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "idef-zero-outputs",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/diagrams/idef-zero-outputs/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 29,
+      "componentCount": 1,
+      "complexityScore": 2.94,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "drawing-surface",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/drawing-surface/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 139,
+      "componentCount": 0,
+      "complexityScore": 8.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "node-header",
+      "componentPath": "src/lib/components/molecules/architecture/canvas/node-header/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 290,
+      "componentCount": 4,
+      "complexityScore": 22.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "animated-expandable-table-row",
+      "componentPath": "src/lib/components/molecules/architecture/layout/animated-expandable-table-row/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 126,
+      "componentCount": 3,
+      "complexityScore": 11.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "gradient-background",
+      "componentPath": "src/lib/components/molecules/architecture/layout/gradient-background/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 0,
+      "complexityScore": 4.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "grid",
+      "componentPath": "src/lib/components/molecules/architecture/layout/grid/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 69,
+      "componentCount": 2,
+      "complexityScore": 6.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "popover",
+      "componentPath": "src/lib/components/molecules/architecture/layout/popover/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 57,
+      "componentCount": 0,
+      "complexityScore": 3.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "split-layout",
+      "componentPath": "src/lib/components/molecules/architecture/layout/split-layout/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 82,
+      "componentCount": 2,
+      "complexityScore": 7.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "stacked-layout",
+      "componentPath": "src/lib/components/molecules/architecture/layout/stacked-layout/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 69,
+      "componentCount": 2,
+      "complexityScore": 6.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "vertical-layout",
+      "componentPath": "src/lib/components/molecules/architecture/layout/vertical-layout/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 66,
+      "componentCount": 2,
+      "complexityScore": 6.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "widget-container",
+      "componentPath": "src/lib/components/molecules/architecture/layout/widget-container/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 143,
+      "componentCount": 5,
+      "complexityScore": 14.58,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "drawer",
+      "componentPath": "src/lib/components/molecules/architecture/navigation/drawer/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 192,
+      "componentCount": 0,
+      "complexityScore": 11.52,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "side-by-side-layout",
+      "componentPath": "src/lib/components/molecules/architecture/navigation/side-by-side-layout/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 104,
+      "componentCount": 2,
+      "complexityScore": 8.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "stepper",
+      "componentPath": "src/lib/components/molecules/architecture/navigation/stepper/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 97,
+      "componentCount": 1,
+      "complexityScore": 7.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "ai-result-card",
+      "componentPath": "src/lib/components/molecules/information/cards/ai-result-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 36,
+      "componentCount": 0,
+      "complexityScore": 2.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "alert-card",
+      "componentPath": "src/lib/components/molecules/information/cards/alert-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 94,
+      "componentCount": 1,
+      "complexityScore": 6.84,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "article-card",
+      "componentPath": "src/lib/components/molecules/information/cards/article-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 41,
+      "componentCount": 0,
+      "complexityScore": 2.46,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "base-card",
+      "componentPath": "src/lib/components/molecules/information/cards/base-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 78,
+      "componentCount": 1,
+      "complexityScore": 5.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "card-with-image",
+      "componentPath": "src/lib/components/molecules/information/cards/card-with-image/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 74,
+      "componentCount": 1,
+      "complexityScore": 5.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "data-display-card",
+      "componentPath": "src/lib/components/molecules/information/cards/data-display-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 80,
+      "componentCount": 1,
+      "complexityScore": 6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "download-card",
+      "componentPath": "src/lib/components/molecules/information/cards/download-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 117,
+      "componentCount": 2,
+      "complexityScore": 9.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "metric-card",
+      "componentPath": "src/lib/components/molecules/information/cards/metric-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 74,
+      "componentCount": 0,
+      "complexityScore": 4.44,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "post-card",
+      "componentPath": "src/lib/components/molecules/information/cards/post-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 0,
+      "complexityScore": 4.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "stats-card",
+      "componentPath": "src/lib/components/molecules/information/cards/stats-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 76,
+      "componentCount": 3,
+      "complexityScore": 8.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "price-alert",
+      "componentPath": "src/lib/components/molecules/information/commerce/prices/price-alert/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 92,
+      "componentCount": 1,
+      "complexityScore": 6.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "price-filter",
+      "componentPath": "src/lib/components/molecules/information/commerce/prices/price-filter/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 81,
+      "componentCount": 0,
+      "complexityScore": 4.86,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "price-history",
+      "componentPath": "src/lib/components/molecules/information/commerce/prices/price-history/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 97,
+      "componentCount": 0,
+      "complexityScore": 5.82,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "price-match",
+      "componentPath": "src/lib/components/molecules/information/commerce/prices/price-match/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 77,
+      "componentCount": 0,
+      "complexityScore": 4.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "pricing-table",
+      "componentPath": "src/lib/components/molecules/information/commerce/prices/pricing-table/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 66,
+      "componentCount": 0,
+      "complexityScore": 3.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-availability",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-availability/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 97,
+      "componentCount": 0,
+      "complexityScore": 5.82,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-card-compact",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-card-compact/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 45,
+      "componentCount": 1,
+      "complexityScore": 3.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-card-with-actions",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-card-with-actions/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 51,
+      "componentCount": 1,
+      "complexityScore": 4.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-card",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-card/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 131,
+      "componentCount": 0,
+      "complexityScore": 7.86,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-carousel",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-carousel/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 94,
+      "componentCount": 0,
+      "complexityScore": 5.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-comparison-table",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-comparison-table/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 63,
+      "componentCount": 0,
+      "complexityScore": 3.78,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-comparison",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-comparison/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 73,
+      "componentCount": 0,
+      "complexityScore": 4.38,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-demo",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-demo/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 57,
+      "componentCount": 0,
+      "complexityScore": 3.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-gallery",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-gallery/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 65,
+      "componentCount": 0,
+      "complexityScore": 3.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-recommendation",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-recommendation/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 65,
+      "componentCount": 0,
+      "complexityScore": 3.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-search",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-search/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 67,
+      "componentCount": 0,
+      "complexityScore": 4.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-wishlist",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/product-wishlist/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 73,
+      "componentCount": 0,
+      "complexityScore": 4.38,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "wishlist-button",
+      "componentPath": "src/lib/components/molecules/information/commerce/products/wishlist-button/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 79,
+      "componentCount": 4,
+      "complexityScore": 9.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "code-block-with-line-numbers",
+      "componentPath": "src/lib/components/molecules/information/development/code-block-with-line-numbers/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 46,
+      "componentCount": 3,
+      "complexityScore": 6.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "code-diff",
+      "componentPath": "src/lib/components/molecules/information/development/code-diff/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 136,
+      "componentCount": 2,
+      "complexityScore": 10.56,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "code-editor-legacy",
+      "componentPath": "src/lib/components/molecules/information/development/code-editor-legacy/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 36,
+      "componentCount": 1,
+      "complexityScore": 3.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "code-with-copy",
+      "componentPath": "src/lib/components/molecules/information/development/code-with-copy/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 104,
+      "componentCount": 4,
+      "complexityScore": 11.04,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "component-preview",
+      "componentPath": "src/lib/components/molecules/information/development/component-preview/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 100,
+      "componentCount": 1,
+      "complexityScore": 7.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "copyable-code-block",
+      "componentPath": "src/lib/components/molecules/information/development/copyable-code-block/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 38,
+      "componentCount": 3,
+      "complexityScore": 5.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "privacy-settings",
+      "componentPath": "src/lib/components/molecules/information/development/privacy-settings/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 84,
+      "componentCount": 0,
+      "complexityScore": 5.04,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "data-exporter",
+      "componentPath": "src/lib/components/molecules/information/exporters/data-exporter/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 104,
+      "componentCount": 1,
+      "complexityScore": 7.44,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "burn-down-chart",
+      "componentPath": "src/lib/components/molecules/information/management/agile/burn-down-chart/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 252,
+      "componentCount": 0,
+      "complexityScore": 15.12,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "analytics-chart",
+      "componentPath": "src/lib/components/molecules/information/marketing/analytics-chart/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 125,
+      "componentCount": 4,
+      "complexityScore": 12.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "conversion-funnel",
+      "componentPath": "src/lib/components/molecules/information/marketing/conversion-funnel/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 121,
+      "componentCount": 3,
+      "complexityScore": 10.86,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "cta-banner",
+      "componentPath": "src/lib/components/molecules/information/marketing/cta-banner/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 72,
+      "componentCount": 0,
+      "complexityScore": 4.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "avatar-group",
+      "componentPath": "src/lib/components/molecules/information/media/avatar-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 100,
+      "componentCount": 1,
+      "complexityScore": 7.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "team-avatar-stack",
+      "componentPath": "src/lib/components/molecules/information/media/team-avatar-stack/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 116,
+      "componentCount": 2,
+      "complexityScore": 9.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "message-list",
+      "componentPath": "src/lib/components/molecules/information/messages/message-list/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 105,
+      "componentCount": 1,
+      "complexityScore": 7.5,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "message-thread",
+      "componentPath": "src/lib/components/molecules/information/messages/message-thread/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 78,
+      "componentCount": 2,
+      "complexityScore": 7.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "graphviz-directed-edge",
+      "componentPath": "src/lib/components/molecules/information/ontology/graphviz-directed-edge/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 45,
+      "componentCount": 0,
+      "complexityScore": 2.7,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "ontology-edge-component",
+      "componentPath": "src/lib/components/molecules/information/ontology/ontology-edge-component/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 0,
+      "complexityScore": 4.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "chat-list",
+      "componentPath": "src/lib/components/molecules/interaction/chat/chat-list/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 77,
+      "componentCount": 1,
+      "complexityScore": 5.82,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "chat-room",
+      "componentPath": "src/lib/components/molecules/interaction/chat/chat-room/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 130,
+      "componentCount": 4,
+      "complexityScore": 12.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "accordion-complex",
+      "componentPath": "src/lib/components/molecules/interaction/controls/accordion/accordion-complex/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 62,
+      "componentCount": 0,
+      "complexityScore": 3.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "accordion",
+      "componentPath": "src/lib/components/molecules/interaction/controls/accordion/accordion/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 101,
+      "componentCount": 2,
+      "complexityScore": 8.46,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "advanced-accordion",
+      "componentPath": "src/lib/components/molecules/interaction/controls/accordion/advanced-accordion/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 42,
+      "componentCount": 0,
+      "complexityScore": 2.52,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "timeline",
+      "componentPath": "src/lib/components/molecules/interaction/controls/calendar/timeline/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 102,
+      "componentCount": 1,
+      "complexityScore": 7.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "drag-and-drop-list",
+      "componentPath": "src/lib/components/molecules/interaction/controls/lists/drag-and-drop-list/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 154,
+      "componentCount": 5,
+      "complexityScore": 15.24,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "control-panel",
+      "componentPath": "src/lib/components/molecules/interaction/controls/panels/control-panel/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 88,
+      "componentCount": 3,
+      "complexityScore": 8.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "avatar-selector",
+      "componentPath": "src/lib/components/molecules/interaction/controls/selectors/avatar-selector/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 40,
+      "componentCount": 0,
+      "complexityScore": 2.4,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "model-selector",
+      "componentPath": "src/lib/components/molecules/interaction/controls/selectors/model-selector/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 128,
+      "componentCount": 2,
+      "complexityScore": 10.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "quantity-selector",
+      "componentPath": "src/lib/components/molecules/interaction/controls/selectors/quantity-selector/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 156,
+      "componentCount": 2,
+      "complexityScore": 11.76,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "selector",
+      "componentPath": "src/lib/components/molecules/interaction/controls/selectors/selector/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 232,
+      "componentCount": 0,
+      "complexityScore": 13.92,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "range-slider",
+      "componentPath": "src/lib/components/molecules/interaction/controls/sliders/range-slider/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 205,
+      "componentCount": 0,
+      "complexityScore": 12.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "comparison-table",
+      "componentPath": "src/lib/components/molecules/interaction/controls/tables/comparison-table/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 110,
+      "componentCount": 1,
+      "complexityScore": 7.8,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "expandable-table-row",
+      "componentPath": "src/lib/components/molecules/interaction/controls/tables/expandable-table-row/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 74,
+      "componentCount": 4,
+      "complexityScore": 9.24,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "stylist-tab",
+      "componentPath": "src/lib/components/molecules/interaction/controls/tabs/stylist-tab/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 155,
+      "componentCount": 3,
+      "complexityScore": 12.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tab-group",
+      "componentPath": "src/lib/components/molecules/interaction/controls/tabs/tab-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 117,
+      "componentCount": 0,
+      "complexityScore": 7.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tabs",
+      "componentPath": "src/lib/components/molecules/interaction/controls/tabs/tabs/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 74,
+      "componentCount": 0,
+      "complexityScore": 4.44,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "radio-button-group",
+      "componentPath": "src/lib/components/molecules/interaction/controls/toggles/radio-button-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 73,
+      "componentCount": 0,
+      "complexityScore": 4.38,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "toggle-button-group",
+      "componentPath": "src/lib/components/molecules/interaction/controls/toggles/toggle-button-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 125,
+      "componentCount": 1,
+      "complexityScore": 8.7,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "picture-toolbar",
+      "componentPath": "src/lib/components/molecules/interaction/controls/toolbars/picture-toolbar/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 37,
+      "componentCount": 0,
+      "complexityScore": 2.22,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tree-node-item",
+      "componentPath": "src/lib/components/molecules/interaction/controls/trees/tree-node-item/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 239,
+      "componentCount": 3,
+      "complexityScore": 17.94,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tree-viewer",
+      "componentPath": "src/lib/components/molecules/interaction/controls/trees/tree-viewer/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 73,
+      "componentCount": 1,
+      "complexityScore": 5.58,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "code-editor",
+      "componentPath": "src/lib/components/molecules/interaction/development/code-editor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 3,
+      "complexityScore": 7.86,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "props-editor",
+      "componentPath": "src/lib/components/molecules/interaction/development/playground/props-editor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 48,
+      "componentCount": 1,
+      "complexityScore": 4.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "dialog-confirm",
+      "componentPath": "src/lib/components/molecules/interaction/dialogs/dialog-confirm/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 105,
+      "componentCount": 3,
+      "complexityScore": 9.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "rich-text-editor",
+      "componentPath": "src/lib/components/molecules/interaction/editors/rich-text-editor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 369,
+      "componentCount": 22,
+      "complexityScore": 48.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "notification-settings",
+      "componentPath": "src/lib/components/molecules/interaction/feedback/notifications/notification-settings/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 157,
+      "componentCount": 5,
+      "complexityScore": 15.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "performance-monitor",
+      "componentPath": "src/lib/components/molecules/interaction/feedback/performance-monitor/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 43,
+      "componentCount": 0,
+      "complexityScore": 2.58,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "toast-stack",
+      "componentPath": "src/lib/components/molecules/interaction/feedback/toasts/toast-stack/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 134,
+      "componentCount": 3,
+      "complexityScore": 11.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "form-selection",
+      "componentPath": "src/lib/components/molecules/interaction/forms/form-selection/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 122,
+      "componentCount": 2,
+      "complexityScore": 9.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "radio-group",
+      "componentPath": "src/lib/components/molecules/interaction/forms/radio-group/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 115,
+      "componentCount": 1,
+      "complexityScore": 8.1,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "validation",
+      "componentPath": "src/lib/components/molecules/interaction/forms/validation/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 96,
+      "componentCount": 1,
+      "complexityScore": 6.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "advanced-password-input",
+      "componentPath": "src/lib/components/molecules/interaction/input/advanced-password-input/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 160,
+      "componentCount": 3,
+      "complexityScore": 13.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "field-highlighter",
+      "componentPath": "src/lib/components/molecules/interaction/input/field-highlighter/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 103,
+      "componentCount": 0,
+      "complexityScore": 6.18,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "color-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/color-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 109,
+      "componentCount": 2,
+      "complexityScore": 8.94,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "date-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/date-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 87,
+      "componentCount": 0,
+      "complexityScore": 5.22,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "date-time-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/date-time-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 170,
+      "componentCount": 7,
+      "complexityScore": 18.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "form-date-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/form-date-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 167,
+      "componentCount": 3,
+      "complexityScore": 13.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "icon-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/icon-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 97,
+      "componentCount": 1,
+      "complexityScore": 7.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "reaction-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/reaction-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 207,
+      "componentCount": 8,
+      "complexityScore": 22.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "time-picker",
+      "componentPath": "src/lib/components/molecules/interaction/input/pickers/time-picker/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 170,
+      "componentCount": 3,
+      "complexityScore": 13.8,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "slider-with-input",
+      "componentPath": "src/lib/components/molecules/interaction/input/slider-with-input/index.svelte",
+      "componentType": "molecule",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 136,
+      "componentCount": 1,
+      "complexityScore": 9.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "canvas-chart",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/canvas-chart/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 296,
+      "componentCount": 0,
+      "complexityScore": 17.76,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "chart",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/charts/chart/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 44,
+      "componentCount": 2,
+      "complexityScore": 5.04,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "idef-zero-diagram",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/diagrams/idef-zero-diagram/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 28,
+      "componentCount": 1,
+      "complexityScore": 2.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "shared-canvas",
+      "componentPath": "src/lib/components/organisms/architecture/canvas/shared-canvas/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 405,
+      "componentCount": 10,
+      "complexityScore": 36.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "status-dashboard",
+      "componentPath": "src/lib/components/organisms/architecture/dashboards/status-dashboard/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 112,
+      "componentCount": 2,
+      "complexityScore": 9.12,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "accessibility-toolbar",
+      "componentPath": "src/lib/components/organisms/architecture/interaction/controls/accessibility-toolbar/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 170,
+      "componentCount": 8,
+      "complexityScore": 19.8,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "sortable-grid",
+      "componentPath": "src/lib/components/organisms/architecture/interaction/controls/grids/sortable-grid/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 163,
+      "componentCount": 3,
+      "complexityScore": 13.38,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "canvas-image-editor",
+      "componentPath": "src/lib/components/organisms/architecture/media/canvas/canvas-image-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 176,
+      "componentCount": 1,
+      "complexityScore": 11.76,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "comparison-card",
+      "componentPath": "src/lib/components/organisms/information/card/comparison-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 79,
+      "componentCount": 0,
+      "complexityScore": 4.74,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "user-card",
+      "componentPath": "src/lib/components/organisms/information/card/user-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 145,
+      "componentCount": 2,
+      "complexityScore": 11.1,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "billing-summary",
+      "componentPath": "src/lib/components/organisms/information/commerce/billing-summary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 213,
+      "componentCount": 7,
+      "complexityScore": 21.18,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "shipping-info",
+      "componentPath": "src/lib/components/organisms/information/commerce/shipping-info/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 376,
+      "componentCount": 18,
+      "complexityScore": 44.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "subscription-manager",
+      "componentPath": "src/lib/components/organisms/information/commerce/subscription-manager/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 326,
+      "componentCount": 8,
+      "complexityScore": 29.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tax-calculator",
+      "componentPath": "src/lib/components/organisms/information/commerce/tax-calculator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 396,
+      "componentCount": 8,
+      "complexityScore": 33.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "auth-guard",
+      "componentPath": "src/lib/components/organisms/information/communication/ai/auth-guard/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 92,
+      "componentCount": 0,
+      "complexityScore": 5.52,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "prediction-result",
+      "componentPath": "src/lib/components/organisms/information/communication/ai/prediction-result/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 184,
+      "componentCount": 8,
+      "complexityScore": 20.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "prompt-builder",
+      "componentPath": "src/lib/components/organisms/information/communication/ai/prompt-builder/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 246,
+      "componentCount": 9,
+      "complexityScore": 25.56,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "sentiment-analysis",
+      "componentPath": "src/lib/components/organisms/information/communication/ai/sentiment-analysis/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 160,
+      "componentCount": 6,
+      "complexityScore": 16.8,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "comment-thread",
+      "componentPath": "src/lib/components/organisms/information/communication/comments/comment-thread/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 221,
+      "componentCount": 7,
+      "complexityScore": 21.66,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "social-feed",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-feed/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 342,
+      "componentCount": 6,
+      "complexityScore": 27.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "social-login",
+      "componentPath": "src/lib/components/organisms/information/communication/social/social-login/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 349,
+      "componentCount": 7,
+      "complexityScore": 29.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "atomic-principles-showcase",
+      "componentPath": "src/lib/components/organisms/information/development/atomic-principles-showcase/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 112,
+      "componentCount": 5,
+      "complexityScore": 12.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "component-library-stats",
+      "componentPath": "src/lib/components/organisms/information/development/component-library-stats/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 127,
+      "componentCount": 2,
+      "complexityScore": 10.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "debug-console",
+      "componentPath": "src/lib/components/organisms/information/development/debug-console/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 295,
+      "componentCount": 9,
+      "complexityScore": 28.5,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "design-tokens",
+      "componentPath": "src/lib/components/organisms/information/development/design-tokens/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 152,
+      "componentCount": 1,
+      "complexityScore": 10.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "development-error-boundary",
+      "componentPath": "src/lib/components/organisms/information/development/development-error-boundary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 176,
+      "componentCount": 6,
+      "complexityScore": 17.76,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-ai-assistant",
+      "componentPath": "src/lib/components/organisms/information/development/playground-ai-assistant/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 351,
+      "componentCount": 7,
+      "complexityScore": 29.46,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-ai-chat",
+      "componentPath": "src/lib/components/organisms/information/development/playground-ai-chat/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 168,
+      "componentCount": 3,
+      "complexityScore": 13.68,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-ai-panel",
+      "componentPath": "src/lib/components/organisms/information/development/playground-ai-panel/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 179,
+      "componentCount": 3,
+      "complexityScore": 14.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-animated-background",
+      "componentPath": "src/lib/components/organisms/information/development/playground-animated-background/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 310,
+      "componentCount": 0,
+      "complexityScore": 18.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-canvas-shell",
+      "componentPath": "src/lib/components/organisms/information/development/playground-canvas-shell/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 200,
+      "componentCount": 5,
+      "complexityScore": 18,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-code-viewer",
+      "componentPath": "src/lib/components/organisms/information/development/playground-code-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 191,
+      "componentCount": 0,
+      "complexityScore": 11.46,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-component-catalog",
+      "componentPath": "src/lib/components/organisms/information/development/playground-component-catalog/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 358,
+      "componentCount": 18,
+      "complexityScore": 43.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-component-info-card",
+      "componentPath": "src/lib/components/organisms/information/development/playground-component-info-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 320,
+      "componentCount": 15,
+      "complexityScore": 37.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-component-tree",
+      "componentPath": "src/lib/components/organisms/information/development/playground-component-tree/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 437,
+      "componentCount": 2,
+      "complexityScore": 28.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-cta-buttons",
+      "componentPath": "src/lib/components/organisms/information/development/playground-cta-buttons/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 5,
+      "complexityScore": 10.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-device-frame",
+      "componentPath": "src/lib/components/organisms/information/development/playground-device-frame/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 177,
+      "componentCount": 0,
+      "complexityScore": 10.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-drawing-overlay",
+      "componentPath": "src/lib/components/organisms/information/development/playground-drawing-overlay/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 104,
+      "componentCount": 0,
+      "complexityScore": 6.24,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-enhanced-export-panel",
+      "componentPath": "src/lib/components/organisms/information/development/playground-enhanced-export-panel/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 310,
+      "componentCount": 10,
+      "complexityScore": 30.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-error-boundary",
+      "componentPath": "src/lib/components/organisms/information/development/playground-error-boundary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 63,
+      "componentCount": 1,
+      "complexityScore": 4.98,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-feature-grid",
+      "componentPath": "src/lib/components/organisms/information/development/playground-feature-grid/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 121,
+      "componentCount": 2,
+      "complexityScore": 9.66,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-generic-code-viewer",
+      "componentPath": "src/lib/components/organisms/information/development/playground-generic-code-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 93,
+      "componentCount": 0,
+      "complexityScore": 5.58,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-hero",
+      "componentPath": "src/lib/components/organisms/information/development/playground-hero/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 189,
+      "componentCount": 5,
+      "complexityScore": 17.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-live-code-section",
+      "componentPath": "src/lib/components/organisms/information/development/playground-live-code-section/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 4,
+      "complexityScore": 9.06,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-markdown-renderer",
+      "componentPath": "src/lib/components/organisms/information/development/playground-markdown-renderer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 189,
+      "componentCount": 0,
+      "complexityScore": 11.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-mission-banner",
+      "componentPath": "src/lib/components/organisms/information/development/playground-mission-banner/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 70,
+      "componentCount": 2,
+      "complexityScore": 6.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-screenshot-selector",
+      "componentPath": "src/lib/components/organisms/information/development/playground-screenshot-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 178,
+      "componentCount": 0,
+      "complexityScore": 10.68,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-shell-header",
+      "componentPath": "src/lib/components/organisms/information/development/playground-shell-header/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 378,
+      "componentCount": 11,
+      "complexityScore": 35.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-shortcuts-panel",
+      "componentPath": "src/lib/components/organisms/information/development/playground-shortcuts-panel/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 237,
+      "componentCount": 4,
+      "complexityScore": 19.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-toast",
+      "componentPath": "src/lib/components/organisms/information/development/playground-toast/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 49,
+      "componentCount": 1,
+      "complexityScore": 4.14,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "playground-tree-node",
+      "componentPath": "src/lib/components/organisms/information/development/playground-tree-node/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 297,
+      "componentCount": 9,
+      "complexityScore": 28.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "resource-optimizer",
+      "componentPath": "src/lib/components/organisms/information/development/resource-optimizer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 382,
+      "componentCount": 8,
+      "complexityScore": 32.52,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "file-browser",
+      "componentPath": "src/lib/components/organisms/information/files/file-browser/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 207,
+      "componentCount": 8,
+      "complexityScore": 22.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "abtest-configurator",
+      "componentPath": "src/lib/components/organisms/information/marketing/abtest-configurator/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 374,
+      "componentCount": 11,
+      "complexityScore": 35.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "test-results-viewer",
+      "componentPath": "src/lib/components/organisms/information/marketing/test-results-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 308,
+      "componentCount": 9,
+      "complexityScore": 29.28,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "traffic-analytics",
+      "componentPath": "src/lib/components/organisms/information/marketing/traffic-analytics/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 212,
+      "componentCount": 8,
+      "complexityScore": 22.32,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "user-behavior-metrics",
+      "componentPath": "src/lib/components/organisms/information/marketing/user-behavior-metrics/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 199,
+      "componentCount": 6,
+      "complexityScore": 19.14,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "image-gallery",
+      "componentPath": "src/lib/components/organisms/information/media/image-gallery/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 235,
+      "componentCount": 5,
+      "complexityScore": 20.1,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "media-library",
+      "componentPath": "src/lib/components/organisms/information/media/media-library/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 406,
+      "componentCount": 15,
+      "complexityScore": 42.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-card-extended",
+      "componentPath": "src/lib/components/organisms/information/product/product-card-extended/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 109,
+      "componentCount": 0,
+      "complexityScore": 6.54,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-catalog",
+      "componentPath": "src/lib/components/organisms/information/product/product-catalog/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 78,
+      "componentCount": 0,
+      "complexityScore": 4.68,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-reviews",
+      "componentPath": "src/lib/components/organisms/information/product/product-reviews/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 147,
+      "componentCount": 0,
+      "complexityScore": 8.82,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-sorting",
+      "componentPath": "src/lib/components/organisms/information/product/product-sorting/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 38,
+      "componentCount": 1,
+      "complexityScore": 3.48,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "product-tour",
+      "componentPath": "src/lib/components/organisms/information/product/product-tour/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 97,
+      "componentCount": 0,
+      "complexityScore": 5.82,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "chat-interface",
+      "componentPath": "src/lib/components/organisms/interaction/communication/ai/chat-interface/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 162,
+      "componentCount": 6,
+      "complexityScore": 16.92,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "collaborative-editor",
+      "componentPath": "src/lib/components/organisms/interaction/communication/collaborate/collaborative-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 233,
+      "componentCount": 11,
+      "complexityScore": 27.18,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "content-editor",
+      "componentPath": "src/lib/components/organisms/interaction/content/content-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 382,
+      "componentCount": 15,
+      "complexityScore": 40.92,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "real-time-presence",
+      "componentPath": "src/lib/components/organisms/interaction/controls/calendar/real-time-presence/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 153,
+      "componentCount": 4,
+      "complexityScore": 13.98,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "combobox",
+      "componentPath": "src/lib/components/organisms/interaction/controls/combobox/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 240,
+      "componentCount": 0,
+      "complexityScore": 14.4,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "controls",
+      "componentPath": "src/lib/components/organisms/interaction/controls/controls/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 4,
+      "componentCount": 0,
+      "complexityScore": 0.24,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "language-selector",
+      "componentPath": "src/lib/components/organisms/interaction/controls/language-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 158,
+      "componentCount": 4,
+      "complexityScore": 14.28,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "list-with-avatars",
+      "componentPath": "src/lib/components/organisms/interaction/controls/list-with-avatars/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 142,
+      "componentCount": 1,
+      "complexityScore": 9.72,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "locale-switcher",
+      "componentPath": "src/lib/components/organisms/interaction/controls/locale-switcher/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 164,
+      "componentCount": 4,
+      "complexityScore": 14.64,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "multi-select",
+      "componentPath": "src/lib/components/organisms/interaction/controls/multi-select/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 227,
+      "componentCount": 4,
+      "complexityScore": 18.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "page-builder",
+      "componentPath": "src/lib/components/organisms/interaction/controls/page-builder/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 400,
+      "componentCount": 12,
+      "complexityScore": 38.4,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "payment-info",
+      "componentPath": "src/lib/components/organisms/interaction/controls/payment/payment-info/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 88,
+      "componentCount": 3,
+      "complexityScore": 8.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "payment-selector",
+      "componentPath": "src/lib/components/organisms/interaction/controls/payment/payment-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 57,
+      "componentCount": 0,
+      "complexityScore": 3.42,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "payment-summary",
+      "componentPath": "src/lib/components/organisms/interaction/controls/payment/payment-summary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 63,
+      "componentCount": 0,
+      "complexityScore": 3.78,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "scatter-plot",
+      "componentPath": "src/lib/components/organisms/interaction/controls/scatter-plot/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 70,
+      "componentCount": 0,
+      "complexityScore": 4.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "search-results",
+      "componentPath": "src/lib/components/organisms/interaction/controls/search/search-results/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 64,
+      "componentCount": 1,
+      "complexityScore": 5.04,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "stylist-menu",
+      "componentPath": "src/lib/components/organisms/interaction/controls/stylist-menu/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 636,
+      "componentCount": 12,
+      "complexityScore": 52.56,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "column-manager",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/column-manager/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 50,
+      "componentCount": 3,
+      "complexityScore": 6.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "data-table-advanced",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/data-table-advanced/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 79,
+      "componentCount": 1,
+      "complexityScore": 5.94,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "data-table",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/data-table/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 72,
+      "componentCount": 3,
+      "complexityScore": 7.92,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "sortable-list",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/sortable-list/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 71,
+      "componentCount": 2,
+      "complexityScore": 6.66,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "table-with-filters",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/table-with-filters/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 19,
+      "componentCount": 1,
+      "complexityScore": 2.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "table-with-grouping",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/table-with-grouping/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 40,
+      "componentCount": 1,
+      "complexityScore": 3.6,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "table-with-stripes",
+      "componentPath": "src/lib/components/organisms/interaction/controls/tables/table-with-stripes/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 17,
+      "componentCount": 0,
+      "complexityScore": 1.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "feature-toggle",
+      "componentPath": "src/lib/components/organisms/interaction/controls/toggles/feature-toggle/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 18,
+      "componentCount": 0,
+      "complexityScore": 1.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "advanced-virtual-tree",
+      "componentPath": "src/lib/components/organisms/interaction/controls/trees/advanced-virtual-tree/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 30,
+      "componentCount": 1,
+      "complexityScore": 3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "flat-tree",
+      "componentPath": "src/lib/components/organisms/interaction/controls/trees/flat-tree/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 30,
+      "componentCount": 1,
+      "complexityScore": 3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "folder-tree",
+      "componentPath": "src/lib/components/organisms/interaction/controls/trees/folder-tree/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 30,
+      "componentCount": 1,
+      "complexityScore": 3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "virtual-tree",
+      "componentPath": "src/lib/components/organisms/interaction/controls/trees/virtual-tree/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 30,
+      "componentCount": 1,
+      "complexityScore": 3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "mock-data-selector",
+      "componentPath": "src/lib/components/organisms/interaction/development/mock-data-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 446,
+      "componentCount": 7,
+      "complexityScore": 35.16,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "dialog",
+      "componentPath": "src/lib/components/organisms/interaction/dialogs/dialog/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 20,
+      "componentCount": 0,
+      "complexityScore": 1.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "modal",
+      "componentPath": "src/lib/components/organisms/interaction/dialogs/modal/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 20,
+      "componentCount": 0,
+      "complexityScore": 1.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "simple-modal",
+      "componentPath": "src/lib/components/organisms/interaction/dialogs/simple-modal/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 20,
+      "componentCount": 0,
+      "complexityScore": 1.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "lazy-loader",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/lazy-loader/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 19,
+      "componentCount": 0,
+      "complexityScore": 1.14,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "loading-boundary",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/loading-boundary/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 21,
+      "componentCount": 0,
+      "complexityScore": 1.26,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "notification-center",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/notifications/notification-center/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 17,
+      "componentCount": 0,
+      "complexityScore": 1.02,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "notification-list",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/notifications/notification-list/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 14,
+      "componentCount": 0,
+      "complexityScore": 0.84,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "notification-preferences",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/notifications/notification-preferences/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 16,
+      "componentCount": 0,
+      "complexityScore": 0.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "scheduled-notification",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/notifications/scheduled-notification/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "response-viewer",
+      "componentPath": "src/lib/components/organisms/interaction/feedback/response-viewer/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "drag-drop-file-upload",
+      "componentPath": "src/lib/components/organisms/interaction/files/drag-drop-file-upload/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 228,
+      "componentCount": 5,
+      "complexityScore": 19.68,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "account-settings-form",
+      "componentPath": "src/lib/components/organisms/interaction/forms/account/account-settings-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 18,
+      "componentCount": 0,
+      "complexityScore": 1.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "user-profile-card",
+      "componentPath": "src/lib/components/organisms/interaction/forms/account/user-profile-card/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "address-form",
+      "componentPath": "src/lib/components/organisms/interaction/forms/address-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 20,
+      "componentCount": 0,
+      "complexityScore": 1.2,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "document-preview",
+      "componentPath": "src/lib/components/organisms/interaction/forms/document-preview/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "form-with-validation",
+      "componentPath": "src/lib/components/organisms/interaction/forms/form-with-validation/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 18,
+      "componentCount": 0,
+      "complexityScore": 1.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "login-form",
+      "componentPath": "src/lib/components/organisms/interaction/forms/login-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 16,
+      "componentCount": 0,
+      "complexityScore": 0.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "screen-reader",
+      "componentPath": "src/lib/components/organisms/interaction/forms/screen-reader/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "search-form",
+      "componentPath": "src/lib/components/organisms/interaction/forms/search-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 19,
+      "componentCount": 1,
+      "complexityScore": 2.34,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "secure-form",
+      "componentPath": "src/lib/components/organisms/interaction/forms/secure-form/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 20,
+      "componentCount": 1,
+      "complexityScore": 2.4,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "session-manager",
+      "componentPath": "src/lib/components/organisms/interaction/forms/session-manager/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 16,
+      "componentCount": 0,
+      "complexityScore": 0.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "security-settings",
+      "componentPath": "src/lib/components/organisms/interaction/forms/settings/security-settings/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 15,
+      "componentCount": 0,
+      "complexityScore": 0.9,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "location-selector",
+      "componentPath": "src/lib/components/organisms/interaction/geo/location-selector/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 330,
+      "componentCount": 11,
+      "complexityScore": 33,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "auto-complete",
+      "componentPath": "src/lib/components/organisms/interaction/input/auto-complete/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 133,
+      "componentCount": 2,
+      "complexityScore": 10.38,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "date-range-picker",
+      "componentPath": "src/lib/components/organisms/interaction/input/date-range-picker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 98,
+      "componentCount": 5,
+      "complexityScore": 11.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "date-time-range-picker",
+      "componentPath": "src/lib/components/organisms/interaction/input/date-time-range-picker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 75,
+      "componentCount": 4,
+      "complexityScore": 9.3,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "advanced-color-picker",
+      "componentPath": "src/lib/components/organisms/interaction/input/pickers/advanced-color-picker/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 56,
+      "componentCount": 0,
+      "complexityScore": 3.36,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "quote-request",
+      "componentPath": "src/lib/components/organisms/interaction/input/quote-request/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 117,
+      "componentCount": 3,
+      "complexityScore": 10.62,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "range-input",
+      "componentPath": "src/lib/components/organisms/interaction/input/range-input/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 66,
+      "componentCount": 0,
+      "complexityScore": 3.96,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "tag-input",
+      "componentPath": "src/lib/components/organisms/interaction/input/tag-input/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 98,
+      "componentCount": 1,
+      "complexityScore": 7.08,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    },
+    {
+      "componentName": "translation-editor",
+      "componentPath": "src/lib/components/organisms/interaction/input/translation-editor/index.svelte",
+      "componentType": "organism",
+      "potentialAtoms": [],
+      "matchedAtomsCount": 0,
+      "totalLines": 128,
+      "componentCount": 6,
+      "complexityScore": 14.88,
+      "reuseScore": 0,
+      "recommendedAtoms": []
+    }
+  ]
+}

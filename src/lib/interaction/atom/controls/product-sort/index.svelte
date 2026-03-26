@@ -1,0 +1,52 @@
+<script lang="ts">
+	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/attribute/interaction';
+	import type { ProductSortProps } from '$stylist';
+	import { createProductSortState } from '$stylist/interaction/state/product-sort';
+
+	type Props = ProductSortProps & InteractionHTMLAttributes<HTMLDivElement>;
+	let props: Props = $props();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				options: _options,
+				selectedOption: _selectedOption,
+				onValueChange: _onValueChange,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
+
+	const sortState = createProductSortState(props);
+	let localSelectedOption = $state(sortState.selectedOption);
+
+	$effect(() => {
+		localSelectedOption = sortState.selectedOption;
+	});
+</script>
+
+<div class={sortState.classes} {...restProps}>
+	<span class={sortState.labelClasses}>Sort by:</span>
+	<select
+		bind:value={localSelectedOption}
+		onchange={() => {
+			sortState.handleSortChange(localSelectedOption);
+		}}
+		class={sortState.selectClasses}
+	>
+		{#each sortState.options as option}
+			{#if typeof option === 'string'}
+				<option value={option}>{option}</option>
+			{:else}
+				<option value={option.value}>{option.label}</option>
+			{/if}
+		{/each}
+	</select>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+<script lang="ts">
+import type { Message, User } from '$stylist/information/interface/chat';
+  import MessageItem from '../message-item/index.svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
+
+  // Props
+  let { 
+    messages = [],
+    currentUser,
+    onMessageAction
+  }: {
+    messages: Message[];
+    currentUser: User;
+    onMessageAction?: (action: string, message: Message) => void;
+  } = $props();
+
+  // Events
+  const dispatch = createEventDispatcher<{
+    messageClick: { message: Message };
+    messageReaction: { message: Message; reaction: string };
+  }>();
+
+  // Handle message click
+  function handleMessageClick(message: Message) {
+    dispatch('messageClick', { message });
+  }
+
+  // Handle message reaction
+  function handleMessageReaction(event: CustomEvent<{ reaction: string }>, message: Message) {
+    dispatch('messageReaction', { message, reaction: event.detail.reaction });
+    onMessageAction?.('reaction', message);
+  }
+
+  // Function to enhance scroll behavior for chat
+  function enhanceScroll(node: HTMLElement) {
+    let handleScroll: () => void;
+    
+    // Auto-scroll to bottom when new messages arrive
+    onMount(() => {
+      if (messages.length > 0) {
+        node.scrollTop = node.scrollHeight;
+      }
+      
+      // Handle scroll events to detect if user has scrolled up
+      handleScroll = () => {
+        // This could be used to implement "show new messages" indicator
+        // when user scrolls up and new messages arrive
+      };
+      
+      node.addEventListener('scroll', handleScroll);
+    });
+    
+    return {
+      destroy() {
+        if (handleScroll) {
+          node.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+  }
+</script>
+
+<style>
+  .message-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-4);
+    gap: var(--spacing-4);
+    background-color: var(--color-background-secondary);
+  }
+
+  .message-list::-webkit-scrollbar {
+    width: var(--spacing-2);
+  }
+
+  .message-list::-webkit-scrollbar-track {
+    background: var(--color-background-secondary);
+  }
+
+  .message-list::-webkit-scrollbar-thumb {
+    background: var(--color-border-secondary);
+    border-radius: var(--border-radius-sm);
+  }
+
+  .message-list::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary);
+  }
+</style>
+
+<div class="message-list" use:enhanceScroll>
+  {#each messages as message (message.id)}
+    <MessageItem
+      {message}
+      isOwn={message.senderId === currentUser.id}
+      on:click={() => handleMessageClick(message)}
+      on:reaction={(e: CustomEvent<{ reaction: string }>) => handleMessageReaction(e, message)}
+    />
+  {/each}
+</div>
+
+
+

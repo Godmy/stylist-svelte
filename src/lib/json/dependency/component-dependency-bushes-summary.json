@@ -1,0 +1,5179 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-12T06:08:41.577Z",
+    "sourceReport": "component-dependency-bushes.json"
+  },
+  "rootPath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib",
+  "maxDepthLimit": 8,
+  "componentsCount": 508,
+  "components": [
+    {
+      "component": "components/organisms/information/geo/map-marker/index.svelte",
+      "nodesCount": 397,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 83,
+        "contracts": 31,
+        "utils": 19,
+        "tokens": 42,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/comments/comment-system/index.svelte",
+      "nodesCount": 396,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 83,
+        "contracts": 31,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/social/social-login/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/social/social-share/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/files/file-list-item/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/geo/map-with-markers/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/geo/route-planner/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/geo/store-locator/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/media/audio-player/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/media/video-player/index.svelte",
+      "nodesCount": 394,
+      "maxDepth": 8,
+      "categories": {
+        "components": 215,
+        "other": 82,
+        "contracts": 30,
+        "utils": 19,
+        "tokens": 41,
+        "preset": 1,
+        "props": 3,
+        "state": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/social/friend-list/index.svelte",
+      "nodesCount": 347,
+      "maxDepth": 8,
+      "categories": {
+        "components": 142,
+        "other": 172,
+        "contracts": 10,
+        "utils": 11,
+        "tokens": 10,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/social/social-activity-feed/index.svelte",
+      "nodesCount": 347,
+      "maxDepth": 8,
+      "categories": {
+        "components": 142,
+        "other": 172,
+        "contracts": 10,
+        "utils": 11,
+        "tokens": 10,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/architecture/canvas/graph/graph-edge/index.svelte",
+      "nodesCount": 309,
+      "maxDepth": 8,
+      "categories": {
+        "components": 4,
+        "other": 112,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/architecture/canvas/graph/graph-node/index.svelte",
+      "nodesCount": 309,
+      "maxDepth": 8,
+      "categories": {
+        "components": 4,
+        "other": 112,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/architecture/development/stack/index.svelte",
+      "nodesCount": 211,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 20,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/announcement-banner/index.svelte",
+      "nodesCount": 197,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 6,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/country-flag/index.svelte",
+      "nodesCount": 197,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 6,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/favicon/index.svelte",
+      "nodesCount": 197,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 6,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/image-with-caption/index.svelte",
+      "nodesCount": 197,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 6,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/aspect-ratio/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/container/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/divider/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/horizontal-layout/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/spacer/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/animated-number/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-pie/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/color-swatch/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/npm-badge/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/number-flow/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/elements/badge/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/elements/label/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/syntax-highlighted-code/index.svelte",
+      "nodesCount": 195,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-axis-x/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-axis-y/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-axis-z/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-background/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-name/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/charts/chart-polyline/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/diagrams/idef-zero-connector/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/diagrams/idef-zero-function-box/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/diagrams/idef-zero-port-label/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/tables/table-cell/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/charts/chart-canvas/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/charts/chart-legend/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/diagrams/idef-zero-black-box/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/diagrams/idef-zero-inputs/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/diagrams/idef-zero-outputs/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/charts/chart/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/diagrams/idef-zero-diagram/index.svelte",
+      "nodesCount": 194,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/block/blockquote/index.svelte",
+      "nodesCount": 193,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/abbr/index.svelte",
+      "nodesCount": 193,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/inline-code/index.svelte",
+      "nodesCount": 193,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/link/index.svelte",
+      "nodesCount": 193,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 151,
+        "tokens": 38
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/separator/index.svelte",
+      "nodesCount": 193,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 151,
+        "tokens": 38,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/tables/table-row/index.svelte",
+      "nodesCount": 192,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 151,
+        "tokens": 38
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/elements/badge-group/index.svelte",
+      "nodesCount": 188,
+      "maxDepth": 8,
+      "categories": {
+        "components": 2,
+        "other": 4,
+        "contracts": 151,
+        "tokens": 29,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/architecture/layout/grid-layout/index.svelte",
+      "nodesCount": 116,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "contracts": 77,
+        "tokens": 33,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/tables/table-body/index.svelte",
+      "nodesCount": 114,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 77,
+        "tokens": 32,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/tables/table-header/index.svelte",
+      "nodesCount": 114,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 3,
+        "contracts": 77,
+        "tokens": 32,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/card-skeleton/index.svelte",
+      "nodesCount": 86,
+      "maxDepth": 8,
+      "categories": {
+        "components": 3,
+        "contracts": 66,
+        "tokens": 16,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/shared-canvas/index.svelte",
+      "nodesCount": 53,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 18,
+        "utils": 1,
+        "contracts": 11,
+        "tokens": 22
+      }
+    },
+    {
+      "component": "components/organisms/architecture/interaction/navigation/sidebar/index.svelte",
+      "nodesCount": 53,
+      "maxDepth": 8,
+      "categories": {
+        "components": 1,
+        "other": 18,
+        "utils": 1,
+        "contracts": 11,
+        "tokens": 22
+      }
+    },
+    {
+      "component": "components/atoms/architecture/canvas/graph-canvas/index.svelte",
+      "nodesCount": 217,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 27,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/node-title/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/node-property/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "props": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 110,
+        "utils": 2,
+        "components": 3
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/connection-line/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/graph-toolbar/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/litegraph-node/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/node-header/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/panels/node-properties-panel/index.svelte",
+      "nodesCount": 216,
+      "maxDepth": 7,
+      "categories": {
+        "props": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 110,
+        "utils": 2,
+        "components": 3
+      }
+    },
+    {
+      "component": "components/atoms/information/media/icon/index.svelte",
+      "nodesCount": 186,
+      "maxDepth": 7,
+      "categories": {
+        "components": 5,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/card/graph-node-card/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/dashboards/status-dashboard/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/interaction/controls/accessibility-toolbar/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/interaction/controls/grids/sortable-grid/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/media/canvas/canvas-image-editor/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/scatter-plot/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/search/search-results/index.svelte",
+      "nodesCount": 185,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "other": 110,
+        "tokens": 30,
+        "utils": 2,
+        "contracts": 37,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/atoms/architecture/canvas/graph/graph-port/index.svelte",
+      "nodesCount": 182,
+      "maxDepth": 7,
+      "categories": {
+        "components": 4,
+        "contracts": 37,
+        "tokens": 26,
+        "other": 111,
+        "utils": 2,
+        "props": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/locale-switcher/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/payment/payment-selector/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/payment/payment-summary/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/column-manager/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/data-table-advanced/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/data-table/index.svelte",
+      "nodesCount": 150,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/dashboards/performance-dashboard/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/interaction/navigation/pagination/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/multi-select/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/page-builder/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/payment/payment-info/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/payment/payment-method-selector/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/sortable-list/index.svelte",
+      "nodesCount": 124,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "other": 56,
+        "contracts": 42,
+        "tokens": 24,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-email/index.svelte",
+      "nodesCount": 107,
+      "maxDepth": 7,
+      "categories": {
+        "components": 2,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 8,
+        "utils": 4,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/product-sort/index.svelte",
+      "nodesCount": 104,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 4,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/copy-button/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "utils": 4,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 5,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/icon-button/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 6,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tag/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 3,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/page-button/index.svelte",
+      "nodesCount": 102,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/data-display/tables/table/index.svelte",
+      "nodesCount": 101,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/caption/index.svelte",
+      "nodesCount": 100,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/heading/index.svelte",
+      "nodesCount": 100,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/chip/index.svelte",
+      "nodesCount": 100,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/sliders/tick/index.svelte",
+      "nodesCount": 100,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/toolbars/picture-toolbar/index.svelte",
+      "nodesCount": 100,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/navigation/breadcrumb-link/index.svelte",
+      "nodesCount": 99,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/paragraph/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/small/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/strike-throught/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/strong/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/subscript/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/superscript/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/navigation/breadcrumbs/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/navigation/pagination/page-ellipsis/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/port-group/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/graph-editor/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/litegraph-canvas/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/minimap/index.svelte",
+      "nodesCount": 98,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tabs/tab/index.svelte",
+      "nodesCount": 97,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 3,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/advanced-toggle/index.svelte",
+      "nodesCount": 96,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/checkbox/index.svelte",
+      "nodesCount": 96,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/radio/index.svelte",
+      "nodesCount": 96,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/toggles/radio-button-group/index.svelte",
+      "nodesCount": 96,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/definition-description/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/definition-term/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/em/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/highlight/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/inline/kbd/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/accordion/accordion-header-double/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/accordion/accordion-header/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/accordion/accordion-item/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/accordion/accordion-panel/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tabs/tab-indicator/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tabs/tab-panel/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/toggle-group-root/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/notifications/notification-badge/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/accordion/accordion-complex/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/tabs/tabs/index.svelte",
+      "nodesCount": 95,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/toggle-group-item/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/skeleton-circle/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/skeleton-rectangle/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/skeleton-text/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/skeleton/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/account-progress-tracker/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/progress-bar/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/progress-circle/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/steps/step-connector/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/steps/step-icon/index.svelte",
+      "nodesCount": 94,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/text/text/index.svelte",
+      "nodesCount": 93,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/action-segmented-control/index.svelte",
+      "nodesCount": 93,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/dark-mode-toggle/index.svelte",
+      "nodesCount": 93,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/placeholders/skeleton-table/index.svelte",
+      "nodesCount": 93,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-field/index.svelte",
+      "nodesCount": 93,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 66,
+        "tokens": 26
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/split-button/index.svelte",
+      "nodesCount": 71,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 36,
+        "tokens": 24,
+        "other": 6,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/button/index.svelte",
+      "nodesCount": 70,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 36,
+        "tokens": 24,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/close-button/index.svelte",
+      "nodesCount": 70,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 36,
+        "tokens": 24,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tabs/tab-list/index.svelte",
+      "nodesCount": 63,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 36,
+        "tokens": 24,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tabs/tab-panels/index.svelte",
+      "nodesCount": 63,
+      "maxDepth": 7,
+      "categories": {
+        "components": 1,
+        "contracts": 36,
+        "tokens": 24,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/alert-card/index.svelte",
+      "nodesCount": 107,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/base-card/index.svelte",
+      "nodesCount": 107,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/prices/price-alert/index.svelte",
+      "nodesCount": 107,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 5,
+        "utils": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/messages/message-thread/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 6,
+      "categories": {
+        "components": 4,
+        "contracts": 71,
+        "tokens": 26,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/helpers/characters-count/index.svelte",
+      "nodesCount": 33,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 5,
+        "tokens": 18,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/billing-summary/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/helpers/form-error-message/index.svelte",
+      "nodesCount": 18,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 5,
+        "tokens": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/helpers/form-helper-text/index.svelte",
+      "nodesCount": 18,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 5,
+        "tokens": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/helpers/input-addon/index.svelte",
+      "nodesCount": 18,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 5,
+        "tokens": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/helpers/input-pin-digit/index.svelte",
+      "nodesCount": 18,
+      "maxDepth": 6,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 5,
+        "tokens": 3,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-card-compact/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 6,
+      "categories": {
+        "components": 2,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-card-with-actions/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 6,
+      "categories": {
+        "components": 2,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-password/index.svelte",
+      "nodesCount": 104,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 24,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-double/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 23,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-group/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 23,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-long/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 23,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/input-text/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 23,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/field/text-area/index.svelte",
+      "nodesCount": 103,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 23,
+        "preset": 1,
+        "contracts": 66
+      }
+    },
+    {
+      "component": "components/organisms/architecture/calendar/time-grid/index.svelte",
+      "nodesCount": 77,
+      "maxDepth": 5,
+      "categories": {
+        "components": 2,
+        "other": 57,
+        "contracts": 11,
+        "tokens": 4,
+        "utils": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/advanced-input/index.svelte",
+      "nodesCount": 32,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 18,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/file-input/index.svelte",
+      "nodesCount": 32,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 8,
+        "utils": 4,
+        "tokens": 18,
+        "preset": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/order-confirmation/index.svelte",
+      "nodesCount": 27,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 19,
+        "contracts": 2
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/indicators/count-badge/index.svelte",
+      "nodesCount": 25,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/indicators/counter/index.svelte",
+      "nodesCount": 25,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/indicators/dot/index.svelte",
+      "nodesCount": 25,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/indicators/list-item-marker/index.svelte",
+      "nodesCount": 25,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/indicators/status-indicator/index.svelte",
+      "nodesCount": 25,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/ai/auth-guard/index.svelte",
+      "nodesCount": 24,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "utils": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/accordion/accordion/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/ai/prediction-result/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "tokens": 19,
+        "contracts": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/ai/prompt-builder/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/ai/sentiment-analysis/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/comments/comment-thread/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/card/stat-card/index.svelte",
+      "nodesCount": 11,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 4,
+        "other": 4,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/component-preview/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 5,
+      "categories": {
+        "components": 3,
+        "utils": 1,
+        "other": 4,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/category-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/card/comparison-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/prices/price-history/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/prices/pricing-table/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-card/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/development/documentation-block/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/development/privacy-settings/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/management/agile/scrum-backlog/index.svelte",
+      "nodesCount": 8,
+      "maxDepth": 5,
+      "categories": {
+        "components": 1,
+        "other": 4,
+        "utils": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/messages/message-list/index.svelte",
+      "nodesCount": 24,
+      "maxDepth": 4,
+      "categories": {
+        "components": 3,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/message-input/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/messages/message-item/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 4,
+      "categories": {
+        "components": 2,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/chat-list/index.svelte",
+      "nodesCount": 23,
+      "maxDepth": 4,
+      "categories": {
+        "components": 2,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/atoms/information/messages/message-meta/index.svelte",
+      "nodesCount": 22,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/chat-item/index.svelte",
+      "nodesCount": 22,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/chat-window/index.svelte",
+      "nodesCount": 22,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 19
+      }
+    },
+    {
+      "component": "components/atoms/interaction/chat/chat-preview/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "utils": 2,
+        "contracts": 1,
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/download-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 2,
+        "other": 4,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/metric-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 2,
+        "other": 4,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/menus/menu-item/index.svelte",
+      "nodesCount": 7,
+      "maxDepth": 4,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "tokens": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/rating/rating/index.svelte",
+      "nodesCount": 20,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 17,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/link-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 2,
+        "other": 4,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-search/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 6,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/wishlist-button/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 6,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/ontology/graphviz-directed-edge/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 6,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/development/code-editor/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 6,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/development/playground/props-editor/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "props": 1,
+        "contracts": 1,
+        "tokens": 6,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/card/team-member-card/index.svelte",
+      "nodesCount": 9,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 2,
+        "other": 4,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/chat/atoms/chat-status-indicator/index.svelte",
+      "nodesCount": 7,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "tokens": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-control-composer/index.svelte",
+      "nodesCount": 7,
+      "maxDepth": 3,
+      "categories": {
+        "tokens": 7
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/hero/index.svelte",
+      "nodesCount": 7,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 3,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/chat/atoms/message-timestamp/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "tokens": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/menus/burger-menu/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "tokens": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tables/sortable-table-header/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "tokens": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/notifications/notification/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 3,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/selectors/quantity-selector/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 3,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/calendar/schedule-calendar/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/design-tokens/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 3,
+      "categories": {
+        "tokens": 1,
+        "other": 5
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/tooltip/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1,
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/charts/line-chart/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/calendar/event-calendar/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/switch-with-label/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 3,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1,
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-block-with-line-numbers/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 3,
+      "categories": {
+        "components": 2,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-editor-legacy/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 3,
+      "categories": {
+        "components": 2,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/copyable-code-block/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 3,
+      "categories": {
+        "components": 2,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/auto-complete/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 7,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/date-range-picker/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 7,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/date-time-range-picker/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 7,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/quote-request/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 7,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/translation-editor/index.svelte",
+      "nodesCount": 10,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 7,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/typography/kpiindicator/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 3,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/messages/message-bubble/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 2,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/commerce/bulk-order-form/index.svelte",
+      "nodesCount": 6,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "utils": 2,
+        "other": 2,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/selectors/color-palette/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/theme-switcher/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "utils": 1,
+        "other": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/zoom/zoom-controls/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/alerts/error-message/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/chat-room/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 3,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/marketing/abtest-configurator/index.svelte",
+      "nodesCount": 5,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/navigation/process-step/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/toasts/toast/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/charts/bar-chart/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1,
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/navigation/page-header/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-diff/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-section/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/menus/dropdown-menu/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/search/search-bar/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "utils": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/communication/chat/chat-header/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 2,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/dialogs/simple-modal/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/lazy-loader/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/loading-boundary/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/notifications/notification-center/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/notifications/notification-list/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/notifications/notification-preferences/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/notifications/scheduled-notification/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/feedback/response-viewer/index.svelte",
+      "nodesCount": 4,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 2,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/switch/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/toggle/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-radio/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-range/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-select/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-text/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "tokens": 3
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-availability/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-block/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/development/code-with-copy/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/feedback/notifications/notification-settings/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/commerce/checkout-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 1,
+        "utils": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/files/upload-progress/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 2,
+      "categories": {
+        "components": 3
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/calendar/time-slot/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/phone-number-input/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/gradient-background/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/ai-result-card/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/expandable-card/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/messages/message-composer/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/accordion/advanced-accordion/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/selectors/model-selector/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/tabs/tab-group/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/trees/tree-node-item/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/feedback/errors/error-boundary/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/advanced-password-input/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/icon-picker/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/heatmap/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "tokens": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-canvas-shell/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 3
+      }
+    },
+    {
+      "component": "components/organisms/information/geo/geo-jsonviewer/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/media/image-gallery/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/product/product-sorting/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/communication/ai/chat-interface/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 3
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/calendar/mini-calendar/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 3
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/language-selector/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 3
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/table-with-filters/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/table-with-grouping/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/tables/table-with-stripes/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/toggles/feature-toggle/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/trees/advanced-virtual-tree/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/trees/flat-tree/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/trees/folder-tree/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/trees/virtual-tree/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/dialogs/dialog/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/dialogs/modal/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/account/account-settings-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/account/user-profile-card/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/address-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/document-preview/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/form-with-validation/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/login-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/screen-reader/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/search-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/secure-form/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/session-manager/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/settings/appearance-settings/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/forms/settings/security-settings/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/pickers/advanced-color-picker/index.svelte",
+      "nodesCount": 3,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-control-base/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "tokens": 2
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/alerts/alert/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/accessibility-checkbox/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/input/number-input/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/prices/price-filter/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/prices/price-match/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-carousel/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-comparison-table/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-comparison/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-demo/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-gallery/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-recommendation/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/commerce/products/product-wishlist/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/management/agile/burn-down-chart/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/management/kanban/kanban-board/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/management/kanban/kanban-column/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/management/legend-item/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/management/operations-history/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/marketing/analytics-chart/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/marketing/conversion-funnel/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/marketing/cta-banner/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/ontology/ontology-edge-component/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/molecules/information/ontology/ontology-node-component/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/selectors/selector/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/sliders/range-slider/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/toggles/checkbox-group/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/trees/tree-viewer/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "contracts": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/date-time-picker/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/calendar/calendar-view/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/communication/social/social-feed/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-code-viewer/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-component-tree/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-enhanced-export-panel/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "utils": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/files/file-browser/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/card/draggable-card/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/files/file-explorer/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/stylist-menu/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 2
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/range-input/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/input/tag-input/index.svelte",
+      "nodesCount": 2,
+      "maxDepth": 1,
+      "categories": {
+        "components": 1,
+        "other": 1
+      }
+    },
+    {
+      "component": "components/atoms/architecture/navigation/permission-gate/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/audio-slider/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/audio-visualizer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/avatar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/image/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/promo-banner/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/media/svg/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/information/messages/message-status/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/buttons/follow-button/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/cube-control/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/toggles/toggle-with-description/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/controls/token-array-control/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "tokens": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/notifications/notification/push-notification/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/overlays/overlay/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/animated-progress/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/progress/progress-bar-with-label/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/spinner/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/feedback/states/state/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "state": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/forms/form-footer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/forms/form-header/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/navigation/breadcrumb-separator/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/search/auto-search/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/search/autocomplete-dropdown/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/atoms/interaction/search/search-suggestion/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/canvas-toolbar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/charts/pie-chart/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/canvas/drawing-surface/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/animated-expandable-table-row/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/grid/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/popover/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/split-layout/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/stacked-layout/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/vertical-layout/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/layout/widget-container/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/navigation/drawer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/navigation/general-toolbar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/navigation/side-by-side-layout/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/architecture/navigation/stepper/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/article-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/card-with-image/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/data-display-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/post-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/cards/stats-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/exporters/data-exporter/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/media/avatar-group/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/media/team-avatar-stack/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/information/preview/attachment-preview/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/chat-message/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/chat/user-status/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/calendar/timeline/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/lists/drag-and-drop-list/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/panels/control-panel/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/selectors/avatar-selector/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/tables/comparison-table/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/tables/expandable-table-row/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/tabs/stylist-tab/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/toggles/toggle-button-group/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/toolbars/toolbar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/controls/zoom/zoom-toolbar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/dialogs/confirmation-dialog/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/dialogs/dialog-confirm/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/editors/rich-text-editor/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/editors/variables-editor/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/feedback/performance-monitor/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/feedback/toasts/toast-stack/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/forms/file-upload/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/forms/filter-panel/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/forms/form-selection/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/forms/radio-group/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/forms/validation/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/field-highlighter/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/color-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/date-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/form-date-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/reaction-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/pickers/time-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/molecules/interaction/input/slider-with-input/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/canvas/canvas-chart/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/architecture/dashboards/dashboard-layout/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/card/kanban-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/card/user-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/cart-summary/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/currency-converter/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/discount-applier/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/inventory-tracker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/order-history/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/order-tracking/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/return-policy/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/shipping-calculator/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/shipping-info/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/subscription-manager/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/tax-calculator/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/upsell/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/commerce/warranty-info/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/atomic-principles-showcase/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/component-library-stats/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/debug-console/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/development-error-boundary/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-ai-assistant/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-ai-chat/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-ai-panel/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-animated-background/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-component-catalog/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-component-info-card/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-cta-buttons/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-device-frame/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-drawing-overlay/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-error-boundary/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-feature-grid/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-generic-code-viewer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-hero/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-live-code-section/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-markdown-renderer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-mission-banner/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-screenshot-selector/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-shell-header/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-shortcuts-panel/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-toast/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/playground-tree-node/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/development/resource-optimizer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/marketing/test-results-viewer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/marketing/traffic-analytics/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/marketing/user-behavior-metrics/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/media/media-library/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/product/product-card-extended/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/product/product-catalog/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/product/product-reviews/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/information/product/product-tour/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/commerce/rfqform/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/communication/collaborate/collaborative-editor/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/content/content-editor/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/calendar/real-time-presence/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/combobox/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/controls/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/export-panel/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/files/drop-zone/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/files/zip-viewer/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/filter-bar/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/controls/list-with-avatars/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/development/mock-data-selector/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/development/stylist/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/files/drag-drop-file-upload/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/geo/location-picker/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/geo/location-selector/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/geo/map-selector/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    },
+    {
+      "component": "components/organisms/interaction/palette/node-palette/index.svelte",
+      "nodesCount": 1,
+      "maxDepth": 0,
+      "categories": {
+        "components": 1
+      }
+    }
+  ]
+}

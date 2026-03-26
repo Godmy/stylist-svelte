@@ -1,0 +1,23 @@
+export const TOKEN_ARCHITECTURE_CONTRACT = [
+	'AspectRatio',
+	'Container',
+	'DashboardLayout',
+	'BarChart',
+	'Divider',
+	'GradientBackground',
+	'Heatmap',
+	'Hero',
+	'GridLayout',
+	'VerticalLayout',
+	'HorizontalLayout',
+	'GridLayoutExtended',
+	'LineChart',
+	'PageHeader',
+	'ProcessStep',
+	'Separator',
+	'SyntaxHighlightedCode',
+	'SharedCanvas',
+	'Sidebar',
+	'Spacer',
+	'Stack'
+] as const;

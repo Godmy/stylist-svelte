@@ -1,0 +1,67 @@
+<script lang="ts">
+	import type { ISkeletonProps } from '$stylist';
+	import { mergeClasses } from '$stylist/information/function/classes';
+
+	/**
+	 * Skeleton component - displays a loading placeholder
+	 *
+	 * SOLID Principles applied:
+	 *
+	 * Single Responsibility Principle: This component is responsible only for displaying a skeleton loading placeholder.
+	 * Open/Closed Principle: The component is closed for modification but open for extension via CSS classes.
+	 * Liskov Substitution Principle: Skeleton can be substituted with other loading placeholders without breaking functionality.
+	 * Interface Segregation Principle: ISkeletonProps provides a focused interface for the component.
+	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
+	 */
+	const props = $props<
+		{
+			variant?: 'text' | 'card' | 'image' | 'icon';
+			width?: string;
+			height?: string;
+			class?: string;
+		} & ISkeletonProps
+	>();
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				variant: _variant,
+				width: _width,
+				height: _height,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
+
+	// Set default values
+	const variant = props.variant ?? 'text';
+	const width = props.width ?? '100%';
+	const height = props.height;
+
+	// Generate the CSS class using the style manager
+	let combinedClass = $derived(
+		mergeClasses('skeleton-container', variant ? `variant-${variant}` : '', props.class)
+	);
+
+	// Calculate dimensions
+	const defaultHeight = $derived(
+		variant === 'text' ? '1rem' : variant === 'icon' ? '2.5rem' : '3rem'
+	);
+	const computedHeight = $derived(height || defaultHeight);
+	const computedWidth = $derived(variant === 'icon' ? computedHeight : width);
+
+	// ��������� width � height ��� CSS ���������� ��� ������������� � �������
+	const styleVars = $derived(
+		`--skeleton-width: ${computedWidth}; --skeleton-height: ${computedHeight};`
+	);
+</script>
+
+<div class={combinedClass} style={styleVars} aria-busy="true" aria-live="polite" {...restProps}></div>
+
+
+
+
+
+
+

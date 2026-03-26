@@ -1,0 +1,2951 @@
+{
+  "timestamp": "2026-03-16T20:21:34.654Z",
+  "summary": {
+    "totalTokens": 212,
+    "totalContracts": 489,
+    "errors": 0,
+    "warnings": 0,
+    "info": 134
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "category": "potential-missing-token",
+      "file": "src/lib/design-system/contracts/information/common.ts",
+      "exportName": "ISize",
+      "message": "Interface 'ISize' may need ComponentSize token",
+      "suggestion": "Consider importing ComponentSize from tokens/architecture/component-size"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ActivityStatus",
+      "message": "Token 'ActivityStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ALERT_TYPES",
+      "message": "Token 'ALERT_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ALIGNMENTS",
+      "message": "Token 'ALIGNMENTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ASPECT_RATIO",
+      "message": "Token 'ASPECT_RATIO' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "AspectRatio",
+      "message": "Token 'AspectRatio' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "BACKGROUND",
+      "message": "Token 'BACKGROUND' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "BILLING_ITEM_STATUSES",
+      "message": "Token 'BILLING_ITEM_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "BILLING_SUMMARY_STATUSES",
+      "message": "Token 'BILLING_SUMMARY_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CARD_SIZES",
+      "message": "Token 'CARD_SIZES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CARD_TYPES",
+      "message": "Token 'CARD_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CARD_VARIANTS",
+      "message": "Token 'CARD_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CardSize",
+      "message": "Token 'CardSize' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CardVariant",
+      "message": "Token 'CardVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CHART_TYPES",
+      "message": "Token 'CHART_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ChartType",
+      "message": "Token 'ChartType' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CODE",
+      "message": "Token 'CODE' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CODE_LANGUAGES",
+      "message": "Token 'CODE_LANGUAGES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "COMPONENT_SIZE",
+      "message": "Token 'COMPONENT_SIZE' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CONTAINER_MAX_WIDTH",
+      "message": "Token 'CONTAINER_MAX_WIDTH' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CTA_BANNER_BACKGROUND_VARIANTS",
+      "message": "Token 'CTA_BANNER_BACKGROUND_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "CtaBannerBackgroundVariant",
+      "message": "Token 'CtaBannerBackgroundVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DENSITIES",
+      "message": "Token 'DENSITIES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DIFF_LINE_TYPES",
+      "message": "Token 'DIFF_LINE_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DiffLineType",
+      "message": "Token 'DiffLineType' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DOCUMENT_PREVIEW_FORMATS",
+      "message": "Token 'DOCUMENT_PREVIEW_FORMATS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DocumentPreviewFormat",
+      "message": "Token 'DocumentPreviewFormat' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "DROPDOWN_POSITIONS",
+      "message": "Token 'DROPDOWN_POSITIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "FlowVariant",
+      "message": "Token 'FlowVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GEOMETRY",
+      "message": "Token 'GEOMETRY' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRADIENT_VARIANTS",
+      "message": "Token 'GRADIENT_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRAPH_PORT_COLORS",
+      "message": "Token 'GRAPH_PORT_COLORS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRAPH_PORT_DATA_TYPES",
+      "message": "Token 'GRAPH_PORT_DATA_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRAPH_PORT_DIRECTIONS",
+      "message": "Token 'GRAPH_PORT_DIRECTIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRAPH_PORT_SIZE_MAP",
+      "message": "Token 'GRAPH_PORT_SIZE_MAP' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GraphCanvasGridMode",
+      "message": "Token 'GraphCanvasGridMode' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GraphCanvasPanMode",
+      "message": "Token 'GraphCanvasPanMode' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GraphPortSizeKey",
+      "message": "Token 'GraphPortSizeKey' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GraphPortType",
+      "message": "Token 'GraphPortType' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GRID_COLUMNS",
+      "message": "Token 'GRID_COLUMNS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GridColumnsKey",
+      "message": "Token 'GridColumnsKey' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "GridItemContent",
+      "message": "Token 'GridItemContent' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "HierarchyVariant",
+      "message": "Token 'HierarchyVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "HORIZONTAL_POSITIONS",
+      "message": "Token 'HORIZONTAL_POSITIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ICON_PICKER_COLUMN_COUNTS",
+      "message": "Token 'ICON_PICKER_COLUMN_COUNTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ICON_WRAPPER_SHAPES",
+      "message": "Token 'ICON_WRAPPER_SHAPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "IconWrapperShape",
+      "message": "Token 'IconWrapperShape' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "IMAGE_FILTERS",
+      "message": "Token 'IMAGE_FILTERS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "INLINE_CODE_VARIANTS",
+      "message": "Token 'INLINE_CODE_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "INPUT_VARIANTS",
+      "message": "Token 'INPUT_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "InputStateStatus",
+      "message": "Token 'InputStateStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "InteractionState",
+      "message": "Token 'InteractionState' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "JUSTIFICATIONS",
+      "message": "Token 'JUSTIFICATIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "KPI_TRENDS",
+      "message": "Token 'KPI_TRENDS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "LayoutSize",
+      "message": "Token 'LayoutSize' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "LINE_CHART_VARIANTS",
+      "message": "Token 'LINE_CHART_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "LITEGRAPH_NODE_STATES",
+      "message": "Token 'LITEGRAPH_NODE_STATES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "LITEGRAPH_NODE_TYPES",
+      "message": "Token 'LITEGRAPH_NODE_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "LoadingState",
+      "message": "Token 'LoadingState' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MAP_MARKER_CATEGORIES",
+      "message": "Token 'MAP_MARKER_CATEGORIES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MAP_MARKER_PIN_STYLES",
+      "message": "Token 'MAP_MARKER_PIN_STYLES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MESSAGE_ALIGNMENTS",
+      "message": "Token 'MESSAGE_ALIGNMENTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MESSAGE_AVATAR_SIZES",
+      "message": "Token 'MESSAGE_AVATAR_SIZES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MESSAGE_BUBBLE_VARIANTS",
+      "message": "Token 'MESSAGE_BUBBLE_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MESSAGE_STATUSES",
+      "message": "Token 'MESSAGE_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MESSAGE_VARIANTS",
+      "message": "Token 'MESSAGE_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MessageAvatarSize",
+      "message": "Token 'MessageAvatarSize' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MessageDeliveryStatus",
+      "message": "Token 'MessageDeliveryStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MessageStatus",
+      "message": "Token 'MessageStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "MessageVariant",
+      "message": "Token 'MessageVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NODE_PROPERTY_TYPES",
+      "message": "Token 'NODE_PROPERTY_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NODE_TITLE",
+      "message": "Token 'NODE_TITLE' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NodeTitleStatus",
+      "message": "Token 'NodeTitleStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NOTIFICATION_BADGE_POSITIONS",
+      "message": "Token 'NOTIFICATION_BADGE_POSITIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NOTIFICATION_CHANNELS",
+      "message": "Token 'NOTIFICATION_CHANNELS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "NOTIFICATION_POSITIONS",
+      "message": "Token 'NOTIFICATION_POSITIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ORDER_STATUSES",
+      "message": "Token 'ORDER_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ORIENTATIONS",
+      "message": "Token 'ORIENTATIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PAGE_BUILDER_ELEMENT_TYPES",
+      "message": "Token 'PAGE_BUILDER_ELEMENT_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PAN_MODES",
+      "message": "Token 'PAN_MODES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PAYMENT_METHOD_TYPES",
+      "message": "Token 'PAYMENT_METHOD_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PAYMENT_STATUSES",
+      "message": "Token 'PAYMENT_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveConnector",
+      "message": "Token 'PrimitiveConnector' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveCorner",
+      "message": "Token 'PrimitiveCorner' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveGroup",
+      "message": "Token 'PrimitiveGroup' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveOwnership",
+      "message": "Token 'PrimitiveOwnership' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitivePin",
+      "message": "Token 'PrimitivePin' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveRelationship",
+      "message": "Token 'PrimitiveRelationship' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PrimitiveShape",
+      "message": "Token 'PrimitiveShape' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PRIORITES",
+      "message": "Token 'PRIORITES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ProcessStatus",
+      "message": "Token 'ProcessStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PRODUCT_CARD_VARIANTS",
+      "message": "Token 'PRODUCT_CARD_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ProductCardVariant",
+      "message": "Token 'ProductCardVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PROGRESS_TYPES",
+      "message": "Token 'PROGRESS_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PROGRESS_VARIANTS",
+      "message": "Token 'PROGRESS_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ProgressType",
+      "message": "Token 'ProgressType' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ProgressVariant",
+      "message": "Token 'ProgressVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "PROP_TYPES",
+      "message": "Token 'PROP_TYPES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "QUANTITY_SELECTOR_VARIANTS",
+      "message": "Token 'QUANTITY_SELECTOR_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "RESPONSE_VIEWER_STATUSES",
+      "message": "Token 'RESPONSE_VIEWER_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ResponseViewerStatus",
+      "message": "Token 'ResponseViewerStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SELECTION_TYPE",
+      "message": "Token 'SELECTION_TYPE' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SelectVariant",
+      "message": "Token 'SelectVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SemanticStatus",
+      "message": "Token 'SemanticStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SeverityStatus",
+      "message": "Token 'SeverityStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SIDEBAR_VARIANTS",
+      "message": "Token 'SIDEBAR_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "SORT_DIRECTIONS",
+      "message": "Token 'SORT_DIRECTIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "StateVariant",
+      "message": "Token 'StateVariant' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "STATUS_AXES",
+      "message": "Token 'STATUS_AXES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "STATUS_INDICATOR_STATUSES",
+      "message": "Token 'STATUS_INDICATOR_STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "STATUSES",
+      "message": "Token 'STATUSES' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "StatusIndicatorStatus",
+      "message": "Token 'StatusIndicatorStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "Style",
+      "message": "Token 'Style' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "STYLE",
+      "message": "Token 'STYLE' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TAB_GROUP_VARIANTS",
+      "message": "Token 'TAB_GROUP_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TABLE_CELLS",
+      "message": "Token 'TABLE_CELLS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TColumns",
+      "message": "Token 'TColumns' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TextAlign",
+      "message": "Token 'TextAlign' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TOKEN_CONTROL_KINDS",
+      "message": "Token 'TOKEN_CONTROL_KINDS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TOKEN_DOMAINS",
+      "message": "Token 'TOKEN_DOMAINS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TokenContainerMaxWidth",
+      "message": "Token 'TokenContainerMaxWidth' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TokenControlKind",
+      "message": "Token 'TokenControlKind' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TokenDomain",
+      "message": "Token 'TokenDomain' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TokenValue",
+      "message": "Token 'TokenValue' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TOOLBAR_VARIANTS",
+      "message": "Token 'TOOLBAR_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TOOLTIP_PLACEMENTS",
+      "message": "Token 'TOOLTIP_PLACEMENTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TOOLTIP_VARIANTS",
+      "message": "Token 'TOOLTIP_VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TRANSLATIONS",
+      "message": "Token 'TRANSLATIONS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "TRIGGERS",
+      "message": "Token 'TRIGGERS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "ValidationState",
+      "message": "Token 'ValidationState' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "VARIANTS",
+      "message": "Token 'VARIANTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "VERDICTS",
+      "message": "Token 'VERDICTS' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "VerdictStatus",
+      "message": "Token 'VerdictStatus' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    },
+    {
+      "severity": "info",
+      "category": "unused-token",
+      "file": "unknown",
+      "exportName": "VisibilityState",
+      "message": "Token 'VisibilityState' is defined but not used in any contract",
+      "suggestion": "Consider removing unused token or documenting its purpose"
+    }
+  ],
+  "missingTokenUsage": [
+    {
+      "tokenName": "Alignment",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "VerticalLayoutProps",
+          "propName": "alignItems",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "alignItems",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "GridLayoutExtendedProps",
+          "propName": "alignItems",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/sidebar.ts",
+          "exportName": "SidebarProps",
+          "propName": "position",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/stack.ts",
+          "exportName": "StackProps",
+          "propName": "align",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/molecules-migration.ts",
+          "exportName": "WishlistButtonProps",
+          "propName": "tooltipPosition",
+          "currentType": "Alignment"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/table.ts",
+          "exportName": "TableCellProps",
+          "propName": "align",
+          "currentType": "Alignment"
+        }
+      ]
+    },
+    {
+      "tokenName": "DividerAlign",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/divider.ts",
+          "exportName": "DividerProps",
+          "propName": "align",
+          "currentType": "DividerAlign"
+        }
+      ]
+    },
+    {
+      "tokenName": "Justification",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "VerticalLayoutProps",
+          "propName": "justifyContent",
+          "currentType": "Justification"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "justifyContent",
+          "currentType": "Justification"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "GridLayoutExtendedProps",
+          "propName": "justifyContent",
+          "currentType": "Justification"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/stack.ts",
+          "exportName": "StackProps",
+          "propName": "justify",
+          "currentType": "Justification"
+        }
+      ]
+    },
+    {
+      "tokenName": "ComponentSize",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/common.ts",
+          "exportName": "TypographyTextProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/common.ts",
+          "exportName": "HtmlVariantSizeAttr",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "LayoutSection",
+          "propName": "size",
+          "currentType": "ComponentSize | 'xl' | '2xl' | 'full'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "VerticalLayoutProps",
+          "propName": "gap",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "gap",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "primarySize",
+          "currentType": "ComponentSize | 'xl' | '2xl' | 'full'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "secondarySize",
+          "currentType": "ComponentSize | 'xl' | '2xl' | 'full'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "GridLayoutExtendedProps",
+          "propName": "gap",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/line-chart.ts",
+          "exportName": "ILineChartProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/separator.ts",
+          "exportName": "SyntaxHighlightedCodeProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/shared-canvas.ts",
+          "exportName": "SharedCanvasProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/spacer.ts",
+          "exportName": "SpacerProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/stack.ts",
+          "exportName": "StackProps",
+          "propName": "spacing",
+          "currentType": "ComponentSize | string | number"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/alert-card.ts",
+          "exportName": "IAlertCardProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/alert-card.ts",
+          "exportName": "IAlertCardElementProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BadgeProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BadgeGroupItem",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "CodeProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BaseTagProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/base-card.ts",
+          "exportName": "IBaseCardElementProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartState",
+          "propName": "currentSize",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartPreset",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-image-editor.ts",
+          "exportName": "CanvasImageEditorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/graph-node-card.ts",
+          "exportName": "GraphNodeCardProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/graph-toolbar.ts",
+          "exportName": "GraphToolbarProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/graph.ts",
+          "exportName": "GraphNodeProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconChevronProps",
+          "propName": "size",
+          "currentType": "ComponentSize | '2xl'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconCircleProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconWrapperProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "DotProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "CounterProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "ListItemMarkerProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "StatusIndicatorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "MessageStatusProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarInteractiveProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarFieldProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "SelectProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarGroupProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/kpiindicator.ts",
+          "exportName": "IKPIIndicatorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/label.ts",
+          "exportName": "LabelProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphPort",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphNodeProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/map-marker.ts",
+          "exportName": "IMapMarkerProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/molecules-migration.ts",
+          "exportName": "WishlistButtonProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/node-header.ts",
+          "exportName": "NodeHeaderProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/node-properties-panel.ts",
+          "exportName": "NodePropertiesPanelProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/node-property.ts",
+          "exportName": "NodePropertyProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/node-title.ts",
+          "exportName": "NodeTitleProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/port-group.ts",
+          "exportName": "PortGroupProps",
+          "propName": "portSize",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/price-alert.ts",
+          "exportName": "IPriceAlertElementProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/sortable-grid.ts",
+          "exportName": "SortableGridProps",
+          "propName": "gap",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/sortable-grid.ts",
+          "exportName": "SortableGridProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/status-dashboard.ts",
+          "exportName": "StatusDashboardProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/accordion.ts",
+          "exportName": "AccordionHeaderProps",
+          "propName": "chevronSize",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/accordion.ts",
+          "exportName": "AccordionHeaderProps",
+          "propName": "padding",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/burger-menu.ts",
+          "exportName": "BurgerMenuProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/button.ts",
+          "exportName": "ButtonControlProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/chat-preview.ts",
+          "exportName": "ChatPreviewProps",
+          "propName": "size",
+          "currentType": "ComponentSize | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/chat-status-indicator.ts",
+          "exportName": "ChatStatusIndicatorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "ISpinnerProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IProgressBarProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IStepIconProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IAlertProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IInputDoubleProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/link.ts",
+          "exportName": "TextProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/link.ts",
+          "exportName": "LinkProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/overlay.ts",
+          "exportName": "ILoadingOverlayProps",
+          "propName": "spinnerSize",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/pagination.ts",
+          "exportName": "PaginationProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/performance-dashboard.ts",
+          "exportName": "PerformanceDashboardProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/quantity-selector.ts",
+          "exportName": "IQuantitySelectorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/rating.ts",
+          "exportName": "IRatingProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/switch.ts",
+          "exportName": "SwitchProps",
+          "propName": "switchSize",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/switch.ts",
+          "exportName": "SwitchProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabIndicatorProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabsProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/toggles.ts",
+          "exportName": "ToggleBaseProps",
+          "propName": "size",
+          "currentType": "ComponentSize"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/toggles.ts",
+          "exportName": "ToggleProps",
+          "propName": "toggleSize",
+          "currentType": "ComponentSize"
+        }
+      ]
+    },
+    {
+      "tokenName": "Density",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/dashboard-layout.ts",
+          "exportName": "DashboardLayoutProps",
+          "propName": "variant",
+          "currentType": "Density"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/dashboard-layout.ts",
+          "exportName": "DashboardLayoutState",
+          "propName": "currentVariant",
+          "currentType": "Density"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/dashboard-layout.ts",
+          "exportName": "DashboardLayoutPreset",
+          "propName": "variant",
+          "currentType": "Density"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "MessageThreadProps",
+          "propName": "variant",
+          "currentType": "Density"
+        }
+      ]
+    },
+    {
+      "tokenName": "GradientVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/gradient-background.ts",
+          "exportName": "IGradientBackgroundProps",
+          "propName": "variant",
+          "currentType": "GradientVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "GridItem",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout.ts",
+          "exportName": "GridLayoutProps",
+          "propName": "items",
+          "currentType": "GridItem[]"
+        }
+      ]
+    },
+    {
+      "tokenName": "MessageBubbleVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/message-bubble.ts",
+          "exportName": "IMessageBubbleProps",
+          "propName": "variant",
+          "currentType": "MessageBubbleVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "Orientation",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/divider.ts",
+          "exportName": "DividerProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/layout-extended.ts",
+          "exportName": "HorizontalLayoutProps",
+          "propName": "direction",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/separator.ts",
+          "exportName": "SeparatorProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/spacer.ts",
+          "exportName": "SpacerProps",
+          "propName": "axis",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/architecture/stack.ts",
+          "exportName": "StackProps",
+          "propName": "direction",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/graph-toolbar.ts",
+          "exportName": "GraphToolbarProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "SliderProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarGroupProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarSeparatorProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/status-dashboard.ts",
+          "exportName": "StatusDashboardProps",
+          "propName": "layout",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/toggles.ts",
+          "exportName": "ToggleGroupRootProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/toggles.ts",
+          "exportName": "RadioButtonGroupProps",
+          "propName": "orientation",
+          "currentType": "Orientation"
+        }
+      ]
+    },
+    {
+      "tokenName": "PanMode",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/graph-canvas.ts",
+          "exportName": "GraphCanvasProps",
+          "propName": "panMode",
+          "currentType": "PanMode"
+        }
+      ]
+    },
+    {
+      "tokenName": "PrimitiveTrajectory",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/connection-line.ts",
+          "exportName": "ConnectionLineProps",
+          "propName": "type",
+          "currentType": "PrimitiveTrajectory"
+        }
+      ]
+    },
+    {
+      "tokenName": "PrimitiveChart",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartProps",
+          "propName": "type",
+          "currentType": "PrimitiveChart"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartPreset",
+          "propName": "type",
+          "currentType": "PrimitiveChart"
+        }
+      ]
+    },
+    {
+      "tokenName": "PrimitiveSkeleton",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "ISkeletonProps",
+          "propName": "variant",
+          "currentType": "PrimitiveSkeleton"
+        }
+      ]
+    },
+    {
+      "tokenName": "PrimitiveMarker",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/graph-canvas.ts",
+          "exportName": "GraphCanvasProps",
+          "propName": "gridMode",
+          "currentType": "PrimitiveMarker"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "ListItemMarkerProps",
+          "propName": "type",
+          "currentType": "PrimitiveMarker"
+        }
+      ]
+    },
+    {
+      "tokenName": "ContainerMaxWidth",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/container.ts",
+          "exportName": "ContainerProps",
+          "propName": "size",
+          "currentType": "ContainerMaxWidth"
+        }
+      ]
+    },
+    {
+      "tokenName": "Height",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/hero.ts",
+          "exportName": "IHeroProps",
+          "propName": "height",
+          "currentType": "Height"
+        }
+      ]
+    },
+    {
+      "tokenName": "TableCell",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/table.ts",
+          "exportName": "TableCellProps",
+          "propName": "variant",
+          "currentType": "TableCell"
+        }
+      ]
+    },
+    {
+      "tokenName": "Background",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/hero.ts",
+          "exportName": "IHeroProps",
+          "propName": "backgroundVariant",
+          "currentType": "Background"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/stat-card.ts",
+          "exportName": "IStatCardProps",
+          "propName": "variant",
+          "currentType": "Background"
+        }
+      ]
+    },
+    {
+      "tokenName": "BadgeType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "NpmBadgeProps",
+          "propName": "type",
+          "currentType": "BadgeType"
+        }
+      ]
+    },
+    {
+      "tokenName": "CodeLanguage",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/molecules-migration.ts",
+          "exportName": "CodeEditorProps",
+          "propName": "language",
+          "currentType": "CodeLanguage"
+        }
+      ]
+    },
+    {
+      "tokenName": "CalendarViewMode",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/event-calendar.ts",
+          "exportName": "IEventCalendarProps",
+          "propName": "viewMode",
+          "currentType": "CalendarViewMode"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/event-calendar.ts",
+          "exportName": "IEventCalendarProps",
+          "propName": "onViewModeChange",
+          "currentType": "(mode: CalendarViewMode) => void"
+        }
+      ]
+    },
+    {
+      "tokenName": "TimeRange",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/performance-dashboard.ts",
+          "exportName": "PerformanceDashboardProps",
+          "propName": "timeRange",
+          "currentType": "TimeRange"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/performance-dashboard.ts",
+          "exportName": "PerformanceDashboardProps",
+          "propName": "onTimeRangeChange",
+          "currentType": "(range: TimeRange) => void"
+        }
+      ]
+    },
+    {
+      "tokenName": "MessageTimestampFormatStyle",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/message-timestamp.ts",
+          "exportName": "MessageTimestampProps",
+          "propName": "formatStyle",
+          "currentType": "MessageTimestampFormatStyle"
+        }
+      ]
+    },
+    {
+      "tokenName": "GraphPortDataType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/graph-port.ts",
+          "exportName": "GraphPortProps",
+          "propName": "dataType",
+          "currentType": "GraphPortDataType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphPort",
+          "propName": "dataType",
+          "currentType": "GraphPortDataType"
+        }
+      ]
+    },
+    {
+      "tokenName": "GraphPortDirection",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/graph-port.ts",
+          "exportName": "GraphPortProps",
+          "propName": "direction",
+          "currentType": "GraphPortDirection"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/idef0.ts",
+          "exportName": "Idef0ConnectorProps",
+          "propName": "direction",
+          "currentType": "GraphPortDirection"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphPort",
+          "propName": "direction",
+          "currentType": "GraphPortDirection"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/port-group.ts",
+          "exportName": "PortGroupProps",
+          "propName": "direction",
+          "currentType": "GraphPortDirection"
+        }
+      ]
+    },
+    {
+      "tokenName": "GraphPortSize",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/graph-port.ts",
+          "exportName": "GraphPortProps",
+          "propName": "size",
+          "currentType": "GraphPortSize"
+        }
+      ]
+    },
+    {
+      "tokenName": "ImageFilter",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-image-editor.ts",
+          "exportName": "CanvasImageEditorProps",
+          "propName": "filter",
+          "currentType": "ImageFilter"
+        }
+      ]
+    },
+    {
+      "tokenName": "KPITrend",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/kpiindicator.ts",
+          "exportName": "IKPIIndicatorProps",
+          "propName": "trend",
+          "currentType": "KPITrend"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/stat-card.ts",
+          "exportName": "IStatCardProps",
+          "propName": "trend",
+          "currentType": "KPITrend"
+        }
+      ]
+    },
+    {
+      "tokenName": "LiteGraphNodeType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphNodeProps",
+          "propName": "type",
+          "currentType": "LiteGraphNodeType"
+        }
+      ]
+    },
+    {
+      "tokenName": "LiteGraphNodeState",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/litegraph-node.ts",
+          "exportName": "LiteGraphNodeProps",
+          "propName": "state",
+          "currentType": "LiteGraphNodeState"
+        }
+      ]
+    },
+    {
+      "tokenName": "PinStyle",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/map-marker.ts",
+          "exportName": "IMapMarkerProps",
+          "propName": "pinStyle",
+          "currentType": "PinStyle"
+        }
+      ]
+    },
+    {
+      "tokenName": "MarkerCategory",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/map-marker.ts",
+          "exportName": "IMapMarkerProps",
+          "propName": "category",
+          "currentType": "MarkerCategory"
+        }
+      ]
+    },
+    {
+      "tokenName": "MapMarkerType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/map-marker.ts",
+          "exportName": "IMapMarkerProps",
+          "propName": "type",
+          "currentType": "MapMarkerType"
+        }
+      ]
+    },
+    {
+      "tokenName": "MessageAlign",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/message-bubble.ts",
+          "exportName": "IMessageBubbleProps",
+          "propName": "align",
+          "currentType": "MessageAlign"
+        }
+      ]
+    },
+    {
+      "tokenName": "NodePropertyType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/node-property.ts",
+          "exportName": "NodePropertyProps",
+          "propName": "type",
+          "currentType": "NodePropertyType"
+        }
+      ]
+    },
+    {
+      "tokenName": "Priority",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/schedule-calendar.ts",
+          "exportName": "ScheduleEvent",
+          "propName": "priority",
+          "currentType": "Priority"
+        }
+      ]
+    },
+    {
+      "tokenName": "Translation",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/interaction-input.ts",
+          "exportName": "TranslatableText",
+          "propName": "status",
+          "currentType": "Translation"
+        }
+      ]
+    },
+    {
+      "tokenName": "AlertType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/price-alert.ts",
+          "exportName": "IPriceAlertElementProps",
+          "propName": "variant",
+          "currentType": "AlertType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/price-alert.ts",
+          "exportName": "IPriceAlertElementProps",
+          "propName": "status",
+          "currentType": "AlertType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/price-alert.ts",
+          "exportName": "IPriceAlertElementProps",
+          "propName": "onStatusChange",
+          "currentType": "(status: AlertType) => void"
+        }
+      ]
+    },
+    {
+      "tokenName": "DropdownPosition",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/dropdown-menu.ts",
+          "exportName": "IDropdownMenuProps",
+          "propName": "position",
+          "currentType": "DropdownPosition"
+        }
+      ]
+    },
+    {
+      "tokenName": "InputAddonPosition",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IInputAddonProps",
+          "propName": "position",
+          "currentType": "InputAddonPosition"
+        }
+      ]
+    },
+    {
+      "tokenName": "LabelPosition",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/switch-with-label.ts",
+          "exportName": "ISwitchWithLabelProps",
+          "propName": "labelPosition",
+          "currentType": "LabelPosition"
+        }
+      ]
+    },
+    {
+      "tokenName": "NotificationChannel",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/notification-settings.ts",
+          "exportName": "INotificationSettingsPreference",
+          "propName": "channels",
+          "currentType": "Partial<Record<NotificationChannel, boolean>>"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/notification-settings.ts",
+          "exportName": "INotificationSettingsProps",
+          "propName": "onPreferenceChange",
+          "currentType": "(id: string, channel: NotificationChannel, enabled: boolean) => void"
+        }
+      ]
+    },
+    {
+      "tokenName": "NotificationBadgePosition",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "INotificationBadgeProps",
+          "propName": "position",
+          "currentType": "NotificationBadgePosition"
+        }
+      ]
+    },
+    {
+      "tokenName": "NotificationPosition",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/notification.ts",
+          "exportName": "INotificationProps",
+          "propName": "position",
+          "currentType": "NotificationPosition"
+        }
+      ]
+    },
+    {
+      "tokenName": "PageBuilderElementType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/page-builder.ts",
+          "exportName": "PageBuilderElement",
+          "propName": "type",
+          "currentType": "PageBuilderElementType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/page-builder.ts",
+          "exportName": "PageBuilderToolbarItem",
+          "propName": "type",
+          "currentType": "PageBuilderElementType"
+        }
+      ]
+    },
+    {
+      "tokenName": "PaymentMethodType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/payment-controls.ts",
+          "exportName": "PaymentMethod",
+          "propName": "type",
+          "currentType": "PaymentMethodType"
+        }
+      ]
+    },
+    {
+      "tokenName": "PropType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/molecules-migration.ts",
+          "exportName": "PropDefinition",
+          "propName": "type",
+          "currentType": "PropType"
+        }
+      ]
+    },
+    {
+      "tokenName": "ToggleGroupType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/toggles.ts",
+          "exportName": "ToggleGroupRootProps",
+          "propName": "type",
+          "currentType": "ToggleGroupType"
+        }
+      ]
+    },
+    {
+      "tokenName": "SortDirection",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/sortable-table-header.ts",
+          "exportName": "SortableTableHeaderProps",
+          "propName": "currentSortDirection",
+          "currentType": "SortDirection"
+        }
+      ]
+    },
+    {
+      "tokenName": "ABTestStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/abtest-configurator.ts",
+          "exportName": "ABTest",
+          "propName": "status",
+          "currentType": "ABTestStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "MessageStatusType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "Message",
+          "propName": "status",
+          "currentType": "MessageStatusType | string"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "ChatMessageProps",
+          "propName": "status",
+          "currentType": "MessageStatusType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "MessageThreadMessage",
+          "propName": "status",
+          "currentType": "MessageStatusType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "MessageStatusProps",
+          "propName": "status",
+          "currentType": "MessageStatusType"
+        }
+      ]
+    },
+    {
+      "tokenName": "PresenceStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "StatusIndicatorProps",
+          "propName": "status",
+          "currentType": "PresenceStatus"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/chat-status-indicator.ts",
+          "exportName": "ChatStatusIndicatorProps",
+          "propName": "status",
+          "currentType": "PresenceStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "PredictionResultStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/prediction-result.ts",
+          "exportName": "PredictionResultProps",
+          "propName": "status",
+          "currentType": "PredictionResultStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "StepIconStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IStepIconProps",
+          "propName": "status",
+          "currentType": "StepIconStatus"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IStepConnectorProps",
+          "propName": "status",
+          "currentType": "StepIconStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "KPIStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/kpiindicator.ts",
+          "exportName": "IKPIIndicatorProps",
+          "propName": "status",
+          "currentType": "KPIStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "NotificationType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/notification.ts",
+          "exportName": "INotificationProps",
+          "propName": "type",
+          "currentType": "NotificationType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/toast.ts",
+          "exportName": "IToastProps",
+          "propName": "type",
+          "currentType": "NotificationType"
+        }
+      ]
+    },
+    {
+      "tokenName": "NodeTitleVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/node-title.ts",
+          "exportName": "NodeTitleProps",
+          "propName": "variant",
+          "currentType": "NodeTitleVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "PaymentStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/payment-controls.ts",
+          "exportName": "PaymentSummaryProps",
+          "propName": "status",
+          "currentType": "PaymentStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "OrderStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/order-confirmation.ts",
+          "exportName": "IOrderConfirmationProps",
+          "propName": "orderStatus",
+          "currentType": "OrderStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "BillingItemStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/billing-summary.ts",
+          "exportName": "IBillingItem",
+          "propName": "status",
+          "currentType": "BillingItemStatus"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/order-confirmation.ts",
+          "exportName": "IOrderConfirmationPaymentInfo",
+          "propName": "status",
+          "currentType": "BillingItemStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "BillingSummaryStatus",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/billing-summary.ts",
+          "exportName": "IBillingSummaryProps",
+          "propName": "status",
+          "currentType": "BillingSummaryStatus"
+        }
+      ]
+    },
+    {
+      "tokenName": "TabGroupVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/tab-group.ts",
+          "exportName": "ITabGroupProps",
+          "propName": "variant",
+          "currentType": "TabGroupVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "ToolbarVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarInteractiveProps",
+          "propName": "variant",
+          "currentType": "ToolbarVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarFieldProps",
+          "propName": "variant",
+          "currentType": "ToolbarVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarProps",
+          "propName": "variant",
+          "currentType": "ToolbarVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "ToolbarGroupProps",
+          "propName": "variant",
+          "currentType": "ToolbarVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "TooltipVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/tooltip.ts",
+          "exportName": "TooltipProps",
+          "propName": "variant",
+          "currentType": "TooltipVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "TooltipPlacement",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/tooltip.ts",
+          "exportName": "TooltipProps",
+          "propName": "placement",
+          "currentType": "TooltipPlacement"
+        }
+      ]
+    },
+    {
+      "tokenName": "TooltipTrigger",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/tooltip.ts",
+          "exportName": "TooltipProps",
+          "propName": "trigger",
+          "currentType": "TooltipTrigger"
+        }
+      ]
+    },
+    {
+      "tokenName": "CardType",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/team-member-card.ts",
+          "exportName": "ITeamMemberCardProps",
+          "propName": "variant",
+          "currentType": "CardType"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/chat-preview.ts",
+          "exportName": "ChatPreviewProps",
+          "propName": "variant",
+          "currentType": "CardType"
+        }
+      ]
+    },
+    {
+      "tokenName": "SidebarVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/sidebar.ts",
+          "exportName": "SidebarProps",
+          "propName": "variant",
+          "currentType": "SidebarVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/pagination.ts",
+          "exportName": "PaginationProps",
+          "propName": "variant",
+          "currentType": "SidebarVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "QuantitySelectorVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/quantity-selector.ts",
+          "exportName": "IQuantitySelectorProps",
+          "propName": "variant",
+          "currentType": "QuantitySelectorVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "LineChartVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/line-chart.ts",
+          "exportName": "ILineChartProps",
+          "propName": "variant",
+          "currentType": "LineChartVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartProps",
+          "propName": "variant",
+          "currentType": "LineChartVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartState",
+          "propName": "currentVariant",
+          "currentType": "LineChartVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/canvas-chart.ts",
+          "exportName": "CanvasChartPreset",
+          "propName": "variant",
+          "currentType": "LineChartVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "Code",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/architecture/separator.ts",
+          "exportName": "SyntaxHighlightedCodeProps",
+          "propName": "variant",
+          "currentType": "Code"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "CodeProps",
+          "propName": "variant",
+          "currentType": "Code"
+        }
+      ]
+    },
+    {
+      "tokenName": "InlineCodeVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/link.ts",
+          "exportName": "InlineCodeProps",
+          "propName": "variant",
+          "currentType": "InlineCodeVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "AppearanceStyle",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IInputAddonProps",
+          "propName": "variant",
+          "currentType": "AppearanceStyle"
+        }
+      ]
+    },
+    {
+      "tokenName": "SemanticVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/molecules-migration.ts",
+          "exportName": "WishlistButtonProps",
+          "propName": "variant",
+          "currentType": "SemanticVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "ToneVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/download-card.ts",
+          "exportName": "IDownloadCardProps",
+          "propName": "variant",
+          "currentType": "ToneVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/metric-card.ts",
+          "exportName": "IMetricCardProps",
+          "propName": "variant",
+          "currentType": "ToneVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "NeutralVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BaseTagProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "ChatMessageProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "MessageThreadProps",
+          "propName": "messageVariant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "SelectProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "DefaultVariants",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/information/common.ts",
+          "exportName": "HtmlVariantSizeAttr",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/alert-card.ts",
+          "exportName": "IAlertCardProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/alert-card.ts",
+          "exportName": "IAlertCardElementProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BadgeProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BadgeGroupItem",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/badge.ts",
+          "exportName": "BaseTagProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/base-card.ts",
+          "exportName": "IBaseCardElementProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "ChatMessageProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/chat.ts",
+          "exportName": "MessageThreadProps",
+          "propName": "messageVariant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconChevronProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconCircleProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | 'success' | 'warning' | 'danger' | 'error'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/icons.ts",
+          "exportName": "IconWrapperProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | 'success' | 'warning' | 'danger' | 'error'"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "DotProps",
+          "propName": "color",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "CounterProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/indicators.ts",
+          "exportName": "ListItemMarkerProps",
+          "propName": "color",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/interaction.ts",
+          "exportName": "SelectProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants | NeutralVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/information/link-card.ts",
+          "exportName": "ILinkCardProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/button.ts",
+          "exportName": "ButtonControlProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "ISpinnerProps",
+          "propName": "variant",
+          "currentType": "'white' | 'gray' | DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IProgressBarProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IProgressCircleProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "IAlertProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IInputGroupProps",
+          "propName": "buttonVariant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/link.ts",
+          "exportName": "TextProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/link.ts",
+          "exportName": "LinkProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/menu-item.ts",
+          "exportName": "MenuItemProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabIndicatorProps",
+          "propName": "color",
+          "currentType": "DefaultVariants"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/tabs.ts",
+          "exportName": "TabsProps",
+          "propName": "variant",
+          "currentType": "DefaultVariants"
+        }
+      ]
+    },
+    {
+      "tokenName": "InputVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IInputDoubleProps",
+          "propName": "variant",
+          "currentType": "InputVariant"
+        },
+        {
+          "file": "src/lib/design-system/contracts/interaction/input.ts",
+          "exportName": "IFormHelperTextProps",
+          "propName": "variant",
+          "currentType": "InputVariant"
+        }
+      ]
+    },
+    {
+      "tokenName": "NotificationBadgeVariant",
+      "usedIn": [
+        {
+          "file": "src/lib/design-system/contracts/interaction/feedback.ts",
+          "exportName": "INotificationBadgeProps",
+          "propName": "variant",
+          "currentType": "NotificationBadgeVariant"
+        }
+      ]
+    }
+  ]
+}

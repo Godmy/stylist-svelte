@@ -1,0 +1,57 @@
+<script lang="ts">
+  import Story from '$stylist/interaction/playground/Story.svelte';
+  import ErrorBoundary from './index.svelte';
+  import type { TokenControllerType } from '$stylist/interaction/type/token/controller-type';
+
+  const controls = [
+    {
+      name: 'showError',
+      type: 'boolean' as TokenControllerType,
+      defaultValue: false,
+      description: 'Whether to show error state'
+    },
+    {
+      name: 'title',
+      type: 'text' as TokenControllerType,
+      defaultValue: 'Something went wrong',
+      description: 'Error title'
+    },
+    {
+      name: 'message',
+      type: 'text' as TokenControllerType,
+      defaultValue: 'An unexpected error occurred. Please try again.',
+      description: 'Error message'
+    }
+  ];
+</script>
+
+<Story
+  {controls}
+  title="ErrorBoundary Component"
+  description="A component that catches and displays errors in its child components"
+ 
+>
+  {#snippet children(controlValues: any)}
+  <div class="p-6">
+    <div class="border border-[var(--color-border-primary)] rounded-lg p-4 max-w-md">
+      <ErrorBoundary title={controlValues.title} message={controlValues.message}>
+        {#if !controlValues.showError}
+          <div class="text-center py-8">
+            <h3 class="text-lg font-medium text-[var(--color-text-primary)] mb-2">Normal Content</h3>
+            <p class="text-[var(--color-text-secondary)]">This content displays when no error occurs</p>
+          </div>
+        {:else}
+          <div class="text-center py-8 text-[var(--color-danger-500)]">
+            <h3 class="text-lg font-medium mb-2">Simulated Error</h3>
+            <p>This would trigger the error boundary in a real scenario</p>
+          </div>
+        {/if}
+      </ErrorBoundary>
+    </div>
+  </div>
+
+  {/snippet}
+</Story>
+
+
+

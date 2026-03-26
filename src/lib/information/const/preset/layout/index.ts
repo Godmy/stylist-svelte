@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { PRESET_LAYOUT_DASHBOARD } from './dashboard';

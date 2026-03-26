@@ -1,0 +1,31 @@
+import type { HTMLAttributes } from 'svelte/elements';
+
+import type { HtmlAttributesWithChildren } from '$stylist/information/type/attribute/common';
+
+export interface IBreadcrumbLinkProps extends HtmlAttributesWithChildren<HTMLElement> {
+	current?: boolean;
+	href?: string;
+}
+
+export interface IBreadcrumbItem {
+	href: string;
+	label: string;
+}
+
+export interface IBreadcrumbProps {
+	items?: Array<{ href?: string; label: string; current?: boolean }>;
+	class?: string;
+}
+
+export interface IBreadcrumbsCrumb {
+	href?: string;
+	label: string;
+}
+
+export interface IBreadcrumbsProps {
+	crumbs?: Array<{ href?: string; label: string }>;
+	class?: string;
+}
+
+
+

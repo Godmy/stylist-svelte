@@ -1,0 +1,164 @@
+# GraphQL Schema для stylist-svelte библиотеки
+# Сгенерировано: 2026-02-27T20:55:04.278Z
+# MVP версия - схема библиотеки компонентов
+
+scalar JSON
+scalar JSONObject
+
+# ===== TOKENS =====
+type Token {
+  name: String!
+  category: String!
+  exports: [String!]!
+}
+
+type TokenCategory {
+  name: String!
+  count: Int!
+  tokens: [Token!]!
+}
+
+type TokensQuery {
+  total: Int!
+  categories: [String!]!
+  byCategory(name: String!): TokenCategory
+  all: [Token!]!
+}
+
+# ===== CONTRACTS =====
+type Contract {
+  name: String!
+  category: String!
+  exports: [String!]!
+}
+
+type ContractCategory {
+  name: String!
+  count: Int!
+  contracts: [Contract!]!
+}
+
+type ContractsQuery {
+  total: Int!
+  categories: [String!]!
+  byCategory(name: String!): ContractCategory
+  all: [Contract!]!
+}
+
+# ===== MODELS =====
+type Model {
+  name: String!
+  category: String!
+  exports: [String!]!
+}
+
+type ModelCategory {
+  name: String!
+  count: Int!
+  models: [Model!]!
+}
+
+type ModelsQuery {
+  total: Int!
+  categories: [String!]!
+  byCategory(name: String!): ModelCategory
+  all: [Model!]!
+}
+
+# ===== STYLES =====
+type Style {
+  name: String!
+  category: String!
+  exports: [String!]!
+}
+
+type StyleCategory {
+  name: String!
+  count: Int!
+  styles: [Style!]!
+}
+
+type StylesQuery {
+  total: Int!
+  categories: [String!]!
+  byCategory(name: String!): StyleCategory
+  all: [Style!]!
+}
+
+# ===== COMPONENTS =====
+type ComponentProp {
+  name: String!
+  type: String!
+  required: Boolean!
+}
+
+type Component {
+  name: String!
+  group: String!
+  props: [ComponentProp!]!
+}
+
+type ComponentGroup {
+  name: String!
+  count: Int!
+  components: [Component!]!
+}
+
+type ComponentsQuery {
+  total: Int!
+  groups: [String!]!
+  byGroup(name: String!): ComponentGroup
+  byName(name: String!): Component
+  all: [Component!]!
+}
+
+# ===== ICONS =====
+type Icon {
+  name: String!
+  category: String!
+  exports: [String!]!
+}
+
+type IconCategory {
+  name: String!
+  count: Int!
+  icons: [Icon!]!
+}
+
+type IconsQuery {
+  total: Int!
+  categories: [String!]!
+  byCategory(name: String!): IconCategory
+  all: [Icon!]!
+}
+
+# ===== MAIN QUERY =====
+type Query {
+  # Информация о библиотеке
+  library: LibraryInfo!
+
+  # Результаты анализа
+  tokens: TokensQuery!
+  contracts: ContractsQuery!
+  models: ModelsQuery!
+  styles: StylesQuery!
+  components: ComponentsQuery!
+  icons: IconsQuery!
+
+  # Статус оркестратора
+  orchestratorStatus: [AnalysisResult!]!
+}
+
+# ===== SUPPORTING TYPES =====
+type LibraryInfo {
+  name: String!
+  version: String!
+  timestamp: String!
+}
+
+type AnalysisResult {
+  name: String!
+  status: String!
+  duration: Int!
+  error: String
+}

@@ -1,0 +1,4 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+export {};
+
+
