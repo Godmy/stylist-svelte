@@ -1,5 +1,5 @@
-import type { TokenSize } from '$stylist/architecture';
-import { cn } from '$stylist/information/function/cn';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Менеджер стилей для панели инструментов графа
@@ -55,6 +55,7 @@ export class GraphToolbarStyleManager {
 }
 
 export default GraphToolbarStyleManager;
+
 
 
 

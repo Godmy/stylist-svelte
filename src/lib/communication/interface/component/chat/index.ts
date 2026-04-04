@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { Chat, ChatMessageProps, Message, MessageAttachment, MessageInputProps, MessageReaction, MessageThreadMessage, MessageThreadProps, User } from './other';

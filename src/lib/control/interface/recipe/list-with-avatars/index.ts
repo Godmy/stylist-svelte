@@ -1,0 +1,29 @@
+/**
+ * List with Avatars — список с аватарами.
+ *
+ * LEGO-состав:
+ *   ILabelSlot                (information/label-slot)
+ *   ICaptionSlot              (information/caption-slot)
+ *   ISelectable<string>       (interaction/selectable)
+ *   IFocusable                (interaction/focusable)
+ *   ISizable                  (architecture/sizable)
+ *   IScrollable               (architecture/scrollable)
+ */
+import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
+import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
+import type { IScrollable } from '$stylist/architecture/interface/proto/scrollable';
+import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { ICaptionSlot } from '$stylist/information/interface/proto/caption-slot';
+import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
+
+export interface ListWithAvatarsRecipe
+	extends RecordArchitectureMerge<[
+		ILabelSlot,
+		ICaptionSlot,
+		ISelectable<string>,
+		IFocusable,
+		ISizable,
+		IScrollable
+	]>
+{}

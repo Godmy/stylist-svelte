@@ -1,0 +1,22 @@
+<script lang="ts">
+	import type { StackProps } from '$stylist/layout/type/struct/stack/stack-props';
+	import { createStackState } from '$stylist/layout/function/state/stack';
+
+	let props: StackProps = $props();
+	const state = createStackState(props);
+</script>
+
+<div
+	style:gap={state.gap}
+	class={state.classes}
+	role="group"
+	aria-label="Stack layout container"
+	{...state.restProps}
+>
+	{@render props.children?.()}
+</div>
+
+
+
+
+

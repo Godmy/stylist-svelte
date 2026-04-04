@@ -1,0 +1,19 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { FoundationAxis, FoundationAxisDirection, FoundationAxisOrientation } from './axes';
+export type { TokenComponentType } from './component-type';
+export type { TokenConnector } from './connector';
+export type { TokenEasing } from './easing';
+export type { TokenFunctionalTaxonomy } from './functional-taxonomy';
+export type { TokenLetterSpacing } from './letter-spacing';
+export type { TokenLineHeight } from './line-height';
+export type { TokenLineType } from './line-type';
+export type { TokenMarker } from './marker';
+export type { TokenNodeType } from './node-type';
+export type { TokenOpacity } from './opacity';
+export type { TokenOwnership } from './ownership';
+export type { TokenPanMode } from './pan-mode';
+export type { TokenRelationship } from './relationship';
+export type { TokenSkeleton } from './skeleton';
+export type { TierContent } from './tier';
+export type { TokenTrajectory } from './trajectory';
+export type { TokenZoom } from './zoom';

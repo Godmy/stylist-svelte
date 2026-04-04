@@ -1,6 +1,6 @@
-import type { TokenAppearance } from '$stylist/information/type/token/appearance';
-import type { TokenAvailability } from '$stylist/interaction/type/token/availability';
-import { cn } from '$stylist/information/function/cn/index';
+import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 const DOT_COLOR_CLASSES = {
 	default: 'bg-[--color-neutral-500]',
@@ -287,6 +287,7 @@ export class IndicatorsStyleManager {
 		return cn('text-sm', labelClass);
 	}
 }
+
 
 
 

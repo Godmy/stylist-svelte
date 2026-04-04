@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AutoCompleteOption, ColorItem, ColorPaletteProps, DateRangePickerProps, DateRangeValue, DateTimeRangePickerProps, DateTimeRangeValue, ProductForQuote, QuoteRequestValue, TranslatableText, TranslationLocale } from './struct';

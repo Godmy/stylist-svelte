@@ -1,2 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { INFORMATION_SHADER_CATALOG } from './shaders';
+
+/**
+ * data/ — ресурсы и ассеты information layer.
+ *
+ * Содержит:
+ * - svg/ — SVG ассеты для иконок и иллюстраций
+ *
+ * Шейдеры перенесены в architecture/data/shaders/
+ */
+export {}

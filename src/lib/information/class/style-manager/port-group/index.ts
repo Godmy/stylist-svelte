@@ -1,5 +1,5 @@
-import type { TokenRelationship } from '$stylist/architecture/type/token/relationship';
-import { cn } from '$stylist/information/function/cn';
+import type { TokenRelationship } from '$stylist/architecture/type/enum/relationship';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ РіСЂСѓРїРїС‹ РїРѕСЂС‚РѕРІ
@@ -39,6 +39,7 @@ export class PortGroupStyleManager {
 }
 
 export default PortGroupStyleManager;
+
 
 
 

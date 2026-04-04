@@ -1,4 +1,4 @@
-import type { TokenSize } from '$stylist/architecture/type/token/size';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export const RECORD_ICON_SIZE: Record<TokenSize, string> = {
 	xs: 'w-2.5 h-2.5',

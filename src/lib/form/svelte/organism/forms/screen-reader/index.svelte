@@ -1,0 +1,17 @@
+<script lang="ts">
+  import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
+  import type { ScreenReaderProps } from '$stylist/form/interface/component/interaction-forms/other';
+  let { title='Screen Reader Tester', content='Accessible content', class: className='', ...restProps }: ScreenReaderProps = $props();
+</script>
+<div class={InteractionFormsStyleManager.root('c-screen-reader border rounded-lg p-4', className)} {...restProps}>
+  <h3 class="font-semibold">{title}</h3>
+  <p class="text-sm text-[var(--color-text-primary)]">{content}</p>
+  <button class="sr-only" aria-label="Hidden accessible action">Action</button>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AccountSettingsFormProps, AddressFormProps, DocumentPreviewProps, FormFooterProps, FormHeaderProps, FormWithValidationProps, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps, UserProfileCardProps } from './component';
+export type { AccountFormsRecipe, FormFooterRecipe, FormHeaderRecipe, InteractionFormsRecipe } from './recipe';

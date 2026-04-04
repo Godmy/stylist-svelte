@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { CalendarViewStyleManager, EventCalendarStyleManager, MiniCalendarStyleManager, RealTimePresenceStyleManager, ScheduleCalendarStyleManager } from './style-manager';

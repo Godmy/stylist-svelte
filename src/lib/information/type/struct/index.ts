@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BorderAura, BorderStyle, FontIntent, InformationHTMLAttributes } from './item';
+export type { ChildrenProp, ClassProp, ComponentStateProps, ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren, HtmlAttributesWithContent, HtmlStateAttr, HtmlVariantSizeAttr, IClickable, IDisableable, ILoadable, ISize, IStyleable, IVariant, InputAttributesBase, InputFieldBaseProps, InputFieldRequiredProps, InputLabelProps, InputValidationProps, InputValueProps, Props, StateProps, StateStyleProps, TextInputBaseProps, TypographyTextProps } from './common';

@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AbbrProps, BreadcrumbLinkProps, ConfirmationDialogProps, DialogProps, InlineBaseProps, InlineCodeProps, InlineTextProps, LinkProps, ModalProps, PaginationProps, SidebarProps } from './component';
+export type { BreadcrumbLinkRecipe, ConfirmationDialogRecipe, DialogControlsRecipe, LayoutRecipe, LayoutSpecificProps, LinkRecipe, LinkSpecificProps, PaginationRecipe } from './recipe';

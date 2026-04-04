@@ -1,0 +1,36 @@
+/**
+ * BaseCard — универсальная карточка-контейнер..
+ *
+ * LEGO-состав:
+ *   ILabelSlot        (information) — label (Label)
+ *   ICaptionSlot        (information) — caption (Caption)
+ *   IMediaSlot        (information) — media (Media)
+ *   IBadgeSlot        (information) — badge (Badge)
+ */
+import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { IBadgeSlot } from '$stylist/information/interface/proto/badge-slot';
+import type { ICaptionSlot } from '$stylist/information/interface/proto/caption-slot';
+import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
+import type { IMediaSlot } from '$stylist/information/interface/proto/media-slot';
+import type { Snippet } from 'svelte';
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+
+export interface BaseCardRecipe
+	extends RecordArchitectureMerge<[
+		ILabelSlot,
+		ICaptionSlot,
+		IMediaSlot,
+		IBadgeSlot,
+		ThemeAttributes<HTMLDivElement>
+	]>
+{
+	title?: string;
+	description?: string;
+	variant?: string;
+	size?: TokenSize;
+	disabled?: boolean;
+	headerClass?: string;
+	bodyClass?: string;
+	children?: Snippet;
+}

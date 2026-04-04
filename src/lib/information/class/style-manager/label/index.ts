@@ -1,4 +1,4 @@
-import { cn } from '$stylist/information/function/cn/index';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 const BASE_LABEL_CLASSES = 'font-medium';
 
@@ -46,5 +46,6 @@ export class LabelStyleManager {
 		return cn('font-medium', LABEL_SIZE_CLASSES[size], disabled ? 'text-[--color-text-tertiary] cursor-not-allowed' : 'text-[--color-text-primary]', className);
 	}
 }
+
 
 

@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { ButtonElementProps } from '$stylist/interaction/interface/button';
+import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
 
 export interface ButtonFactoryContractInput {
 	variant?: ButtonElementProps['variant'];

@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { CountryContract, DimensionsContract, ShippingCalculatorContract, ShippingCalculatorEventsContract, ShippingOptionContract, StateContract } from './contract';

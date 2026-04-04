@@ -1,4 +1,4 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/depth/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth/index';
 
 export const RECORD_FRAME: Record<FoundationSemanticZoomStage, { width: number; height: number }> = {
 	dot: { width: 16, height: 16 },

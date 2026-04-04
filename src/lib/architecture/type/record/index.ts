@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { RecordBorderRadius } from './border-radius';
-export type { RecordElevation } from './elevation';
-export type { RecordSizeMap } from './size-map';
-export type { RecordSpacing } from './spacing';
+export type { RecordArchitectureMerge } from './architecture-merge';
+export type { ArchitectureStateOfT } from './architecture-state';
+export type { ArchitectureStateFactoryOfT } from './architecture-state-factory';

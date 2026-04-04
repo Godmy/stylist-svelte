@@ -1,12 +1,12 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/depth/index';
-import type { TokenArchitecture } from '$stylist/architecture/type/token/architecture/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth/index';
+import type { TierContent } from '$stylist/architecture/type/enum/tier/index';
 
-export const RECORD_LEVEL: Record<FoundationSemanticZoomStage, TokenArchitecture> = {
+export const RECORD_LEVEL: Record<FoundationSemanticZoomStage, TierContent> = {
 	dot: 'dot',
 	icon: 'icon',
 	pill: 'minimal',
 	minimal: 'minimal',
 	compact: 'compact',
 	detailed: 'detailed',
-	screen: 'default'
+	screen: 'screen'
 };

@@ -1,0 +1,46 @@
+import type { ChatHeaderContract } from '$stylist/communication/interface/component/chat-header/contract';
+import type { ChatInterfaceContract } from '$stylist/communication/interface/component/chat-interface/contract';
+import type { ChatItemContract } from '$stylist/communication/interface/component/chat-item/contract';
+import type { ChatListContract } from '$stylist/communication/interface/component/chat-list/contract';
+import type { ChatMessageContract } from '$stylist/communication/interface/component/chat-message/contract';
+import type { ChatPreviewContract } from '$stylist/communication/interface/component/chat-preview/contract';
+import type { ChatRoomContract } from '$stylist/communication/interface/component/chat-room/contract';
+import type { ChatStatusIndicatorContract } from '$stylist/communication/interface/component/chat-status-indicator/contract';
+import type { ChatWindowContract } from '$stylist/communication/interface/component/chat-window/contract';
+import type { CollaborativeEditorContract } from '$stylist/communication/interface/component/collaborative-editor/contract';
+import type { MessageBubbleContract } from '$stylist/communication/interface/component/message-bubble/contract';
+import type { MessageComposerContract } from '$stylist/communication/interface/component/message-composer/contract';
+import type { MessageInputContract } from '$stylist/communication/interface/component/message-input/contract';
+import type { MessageItemContract } from '$stylist/communication/interface/component/message-item/contract';
+import type { MessageListContract } from '$stylist/communication/interface/component/message-list/contract';
+import type { MessageMetaContract } from '$stylist/communication/interface/component/message-meta/contract';
+import type { MessageThreadContract } from '$stylist/communication/interface/component/message-thread/contract';
+import type { MessageTimestampContract } from '$stylist/communication/interface/component/message-timestamp/contract';
+import type { NotificationCenterContract, NotificationListContract, NotificationPreferencesContract, ScheduledNotificationContract } from '$stylist/communication/interface/component/notifications/contract';
+import type { UserStatusContract } from '$stylist/communication/interface/component/user-status/contract';
+
+export interface MapCommunicationContract {
+	ChatHeader: ChatHeaderContract;
+	ChatInterface: ChatInterfaceContract;
+	ChatItem: ChatItemContract;
+	ChatList: ChatListContract;
+	ChatMessage: ChatMessageContract;
+	ChatPreview: ChatPreviewContract;
+	ChatRoom: ChatRoomContract;
+	ChatStatusIndicator: ChatStatusIndicatorContract;
+	ChatWindow: ChatWindowContract;
+	CollaborativeEditor: CollaborativeEditorContract;
+	MessageBubble: MessageBubbleContract;
+	MessageComposer: MessageComposerContract;
+	MessageInput: MessageInputContract;
+	MessageItem: MessageItemContract;
+	MessageList: MessageListContract;
+	MessageMeta: MessageMetaContract;
+	MessageThread: MessageThreadContract;
+	MessageTimestamp: MessageTimestampContract;
+	NotificationCenter: NotificationCenterContract;
+	NotificationList: NotificationListContract;
+	NotificationPreferences: NotificationPreferencesContract;
+	ScheduledNotification: ScheduledNotificationContract;
+	UserStatus: UserStatusContract;
+}

@@ -1,0 +1,121 @@
+<script lang="ts">
+	import type { RealTimePresenceContract, RealTimePresenceUser, RealTimePresenceStatus } from '$stylist/calendar/interface/record/calendar';
+	import { Icon as BaseIcon } from '$stylist';
+
+	const Users = 'users';
+	const User = 'user';
+	const Activity = 'activity';
+
+	let props: RealTimePresenceContract = $props();
+	let {
+		users = [],
+		showAvatars = true,
+		showStatus = true,
+		showLastSeen = true,
+		showCursorPositions = false,
+		title = 'Active Users',
+		class: className = '',
+		userListClass = '',
+		userItemClass = '',
+		statusClass = '',
+		...restProps
+	} = props;
+
+	function getStatusColor(status: RealTimePresenceStatus) {
+		switch(status) {
+			case 'online': return 'bg-[var(--color-success-500)]';
+			case 'away': return 'bg-yellow-500';
+			case 'busy': return 'bg-[var(--color-danger-500)]';
+			default: return 'bg-[var(--color-neutral-500)]';
+		}
+	}
+
+	function getStatusText(status: RealTimePresenceStatus) {
+		switch(status) {
+			case 'online': return 'Online';
+			case 'away': return 'Away';
+			case 'busy': return 'Busy';
+			default: return 'Offline';
+		}
+	}
+
+	function formatLastSeen(date?: Date) {
+		if (!date) return 'Unknown';
+
+		const now = new Date();
+		const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+		if (diffInSeconds < 60) return `${diffInSeconds} seconds ago`;
+		if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)} minutes ago`;
+		if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)} hours ago`;
+		return `${Math.floor(diffInSeconds / 86400)} days ago`;
+	}
+</script>
+
+<div class={`c-real-time-presence bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`} {...restProps}>
+	<div class="border-b px-4 py-3 flex items-center">
+		<BaseIcon name={Users} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
+		<h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title} <span class="text-[var(--color-text-secondary)]">({users.length})</span></h3>
+	</div>
+
+	<div class={`p-4 ${userListClass}`}>
+		{#if users.length === 0}
+			<div class="text-center py-8">
+				<BaseIcon name={Users} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto mb-2" />
+				<p class="text-[var(--color-text-secondary)]">No active users</p>
+			</div>
+		{:else}
+			<ul class="space-y-3">
+				{#each users as user}
+					<li class={`flex items-center justify-between p-3 rounded-lg hover:bg-[var(--color-background-secondary)] ${userItemClass}`}>
+						<div class="flex items-center">
+							{#if showAvatars}
+								<div class="relative flex-shrink-0 mr-3">
+									{#if user.avatar}
+										<img src={user.avatar} alt={user.name} class="h-10 w-10 rounded-full" />
+									{:else}
+										<div class="h-10 w-10 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
+											<span class="text-sm font-medium text-[var(--color-text-primary)]">
+												{user.name.charAt(0).toUpperCase()}
+											</span>
+										</div>
+									{/if}
+
+									{#if showStatus}
+										<span class={`absolute bottom-0 right-0 block h-3 w-3 rounded-full ring-2 ring-white ${getStatusColor(user.status)}`}></span>
+									{/if}
+								</div>
+							{/if}
+
+							<div>
+								<div class="flex items-center">
+									<p class="text-sm font-medium text-[var(--color-text-primary)]">{user.name}</p>
+									{#if showStatus}
+										<span class={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] ${statusClass}`}>
+											<BaseIcon name={Activity} class={`h-3 w-3 mr-1 ${user.status === 'online' ? 'text-[var(--color-success-500)]' : user.status === 'away' ? 'text-yellow-500' : user.status === 'busy' ? 'text-[var(--color-danger-500)]' : 'text-[var(--color-text-secondary)]'}`} />
+											{getStatusText(user.status)}
+										</span>
+									{/if}
+								</div>
+
+								{#if showLastSeen && user.lastSeen}
+									<p class="text-xs text-[var(--color-text-secondary)]">Active {formatLastSeen(user.lastSeen)}</p>
+								{/if}
+
+								{#if user.activeArea}
+									<p class="text-xs text-[var(--color-text-secondary)]">Working on: {user.activeArea}</p>
+								{/if}
+							</div>
+						</div>
+
+						{#if showCursorPositions && user.cursorPosition}
+							<div class="text-xs text-[var(--color-text-secondary)]">
+								<div>Position: {user.cursorPosition.x}, {user.cursorPosition.y}</div>
+							</div>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+	</div>
+</div>

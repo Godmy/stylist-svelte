@@ -1,0 +1,4 @@
+{
+  "svelte": "./index.svelte",
+  "types": "./component.ts"
+}

@@ -1,6 +1,6 @@
-import type { TokenAppearance } from '$stylist/information/type/token/appearance';
+import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
-import { cn } from '$stylist/information/function/cn/index';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 const INTERACTIVE_BASE_CLASS = StyleManagerBase.classes.interactive;
 
@@ -105,3 +105,4 @@ export class InteractionStyleManager {
 		return PRIMARY_SOLID_CLASSES;
 	}
 }
+

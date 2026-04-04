@@ -1,9 +1,9 @@
-import type { TokenSize } from '$stylist/architecture/type/token/size';
-import type { TokenCodeView } from '$stylist/information/type/token/code-view';
-import type { TokenAppearance } from '$stylist/information/type/token/appearance';
-import { cn } from '$stylist/information/function/cn/index';
-import { DEFAULT_BADGE } from '$stylist/information/const/default/badge';
-import { DEFAULT_CODE_BLOCK } from '$stylist/information/const/default/code-block';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenCodeView } from '$stylist/information/type/enum/code-view';
+import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { DEFAULT_BADGE } from '$stylist/information/const/struct/badge';
+import { DEFAULT_CODE_BLOCK } from '$stylist/information/const/struct/code-block';
 
 export class BadgeStyleManager {
 	static getBadgeClasses(
@@ -115,4 +115,5 @@ export class BadgeStyleManager {
 		}[size] ?? 'text-sm p-4');
 	}
 }
+
 

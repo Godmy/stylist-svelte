@@ -1,16 +1,16 @@
 /**
- * Atom Factory — создаёт атомы из контрактов и моделей
- * 
- * Атом = контракт (props) + модель (state)
- * 
+ * Atom Factory — создание атомов из props
+ *
+ * Атом = Контракт (props) + Состояние (state)
+ *
  * Пример использования:
  * ```typescript
  * const atoms = createAtoms(
  *   ['container', 'background', 'border', 'click'],
  *   props
  * );
- * 
- * // Возвращает:
+ *
+ * // Результат:
  * // {
  * //   container: { contract: {...}, state: {...} },
  * //   background: { contract: {...}, state: {...} },
@@ -20,36 +20,36 @@
  * ```
  */
 
-import type { ArchitectureContractOfT } from '$stylist/architecture/type/contract';
-import type { BackgroundProps } from '$stylist/information/interface/background';
-import type { BorderProps } from '$stylist/information/interface/border';
-import type { ClickProps } from '$stylist/interaction/interface/click';
+import type { ContainerProps } from '$stylist/layout/type/struct/container';
+import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
+import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
+import type { ClickProps } from '$stylist/control/interface/component/click/other';
 
-import { createContainerState } from '$stylist/architecture/state/container';
-import { createBackgroundState } from '$stylist/information/state/background';
-import { createBorderState } from '$stylist/information/state/border';
-import { createClickState } from '$stylist/interaction/state/click';
+import { createContainerState } from '$stylist/layout/function/state/container';
+import { createBackgroundState } from '$stylist/layout/function/state/background';
+import { createBorderState } from '$stylist/layout/function/state/border';
+import { createClickState } from '$stylist/control/function/state/click';
 
-type ContainerContract = ArchitectureContractOfT<'Container'>;
+type ContainerContract = ContainerProps;
 
 // ============================================================================
-// Типы атомов
+// Определение атомов
 // ============================================================================
 
-/** Базовый интерфейс атома */
+/** Контракт атома — связь между props и state */
 export interface Atom<TContract, TState> {
 	contract: TContract;
 	state: TState;
 }
 
-/** Типы поддерживаемых атомов */
+/** Определение поддерживаемых атомов */
 export type AtomName = 'container' | 'background' | 'border' | 'click';
 
 /** Контракты для всех атомов */
 export interface AtomContracts {
 	container: ContainerContract;
-	background: BackgroundProps;
-	border: BorderProps;
+	background: ThemeBackgroundRecipe;
+	border: BorderRecipe;
 	click: ClickProps;
 }
 
@@ -61,20 +61,20 @@ export interface AtomStates {
 	click: ReturnType<typeof createClickState>;
 }
 
-/** Атомы по именам */
+/** Карта всех атомов */
 export interface AtomsMap {
 	container: Atom<ContainerContract, ReturnType<typeof createContainerState>>;
-	background: Atom<BackgroundProps, ReturnType<typeof createBackgroundState>>;
-	border: Atom<BorderProps, ReturnType<typeof createBorderState>>;
+	background: Atom<ThemeBackgroundRecipe, ReturnType<typeof createBackgroundState>>;
+	border: Atom<BorderRecipe, ReturnType<typeof createBorderState>>;
 	click: Atom<ClickProps, ReturnType<typeof createClickState>>;
 }
 
 // ============================================================================
-// Маппер пропсов — распределяет props молекулы по контрактам атомов
+// Извлечение props — трансформация общих props в контракты атомов
 // ============================================================================
 
 /**
- * Извлекает props для атома container из общих props молекулы
+ * Извлекает props для атома container из общих props компонента
  */
 function extractContainerProps<T extends Record<string, any>>(
 	props: T
@@ -120,9 +120,9 @@ function extractContainerProps<T extends Record<string, any>>(
 }
 
 /**
- * Извлекает props для атома background из общих props молекулы
+ * Извлекает props для атома background из общих props компонента
  */
-function extractBackgroundProps<T extends Record<string, any>>(props: T): BackgroundProps {
+function extractThemeBackgroundRecipe<T extends Record<string, any>>(props: T): ThemeBackgroundRecipe {
 	const {
 		class: className,
 		background,
@@ -163,9 +163,9 @@ function extractBackgroundProps<T extends Record<string, any>>(props: T): Backgr
 }
 
 /**
- * Извлекает props для атома border из общих props молекулы
+ * Извлекает props для атома border из общих props компонента
  */
-function extractBorderProps<T extends Record<string, any>>(props: T): BorderProps {
+function extractBorderRecipe<T extends Record<string, any>>(props: T): BorderRecipe {
 	const {
 		class: className,
 		borderStyle,
@@ -206,7 +206,7 @@ function extractBorderProps<T extends Record<string, any>>(props: T): BorderProp
 }
 
 /**
- * Извлекает props для атома click из общих props молекулы
+ * Извлекает props для атома click из общих props компонента
  */
 function extractClickProps<T extends Record<string, any>>(props: T): ClickProps {
 	const {
@@ -270,10 +270,10 @@ function extractClickProps<T extends Record<string, any>>(props: T): ClickProps 
 // ============================================================================
 
 /**
- * Создаёт атомы по именам из общих props
- * 
+ * Создаёт атомы из общих props
+ *
  * @param atomNames - Массив имён атомов для создания
- * @param props - Общие props молекулы, которые будут распределены по атомам
+ * @param props - Общие props компонента, содержащие данные для всех атомов
  * @returns Объект с созданными атомами
  */
 export function createAtoms<Names extends AtomName[]>(
@@ -291,13 +291,13 @@ export function createAtoms<Names extends AtomName[]>(
 				break;
 			}
 			case 'background': {
-				const contract = extractBackgroundProps(props);
+				const contract = extractThemeBackgroundRecipe(props);
 				const state = createBackgroundState(contract);
 				atoms.background = { contract, state };
 				break;
 			}
 			case 'border': {
-				const contract = extractBorderProps(props);
+				const contract = extractBorderRecipe(props);
 				const state = createBorderState(contract);
 				atoms.border = { contract, state };
 				break;
@@ -339,7 +339,7 @@ export function mergeAtomStyles(...styles: Array<Record<string, string | number>
 }
 
 /**
- * Объединяет атрибуты из нескольких атомов (последний приоритетнее)
+ * Объединяет атрибуты из нескольких атомов (для передачи restProps)
  */
 export function mergeAtomAttrs(...atoms: Array<Record<string, any> | undefined>): Record<string, any> {
 	const merged: Record<string, any> = {};
@@ -350,4 +350,3 @@ export function mergeAtomAttrs(...atoms: Array<Record<string, any> | undefined>)
 	}
 	return merged;
 }
-

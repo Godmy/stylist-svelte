@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { cloneCanvasObjects, createCanvasObjectId, createDraftCanvasObject, drawCanvasObjects, finalizeDraftCanvasObject, getCanvasObjectBounds, getCanvasPointerPosition, hitTestCanvasObject, updateDraftCanvasObject } from './share';

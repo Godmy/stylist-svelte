@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { BarChartStyleManager, DashboardLayoutStyleManager, GradientBackgroundStyleManager, HeatmapStyleManager, HeroStyleManager, LayoutStyleManager, LineChartStyleManager, PageHeaderStyleManager, ProcessStepStyleManager, SeparatorStyleManager, SharedCanvasStyleManager, SidebarStyleManager, StackStyleManager, StyleManagerAccessibility, StyleManagerBase, StyleManagerState, TimeGridStyleManager } from './style-manager';
+export { SceneObjectManager } from './object-manager';
+export { PresenterNodeShellStyleManager, PresenterSceneStyleManager, SceneStyleManager, StyleManagerBase, StyleManagerState } from './style-manager';

@@ -117,58 +117,6 @@ export class SecuritySettingsStyleManager {
 }
 
 /**
- * Appearance Settings Style Manager
- */
-export class AppearanceSettingsStyleManager {
-  /**
-   * Get base classes for appearance settings
-   */
-  static preferences(base: string, className?: string): string {
-    return `${base} ${className || ''}`.trim();
-  }
-
-  /**
-   * Get classes for theme selector
-   */
-  static themeSelector(base: string, className?: string): string {
-    return `${base} grid grid-cols-3 gap-4 ${className || ''}`.trim();
-  }
-
-  /**
-   * Get classes for theme option
-   */
-  static themeOption(base: string, selected?: boolean, className?: string): string {
-    const selectedClass = selected
-      ? 'border-[--color-primary-500] ring-2 ring-[--color-primary-200]'
-      : 'border-[--color-border-secondary] hover:border-[--color-border-tertiary]';
-    return `${base} ${selectedClass} border rounded-lg p-4 cursor-pointer transition-all ${className || ''}`.trim();
-  }
-
-  /**
-   * Get classes for color swatch
-   */
-  static colorSwatch(base: string, selected?: boolean, className?: string): string {
-    const selectedClass = selected ? 'ring-2 ring-offset-2 ring-gray-400' : '';
-    return `${base} ${selectedClass} w-10 h-10 rounded-full cursor-pointer transition-all ${className || ''}`.trim();
-  }
-
-  /**
-   * Get classes for preview panel
-   */
-  static preview(base: string, className?: string): string {
-    return `${base} border rounded-lg p-4 bg-[var(--color-background-secondary)] ${className || ''}`.trim();
-  }
-
-  /**
-   * Get classes for font size option
-   */
-  static fontSizeOption(base: string, selected?: boolean, className?: string): string {
-    const selectedClass = selected ? 'bg-[--color-primary-100] border-[--color-primary-500]' : 'bg-[--color-background-primary] border-[--color-border-secondary]';
-    return `${base} ${selectedClass} border rounded px-4 py-2 cursor-pointer ${className || ''}`.trim();
-  }
-}
-
-/**
  * Account Settings Style Manager
  */
 export class AccountSettingsStyleManager {

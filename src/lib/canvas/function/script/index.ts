@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { cloneCanvasObjects, createCanvasObjectId, createDraftCanvasObject, drawCanvasObjects, finalizeDraftCanvasObject, getCanvasObjectBounds, getCanvasPointerPosition, hitTestCanvasObject, updateDraftCanvasObject } from './canvas';
+export { resolveMinimapBounds, resolveMinimapCanvasPoint, resolveMinimapFitOffset, resolveMinimapFitZoom, resolveMinimapNodeRect, resolveMinimapOffsetForPoint, resolveMinimapViewport } from './minimap';

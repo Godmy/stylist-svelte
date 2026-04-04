@@ -1,0 +1,4 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { ThemeCaptionRecipe, ThemeDefinitionDescriptionRecipe, ThemeDefinitionTermRecipe, ThemeEmRecipe, ThemeHeadingRecipe, ThemeHighlightRecipe, ThemeKbdRecipe, ThemeParagraphRecipe, ThemeSmallRecipe, ThemeStrikeThroughtRecipe, ThemeStrongRecipe, ThemeSubscriptRecipe, ThemeSuperscriptRecipe, ThemeSyntaxHighlightedCodeRecipe, ThemeTextRecipe } from './recipe';
+export type { ITypographyToken } from './proto';
+export type { BlockquoteRecipe, NpmBadgeRecipe, ThemeCountBadgeRecipe, ThemeCounterRecipe, ThemeDotRecipe, ThemeListItemMarkerRecipe, ThemeNodeTitleRecipe, ThemeStatusIndicatorRecipe } from './recipe';

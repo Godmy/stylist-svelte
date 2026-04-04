@@ -1,4 +1,4 @@
-import { cn } from '$stylist/information/function/cn/index';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 const TABLE_CLASSES = {
 	table: ['min-w-full', 'divide-y', 'divide-[var(--color-border-secondary)]'] as const,
@@ -89,5 +89,6 @@ export class TableStyleManager {
 		);
 	}
 }
+
 
 

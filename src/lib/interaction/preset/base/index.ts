@@ -1,11 +1,11 @@
-import type { Preset } from '$stylist/architecture/interface/preset/index';
-import { TOKEN_SIZE } from '$stylist/architecture/const/token/size';
-import { StyleManagerAccessibility } from '$stylist/architecture/class/style-manager/accessibility/index';
+import type { Preset } from '$stylist/architecture/type/struct/preset';
+import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { StyleManagerAccessibility } from '$stylist/control/class/style-manager/accessibility-toolbar/index';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
-import { RECORD_CLASS_SIZE } from '$stylist/architecture/const/record/class-size/index';
-import { RECORD_ICON_SIZE } from '$stylist/architecture/const/record/icon-size/index';
+import { RECORD_CLASS_SIZE } from '$stylist/layout/const/record/class-size';
+import { RECORD_ICON_SIZE } from '$stylist/architecture/const/record/icon-size';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
-import type { TokenAppearance } from '$stylist/information/type/token/appearance';
+import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 const DEFAULT_STATE_FLAGS = {
 	disabled: false,

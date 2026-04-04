@@ -1,5 +1,5 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/depth/index';
-import type { TokenZIndex } from '$stylist/architecture/type/token/z-index/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth/index';
+import type { TokenZIndex } from '$stylist/layout/type/enum/z-index';
 
 export const RECORD_LAYER: Record<FoundationSemanticZoomStage, TokenZIndex> = {
 	dot: 'layer3',

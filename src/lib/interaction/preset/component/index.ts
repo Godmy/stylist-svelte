@@ -1,9 +1,9 @@
-import { computeAriaLabel } from '$stylist/information/function/aria';
-import { buildClasses } from '$stylist/information/function/classes';
-import { resolveOption } from '$stylist/interaction/function/input';
-import type { InputPreset, Preset } from '$stylist/architecture/interface/preset/index';
-import type { ComponentStateOptions } from '$stylist/architecture/type/component-state-options/index';
-import type { InputStateOptions } from '$stylist/architecture/type/input-state-options/index';
+import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
+import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
+import { resolveOption } from '$stylist/interaction/function/script/resolve-option';
+import type { InputPreset, Preset } from '$stylist/architecture/type/struct/preset';
+import type { ComponentStateOptions } from '$stylist/layout/type/struct/component-state';
+import type { InputStateOptions } from '$stylist/layout/type/struct/component-state';
 
 type ComponentStateResult<V extends string, S extends string> = {
 	variant: V;
@@ -148,4 +148,5 @@ export function createInputState<V extends string, S extends string>(
 		attrs: base.attrs
 	};
 }
+
 

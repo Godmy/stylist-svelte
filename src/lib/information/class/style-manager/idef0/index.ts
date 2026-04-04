@@ -1,4 +1,4 @@
-import { cn } from '$stylist/information/function/cn/index';
+import { cn } from '$stylist/layout/function/script/merge-class-names';
 
 export class Idef0StyleManager {
 	static getDiagramContainerClasses(className = ''): string {
@@ -41,6 +41,7 @@ export class Idef0StyleManager {
 		return cn('c-idef0-port-label fill-[--color-text-secondary] text-xs font-medium', className);
 	}
 }
+
 
 
 

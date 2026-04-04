@@ -1,0 +1,12 @@
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+
+export interface AudioSliderContract extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
+	/** Current volume */
+	volume?: number;
+	/** Muted state */
+	muted?: boolean;
+	/** On volume change callback */
+	onVolumeChange?: (volume: number) => void;
+	/** Additional CSS class */
+	class?: string;
+}
