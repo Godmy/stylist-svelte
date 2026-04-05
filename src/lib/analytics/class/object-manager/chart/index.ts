@@ -2,7 +2,7 @@ import type { ChartFunctionPoint, ChartSeries } from '$stylist/analytics/interfa
 import type { ChartAxisYProps } from '$stylist/analytics/interface/recipe/chart-axis-y';
 import type { ChartPolylineProps } from '$stylist/analytics/interface/recipe/chart-polyline';
 import type { PieChartProps } from '$stylist/analytics/interface/recipe/pie-chart';
-import type { ChartDataPoint } from '$stylist/analytics/interface/recipe/canvas-chart';
+import type { AnalyticsChartDataPoint } from '$stylist/analytics/type/struct/analytics-chart';
 import type { ChartLegendItem } from '$stylist/analytics/type/struct';
 
 export interface ChartBounds {
@@ -120,18 +120,18 @@ export class ObjectManagerChart {
 	}
 
 	static getPieChartSegments(
-		data: readonly ChartDataPoint[],
+		data: readonly AnalyticsChartDataPoint[],
 		width: number,
 		height: number
 	): InformationPieChartSegment[] {
-		const total = data.reduce((sum, item) => sum + item.y, 0);
+		const total = data.reduce((sum, item) => sum + item.value, 0);
 		const centerX = width / 2;
 		const centerY = height / 2;
 		const radius = Math.max(10, Math.min(width, height) / 2 - 10);
 		let startAngle = 0;
 
 		return data.map((item, index) => {
-			const sliceAngle = total === 0 ? 0 : (item.y / total) * 360;
+			const sliceAngle = total === 0 ? 0 : (item.value / total) * 360;
 			const endAngle = startAngle + sliceAngle;
 			const startRad = (startAngle * Math.PI) / 180;
 			const endRad = (endAngle * Math.PI) / 180;

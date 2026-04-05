@@ -2,7 +2,7 @@
   import Story from '$stylist/development/svelte/playground/Story.svelte';
   import SharedCanvas from './index.svelte';
   import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
-  import type { CanvasObject, CanvasUser } from '$stylist/interaction/interface/component/shared-canvas/other';
+  import type { CanvasObject, CanvasUser } from '$stylist/canvas/interface/component/shared-canvas/other';
 
   const defaultObjects: CanvasObject[] = [
     {

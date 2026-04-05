@@ -201,13 +201,13 @@
 >
 	<!-- Grid layer -->
 	<div
-		class={GraphCanvasStyleManager.getGridClass(contract.gridMode ?? 'none', contract.gridClass)}
-		style={`${GraphCanvasStyleManager.getGridStyles(canvasState.gridSize, contract.gridColor ?? '')} ${GraphCanvasStyleManager.getTransformStyle(canvasState.zoom, canvasState.offset.x, canvasState.offset.y)}`}
+		class={GraphCanvasStyleManager.getGridClass((contract.gridMode ?? 'none') as import('$stylist/architecture/type/enum/marker').TokenMarker, contract.gridClass)}
+		style={`${GraphCanvasStyleManager.getGridStyles(canvasState.gridSize, contract.gridColor ?? '')} ${GraphCanvasStyleManager.getTransformStyles(canvasState.offset.x, canvasState.offset.y, canvasState.zoom)}`}
 		aria-hidden="true"
 	></div>
 
 	<!-- Content layer -->
-	<div bind:this={contentRef} class={GraphCanvasStyleManager.getContentClass(contract.contentClass)} style={GraphCanvasStyleManager.getTransformStyle(canvasState.zoom, canvasState.offset.x, canvasState.offset.y)}>
+	<div bind:this={contentRef} class={GraphCanvasStyleManager.getContentClass(contract.contentClass)} style={GraphCanvasStyleManager.getTransformStyles(canvasState.offset.x, canvasState.offset.y, canvasState.zoom)}>
 		{@render contract.children?.()}
 	</div>
 </div>

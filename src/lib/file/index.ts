@@ -1,8 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { DownloadCardStyleManager, DropZoneStyleManager, FileExplorerStyleManager, UploadProgressStyleManager, ZipViewerStyleManager } from './class';
-export { createFileInputState, formatFileSize, getFileIcon, resolveFileIcon } from './function';
+export { TOKEN_FILE_ICON } from './const';
+export { createFileInputState, formatFileSize, getFileIcon, getFileSelectionLabel, resolveFileIcon, resolveFileSelectionLabel } from './function';
 export { AttachmentPreview, DataExporter, DocumentPreview, DownloadCard, DragDropFileUpload, DropZone, FileBrowser, FileExplorer, FileInput, FileListItem, FileUpload, UploadProgress, ZipViewer } from './svelte';
-export * from './data';
 export type { DragDropFileStatus, DropItem, FileItemType, FileSystemItem, FileSystemItemType, FolderItem, UploadFileStatus, UploadProgressVariant, UploadStatus, ViewMode, ZipEntry, ZipEntryType } from './interface';
-export type { FileType } from './type';
+export type { FileType, TokenFileIcon } from './type';
 export type { AttachmentContract, AttachmentPreviewContract, AttachmentPreviewEventsContract, DownloadCardContract, DragDropFileContract, DragDropFileUploadContract, DragDropFileUploadEventsContract, DropItemContract, DropZoneContract, DropZoneEventsContract, FileBrowserContract, FileBrowserEventsContract, FileExplorerContract, FileExplorerEventsContract, FileInputContract, FileItemContract, FileListItemContract, FileListItemEventsContract, FileMetadataContract, FileSystemItemContract, FileUploadContract, FileUploadEventsContract, FolderItemContract, IAttachment, IAttachmentPreviewProps, IDownloadCardProps, IDragDropFile, IDragDropFileUploadProps, IDropZoneProps, IDropZoneStyleClasses, IFileBrowserProps, IFileExplorerProps, IFileInputProps, IFileItem, IFileListItemProps, IFileMetadata, IFileUploadProps, IUploadFile, IUploadProgressBehaviorOptions, IUploadProgressClasses, IUploadProgressDisplayOptions, IUploadProgressEventHandlers, IUploadProgressProps, IZipViewerProps, IZipViewerStyleClasses, MapFileContract, UploadFileContract, UploadProgressContract, UploadProgressEventsContract, ZipEntryContract, ZipViewerContract, ZipViewerEventsContract } from './interface';

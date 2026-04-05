@@ -1,4 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
 import type { ScienceHTMLAttributes } from '$stylist/science/type/struct/item';
 import type { ChildrenHtmlAttributes } from '$stylist/science/type/struct/children';
 import type { Snippet } from 'svelte';
@@ -218,7 +219,7 @@ export interface LitegraphConnection {
 	startY?: number;
 	endX?: number;
 	endY?: number;
-	type?: string;
+	type?: TokenTrajectory;
 	color?: string;
 	active?: boolean;
 	onclick?: () => void;

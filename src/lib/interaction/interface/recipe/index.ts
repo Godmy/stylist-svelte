@@ -1,9 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AnimatedStateRecipe, ClickableStateRecipe, DraggableStateRecipe, FocusableStateRecipe, HoverableStateRecipe, TransformableStateRecipe } from './state';
-export type { AnimatedNumberRecipe } from './animated-number';
+export type { ButtonRecipe } from './button';
 export type { CheckboxRecipe } from './checkbox';
+export type { DraggableItemRecipe } from './draggable-item';
+export type { IconButtonRecipe } from './icon-button';
 export type { InteractionFeedbackRecipe } from './interaction-feedback';
-export type { NumberFlowRecipe } from './number-flow';
+export type { SelectRecipe } from './select';
 export type { SharedCanvasRecipe } from './shared-canvas';
 export type { SwitchWithLabelRecipe } from './switch-with-label';
 export type { ToggleRecipe, ToggleSpecificProps } from './toggle';

@@ -3,7 +3,9 @@ export { ConnectionLineStyleManager, DrawingSurfaceStyleManager, GraphCanvasStyl
 export { SHARED_CANVAS_ACTION_ICONS, SHARED_CANVAS_DEFAULT_COLOR, SHARED_CANVAS_EXPORT_FILENAME, SHARED_CANVAS_TOOL_DEFINITIONS } from './const';
 export { cloneCanvasObjects, createCanvasObjectId, createConnectionLineState, createDraftCanvasObject, createDrawingSurfaceState, createGraphCanvasState, createGraphEdgeState, createGraphNodeState, createGraphPortState, createMinimapState, createSharedCanvasState, drawCanvasObjects, finalizeDraftCanvasObject, getCanvasObjectBounds, getCanvasPointerPosition, hitTestCanvasObject, resolveMinimapBounds, resolveMinimapCanvasPoint, resolveMinimapFitOffset, resolveMinimapFitZoom, resolveMinimapNodeRect, resolveMinimapOffsetForPoint, resolveMinimapViewport, updateDraftCanvasObject, useViewport } from './function';
 export { CanvasToolbar, ConnectionLine, DrawingSurface, GraphCanvas, GraphEdge, GraphNode, GraphPort, GraphToolbar, Minimap, SharedCanvas, Stage, Viewport } from './svelte';
+export type { CanvasObject, CanvasUser } from './interface';
 export type { DrawingSurfaceCanvasClearedEvent, DrawingSurfaceContract, DrawingSurfaceExposeMethodsEvent, DrawingSurfaceProps, DrawingSurfaceTool, GraphCanvasContract, GraphPortDataTypeColor, MinimapBounds, MinimapContract, MinimapNodeRect, MinimapOffset, MinimapPoint, MinimapProps, MinimapViewport, SharedCanvasContract, SharedCanvasDraftObject, SharedCanvasObjectBounds, SharedCanvasPoint, SharedCanvasTool, SharedCanvasToolDefinition, StageContract, ViewportContract } from './type';
+export type { ConnectionPathResult } from './class';
 export type { Bounds, ViewportInput, ViewportState } from './function';
-export type { ConnectionLineRecipe } from './interface';
+export type { ConnectionLineRecipe, SharedCanvasProps } from './interface';
 export type { GraphPortStateColor } from './type';

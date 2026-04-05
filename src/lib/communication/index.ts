@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AuthGuardStyleManager, ChatHeaderStyleManager, ChatInterfaceStyleManager, ChatStyleManager, DocumentPreviewStyleManager, MessageBubbleStyleManager, MessageComposerStyleManager, MessageMetaStyleManager, MessageStyleManager, NotificationSettingsStyleManager, NotificationStyleManager, ResponseViewerStyleManager } from './class';
 export { DEFAULT_CHAT_HEADER, PRESET_CHAT_HEADER, PRESET_MESSAGE_TIMESTAMP, TOKEN_MESSAGE_STATE, TOKEN_MESSAGE_STATUS, TOKEN_NOTIFICATION_CHANNEL } from './const';
-export { ChatHeaderModel, createChatPreviewState, createChatStatusIndicatorState, createMessageInputState, createMessageStatusState, createMessageThreadState, createMessageTimestampState } from './function';
+export { ChatHeaderModel, createChatPreviewState, createChatStatusIndicatorState, createMessageInputState, createMessageStatusState, createMessageThreadState, createMessageTimestampState, resolveAuthGuardState } from './function';
 export { AuthGuard, ChatHeader, ChatInterface, ChatItem, ChatList, ChatMessage, ChatPreview, ChatRoom, ChatStatusIndicator, ChatWindow, CollaborativeEditor, MessageBubble, MessageComposer, MessageInput, MessageItem, MessageList, MessageMeta, MessageStatus, MessageThread, MessageTimestamp, UserStatus } from './svelte';
 export type { ChatInterfaceProps, ChatItemContract, ChatListContract, ChatMessageContract, ChatPreviewContract, ChatRoomContract, ChatWindowContract, CollaborativeEditorContract, MessageInputContract, MessageItemContract, MessageListContract, MessageThreadContract, UserStatusContract } from './interface';
 export type { AIProvider, Message, NotificationType, TokenMessageState, TokenMessageStatus, TokenNotifictionChannel } from './type';

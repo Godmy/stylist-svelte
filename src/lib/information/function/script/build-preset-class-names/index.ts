@@ -1,4 +1,4 @@
-import type { Preset } from '$stylist/architecture/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset';
 
 export function buildPresetClassNames<V extends string, S extends string>(
 	preset: Preset<V, S>,

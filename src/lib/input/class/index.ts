@@ -1,2 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AdvancedPasswordInputStyleManager, InputFieldStyleManager, InputStyleManager, InteractionInputStyleManager, NumberInputStyleManager, PhoneNumberInputStyleManager, RangeSliderStyleManager, ReactionPickerStyleManager, TimeSlotStyleManager } from './style-manager';
+export { AdvancedPasswordInputStyleManager, ContentEditorStyleManager, InputFieldStyleManager, InputStyleManager, InteractionInputStyleManager, NumberInputStyleManager, PhoneNumberInputStyleManager, RangeSliderStyleManager, ReactionPickerStyleManager, RichTextEditorStyleManager, TimeSlotStyleManager, VariablesEditorStyleManager } from './style-manager';
+export type { ContentType } from './style-manager';
+export type { ContentEditorStyleManagerOptions, ContentElement, RichTextEditorStyleManagerOptions, VariablesEditorStyleManagerOptions } from './style-manager';

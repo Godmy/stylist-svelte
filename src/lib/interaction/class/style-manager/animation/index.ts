@@ -1,5 +1,5 @@
-import { formatAnimatedValue } from '$stylist/interaction/function/script/format-animated-value';
-import { formatNumberFlowValue } from '$stylist/interaction/function/script/format-number-flow-value';
+import { formatAnimatedValue } from '$stylist/typography/function/script/format-animated-value';
+import { formatNumberFlowValue } from '$stylist/typography/function/script/format-number-flow-value';
 
 
 

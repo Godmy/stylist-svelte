@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AlertCard — сообщение обратной связи (Alert / Toast / Notification).
  *
  * LEGO-состав:
@@ -20,7 +20,7 @@ import type { IIconSlot } from '$stylist/information/interface/proto/icon-slot';
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 import type { IBadgeSlot } from '$stylist/information/interface/proto/badge-slot';
 import type { IMediaSlot } from '$stylist/information/interface/proto/media-slot';
-import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 

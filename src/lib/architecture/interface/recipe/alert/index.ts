@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Alert / Toast / Notification — сообщение обратной связи.
  *
  * LEGO-состав:
@@ -20,7 +20,7 @@ import type { IIconSlot } from '$stylist/information/interface/proto/icon-slot';
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { IMotionToken } from '$stylist/interaction/interface/proto/motion-token';
-import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AlertRecipe

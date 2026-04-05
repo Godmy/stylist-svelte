@@ -4,7 +4,7 @@
  * LEGO-состав:
 
  */
-import type { TokenBorderStyle } from '$stylist/architecture/type/enum/border-style';
+import type { TokenBorderStyle } from '$stylist/layout/type/enum/border-style';
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 

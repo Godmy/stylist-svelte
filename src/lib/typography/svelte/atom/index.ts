@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { AnimatedNumber, NumberFlow } from './animation';
 export { Abbr, Badge, BadgeGroup, Blockquote, Caption, CountBadge, Counter, DefinitionDescription, DefinitionTerm, Dot, Em, Heading, Highlight, InlineCode, Kbd, Label, Link, ListItemMarker, NodeDot, NodeTitle, NpmBadge, Paragraph, Separator, Small, StatusIndicator, StrikeThrought, Strong, Subscript, Superscript, SyntaxHighlightedCode, Text } from './typography';
-export * from './animation';

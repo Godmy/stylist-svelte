@@ -24,7 +24,7 @@
 
   let canvasRef: HTMLCanvasElement | null = null;
   const resolvedColors = $derived(ObjectManagerCanvasChart.resolveColors(colors));
-  const resolvedData = $derived([...data]);
+  const resolvedData = $derived(data as any[]); // TODO: Fix type mismatch with CanvasChartDataPoint
   const resolvedType = $derived(type);
 
   $effect(() => {

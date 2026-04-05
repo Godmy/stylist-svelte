@@ -3,7 +3,7 @@ import { TableExtendedStyleManager } from '$stylist/control/class/style-manager/
 import type { TableWithGroupingProps } from '$stylist/control/interface/component/table-extended/other';
 
 export class TableWithGroupingState {
-	groups: $state.Snapshot<ReturnType<typeof ObjectManagerTableControls.groupRows>>;
+	groups: Record<string, any[]>;
 	rootClass: string;
 
 	constructor(props: TableWithGroupingProps) {

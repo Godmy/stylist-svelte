@@ -19,4 +19,5 @@ export interface Idef0PortLabelRecipe
 	y: number;
 	anchor?: 'start' | 'middle' | 'end';
 	color?: string;
+	position?: 'left' | 'right' | 'top' | 'bottom';
 }

@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Snippet } from 'svelte';
 import type { Props } from '$stylist/information/type/struct/common';
-import type { Preset } from '$stylist/architecture/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset';
 import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
 import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
 

@@ -2,8 +2,8 @@ import type { IABTestConfiguratorProps } from '$stylist/marketing/interface/comp
 import type { AccessibilityCheckboxRecipe as AccessibilityCheckboxProps } from '$stylist/information/interface/recipe/accessibility-checkbox';
 import type { IAiResultCardProps } from '$stylist/science/interface/component/ai-result-card/other';
 import type { AlertCardRecipe as IAlertCardProps } from '$stylist/commerce/interface/recipe/alert-card';
-import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/interaction/interface/recipe/animated-number';
-import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/interaction/interface/recipe/number-flow';
+import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/typography/interface/recipe/animated-number';
+import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/typography/interface/recipe/number-flow';
 import type { AtomicPrinciplesRecipe as AtomicPrinciplesProps } from '$stylist/information/interface/recipe/atomic-principles';
 import type { AuthGuardRecipe as AuthGuardProps } from '$stylist/information/interface/recipe/auth-guard';
 import type { AutoCompleteRecipe as AutoCompleteProps } from '$stylist/information/interface/recipe/auto-complete';

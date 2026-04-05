@@ -11,7 +11,7 @@ import {
 } from '$stylist/canvas/function/script/canvas/share/index';
 import { cn } from '$stylist/layout/function/script/merge-class-names';
 import type { SharedCanvasPoint, SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas';
-import type { CanvasObject } from '$stylist/interaction/interface/component/shared-canvas/other';
+import type { CanvasObject } from '$stylist/canvas/interface/component/shared-canvas/other';
 import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
 
 export function createSharedCanvasState(contract: SharedCanvasContract) {

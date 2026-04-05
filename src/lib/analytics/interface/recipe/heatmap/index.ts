@@ -1,5 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDimensionable } from '$stylist/architecture/interface/proto/dimensionable';
+import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
 import type { ICellClickable } from '$stylist/interaction/interface/proto/cell-clickable';
 import type { ITooltipable } from '$stylist/interaction/interface/proto/tooltipable';
 import type { ILegendable } from '$stylist/information/interface/proto/legendable';

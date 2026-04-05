@@ -4,6 +4,7 @@ export { TOKEN_CODE_VIEW } from './code-view';
 export { TOKEN_CONTRACT, TOKEN_INFORMATION_CONTRACT } from './contract';
 export { TOKEN_DIFF_TYPE } from './diff-type';
 export { TOKEN_DOCUMENT_FORMAT } from './document-format';
+export { TOKEN_INFORMATION_ICON } from './icon';
 export { TOKEN_PRIORITY } from './priority';
 export { TOKEN_PROPERTY_TYPE } from './property-type';
 export { TOKEN_SOFTWARE_BADGE } from './software-badge';

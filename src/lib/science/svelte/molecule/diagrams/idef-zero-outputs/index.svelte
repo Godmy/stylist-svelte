@@ -9,7 +9,7 @@
 		endX?: number;
 	};
 	import { createIdef0OutputsState } from '$stylist/information/function/state/idef0';
-	import Idef0Connector from '$stylist/information/svelte/atom/data-display/diagrams/idef-zero-connector/index.svelte';
+	import Idef0Connector from '$stylist/science/svelte/atom/diagrams/idef-zero-connector/index.svelte';
 
 	let props: Idef0OutputsProps = $props();
 	const state = createIdef0OutputsState(props as any);

@@ -23,7 +23,7 @@ export function createImageGalleryState(props: ImageGalleryStateProps) {
 	const imageClass = $derived(ImageGalleryStyleManager.getImageClasses(props.imageClass ?? ''));
 	const captionClass = $derived(ImageGalleryStyleManager.getCaptionClasses(props.captionClass ?? ''));
 	const navigationClass = $derived(ImageGalleryStyleManager.getNavigationButtonClasses(props.navigationClass ?? ''));
-	const thumbnailClass = $derived.by((index: number) => ImageGalleryStyleManager.getThumbnailClasses(index === selectedIndex, props.thumbnailClass ?? ''));
+	const getThumbnailClass = (index: number) => ImageGalleryStyleManager.getThumbnailClasses(index === selectedIndex, props.thumbnailClass ?? '');
 
 	// Methods
 	function openLightbox(index: number): void {
@@ -113,8 +113,8 @@ export function createImageGalleryState(props: ImageGalleryStateProps) {
 		closeLightbox,
 		navigate,
 		handleKeyDown,
-		getThumbnailClass: thumbnailClass,
-		getImageContainerClass: imageContainerClass
+		getThumbnailClass,
+		getImageContainerClass: () => ImageGalleryStyleManager.getImageContainerClasses()
 	};
 }
 

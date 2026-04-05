@@ -1,4 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_INFORMATION_ICON } from './svg';
+
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
 /**
  * data/ — ресурсы и ассеты information layer.

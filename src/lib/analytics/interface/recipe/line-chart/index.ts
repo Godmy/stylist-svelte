@@ -1,5 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDimensionable } from '$stylist/architecture/interface/proto/dimensionable';
+import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
 import type { TokenLineType } from '$stylist/architecture/type/enum/line-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { IPointClickable } from '$stylist/interaction/interface/proto/point-clickable';

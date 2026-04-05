@@ -1,6 +1,6 @@
-import type { Idef0ConnectorRecipe as Idef0ConnectorProps } from '$stylist/science/interface/recipe/idef0-connector';
-import type { Idef0FunctionBoxRecipe as Idef0FunctionBoxProps } from '$stylist/science/interface/recipe/idef0-function-box';
-import type { Idef0PortLabelRecipe as Idef0PortLabelProps } from '$stylist/science/interface/recipe/idef0-port-label';
+import type { Idef0ConnectorRecipe as Idef0ConnectorProps } from '$stylist/information/interface/recipe/idef0-connector';
+import type { Idef0FunctionBoxRecipe as Idef0FunctionBoxProps } from '$stylist/information/interface/recipe/idef0-function-box';
+import type { Idef0PortLabelRecipe as Idef0PortLabelProps } from '$stylist/information/interface/recipe/idef0-port-label';
 
 export function createIdef0ConnectorState(props: Idef0ConnectorProps) {
 	const showArrow = $derived(props.showArrow ?? true);

@@ -1,6 +1,6 @@
-import type { Preset } from '$stylist/architecture/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
-import { StyleManagerAccessibility } from '$stylist/control/class/style-manager/accessibility-toolbar/index';
+import { AccessibilityToolbarStyleManager } from '$stylist/control/class/style-manager/accessibility-toolbar/index';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 import { RECORD_CLASS_SIZE } from '$stylist/layout/const/record/class-size';
 import { RECORD_ICON_SIZE } from '$stylist/architecture/const/record/icon-size';
@@ -21,7 +21,12 @@ export const INTERACTION_TOKENS = {
 	DEFAULT_STATE_FLAGS,
 	STATE_CLASSES: StyleManagerState.classes,
 	INTERACTIVE_BASE_CLASS: InteractionStyleManager.getInteractiveBaseClass(),
-	ACCESSIBILITY_CLASSES: StyleManagerAccessibility.classes,
+	ACCESSIBILITY_CLASSES: {
+		container: AccessibilityToolbarStyleManager.getContainerClass(),
+		toolbar: AccessibilityToolbarStyleManager.getToolbarClass(),
+		button: AccessibilityToolbarStyleManager.getButtonClass(),
+		activeButton: AccessibilityToolbarStyleManager.getActiveButtonClass()
+	},
 	VARIANT_CLASSES: Object.fromEntries(
 		InteractionStyleManager.getInteractiveVariants().map((variant: TokenAppearance) => [
 			variant,

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createAccessibilityCheckboxState } from '$stylist/interaction/function/state/accessibility-checkbox';
+  import { createAccessibilityCheckboxState } from '$stylist/feedback/function/state/accessibility-checkbox';
 
   let {
     label = '',

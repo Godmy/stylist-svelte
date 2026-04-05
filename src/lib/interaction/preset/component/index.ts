@@ -1,7 +1,7 @@
 import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
 import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
 import { resolveOption } from '$stylist/interaction/function/script/resolve-option';
-import type { InputPreset, Preset } from '$stylist/architecture/type/struct/preset';
+import type { InputPreset, Preset } from '$stylist/interaction/type/struct/preset';
 import type { ComponentStateOptions } from '$stylist/layout/type/struct/component-state';
 import type { InputStateOptions } from '$stylist/layout/type/struct/component-state';
 

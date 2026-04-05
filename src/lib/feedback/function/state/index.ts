@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createAccessibilityCheckboxState } from './accessibility-checkbox';
 export { createCardSkeletonState } from './card-skeleton';
 export { createErrorMessageState } from './error-message';
 export { createScatterPlotState } from './scatter-plot';

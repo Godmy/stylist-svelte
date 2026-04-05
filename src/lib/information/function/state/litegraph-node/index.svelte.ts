@@ -43,7 +43,7 @@ export function createLiteGraphNodeState(props: LiteGraphNodeProps) {
 	);
 
 	const classes = $derived(
-		LiteGraphNodeStyleManager.getNodeClasses(type, mode, status, size, selected, resolvedPresentation)
+		LiteGraphNodeStyleManager.getNodeClasses(type as any, mode, status, size, selected, resolvedPresentation)
 	);
 	const styles = $derived(
 		LiteGraphNodeStyleManager.getNodeStyles({

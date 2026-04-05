@@ -37,6 +37,7 @@ const NOTIFICATION_BADGE_APPEARANCE_CLASSES: Record<TokenAppearance, string> = {
 };
 
 const NOTIFICATION_BADGE_MARKER_CLASSES: Record<TokenMarker, string> = {
+	none: 'hidden',
 	dot: 'h-3 w-3 text-transparent p-0',
 	number: 'min-w-5 h-5 px-1.5 text-[10px] leading-none',
 	letter: 'min-w-5 h-5 px-1.5 text-[10px] leading-none',

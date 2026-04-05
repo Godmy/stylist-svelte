@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
   import type { AuthGuardRecipe } from '$stylist/information/interface/recipe/auth-guard';
-  import { resolveAuthGuardState } from '$stylist/interaction/function/script/resolve-auth-guard-state';
+  import { resolveAuthGuardState } from '$stylist/communication/function/script/resolve-auth-guard-state';
   import { AuthGuardStyleManager } from '$stylist/communication/class/style-manager/auth-guard';
   import { cn } from '$stylist/layout/function/script/merge-class-names';
 

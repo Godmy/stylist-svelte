@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createCharacterCountState, createFormErrorMessageState, createFormHelperTextState, createInputAddonState, createInputFieldState, createPinInputDigitState, getCharacterCountState, getInputFieldContainerClass, getInputFieldHelperTextClass, getInputGroupButtonClass, getInputGroupContainerClass, getInputGroupInputClass, getSharedPasswordInputClass, getSharedPasswordInputContainerClass, getSharedPasswordInputHelpTextClass, getSharedPasswordInputToggleButtonClass, resolveCharacterCountState } from './script';
-export { createAdvancedInputState, createInputTextState, createNumberInputState, createPhoneNumberInputState, createSearchBarState, createTextareaState, formatPhoneNumber, normalizePhoneInputValue } from './state';
+export { createAdvancedInputState, createContentEditorState, createInputTextState, createNumberInputState, createPhoneNumberInputState, createRichTextEditorState, createSearchBarState, createTextareaState, createVariablesEditorState, formatPhoneNumber, normalizePhoneInputValue } from './state';
 export type { InputStateOptions } from './script';
-export type { SearchBarStateProps } from './state';
+export type { ContentType } from './state';
+export type { ContentEditorStateProps, ContentElement, RichTextEditorStateProps, SearchBarStateProps, VariablesEditorStateProps } from './state';

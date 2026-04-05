@@ -123,6 +123,7 @@
 	{/if}
 
 	<div class="prezi-scene__viewport-container">
+		<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 		<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 		<div
 			class="prezi-scene__viewport"

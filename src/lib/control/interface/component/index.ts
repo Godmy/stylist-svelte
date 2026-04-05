@@ -38,3 +38,4 @@ export type { ActionSegmentedControlProps, AdvancedToggleProps, RadioButtonGroup
 export type { TooltipProps } from './tooltip';
 export type { TransformationProps } from './transformation';
 export type { ZoomControlsProps } from './zoom-controls';
+export type { ZoomToolbarProps } from './zoom-toolbar';

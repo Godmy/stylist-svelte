@@ -12,6 +12,7 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
 export interface NodePropertiesPanelRecipe extends ChildrenProp, ThemeAttributes<HTMLElement> {
 	nodeId?: string;
 	title?: string;
+	visible?: boolean;
 	properties?: readonly LiteGraphNodeProperty[];
 	size?: TokenSize;
 	compact?: boolean;

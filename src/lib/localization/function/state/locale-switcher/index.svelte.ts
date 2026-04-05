@@ -35,7 +35,7 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	const rootClass = $derived(LocaleSwitcherStyleManager.getRootClass(props.class));
 	const headerClass = $derived(LocaleSwitcherStyleManager.getHeaderClass(props.headerClass));
 	const contentClass = $derived(LocaleSwitcherStyleManager.getContentClass(props.contentClass));
-	const localeButtonClass = $derived.by((isActive: boolean) => LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, props.localeClass));
+	const getLocaleButtonClass = (isActive: boolean) => LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, props.localeClass);
 	const timezoneSelectClass = $derived(LocaleSwitcherStyleManager.getTimezoneSelectClass());
 	const footerClass = $derived(LocaleSwitcherStyleManager.getFooterClass(props.footerClass));
 
@@ -108,7 +108,7 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 		formatDate,
 		formatTime,
 		formatDateTime,
-		getLocaleButtonClass: localeButtonClass
+		getLocaleButtonClass
 	};
 }
 

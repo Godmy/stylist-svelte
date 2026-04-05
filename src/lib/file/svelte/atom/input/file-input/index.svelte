@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createInputState as createBaseInputState } from '$stylist/interaction/preset/component/index';
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
-import { getFileSelectionLabel } from '$stylist/interaction/function/script/resolve-file-selection-label';
+import { getFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
 import type { HTMLInputAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 	import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';

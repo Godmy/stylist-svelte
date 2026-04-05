@@ -1,9 +1,9 @@
-import type { CanvasChartPreset } from '$stylist/analytics/interface/recipe/canvas-chart';
+import type { CanvasChartRecipe } from '$stylist/analytics/interface/recipe/canvas-chart';
 import { PRESET_CANVAS_CHART } from '$stylist/information/const/struct/canvas-chart';
 
 export function resolveCanvasChartPreset(
 	name: 'default' | 'minimal' | 'bold' | 'small' | 'large'
-): CanvasChartPreset {
+): CanvasChartRecipe {
 	switch (name) {
 		case 'minimal':
 			return {

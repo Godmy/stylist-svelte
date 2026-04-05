@@ -7,6 +7,7 @@ export type { TokenColumn } from './column';
 export type { TokenCorner } from './corner';
 export type { TokenDensity } from './density';
 export type { TokenGradient } from './gradient-mode';
+export type { TokenLayoutIcon } from './icon';
 export type { TokenImageFilter } from './image-filter';
 export type { TokenJustification } from './justification';
 export type { TokenOrientation } from './orientation';

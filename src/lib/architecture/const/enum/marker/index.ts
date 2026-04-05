@@ -1,1 +1,1 @@
-export const TOKEN_MARKER = ['dot', 'number', 'letter', 'check', 'x'] as const;
+export const TOKEN_MARKER = ['none', 'dot', 'number', 'letter', 'check', 'x'] as const;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SearchBar from '$stylist/interaction/svelte/molecule/search/search-bar/index.svelte';
+  import SearchBar from '$stylist/input/svelte/molecule/search/search-bar/index.svelte';
 
   import FilterPanel from '$stylist/form/svelte/molecule/forms/filter-panel/index.svelte';
   import Toolbar from '$stylist/control/svelte/molecule/controls/toolbars/toolbar/index.svelte';

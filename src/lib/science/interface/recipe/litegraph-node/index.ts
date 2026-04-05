@@ -3,9 +3,11 @@ import type { Snippet } from 'svelte';
 
 export interface LiteGraphPort {
   id: string;
-  name: string;
-  type: string;
-  direction: 'input' | 'output';
+  name?: string;
+  type?: string;
+  label?: string;
+  dataType?: string;
+  direction?: 'input' | 'output';
   index?: number;
 }
 
@@ -22,9 +24,9 @@ export interface LiteGraphNodeProperty {
 export interface LitegraphNodeRecipe {
   id?: string;
   title?: string;
-  type?: string;
-  mode?: string;
-  status?: string;
+  type?: 'default' | 'custom' | 'source' | 'processor' | 'output' | 'gateway';
+  mode?: 'default' | string;
+  status?: 'enabled' | 'disabled' | 'warning' | 'error' | string;
   x?: number;
   y?: number;
   width?: number;

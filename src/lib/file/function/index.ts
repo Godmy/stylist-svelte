@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { formatFileSize, getFileIcon, resolveFileIcon } from './script';
+export { formatFileSize, getFileIcon, getFileSelectionLabel, resolveFileIcon, resolveFileSelectionLabel } from './script';
 export { createFileInputState } from './state';

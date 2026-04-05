@@ -1,6 +1,6 @@
-import type { CanvasChartPreset } from '$stylist/analytics/interface/recipe/canvas-chart';
+import type { CanvasChartRecipe } from '$stylist/analytics/interface/recipe/canvas-chart';
 
-export const PRESET_CANVAS_CHART: CanvasChartPreset = {
+export const PRESET_CANVAS_CHART: CanvasChartRecipe = {
 	width: 800,
 	height: 600,
 	type: 'line',

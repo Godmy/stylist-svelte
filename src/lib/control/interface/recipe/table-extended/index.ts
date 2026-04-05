@@ -1,10 +1,10 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
 import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
-import type { IScrollable } from '$stylist/architecture/interface/proto/scrollable';
-import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { IScrollable } from '$stylist/layout/interface/proto/scrollable';
+import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { IIconSlot } from '$stylist/information/interface/proto/icon-slot';
 import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';

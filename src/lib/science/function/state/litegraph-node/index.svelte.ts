@@ -39,7 +39,7 @@ export function createLiteGraphNodeState(props: LitegraphNodeRecipe) {
   const renderPorts = $derived(!hidePorts);
   const renderProperties = $derived(!hideProperties);
 
-  const classes = $derived(LiteGraphNodeStyleManager.getNodeClasses(props.class));
+  const classes = $derived(LiteGraphNodeStyleManager.getNodeClasses(props.type, props.mode as any, props.status as any, props.size, props.selected, undefined));
   const headerClasses = $derived(LiteGraphNodeStyleManager.getHeaderClasses());
   const bodyClasses = $derived(LiteGraphNodeStyleManager.getBodyClasses());
   const portsClasses = $derived(LiteGraphNodeStyleManager.getPortsClasses());

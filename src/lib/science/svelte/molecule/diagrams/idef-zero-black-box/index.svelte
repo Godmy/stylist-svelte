@@ -9,7 +9,7 @@
 		height?: number;
 	};
 	import { createIdef0BlackBoxState } from '$stylist/information/function/state/idef0';
-	import Idef0FunctionBox from '$stylist/information/svelte/atom/data-display/diagrams/idef-zero-function-box/index.svelte';
+	import Idef0FunctionBox from '$stylist/science/svelte/atom/diagrams/idef-zero-function-box/index.svelte';
 	import Idef0Inputs from '$stylist/science/svelte/molecule/diagrams/idef-zero-inputs/index.svelte';
 	import Idef0Outputs from '$stylist/science/svelte/molecule/diagrams/idef-zero-outputs/index.svelte';
 

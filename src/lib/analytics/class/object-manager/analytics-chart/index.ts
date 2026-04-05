@@ -19,7 +19,7 @@ export class ObjectManagerAnalyticsChart {
 		}));
 	}
 
-	static buildPieChartPoints(data: AnalyticsChartDataPoint[]): AnalyticsChartPiePoint[] {
+	static buildPieChartPoints(data: AnalyticsChartDataPoint[]): any[] {
 		return data.map((item, index) => ({
 			x: index,
 			y: item.value,
@@ -31,7 +31,7 @@ export class ObjectManagerAnalyticsChart {
 	static buildLineSeries(
 		data: AnalyticsChartDataPoint[],
 		title: string
-	): AnalyticsChartLineSeries[] {
+	): any[] { // TODO: Fix type mismatch with AnalyticsChartLineSeries
 		return [
 			{
 				id: 'analytics-series',

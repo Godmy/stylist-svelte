@@ -1,7 +1,7 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IScrollable } from '$stylist/architecture/interface/proto/scrollable';
-import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { IScrollable } from '$stylist/layout/interface/proto/scrollable';
+import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 /**

@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_CALENDAR_ICON } from './svg';

@@ -1,4 +1,4 @@
-import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/science/interface/recipe/node-properties-panel';
+import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/information/interface/recipe/node-properties-panel';
 
 export function createNodePropertiesPanelState(props: NodePropertiesPanelProps) {
 	const title = $derived(props.title ?? 'Properties');

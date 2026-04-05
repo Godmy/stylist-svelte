@@ -1,1 +1,6 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_DEVELOPMENT_ICON } from './svg';
+
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
 export {};

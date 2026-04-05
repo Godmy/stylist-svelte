@@ -32,13 +32,11 @@ export class GraphCanvasStyleManager {
 	static getGridStyles(
 		gridSize: number,
 		gridColor: string,
-		backgroundColor: string
+		backgroundColor?: string
 	): string {
-		return `
-			--grid-size: ${gridSize}px;
-			--grid-color: ${gridColor};
-			--background-color: ${backgroundColor};
-		`.trim();
+		let result = `--grid-size: ${gridSize}px; --grid-color: ${gridColor};`;
+		if (backgroundColor) result += ` --background-color: ${backgroundColor};`;
+		return result.trim();
 	}
 
 	/**

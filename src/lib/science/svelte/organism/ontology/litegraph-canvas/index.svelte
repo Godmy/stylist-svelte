@@ -385,7 +385,7 @@
 						startY={connection.startY ?? 0}
 						endX={connection.endX ?? 0}
 						endY={connection.endY ?? 0}
-						type={connection.type as 'step' | 'straight' | 'curve' | 'polyline' | 'bezier' | 'arc' | 'loop' | 'elbow' | 'smooth-step' | undefined}
+						type={connection.type}
 						color={connection.color}
 						active={connection.active}
 						onclick={connection.onclick}

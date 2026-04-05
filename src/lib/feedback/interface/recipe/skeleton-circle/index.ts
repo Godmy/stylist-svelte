@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Skeleton Circle — круглый скелетон.
  *
  * LEGO-состав:
  *   ISizable                  (architecture/sizable)
  */
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ISizable } from '$stylist/architecture/interface/proto/sizable';
+import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 
 export interface SkeletonCircleRecipe
 	extends RecordArchitectureMerge<[

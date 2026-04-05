@@ -18,7 +18,7 @@
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
   import type { TokenSize } from '$stylist/layout/type/enum/size';
   import { HeroStyleManager } from '$stylist/marketing/class/style-manager/hero';
-  import AnimatedNumber from '$stylist/interaction/svelte/atom/animation/animated-number/index.svelte';
+  import AnimatedNumber from '$stylist/typography/svelte/atom/animation/animated-number/index.svelte';
   
   let {
     title,

@@ -80,7 +80,7 @@ import type { CloseDropdownFunc, IDropdownMenuProps, IDropdownMenuStyleClasses }
 import type { MenuItemProps } from '$stylist/control/interface/component/menu-item/other';
 
 // Controls - Toolbars - from other
-import type { ZoomToolbarProps } from '$stylist/interaction/interface/component/zoom-toolbar/other';
+import type { ZoomToolbarProps } from '$stylist/control/interface/component/zoom-toolbar/other';
 import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
 
 // Input - from contract
@@ -204,7 +204,7 @@ import type { InterfaceControllerSettings } from '$stylist/development/type/stru
 import type { SortableTableHeaderProps } from '$stylist/control/interface/component/sortable-table-header/other';
 
 // Shared Canvas - from other
-import type { SharedCanvasProps } from '$stylist/interaction/interface/component/shared-canvas/other';
+import type { SharedCanvasProps } from '$stylist/canvas/interface/component/shared-canvas/other';
 
 // Node Palette - from other
 import type { NodePaletteItem, NodePaletteProps } from '$stylist/control/interface/component/node-palette/other';

@@ -4,7 +4,7 @@ import type {
 	Point
 } from '$stylist/information/interface/recipe/connection-line';
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
-import type { TokenBorderStyle as LineStyleToken } from '$stylist/architecture/type/enum/border-style';
+import type { TokenBorderStyle as LineStyleToken } from '$stylist/layout/type/enum/border-style';
 import { ConnectionLineStyleManager } from '$stylist';
 
 export function createConnectionLineState(props: ConnectionLineProps) {

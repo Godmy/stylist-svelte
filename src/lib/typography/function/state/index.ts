@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createAbbrState } from './abbr';
+export { createAnimatedNumberState } from './animated-number';
 export { createBadgeState } from './badge';
 export { createBadgeGroupState } from './badge-group';
 export { createBlockquoteState } from './blockquote';
@@ -20,6 +21,7 @@ export { createLinkState } from './link';
 export { createListItemMarkerState } from './list-item-marker';
 export { createNodeTitleState } from './node-title';
 export { createNpmBadgeState } from './npm-badge';
+export { createNumberFlowState } from './number-flow';
 export { createParagraphState } from './paragraph';
 export { createSeparatorState } from './separator';
 export { createSmallState } from './small';
