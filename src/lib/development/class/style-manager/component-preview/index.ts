@@ -8,7 +8,7 @@
  * - Single Responsibility: Only handles styling logic for ComponentPreview
  */
 
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 /**
@@ -22,7 +22,7 @@ export class ComponentPreviewStyleManager {
    * @returns Combined string of base and additional classes
    */
   static getBaseClasses(className?: string): string {
-    return cn(
+    return mergeClassNames(
       'c-component-preview border border-[var(--color-border-primary)] shadow-sm',
       CardStyleManager.getBaseClasses(),
       className
@@ -99,7 +99,7 @@ export class ComponentPreviewStyleManager {
    * @returns Tab button classes
    */
   static getTabButtonClasses(isActive: boolean): string {
-    return cn(
+    return mergeClassNames(
       'rounded-t-lg border-b-2 px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] focus:ring-offset-2',
       isActive
         ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)] text-[var(--color-primary-600)]'

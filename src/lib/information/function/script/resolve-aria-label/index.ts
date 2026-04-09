@@ -8,5 +8,3 @@ export function resolveAriaLabel(
 
 	return ariaLabel || ariaLabelFromProps || fallback;
 }
-
-export const computeAriaLabel = resolveAriaLabel;

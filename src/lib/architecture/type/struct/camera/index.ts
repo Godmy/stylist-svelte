@@ -1,10 +1,3 @@
-export type SceneCamera = {
-	x: number;
-	y: number;
-	depth: number;
-	zoom: number;
-	viewportWidth: number;
-	viewportHeight: number;
-};
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-export type SceneCameraInput = Partial<SceneCamera>;
+export type CameraState = 'idle' | 'moving' | 'animating';

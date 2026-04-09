@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { Snippet } from 'svelte';
 
 export interface FaviconContract extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
@@ -6,6 +6,8 @@ export interface FaviconContract extends Omit<InformationHTMLAttributes<HTMLDivE
 	size?: number;
 	/** Favicon URL */
 	url?: string;
+	/** Slot content (fallback) */
+	content?: Snippet;
 	/** Additional CSS class */
 	class?: string;
 	/** Error state */

@@ -1,13 +1,15 @@
 import type { Snippet } from 'svelte';
-import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { ThemeContextValue } from '$stylist/theme/interface/contract/theme-context';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { ThemeContext } from '$stylist/theme/interface/contract/theme-context';
+import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
 
-export interface ThemeSurfaceRecipe extends ThemeAttributes<HTMLElement> {
+export interface ThemeSurfaceRecipe extends RecordArchitectureMerge<[ProtoTheme, HTMLAttributes<HTMLElement>]> {
 	class?: string;
 	headerClass?: string;
 	contentClass?: string;
 	footerClass?: string;
-	header?: Snippet<[ThemeContextValue | null]>;
-	content: Snippet<[ThemeContextValue | null]>;
-	footer?: Snippet<[ThemeContextValue | null]>;
+	header?: Snippet<[ThemeContext | null]>;
+	content: Snippet<[ThemeContext | null]>;
+	footer?: Snippet<[ThemeContext | null]>;
 }

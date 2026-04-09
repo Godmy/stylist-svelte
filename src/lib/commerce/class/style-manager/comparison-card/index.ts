@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class ComparisonCardStyleManager {
 	static getBaseClasses(className = ''): string {
-		return cn('comparison-card overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames('comparison-card overflow-hidden', CardStyleManager.getBaseClasses(), className);
 	}
 
 	static getHeaderClasses(): string {

@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { TokenGradient } from '$stylist/layout/type/enum/gradient-mode';
 
 export type ThemeGradientBackgroundDirection =

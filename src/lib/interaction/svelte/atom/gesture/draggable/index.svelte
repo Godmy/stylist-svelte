@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DragProps } from '$stylist/interaction/interface/proto/draggable';
+	import type { DragProps } from '$stylist/interaction/interface/proto/draggable-props';
 	import { createDraggableState } from '$stylist/interaction/function/state/draggable';
 
 	let props: DragProps = $props();

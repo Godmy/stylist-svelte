@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export interface AudioVisualizerContract extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Audio source */

@@ -1,5 +1,5 @@
 import { FocusableStyleManager } from '$stylist/interaction/class/style-manager/focusable';
-import type { FocusProps } from '$stylist/interaction/interface/proto/focusable';
+import type { FocusProps } from '$stylist/interaction/interface/proto/focusable-props';
 
 export const createFocusableState = (props: FocusProps) => {
 	// State

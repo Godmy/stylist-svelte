@@ -1,5 +1,5 @@
 import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
-import type { SpacerProps } from '$stylist/layout/type/struct/spacer/spacer-props';
+import type { SpacerProps } from '$stylist/layout/type/struct/spacer';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 
 export function createSpacerState(props: SpacerProps) {

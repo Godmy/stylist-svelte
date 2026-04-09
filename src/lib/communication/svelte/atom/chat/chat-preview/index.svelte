@@ -11,6 +11,16 @@
 	let props: Props = $props();
 
 	const state = createChatPreviewState(props);
+	type PreviewMessage = {
+		author: string;
+		text: string;
+		timestamp: string;
+		isOwn?: boolean;
+		avatar?: string;
+		sender?: string;
+		status?: string;
+	};
+	const displayMessages = $derived(state.displayMessages as PreviewMessage[]);
 
 	const getChatMessageAlignmentClass = (isOwn: boolean) => (isOwn ? 'justify-end' : 'justify-start');
 
@@ -34,15 +44,15 @@
 	</div>
 
 	<div class={state.messagesContainerClasses}>
-		{#each state.displayMessages as message}
+		{#each displayMessages as message}
 			<div class="flex {getChatMessageAlignmentClass(!!message.isOwn)}">
 				<div class="max-w-xs md:max-w-md">
 					{#if !message.isOwn}
 						<div class="mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]">
 							{#if state.showAvatars && message.avatar}
-								<Avatar src={message.avatar} alt={message.sender} size="sm" class="mr-2" />
+								<Avatar src={message.avatar} alt={message.sender ?? message.author} size="sm" class="mr-2" />
 							{/if}
-							<span>{message.sender}</span>
+							<span>{message.sender ?? message.author}</span>
 						</div>
 					{/if}
 

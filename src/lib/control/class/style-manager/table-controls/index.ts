@@ -3,22 +3,3 @@ export class ColumnManagerStyleManager {
     return `c-column-manager bg-[--color-background-primary] rounded-lg shadow p-4 ${className}`.trim();
   }
 }
-
-export class DataTableStyleManager {
-  static root(className: string): string {
-    return `c-data-table overflow-auto ${className}`.trim();
-  }
-}
-
-export class DataTableAdvancedStyleManager {
-  static root(className: string): string {
-    return `c-data-table-advanced ${className}`.trim();
-  }
-}
-
-export class SortableListStyleManager {
-  static root(className: string): string {
-    return `c-sortable-list ${className}`.trim();
-  }
-}
-

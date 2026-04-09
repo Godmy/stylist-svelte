@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import ChatPreview from './index.svelte';
 	import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
 

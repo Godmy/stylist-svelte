@@ -2,13 +2,13 @@ import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ClassValue } from 'clsx';
 
 export class LayoutStyleManager {
 	static getAspectRatioClasses(className?: ClassValue): string {
-		return cn('relative w-full [aspect-ratio:var(--aspect-ratio)]', className);
+		return mergeClassNames('relative w-full [aspect-ratio:var(--aspect-ratio)]', className);
 	}
 
 	static getContainerClasses(size: TokenSize, className?: ClassValue): string {
@@ -29,7 +29,7 @@ export class LayoutStyleManager {
 				'3/4': 'max-w-[75%]',
 				full: 'max-w-full'
 			}[size] ?? 'max-w-full';
-		return cn('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
+		return mergeClassNames('mx-auto w-full px-4 sm:px-6 lg:px-8', maxWidthClass, className);
 	}
 
 	static getDividerLineClass(dashed: boolean): string {
@@ -45,7 +45,7 @@ export class LayoutStyleManager {
 	}
 
 	static getGridLayoutContainerClass(className = ''): string {
-		return cn('grid', className);
+		return mergeClassNames('grid', className);
 	}
 
 	static getGridLayoutItemClass(className = '', itemClass = ''): string {
@@ -74,7 +74,7 @@ export class LayoutStyleManager {
 		wrap: boolean,
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'flex',
 			{
 				top: 'items-start',

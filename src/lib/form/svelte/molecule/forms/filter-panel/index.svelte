@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Button } from '$stylist';
-  import Checkbox from '$stylist/control/svelte/atom/controls/toggles/checkbox/index.svelte';
-  import Select from '$stylist/control/svelte/molecule/controls/selectors/selector/index.svelte';
+  import Checkbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
+  import Select from '$stylist/control/svelte/molecule/selectors/selector/index.svelte';
   import { createEventDispatcher } from 'svelte';
 
   // Props

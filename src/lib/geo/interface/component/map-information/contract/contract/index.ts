@@ -1,4 +1,4 @@
-import type { IABTestConfiguratorProps } from '$stylist/marketing/interface/component/abtest-configurator/other';
+﻿import type { IABTestConfiguratorProps } from '$stylist/marketing/interface/component/abtest-configurator/other';
 import type { AccessibilityCheckboxRecipe as AccessibilityCheckboxProps } from '$stylist/information/interface/recipe/accessibility-checkbox';
 import type { IAiResultCardProps } from '$stylist/science/interface/component/ai-result-card/other';
 import type { AlertCardRecipe as IAlertCardProps } from '$stylist/commerce/interface/recipe/alert-card';
@@ -10,10 +10,10 @@ import type { AutoCompleteRecipe as AutoCompleteProps } from '$stylist/informati
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { BaseCardRecipe as IBaseCardElementProps } from '$stylist/commerce/interface/recipe/base-card';
 import type { IBillingSummaryProps } from '$stylist/commerce/interface/component/billing-summary/other';
-import type { BlockquoteRecipe as BlockquoteProps } from '$stylist/information/interface/recipe/blockquote';
+import type { BlockquoteRecipe as BlockquoteProps } from '$stylist/typography/interface/recipe/blockquote';
 import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
-import type { CanvasChartRecipe as CanvasChartProps } from '$stylist/analytics/interface/recipe/canvas-chart';
-import type { CanvasImageEditorRecipe as CanvasImageEditorProps } from '$stylist/information/interface/recipe/canvas-image-editor';
+import type { CanvasChartRecipe as CanvasChartProps } from '$stylist/chart/interface/recipe/canvas-chart';
+import type { CanvasImageEditorRecipe as CanvasImageEditorProps } from '$stylist/canvas/interface/recipe/canvas-image-editor';
 import type { CategoryCardRecipe as ICategoryCardProps } from '$stylist/commerce/interface/recipe/category-card';
 import type { CommentSystemProps } from '$stylist/social/interface/component/comment-system/other';
 import type { CommentThreadProps } from '$stylist/social/interface/component/comment-thread/other';
@@ -24,25 +24,26 @@ import type { IDownloadCardProps } from '$stylist/file/interface/component/downl
 import type { IEventCalendarProps } from '$stylist/calendar/interface/component/event-calendar/other';
 import type { ExpandableCardRecipe } from '$stylist/commerce/interface/recipe/expandable-card';
 import type { IGeoJSONViewerProps } from '$stylist/geo/interface/component/geo-jsonviewer/other';
-import type { GraphCanvasRecipe as GraphCanvasProps } from '$stylist/information/interface/recipe/graph-canvas';
-import type { GraphEdgeProps, GraphNodeProps } from '$stylist/information/interface/recipe/graph';
+import type { GraphCanvasRecipe as GraphCanvasProps } from '$stylist/science/interface/recipe/graph-canvas';
+import type { GraphEdgeRecipe } from '$stylist/science/interface/recipe/graph-edge';
+import type { GraphNodeRecipe } from '$stylist/science/interface/recipe/graph-node';
 import type { GraphNodeCardRecipe as GraphNodeCardProps } from '$stylist/commerce/interface/recipe/graph-node-card';
-import type { GraphPortRecipe as GraphPortProps } from '$stylist/information/interface/recipe/graph-port';
-import type { GraphToolbarRecipe as GraphToolbarProps } from '$stylist/information/interface/recipe/graph-toolbar';
-import type { IImageGalleryProps } from '$stylist/media/interface/component/image-gallery/other';
-import type { KPIIndicatorRecipe } from '$stylist/analytics/interface';
-import type { LabelRecipe as LabelProps } from '$stylist/information/interface/recipe/label';
+import type { GraphPortRecipe as GraphPortProps } from '$stylist/science/interface/recipe/graph-port';
+import type { GraphToolbarRecipe as GraphToolbarProps } from '$stylist/science/interface/recipe/graph-toolbar';
+import type { ImageGalleryContract as IImageGalleryProps } from '$stylist/media/interface/component/image-gallery/contract';
+import type { KPIIndicatorRecipe } from '$stylist/typography/interface/recipe/kpi-indicator';
+import type { LabelRecipe as LabelProps } from '$stylist/typography/interface/recipe/label';
 import type { LinkCardRecipe } from '$stylist/commerce/interface/recipe/link-card';
-import type { LiteGraphNodeProps } from '$stylist/information/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
 import type { IMapMarkerProps } from '$stylist/geo/interface/component/map-marker/other';
 import type { IMessageBubbleProps } from '$stylist/communication/interface/component/message-bubble/other';
 import type { IMessageComposerProps } from '$stylist/communication/interface/component/message-composer/other';
 import type { IMessageMetaProps } from '$stylist/communication/interface/component/message-meta/other';
 import type { MetricCardRecipe as IMetricCardProps } from '$stylist/commerce/interface/recipe/metric-card';
-import type { NodeHeaderRecipe as NodeHeaderProps } from '$stylist/information/interface/recipe/node-header';
-import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/information/interface/recipe/node-properties-panel';
-import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/information/interface/recipe/node-property';
-import type { NodeTitleRecipe as NodeTitleProps } from '$stylist/information/interface/recipe/node-title';
+import type { NodeHeaderRecipe as NodeHeaderProps } from '$stylist/science/interface/recipe/node-header';
+import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/science/interface/recipe/node-properties-panel';
+import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/science/interface/recipe/node-property';
+import type { NodeTitleRecipe as NodeTitleProps } from '$stylist/science/interface/recipe/node-title';
 import type {
 	NotificationCenterProps,
 	NotificationListProps,
@@ -50,22 +51,23 @@ import type {
 	ScheduledNotificationProps
 } from '$stylist/communication/interface/component/notifications/other';
 import type { IOrderConfirmationProps } from '$stylist/commerce/interface/component/order-confirmation/other';
-import type { PageEllipsisRecipe as PageEllipsisProps } from '$stylist/information/interface/recipe/page-ellipsis';
-import type { PortGroupRecipe as PortGroupProps } from '$stylist/information/interface/recipe/port-group';
+import type { PageEllipsisRecipe as PageEllipsisProps } from '$stylist/navigation/interface/recipe/page-ellipsis';
+import type { PortGroupRecipe as PortGroupProps } from '$stylist/media/interface/recipe/port-group';
 import type { PredictionResultProps } from '$stylist/science/interface/component/prediction-result/other';
 import type { IPriceAlertElementProps } from '$stylist/commerce/interface/component/price-alert/other';
 import type { IProductSortingProps } from '$stylist/commerce/interface/component/product-sorting/other';
 import type { PromptBuilderProps } from '$stylist/science/interface/component/prompt-builder/other';
 import type { QuoteRequestProps } from '$stylist/commerce/interface/component/quote-request/other';
-import type { ScatterPlotRecipe } from '$stylist/analytics/interface';
+import type { ScatterPlotRecipe } from '$stylist/chart/interface/recipe/scatter-plot';
 import type { IScheduleCalendarProps } from '$stylist/calendar/interface/component/schedule-calendar/other';
 import type { SearchResultsRecipe as SearchResultsProps } from '$stylist/information/interface/recipe/search-results';
 import type { SentimentAnalysisProps } from '$stylist/science/interface/component/sentiment-analysis/other';
 import type { SortableGridRecipe as SortableGridProps } from '$stylist/information/interface/recipe/sortable-grid';
-import type { StatCardRecipe, StatusDashboardRecipe } from '$stylist/analytics/interface';
+import type { StatsCardRecipe as StatCardRecipe } from '$stylist/information/interface/recipe/stats-card';
+import type { StatusDashboardRecipe } from '$stylist/management/interface/recipe/status-dashboard';
 import type { TableRecipe } from '$stylist/information/interface/recipe/table';
 import type { ITeamMemberCardProps } from '$stylist/management/interface/component/team-member-card/other';
-import type { TooltipWithArrowRecipe as TooltipWithArrowProps } from '$stylist/information/interface/recipe/tooltip-with-arrow';
+import type { TooltipWithArrowRecipe as TooltipWithArrowProps } from '$stylist/navigation/interface/recipe/tooltip-with-arrow';
 
 export interface MapInformationContract {
 	ABTestConfigurator: IABTestConfiguratorProps;
@@ -95,8 +97,8 @@ export interface MapInformationContract {
 	ExpandableCard: ExpandableCardRecipe;
 	GeoJSONViewer: IGeoJSONViewerProps;
 	GraphCanvas: GraphCanvasProps;
-	GraphEdge: GraphEdgeProps;
-	GraphNode: GraphNodeProps;
+	GraphEdge: GraphEdgeRecipe;
+	GraphNode: GraphNodeRecipe;
 	GraphNodeCard: GraphNodeCardProps;
 	GraphPort: GraphPortProps;
 	GraphToolbar: GraphToolbarProps;

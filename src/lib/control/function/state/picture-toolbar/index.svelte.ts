@@ -1,6 +1,6 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-import type { PictureToolbarRecipe as PictureToolbarProps } from '$stylist/information/interface/recipe/picture-toolbar';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { PictureToolbarRecipe as PictureToolbarProps } from '$stylist/media/interface/recipe/picture-toolbar';
 
 type PictureToolbarTool = {
 	id: string;
@@ -18,14 +18,14 @@ type PictureToolbarStateProps = PictureToolbarProps & {
 // Определение состояния для PictureToolbar
 export function createPictureToolbarState(props: PictureToolbarStateProps) {
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'picture-toolbar flex space-x-2 p-2 bg-[var(--color-background-secondary)] rounded',
 			(props.class as string | null | undefined) ?? ''
 		)
 	);
 
 	const getButtonClasses = (isActive: boolean) => {
-		return mergeClasses(
+		return joinClassNames(
 			'flex items-center justify-center p-2 rounded border transition-colors',
 			isActive
 				? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] border-[var(--color-primary-500)]'

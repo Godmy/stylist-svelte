@@ -1,6 +1,12 @@
-import type { ScatterPlotRecipe } from '$stylist/analytics/interface/recipe/scatter-plot';
+﻿import type { ScatterPlotRecipe } from '$stylist/chart/interface/recipe/scatter-plot';
 
-export function createScatterPlotState(props: ScatterPlotRecipe) {
+type ScatterPlotStateProps = ScatterPlotRecipe & {
+	width?: number;
+	height?: number;
+	class?: string;
+};
+
+export function createScatterPlotState(props: ScatterPlotStateProps) {
 	const data = $derived(props.data ?? []);
 	const maxX = $derived(data.length > 0 ? Math.max(...data.map((d) => d.x)) : 100);
 	const maxY = $derived(data.length > 0 ? Math.max(...data.map((d) => d.y)) : 100);
@@ -27,3 +33,5 @@ export function createScatterPlotState(props: ScatterPlotRecipe) {
 		getPointY
 	};
 }
+
+export default createScatterPlotState;

@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import type { Message, User } from '$stylist/communication/interface/component/chat/other';
   import MessageItem from './index.svelte';
 

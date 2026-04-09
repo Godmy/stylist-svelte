@@ -1,16 +1,16 @@
 ﻿/**
- * PriceAlertContract — оповещение об изменении цены.
+ * PriceAlertContract � ���������� �� ��������� ����.
  *
- * LEGO-состав:
- *   ISizable          (architecture) — size (размер компонента)
- *   IClickable        (interaction)  — disabled, loading
- *   ThemeAttributes   (theme)        — class, data-variant, data-tone
+ * LEGO-������:
+ *   ISizable          (architecture) � size (������ ����������)
+ *   IClickable        (interaction)  � disabled, loading
+ *   ThemeAttributes   (theme)        � class, data-variant, data-tone
  */
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { TokenMonitoringType } from '$stylist/analytics/type/enum/monitoring-type';
+import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 
 export interface PriceAlertContract
 	extends RecordArchitectureMerge<[

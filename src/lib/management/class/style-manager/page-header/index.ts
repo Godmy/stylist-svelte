@@ -5,14 +5,14 @@
  * Отвечает исключительно за генерацию CSS-классов в зависимости от пропсов
  * и не содержит никакой логики отображения или поведения.
  */
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class PageHeaderStyleManager {
   /**
    * Возвращает CSS-классы для основного контейнера PageHeader
    */
   static getContainerClasses(className?: string): string {
-    return cn(
+    return mergeClassNames(
       'page-header border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)]',
       className
     );

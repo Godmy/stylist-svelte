@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import DateRangePicker from './index.svelte';
-  import type { DateRangeValue } from '$stylist/input/type/struct/interaction-input';
+  import type { DateRangeValue } from '$stylist/input/type/struct/interaction-input/date-range-value';
 
   type Props = {
     placeholder: string;

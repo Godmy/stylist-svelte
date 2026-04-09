@@ -1,6 +1,6 @@
-import type { GraphToolbarRecipe as GraphToolbarProps } from '$stylist/information/interface/recipe/graph-toolbar';
+import type { GraphToolbarRecipe as GraphToolbarProps } from '$stylist/science/interface/recipe/graph-toolbar';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { GraphToolbarStyleManager } from '$stylist/information/class/style-manager/graph-toolbar';
+import { GraphToolbarStyleManager } from '$stylist/navigation/class/style-manager/graph-toolbar';
 
 export function createGraphToolbarState(props: GraphToolbarProps) {
 	const size = $derived((props.size ?? 'md') as TokenSize);

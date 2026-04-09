@@ -1,3 +1,14 @@
-import type { CountBadgeRecipe as BaseCountBadgeRecipe } from '$stylist/information/interface/recipe/count-badge';
+﻿/**
+ * CountBadge — бейдж со счётчиком..
+ *
+ * LEGO-состав:
+ *   IBadgeSlot        (information) — badge (Badge)
+ *   IStatusSlot        (information) — status (Status)
+ */
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ThemeCountBadgeRecipe extends BaseCountBadgeRecipe {}
+export interface CountBadgeRecipe extends ThemeAttributes<HTMLSpanElement> {
+	count?: number;
+	max?: number;
+	showZero?: boolean;
+}

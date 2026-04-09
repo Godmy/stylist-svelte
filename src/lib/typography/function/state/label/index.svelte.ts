@@ -1,12 +1,12 @@
 import { createLabelState as createBaseLabelState } from '$stylist/information/function/state/label';
-import { StyleManagerLabel } from '$stylist/typography/class/style-manager/label';
-import type { ThemeLabelRecipe } from '$stylist/typography/interface/recipe/label';
+import { LabelStyleManager } from '$stylist/typography/class/style-manager/label';
+import type { LabelRecipe } from '$stylist/typography/interface/recipe/label';
 
-export function createLabelState(props: ThemeLabelRecipe) {
+export function createLabelState(props: LabelRecipe) {
 	const baseState = createBaseLabelState(props);
-	const classes = $derived(StyleManagerLabel.root(baseState.classes));
+	const classes = $derived(LabelStyleManager.root(baseState.classes));
 	const requiredIndicatorClasses = $derived(
-		StyleManagerLabel.requiredIndicator(baseState.requiredIndicatorClasses)
+		LabelStyleManager.requiredIndicator(baseState.requiredIndicatorClasses)
 	);
 	return {
 		get classes() {

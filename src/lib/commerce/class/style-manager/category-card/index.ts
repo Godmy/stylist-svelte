@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class CategoryCardStyleManager {
 	static getBaseClasses(className = ''): string {
-		return cn(
+		return mergeClassNames(
 			'category-card cursor-pointer overflow-hidden transition-all duration-[var(--duration-200)] hover:border-[var(--color-primary-300)] hover:shadow-md',
 			CardStyleManager.getBaseClasses(),
 			className

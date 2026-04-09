@@ -1,11 +1,5 @@
-export type ContentType = 'text' | 'image' | 'quote' | 'divider' | 'header' | 'list';
-
-export interface ContentElement {
-	id: string;
-	type: ContentType;
-	content: string;
-	attributes?: Record<string, any>;
-}
+import type { ContentType } from '$stylist/interaction/class/object-manager/content-editor-content-type';
+import type { ContentElement } from '$stylist/interaction/class/object-manager/content-editor-content-element';
 
 export class ObjectManagerContentEditor {
 	/**

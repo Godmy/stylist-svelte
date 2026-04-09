@@ -1,45 +1,45 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class DataDisplayCardStyleManager {
 	static getContainerClasses(className = ''): string {
-		return cn('rounded-lg shadow-md overflow-hidden', CardStyleManager.getBaseClasses(), className);
+		return mergeClassNames('rounded-lg shadow-md overflow-hidden', CardStyleManager.getBaseClasses(), className);
 	}
 
 	static getImageClasses(className = ''): string {
-		return cn('w-full h-auto', className);
+		return mergeClassNames('w-full h-auto', className);
 	}
 
 	static getBodyClasses(className = ''): string {
-		return cn('p-6', className);
+		return mergeClassNames('p-6', className);
 	}
 
 	static getHeaderClasses(className = ''): string {
-		return cn('mb-4', className);
+		return mergeClassNames('mb-4', className);
 	}
 
 	static getTitleClasses(className = ''): string {
-		return cn('text-xl font-bold text-[var(--color-text-primary)]', className);
+		return mergeClassNames('text-xl font-bold text-[var(--color-text-primary)]', className);
 	}
 
 	static getSubtitleClasses(className = ''): string {
-		return cn('text-sm text-[var(--color-text-secondary)]', className);
+		return mergeClassNames('text-sm text-[var(--color-text-secondary)]', className);
 	}
 
 	static getDescriptionContainerClasses(className = ''): string {
-		return cn('mb-4', className);
+		return mergeClassNames('mb-4', className);
 	}
 
 	static getDescriptionClasses(className = ''): string {
-		return cn('text-[var(--color-text-primary)]', className);
+		return mergeClassNames('text-[var(--color-text-primary)]', className);
 	}
 
 	static getActionsClasses(className = ''): string {
-		return cn('mt-4', className);
+		return mergeClassNames('mt-4', className);
 	}
 
 	static getFooterClasses(className = ''): string {
-		return cn('px-6 py-3 bg-[var(--color-background-secondary)] border-t border-[var(--color-border-primary)]', className);
+		return mergeClassNames('px-6 py-3 bg-[var(--color-background-secondary)] border-t border-[var(--color-border-primary)]', className);
 	}
 }
 

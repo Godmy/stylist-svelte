@@ -1,6 +1,10 @@
 <script lang="ts">
   import type { PropsEditorRecipe } from '$stylist/information/interface/recipe/props-editor';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+
+  type PropsEditorProps = PropsEditorRecipe & {
+    class?: string;
+  };
 
   let {
     propDefinitions = [],
@@ -8,7 +12,7 @@
     onPropChange,
     class: className = '',
     ...restProps
-  }: PropsEditorRecipe = $props();
+  }: PropsEditorProps = $props();
 
   let internalPropValues = $state<Record<string, unknown>>({ ...propValues });
   $effect(() => {
@@ -21,7 +25,7 @@
   }
 </script>
 
-<div class={cn(className)} role="region" aria-label="Props editor">
+<div class={mergeClassNames(className)} role="region" aria-label="Props editor">
   <div class="font-semibold mb-3">Props Editor</div>
   <div class="space-y-3">
     {#each propDefinitions as def}

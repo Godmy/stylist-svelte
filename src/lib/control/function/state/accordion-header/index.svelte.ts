@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { AccordionHeaderProps } from '$stylist/control/interface/component/accordion/other';
 
 /**
@@ -7,7 +7,7 @@ import type { AccordionHeaderProps } from '$stylist/control/interface/component/
 
 export function createAccordionHeaderState(props: AccordionHeaderProps) {
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'accordion-header',
 			props.open ? 'open' : 'closed',
 			props.disabled ? 'disabled' : '',
@@ -16,7 +16,7 @@ export function createAccordionHeaderState(props: AccordionHeaderProps) {
 	);
 
 	const chevronClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'accordion-chevron',
 			`size-${props.chevronSize ?? 'md'}`,
 			props.open ? 'rotated' : '',

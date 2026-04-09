@@ -16,6 +16,7 @@ export { createHeadingState } from './heading';
 export { createHighlightState } from './highlight';
 export { createInlineCodeState } from './inline-code';
 export { createKbdState } from './kbd';
+export { createKPIIndicatorState } from './kpi-indicator';
 export { createLabelState } from './label';
 export { createLinkState } from './link';
 export { createListItemMarkerState } from './list-item-marker';

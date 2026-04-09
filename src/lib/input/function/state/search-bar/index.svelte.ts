@@ -1,17 +1,6 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import type { SearchBarStateProps } from '../search-bar-state-props/index.svelte.ts';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { debounce } from '$stylist/interaction/function/script/debounce';
-
-export interface SearchBarStateProps {
-	placeholder?: string;
-	value?: string;
-	disabled?: boolean;
-	debounceMs?: number;
-	class?: string;
-	onValueInput?: (value: string) => void;
-	onValueChange?: (value: string) => void;
-	onSearch?: (value: string) => void;
-	onClear?: () => void;
-}
 
 export const createSearchBarState = (props: SearchBarStateProps) => {
 	// State
@@ -64,7 +53,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 
 	// Computed classes
 	const containerClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'flex items-center gap-3 px-4 py-2 bg-[var(--color-background-primary)]',
 			'border border-[var(--color-border-primary)] rounded-lg',
 			'focus-within:ring-2 focus-within:ring-[var(--color-primary-500)] focus-within:border-transparent',
@@ -78,7 +67,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	);
 
 	const inputClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'flex-1 bg-transparent border-none focus:outline-none focus:ring-0',
 			'text-[var(--color-text-primary)] placeholder-[var(--color-text-tertiary)]',
 			props.disabled ? 'cursor-not-allowed' : ''

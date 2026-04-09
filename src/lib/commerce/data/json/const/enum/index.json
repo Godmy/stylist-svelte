@@ -1,0 +1,70 @@
+{
+  "domainName": "commerce",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_BILLING_ITEM",
+      "values": [
+        "paid",
+        "pending",
+        "failed",
+        "refunded"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum\\billing-item\\index.ts",
+      "relativePath": "billing-item\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_BILLING_SUMMARY",
+      "values": [
+        "paid",
+        "pending",
+        "cancelled",
+        "overdue"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum\\billing-summary\\index.ts",
+      "relativePath": "billing-summary\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_ORDER_STATUS",
+      "values": [
+        "pending",
+        "cancelled",
+        "processing",
+        "shipped",
+        "delivered"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum\\order-status\\index.ts",
+      "relativePath": "order-status\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PAYMENT_METHOD",
+      "values": [
+        "credit_card",
+        "debit_card",
+        "paypal",
+        "bank_transfer",
+        "digital_wallet",
+        "cash_on_delivery",
+        "crypto",
+        "apple_pay",
+        "google_pay",
+        "bank_account"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum\\payment-method\\index.ts",
+      "relativePath": "payment-method\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PAYMENT_STATUS",
+      "values": [
+        "pending",
+        "failed",
+        "refunded",
+        "processing",
+        "completed"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\commerce\\const\\enum\\payment-status\\index.ts",
+      "relativePath": "payment-status\\index.ts"
+    }
+  ]
+}

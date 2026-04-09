@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { ImageWithCaptionProps } from '$stylist/media/interface/component/image/other';
+	import type { ImageWithCaptionContract } from '$stylist/media/interface/component/image-with-caption/contract';
 	import { createImageWithCaptionState } from '$stylist/information/function/state/image-with-caption';
 
-	let props: ImageWithCaptionProps = $props();
+	let props: ImageWithCaptionContract = $props();
 	const state = createImageWithCaptionState(props);
 	const restProps = $derived(
 		(() => {
@@ -41,5 +41,3 @@
 		</div>
 	{/if}
 </div>
-
-

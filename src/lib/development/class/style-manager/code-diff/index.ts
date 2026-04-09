@@ -1,15 +1,15 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
-import type { TokenDiffType } from '$stylist/information/type/enum/diff-type';
+import type { TokenDiffType } from '$stylist/development/type/enum/diff-type';
 
 
 export class CodeDiffStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-diff relative', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames('c-code-diff relative', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
-		return cn(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
+		return mergeClassNames(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
 	}
 
 	static getMainContentClass(): string {
@@ -17,7 +17,7 @@ export class CodeDiffStyleManager {
 	}
 
 	static getLineNumbersContainerClass(): string {
-		return cn('w-16 py-2', CodeStyleManager.getLineNumbersContainerBaseClasses());
+		return mergeClassNames('w-16 py-2', CodeStyleManager.getLineNumbersContainerBaseClasses());
 	}
 
 	static getLineNumberItemClass(): string {
@@ -25,7 +25,7 @@ export class CodeDiffStyleManager {
 	}
 
 	static getContentContainerClass(extraClasses = ''): string {
-		return cn('flex-1 overflow-x-auto', extraClasses);
+		return mergeClassNames('flex-1 overflow-x-auto', extraClasses);
 	}
 
 	static getDiffContentClass(): string {
@@ -35,7 +35,7 @@ export class CodeDiffStyleManager {
 	static getDiffLineClass(type: string): string {
 		const normalizedType: TokenDiffType =
 			type === 'added' || type === 'removed' ? type : 'unchanged';
-		return cn(CodeStyleManager.getDiffLineBaseClasses(), CodeStyleManager.getDiffLineVariantClass(normalizedType));
+		return mergeClassNames(CodeStyleManager.getDiffLineBaseClasses(), CodeStyleManager.getDiffLineVariantClass(normalizedType));
 	}
 
 	static getDiffSpanClass(type: string): string {

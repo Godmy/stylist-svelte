@@ -2,6 +2,7 @@
 export { TOKEN_ALIGNMENT } from './alignment';
 export { TOKEN_BACKGROUND } from './background';
 export { TOKEN_BORDER_STYLE } from './border-style';
+export { TOKEN_BREAKPOINT } from './breakpoint';
 export { TOKEN_COLUMN } from './column';
 export { TOKEN_CORNER } from './corner';
 export { TOKEN_DENSITY } from './density';
@@ -9,6 +10,7 @@ export { TOKEN_GRADIENT } from './gradient-mode';
 export { TOKEN_LAYOUT_ICON } from './icon';
 export { TOKEN_IMAGE_FILTER } from './image-filter';
 export { TOKEN_JUSTIFICATION } from './justification';
+export { TOKEN_LAYOUT_SIZE } from './layout-size';
 export { TOKEN_ORIENTATION } from './orientation';
 export { TOKEN_SHAPE } from './shape';
 export { TOKEN_SIZE } from './size';

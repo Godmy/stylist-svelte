@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 	import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/typography/interface/recipe/animated-number';
 	import { createAnimatedNumberState } from '$stylist/typography/function/state/animated-number';
 

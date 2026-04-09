@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene/prezi-scene-contract';
-	import { usePreziState } from '$stylist/architecture/function/state/prezi-scene/use-prezi-state.svelte';
+	import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene';
+	import { usePreziState } from '$stylist/architecture/function/state/prezi-scene';
 	import PresenterNodeShell from '$stylist/architecture/svelte/molecule/canvas/presenter-node-shell/index.svelte';
 	import { Minimap, Icon } from '$stylist';
 	import { Grid } from '$stylist/layout';

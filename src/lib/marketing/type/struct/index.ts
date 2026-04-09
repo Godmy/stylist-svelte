@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { IHeroCTA, IHeroStat } from './hero';
+export type { IHeroStat } from './hero';

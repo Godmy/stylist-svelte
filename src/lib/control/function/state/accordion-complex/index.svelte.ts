@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { ComplexAccordionProps } from '$stylist/control/interface/component/accordion/other';
 
 /**
@@ -7,7 +7,7 @@ import type { ComplexAccordionProps } from '$stylist/control/interface/component
  */
 
 export function createComplexAccordionState(props: ComplexAccordionProps) {
-	const classes = $derived(mergeClasses('complex-accordion-root', props.class));
+	const classes = $derived(joinClassNames('complex-accordion-root', props.class));
 
 	return {
 		multiple: props.multiple ?? false,

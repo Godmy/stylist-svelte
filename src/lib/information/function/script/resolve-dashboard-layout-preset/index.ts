@@ -26,5 +26,3 @@ export function resolveDashboardLayoutPreset(
 			return PRESET_LAYOUT_DASHBOARD;
 	}
 }
-
-export const getDashboardLayoutPreset = resolveDashboardLayoutPreset;

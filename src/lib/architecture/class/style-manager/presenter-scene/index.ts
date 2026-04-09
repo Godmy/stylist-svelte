@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class PresenterSceneStyleManager {
 	static getSectionClass(extraClass: string = ''): string {
-		return cn('presenter-scene', extraClass);
+		return mergeClassNames('presenter-scene', extraClass);
 	}
 
 	static getHeaderClass(): string {
@@ -26,7 +26,7 @@ export class PresenterSceneStyleManager {
 	}
 
 	static getViewportClass(isDragging = false): string {
-		return cn('presenter-scene__viewport', isDragging && 'dragging');
+		return mergeClassNames('presenter-scene__viewport', isDragging && 'dragging');
 	}
 
 	static getGridClass(): string {

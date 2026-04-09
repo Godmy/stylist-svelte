@@ -1,2 +1,5 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { GridContract } from './grid-contract';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+
+export type GridContract = ArchitectureHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+};

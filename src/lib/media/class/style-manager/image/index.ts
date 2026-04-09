@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const ANNOUNCEMENT_BANNER_CLASSES = {
 	container:
@@ -39,11 +39,11 @@ export class ImageStyleManager {
 	}
 
 	static getFaviconImageClasses(className = ''): string {
-		return cn('inline-block rounded-sm', className);
+		return mergeClassNames('inline-block rounded-sm', className);
 	}
 
 	static getFaviconFallbackClasses(baseClasses: string): string {
-		return cn('flex items-center justify-center bg-[--color-background-secondary] text-[--color-text-secondary] text-xs', baseClasses);
+		return mergeClassNames('flex items-center justify-center bg-[--color-background-secondary] text-[--color-text-secondary] text-xs', baseClasses);
 	}
 
 	static getFaviconStyle(size: number): string {
@@ -56,7 +56,7 @@ export class ImageStyleManager {
 		bordered?: boolean;
 		shadow?: boolean;
 	}): string {
-		return cn(
+		return mergeClassNames(
 			IMAGE_WITH_CAPTION_CLASSES.hostBase,
 			options.rounded ? IMAGE_WITH_CAPTION_CLASSES.decoration.rounded : '',
 			options.bordered ? IMAGE_WITH_CAPTION_CLASSES.decoration.bordered : '',
@@ -71,7 +71,7 @@ export class ImageStyleManager {
 		bordered?: boolean;
 		shadow?: boolean;
 	}): string {
-		return cn(
+		return mergeClassNames(
 			IMAGE_WITH_CAPTION_CLASSES.imageBase,
 			options.rounded ? IMAGE_WITH_CAPTION_CLASSES.decoration.rounded : '',
 			options.bordered ? IMAGE_WITH_CAPTION_CLASSES.decoration.bordered : '',
@@ -81,35 +81,35 @@ export class ImageStyleManager {
 	}
 
 	static getImageWithCaptionTextClasses(className = ''): string {
-		return cn(IMAGE_WITH_CAPTION_CLASSES.text, className);
+		return mergeClassNames(IMAGE_WITH_CAPTION_CLASSES.text, className);
 	}
 
 	static getAnnouncementBannerContainerClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.container, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.container, className);
 	}
 
 	static getAnnouncementBannerFlexContainerClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.flexContainer, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.flexContainer, className);
 	}
 
 	static getAnnouncementBannerIconClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.icon, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.icon, className);
 	}
 
 	static getAnnouncementBannerContentClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.content, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.content, className);
 	}
 
 	static getAnnouncementBannerTitleClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.title, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.title, className);
 	}
 
 	static getAnnouncementBannerDescriptionClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.description, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.description, className);
 	}
 
 	static getAnnouncementBannerChildrenContainerClasses(className = ''): string {
-		return cn(ANNOUNCEMENT_BANNER_CLASSES.childrenContainer, className);
+		return mergeClassNames(ANNOUNCEMENT_BANNER_CLASSES.childrenContainer, className);
 	}
 }
 

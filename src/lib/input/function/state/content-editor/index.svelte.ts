@@ -1,26 +1,7 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export type ContentType = 'text' | 'image' | 'quote' | 'divider' | 'header' | 'list';
-
-export interface ContentElement {
-	id: string;
-	type: ContentType;
-	content: string;
-	attributes?: Record<string, any>;
-}
-
-export interface ContentEditorStateProps {
-	initialContent?: ContentElement[];
-	onSave?: (content: ContentElement[]) => void;
-	onPreview?: () => void;
-	placeholder?: string;
-	showToolbar?: boolean;
-	showPreviewButton?: boolean;
-	class?: string;
-	toolbarClass?: string;
-	editorClass?: string;
-	contentClass?: string;
-}
+import type { ContentType } from '../content-editor-state-content-type/index.svelte.ts';
+import type { ContentElement } from '../content-editor-state-content-element/index.svelte.ts';
+import type { ContentEditorStateProps } from '../content-editor-state-props/index.svelte.ts';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createContentEditorState = (props: ContentEditorStateProps) => {
 	// State
@@ -108,25 +89,25 @@ export const createContentEditorState = (props: ContentEditorStateProps) => {
 
 	// Computed classes
 	const rootClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'c-content-editor border border-[var(--color-border-primary)] rounded-lg overflow-hidden',
 			props.class
 		)
 	);
 
 	const toolbarClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1',
 			props.toolbarClass
 		)
 	);
 
 	const editorClasses = $derived.by(() =>
-		cn('p-4', props.editorClass)
+		mergeClassNames('p-4', props.editorClass)
 	);
 
 	const contentClasses = $derived.by(() =>
-		cn('mb-4 p-2 border rounded', props.contentClass)
+		mergeClassNames('mb-4 p-2 border rounded', props.contentClass)
 	);
 
 	const activeElementClasses = $derived.by(() =>

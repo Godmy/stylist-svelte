@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class DocumentationBlockStyleManager {
   static getContainerClass(variantClasses: string, extraClasses: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-documentation-block border border-[var(--color-border-primary)]',
       CardStyleManager.getBaseClasses(),
       variantClasses,
@@ -12,7 +12,7 @@ export class DocumentationBlockStyleManager {
   }
 
   static getHeaderContainerClass(variantHeaderClasses: string): string {
-    return cn('border-b border-[var(--color-border-primary)] px-4 py-3', variantHeaderClasses);
+    return mergeClassNames('border-b border-[var(--color-border-primary)] px-4 py-3', variantHeaderClasses);
   }
 
   static getHeaderContentClass(): string {

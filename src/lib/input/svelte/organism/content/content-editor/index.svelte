@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist';
-	import { createContentEditorState, type ContentType } from '$stylist/input/function/state/content-editor';
+	import { createContentEditorState, type ContentType } from '$stylist/input/function/state';
 	import { ContentEditorStyleManager } from '$stylist/input/class/style-manager/content-editor';
 
 	const Bold = 'bold';

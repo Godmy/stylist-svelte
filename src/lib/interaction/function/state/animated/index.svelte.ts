@@ -1,6 +1,6 @@
 import { AnimatedStyleManager } from '$stylist/interaction/class/style-manager/animated';
 import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
-import type { AnimateProps } from '$stylist/interaction/interface/proto/animate';
+import type { AnimateProps } from '$stylist/interaction/interface/proto/animate-props';
 
 export const createAnimatedState = (props: AnimateProps) => {
 	// State

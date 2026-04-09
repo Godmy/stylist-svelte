@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { TokenShape } from '$stylist/layout/type/enum/shape';
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;

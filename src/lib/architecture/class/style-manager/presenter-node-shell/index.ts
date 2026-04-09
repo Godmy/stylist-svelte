@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 
 export class PresenterNodeShellStyleManager {
@@ -7,7 +7,7 @@ export class PresenterNodeShellStyleManager {
 		selected: boolean,
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'presenter-node-shell',
 			`presenter-node-shell--stage-${presentation.stage}`,
 			`presenter-node-shell--architecture-${presentation.architecture}`,

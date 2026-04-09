@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import ProductGallery from './index.svelte';
 
   let selectedImage = $state('https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=Image+1');

@@ -1,5 +1,5 @@
-import type { FocusContract, GestureContract } from '$stylist/interaction/type/struct/gesture';
-import type { Snippet } from 'svelte';
+import type { FocusContract } from '$stylist/interaction/type/struct/gesture-focus-contract';
+import type { GestureContract } from '$stylist/interaction/type/struct/gesture';
 
 /**
  * Прото-интерфейс для focusable элементов
@@ -11,12 +11,4 @@ export interface IFocusable extends Partial<GestureContract> {
 	onBlur?: (event: FocusEvent) => void;
 	/** Эффект фокуса */
 	focusEffect?: boolean;
-}
-
-/**
- * Props для focusable компонента
- */
-export interface FocusProps extends IFocusable {
-	class?: string;
-	children?: Snippet;
 }

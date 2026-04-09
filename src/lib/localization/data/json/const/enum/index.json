@@ -1,0 +1,17 @@
+{
+  "domainName": "localization",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\localization\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\localization\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_TRANSLATION",
+      "values": [
+        "translated",
+        "needs-review",
+        "untranslated"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\localization\\const\\enum\\translation\\index.ts",
+      "relativePath": "translation\\index.ts"
+    }
+  ]
+}

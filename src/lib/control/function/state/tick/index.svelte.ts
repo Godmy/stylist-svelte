@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 type SliderTickProps = {
 	value?: number;
 	position?: number;
@@ -15,7 +15,7 @@ export function createSliderTickState(props: SliderTickProps) {
 	const active = props.active ?? false;
 	const label = props.label;
 
-	const containerClasses = mergeClasses(
+	const containerClasses = joinClassNames(
 		'slider-tick',
 		'absolute bottom-0 transform -translate-x-1/2',
 		active ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-secondary)]',

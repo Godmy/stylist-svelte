@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class CodeWithCopyStyleManager {
   static getContainerClass(): string {
@@ -14,7 +14,7 @@ export class CodeWithCopyStyleManager {
   }
 
   static getIconClass(isCopied: boolean): string {
-    return cn('h-4 w-4', isCopied ? 'text-[var(--color-success-600)]' : '');
+    return mergeClassNames('h-4 w-4', isCopied ? 'text-[var(--color-success-600)]' : '');
   }
 }
 

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { HTMLImgAttributes } from 'svelte/elements';
-	import type { FaviconProps } from '$stylist/media/interface/component/image/other';
+	import type { FaviconContract } from '$stylist/media/interface/component/favicon/contract';
 	import { createFaviconState } from '$stylist/information/function/state/favicon';
 
-	type Props = FaviconProps & HTMLImgAttributes;
+	type Props = FaviconContract & HTMLImgAttributes;
 
 	let { error = false, onError, content, ...restProps }: Props = $props();
 
@@ -32,5 +32,3 @@
 		{/if}
 	</div>
 {/if}
-
-

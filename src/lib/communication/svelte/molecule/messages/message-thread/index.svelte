@@ -1,77 +1,49 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-	import MessageList from '../message-list/index.svelte';
-	import type { Message, MessageThreadMessage, MessageThreadProps, User } from '$stylist/communication/interface/component/chat/other';
-	import { createMessageThreadState } from '$stylist/communication/function/state/message-thread';
+  import { Story } from '$stylist/development/svelte/playground';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+  import MessageThreadComponent from './index.svelte';
 
-	type Props = MessageThreadProps & {
-		currentUser?: User;
-		onMessageAction?: (action: string, message: MessageThreadMessage) => void;
-	} & InformationHTMLAttributes<HTMLDivElement>;
+  const MessageThread = MessageThreadComponent as any;
 
-	let props: Props = $props();
+  let lastAction = $state('none');
 
-	const state = createMessageThreadState(props);
-	const mappedMessages = $derived(
-		state.messages.map((message) => ({
-			id: message.id,
-			senderId: message.sender,
-			content: message.text,
-			timestamp: new Date(message.timestamp),
-			status: message.status,
-			type: 'text' as const
-		}))
-	);
-	const resolvedCurrentUser = $derived(
-		props.currentUser ?? { id: 'current-user', name: 'Current User' } as User
-	);
-	function handleMessageAction(action: string, message: any) {
-		props.onMessageAction?.(action, message);
-	}
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'title', type: 'text', defaultValue: 'Project chat' },
+    { name: 'loading', type: 'boolean', defaultValue: false },
+    { name: 'messageCount', type: 'number', defaultValue: 4, min: 1, max: 8 }
+  ];
 
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				messages: _messages,
-				title: _title,
-				containerClass: _containerClass,
-				messageContainerClass: _messageContainerClass,
-				headerClass: _headerClass,
-				loading: _loading,
-				variant: _variant,
-				messageVariant: _messageVariant,
-				currentUser: _currentUser,
-				onMessageAction: _onMessageAction,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
+  const allMessages = [
+    { id: '1', text: 'Hello!', sender: 'contact', timestamp: '14:30', isOwn: false },
+    { id: '2', text: 'Hi there!', sender: 'current-user', timestamp: '14:31', isOwn: true },
+    { id: '3', text: 'Can we ship this today?', sender: 'contact', timestamp: '14:32', isOwn: false },
+    { id: '4', text: 'Yes, after final QA.', sender: 'current-user', timestamp: '14:33', isOwn: true },
+    { id: '5', text: 'Perfect, thanks.', sender: 'contact', timestamp: '14:34', isOwn: false }
+  ];
 </script>
 
-<div class={state.hostClasses} {...restProps}>
-	{#if state.title}
-		<header class={state.headerClasses}>
-			<h2 class="text-lg font-semibold">{state.title}</h2>
-		</header>
-	{/if}
+<Story
+  id="molecules-message-thread"
+  title="Molecules / Information / Messages / MessageThread"
+  component={MessageThread}
+  category="Molecules/Information/Messages"
+  description="Composed thread container for rendering a full conversation."
+  {controls}
+>
+  {#snippet children(args: any)}
+    <div class="h-96 p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
+      <MessageThread
+        title={args.title}
+        messages={allMessages.slice(0, args.messageCount)}
+        loading={args.loading}
+        class="h-[320px]"
+        onMessageAction={(action: string, message: { id: string }) => (lastAction = `${action}:${message.id}`)}
+      />
+      <p class="text-sm text-[var(--color-text-secondary)]">Last action: {lastAction}</p>
+    </div>
+  {/snippet}
+</Story>
 
-	<div class={`${state.containerClasses} ${state.variantClass}`}>
-		{#if state.loading}
-			<div class={state.loadingClasses}>
-				<div class={state.spinnerClasses}></div>
-			</div>
-		{:else}
-			<!-- Use MessageList component instead of duplicating logic -->
-			<MessageList
-				messages={mappedMessages}
-				currentUser={resolvedCurrentUser}
-				onMessageAction={handleMessageAction}
-			/>
-		{/if}
-	</div>
-</div>
 
 
 

@@ -118,7 +118,7 @@
   <footer class={`bg-[var(--color-background-secondary)] border-t p-4 ${footerClass}`}>
     <MessageComposer
       value={newMessage}
-      onSendMessage={(text: string) => handleSend(text)}
+      onSendMessage={handleSend}
       placeholder="Type a message..."
     />
   </footer>

@@ -21,7 +21,7 @@ const Settings = 'settings';
   import { Button } from '$stylist';
   import InputField from '$stylist/input/svelte/atom/input/field/input-field/index.svelte';
   import TextArea from '$stylist/input/svelte/atom/input/field/text-area/index.svelte';
-  import Select from '$stylist/control/svelte/molecule/controls/selectors/selector/index.svelte';
+  import Select from '$stylist/control/svelte/molecule/selectors/selector/index.svelte';
 
   type RFQProduct = {
     id: string;

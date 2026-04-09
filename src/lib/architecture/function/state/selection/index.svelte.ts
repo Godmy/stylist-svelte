@@ -1,17 +1,5 @@
-export type SelectionMode = 'single' | 'multi' | 'marquee';
-
-export interface SelectedItem {
-	id: string;
-	type: 'node' | 'group' | 'frame' | 'connector';
-}
-
-export interface SelectionState {
-	selectedIds: Set<string>;
-	mode: SelectionMode;
-	isSelecting: boolean;
-	marqueeStart: { x: number; y: number } | null;
-	marqueeCurrent: { x: number; y: number } | null;
-}
+import type { SelectionMode } from '../selection-mode/index.svelte.ts';
+import type { SelectionState } from '../selection-state/index.svelte.ts';
 
 function useSelection(initialMode?: SelectionMode) {
 	let state = $state<SelectionState>({

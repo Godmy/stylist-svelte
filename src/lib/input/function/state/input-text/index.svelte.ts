@@ -1,6 +1,6 @@
 import { createInputState as createBaseInputState } from '$stylist/interaction/preset/component/index';
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
-import type { InputStateOptions } from '$stylist/layout/type/struct/component-state';
+import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 
 export function createInputTextState(
 	props: InputStateOptions & Record<string, unknown>

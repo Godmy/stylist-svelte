@@ -1,6 +1,6 @@
-import type { NodeTitleVariant } from '$stylist/information/interface/recipe/node-title';
+import type { NodeTitleVariant } from '$stylist/science/interface/recipe/node-title';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Менеджер стилей для заголовков узлов графа
@@ -14,7 +14,7 @@ export class NodeTitleStyleManager {
 		size: TokenSize,
 		selected: boolean
 	): string {
-		return cn(
+		return mergeClassNames(
 			'node-title',
 			`node-title--${variant}`,
 			`node-title--${size}`,

@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerCardWithImage, ObjectManagerIconPicker, ObjectManagerNodePropertiesPanel, ObjectManagerTable } from './object-manager';
-export { BadgeStyleManager, GraphToolbarStyleManager, IconPickerStyleManager, Idef0StyleManager, IndicatorsStyleManager, LabelStyleManager, NodeHeaderStyleManager, NodePropertiesPanelStyleManager, PortGroupStyleManager, TableStyleManager } from './style-manager';
+export { ObjectManagerMetricCard, ObjectManagerStatCard, ObjectManagerStatsCard, ObjectManagerTable } from './object-manager';
+export { IndicatorsStyleManager, MetricCardStyleManager, StatCardStyleManager, StatsCardStyleManager, TableStyleManager } from './style-manager';

@@ -4,7 +4,7 @@ const Play = 'play';
 const ArrowRight = 'arrow-right';
 
   import type { Snippet } from 'svelte';
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type Props = {
     badgeText?: string;

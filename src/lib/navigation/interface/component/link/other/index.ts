@@ -1,6 +1,6 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { HtmlAttributesWithChildren } from '$stylist/information/type/struct/common';
+import type { HtmlAttributesWithChildren } from '$stylist/information/type/struct';
 
 export interface InlineTextProps extends HtmlAttributesWithChildren<HTMLElement> {
 	variant?: TokenAppearance;
@@ -28,6 +28,7 @@ export interface LinkProps extends InlineBaseProps<HTMLAnchorElement> {
 	href?: string;
 	target?: string;
 	text?: string;
+	'aria-current'?: 'page' | 'step' | 'location' | 'date' | 'time' | 'true' | 'false';
 }
 
 

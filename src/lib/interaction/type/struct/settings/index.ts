@@ -1,6 +1,10 @@
-import type { HTMLAttributes } from 'svelte/elements';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AccountSettings } from './account-settings';
+
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { SecuritySettingsProps } from '$stylist/form/interface/component/interaction-forms/other';
+import type { AccountSettings } from './account-settings';
 
 /**
  * Account Settings Form Props
@@ -23,65 +27,3 @@ export interface AccountSettingsFormElementProps extends InteractionHTMLAttribut
   /** Callback when delete account is requested */
   onDeleteAccount?: () => void;
 }
-
-/**
- * Account Settings data structure
- */
-export interface AccountSettings {
-  email?: string;
-  password?: string;
-  twoFactorEnabled?: boolean;
-}
-
-/**
- * User Profile Card Props
- */
-export interface UserProfileCardElementProps extends HTMLAttributes<HTMLDivElement> {
-  /** User data */
-  user?: UserData;
-  /** Show avatar */
-  showAvatar?: boolean;
-  /** Show email */
-  showEmail?: boolean;
-  /** Show phone */
-  showPhone?: boolean;
-  /** Show bio */
-  showBio?: boolean;
-  /** Enable editing */
-  editable?: boolean;
-  /** Show edit button */
-  showEditButton?: boolean;
-  /** Custom class name */
-  class?: string;
-  /** Callback when edit is clicked */
-  onEdit?: (user: UserData) => void;
-  /** Callback when save is clicked */
-  onSave?: (user: UserData) => void;
-}
-
-/**
- * User Data structure
- */
-export interface UserData {
-  id: string;
-  name: string;
-  email?: string;
-  phone?: string;
-  bio?: string;
-  avatar?: string;
-  role?: string;
-  location?: string;
-}
-
-/**
- * Session data structure
- */
-export interface Session {
-  id: string;
-  device: string;
-  location: string;
-  ip: string;
-  lastActive: string;
-  current: boolean;
-}
-

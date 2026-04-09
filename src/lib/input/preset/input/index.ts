@@ -1,4 +1,4 @@
-import type { InputPreset } from '$stylist/interaction/type/struct/preset';
+import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';

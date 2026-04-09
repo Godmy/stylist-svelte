@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type Avatar = {
     id: string;

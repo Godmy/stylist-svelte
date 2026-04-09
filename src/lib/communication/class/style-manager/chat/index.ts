@@ -1,6 +1,6 @@
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 
 
@@ -16,7 +16,7 @@ export class ChatStyleManager {
 		variant: TokenAppearance | TokenAppearance,
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'rounded-lg px-4 py-2 text-sm',
 			isOwn
 				? 'rounded-br-none bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
@@ -46,11 +46,11 @@ export class ChatStyleManager {
 	}
 
 	static getChatMessageHeaderClasses(className = ''): string {
-		return cn('mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]', className);
+		return mergeClassNames('mb-1 flex items-center text-xs font-semibold text-[var(--color-text-secondary)]', className);
 	}
 
 	static getChatMessageFooterClasses(className = ''): string {
-		return cn('mt-1 flex items-center justify-end text-xs text-[var(--color-text-tertiary)]', className);
+		return mergeClassNames('mt-1 flex items-center justify-end text-xs text-[var(--color-text-tertiary)]', className);
 	}
 
 	static getMessageStatusTypeIconClasses(status: TokenMessageStatus): string {

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { GraphvizDirectedEdgeRecipe as GraphvizDirectedEdgeProps } from '$stylist/information/interface/recipe/graphviz-directed-edge';
-  import { GraphvizDirectedEdgeStyleManager } from '$stylist/science/class/style-manager/molecules-migration';
+  import type { GraphvizDirectedEdgeRecipe as GraphvizDirectedEdgeProps } from '$stylist/science/interface/recipe/graphviz-directed-edge';
+  import { GraphvizDirectedEdgeStyleManager } from '$stylist/science/class/style-manager/graphviz-directed-edge-style-manager';
 
   let {
     id,

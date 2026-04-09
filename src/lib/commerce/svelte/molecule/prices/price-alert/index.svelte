@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+import type { HTMLAttributes } from 'svelte/elements';
 import type { IPriceAlertElementProps } from '$stylist/commerce/interface/component/price-alert/other';
 import { createPriceAlertState } from '$stylist/commerce/function/state/price-alert';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
   import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_MONITORING_TYPE } from '$stylist/analytics/const/enum/monitoring-type';
-  import type { TokenMonitoringType } from '$stylist/analytics/type/enum/monitoring-type';
+import { TOKEN_MONITORING_TYPE } from '$stylist/management/const/enum/monitoring-type';
+  import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 
   /**
    * PriceAlert - РєРѕРјРїРѕРЅРµРЅС‚ РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ С†РµРЅ Рё СѓРІРµРґРѕРјР»РµРЅРёР№ Рѕ РґРѕСЃС‚РёР¶РµРЅРёРё С†РµР»РµРІРѕР№ С†РµРЅС‹

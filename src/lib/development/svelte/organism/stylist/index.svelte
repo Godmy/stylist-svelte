@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import Tooltip from '$stylist/control/svelte/atom/controls/tooltip/index.svelte';
+	import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
 	import { Icon as BaseIcon } from '$stylist';
 const Bell = 'bell';
 const Building2 = 'building-2';

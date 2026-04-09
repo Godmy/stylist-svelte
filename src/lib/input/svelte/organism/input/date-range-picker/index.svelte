@@ -5,6 +5,7 @@ const ChevronLeft = 'chevron-left';
 const ChevronRight = 'chevron-right';
 const X = 'x';
 
+  import type { DateRangeValue } from '$stylist/input/type/struct/interaction-input/date-range-value';
   import type { DateRangePickerProps } from '$stylist/input/type/struct/interaction-input';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 

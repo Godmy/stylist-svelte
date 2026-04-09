@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export interface ComponentPreviewContract extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
 	/** Preview title */

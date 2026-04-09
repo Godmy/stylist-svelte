@@ -1,6 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-import type { RecordSocialMerge } from '$stylist/social/type/record';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export interface CommentThreadUser {
 	id: string;

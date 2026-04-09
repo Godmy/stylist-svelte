@@ -1,5 +1,5 @@
-<script lang="ts">
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+﻿<script lang="ts">
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import Favicon from './index.svelte';
 

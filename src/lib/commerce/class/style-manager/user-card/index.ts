@@ -1,7 +1,6 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export type UserCardSize = 'sm' | 'md' | 'lg';
-export type UserStatus = 'online' | 'offline' | 'away' | 'busy';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { UserCardSize } from '$stylist/commerce/class/style-manager/user-card-size';
+import type { UserStatus } from '$stylist/commerce/class/style-manager/user-card-status';
 
 export class UserCardStyleManager {
 	static getSizeClasses(size: UserCardSize): {
@@ -29,7 +28,7 @@ export class UserCardStyleManager {
 	}
 
 	static getRootClass(className?: string): string {
-		return cn(
+		return mergeClassNames(
 			'c-user-card flex items-center bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)]',
 			className
 		);
@@ -40,7 +39,7 @@ export class UserCardStyleManager {
 	}
 
 	static getAvatarClass(avatarSize: string, className?: string): string {
-		return cn(`${avatarSize} rounded-full object-cover`, className);
+		return mergeClassNames(`${avatarSize} rounded-full object-cover`, className);
 	}
 
 	static getAvatarPlaceholderClass(avatarSize: string): string {
@@ -61,7 +60,7 @@ export class UserCardStyleManager {
 	}
 
 	static getContentClass(className?: string): string {
-		return cn('flex-1 min-w-0', className);
+		return mergeClassNames('flex-1 min-w-0', className);
 	}
 
 	static getNameContainerClass(): string {
@@ -81,11 +80,10 @@ export class UserCardStyleManager {
 	}
 
 	static getActionsContainerClass(className?: string): string {
-		return cn('ml-4', className);
+		return mergeClassNames('ml-4', className);
 	}
 
 	static getMoreButtonClass(): string {
 		return 'text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]';
 	}
 }
-

@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
 	import { createIconPickerState } from '$stylist/information/function/state';
-	import { IconPickerStyleManager } from '$stylist/information/class/style-manager/icon-picker';
-	import type { ThemeIconPickerRecipe } from '$stylist/information/interface/recipe/icon-picker';
+	import { IconPickerStyleManager } from '$stylist/media/class/style-manager/icon-picker';
+	import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
 
 	let props: ThemeIconPickerRecipe = $props();
 	const state = createIconPickerState(props);

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { BreadcrumbLinkStyleManager, ConfirmationDialogStyleManager, DialogControlsStyleManager, LinkStyleManager, PaginationStyleManager, SidebarStyleManager } from './style-manager';
+export { BreadcrumbLinkStyleManager, ConfirmationDialogStyleManager, DialogControlsStyleManager, GraphToolbarStyleManager, LinkStyleManager, PaginationStyleManager, SidebarStyleManager } from './style-manager';

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene/presenter-scene-contract';
+	import type { PresenterSceneContract } from '$stylist/architecture/type/struct/presenter-scene';
 	import { PresenterSceneStyleManager } from '$stylist/architecture/class/style-manager/presenter-scene';
-	import { createPresenterSceneState } from '$stylist/architecture/function/state/presenter-scene/create-presenter-scene-state.svelte';
+	import { createPresenterSceneState } from '$stylist/architecture/function/state/presenter-scene';
 	import PresenterNodeShell from '$stylist/architecture/svelte/molecule/canvas/presenter-node-shell/index.svelte';
 
 	const contract: PresenterSceneContract = $props();

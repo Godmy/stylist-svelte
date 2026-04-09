@@ -1,16 +1,21 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AlertCardRecipe } from './alert-card';
-export type { AlertCardAction } from './alert-card';
-export type { ArticleCardAction, ArticleCardRecipe } from './article-card';
+export type { AlertCardAction } from './alert-card-action';
+export type { ArticleCardRecipe } from './article-card';
+export type { ArticleCardAction } from './article-card-action';
 export type { BaseCardRecipe } from './base-card';
 export type { CardWithImageRecipe } from './card-with-image';
 export type { CategoryCardRecipe } from './category-card';
-export type { ComparisonCardColumn, ComparisonCardItem, ComparisonCardRecipe } from './comparison-card';
+export type { ComparisonCardRecipe } from './comparison-card';
+export type { ComparisonCardColumn } from './comparison-card-column';
+export type { ComparisonCardItem } from './comparison-card-item';
 export type { DataDisplayCardRecipe } from './data-display-card';
 export type { ExpandableCardRecipe } from './expandable-card';
 export type { GraphNodeCardRecipe } from './graph-node-card';
 export type { LinkCardRecipe } from './link-card';
 export type { MetricCardRecipe } from './metric-card';
-export type { PostCardAction, PostCardRecipe } from './post-card';
+export type { PostCardRecipe } from './post-card';
+export type { PostCardAction } from './post-card-action';
 export type { ProductSearchRecipe } from './product-search';
+export type { ProductSortRecipe } from './product-sort';
 export type { WishlistButtonRecipe } from './wishlist-button';

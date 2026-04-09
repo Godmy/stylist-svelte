@@ -1,4 +1,4 @@
-import type { TokenTimeFormat } from '$stylist/information/type/enum/time-format';
+import type { TokenTimeFormat } from '$stylist/calendar/type/enum/time-format';
 
 export interface MessageTimestampProps {
   /**

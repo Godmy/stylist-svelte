@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 const Heart = 'heart';
 const Check = 'check';
 const X = 'x';
@@ -45,7 +45,7 @@ const CheckCircle = 'check-circle';
   }
 </script>
 
-<div class={cn(className)}>
+<div class={mergeClassNames(className)}>
   <button
     type="button"
     class={`inline-flex items-center px-3 py-2 border rounded-md ${inWishlist ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-600)] border-[var(--color-danger-200)]' : 'bg-[var(--color-background-primary)] border-[var(--color-border-primary)]'} ${buttonClass}`}

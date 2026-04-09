@@ -1,13 +1,21 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AiResultCardStyleManager } from './ai-result-card';
+export { CodeEditorStyleManager } from './code-editor-style-manager';
 export { GraphNodeCardStyleManager } from './graph-node-card';
+export { GraphvizDirectedEdgeStyleManager } from './graphviz-directed-edge-style-manager';
+export { Idef0StyleManager } from './idef0';
 export { LiteGraphNodeStyleManager } from './litegraph-node';
 export { ModelSelectorStyleManager } from './model-selector';
-export { CodeEditorStyleManager, GraphvizDirectedEdgeStyleManager, ProductSearchStyleManager, PropsEditorStyleManager, WishlistButtonStyleManager } from './molecules-migration';
+export { ProductSearchStyleManager } from './molecules-migration';
+export { NodeHeaderStyleManager } from './node-header';
+export { NodePropertiesPanelStyleManager } from './node-properties-panel';
 export { NodePropertyStyleManager } from './node-property';
 export { NodeTitleStyleManager } from './node-title';
 export { OntologyEdgeComponentStyleManager } from './ontology-edge-component';
 export { OntologyNodeComponentStyleManager } from './ontology-node-component';
+export { PortGroupStyleManager } from './port-group';
 export { PredictionResultStyleManager } from './prediction-result';
 export { PromptBuilderStyleManager } from './prompt-builder';
+export { PropsEditorStyleManager } from './props-editor-style-manager';
 export { SentimentAnalysisStyleManager } from './sentiment-analysis';
+export { WishlistButtonStyleManager } from './wishlist-button-style-manager';

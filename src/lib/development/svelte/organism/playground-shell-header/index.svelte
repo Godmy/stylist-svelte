@@ -12,7 +12,7 @@ const Sparkles = 'sparkles';
 const Pencil = 'pencil';
 const X = 'x';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
 

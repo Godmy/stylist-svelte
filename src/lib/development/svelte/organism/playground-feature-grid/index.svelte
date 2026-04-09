@@ -7,7 +7,7 @@ const Code = 'code';
 const Layers = 'layers';
 const Users = 'users';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type FeatureCard = {
     title: string;

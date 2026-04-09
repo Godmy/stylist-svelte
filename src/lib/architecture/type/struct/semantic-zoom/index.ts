@@ -1,4 +1,4 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/foundation-semantic-zoom-stages';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
 import type { TokenDensity } from '$stylist/layout/type/enum/density';
 import type { TokenShape } from '$stylist/layout/type/enum/shape';

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * TableSection — секция таблицы (thead/tbody/tfoot)..
  *
  * LEGO-состав:

@@ -4,7 +4,7 @@ const Package = 'package';
 const Layers = 'layers';
 const ArrowRight = 'arrow-right';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type Props = {
     totalComponents: number;

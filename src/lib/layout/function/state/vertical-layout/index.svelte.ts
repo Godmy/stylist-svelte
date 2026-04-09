@@ -1,5 +1,5 @@
 import { VerticalLayoutStyleManager } from '$stylist/layout/class/style-manager/vertical-layout';
-import type { VerticalLayoutProps } from '$stylist/layout/type/struct/layout-extended/layout-extended-props';
+import type { VerticalLayoutProps } from '$stylist/layout/type/struct/layout-extended';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenSize } from '$stylist/layout/type/enum/size';

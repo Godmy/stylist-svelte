@@ -1,2 +1,5 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ViewportContract } from './viewport-contract';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+
+export type ViewportContract = ArchitectureHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+};

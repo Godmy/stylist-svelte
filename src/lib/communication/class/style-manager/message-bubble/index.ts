@@ -8,7 +8,7 @@
  * - Single Responsibility: Only handles styling logic for MessageBubble
  */
 
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
@@ -50,7 +50,7 @@ export class MessageBubbleStyleManager {
    */
   static getContainerClasses(align: TokenAlignment = 'left', className?: string): string {
     const normalizedAlign = this.normalizeAlign(align);
-    return cn(
+    return mergeClassNames(
       'message-bubble-container flex',
       normalizedAlign === 'right' ? 'justify-end ml-auto' : 'justify-start mr-auto',
       className
@@ -65,7 +65,7 @@ export class MessageBubbleStyleManager {
    */
   static getWrapperClasses(align: TokenAlignment = 'left', variant: TokenAppearance = 'primary'): string {
     const normalizedAlign = this.normalizeAlign(align);
-    return cn(
+    return mergeClassNames(
       'message-bubble-wrapper relative max-w-xs p-4',
       variant === 'secondary'
         ? MESSAGE_BUBBLE_WRAPPER_VARIANTS.secondary

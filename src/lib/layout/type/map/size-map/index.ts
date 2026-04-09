@@ -1,8 +1,2 @@
-import type { TokenSize } from '$stylist/layout/type/enum/size';
-export type GraphPortSizeMapDimensions = {
-	width: number;
-	height: number;
-	hoverArea: number;
-};
-
-export type RecordSizeMap = Record<TokenSize, GraphPortSizeMapDimensions>;
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GraphPortSizeMapDimensions } from './graph-port-size-map-dimensions';

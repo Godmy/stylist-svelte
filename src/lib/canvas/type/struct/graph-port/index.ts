@@ -1,12 +1,3 @@
-import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
-
-export type GraphPortDataTypeColor = Record<TokenPropertyType, string>;
-
-export interface GraphPortStateColor {
-	default: string;
-	connected: string;
-	hovered: string;
-	active: string;
-	error: string;
-	selected: string;
-}
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GraphPortDataTypeColor } from './graph-port-data-type-color';
+export type { GraphPortStateColor } from './graph-port-state-color';

@@ -1,0 +1,28 @@
+{
+  "domainName": "geo",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\geo\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\geo\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_MAP_TYPE",
+      "values": [
+        "roadmap",
+        "satellite",
+        "terrain",
+        "hybrid"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\geo\\const\\enum\\map-type\\index.ts",
+      "relativePath": "map-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PIN",
+      "values": [
+        "person",
+        "place",
+        "business"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\geo\\const\\enum\\pin\\struct\\index.ts",
+      "relativePath": "pin\\struct\\index.ts"
+    }
+  ]
+}

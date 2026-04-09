@@ -1,8 +1,8 @@
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
-import type { FaviconProps } from '$stylist/media/interface/component/image/other';
+import type { FaviconContract } from '$stylist/media/interface/component/favicon/contract';
 
 
-export function createFaviconState(props: FaviconProps) {
+export function createFaviconState(props: FaviconContract) {
 	const size = $derived(props.size ?? 16);
 	const url = $derived(props.url);
 	const faviconUrl = $derived(MediaStyleManager.getFaviconUrl(url));
@@ -33,18 +33,3 @@ export function createFaviconState(props: FaviconProps) {
 }
 
 export default createFaviconState;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

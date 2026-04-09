@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { GraphNodeProps } from '$stylist/information/interface/recipe/graph';
+	import type { GraphNodeRecipe } from '$stylist/science/interface/recipe/graph-node';
 	import { createGraphNodeState } from '$stylist/canvas/function/state/graph-node';
 
-	type CanvasGraphNodeProps = GraphNodeProps & {
+	type CanvasGraphNodeProps = GraphNodeRecipe & {
 		id: string;
 		label?: string;
 		type?: string;

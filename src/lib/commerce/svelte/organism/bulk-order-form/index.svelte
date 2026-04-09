@@ -23,7 +23,7 @@ const Download = 'download';
 const ImageIcon = 'image';
 
   import { Button } from '$stylist';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
   import { BulkOrderFormModel } from '$stylist/commerce/function/state/bulk-order-form';
   import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form';
   import { BulkOrderFormStyleManager } from '$stylist/commerce/class/style-manager/bulk-order-form';
@@ -117,7 +117,7 @@ const ImageIcon = 'image';
   let total = $derived(model.calculateTotal(products));
 </script>
 
-<div class={cn(BulkOrderFormStyleManager.getContainerClasses(hostClass), hostClass)} {...restProps}>
+<div class={mergeClassNames(BulkOrderFormStyleManager.getContainerClasses(hostClass), hostClass)} {...restProps}>
   <div class={BulkOrderFormStyleManager.getHeaderClasses(headerClass)}>
     <div class="flex items-center">
       <BaseIcon name={Package} class="h-6 w-6 text-[--color-primary-600] mr-2" />
@@ -225,7 +225,7 @@ const ImageIcon = 'image';
           {#each model.items as item}
             {@const product = products.find(p => p.id === item.productId)}
             {#if product}
-              <div class={cn(BulkOrderFormStyleManager.getItemContainerClasses(itemClass), itemClass)}>
+              <div class={mergeClassNames(BulkOrderFormStyleManager.getItemContainerClasses(itemClass), itemClass)}>
                 <div class={BulkOrderFormStyleManager.getItemImageAreaClasses()}>
                   {#if product.thumbnail}
                     <img
@@ -324,7 +324,7 @@ const ImageIcon = 'image';
     {/if}
 
     <!-- Actions -->
-    <div class={cn(BulkOrderFormStyleManager.getActionsAreaClasses(actionsClass), actionsClass)}>
+    <div class={mergeClassNames(BulkOrderFormStyleManager.getActionsAreaClasses(actionsClass), actionsClass)}>
       <Button variant="outline">
         Save Draft
       </Button>

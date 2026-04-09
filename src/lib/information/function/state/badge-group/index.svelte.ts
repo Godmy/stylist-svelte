@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import type { BadgeGroupRecipe } from '$stylist/information/interface/recipe/badge-group';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import type { BadgeGroupRecipe } from '$stylist/typography/interface/recipe/badge-group';
 
 /**
  * BadgeGroup state creator
@@ -15,9 +15,9 @@ export function createBadgeGroupState(props: BadgeGroupRecipe) {
 	const showOverflow = $derived(props.showOverflow ?? true);
 	const badgeClass = $derived(props.badgeClass ?? '');
 	const overflowClass = $derived(props.overflowClass ?? '');
-	const containerClasses = $derived(mergeClasses('flex flex-wrap items-center gap-2', className));
+	const containerClasses = $derived(joinClassNames('flex flex-wrap items-center gap-2', className));
 	const overflowClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'inline-flex items-center rounded-full text-xs font-medium bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)] px-2.5 py-0.5',
 			overflowClass
 		)

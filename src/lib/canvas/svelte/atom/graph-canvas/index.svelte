@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { GraphCanvasContract } from '$stylist/canvas/type/struct/graph-canvas/graph-canvas-contract';
+	import type { GraphCanvasContract } from '$stylist/canvas/type/struct/graph-canvas';
 	import { GraphCanvasStyleManager } from '$stylist/canvas/class/style-manager/graph-canvas';
 	import { createGraphCanvasState } from '$stylist/canvas/function/state/graph-canvas';
 	import { DEFAULT_GRAPH_CANVAS } from '$stylist/information/const/struct/graph-canvas';

@@ -9,7 +9,7 @@ const ExternalLink = 'external-link';
 const Package = 'package';
 const Terminal = 'terminal';
 
-  import { generateCode } from '$stylist/development/function/script/build-component-preview-code';
+  import { buildComponentPreviewCode } from '$stylist/development/function/script/build-component-preview-code';
 
   interface Props {
     componentName?: string;
@@ -22,7 +22,7 @@ const Terminal = 'terminal';
   let copySuccess = $state(false);
   let npmCopySuccess = $state(false);
 
-  const currentCode = $derived(generateCode({ componentName, svelteCode, props }));
+  const currentCode = $derived(buildComponentPreviewCode({ componentName, svelteCode, props }));
 
   async function copyCode() {
     try {

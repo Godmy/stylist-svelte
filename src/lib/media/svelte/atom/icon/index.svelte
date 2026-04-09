@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { TokenShape } from '$stylist/layout/type/enum/shape';
 	import Svg from '../svg/index.svelte';
-	import { IconStyleManager } from '$stylist';
+	import { IconStyleManager } from '$stylist/media/class/style-manager/icons';
 
 	export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
 	export type IconDirection = 'up' | 'down' | 'left' | 'right';
@@ -176,4 +176,3 @@ import type { TokenShape } from '$stylist/layout/type/enum/shape';
 		</span>
 	</span>
 {/if}
-

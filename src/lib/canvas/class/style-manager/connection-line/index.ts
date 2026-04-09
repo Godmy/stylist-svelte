@@ -1,10 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export interface ConnectionPathResult {
-  path: string;
-  length: number;
-  midPoint: { x: number; y: number };
-  angle: number;
-}
+import type { ConnectionPathResult } from '$stylist/canvas/class/style-manager/connection-line-path-result';
 
 export class ConnectionLineStyleManager {
   static getBaseLineClasses(className?: string): string {

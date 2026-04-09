@@ -1,11 +1,11 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import type { TokenJustification } from '$stylist/layout/type/enum/justification';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { StackedLayoutDirection } from '$stylist/layout/class/style-manager/stacked-layout-direction';
+import type { StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout-gap';
+import type { StackedLayoutAlignItems } from '$stylist/layout/class/style-manager/stacked-layout-align-items';
+import type { StackedLayoutJustifyContent } from '$stylist/layout/class/style-manager/stacked-layout-justify-content';
 
-export type StackedLayoutDirection = 'vertical' | 'horizontal';
-export type StackedLayoutGap = 'none' | 'sm' | 'md' | 'lg' | 'xl';
-export type StackedLayoutAlignItems = 'start' | 'center' | 'end' | 'stretch';
-export type StackedLayoutJustifyContent = 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
+export type { StackedLayoutDirection } from '$stylist/layout/class/style-manager/stacked-layout-direction';
+export type { StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout-gap';
 
 export class StackedLayoutStyleManager {
 	static getDirectionClass(direction: StackedLayoutDirection): string {
@@ -49,7 +49,7 @@ export class StackedLayoutStyleManager {
 		justifyContent: StackedLayoutJustifyContent,
 		className?: string
 	): string {
-		return cn(
+		return mergeClassNames(
 			'flex',
 			this.getDirectionClass(direction),
 			this.getGapClass(gap),
@@ -59,4 +59,3 @@ export class StackedLayoutStyleManager {
 		);
 	}
 }
-

@@ -1,11 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface FocusableStyleManagerOptions {
-	focusEffect?: boolean;
-	isFocused?: boolean;
-	disabled?: boolean;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { FocusableStyleManagerOptions } from '$stylist/interaction/class/style-manager/focusable-style-manager-options';
 
 export class FocusableStyleManager {
 	private static readonly BASE = 'transition-all duration-100 ease-in-out';
@@ -17,7 +11,7 @@ export class FocusableStyleManager {
 	 * Базовые классы для focusable элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -46,14 +40,14 @@ export class FocusableStyleManager {
 		} = options;
 
 		if (disabled) {
-			return cn(this.BASE, this.DISABLED, className);
+			return mergeClassNames(this.BASE, this.DISABLED, className);
 		}
 
 		if (isFocused) {
-			return cn(this.BASE, this.FOCUSED, className);
+			return mergeClassNames(this.BASE, this.FOCUSED, className);
 		}
 
-		return cn(
+		return mergeClassNames(
 			this.BASE,
 			focusEffect ? this.FOCUS_EFFECT : '',
 			className

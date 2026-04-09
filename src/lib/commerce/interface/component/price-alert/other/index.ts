@@ -1,8 +1,7 @@
-import type { Snippet } from 'svelte';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+﻿import type { Snippet } from 'svelte';
+import type { InformationHTMLAttributes, Props } from '$stylist/information/type/struct';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenMonitoringType } from '$stylist/analytics/type/enum/monitoring-type';
-import type { Props } from '$stylist/information/type/struct/common';
+import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 
 export interface IPriceAlertElementProps extends Omit<Props, 'variant' | 'size' | 'onclick' | 'class'>, Omit<InformationHTMLAttributes<HTMLDivElement>, 'variant' | 'size' | 'onclick'> {
   class?: string;

@@ -1,0 +1,23 @@
+{
+  "domainName": "file",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\file\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\file\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_FILE_ICON",
+      "values": [
+        "attachment-preview",
+        "download-card",
+        "drag-drop-file-upload",
+        "file-browser",
+        "file-input",
+        "file-list-item",
+        "file-upload",
+        "upload",
+        "upload-progress"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\file\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    }
+  ]
+}

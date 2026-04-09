@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Idef0FunctionBoxRecipe as Idef0FunctionBoxProps } from '$stylist/information/interface/recipe/idef0-function-box';
+	import type { Idef0FunctionBoxRecipe as Idef0FunctionBoxProps } from '$stylist/science/interface/recipe/idef0-function-box';
 	import { createIdef0FunctionBoxState } from '$stylist/information/function/state/idef0';
 
 	let props: Idef0FunctionBoxProps = $props();

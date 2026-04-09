@@ -4,7 +4,7 @@
   import { GraphNodeCardStyleManager } from '$stylist/science/class/style-manager/graph-node-card';
   import type { GraphNodeCardRecipe } from '$stylist';
 
-  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item';
+  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
 
   // Props
   type GraphNodeCardData = GraphNodeCardRecipe & {

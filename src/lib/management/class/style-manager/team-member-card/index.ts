@@ -1,24 +1,14 @@
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
-
-const TEAM_MEMBER_CARD_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: '',
-	compact: 'p-2',
-	screen: 'p-8',
-	icon: 'ring-2 ring-[var(--color-primary-500)] shadow-lg scale-[1.02] border-[var(--color-primary-300)]'
-};
-
-
-
-
+import { TEAM_MEMBER_CARD_VARIANT_CLASSES } from '$stylist/management/const/record/team-member-card-variant-classes';
 
 export class TeamMemberCardStyleManager {
 	static getBaseClasses(
 		variant: TierContent = 'detailed',
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'team-member-card overflow-hidden',
 			CardStyleManager.getBaseClasses(),
 			TEAM_MEMBER_CARD_VARIANT_CLASSES[variant] ?? TEAM_MEMBER_CARD_VARIANT_CLASSES.detailed,
@@ -86,5 +76,4 @@ export class TeamMemberCardStyleManager {
 		return 'mt-1 text-xs text-[var(--color-text-secondary)]';
 	}
 }
-
 

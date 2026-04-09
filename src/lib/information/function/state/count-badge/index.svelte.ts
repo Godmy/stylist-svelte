@@ -1,4 +1,4 @@
-import type { CountBadgeRecipe } from '$stylist/information/interface/recipe/count-badge';
+import type { CountBadgeRecipe } from '$stylist/typography/interface/recipe/count-badge';
 import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
 
 /**

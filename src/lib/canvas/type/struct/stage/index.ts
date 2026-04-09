@@ -1,2 +1,5 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { StageContract } from './stage-contract';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+
+export type StageContract = ArchitectureHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+};

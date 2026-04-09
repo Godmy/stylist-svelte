@@ -2,7 +2,7 @@
 	import Story from '$stylist/interaction/playground/Story.svelte';
 	import PresenterNodeShell from './index.svelte';
 	import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
-	import type { SceneCamera } from '$stylist/architecture/type/struct/camera';
+	import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
 	import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 
 	const camera: SceneCamera = {

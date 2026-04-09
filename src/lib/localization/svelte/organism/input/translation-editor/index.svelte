@@ -7,7 +7,7 @@ const Save = 'save';
 const Trash2 = 'trash-2';
 const Upload = 'upload';
 
-  import type { TranslatableText } from '$stylist/input/type/struct/interaction-input';
+  import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 
   interface ExtendedTranslationEditorProps {

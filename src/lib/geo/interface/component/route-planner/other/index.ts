@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export interface IRoutePlannerLocation {
 	id: string;

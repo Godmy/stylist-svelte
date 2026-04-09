@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class ScrumBacklogStyleManager {
@@ -27,7 +27,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getAddFormContainerClass(): string {
-    return cn(
+    return mergeClassNames(
       'add-form mb-4 border border-[var(--color-border-primary)] p-4 shadow-md',
       CardStyleManager.getBaseClasses()
     );
@@ -62,7 +62,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getFiltersContainerClass(): string {
-    return cn(
+    return mergeClassNames(
       'filters mb-4 border border-[var(--color-border-primary)] p-4 shadow-sm',
       CardStyleManager.getBaseClasses()
     );
@@ -97,7 +97,7 @@ export class ScrumBacklogStyleManager {
   }
 
   static getItemCardClass(): string {
-    return cn(
+    return mergeClassNames(
       'relative border border-[var(--color-border-primary)] p-4 shadow-sm',
       CardStyleManager.getBaseClasses()
     );

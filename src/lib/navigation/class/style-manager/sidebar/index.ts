@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Style manager for the Sidebar component
@@ -6,7 +6,7 @@ import { cn } from '$stylist/layout/function/script/merge-class-names';
  */
 export class SidebarStyleManager {
   static getHostClasses(baseClass: string = ''): string {
-    return cn('c-sidebar flex', baseClass);
+    return mergeClassNames('c-sidebar flex', baseClass);
   }
 
   static getMobileButtonClasses(): string {
@@ -18,7 +18,7 @@ export class SidebarStyleManager {
   }
 
   static getSidebarClasses(isMobile: boolean, isSidebarOpen: boolean, width: string, mobileWidth: string): string {
-    return cn(
+    return mergeClassNames(
       'fixed left-0 top-0 z-[var(--z-index-overlay)] h-screen bg-[--color-background-primary] shadow-[--shadow-lg] transition-[transform,margin] duration-[var(--duration-300)] ease-in-out lg:sticky',
       isMobile
         ? isSidebarOpen
@@ -40,7 +40,7 @@ export class SidebarStyleManager {
   }
 
   static getHeaderClasses(customClass: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'flex items-center border-b border-[--color-border-primary] p-[--spacing-4]',
       customClass
     );
@@ -51,14 +51,14 @@ export class SidebarStyleManager {
   }
 
   static getTitleClasses(customClass: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'text-[--text-size-xl] font-[--font-weight-semibold] text-[--color-text-primary]',
       customClass
     );
   }
 
   static getNavClasses(customClass: string = ''): string {
-    return cn('flex-1 overflow-y-auto py-[--spacing-4]', customClass);
+    return mergeClassNames('flex-1 overflow-y-auto py-[--spacing-4]', customClass);
   }
 
   static getNavListClasses(): string {
@@ -66,7 +66,7 @@ export class SidebarStyleManager {
   }
 
   static getNavItemClasses(isActive: boolean, isDisabled: boolean, customClass: string = '', activeClass: string = '', disabledClass: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'flex items-center rounded-[--radius-lg] p-[--spacing-3] transition-colors',
       isActive
         ? activeClass || 'border-r-[--border-width-2] border-[--color-border-primary] bg-[--color-primary-50] text-[--color-text-primary]'
@@ -91,7 +91,7 @@ export class SidebarStyleManager {
   }
 
   static getFooterClasses(customClass: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'mt-auto border-t border-[--color-border-primary] p-[--spacing-4]',
       customClass
     );

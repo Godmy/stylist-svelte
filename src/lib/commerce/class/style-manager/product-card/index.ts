@@ -1,32 +1,12 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import { PRODUCT_CARD_CONTAINER_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-container-variant-classes';
+import { PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-image-container-variant-classes';
+import { PRODUCT_CARD_CONTENT_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-content-variant-classes';
+import { PRODUCT_CARD_TITLE_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-title-variant-classes';
+import { PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-description-variant-classes';
 
-const PRODUCT_CARD_CONTAINER_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: 'max-w-sm shadow-md',
-	compact: 'max-w-xs shadow-sm',
-	screen: 'max-w-sm shadow-md'
-};
-const PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: 'relative',
-	compact: 'relative h-32 w-full',
-	screen: 'relative'
-};
-const PRODUCT_CARD_CONTENT_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: 'flex flex-1 flex-col p-4',
-	compact: 'p-3',
-	screen: 'flex flex-1 flex-col p-4'
-};
-const PRODUCT_CARD_TITLE_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]',
-	compact: 'mb-1 truncate text-base font-semibold text-[var(--color-text-primary)]',
-	screen: 'mb-1 text-lg font-semibold text-[var(--color-text-primary)]'
-};
-const PRODUCT_CARD_DESCRIPTION_VARIANT_CLASSES: Partial<Record<TierContent, string>> = {
-	detailed: 'mb-2 text-sm text-[var(--color-text-secondary)]',
-	compact: 'hidden',
-	screen: 'mb-2 flex-1 text-sm text-[var(--color-text-secondary)]'
-};
 const PRODUCT_CARD_BADGE_BASE_CLASSES = 'absolute left-2 top-2 rounded-md px-2 py-1 text-xs font-medium shadow-sm';
 const PRODUCT_CARD_BADGE_SALE_CLASSES = 'bg-[var(--color-danger-500)] text-[var(--color-text-inverse)]';
 const PRODUCT_CARD_BADGE_NEW_CLASSES = 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]';
@@ -37,7 +17,7 @@ const PRODUCT_CARD_STAR_EMPTY_CLASSES = 'fill-[var(--color-neutral-300)]';
 
 export class ProductCardStyleManager {
 	static getContainerClass(extraClasses = '', variant: TierContent = 'detailed'): string {
-		return cn(
+		return mergeClassNames(
 			'c-product-card border border-[var(--color-border-primary)]',
 			CardStyleManager.getBaseClasses(),
 			PRODUCT_CARD_CONTAINER_VARIANT_CLASSES[variant] ?? PRODUCT_CARD_CONTAINER_VARIANT_CLASSES.detailed,
@@ -58,7 +38,7 @@ export class ProductCardStyleManager {
 	}
 
 	static getBadgeClass(badgeTypeClass = ''): string {
-		return cn(PRODUCT_CARD_BADGE_BASE_CLASSES, badgeTypeClass);
+		return mergeClassNames(PRODUCT_CARD_BADGE_BASE_CLASSES, badgeTypeClass);
 	}
 
 	static getSaleBadgeClass(): string {
@@ -110,7 +90,7 @@ export class ProductCardStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return cn('h-4 w-4', isFilled ? PRODUCT_CARD_STAR_FILLED_CLASSES : PRODUCT_CARD_STAR_EMPTY_CLASSES);
+		return mergeClassNames('h-4 w-4', isFilled ? PRODUCT_CARD_STAR_FILLED_CLASSES : PRODUCT_CARD_STAR_EMPTY_CLASSES);
 	}
 
 	static getReviewCountClass(): string {
@@ -129,6 +109,4 @@ export class ProductCardStyleManager {
 		return 'ml-3 flex items-center gap-2';
 	}
 }
-
-
 

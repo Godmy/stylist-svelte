@@ -1,11 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface RichTextEditorStyleManagerOptions {
-	class?: string;
-	toolbarClass?: string;
-	editorClass?: string;
-	isFocused?: boolean;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { RichTextEditorStyleManagerOptions } from '$stylist/input/class/style-manager/rich-text-editor-style-manager-options';
 
 export class RichTextEditorStyleManager {
 	private static readonly BASE_ROOT = 'border border-[var(--color-border-primary)] rounded-lg overflow-hidden';
@@ -22,20 +16,20 @@ export class RichTextEditorStyleManager {
 	private static readonly BASE_DROPDOWN_ICON = 'h-4 w-4 mr-2';
 
 	static getRootClass(className?: string): string {
-		return cn(this.BASE_ROOT, className);
+		return mergeClassNames(this.BASE_ROOT, className);
 	}
 
 	static getToolbarClass(className?: string): string {
-		return cn(this.BASE_TOOLBAR, className);
+		return mergeClassNames(this.BASE_TOOLBAR, className);
 	}
 
 	static getEditorClass(className?: string, isFocused?: boolean): string {
 		const focusClass = isFocused ? 'ring-0' : '';
-		return cn(this.BASE_EDITOR, focusClass, className);
+		return mergeClassNames(this.BASE_EDITOR, focusClass, className);
 	}
 
 	static getButtonClass(className?: string): string {
-		return cn(this.BASE_BUTTON, className);
+		return mergeClassNames(this.BASE_BUTTON, className);
 	}
 
 	static getDividerClass(): string {

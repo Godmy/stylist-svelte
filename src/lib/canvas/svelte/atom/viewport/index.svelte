@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ViewportContract } from '$stylist/canvas/type/struct/viewport/viewport-contract';
+	import type { ViewportContract } from '$stylist/canvas/type/struct/viewport';
 	import { ViewportStyleManager } from '$stylist/canvas/class/style-manager/viewport';
 	import Stage from '$stylist/canvas/svelte/atom/stage/index.svelte';
 	import Grid from '$stylist/layout/svelte/atom/grid/index.svelte';

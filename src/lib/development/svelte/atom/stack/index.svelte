@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StackProps } from '$stylist/layout/type/struct/stack/stack-props';
+	import type { StackProps } from '$stylist/layout/type/struct/stack';
 	import { createStackState } from '$stylist/layout/function/state/stack';
 
 	let props: StackProps = $props();

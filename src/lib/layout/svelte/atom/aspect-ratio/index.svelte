@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AspectRatioProps } from '$stylist/layout/type/struct/aspect-ratio/aspect-ratio-props';
+	import type { AspectRatioProps } from '$stylist/layout/type/struct/aspect-ratio';
 	import { createAspectRatioState } from '$stylist/layout/function/state/aspect-ratio';
 
 	let props: AspectRatioProps = $props();

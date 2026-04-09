@@ -1,4 +1,4 @@
-import type { PresenterSceneLink } from '$stylist/architecture/type/struct/presenter-scene/presenter-scene';
+import type { PresenterSceneLink } from '$stylist/architecture/type/struct/presenter-scene-link';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 
 export function resolvePresenterSceneLinks(nodes: readonly SceneNode[]): PresenterSceneLink[] {
@@ -19,8 +19,4 @@ export function resolvePresenterSceneLinks(nodes: readonly SceneNode[]): Present
 	}
 
 	return links;
-}
-
-export function projectSceneCoordinate(value: number, offset: number, zoom: number): number {
-	return (value - offset) * zoom;
 }

@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
 export type AvatarUserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';

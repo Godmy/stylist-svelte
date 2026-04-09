@@ -1,4 +1,4 @@
-import type { CalendarEvent } from '$stylist/calendar/type/struct/time-grid/event';
+import type { CalendarEventTimeGrid as CalendarEvent } from '$stylist/calendar/type/struct';
 
 // TimeGrid props interface
 export interface ITimeGridProps {

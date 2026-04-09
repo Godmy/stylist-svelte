@@ -1,6 +1,6 @@
 import type { TokenDensity } from '$stylist/layout/type/enum/density';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/information/type/struct/common';
+import type { HtmlAttributesBase, HtmlAttributesWithChildren } from '$stylist/information/type/struct';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 
 export interface User {

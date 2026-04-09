@@ -1,8 +1,8 @@
-import type { GraphNodeProps } from '$stylist/information/interface/recipe/graph';
+import type { GraphNodeRecipe } from '$stylist/science/interface/recipe/graph-node';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { GraphStyleManager } from '$stylist/canvas/class/style-manager/graph';
 
-export function createGraphNodeState(props: GraphNodeProps) {
+export function createGraphNodeState(props: GraphNodeRecipe) {
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const color = $derived(props.color ?? 'var(--color-primary-500)');
 	const selected = $derived(Boolean(props.selected));

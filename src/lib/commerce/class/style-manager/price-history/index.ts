@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class PriceHistoryStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-price-history border border-[var(--color-border-primary)] p-4 shadow-sm',
       CardStyleManager.getBaseClasses(),
       extraClasses

@@ -1,5 +1,5 @@
-import type { GraphPortRecipe as GraphPortProps } from '$stylist/information/interface/recipe/graph-port';
-import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port';
+import type { GraphPortRecipe as GraphPortProps } from '$stylist/science/interface/recipe/graph-port';
+import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port/graph-port-data-type-color';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { GraphPortStyleManager } from '$stylist/canvas/class/style-manager/graph-port';
 

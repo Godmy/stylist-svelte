@@ -37,5 +37,3 @@ export function createAriaAttributes(options: {
 
 	return attributes;
 }
-
-export const generateAriaAttributes = createAriaAttributes;

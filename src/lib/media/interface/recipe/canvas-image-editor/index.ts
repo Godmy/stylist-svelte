@@ -1,4 +1,4 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { Snippet } from 'svelte';
 
 export interface CanvasImageEditorRecipe {

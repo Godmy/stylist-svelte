@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class AbbrStyleManager {
 	static getAbbrClasses(className = ''): string {
-		return cn('abbr', className);
+		return mergeClassNames('abbr', className);
 	}
 }
 

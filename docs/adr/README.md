@@ -1,43 +1,35 @@
-﻿# ADR Index (Отсортировано по Важности)
+# ADR Index
 
-Этот индекс отражает только архитектурные решения, проверенные на соответствие текущей кодовой базе.
+Архитектурные решения разделены на две ветви.
 
-## Критичность A (платформенные решения)
-1. `0001-use-svelte-5-runes.md` — реактивная модель проекта.
-2. `0002-use-tailwind-css.md` — базовая стратегия стилизации.
-3. `0003-component-architecture.md` — общая таксономия компонентов.
-4. `0005-design-system-contracts.md` — контракты и типы через design-system.
+---
 
-## Критичность B (архитектура разработки и интеграции)
-1. `0004-playground-system.md` — встроенная playground-платформа.
-2. `0006-playground-story-architecture.md` — co-located stories.
-3. `0009-package-manager-yarn.md` — стандарт управления зависимостями.
+## Ветвь 1 — Технические решения
 
-## Критичность C (доменные специализированные решения)
-1. `0007-form-handling-architecture.md` — архитектура form-handling.
-2. `0008-table-component-architecture.md` — композиционная архитектура таблиц.
+Выбор инструментов и технологий проекта.  
+Расположение: `technical/`
 
-## Что было вынесено из ADR
-Документы с прикладными инструкциями, миграционными заметками и troubleshooting перенесены в:
-- `docs/cookbooks/adr-moved/`
+| Файл | Решение |
+|------|---------|
+| [0001-use-svelte-5-runes.md](./technical/0001-use-svelte-5-runes.md) | Svelte 5 Runes как реактивный слой |
+| [0002-use-tailwind-css.md](./technical/0002-use-tailwind-css.md) | Tailwind CSS как базовый слой стилизации |
+| [0003-co-located-stories.md](./technical/0003-co-located-stories.md) | `*.story.svelte` рядом с компонентами |
+| [0004-package-manager-yarn.md](./technical/0004-package-manager-yarn.md) | Yarn 4 как стандарт управления пакетами |
 
-Перенесены файлы:
-- `0006-tailwind-postcss-implementation.md`
-- `0008-new-atoms-switch-radio-slider.md`
-- `0008-slot-usage-guidelines.md`
-- `0008-utility-functions-implementation.md`
-- `0009-new-molecules-suite.md`
-- `0011-error-types-and-solutions.md`
-- `0012-component-library-error-fixes.md`
-- `0012-error-types-and-solutions.md`
-- `0013-story-svelte-formatting-guidelines.md`
+---
 
-## Принцип разделения
-- `docs/adr` — только долгоживущие архитектурные решения.
-- `docs/cookbooks` — практические рецепты, миграционные шаги, гайдлайны и устранение ошибок.
+## Ветвь 2 — Методологические решения
 
-## Принцип структуры компонентов
-Для компонентной архитектуры действует фиксированный порядок:
-1. Atomic Design деление (`atoms` -> `molecules` -> `organisms`).
-2. Функциональная таксономия внутри уровня (`architecture` -> `information` -> `interaction`).
-3. Доменная кластеризация внутри функциональной таксономии (`controls`, `chat`, `media` и т.п.).
+Архитектурные принципы организации исходного кода.  
+Расположение: `methodology/`
+
+| Файл | Решение |
+|------|---------|
+| [0001-domain-cluster-joint-family.md](./methodology/0001-domain-cluster-joint-family.md) | Таксономия домен / кластер / соединение / семейство |
+
+---
+
+## Связанные документы
+
+- Книга рецептов аудита: [`docs/cookbook/`](../cookbook/)
+- Скрипт аудита: [`stylist/audit/cli.py`](../../stylist/audit/cli.py)

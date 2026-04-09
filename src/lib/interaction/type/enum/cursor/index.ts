@@ -1,4 +1,4 @@
-import { TOKEN_CURSOR } from '$stylist/interaction/const/enum/cursor';
+import { TOKEN_CURSOR } from '$stylist/interaction/const/map/cursor';
 
 /**
  * Тип токена курсора

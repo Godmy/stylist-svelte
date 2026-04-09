@@ -1,4 +1,5 @@
-import type { SceneCamera, SceneCameraInput } from '$stylist/architecture/type/struct/camera';
+import type { SceneCamera } from '$stylist/architecture/type/struct/scene-camera';
+import type { SceneCameraInput } from '$stylist/architecture/type/struct/camera-input';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 
 const DEFAULT_CAMERA: SceneCamera = {
@@ -10,7 +11,7 @@ const DEFAULT_CAMERA: SceneCamera = {
 	viewportHeight: 720
 };
 
-function useCamera(initialCamera: SceneCameraInput = {}) {
+export function useCamera(initialCamera: SceneCameraInput = {}) {
 	let camera = $state<SceneCamera>({
 		...DEFAULT_CAMERA,
 		...initialCamera
@@ -89,6 +90,5 @@ function useCamera(initialCamera: SceneCameraInput = {}) {
 	};
 }
 
-export { useCamera };
 export default useCamera;
 

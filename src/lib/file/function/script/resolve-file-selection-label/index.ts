@@ -5,5 +5,3 @@ export function resolveFileSelectionLabel(value: File | File[] | null | undefine
 	}
 	return value.name || '';
 }
-
-export const getFileSelectionLabel = resolveFileSelectionLabel;

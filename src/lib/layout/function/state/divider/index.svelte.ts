@@ -1,5 +1,5 @@
 import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
-import type { DividerProps } from '$stylist/layout/type/struct/divider/divider-props';
+import type { DividerProps } from '$stylist/layout/type/struct/divider';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 

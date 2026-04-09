@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 /**
- * SVG Registry Generator - РЎРѓР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р Р†РЎРѓР ВµРЎвЂ¦ SVG Р С‘Р С”Р С•Р Р…Р С•Р С”
+ * SVG Registry Generator - генерирует const и type enum для иконок по доменам
  *
- * Р ВРЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°Р Р…Р С‘Р Вµ:
+ * Использование:
  *   npx tsx scripts/svg/index.ts
+ *
+ * Для каждого домена в src/lib/{domain}/data/svg/
+ * создаёт:
+ *   - {domain}/const/enum/icon/index.ts
+ *   - {domain}/type/enum/icon/index.ts
  */
 
 import fs from 'fs';
@@ -12,210 +17,148 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const SVG_DIR = path.join(ROOT_DIR, 'src/lib/svg');
-const JSON_DIR = path.join(ROOT_DIR, 'src/lib/json/core');
-const ICONS_DIR = path.join(ROOT_DIR, 'src/lib/svg/icons');
+const LIB_DIR = path.resolve(ROOT_DIR, 'src/lib');
 
 /**
- * Р С™Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘РЎРЏ Р С‘Р С”Р С•Р Р…Р С”Р С‘
+ * Получить все домены в src/lib (папки, содержащие data/svg)
  */
-type IconCategory = 'architecture' | 'information' | 'interaction';
+function getDomainsWithSvg(): string[] {
+  const entries = fs.readdirSync(LIB_DIR, { withFileTypes: true });
+  const domains: string[] = [];
 
-/**
- * Р ВР Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓ Р В·Р В°Р С—Р С‘РЎРѓР С‘ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В° Р С‘Р С”Р С•Р Р…Р С•Р С”
- */
-interface IconEntry {
-  name: string;
-  category: IconCategory;
-  path: string;
-  fullPath: string;
-}
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    if (entry.name === 'json') continue;
 
-/**
- * Р ВР Р…РЎвЂљР ВµРЎР‚РЎвЂћР ВµР в„–РЎРѓ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В° Р С‘Р С”Р С•Р Р…Р С•Р С”
- */
-interface IconRegistry {
-  $schema: string;
-  generated: string;
-  total: number;
-  categories: {
-    architecture: IconEntry[];
-    information: IconEntry[];
-    interaction: IconEntry[];
-  };
-  byName: Record<string, IconEntry>;
-}
-
-/**
- * Р РЋР С”Р В°Р Р…Р С‘РЎР‚РЎС“Р ВµРЎвЂљ Р С—Р В°Р С—Р С”РЎС“ РЎРѓ Р С‘Р С”Р С•Р Р…Р С”Р В°Р СР С‘ Р С‘ Р Р†Р С•Р В·Р Р†РЎР‚Р В°РЎвЂ°Р В°Р ВµРЎвЂљ РЎРѓР С—Р С‘РЎРѓР С•Р С” Р С‘Р СРЎвЂР Р… РЎвЂћР В°Р в„–Р В»Р С•Р Р†
- */
-function scanIconFolder(folderPath: string): string[] {
-  if (!fs.existsSync(folderPath)) {
-    return [];
+    const svgDir = path.join(LIB_DIR, entry.name, 'data', 'svg');
+    if (fs.existsSync(svgDir)) {
+      domains.push(entry.name);
+    }
   }
-  
-  const files = fs.readdirSync(folderPath);
-  return files
-    .filter(file => file.endsWith('.svg'))
-    .map(file => file.replace('.svg', ''))
+
+  return domains.sort();
+}
+
+/**
+ * Получить список SVG файлов из директории (имена без расширения)
+ */
+function getSvgNames(svgDir: string): string[] {
+  if (!fs.existsSync(svgDir)) return [];
+
+  return fs
+    .readdirSync(svgDir)
+    .filter((file) => file.endsWith('.svg'))
+    .map((file) => file.replace(/\.svg$/, ''))
     .sort();
 }
 
 /**
- * Р РЋР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ Р С•РЎвЂљР Р…Р С•РЎРѓР С‘РЎвЂљР ВµР В»РЎРЉР Р…РЎвЂ№Р в„– Р С—РЎС“РЎвЂљРЎРЉ Р С” Р С‘Р С”Р С•Р Р…Р С”Р Вµ
+ * Конвертировать имя домена в UPPER_SNAKE_CASE
+ * information -> INFORMATION
  */
-function createIconPath(name: string, category: IconCategory): string {
-  return `./${category}/${name}.svg`;
+function toDomainUpper(domain: string): string {
+  return domain.replace(/([a-z])([A-Z])/g, '$1_$2').toUpperCase();
 }
 
 /**
- * Р РЋР С•Р В·Р Т‘Р В°РЎвЂРЎвЂљ Р С—Р С•Р В»Р Р…РЎвЂ№Р в„– Р С—РЎС“РЎвЂљРЎРЉ Р С” Р С‘Р С”Р С•Р Р…Р С”Р Вµ
+ * Конвертировать имя домена в PascalCase
+ * information -> Information
  */
-function createFullIconPath(name: string, category: IconCategory): string {
-  return `stylist-svelte/src/lib/svg/${category}/${name}.svg`;
+function toDomainPascal(domain: string): string {
+  return domain.charAt(0).toUpperCase() + domain.slice(1);
 }
 
 /**
- * Р вЂњР ВµР Р…Р ВµРЎР‚Р С‘РЎР‚РЎС“Р ВµРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р С‘Р С”Р С•Р Р…Р С•Р С”
+ * Сгенерировать const/enum/icon/index.ts
  */
-function generateIconRegistry(): IconRegistry {
-  const categories: IconCategory[] = ['architecture', 'information', 'interaction'];
-  
-  const registry: IconRegistry = {
-    $schema: 'https://stylist-svelte.dev/schema/icon-registry.json',
-    generated: new Date().toISOString(),
-    total: 0,
-    categories: {
-      architecture: [],
-      information: [],
-      interaction: []
-    },
-    byName: {}
-  };
+function generateConstEnum(domain: string, iconNames: string[]): string {
+  const constName = `TOKEN_${toDomainUpper(domain)}_ICON`;
+  const items = iconNames.map((name) => `\t'${name}'`).join(',\n');
 
-  for (const category of categories) {
-    const folderPath = path.join(SVG_DIR, category);
-    const iconNames = scanIconFolder(folderPath);
-
-    for (const name of iconNames) {
-      const entry: IconEntry = {
-        name,
-        category,
-        path: createIconPath(name, category),
-        fullPath: createFullIconPath(name, category)
-      };
-
-      registry.categories[category].push(entry);
-      registry.byName[name] = entry;
-    }
-  }
-
-  registry.total = Object.values(registry.byName).length;
-
-  return registry;
-}
-
-/**
- * Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏР ВµРЎвЂљ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚ Р С‘Р С”Р С•Р Р…Р С•Р С” Р Р† JSON РЎвЂћР В°Р в„–Р В»
- */
-function saveIconRegistry(registry: IconRegistry): void {
-  if (!fs.existsSync(JSON_DIR)) {
-    fs.mkdirSync(JSON_DIR, { recursive: true });
-  }
-
-  const registryPath = path.join(JSON_DIR, 'icon-registry.json');
-  fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2), 'utf-8');
-  console.log(`[svg-registry] Icon registry saved to: ${registryPath}`);
-}
-
-/**
- * Р вЂњР ВµР Р…Р ВµРЎР‚Р С‘РЎР‚РЎС“Р ВµРЎвЂљ TypeScript РЎвЂћР В°Р в„–Р В» РЎРѓ Р С”Р С•Р Р…РЎРѓРЎвЂљР В°Р Р…РЎвЂљР В°Р СР С‘ Р С‘Р С”Р С•Р Р…Р С•Р С”
- */
-function generateTypeScriptRegistry(registry: IconRegistry): void {
-  if (!fs.existsSync(ICONS_DIR)) {
-    fs.mkdirSync(ICONS_DIR, { recursive: true });
-  }
-
-  const tsPath = path.join(ICONS_DIR, 'icon-registry.ts');
-  
-  let content = `/**
- * Auto-generated icon registry
- * Generated at: ${new Date().toISOString()}
- * Do not edit manually - run 'npx tsx scripts/svg/index.ts' to regenerate
- */
-
-export interface IconEntry {
-  name: string;
-  category: 'architecture' | 'information' | 'interaction';
-  path: string;
-  fullPath: string;
-}
-
-export const ICON_REGISTRY = ${JSON.stringify(registry, null, 2)} as const;
-
-export type IconCategory = 'architecture' | 'information' | 'interaction';
-
-export type IconName = ${Object.keys(registry.byName).map(name => `'${name}'`).join(' | ')};
-
-export const ICONS_BY_CATEGORY = {
-  architecture: ${JSON.stringify(registry.categories.architecture.map(i => i.name), null, 2)},
-  information: ${JSON.stringify(registry.categories.information.map(i => i.name), null, 2)},
-  interaction: ${JSON.stringify(registry.categories.interaction.map(i => i.name), null, 2)}
-} as const;
-
-export const ICONS_TOTAL = ${registry.total};
-
-export function getIconPath(name: IconName): string {
-  return ICON_REGISTRY.byName[name]?.path ?? '';
-}
-
-export function getIconCategory(name: IconName): IconCategory | undefined {
-  return ICON_REGISTRY.byName[name]?.category;
-}
-
-export function listIconsByCategory(category: IconCategory): string[] {
-  return ICON_REGISTRY.categories[category].map(i => i.name);
-}
-
-export function hasIcon(name: string): name is IconName {
-  return name in ICON_REGISTRY.byName;
-}
+  return `export const ${constName} = [
+${items}
+] as const;
 `;
-
-  fs.writeFileSync(tsPath, content, 'utf-8');
-  console.log(`[svg-registry] TypeScript registry saved to: ${tsPath}`);
 }
 
 /**
- * Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљ РЎРѓРЎвЂљР В°РЎвЂљР С‘РЎРѓРЎвЂљР С‘Р С”РЎС“ РЎР‚Р ВµР ВµРЎРѓРЎвЂљРЎР‚Р В°
+ * Сгенерировать type/enum/icon/index.ts
  */
-function printRegistryStats(registry: IconRegistry): void {
-  console.log('\n[svg-registry] Icon Registry Statistics:');
-  console.log('='.repeat(50));
-  console.log(`Total icons: ${registry.total}`);
-  console.log(`  - Architecture: ${registry.categories.architecture.length}`);
-  console.log(`  - Information: ${registry.categories.information.length}`);
-  console.log(`  - Interaction: ${registry.categories.interaction.length}`);
-  console.log('='.repeat(50));
+function generateTypeEnum(domain: string): string {
+  const constName = `TOKEN_${toDomainUpper(domain)}_ICON`;
+  const typeName = `Token${toDomainPascal(domain)}Icon`;
+  const importPath = `$stylist/${domain}/const/enum/icon`;
+
+  return `import { ${constName} } from '${importPath}';
+
+export type ${typeName} = (typeof ${constName})[number];
+`;
 }
 
+
 /**
- * Р вЂњР В»Р В°Р Р†Р Р…Р В°РЎРЏ РЎвЂћРЎС“Р Р…Р С”РЎвЂ Р С‘РЎРЏ
+ * Основная функция
  */
 async function main(): Promise<void> {
-  console.log('='.repeat(50));
-  console.log('[svg-registry] Generating icon registry...');
-  console.log('='.repeat(50));
+  console.log('='.repeat(60));
+  console.log('[svg-registry] Generating icon enums per domain...');
+  console.log('='.repeat(60));
 
-  const registry = generateIconRegistry();
-  saveIconRegistry(registry);
-  generateTypeScriptRegistry(registry);
-  printRegistryStats(registry);
+  const domains = getDomainsWithSvg();
 
-  console.log('\n[svg-registry] Done!');
+  if (domains.length === 0) {
+    console.log('[svg-registry] No domains with data/svg found.');
+    return;
+  }
+
+  console.log(`\nFound ${domains.length} domain(s) with data/svg:`);
+  for (const domain of domains) {
+    console.log(`  - ${domain}`);
+  }
+
+  let totalIcons = 0;
+
+  for (const domain of domains) {
+    const svgDir = path.join(LIB_DIR, domain, 'data', 'svg');
+    const iconNames = getSvgNames(svgDir);
+    totalIcons += iconNames.length;
+
+    // 1. const/enum/icon/index.ts
+    const constDir = path.join(LIB_DIR, domain, 'const', 'enum', 'icon');
+    fs.mkdirSync(constDir, { recursive: true });
+    const constPath = path.join(constDir, 'index.ts');
+    fs.writeFileSync(constPath, generateConstEnum(domain, iconNames), 'utf-8');
+    console.log(`  [const] ${domain} -> ${constPath}`);
+
+    // 2. type/enum/icon/index.ts
+    const typeDir = path.join(LIB_DIR, domain, 'type', 'enum', 'icon');
+    fs.mkdirSync(typeDir, { recursive: true });
+    const typePath = path.join(typeDir, 'index.ts');
+    fs.writeFileSync(typePath, generateTypeEnum(domain), 'utf-8');
+    console.log(`  [type ] ${domain} -> ${typePath}`);
+
+    // Удаляем data/svg/index.ts если есть
+    const svgIndexPath = path.join(svgDir, 'index.ts');
+    if (fs.existsSync(svgIndexPath)) {
+      fs.unlinkSync(svgIndexPath);
+      console.log(`  [del  ] removed ${svgIndexPath}`);
+    }
+
+    // Удаляем старый icon-registry.ts если есть
+    const oldRegistry = path.join(svgDir, 'icon-registry.ts');
+    if (fs.existsSync(oldRegistry)) {
+      fs.unlinkSync(oldRegistry);
+      console.log(`  [del  ] removed ${oldRegistry}`);
+    }
+
+    console.log('');
+  }
+
+  console.log('='.repeat(60));
+  console.log(`[svg-registry] Done! Total: ${totalIcons} icon(s) across ${domains.length} domain(s)`);
+  console.log('='.repeat(60));
 }
 
 main().catch(console.error);
 
 export { main as runSvgRegistryGenerator };
-

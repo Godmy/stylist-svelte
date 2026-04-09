@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import CommentSystem from './index.svelte';
   import type { CommentItem, CommentUser } from '$stylist/social/interface/component/comment-system/other';
 

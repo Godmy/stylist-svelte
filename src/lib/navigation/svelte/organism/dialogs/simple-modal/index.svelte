@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { SimpleModalProps } from '$stylist/feedback/interface/component/interaction-feedback/other';
-  import { InteractionFeedbackStyleManager } from '$stylist/feedback/class/style-manager/interaction-feedback';
+  import type { SimpleModalProps } from '$stylist/notification/interface/component/interaction-feedback/other';
+  import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
   let { open=true, title='Simple Modal', class: className='', onClose, ...restProps }: SimpleModalProps = $props();
 </script>
 {#if open}

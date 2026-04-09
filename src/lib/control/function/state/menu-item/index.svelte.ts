@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { MenuItemProps } from '$stylist/control/interface/component/menu-item/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createMenuItemState(props: MenuItemProps) {
   // Initialize props with defaults
@@ -28,7 +28,7 @@ export function createMenuItemState(props: MenuItemProps) {
   };
 
   const styles = {
-    container: mergeClasses(
+    container: joinClassNames(
       'inline-flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors',
       variantClasses[variant] ?? variantClasses.default,
       disabled ? 'pointer-events-none opacity-[var(--opacity-50)]' : ''
@@ -38,7 +38,7 @@ export function createMenuItemState(props: MenuItemProps) {
   // Merge classes with custom classes
   const containerClasses = derived(
     [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   return {

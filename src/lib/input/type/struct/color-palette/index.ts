@@ -1,10 +1,10 @@
-import type { HTMLAttributes } from 'svelte/elements';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { ColorItem } from './color-item';
 
-export interface ColorItem {
-	name: string;
-	value: string;
-	category?: string;
-}
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
+
+import type { HTMLAttributes } from 'svelte/elements';
+import type { ColorItem } from '$stylist/input/type/struct/color-palette-color-item';
 
 export interface ColorPaletteProps extends HTMLAttributes<HTMLDivElement> {
 	colors: ColorItem[];

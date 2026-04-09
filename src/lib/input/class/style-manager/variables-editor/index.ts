@@ -1,9 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface VariablesEditorStyleManagerOptions {
-	class?: string;
-	height?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { VariablesEditorStyleManagerOptions } from '$stylist/input/class/style-manager/variables-editor-style-manager-options';
 
 export class VariablesEditorStyleManager {
 	private static readonly BASE_ROOT = 'variables-editor border border-[var(--color-border-primary)] rounded-md dark:border-[var(--color-border-primary)] bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)] overflow-hidden';
@@ -17,7 +13,7 @@ export class VariablesEditorStyleManager {
 	private static readonly BASE_ICON = 'h-8 w-8 mx-auto mb-1';
 
 	static getRootClass(className?: string): string {
-		return cn(this.BASE_ROOT, className);
+		return mergeClassNames(this.BASE_ROOT, className);
 	}
 
 	static getToolbarClass(): string {
@@ -30,7 +26,7 @@ export class VariablesEditorStyleManager {
 
 	static getTextareaClass(isValid?: boolean): string {
 		const invalidClass = isValid === false ? this.BASE_TEXTAREA_INVALID : '';
-		return cn(this.BASE_TEXTAREA, invalidClass);
+		return mergeClassNames(this.BASE_TEXTAREA, invalidClass);
 	}
 
 	static getPlaceholderClasses(): string {

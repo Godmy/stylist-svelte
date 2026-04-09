@@ -2,7 +2,7 @@ import type {
 	GraphCanvasRecipe as GraphCanvasProps,
 	GraphCanvasViewport,
 	GraphCanvasPosition
-} from '$stylist/information/interface/recipe/graph-canvas';
+} from '$stylist/science/interface/recipe/graph-canvas';
 import { DEFAULT_GRAPH_CANVAS } from '$stylist/information/const/struct/graph-canvas';
 import { GraphCanvasStyleManager } from '$stylist/canvas/class/style-manager/graph-canvas';
 

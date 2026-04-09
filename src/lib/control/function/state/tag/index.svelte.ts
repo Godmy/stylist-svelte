@@ -1,4 +1,4 @@
-import type { TagRecipe } from '$stylist/information/interface/recipe/tag';
+import type { TagRecipe } from '$stylist/typography/interface/recipe/tag';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { TagStyleManager } from '$stylist/control/class/style-manager/tag';
 

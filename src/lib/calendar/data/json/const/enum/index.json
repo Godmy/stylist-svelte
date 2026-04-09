@@ -1,0 +1,18 @@
+{
+  "domainName": "calendar",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\calendar\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\calendar\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_CALENDAR_ICON",
+      "values": [
+        "calendar-view",
+        "event-calendar",
+        "schedule-calendar",
+        "time-grid"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\calendar\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    }
+  ]
+}

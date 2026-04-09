@@ -1,164 +1,78 @@
-import { UserCardStyleManager, type UserCardSize, type UserStatus } from '$stylist/commerce/class/style-manager/user-card';
+import type { ArchitectureHTMLAttributes } from '$stylist/architecture/type/struct/item';
 import type { Snippet } from 'svelte';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+
+export type TokenUserCardSize = 'sm' | 'md' | 'lg';
 
 export interface User {
 	id: string;
 	name: string;
 	email?: string;
 	avatar?: string;
+	role?: string;
 	title?: string;
-	status?: UserStatus;
 	actions?: Snippet;
-	metadata?: Record<string, any>;
 }
 
-export interface UserCardProps extends InformationHTMLAttributes<HTMLDivElement> {
-	user: User;
-	showAvatar?: boolean;
+export type UserCardProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
+	user?: User;
+	size?: TokenUserCardSize;
 	showEmail?: boolean;
-	showTitle?: boolean;
-	showStatus?: boolean;
-	showActions?: boolean;
-	size?: UserCardSize;
-	class?: string;
-	avatarClass?: string;
-	contentClass?: string;
-	statusClass?: string;
-	actionsClass?: string;
-}
+	showRole?: boolean;
+};
 
 export function createUserCardState(props: UserCardProps) {
-	const showAvatar = $derived(props.showAvatar ?? true);
+	const size = $derived(props.size ?? 'md');
 	const showEmail = $derived(props.showEmail ?? true);
-	const showTitle = $derived(props.showTitle ?? true);
-	const showStatus = $derived(props.showStatus ?? true);
-	const showActions = $derived(props.showActions ?? false);
-	const size = $derived<UserCardSize>(props.size ?? 'md');
+	const showRole = $derived(props.showRole ?? true);
+	const showAvatar = $derived(!!props.user?.avatar || !!props.user?.name);
+	const hasAvatar = $derived(!!props.user?.avatar);
+	const avatarInitial = $derived(props.user?.name?.charAt(0)?.toUpperCase() ?? '?');
 
-	const sizeClasses = $derived(UserCardStyleManager.getSizeClasses(size));
-	const rootClass = $derived(UserCardStyleManager.getRootClass(props.class));
-	const avatarContainerClass = $derived(UserCardStyleManager.getAvatarContainerClass());
-	const avatarClass = $derived(
-		UserCardStyleManager.getAvatarClass(sizeClasses.avatarSize, props.avatarClass)
+	const rootClass = $derived(
+		`user-card user-card-${size} ${props.class ?? ''}`.trim()
 	);
-	const avatarPlaceholderClass = $derived(
-		UserCardStyleManager.getAvatarPlaceholderClass(sizeClasses.avatarSize)
-	);
-	const avatarInitialsClass = $derived(UserCardStyleManager.getAvatarInitialsClass());
-	const contentClass = $derived(UserCardStyleManager.getContentClass(props.contentClass));
-	const nameContainerClass = $derived(UserCardStyleManager.getNameContainerClass());
-	const nameClass = $derived(UserCardStyleManager.getNameClass(sizeClasses.textSize));
-	const titleClass = $derived(UserCardStyleManager.getTitleClass(sizeClasses.textSize));
-	const emailClass = $derived(UserCardStyleManager.getEmailClass(sizeClasses.textSize));
-	const actionsContainerClass = $derived(
-		UserCardStyleManager.getActionsContainerClass(props.actionsClass)
-	);
-	const moreButtonClass = $derived(UserCardStyleManager.getMoreButtonClass());
-
-	const statusIndicatorClass = $derived.by(() => {
-		if (!props.user.status || !showStatus) return '';
-		return UserCardStyleManager.getStatusIndicatorClass(props.user.status);
-	});
-
-	const hasAvatar = $derived(!!props.user.avatar);
-	const hasActions = $derived(!!props.user.actions);
-	const avatarInitial = $derived(
-		props.user.name ? props.user.name.charAt(0).toUpperCase() : '?'
-	);
-
 	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			user: _user,
-			showAvatar: _showAvatar,
-			showEmail: _showEmail,
-			showTitle: _showTitle,
-			showStatus: _showStatus,
-			showActions: _showActions,
-			size: _size,
-			avatarClass: _avatarClass,
-			contentClass: _contentClass,
-			statusClass: _statusClass,
-			actionsClass: _actionsClass,
-			...rest
-		} = props;
+		const { class: _class, size: _size, showEmail: _showEmail, showRole: _showRole, user: _user, ...rest } = props;
 		return rest;
 	});
+	const avatarContainerClass = $derived('user-card__avatar-container relative');
+	const avatarClass = $derived('user-card__avatar w-full h-full object-cover rounded-full');
+	const avatarPlaceholderClass = $derived('user-card__avatar-placeholder w-full h-full bg-[var(--color-background-tertiary)] rounded-full flex items-center justify-center');
+	const avatarInitialsClass = $derived('user-card__avatar-initials text-lg font-semibold text-[var(--color-text-secondary)]');
+	const statusIndicatorClass = $derived('user-card__status-indicator absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[var(--color-background-primary)] rounded-full');
+	const contentClass = $derived('user-card__content flex-1');
+	const nameContainerClass = $derived('user-card__name-container flex items-center justify-between');
+	const nameClass = $derived('user-card__name font-semibold text-lg');
+	const titleClass = $derived('user-card__title text-sm text-[var(--color-text-secondary)]');
+	const emailClass = $derived('user-card__email text-sm text-[var(--color-text-secondary)]');
+	const actionsContainerClass = $derived('user-card__actions flex items-center');
+	const moreButtonClass = $derived('user-card__more-button p-1 hover:bg-[var(--color-background-secondary)] rounded');
+	const showActions = $derived(!!props.user?.actions || true);
+	const showTitle = $derived(true);
 
 	return {
-		get showAvatar() {
-			return showAvatar;
-		},
-		get showEmail() {
-			return showEmail;
-		},
-		get showTitle() {
-			return showTitle;
-		},
-		get showStatus() {
-			return showStatus;
-		},
-		get showActions() {
-			return showActions;
-		},
-		get size() {
-			return size;
-		},
-		get sizeClasses() {
-			return sizeClasses;
-		},
-		get rootClass() {
-			return rootClass;
-		},
-		get avatarContainerClass() {
-			return avatarContainerClass;
-		},
-		get avatarClass() {
-			return avatarClass;
-		},
-		get avatarPlaceholderClass() {
-			return avatarPlaceholderClass;
-		},
-		get avatarInitialsClass() {
-			return avatarInitialsClass;
-		},
-		get statusIndicatorClass() {
-			return statusIndicatorClass;
-		},
-		get contentClass() {
-			return contentClass;
-		},
-		get nameContainerClass() {
-			return nameContainerClass;
-		},
-		get nameClass() {
-			return nameClass;
-		},
-		get titleClass() {
-			return titleClass;
-		},
-		get emailClass() {
-			return emailClass;
-		},
-		get actionsContainerClass() {
-			return actionsContainerClass;
-		},
-		get moreButtonClass() {
-			return moreButtonClass;
-		},
-		get hasAvatar() {
-			return hasAvatar;
-		},
-		get hasActions() {
-			return hasActions;
-		},
-		get avatarInitial() {
-			return avatarInitial;
-		},
-		get restProps() {
-			return restProps;
-		}
+		get size() { return size; },
+		get showEmail() { return showEmail; },
+		get showRole() { return showRole; },
+		get showAvatar() { return showAvatar; },
+		get hasAvatar() { return hasAvatar; },
+		get avatarInitial() { return avatarInitial; },
+		get rootClass() { return rootClass; },
+		get restProps() { return restProps; },
+		get avatarContainerClass() { return avatarContainerClass; },
+		get avatarClass() { return avatarClass; },
+		get avatarPlaceholderClass() { return avatarPlaceholderClass; },
+		get avatarInitialsClass() { return avatarInitialsClass; },
+		get statusIndicatorClass() { return statusIndicatorClass; },
+		get contentClass() { return contentClass; },
+		get nameContainerClass() { return nameContainerClass; },
+		get nameClass() { return nameClass; },
+		get titleClass() { return titleClass; },
+		get emailClass() { return emailClass; },
+		get actionsContainerClass() { return actionsContainerClass; },
+		get moreButtonClass() { return moreButtonClass; },
+		get showActions() { return showActions; },
+		get showTitle() { return showTitle; }
 	};
 }
 

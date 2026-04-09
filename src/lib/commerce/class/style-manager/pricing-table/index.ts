@@ -1,13 +1,13 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class PricingTableStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    return cn('c-pricing-table grid grid-cols-1 gap-6 md:grid-cols-3', extraClasses);
+    return mergeClassNames('c-pricing-table grid grid-cols-1 gap-6 md:grid-cols-3', extraClasses);
   }
 
   static getPlanCardClass(highlightClass: string = ''): string {
-    return cn(CardStyleManager.getBaseClasses(), 'border border-[var(--color-border-primary)] p-6', highlightClass);
+    return mergeClassNames(CardStyleManager.getBaseClasses(), 'border border-[var(--color-border-primary)] p-6', highlightClass);
   }
 
   static getDefaultPlanClass(): string {
@@ -51,7 +51,7 @@ export class PricingTableStyleManager {
   }
 
   static getCtaButtonClass(buttonTypeClass: string = ''): string {
-    return cn('w-full rounded-lg py-3 font-medium transition-colors', buttonTypeClass);
+    return mergeClassNames('w-full rounded-lg py-3 font-medium transition-colors', buttonTypeClass);
   }
 
   static getDefaultButtonClass(): string {

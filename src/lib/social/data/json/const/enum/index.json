@@ -1,0 +1,16 @@
+{
+  "domainName": "social",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\social\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\social\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_SOCIAL_ICON",
+      "values": [
+        "comments",
+        "social"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\social\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    }
+  ]
+}

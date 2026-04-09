@@ -27,5 +27,4 @@ export type { MessageListMessage, MessageListUser } from './message-list';
 export type { IMessageMetaProps, IMessageMetaStyleClasses } from './message-meta';
 export type { MessageThreadMessageData } from './message-thread';
 export type { MessageTimestampProps } from './message-timestamp';
-export type { NotificationCenterProps, NotificationItem, NotificationListProps, NotificationPreferencesData, NotificationPreferencesProps, ScheduledNotificationItem, ScheduledNotificationProps } from './notifications';
 export type { UserStatusUser } from './user-status';

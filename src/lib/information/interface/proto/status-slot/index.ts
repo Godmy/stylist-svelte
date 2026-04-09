@@ -1,6 +1,6 @@
 /** Слот состояния / статуса элемента */
-export type StatusSeverity = 'success' | 'warning' | 'danger' | 'info' | 'neutral';
-export type StatusState = 'idle' | 'active' | 'loading' | 'error' | 'success' | 'disabled';
+import type { StatusSeverity } from '$stylist/information/interface/proto/status-slot-severity';
+import type { StatusState } from '$stylist/information/interface/proto/status-slot-state';
 
 export interface IStatusSlot {
 	/** Строковый статус (для отображения) */

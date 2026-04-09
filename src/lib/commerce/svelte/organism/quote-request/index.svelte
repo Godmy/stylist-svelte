@@ -3,7 +3,7 @@
 const Plus = 'plus';
 const Trash2 = 'trash-2';
 
-  import type { QuoteRequestValue } from '$stylist/input/type/struct/interaction-input';
+  import type { QuoteRequestValue } from '$stylist/input/type/struct/interaction-input/quote-request-value';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 
   interface ExtendedQuoteRequestProps {

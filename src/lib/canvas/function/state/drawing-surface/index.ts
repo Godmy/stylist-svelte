@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDrawingSurfaceState } from './create-drawing-surface-state.svelte';
+export { default as createDrawingSurfaceState } from './index.svelte';

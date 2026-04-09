@@ -1,7 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { AIProvider, Message } from './chat-interface';
-export type { NotificationType } from './notification';
+export type { ChatPreviewProps } from './chat-preview';
+export type { NotificationData } from './notification';
+export type { NotificationSettingsData } from './notification-settings';
+export type { NotificationType } from './notification-type';
 export type { Chat, User } from './chat-header';
-export type { ChatPreviewItem, ChatPreviewMessage, ChatPreviewProps } from './chat-preview';
-export type { INotificationProps } from './notification';
-export type { INotificationSettingsPreference, INotificationSettingsProps } from './notification-settings';
+export type { ChatPreviewItem } from './chat-preview-item';
+export type { ChatPreviewMessage } from './chat-preview-message';
+export type { INotificationSettingsPreference } from './notification-settings-preference';

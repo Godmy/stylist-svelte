@@ -1,9 +1,9 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { Props } from '$stylist/information/type/struct/common';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { Props } from '$stylist/information/type/struct';
 import type { Preset } from '$stylist/interaction/type/struct/preset';
-import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
-import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import type { TokenMonitoringType } from '$stylist/analytics/type/enum/monitoring-type';
+import { buildPresetClassNames } from '$stylist/information/function/script/build-preset-class-names';
+import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
+import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 
 interface PriceAlertStateProps<V extends string, S extends string>
 	extends Omit<Props, 'variant' | 'size'> {
@@ -35,20 +35,20 @@ export function createPriceAlertState<V extends string, S extends string>(
   const disabled = $derived(props.disabled ?? preset.defaults.disabled);
 
   const classes = $derived(
-    buildClasses(preset, {
+    buildPresetClassNames(preset, {
       variant,
       size,
-      disabled,
+      disabled: typeof disabled === 'boolean' ? disabled : undefined,
       className: props.class ? String(props.class) : ''
     })
   );
 
-  const ariaLabel = $derived(computeAriaLabel(props.ariaLabel, props as Record<string, unknown>, ''));
+  const ariaLabel = $derived(resolveAriaLabel(typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined, props as Record<string, unknown>, ''));
 
   const attrs = $derived({
-    'aria-disabled': disabled,
+    'aria-disabled': typeof disabled === 'boolean' ? disabled : undefined,
     'aria-label': ariaLabel || undefined,
-    disabled
+    disabled: typeof disabled === 'boolean' ? disabled : undefined
   });
 
   // Использовать геттеры для избежания захвата начальных значений вне реактивного контекста

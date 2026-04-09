@@ -1,5 +1,4 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { RecordCommunicationMerge } from '$stylist/communication/type/record';
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 
 export interface ChatHeaderUser {

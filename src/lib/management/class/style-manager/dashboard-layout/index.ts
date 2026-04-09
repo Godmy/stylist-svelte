@@ -1,10 +1,10 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenDensity } from '$stylist/layout/type/enum/density';
 
 
 export class DashboardLayoutStyleManager {
   static getWrapperClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout',
       'flex',
       'h-screen',
@@ -14,7 +14,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getSidebarClasses(isOpen: boolean, collapsible: boolean, className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__sidebar',
       'hidden',
       'md:block',
@@ -34,7 +34,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getSidebarContentClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__sidebar-content',
       'flex-1',
       'overflow-y-auto',
@@ -44,7 +44,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getSidebarToggleClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__sidebar-toggle',
       'p-4',
       'flex',
@@ -54,7 +54,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getMainContentClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__main',
       'flex-1',
       'flex',
@@ -65,7 +65,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getHeaderClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__header',
       'bg-[--color-background-primary]',
       'shadow-sm',
@@ -82,7 +82,7 @@ export class DashboardLayoutStyleManager {
       spacious: 'p-6'
     };
 
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__content',
       'flex-1',
       'overflow-y-auto',
@@ -92,7 +92,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getFooterClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__footer',
       'bg-[--color-background-primary]',
       'border-t',
@@ -104,7 +104,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getMobileToggleClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__mobile-toggle',
       'md:hidden',
       'fixed',
@@ -116,7 +116,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getMobileOverlayClasses(isOpen: boolean, className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__mobile-overlay',
       'md:hidden',
       'fixed',
@@ -131,7 +131,7 @@ export class DashboardLayoutStyleManager {
   }
 
   static getMobileSidebarClasses(isOpen: boolean, className = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-dashboard-layout__mobile-sidebar',
       'md:hidden',
       'fixed',

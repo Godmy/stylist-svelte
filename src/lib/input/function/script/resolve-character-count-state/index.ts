@@ -3,5 +3,3 @@ export function resolveCharacterCountState(ratio: number): 'default' | 'warning'
 	if (ratio >= 0.8) return 'warning';
 	return 'default';
 }
-
-export const getCharacterCountState = resolveCharacterCountState;

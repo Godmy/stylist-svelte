@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import type { SeparatorProps } from '$stylist/layout/type/struct/separator/separator-props';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import type { SeparatorProps } from '$stylist/layout/type/struct/separator';
 import { clsx } from 'clsx';
 
 /**
@@ -13,7 +13,7 @@ export function createSeparatorState(props: SeparatorProps) {
 	const orientation = $derived(props.orientation ?? 'horizontal');
 	const decorative = $derived(props.decorative ?? false);
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			orientation === 'vertical'
 				? 'h-full border-l border-[var(--color-border-secondary)]'
 				: 'w-full border-t border-[var(--color-border-secondary)]',

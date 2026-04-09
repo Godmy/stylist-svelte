@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Minimap from './index.svelte';
-	import type { LiteGraphNodeProps } from '$stylist/information/interface/recipe/litegraph-node';
+	import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
 
 	const sampleNodes: LiteGraphNodeProps[] = [
 		{

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { createInputState as createBaseInputState } from '$stylist/interaction/preset/component/index';
+import { createInputState as createBaseInputState } from '$stylist/interaction/preset/component/index';
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
-import { getFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
+import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
 import type { HTMLInputAttributes } from 'svelte/elements';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 	import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
@@ -41,7 +41,7 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 	// Update internal value when prop value changes
 	$effect(() => {
 		internalValue = value ?? null;
-		fileName = getFileSelectionLabel(internalValue);
+		fileName = resolveFileSelectionLabel(internalValue);
 	});
 
 	// Handle file change

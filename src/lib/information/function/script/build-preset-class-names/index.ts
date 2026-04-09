@@ -27,5 +27,3 @@ export function buildPresetClassNames<V extends string, S extends string>(
 		.filter(Boolean)
 		.join(' ');
 }
-
-export const buildClasses = buildPresetClassNames;

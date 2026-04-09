@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class WidgetContainerStyleManager {
 	static getRootClass(isMaximized: boolean, className = ''): string {
-		return cn(
+		return mergeClassNames(
 			'bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden',
 			isMaximized && 'fixed inset-0 z-[var(--z-index-modal)]',
 			className
@@ -11,7 +11,7 @@ export class WidgetContainerStyleManager {
 	}
 
 	static getHeaderClass(className = ''): string {
-		return cn('flex items-center justify-between p-4 border-b', className);
+		return mergeClassNames('flex items-center justify-between p-4 border-b', className);
 	}
 
 	static getTitleGroupClass(): string {
@@ -43,7 +43,7 @@ export class WidgetContainerStyleManager {
 	}
 
 	static getBodyClass(className = ''): string {
-		return cn('p-4', className);
+		return mergeClassNames('p-4', className);
 	}
 }
 

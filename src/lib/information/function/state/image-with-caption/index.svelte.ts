@@ -1,8 +1,8 @@
-import type { ImageWithCaptionProps } from '$stylist/media/interface/component/image/other';
+import type { ImageWithCaptionContract } from '$stylist/media/interface/component/image-with-caption/contract';
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
 
-export function createImageWithCaptionState(props: ImageWithCaptionProps) {
+export function createImageWithCaptionState(props: ImageWithCaptionContract) {
 	const rounded = $derived(props.rounded ?? false);
 	const bordered = $derived(props.bordered ?? false);
 	const shadow = $derived(props.shadow ?? true);
@@ -38,19 +38,3 @@ export function createImageWithCaptionState(props: ImageWithCaptionProps) {
 }
 
 export default createImageWithCaptionState;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

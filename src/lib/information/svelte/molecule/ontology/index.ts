@@ -1,2 +1,0 @@
-// Placeholder - empty barrel
-export {};

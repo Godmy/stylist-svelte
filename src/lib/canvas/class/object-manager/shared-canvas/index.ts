@@ -1,9 +1,8 @@
 import {
 	SHARED_CANVAS_ACTION_ICONS,
-	SHARED_CANVAS_EXPORT_FILENAME,
 	SHARED_CANVAS_TOOL_DEFINITIONS
 } from '$stylist/canvas/const/struct/canvas';
-import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas';
+import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool-definition';
 import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
 
 export class ObjectManagerSharedCanvas {
@@ -12,7 +11,7 @@ export class ObjectManagerSharedCanvas {
 
 	static readonly actionIcons = SHARED_CANVAS_ACTION_ICONS;
 
-	static readonly exportFilename = SHARED_CANVAS_EXPORT_FILENAME;
+	static readonly exportFilename = 'shared-canvas.png';
 
 	static getRestProps(contract: SharedCanvasContract) {
 		const {

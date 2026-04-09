@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenTypographyIcon } from './enum';
+export type { TokenDocumentFormat, TokenKPI, TokenSoftwareBadge, TokenTypographyIcon } from './enum';
 export type { TokenFontFamily } from './map';
-export type { StructThemeTypography } from './struct';
+export type { RecordFontSize } from './record';
+export type { FontIntent, StructThemeTypography } from './struct';
+export type { TextInputBaseProps, TypographyTextProps } from './struct';

@@ -1,6 +1,6 @@
 import { DraggableStyleManager } from '$stylist/interaction/class/style-manager/draggable';
 import { ObjectManagerGesture } from '$stylist/interaction/class/object-manager/gesture';
-import type { DragProps } from '$stylist/interaction/interface/proto/draggable';
+import type { DragProps } from '$stylist/interaction/interface/proto/draggable-props';
 
 export const createDraggableState = (props: DragProps) => {
 	// State

@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { RadioProps } from '$stylist/control/interface/component/toggles';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 
@@ -12,13 +12,13 @@ export const createRadioState = (props: RadioProps) => {
 	const required = props.required ?? false;
 	const className = props.class ?? '';
 
-	const containerClasses = mergeClasses('flex items-center space-x-2', className);
-	const radioClasses = mergeClasses(
+	const containerClasses = joinClassNames('flex items-center space-x-2', className);
+	const radioClasses = joinClassNames(
 		'h-4 w-4 text-[--color-primary-500] focus:ring-[--color-primary-500]',
 		'border-[--color-border-primary] focus:ring-offset-0',
 		disabled ? StyleManagerState.classes.disabled : ''
 	);
-	const labelClasses = mergeClasses(
+	const labelClasses = joinClassNames(
 		'block text-sm font-medium leading-5',
 		disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
 	);

@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const PRODUCT_AVAILABILITY_STATUS_CLASSES = {
 	inStock: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
@@ -16,7 +16,7 @@ const PRODUCT_AVAILABILITY_BADGE_CLASSES = {
 
 export class ProductAvailabilityStyleManager {
   static getContainerClass(statusClass: string = '', extraClasses: string = ''): string {
-    return cn('c-product-availability rounded-lg border p-4', statusClass, extraClasses);
+    return mergeClassNames('c-product-availability rounded-lg border p-4', statusClass, extraClasses);
   }
 
   static getInStockClass(): string {
@@ -36,7 +36,7 @@ export class ProductAvailabilityStyleManager {
   }
 
   static getStatusBadgeClass(badgeTypeClass: string = ''): string {
-    return cn('rounded-full px-2 py-1 text-xs font-medium', badgeTypeClass);
+    return mergeClassNames('rounded-full px-2 py-1 text-xs font-medium', badgeTypeClass);
   }
 
   static getInStockBadgeClass(): string {

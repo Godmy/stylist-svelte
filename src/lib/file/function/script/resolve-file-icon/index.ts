@@ -12,5 +12,3 @@ export function resolveFileIcon(type: string): string {
 
 	return iconByType[type] || 'file';
 }
-
-export const getFileIcon = resolveFileIcon;

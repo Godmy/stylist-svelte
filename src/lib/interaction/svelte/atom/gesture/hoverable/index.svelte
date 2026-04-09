@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable';
+	import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable-props';
 	import { createHoverableState } from '$stylist/interaction/function/state/hoverable';
 
 	let props: HoverProps = $props();

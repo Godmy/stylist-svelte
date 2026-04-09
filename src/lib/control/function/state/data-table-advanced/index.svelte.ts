@@ -1,4 +1,4 @@
-import { DataTableAdvancedStyleManager } from '$stylist/control/class/style-manager/table-controls';
+import { DataTableAdvancedStyleManager } from '$stylist/control/class/style-manager/data-table-advanced-style-manager';
 import type {
 	AdvancedColumnDefinition,
 	DataTableAdvancedProps

@@ -1,0 +1,320 @@
+{
+  "domainName": "information",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_CODE_LANGUAGE",
+      "values": [
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "svelte",
+        "json",
+        "markdown",
+        "python",
+        "java",
+        "csharp",
+        "cpp",
+        "go",
+        "rust",
+        "sql",
+        "yaml",
+        "xml"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\code-language\\index.ts",
+      "relativePath": "code-language\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_CODE_VIEW",
+      "values": [
+        "default",
+        "terminal",
+        "diff"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\code-view\\index.ts",
+      "relativePath": "code-view\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_DIFF_TYPE",
+      "values": [
+        "added",
+        "removed",
+        "unchanged"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\diff-type\\index.ts",
+      "relativePath": "diff-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_DOCUMENT_FORMAT",
+      "values": [
+        "json",
+        "xml",
+        "text",
+        "html"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\document-format\\index.ts",
+      "relativePath": "document-format\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_INFORMATION_ICON",
+      "values": [
+        "abtest-configurator",
+        "active",
+        "agile",
+        "ai-organism",
+        "ai-result-card",
+        "alert-card",
+        "analytics-chart",
+        "animated-number",
+        "announcement-banner",
+        "archived",
+        "article-card",
+        "atom",
+        "atomic-principles-showcase",
+        "audio-player",
+        "audio-slider",
+        "audio-visualizer",
+        "avatar",
+        "avatar-group",
+        "badge",
+        "base-card",
+        "billing-summary",
+        "card-with-image",
+        "cart-summary",
+        "category-card",
+        "chart",
+        "charts-molecule",
+        "code-block-molecule",
+        "code-diff",
+        "code-editor-molecule",
+        "code-section",
+        "color-swatch",
+        "colors",
+        "comparison-card",
+        "component-library-stats",
+        "component-preview",
+        "conversion-funnel",
+        "country-flag",
+        "cta-banner",
+        "currency-converter",
+        "data-display-card",
+        "data-exporter",
+        "debug-console",
+        "densities",
+        "design-tokens-organism",
+        "development-error-boundary",
+        "diagram",
+        "diagrams-molecule",
+        "disabled",
+        "discount-applier",
+        "documentation-block",
+        "empty",
+        "error",
+        "expandable-card",
+        "favicon",
+        "geo-jsonviewer",
+        "gradients",
+        "graphviz-directed-edge",
+        "image",
+        "image-gallery",
+        "image-with-caption",
+        "info-status",
+        "information",
+        "inline-text",
+        "inventory-tracker",
+        "kanban",
+        "kanban-card",
+        "kpi-indicator",
+        "legend-item",
+        "lines",
+        "link-card",
+        "loading",
+        "map-marker-organism",
+        "map-with-markers",
+        "markers",
+        "media-library",
+        "message-bubble",
+        "message-composer",
+        "message-item",
+        "message-list",
+        "message-meta",
+        "message-status",
+        "message-thread",
+        "metric-card",
+        "molecule",
+        "npm-badge",
+        "number-flow",
+        "ontology-edge-component",
+        "ontology-node-component",
+        "operations-history",
+        "order-confirmation",
+        "order-history",
+        "order-tracking",
+        "organism",
+        "pending",
+        "permission-gate",
+        "popover",
+        "positions",
+        "post-card",
+        "prices",
+        "privacy-settings",
+        "process-step",
+        "product-card-extended",
+        "product-catalog",
+        "product-reviews",
+        "product-sorting",
+        "product-tour",
+        "products",
+        "promo-banner",
+        "resource-optimizer",
+        "return-policy",
+        "route-planner",
+        "shipping-calculator",
+        "shipping-info",
+        "skeletons",
+        "stat-card",
+        "stats-card",
+        "stepper",
+        "store-locator",
+        "subscription-manager",
+        "success",
+        "table",
+        "table-cells",
+        "tax-calculator",
+        "team-avatar-stack",
+        "team-member-card",
+        "test-results-viewer",
+        "text",
+        "text-block",
+        "text-element",
+        "traffic-analytics",
+        "typography",
+        "typography-indicator",
+        "upsell",
+        "user-behavior-metrics",
+        "user-card",
+        "variants",
+        "verdicts",
+        "video-player",
+        "warning",
+        "warranty-info"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PRIORITY",
+      "values": [
+        "low",
+        "medium",
+        "high",
+        "urgent",
+        "critical"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\priority\\index.ts",
+      "relativePath": "priority\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PROPERTY_TYPE",
+      "values": [
+        "string",
+        "number",
+        "boolean",
+        "enum",
+        "color",
+        "vector2",
+        "vector3",
+        "object",
+        "function",
+        "array",
+        "any",
+        "event",
+        "action"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\property-type\\index.ts",
+      "relativePath": "property-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SOFTWARE_BADGE",
+      "values": [
+        "version",
+        "downloads",
+        "license",
+        "size",
+        "custom"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\software-badge\\index.ts",
+      "relativePath": "software-badge\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_STATUS",
+      "values": [
+        "default",
+        "success",
+        "error",
+        "warning",
+        "info"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\status\\index.ts",
+      "relativePath": "status\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TABLE_CELL",
+      "values": [
+        "header",
+        "data"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\table-cell\\index.ts",
+      "relativePath": "table-cell\\index.ts"
+    },
+    {
+      "tokenName": "TIMESTAMP_FORMAT",
+      "values": [
+        "datetime",
+        "time",
+        "date"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\time-format\\timestamp-format\\index.ts",
+      "relativePath": "time-format\\timestamp-format\\index.ts"
+    },
+    {
+      "tokenName": "CALENDAR",
+      "values": [
+        "day",
+        "week",
+        "month"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\time-measure\\calendar-enum\\index.ts",
+      "relativePath": "time-measure\\calendar-enum\\index.ts"
+    },
+    {
+      "tokenName": "PERFORMANCE_RANGES",
+      "values": [
+        "1d",
+        "7d",
+        "30d",
+        "90d"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\time-range\\performance-ranges\\index.ts",
+      "relativePath": "time-range\\performance-ranges\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TOKEN_VALUE",
+      "values": [],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\token-value\\index.ts",
+      "relativePath": "token-value\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TREND",
+      "values": [
+        "up",
+        "down",
+        "neutral"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\information\\const\\enum\\trend\\index.ts",
+      "relativePath": "trend\\index.ts"
+    }
+  ]
+}

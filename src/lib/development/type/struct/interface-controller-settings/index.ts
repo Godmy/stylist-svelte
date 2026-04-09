@@ -1,2 +1,20 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { InterfaceControllerSettings } from './interface-controller-settings';
+export interface InterfaceControllerSettings {
+	name: string;
+	type:
+		| 'text'
+		| 'number'
+		| 'boolean'
+		| 'select'
+		| 'range'
+		| 'color'
+		| 'object'
+		| 'array'
+		| string;
+	label?: string;
+	description?: string;
+	defaultValue?: unknown;
+	options?: readonly unknown[];
+	min?: number;
+	max?: number;
+	step?: number;
+}

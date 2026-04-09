@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { ProductSearchRecipe } from '$stylist/commerce/interface/recipe/product-search';
   import { ProductSearchStyleManager } from '$stylist/commerce/class/style-manager/product-search';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
   let {
     placeholder = 'Search products...',
@@ -32,7 +32,7 @@
   }
 </script>
 
-<div class={cn(className)} {...restProps}>
+<div class={mergeClassNames(className)} {...restProps}>
   <div class="flex">
     <input
       type="text"

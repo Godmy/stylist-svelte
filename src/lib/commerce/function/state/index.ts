@@ -8,5 +8,6 @@ export { createPriceAlertState } from './price-alert';
 export { createProductCardState } from './product-card';
 export { createProductSortState } from './product-sort';
 export { createUserCardState } from './user-card';
+export type { TokenUserCardSize, UserCardProps } from './user-card';
 export type { ProductCardStateProps } from './product-card';
-export type { User, UserCardProps } from './user-card';
+export type { User } from './user-card';

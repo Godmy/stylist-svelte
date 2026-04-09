@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IPhoneNumberInputProps } from '$stylist/input/interface/component/phone-number-input/other';
-  import { createPhoneNumberInputState, formatPhoneNumber, normalizePhoneInputValue } from '$stylist/input/function/state/phone-number-input';
+  import { createPhoneNumberInputState, formatPhoneNumber, normalizePhoneInputValue } from '$stylist/input/function/state';
 
   /**
    * PhoneNumberInput component - displays a phone number input field with formatting

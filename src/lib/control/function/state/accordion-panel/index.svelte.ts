@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { AccordionPanelProps } from '$stylist/control/interface/component/accordion/other';
 
 /**
@@ -7,10 +7,10 @@ import type { AccordionPanelProps } from '$stylist/control/interface/component/a
  */
 
 export function createAccordionPanelState(props: AccordionPanelProps) {
-	const classes = $derived(mergeClasses('accordion-panel', props.open ? 'open' : 'closed', props.class));
+	const classes = $derived(joinClassNames('accordion-panel', props.open ? 'open' : 'closed', props.class));
 
 	const contentClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'accordion-panel-content',
 			props.paddingClass,
 			props.borderClass,

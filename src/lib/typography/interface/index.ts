@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { ThemeCaptionRecipe, ThemeDefinitionDescriptionRecipe, ThemeDefinitionTermRecipe, ThemeEmRecipe, ThemeHeadingRecipe, ThemeHighlightRecipe, ThemeKbdRecipe, ThemeParagraphRecipe, ThemeSmallRecipe, ThemeStrikeThroughtRecipe, ThemeStrongRecipe, ThemeSubscriptRecipe, ThemeSuperscriptRecipe, ThemeSyntaxHighlightedCodeRecipe, ThemeTextRecipe } from './recipe';
-export type { ITypographyToken } from './proto';
-export type { AnimatedNumberRecipe, BlockquoteRecipe, NpmBadgeRecipe, NumberFlowRecipe, ThemeCountBadgeRecipe, ThemeCounterRecipe, ThemeDotRecipe, ThemeListItemMarkerRecipe, ThemeNodeTitleRecipe, ThemeStatusIndicatorRecipe } from './recipe';
+export type { IBadgeSlot, ICaptionSlot, ILabelSlot, ITypographyToken } from './proto';
+export type { AnimatedNumberRecipe, BadgeGroupItem, BadgeGroupRecipe, BadgeRecipe, BlockquoteRecipe, ChipRecipe, CountBadgeRecipe, KPIIndicatorRecipe, LabelRecipe, NpmBadgeRecipe, NumberFlowRecipe, TagRecipe, TextAreaControlRecipe, ThemeCounterRecipe, ThemeDotRecipe, ThemeListItemMarkerRecipe, ThemeNodeTitleRecipe, ThemeStatusIndicatorRecipe } from './recipe';

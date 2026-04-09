@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { addABTestVariant, calculateABTestTotalWeight, calculateTotalWeight, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './script';
+export { addABTestVariant, calculateABTestTotalWeight, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './script';

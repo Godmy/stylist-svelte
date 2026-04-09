@@ -1,11 +1,14 @@
-import type { CalendarEvent } from '$stylist/calendar/type/struct/calendar-event';
+export type CalendarEventMini = {
+	id: string;
+	title: string;
+	color?: string;
+};
 
-// Calendar day type
 export type CalendarDay = {
-  date: Date;
-  isCurrentMonth: boolean;
-  isToday: boolean;
-  isSelected?: boolean;
-  hasEvent: boolean;
-  events: CalendarEvent[];
+	date: Date;
+	isCurrentMonth: boolean;
+	isToday: boolean;
+	isSelected?: boolean;
+	hasEvent: boolean;
+	events: CalendarEventMini[];
 };

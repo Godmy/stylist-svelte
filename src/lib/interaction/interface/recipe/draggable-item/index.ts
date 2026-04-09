@@ -1,29 +1,17 @@
-/**
- * DraggableItem — перетаскиваемый элемент (узел, карточка канбана, виджет).
- *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (подпись узла)
- *   IIconSlot         (information) — icon (тип узла)
- *   IStatusSlot       (information) — state (selected, locked, error…)
- *   IDraggable        (interaction) — draggable, onDragStart/End/Drop
- *   ISelectable<string> (interaction) — selected, onSelect
- *   ISizable          (architecture) — size, shape
- *   IElevatable       (architecture) — layoutElevation (поднятие при drag)
- *   IPositionable     (architecture) — layoutGravity, layoutAnchor
- *   IMotionToken      (theme)       — duration, easing (анимация drop)
- *   ThemeAttributes   (theme)       — data-variant, data-tone
- */
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
-import type { IIconSlot } from '$stylist/information/interface/proto/icon-slot';
+import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
+import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 import type { IDraggable } from '$stylist/interaction/interface/proto/draggable';
+import type { IMotionPreset } from '$stylist/interaction/interface/proto/motion-preset';
 import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { IElevatable } from '$stylist/layout/interface/proto/elevatable';
 import type { IPositionable } from '$stylist/layout/interface/proto/positionable';
-import type { IMotionToken } from '$stylist/interaction/interface/proto/motion-token';
-import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
+import type { ISized } from '$stylist/layout/interface/proto/sized';
+import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
+import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
 
 export interface DraggableItemRecipe
 	extends RecordArchitectureMerge<[
@@ -32,10 +20,13 @@ export interface DraggableItemRecipe
 		IStatusSlot,
 		IDraggable,
 		ISelectable<string>,
-		ISizable,
+		ISized,
+		IShapeable,
+		ISpaced,
 		IElevatable,
 		IPositionable,
-		IMotionToken,
-		ThemeAttributes<HTMLDivElement>
+		IMotionPreset,
+		ProtoTheme,
+		HTMLAttributes<HTMLDivElement>
 	]>
 {}

@@ -1,4 +1,4 @@
-import type { CanvasChartRecipe } from '$stylist/analytics/interface/recipe/canvas-chart';
+﻿import type { CanvasChartRecipe } from '$stylist/chart/interface/recipe/canvas-chart';
 import { PRESET_CANVAS_CHART } from '$stylist/information/const/struct/canvas-chart';
 
 export function resolveCanvasChartPreset(
@@ -36,5 +36,3 @@ export function resolveCanvasChartPreset(
 			return PRESET_CANVAS_CHART;
 	}
 }
-
-export const getCanvasChartPreset = resolveCanvasChartPreset;

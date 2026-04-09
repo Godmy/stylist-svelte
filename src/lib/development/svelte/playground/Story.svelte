@@ -1,5 +1,5 @@
-<script lang="ts">
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+﻿<script lang="ts">
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import type { Snippet } from 'svelte';
 
 	type ChildrenFn = (values: any) => any;

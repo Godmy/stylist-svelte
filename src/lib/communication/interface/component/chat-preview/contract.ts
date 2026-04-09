@@ -2,7 +2,6 @@ import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
-import type { RecordCommunicationMerge } from '$stylist/communication/type/record';
 
 export interface ChatPreviewMessage {
 	text: string;

@@ -1,3 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ARCHITECTURE_SHADER_CATALOG } from './shaders';
-export { TOKEN_ARCHITECTURE_ICON } from './svg';

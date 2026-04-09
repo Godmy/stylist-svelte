@@ -1,6 +1,6 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { RECORD_PADDING } from '$stylist/layout/const/record/padding/index';
-import { RECORD_TEXT_SIZE } from '$stylist/architecture/const/record/text-size/index';
+import { RECORD_TEXT_SIZE } from '$stylist/typography/const/record/text-size/index';
 
 export const RECORD_CLASS_SIZE: Record<TokenSize, string> = {
 	xs: `${RECORD_PADDING.xs} ${RECORD_TEXT_SIZE.xs}`,

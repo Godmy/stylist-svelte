@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist'; const Bell = 'bell'; const Mail = 'mail'; const Smartphone = 'smartphone'; const Monitor = 'monitor'; const Settings = 'settings';
-import type {     INotificationSettingsProps, INotificationSettingsPreference   } from '$stylist/communication/type/struct/notification-settings';
+import type { INotificationSettingsPreference } from '$stylist/communication/type/struct/notification-settings-preference';
+import type { INotificationSettingsProps } from '$stylist/communication/interface/component/notifications/other';
 import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
 
   let {

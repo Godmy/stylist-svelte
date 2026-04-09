@@ -15,7 +15,7 @@ const Plus = 'plus';
   import type { ABTest, ABTestVariant } from '$stylist/marketing/interface/component/abtest-configurator/other';
   import { ABTestConfiguratorStyleManager } from '$stylist/marketing/class/style-manager/abtest-configurator';
   import { validateABTest } from '$stylist/marketing/function/script/validate-ab-test';
-  import { calculateTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
+  import { calculateABTestTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
   import { addABTestVariant } from '$stylist/marketing/function/script/add-ab-test-variant';
   import { removeABTestVariant } from '$stylist/marketing/function/script/remove-ab-test-variant';
   import { updateABTestVariantWeight } from '$stylist/marketing/function/script/update-ab-test-variant-weight';
@@ -129,7 +129,7 @@ const Plus = 'plus';
   }
 
   // Calculate total weight - make it reactive with $derived
-  const totalWeight = $derived(calculateTotalWeight(test.variants));
+  const totalWeight = $derived(calculateABTestTotalWeight(test.variants));
 </script>
 
 <div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`}>

@@ -1,6 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordCommunicationMerge } from '$stylist/communication/type/record';
 
 export interface ChatInterfaceMessage {
 	id?: string;

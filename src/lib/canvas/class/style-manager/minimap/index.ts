@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class MinimapStyleManager {
 	static getHostClass(extraClass = ''): string {
-		return cn('minimap', extraClass);
+		return mergeClassNames('minimap', extraClass);
 	}
 
 	static getCanvasClass(): string {

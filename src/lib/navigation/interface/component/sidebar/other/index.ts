@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
 import type { NavItem } from '$stylist/navigation/type/struct/sidebar';

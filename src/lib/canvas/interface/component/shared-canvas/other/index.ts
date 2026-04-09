@@ -1,4 +1,4 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export type CanvasObject = {

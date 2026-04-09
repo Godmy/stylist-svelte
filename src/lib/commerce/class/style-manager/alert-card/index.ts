@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 
@@ -11,7 +11,7 @@ export class AlertCardStyleManager {
     size: 'sm' | 'md' | 'lg' = 'md',
     className = ''
   ): string {
-    return cn(
+    return mergeClassNames(
       `${StyleManagerBase.classes.card} bg-[--color-background-primary] overflow-hidden`,
       ({
         ...InteractionStyleManager.getVariantClassMap(),
@@ -26,35 +26,35 @@ export class AlertCardStyleManager {
   }
 
   static getContainerClasses(className = ''): string {
-    return cn('flex items-center justify-center', className);
+    return mergeClassNames('flex items-center justify-center', className);
   }
 
   static getIconContainerClasses(className = ''): string {
-    return cn('flex items-center mb-[--spacing-md]', className);
+    return mergeClassNames('flex items-center mb-[--spacing-md]', className);
   }
 
   static getIconClasses(className = ''): string {
-    return cn('w-10 h-10 mr-[--spacing-sm]', className);
+    return mergeClassNames('w-10 h-10 mr-[--spacing-sm]', className);
   }
 
   static getTextContainerClasses(className = ''): string {
-    return cn(className);
+    return mergeClassNames(className);
   }
 
   static getTitleClasses(className = ''): string {
-    return cn('text-lg font-semibold', className);
+    return mergeClassNames('text-lg font-semibold', className);
   }
 
   static getSubtitleClasses(className = ''): string {
-    return cn('text-[--color-text-secondary]', className);
+    return mergeClassNames('text-[--color-text-secondary]', className);
   }
 
   static getActionsContainerClasses(className = ''): string {
-    return cn('mt-[--spacing-md]', className);
+    return mergeClassNames('mt-[--spacing-md]', className);
   }
 
   static getActionButtonClasses(className = ''): string {
-    return cn(
+    return mergeClassNames(
       'mr-[--spacing-sm] mb-[--spacing-sm] px-4 py-2 bg-[--color-primary-500] text-[--color-text-inverse] rounded hover:bg-[--color-primary-600]',
       className
     );

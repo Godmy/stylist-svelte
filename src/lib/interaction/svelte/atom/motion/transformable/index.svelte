@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TransformProps } from '$stylist/interaction/interface/proto/transformable';
+	import type { TransformProps } from '$stylist/interaction/interface/proto/transformable-props';
 	import { createTransformableState } from '$stylist/interaction/function/state/transformable';
 
 	let props: TransformProps = $props();

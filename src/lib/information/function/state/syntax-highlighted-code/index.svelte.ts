@@ -1,6 +1,6 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { ThemeSyntaxHighlightedCodeRecipe } from '$stylist/typography/interface/recipe/syntax-highlighted-code';
-import { BadgeStyleManager } from '$stylist/information/class/style-manager/badge';
+import { BadgeStyleManager } from '$stylist/typography/class/style-manager/badge';
 import { clsx } from 'clsx';
 
 /**
@@ -18,7 +18,7 @@ export function createSyntaxHighlightedCodeState(props: ThemeSyntaxHighlightedCo
 	const showLineNumbers = $derived(props.showLineNumbers ?? false);
 	const startLineNumber = $derived(props.startLineNumber ?? 1);
 	const containerClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'rounded-md',
 			BadgeStyleManager.getCodeVariantClass(variant as ThemeSyntaxHighlightedCodeRecipe['variant']),
 			BadgeStyleManager.getCodeSizeClass(size as ThemeSyntaxHighlightedCodeRecipe['size']),

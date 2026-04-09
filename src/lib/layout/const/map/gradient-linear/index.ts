@@ -4,5 +4,3 @@ export const GRADIENT_LINEAR = {
 	diagonal: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
 	reverseDiagonal: 'linear-gradient(-135deg, var(--gradient-start), var(--gradient-end))'
 } as const;
-
-export const GRADIENT_DIRECTIONAL = GRADIENT_LINEAR;

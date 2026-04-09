@@ -1,9 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import GraphEdge from './index.svelte';
 	import GraphNode from '../graph-node/index.svelte';
 	import type { TokenSize as GraphNodeSize } from '$stylist/layout/type/enum/size';
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
 	type Position = { x: number; y: number };
 	type CanvasNodeSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';

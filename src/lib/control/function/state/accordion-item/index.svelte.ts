@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { AccordionItemProps } from '$stylist/control/interface/component/accordion/other';
 
 /**
@@ -7,7 +7,7 @@ import type { AccordionItemProps } from '$stylist/control/interface/component/ac
  */
 
 export function createAccordionItemState(props: AccordionItemProps) {
-	const classes = $derived(mergeClasses('accordion-item', props.class));
+	const classes = $derived(joinClassNames('accordion-item', props.class));
 
 	return {
 		get classes() {

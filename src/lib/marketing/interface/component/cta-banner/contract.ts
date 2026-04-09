@@ -1,7 +1,6 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
-import type { RecordMarketingMerge } from '$stylist/marketing/type/record';
 
 export interface CtaBannerButton {
 	label: string;

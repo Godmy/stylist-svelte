@@ -1,0 +1,16 @@
+{
+  "domainName": "typography",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\typography\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\typography\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_TYPOGRAPHY_ICON",
+      "values": [
+        "animated-expandable-table-row",
+        "text-alignments"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\typography\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-import type { RecordMarketingMerge } from '$stylist/marketing/type/record';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
 export interface TestResultData {
 	id: string;

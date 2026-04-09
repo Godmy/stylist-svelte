@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { Snippet } from 'svelte';
 
 export interface AnnouncementBannerContract extends Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'> {
@@ -8,6 +8,8 @@ export interface AnnouncementBannerContract extends Omit<InformationHTMLAttribut
 	description?: string;
 	/** Icon name */
 	icon?: string;
+	/** Slot content */
+	children?: Snippet;
 	/** Additional CSS class */
 	class?: string;
 }

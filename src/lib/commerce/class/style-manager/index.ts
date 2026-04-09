@@ -48,4 +48,5 @@ export { UpsellStyleManager } from './upsell';
 export { UserCardStyleManager } from './user-card';
 export { WarrantyInfoStyleManager } from './warranty-info';
 export { WishlistButtonStyleManager } from './wishlist-button';
-export type { UserCardSize, UserStatus } from './user-card';
+export type { UserCardSize } from './user-card-size';
+export type { UserStatus } from './user-card-status';

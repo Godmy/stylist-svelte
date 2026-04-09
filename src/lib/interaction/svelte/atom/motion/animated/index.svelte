@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AnimateProps } from '$stylist/interaction/interface/proto/animate';
+	import type { AnimateProps } from '$stylist/interaction/interface/proto/animate-props';
 	import { createAnimatedState } from '$stylist/interaction/function/state/animated';
 
 	let props: AnimateProps = $props();

@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerDraggableCard } from './object-manager';
-export { BurnDownChartStyleManager, DashboardLayoutStyleManager, DraggableCardStyleManager, FeatureToggleStyleManager, KanbanBoardStyleManager, KanbanColumnStyleManager, LegendItemStyleManager, NotificationAtomStyleManager, NotificationBadgeStyleManager, OperationsHistoryStyleManager, PageHeaderStyleManager, ProcessStepStyleManager, ScrumBacklogStyleManager, TeamMemberCardStyleManager, TimeGridStyleManager } from './style-manager';
+export { ObjectManagerDraggableCard, ObjectManagerPerformanceDashboard, ObjectManagerPerformanceMonitor, ObjectManagerStatusDashboard } from './object-manager';
+export { BurnDownChartStyleManager, DashboardLayoutStyleManager, DraggableCardStyleManager, FeatureToggleStyleManager, KanbanBoardStyleManager, KanbanColumnStyleManager, LegendItemStyleManager, NotificationAtomStyleManager, NotificationBadgeStyleManager, OperationsHistoryStyleManager, PageHeaderStyleManager, PerformanceDashboardStyleManager, PerformanceMonitorStyleManager, ProcessStepStyleManager, ScrumBacklogStyleManager, StatusDashboardStyleManager, TeamMemberCardStyleManager, TimeGridStyleManager } from './style-manager';
 export type { CardData, DraggableCardProps } from './object-manager';

@@ -25,11 +25,11 @@
     align = 'left',
     avatar,
     variant = 'primary',
-    class: className = ''
+    class: className
   }: IMessageBubbleProps = $props();
 
   // Get CSS classes from style manager
-  let containerClasses = $derived(MessageBubbleStyleManager.getContainerClasses(align, className));
+  let containerClasses = $derived(MessageBubbleStyleManager.getContainerClasses(align, className != null ? String(className) : ''));
   let wrapperClasses = $derived(MessageBubbleStyleManager.getWrapperClasses(align, variant));
   let authorClasses = $derived(MessageBubbleStyleManager.getAuthorClasses(align, variant));
   let messageClasses = $derived(MessageBubbleStyleManager.getMessageClasses(align, variant));

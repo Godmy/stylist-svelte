@@ -5,10 +5,13 @@ const Code = 'code';
 const Layers = 'layers';
 const Package = 'package';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import type { AtomicPrinciplesRecipe } from '$stylist/information/interface/recipe/atomic-principles';
 
-  type AtomicPrinciplesProps = AtomicPrinciplesRecipe & InformationHTMLAttributes<HTMLElement>;
+  type AtomicPrinciplesProps = AtomicPrinciplesRecipe &
+    InformationHTMLAttributes<HTMLElement> & {
+      description?: string;
+    };
 
   let {
     stats,
@@ -96,5 +99,4 @@ const Package = 'package';
     </div>
   </div>
 </section>
-
 

@@ -1,6 +1,6 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import type { BadgeRecipe } from '$stylist/information/interface/recipe/badge';
-import { BadgeStyleManager } from '$stylist/information/class/style-manager/badge';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import type { BadgeRecipe } from '$stylist/typography/interface/recipe/badge';
+import { BadgeStyleManager } from '$stylist/typography/class/style-manager/badge';
 
 /**
  * Badge state creator
@@ -14,7 +14,7 @@ export function createBadgeState(props: BadgeRecipe) {
 	const size = $derived(props.size ?? 'md');
 	const className = $derived(typeof props.class === 'string' ? props.class : '');
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'inline-flex items-center font-semibold rounded-full',
 			BadgeStyleManager.getBadgeVariantClass(variant),
 			BadgeStyleManager.getBadgeSizeClass(size),

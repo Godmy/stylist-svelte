@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-// export { GeneralToolbar } from './general-toolbar'; // Missing component
-export {};
+// GeneralToolbar missing - placeholder export
+export const GeneralToolbar = undefined as any;

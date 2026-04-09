@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { FocusProps } from '$stylist/interaction/interface/proto/focusable';
+	import type { FocusProps } from '$stylist/interaction/interface/proto/focusable-props';
 	import { createFocusableState } from '$stylist/interaction/function/state/focusable';
 
 	let props: FocusProps = $props();

@@ -29,6 +29,7 @@ export { createNodeHeaderState } from './node-header';
 export { createNodePropertiesPanelState } from './node-properties-panel';
 export { createPortGroupState } from './port-group';
 export { createSeparatorState } from './separator';
+export { createStatCardState } from './stat-card';
 export { createStatusIndicatorState } from './status-indicator';
 export { createSyntaxHighlightedCodeState } from './syntax-highlighted-code';
 export { createTableState } from './table';

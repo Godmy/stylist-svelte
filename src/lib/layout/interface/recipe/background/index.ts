@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 

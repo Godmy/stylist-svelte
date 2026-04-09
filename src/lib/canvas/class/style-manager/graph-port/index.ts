@@ -1,7 +1,8 @@
-import type { GraphPortState } from '$stylist/information/interface/recipe/graph-port';
-import type { GraphPortDataTypeColor, GraphPortStateColor } from '$stylist/canvas/type/struct/graph-port';
+import type { GraphPortState } from '$stylist/science/interface/recipe/graph-port';
+import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port/graph-port-data-type-color';
+import type { GraphPortStateColor } from '$stylist/canvas/type/struct/graph-port/graph-port-state-color';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Менеджер стилей для портов графа
@@ -34,7 +35,7 @@ export class GraphPortStyleManager {
 	 * Получает классы состояния порта
 	 */
 	static getPortStateClasses(state: GraphPortState): string {
-		return cn(
+		return mergeClassNames(
 			'graph-port',
 			state.connected && 'graph-port--connected',
 			state.active && 'graph-port--active',

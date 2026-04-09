@@ -1,23 +1,7 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
-export interface INotificationSettingsPreference {
-  id: string;
-  name: string;
-  description?: string;
-  channels: Partial<Record<TokenNotifictionChannel, boolean>>;
-}
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-export interface INotificationSettingsProps extends HTMLAttributes<HTMLDivElement> {
-  preferences: INotificationSettingsPreference[];
-  onPreferenceChange?: (id: string, channel: TokenNotifictionChannel, enabled: boolean) => void;
-  showEmail?: boolean;
-  showPush?: boolean;
-  showSms?: boolean;
-  showInApp?: boolean;
-  class?: string;
-  headerClass?: string;
-  sectionClass?: string;
-  footerClass?: string;
-}
-
-
+export type NotificationSettingsData = {
+	enabled: boolean;
+	sound: boolean;
+	badge: boolean;
+};

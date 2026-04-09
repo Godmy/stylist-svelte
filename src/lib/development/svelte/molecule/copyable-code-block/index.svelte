@@ -5,7 +5,7 @@
    * @deprecated Use Code with copyable={true} instead
    */
   import Code from '../code-block/index.svelte';
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 

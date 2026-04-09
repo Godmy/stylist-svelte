@@ -1,14 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface DraggableStyleManagerOptions {
-	draggable?: boolean;
-	dropzone?: boolean;
-	isDragging?: boolean;
-	isOverDropZone?: boolean;
-	disabled?: boolean;
-	showHandle?: boolean;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { DraggableStyleManagerOptions } from '$stylist/interaction/class/style-manager/draggable-style-manager-options';
 
 export class DraggableStyleManager {
 	private static readonly BASE = 'transition-all duration-200 ease-in-out';
@@ -21,7 +12,7 @@ export class DraggableStyleManager {
 	 * Базовые классы для draggable элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -60,21 +51,21 @@ export class DraggableStyleManager {
 		} = options;
 
 		if (disabled) {
-			return cn(this.BASE, this.DISABLED, className);
+			return mergeClassNames(this.BASE, this.DISABLED, className);
 		}
 
 		if (isDragging) {
-			return cn(this.BASE, this.DRAGGING, className);
+			return mergeClassNames(this.BASE, this.DRAGGING, className);
 		}
 
 		if (dropzone && isOverDropZone) {
-			return cn(this.BASE, this.DROP_ZONE, className);
+			return mergeClassNames(this.BASE, this.DROP_ZONE, className);
 		}
 
 		if (draggable && showHandle) {
-			return cn(this.BASE, this.HANDLE, className);
+			return mergeClassNames(this.BASE, this.HANDLE, className);
 		}
 
-		return cn(this.BASE, draggable ? 'cursor-grab active:cursor-grabbing' : '', className);
+		return mergeClassNames(this.BASE, draggable ? 'cursor-grab active:cursor-grabbing' : '', className);
 	}
 }

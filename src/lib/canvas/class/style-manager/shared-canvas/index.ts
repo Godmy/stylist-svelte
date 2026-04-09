@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class StyleManagerSharedCanvas {
@@ -10,7 +10,7 @@ export class StyleManagerSharedCanvas {
 				lg: 'text-lg'
 			}[size as 'sm' | 'md' | 'lg'] || 'text-base';
 
-		return cn(
+		return mergeClassNames(
 			'c-shared-canvas border border-[--color-border-primary] rounded-lg overflow-hidden bg-[--color-background-primary]',
 			variant === 'minimal' ? 'shadow-none' : 'shadow-sm',
 			sizeClasses,
@@ -19,7 +19,7 @@ export class StyleManagerSharedCanvas {
 	}
 
 	static getToolbarClass(className?: string): string {
-		return cn(
+		return mergeClassNames(
 			'flex items-center gap-2 p-3 border-b border-[--color-border-primary] bg-[--color-background-primary]',
 			className
 		);
@@ -42,7 +42,7 @@ export class StyleManagerSharedCanvas {
 	}
 
 	static getCanvasClass(className?: string): string {
-		return cn('relative w-full h-[500px] bg-[--color-background-primary]', className);
+		return mergeClassNames('relative w-full h-[500px] bg-[--color-background-primary]', className);
 	}
 
 	static getWorkspaceClass(): string {
@@ -86,7 +86,7 @@ export class StyleManagerSharedCanvas {
 	}
 
 	static getToolButtonClass(isActive: boolean): string {
-		return cn(
+		return mergeClassNames(
 			'p-2 rounded transition-colors',
 			isActive
 				? 'bg-[--color-primary-500] text-[--color-text-inverse]'

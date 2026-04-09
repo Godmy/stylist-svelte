@@ -1,17 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createAdvancedInputState } from './advanced-input';
 export { createContentEditorState } from './content-editor';
+export { formatPhoneNumber } from './format-phone-number';
 export { createInputAddonState } from './input-addon';
 export { createPinInputDigitState } from './input-pin-digit';
 export { createInputTextState } from './input-text';
+export { normalizePhoneInputValue } from './normalize-phone-input-value';
 export { createNumberInputState } from './number-input';
-export { createPhoneNumberInputState, formatPhoneNumber, normalizePhoneInputValue } from './phone-number-input';
+export { createPhoneNumberInputState } from './phone-number-input';
 export { createRichTextEditorState } from './rich-text-editor';
 export { createSearchBarState } from './search-bar';
 export { createTextareaState } from './text-area';
 export { createVariablesEditorState } from './variables-editor';
-export type { ContentType } from './content-editor';
-export type { ContentEditorStateProps, ContentElement } from './content-editor';
-export type { RichTextEditorStateProps } from './rich-text-editor';
-export type { SearchBarStateProps } from './search-bar';
-export type { VariablesEditorStateProps } from './variables-editor';
+export type { ContentType } from './content-editor-state-content-type';
+export type { ContentElement } from './content-editor-state-content-element';
+export type { ContentEditorStateProps } from './content-editor-state-props';
+export type { RichTextEditorStateProps } from './rich-text-editor-state-props';
+export type { SearchBarStateProps } from './search-bar-state-props';
+export type { VariablesEditorStateProps } from './variables-editor-state-props';

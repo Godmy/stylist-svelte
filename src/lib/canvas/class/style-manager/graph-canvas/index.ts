@@ -1,5 +1,5 @@
 import type { TokenMarker } from '$stylist/architecture/type/enum/marker';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * РњРµРЅРµРґР¶РµСЂ СЃС‚РёР»РµР№ РґР»СЏ С…РѕР»СЃС‚Р° РіСЂР°С„Р°
@@ -9,21 +9,21 @@ export class GraphCanvasStyleManager {
 	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ РєРѕРЅС‚РµР№РЅРµСЂР° С…РѕР»СЃС‚Р°
 	 */
 	static getContainerClass(className?: string): string {
-		return cn('graph-canvas', className);
+		return mergeClassNames('graph-canvas', className);
 	}
 
 	/**
 	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ СЃРµС‚РєРё
 	 */
 	static getGridClass(gridMode: TokenMarker, className?: string): string {
-		return cn('graph-canvas__grid', `graph-canvas__grid--${gridMode}`, className);
+		return mergeClassNames('graph-canvas__grid', `graph-canvas__grid--${gridMode}`, className);
 	}
 
 	/**
 	 * РџРѕР»СѓС‡Р°РµС‚ РєР»Р°СЃСЃ РєРѕРЅС‚РµРЅС‚Р°
 	 */
 	static getContentClass(className?: string): string {
-		return cn('graph-canvas__content', className);
+		return mergeClassNames('graph-canvas__content', className);
 	}
 
 	/**

@@ -142,10 +142,10 @@ import type { PaginationProps } from '$stylist/navigation/interface/component/pa
 import type { SidebarProps } from '$stylist/navigation/interface/component/sidebar/other';
 
 // Feedback - from contract
-import type { SpinnerProps } from '$stylist/feedback/interface/component/spinner/contract';
-import type { ProgressBarProps } from '$stylist/feedback/interface/component/progress-bar/contract';
-import type { SkeletonProps } from '$stylist/feedback/interface/component/skeleton/contract';
-import type { ToastProps } from '$stylist/feedback/interface/component/toast/contract';
+import type { SpinnerProps } from '$stylist/notification/interface/component/spinner/contract';
+import type { ProgressBarProps } from '$stylist/notification/interface/component/progress-bar/contract';
+import type { SkeletonProps } from '$stylist/notification/interface/component/skeleton/contract';
+import type { ToastProps } from '$stylist/notification/interface/component/toast/contract';
 import type { TooltipProps } from '$stylist/control/interface/component/tooltip/contract';
 
 // Feedback - from other
@@ -164,18 +164,18 @@ import type {
 	IStepConnectorProps,
 	IStepIconProps,
 	ITableSkeletonProps
-} from '$stylist/feedback/interface/component/feedback/other';
-import type { SkeletonCircleProps } from '$stylist/feedback/interface/component/skeleton-circle/other';
-import type { SkeletonRectangleProps } from '$stylist/feedback/interface/component/skeleton-rectangle/other';
-import type { SkeletonTextProps } from '$stylist/feedback/interface/component/skeleton-text/other';
-import type { SkeletonTableProps } from '$stylist/feedback/interface/component/skeleton-table/other';
-import type { CardSkeletonProps } from '$stylist/feedback/interface/component/card-skeleton/other';
-import type { IErrorBoundaryDetails, IErrorBoundaryProps } from '$stylist/feedback/interface/component/error-boundary/other';
-import type { ErrorMessageProps } from '$stylist/feedback/interface/component/error-message/other';
+} from '$stylist/notification/interface/component/notification/other';
+import type { SkeletonCircleProps } from '$stylist/notification/interface/component/skeleton-circle/other';
+import type { SkeletonRectangleProps } from '$stylist/notification/interface/component/skeleton-rectangle/other';
+import type { SkeletonTextProps } from '$stylist/notification/interface/component/skeleton-text/other';
+import type { SkeletonTableProps } from '$stylist/notification/interface/component/skeleton-table/other';
+import type { CardSkeletonProps } from '$stylist/notification/interface/component/card-skeleton/other';
+import type { IErrorBoundaryDetails, IErrorBoundaryProps } from '$stylist/notification/interface/component/error-boundary/other';
+import type { ErrorMessageProps } from '$stylist/notification/interface/component/error-message/other';
 import type { ConfirmationDialogProps } from '$stylist/navigation/interface/component/confirmation-dialog/other';
 import type { DialogProps, ModalProps } from '$stylist/navigation/interface/component/dialog-controls/other';
-import type { SimpleModalProps, LazyLoaderProps, LoadingBoundaryProps, ResponseViewerProps } from '$stylist/feedback/interface/component/interaction-feedback/other';
-import type { ILoadingOverlayProps } from '$stylist/feedback/interface/component/overlay/other';
+import type { SimpleModalProps, LazyLoaderProps, LoadingBoundaryProps, ResponseViewerProps } from '$stylist/notification/interface/component/interaction-feedback/other';
+import type { ILoadingOverlayProps } from '$stylist/notification/interface/component/overlay/other';
 
 // Rating - from other
 import type { IRatingProps } from '$stylist/social/interface/component/rating/other';
@@ -198,7 +198,7 @@ import type { AccountSettingsFormProps, UserProfileCardProps } from '$stylist/fo
 import type { ITimeSlot, ITimeSlotProps } from '$stylist/input/interface/component/time-slot/other';
 
 // Controller Settings - from other
-import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
 // Sortable Table Header - from other
 import type { SortableTableHeaderProps } from '$stylist/control/interface/component/sortable-table-header/other';
@@ -213,8 +213,8 @@ import type { NodePaletteItem, NodePaletteProps } from '$stylist/control/interfa
 import type { MultiSelectOption, MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';
 
 // Tag and Chip - from information
-import type { TagRecipe } from '$stylist/information/interface/recipe/tag';
-import type { ChipRecipe } from '$stylist/information/interface/recipe/chip';
+import type { TagRecipe } from '$stylist/typography/interface/recipe/tag';
+import type { ChipRecipe } from '$stylist/typography/interface/recipe/chip';
 
 // Organism - Card → перенесено в MapInformationContract
 

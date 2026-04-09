@@ -1,8 +1,9 @@
-import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-export type LayoutLevel = 'page' | 'section' | 'panel' | 'surface' | 'overlay';
-export type LayoutShape = 'rectangular' | 'rounded' | 'pill' | 'circular';
-export type LayoutGravity = 'start' | 'center' | 'end' | 'stretch' | 'baseline';
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { LayoutLevel } from '$stylist/layout/type/struct/item-layout-level';
+import type { LayoutShape } from '$stylist/layout/type/struct/item-layout-shape';
+import type { LayoutGravity } from '$stylist/layout/type/struct/item-layout-gravity';
 
 export type LayoutHTMLAttributes<T extends HTMLElement = HTMLDivElement> =
 	ThemeAttributes<T> & {
@@ -15,5 +16,3 @@ export type LayoutHTMLAttributes<T extends HTMLElement = HTMLDivElement> =
 		layoutGutter?: string;
 		layoutAnchor?: string;
 	};
-
-export type ArchitectureHTMLAttributes<T extends HTMLElement = HTMLDivElement> = LayoutHTMLAttributes<T>;

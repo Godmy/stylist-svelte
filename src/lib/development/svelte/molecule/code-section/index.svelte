@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { CodeSectionStyleManager } from '$stylist/development/class/style-manager/code-section';
   import CodeEditor from '$stylist/development/svelte/molecule/code-editor-legacy/index.svelte';
   import { Badge } from '$stylist';

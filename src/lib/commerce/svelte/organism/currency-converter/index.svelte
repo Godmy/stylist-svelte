@@ -1,301 +1,156 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-  import { Icon as BaseIcon } from '$stylist';
-const DollarSign = 'dollar-sign';
-const RefreshCw = 'refresh-cw';
-const Info = 'info';
+  import { Story } from '$stylist/development/svelte/playground';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import Input from '$stylist/input/svelte/atom/input/field/input-field/index.svelte';
-  import Select from '$stylist/control/svelte/molecule/controls/selectors/selector/index.svelte';
-  import { Button } from '$stylist';
-  import Tooltip from '$stylist/control/svelte/atom/controls/tooltip/index.svelte';
+  import CurrencyConverterComponent from './index.svelte';
 
-  type Currency = {
-    code: string;
-    name: string;
-    symbol: string;
-    flag?: string; // Optional flag emoji or URL
-  };
-
-  type ExchangeRate = {
-    [key: string]: number; // e.g., { 'USD_EUR': 0.93, 'EUR_USD': 1.07 }
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    amount: number;
-    fromCurrency: string;
-    toCurrency: string;
-    currencies: Currency[];
-    exchangeRates: ExchangeRate;
-    class?: string;
-    inputClass?: string;
-    selectClass?: string;
-    resultClass?: string;
-    showInput?: boolean;
-    showLabels?: boolean;
-    showConversionRate?: boolean;
-    showFeeEstimate?: boolean;
-    feePercentage?: number;
-    onConvert?: (result: ConversionResult) => void;
-    onCurrencyChange?: (from: string, to: string) => void;
-    disabled?: boolean;
-    loading?: boolean;
-  };
-
-  type ConversionResult = {
-    fromAmount: number;
-    fromCurrency: string;
-    toAmount: number;
-    toCurrency: string;
-    exchangeRate: number;
-    feeAmount?: number;
-  };
+  const CurrencyConverter = CurrencyConverterComponent as any;
 
   let {
-    amount,
-    fromCurrency,
-    toCurrency,
-    currencies,
-    exchangeRates,
-    class: hostClass = '',
-    inputClass = '',
-    selectClass = '',
-    resultClass = '',
-    showInput = true,
-    showLabels = true,
-    showConversionRate = true,
-    showFeeEstimate = false,
-    feePercentage = 0,
-    onConvert,
-    onCurrencyChange,
-    disabled = false,
-    loading = false,
-    ...restProps
-  }: Props = $props();
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showInput', type: 'boolean', defaultValue: true },
+      { name: 'showConversionRate', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: InterfaceControllerSettings[]
+  }>();
 
-  let amountValue = $state(amount);
-  let sourceCurrency = $state(fromCurrency);
-  let targetCurrency = $state(toCurrency);
-  let convertedAmount = $state(0);
-  let conversionRate = $state(1);
-  let feeAmount = $state(0);
+  // Sample currencies
+  const currencies = [
+    { code: 'USD', name: 'US Dollar', symbol: '$' },
+    { code: 'EUR', name: 'Euro', symbol: 'в‚¬' },
+    { code: 'GBP', name: 'British Pound', symbol: 'ВЈ' },
+    { code: 'JPY', name: 'Japanese Yen', symbol: 'ВҐ' },
+    { code: 'CAD', name: 'Canadian Dollar', symbol: 'CA$' },
+    { code: 'AUD', name: 'Australian Dollar', symbol: 'AU$' }
+  ];
 
-  $effect(() => {
-    amountValue = amount;
-    sourceCurrency = fromCurrency;
-    targetCurrency = toCurrency;
-    convertCurrency();
-  });
-
-  function convertCurrency() {
-    if (sourceCurrency === targetCurrency) {
-      conversionRate = 1;
-      convertedAmount = amountValue;
-    } else {
-      const rateKey = `${sourceCurrency}_${targetCurrency}`;
-      const rate = exchangeRates[rateKey];
-
-      if (rate !== undefined) {
-        conversionRate = rate;
-        convertedAmount = amountValue * rate;
-      } else {
-        conversionRate = 0;
-        convertedAmount = 0;
-      }
-    }
-
-    if (showFeeEstimate) {
-      feeAmount = convertedAmount * (feePercentage / 100);
-    }
-
-    onConvert?.({
-      fromAmount: amountValue,
-      fromCurrency: sourceCurrency,
-      toAmount: convertedAmount,
-      toCurrency: targetCurrency,
-      exchangeRate: conversionRate,
-      feeAmount: showFeeEstimate ? feeAmount : undefined
-    });
-  }
-
-  function handleAmountChange(e: Event) {
-    const value = (e.target as HTMLInputElement).value;
-    amountValue = parseFloat(value) || 0;
-    convertCurrency();
-  }
-
-  function handleSourceCurrencyChange(e: Event) {
-    sourceCurrency = (e.target as HTMLSelectElement).value;
-    onCurrencyChange?.(sourceCurrency, targetCurrency);
-    convertCurrency();
-  }
-
-  function handleTargetCurrencyChange(e: Event) {
-    targetCurrency = (e.target as HTMLSelectElement).value;
-    onCurrencyChange?.(sourceCurrency, targetCurrency);
-    convertCurrency();
-  }
-
-  function formatCurrency(value: number, currencyCode: string) {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: currencyCode
-    }).format(value);
-  }
-
-  function getCurrencySymbol(currencyCode: string) {
-    return currencies.find(c => c.code === currencyCode)?.symbol || '$';
-  }
-
-  let sourceCurrencyInfo = $derived(currencies.find(c => c.code === sourceCurrency));
-  let targetCurrencyInfo = $derived(currencies.find(c => c.code === targetCurrency));
+  // Sample exchange rates
+  const exchangeRates = {
+    'USD_EUR': 0.93,
+    'USD_GBP': 0.79,
+    'USD_JPY': 154.32,
+    'USD_CAD': 1.36,
+    'USD_AUD': 1.54,
+    'EUR_USD': 1.07,
+    'EUR_GBP': 0.85,
+    'EUR_JPY': 165.87,
+    'EUR_CAD': 1.46,
+    'EUR_AUD': 1.65,
+    'GBP_USD': 1.27,
+    'GBP_EUR': 1.18,
+    'GBP_JPY': 195.14,
+    'GBP_CAD': 1.72,
+    'GBP_AUD': 1.94,
+    'JPY_USD': 0.0065,
+    'JPY_EUR': 0.0060,
+    'JPY_GBP': 0.0051,
+    'JPY_CAD': 0.0088,
+    'JPY_AUD': 0.010,
+    'CAD_USD': 0.74,
+    'CAD_EUR': 0.68,
+    'CAD_GBP': 0.58,
+    'CAD_JPY': 113.76,
+    'CAD_AUD': 1.13,
+    'AUD_USD': 0.65,
+    'AUD_EUR': 0.60,
+    'AUD_GBP': 0.51,
+    'AUD_JPY': 100.39,
+    'AUD_CAD': 0.88
+  };
 </script>
 
-<div class={`c-currency-converter p-4 border rounded-lg ${hostClass}`} {...restProps}>
-  <div class="flex items-center justify-between mb-4">
-    <h3 class="text-lg font-medium text-[var(--color-text-primary)]">Currency Converter</h3>
-    <Tooltip content="Convert amounts between different currencies using real-time exchange rates">
-      <BaseIcon name={Info} class="h-5 w-5 text-[var(--color-text-secondary)]" />
-    </Tooltip>
-  </div>
+<Story
+  {id}
+  {title}
+  {description}
+  component={CurrencyConverter}
+  category="Organisms"
+  controls={controls}
+>
+  {#snippet children(values: any)}
+    <section class="sb-organisms-currency-converter grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Currency Converter Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive currency converter with real-time exchange rates.</p>
 
-  <div class="space-y-4">
-    <!-- Amount input -->
-    {#if showInput}
-      <div>
-        <label for="amount" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-          Amount
-        </label>
-        <div class="relative">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={DollarSign} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
-          </div>
-          <input
-            type="number"
-            id="amount"
-            class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${inputClass} ${
-              disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
-            }`}
-            value={amountValue}
-            oninput={handleAmountChange}
-            disabled={disabled || loading}
-            step="any"
-            min="0"
+        <div class="mt-6">
+          <CurrencyConverter
+            amount={100}
+            fromCurrency="USD"
+            toCurrency="EUR"
+            currencies={currencies}
+            exchangeRates={exchangeRates}
+            showInput={values.showInput}
+            showLabels={true}
+            showConversionRate={values.showConversionRate}
+            showFeeEstimate={false}
+            feePercentage={0.5}
+            onConvert={(result: unknown) => console.log('Conversion result:', result)}
+            onCurrencyChange={(from: string, to: string) => console.log(`Currency changed: ${from} to ${to}`)}
           />
         </div>
       </div>
-    {/if}
 
-    <!-- Currency selection -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div>
-        <label for="from-currency" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-          From
-        </label>
-        <select
-          id="from-currency"
-          class={`block w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${selectClass} ${
-            disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
-          }`}
-          value={sourceCurrency}
-          onchange={handleSourceCurrencyChange}
-          disabled={disabled || loading}
-        >
-          {#each currencies as currency}
-            <option value={currency.code}>
-              {currency.code} - {currency.name}
-            </option>
-          {/each}
-        </select>
-      </div>
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Currency Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different currency converter configurations with various options.
+        </p>
 
-      <div class="flex items-end justify-center">
-        <button
-          type="button"
-          class="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] disabled:opacity-[var(--opacity-50)]"
-          onclick={() => {
-            const temp = sourceCurrency;
-            sourceCurrency = targetCurrency;
-            targetCurrency = temp;
-            onCurrencyChange?.(sourceCurrency, targetCurrency);
-            convertCurrency();
-          }}
-          disabled={disabled || loading}
-          aria-label="Swap currencies"
-        >
-          <BaseIcon name={RefreshCw} class="h-6 w-6" />
-        </button>
-      </div>
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">EUR to GBP</p>
+            <div>
+              <CurrencyConverter
+                amount={50}
+                fromCurrency="EUR"
+                toCurrency="GBP"
+                currencies={currencies}
+                exchangeRates={exchangeRates}
+                showInput={true}
+                showLabels={true}
+                showConversionRate={true}
+                showFeeEstimate={true}
+                feePercentage={1.2}
+                onConvert={(result: unknown) => console.log('Conversion result:', result)}
+                onCurrencyChange={(from: string, to: string) => console.log(`Currency changed: ${from} to ${to}`)}
+              />
+            </div>
+          </article>
 
-      <div>
-        <label for="to-currency" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-          To
-        </label>
-        <select
-          id="to-currency"
-          class={`block w-full px-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${selectClass} ${
-            disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
-          }`}
-          value={targetCurrency}
-          onchange={handleTargetCurrencyChange}
-          disabled={disabled || loading}
-        >
-          {#each currencies as currency}
-            <option value={currency.code}>
-              {currency.code} - {currency.name}
-            </option>
-          {/each}
-        </select>
-      </div>
-    </div>
-
-    <!-- Results -->
-    <div class={`mt-6 p-4 bg-[var(--color-background-secondary)] rounded-lg ${resultClass}`}>
-      <div class="flex justify-between items-center">
-        <div>
-          <p class="text-sm text-[var(--color-text-secondary)]">Converted Amount</p>
-          <p class="text-2xl font-semibold text-[var(--color-text-primary)]">
-            {getCurrencySymbol(targetCurrency)}{convertedAmount.toFixed(2)}
-          </p>
-        </div>
-        <div class="text-right">
-          <p class="text-sm text-[var(--color-text-secondary)]">Original Amount</p>
-          <p class="text-lg text-[var(--color-text-primary)]">
-            {getCurrencySymbol(sourceCurrency)}{amountValue.toFixed(2)}
-          </p>
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">JPY to USD</p>
+            <div>
+              <CurrencyConverter
+                amount={10000}
+                fromCurrency="JPY"
+                toCurrency="USD"
+                currencies={currencies}
+                exchangeRates={exchangeRates}
+                showInput={true}
+                showLabels={true}
+                showConversionRate={true}
+                showFeeEstimate={false}
+                feePercentage={0}
+                onConvert={(result: unknown) => console.log('Conversion result:', result)}
+                onCurrencyChange={(from: string, to: string) => console.log(`Currency changed: ${from} to ${to}`)}
+              />
+            </div>
+          </article>
         </div>
       </div>
-
-      {#if showConversionRate}
-        <div class="mt-3 pt-3 border-t border-[var(--color-border-primary)]">
-          <p class="text-sm text-[var(--color-text-secondary)]">
-            1 {sourceCurrency} = {conversionRate.toFixed(4)} {targetCurrency}
-            (as of today)
-          </p>
-        </div>
-      {/if}
-
-      {#if showFeeEstimate && feePercentage > 0}
-        <div class="mt-3 pt-3 border-t border-[var(--color-border-primary)]">
-          <div class="flex justify-between text-sm">
-            <span class="text-[var(--color-text-secondary)]">Estimated fees ({feePercentage}%):</span>
-            <span class="font-medium text-[var(--color-text-primary)]">
-              {getCurrencySymbol(targetCurrency)}{feeAmount.toFixed(2)}
-            </span>
-          </div>
-          <div class="flex justify-between mt-1">
-            <span class="text-[var(--color-text-secondary)] font-medium">Total with fees:</span>
-            <span class="font-bold text-lg text-[var(--color-text-primary)]">
-              {getCurrencySymbol(targetCurrency)}{(convertedAmount + feeAmount).toFixed(2)}
-            </span>
-          </div>
-        </div>
-      {/if}
-    </div>
-  </div>
-</div>
+    </section>
+  {/snippet}
+</Story>
 
 
 

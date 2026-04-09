@@ -1,6 +1,6 @@
 import { TransformableStyleManager } from '$stylist/interaction/class/style-manager/transformable';
 import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
-import type { TransformProps } from '$stylist/interaction/interface/proto/transformable';
+import type { TransformProps } from '$stylist/interaction/interface/proto/transformable-props';
 
 export const createTransformableState = (props: TransformProps) => {
 	// State

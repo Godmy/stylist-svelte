@@ -1,7 +1,7 @@
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import { ObjectManagerBackground } from '$stylist/layout/class/object-manager/background';
 import { StyleManagerBackground } from '$stylist/layout/class/style-manager/background';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createBackgroundState(props: ThemeBackgroundRecipe) {
 	const background = $derived(ObjectManagerBackground.resolveBackground(props));
@@ -20,7 +20,7 @@ export function createBackgroundState(props: ThemeBackgroundRecipe) {
 			variant,
 			!!gradient,
 			!!backgroundImage,
-			cn(props.class)
+			mergeClassNames(props.class)
 		)
 	);
 

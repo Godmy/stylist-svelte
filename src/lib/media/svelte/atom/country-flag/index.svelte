@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 	import type { CountryFlagRecipe } from '$stylist/information/interface/recipe/country-flag';
 	import { createCountryFlagState } from '$stylist/information/function/state/country-flag';
 

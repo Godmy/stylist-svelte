@@ -1,4 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import type { Snippet } from 'svelte';
 
 export interface PlaygroundShellHeaderContract extends Omit<InformationHTMLAttributes<HTMLElement>, 'class'> {

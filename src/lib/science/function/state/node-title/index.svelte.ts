@@ -1,4 +1,4 @@
-import type { NodeTitleRecipe } from '$stylist/information/interface/recipe/node-title';
+import type { NodeTitleRecipe } from '$stylist/science/interface/recipe/node-title';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { NodeTitleStyleManager } from '$stylist/science/class/style-manager/node-title';
 

@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class CodeStyleManager {
 	static getSurfaceBaseClasses(): string {
@@ -6,11 +6,11 @@ export class CodeStyleManager {
 	}
 
 	static getContainerClass(className = ''): string {
-		return cn('c-code-block relative', this.getSurfaceBaseClasses(), className);
+		return mergeClassNames('c-code-block relative', this.getSurfaceBaseClasses(), className);
 	}
 
 	static getHeaderClass(className = ''): string {
-		return cn(this.getHeaderBaseClasses(), className);
+		return mergeClassNames(this.getHeaderBaseClasses(), className);
 	}
 
 	static getHeaderBaseClasses(): string {
@@ -18,7 +18,7 @@ export class CodeStyleManager {
 	}
 
 	static getLineNumbersContainerClass(className = ''): string {
-		return cn(this.getLineNumbersContainerBaseClasses(), className);
+		return mergeClassNames(this.getLineNumbersContainerBaseClasses(), className);
 	}
 
 	static getLineNumbersContainerBaseClasses(): string {
@@ -26,7 +26,7 @@ export class CodeStyleManager {
 	}
 
 	static getLineNumberItemClass(isHighlighted: boolean): string {
-		return cn(isHighlighted ? this.getLineNumberHighlightClass() : '');
+		return mergeClassNames(isHighlighted ? this.getLineNumberHighlightClass() : '');
 	}
 
 	static getLineNumberHighlightClass(): string {
@@ -34,7 +34,7 @@ export class CodeStyleManager {
 	}
 
 	static getContentContainerClass(className = ''): string {
-		return cn(this.getContentContainerBaseClasses(), className);
+		return mergeClassNames(this.getContentContainerBaseClasses(), className);
 	}
 
 	static getContentContainerBaseClasses(): string {
@@ -42,7 +42,7 @@ export class CodeStyleManager {
 	}
 
 	static getPreClass(className = ''): string {
-		return cn(this.getPreBaseClasses(), className);
+		return mergeClassNames(this.getPreBaseClasses(), className);
 	}
 
 	static getPreBaseClasses(): string {

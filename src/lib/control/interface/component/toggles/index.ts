@@ -1,6 +1,6 @@
 import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from 'svelte/elements';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { HtmlAttributesWithChildren } from '$stylist/information/type/struct/common';
+import type { HtmlAttributesWithChildren } from '$stylist/information/type/struct';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenSelectionType } from '$stylist/interaction/type/record/selection-type';
 

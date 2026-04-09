@@ -1,42 +1,22 @@
-import type { TokenFunctionalTaxonomy } from '$stylist/architecture/type/enum/functional-taxonomy';
-import type { TokenControlKind } from '$stylist/interaction/type/record/token-control-kind';
-import type { TokenControlBase, TokenControlOption } from '$stylist/control/type/struct/token-control';
-import type { TokenTokenValue } from '$stylist/information/type/enum/token-value';
-
-export interface TokenRadioControlDefinition extends TokenControlBase {
-	controlKind: 'radio';
-	options: TokenControlOption[];
-}
-
-export interface TokenSelectControlDefinition extends TokenControlBase {
-	controlKind: 'select';
-	options: TokenControlOption[];
-}
-
-export interface TokenRangeControlDefinition extends TokenControlBase {
-	controlKind: 'range';
-	min: number;
-	max: number;
-	step?: number;
-}
-
-export interface TokenTextControlDefinition extends TokenControlBase {
-	controlKind: 'text';
-	placeholder?: string;
-}
-
-export type TokenDomain = TokenFunctionalTaxonomy;
+import type { TokenControlDefinitionData, TokenControlKind } from '$stylist/control/type/struct/token-control-domain';
+import type { TokenRadioControlDefinition } from '$stylist/control/type/struct/radio-control-definition';
+import type { TokenRangeControlDefinition } from '$stylist/control/type/struct/range-control-definition';
+import type { TokenSelectControlDefinition } from '$stylist/control/type/struct/select-control-definition';
+import type { TokenTextControlDefinition } from '$stylist/control/type/struct/text-control-definition';
+import type { TokenValue } from '$stylist/control/type/struct/token-value';
 
 export type {
-	TokenControlBase,
+	TokenControlDefinitionData,
 	TokenControlKind,
-	TokenControlOption,
-	TokenControlOption as TokenOption,
-	TokenTokenValue as TokenValue
+	TokenRadioControlDefinition,
+	TokenRangeControlDefinition,
+	TokenSelectControlDefinition,
+	TokenTextControlDefinition,
+	TokenValue
 };
 
 export type TokenControlDefinition =
 	| TokenRadioControlDefinition
-	| TokenSelectControlDefinition
 	| TokenRangeControlDefinition
+	| TokenSelectControlDefinition
 	| TokenTextControlDefinition;

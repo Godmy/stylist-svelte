@@ -1,8 +1,8 @@
 import {
-	getFoundationDepthDistance,
-	normalizeFoundationDepthDistance,
-	resolveFoundationSemanticZoomStage
-} from '$stylist/architecture/function/script/depth/index';
+	getFoundationDepthDistance
+} from '$stylist/architecture/function/script/get-foundation-depth-distance';
+import { normalizeFoundationDepthDistance } from '$stylist/architecture/function/script/normalize-foundation-depth-distance';
+import { resolveFoundationSemanticZoomStage } from '$stylist/architecture/function/script/resolve-foundation-semantic-zoom-stage';
 import { RECORD_DENSITY } from '$stylist/architecture/const/record/density/index';
 import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
 import { RECORD_LAYER } from '$stylist/architecture/const/record/layer/index';
@@ -11,26 +11,28 @@ import { RECORD_SHAPE } from '$stylist/architecture/const/record/shape/index';
 import { RECORD_SIZE } from '$stylist/architecture/const/record/size/index';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/foundation-semantic-zoom-stages';
+import type { FoundationDepth } from '$stylist/architecture/function/script/foundation-depth-range';
 
 type SemanticZoomParams =
 	| {
-			worldDepth: number;
-			cameraDepth: number;
+			worldDepth: FoundationDepth;
+			cameraDepth: FoundationDepth;
 	  }
 	| {
 			node: SceneNode;
-			cameraDepth: number;
+			cameraDepth: FoundationDepth;
 	  };
 
 export type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
 
 export function resolveSemanticZoomPresentation(
-	worldDepth: number,
-	cameraDepth: number
+	worldDepth: FoundationDepth,
+	cameraDepth: FoundationDepth
 ): SemanticZoomPresentation {
 	const distance = getFoundationDepthDistance(worldDepth, cameraDepth);
 	const proximity = normalizeFoundationDepthDistance(distance);
-	const stage = resolveFoundationSemanticZoomStage(worldDepth, cameraDepth);
+	const stage: FoundationSemanticZoomStage = resolveFoundationSemanticZoomStage(worldDepth, cameraDepth);
 	const frame = RECORD_FRAME[stage];
 
 	return {
@@ -54,7 +56,7 @@ export function resolveSemanticZoomPresentation(
 
 export function resolveSemanticZoomNode(
 	node: SceneNode,
-	cameraDepth: number
+	cameraDepth: FoundationDepth
 ): SemanticZoomPresentation & { node: SceneNode } {
 	return {
 		node,

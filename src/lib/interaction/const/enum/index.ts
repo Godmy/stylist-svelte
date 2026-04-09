@@ -2,8 +2,7 @@
 export { TOKEN_ACTIVITY } from './activity';
 export { TOKEN_APPEARANCE } from './appearance';
 export { TOKEN_AVAILABILITY } from './availability';
-export { TOKEN_CURSOR } from './cursor';
-export { TOKEN_EASING } from './easing';
+export { TOKEN_INTERACTION_CONTRACT } from './contract';
 export { TOKEN_FLOW } from './flow';
 export { TOKEN_INTERACTION_ICON } from './icon';
 export { TOKEN_INTERACTION } from './interaction';

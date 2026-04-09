@@ -1,4 +1,4 @@
-import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/information/interface/recipe/node-property';
+import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/science/interface/recipe/node-property';
 import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { NodePropertyStyleManager } from '$stylist/science/class/style-manager/node-property';

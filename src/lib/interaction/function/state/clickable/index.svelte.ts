@@ -1,6 +1,6 @@
 import { ClickableStyleManager } from '$stylist/interaction/class/style-manager/clickable';
 import { ObjectManagerGesture } from '$stylist/interaction/class/object-manager/gesture';
-import type { ClickProps } from '$stylist/interaction/interface/proto/clickable';
+import type { ClickProps } from '$stylist/interaction/interface/proto/clickable-props';
 
 export const createClickableState = (props: ClickProps) => {
 	// Нормализация props

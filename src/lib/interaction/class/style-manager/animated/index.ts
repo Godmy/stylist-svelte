@@ -1,14 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface AnimatedStyleManagerOptions {
-	animation?: string;
-	duration?: string;
-	easing?: string;
-	delay?: number;
-	infinite?: boolean;
-	isAnimating?: boolean;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { AnimatedStyleManagerOptions } from '$stylist/interaction/class/style-manager/animated-style-manager-options';
 
 export class AnimatedStyleManager {
 	private static readonly BASE = 'will-change-transform';
@@ -38,7 +29,7 @@ export class AnimatedStyleManager {
 	 * Базовые классы для animated элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -51,7 +42,7 @@ export class AnimatedStyleManager {
 			class: className = ''
 		} = options;
 
-		return cn(
+		return mergeClassNames(
 			this.BASE,
 			isAnimating ? this.ANIMATING : '',
 			infinite ? this.INFINITE : '',

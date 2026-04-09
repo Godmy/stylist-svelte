@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
 const Activity = 'activity';
 const MousePointer = 'mouse-pointer';

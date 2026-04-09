@@ -1,9 +1,10 @@
-import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
-import { resolveOption } from '$stylist/interaction/function/script/resolve-option';
-import type { InputPreset, Preset } from '$stylist/interaction/type/struct/preset';
+import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
+import { buildPresetClassNames } from '$stylist/information/function/script/build-preset-class-names';
+import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
+import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset';
 import type { ComponentStateOptions } from '$stylist/layout/type/struct/component-state';
-import type { InputStateOptions } from '$stylist/layout/type/struct/component-state';
+import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 
 type ComponentStateResult<V extends string, S extends string> = {
 	variant: V;
@@ -70,14 +71,14 @@ function buildStateBase<V extends string, S extends string>(
 	props: StatePropsLike<V, S>,
 	includeError: boolean
 ) {
-	const variant = resolveOption(props.variant, preset.variants, preset.defaults.variant);
-	const size = resolveOption(props.size, preset.sizes, preset.defaults.size);
+	const variant = resolveAllowedOption(props.variant, preset.variants, preset.defaults.variant);
+	const size = resolveAllowedOption(props.size, preset.sizes, preset.defaults.size);
 	const disabled = props.disabled ?? preset.defaults.disabled ?? false;
 	const loading = props.loading ?? false;
 	const block = props.block ?? preset.defaults.block ?? false;
 	const error = includeError ? (props.error ?? false) : false;
 	const isDisabled = disabled || loading;
-	const classes = buildClasses(preset as unknown as Preset<V, S>, {
+	const classes = buildPresetClassNames(preset as unknown as Preset<V, S>, {
 		variant,
 		size,
 		disabled,
@@ -86,7 +87,7 @@ function buildStateBase<V extends string, S extends string>(
 		className: props.className ?? props.class,
 		extra: includeError && error && preset.classes.error ? [preset.classes.error] : undefined
 	});
-	const ariaLabel = computeAriaLabel(props.ariaLabel, props);
+	const ariaLabel = resolveAriaLabel(props.ariaLabel, props);
 
 	return {
 		variant,

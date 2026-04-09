@@ -1,2 +1,8 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SpacerProps } from './spacer-props';
+import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+
+export type SpacerProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
+	class?: string;
+	size?: number | string;
+	axis?: 'horizontal' | 'vertical' | 'both';
+	inline?: boolean;
+};

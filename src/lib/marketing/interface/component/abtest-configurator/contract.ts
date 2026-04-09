@@ -1,7 +1,6 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenTest } from '$stylist/interaction/type/record/test';
-import type { RecordMarketingMerge } from '$stylist/marketing/type/record';
 
 export interface ABTestVariantData {
 	id: string;

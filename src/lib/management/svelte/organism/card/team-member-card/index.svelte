@@ -3,7 +3,7 @@
 	import { TeamMemberCardStyleManager } from '$stylist/management/class/style-manager/team-member-card';
 	import { createTeamMemberCardState } from '$stylist/management/function/state/team-member-card';
 	import Avatar from '$stylist/media/svelte/atom/avatar/index.svelte';
-	import Badge from '$stylist/typography/svelte/atom/typography/elements/badge/index.svelte';
+	import Badge from '$stylist/typography/svelte/atom/elements/badge/index.svelte';
 
 	let props: TeamMemberCardStateProps = $props();
 	const state = createTeamMemberCardState(props);

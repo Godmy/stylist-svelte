@@ -1,17 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface TransformableStyleManagerOptions {
-	scale?: number;
-	rotate?: number;
-	translateX?: number;
-	translateY?: number;
-	skewX?: number;
-	skewY?: number;
-	transformOrigin?: string;
-	animateOnHover?: boolean;
-	isHovered?: boolean;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { TransformableStyleManagerOptions } from '$stylist/interaction/class/style-manager/transformable-style-manager-options';
 
 export class TransformableStyleManager {
 	private static readonly BASE = 'transition-transform duration-300 ease-in-out';
@@ -56,7 +44,7 @@ export class TransformableStyleManager {
 	 * Базовые классы для transformable элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -73,7 +61,7 @@ export class TransformableStyleManager {
 			? `${this.HOVER_SCALE} ${this.HOVER_ROTATE}`
 			: '';
 
-		return cn(this.BASE, hoverClasses, className);
+		return mergeClassNames(this.BASE, hoverClasses, className);
 	}
 
 	/**

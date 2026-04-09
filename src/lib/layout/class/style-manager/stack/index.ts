@@ -1,7 +1,7 @@
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class StackStyleManager {
 	static getStackClasses(
@@ -10,7 +10,7 @@ export class StackStyleManager {
 		justify: TokenJustification,
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'flex',
 			{ vertical: 'flex-col', horizontal: 'flex-row' }[direction],
 			{

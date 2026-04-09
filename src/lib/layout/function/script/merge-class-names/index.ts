@@ -6,5 +6,3 @@ export type ClassValue = import('clsx').ClassValue;
 export function mergeClassNames(...inputs: ClassValue[]): string {
 	return twMerge(clsx(inputs));
 }
-
-export const cn = mergeClassNames;

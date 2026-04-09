@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { BurgerMenuProps } from '$stylist/control/interface/component/burger-menu/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createBurgerMenuState(props: BurgerMenuProps) {
   // Initialize props with defaults
@@ -22,11 +22,11 @@ export function createBurgerMenuState(props: BurgerMenuProps) {
   };
 
   const styles = {
-    container: mergeClasses(
+    container: joinClassNames(
       'inline-flex items-center justify-center rounded-md border border-[--color-border-secondary] bg-[--color-background-primary] transition-colors hover:bg-[--color-background-secondary]',
       sizeClasses[size] ?? sizeClasses.md
     ),
-    icon: mergeClasses('relative', iconSizes[size] ?? iconSizes.md),
+    icon: joinClassNames('relative', iconSizes[size] ?? iconSizes.md),
     line: 'absolute left-0 h-0.5 w-full rounded-full transition-all duration-[var(--duration-200)]'
   };
 
@@ -38,7 +38,7 @@ export function createBurgerMenuState(props: BurgerMenuProps) {
   // Merge classes with custom classes
   const containerClasses = derived(
     [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   return {

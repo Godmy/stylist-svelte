@@ -1,4 +1,4 @@
-import type { CanvasChartRecipe } from '$stylist/analytics/interface/recipe/canvas-chart';
+﻿import type { CanvasChartRecipe } from '$stylist/chart/interface/recipe/canvas-chart';
 
 export const PRESET_CANVAS_CHART: CanvasChartRecipe = {
 	width: 800,

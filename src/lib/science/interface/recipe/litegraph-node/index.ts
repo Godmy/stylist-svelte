@@ -1,55 +1,76 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { Snippet } from 'svelte';
-
-export interface LiteGraphPort {
-  id: string;
-  name?: string;
-  type?: string;
-  label?: string;
-  dataType?: string;
-  direction?: 'input' | 'output';
-  index?: number;
-}
+﻿/**
+ * LitegraphNode — узел LiteGraph..
+ *
+ * LEGO-состав:
+ *   ILabelSlot        (information) — label (Label)
+ *   ICaptionSlot        (information) — caption (Caption)
+ *   IBadgeSlot        (information) — badge (Badge)
+ *   IStatusSlot        (information) — status (Status)
+ */
+import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface LiteGraphNodeProperty {
-  id: string;
-  name: string;
-  type: string;
-  value: unknown;
-  label?: string;
-  description?: string;
-  options?: Record<string, unknown>[];
+	id: string;
+	name: string;
+	type?: TokenPropertyType;
+	value?: unknown;
+	label?: string;
+	description?: string;
+	options?: string[];
 }
 
-export interface LitegraphNodeRecipe {
-  id?: string;
-  title?: string;
-  type?: 'default' | 'custom' | 'source' | 'processor' | 'output' | 'gateway';
-  mode?: 'default' | string;
-  status?: 'enabled' | 'disabled' | 'warning' | 'error' | string;
-  x?: number;
-  y?: number;
-  width?: number;
-  minWidth?: number;
-  height?: number | 'auto';
-  color?: string;
-  headerColor?: string;
-  size?: 'sm' | 'md' | 'lg';
-  inputs?: LiteGraphPort[];
-  outputs?: LiteGraphPort[];
-  properties?: LiteGraphNodeProperty[];
-  selected?: boolean;
-  draggable?: boolean;
-  selectable?: boolean;
-  resizable?: boolean;
-  deletable?: boolean;
-  duplicable?: boolean;
-  hideHeader?: boolean;
-  hidePorts?: boolean;
-  hideProperties?: boolean;
-  showActions?: boolean;
-  class?: string;
-  children?: Snippet;
-  headerContent?: Snippet;
-  bodyContent?: Snippet;
+export interface LiteGraphPort {
+	id: string;
+	name?: string;
+	type?: string;
+	label?: string;
+	dataType?: string;
+	direction?: 'input' | 'output';
 }
+
+export type LitegraphNodePresentation = Partial<SemanticZoomPresentation> & {
+	stage?: SemanticZoomPresentation['stage'];
+	size?: TokenSize;
+	width?: number;
+	height?: number | 'auto';
+	showChildren?: boolean;
+};
+
+export interface LitegraphNodeRecipe extends ThemeAttributes<HTMLDivElement> {
+	id?: string;
+	title?: string;
+	x: number;
+	y: number;
+	type?: 'default' | 'custom' | 'source' | 'processor' | 'output' | 'gateway';
+	mode?: string;
+	status?: string;
+	size?: TokenSize;
+	selected?: boolean;
+	draggable?: boolean;
+	selectable?: boolean;
+	resizable?: boolean;
+	deletable?: boolean;
+	duplicable?: boolean;
+	width?: number;
+	minWidth?: number;
+	height?: number | 'auto';
+	color?: string;
+	headerColor?: string;
+	hideHeader?: boolean;
+	hidePorts?: boolean;
+	hideProperties?: boolean;
+	showActions?: boolean;
+	worldDepth?: number;
+	cameraDepth?: number;
+	presentation?: LitegraphNodePresentation;
+	properties?: LiteGraphNodeProperty[];
+	inputs?: LiteGraphPort[];
+	outputs?: LiteGraphPort[];
+	headerContent?: string;
+	bodyContent?: string;
+}
+
+export type LiteGraphNodeProps = LitegraphNodeRecipe;

@@ -2,7 +2,7 @@
 	import type { PageHeaderStateProps } from '$stylist/management/function/state/page-header';
 	import { PageHeaderStyleManager } from '$stylist/management/class/style-manager/page-header';
 	import { createPageHeaderState } from '$stylist/management/function/state/page-header';
-	import Link from '$stylist/typography/svelte/atom/typography/inline/link/index.svelte';
+	import Link from '$stylist/typography/svelte/atom/inline/link/index.svelte';
 
 	let props: PageHeaderStateProps = $props();
 	const state = createPageHeaderState(props);

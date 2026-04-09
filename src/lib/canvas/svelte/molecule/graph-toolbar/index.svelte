@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { GraphToolbarRecipe } from '$stylist/information/interface/recipe/graph-toolbar';
+	import type { GraphToolbarRecipe } from '$stylist/science/interface/recipe/graph-toolbar';
 	import { createGraphToolbarState } from '$stylist/information/function/state/graph-toolbar';
 	import { IconButton, Separator } from '$stylist';
 

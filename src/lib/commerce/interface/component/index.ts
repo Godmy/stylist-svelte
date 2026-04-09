@@ -33,7 +33,7 @@ export type { ProductSearchContract, ProductSearchEventsContract } from './produ
 export type { IProductSortingProps, IProductSortingStyleClasses, ProductSortingContract, ProductSortingOptionContract } from './product-sorting';
 export type { ProductTourContract, ProductTourEventsContract, ProductTourStepContract } from './product-tour';
 export type { ProductWishlistContract, ProductWishlistEventsContract, WishlistItemContract } from './product-wishlist';
-export type { QuoteRequestContract, QuoteRequestProps } from './quote-request';
+export type { QuoteRequestContract } from './quote-request';
 export type { FAQContract, ReturnConditionContract, ReturnPolicyContract, ReturnPolicyEventsContract, ReturnStepContract } from './return-policy';
 export type { RFQFormContract, RFQFormDataContract, RFQFormEventsContract, RFQProductContract } from './rfqform';
 export type { CountryContract, DimensionsContract, ShippingCalculatorContract, ShippingCalculatorEventsContract, ShippingOptionContract, StateContract } from './shipping-calculator';

@@ -1,6 +1,6 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import type { CodeBlockRecipe as CodeProps } from '$stylist/information/interface/recipe/code-block';
-import { BadgeStyleManager } from '$stylist/information/class/style-manager/badge';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import type { CodeBlockRecipe as CodeProps } from '$stylist/development/interface/recipe/code-block';
+import { BadgeStyleManager } from '$stylist/typography/class/style-manager/badge';
 
 /**
  * Code state creator
@@ -16,7 +16,7 @@ export function createCodeState(props: CodeProps) {
 	const showLineNumbers = $derived(props.showLineNumbers ?? false);
 	const startLineNumber = $derived(props.startLineNumber ?? 1);
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'rounded-md overflow-x-auto font-mono',
 			BadgeStyleManager.getCodeVariantClass(variant as CodeProps['variant']),
 			BadgeStyleManager.getCodeSizeClass(size as CodeProps['size']),

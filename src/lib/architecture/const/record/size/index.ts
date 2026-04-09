@@ -1,4 +1,4 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/foundation-semantic-zoom-stages';
 import type { TokenSize } from '$stylist/layout/type/enum/size/index';
 
 export const RECORD_SIZE: Record<FoundationSemanticZoomStage, TokenSize> = {

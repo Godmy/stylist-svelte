@@ -1,53 +1,10 @@
+import { formatPhoneNumber } from '../format-phone-number';
+import { normalizePhoneInputValue } from '../normalize-phone-input-value';
+
 interface PhoneNumberInputStateProps {
 	error?: boolean;
 	disabled?: boolean;
 }
-
-
-
-export const formatPhoneNumber = (value: string): string => {
-	if (!value) return '';
-
-	const cleaned = value.replace(/\D/g, '');
-	let formatted = '+7 (';
-
-	for (let i = 0; i < 11; i++) {
-		if (i < cleaned.length) {
-			if (i === 0) {
-				formatted += cleaned[i];
-			} else if (i === 3) {
-				formatted += ') ' + cleaned[i];
-			} else if (i === 6) {
-				formatted += '-' + cleaned[i];
-			} else if (i === 8) {
-				formatted += '-' + cleaned[i];
-			} else {
-				formatted += cleaned[i];
-			}
-		} else if (i === 0) {
-			formatted += '_';
-		} else if (i === 3) {
-			formatted += ') _';
-		} else if (i === 6 || i === 8) {
-			formatted += '-_';
-		} else {
-			formatted += '_';
-		}
-	}
-
-	return formatted;
-};
-
-export const normalizePhoneInputValue = (raw: string): string => {
-	let unformattedValue = raw.replace(/\D/g, '');
-	if (unformattedValue.startsWith('8')) {
-		unformattedValue = '7' + unformattedValue.substring(1);
-	}
-	if (unformattedValue.startsWith('+7')) {
-		unformattedValue = unformattedValue.substring(2);
-	}
-	return unformattedValue.substring(0, 11);
-};
 
 export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) => {
 	const error = $derived(props.error ?? false);
@@ -74,7 +31,3 @@ export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) =
 };
 
 export default createPhoneNumberInputState;
-
-
-
-

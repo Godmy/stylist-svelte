@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ARCHITECTURE_SHADER_CATALOG } from './catalog';

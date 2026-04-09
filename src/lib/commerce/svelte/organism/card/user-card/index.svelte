@@ -10,7 +10,7 @@
 </script>
 
 <div class={state.rootClass} {...state.restProps}>
-	{#if state.showAvatar}
+	{#if state.showAvatar && props.user}
 		<div class={state.avatarContainerClass}>
 			{#if state.hasAvatar}
 				<img
@@ -32,34 +32,36 @@
 		</div>
 	{/if}
 
-	<div class={state.contentClass}>
-		<div class={state.nameContainerClass}>
-			<h3 class={state.nameClass}>
-				{props.user.name}
-			</h3>
-			{#if state.showActions && props.user.actions}
-				<div class={state.actionsContainerClass}>
-					{@render props.user.actions()}
-				</div>
+	{#if props.user}
+		<div class={state.contentClass}>
+			<div class={state.nameContainerClass}>
+				<h3 class={state.nameClass}>
+					{props.user.name}
+				</h3>
+				{#if state.showActions && props.user.actions}
+					<div class={state.actionsContainerClass}>
+						{@render props.user.actions()}
+					</div>
+				{/if}
+			</div>
+
+			{#if state.showTitle && props.user.title}
+				<p class={state.titleClass}>
+					{props.user.title}
+				</p>
+			{/if}
+
+			{#if state.showEmail && props.user.email}
+				<p class={state.emailClass}>
+					{props.user.email}
+				</p>
 			{/if}
 		</div>
-
-		{#if state.showTitle && props.user.title}
-			<p class={state.titleClass}>
-				{props.user.title}
-			</p>
-		{/if}
-
-		{#if state.showEmail && props.user.email}
-			<p class={state.emailClass}>
-				{props.user.email}
-			</p>
-		{/if}
-	</div>
+	{/if}
 
 	{#if state.showActions}
 		<div class={state.actionsContainerClass}>
-			{#if props.user.actions}
+			{#if props.user?.actions}
 				{@render props.user.actions()}
 			{:else}
 				<button

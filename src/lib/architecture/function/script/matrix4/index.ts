@@ -1,7 +1,3 @@
-/**
- * Класс для работы с 4x4 матрицами
- * Используется для MVP трансформаций в WebGL
- */
 export class Matrix4 {
   public elements: Float32Array;
 
@@ -10,9 +6,6 @@ export class Matrix4 {
     this.identity();
   }
 
-  /**
-   * Установить единичную матрицу
-   */
   identity(): Matrix4 {
     this.elements.set([
       1, 0, 0, 0,
@@ -23,79 +16,81 @@ export class Matrix4 {
     return this;
   }
 
-  /**
-   * Умножить матрицы (this × other)
-   */
   multiply(other: Matrix4): Matrix4 {
     const a = this.elements;
     const b = other.elements;
-    const result = new Float32Array(16);
+    const out = new Float32Array(16);
 
-    for (let row = 0; row < 4; row++) {
-      for (let col = 0; col < 4; col++) {
-        let sum = 0;
-        for (let k = 0; k < 4; k++) {
-          sum += a[row * 4 + k] * b[k * 4 + col];
-        }
-        result[row * 4 + col] = sum;
-      }
-    }
+    const a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3];
+    const a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7];
+    const a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11];
+    const a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15];
 
-    this.elements = result;
+    const b00 = b[0], b01 = b[1], b02 = b[2], b03 = b[3];
+    const b10 = b[4], b11 = b[5], b12 = b[6], b13 = b[7];
+    const b20 = b[8], b21 = b[9], b22 = b[10], b23 = b[11];
+    const b30 = b[12], b31 = b[13], b32 = b[14], b33 = b[15];
+
+    out[0] = a00 * b00 + a10 * b01 + a20 * b02 + a30 * b03;
+    out[1] = a01 * b00 + a11 * b01 + a21 * b02 + a31 * b03;
+    out[2] = a02 * b00 + a12 * b01 + a22 * b02 + a32 * b03;
+    out[3] = a03 * b00 + a13 * b01 + a23 * b02 + a33 * b03;
+    out[4] = a00 * b10 + a10 * b11 + a20 * b12 + a30 * b13;
+    out[5] = a01 * b10 + a11 * b11 + a21 * b12 + a31 * b13;
+    out[6] = a02 * b10 + a12 * b11 + a22 * b12 + a32 * b13;
+    out[7] = a03 * b10 + a13 * b11 + a23 * b12 + a33 * b13;
+    out[8] = a00 * b20 + a10 * b21 + a20 * b22 + a30 * b23;
+    out[9] = a01 * b20 + a11 * b21 + a21 * b22 + a31 * b23;
+    out[10] = a02 * b20 + a12 * b21 + a22 * b22 + a32 * b23;
+    out[11] = a03 * b20 + a13 * b21 + a23 * b22 + a33 * b23;
+    out[12] = a00 * b30 + a10 * b31 + a20 * b32 + a30 * b33;
+    out[13] = a01 * b30 + a11 * b31 + a21 * b32 + a31 * b33;
+    out[14] = a02 * b30 + a12 * b31 + a22 * b32 + a32 * b33;
+    out[15] = a03 * b30 + a13 * b31 + a23 * b32 + a33 * b33;
+
+    this.elements = out;
     return this;
   }
 
-  /**
-   * Создать матрицу вращения вокруг оси X
-   */
   static rotateX(angle: number): Matrix4 {
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
     const matrix = new Matrix4();
     matrix.elements.set([
       1, 0, 0, 0,
-      0, cos, -sin, 0,
-      0, sin, cos, 0,
+      0, c, s, 0,
+      0, -s, c, 0,
       0, 0, 0, 1
     ]);
     return matrix;
   }
 
-  /**
-   * Создать матрицу вращения вокруг оси Y
-   */
   static rotateY(angle: number): Matrix4 {
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
     const matrix = new Matrix4();
     matrix.elements.set([
-      cos, 0, sin, 0,
+      c, 0, -s, 0,
       0, 1, 0, 0,
-      -sin, 0, cos, 0,
+      s, 0, c, 0,
       0, 0, 0, 1
     ]);
     return matrix;
   }
 
-  /**
-   * Создать матрицу вращения вокруг оси Z
-   */
   static rotateZ(angle: number): Matrix4 {
-    const cos = Math.cos(angle);
-    const sin = Math.sin(angle);
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
     const matrix = new Matrix4();
     matrix.elements.set([
-      cos, -sin, 0, 0,
-      sin, cos, 0, 0,
+      c, s, 0, 0,
+      -s, c, 0, 0,
       0, 0, 1, 0,
       0, 0, 0, 1
     ]);
     return matrix;
   }
 
-  /**
-   * Создать матрицу масштабирования
-   */
   static scale(x: number, y: number, z: number): Matrix4 {
     const matrix = new Matrix4();
     matrix.elements.set([
@@ -107,9 +102,6 @@ export class Matrix4 {
     return matrix;
   }
 
-  /**
-   * Создать матрицу перемещения
-   */
   static translate(x: number, y: number, z: number): Matrix4 {
     const matrix = new Matrix4();
     matrix.elements.set([
@@ -121,69 +113,79 @@ export class Matrix4 {
     return matrix;
   }
 
-  /**
-   * Создать матрицу перспективы
-   */
   static perspective(fov: number, aspect: number, near: number, far: number): Matrix4 {
-    const f = 1.0 / Math.tan(fov / 2);
+    const f = 1 / Math.tan(fov / 2);
     const nf = 1 / (near - far);
     const matrix = new Matrix4();
     matrix.elements.set([
       f / aspect, 0, 0, 0,
       0, f, 0, 0,
       0, 0, (far + near) * nf, -1,
-      0, 0, (2 * far * near) * nf, 0
+      0, 0, 2 * far * near * nf, 0
     ]);
     return matrix;
   }
 
-  /**
-   * Создать матрицу вида (lookAt)
-   */
-  static lookAt(eye: [number, number, number], center: [number, number, number], up: [number, number, number]): Matrix4 {
-    const [ex, ey, ez] = eye;
-    const [cx, cy, cz] = center;
-    const [ux, uy, uz] = up;
+  static lookAt(
+    eye: [number, number, number],
+    center: [number, number, number],
+    up: [number, number, number]
+  ): Matrix4 {
+    let x0: number;
+    let x1: number;
+    let x2: number;
+    let y0: number;
+    let y1: number;
+    let y2: number;
+    let z0: number;
+    let z1: number;
+    let z2: number;
 
-    // Forward vector
-    const fx = ex - cx;
-    const fy = ey - cy;
-    const fz = ez - cz;
-    const fl = Math.sqrt(fx * fx + fy * fy + fz * fz);
-    const fnx = fx / fl;
-    const fny = fy / fl;
-    const fnz = fz / fl;
+    z0 = eye[0] - center[0];
+    z1 = eye[1] - center[1];
+    z2 = eye[2] - center[2];
 
-    // Right vector
-    const rx = fny * uz - fnz * uy;
-    const ry = fnz * ux - fnx * uz;
-    const rz = fnx * uy - fny * ux;
-    const rl = Math.sqrt(rx * rx + ry * ry + rz * rz);
-    const rnx = rx / rl;
-    const rny = ry / rl;
-    const rnz = rz / rl;
+    let len = Math.hypot(z0, z1, z2);
+    if (len === 0) {
+      z2 = 1;
+    } else {
+      z0 /= len;
+      z1 /= len;
+      z2 /= len;
+    }
 
-    // Up vector
-    const unx = rny * fnz - rnz * fny;
-    const uny = rnz * fnx - rnx * fnz;
-    const unz = rnx * fny - rny * fnx;
+    x0 = up[1] * z2 - up[2] * z1;
+    x1 = up[2] * z0 - up[0] * z2;
+    x2 = up[0] * z1 - up[1] * z0;
+
+    len = Math.hypot(x0, x1, x2);
+    if (len === 0) {
+      x0 = 0;
+      x1 = 0;
+      x2 = 0;
+    } else {
+      x0 /= len;
+      x1 /= len;
+      x2 /= len;
+    }
+
+    y0 = z1 * x2 - z2 * x1;
+    y1 = z2 * x0 - z0 * x2;
+    y2 = z0 * x1 - z1 * x0;
 
     const matrix = new Matrix4();
     matrix.elements.set([
-      rnx, rny, rnz, 0,
-      unx, uny, unz, 0,
-      fnx, fny, fnz, 0,
-      -(rnx * ex + rny * ey + rnz * ez),
-      -(unx * ex + uny * ey + unz * ez),
-      -(fnx * ex + fny * ey + fnz * ez),
+      x0, y0, z0, 0,
+      x1, y1, z1, 0,
+      x2, y2, z2, 0,
+      -(x0 * eye[0] + x1 * eye[1] + x2 * eye[2]),
+      -(y0 * eye[0] + y1 * eye[1] + y2 * eye[2]),
+      -(z0 * eye[0] + z1 * eye[1] + z2 * eye[2]),
       1
     ]);
     return matrix;
   }
 
-  /**
-   * Получить массив элементов (для передачи в WebGL)
-   */
   toArray(): Float32Array {
     return this.elements;
   }

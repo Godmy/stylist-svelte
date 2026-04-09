@@ -1,5 +1,5 @@
 import { HoverableStyleManager } from '$stylist/interaction/class/style-manager/hoverable';
-import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable';
+import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable-props';
 
 export const createHoverableState = (props: HoverProps) => {
 	// State

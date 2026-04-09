@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { PortGroupRecipe } from '$stylist/information/interface/recipe/port-group';
-	import type { GraphPortRecipe } from '$stylist/information/interface/recipe/graph-port';
+	import type { PortGroupRecipe } from '$stylist/media/interface/recipe/port-group';
+	import type { GraphPortRecipe } from '$stylist/science/interface/recipe/graph-port';
 	import { GraphPort } from '$stylist';
 	import { Divider } from '$stylist';
 

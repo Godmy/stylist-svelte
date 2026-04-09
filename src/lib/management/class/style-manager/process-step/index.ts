@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Style manager for ProcessStep component
@@ -12,7 +12,7 @@ export class ProcessStepStyleManager {
    * @returns Combined string of base and additional classes
    */
   static getBaseClasses(active: boolean = false, className?: string): string {
-    return cn(
+    return mergeClassNames(
       'process-step flex items-start rounded-lg border p-4 transition-colors',
       active
         ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
@@ -27,7 +27,7 @@ export class ProcessStepStyleManager {
    * @returns Number container classes
    */
   static getNumberContainerClasses(active: boolean = false): string {
-    return cn(
+    return mergeClassNames(
       'mr-4 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
       active
         ? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]'
@@ -49,7 +49,7 @@ export class ProcessStepStyleManager {
    * @returns Title classes
    */
   static getTitleClasses(active: boolean = false): string {
-    return cn(
+    return mergeClassNames(
       'text-base font-bold',
       active ? 'text-[var(--color-primary-700)]' : 'text-[var(--color-text-primary)]'
     );

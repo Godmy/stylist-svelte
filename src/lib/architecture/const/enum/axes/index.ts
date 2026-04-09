@@ -1,11 +1,4 @@
-export const FOUNDATION_AXES = ['x', 'y', 'z'] as const;
-export const FOUNDATION_AXIS_DIRECTIONS = [
-	'negative',
-	'center',
-	'positive',
-	'inline-start',
-	'inline-end',
-	'block-start',
-	'block-end'
-] as const;
-export const FOUNDATION_AXIS_ORIENTATIONS = ['horizontal', 'vertical', 'depth'] as const;
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { FOUNDATION_AXES } from './foundation-axes';
+export { FOUNDATION_AXIS_DIRECTIONS } from './foundation-axis-directions';
+export { FOUNDATION_AXIS_ORIENTATIONS } from './foundation-axis-orientations';

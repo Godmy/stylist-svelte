@@ -18,7 +18,7 @@ const Check = 'check';
 const CheckCircle = 'check-circle';
 
   import { Button } from '$stylist';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
   type CheckoutStep = 'cart' | 'information' | 'shipping' | 'payment' | 'review' | 'confirmation';
 
@@ -340,7 +340,7 @@ const CheckCircle = 'check-circle';
   let formattedTotal = $derived(formatCurrency(total));
 </script>
 
-<div class={cn('c-checkout-form', hostClass)} {...restProps}>
+<div class={mergeClassNames('c-checkout-form', hostClass)} {...restProps}>
   {#if showProgress}
     <!-- Progress indicator -->
     <div class="mb-8">

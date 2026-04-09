@@ -2,7 +2,7 @@ import { createInputState as createBaseInputState } from '$stylist/interaction/p
 import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { InputStateOptions } from '$stylist/layout/type/struct/component-state';
+import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 
 export function createFileInputState(
 	props: InputStateOptions<TokenAppearance, TokenSize> & Record<string, unknown>

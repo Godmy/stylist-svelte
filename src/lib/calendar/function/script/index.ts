@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { molecularTimeSlotToAtomic, scheduleTimeSlotToAtomic } from './time-slot-adapters';
+export { molecularTimeSlotToAtomic } from './molecular-time-slot-to-atomic';
+export { scheduleTimeSlotToAtomic } from './schedule-time-slot-to-atomic';

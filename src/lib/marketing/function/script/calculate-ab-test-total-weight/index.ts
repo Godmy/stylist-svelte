@@ -3,5 +3,3 @@ import type { ABTestVariant } from '$stylist/marketing/interface/component/abtes
 export function calculateABTestTotalWeight(variants: ABTestVariant[]): number {
 	return variants.reduce((sum: number, variant: ABTestVariant) => sum + variant.weight, 0);
 }
-
-export const calculateTotalWeight = calculateABTestTotalWeight;

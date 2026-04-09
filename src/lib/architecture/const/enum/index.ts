@@ -10,6 +10,8 @@ export { TOKEN_NODE_TYPE } from './node-type';
 export { TOKEN_OWNERSHIP } from './ownership';
 export { TOKEN_PAN_MODES } from './pan-mode';
 export { TOKEN_RELATIONSHIP } from './relationship';
+export { TOKEN_ARCHITECTURE_SHADER_FRAGMENT } from './shader-fragment';
+export { TOKEN_ARCHITECTURE_SHADER_VERTEX } from './shader-vertex';
 export { TOKEN_SKELETON } from './skeleton';
 export { TIER_CONTENT } from './tier';
 export { TOKEN_TRAJECTORY } from './trajectory';

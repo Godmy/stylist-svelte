@@ -1,20 +1,6 @@
-export type PresentationMode = 'overview' | 'editor' | 'presentation';
-
-export interface PresentationFrame {
-	id: string;
-	title: string;
-	targetX: number;
-	targetY: number;
-	targetZoom: number;
-	duration?: number;
-}
-
-export interface PresentationState {
-	mode: PresentationMode;
-	currentFrameIndex: number;
-	frames: PresentationFrame[];
-	isPlaying: boolean;
-}
+import type { PresentationMode } from '../presentation-mode/index.svelte.ts';
+import type { PresentationFrame } from '../presentation-frame/index.svelte.ts';
+import type { PresentationState } from '../presentation-state/index.svelte.ts';
 
 function usePresentation(initialFrames?: PresentationFrame[]) {
 	let state = $state<PresentationState>({

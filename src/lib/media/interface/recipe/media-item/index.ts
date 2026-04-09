@@ -12,9 +12,9 @@
  *   ThemeAttributes   (theme)       — data-variant
  */
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IMediaSlot } from '$stylist/information/interface/proto/media-slot';
-import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
-import type { ICaptionSlot } from '$stylist/information/interface/proto/caption-slot';
+import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
+import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { IElevatable } from '$stylist/layout/interface/proto/elevatable';

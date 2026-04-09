@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import type { SearchFormProps } from '$stylist/form/interface/component/interaction-forms/other';
   import { SearchFormStyleManager } from '$stylist';
   import SearchForm from './index.svelte';

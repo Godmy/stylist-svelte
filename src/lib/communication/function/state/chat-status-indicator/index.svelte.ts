@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { ChatStatusIndicatorProps } from '$stylist/communication/interface/component/chat-status-indicator/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) {
   // Initialize props with defaults
@@ -34,7 +34,7 @@ export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) 
 
   const styles = {
     container: 'inline-flex items-center gap-2',
-    indicator: mergeClasses(
+    indicator: joinClassNames(
       'inline-flex rounded-full',
       indicatorSizes[size] ?? indicatorSizes.sm,
       indicatorStatuses[status] ?? indicatorStatuses.offline
@@ -45,7 +45,7 @@ export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) 
   // Merge classes with custom classes
   const containerClasses = derived(
     [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   return {

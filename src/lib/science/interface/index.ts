@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { PredictionResultStatus } from './component';
+export type { GraphEdgeProps, GraphEdgeRecipe, GraphNodeProps, GraphvizDirectedEdgeRecipe, LiteGraphNodeProps, LitegraphNodePresentation, NodePropertyRecipe, NodeTitleRecipe, NodeTitleVariant } from './recipe';
 export type { AiResultCardContract, GraphGridMode, GraphPanMode, LitegraphCanvasContract, ModelSelectorContract, NodeType, PredictionResultContract, PromptBuilderContract, PromptVariableType, SentimentAnalysisContract, SentimentAnalysisStatus } from './record';
 export type { IAiResultCardProps, Prediction, PredictionResultProps, PromptBuilderProps, PromptTemplate, PromptVariable, SentimentAnalysisProps, SentimentResult } from './component';
-export type { GraphNodeCardRecipe, LiteGraphNodeProperty, LiteGraphPort, LitegraphNodeRecipe } from './recipe';
+export type { GraphCanvasPosition, GraphCanvasRecipe, GraphCanvasViewport, GraphNodeCardRecipe, GraphNodeRecipe, GraphPortDimensions, GraphPortRecipe, GraphPortState, GraphRecipe, GraphToolbarRecipe, Idef0BlackBoxRecipe, Idef0ConnectorRecipe, Idef0DiagramRecipe, Idef0FunctionBoxRecipe, Idef0InputsRecipe, Idef0OutputsRecipe, Idef0Port, Idef0PortLabelRecipe, LiteGraphNodeProperty, LiteGraphPort, LitegraphNodeRecipe, NodeHeaderRecipe, NodePropertiesPanelRecipe, NodePropertyState } from './recipe';
 export type { AiResultCardContractBase, GraphToolbarItem, LitegraphCanvasContractBase, LitegraphConnection, LitegraphNode, LitegraphNodeProperty, LitegraphPort, MapScienceContract, ModelOption, ModelSelectorContractBase, PredictionResultContractBase, PromptBuilderContractBase, SentimentAnalysisContractBase, SentimentAnalysisResult } from './record';

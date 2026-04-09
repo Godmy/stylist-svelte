@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { NodeHeaderRecipe } from '$stylist/information/interface/recipe/node-header';
+	import type { NodeHeaderRecipe } from '$stylist/science/interface/recipe/node-header';
 	import { createNodeHeaderState } from '$stylist/information/function/state/node-header';
 	import { Icon as BaseIcon } from '$stylist';
 

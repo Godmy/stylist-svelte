@@ -1,8 +1,8 @@
 import { createBadgeGroupState as createBaseBadgeGroupState } from '$stylist/information/function/state/badge-group';
 import { StyleManagerBadgeGroup } from '$stylist/typography/class/style-manager/badge-group';
-import type { ThemeBadgeGroupRecipe } from '$stylist/typography/interface/recipe/badge-group';
+import type { BadgeGroupRecipe } from '$stylist/typography/interface/recipe/badge-group';
 
-export function createBadgeGroupState(props: ThemeBadgeGroupRecipe) {
+export function createBadgeGroupState(props: BadgeGroupRecipe) {
 	const baseState = createBaseBadgeGroupState(props);
 	const containerClasses = $derived(
 		StyleManagerBadgeGroup.container(baseState.containerClasses)

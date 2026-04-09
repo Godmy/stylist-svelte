@@ -1,16 +1,10 @@
-import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
+﻿import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-import type { TokenMonitoringType } from '$stylist/analytics/type/enum/monitoring-type';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
+import { PRICE_ALERT_VARIANT_CLASSES } from '$stylist/commerce/const/record/price-alert-variant-classes';
 
 const PRICE_ALERT_BASE_CLASSES = `${StyleManagerBase.classes.card} p-4`;
-
-const PRICE_ALERT_VARIANT_CLASSES: Record<TokenMonitoringType, string> = {
-	...InteractionStyleManager.getVariantClassMap(),
-	monitoring: 'border-[--color-info-200] bg-[--color-info-50]',
-	reached: 'border-[--color-success-200] bg-[--color-success-50]',
-	exceeded: 'border-[--color-danger-200] bg-[--color-danger-50]'
-} as const;
 
 const PRICE_ALERT_SIZE_CLASSES = {
 	sm: 'p-2 text-sm',
@@ -18,17 +12,13 @@ const PRICE_ALERT_SIZE_CLASSES = {
 	lg: 'p-6 text-lg'
 } as const;
 
-
-
-
-
 export class PriceAlertStyleManager {
   static getClasses(
     variant: TokenMonitoringType = 'monitoring',
     size: keyof typeof PRICE_ALERT_SIZE_CLASSES = 'md',
     className = ''
   ): string {
-    return cn(
+    return mergeClassNames(
       PRICE_ALERT_BASE_CLASSES,
       PRICE_ALERT_VARIANT_CLASSES[variant],
       PRICE_ALERT_SIZE_CLASSES[size],
@@ -37,9 +27,7 @@ export class PriceAlertStyleManager {
   }
 
   static getContainerClasses(className = ''): string {
-    return cn('flex items-center justify-center', className);
+    return mergeClassNames('flex items-center justify-center', className);
   }
 }
-
-
 

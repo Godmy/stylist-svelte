@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import DragAndDrop from './index.svelte';
 
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
 	const controls: InterfaceControllerSettings[] = [
 		{

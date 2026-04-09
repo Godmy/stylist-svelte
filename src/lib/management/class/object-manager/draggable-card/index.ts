@@ -1,27 +1,5 @@
-export interface CardData {
-	id: string;
-	title: string;
-	description?: string;
-	content?: any;
-	status?: string;
-	tags?: string[];
-	dueDate?: Date;
-	assignedTo?: string;
-}
-
-export interface DraggableCardProps {
-	data: CardData;
-	class?: string;
-	contentClass?: string;
-	headerClass?: string;
-	bodyClass?: string;
-	footerClass?: string;
-	disabled?: boolean;
-	draggable?: boolean;
-	showHandle?: boolean;
-	showMenu?: boolean;
-	variant?: 'default' | 'minimal' | 'compact';
-}
+import type { CardData } from '$stylist/management/class/object-manager/draggable-card-data';
+import type { DraggableCardProps } from '$stylist/management/class/object-manager/draggable-card-props';
 
 export class ObjectManagerDraggableCard {
 	/**

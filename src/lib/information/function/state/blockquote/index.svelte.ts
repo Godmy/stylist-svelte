@@ -1,5 +1,5 @@
-import type { BlockquoteRecipe } from '$stylist/information/interface/recipe/blockquote';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import type { BlockquoteRecipe } from '$stylist/typography/interface/recipe/blockquote';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 /**
  * Blockquote state creator
@@ -14,7 +14,7 @@ export function createBlockquoteState(props: BlockquoteRecipe) {
 	const withBackground = $derived(props.withBackground ?? false);
 	const className = $derived(typeof props.class === 'string' ? props.class : '');
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'text-lg italic',
 			withBorder && 'bg-[var(--color-background-secondary)] p-4 rounded',
 			withBackground && 'border-l-4 border-[var(--color-primary-500)] pl-4',

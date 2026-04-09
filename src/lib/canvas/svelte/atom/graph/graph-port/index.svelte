@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { GraphPortRecipe as GraphPortProps } from '$stylist/information/interface/recipe/graph-port';
-	import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port';
+	import type { GraphPortRecipe as GraphPortProps } from '$stylist/science/interface/recipe/graph-port';
+	import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port/graph-port-data-type-color';
 	import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
 	import { GraphPortStyleManager } from '$stylist/canvas/class/style-manager/graph-port';
 	import { createGraphPortState } from '$stylist/canvas/function/state/graph-port';

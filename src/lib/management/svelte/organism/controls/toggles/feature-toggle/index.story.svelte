@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import FeatureToggle from './index.svelte';
   type Props={checked:boolean;disabled:boolean};
   const controls: InterfaceControllerSettings[]=[{name:'checked',type:'boolean',defaultValue:true},{name:'disabled',type:'boolean',defaultValue:false}];

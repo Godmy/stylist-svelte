@@ -5,7 +5,11 @@ import { BlockquoteStyleManager } from '$stylist/typography/class/style-manager/
 export function createBlockquoteState(props: BlockquoteRecipe) {
   const cite = $derived(props.cite);
   const footerPrefix = $derived(props.footerPrefix ?? '');
-  const classes = $derived(BlockquoteStyleManager.getBlockquoteClasses(props.class));
+  const classes = $derived(
+    BlockquoteStyleManager.getBlockquoteClasses(
+      typeof props.class === 'string' ? props.class : undefined
+    )
+  );
   const footerClasses = $derived(BlockquoteStyleManager.getFooterClasses());
 
   const restProps = $derived.by(() => {

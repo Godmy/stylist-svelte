@@ -1,13 +1,13 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
 
 export class CodeSectionStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-section', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames('c-code-section', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getHeaderContainerClass(): string {
-		return cn(CodeStyleManager.getHeaderBaseClasses(), 'px-4 py-3');
+		return mergeClassNames(CodeStyleManager.getHeaderBaseClasses(), 'px-4 py-3');
 	}
 
 	static getHeaderContentClass(): string {

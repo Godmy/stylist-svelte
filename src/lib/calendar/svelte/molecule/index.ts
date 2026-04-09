@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Timeline } from './controls';
+export { Timeline } from './timeline';

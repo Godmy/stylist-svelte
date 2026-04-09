@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { AdvancedToggleProps } from '$stylist/control/interface/component/toggles';
 import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggles';
 
@@ -12,7 +12,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 		TogglesStyleManager.getToggleContainerClasses(props.class)
 	);
 	const labelWrapperClasses = $derived(
-		mergeClasses('flex items-center space-x-2')
+		joinClassNames('flex items-center space-x-2')
 	);
 	const toggleContainerClasses = $derived(
 		TogglesStyleManager.getToggleContainerClasses(props.class)
@@ -24,7 +24,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 		TogglesStyleManager.getToggleThumbClasses('md', disabled, checked)
 	);
 	const hiddenInputClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'absolute left-0 top-0 opacity-[var(--opacity-0)] w-full h-full cursor-pointer',
 			disabled ? 'cursor-not-allowed' : ''
 		)
@@ -34,7 +34,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	const sizeClasses = $derived(TogglesStyleManager.getToggleSizeClasses(size));
 	const disabledClass = $derived(TogglesStyleManager.getToggleDisabledClass(disabled));
 	const labelTextClasses = $derived(
-		mergeClasses('text-sm font-medium', disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]')
+		joinClassNames('text-sm font-medium', disabled ? 'text-[var(--color-text-tertiary)]' : 'text-[var(--color-text-primary)]')
 	);
 
 	return {

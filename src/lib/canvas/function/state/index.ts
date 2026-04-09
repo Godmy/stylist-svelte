@@ -8,4 +8,6 @@ export { createGraphPortState } from './graph-port';
 export { createMinimapState } from './minimap';
 export { createSharedCanvasState } from './shared-canvas';
 export { useViewport } from './viewport';
-export type { Bounds, ViewportInput, ViewportState } from './viewport';
+export type { Bounds } from './viewport-bounds';
+export type { ViewportInput } from './viewport-input';
+export type { ViewportState } from './viewport-state';

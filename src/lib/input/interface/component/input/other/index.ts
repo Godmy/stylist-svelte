@@ -1,4 +1,5 @@
 import type { HTMLInputAttributes, HTMLTextareaAttributes, HTMLAttributes } from 'svelte/elements';
+import type { Snippet } from 'svelte';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
@@ -6,15 +7,17 @@ import type {
 	ChildrenProp,
 	ClassProp,
 	ContentProp,
-	HtmlAttributesBase,
+	HtmlAttributesBase
+} from '$stylist/information/type/struct';
+import type {
 	InputAttributesBase,
 	InputFieldBaseProps,
 	InputFieldRequiredProps,
 	InputLabelProps,
 	InputValidationProps,
-	InputValueProps,
-	TextInputBaseProps
-} from '$stylist/information/type/struct/common';
+	InputValueProps
+} from '$stylist/input/type/struct';
+import type { TextInputBaseProps } from '$stylist/typography/type/struct/text-input-base-props';
 export interface InputCoreProps<V extends string = TokenAppearance, S extends string = TokenSize> {
 	variant?: V;
 	size?: S;
@@ -93,7 +96,7 @@ export interface IInputPasswordProps extends Omit<IInputBaseProps, 'type'> {
 export interface IInputGroupProps
 	extends Omit<IInputBaseProps, 'type'>,
 		InputLabelProps,
-		InputValueProps {
+		Omit<InputValueProps, 'defaultValue'> {
 	buttonLabel?: string;
 	buttonVariant?: TokenAppearance;
 	buttonDisabled?: boolean;
@@ -137,8 +140,9 @@ export interface InputHelperProps<T extends HTMLElement = HTMLElement>
 
 export interface InputHelperChildrenProps<T extends HTMLElement = HTMLElement>
 	extends Omit<HTMLAttributes<T>, 'class'>,
-		ClassProp,
-		ChildrenProp {}
+		ClassProp {
+	children?: Snippet<[]>;
+}
 
 export interface IFormErrorMessageProps extends InputHelperProps<HTMLParagraphElement> {
 	text?: string;
@@ -181,7 +185,5 @@ export interface IAdvancedInputProps {
 	onInput?: (value: string) => void;
 	class?: string;
 }
-
-
 
 

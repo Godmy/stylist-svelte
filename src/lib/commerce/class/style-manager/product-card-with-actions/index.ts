@@ -1,10 +1,10 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
 
 export class ProductCardWithActionsStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn(
+		return mergeClassNames(
 			'c-product-card-with-actions max-w-sm border border-[var(--color-border-primary)] shadow-md',
 			CardStyleManager.getBaseClasses(),
 			extraClasses
@@ -32,7 +32,7 @@ export class ProductCardWithActionsStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return cn('h-4 w-4', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
+		return mergeClassNames('h-4 w-4', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
 	}
 
 	static getReviewCountClass(): string {

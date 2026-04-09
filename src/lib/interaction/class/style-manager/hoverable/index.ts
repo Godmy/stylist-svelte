@@ -1,11 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface HoverableStyleManagerOptions {
-	hoverEffect?: boolean;
-	isHovered?: boolean;
-	disabled?: boolean;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { HoverableStyleManagerOptions } from '$stylist/interaction/class/style-manager/hoverable-style-manager-options';
 
 export class HoverableStyleManager {
 	private static readonly BASE = 'transition-all duration-150 ease-in-out';
@@ -17,7 +11,7 @@ export class HoverableStyleManager {
 	 * Базовые классы для hoverable элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -46,14 +40,14 @@ export class HoverableStyleManager {
 		} = options;
 
 		if (disabled) {
-			return cn(this.BASE, this.DISABLED, className);
+			return mergeClassNames(this.BASE, this.DISABLED, className);
 		}
 
 		if (isHovered) {
-			return cn(this.BASE, this.HOVERED, className);
+			return mergeClassNames(this.BASE, this.HOVERED, className);
 		}
 
-		return cn(
+		return mergeClassNames(
 			this.BASE,
 			hoverEffect ? this.HOVER_EFFECT : '',
 			className

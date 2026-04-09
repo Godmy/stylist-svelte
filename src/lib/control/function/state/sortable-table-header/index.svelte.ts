@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { SortableTableHeaderProps } from '$stylist/control/interface/component/sortable-table-header/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createSortableTableHeaderState(props: SortableTableHeaderProps) {
   // Initialize props with defaults
@@ -24,7 +24,7 @@ export function createSortableTableHeaderState(props: SortableTableHeaderProps) 
   // Merge classes with custom classes
   const containerClasses = derived(
     [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   return {

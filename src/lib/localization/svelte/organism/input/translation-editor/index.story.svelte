@@ -1,8 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import TranslationEditor from './index.svelte';
-  import type { TranslatableText, TranslationLocale } from '$stylist/input/type/struct/interaction-input';
+  import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
+  import type { TranslationLocale } from '$stylist/input/type/struct/interaction-input/translation-locale';
 
   type Props = {
     showKeyColumn: boolean;

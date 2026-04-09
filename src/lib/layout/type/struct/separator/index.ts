@@ -1,2 +1,7 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SeparatorProps } from './separator-props';
+import type { HTMLAttributes } from 'svelte/elements';
+
+export interface SeparatorProps extends HTMLAttributes<HTMLHRElement> {
+	class?: string;
+	orientation?: 'horizontal' | 'vertical';
+	decorative?: boolean;
+}

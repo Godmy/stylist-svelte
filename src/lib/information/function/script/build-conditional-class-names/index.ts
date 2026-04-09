@@ -11,5 +11,3 @@ export function buildConditionalClassNames(
 
 	return joinClassNames(baseClasses, ...additionalClasses);
 }
-
-export const conditionalClasses = buildConditionalClassNames;

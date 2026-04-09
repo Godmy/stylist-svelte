@@ -1,4 +1,4 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
@@ -11,7 +11,7 @@ export class VerticalLayoutStyleManager {
 		fillHeight: boolean,
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'flex flex-col',
 			fillHeight && 'h-full',
 			{
@@ -68,7 +68,7 @@ export class VerticalLayoutStyleManager {
 				props.alignItems ?? 'stretch',
 				props.justifyContent ?? 'justify',
 				props.fillHeight ?? false,
-				cn(props.class)
+				mergeClassNames(props.class)
 			)
 		};
 	}

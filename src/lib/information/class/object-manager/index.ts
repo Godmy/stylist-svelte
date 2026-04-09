@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ObjectManagerCardWithImage } from './card-with-image';
-export { ObjectManagerIconPicker } from './icon-picker';
-export { ObjectManagerNodePropertiesPanel } from './node-properties-panel';
+export { ObjectManagerMetricCard } from './metric-card';
+export { ObjectManagerStatCard } from './stat-card';
+export { ObjectManagerStatsCard } from './stats-card';
 export { ObjectManagerTable } from './table';

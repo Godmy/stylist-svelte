@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { MinimapContract } from '$stylist/canvas/type/struct/minimap/minimap-contract';
-	import type { MinimapProps } from '$stylist/canvas/type/struct/minimap/minimap';
+	import type { MinimapProps } from '$stylist/canvas/type/struct/minimap/minimap-props';
 	import { MinimapStyleManager } from '$stylist/canvas/class/style-manager/minimap';
 	import { IconButton, Icon } from '$stylist';
-	import { createMinimapState } from '$stylist/canvas/function/state/minimap/create-minimap-state.svelte';
+	import { createMinimapState } from '$stylist/canvas/function/state/minimap';
 
 	const contract: MinimapContract & MinimapProps = $props();
 	const classString = typeof contract.class === 'string' ? contract.class : undefined;

@@ -1,417 +1,192 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-  import { Icon as BaseIcon } from '$stylist';
-const Package = 'package';
-const AlertTriangle = 'alert-triangle';
-const TrendingUp = 'trending-up';
-const TrendingDown = 'trending-down';
-const CheckCircle = 'check-circle';
-const XCircle = 'x-circle';
-const Search = 'search';
+  import { Story } from '$stylist/development/svelte/playground';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import { Button } from '$stylist';
-  import ProgressBar from '$stylist/feedback/svelte/atom/feedback/progress/progress-bar/index.svelte';
+  import InventoryTrackerComponent from './index.svelte';
 
-  type InventoryItem = {
-    id: string;
-    name: string;
-    sku: string;
-    currentStock: number;
-    minStock: number;
-    maxStock?: number;
-    reserved?: number;
-    available: number;
-    category?: string;
-    supplier?: string;
-    lastUpdated?: Date;
-    status: 'in-stock' | 'low-stock' | 'out-of-stock' | 'overstocked';
-    thumbnail?: string;
-  };
-
-  type LowStockAlert = {
-    id: string;
-    itemId: string;
-    itemName: string;
-    threshold: number;
-    currentLevel: number;
-    date: Date;
-    acknowledged?: boolean;
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    items: InventoryItem[];
-    alerts?: LowStockAlert[];
-    class?: string;
-    itemClass?: string;
-    headerClass?: string;
-    showAlerts?: boolean;
-    showAlertBadges?: boolean;
-    lowStockThreshold?: number;
-    overStockThreshold?: number;
-    onItemRestock?: (item: InventoryItem) => void;
-    onItemEdit?: (item: InventoryItem) => void;
-    onAlertAcknowledge?: (alertId: string) => void;
-    onInventoryExport?: () => void;
-    showFilters?: boolean;
-    showSearch?: boolean;
-    showStatusFilter?: boolean;
-    variant?: 'compact' | 'expanded' | 'dashboard';
-  };
+  const InventoryTracker = InventoryTrackerComponent as any;
 
   let {
-    items = [],
-    alerts = [],
-    class: hostClass = '',
-    itemClass = '',
-    headerClass = '',
-    showAlerts = true,
-    showAlertBadges = true,
-    lowStockThreshold = 5,
-    overStockThreshold = 100,
-    onItemRestock,
-    onItemEdit,
-    onAlertAcknowledge,
-    onInventoryExport,
-    showFilters = true,
-    showSearch = true,
-    showStatusFilter = true,
-    variant = 'expanded',
-    ...restProps
-  }: Props = $props();
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showAlerts', type: 'boolean', defaultValue: true },
+      { name: 'showFilters', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: InterfaceControllerSettings[]
+  }>();
 
-  let searchTerm = $state('');
-  let selectedStatus = $state<string>('all');
-
-  function getFilteredItems(list: InventoryItem[], term: string, status: string) {
-    let result = [...list];
-
-    if (term) {
-      const normalized = term.toLowerCase();
-      result = result.filter((item) =>
-        item.name.toLowerCase().includes(normalized) ||
-        item.sku.toLowerCase().includes(normalized) ||
-        (item.category && item.category.toLowerCase().includes(normalized)) ||
-        (item.supplier && item.supplier.toLowerCase().includes(normalized))
-      );
+  // Sample inventory items
+  const inventoryItems = [
+    {
+      id: 'item1',
+      name: 'Wireless Headphones',
+      sku: 'WH-12345',
+      currentStock: 12,
+      minStock: 5,
+      maxStock: 100,
+      reserved: 3,
+      available: 9,
+      category: 'Electronics',
+      supplier: 'TechCorp',
+      lastUpdated: new Date(),
+      status: 'in-stock' as const,
+      thumbnail: 'https://placehold.co/100x100?text=Headphones'
+    },
+    {
+      id: 'item2',
+      name: 'Bluetooth Speaker',
+      sku: 'BS-67890',
+      currentStock: 2,
+      minStock: 5,
+      maxStock: 50,
+      reserved: 1,
+      available: 1,
+      category: 'Electronics',
+      supplier: 'SoundInc',
+      lastUpdated: new Date(),
+      status: 'low-stock' as const,
+      thumbnail: 'https://placehold.co/100x100?text=Speaker'
+    },
+    {
+      id: 'item3',
+      name: 'USB Cable',
+      sku: 'UC-54321',
+      currentStock: 0,
+      minStock: 10,
+      maxStock: 200,
+      reserved: 0,
+      available: 0,
+      category: 'Accessories',
+      supplier: 'CableCo',
+      lastUpdated: new Date(),
+      status: 'out-of-stock' as const,
+      thumbnail: 'https://placehold.co/100x100?text=Cable'
+    },
+    {
+      id: 'item4',
+      name: 'Laptop Stand',
+      sku: 'LS-98765',
+      currentStock: 150,
+      minStock: 20,
+      maxStock: 100,
+      reserved: 5,
+      available: 145,
+      category: 'Office',
+      supplier: 'DeskGear',
+      lastUpdated: new Date(),
+      status: 'overstocked' as const,
+      thumbnail: 'https://placehold.co/100x100?text=Stand'
     }
+  ];
 
-    if (status !== 'all') {
-      result = result.filter((item) => item.status === status);
+  // Sample alerts
+  const alerts = [
+    {
+      id: 'alert1',
+      itemId: 'item2',
+      itemName: 'Bluetooth Speaker',
+      threshold: 5,
+      currentLevel: 2,
+      date: new Date(),
+      acknowledged: false
+    },
+    {
+      id: 'alert2',
+      itemId: 'item3',
+      itemName: 'USB Cable',
+      threshold: 10,
+      currentLevel: 0,
+      date: new Date(),
+      acknowledged: false
     }
-
-    return result;
-  }
-
-  let filteredItems = $derived(getFilteredItems(items, searchTerm, selectedStatus));
-
-  function calculateInventoryStats(list: InventoryItem[]) {
-    const totalItems = list.length;
-    const inStockItems = list.filter(item => item.status === 'in-stock').length;
-    const lowStockItems = list.filter(item => item.status === 'low-stock').length;
-    const outOfStockItems = list.filter(item => item.status === 'out-of-stock').length;
-    const overStockedItems = list.filter(item => item.status === 'overstocked').length;
-
-    return {
-      totalItems,
-      inStockItems,
-      lowStockItems,
-      outOfStockItems,
-      overStockedItems,
-      stockPercentage: totalItems > 0 ? Math.round((inStockItems / totalItems) * 100) : 0
-    };
-  }
-
-  let inventoryStats = $derived(calculateInventoryStats(items));
-
-  let unacknowledgedAlerts = $derived(alerts.filter(alert => !alert.acknowledged));
-
-  function handleRestock(item: InventoryItem) {
-    onItemRestock?.(item);
-  }
-
-  function handleEdit(item: InventoryItem) {
-    onItemEdit?.(item);
-  }
-
-  function handleAcknowledge(alertId: string) {
-    onAlertAcknowledge?.(alertId);
-  }
-
-  function handleExport() {
-    onInventoryExport?.();
-  }
-
-  function getStatusConfig(status: string) {
-    const config: Record<string, { icon: any, color: string, bgColor: string, borderColor: string }> = {
-      'in-stock': {
-        icon: CheckCircle,
-        color: 'text-[var(--color-success-600)]',
-        bgColor: 'bg-[var(--color-success-100)]',
-        borderColor: 'border-[var(--color-success-200)]'
-      },
-      'low-stock': {
-        icon: AlertTriangle,
-        color: 'text-yellow-600',
-        bgColor: 'bg-yellow-100',
-        borderColor: 'border-yellow-200'
-      },
-      'out-of-stock': {
-        icon: XCircle,
-        color: 'text-[var(--color-danger-600)]',
-        bgColor: 'bg-[var(--color-danger-100)]',
-        borderColor: 'border-[var(--color-danger-200)]'
-      },
-      'overstocked': {
-        icon: Package,
-        color: 'text-[var(--color-primary-600)]',
-        bgColor: 'bg-[var(--color-primary-100)]',
-        borderColor: 'border-[var(--color-primary-200)]'
-      }
-    };
-
-    return config[status] || config['in-stock'];
-  }
-
-  function formatDate(date: Date): string {
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    }).format(new Date(date));
-  }
+  ];
 </script>
 
-<div class={`c-inventory-tracker ${hostClass}`} {...restProps}>
-  <div class="mb-6">
-    <div class="flex flex-wrap items-center justify-between gap-4">
-      <div>
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)] flex items-center">
-          <BaseIcon name={Package} class="h-5 w-5 mr-2" />
-          Inventory Tracker
-        </h2>
-        <p class="text-sm text-[var(--color-text-secondary)] mt-1">
-          Manage and monitor your product inventory levels
+<Story
+  {id}
+  {title}
+  {description}
+  component={InventoryTracker}
+  category="Organisms"
+  controls={controls}
+>
+  {#snippet children(values: any)}
+    <section class="sb-organisms-inventory-tracker grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Inventory Tracker Example
         </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive inventory tracker with stock management.</p>
+
+        <div class="mt-6">
+          <InventoryTracker
+            items={inventoryItems}
+            alerts={alerts}
+            showAlerts={values.showAlerts}
+            showFilters={values.showFilters}
+            showSearch={true}
+            showStatusFilter={true}
+            lowStockThreshold={5}
+            onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
+            onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
+            onAlertAcknowledge={(alertId: string) => console.log(`Acknowledging alert: ${alertId}`)}
+            onInventoryExport={() => console.log('Exporting inventory report')}
+          />
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-3">
-        {#if showSearch}
-          <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
-            </div>
-            <input
-              type="text"
-              class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
-              placeholder="Search items..."
-              value={searchTerm}
-              oninput={(e) => searchTerm = (e.target as HTMLInputElement).value}
-            />
-          </div>
-        {/if}
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Inventory Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different inventory configurations with various options.
+        </p>
 
-        {#if showStatusFilter}
-          <select
-            class="block w-full pl-3 pr-10 py-2 text-base border-[var(--color-border-primary)] focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm rounded-md"
-            value={selectedStatus}
-            onchange={(e) => selectedStatus = (e.target as HTMLSelectElement).value}
-          >
-            <option value="all">All Statuses</option>
-            <option value="in-stock">In Stock</option>
-            <option value="low-stock">Low Stock</option>
-            <option value="out-of-stock">Out of Stock</option>
-            <option value="overstocked">Overstocked</option>
-          </select>
-        {/if}
-
-        <Button variant="primary" onclick={handleExport}>
-          Export Report
-        </Button>
-      </div>
-    </div>
-
-    <!-- Inventory stats -->
-    <div class="mt-6 grid grid-cols-2 md:grid-cols-5 gap-4">
-      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
-        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Total Items</div>
-        <div class="mt-1 text-2xl font-semibold text-[var(--color-text-primary)]">{inventoryStats.totalItems}</div>
-      </div>
-
-      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
-        <div class="text-sm font-medium text-[var(--color-text-secondary)]">In Stock</div>
-        <div class="mt-1 text-2xl font-semibold text-[var(--color-success-600)]">{inventoryStats.inStockItems}</div>
-      </div>
-
-      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
-        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Low Stock</div>
-        <div class="mt-1 text-2xl font-semibold text-yellow-600">{inventoryStats.lowStockItems}</div>
-      </div>
-
-      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
-        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Out of Stock</div>
-        <div class="mt-1 text-2xl font-semibold text-[var(--color-danger-600)]">{inventoryStats.outOfStockItems}</div>
-      </div>
-
-      <div class="bg-[var(--color-background-primary)] p-4 rounded-lg border border-[var(--color-border-primary)]">
-        <div class="text-sm font-medium text-[var(--color-text-secondary)]">Fill Rate</div>
-        <div class="mt-1 text-2xl font-semibold text-[var(--color-primary-600)]">{inventoryStats.stockPercentage}%</div>
-      </div>
-    </div>
-
-    <!-- Progress bar for overall inventory health -->
-    <div class="mt-4">
-      <div class="flex justify-between text-sm text-[var(--color-text-secondary)] mb-1">
-        <span>Inventory Health</span>
-        <span>{inventoryStats.stockPercentage}% in stock</span>
-      </div>
-      <ProgressBar
-        value={inventoryStats.stockPercentage}
-        max={100}
-        showPercentage={false}
-        size="md"
-        variant={
-          inventoryStats.stockPercentage > 75 ? 'success' :
-          inventoryStats.stockPercentage > 50 ? 'warning' : 'danger'
-        }
-      />
-    </div>
-  </div>
-
-  <!-- Low stock alerts -->
-  {#if showAlerts && unacknowledgedAlerts.length > 0}
-    <div class="mb-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-      <h3 class="text-sm font-medium text-yellow-800 flex items-center">
-        <BaseIcon name={AlertTriangle} class="h-4 w-4 mr-2" />
-        Low Stock Alerts ({unacknowledgedAlerts.length})
-      </h3>
-      <div class="mt-2 space-y-2">
-        {#each unacknowledgedAlerts as alert}
-          <div class="flex items-center justify-between p-3 bg-[var(--color-background-primary)] rounded border border-yellow-100">
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Alerts</p>
             <div>
-              <p class="text-sm font-medium text-[var(--color-text-primary)]">{alert.itemName}</p>
-              <p class="text-xs text-[var(--color-text-secondary)]">
-                Current: {alert.currentLevel}, Threshold: {alert.threshold}
-              </p>
+              <InventoryTracker
+                items={inventoryItems.slice(0, 2)}
+                alerts={[]}
+                showAlerts={false}
+                showFilters={true}
+                showSearch={false}
+                showStatusFilter={true}
+                lowStockThreshold={5}
+                onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
+                onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
+              />
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onclick={() => handleAcknowledge(alert.id)}
-            >
-              Acknowledge
-            </Button>
-          </div>
-        {/each}
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Compact View</p>
+            <div>
+              <InventoryTracker
+                items={inventoryItems.slice(0, 1)}
+                alerts={alerts.slice(0, 1)}
+                showAlerts={true}
+                showFilters={false}
+                showSearch={true}
+                showStatusFilter={false}
+                variant="compact"
+                lowStockThreshold={5}
+                onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
+                onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
+              />
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  {/if}
-
-  <!-- Inventory items list -->
-  <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-[var(--opacity-5)] rounded-lg">
-    <table class="min-w-full divide-y divide-gray-300">
-      <thead class="bg-[var(--color-background-secondary)]">
-        <tr>
-          <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-[var(--color-text-primary)] sm:pl-6">Item</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">SKU</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Current Stock</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Reserved</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Available</th>
-          <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-[var(--color-text-primary)]">Status</th>
-          <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-            <span class="sr-only">Actions</span>
-          </th>
-        </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-200 bg-[var(--color-background-primary)]">
-        {#each filteredItems as item}
-          {@const statusConfig = getStatusConfig(item.status)}
-          <tr class={`${itemClass}`}>
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-[var(--color-text-primary)] sm:pl-6">
-              <div class="flex items-center">
-                {#if item.thumbnail}
-                  <img class="h-10 w-10 rounded-md" src={item.thumbnail} alt={item.name} />
-                {:else}
-                  <div class="h-10 w-10 rounded-md bg-[var(--color-background-tertiary)] flex items-center justify-center">
-                    <BaseIcon name={Package} class="h-5 w-5 text-[var(--color-text-secondary)]" />
-                  </div>
-                {/if}
-                <div class="ml-4">
-                  <div class="font-medium">{item.name}</div>
-                  {#if item.category}
-                    <div class="text-[var(--color-text-secondary)] text-xs">{item.category}</div>
-                  {/if}
-                </div>
-              </div>
-            </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">{item.sku}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
-              <div class="flex items-center">
-                <span>{item.currentStock}</span>
-                {#if item.maxStock}
-                  <span class="text-[var(--color-text-tertiary)] ml-1">/ {item.maxStock}</span>
-                {/if}
-              </div>
-            </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
-              {item.reserved || 0}
-            </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-[var(--color-text-secondary)]">
-              <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                item.available > item.minStock * 2 ? 'bg-[var(--color-success-100)] text-[var(--color-success-800)]' :
-                item.available <= 0 ? 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]' :
-                item.available <= item.minStock ? 'bg-yellow-100 text-yellow-800' : 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]'
-              }`}>
-                {item.available}
-              </span>
-            </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm">
-              <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig.bgColor} ${statusConfig.color}`}>
-                {#if showAlertBadges && item.status === 'low-stock'}
-                  <BaseIcon name={AlertTriangle} class="h-3 w-3 mr-1" />
-                {/if}
-                {item.status.replace('-', ' ')}
-              </span>
-            </td>
-            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-              <div class="flex justify-end space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onclick={() => handleRestock(item)}
-                  disabled={item.status !== 'low-stock' && item.status !== 'out-of-stock'}
-                >
-                  Restock
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onclick={() => handleEdit(item)}
-                >
-                  Edit
-                </Button>
-              </div>
-            </td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-
-    {#if filteredItems.length === 0}
-      <div class="text-center py-12">
-        <BaseIcon name={Package} class="h-12 w-12 text-[var(--color-text-tertiary)] mx-auto" />
-        <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No inventory items</h3>
-        <p class="mt-1 text-sm text-[var(--color-text-secondary)]">
-          {searchTerm ? 'No items match your search.' : 'Get started by adding some inventory items.'}
-        </p>
-      </div>
-    {/if}
-  </div>
-</div>
-
+    </section>
+  {/snippet}
+</Story>
 
 
 

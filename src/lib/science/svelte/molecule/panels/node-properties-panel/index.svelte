@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/information/interface/recipe/node-properties-panel';
+	import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/science/interface/recipe/node-properties-panel';
 	import { createNodePropertiesPanelState } from '$stylist/information/function/state/node-properties-panel';
 	import { IconButton, NodeProperty } from '$stylist';
 

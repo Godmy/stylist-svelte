@@ -3,5 +3,3 @@ import { mergeClassNames, type ClassValue } from '$stylist/information/function/
 export function mergeTailwindClassNames(...inputs: ClassValue[]): string {
 	return mergeClassNames(...inputs);
 }
-
-export const twMerge = mergeTailwindClassNames;

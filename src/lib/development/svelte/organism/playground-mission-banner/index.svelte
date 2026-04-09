@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist';
 const Sparkles = 'sparkles';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type Props = {
     badgeText?: string;

@@ -4,7 +4,8 @@ const Calendar = 'calendar';
 const Clock = 'clock';
 const X = 'x';
 
-  import type { DateTimeRangePickerProps } from '$stylist/input/type/struct/interaction-input';
+  import type { DateTimeRangePickerProps } from '$stylist/input/type/struct/interaction-input/date-time-range-picker-props';
+  import type { DateTimeRangeValue } from '$stylist/input/type/struct/interaction-input/date-time-range-value';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 
   let {

@@ -1,23 +1,14 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist';
 const ChevronLeft = 'chevron-left';
 const ChevronRight = 'chevron-right';
 const X = 'x';
 
   import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
-  import type { IImageItem, IImageGalleryProps } from '$stylist/media/interface/component/image-gallery/other';
+  import type { ImageItemContract, ImageGalleryContract } from '$stylist/media/interface/component/image-gallery/contract';
 
   /**
    * @component ImageGallery
-   * @description РљРѕРјРїРѕРЅРµРЅС‚ РіР°Р»РµСЂРµРё РёР·РѕР±СЂР°Р¶РµРЅРёР№ СЃ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊСЋ РЅР°РІРёРіР°С†РёРё Рё РїРѕР»РЅРѕСЌРєСЂР°РЅРЅРѕРіРѕ РїСЂРѕСЃРјРѕС‚СЂР°
-   *
-   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
-   * - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ Рё РЅР°РІРёРіР°С†РёСЋ РїРѕ РёР·РѕР±СЂР°Р¶РµРЅРёСЏРј
-   * - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј С‡РµСЂРµР· РїСЂРѕРїСЃС‹
-   * - LSP: РџРѕРґРґРµСЂР¶РёРІР°РµС‚ РїРѕРґСЃС‚Р°РЅРѕРІРєСѓ СЂР°Р·Р»РёС‡РЅС‹С… С‚РёРїРѕРІ РёР·РѕР±СЂР°Р¶РµРЅРёР№
-   * - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ РјРёРЅРёРјР°Р»СЊРЅРѕ РЅРµРѕР±С…РѕРґРёРјС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ
-   * - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹ Рё СЃС‚РёР»Рё), Р° РЅРµ РѕС‚ РґРµС‚Р°Р»РµР№ СЂРµР°Р»РёР·Р°С†РёРё
    */
   let {
     images = [],
@@ -31,7 +22,7 @@ const X = 'x';
     navigationClass = '',
     captionClass = '',
     ...restProps
-  }: IImageGalleryProps = $props();
+  }: ImageGalleryContract = $props();
 
   let currentIndex = $state(0);
   let isFullscreen = $state(false);
@@ -92,10 +83,10 @@ const X = 'x';
   $effect(() => {
     if (isFullscreen) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when fullscreen
+      document.body.style.overflow = 'hidden';
     } else {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
@@ -228,9 +219,3 @@ const X = 'x';
     </div>
   {/if}
 </div>
-
-
-
-
-
-

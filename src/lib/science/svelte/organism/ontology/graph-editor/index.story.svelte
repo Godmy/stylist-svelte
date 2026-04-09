@@ -1,6 +1,6 @@
 <script lang="ts">
 	import GraphEditor from './index.svelte';
-	import type { LiteGraphPort, LitegraphNodeRecipe } from '$stylist/information/interface/recipe/litegraph-node';
+	import type { LiteGraphPort, LitegraphNodeRecipe } from '$stylist/science/interface/recipe/litegraph-node';
 	import type { ConnectionLineRecipe } from '$stylist/information/interface/recipe/connection-line';
 	import type { GraphToolbarItem } from '$stylist/science/interface/record/science';
 

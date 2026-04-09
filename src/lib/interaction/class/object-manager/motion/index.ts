@@ -1,5 +1,7 @@
-import type { MotionContract, TransformContract, AnimateContract } from '$stylist/interaction/type/struct/motion';
-import { TOKEN_EASING } from '$stylist/interaction/const/enum/easing';
+import type { MotionContract } from '$stylist/interaction/type/struct/motion';
+import type { TransformContract } from '$stylist/interaction/type/struct/motion-transform-contract';
+import type { AnimateContract } from '$stylist/interaction/type/struct/motion-animate-contract';
+import { TOKEN_EASING } from '$stylist/interaction/const/map/easing';
 import type { TokenAnimation } from '$stylist/interaction/type/enum/animation';
 
 /**

@@ -1,9 +1,9 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { ToggleGroupRootProps } from '$stylist/control/interface/component/toggles';
 
 export const createToggleGroupRootState = (props: ToggleGroupRootProps) => {
 	const classes = $derived(
-		mergeClasses('inline-flex items-center gap-1', props.class)
+		joinClassNames('inline-flex items-center gap-1', props.class)
 	);
 	const type = $derived(props.type ?? 'single');
 	const disabled = $derived(props.disabled ?? false);

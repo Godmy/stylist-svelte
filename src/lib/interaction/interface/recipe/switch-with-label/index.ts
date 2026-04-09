@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Switch with Label — переключатель с подписью.
  *
  * LEGO-состав:
@@ -13,8 +13,8 @@ import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/
 import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
 import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
 import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/information/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
+import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
+import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 
 export interface SwitchWithLabelRecipe

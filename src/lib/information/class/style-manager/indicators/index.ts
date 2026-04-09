@@ -1,6 +1,6 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 const DOT_COLOR_CLASSES = {
 	default: 'bg-[--color-neutral-500]',
@@ -161,7 +161,7 @@ export class IndicatorsStyleManager {
 		size: 'sm' | 'md' | 'lg' = 'md',
 		className = ''
 	): string {
-		return cn('inline-block rounded-full', DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], className);
+		return mergeClassNames('inline-block rounded-full', DOT_COLOR_CLASSES[color], DOT_SIZE_CLASSES[size], className);
 	}
 
 	static getCounterClasses(
@@ -185,7 +185,7 @@ export class IndicatorsStyleManager {
 		size: 'sm' | 'md' | 'lg' = 'md',
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'inline-flex items-center justify-center rounded-full font-medium',
 			COUNTER_VARIANT_CLASSES[variant],
 			COUNTER_SIZE_CLASSES[size],
@@ -194,7 +194,7 @@ export class IndicatorsStyleManager {
 	}
 
 	static getCountBadgeClasses(className = ''): string {
-		return cn(
+		return mergeClassNames(
 			'inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-[var(--color-text-inverse)] bg-[var(--color-danger-500)] rounded-full',
 			className
 		);
@@ -212,7 +212,7 @@ export class IndicatorsStyleManager {
 		size: 'sm' | 'md' | 'lg' = 'md',
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'inline-flex items-center justify-center flex-shrink-0',
 			MARKER_COLOR_CLASSES[color],
 			MARKER_SIZE_CLASSES[size],
@@ -221,7 +221,7 @@ export class IndicatorsStyleManager {
 	}
 
 	static getBulletClasses(size: 'sm' | 'md' | 'lg' = 'md'): string {
-		return cn('rounded-full bg-current', BULLET_SIZE_CLASSES[size]);
+		return mergeClassNames('rounded-full bg-current', BULLET_SIZE_CLASSES[size]);
 	}
 
 	static getMessageStatusContainerClasses(status: 'sent' | 'delivered' | 'read' | 'error'): string {
@@ -233,11 +233,11 @@ export class IndicatorsStyleManager {
 	}
 
 	static getStatusIndicatorContainerClasses(className = ''): string {
-		return cn('flex items-center', className);
+		return mergeClassNames('flex items-center', className);
 	}
 
 	static getStatusIndicatorDotClasses(status: TokenAvailability): string {
-		return cn('w-3 h-3 rounded-full mr-2', STATUS_INDICATOR_STATUS_CLASSES[status]);
+		return mergeClassNames('w-3 h-3 rounded-full mr-2', STATUS_INDICATOR_STATUS_CLASSES[status]);
 	}
 
 	static getStatusIndicatorLabel(status: TokenAvailability, label?: string): string {
@@ -245,7 +245,7 @@ export class IndicatorsStyleManager {
 	}
 
 	static getStatusIndicatorWithLabelContainerClasses(className = ''): string {
-		return cn(...STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, className);
+		return mergeClassNames(...STATUS_INDICATOR_WITH_LABEL_CONTAINER_CLASSES, className);
 	}
 
 	static getStatusIndicatorWithLabelIndicatorClasses(
@@ -275,7 +275,7 @@ export class IndicatorsStyleManager {
 			elevated: 'bg-[--color-neutral-500]',
 			flat: 'bg-[--color-neutral-500]'
 		};
-		return cn(
+		return mergeClassNames(
 			'inline-block rounded-full mr-2',
 			STATUS_INDICATOR_WITH_LABEL_SIZE_CLASSES[size],
 			customColor ? `bg-[${customColor}]` : appearanceClassMap[appearance] ?? 'bg-[--color-neutral-500]',
@@ -284,7 +284,7 @@ export class IndicatorsStyleManager {
 	}
 
 	static getStatusIndicatorWithLabelLabelClasses(labelClass = ''): string {
-		return cn('text-sm', labelClass);
+		return mergeClassNames('text-sm', labelClass);
 	}
 }
 

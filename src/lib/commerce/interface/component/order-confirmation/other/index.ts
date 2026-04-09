@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/type/struct/common';
+import type { HtmlAttributesBase } from '$stylist/information/type/struct';
 import type { TokenBillingItem } from '$stylist/commerce/type/enum/billing-item';
 import type { TokenOrderStatus } from '$stylist/commerce/type/enum/order-status';
 

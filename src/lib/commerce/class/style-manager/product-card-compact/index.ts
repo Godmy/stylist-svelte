@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
 
 export class ProductCardCompactStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn(
+		return mergeClassNames(
 			'c-product-card-compact flex overflow-hidden rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-sm',
 			extraClasses
 		);
@@ -26,7 +26,7 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getBadgeClass(badgeTypeClass = ''): string {
-		return cn('static px-1.5 py-0.5 text-[10px]', ProductCardStyleManager.getBadgeBaseClasses(), badgeTypeClass);
+		return mergeClassNames('static px-1.5 py-0.5 text-[10px]', ProductCardStyleManager.getBadgeBaseClasses(), badgeTypeClass);
 	}
 
 	static getSaleBadgeClass(): string {
@@ -54,7 +54,7 @@ export class ProductCardCompactStyleManager {
 	}
 
 	static getStarClass(isFilled: boolean): string {
-		return cn('h-3 w-3', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
+		return mergeClassNames('h-3 w-3', isFilled ? ProductCardStyleManager.getFilledStarClass() : ProductCardStyleManager.getEmptyStarClass());
 	}
 
 	static getPriceContainerClass(): string {

@@ -3,9 +3,10 @@
   import type { AuthGuardRecipe } from '$stylist/information/interface/recipe/auth-guard';
   import { resolveAuthGuardState } from '$stylist/communication/function/script/resolve-auth-guard-state';
   import { AuthGuardStyleManager } from '$stylist/communication/class/style-manager/auth-guard';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
   type Props = AuthGuardRecipe & {
+    class?: string;
     fallback?: Snippet;
     unauthorizedFallback?: Snippet;
     children?: Snippet;
@@ -30,7 +31,7 @@
   }: Props = $props();
 
   let loading = $derived(showLoadingState);
-  let rootClasses = $derived(AuthGuardStyleManager.getRootClasses(cn(hostClass)));
+  let rootClasses = $derived(AuthGuardStyleManager.getRootClasses(mergeClassNames(hostClass)));
   let sectionClasses = $derived(AuthGuardStyleManager.getSectionClasses(fallbackClass ?? ''));
   let titleClasses = $derived(AuthGuardStyleManager.getTitleClasses(contentClass ?? ''));
   let textClasses = $derived(AuthGuardStyleManager.getTextClasses(contentClass ?? ''));

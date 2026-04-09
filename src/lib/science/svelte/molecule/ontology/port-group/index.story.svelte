@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
-	import type { GraphPortRecipe } from '$stylist/information/interface/recipe/graph-port';
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+	import type { GraphPortRecipe } from '$stylist/science/interface/recipe/graph-port';
 	import PortGroup from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [

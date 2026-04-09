@@ -24,12 +24,11 @@
 	"homepage": "https://github.com/Godmy/stylist-svelte#readme",
 	"scripts": {
 		"dev": "vite dev",
-		"dev:with-json": "yarn json:generate && vite dev",
-		"build": "yarn analyze && svelte-package && publint",
+		"build": "yarn svg:registry && svelte-package && publint",
 		"preview": "vite preview",
 		"package": "svelte-package",
 		"tsc": "tsc --noEmit",
-		"prepublishOnly": "npm run build",
+		"prepublishOnly": "yarn svg:registry && yarn build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"validate": "yarn lint && yarn tsc && yarn check",
@@ -40,28 +39,7 @@
 		"clean": "rm -rf dist .svelte-kit node_modules/.vite",
 		"audit": "yarn audit",
 		"depcheck": "depcheck",
-		"madge:graph": "madge --image ./madge-graph.svg ./src/index.ts",
-		"madge:circular": "madge --circular ./src/index.ts",
-		"json:generate": "tsx scripts/orchestrator.ts",
-		"json:predev": "yarn json:generate",
-		"analyze": "tsx scripts/orchestrator.ts",
-		"analyze:build": "tsx scripts/orchestrator.ts",
-		"analyze:tokens": "tsx scripts/analyzers/analyze-tokens.ts",
-		"analyze:contracts": "tsx scripts/analyzers/analyze-contracts.ts",
-		"analyze:models": "tsx scripts/analyzers/analyze-models.ts",
-		"analyze:styles": "tsx scripts/analyzers/analyze-styles.ts",
-		"analyze:components": "tsx scripts/analyzers/analyze-components.ts",
-		"analyze:icons": "tsx scripts/analyzers/analyze-icons.ts",
-		"dep-tree": "tsx scripts/dependency-tree.ts",
-		"dep-short": "tsx scripts/dependency-short.ts",
-		"token-audit": "tsx scripts/token-audit.ts",
-		"contracts-analysis": "tsx scripts/contracts-analysis.ts",
-		"samo:molecular-organization": "tsx scripts/samo/molecular-organization/generate.ts",
-		"samo:solid": "tsx scripts/samo/solid/generate.ts",
-		"samo:atomic-design": "tsx scripts/samo/atomic-design/generate.ts",
-		"samo:component-reuse": "tsx scripts/samo/component-reuse/generate.ts",
-		"samo:inventory": "tsx scripts/samo/inventory/generate.ts",
-		"samo:all": "yarn samo:atomic-design && yarn samo:solid && yarn samo:molecular-organization && yarn samo:component-reuse && yarn samo:inventory"
+		"svg:registry": "tsx scripts/svg/index.ts"
 	},
 	"exports": {
 		".": {
@@ -97,6 +75,7 @@
 		"eslint": "^9.36.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.12.4",
+		"jsdom": "^29.0.1",
 		"madge": "^8.0.0",
 		"postcss": "^8.4.49",
 		"prettier": "^3.6.2",
@@ -119,4 +98,3 @@
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts"
 }
-

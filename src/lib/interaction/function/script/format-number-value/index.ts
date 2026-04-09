@@ -15,5 +15,3 @@ export function formatNumberValue(value: number, options: NumberFormatOptions): 
 
 	return fractionPart ? `${groupedIntegerPart}.${fractionPart}` : groupedIntegerPart;
 }
-
-export const formatNumber = formatNumberValue;

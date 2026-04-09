@@ -1,11 +1,11 @@
 import { formatAnimatedValue } from '$stylist/typography/function/script/format-animated-value';
 import { formatNumberFlowValue } from '$stylist/typography/function/script/format-number-flow-value';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 
 export class DataDisplayStyleManager {
 	static getAnimatedNumberClasses(className = ''): string {
-		return cn(className, 'font-mono');
+		return mergeClassNames(className, 'font-mono');
 	}
 
 	static formatAnimatedValue(
@@ -16,15 +16,15 @@ export class DataDisplayStyleManager {
 	}
 
 	static getPieChartContainerClasses(className = ''): string {
-		return cn('relative inline-flex items-center justify-center', className);
+		return mergeClassNames('relative inline-flex items-center justify-center', className);
 	}
 
 	static getPieChartSvgClasses(className = ''): string {
-		return cn('block', className);
+		return mergeClassNames('block', className);
 	}
 
 	static getColorSwatchClasses(color: string, size: number = 16, className = ''): string {
-		return cn(
+		return mergeClassNames(
 			'inline-block rounded border border-[--color-border-secondary]',
 			className,
 			`bg-[${color}]`,
@@ -45,7 +45,7 @@ export class DataDisplayStyleManager {
 		type: 'version' | 'downloads' | 'license' | 'size' | 'custom' = 'version',
 		className = ''
 	): string {
-		return cn(
+		return mergeClassNames(
 			'npm-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium',
 			{
 				version:
@@ -64,11 +64,11 @@ export class DataDisplayStyleManager {
 	}
 
 	static getNpmBadgeLinkClasses(className = ''): string {
-		return cn('inline-flex items-center gap-1 hover:opacity-[var(--opacity-80)]', className);
+		return mergeClassNames('inline-flex items-center gap-1 hover:opacity-[var(--opacity-80)]', className);
 	}
 
 	static getNumberFlowContainerClasses(className = ''): string {
-		return cn('flex items-center', className);
+		return mergeClassNames('flex items-center', className);
 	}
 
 	static getNumberFlowClasses(className = ''): {
@@ -78,7 +78,7 @@ export class DataDisplayStyleManager {
 		srOnly: string;
 	} {
 		return {
-			container: cn('flex items-center', className),
+			container: mergeClassNames('flex items-center', className),
 			prefix: 'mr-1',
 			suffix: 'ml-1',
 			srOnly: 'sr-only'

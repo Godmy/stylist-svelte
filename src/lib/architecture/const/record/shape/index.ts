@@ -1,4 +1,4 @@
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/depth/index';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/foundation-semantic-zoom-stages';
 import type { TokenShape } from '$stylist/layout/type/enum/shape';
 
 export const RECORD_SHAPE: Record<FoundationSemanticZoomStage, TokenShape> = {

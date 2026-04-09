@@ -1,7 +1,7 @@
-import type { AnnouncementBannerProps } from '$stylist/media/interface/component/image/other';
+import type { AnnouncementBannerContract } from '$stylist/media/interface/component/announcement-banner/contract';
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
-export function createAnnouncementBannerState(props: AnnouncementBannerProps) {
+export function createAnnouncementBannerState(props: AnnouncementBannerContract) {
 	const containerClasses = $derived(MediaStyleManager.getAnnouncementBannerContainerClasses(props.class));
 	const flexClasses = $derived(MediaStyleManager.getAnnouncementBannerFlexContainerClasses());
 	const iconClasses = $derived(MediaStyleManager.getAnnouncementBannerIconClasses());
@@ -36,19 +36,3 @@ export function createAnnouncementBannerState(props: AnnouncementBannerProps) {
 }
 
 export default createAnnouncementBannerState;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

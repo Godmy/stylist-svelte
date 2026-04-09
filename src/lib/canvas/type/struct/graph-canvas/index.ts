@@ -1,2 +1,3 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { GraphCanvasContract } from './graph-canvas-contract';
+import type { GraphCanvasRecipe as GraphCanvasProps } from '$stylist/science/interface/recipe/graph-canvas';
+
+export type GraphCanvasContract = GraphCanvasProps;

@@ -1,4 +1,4 @@
-import type { RecordSizeMap } from '$stylist/layout/type/map/size-map';
+import type { RecordSizeMap } from '$stylist/layout/type/record/size-map';
 
 export const RECORD_SIZE_MAP: RecordSizeMap = {
 	xs: {

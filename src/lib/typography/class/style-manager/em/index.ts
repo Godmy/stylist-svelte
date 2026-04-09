@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class EmStyleManager {
 	static getEmClasses(className = ''): string {
-		return cn('em', 'italic', className);
+		return mergeClassNames('em', 'italic', className);
 	}
 }
 

@@ -9,20 +9,20 @@ import type { ClickProps } from '$stylist/control/interface/component/click/othe
 import type { DialogProps, ModalProps } from '$stylist/navigation/interface/component/dialog-controls/other';
 import type { DragAndDropProps } from '$stylist/control/interface/component/drag-and-drop/other';
 import type { IDropdownMenuProps } from '$stylist/control/interface/component/dropdown-menu/other';
-import type { IErrorBoundaryProps } from '$stylist/feedback/interface/component/error-boundary/other';
-import type { ErrorMessageProps } from '$stylist/feedback/interface/component/error-message/other';
+import type { IErrorBoundaryProps } from '$stylist/notification/interface/component/error-boundary/other';
+import type { ErrorMessageProps } from '$stylist/notification/interface/component/error-message/other';
 import type { FeatureToggleProps } from '$stylist/management/interface/component/feature-toggle/other';
-import type { ThemeIconPickerRecipe } from '$stylist/information/interface/recipe/icon-picker';
+import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
 import type {
 	LazyLoaderProps,
 	LoadingBoundaryProps,
 	ResponseViewerProps
-} from '$stylist/feedback/interface/component/interaction-feedback/other';
+} from '$stylist/notification/interface/component/interaction-feedback/other';
 import type { LocaleSwitcherProps } from '$stylist/localization/interface/component/locale-switcher/other';
 import type { MenuItemProps } from '$stylist/control/interface/component/menu-item/other';
 import type { MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';
 import type { INumberInputProps } from '$stylist/input/interface/component/number-input/other';
-import type { ILoadingOverlayProps } from '$stylist/feedback/interface/component/overlay/other';
+import type { ILoadingOverlayProps } from '$stylist/notification/interface/component/overlay/other';
 import type { PaginationProps } from '$stylist/navigation/interface/component/pagination/other';
 import type { IPhoneNumberInputProps } from '$stylist/input/interface/component/phone-number-input/other';
 import type { IQuantitySelectorProps } from '$stylist/control/interface/component/quantity-selector/other';

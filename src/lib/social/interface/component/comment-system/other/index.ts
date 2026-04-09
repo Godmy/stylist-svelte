@@ -1,4 +1,4 @@
-import type { HtmlAttributesBase } from '$stylist/information/type/struct/common';
+import type { HtmlAttributesBase } from '$stylist/information/type/struct';
 
 export interface CommentUser {
 	id: string;

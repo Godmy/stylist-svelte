@@ -3,7 +3,7 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { AccessibilityToolbarStyleManager } from '$stylist/control/class/style-manager/accessibility-toolbar/index';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 import { RECORD_CLASS_SIZE } from '$stylist/layout/const/record/class-size';
-import { RECORD_ICON_SIZE } from '$stylist/architecture/const/record/icon-size';
+import { RECORD_ICON_SIZE } from '$stylist/media/const/record/icon-size';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 

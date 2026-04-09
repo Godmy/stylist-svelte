@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import { Icon as BaseIcon } from '$stylist';
 	import InputAddon from './index.svelte';
 

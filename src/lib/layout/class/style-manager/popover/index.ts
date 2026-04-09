@@ -1,6 +1,7 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { PopoverPosition } from '$stylist/layout/class/style-manager/popover-position';
 
-export type PopoverPosition = 'top' | 'bottom' | 'left' | 'right';
+export type { PopoverPosition } from '$stylist/layout/class/style-manager/popover-position';
 
 export class PopoverStyleManager {
 	static getPositionClass(position: PopoverPosition): string {
@@ -13,11 +14,11 @@ export class PopoverStyleManager {
 	}
 
 	static getRootClass(className?: string): string {
-		return cn('relative inline-block', className);
+		return mergeClassNames('relative inline-block', className);
 	}
 
 	static getPopoverClass(position: PopoverPosition, className?: string): string {
-		return cn(
+		return mergeClassNames(
 			'absolute z-[var(--z-index-docked)] bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-lg shadow-lg p-4 min-w-[200px]',
 			this.getPositionClass(position),
 			className
@@ -36,4 +37,3 @@ export class PopoverStyleManager {
 		return '';
 	}
 }
-

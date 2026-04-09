@@ -1,46 +1,16 @@
-import type { HTMLAttributes } from 'svelte/elements';
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AddressData } from './address-data';
+export type { LoginCredentials } from './login-credentials';
+export type { ValidationErrors } from './validation-errors';
+
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
 /**
  * Form Data structure
  */
 export interface FormData {
-  email?: string;
-  password?: string;
-  phone?: string;
-  [key: string]: any;
+	email?: string;
+	password?: string;
+	phone?: string;
+	[key: string]: any;
 }
-
-/**
- * Validation Errors structure
- */
-export interface ValidationErrors {
-  email?: string;
-  password?: string;
-  phone?: string;
-  [key: string]: string | undefined;
-}
-
-/**
- * Login Credentials structure
- */
-export interface LoginCredentials {
-  email: string;
-  password: string;
-  rememberMe?: boolean;
-}
-
-/**
- * Address Data structure
- */
-export interface AddressData {
-  country?: string;
-  state?: string;
-  city?: string;
-  zipCode?: string;
-  street?: string;
-  apartment?: string;
-  phone?: string;
-}
-
-
-

@@ -1,0 +1,32 @@
+<script lang="ts">
+  import { TreeControlsStyleManager } from '$stylist/control/class/style-manager/tree-controls';
+  import type { FlatTreeProps } from '$stylist/control/type/struct/flat-tree-props';
+  import type { TreeNode } from '$stylist/control/type/struct/tree-node';
+  let { nodes = [], class: className = '', ...restProps }: FlatTreeProps = $props();
+  let expanded = $state<Record<string,boolean>>({});
+  function toggle(id:string){ expanded={...expanded,[id]:!expanded[id]}; }
+  function isOpen(n:TreeNode){ return expanded[n.id] ?? !!n.expanded; }
+</script>
+
+<div class={TreeControlsStyleManager.root('c-flat-tree', className)} {...restProps}>
+  <ul class="space-y-1">
+    {#each nodes as node}
+      <li>
+        <button type="button" class="w-full text-left px-2 py-1 rounded hover:bg-[var(--color-background-secondary)]" onclick={() => toggle(node.id)}>{node.children?.length ? (isOpen(node)?'-':'+') : ''} {node.label}</button>
+        {#if node.children?.length && isOpen(node)}
+          <ul class="ml-5 mt-1 space-y-1">
+            {#each node.children as child}
+              <li class="px-2 py-1 rounded bg-[var(--color-background-secondary)]">{child.label}</li>
+            {/each}
+          </ul>
+        {/if}
+      </li>
+    {/each}
+  </ul>
+</div>
+
+
+
+
+
+

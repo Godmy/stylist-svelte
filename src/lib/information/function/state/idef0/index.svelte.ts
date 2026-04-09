@@ -1,26 +1,26 @@
 import type {
 	Idef0BlackBoxRecipe as Idef0BlackBoxProps
-} from '$stylist/information/interface/recipe/idef0-black-box';
+} from '$stylist/science/interface/recipe/idef0-black-box';
 import type {
 	Idef0ConnectorRecipe as Idef0ConnectorProps
-} from '$stylist/information/interface/recipe/idef0-connector';
+} from '$stylist/science/interface/recipe/idef0-connector';
 import type {
 	Idef0DiagramRecipe as Idef0DiagramProps
-} from '$stylist/information/interface/recipe/idef0-diagram';
+} from '$stylist/science/interface/recipe/idef0-diagram';
 import type {
 	Idef0FunctionBoxRecipe as Idef0FunctionBoxProps
-} from '$stylist/information/interface/recipe/idef0-function-box';
+} from '$stylist/science/interface/recipe/idef0-function-box';
 import type {
 	Idef0InputsRecipe as Idef0InputsProps,
 	Idef0Port
-} from '$stylist/information/interface/recipe/idef0-inputs';
+} from '$stylist/science/interface/recipe/idef0-inputs';
 import type {
 	Idef0OutputsRecipe as Idef0OutputsProps
-} from '$stylist/information/interface/recipe/idef0-outputs';
+} from '$stylist/science/interface/recipe/idef0-outputs';
 import type {
 	Idef0PortLabelRecipe as Idef0PortLabelProps
-} from '$stylist/information/interface/recipe/idef0-port-label';
-import { Idef0StyleManager } from '$stylist/information/class/style-manager/idef0';
+} from '$stylist/science/interface/recipe/idef0-port-label';
+import { Idef0StyleManager } from '$stylist/science/class/style-manager/idef0';
 
 interface Idef0PortPosition {
 	port: Idef0Port;

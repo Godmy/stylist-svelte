@@ -1,28 +1,6 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-export interface TreeNode {
-	id: string;
-	label: string;
-	children?: TreeNode[];
-	expanded?: boolean;
-}
-
-export interface VirtualTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
-	nodes: TreeNode[];
-	class?: string;
-}
-
-export interface FlatTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
-	nodes: TreeNode[];
-	class?: string;
-}
-
-export interface FolderTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
-	nodes: TreeNode[];
-	class?: string;
-}
-
-export interface AdvancedVirtualTreeProps extends InteractionHTMLAttributes<HTMLDivElement> {
-	nodes: TreeNode[];
-	class?: string;
-}
+export type TreeControlsData = {
+	maxDepth: number;
+	virtualized: boolean;
+};

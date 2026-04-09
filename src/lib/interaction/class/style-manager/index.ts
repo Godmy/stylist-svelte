@@ -10,9 +10,9 @@ export { AccountSettingsStyleManager, SecuritySettingsStyleManager, SettingsStyl
 export { TabStyleManager } from './tab';
 export { ToggleStyleManager } from './toggle';
 export { TransformableStyleManager } from './transformable';
-export type { AnimatedStyleManagerOptions } from './animated';
-export type { ClickableStyleManagerOptions } from './clickable';
-export type { DraggableStyleManagerOptions } from './draggable';
-export type { FocusableStyleManagerOptions } from './focusable';
-export type { HoverableStyleManagerOptions } from './hoverable';
-export type { TransformableStyleManagerOptions } from './transformable';
+export type { AnimatedStyleManagerOptions } from './animated-style-manager-options';
+export type { ClickableStyleManagerOptions } from './clickable-style-manager-options';
+export type { DraggableStyleManagerOptions } from './draggable-style-manager-options';
+export type { FocusableStyleManagerOptions } from './focusable-style-manager-options';
+export type { HoverableStyleManagerOptions } from './hoverable-style-manager-options';
+export type { TransformableStyleManagerOptions } from './transformable-style-manager-options';

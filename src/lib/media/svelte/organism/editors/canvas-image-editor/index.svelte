@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item';
+  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
   import { CanvasImageEditorStyleManager } from '$stylist';
-  import type { CanvasImageEditorRecipe } from '$stylist/information/interface/recipe/canvas-image-editor';
+  import type { CanvasImageEditorRecipe } from '$stylist/canvas/interface/recipe/canvas-image-editor';
 
   let {
     width = 800,

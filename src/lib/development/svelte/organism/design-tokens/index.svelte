@@ -25,6 +25,7 @@
 
   // Changed to $state and initialized directly, removing the need for onMount to set initial theme
   let currentTheme = $state<Theme>(theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK);
+  const layoutTokens = $derived((currentTheme as any).layout ?? {});
 
   // onMount block is removed as the initial theme is set with $state and subsequent changes are handled by $effect
   // onMount(() => {
@@ -78,7 +79,7 @@
       <section class="mb-8">
         <h3 class="text-lg font-semibold mb-3">Spacing</h3>
         <div class="flex flex-wrap gap-2">
-          {#each Object.entries(currentTheme.spacing ?? {}) as [tokenName, tokenValue]}
+          {#each Object.entries(layoutTokens.spacing ?? {}) as [tokenName, tokenValue]}
             <div class="flex flex-col items-center">
               <div
                 class="bg-[--color-primary-500] mb-1"
@@ -110,7 +111,7 @@
       <section class="mb-8">
         <h3 class="text-lg font-semibold mb-3">Border Radius</h3>
         <div class="flex flex-wrap gap-4 items-end">
-          {#each Object.entries(currentTheme.borderRadius ?? {}) as [tokenName, tokenValue]}
+          {#each Object.entries(layoutTokens.borderRadius ?? {}) as [tokenName, tokenValue]}
             <div class="flex flex-col items-center">
               <div
                 class="bg-[--color-secondary-200] dark:bg-[--color-secondary-700] border border-[--color-border-primary] dark:border-[--color-border-primary]"
@@ -128,7 +129,7 @@
       <section class="mb-8">
         <h3 class="text-lg font-semibold mb-3">Shadows</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {#each Object.entries(currentTheme.boxShadow ?? {}) as [tokenName, tokenValue]}
+          {#each Object.entries(layoutTokens.boxShadow ?? {}) as [tokenName, tokenValue]}
             {#if tokenValue !== 'none'}
               <div
                 class="p-4 rounded-md border border-[--color-border-primary]"

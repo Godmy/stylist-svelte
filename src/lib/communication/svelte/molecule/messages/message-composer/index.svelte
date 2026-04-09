@@ -83,13 +83,13 @@ const Send = 'send';
   }
 
   // Derived classes using StyleManager
-  let containerClasses = $derived(MessageComposerStyleManager.getContainerClasses(hostClass));
+  let containerClasses = $derived(MessageComposerStyleManager.getContainerClasses(hostClass != null ? String(hostClass) : ''));
   let formClasses = $derived(MessageComposerStyleManager.getFormClasses());
   let attachmentButtonClasses = $derived(MessageComposerStyleManager.getAttachmentButtonClasses());
   let inputContainerClasses = $derived(MessageComposerStyleManager.getInputContainerClasses());
-  let inputClasses = $derived(MessageComposerStyleManager.getInputClasses(inputClass));
-  let sendButtonClasses = $derived(MessageComposerStyleManager.getSendButtonClasses(buttonClass));
-  let voiceButtonClasses = $derived(MessageComposerStyleManager.getVoiceButtonClasses(buttonClass));
+  let inputClasses = $derived(MessageComposerStyleManager.getInputClasses(inputClass != null ? String(inputClass) : ''));
+  let sendButtonClasses = $derived(MessageComposerStyleManager.getSendButtonClasses(buttonClass != null ? String(buttonClass) : ''));
+  let voiceButtonClasses = $derived(MessageComposerStyleManager.getVoiceButtonClasses(buttonClass != null ? String(buttonClass) : ''));
 </script>
 
 <div class={containerClasses} {...restProps}>

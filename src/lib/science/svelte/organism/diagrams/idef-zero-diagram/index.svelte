@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Idef0DiagramRecipe } from '$stylist/information/interface/recipe/idef0-diagram';
+	import type { Idef0DiagramRecipe } from '$stylist/science/interface/recipe/idef0-diagram';
 	import { createIdef0DiagramState } from '$stylist/information/function/state/idef0';
 	import Idef0BlackBox from '$stylist/science/svelte/molecule/diagrams/idef-zero-black-box/index.svelte';
 

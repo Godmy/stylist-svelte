@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { generateCode } from '$stylist/development/function/script/build-component-preview-code';
+  import { buildComponentPreviewCode } from '$stylist/development/function/script/build-component-preview-code';
 
   type Props = {
     code?: string;
@@ -35,7 +35,7 @@
 
   const generatedCode = $derived.by(() => {
     if (componentName && Object.keys(props).length > 0) {
-      return generateCode({ componentName, props });
+      return buildComponentPreviewCode({ componentName, props });
     }
     return code;
   });

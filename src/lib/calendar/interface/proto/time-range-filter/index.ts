@@ -1,4 +1,4 @@
-import type { TokenTimeRange } from '$stylist/information/type/enum/time-range';
+import type { TokenTimeRange } from '$stylist/calendar/type/enum/time-range';
 
 /** Управление временным диапазоном календарного или аналитического представления. */
 export interface ITimeRangeFilter {

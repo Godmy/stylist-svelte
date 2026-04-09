@@ -1,28 +1,28 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { MessageThreadProps } from '$stylist/communication/interface/component/chat/other';
 
 export const createMessageThreadState = (props: MessageThreadProps) => {
 	const hostClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'flex flex-col h-full max-h-[600px] border rounded-lg overflow-hidden',
 			props.class
 		)
 	);
 	
 	const headerClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'px-4 py-3 border-b bg-[var(--color-background-secondary)]'
 		)
 	);
 	
 	const containerClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'flex-1 overflow-y-auto p-4 bg-[var(--color-background-primary)]'
 		)
 	);
 	
 	const messageContainerClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'flex flex-col space-y-4'
 		)
 	);
@@ -32,13 +32,13 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 	);
 	
 	const loadingClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'flex items-center justify-center h-32'
 		)
 	);
 	
 	const spinnerClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-border-primary)]'
 		)
 	);

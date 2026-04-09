@@ -1,5 +1,5 @@
 import { NotificationAtomStyleManager } from '$stylist/management/class/style-manager/notification';
-import type { INotificationProps } from '$stylist/communication/type/struct/notification';
+import type { INotificationProps } from '$stylist/communication/interface/component/notifications/other';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 
 export interface NotificationStateProps extends INotificationProps {

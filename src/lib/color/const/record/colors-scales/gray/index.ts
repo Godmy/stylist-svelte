@@ -1,6 +1,6 @@
-import type { ColorScale } from '$stylist/theme/type/struct/theme/theme';
+import type { RecordColorScale } from '$stylist/theme/type/record/color-scale';
 
-export const COLORS_SCALES_GRAY: ColorScale = {
+export const COLORS_SCALES_GRAY: RecordColorScale = {
 	50: '#f9fafb',
 	100: '#f3f4f6',
 	200: '#e5e7eb',

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { AnnouncementBannerProps } from '$stylist/media/interface/component/image/other';
+	import type { AnnouncementBannerContract } from '$stylist/media/interface/component/announcement-banner/contract';
 	import { createAnnouncementBannerState } from '$stylist/information/function/state/announcement-banner';
 
-	let props: AnnouncementBannerProps = $props();
+	let props: AnnouncementBannerContract = $props();
 	const state = createAnnouncementBannerState(props);
 	const restProps = $derived(
 		(() => {
@@ -37,5 +37,3 @@
 		</div>
 	</div>
 </div>
-
-

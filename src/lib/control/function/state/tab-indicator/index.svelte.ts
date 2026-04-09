@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { TabIndicatorProps } from '$stylist/control/interface/component/tabs/other';
 
 export const createTabIndicatorState = (props: TabIndicatorProps) => {
@@ -7,7 +7,7 @@ export const createTabIndicatorState = (props: TabIndicatorProps) => {
 	const width = $derived(`${props.width ?? 0}px`);
 	const left = $derived(`${props.left ?? 0}px`);
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'absolute bottom-0 h-0.5 transition-all',
 			color === 'secondary'
 				? 'bg-[--color-secondary-500]'

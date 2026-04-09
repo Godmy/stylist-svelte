@@ -1,11 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface VariablesEditorStateProps {
-	variables?: Record<string, any>;
-	height?: string;
-	class?: string;
-	onChange?: (variables: Record<string, any>) => void;
-}
+import type { VariablesEditorStateProps } from '../variables-editor-state-props/index.svelte.ts';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createVariablesEditorState = (props: VariablesEditorStateProps) => {
 	// State
@@ -72,7 +66,7 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 
 	// Computed classes
 	const rootClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'variables-editor border border-[var(--color-border-primary)] rounded-md',
 			'dark:border-[var(--color-border-primary)]',
 			'bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)]',
@@ -82,7 +76,7 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 	);
 
 	const toolbarClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'toolbar bg-[var(--color-background-secondary)] dark:bg-[var(--color-neutral-700)]',
 			'border-b border-[var(--color-border-primary)] dark:border-[var(--color-border-primary)]',
 			'p-2 flex items-center justify-between'
@@ -94,7 +88,7 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 	);
 
 	const textareaClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'w-full h-full p-4 font-mono text-sm border-none focus:outline-none resize-none',
 			'bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)]',
 			'text-[var(--color-text-primary)] dark:text-[var(--color-neutral-100)]',

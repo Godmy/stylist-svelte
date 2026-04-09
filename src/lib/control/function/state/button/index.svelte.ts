@@ -1,13 +1,13 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Props } from '$stylist/information/type/struct/common';
+import type { Props } from '$stylist/information/type/struct';
 import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
 import { createBasePreset } from '$stylist/interaction/preset/base';
-import { RECORD_ICON_SIZE } from '$stylist/architecture/const/record/icon-size';
+import { RECORD_ICON_SIZE } from '$stylist/media/const/record/icon-size';
 import type { Preset } from '$stylist/interaction/type/struct/preset';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
-import { computeAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import { buildClasses } from '$stylist/information/function/script/build-preset-class-names';
+import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
+import { buildPresetClassNames } from '$stylist/information/function/script/build-preset-class-names';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
@@ -36,17 +36,17 @@ function createSharedButtonState<V extends string, S extends string>(
 	const block = $derived(props.block ?? preset.defaults.block);
 
 	const classes = $derived(
-		buildClasses(preset, {
+		buildPresetClassNames(preset, {
 			variant,
 			size,
-			disabled,
-			loading,
-			block,
-			className: props.class
+			disabled: typeof disabled === 'boolean' ? disabled : undefined,
+			loading: typeof loading === 'boolean' ? loading : undefined,
+			block: typeof block === 'boolean' ? block : undefined,
+			className: typeof props.class === 'string' ? props.class : undefined
 		})
 	);
 
-	const ariaLabel = $derived(computeAriaLabel(props.ariaLabel, props as Record<string, unknown>, ''));
+	const ariaLabel = $derived(resolveAriaLabel(typeof props.ariaLabel === 'string' ? props.ariaLabel : undefined, props as Record<string, unknown>, ''));
 
 	const loaderClasses = $derived.by(() => {
 		const sizeKey = size as keyof typeof RECORD_ICON_SIZE;
@@ -57,21 +57,21 @@ function createSharedButtonState<V extends string, S extends string>(
 	const isDisabled = $derived(disabled || loading);
 
 	const attrs = $derived({
-		'aria-busy': loading,
-		'aria-live': loading ? ('polite' as const) : undefined,
+		'aria-busy': typeof loading === 'boolean' ? loading : undefined,
+		'aria-live': typeof loading === 'boolean' && loading ? ('polite' as const) : undefined,
 		'aria-label': ariaLabel || undefined,
-		disabled: isDisabled
+		disabled: typeof isDisabled === 'boolean' ? isDisabled : undefined
 	});
 
 	return {
 		get variant() {
-			return variant;
+			return variant as V;
 		},
 		get size() {
-			return size;
+			return size as S;
 		},
 		get disabled() {
-			return disabled;
+			return (disabled ?? false) as boolean | undefined;
 		},
 		get loading() {
 			return loading;
@@ -100,13 +100,13 @@ function createSharedButtonState<V extends string, S extends string>(
 function createButtonStateFromFactoryInput(input: ButtonFactoryInput) {
 	return createSharedButtonState(createButtonPreset(), {
 		get variant() {
-			return input.contract.variant;
+			return input.contract.variant as TokenAppearance;
 		},
 		get size() {
-			return input.contract.size;
+			return input.contract.size as TokenSize;
 		},
 		get disabled() {
-			return input.contract.disabled;
+			return input.contract.disabled as boolean | undefined;
 		},
 		get loading() {
 			return input.contract.loading;

@@ -1,4 +1,4 @@
-import type { CalendarEvent } from '$stylist/calendar/type/struct/calendar-event';
+import type { CalendarEventMini as CalendarEvent } from '$stylist/calendar/type/struct';
 
 /**
  * Props for the MiniCalendar component

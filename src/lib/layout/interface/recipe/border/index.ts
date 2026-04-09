@@ -1,17 +1,10 @@
-/**
- * Border — декоративная граница..
- *
- * LEGO-состав:
-
- */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { Snippet } from 'svelte';
-import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { HTMLAttributes } from 'svelte/elements';
+import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
 
 export interface BorderRecipe
-	extends RecordArchitectureMerge<[
-		ThemeAttributes<HTMLDivElement>
-	]>
+	extends RecordArchitectureMerge<[ProtoTheme, HTMLAttributes<HTMLDivElement>]>
 {
 	borderStyle?: 'solid' | 'dashed' | 'dotted' | 'double' | 'bold' | 'none' | 'invisible';
 	borderWidth?: string;

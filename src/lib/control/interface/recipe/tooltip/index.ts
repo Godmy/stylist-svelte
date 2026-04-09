@@ -1,26 +1,22 @@
-﻿/**
- * Tooltip — всплывающая подсказка.
- *
- * LEGO-состав:
- *   ILabelSlot                (information/label-slot)
- *   ICaptionSlot              (information/caption-slot)
- *   IFocusable                (interaction/focusable)
- *   ISizable                  (architecture/sizable)
- *   IMotionToken              (theme/motion-token)
- */
+import type { HTMLAttributes } from 'svelte/elements';
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
+import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/information/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/information/interface/proto/label-slot';
-import type { IMotionToken } from '$stylist/interaction/interface/proto/motion-token';
+import type { IMotionPreset } from '$stylist/interaction/interface/proto/motion-preset';
+import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
+import type { ISized } from '$stylist/layout/interface/proto/sized';
+import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
 
 export interface TooltipRecipe
 	extends RecordArchitectureMerge<[
 		ILabelSlot,
 		ICaptionSlot,
 		IFocusable,
-		ISizable,
-		IMotionToken
+		ISized,
+		IShapeable,
+		IMotionPreset,
+		ProtoTheme,
+		HTMLAttributes<HTMLDivElement>
 	]>
 {}

@@ -1,6 +1,6 @@
-import type { NodeHeaderRecipe as NodeHeaderProps } from '$stylist/information/interface/recipe/node-header';
+import type { NodeHeaderRecipe as NodeHeaderProps } from '$stylist/science/interface/recipe/node-header';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { NodeHeaderStyleManager } from '$stylist/information/class/style-manager/node-header';
+import { NodeHeaderStyleManager } from '$stylist/science/class/style-manager/node-header';
 
 export function createNodeHeaderState(props: NodeHeaderProps) {
 	const size = $derived((props.size ?? 'md') as TokenSize);

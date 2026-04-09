@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export * from './record';
-export type { IHeroCTA, IHeroStat } from './struct';
+export type { IHeroCTA } from './hero-cta';
+export type { IHeroStat } from './struct';

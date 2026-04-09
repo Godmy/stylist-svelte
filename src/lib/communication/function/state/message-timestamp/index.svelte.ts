@@ -1,5 +1,5 @@
 import type { MessageTimestampProps } from '$stylist/communication/interface/component/message-timestamp/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createMessageTimestampState(props: MessageTimestampProps) {
   // Initialize props with defaults
@@ -70,7 +70,7 @@ export function createMessageTimestampState(props: MessageTimestampProps) {
   };
 
   // Merge classes with custom classes
-  const classes = $derived(mergeClasses(props.class ?? '', styles.container));
+  const classes = $derived(joinClassNames(props.class ?? '', styles.container));
 
   return {
     get timestamp() {

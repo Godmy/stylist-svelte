@@ -1,21 +1,7 @@
+import type { ViewportState } from '../viewport-state/index.svelte.ts';
+import type { ViewportInput } from '../viewport-input/index.svelte.ts';
+import type { Bounds } from '../viewport-bounds/index.svelte.ts';
 import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
-
-export interface ViewportState {
-	x: number;
-	y: number;
-	zoom: number;
-	width: number;
-	height: number;
-}
-
-export interface ViewportInput extends Partial<ViewportState> {}
-
-export interface Bounds {
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-}
 
 function useViewport(initialState?: ViewportInput) {
 	let state = $state<ViewportState>({

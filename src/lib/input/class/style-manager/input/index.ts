@@ -1,54 +1,10 @@
-import { cn, mergeClassNames as mergeClasses } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import { TOKEN_APPEARANCE } from '$stylist/interaction/const/enum/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
-
-export { TOKEN_APPEARANCE };
+import { INPUT_VARIANT_CLASSES } from '$stylist/input/const/record/input-variant-classes';
 
 const INPUT_BASE_CLASS = StyleManagerBase.classes.input;
-const INPUT_VARIANT_CLASSES: Record<TokenAppearance | 'filled', string> = {
-	default:
-		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	filled:
-		'bg-[var(--color-secondary-50)] text-[var(--color-text-primary)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	outline:
-		'bg-transparent text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	ghost:
-		'bg-transparent text-[var(--color-text-primary)] border border-transparent hover:bg-[var(--color-secondary-50)] focus:ring-2 focus:ring-[var(--color-primary-500)]',
-	info:
-		'bg-[var(--color-primary-50)] text-[var(--color-text-primary)] border border-[var(--color-primary-200)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	success:
-		'bg-[var(--color-success-50)] text-[var(--color-text-primary)] border border-[var(--color-success-200)] focus:ring-2 focus:ring-[var(--color-success-500)] focus:border-[var(--color-success-500)]',
-	warning:
-		'bg-[var(--color-warning-50)] text-[var(--color-text-primary)] border border-[var(--color-warning-200)] focus:ring-2 focus:ring-[var(--color-warning-500)] focus:border-[var(--color-warning-500)]',
-	danger:
-		'bg-[var(--color-danger-50)] text-[var(--color-text-primary)] border border-[var(--color-danger-200)] focus:ring-2 focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
-	error:
-		'bg-[var(--color-danger-50)] text-[var(--color-text-primary)] border border-[var(--color-danger-200)] focus:ring-2 focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]',
-	primary:
-		'bg-[var(--color-primary-50)] text-[var(--color-text-primary)] border border-[var(--color-primary-200)] focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	solid:
-		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)] focus:border-[var(--color-primary-500)]',
-	secondary:
-		'bg-[var(--color-secondary-50)] text-[var(--color-text-primary)] border border-[var(--color-secondary-200)] focus:ring-2 focus:ring-[var(--color-secondary-500)] focus:border-[var(--color-secondary-500)]',
-	link:
-		'bg-transparent text-[var(--color-primary-600)] border border-transparent underline underline-offset-2 focus:ring-2 focus:ring-[var(--color-primary-500)]',
-	subtle:
-		'bg-[var(--color-neutral-50)] text-[var(--color-text-primary)] border border-[var(--color-neutral-100)] focus:ring-2 focus:ring-[var(--color-primary-500)]',
-	neutral:
-		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] border border-[var(--color-neutral-300)] focus:ring-2 focus:ring-[var(--color-neutral-400)]',
-	gray:
-		'bg-[var(--color-neutral-100)] text-[var(--color-text-primary)] border border-[var(--color-neutral-300)] focus:ring-2 focus:ring-[var(--color-neutral-400)]',
-	dark:
-		'bg-[var(--color-neutral-900)] text-[var(--color-text-inverse)] border border-[var(--color-neutral-800)] focus:ring-2 focus:ring-[var(--color-neutral-700)]',
-	light:
-		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-primary)] focus:ring-2 focus:ring-[var(--color-primary-500)]',
-	elevated:
-		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] border border-[var(--color-border-secondary)] shadow-sm focus:ring-2 focus:ring-[var(--color-primary-500)]',
-	flat:
-		'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] border border-transparent focus:ring-2 focus:ring-[var(--color-primary-500)]'
-};
 const INPUT_ERROR_CLASS = 'border-[var(--color-danger-500)] focus:ring-[var(--color-danger-500)] focus:border-[var(--color-danger-500)]';
 const INPUT_SIZE_CLASSES = {
 	xs: 'h-7 px-2.5 text-[10px] rounded',
@@ -107,7 +63,7 @@ export class InputStyleManager {
 		const errorClass = error ? INPUT_ERROR_CLASS : '';
 		const disabledClass = disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '';
 		const blockClass = block ? 'w-full' : '';
-		return mergeClasses(INPUT_BASE_CLASS, variantClass, sizeClass, errorClass, disabledClass, blockClass, className);
+		return mergeClassNames(INPUT_BASE_CLASS, variantClass, sizeClass, errorClass, disabledClass, blockClass, className);
 	}
 
 	static getInputBaseClass(): string { return INPUT_BASE_CLASS; }
@@ -131,21 +87,21 @@ export class InputStyleManager {
 		const errorClass = error ? INPUT_ERROR_CLASS : '';
 		const disabledClass = disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none' : '';
 		const blockClass = block ? 'w-full' : '';
-		return mergeClasses(INPUT_BASE_CLASS, variantClass, sizeClass, errorClass, disabledClass, blockClass, className);
+		return mergeClassNames(INPUT_BASE_CLASS, variantClass, sizeClass, errorClass, disabledClass, blockClass, className);
 	}
 
-	static getContainerClass(className = ''): string { return cn(INPUT_FIELD_CONTAINER_CLASS, className); }
-	static getLabelClass(className = ''): string { return cn(INPUT_FIELD_LABEL_CLASS, className); }
-	static getHelperTextClass(className = ''): string { return cn(INPUT_FIELD_HELPER_TEXT_CLASS, className); }
-	static getErrorTextClass(className = ''): string { return cn(INPUT_FIELD_ERROR_TEXT_CLASS, className); }
-	static getRequiredIndicatorClass(className = ''): string { return cn('input-field-required text-[var(--color-danger-500)]', className); }
-	static getInputGroupContainerClass(className = ''): string { return cn(INPUT_GROUP_CONTAINER_CLASS, className); }
-	static getInputGroupInputClass(className = ''): string { return cn(INPUT_GROUP_INPUT_CLASS, className); }
-	static getInputGroupButtonClass(className = ''): string { return cn(INPUT_GROUP_BUTTON_CLASS, className); }
-	static getInputGroupAddonClass(className = ''): string { return cn('input-group-addon flex items-center px-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-primary)]', className); }
-	static getPasswordToggleClass(className = ''): string { return cn(INPUT_PASSWORD_TOGGLE_CLASS, className); }
-	static getInputLongResizeHandleClass(className = ''): string { return cn(INPUT_LONG_RESIZE_HANDLE_CLASS, className); }
-	static getInputDoubleContainerClass(className = ''): string { return cn(INPUT_DOUBLE_CONTAINER_CLASS, className); }
+	static getContainerClass(className = ''): string { return mergeClassNames(INPUT_FIELD_CONTAINER_CLASS, className); }
+	static getLabelClass(className = ''): string { return mergeClassNames(INPUT_FIELD_LABEL_CLASS, className); }
+	static getHelperTextClass(className = ''): string { return mergeClassNames(INPUT_FIELD_HELPER_TEXT_CLASS, className); }
+	static getErrorTextClass(className = ''): string { return mergeClassNames(INPUT_FIELD_ERROR_TEXT_CLASS, className); }
+	static getRequiredIndicatorClass(className = ''): string { return mergeClassNames('input-field-required text-[var(--color-danger-500)]', className); }
+	static getInputGroupContainerClass(className = ''): string { return mergeClassNames(INPUT_GROUP_CONTAINER_CLASS, className); }
+	static getInputGroupInputClass(className = ''): string { return mergeClassNames(INPUT_GROUP_INPUT_CLASS, className); }
+	static getInputGroupButtonClass(className = ''): string { return mergeClassNames(INPUT_GROUP_BUTTON_CLASS, className); }
+	static getInputGroupAddonClass(className = ''): string { return mergeClassNames('input-group-addon flex items-center px-3 bg-[var(--color-background-secondary)] border border-[var(--color-border-primary)]', className); }
+	static getPasswordToggleClass(className = ''): string { return mergeClassNames(INPUT_PASSWORD_TOGGLE_CLASS, className); }
+	static getInputLongResizeHandleClass(className = ''): string { return mergeClassNames(INPUT_LONG_RESIZE_HANDLE_CLASS, className); }
+	static getInputDoubleContainerClass(className = ''): string { return mergeClassNames(INPUT_DOUBLE_CONTAINER_CLASS, className); }
 	static getInputFieldContainerClass(className = ''): string { return this.getContainerClass(className); }
 	static getInputFieldHelperTextClass(className = ''): string { return this.getHelperTextClass(className); }
 	static getInputFieldContainerClasses(): string { return this.getContainerClass(); }
@@ -156,5 +112,4 @@ export class InputStyleManager {
 }
 
 export default InputStyleManager;
-
 

@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class GridStyleManager {
 	static getGridClass(extraClass = ''): string {
-		return cn('grid', extraClass);
+		return mergeClassNames('grid', extraClass);
 	}
 
 	static getGridStyle(gridColor: string, opacity: number): string {

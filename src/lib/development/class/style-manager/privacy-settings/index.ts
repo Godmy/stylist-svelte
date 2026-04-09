@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 export class PrivacySettingsStyleManager {
   static getContainerClass(extraClasses: string = ''): string {
-    return cn(
+    return mergeClassNames(
       'c-privacy-settings border border-[var(--color-border-primary)] p-6 shadow-sm',
       CardStyleManager.getBaseClasses(),
       extraClasses

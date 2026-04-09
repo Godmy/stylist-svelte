@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Idef0PortLabelRecipe as Idef0PortLabelProps } from '$stylist/information/interface/recipe/idef0-port-label';
+	import type { Idef0PortLabelRecipe as Idef0PortLabelProps } from '$stylist/science/interface/recipe/idef0-port-label';
 	import { createIdef0PortLabelState } from '$stylist/information/function/state/idef0';
 
 	let props: Idef0PortLabelProps = $props();

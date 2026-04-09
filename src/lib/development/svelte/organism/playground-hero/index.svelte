@@ -5,7 +5,7 @@ const ExternalLink = 'external-link';
 const Heart = 'heart';
 const ArrowRight = 'arrow-right';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
   type AIModel = {
     name: string;

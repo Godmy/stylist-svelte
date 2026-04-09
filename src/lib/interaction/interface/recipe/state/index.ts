@@ -1,18 +1,13 @@
-import type { ClickProps } from '$stylist/interaction/interface/proto/clickable';
-import type { DragProps } from '$stylist/interaction/interface/proto/draggable';
-import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable';
-import type { FocusProps } from '$stylist/interaction/interface/proto/focusable';
-import type { TransformProps } from '$stylist/interaction/interface/proto/transformable';
-import type { AnimateProps } from '$stylist/interaction/interface/proto/animate';
-
 /**
  * Recipe типы для state функций
  * Используются потребителями state для типизации входных параметров
+ *
+ * DEPRECATED: Все алиасы удалены.
+ * Используйте непосредственно Props типы из соответствующих proto директорий:
+ * - ClickProps из '$stylist/interaction/interface/proto/clickable-props'
+ * - DragProps из '$stylist/interaction/interface/proto/draggable-props'
+ * - HoverProps из '$stylist/interaction/interface/proto/hoverable-props'
+ * - FocusProps из '$stylist/interaction/interface/proto/focusable-props'
+ * - TransformProps из '$stylist/interaction/interface/proto/transformable-props'
+ * - AnimateProps из '$stylist/interaction/interface/proto/animate-props'
  */
-
-export type ClickableStateRecipe = ClickProps;
-export type DraggableStateRecipe = DragProps;
-export type HoverableStateRecipe = HoverProps;
-export type FocusableStateRecipe = FocusProps;
-export type TransformableStateRecipe = TransformProps;
-export type AnimatedStateRecipe = AnimateProps;

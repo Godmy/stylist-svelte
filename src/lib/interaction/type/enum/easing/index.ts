@@ -1,6 +1,3 @@
-import { TOKEN_EASING } from '$stylist/interaction/const/enum/easing';
+import { TOKEN_EASING } from '$stylist/interaction/const/map/easing';
 
-/**
- * Тип токена easing функции
- */
 export type TokenEasing = typeof TOKEN_EASING[keyof typeof TOKEN_EASING];

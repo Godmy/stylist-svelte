@@ -1,21 +1,7 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export type ContentType = 'text' | 'image' | 'quote' | 'divider' | 'header' | 'list';
-
-export interface ContentElement {
-	id: string;
-	type: ContentType;
-	content: string;
-	attributes?: Record<string, any>;
-}
-
-export interface ContentEditorStyleManagerOptions {
-	class?: string;
-	toolbarClass?: string;
-	editorClass?: string;
-	contentClass?: string;
-	isActive?: boolean;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { ContentType } from '$stylist/input/class/style-manager/content-editor-style-content-type';
+import type { ContentElement } from '$stylist/input/class/style-manager/content-editor-style-content-element';
+import type { ContentEditorStyleManagerOptions } from '$stylist/input/class/style-manager/content-editor-style-manager-options';
 
 export class ContentEditorStyleManager {
 	private static readonly BASE_ROOT = 'c-content-editor border border-[var(--color-border-primary)] rounded-lg overflow-hidden';
@@ -44,20 +30,20 @@ export class ContentEditorStyleManager {
 	private static readonly BASE_IMAGE_HINT = 'text-sm text-[var(--color-text-tertiary)] mt-1';
 
 	static getRootClass(className?: string): string {
-		return cn(this.BASE_ROOT, className);
+		return mergeClassNames(this.BASE_ROOT, className);
 	}
 
 	static getToolbarClass(className?: string): string {
-		return cn(this.BASE_TOOLBAR, className);
+		return mergeClassNames(this.BASE_TOOLBAR, className);
 	}
 
 	static getEditorClass(className?: string): string {
-		return cn(this.BASE_EDITOR, className);
+		return mergeClassNames(this.BASE_EDITOR, className);
 	}
 
 	static getContentClass(className?: string, isActive?: boolean): string {
 		const activeClass = isActive ? this.BASE_CONTENT_ACTIVE : this.BASE_CONTENT_INACTIVE;
-		return cn(this.BASE_CONTENT, activeClass, className);
+		return mergeClassNames(this.BASE_CONTENT, activeClass, className);
 	}
 
 	static getButtonClass(): string {

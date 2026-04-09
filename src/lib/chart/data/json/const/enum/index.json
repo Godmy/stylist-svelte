@@ -1,0 +1,70 @@
+{
+  "domainName": "analytics",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_CHART",
+      "values": [
+        "pie",
+        "bar",
+        "line",
+        "area",
+        "bubble",
+        "radar",
+        "heatmap",
+        "tree",
+        "sankey",
+        "gantt",
+        "timeline",
+        "funnel"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum\\chart\\index.ts",
+      "relativePath": "chart\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_ANALYTICS_ICON",
+      "values": [
+        "canvas-chart",
+        "charts-organism",
+        "heatmap",
+        "performance-dashboard",
+        "status-dashboard"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_KPI",
+      "values": [
+        "on-track",
+        "at-risk",
+        "off-track",
+        "exceeded"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum\\kpi\\index.ts",
+      "relativePath": "kpi\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_MONITORING_TYPE",
+      "values": [
+        "monitoring",
+        "reached",
+        "exceeded"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum\\monitoring-type\\index.ts",
+      "relativePath": "monitoring-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TIME_RANGE",
+      "values": [
+        "1d",
+        "7d",
+        "30d",
+        "90d"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\analytics\\const\\enum\\time-range\\index.ts",
+      "relativePath": "time-range\\index.ts"
+    }
+  ]
+}

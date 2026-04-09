@@ -1,13 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface ClickableStyleManagerOptions {
-	variant?: 'default' | 'primary' | 'secondary' | 'ghost' | 'link';
-	disabled?: boolean;
-	pressEffect?: boolean;
-	hoverEffect?: boolean;
-	cursor?: string;
-	class?: string;
-}
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { ClickableStyleManagerOptions } from '$stylist/interaction/class/style-manager/clickable-style-manager-options';
 
 export class ClickableStyleManager {
 	private static readonly BASE = 'transition-all duration-120 ease-in-out';
@@ -19,7 +11,7 @@ export class ClickableStyleManager {
 	 * Базовые классы для всех кликабельных элементов
 	 */
 	static getBaseClasses(className?: string): string {
-		return cn(this.BASE, className);
+		return mergeClassNames(this.BASE, className);
 	}
 
 	/**
@@ -53,10 +45,10 @@ export class ClickableStyleManager {
 		} = options;
 
 		if (disabled) {
-			return cn(this.BASE, this.DISABLED, className);
+			return mergeClassNames(this.BASE, this.DISABLED, className);
 		}
 
-		return cn(
+		return mergeClassNames(
 			this.BASE,
 			this.getVariantClasses(variant),
 			pressEffect ? this.PRESS_EFFECT : '',

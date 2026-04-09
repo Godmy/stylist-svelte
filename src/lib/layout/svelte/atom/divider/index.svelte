@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DividerProps } from '$stylist/layout/type/struct/divider/divider-props';
+	import type { DividerProps } from '$stylist/layout/type/struct/divider';
 	import { createDividerState } from '$stylist/layout/function/state/divider';
 
 	let props: DividerProps = $props();

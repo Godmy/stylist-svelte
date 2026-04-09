@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export * from './rating';
 export type { FriendListContract, FriendStatus } from './friend-list';
 export type { ActivityType, SocialActivityFeedContract } from './social-activity-feed';
 export type { SocialFeedContract } from './social-feed';

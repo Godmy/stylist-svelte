@@ -3,6 +3,7 @@ export type { TokenActivity } from './activity';
 export type { TokenAnimation } from './animation';
 export type { TokenAppearance } from './appearance';
 export type { TokenAvailability } from './availability';
+export type { TokenInteractionContract } from './contract';
 export type { TokenControllerType } from './controller-type';
 export type { TokenDuration } from './duration';
 export type { TokenFlow } from './flow';

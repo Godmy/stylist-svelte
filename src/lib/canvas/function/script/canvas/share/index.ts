@@ -2,7 +2,7 @@ import type {
 	SharedCanvasObjectBounds,
 	SharedCanvasPoint,
 	SharedCanvasTool
-} from '$stylist/canvas/type/struct/shared-canvas/shared-canvas';
+} from '$stylist/canvas/type/struct/shared-canvas';
 import type { CanvasObject } from '$stylist/canvas/interface/component/shared-canvas/other';
 
 export function cloneCanvasObjects(value: readonly CanvasObject[] = []): CanvasObject[] {

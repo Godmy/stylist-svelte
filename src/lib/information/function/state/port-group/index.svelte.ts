@@ -1,6 +1,6 @@
-import type { PortGroupRecipe as PortGroupProps } from '$stylist/information/interface/recipe/port-group';
+import type { PortGroupRecipe as PortGroupProps } from '$stylist/media/interface/recipe/port-group';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { PortGroupStyleManager } from '$stylist/information/class/style-manager/port-group';
+import { PortGroupStyleManager } from '$stylist/science/class/style-manager/port-group';
 
 export function createPortGroupState(props: PortGroupProps) {
 	const direction = $derived(props.direction ?? 'input');

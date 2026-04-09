@@ -1,12 +1,16 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import { cn } from '$stylist/layout/function/script/merge-class-names';
+  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 const Copy = 'copy';
 const Download = 'download';
 const RefreshCw = 'refresh-cw';
 
-  import type { CodeEditorRecipe } from '$stylist/information/interface/recipe/code-editor';
+  import type { CodeEditorRecipe } from '$stylist/development/interface/recipe/code-editor';
   import { CodeEditorStyleManager } from '$stylist/development/class/style-manager/code-editor';
+
+  type CodeEditorProps = CodeEditorRecipe & {
+    class?: string;
+  };
 
   let {
     code = '',
@@ -20,7 +24,7 @@ const RefreshCw = 'refresh-cw';
     class: className = '',
     onCodeChange,
     ...restProps
-  }: CodeEditorRecipe = $props();
+  }: CodeEditorProps = $props();
 
   let internalCode = $state(code);
   $effect(() => {
@@ -47,7 +51,7 @@ const RefreshCw = 'refresh-cw';
   }
 </script>
 
-<div class={cn(className)}>
+<div class={mergeClassNames(className)}>
   <div class="flex items-center justify-between border-b border-[var(--color-border-primary)] p-2">
     <span class="text-xs uppercase text-gray-500">{language}</span>
     <div class="flex gap-2">

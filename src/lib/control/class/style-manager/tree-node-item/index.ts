@@ -1,4 +1,4 @@
-import type { ITreeNodeItemStyleClasses } from '$stylist/control/type/struct/tree-node-item';
+import type { ITreeNodeItemStyleClasses } from '$stylist/control/type/struct/tree-node-item-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

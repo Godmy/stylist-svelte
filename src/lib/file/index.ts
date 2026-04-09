@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { DownloadCardStyleManager, DropZoneStyleManager, FileExplorerStyleManager, UploadProgressStyleManager, ZipViewerStyleManager } from './class';
 export { TOKEN_FILE_ICON } from './const';
-export { createFileInputState, formatFileSize, getFileIcon, getFileSelectionLabel, resolveFileIcon, resolveFileSelectionLabel } from './function';
+export { createFileInputState, formatFileSize, resolveFileIcon, resolveFileSelectionLabel } from './function';
 export { AttachmentPreview, DataExporter, DocumentPreview, DownloadCard, DragDropFileUpload, DropZone, FileBrowser, FileExplorer, FileInput, FileListItem, FileUpload, UploadProgress, ZipViewer } from './svelte';
 export type { DragDropFileStatus, DropItem, FileItemType, FileSystemItem, FileSystemItemType, FolderItem, UploadFileStatus, UploadProgressVariant, UploadStatus, ViewMode, ZipEntry, ZipEntryType } from './interface';
 export type { FileType, TokenFileIcon } from './type';

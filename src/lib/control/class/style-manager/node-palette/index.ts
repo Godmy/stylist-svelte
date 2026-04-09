@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class NodePaletteStyleManager {
 	static root(className = ''): string {
-		return cn('node-palette', className);
+		return mergeClassNames('node-palette', className);
 	}
 
 	static header(): string {
@@ -30,7 +30,7 @@ export class NodePaletteStyleManager {
 	}
 
 	static category(isActive: boolean): string {
-		return cn('node-palette__category', isActive && 'node-palette__category--active');
+		return mergeClassNames('node-palette__category', isActive && 'node-palette__category--active');
 	}
 
 	static content(): string {

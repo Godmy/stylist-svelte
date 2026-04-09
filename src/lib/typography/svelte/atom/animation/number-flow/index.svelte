@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 	import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/typography/interface/recipe/number-flow';
 	import { createNumberFlowState } from '$stylist/typography/function/state/number-flow';
 

@@ -1,5 +1,5 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { AccordionHeaderDoubleProps } from '$stylist/control/interface/component/accordion/other';
 
 /**
@@ -8,7 +8,7 @@ import type { AccordionHeaderDoubleProps } from '$stylist/control/interface/comp
 
 export function createAccordionHeaderDoubleState(props: AccordionHeaderDoubleProps) {
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			'accordion-header-double',
 			props.open ? 'open' : 'closed',
 			props.disabled ? 'disabled' : '',
@@ -17,7 +17,7 @@ export function createAccordionHeaderDoubleState(props: AccordionHeaderDoublePro
 	);
 
 	const chevronClasses = $derived(
-		mergeClasses(
+		joinClassNames(
 			'accordion-chevron',
 			'size-md',
 			props.open ? 'rotated' : ''

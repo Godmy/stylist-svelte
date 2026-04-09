@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TOKEN_ANALYTICS_ICON } from './svg';

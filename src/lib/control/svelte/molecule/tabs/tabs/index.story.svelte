@@ -1,0 +1,73 @@
+<script lang="ts">
+  import Story from '$stylist/development/svelte/playground/Story.svelte';
+  import Tabs from './index.svelte';
+  import TabList from '$stylist/control/svelte/atom/tabs/tab-list/index.svelte';
+  import { Tab } from '$stylist/control/svelte/atom/tabs/tab';
+  import TabPanel from '$stylist/control/svelte/atom/tabs/tab-panel/index.svelte';
+  import TabPanels from '$stylist/control/svelte/atom/tabs/tab-panels/index.svelte';
+  import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+
+  const controls = [
+    {
+      name: 'selectedId',
+      type: 'text' as TokenControllerType,
+      defaultValue: 'tab1',
+      description: 'ID of the selected tab'
+    }
+  ];
+
+  function handleTabChange(id: string) {
+    console.log('Tab changed to:', id);
+  }
+</script>
+
+<Story
+  {controls}
+  title="Tabs Component"
+  description="A component to organize content into tabbed sections"
+ 
+>
+  {#snippet children(controlValues: any)}
+  <Tabs selectedId={controlValues.selectedId} onValueChange={handleTabChange} class="w-full">
+    <TabList>
+      <Tab id="tab1">Getting Started</Tab>
+      <Tab id="tab2">Documentation</Tab>
+      <Tab id="tab3">Examples</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel id="tab1">
+        <div>
+          <h3 class="mb-2 text-lg font-semibold">Main Tabs Content</h3>
+          <p>This is the content for the first tab within the Tabs component.</p>
+          <p>The Tabs component manages the selected state and tab changes.</p>
+        </div>
+      </TabPanel>
+      <TabPanel id="tab2">
+        <div>
+          <h3 class="mb-2 text-lg font-semibold">Secondary Content</h3>
+          <p>This is the content for the second tab.</p>
+          <div class="mt-2 rounded bg-[var(--color-secondary-100)] p-3">
+            <p>
+              The Tabs component provides context to TabList, Tab, TabPanels, and TabPanel
+              components.
+            </p>
+          </div>
+        </div>
+      </TabPanel>
+      <TabPanel id="tab3">
+        <div>
+          <h3 class="mb-2 text-lg font-semibold">Additional Information</h3>
+          <p>This is the content for the third tab.</p>
+          <p>
+            Tabs coordinate with all the other tab components to create a cohesive interface.
+          </p>
+        </div>
+      </TabPanel>
+    </TabPanels>
+  </Tabs>
+
+  {/snippet}
+</Story>
+
+
+

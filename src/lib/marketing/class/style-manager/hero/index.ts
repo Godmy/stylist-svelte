@@ -7,7 +7,7 @@
  */
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Менеджер стилей для компонента Hero
@@ -26,7 +26,7 @@ export class HeroStyleManager {
 			'2/3': 'min-h-[80vh]',
 			'3/5': 'min-h-[60vh]'
 		};
-		return cn(
+		return mergeClassNames(
 			'hero relative flex w-full items-center justify-center overflow-hidden bg-[var(--color-background-primary)]',
 			heightClasses[height] ?? heightClasses.full,
 			className
@@ -105,7 +105,7 @@ export class HeroStyleManager {
    * Возвращает CSS-классы для CTA кнопки
    */
   static getCTAButtonClasses(isPrimary: boolean): string {
-    return cn(
+    return mergeClassNames(
       'rounded-lg px-6 py-3 font-medium transition-colors duration-[var(--duration-200)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--color-primary-500)]',
       isPrimary
         ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-700)]'

@@ -13,5 +13,3 @@ export type ClassValue =
 export function joinTailwindClassNames(...inputs: ClassValue[]): string {
 	return clsx(inputs);
 }
-
-export const twJoin = joinTailwindClassNames;

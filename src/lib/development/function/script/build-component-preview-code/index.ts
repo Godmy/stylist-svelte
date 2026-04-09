@@ -41,6 +41,3 @@ export function buildComponentPreviewCode({
 
 <${resolvedComponentName}${propsBlock} />`;
 }
-
-export const generateCode = buildComponentPreviewCode;
-export type ComponentProps = ComponentPreviewCodeOptions;

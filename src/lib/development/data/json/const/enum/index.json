@@ -1,0 +1,73 @@
+{
+  "domainName": "development",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\development\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\development\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_CODE_LANGUAGE",
+      "values": [
+        "javascript",
+        "typescript",
+        "html",
+        "css",
+        "svelte",
+        "json",
+        "markdown",
+        "python",
+        "java",
+        "csharp",
+        "cpp",
+        "go",
+        "rust",
+        "sql",
+        "yaml",
+        "xml"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\development\\const\\enum\\code-language\\index.ts",
+      "relativePath": "code-language\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_CODE_VIEW",
+      "values": [
+        "default",
+        "terminal",
+        "diff"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\development\\const\\enum\\code-view\\index.ts",
+      "relativePath": "code-view\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_DEVELOPMENT_ICON",
+      "values": [
+        "playground",
+        "playground-ai-assistant",
+        "playground-ai-chat",
+        "playground-ai-panel",
+        "playground-animated-background",
+        "playground-canvas-shell",
+        "playground-code-viewer",
+        "playground-component-catalog",
+        "playground-component-info-card",
+        "playground-component-tree",
+        "playground-cta-buttons",
+        "playground-device-frame",
+        "playground-drawing-overlay",
+        "playground-enhanced-export-panel",
+        "playground-error-boundary",
+        "playground-feature-grid",
+        "playground-generic-code-viewer",
+        "playground-hero",
+        "playground-live-code-section",
+        "playground-markdown-renderer",
+        "playground-mission-banner",
+        "playground-screenshot-selector",
+        "playground-shell-header",
+        "playground-shortcuts-panel",
+        "playground-toast",
+        "playground-tree-node"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\development\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    }
+  ]
+}

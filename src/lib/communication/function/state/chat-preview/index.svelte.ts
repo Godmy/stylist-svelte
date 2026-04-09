@@ -1,5 +1,5 @@
 import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatPreviewState(props: ChatPreviewProps) {
   // Initialize props with defaults
@@ -27,7 +27,7 @@ export function createChatPreviewState(props: ChatPreviewProps) {
   };
 
   const styles = {
-    container: mergeClasses(
+    container: joinClassNames(
       'rounded-xl border p-4',
       variantClasses[variant] ?? variantClasses.default,
       sizeClasses[size] ?? sizeClasses.md
@@ -40,7 +40,7 @@ export function createChatPreviewState(props: ChatPreviewProps) {
   };
 
   // Merge classes with custom classes
-  const classes = $derived(mergeClasses(props.class ?? '', styles.container));
+  const classes = $derived(joinClassNames(props.class ?? '', styles.container));
 
   return {
     get title() {

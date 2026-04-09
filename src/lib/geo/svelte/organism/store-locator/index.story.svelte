@@ -1,6 +1,6 @@
-<script lang="ts">
+﻿<script lang="ts">
     import { Story } from '$stylist/development/svelte/playground';
-    import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings/interface-controller-settings';
+    import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
     import StoreLocator, { type Store, type Props } from './index.svelte';
 
     const defaultStores: Store[] = [

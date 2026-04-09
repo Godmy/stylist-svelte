@@ -1,0 +1,416 @@
+{
+  "domainName": "interaction",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "TOKEN_ACTIVITY",
+      "values": [
+        "active",
+        "inactive",
+        "pending",
+        "paused",
+        "completed"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\activity\\index.ts",
+      "relativePath": "activity\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_APPEARANCE",
+      "values": [
+        "default",
+        "primary",
+        "secondary",
+        "success",
+        "warning",
+        "danger",
+        "error",
+        "info",
+        "solid",
+        "outline",
+        "ghost",
+        "link",
+        "subtle",
+        "neutral",
+        "gray",
+        "dark",
+        "light",
+        "elevated",
+        "flat"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\appearance\\index.ts",
+      "relativePath": "appearance\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_AVAILABILITY",
+      "values": [
+        "online",
+        "offline",
+        "away",
+        "busy",
+        "typing"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\availability\\index.ts",
+      "relativePath": "availability\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_INTERACTION_CONTRACT",
+      "values": [
+        "Accordion",
+        "AdvancedAccordion",
+        "AdvancedColorPicker",
+        "AdvancedPasswordInput",
+        "BurgerMenu",
+        "Button",
+        "ChatStatusIndicator",
+        "Click",
+        "Dialog",
+        "Modal",
+        "DragAndDrop",
+        "DropdownMenu",
+        "ErrorBoundary",
+        "ErrorMessage",
+        "FeatureToggle",
+        "IconPicker",
+        "LazyLoader",
+        "LoadingBoundary",
+        "ResponseViewer",
+        "LocaleSwitcher",
+        "MenuItem",
+        "MultiSelect",
+        "NumberInput",
+        "LoadingOverlay",
+        "Pagination",
+        "PhoneNumberInput",
+        "QuantitySelector",
+        "RangeInput",
+        "RangeSlider",
+        "Rating",
+        "ReactionPicker",
+        "SearchBar",
+        "Selector",
+        "SortableTableHeader",
+        "Switch",
+        "SwitchWithLabel",
+        "TabGroup",
+        "Tabs",
+        "TagInput",
+        "Tooltip",
+        "Transformation",
+        "TranslationEditor",
+        "ZoomControls"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\contract\\index.ts",
+      "relativePath": "contract\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_FLOW",
+      "values": [
+        "completed",
+        "current",
+        "upcoming",
+        "skipped"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\flow\\index.ts",
+      "relativePath": "flow\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_INTERACTION_ICON",
+      "values": [
+        "accordion",
+        "accordion-molecule",
+        "activity",
+        "add",
+        "advanced-password-input",
+        "ai-interaction",
+        "alert",
+        "alert-circle",
+        "animations",
+        "archive",
+        "arrow-down",
+        "arrow-up",
+        "auto-search",
+        "autocomplete",
+        "box",
+        "breadcrumb",
+        "bulk-order-form",
+        "button",
+        "calendar",
+        "calendar-molecule",
+        "characters-count",
+        "chat-item",
+        "chat-list",
+        "chat-message",
+        "chat-organism",
+        "chat-preview",
+        "chat-room",
+        "chat-window",
+        "check",
+        "check-circle",
+        "checkout-form",
+        "chevron-down",
+        "chevron-up",
+        "chip",
+        "clock",
+        "code",
+        "code-editor-dev",
+        "collaborate",
+        "components",
+        "confirmation-dialog",
+        "content-editor",
+        "contracts",
+        "controls",
+        "controls-interaction",
+        "controls-organism",
+        "copy",
+        "cut",
+        "delete",
+        "dialog-confirm",
+        "dialogs-organism",
+        "download",
+        "draggable-card",
+        "duplicate",
+        "edit",
+        "errors",
+        "export",
+        "feedback-organism",
+        "field-highlighter",
+        "filter-panel",
+        "form-error",
+        "form-footer",
+        "form-header",
+        "form-helper",
+        "form-selection",
+        "forms-organism",
+        "icons",
+        "import",
+        "indicators",
+        "info",
+        "input-field",
+        "input-organism",
+        "interaction",
+        "json",
+        "list",
+        "lists",
+        "location-picker",
+        "location-selector",
+        "map-pin",
+        "map-selector",
+        "maximize",
+        "menu",
+        "menus-molecule",
+        "message-input",
+        "minus",
+        "mock-data-selector",
+        "models",
+        "notification",
+        "notifications-molecule",
+        "number-input",
+        "overlay",
+        "pagination",
+        "panels",
+        "paste",
+        "performance-monitor",
+        "pickers",
+        "placeholder",
+        "plus",
+        "process",
+        "progress",
+        "radio-group",
+        "rating",
+        "redo",
+        "restore",
+        "rfqform",
+        "rich-text-editor",
+        "save",
+        "search",
+        "search-bar",
+        "search-suggestion",
+        "selector",
+        "selectors-molecule",
+        "settings",
+        "slider",
+        "slider-with-input",
+        "sliders-molecule",
+        "spinner",
+        "state",
+        "styles",
+        "stylist-organism",
+        "tab",
+        "tables-molecule",
+        "tabs-molecule",
+        "tag",
+        "tag-input",
+        "themes",
+        "toast",
+        "toasts-molecule",
+        "toggle",
+        "toggles-molecule",
+        "tokens",
+        "toolbars-molecule",
+        "tooltip",
+        "transitions",
+        "trash",
+        "trees",
+        "trending-down",
+        "trending-up",
+        "undo",
+        "user",
+        "user-status",
+        "validation",
+        "variables-editor",
+        "x",
+        "x-circle",
+        "zoom",
+        "zoom-in",
+        "zoom-molecule",
+        "zoom-out"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_INTERACTION",
+      "values": [
+        "enabled",
+        "disabled",
+        "readonly"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\interaction\\index.ts",
+      "relativePath": "interaction\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_LOADING",
+      "values": [
+        "idle",
+        "loading",
+        "success",
+        "error"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\loading\\index.ts",
+      "relativePath": "loading\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PROCESS",
+      "values": [
+        "pending",
+        "processing",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\process\\index.ts",
+      "relativePath": "process\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PROGRESS_TYPE",
+      "values": [
+        "determinate",
+        "indeterminate"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\progress-type\\index.ts",
+      "relativePath": "progress-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_RADIO",
+      "values": [
+        "unchecked",
+        "checked"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\radio\\index.ts",
+      "relativePath": "radio\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SELECTOR_KIND",
+      "values": [
+        "default",
+        "minimal",
+        "filled"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\selection-kind\\index.ts",
+      "relativePath": "selection-kind\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SELECTION_TYPE",
+      "values": [
+        "single",
+        "multiple"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\selection-type\\index.ts",
+      "relativePath": "selection-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SEVERITY",
+      "values": [
+        "default",
+        "active",
+        "error",
+        "warning"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\sevetity\\index.ts",
+      "relativePath": "sevetity\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SORT_DIRECTION",
+      "values": [
+        "asc",
+        "desc",
+        "none"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\sort-direction\\index.ts",
+      "relativePath": "sort-direction\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TEST",
+      "values": [
+        "draft",
+        "running",
+        "completed",
+        "paused"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\test\\index.ts",
+      "relativePath": "test\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_CONTROL_KINDS",
+      "values": [
+        "radio",
+        "select",
+        "range",
+        "text"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\token-control-kind\\index.ts",
+      "relativePath": "token-control-kind\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TRIGGER",
+      "values": [
+        "hover",
+        "click",
+        "focus"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\trigger\\index.ts",
+      "relativePath": "trigger\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_VALIDATION",
+      "values": [
+        "valid",
+        "invalid",
+        "pending"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\validation\\index.ts",
+      "relativePath": "validation\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_VISIBILITY",
+      "values": [
+        "visible",
+        "hidden",
+        "collapsed"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\interaction\\const\\enum\\visibility\\index.ts",
+      "relativePath": "visibility\\index.ts"
+    }
+  ]
+}

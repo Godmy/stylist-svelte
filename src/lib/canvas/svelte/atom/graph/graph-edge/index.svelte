@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { GraphEdgeProps } from '$stylist/information/interface/recipe/graph';
+	import type { GraphEdgeRecipe } from '$stylist/science/interface/recipe/graph-edge';
 	import { createGraphEdgeState } from '$stylist/canvas/function/state/graph-edge';
 
-	type CanvasGraphEdgeProps = GraphEdgeProps & {
+	type CanvasGraphEdgeProps = GraphEdgeRecipe & {
 		fromNodeId: string;
 		toNodeId: string;
 		label?: string;

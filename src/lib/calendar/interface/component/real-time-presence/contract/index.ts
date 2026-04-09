@@ -1,5 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { CalendarHTMLAttributes } from '$stylist/calendar/type/struct/item';
+import type { CalendarHTMLAttributes } from '$stylist/calendar/type/struct';
 
 export type PresenceStatus = 'online' | 'away' | 'busy' | 'offline';
 

@@ -1,18 +1,5 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-
-export interface RichTextEditorStateProps {
-	value?: string;
-	placeholder?: string;
-	onValueInput?: (content: string) => void;
-	onValueChange?: (content: string) => void;
-	onInput?: (content: string) => void;
-	onChange?: (content: string) => void;
-	showToolbar?: boolean;
-	toolbarPosition?: 'top' | 'bottom';
-	class?: string;
-	toolbarClass?: string;
-	editorClass?: string;
-}
+import type { RichTextEditorStateProps } from '../rich-text-editor-state-props/index.svelte.ts';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 	// State
@@ -91,21 +78,21 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 
 	// Computed classes
 	const rootClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'border border-[var(--color-border-primary)] rounded-lg overflow-hidden',
 			props.class
 		)
 	);
 
 	const toolbarClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'flex items-center flex-wrap p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1',
 			props.toolbarClass
 		)
 	);
 
 	const editorClasses = $derived.by(() =>
-		cn(
+		mergeClassNames(
 			'px-4 py-3 min-h-[200px] focus:outline-none',
 			isFocused ? 'ring-0' : '',
 			props.editorClass

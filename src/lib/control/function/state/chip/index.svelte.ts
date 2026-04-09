@@ -1,6 +1,6 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-import type { ChipRecipe } from '$stylist/information/interface/recipe/chip';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { ChipRecipe } from '$stylist/typography/interface/recipe/chip';
 
 type ChipProps = ChipRecipe & {
 	text?: string;
@@ -11,7 +11,7 @@ type ChipProps = ChipRecipe & {
 
 // Определение состояния для Chip
 export function createChipState(props: ChipProps) {
-	const classes = mergeClasses(
+	const classes = joinClassNames(
 		'chip',
 		`variant-${props.variant ?? 'default'}`,
 		`size-${props.size ?? 'md'}`,
@@ -20,13 +20,13 @@ export function createChipState(props: ChipProps) {
 		(props.class as string | null | undefined) ?? ''
 	);
 
-	const closeButtonClasses = mergeClasses(
+	const closeButtonClasses = joinClassNames(
 		'chip-close-button',
 		`size-${props.size ?? 'md'}`,
 		props.disabled ? 'disabled' : ''
 	);
 
-	const closeButtonIconClasses = mergeClasses(
+	const closeButtonIconClasses = joinClassNames(
 		'chip-close-icon',
 		`size-${props.size ?? 'sm'}`
 	);

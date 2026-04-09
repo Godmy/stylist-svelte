@@ -1,17 +1,5 @@
-export interface FocusTarget {
-	id: string;
-	x: number;
-	y: number;
-	width: number;
-	height: number;
-	depth: number;
-}
-
-export interface FocusState {
-	target: FocusTarget | null;
-	isFocused: boolean;
-	isFullscreen: boolean;
-}
+import type { FocusTarget } from '../focus-target/index.svelte.ts';
+import type { FocusState } from '../focus-state/index.svelte.ts';
 
 function useFocus() {
 	let state = $state<FocusState>({

@@ -1,4 +1,4 @@
-import type { LiteGraphNodeProps } from '$stylist/information/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
 import type { TokenInteration } from '$stylist/interaction/type/record/interaction';
 import type { TokenSeverity } from '$stylist/interaction/type/record/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/enum/node-type';

@@ -1,6 +1,6 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class GraphStyleManager {
 	static getGraphNodeSizeClasses(size: TokenSize): string {
@@ -27,11 +27,11 @@ export class GraphStyleManager {
 	}
 
 	static getGraphNodeStateClasses(selected: boolean): string {
-		return cn('graph-node', selected && 'selected');
+		return mergeClassNames('graph-node', selected && 'selected');
 	}
 
 	static getGraphEdgeClasses(directed: boolean, type: TokenTrajectory, active: boolean): string {
-		return cn(
+		return mergeClassNames(
 			'graph-edge',
 			{
 				straight: 'graph-edge--line',

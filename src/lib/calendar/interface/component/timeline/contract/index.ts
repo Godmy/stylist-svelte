@@ -1,6 +1,5 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { CalendarHTMLAttributes } from '$stylist/calendar/type/struct/item';
-import type { ChildrenHtmlAttributes } from '$stylist/calendar/type/struct/children';
+import type { CalendarHTMLAttributes, ChildrenHtmlAttributes } from '$stylist/calendar/type/struct';
 import type { Snippet } from 'svelte';
 
 export type TimelineStatus = 'completed' | 'current' | 'pending';

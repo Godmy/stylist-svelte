@@ -1,5 +1,5 @@
 import type { IMessageMetaStyleClasses } from '$stylist/communication/interface/component/message-meta/other';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**
  * Style utility class following Single Responsibility Principle
@@ -8,7 +8,7 @@ import { cn } from '$stylist/layout/function/script/merge-class-names';
  */
 export class MessageMetaStyleManager {
   static getBaseClasses(className: string): string {
-    return cn(
+    return mergeClassNames(
       'message-meta-base flex justify-between text-xs text-[var(--color-text-tertiary)]',
       className
     );

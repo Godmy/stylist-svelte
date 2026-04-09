@@ -1,7 +1,6 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { CalendarHTMLAttributes } from '$stylist/calendar/type/struct/item';
-import type { ChildrenHtmlAttributes } from '$stylist/calendar/type/struct/children';
-import type { TokenTimeMeasure } from '$stylist/information/type/enum/time-measure';
+import type { CalendarHTMLAttributes, ChildrenHtmlAttributes } from '$stylist/calendar/type/struct';
+import type { TokenTimeMeasure } from '$stylist/calendar/type/enum/time-measure';
 import type { TokenPriority } from '$stylist/information/type/enum/priority';
 import type { Snippet } from 'svelte';
 

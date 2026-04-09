@@ -1,5 +1,5 @@
-import type { TransformContract, MotionContract } from '$stylist/interaction/type/struct/motion';
-import type { Snippet } from 'svelte';
+import type { TransformContract } from '$stylist/interaction/type/struct/motion-transform-contract';
+import type { MotionContract } from '$stylist/interaction/type/struct/motion';
 
 /**
  * Прото-интерфейс для transformable элементов
@@ -14,12 +14,4 @@ export interface ITransformable extends Partial<TransformContract> {
 	animateInfinite?: boolean;
 	/** Отключить трансформацию */
 	disabled?: boolean;
-}
-
-/**
- * Props для transformable компонента
- */
-export interface TransformProps extends ITransformable {
-	class?: string;
-	children?: Snippet;
 }

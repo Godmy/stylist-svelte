@@ -1,0 +1,225 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\const\\enum\\index.json",
+  "tokens": [
+    {
+      "tokenName": "FOUNDATION_AXES",
+      "values": [
+        "x",
+        "y",
+        "z"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\axes\\foundation-axes\\index.ts",
+      "relativePath": "axes\\foundation-axes\\index.ts"
+    },
+    {
+      "tokenName": "FOUNDATION_AXIS_DIRECTIONS",
+      "values": [
+        "negative",
+        "center",
+        "positive",
+        "inline-start",
+        "inline-end",
+        "block-start",
+        "block-end"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\axes\\foundation-axis-directions\\index.ts",
+      "relativePath": "axes\\foundation-axis-directions\\index.ts"
+    },
+    {
+      "tokenName": "FOUNDATION_AXIS_ORIENTATIONS",
+      "values": [
+        "horizontal",
+        "vertical",
+        "depth"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\axes\\foundation-axis-orientations\\index.ts",
+      "relativePath": "axes\\foundation-axis-orientations\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_COMPONENT_TYPE",
+      "values": [
+        "text",
+        "image",
+        "video",
+        "button",
+        "divider",
+        "heading",
+        "container",
+        "grid"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\component-type\\index.ts",
+      "relativePath": "component-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_CONNECTOR",
+      "values": [
+        "invisible",
+        "line",
+        "arrow",
+        "ring",
+        "anchor"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\connector\\index.ts",
+      "relativePath": "connector\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_FUNCTIONAL_TAXONOMY",
+      "values": [
+        "architecture",
+        "information",
+        "interaction"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\functional-taxonomy\\index.ts",
+      "relativePath": "functional-taxonomy\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_ARCHITECTURE_ICON",
+      "values": [
+        "architecture",
+        "canvas-organism",
+        "canvas-toolbar",
+        "diagrams-organism",
+        "drawing-surface",
+        "graph-edge",
+        "graph-node",
+        "graph-node-card",
+        "shared-canvas"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_LINE_TYPE",
+      "values": [
+        "default",
+        "minimal",
+        "elegant",
+        "bold"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\line-type\\index.ts",
+      "relativePath": "line-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_MARKER",
+      "values": [
+        "none",
+        "dot",
+        "number",
+        "letter",
+        "check",
+        "x"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\marker\\index.ts",
+      "relativePath": "marker\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_NODE_TYPE",
+      "values": [
+        "default",
+        "source",
+        "processor",
+        "output",
+        "gateway",
+        "custom"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\node-type\\index.ts",
+      "relativePath": "node-type\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_OWNERSHIP",
+      "values": [
+        "government",
+        "private",
+        "brand"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\ownership\\index.ts",
+      "relativePath": "ownership\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_PAN_MODES",
+      "values": [
+        "drag",
+        "space",
+        "always"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\pan-mode\\index.ts",
+      "relativePath": "pan-mode\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_RELATIONSHIP",
+      "values": [
+        "owner",
+        "input",
+        "output",
+        "one-to-one",
+        "one-to-many",
+        "many-to-many"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\relationship\\index.ts",
+      "relativePath": "relationship\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_ARCHITECTURE_SHADER_FRAGMENT",
+      "values": [
+        "base.frag",
+        "particle.frag",
+        "phong.frag"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\shader-fragment\\index.ts",
+      "relativePath": "shader-fragment\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_ARCHITECTURE_SHADER_VERTEX",
+      "values": [
+        "base.vert",
+        "particle.vert",
+        "skinned.vert"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\shader-vertex\\index.ts",
+      "relativePath": "shader-vertex\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_SKELETON",
+      "values": [
+        "text",
+        "card",
+        "image",
+        "icon"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\skeleton\\index.ts",
+      "relativePath": "skeleton\\index.ts"
+    },
+    {
+      "tokenName": "TIER_CONTENT",
+      "values": [
+        "dot",
+        "icon",
+        "pill",
+        "minimal",
+        "compact",
+        "detailed",
+        "screen"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\tier\\index.ts",
+      "relativePath": "tier\\index.ts"
+    },
+    {
+      "tokenName": "TOKEN_TRAJECTORY",
+      "values": [
+        "straight",
+        "curve",
+        "polyline",
+        "bezier",
+        "arc",
+        "loop",
+        "elbow",
+        "step",
+        "smooth-step"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\const\\enum\\trajectory\\index.ts",
+      "relativePath": "trajectory\\index.ts"
+    }
+  ]
+}

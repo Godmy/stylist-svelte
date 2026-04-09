@@ -1,4 +1,4 @@
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 ﻿import type { CheckboxProps } from '$stylist/control/interface/component/toggles';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 
@@ -15,10 +15,10 @@ export function createCheckboxState(props: CheckboxProps) {
 	const hasError = errors.length > 0;
 	const errorId = `${id}-error`;
 
-	const containerClasses = mergeClasses('flex items-start space-x-2', className);
+	const containerClasses = joinClassNames('flex items-start space-x-2', className);
 	const wrapperClasses = 'flex items-center h-5';
 	const checkboxWrapperClasses = '';
-	const checkboxClasses = mergeClasses(
+	const checkboxClasses = joinClassNames(
 		'h-4 w-4 rounded border text-[--color-primary-500] focus:ring-[--color-primary-500]',
 		hasError
 			? 'border-[--color-danger-500] focus:ring-[--color-danger-500]'
@@ -26,7 +26,7 @@ export function createCheckboxState(props: CheckboxProps) {
 		disabled ? StyleManagerState.classes.disabled : ''
 	);
 	const labelWrapperClasses = 'ml-2';
-	const labelClasses = mergeClasses(
+	const labelClasses = joinClassNames(
 		'block leading-5',
 		'text-sm font-medium',
 		disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''

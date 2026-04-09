@@ -1,6 +1,6 @@
-import { IconPickerStyleManager } from '$stylist/information/class/style-manager/icon-picker';
-import { ObjectManagerIconPicker } from '$stylist/information/class/object-manager/icon-picker';
-import type { ThemeIconItem, ThemeIconPickerRecipe } from '$stylist/information/interface/recipe/icon-picker';
+import { IconPickerStyleManager } from '$stylist/media/class/style-manager/icon-picker';
+import { ObjectManagerIconPicker } from '$stylist/media/class/object-manager/icon-picker';
+import type { ThemeIconItem, ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
 
 export function createIconPickerState(props: ThemeIconPickerRecipe) {
 	const icons = $derived(ObjectManagerIconPicker.resolveIcons(props));

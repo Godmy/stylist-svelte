@@ -1,366 +1,155 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
-  import { Icon as BaseIcon } from '$stylist';
-const Percent = 'percent';
-const Tag = 'tag';
-const Check = 'check';
-const X = 'x';
-const LoaderCircle = 'loader-circle';
+  import { Story } from '$stylist/development/svelte/playground';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import { Button } from '$stylist';
-  import Input from '$stylist/input/svelte/atom/input/field/input-field/index.svelte';
+  import DiscountApplierComponent from './index.svelte';
 
-  type DiscountType = 'percentage' | 'fixed' | 'free_shipping';
-
-  type DiscountRule = {
-    id: string;
-    code: string;
-    type: DiscountType;
-    value: number; // percentage or fixed amount
-    name: string;
-    description?: string;
-    minOrderAmount?: number;
-    maxDiscountAmount?: number;
-    startDate?: Date;
-    endDate?: Date;
-    usageLimit?: number;
-    usedCount?: number;
-    appliesTo?: 'all' | 'specific_products' | 'specific_categories';
-    applicableItems?: string[]; // IDs of applicable products/categories
-  };
-
-  type CartItem = {
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-    category?: string;
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    rules: DiscountRule[];
-    cartItems: CartItem[];
-    cartTotal: number;
-    class?: string;
-    inputClass?: string;
-    buttonClass?: string;
-    appliedCodes?: string[];
-    showCodeInput?: boolean;
-    showRuleList?: boolean;
-    showAppliedRules?: boolean;
-    onApplyCode?: (code: string) => void;
-    onApplyRule?: (rule: DiscountRule) => void;
-    onRemoveRule?: (ruleId: string) => void;
-    onValidateCode?: (code: string) => Promise<boolean>;
-    currency?: string;
-    locale?: string;
-  };
+  const DiscountApplier = DiscountApplierComponent as any;
 
   let {
-    rules = [],
-    cartItems = [],
-    cartTotal = 0,
-    class: hostClass = '',
-    inputClass = '',
-    buttonClass = '',
-    appliedCodes = [],
-    showCodeInput = true,
-    showRuleList = true,
-    showAppliedRules = true,
-    onApplyCode,
-    onApplyRule,
-    onRemoveRule,
-    onValidateCode,
-    currency = 'USD',
-    locale = 'en-US',
-    ...restProps
-  }: Props = $props();
+    id = '',
+    title = '',
+    description = '',
+    controls = [
+      { name: 'showCodeInput', type: 'boolean', defaultValue: true },
+      { name: 'showRuleList', type: 'boolean', defaultValue: true }
+    ]
+  } = $props<{
+    id?: string;
+    title?: string;
+    description?: string;
+    controls?: InterfaceControllerSettings[]
+  }>();
 
-  let promoCode = $state('');
-  let message = $state<{ type: 'success' | 'error'; text: string } | null>(null);
-  let validating = $state(false);
-
-  // Calculate eligible rules based on cart total and other constraints
-  let eligibleRules = $derived(
-    rules.filter((rule) => {
-      if (rule.startDate && new Date() < new Date(rule.startDate)) return false;
-      if (rule.endDate && new Date() > new Date(rule.endDate)) return false;
-      if (rule.minOrderAmount && cartTotal < rule.minOrderAmount) return false;
-      if (rule.usageLimit && rule.usedCount && rule.usedCount >= rule.usageLimit) return false;
-      if (appliedCodes.includes(rule.code)) return false;
-
-      return true;
-    })
-  );
-
-  async function handleApplyCode() {
-    if (!promoCode.trim()) {
-      message = { type: 'error', text: 'Please enter a promo code' };
-      return;
+  // Sample discount rules
+  const discountRules = [
+    {
+      id: 'rule1',
+      code: 'SAVE10',
+      type: 'percentage' as const,
+      value: 10,
+      name: '10% Off',
+      description: 'Get 10% off your entire order',
+      minOrderAmount: 50,
+      startDate: new Date(),
+      endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
+      usageLimit: 100,
+      usedCount: 45
+    },
+    {
+      id: 'rule2',
+      code: 'FREESHIP',
+      type: 'free_shipping' as const,
+      value: 0,
+      name: 'Free Shipping',
+      description: 'Free shipping on orders over $75',
+      minOrderAmount: 75,
+      startDate: new Date(),
+      endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000) // 15 days from now
+    },
+    {
+      id: 'rule3',
+      code: 'SAVEFIXED',
+      type: 'fixed' as const,
+      value: 20,
+      name: '$20 Off',
+      description: 'Get $20 off your order',
+      minOrderAmount: 100,
+      startDate: new Date(),
+      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
     }
+  ];
 
-    validating = true;
-
-    try {
-      // If a validation function is provided, use it
-      if (onValidateCode) {
-        const isValid = await onValidateCode(promoCode);
-        if (!isValid) {
-          message = { type: 'error', text: 'Invalid promo code' };
-          setTimeout(() => message = null, 3000);
-          return;
-        }
-      }
-
-      // Find rule matching the code
-      const rule = rules.find(r => r.code.toLowerCase() === promoCode.toLowerCase());
-
-      if (!rule) {
-        message = { type: 'error', text: 'Invalid promo code' };
-        setTimeout(() => message = null, 3000);
-        return;
-      }
-
-      // Check constraints
-      if (rule.startDate && new Date() < new Date(rule.startDate)) {
-        message = { type: 'error', text: 'This code is not yet active' };
-        setTimeout(() => message = null, 3000);
-        return;
-      }
-
-      if (rule.endDate && new Date() > new Date(rule.endDate)) {
-        message = { type: 'error', text: 'This code has expired' };
-        setTimeout(() => message = null, 3000);
-        return;
-      }
-
-      if (rule.minOrderAmount && cartTotal < rule.minOrderAmount) {
-        message = {
-          type: 'error',
-          text: `Minimum order amount of ${formatCurrency(rule.minOrderAmount)} not met`
-        };
-        setTimeout(() => message = null, 3000);
-        return;
-      }
-
-      if (rule.usageLimit && rule.usedCount && rule.usedCount >= rule.usageLimit) {
-        message = { type: 'error', text: 'This code has exceeded its usage limit' };
-        setTimeout(() => message = null, 3000);
-        return;
-      }
-
-      // Apply the rule
-      onApplyCode?.(promoCode);
-      message = { type: 'success', text: 'Promo code applied successfully!' };
-      setTimeout(() => message = null, 3000);
-      promoCode = '';
-    } catch (err) {
-      message = { type: 'error', text: 'Failed to apply promo code' };
-      setTimeout(() => message = null, 3000);
-    } finally {
-      validating = false;
-    }
-  }
-
-  function handleApplyRule(rule: DiscountRule) {
-    onApplyRule?.(rule);
-  }
-
-  function handleRemoveRule(ruleId: string) {
-    onRemoveRule?.(ruleId);
-  }
-
-  function calculateDiscountAmount(rule: DiscountRule): number {
-    let applicableItems = cartItems;
-
-    if (rule.appliesTo === 'specific_products') {
-      applicableItems = cartItems.filter(item => rule.applicableItems?.includes(item.id));
-    } else if (rule.appliesTo === 'specific_categories') {
-      applicableItems = cartItems.filter(item => rule.applicableItems?.includes(item.category || ''));
-    }
-
-    let subtotal = applicableItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-    if (rule.type === 'percentage') {
-      let discountAmount = subtotal * (rule.value / 100);
-
-      // Apply max discount if specified
-      if (rule.maxDiscountAmount && discountAmount > rule.maxDiscountAmount) {
-        discountAmount = rule.maxDiscountAmount;
-      }
-
-      return parseFloat(discountAmount.toFixed(2));
-    } else if (rule.type === 'fixed') {
-      return rule.value;
-    } else {
-      // Free shipping - return shipping cost as discount
-      return 0; // In a real app, you'd have shipping cost info
-    }
-  }
-
-  function formatCurrency(amount: number): string {
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: currency
-    }).format(amount);
-  }
-
-  function formatDate(date: Date): string {
-    return new Intl.DateTimeFormat(locale, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }).format(new Date(date));
-  }
+  // Sample cart items
+  const cartItems = [
+    { id: 'item1', name: 'Wireless Headphones', price: 129.99, quantity: 1 },
+    { id: 'item2', name: 'Bluetooth Speaker', price: 79.99, quantity: 1 }
+  ];
 </script>
 
-<div class={`c-discount-applier ${hostClass}`} {...restProps}>
-  {#if showCodeInput}
-    <div class="mb-6">
-      <label class="block text-sm font-medium text-[var(--color-text-primary)] mb-1 flex items-center">
-        <BaseIcon name={Tag} class="h-4 w-4 mr-1" />
-        Have a promo code?
-      </label>
+<Story
+  {id}
+  {title}
+  {description}
+  component={DiscountApplier}
+  category="Organisms"
+  controls={controls}
+>
+  {#snippet children(values: any)}
+    <section class="sb-organisms-discount-applier grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
+        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
+          Primary Discount Applier Example
+        </p>
+        <p class="mt-1 text-[--color-text-primary]">Interactive discount applier with promo codes.</p>
 
-      <div class="flex">
-        <Input
-          id="promo-code"
-          label="Promo code"
-          type="text"
-          placeholder="Enter promo code"
-          value={promoCode}
-          class={`flex-1 mb-0 [&>label]:sr-only [&>input]:rounded-r-none ${inputClass}`}
-          oninput={(e: Event) => promoCode = (e.target as HTMLInputElement).value}
-          onkeypress={(e: KeyboardEvent) => e.key === 'Enter' && handleApplyCode()}
-        />
-        <Button
-          variant="secondary"
-          class={`rounded-l-none border-l-0 ${buttonClass}`}
-          onclick={handleApplyCode}
-          disabled={validating}
-        >
-          {#if validating}
-            <BaseIcon name={LoaderCircle} class="h-4 w-4 animate-spin" />
-          {:else}
-            Apply
-          {/if}
-        </Button>
-      </div>
-
-      {#if message}
-        <div class={`mt-2 text-sm ${
-          message.type === 'success' ? 'text-[var(--color-success-600)]' : 'text-[var(--color-danger-600)]'
-        }`}>
-          {message.text}
+        <div class="mt-6">
+          <DiscountApplier
+            rules={discountRules}
+            cartItems={cartItems}
+            cartTotal={209.98}
+            showCodeInput={values.showCodeInput}
+            showRuleList={values.showRuleList}
+            showAppliedRules={true}
+            onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
+            onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
+            onRemoveRule={(ruleId: string) => console.log(`Removing rule: ${ruleId}`)}
+            onValidateCode={async (code: string) => {
+              console.log(`Validating code: ${code}`);
+              return true; // Simulate valid code
+            }}
+            currency="USD"
+          />
         </div>
-      {/if}
-    </div>
-  {/if}
-
-  {#if showAppliedRules && appliedCodes.length > 0}
-    <div class="mb-6">
-      <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-2 flex items-center">
-        <BaseIcon name={Check} class="h-4 w-4 mr-1 text-[var(--color-success-500)]" />
-        Applied Discounts
-      </h3>
-
-      <div class="space-y-2">
-        {#each appliedCodes as code}
-          {@const rule = rules.find(r => r.code === code)}
-          {#if rule}
-            <div class="flex items-center justify-between p-3 bg-[var(--color-success-50)] rounded-md">
-              <div>
-                <div class="font-medium text-[var(--color-success-800)]">{rule.name}</div>
-                <div class="text-sm text-[var(--color-success-600)]">-{formatCurrency(calculateDiscountAmount(rule))}</div>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onclick={() => handleRemoveRule(rule.id)}
-                aria-label="Remove discount"
-              >
-                <BaseIcon name={X} class="h-4 w-4" />
-              </Button>
-            </div>
-          {/if}
-        {/each}
       </div>
-    </div>
-  {/if}
 
-  {#if showRuleList && eligibleRules.length > 0}
-    <div>
-      <h3 class="text-sm font-medium text-[var(--color-text-primary)] mb-2 flex items-center">
-        <BaseIcon name={Percent} class="h-4 w-4 mr-1" />
-        Available Discounts
-      </h3>
+      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
+        <h3 class="text-base font-semibold text-[--color-text-primary]">Discount Variations</h3>
+        <p class="text-sm text-[--color-text-secondary]">
+          Different discount configurations with various options.
+        </p>
 
-      <div class="space-y-3">
-        {#each eligibleRules as rule}
-          <div class="p-4 border border-[var(--color-border-primary)] rounded-lg">
-            <div class="flex justify-between items-start">
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center">
-                  <span class="font-medium text-[var(--color-text-primary)]">{rule.name}</span>
-                  {#if rule.code}
-                    <span class="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
-                      {rule.code}
-                    </span>
-                  {/if}
-                </div>
-
-                <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{rule.description}</p>
-
-                <div class="mt-2 flex flex-wrap gap-2">
-                  {#if rule.type === 'percentage'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
-                      {rule.value}% off
-                    </span>
-                  {:else if rule.type === 'fixed'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-success-100)] text-[var(--color-success-800)]">
-                      {formatCurrency(rule.value)} off
-                    </span>
-                  {:else if rule.type === 'free_shipping'}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
-                      Free shipping
-                    </span>
-                  {/if}
-
-                  {#if rule.minOrderAmount}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-background-secondary)] text-[var(--color-text-primary)]">
-                      Min. {formatCurrency(rule.minOrderAmount)}
-                    </span>
-                  {/if}
-
-                  {#if rule.startDate || rule.endDate}
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[var(--color-secondary-100)] text-[var(--color-secondary-800)]">
-                      {rule.startDate ? formatDate(rule.startDate) : 'Now'} - {rule.endDate ? formatDate(rule.endDate) : 'Ongoing'}
-                    </span>
-                  {/if}
-                </div>
-              </div>
-
-              <Button
-                variant="ghost"
-                size="sm"
-                onclick={() => handleApplyRule(rule)}
-              >
-                Apply
-              </Button>
+        <div class="mt-5 space-y-4">
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Code Input</p>
+            <div>
+              <DiscountApplier
+                rules={discountRules}
+                cartItems={cartItems}
+                cartTotal={129.99}
+                showCodeInput={false}
+                showRuleList={true}
+                showAppliedRules={true}
+                onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
+                onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
+                currency="USD"
+              />
             </div>
-          </div>
-        {/each}
+          </article>
+
+          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Applied Codes</p>
+            <div>
+              <DiscountApplier
+                rules={discountRules}
+                cartItems={cartItems}
+                cartTotal={189.99}
+                appliedCodes={['SAVE10']}
+                showCodeInput={true}
+                showRuleList={true}
+                showAppliedRules={true}
+                onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
+                onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
+                onRemoveRule={(ruleId: string) => console.log(`Removing rule: ${ruleId}`)}
+                currency="USD"
+              />
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  {/if}
-
-  {#if showRuleList && eligibleRules.length === 0 && rules.length > 0}
-    <p class="text-sm text-[var(--color-text-secondary)]">No discounts available for your cart</p>
-  {/if}
-</div>
-
+    </section>
+  {/snippet}
+</Story>
 
 
 

@@ -1,6 +1,6 @@
-import type { LabelRecipe } from '$stylist/information/interface/recipe/label';
-import { LabelStyleManager } from '$stylist/information/class/style-manager/label';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import type { LabelRecipe } from '$stylist/typography/interface/recipe/label';
+import { LabelStyleManager } from '$stylist/typography/class/style-manager/label';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 /**
  * Label state creator
@@ -17,7 +17,7 @@ export function createLabelState(props: LabelRecipe) {
 	const text = $derived(props.text ?? props.label);
 	const className = $derived(typeof props.class === 'string' ? props.class : '');
 	const classes = $derived(
-		mergeClasses(
+		joinClassNames(
 			LabelStyleManager.getLabelClasses(size, disabled),
 			className
 		)

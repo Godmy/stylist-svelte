@@ -1,7 +1,7 @@
 import { GradientBackgroundStyleManager } from '$stylist/layout/class/style-manager/gradient-background';
 import { ObjectManagerGradientBackground } from '$stylist/layout/class/object-manager/gradient-background';
 import type { ThemeGradientBackgroundRecipe } from '$stylist/layout/interface/recipe/gradient-background';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createGradientBackgroundState(props: ThemeGradientBackgroundRecipe) {
 	const variant = $derived(ObjectManagerGradientBackground.resolveVariant(props.variant));
@@ -10,7 +10,7 @@ export function createGradientBackgroundState(props: ThemeGradientBackgroundReci
 	const intensity = $derived(ObjectManagerGradientBackground.resolveIntensity(props.intensity));
 	const direction = $derived(ObjectManagerGradientBackground.resolveDirection(props.direction));
 	const containerClass = $derived(
-		GradientBackgroundStyleManager.getContainerClasses(cn(props.class))
+		GradientBackgroundStyleManager.getContainerClasses(mergeClassNames(props.class))
 	);
 	const gradientClass = $derived(
 		GradientBackgroundStyleManager.getGradientClasses(variant, direction)

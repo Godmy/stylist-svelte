@@ -1,9 +1,9 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
 
 export class CodeWithLineNumbersStyleManager {
 	static getContainerClass(extraClasses = ''): string {
-		return cn('c-code-block-with-line-numbers', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
+		return mergeClassNames('c-code-block-with-line-numbers', CodeStyleManager.getSurfaceBaseClasses(), extraClasses);
 	}
 
 	static getMainContentClass(): string {
@@ -11,23 +11,23 @@ export class CodeWithLineNumbersStyleManager {
 	}
 
 	static getHeaderClass(extraClasses = ''): string {
-		return cn(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
+		return mergeClassNames(CodeStyleManager.getHeaderBaseClasses(), extraClasses);
 	}
 
 	static getLineNumbersContainerClass(extraClasses = ''): string {
-		return cn(CodeStyleManager.getLineNumbersContainerBaseClasses(), extraClasses);
+		return mergeClassNames(CodeStyleManager.getLineNumbersContainerBaseClasses(), extraClasses);
 	}
 
 	static getLineNumberItemClass(isHighlighted: boolean): string {
-		return cn('pl-2 pr-3', isHighlighted ? CodeStyleManager.getLineNumberHighlightClass() : '');
+		return mergeClassNames('pl-2 pr-3', isHighlighted ? CodeStyleManager.getLineNumberHighlightClass() : '');
 	}
 
 	static getContentContainerClass(extraClasses = ''): string {
-		return cn('flex-1 overflow-x-auto', extraClasses);
+		return mergeClassNames('flex-1 overflow-x-auto', extraClasses);
 	}
 
 	static getPreClass(extraClasses = ''): string {
-		return cn(CodeStyleManager.getPreBaseClasses(), 'max-w-full overflow-x-auto', extraClasses);
+		return mergeClassNames(CodeStyleManager.getPreBaseClasses(), 'max-w-full overflow-x-auto', extraClasses);
 	}
 
 	static getCopyButtonContainerClass(): string {

@@ -1,8 +1,8 @@
-import { cn } from '$stylist/layout/function/script/merge-class-names';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export class StageStyleManager {
 	static getStageClass(extraClass = ''): string {
-		return cn('stage', extraClass);
+		return mergeClassNames('stage', extraClass);
 	}
 
 	static getWorldClass(): string {

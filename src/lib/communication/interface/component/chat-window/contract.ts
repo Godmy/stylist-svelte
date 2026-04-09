@@ -1,5 +1,4 @@
 import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { RecordCommunicationMerge } from '$stylist/communication/type/record';
 import type { ChatItemData, ChatItemUser } from '../chat-item/contract';
 
 export interface ChatWindowMessage {

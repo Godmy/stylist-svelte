@@ -1,7 +1,7 @@
 import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import { cn } from '$stylist/layout/function/script/merge-class-names';
-import type { NodePropertyState } from '$stylist/information/interface/recipe/node-property';
+import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
+import type { NodePropertyState } from '$stylist/science/interface/recipe/node-property';
 
 
 /**
@@ -16,7 +16,7 @@ export class NodePropertyStyleManager {
 		size: TokenSize,
 		state: NodePropertyState
 	): string {
-		return cn(
+		return mergeClassNames(
 			'node-property',
 			`node-property--type-${type}`,
 			`node-property--${size}`,

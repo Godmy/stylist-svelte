@@ -1,9 +1,4 @@
-export interface SearchSuggestion {
-	text: string;
-	icon?: string;
-	count?: number;
-	category?: string;
-}
+import type { SearchSuggestion } from '$stylist/interaction/class/object-manager/search-bar-suggestion';
 
 export class ObjectManagerSearchBar {
 	/**

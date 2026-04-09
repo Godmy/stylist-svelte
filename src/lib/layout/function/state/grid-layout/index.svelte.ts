@@ -1,5 +1,5 @@
 import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
-import type { GridLayoutProps } from '$stylist/layout/type/struct/layout/layout-props';
+import type { GridLayoutProps } from '$stylist/layout/type/struct/layout';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 import type { TokenSize } from '$stylist/layout/type/enum/size';

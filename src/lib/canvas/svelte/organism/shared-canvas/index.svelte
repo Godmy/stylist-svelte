@@ -2,7 +2,7 @@
 	import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
 	import { Icon as BaseIcon } from '$stylist';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
-	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas/create-shared-canvas-state.svelte';
+	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas';
 	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas/share/index';
 
 	const contract: SharedCanvasContract = $props();

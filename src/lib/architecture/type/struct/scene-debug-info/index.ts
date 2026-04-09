@@ -1,0 +1,28 @@
+export type SceneDebugInfo = {
+	mounted: boolean;
+	context: string;
+	glVersion: string;
+	glslVersion: string;
+	programLinked: boolean;
+	uniformsReady: boolean;
+	cubeReady: boolean;
+	depthTest: boolean;
+	canvasClient: string;
+	canvasBuffer: string;
+	viewport: string;
+	devicePixelRatio: string;
+	drawCount: number;
+	lastError: string | null;
+	cameraPosition: string;
+	radius: string;
+	angles: string;
+	cubeRotation: string;
+	sceneObjects: number;
+	sceneFitRadius: string;
+	sceneMolecules: number;
+	cameraPreset: string;
+	hoveredAtom: string;
+	selectedAtom: string;
+	selectedMolecule: string;
+	shaderProfile: string;
+};

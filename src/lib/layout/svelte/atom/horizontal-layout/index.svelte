@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended/layout-extended-props';
+	import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended';
 	import { createHorizontalLayoutState } from '$stylist/layout/function/state/horizontal-layout';
 
 	let props: HorizontalLayoutProps = $props();

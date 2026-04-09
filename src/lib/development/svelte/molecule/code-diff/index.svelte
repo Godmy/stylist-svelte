@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct/item';
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { CodeDiffStyleManager } from '$stylist/development/class/style-manager/code-diff';
 
   type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;

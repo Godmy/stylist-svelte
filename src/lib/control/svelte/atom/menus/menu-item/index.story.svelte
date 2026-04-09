@@ -1,0 +1,86 @@
+﻿<script lang="ts">
+  import { Story } from '$stylist/development/svelte/playground';
+  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+  import MenuItem from './index.svelte';
+
+  const variantOptions = ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info', 'ghost', 'link'];
+  
+  const controls: InterfaceControllerSettings[] = [
+    {
+      name: 'active',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the menu item is active'
+    },
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'default',
+      options: variantOptions,
+      description: 'Variant of the menu item'
+    },
+    {
+      name: 'disabled',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the menu item is disabled'
+    },
+    {
+      name: 'external',
+      type: 'boolean',
+      defaultValue: false,
+      description: 'Whether the link opens in a new tab'
+    }
+  ];
+</script>
+
+<Story
+  id="atoms-menu-item"
+  title="MenuItem"
+  component={MenuItem}
+  category="Atoms/Interaction/Controls/Menus"
+  description="MenuItem component for navigation menus."
+  tags={['menu', 'navigation', 'item', 'link']}
+  controls={controls}
+>
+  {#snippet children(values: any)}
+    <div class="p-4">
+      <MenuItem
+        active={values.active}
+        variant={values.variant}
+        disabled={values.disabled}
+        external={values.external}
+        icon="home"
+        onValueChange={() => {}}
+      >
+        Home
+      </MenuItem>
+    </div>
+  {/snippet}
+  
+  {#snippet variants()}
+    <div class="grid grid-cols-1 gap-4 p-4">
+      <MenuItem active={true} variant="default">
+        Active Item
+      </MenuItem>
+      <MenuItem active={false} variant="default" disabled={true}>
+        Disabled Item
+      </MenuItem>
+      <MenuItem active={false} variant="default" external={true} href="#">
+        External Link
+      </MenuItem>
+      <MenuItem active={false} variant="primary">
+        Primary Item
+      </MenuItem>
+      <MenuItem active={false} variant="success">
+        Success Item
+      </MenuItem>
+      <MenuItem active={false} variant="danger">
+        Danger Item
+      </MenuItem>
+    </div>
+  {/snippet}
+</Story>
+
+
+

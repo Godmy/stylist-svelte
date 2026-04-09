@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
 import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
-import { mergeClasses } from '$stylist/layout/function/script/join-class-names';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createZoomControlsState(props: ZoomControlsProps) {
   // Initialize props with defaults
@@ -27,17 +27,17 @@ export function createZoomControlsState(props: ZoomControlsProps) {
   // Merge classes with custom classes
   const containerClasses = derived(
     [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   const controlsContainerClasses = derived(
     [writable(props.controlsClass), writable(styles.controlsContainer)],
-    ([$class, $container]) => mergeClasses($container, $class)
+    ([$class, $container]) => joinClassNames($container, $class)
   );
 
   const indicatorClasses = derived(
     [writable(props.indicatorClass), writable(styles.indicator)],
-    ([$class, $indicator]) => mergeClasses($indicator, $class)
+    ([$class, $indicator]) => joinClassNames($indicator, $class)
   );
 
   return {

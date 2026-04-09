@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { StageContract } from '$stylist/canvas/type/struct/stage/stage-contract';
+	import type { StageContract } from '$stylist/canvas/type/struct/stage';
 	import { StageStyleManager } from '$stylist/canvas/class/style-manager/stage';
 
 	type StageProps = StageContract & {

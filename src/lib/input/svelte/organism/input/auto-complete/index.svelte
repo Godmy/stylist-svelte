@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist';
 const Search = 'search';
 
-  import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input';
+  import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input/auto-complete-option';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 
   interface ExtendedAutoCompleteProps {

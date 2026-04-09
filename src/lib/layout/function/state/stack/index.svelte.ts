@@ -1,5 +1,5 @@
 import { StackStyleManager } from '$stylist/layout/class/style-manager/stack';
-import type { StackProps } from '$stylist/layout/type/struct/stack/stack-props';
+import type { StackProps } from '$stylist/layout/type/struct/stack';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';

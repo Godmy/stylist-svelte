@@ -2,6 +2,7 @@ import type { TokenAlignment as MessageAlignment } from '$stylist/layout/type/en
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 import type { TokenMessageState } from '$stylist/communication/type/enum/message-state';
+import { MESSAGE_AVATAR_SIZE_CLASSES } from '$stylist/communication/const/record/message-avatar-size-classes';
 
 const MESSAGE_ALIGNMENT_CLASSES = {
 	left: 'items-start',
@@ -35,12 +36,6 @@ const MESSAGE_STATUS_CLASSES = {
 	read: 'text-[--color-success-500]',
 	error: 'text-[--color-danger-500]'
 } as const;
-
-const MESSAGE_AVATAR_SIZE_CLASSES: Partial<Record<TokenSize, string>> = {
-	sm: 'w-6 h-6',
-	md: 'w-8 h-8',
-	lg: 'w-10 h-10'
-};
 
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {

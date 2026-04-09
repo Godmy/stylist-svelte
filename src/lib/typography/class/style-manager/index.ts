@@ -1,6 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AbbrStyleManager } from './abbr';
-export { StyleManagerBadge } from './badge';
+export { BadgeStyleManager } from './badge';
 export { StyleManagerBadgeGroup } from './badge-group';
 export { BlockquoteStyleManager } from './blockquote';
 export { StyleManagerCaption } from './caption';
@@ -15,7 +15,8 @@ export { StyleManagerHeading } from './heading';
 export { HighlightStyleManager } from './highlight';
 export { InlineCodeStyleManager } from './inline-code';
 export { KbdStyleManager } from './kbd';
-export { StyleManagerLabel } from './label';
+export { KPIIndicatorStyleManager } from './kpi-indicator';
+export { LabelStyleManager } from './label';
 export { StyleManagerLink } from './link';
 export { StyleManagerListItemMarker } from './list-item-marker';
 export { StyleManagerNodeTitle } from './node-title';
@@ -23,7 +24,7 @@ export { StyleManagerParagraph } from './paragraph';
 export { StyleManagerSeparator } from './separator';
 export { StyleManagerSmall } from './small';
 export { StyleManagerStatusIndicator } from './status-indicator';
-export { StyleManagerStrikeThrough, StyleManagerStrikeThrought } from './strike-throught';
+export { StyleManagerStrikeThrough } from './strike-throught';
 export { StyleManagerStrong } from './strong';
 export { StyleManagerSubscript } from './subscript';
 export { StyleManagerSuperscript } from './superscript';

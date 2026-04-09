@@ -28,5 +28,3 @@ export async function copyTextToClipboard(text: string): Promise<boolean> {
 		}
 	}
 }
-
-export const copyToClipboard = copyTextToClipboard;

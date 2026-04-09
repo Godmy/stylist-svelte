@@ -1,13 +1,11 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import { DrawingSurfaceStyleManager } from '$stylist/canvas/class/style-manager/drawing-surface';
-	import { createDrawingSurfaceState } from '$stylist/canvas/function/state/drawing-surface/create-drawing-surface-state.svelte';
+	import { createDrawingSurfaceState } from '$stylist/canvas/function/state/drawing-surface';
 	import type { DrawingSurfaceContract } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-contract';
-	import type {
-		DrawingSurfaceCanvasClearedEvent,
-		DrawingSurfaceExposeMethodsEvent,
-		DrawingSurfaceProps
-	} from '$stylist/canvas/type/struct/drawing-surface/drawing-surface';
+	import type { DrawingSurfaceCanvasClearedEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-canvas-cleared-event';
+	import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-expose-methods-event';
+	import type { DrawingSurfaceProps } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-props';
 
 	const dispatch = createEventDispatcher<{
 		'canvas-cleared': DrawingSurfaceCanvasClearedEvent;
