@@ -1,47 +1,18 @@
 <script lang="ts">
-	/**
-	 * ��������� BreadcrumbLink
-	 *
-	 * ������� ��������� SOLID:
-	 * - SRP: ��������� �������� ������ �� ����������� �������� ������������� �������
-	 * - OCP: ����� ��������� �� ���� �������
-	 * - LSP: ����������� ���������, ��������� ����������� BreadcrumbRecipe
-	 * - ISP: ��������� ������� �������� �� ����������, ����������� �����
-	 * - DIP: ������� �� ���������� (����� � ������), � �� �� ������� ����������
-	 *
-	 * ������� Atomic Design: ��� ��������, ���������� ����� ������������� �������
-	 */
-
 	import type { Snippet } from 'svelte';
-	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+	import type { BreadcrumbLinkRecipe } from '$stylist/navigation/interface/recipe/breadcrumb-link';
+	import { createBreadcrumbLinkState } from '$stylist/navigation/function/state/breadcrumb-link';
 
-	type Props = {
-		current?: boolean;
-		href?: string;
-		class?: string;
-		children?: Snippet;
-	};
-
-	let { current = false, href, class: className = '', children }: Props = $props();
-
-	const linkClass = $derived(
-		joinClassNames('breadcrumb-link', current ? 'current' : 'not-current', className)
-	);
+	let props: BreadcrumbLinkRecipe & { current?: boolean; href?: string; children?: Snippet } = $props();
+	const state = createBreadcrumbLinkState(props);
 </script>
 
-{#if current}
-	<span class={linkClass}>
-		{@render children?.()}
+{#if props.current}
+	<span class={state.linkClass}>
+		{@render props.children?.()}
 	</span>
 {:else}
-	<a {href} class={linkClass}>
-		{@render children?.()}
+	<a href={props.href} class={state.linkClass}>
+		{@render props.children?.()}
 	</a>
 {/if}
-
-
-
-
-
-
-

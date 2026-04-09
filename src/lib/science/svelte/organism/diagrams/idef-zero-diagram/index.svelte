@@ -1,18 +1,7 @@
 <script lang="ts">
-	import type { Idef0DiagramRecipe } from '$stylist/science/interface/recipe/idef0-diagram';
-	import { createIdef0DiagramState } from '$stylist/information/function/state/idef0';
+	import type { Idef0DiagramProps, Idef0Model } from '$stylist/science/type/struct/idef-zero';
+	import { createIdef0DiagramState } from '$stylist/science/function/state/idef0';
 	import Idef0BlackBox from '$stylist/science/svelte/molecule/diagrams/idef-zero-black-box/index.svelte';
-
-	type Idef0Port = { id: string; label?: string; color?: string };
-	type Idef0Model = {
-		title: string;
-		subtitle?: string;
-		inputs: Idef0Port[];
-		outputs: Idef0Port[];
-	};
-	type Idef0DiagramProps = Idef0DiagramRecipe & {
-		model: Idef0Model;
-	};
 
 	let props: Idef0DiagramProps = $props();
 	const state = createIdef0DiagramState(props);

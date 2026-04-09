@@ -32,61 +32,57 @@
     ...restProps
   }: ExpandableCardRecipe = $props();
 
-  let isExpanded = $state(defaultExpanded);
-
-  const viewState = createExpandableCardState(
-    {
-      title,
-      subtitle,
-      summary,
-      details,
-      defaultExpanded,
-      disabled,
-      variant,
-      class: className,
-      headerClass,
-      summaryClass,
-      detailsClass,
-      chevronClass,
-      ...restProps
-    },
-    () => isExpanded
-  );
+  const expandableCardState = createExpandableCardState({
+    title,
+    subtitle,
+    summary,
+    details,
+    defaultExpanded,
+    disabled,
+    variant,
+    class: className,
+    headerClass,
+    summaryClass,
+    detailsClass,
+    chevronClass,
+    ...restProps
+  });
 
   // Р’С‹С‡РёСЃР»СЏРµРј СЃС‚РёР»Рё СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј ExpandableCardStyleManager
 
 </script>
 
-<div class={viewState.containerClasses} {...restProps}>
+<div class={state.containerClasses} {...restProps}>
   <button
-    class={viewState.headerClasses}
-    onclick={() => (isExpanded = ObjectManagerExpandableCard.toggleExpanded(isExpanded, disabled))}
-    aria-expanded={isExpanded}
+    class={state.headerClasses}
+    onclick={() => state.toggleExpanded()}
+    aria-expanded={state.isExpanded}
     aria-controls={ObjectManagerExpandableCard.detailsId}
     disabled={disabled}
   >
     <div class="flex-1">
-      <h3 class={viewState.titleClasses}>{title}</h3>
+      <h3 class={state.titleClasses}>{title}</h3>
       {#if subtitle}
-        <p class={viewState.subtitleClasses}>{subtitle}</p>
+        <p class={state.subtitleClasses}>{subtitle}</p>
       {/if}
-      <div class={viewState.summaryContainerClasses}>
+      <div class={state.summaryContainerClasses}>
         {@render summary?.()}
       </div>
     </div>
 
     <Icon
       name={ObjectManagerExpandableCard.chevronIcon}
-      class={viewState.chevronClasses}
+      class={state.chevronClasses}
     />
   </button>
 
   <div
     id={ObjectManagerExpandableCard.detailsId}
-    class={viewState.detailsContainerClasses}
+    class={state.detailsContainerClasses}
   >
-    <div class={viewState.detailsContentClasses}>
+    <div class={state.detailsContentClasses}>
       {@render details?.()}
     </div>
   </div>
 </div>
+

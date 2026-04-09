@@ -1,4 +1,4 @@
-import type { TokenPriority } from '$stylist/information/type/enum/priority';
+import type { TokenPriority } from '$stylist/management/type/enum/priority';
 import type { CalendarEvent } from '$stylist/calendar/interface/component/event-calendar/other';
 
 export interface ScheduleEvent extends CalendarEvent {

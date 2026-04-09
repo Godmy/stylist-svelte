@@ -39,6 +39,5 @@ export { createTagState } from './tag';
 export { createSliderTickState } from './tick';
 export { createToggleGroupRootState } from './toggle-group-root';
 export { createTooltipState } from './tooltip';
-export { createTransformationState } from './transformation';
 export { createZoomControlsState } from './zoom-controls';
 export { createZoomToolbarState } from './zoom-toolbar';

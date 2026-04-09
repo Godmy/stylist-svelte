@@ -1,30 +1,25 @@
 <script lang="ts">
   import type { ArticleCardRecipe as ArticleCardProps } from '$stylist/commerce/interface/recipe/article-card';
-  import { ArticleCardStyleManager } from '$stylist/commerce/class/style-manager/article-card';
+  import { createArticleCardState } from '$stylist/commerce/function/state/article-card';
 
-  let {
-    title = '',
-    subtitle = '',
-    image = '',
-    actions = [],
-    class: className = ''
-  }: ArticleCardProps = $props();
+  let props: ArticleCardProps = $props();
+  const state = createArticleCardState(props);
 </script>
 
-<div class={ArticleCardStyleManager.getContainerClasses(typeof className === 'string' ? className : undefined)}>
-  {#if image}
-    <img src={image} alt={title} class={ArticleCardStyleManager.getImageClasses()} />
+<div class={state.containerClasses}>
+  {#if props.image}
+    <img src={props.image} alt={props.title} class={state.imageClasses} />
   {/if}
-  <div class={ArticleCardStyleManager.getBodyClasses()}>
-    <h3 class={ArticleCardStyleManager.getTitleClasses()}>{title}</h3>
-    {#if subtitle}
-      <p class={ArticleCardStyleManager.getSubtitleClasses()}>{subtitle}</p>
+  <div class={state.bodyClasses}>
+    <h3 class={state.titleClasses}>{props.title}</h3>
+    {#if props.subtitle}
+      <p class={state.subtitleClasses}>{props.subtitle}</p>
     {/if}
-    <div class={ArticleCardStyleManager.getActionsClasses()}>
-      {#each actions as action, i}
+    <div class={state.actionsClasses}>
+      {#each props.actions ?? [] as action}
         <button
           onclick={action.onClick}
-          class={ArticleCardStyleManager.getActionButtonClasses()}
+          class={state.actionButtonClasses}
         >
           {action.label}
         </button>
@@ -32,6 +27,3 @@
     </div>
   </div>
 </div>
-
-
-

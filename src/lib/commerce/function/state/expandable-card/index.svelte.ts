@@ -3,9 +3,9 @@ import { ExpandableCardStyleManager } from '$stylist/commerce/class/style-manage
 import { ObjectManagerExpandableCard } from '$stylist/commerce/class/object-manager/expandable-card';
 
 export function createExpandableCardState(
-	props: ExpandableCardRecipe,
-	getIsExpanded: () => boolean
+	props: ExpandableCardRecipe
 ) {
+	let isExpanded = $state(props.defaultExpanded ?? false);
 	const baseClasses = $derived(ExpandableCardStyleManager.getBaseClasses());
 	const themedClasses = $derived(
 		ExpandableCardStyleManager.getThemedClasses({ variant: props.variant })
@@ -22,10 +22,10 @@ export function createExpandableCardState(
 		`${ExpandableCardStyleManager.getSummaryClasses()} ${props.summaryClass ?? ''}`.trim()
 	);
 	const chevronClasses = $derived(
-		ExpandableCardStyleManager.getChevronClasses(getIsExpanded(), props.chevronClass)
+		ExpandableCardStyleManager.getChevronClasses(isExpanded, props.chevronClass)
 	);
 	const detailsContainerClasses = $derived(
-		ExpandableCardStyleManager.getDetailsContainerClasses(getIsExpanded())
+		ExpandableCardStyleManager.getDetailsContainerClasses(isExpanded)
 	);
 	const detailsContentClasses = $derived(
 		`${ExpandableCardStyleManager.getDetailsContentClasses()} ${props.detailsClass ?? ''}`.trim()
@@ -55,6 +55,15 @@ export function createExpandableCardState(
 		},
 		get detailsContentClasses() {
 			return detailsContentClasses;
+		},
+		get isExpanded() {
+			return isExpanded;
+		},
+		toggleExpanded() {
+			isExpanded = ObjectManagerExpandableCard.toggleExpanded(
+				isExpanded,
+				props.disabled ?? false
+			);
 		}
 	};
 }

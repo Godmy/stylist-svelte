@@ -1,14 +1,6 @@
 <script lang="ts">
-	type Idef0Port = { id: string; label?: string; color?: string };
-	type Idef0BlackBoxProps = {
-		title?: string;
-		subtitle?: string;
-		inputs: Idef0Port[];
-		outputs: Idef0Port[];
-		width?: number;
-		height?: number;
-	};
-	import { createIdef0BlackBoxState } from '$stylist/information/function/state/idef0';
+	import type { Idef0BlackBoxProps } from '$stylist/science/type/struct/idef-zero';
+	import { createIdef0BlackBoxState } from '$stylist/science/function/state/idef0';
 	import Idef0FunctionBox from '$stylist/science/svelte/atom/diagrams/idef-zero-function-box/index.svelte';
 	import Idef0Inputs from '$stylist/science/svelte/molecule/diagrams/idef-zero-inputs/index.svelte';
 	import Idef0Outputs from '$stylist/science/svelte/molecule/diagrams/idef-zero-outputs/index.svelte';

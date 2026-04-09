@@ -1,89 +1,16 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { IFormDatePickerProps } from '$stylist/input/interface/component/form-date-picker/other';
+  import { createFormDatePickerState } from '$stylist/input/function/state/form-date-picker';
   import { Icon as BaseIcon } from '$stylist';
-const Calendar = 'calendar';
+  const Calendar = 'calendar';
 
-
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLInputElement>, 'class' | 'value' | 'on:input' | 'on:change'>;
-
-  type Props = RestProps & {
-    value?: string;
-    class?: string;
-    inputClass?: string;
-    calendarClass?: string;
-    label?: string;
-    helperText?: string;
-    error?: string;
-    minDate?: string;
-    maxDate?: string;
-    placeholder?: string;
-    onValueInput?: (value: string, event?: Event) => void;
-    onValueChange?: (value: string, event?: Event) => void;
-    /** @deprecated use onValueInput/onValueChange */
-    onInput?: (value: string, event?: Event) => void;
-    /** @deprecated use onValueChange */
-    onChange?: (value: string, event?: Event) => void;
-  };
-
-  let {
-    value = '',
-    class: hostClass = '',
-    inputClass = '',
-    calendarClass = '',
-    label,
-    helperText,
-    error,
-    minDate,
-    maxDate,
-    placeholder = 'Select date',
-    onValueInput,
-    onValueChange,
-    onInput,
-    onChange,
-    ...restProps
-  }: Props = $props();
-
-  let selectedDate = $state(value);
-  let showCalendar = $state(false);
-
-  $effect(() => {
-    selectedDate = value;
-  });
-
-  function handleInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    selectedDate = target.value;
-    onValueInput?.(selectedDate, event);
-    onValueChange?.(selectedDate, event);
-    onInput?.(selectedDate, event);
-  }
-
-  function handleChange(event: Event) {
-    const target = event.target as HTMLInputElement;
-    selectedDate = target.value;
-    onValueChange?.(selectedDate, event);
-    onChange?.(selectedDate, event);
-    showCalendar = false;
-  }
-
-  function formatDate(dateString: string): string {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return date.toLocaleDateString();
-  }
-
-  function toggleCalendar() {
-    showCalendar = !showCalendar;
-  }
-
-  function closeCalendar() {
-    showCalendar = false;
-  }
+  let props: IFormDatePickerProps = $props();
+  const state = createFormDatePickerState(props);
 </script>
 
-<div class={`date-picker-container relative ${hostClass}`}>
+<div class={`date-picker-container relative ${state.hostClass}`}>
   <label for="date-picker-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-    {label || 'Date'}
+    {state.label}
   </label>
 
   <div class="relative">
@@ -91,23 +18,23 @@ const Calendar = 'calendar';
       id="date-picker-hidden"
       type="date"
       class={`hidden`}
-      value={selectedDate}
-      min={minDate}
-      max={maxDate}
-      oninput={handleInput}
-      onchange={handleChange}
-      {...restProps}
+      value={state.selectedDate}
+      min={state.minDate}
+      max={state.maxDate}
+      oninput={state.handleInput}
+      onchange={state.handleChange}
+      {...props}
     />
 
     <input
       id="date-picker-input"
       type="text"
-      class={`block w-full pl-3 pr-10 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${inputClass}`}
-      placeholder={placeholder}
-      value={selectedDate ? formatDate(selectedDate) : ''}
+      class={`block w-full pl-3 pr-10 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${state.inputClass}`}
+      placeholder={state.placeholder}
+      value={state.selectedDate ? state.formatDate(state.selectedDate) : ''}
       readonly
-      onclick={toggleCalendar}
-      aria-label={label || 'Select date'}
+      onclick={state.toggleCalendar}
+      aria-label={state.label || 'Select date'}
     />
 
     <div class="absolute inset-y-0 right-0 pl-3 flex items-center pointer-events-none">
@@ -115,28 +42,28 @@ const Calendar = 'calendar';
     </div>
   </div>
 
-  {#if showCalendar}
-    <div class={`absolute z-[var(--z-index-docked)] mt-1 bg-[var(--color-background-primary)] shadow-lg rounded-md p-3 border border-[var(--color-border-primary)] ${calendarClass}`}>
+  {#if state.showCalendar}
+    <div class={`absolute z-[var(--z-index-docked)] mt-1 bg-[var(--color-background-primary)] shadow-lg rounded-md p-3 border border-[var(--color-border-primary)] ${state.calendarClass}`}>
       <input
         type="date"
         class="block w-full p-2 border border-[var(--color-border-primary)] rounded-md"
-        value={selectedDate}
-        min={minDate}
-        max={maxDate}
+        value={state.selectedDate}
+        min={state.minDate}
+        max={state.maxDate}
         onchange={(e) => {
-          handleChange(e);
-          closeCalendar();
+          state.handleChange(e);
+          state.closeCalendar();
         }}
       />
     </div>
   {/if}
 
-  {#if helperText}
-    <p class="mt-1 text-xs text-[var(--color-text-secondary)]">{helperText}</p>
+  {#if state.helperText}
+    <p class="mt-1 text-xs text-[var(--color-text-secondary)]">{state.helperText}</p>
   {/if}
 
-  {#if error}
-    <p class="mt-1 text-xs text-[var(--color-danger-600)]">{error}</p>
+  {#if state.error}
+    <p class="mt-1 text-xs text-[var(--color-danger-600)]">{state.error}</p>
   {/if}
 </div>
 

@@ -1,76 +1,57 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-const File = 'file';
-const Folder = 'folder';
-const Archive = 'archive';
-const Download = 'download';
-const Eye = 'eye';
-const Search = 'search';
-const ChevronRight = 'chevron-right';
-const ChevronDown = 'chevron-down';
-const Copy = 'copy';
-const ExternalLink = 'external-link';
-
+  const File = 'file';
+  const Folder = 'folder';
+  const Archive = 'archive';
+  const Download = 'download';
+  const Eye = 'eye';
+  const Search = 'search';
+  const ChevronRight = 'chevron-right';
+  const ChevronDown = 'chevron-down';
+  const ExternalLink = 'external-link';
   import { Button, InputField } from '$stylist';
+  import { createZipViewerState } from '$stylist/file/function/state/zip-viewer';
+  import type { ZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+  import type { Props } from '$stylist/file/type/struct/zip-viewer/props';
+  import {
+    handleSearchInput as handleSearchInputFn,
+    handleEntryClick as handleEntryClickFn,
+    handlePreview as handlePreviewFn,
+    handleDownload as handleDownloadFn,
+    handleExtract as handleExtractFn,
+    toggleFolder as toggleFolderFn,
+    formatFileSize,
+    getEntryIcon,
+  } from '$stylist/file/function/script/zip-viewer';
 
-  type ZipEntryType = 'file' | 'directory';
-
-  type ZipEntry = {
-    id: string;
-    name: string;
-    type: ZipEntryType;
-    size?: number; // in bytes
-    compressedSize?: number;
-    modified?: Date;
-    isText?: boolean; // Is it a text file that can be viewed
-    path: string;
-    parentPath?: string;
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    entries: ZipEntry[];
-    archiveName?: string;
-    class?: string;
-    entryClass?: string;
-    headerClass?: string;
-    onEntryClick?: (entry: ZipEntry) => void;
-    onEntryPreview?: (entry: ZipEntry) => void;
-    onEntryDownload?: (entry: ZipEntry) => void;
-    onEntryExtract?: (entry: ZipEntry) => void;
-    searchable?: boolean;
-    showPath?: boolean;
-    enableFiltering?: boolean;
-    defaultExpanded?: boolean;
-    disabled?: boolean;
-  };
-
-  let {
-    entries = [],
-    archiveName = 'Archive.zip',
-    class: hostClass = '',
-    entryClass = '',
-    headerClass = '',
-    onEntryClick,
-    onEntryPreview,
-    onEntryDownload,
-    onEntryExtract,
-    searchable = true,
-    showPath = true,
-    enableFiltering = true,
-    defaultExpanded = false,
-    disabled = false,
-    ...restProps
-  }: Props = $props();
+  let props: Props = $props();
 
   let searchQuery = $state('');
   let expandedFolders = $state<Set<string>>(new Set());
   let currentPath = $state('/');
-  let filteredEntries = $derived(() => {
-    let result = entries;
+  let entries = $derived(props.entries ?? []);
+  let archiveName = $derived(props.archiveName ?? 'Archive.zip');
+  let searchable = $derived(props.searchable ?? true);
+  let showPath = $derived(props.showPath ?? true);
+  let enableFiltering = $derived(props.enableFiltering ?? true);
+  let defaultExpanded = $derived(props.defaultExpanded ?? false);
+  const state = createZipViewerState(props);
 
+  let restProps = $derived.by(() => {
+    const {
+      entries: _entries, archiveName: _archiveName,
+      class: _class, entryClass, headerClass,
+      onEntryClick, onEntryPreview, onEntryDownload, onEntryExtract,
+      searchable: _searchable, showPath: _showPath, enableFiltering: _enableFiltering,
+      defaultExpanded: _defaultExpanded, disabled,
+      ...rest
+    } = props;
+    return rest;
+  });
+
+  let filteredEntries = $derived.by(() => {
+    let result = entries;
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       result = entries.filter(entry =>
@@ -78,35 +59,24 @@ const ExternalLink = 'external-link';
         entry.path.toLowerCase().includes(query)
       );
     }
-
     return result;
   });
 
-  // Build a tree structure for the zip entries
-  let zipTree = $derived(() => {
+  let zipTree = $derived.by(() => {
     const tree: ZipEntry[] = [];
     const map = new Map<string, ZipEntry>();
-
-    // Create map for quick lookup
     for (const entry of entries) {
       map.set(entry.path, entry);
     }
-
-    // Add entries to appropriate parent
     for (const entry of entries) {
       if (entry.type === 'directory') {
-        if (!expandedFolders.has(entry.path) && !defaultExpanded) {
-          continue; // Skip unexpanded directories
-        }
-
-        // Find parent directory
+        if (!expandedFolders.has(entry.path) && !defaultExpanded) continue;
         const parts = entry.path.split('/').filter(p => p);
         if (parts.length === 0) {
           tree.push(entry);
         } else {
           let parentPath = parts.slice(0, parts.length - 1).join('/') + '/';
           if (parentPath === '/') parentPath = '';
-
           const parentExists = entries.some(e => e.path === parentPath);
           if (parentPath === '' || parentExists) {
             if (!map.get(parentPath) || expandedFolders.has(parentPath) || defaultExpanded) {
@@ -117,7 +87,6 @@ const ExternalLink = 'external-link';
           }
         }
       } else {
-        // For files, check if parent directory is expanded
         const parentPath = entry.path.substring(0, entry.path.lastIndexOf('/') + 1);
         if (parentPath === '/') {
           tree.push(entry);
@@ -126,83 +95,45 @@ const ExternalLink = 'external-link';
         }
       }
     }
-
     return tree;
   });
 
+  function setSearchQuery(value: string) {
+    searchQuery = value;
+  }
+
+  function setExpandedFolders(folders: Set<string>) {
+    expandedFolders = folders;
+  }
+
   function handleSearchInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    searchQuery = target.value;
+    handleSearchInputFn(e, setSearchQuery);
   }
 
   function handleEntryClick(entry: ZipEntry) {
-    if (disabled) return;
-
-    if (entry.type === 'directory') {
-      const isExpanded = expandedFolders.has(entry.path);
-      if (isExpanded) {
-        expandedFolders.delete(entry.path);
-      } else {
-        expandedFolders.add(entry.path);
-      }
-    }
-
-    onEntryClick?.(entry);
+    handleEntryClickFn(entry, state.disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
   }
 
   function handlePreview(entry: ZipEntry) {
-    if (disabled) return;
-    onEntryPreview?.(entry);
+    handlePreviewFn(entry, state.disabled, props.onEntryPreview);
   }
 
   function handleDownload(entry: ZipEntry) {
-    if (disabled) return;
-    onEntryDownload?.(entry);
+    handleDownloadFn(entry, state.disabled, props.onEntryDownload);
   }
 
   function handleExtract(entry: ZipEntry) {
-    if (disabled) return;
-    onEntryExtract?.(entry);
+    handleExtractFn(entry, state.disabled, props.onEntryExtract);
   }
 
   function toggleFolder(entry: ZipEntry) {
-    if (entry.type === 'file' || disabled) return;
-
-    const isExpanded = expandedFolders.has(entry.path);
-    if (isExpanded) {
-      expandedFolders.delete(entry.path);
-    } else {
-      expandedFolders.add(entry.path);
-    }
+    toggleFolderFn(entry, state.disabled, expandedFolders, setExpandedFolders);
   }
-
-  function formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
-
-  function getEntryIcon(entry: ZipEntry) {
-    return entry.type === 'directory' ? Folder : File;
-  }
-
-  let ArchiveIcon = Archive;
-  let FolderIcon = Folder;
-  let FileIcon = File;
-  let ChevronRightIcon = ChevronRight;
-  let ChevronDownIcon = ChevronDown;
-  let SearchIcon = Search;
-  let DownloadIcon = Download;
-  let EyeIcon = Eye;
-  let ExternalLinkIcon = ExternalLink;
-  let CopyIcon = Copy;
 </script>
 
-<div class={`c-zip-viewer border rounded-lg overflow-hidden ${hostClass}`} {...restProps}>
+<div class={`c-zip-viewer border rounded-lg overflow-hidden ${state.classes}`} {...restProps}>
   <!-- Archive header -->
-  <div class={`p-4 bg-[var(--color-background-secondary)] border-b ${headerClass}`}>
+  <div class={`p-4 bg-[var(--color-background-secondary)] border-b ${props.headerClass ?? ''}`}>
     <div class="flex items-center">
       <BaseIcon name={Archive} class="h-6 w-6 text-[var(--color-primary-500)] mr-3" />
       <div>
@@ -222,7 +153,7 @@ const ExternalLink = 'external-link';
           placeholder="Search in archive..."
           value={searchQuery}
           oninput={handleSearchInput}
-          disabled={disabled}
+          disabled={state.disabled}
         />
       </div>
     {/if}
@@ -241,14 +172,14 @@ const ExternalLink = 'external-link';
           <div
             class={`flex items-center p-3 hover:bg-[var(--color-background-secondary)] ${
               entry.type === 'directory' ? 'bg-[var(--color-background-secondary)]' : ''
-            } ${entryClass}`}
+            } ${props.entryClass ?? ''}`}
           >
             <button
               type="button"
               class="flex h-6 w-6 items-center justify-center rounded hover:bg-[var(--color-background-tertiary)] focus:outline-none mr-2"
               aria-label={expandedFolders.has(entry.path) ? `Collapse ${entry.name}` : `Expand ${entry.name}`}
               onclick={() => toggleFolder(entry)}
-              disabled={entry.type === 'file' || disabled}
+              disabled={entry.type === 'file' || state.disabled}
             >
               {#if entry.type === 'directory'}
                 {#if expandedFolders.has(entry.path)}
@@ -275,7 +206,7 @@ const ExternalLink = 'external-link';
                   <span>{formatFileSize(entry.size)}</span>
                 {/if}
                 {#if entry.modified}
-                  <span class="mx-2">вЂў</span>
+                  <span class="mx-2">•</span>
                   <span>{entry.modified.toLocaleDateString()}</span>
                 {/if}
               </div>
@@ -287,7 +218,7 @@ const ExternalLink = 'external-link';
                   variant="ghost"
                   size="sm"
                   onclick={() => handlePreview(entry)}
-                  disabled={disabled}
+                  disabled={state.disabled}
                   title="Preview"
                 >
                   <BaseIcon name={Eye} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -298,7 +229,7 @@ const ExternalLink = 'external-link';
                 variant="ghost"
                 size="sm"
                 onclick={() => handleDownload(entry)}
-                disabled={disabled}
+                disabled={state.disabled}
                 title="Download"
               >
                 <BaseIcon name={Download} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -308,7 +239,7 @@ const ExternalLink = 'external-link';
                 variant="ghost"
                 size="sm"
                 onclick={() => handleExtract(entry)}
-                disabled={disabled}
+                disabled={state.disabled}
                 title="Extract"
               >
                 <BaseIcon name={ExternalLink} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -320,11 +251,3 @@ const ExternalLink = 'external-link';
     {/if}
   </div>
 </div>
-
-
-
-
-
-
-
-

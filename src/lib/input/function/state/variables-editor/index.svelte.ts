@@ -137,14 +137,30 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 		clearVariables,
 
 		// Classes
-		rootClasses,
-		toolbarClasses,
-		labelClasses,
-		textareaClasses,
-		placeholderClasses,
-		placeholderContentClasses,
-		invalidJsonBadgeClasses,
-		iconClasses
+		get rootClasses() {
+			return rootClasses;
+		},
+		get toolbarClasses() {
+			return toolbarClasses;
+		},
+		get labelClasses() {
+			return labelClasses;
+		},
+		get textareaClasses() {
+			return textareaClasses;
+		},
+		get placeholderClasses() {
+			return placeholderClasses;
+		},
+		get placeholderContentClasses() {
+			return placeholderContentClasses;
+		},
+		get invalidJsonBadgeClasses() {
+			return invalidJsonBadgeClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		}
 	};
 };
 

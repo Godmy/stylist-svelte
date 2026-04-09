@@ -1,5 +1,5 @@
 import type { ListItemMarkerRecipe } from '$stylist/information/interface/recipe/list-item-marker';
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 
 /**
  * ListItemMarker state creator

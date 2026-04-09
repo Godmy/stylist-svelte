@@ -1,18 +1,14 @@
 <script lang="ts">
-	let {
-		accent = 'var(--color-accent, #3498db)',
-		size = 16,
-		opacity = 0.8
-	}: {
-		accent?: string;
-		size?: number;
-		opacity?: number;
-	} = $props();
+	import type { NodeDotProps } from '$stylist/typography/function/state/node-dot';
+	import { createNodeDotState } from '$stylist/typography/function/state/node-dot';
+
+	let props: NodeDotProps = $props();
+	const state = createNodeDotState(props);
 </script>
 
 <div
 	class="node-dot"
-	style={`width: ${size}px; height: ${size}px; background: ${accent}; opacity: ${opacity}; box-shadow: 0 0 8px color-mix(in srgb, ${accent} 60%, transparent);`}
+	style={state.style}
 	role="img"
 	aria-label="Node dot"
 ></div>

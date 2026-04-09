@@ -1,8 +1,8 @@
-import type { MotionContract } from '$stylist/interaction/type/struct/motion';
-import type { TransformContract } from '$stylist/interaction/type/struct/motion-transform-contract';
-import type { AnimateContract } from '$stylist/interaction/type/struct/motion-animate-contract';
-import { TOKEN_EASING } from '$stylist/interaction/const/map/easing';
-import type { TokenAnimation } from '$stylist/interaction/type/enum/animation';
+import type { MotionContract } from '$stylist/animation/type/struct/motion';
+import type { TransformContract } from '$stylist/animation/type/struct/motion-transform-contract';
+import type { AnimateContract } from '$stylist/animation/type/struct/motion-animate-contract';
+import { TOKEN_EASING } from '$stylist/animation/const/map/easing';
+import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
 
 /**
  * Object Manager для motion

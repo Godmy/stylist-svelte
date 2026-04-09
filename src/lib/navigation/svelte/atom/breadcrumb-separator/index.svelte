@@ -1,25 +1,16 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	type Props = {
-		class?: string;
-		children?: Snippet;
-	} & InteractionHTMLAttributes<HTMLSpanElement>;
-	let { class: className = '', children = undefined, ...restProps } = $props() as Props;
+	import type { BreadcrumbSeparatorProps } from '$stylist/navigation/type/struct/breadcrumb-separator-props';
+	import { createBreadcrumbSeparatorState } from '$stylist/navigation/function/state/breadcrumb-separator';
 
-	// This component is automatically the default export in Svelte
+	let props: BreadcrumbSeparatorProps = $props();
+	const state = createBreadcrumbSeparatorState(props);
 </script>
 
-<span class={`mx-2 text-[var(--color-text-tertiary)] ${className}`} aria-hidden="true" {...restProps}>
-	{#if children}
-		{@render children?.()}
+<span class={state.separatorClasses} aria-hidden="true" {...props}>
+	{#if props.children}
+		{@render props.children?.()}
 	{:else}
 		/
 	{/if}
 </span>
-
-
-
-
-
-

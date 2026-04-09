@@ -8,7 +8,7 @@
  */
 import type { Snippet } from 'svelte';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface NodePropertyState {

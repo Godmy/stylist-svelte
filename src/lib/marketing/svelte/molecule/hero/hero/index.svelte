@@ -1,136 +1,81 @@
 <script lang="ts">
-  /**
-   * Hero - РїРѕР»РЅРѕСЌРєСЂР°РЅРЅР°СЏ СЃРµРєС†РёСЏ Р·Р°РіРѕР»РѕРІРєР° СЃ С„РѕРЅРѕРј Рё CTA
-   * 
-   * РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
-   * 
-   * Single Responsibility: РћС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ hero СЃРµРєС†РёРё
-   * Open/Closed: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµС‚СЃСЏ С‡РµСЂРµР· РїСЂРѕРїСЃС‹, РЅРµ С‚СЂРµР±СѓРµС‚ РёР·РјРµРЅРµРЅРёР№ РІ РєРѕРґРµ
-   * Liskov Substitution: РњРѕР¶РµС‚ Р±С‹С‚СЊ Р·Р°РјРµРЅРµРЅ РґСЂСѓРіРёРј РєРѕРјРїРѕРЅРµРЅС‚РѕРј Р»РµР№Р°СѓС‚Р° РїСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
-   * Interface Segregation: РРјРµРµС‚ РјРёРЅРёРјР°Р»СЊРЅС‹Р№, РєРѕРЅРєСЂРµС‚РЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РґР»СЏ hero СЃРµРєС†РёРё
-   * Dependency Inversion: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёРё СЃС‚РёР»РµР№ С‡РµСЂРµР· HeroStyleManager
-   * 
-   * РСЃРїРѕР»СЊР·СѓРµС‚ РїРѕРґС…РѕРґ Atomic Design (Organism) - РєРѕРјР±РёРЅРёСЂСѓРµС‚ РјРЅРѕР¶РµСЃС‚РІРѕ Р°С‚РѕРјРѕРІ Рё РјРѕР»РµРєСѓР»
-   * (Р·Р°РіРѕР»РѕРІРєРё, СЃС‚Р°С‚РёСЃС‚РёРєР°, РєРЅРѕРїРєРё) РІ СЃР»РѕР¶РЅСѓСЋ, СЃР°РјРѕРґРѕСЃС‚Р°С‚РѕС‡РЅСѓСЋ СЃРµРєС†РёСЋ РёРЅС‚РµСЂС„РµР№СЃР°
-   */
-  
   import type { IHeroProps } from '$stylist/marketing/interface/component/hero/other';
-import type { TokenBackground } from '$stylist/layout/type/enum/background';
-  import type { TokenSize } from '$stylist/layout/type/enum/size';
-  import { HeroStyleManager } from '$stylist/marketing/class/style-manager/hero';
+  import { createHeroState } from '$stylist/marketing/function/state/hero';
   import AnimatedNumber from '$stylist/typography/svelte/atom/animation/animated-number/index.svelte';
-  
-  let {
-    title,
-    subtitle,
-    stats = [],
-    primaryCTA,
-    secondaryCTA,
-    backgroundVariant = 'gradient',
-    backgroundImage,
-    height = 'full',
-    class: className = '',
-    children
-  }: IHeroProps = $props();
-  const hostClass = className == null ? undefined : String(className);
-  
-  // Р’С‹С‡РёСЃР»СЏРµРјС‹Рµ СЃС‚РёР»Рё С‡РµСЂРµР· derived РґР»СЏ РёР·РѕР»СЏС†РёРё Р»РѕРіРёРєРё СЃС‚РёР»РёР·Р°С†РёРё
-  const containerClasses = $derived(HeroStyleManager.getContainerClasses(height as TokenSize, hostClass));
-  const backgroundClasses = $derived(HeroStyleManager.getBackgroundClasses(backgroundVariant as TokenBackground));
-  const contentClasses = $derived(HeroStyleManager.getContentClasses());
-  const titleClasses = $derived(HeroStyleManager.getTitleClasses());
-  const subtitleClasses = $derived(HeroStyleManager.getSubtitleClasses());
-  const statsContainerClasses = $derived(HeroStyleManager.getStatsContainerClasses());
-  const statItemClasses = $derived(HeroStyleManager.getStatItemClasses());
-  const statValueClasses = $derived(HeroStyleManager.getStatValueClasses());
-  const statLabelClasses = $derived(HeroStyleManager.getStatLabelClasses());
-  const ctaContainerClasses = $derived(HeroStyleManager.getCTAContainerClasses());
-  const primaryCTAButtonClasses = $derived(HeroStyleManager.getCTAButtonClasses(true));
-  const secondaryCTAButtonClasses = $derived(HeroStyleManager.getCTAButtonClasses(false));
 
-  // РћР±СЂР°Р±РѕС‚С‡РёРєРё РєР»РёРєРѕРІ РїРѕ РєРЅРѕРїРєР°Рј
-  function handlePrimaryClick() {
-    if (primaryCTA?.onClick) {
-      primaryCTA.onClick();
-    }
-  }
-  
-  function handleSecondaryClick() {
-    if (secondaryCTA?.onClick) {
-      secondaryCTA.onClick();
-    }
-  }
+  let props: IHeroProps = $props();
+  const state = createHeroState(props);
 </script>
 
-<div class={containerClasses} role="banner">
+<div class={state.containerClasses} role="banner">
   <!-- Р¤РѕРЅРѕРІРѕРµ РёР·РѕР±СЂР°Р¶РµРЅРёРµ РёР»Рё РіСЂР°РґРёРµРЅС‚ -->
-  {#if backgroundVariant === 'image' && backgroundImage}
-    <div 
-      class={backgroundClasses} 
-      style={`background-image: url('${backgroundImage}'); opacity: var(--opacity-30);`}
+  {#if state.backgroundVariant === 'image' && state.backgroundImage}
+    <div
+      class={state.backgroundClasses}
+      style={`background-image: url('${state.backgroundImage}'); opacity: var(--opacity-30);`}
       aria-hidden="true"
     ></div>
-  {:else if backgroundVariant === 'gradient'}
-    <div class={backgroundClasses} aria-hidden="true"></div>
-  {:else if backgroundVariant === 'particles'}
+  {:else if state.backgroundVariant === 'gradient'}
+    <div class={state.backgroundClasses} aria-hidden="true"></div>
+  {:else if state.backgroundVariant === 'particles'}
     <!-- РџРѕРєР° С‡С‚Рѕ РїСЂРѕСЃС‚РѕР№ РіСЂР°РґРёРµРЅС‚ РІРјРµСЃС‚Рѕ С‡Р°СЃС‚РёС† -->
-    <div class={backgroundClasses + ' [background-image:var(--gradient-cosmic)]'} aria-hidden="true"></div>
+    <div class={state.backgroundClasses + ' [background-image:var(--gradient-cosmic)]'} aria-hidden="true"></div>
   {/if}
 
   <!-- РћСЃРЅРѕРІРЅРѕР№ РєРѕРЅС‚РµРЅС‚ -->
-  <div class={contentClasses}>
-    <h1 class={titleClasses} aria-label={title}>{title}</h1>
-    
-    {#if subtitle}
-      <p class={subtitleClasses} aria-label={subtitle}>{subtitle}</p>
+  <div class={state.contentClasses}>
+    <h1 class={state.titleClasses} aria-label={state.title}>{state.title}</h1>
+
+    {#if state.subtitle}
+      <p class={state.subtitleClasses} aria-label={state.subtitle}>{state.subtitle}</p>
     {/if}
 
-    {#if stats && stats.length > 0}
-      <div class={statsContainerClasses}>
-        {#each stats as stat}
-          <div class={statItemClasses} aria-label={`${stat.label}: ${stat.value}`}>
-            <div class={statValueClasses}>
+    {#if state.stats && state.stats.length > 0}
+      <div class={state.statsContainerClasses}>
+        {#each state.stats as stat}
+          <div class={state.statItemClasses} aria-label={`${stat.label}: ${stat.value}`}>
+            <div class={state.statValueClasses}>
               {#if typeof stat.value === 'number'}
                 <AnimatedNumber value={stat.value} />
               {:else}
                 {stat.value}
               {/if}
             </div>
-            <div class={statLabelClasses}>{stat.label}</div>
+            <div class={state.statLabelClasses}>{stat.label}</div>
           </div>
         {/each}
       </div>
     {/if}
 
-    {#if primaryCTA || secondaryCTA}
-      <div class={ctaContainerClasses}>
-        {#if primaryCTA}
-          <button 
-            class={primaryCTAButtonClasses}
-            onclick={handlePrimaryClick}
+    {#if state.primaryCTA || state.secondaryCTA}
+      <div class={state.ctaContainerClasses}>
+        {#if state.primaryCTA}
+          <button
+            class={state.primaryCTAButtonClasses}
+            onclick={state.handlePrimaryClick}
             type="button"
-            aria-label={primaryCTA.label}
+            aria-label={state.primaryCTA.label}
           >
-            {primaryCTA.label}
+            {state.primaryCTA.label}
           </button>
         {/if}
-        
-        {#if secondaryCTA}
-          <button 
-            class={secondaryCTAButtonClasses}
-            onclick={handleSecondaryClick}
+
+        {#if state.secondaryCTA}
+          <button
+            class={state.secondaryCTAButtonClasses}
+            onclick={state.handleSecondaryClick}
             type="button"
-            aria-label={secondaryCTA.label}
+            aria-label={state.secondaryCTA.label}
           >
-            {secondaryCTA.label}
+            {state.secondaryCTA.label}
           </button>
         {/if}
       </div>
     {/if}
 
-    {#if children}
+    {#if state.children}
       <div class="mt-8">
-        {@render children()}
+        {@render state.children()}
       </div>
     {/if}
   </div>

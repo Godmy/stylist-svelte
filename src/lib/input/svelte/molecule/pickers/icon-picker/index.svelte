@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import { createIconPickerState } from '$stylist/information/function/state';
+	import { createIconPickerState } from '$stylist/input/function/state/icon-picker';
 	import { IconPickerStyleManager } from '$stylist/media/class/style-manager/icon-picker';
 	import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
 

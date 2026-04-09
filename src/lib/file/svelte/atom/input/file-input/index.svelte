@@ -1,96 +1,36 @@
-<script lang="ts">
-import { createInputState as createBaseInputState } from '$stylist/interaction/preset/component/index';
-import { INPUT_FIELD_PRESET } from '$stylist/input/preset/input';
+﻿<script lang="ts">
 import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
-import type { HTMLInputAttributes } from 'svelte/elements';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-	import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { createFileInputState } from '$stylist/file/function/state/file-input';
+import { handleFileChange, clearFile } from '$stylist/file/function/script/file-input';
+import type { Props } from '$stylist/file/type/struct/file-input';
 
-	type Props = {
-		value?: File | File[];
-		multiple?: boolean;
-		accept?: string;
-		disabled?: boolean;
-		variant?: TokenAppearance;
-		size?: (typeof TOKEN_SIZE)[number];
-		placeholder?: string;
-		onFileChange?: (files: File | File[] | null) => void;
-		class?: string;
-	} & Omit<HTMLInputAttributes, 'size'>;
-
-	let {
-		value,
-		multiple = false,
-		accept = '',
-		disabled = false,
-		variant = 'default',
-		size = 'md',
-		placeholder = 'Choose file(s)...',
-		onFileChange,
-		class: className = '',
-		...restProps
-	}: Props = $props();
-	const createInputState = (props: Props & Record<string, unknown>) =>
-		createBaseInputState(INPUT_FIELD_PRESET, props);
-	const inputState = $derived(createInputState({ variant, size, disabled, class: className }));
+	let props: Props = $props();
 	let inputElement: HTMLInputElement | null = $state(null);
-
 	let internalValue: File | File[] | null = $state(null);
 	let fileName = $state('');
+	const state = createFileInputState(props);
 
 	// Update internal value when prop value changes
 	$effect(() => {
-		internalValue = value ?? null;
+		internalValue = props.value ?? null;
 		fileName = resolveFileSelectionLabel(internalValue);
 	});
-
-	// Handle file change
-	function handleFileChange(e: Event) {
-		const target = e.target as HTMLInputElement;
-		if (target.files && target.files.length > 0) {
-			if (multiple) {
-				// Convert FileList to array
-				const files = Array.from(target.files);
-				internalValue = files;
-				fileName = `${files.length} file(s) selected`;
-			} else {
-				const file = target.files[0];
-				internalValue = file;
-				fileName = file.name;
-			}
-
-			onFileChange?.(multiple ? Array.from(target.files) : target.files[0]);
-		} else {
-			internalValue = null;
-			fileName = '';
-			onFileChange?.(null);
-		}
-	}
-
-	// Clear the file input
-	function clearFile() {
-		internalValue = null;
-		fileName = '';
-
-		onFileChange?.(null);
-
-		if (inputElement) {
-			inputElement.value = '';
-		}
-	}
 </script>
 
 <div class="relative">
-	<label class={`flex cursor-pointer items-center justify-center ${inputState.classes}`.trim()}>
+	<label class={`flex cursor-pointer items-center justify-center ${state.classes}`.trim()}>
 		<input
 			bind:this={inputElement}
 			type="file"
-			{multiple}
-			{accept}
-			{disabled}
-			onchange={handleFileChange}
+			multiple={props.multiple ?? false}
+			accept={props.accept ?? ''}
+			disabled={props.disabled ?? false}
+			onchange={(e) => {
+				const result = handleFileChange(e, props.multiple ?? false, props.onFileChange);
+				internalValue = result.internalValue;
+				fileName = result.fileName;
+			}}
 			class="sr-only"
-			{...restProps}
 		/>
 		<span class="flex items-center">
 			{#if fileName}
@@ -100,7 +40,9 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 					class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
 					onclick={(e) => {
 						e.stopPropagation();
-						clearFile();
+						clearFile(inputElement, props.onFileChange);
+						internalValue = null;
+						fileName = '';
 					}}
 					aria-label="Clear file"
 				>
@@ -130,21 +72,8 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 						clip-rule="evenodd"
 					/>
 				</svg>
-				<span>{placeholder}</span>
+				<span>{props.placeholder ?? 'Choose file(s)...'}</span>
 			{/if}
 		</span>
 	</label>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-

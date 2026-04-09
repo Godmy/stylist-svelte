@@ -8,7 +8,7 @@ export interface IDraggable extends Partial<DragContract> {
 	/** Данные для передачи при drag */
 	dragData?: any;
 	/** Показывать handle для перетаскивания */
-	showDragHandle?: boolean;
+	showHandle?: boolean;
 	/** Курсор при перетаскивании */
 	dragCursor?: 'grab' | 'grabbing' | 'move';
 }

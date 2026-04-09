@@ -6,12 +6,11 @@
 	import { createMinimapState } from '$stylist/canvas/function/state/minimap';
 
 	const contract: MinimapContract & MinimapProps = $props();
-	const classString = typeof contract.class === 'string' ? contract.class : undefined;
 	const state = createMinimapState(contract);
 </script>
 
 <div
-	class={MinimapStyleManager.getHostClass(classString)}
+	class={state.hostClass}
 	style={`--minimap-width: ${state.width}px; --minimap-height: ${state.height}px;`}
 	{...state.restProps}
 >

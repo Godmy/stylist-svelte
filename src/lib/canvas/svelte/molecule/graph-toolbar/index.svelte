@@ -1,75 +1,27 @@
 <script lang="ts">
-	import type { GraphToolbarRecipe } from '$stylist/science/interface/recipe/graph-toolbar';
-	import { createGraphToolbarState } from '$stylist/information/function/state/graph-toolbar';
+	import type { GraphToolbarProps } from '$stylist/canvas/type/struct/graph/graph-toolbar-props';
+	import { createGraphToolbarState } from '$stylist/canvas/function/state/graph-toolbar';
 	import { IconButton, Separator } from '$stylist';
 
-	type GraphToolbarItem = {
-		id: string;
-		type: 'button' | 'select' | 'input' | 'separator';
-		label?: string;
-		tooltip?: string;
-		icon?: string;
-		active?: boolean;
-		disabled?: boolean;
-		value?: unknown;
-		options?: string[];
-		onclick?: () => void;
-	};
-
-	type GraphToolbarProps = GraphToolbarRecipe & {
-		items?: GraphToolbarItem[];
-		onItemClick?: (id: string) => void;
-		onValueChange?: (id: string, value: unknown) => void;
-	};
-
 	let props: GraphToolbarProps = $props();
-
 	const state = createGraphToolbarState(props);
-	const items = $derived(props.items ?? []);
-
-	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			id: _id,
-			items: _items,
-			size: _size,
-			orientation: _orientation,
-			compact: _compact,
-			showTooltips: _showTooltips,
-			onItemClick: _onItemClick,
-			onValueChange: _onValueChange,
-			children: _children,
-			...rest
-		} = props;
-
-		return rest;
-	});
-
-	function handleItemClick(item: GraphToolbarItem) {
-		item.onclick?.();
-		props.onItemClick?.(item.id);
-	}
-
-	function handleValueChange(item: GraphToolbarItem, value: unknown) {
-		props.onValueChange?.(item.id, value);
-	}
 </script>
 
 <div
-	class={`${state.classes} ${props.class ?? ''}`}
+	class={state.classes}
 	data-toolbar-id={props.id}
-	{...restProps}
+	{...state.restProps}
 >
-	{#each items as item (item.id)}
+	{#each state.items as item (item.id)}
 		{#if item.type === 'button'}
 			<IconButton
 				variant={item.active ? 'primary' : 'ghost'}
-				size={props.size === 'sm' ? 'sm' : 'md'}
+				size={state.size === 'sm' ? 'sm' : 'md'}
 				disabled={item.disabled}
 				icon={item.icon}
 				aria-label={item.tooltip ?? item.label ?? item.id}
 				title={state.showTooltips ? item.tooltip ?? item.label : undefined}
-				onclick={() => handleItemClick(item)}
+				onclick={() => state.handleItemClick(item)}
 			>
 				{#if !item.icon && item.label}
 					{item.label}
@@ -81,7 +33,7 @@
 				value={String(item.value ?? '')}
 				disabled={item.disabled}
 				title={state.showTooltips ? item.tooltip : undefined}
-				onchange={(event) => handleValueChange(item, (event.target as HTMLSelectElement).value)}
+				onchange={(event) => state.handleValueChange(item, (event.target as HTMLSelectElement).value)}
 			>
 				{#each item.options ?? [] as option}
 					<option value={option}>{option}</option>
@@ -95,11 +47,11 @@
 				placeholder={item.label}
 				disabled={item.disabled}
 				title={state.showTooltips ? item.tooltip : undefined}
-				onchange={(event) => handleValueChange(item, (event.target as HTMLInputElement).value)}
+				onchange={(event) => state.handleValueChange(item, (event.target as HTMLInputElement).value)}
 			/>
 		{:else if item.type === 'separator'}
 			<Separator
-				orientation={props.orientation === 'vertical' ? 'horizontal' : 'vertical'}
+				orientation={state.orientation === 'vertical' ? 'horizontal' : 'vertical'}
 				class="graph-toolbar__separator"
 			/>
 		{/if}

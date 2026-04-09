@@ -1,5 +1,9 @@
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
+import type { SVGAttributes } from 'svelte/elements';
 
-export type GridContract = ArchitectureHTMLAttributes<HTMLDivElement> & {
+export type GridContract = SVGAttributes<SVGSVGElement> & {
 	class?: string;
+	zoom?: number;
+	gridSize?: number;
+	color?: string;
+	visible?: boolean;
 };

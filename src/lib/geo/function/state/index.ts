@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createCountryFlagState } from './country-flag';
 export { createMapMarkerState } from './map-marker';
 export type { MapMarkerStateProps } from './map-marker';

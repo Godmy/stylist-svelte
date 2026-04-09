@@ -6,22 +6,9 @@ const MoreHorizontal = 'more-horizontal';
 
   import { Button } from '$stylist';
   import BaseCard from '$stylist/commerce/svelte/molecule/cards/base-card/index.svelte';
-  import { DraggableCardStyleManager } from '$stylist/management/class/style-manager/draggable-card';
+  import { createDraggableCardState, type CardData, type DraggableCardRestProps } from '$stylist/management/function/state/draggable-card';
 
-  type CardData = {
-    id: string;
-    title: string;
-    description?: string;
-    content?: any;
-    status?: string;
-    tags?: string[];
-    dueDate?: Date;
-    assignedTo?: string;
-  };
-
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'>;
-
-  type Props = RestProps & {
+  interface DraggableCardProps extends DraggableCardRestProps {
     data: CardData;
     class?: string;
     contentClass?: string;
@@ -37,136 +24,67 @@ const MoreHorizontal = 'more-horizontal';
     showHandle?: boolean;
     showMenu?: boolean;
     variant?: 'default' | 'minimal' | 'compact';
-  };
-
-  let {
-    data,
-    class: hostClass = '',
-    contentClass = '',
-    headerClass = '',
-    bodyClass = '',
-    footerClass = '',
-    onDragStart,
-    onDragEnd,
-    onCardClick,
-    onContextMenu,
-    disabled = false,
-    draggable = true,
-    showHandle = true,
-    showMenu = true,
-    variant = 'default',
-    ...restProps
-  }: Props = $props();
-
-  let isDragging = $state(false);
-
-  // Compute CSS classes using the style manager
-  const rootClass = $derived(
-    DraggableCardStyleManager.getRootClass(
-      `${isDragging ? DraggableCardStyleManager.getDraggingClass() : 'opacity-[var(--opacity-100)]'} ${
-        variant === 'compact' ? DraggableCardStyleManager.getCompactClass() : DraggableCardStyleManager.getDefaultClass()
-      } ${hostClass}`
-    )
-  );
-  const handleClass = $derived(DraggableCardStyleManager.getHandleClass());
-  const gripIconClass = $derived(DraggableCardStyleManager.getGripIconClass());
-  const titleClass = $derived(DraggableCardStyleManager.getTitleClass());
-  const descriptionClass = $derived(DraggableCardStyleManager.getDescriptionClass());
-  const tagsContainerClass = $derived(DraggableCardStyleManager.getTagsContainerClass());
-  const tagClass = $derived(DraggableCardStyleManager.getTagClass());
-  const metadataClass = $derived(DraggableCardStyleManager.getMetadataClass());
-  const dateClass = $derived(DraggableCardStyleManager.getDateClass());
-  const assigneeClass = $derived(DraggableCardStyleManager.getAssigneeClass());
-
-  function handleDragStart(e: DragEvent) {
-    if (disabled || !draggable) return;
-
-    isDragging = true;
-    e.dataTransfer?.setData('text/plain', data.id);
-    onDragStart?.(data);
   }
 
-  function handleDragEnd() {
-    isDragging = false;
-    onDragEnd?.(data);
-  }
-
-  function handleClick() {
-    if (!disabled) {
-      onCardClick?.(data);
-    }
-  }
-
-  function handleContextMenu(e: MouseEvent) {
-    e.preventDefault();
-    if (!disabled) {
-      onContextMenu?.(data, e);
-    }
-  }
+  let props: DraggableCardProps = $props();
+  const state = createDraggableCardState(props);
 </script>
 
 <div
-  class={rootClass}
-  onclick={handleClick}
-  oncontextmenu={handleContextMenu}
-  draggable={draggable && !disabled}
-  ondragstart={handleDragStart}
-  ondragend={handleDragEnd}
-  {...restProps}
+  class={state.rootClass}
+  onclick={state.handleClick}
+  oncontextmenu={state.handleContextMenu}
+  draggable={state.draggable && !state.disabled}
+  ondragstart={state.handleDragStart}
+  ondragend={state.handleDragEnd}
+  {...state.restProps}
 >
   <BaseCard
-    bodyClass={bodyClass}
-    headerClass={headerClass}
+    bodyClass={state.bodyClass}
+    headerClass={state.headerClass}
   >
     <div class="flex justify-between items-start">
-      {#if showHandle && variant !== 'compact'}
-        <div class={handleClass}>
-          <BaseIcon name={GripVertical} class={gripIconClass} />
+      {#if state.showHandle && state.variant !== 'compact'}
+        <div class={state.handleClass}>
+          <BaseIcon name={GripVertical} class={state.gripIconClass} />
         </div>
       {/if}
       <div class="flex-1 min-w-0">
-        <h3 class={titleClass}>{data.title}</h3>
-        {#if data.description}
-          <p class={descriptionClass}>{data.description}</p>
+        <h3 class={state.titleClass}>{state.data.title}</h3>
+        {#if state.data.description}
+          <p class={state.descriptionClass}>{state.data.description}</p>
         {/if}
       </div>
-      {#if showMenu}
+      {#if state.showMenu}
         <Button variant="ghost" size="sm" class="ml-2">
           <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-[var(--color-text-secondary)]" />
         </Button>
       {/if}
     </div>
 
-    {#if data.tags && data.tags.length > 0}
-      <div class={tagsContainerClass}>
-        {#each data.tags as tag}
-          <span class={tagClass}>
+    {#if state.data.tags && state.data.tags.length > 0}
+      <div class={state.tagsContainerClass}>
+        {#each state.data.tags as tag}
+          <span class={state.tagClass}>
             {tag}
           </span>
         {/each}
       </div>
     {/if}
 
-    {#if data.dueDate || data.assignedTo}
-      <div class={metadataClass}>
-        {#if data.dueDate}
-          <div class={dateClass}>
-            <span>{new Date(data.dueDate).toLocaleDateString()}</span>
+    {#if state.data.dueDate || state.data.assignedTo}
+      <div class={state.metadataClass}>
+        {#if state.data.dueDate}
+          <div class={state.dateClass}>
+            <span>{new Date(state.data.dueDate).toLocaleDateString()}</span>
           </div>
         {/if}
-        {#if data.assignedTo}
-          <div class={assigneeClass}>
-            <span>Assigned to: {data.assignedTo}</span>
+        {#if state.data.assignedTo}
+          <div class={state.assigneeClass}>
+            <span>Assigned to: {state.data.assignedTo}</span>
           </div>
         {/if}
       </div>
     {/if}
   </BaseCard>
 </div>
-
-
-
-
-
-
-

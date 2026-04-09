@@ -1,6 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GraphEditorConnectionData } from './graph-editor-connection-data';
+export type { GraphEditorNodeData } from './graph-editor-node-data';
+export type { GraphEditorPaletteNode } from './graph-editor-palette-node';
+export type { GraphEditorProps } from './graph-editor-props';
+export type { GraphNodeCardData } from './graph-node-card-data';
+export type { GraphNodeCardProps } from './graph-node-card-props';
+export type { Idef0BlackBoxProps, Idef0DiagramProps, Idef0InputsProps, Idef0Model, Idef0OutputsProps, Idef0Port } from './idef-zero';
+export type { LitegraphCanvasNodeAddPayload } from './litegraph-canvas-node-add-payload';
+export type { LitegraphNodeProps } from './litegraph-node-props';
+export type { NodeHeaderProps } from './node-header-props';
+export type { OntologyEdge, OntologyNode, Position2D } from './ontology-edge-component';
+export type { PortGroupProps } from './port-group-props';
 export type { ScienceHTMLAttributes } from './science-html-attributes';
 export type { ThemeSceneColors } from './theme-scene-colors';
 export type { ChildrenHtmlAttributes } from './children-html-attributes';
 export type { Model } from './model';
 export type { ModelSelectorProps } from './model-selector-props';
+export type { OntologyEdgeComponentProps } from './ontology-edge-component';
+export type { OntologyNodeComponentProps } from './ontology-node-component';

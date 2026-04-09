@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenSelectorKind } from '$stylist/interaction/type/record/selection-kind';
+import type { TokenSelectorKind } from '$stylist/control/type/record/selection-kind';
 export interface IQuantitySelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
 	value?: number;
 	min?: number;

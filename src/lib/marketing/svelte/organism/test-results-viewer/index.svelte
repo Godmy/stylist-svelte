@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
 const BarChart3 = 'bar-chart-3';
 const TrendingUp = 'trending-up';
@@ -10,82 +9,23 @@ const XCircle = 'x-circle';
 const Users = 'users';
 const Activity = 'activity';
 
+  import type { TestResultsViewerProps } from '$stylist/marketing/type/struct/test-results-viewer';
+  import { createTestResultsViewerState } from '$stylist/marketing/function/state/test-results-viewer';
 
-  type TestResult = {
-    id: string;
-    testName: string;
-    variantName: string;
-    visitors: number;
-    conversions: number;
-    conversionRate: number;
-    statisticalSignificance: number; // 0-100%
-    improvement: number; // percentage difference
-    status: 'winning' | 'losing' | 'inconclusive';
-  };
-
-  type TestOverview = {
-    testName: string;
-    startDate: Date;
-    endDate?: Date;
-    status: 'running' | 'completed' | 'paused';
-    winningVariant?: string;
-    confidence: number; // 0-100%
-  };
-
-  type Props = {
-    testResults: TestResult[];
-    testOverview: TestOverview;
-    title?: string;
-    description?: string;
-    showCharts?: boolean;
-    showStatisticalSignificance?: boolean;
-    class?: string;
-    headerClass?: string;
-    resultsClass?: string;
-    chartClass?: string;
-    footerClass?: string;
-  } & InformationHTMLAttributes<HTMLDivElement>;
-
-  let {
-    testResults = [],
-    testOverview,
-    title = 'Test Results Viewer',
-    description = 'Detailed analysis of your A/B test performance',
-    showCharts = true,
-    showStatisticalSignificance = true,
-    class: className = '',
-    headerClass = '',
-    resultsClass = '',
-    chartClass = '',
-    footerClass = '',
-  }: Props = $props();
-
-  // Calculate overall metrics
-  const totalVisitors = testResults.reduce((sum, result) => sum + result.visitors, 0);
-  const totalConversions = testResults.reduce((sum, result) => sum + result.conversions, 0);
-  const overallConversionRate = totalVisitors > 0 ? (totalConversions / totalVisitors) * 100 : 0;
-
-  // Find the best performing variant
-  function getBestVariant(results: TestResult[]): TestResult | undefined {
-    if (results.length === 0) return undefined;
-    return results.reduce((best, current) => 
-      current.conversionRate > best.conversionRate ? current : best
-    );
-  }
-
-  const bestVariant = getBestVariant(testResults);
+  let props: TestResultsViewerProps = $props();
+  const state = createTestResultsViewerState(props);
 </script>
 
-<div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`}>
-  <div class={`border-b px-6 py-5 ${headerClass}`}>
+<div class={state.containerClasses} {...state.restProps}>
+  <div class={state.headerClasses}>
     <div class="flex items-center">
       <BaseIcon name={BarChart3} class="h-6 w-6 text-[var(--color-text-secondary)] mr-2" />
-      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{title}</h3>
+      <h3 class="text-lg font-medium text-[var(--color-text-primary)]">{state.title}</h3>
     </div>
-    <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{description}</p>
+    <p class="mt-1 text-sm text-[var(--color-text-secondary)]">{state.description}</p>
   </div>
 
-  <div class={`p-6 ${resultsClass}`}>
+  <div class={`p-6 ${state.resultsClassName}`}>
     <!-- Test Overview -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
       <div class="border rounded-lg p-4">
@@ -96,10 +36,10 @@ const Activity = 'activity';
           <div class="ml-4">
             <p class="text-sm font-medium text-[var(--color-text-secondary)]">Test Status</p>
             <p class={`text-xl font-semibold ${
-              testOverview.status === 'completed' ? 'text-[var(--color-success-600)]' :
-              testOverview.status === 'running' ? 'text-[var(--color-primary-600)]' : 'text-yellow-600'
+              state.testOverview.status === 'completed' ? 'text-[var(--color-success-600)]' :
+              state.testOverview.status === 'running' ? 'text-[var(--color-primary-600)]' : 'text-yellow-600'
             }`}>
-              {testOverview.status.charAt(0).toUpperCase() + testOverview.status.slice(1)}
+              {state.testOverview.status.charAt(0).toUpperCase() + state.testOverview.status.slice(1)}
             </p>
           </div>
         </div>
@@ -112,7 +52,7 @@ const Activity = 'activity';
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Visitors</p>
-            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{totalVisitors.toLocaleString()}</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{state.totalVisitors.toLocaleString()}</p>
           </div>
         </div>
       </div>
@@ -124,7 +64,7 @@ const Activity = 'activity';
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-[var(--color-text-secondary)]">Total Conversions</p>
-            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{totalConversions.toLocaleString()}</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{state.totalConversions.toLocaleString()}</p>
           </div>
         </div>
       </div>
@@ -136,7 +76,7 @@ const Activity = 'activity';
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-[var(--color-text-secondary)]">Overall CR</p>
-            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{overallConversionRate.toFixed(2)}%</p>
+            <p class="text-xl font-semibold text-[var(--color-text-primary)]">{state.overallConversionRate.toFixed(2)}%</p>
           </div>
         </div>
       </div>
@@ -146,13 +86,13 @@ const Activity = 'activity';
     <div class="mb-8">
       <h4 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Variant Performance</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {#each testResults as result}
+        {#each state.testResults as result}
           <div class={`border rounded-lg p-5 ${
             result.status === 'winning' ? 'border-[var(--color-success-500)] ring-2 ring-green-200' :
             result.status === 'losing' ? 'border-[var(--color-danger-500)]' : 'border-[var(--color-border-primary)]'
           }`}>
             <div class={`flex justify-between items-start ${
-              result.status === 'winning' ? 'text-[var(--color-success-700)]' : 
+              result.status === 'winning' ? 'text-[var(--color-success-700)]' :
               result.status === 'losing' ? 'text-[var(--color-danger-700)]' : 'text-[var(--color-text-primary)]'
             }`}>
               <h5 class="font-medium text-lg">{result.variantName}</h5>
@@ -163,23 +103,23 @@ const Activity = 'activity';
                 {result.status.charAt(0).toUpperCase() + result.status.slice(1)}
               </span>
             </div>
-            
+
             <div class="mt-4 space-y-3">
               <div class="flex justify-between">
                 <span class="text-sm text-[var(--color-text-secondary)]">Visitors</span>
                 <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.visitors.toLocaleString()}</span>
               </div>
-              
+
               <div class="flex justify-between">
                 <span class="text-sm text-[var(--color-text-secondary)]">Conversions</span>
                 <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.conversions.toLocaleString()}</span>
               </div>
-              
+
               <div class="flex justify-between">
                 <span class="text-sm text-[var(--color-text-secondary)]">Conversion Rate</span>
                 <span class="text-sm font-medium text-[var(--color-text-primary)]">{result.conversionRate.toFixed(2)}%</span>
               </div>
-              
+
               {#if result.improvement !== 0}
                 <div class="flex justify-between">
                   <span class="text-sm text-[var(--color-text-secondary)]">Improvement</span>
@@ -190,12 +130,12 @@ const Activity = 'activity';
                   </span>
                 </div>
               {/if}
-              
-              {#if showStatisticalSignificance}
+
+              {#if state.showStatisticalSignificance}
                 <div class="flex justify-between">
                   <span class="text-sm text-[var(--color-text-secondary)]">Significance</span>
                   <span class={`text-sm font-medium ${
-                    result.statisticalSignificance >= 95 ? 'text-[var(--color-success-600)]' : 
+                    result.statisticalSignificance >= 95 ? 'text-[var(--color-success-600)]' :
                     result.statisticalSignificance >= 90 ? 'text-yellow-600' : 'text-[var(--color-danger-600)]'
                   }`}>
                     {result.statisticalSignificance.toFixed(1)}%
@@ -209,17 +149,17 @@ const Activity = 'activity';
     </div>
 
     <!-- Charts -->
-    {#if showCharts}
-      <div class={`border rounded-lg p-4 mb-8 ${chartClass}`}>
+    {#if state.showCharts}
+      <div class={`border rounded-lg p-4 mb-8 ${state.chartClassName}`}>
         <h4 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Performance Visualization</h4>
-        
+
         <!-- Conversion Rate Chart -->
         <div class="mb-6">
           <h5 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Conversion Rates by Variant</h5>
           <div class="flex items-end h-32 space-x-2">
-            {#each testResults as result}
+            {#each state.testResults as result}
               <div class="flex flex-col items-center flex-1">
-                <div 
+                <div
                   class="w-full bg-[var(--color-primary-500)] rounded-t hover:bg-[var(--color-primary-600)] transition-colors"
                   style={`height: ${result.conversionRate * 2}px; min-height: var(--spacing-1);`}
                   title={`${result.variantName}: ${result.conversionRate.toFixed(2)}%`}
@@ -230,22 +170,22 @@ const Activity = 'activity';
             {/each}
           </div>
         </div>
-        
+
         <!-- Statistical Significance Chart -->
-        {#if showStatisticalSignificance}
+        {#if state.showStatisticalSignificance}
           <div>
             <h5 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Statistical Significance</h5>
             <div class="space-y-4">
-              {#each testResults as result}
+              {#each state.testResults as result}
                 <div>
                   <div class="flex justify-between text-sm mb-1">
                     <span>{result.variantName}</span>
                     <span>{result.statisticalSignificance.toFixed(1)}%</span>
                   </div>
                   <div class="w-full bg-[var(--color-background-tertiary)] rounded-full h-2.5">
-                    <div 
+                    <div
                       class={`h-2.5 rounded-full ${
-                        result.statisticalSignificance >= 95 ? 'bg-[var(--color-success-500)]' : 
+                        result.statisticalSignificance >= 95 ? 'bg-[var(--color-success-500)]' :
                         result.statisticalSignificance >= 90 ? 'bg-yellow-500' : 'bg-[var(--color-danger-500)]'
                       }`}
                       style={`width: ${result.statisticalSignificance}%`}
@@ -260,7 +200,7 @@ const Activity = 'activity';
     {/if}
 
     <!-- Recommendation -->
-    {#if bestVariant}
+    {#if state.bestVariant}
       <div class="border rounded-lg p-4 bg-[var(--color-primary-50)]">
         <div class="flex items-start">
           <div class="flex-shrink-0">
@@ -270,9 +210,9 @@ const Activity = 'activity';
             <h4 class="text-sm font-medium text-[var(--color-primary-800)]">Recommendation</h4>
             <div class="mt-2 text-sm text-[var(--color-primary-700)]">
               <p>
-                {bestVariant.variantName} is the winning variant with a conversion rate of 
-                {bestVariant.conversionRate.toFixed(2)}%. {bestVariant.improvement > 0 ? 
-                  `It performs ` + bestVariant.improvement.toFixed(2) + `% better than the baseline.` : 
+                {state.bestVariant.variantName} is the winning variant with a conversion rate of
+                {state.bestVariant.conversionRate.toFixed(2)}%. {state.bestVariant.improvement > 0 ?
+                  `It performs ` + state.bestVariant.improvement.toFixed(2) + `% better than the baseline.` :
                   `Consider further testing as performance is similar to baseline.`}
               </p>
             </div>
@@ -282,26 +222,22 @@ const Activity = 'activity';
     {/if}
   </div>
 
-  <div class={`border-t px-6 py-4 ${footerClass}`}>
+  <div class={`border-t px-6 py-4 ${state.footerClassName}`}>
     <div class="flex items-center justify-between text-xs text-[var(--color-text-secondary)]">
       <div>Test Results Analysis</div>
       <div>
-        {#if testOverview.confidence >= 95}
+        {#if state.testOverview.confidence >= 95}
           <span class="inline-flex items-center text-[var(--color-success-600)]">
             <BaseIcon name={CheckCircle} class="h-4 w-4 mr-1" />
-            Results are statistically significant ({testOverview.confidence.toFixed(1)}% confidence)
+            Results are statistically significant ({state.testOverview.confidence.toFixed(1)}% confidence)
           </span>
         {:else}
           <span class="inline-flex items-center text-yellow-600">
             <BaseIcon name={AlertTriangle} class="h-4 w-4 mr-1" />
-            Low confidence ({testOverview.confidence.toFixed(1)}% confidence)
+            Low confidence ({state.testOverview.confidence.toFixed(1)}% confidence)
           </span>
         {/if}
       </div>
     </div>
   </div>
 </div>
-
-
-
-

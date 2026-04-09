@@ -1,23 +1,13 @@
 <script lang="ts">
-	import type { StageContract } from '$stylist/canvas/type/struct/stage';
-	import { StageStyleManager } from '$stylist/canvas/class/style-manager/stage';
+	import type { StageProps } from '$stylist/canvas/type/struct/stage/stage-props';
+	import { createStageState } from '$stylist/canvas/function/state/stage';
 
-	type StageProps = StageContract & {
-		camera: { x: number; y: number; zoom: number };
-		worldWidth?: number;
-		worldHeight?: number;
-	};
-
-	const contract: StageProps = $props();
-	const { camera, worldWidth = 10000, worldHeight = 10000 } = contract;
-	const classString = typeof contract.class === 'string' ? contract.class : undefined;
+	let props: StageProps = $props();
+	const state = createStageState(props);
 </script>
 
-<div class={StageStyleManager.getStageClass(classString)} style={StageStyleManager.getWorldStyle(worldWidth, worldHeight)}>
-	<div
-		class={StageStyleManager.getWorldClass()}
-		style={StageStyleManager.getTransformStyle(camera.x, camera.y, camera.zoom)}
-	>
-		{@render contract.children?.()}
+<div class={state.classes} style={state.worldStyle} {...state.restProps}>
+	<div class={state.worldClass} style={state.transformStyle}>
+		{@render props.children?.()}
 	</div>
 </div>

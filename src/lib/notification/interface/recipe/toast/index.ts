@@ -6,7 +6,7 @@ import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
 import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IMotionPreset } from '$stylist/interaction/interface/proto/motion-preset';
+import type { IMotionPreset } from '$stylist/animation/interface/proto/motion-preset';
 import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
 import type { ISized } from '$stylist/layout/interface/proto/sized';
 import type { ISpaced } from '$stylist/layout/interface/proto/spaced';

@@ -1,39 +1,19 @@
 <script lang="ts">
 	import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/science/interface/recipe/node-properties-panel';
-	import { createNodePropertiesPanelState } from '$stylist/information/function/state/node-properties-panel';
+	import { createNodePropertiesPanelState } from '$stylist/science/function/state/node-properties-panel';
 	import { IconButton, NodeProperty } from '$stylist';
 
 	let props: NodePropertiesPanelProps = $props();
-
 	const state = createNodePropertiesPanelState(props);
 	const title = $derived(props.title ?? 'Properties');
-
-	function handlePropertyChange(propertyId: string, value: unknown) {
-		props.onPropertyChange?.(propertyId, value);
-	}
-
-	function handleCloseClick(event: MouseEvent) {
-		props.onclose?.(event as never);
-	}
 </script>
 
-<aside
-	class={`${state.classes} ${props.class ?? ''}`}
-	data-node-id={props.nodeId}
-	data-has-properties={state.hasProperties}
-	{...state.restProps}
->
+<aside class={`${state.classes} ${props.class ?? ''}`} data-node-id={props.nodeId} data-has-properties={state.hasProperties} {...state.restProps}>
 	{#if state.showHeader}
 		<header class="node-properties-panel__header">
 			<h3 class="node-properties-panel__title">{title}</h3>
 			{#if state.showClose}
-				<IconButton
-					variant="ghost"
-					size="sm"
-					icon="x"
-					aria-label="Close properties panel"
-					onclick={handleCloseClick}
-				/>
+				<IconButton variant="ghost" size="sm" icon="x" aria-label="Close properties panel" onclick={state.handleCloseClick} />
 			{/if}
 		</header>
 	{/if}
@@ -46,18 +26,7 @@
 						<h4 class="node-properties-panel__group-title">{groupName}</h4>
 						<div class="node-properties-panel__list">
 							{#each groupProperties as property (property.id)}
-								<NodeProperty
-									id={property.id}
-									name={property.name}
-									type={property.type}
-									value={property.value}
-									label={property.label}
-									description={property.description}
-									options={property.options}
-									size={props.size}
-									editable={state.editable}
-									onchange={handlePropertyChange}
-								/>
+								<NodeProperty id={property.id} name={property.name} type={property.type} value={property.value} label={property.label} description={property.description} options={property.options} size={props.size} editable={state.editable} onchange={state.handlePropertyChange} />
 							{/each}
 						</div>
 					</section>
@@ -65,18 +34,7 @@
 			{:else}
 				<div class="node-properties-panel__list">
 					{#each props.properties ?? [] as property (property.id)}
-						<NodeProperty
-							id={property.id}
-							name={property.name}
-							type={property.type}
-							value={property.value}
-							label={property.label}
-							description={property.description}
-							options={property.options}
-							size={props.size}
-							editable={state.editable}
-							onchange={handlePropertyChange}
-						/>
+						<NodeProperty id={property.id} name={property.name} type={property.type} value={property.value} label={property.label} description={property.description} options={property.options} size={props.size} editable={state.editable} onchange={state.handlePropertyChange} />
 					{/each}
 				</div>
 			{/if}
@@ -135,5 +93,3 @@
 		opacity: var(--opacity-70);
 	}
 </style>
-
-

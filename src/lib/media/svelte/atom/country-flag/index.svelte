@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-	import type { CountryFlagRecipe } from '$stylist/information/interface/recipe/country-flag';
-	import { createCountryFlagState } from '$stylist/information/function/state/country-flag';
+	import type { CountryFlagRecipe } from '$stylist/geo/interface/recipe/country-flag';
+	import { createCountryFlagState } from '$stylist/geo/function/state/country-flag';
 
 	type Props = CountryFlagRecipe & InformationHTMLAttributes<HTMLSpanElement>;
 

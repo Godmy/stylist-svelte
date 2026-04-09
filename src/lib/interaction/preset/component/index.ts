@@ -1,5 +1,5 @@
 import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import { buildPresetClassNames } from '$stylist/information/function/script/build-preset-class-names';
+import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
 import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
 import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
 import type { Preset } from '$stylist/interaction/type/struct/preset';

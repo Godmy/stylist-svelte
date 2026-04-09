@@ -1,162 +1,85 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	const AlertCircle = 'alert-circle';
-	const BarChart3 = 'bar-chart-3';
-	const Frown = 'frown';
-	const Loader2 = 'loader-2';
-	const Meh = 'meh';
-	const Smile = 'smile';
-
-	import { SentimentAnalysisStyleManager } from '$stylist/science/class/style-manager/sentiment-analysis';
 	import type { SentimentAnalysisContract } from '$stylist/science/interface/record/science';
+	import { createSentimentAnalysisState } from '$stylist/science/function/state/sentiment-analysis';
 
 	let props: SentimentAnalysisContract = $props();
-	let {
-		text = '',
-		result,
-		onAnalyze,
-		status = 'idle',
-		errorMessage = '',
-		class: className = '',
-		headerClass = '',
-		contentClass = '',
-		inputClass = '',
-		resultClass = '',
-		footerClass = '',
-		...restProps
-	} = props;
-
-  let inputText = $state(text);
-
-  function analyzeSentiment() {
-    if (onAnalyze && inputText.trim()) onAnalyze(inputText);
-  }
-
-  function getSentimentIcon(score: number) {
-    if (score < -0.5) return Frown;
-    if (score <= 0.5) return Meh;
-    return Smile;
-  }
-
-  const containerClass = $derived(SentimentAnalysisStyleManager.getContainerClass(className));
-  const headerClassComputed = $derived(SentimentAnalysisStyleManager.getHeaderClass(headerClass));
-  const titleClass = $derived(SentimentAnalysisStyleManager.getTitleClass());
-  const contentClassComputed = $derived(SentimentAnalysisStyleManager.getContentClass(contentClass));
-  const inputLabelClass = $derived(SentimentAnalysisStyleManager.getInputLabelClass());
-  const inputAreaClass = $derived(SentimentAnalysisStyleManager.getInputAreaClass(inputClass));
-  const analyzeButtonClass = $derived(SentimentAnalysisStyleManager.getAnalyzeButtonClass(status === 'analyzing', !inputText.trim()));
-  const loadingSpinnerClass = $derived(SentimentAnalysisStyleManager.getLoadingSpinnerClass());
-  const errorMessageContainerClass = $derived(SentimentAnalysisStyleManager.getErrorMessageContainerClass());
-  const errorIconClass = $derived(SentimentAnalysisStyleManager.getErrorIconClass());
-  const errorMessageClass = $derived(SentimentAnalysisStyleManager.getErrorMessageClass());
-  const resultSectionClass = $derived(SentimentAnalysisStyleManager.getResultSectionClass(resultClass));
-  const sentimentIconContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentIconContainerClass());
-  const sentimentLabelClass = $derived(SentimentAnalysisStyleManager.getSentimentLabelClass());
-  const confidenceLabelClass = $derived(SentimentAnalysisStyleManager.getConfidenceLabelClass());
-  const breakdownHeaderClass = $derived(SentimentAnalysisStyleManager.getBreakdownHeaderClass());
-  const breakdownBarClass = $derived(SentimentAnalysisStyleManager.getBreakdownBarClass());
-  const negativeSegmentClass = $derived(SentimentAnalysisStyleManager.getNegativeSegmentClass());
-  const neutralSegmentClass = $derived(SentimentAnalysisStyleManager.getNeutralSegmentClass());
-  const positiveSegmentClass = $derived(SentimentAnalysisStyleManager.getPositiveSegmentClass());
-  const sentimentScaleContainerClass = $derived(SentimentAnalysisStyleManager.getSentimentScaleContainerClass());
-  const gradientScaleClass = $derived(SentimentAnalysisStyleManager.getGradientScaleClass());
-  const scaleLabelsClass = $derived(SentimentAnalysisStyleManager.getScaleLabelsClass());
-  const footerClassComputed = $derived(SentimentAnalysisStyleManager.getFooterClass(footerClass));
+	const state = createSentimentAnalysisState(props);
 </script>
 
-<div class={`c-sentiment-analysis ${containerClass}`} {...restProps}>
-  <div class={headerClassComputed}>
-    <BaseIcon name={BarChart3} class="h-5 w-5 text-[--color-primary-500] mr-[--spacing-sm]" />
-    <h3 class={titleClass}>Sentiment Analysis</h3>
-  </div>
+<div class={`c-sentiment-analysis ${state.containerClass}`} {...state.restProps}>
+	<div class={state.headerClass}>
+		<BaseIcon name="bar-chart-3" class="h-5 w-5 text-[--color-primary-500] mr-[--spacing-sm]" />
+		<h3 class={state.titleClass}>Sentiment Analysis</h3>
+	</div>
 
-  <div class={contentClassComputed}>
-    <div class="mb-[--spacing-md]">
-      <label for="sentiment-input" class={inputLabelClass}>Enter text to analyze</label>
-      <textarea
-        id="sentiment-input"
-        class={inputAreaClass}
-        bind:value={inputText}
-        placeholder="Enter text to analyze for sentiment..."
-      ></textarea>
-    </div>
+	<div class={state.contentClass}>
+		<div class="mb-[--spacing-md]">
+			<label for="sentiment-input" class={state.inputLabelClass}>Enter text to analyze</label>
+			<textarea id="sentiment-input" class={state.inputAreaClass} bind:value={state.inputText} placeholder="Enter text to analyze for sentiment..."></textarea>
+		</div>
 
-    <button
-      type="button"
-      class={analyzeButtonClass}
-      onclick={analyzeSentiment}
-      disabled={status === 'analyzing' || !inputText.trim()}
-    >
-      {#if status === 'analyzing'}
-        <BaseIcon name={Loader2} class={loadingSpinnerClass} />Analyzing...
-      {:else}
-        Analyze Sentiment
-      {/if}
-    </button>
+		<button type="button" class={state.analyzeButtonClass} onclick={state.analyzeSentiment} disabled={state.status === 'analyzing' || !state.inputText.trim()}>
+			{#if state.status === 'analyzing'}
+				<BaseIcon name="loader-2" class={state.loadingSpinnerClass} />Analyzing...
+			{:else}
+				Analyze Sentiment
+			{/if}
+		</button>
 
-    {#if status === 'error' && errorMessage}
-      <div class={errorMessageContainerClass}>
-        <BaseIcon name={AlertCircle} class={errorIconClass} />
-        <span class={errorMessageClass}>{errorMessage}</span>
-      </div>
-    {/if}
+		{#if state.status === 'error' && state.errorMessage}
+			<div class={state.errorMessageContainerClass}>
+				<BaseIcon name="alert-circle" class={state.errorIconClass} />
+				<span class={state.errorMessageClass}>{state.errorMessage}</span>
+			</div>
+		{/if}
 
-    {#if status === 'completed' && result}
-      <div class={resultSectionClass}>
-        <div class={sentimentIconContainerClass}>
-          {#if result.score < -0.5}
-            <BaseIcon name={Frown} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
-          {:else if result.score <= 0.5}
-            <BaseIcon name={Meh} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
-          {:else}
-            <BaseIcon name={Smile} class={SentimentAnalysisStyleManager.getSentimentIconClass(result.score)} />
-          {/if}
-        </div>
+		{#if state.status === 'completed' && state.result}
+			<div class={state.resultSectionClass}>
+				<div class={state.sentimentIconContainerClass}>
+					{#if state.result.score < -0.5}
+						<BaseIcon name="frown" class={state.getSentimentIconClass(state.result.score)} />
+					{:else if state.result.score <= 0.5}
+						<BaseIcon name="meh" class={state.getSentimentIconClass(state.result.score)} />
+					{:else}
+						<BaseIcon name="smile" class={state.getSentimentIconClass(state.result.score)} />
+					{/if}
+				</div>
 
-        <div class="text-center mb-[--spacing-md]">
-          <h4 class={sentimentLabelClass}>{result.label}</h4>
-          <p class={SentimentAnalysisStyleManager.getSentimentScoreClass(result.score)}>{Math.round(result.score * 100)}%</p>
-          <p class={confidenceLabelClass}>Confidence: {Math.round(result.confidence * 100)}%</p>
-        </div>
+				<div class="text-center mb-[--spacing-md]">
+					<h4 class={state.sentimentLabelClass}>{state.result.label}</h4>
+					<p class={state.getSentimentScoreClass(state.result.score)}>{Math.round(state.result.score * 100)}%</p>
+					<p class={state.confidenceLabelClass}>Confidence: {Math.round(state.result.confidence * 100)}%</p>
+				</div>
 
-        <div class="mt-[--spacing-md]">
-          <div class={breakdownHeaderClass}>
-            <span>Negative</span>
-            <span>Neutral</span>
-            <span>Positive</span>
-          </div>
-          <div class={breakdownBarClass}>
-            <div class={negativeSegmentClass} style={`width: ${result.breakdown ? result.breakdown.negative * 100 : 0}%`}></div>
-            <div class={neutralSegmentClass} style={`width: ${result.breakdown ? result.breakdown.neutral * 100 : 0}%`}></div>
-            <div class={positiveSegmentClass} style={`width: ${result.breakdown ? result.breakdown.positive * 100 : 0}%`}></div>
-          </div>
-        </div>
+				<div class="mt-[--spacing-md]">
+					<div class={state.breakdownHeaderClass}>
+						<span>Negative</span>
+						<span>Neutral</span>
+						<span>Positive</span>
+					</div>
+					<div class={state.breakdownBarClass}>
+						<div class={state.negativeSegmentClass} style={`width: ${state.result.breakdown ? state.result.breakdown.negative * 100 : 0}%`}></div>
+						<div class={state.neutralSegmentClass} style={`width: ${state.result.breakdown ? state.result.breakdown.neutral * 100 : 0}%`}></div>
+						<div class={state.positiveSegmentClass} style={`width: ${state.result.breakdown ? state.result.breakdown.positive * 100 : 0}%`}></div>
+					</div>
+				</div>
 
-        <div class={sentimentScaleContainerClass}>
-          <div class="flex items-center justify-center">
-            <div class={gradientScaleClass}>
-              <div
-                class={SentimentAnalysisStyleManager.getScoreIndicatorClass(result.score)}
-                style={`left: ${((result.score + 1) / 2) * 100}%`}
-              ></div>
-            </div>
-          </div>
-          <div class={scaleLabelsClass}>
-            <span>Negative</span>
-            <span>Neutral</span>
-            <span>Positive</span>
-          </div>
-        </div>
-      </div>
-    {/if}
-  </div>
+				<div class={state.sentimentScaleContainerClass}>
+					<div class="flex items-center justify-center">
+						<div class={state.gradientScaleClass}>
+							<div class={state.getScoreIndicatorClass(state.result.score)} style={`left: ${((state.result.score + 1) / 2) * 100}%`}></div>
+						</div>
+					</div>
+					<div class={state.scaleLabelsClass}>
+						<span>Negative</span>
+						<span>Neutral</span>
+						<span>Positive</span>
+					</div>
+				</div>
+			</div>
+		{/if}
+	</div>
 
-  <div class={footerClassComputed}>
-    Sentiment analysis powered by AI. Results are estimates and may not reflect the true sentiment.
-  </div>
+	<div class={state.footerClass}>Sentiment analysis powered by AI. Results are estimates and may not reflect the true sentiment.</div>
 </div>
-
-
-
-
-

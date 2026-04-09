@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import type { PropDefinition } from '$stylist/information/interface/recipe/props-editor';
+  import type { PropDefinition } from '$stylist/development/interface/recipe/props-editor';
   import PropsEditor from './index.svelte';
 
   const defs: PropDefinition[] = [

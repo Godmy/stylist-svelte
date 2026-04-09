@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_ANIMATION, TOKEN_EASING } from './map';
+export { BASE_EASING, TOKEN_TRANSITION } from './record';

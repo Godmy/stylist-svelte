@@ -1,33 +1,23 @@
 <script lang="ts">
-	import type { SVGAttributes } from 'svelte/elements';
-	import { GridStyleManager } from '$stylist/layout/class/style-manager/grid';
+	import type { GridContract } from '$stylist/layout/type/struct/grid';
+	import { createGridState } from '$stylist/layout/function/state/grid';
 
-	type GridProps = SVGAttributes<SVGSVGElement> & {
-		class?: string;
-		zoom?: number;
-		gridSize?: number;
-		color?: string;
-		visible?: boolean;
-	};
-
-	const contract: GridProps = $props();
-	const { zoom = 1, gridSize = 100, color = 'var(--color-border-subtle, #e0e0e0)' } = contract;
-	const opacity = $derived(contract.visible ? Math.max(0.1, Math.min(1, (contract.zoom ?? zoom) * 0.5)) : 0);
-	const classString = typeof contract.class === 'string' ? contract.class : '';
+	let props: GridContract = $props();
+	const state = createGridState(props);
 </script>
 
-<svg class={GridStyleManager.getGridClass(classString)} style={GridStyleManager.getGridStyle(color, opacity)}>
+<svg class={state.classes} style={state.style} {...state.restProps}>
 	<defs>
 		<pattern
 			id="grid-pattern"
 			x={0}
 			y={0}
-			width={gridSize}
-			height={gridSize}
+			width={state.gridSize}
+			height={state.gridSize}
 			patternUnits="userSpaceOnUse"
 		>
 			<path
-				d="M {gridSize} 0 L 0 0 0 {gridSize}"
+				d="M {state.gridSize} 0 L 0 0 0 {state.gridSize}"
 				fill="none"
 				stroke="var(--grid-color)"
 				stroke-width="1"

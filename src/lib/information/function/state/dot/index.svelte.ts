@@ -1,5 +1,5 @@
 import type { DotRecipe } from '$stylist/information/interface/recipe/dot';
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 
 /**
  * Dot state creator

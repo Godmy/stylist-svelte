@@ -1,28 +1,19 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import { createPermissionGateState } from '$stylist/management/function/state/permission-gate';
 
-  let {
-    hasPermission = true,
-    fallback = null,
-    children
-  } = $props<{
-    hasPermission?: boolean;
-    fallback?: Snippet | null;
-    children: Snippet;
-  }>();
+  let props: Parameters<typeof createPermissionGateState>[0] = $props();
+  const state = createPermissionGateState(props);
 </script>
 
-{#if hasPermission}
-  {@render children?.()}
+{#if state.hasPermission}
+  {@render props.children?.()}
 {:else}
-  {#if fallback}
-    {@render fallback()}
+  {#if state.fallback}
+    {@render state.fallback()}
   {:else}
     <div class="p-4 text-center text-[var(--color-text-secondary)]">
       You do not have permission to view this content.
     </div>
   {/if}
 {/if}
-
-
-

@@ -2,128 +2,79 @@
   import { Icon } from '$stylist';
   import type { HeatmapRecipe } from '$stylist/chart/interface/recipe/heatmap';
   import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
-  import { HeatmapStyleManager } from '$stylist/chart/class/style-manager/heatmap';
+  import { createHeatmapState } from '$stylist/chart/function/state/heatmap';
   import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
 
-  let {
-    data = [],
-    title = 'Heatmap',
-    width = 600,
-    height = 400,
-    showTooltip = true,
-    showLegend = true,
-    colorScheme = 'minimal',
-    showAxis = true,
-    axisColor = 'var(--color-border-primary)',
-    cellPadding = 2,
-    onCellClick,
-    class: hostClass = '',
-    chartClass = '',
-    maxValue,
-    minValue = 0,
-    ...restProps
-  }: HeatmapRecipe = $props();
-  const resolvedColorScheme = $derived((colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset');
-
-  let rows = $derived(ObjectManagerHeatmap.resolveRows(data));
-  let columns = $derived(ObjectManagerHeatmap.resolveColumns(data));
-  let calculatedMaxValue = $derived(ObjectManagerHeatmap.resolveMaxValue(data, maxValue));
-  let chartWidth = $derived(ObjectManagerHeatmap.resolveChartWidth(width, showAxis));
-  let chartHeight = $derived(ObjectManagerHeatmap.resolveChartHeight(height, showAxis));
-  let cellWidth = $derived(ObjectManagerHeatmap.resolveCellSize(chartWidth, columns.length));
-  let cellHeight = $derived(ObjectManagerHeatmap.resolveCellSize(chartHeight, rows.length));
-  let heatmapCells = $derived(ObjectManagerHeatmap.resolveHeatmapCells({
-    data,
-    rows,
-    columns,
-    cellWidth,
-    cellHeight,
-    showAxis,
-    cellPadding,
-    minValue,
-    calculatedMaxValue,
-    colorScheme: resolvedColorScheme
-  }));
+  let props: HeatmapRecipe = $props();
+  const heatmapState = createHeatmapState(props);
 
   let hoveredCell: string | null = $state(null);
-
-  const containerClasses = $derived(HeatmapStyleManager.getContainerClasses(hostClass == null ? undefined : String(hostClass)));
-  const chartContainerClasses = $derived(HeatmapStyleManager.getChartContainerClasses(chartClass == null ? undefined : String(chartClass)));
-  const titleClasses = $derived(HeatmapStyleManager.getTitleClasses());
-  const svgClasses = $derived(HeatmapStyleManager.getSvgClasses());
-  const axisClasses = $derived(HeatmapStyleManager.getAxisClasses());
-  const axisTextClasses = $derived(HeatmapStyleManager.getAxisTextClasses());
-  const legendClasses = $derived(HeatmapStyleManager.getLegendClasses());
-  const legendTitleClasses = $derived(HeatmapStyleManager.getLegendTitleClasses());
-  const legendGradientClasses = $derived(HeatmapStyleManager.getLegendGradientClasses());
-  const legendLabelsClasses = $derived(HeatmapStyleManager.getLegendLabelsClasses());
-  const tooltipButtonClasses = $derived(HeatmapStyleManager.getTooltipButtonClasses());
 </script>
 
-<div class={containerClasses} style={`width: ${width}px; height: ${height}px;`} {...restProps}>
-  {#if title}
+<div class={heatmapState.containerClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
+  {#if props.title}
     <div class="flex items-center justify-between mb-2">
-      <h3 class={titleClasses}>{title}</h3>
-      {#if showTooltip}
+      <h3 class={heatmapState.titleClasses}>{props.title}</h3>
+      {#if props.showTooltip}
         <Tooltip content="This is a heatmap showing data density through color variations in a matrix format." placement="top">
-          <Icon name="info" size="sm" class={tooltipButtonClasses} />
+          <Icon name="info" size="sm" class={heatmapState.tooltipButtonClasses} />
         </Tooltip>
       {/if}
     </div>
   {/if}
 
-  <div class={chartContainerClasses}>
+  <div class={heatmapState.chartContainerClasses}>
     <svg
-      width={width}
-      height={height}
-      class={svgClasses}
+      width={props.width ?? 600}
+      height={props.height ?? 400}
+      class={heatmapState.svgClasses}
     >
-      {#if showAxis}
+      {#if props.showAxis}
         <!-- X axis -->
         <line
-          x1={showAxis ? 50 : 5}
-          y1={height - 10}
-          x2={width - 10}
-          y2={height - 10}
-          stroke={axisColor}
+          x1={props.showAxis ? 50 : 5}
+          y1={(props.height ?? 400) - 10}
+          x2={(props.width ?? 600) - 10}
+          y2={(props.height ?? 400) - 10}
+          stroke={props.axisColor ?? 'var(--color-border-primary)'}
           stroke-width="1"
-          class={axisClasses}
+          class={heatmapState.axisClasses}
         />
         <!-- Y axis -->
         <line
-          x1={showAxis ? 50 : 5}
+          x1={props.showAxis ? 50 : 5}
           y1={10}
-          x2={showAxis ? 50 : 5}
-          y2={height - 10}
-          stroke={axisColor}
+          x2={props.showAxis ? 50 : 5}
+          y2={(props.height ?? 400) - 10}
+          stroke={props.axisColor ?? 'var(--color-border-primary)'}
           stroke-width="1"
-          class={axisClasses}
+          class={heatmapState.axisClasses}
         />
 
         <!-- X axis labels -->
-        {#each columns as col, i}
+        {#each heatmapState.columns as col, i}
           <text
-            x={50 + i * cellWidth + cellWidth / 2}
-            y={height - 5}
+            x={50 + i * heatmapState.cellWidth + heatmapState.cellWidth / 2}
+            y={(props.height ?? 400) - 5}
             text-anchor="middle"
             font-size="10"
             fill="var(--color-text-secondary)"
-            class={axisTextClasses}
+            class={heatmapState.axisTextClasses}
           >
             {ObjectManagerHeatmap.resolveAxisLabel(col)}
           </text>
         {/each}
 
         <!-- Y axis labels -->
-        {#each rows as row, i}
+        {#each heatmapState.rows as row, i}
           <text
-            x={showAxis ? 45 : 0}
-            y={10 + i * cellHeight + cellHeight / 2}
+            x={props.showAxis ? 45 : 0}
+            y={10 + i * heatmapState.cellHeight + heatmapState.cellHeight / 2}
             text-anchor="end"
             font-size="10"
             fill="var(--color-text-secondary)"
             dominant-baseline="middle"
-            class={axisTextClasses}
+            class={heatmapState.axisTextClasses}
           >
             {ObjectManagerHeatmap.resolveAxisLabel(row)}
           </text>
@@ -131,14 +82,14 @@
       {/if}
 
       <!-- Cells -->
-      {#each heatmapCells as cell}
+      {#each heatmapState.heatmapCells as cell}
         <g
-          class={HeatmapStyleManager.getCellClasses(hoveredCell === cell.id)}
-          onclick={() => onCellClick?.(cell)}
+          class={heatmapState.cellClasses(hoveredCell === cell.id)}
+          onclick={() => props.onCellClick?.(cell)}
           onkeydown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
-              onCellClick?.(cell);
+              props.onCellClick?.(cell);
             }
           }}
           onfocus={() => hoveredCell = cell.id}
@@ -175,27 +126,18 @@
     </svg>
   </div>
 
-  {#if showLegend}
-    <div class={legendClasses}>
-      <div class={legendLabelsClasses}>
-        <span>{minValue}</span>
-        <span>{ObjectManagerHeatmap.resolveLegendMidpoint(minValue, calculatedMaxValue)}</span>
-        <span>{calculatedMaxValue}</span>
+  {#if props.showLegend}
+    <div class={heatmapState.legendClasses}>
+      <div class={heatmapState.legendLabelsClasses}>
+        <span>{props.minValue ?? 0}</span>
+        <span>{ObjectManagerHeatmap.resolveLegendMidpoint(props.minValue ?? 0, heatmapState.calculatedMaxValue)}</span>
+        <span>{heatmapState.calculatedMaxValue}</span>
       </div>
-      <div class={legendGradientClasses} style={`background-image: ${ObjectManagerHeatmap.resolveLegendGradient(resolvedColorScheme)}`}></div>
-      <div class={legendTitleClasses}>
-        {ObjectManagerHeatmap.resolveLegendTitle(resolvedColorScheme)}
+      <div class={heatmapState.legendGradientClasses} style={`background-image: ${ObjectManagerHeatmap.resolveLegendGradient(heatmapState.resolvedColorScheme)}`}></div>
+      <div class={heatmapState.legendTitleClasses}>
+        {ObjectManagerHeatmap.resolveLegendTitle(heatmapState.resolvedColorScheme)}
       </div>
     </div>
   {/if}
 </div>
-
-
-
-
-
-
-
-
-
 

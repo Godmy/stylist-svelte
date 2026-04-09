@@ -3,6 +3,7 @@
 	import { Icon as BaseIcon } from '$stylist';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
 	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas';
+	import { exportCanvasImage } from '$stylist/canvas/function/script/canvas/export-image';
 	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas/share/index';
 
 	const contract: SharedCanvasContract = $props();
@@ -42,14 +43,6 @@
 		state.redrawCanvas(ctx, canvasRef);
 	}
 
-	function exportCanvas(): void {
-		if (!canvasRef) return;
-
-		const link = document.createElement('a');
-		link.download = ObjectManagerSharedCanvas.exportFilename;
-		link.href = canvasRef.toDataURL();
-		link.click();
-	}
 </script>
 
 <div class={state.containerClass} {...state.restProps}>
@@ -121,7 +114,7 @@
 				<button
 					type="button"
 					class={state.actionButtonClass}
-					onclick={exportCanvas}
+					onclick={() => exportCanvasImage(canvasRef, ObjectManagerSharedCanvas.exportFilename)}
 					title="Export Canvas"
 					aria-label="Export Canvas"
 				>

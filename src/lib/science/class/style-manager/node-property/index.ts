@@ -1,4 +1,4 @@
-import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { NodePropertyState } from '$stylist/science/interface/recipe/node-property';

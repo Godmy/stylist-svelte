@@ -1,64 +1,48 @@
 <script lang="ts">
   import type { DataDisplayCardRecipe as DataDisplayCardProps } from '$stylist/commerce/interface/recipe/data-display-card';
-  import { ObjectManagerDataDisplayCard } from '$stylist/commerce/class/object-manager/data-display-card';
-  import { DataDisplayCardStyleManager } from '$stylist/commerce/class/style-manager/data-display-card';
+  import { createDataDisplayCardState } from '$stylist/commerce/function/state/data-display-card';
 
-  let {
-    title,
-    subtitle,
-    description,
-    image,
-    footer,
-    actions,
-    class: className = '',
-    imageClass = '',
-    headerClass = '',
-    bodyClass = '',
-    footerClass = '',
-    actionsClass = '',
-    ...restProps
-  }: DataDisplayCardProps = $props();
+  let props: DataDisplayCardProps = $props();
+  const state = createDataDisplayCardState(props);
 </script>
 
-<div class={DataDisplayCardStyleManager.getContainerClasses(typeof className === 'string' ? className : undefined)} {...ObjectManagerDataDisplayCard.getRestProps({ title, subtitle, description, image, footer, actions, class: className, imageClass, headerClass, bodyClass, footerClass, actionsClass, ...restProps })}>
-  {#if image}
+<div class={state.containerClasses} {...state.restProps}>
+  {#if props.image}
     <img 
-      src={image} 
-      alt={title || 'Card image'} 
-      class={DataDisplayCardStyleManager.getImageClasses(imageClass)} 
+      src={props.image} 
+      alt={props.title || 'Card image'} 
+      class={state.imageClasses} 
     />
   {/if}
   
-  <div class={DataDisplayCardStyleManager.getBodyClasses()}>
-    {#if title || subtitle}
-      <div class={DataDisplayCardStyleManager.getHeaderClasses(headerClass)}>
-        {#if title}
-          <h3 class={DataDisplayCardStyleManager.getTitleClasses()}>{title}</h3>
+  <div class={state.bodyClasses}>
+    {#if props.title || props.subtitle}
+      <div class={state.headerClasses}>
+        {#if props.title}
+          <h3 class={state.titleClasses}>{props.title}</h3>
         {/if}
-        {#if subtitle}
-          <p class={DataDisplayCardStyleManager.getSubtitleClasses()}>{subtitle}</p>
+        {#if props.subtitle}
+          <p class={state.subtitleClasses}>{props.subtitle}</p>
         {/if}
       </div>
     {/if}
     
-    {#if description}
-      <div class={DataDisplayCardStyleManager.getDescriptionContainerClasses(bodyClass)}>
-        <p class={DataDisplayCardStyleManager.getDescriptionClasses()}>{description}</p>
+    {#if props.description}
+      <div class={state.descriptionContainerClasses}>
+        <p class={state.descriptionClasses}>{props.description}</p>
       </div>
     {/if}
     
-    {#if actions}
-      <div class={DataDisplayCardStyleManager.getActionsClasses(actionsClass)}>
-        {@render actions()}
+    {#if props.actions}
+      <div class={state.actionsClasses}>
+        {@render props.actions()}
       </div>
     {/if}
   </div>
   
-  {#if footer}
-    <div class={DataDisplayCardStyleManager.getFooterClasses(footerClass)}>
-      {@render footer()}
+  {#if props.footer}
+    <div class={state.footerClasses}>
+      {@render props.footer()}
     </div>
   {/if}
 </div>
-
-

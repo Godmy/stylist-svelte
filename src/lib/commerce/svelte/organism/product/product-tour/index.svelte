@@ -1,58 +1,25 @@
 <script lang="ts">
+  import type { ProductTourProps } from '$stylist/commerce/type/struct/product-tour-props';
+  import { createProductTourState } from '$stylist/commerce/function/state/product-tour';
+
   let {
     steps = [],
     currentStep = 0,
     showTour = false,
     onComplete = () => {},
     class: className = ''
-  } = $props<{
-    steps: Array<{
-      title: string;
-      content: string;
-      position?: 'top' | 'bottom' | 'left' | 'right';
-    }>;
-    currentStep?: number;
-    showTour?: boolean;
-    onComplete?: () => void;
-    class?: string;
-  }>();
+  }: ProductTourProps = $props();
 
-  let localCurrentStep = $state(currentStep);
-  let localShowTour = $state(showTour);
-
-  $effect(() => {
-    localCurrentStep = currentStep;
-    localShowTour = showTour;
-  });
-
-  const nextStep = () => {
-    if (localCurrentStep < steps.length - 1) {
-      localCurrentStep++;
-    } else {
-      localShowTour = false;
-      onComplete();
-    }
-  };
-
-  const prevStep = () => {
-    if (localCurrentStep > 0) {
-      localCurrentStep--;
-    }
-  };
-
-  const closeTour = () => {
-    localShowTour = false;
-    onComplete();
-  };
+  const state = createProductTourState({ steps, currentStep, showTour, onComplete, class: className });
 </script>
 
-{#if localShowTour && steps.length > 0}
+{#if state.showTour && steps.length > 0}
   <div class="fixed inset-0 bg-[var(--color-neutral-900)] bg-opacity-[var(--opacity-50)] z-[var(--z-index-overlay)] flex items-center justify-center p-4">
-    <div class={`bg-[var(--color-background-primary)] rounded-lg shadow-xl p-6 max-w-md w-full relative ${
-      steps[localCurrentStep]?.position || 'top'
+    <div class={`bg-[var(--color-background-primary)] rounded-lg shadow-xl p-6 max-w-md w-full relative ${className} ${
+      steps[state.currentStep]?.position || 'top'
     }`}>
       <button
-        onclick={closeTour}
+        onclick={() => state.closeTour()}
         aria-label="Close tour"
         class="absolute top-3 right-3 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
       >
@@ -61,29 +28,29 @@
         </svg>
       </button>
       
-      <h3 class="font-bold text-lg mb-2">{steps[localCurrentStep].title}</h3>
-      <p class="text-[var(--color-text-primary)] mb-4">{steps[localCurrentStep].content}</p>
+      <h3 class="font-bold text-lg mb-2">{steps[state.currentStep].title}</h3>
+      <p class="text-[var(--color-text-primary)] mb-4">{steps[state.currentStep].content}</p>
       
       <div class="flex justify-between items-center">
         <div>
           <span class="text-sm text-[var(--color-text-secondary)]">
-            Step {localCurrentStep + 1} of {steps.length}
+            Step {state.currentStep + 1} of {steps.length}
           </span>
         </div>
         <div class="space-x-2">
-          {#if localCurrentStep > 0}
+          {#if state.currentStep > 0}
             <button
-              onclick={prevStep}
+              onclick={() => state.prevStep()}
               class="px-3 py-1 border border-[var(--color-border-primary)] rounded hover:bg-[var(--color-background-secondary)]"
             >
               Previous
             </button>
           {/if}
           <button
-            onclick={nextStep}
+            onclick={() => state.nextStep()}
             class="px-4 py-1 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]"
           >
-            {localCurrentStep < steps.length - 1 ? 'Next' : 'Finish'}
+            {state.currentStep < steps.length - 1 ? 'Next' : 'Finish'}
           </button>
         </div>
       </div>

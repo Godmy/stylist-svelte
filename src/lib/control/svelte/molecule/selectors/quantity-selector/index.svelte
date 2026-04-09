@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IQuantitySelectorProps } from '$stylist/control/interface/component/quantity-selector/other';
-import type { TokenSelectorKind } from '$stylist/interaction/type/record/selection-kind';
+import type { TokenSelectorKind } from '$stylist/control/type/record/selection-kind';
   import type { TokenSize } from '$stylist/layout/type/enum/size';
   import { Icon as BaseIcon } from '$stylist';
   import { QuantitySelectorStyleManager } from '$stylist/control/class/style-manager/quantity-selector';

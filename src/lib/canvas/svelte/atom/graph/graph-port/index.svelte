@@ -2,7 +2,7 @@
 	import { Icon as BaseIcon } from '$stylist';
 	import type { GraphPortRecipe as GraphPortProps } from '$stylist/science/interface/recipe/graph-port';
 	import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port/graph-port-data-type-color';
-	import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+	import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 	import { GraphPortStyleManager } from '$stylist/canvas/class/style-manager/graph-port';
 	import { createGraphPortState } from '$stylist/canvas/function/state/graph-port';
 
@@ -36,23 +36,6 @@
 		})()
 	);
 
-	function handleMouseDown(event: MouseEvent) {
-		if (props.onConnectionStart) {
-			props.onConnectionStart(event);
-		}
-	}
-
-	function handleMouseUp(event: MouseEvent) {
-		if (props.onConnectionEnd) {
-			props.onConnectionEnd(event);
-		}
-	}
-
-	function handleClick(event: MouseEvent) {
-		if (props.onclick) {
-			props.onclick(event as MouseEvent & { currentTarget: EventTarget & HTMLDivElement });
-		}
-	}
 </script>
 
 <div
@@ -65,9 +48,9 @@
 	aria-label={label || `Port ${props.id}`}
 	role="button"
 	tabindex={0}
-	onmousedown={handleMouseDown}
-	onmouseup={handleMouseUp}
-	onclick={handleClick}
+	onmousedown={(event) => props.onConnectionStart?.(event)}
+	onmouseup={(event) => props.onConnectionEnd?.(event)}
+	onclick={(event) => props.onclick?.(event as MouseEvent & { currentTarget: EventTarget & HTMLDivElement })}
 	{...restProps}
 >
 	<div class="graph-port__hit-area" aria-hidden="true"></div>

@@ -1,43 +1,31 @@
 <script lang="ts">
-  import type { GraphvizDirectedEdgeRecipe as GraphvizDirectedEdgeProps } from '$stylist/science/interface/recipe/graphviz-directed-edge';
-  import { GraphvizDirectedEdgeStyleManager } from '$stylist/science/class/style-manager/graphviz-directed-edge-style-manager';
+  import type { GraphvizDirectedEdgeRecipe } from '$stylist/science/interface/recipe/graphviz-directed-edge';
+  import { createGraphvizDirectedEdgeState } from '$stylist/science/function/state/graphviz-directed-edge';
 
-  let {
-    id,
-    sourceX = 0,
-    sourceY = 0,
-    targetX = 100,
-    targetY = 100,
-    label = '',
-    color = 'var(--color-text-primary)',
-    width = 2,
-    style = 'solid',
-    class: className = ''
-  }: GraphvizDirectedEdgeProps = $props();
-
-  const dashArray = $derived(style === 'dashed' ? '5,5' : style === 'dotted' ? '2,2' : 'none');
+  let props: GraphvizDirectedEdgeRecipe = $props();
+  const state = createGraphvizDirectedEdgeState(props);
 </script>
 
-<svg class={GraphvizDirectedEdgeStyleManager.root(typeof className === 'string' ? className : '')} style="position: absolute; width: 100%; height: 100%;">
+<svg class={state.rootClass} style="position: absolute; width: 100%; height: 100%;">
   <defs>
-    <marker id={`arrowhead-${id}`} markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill={color} />
+    <marker id={`arrowhead-${state.id}`} markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill={state.color} />
     </marker>
   </defs>
 
   <line
-    x1={sourceX}
-    y1={sourceY}
-    x2={targetX}
-    y2={targetY}
-    stroke={color}
-    stroke-width={width}
-    stroke-dasharray={dashArray}
-    marker-end={`url(#arrowhead-${id})`}
+    x1={state.sourceX}
+    y1={state.sourceY}
+    x2={state.targetX}
+    y2={state.targetY}
+    stroke={state.color}
+    stroke-width={state.width}
+    stroke-dasharray={state.dashArray}
+    marker-end={`url(#arrowhead-${state.id})`}
   />
 
-  {#if label}
-    <text x={(sourceX + targetX) / 2} y={(sourceY + targetY) / 2 - 10} text-anchor="middle" fill={color} font-size="12" class="select-none pointer-events-none">{label}</text>
+  {#if state.label}
+    <text x={state.labelX} y={state.labelY} text-anchor="middle" fill={state.color} font-size="12" class="select-none pointer-events-none">{state.label}</text>
   {/if}
 </svg>
 

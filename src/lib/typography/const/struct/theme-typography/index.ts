@@ -1,7 +1,7 @@
 import { TOKEN_FONT_FAMILY } from '$stylist/typography/const/map/font-family';
 import { RECORD_FONT_SIZE } from '$stylist/typography/const/map/font-size';
 import { TOKEN_LETTER_SPACING } from '$stylist/typography/const/map/letter-spacing';
-import { TOKEN_LINE_HEIGHT } from '$stylist/information/const/map/line-height';
+import { TOKEN_LINE_HEIGHT } from '$stylist/typography/const/map/line-height';
 import type { StructThemeTypography } from '$stylist/typography/type/struct/theme-typography';
 
 export const THEME_TYPOGRAPHY: StructThemeTypography = {

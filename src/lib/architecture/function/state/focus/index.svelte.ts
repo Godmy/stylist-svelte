@@ -1,7 +1,7 @@
 import type { FocusTarget } from '../focus-target/index.svelte.ts';
 import type { FocusState } from '../focus-state/index.svelte.ts';
 
-function useFocus() {
+export function useFocus() {
 	let state = $state<FocusState>({
 		target: null,
 		isFocused: false,
@@ -65,5 +65,4 @@ function useFocus() {
 	};
 }
 
-export { useFocus };
 export default useFocus;

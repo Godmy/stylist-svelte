@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PropsEditorRecipe } from '$stylist/information/interface/recipe/props-editor';
+  import type { PropsEditorRecipe } from '$stylist/development/interface/recipe/props-editor';
   import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
   type PropsEditorProps = PropsEditorRecipe & {

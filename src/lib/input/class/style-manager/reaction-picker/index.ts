@@ -1,5 +1,3 @@
-import type { IReactionPickerStyleClasses } from '$stylist/input/interface/component/reaction-picker/other';
-
 /**
  * Style utility class following Single Responsibility Principle
  * Responsible only for managing ReactionPicker styling logic

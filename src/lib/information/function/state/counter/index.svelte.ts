@@ -1,5 +1,5 @@
 import type { CounterRecipe } from '$stylist/information/interface/recipe/counter';
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 
 /**
  * Counter state creator

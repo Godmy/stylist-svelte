@@ -1,48 +1,44 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-const Folder = 'folder';
-const FolderOpen = 'folder-open';
-const File = 'file';
-const ChevronRight = 'chevron-right';
-const ChevronDown = 'chevron-down';
-
+  const Folder = 'folder';
+  const FolderOpen = 'folder-open';
+  const File = 'file';
+  const ChevronRight = 'chevron-right';
+  const ChevronDown = 'chevron-down';
+  import { createFileBrowserState } from '$stylist/file/function/state/file-browser';
   import type { FolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+  import type { Props } from '$stylist/file/type/struct/file-browser/props';
+  import {
+    toggleItem as toggleItemFn,
+    handleSelect as handleSelectFn,
+    handleAction as handleActionFn,
+    isExpanded as isExpandedFn,
+    getItemCount,
+  } from '$stylist/file/function/script/file-browser';
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+  let props: Props = $props();
 
-  type Props = RestProps & {
-    items: FolderItem[];
-    class?: string;
-    itemClass?: string;
-    contentClass?: string;
-    onItemSelect?: (item: FolderItem) => void;
-    onItemToggle?: (item: FolderItem, expanded: boolean) => void;
-    onItemAction?: (item: FolderItem, action: string) => void;
-    showItemCount?: boolean;
-    enableSelection?: boolean;
-    defaultExpanded?: boolean;
-    disabled?: boolean;
-  };
-
-  let {
-    items = [],
-    class: hostClass = '',
-    itemClass = '',
-    contentClass = '',
-    onItemSelect,
-    onItemToggle,
-    onItemAction,
-    showItemCount = true,
-    enableSelection = true,
-    defaultExpanded = false,
-    disabled = false,
-    ...restProps
-  }: Props = $props();
-
-  // State to manage expansion
+  let items = $derived(props.items ?? []);
+  let showItemCount = $derived(props.showItemCount ?? true);
+  let enableSelection = $derived(props.enableSelection ?? true);
+  let defaultExpanded = $derived(props.defaultExpanded ?? false);
   let expandedItems = $state<Set<string>>(new Set());
   let selectedItem: FolderItem | null = $state(null);
+
+  const state = createFileBrowserState(props);
+
+  let restProps = $derived.by(() => {
+    const {
+      items: _items,
+      class: _class, itemClass, contentClass,
+      onItemSelect, onItemToggle, onItemAction,
+      showItemCount: _showItemCount, enableSelection: _enableSelection,
+      defaultExpanded: _defaultExpanded, disabled,
+      ...rest
+    } = props;
+    return rest;
+  });
 
   // Initialize expanded items based on defaultExpanded prop
   $effect(() => {
@@ -63,52 +59,32 @@ const ChevronDown = 'chevron-down';
     }
   });
 
+  function setExpandedItems(items: Set<string>) {
+    expandedItems = items;
+  }
+
+  function setSelectedItem(item: FolderItem | null) {
+    selectedItem = item;
+  }
+
   function toggleItem(item: FolderItem) {
-    if (item.type === 'file' || disabled) return;
-    
-    const isExpanded = expandedItems.has(item.id);
-    if (isExpanded) {
-      expandedItems.delete(item.id);
-    } else {
-      expandedItems.add(item.id);
-    }
-    
-    onItemToggle?.(item, !isExpanded);
+    toggleItemFn(item, state.disabled, expandedItems, setExpandedItems, props.onItemToggle);
   }
 
   function handleSelect(item: FolderItem) {
-    if (!enableSelection || disabled) return;
-    selectedItem = item;
-    onItemSelect?.(item);
+    handleSelectFn(item, enableSelection, state.disabled, setSelectedItem, props.onItemSelect);
   }
 
   function handleAction(item: FolderItem, action: string) {
-    onItemAction?.(item, action);
+    handleActionFn(item, action, props.onItemAction);
   }
 
   function isExpanded(id: string): boolean {
-    return expandedItems.has(id);
-  }
-
-  function getItemCount(item: FolderItem): number {
-    if (!item.children) return 0;
-    
-    let count = 0;
-    const stack = [...item.children];
-    
-    while (stack.length) {
-      const current = stack.pop()!;
-      if (current.children) {
-        stack.push(...current.children);
-      }
-      count++;
-    }
-    
-    return count;
+    return isExpandedFn(id, expandedItems);
   }
 </script>
 
-<div class={`folder-tree ${hostClass}`} {...restProps}>
+<div class={`folder-tree ${state.classes}`} {...restProps}>
   <ul role="tree" class="space-y-1">
     {#each items as item}
       {@render TreeNode(item)}
@@ -117,18 +93,18 @@ const ChevronDown = 'chevron-down';
 </div>
 
 {#snippet TreeNode(item: FolderItem)}
-  <li 
-    role="treeitem" 
-    aria-expanded={item.children?.length ? isExpanded(item.id) : undefined} 
+  <li
+    role="treeitem"
+    aria-expanded={item.children?.length ? isExpanded(item.id) : undefined}
     aria-selected={selectedItem?.id === item.id}
     class="select-none"
   >
-    <div 
+    <div
       class={`flex items-center rounded-md px-3 py-2 text-sm cursor-pointer ${
         selectedItem?.id === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'hover:bg-[var(--color-background-secondary)]'
-      } ${disabled ? 'opacity-[var(--opacity-50)]' : ''} ${itemClass}`}
+      } ${state.disabled ? 'opacity-[var(--opacity-50)]' : ''} ${props.itemClass ?? ''}`}
       role="button"
-      tabindex={disabled ? -1 : 0}
+      tabindex={state.disabled ? -1 : 0}
       onclick={() => {
         handleSelect(item);
         if (item.type !== 'file') {
@@ -158,7 +134,7 @@ const ChevronDown = 'chevron-down';
             e.stopPropagation();
             toggleItem(item);
           }}
-          disabled={disabled}
+          disabled={state.disabled}
         >
           {#if isExpanded(item.id)}
             <BaseIcon name={ChevronDown} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -200,7 +176,3 @@ const ChevronDown = 'chevron-down';
     {/if}
   </li>
 {/snippet}
-
-
-
-

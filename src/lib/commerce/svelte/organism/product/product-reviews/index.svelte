@@ -1,4 +1,7 @@
 <script lang="ts">
+  import type { ProductReviewsProps } from '$stylist/commerce/type/struct/product-reviews-props';
+  import { createProductReviewsState } from '$stylist/commerce/function/state/product-reviews';
+
   let {
     reviews = [],
     averageRating = 0,
@@ -6,39 +9,9 @@
     showAddReview = false,
     onAddReview = (review: {title: string, content: string, rating: number}) => {},
     class: className = ''
-  } = $props<{
-    reviews: Array<{
-      id: string;
-      author: string;
-      rating: number;
-      title: string;
-      content: string;
-      date: string;
-      verified?: boolean;
-    }>;
-    averageRating?: number;
-    totalReviews?: number;
-    showAddReview?: boolean;
-    onAddReview?: (review: {title: string, content: string, rating: number}) => void;
-    class?: string;
-  }>();
+  }: ProductReviewsProps = $props();
 
-  let newReview = $state({
-    title: '',
-    content: '',
-    rating: 5
-  });
-
-  const submitReview = () => {
-    if (newReview.title && newReview.content) {
-      onAddReview({
-        title: newReview.title,
-        content: newReview.content,
-        rating: newReview.rating
-      });
-      newReview = { title: '', content: '', rating: 5 };
-    }
-  };
+  const state = createProductReviewsState({ reviews, averageRating, totalReviews, showAddReview, onAddReview, class: className });
 </script>
 
 <div class={`bg-[var(--color-background-primary)] rounded-lg shadow p-4 ${className}`}>
@@ -70,12 +43,12 @@
         <div class="flex">
           {#each Array(5) as _, i}
             <button
-              onclick={() => newReview.rating = i + 1}
+              onclick={() => state.setRating(i + 1)}
               class="mr-1"
               aria-label={`Rate ${i + 1} out of 5 stars`}
             >
               <svg
-                class={`w-6 h-6 ${i < newReview.rating ? 'text-yellow-400 fill-current' : 'text-[var(--color-text-tertiary)]'}`}
+                class={`w-6 h-6 ${i < state.newReview.rating ? 'text-yellow-400 fill-current' : 'text-[var(--color-text-tertiary)]'}`}
                 viewBox="0 0 24 24"
               >
                 <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
@@ -89,7 +62,7 @@
         <input
           id="review-title"
           type="text"
-          bind:value={newReview.title}
+          bind:value={state.newReview.title}
           class="w-full p-2 border border-[var(--color-border-primary)] rounded"
           placeholder="Summarize your review"
         />
@@ -98,14 +71,14 @@
         <label for="review-content" class="block text-sm font-medium mb-1">Review</label>
         <textarea
           id="review-content"
-          bind:value={newReview.content}
+          bind:value={state.newReview.content}
           class="w-full p-2 border border-[var(--color-border-primary)] rounded"
           rows="3"
           placeholder="Share your experience"
         ></textarea>
       </div>
       <button
-        onclick={submitReview}
+        onclick={() => state.submitReview()}
         class="px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]"
       >
         Submit Review

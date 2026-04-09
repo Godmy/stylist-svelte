@@ -64,8 +64,8 @@ export const createClickableState = (props: ClickProps) => {
 		},
 
 		// State
-		classes,
-		restProps,
+		get classes() { return classes; },
+		get restProps() { return restProps; },
 
 		// Handlers
 		handleClick,

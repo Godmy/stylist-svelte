@@ -2,14 +2,7 @@
 	import type { GraphNodeRecipe } from '$stylist/science/interface/recipe/graph-node';
 	import { createGraphNodeState } from '$stylist/canvas/function/state/graph-node';
 
-	type CanvasGraphNodeProps = GraphNodeRecipe & {
-		id: string;
-		label?: string;
-		type?: string;
-		interactive?: boolean;
-	};
-
-	let props: CanvasGraphNodeProps = $props();
+	let props: GraphNodeRecipe = $props();
 
 	const state = createGraphNodeState(props);
 	const label = $derived(props.label ?? props.id);

@@ -7,7 +7,7 @@
 	import type { DrawingSurfaceExposeMethodsEvent } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-expose-methods-event';
 	import type { DrawingSurfaceProps } from '$stylist/canvas/type/struct/drawing-surface/drawing-surface-props';
 
-	const dispatch = createEventDispatcher<{
+	let dispatch = createEventDispatcher<{
 		'canvas-cleared': DrawingSurfaceCanvasClearedEvent;
 		'expose-methods': DrawingSurfaceExposeMethodsEvent;
 	}>();

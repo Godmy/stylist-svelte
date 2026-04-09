@@ -1,10 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { GraphEdgeProps, GraphNodeProps } from './graph';
 export type { GraphEdgeRecipe } from './graph-edge';
 export type { GraphvizDirectedEdgeRecipe } from './graphviz-directed-edge';
 export type { LiteGraphNodeProps, LitegraphNodePresentation } from './litegraph-node';
 export type { NodePropertyRecipe } from './node-property';
 export type { NodeTitleRecipe, NodeTitleVariant } from './node-title';
+export type { ConnectionLineRecipe, ConnectionPathResult, Point } from './connection-line';
 export type { GraphRecipe } from './graph';
 export type { GraphCanvasPosition, GraphCanvasRecipe, GraphCanvasViewport } from './graph-canvas';
 export type { GraphNodeRecipe } from './graph-node';

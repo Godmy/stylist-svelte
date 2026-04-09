@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ScienceHTMLAttributes, ThemeSceneColors } from './struct';
-export type { ChildrenHtmlAttributes, Model, ModelSelectorProps } from './struct';
+export type { GraphEditorConnectionData, GraphEditorNodeData, GraphEditorPaletteNode, GraphEditorProps, GraphNodeCardData, GraphNodeCardProps, Idef0BlackBoxProps, Idef0DiagramProps, Idef0InputsProps, Idef0Model, Idef0OutputsProps, Idef0Port, LitegraphCanvasNodeAddPayload, LitegraphNodeProps, NodeHeaderProps, OntologyEdge, OntologyNode, PortGroupProps, Position2D, ScienceHTMLAttributes, ThemeSceneColors } from './struct';
+export type { ChildrenHtmlAttributes, Model, ModelSelectorProps, OntologyEdgeComponentProps, OntologyNodeComponentProps } from './struct';

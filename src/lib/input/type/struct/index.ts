@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { InputTextStateOptions } from './input-text-state-options';
+export type { TextAreaStateOptions } from './text-area-state-options';
 export type { ColorItem } from './color-palette';
 export type { InputAttributesBase } from './input-attributes-base';
 export type { InputFieldBaseProps } from './input-field-base-props';

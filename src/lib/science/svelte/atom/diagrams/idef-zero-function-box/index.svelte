@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Idef0FunctionBoxRecipe as Idef0FunctionBoxProps } from '$stylist/science/interface/recipe/idef0-function-box';
-	import { createIdef0FunctionBoxState } from '$stylist/information/function/state/idef0';
+	import { createIdef0FunctionBoxState } from '$stylist/science/function/state/idef0';
 
 	let props: Idef0FunctionBoxProps = $props();
 	const state = createIdef0FunctionBoxState(props);

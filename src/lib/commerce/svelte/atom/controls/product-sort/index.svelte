@@ -1,17 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+	import type { ProductSortProps } from '$stylist/commerce/type/struct/product-sort-props';
 	import { createProductSortState } from '$stylist/commerce/function/state/product-sort';
 
-	type ProductSortOption = string | { value: string; label: string };
-	type ProductSortProps = {
-		options?: ProductSortOption[];
-		selectedOption?: string;
-		onValueChange?: (option: string) => void;
-		class?: string;
-	};
-
-	type Props = ProductSortProps & InteractionHTMLAttributes<HTMLDivElement>;
-	let props: Props = $props();
+	let props: ProductSortProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {
@@ -25,24 +16,19 @@
 		})()
 	);
 
-	const sortState = createProductSortState(props);
-	let localSelectedOption = $state(sortState.selectedOption);
-
-	$effect(() => {
-		localSelectedOption = sortState.selectedOption;
-	});
+	const productSortState = createProductSortState(props);
 </script>
 
-<div class={sortState.classes} {...restProps}>
-	<span class={sortState.labelClasses}>Sort by:</span>
+<div class={productSortState.classes} {...restProps}>
+	<span class={productSortState.labelClasses}>Sort by:</span>
 	<select
-		bind:value={localSelectedOption}
-		onchange={() => {
-			sortState.handleSortChange(localSelectedOption);
+		value={productSortState.selectedOption}
+		onchange={(event) => {
+			productSortState.handleSortChange((event.currentTarget as HTMLSelectElement).value);
 		}}
-		class={sortState.selectClasses}
+		class={productSortState.selectClasses}
 	>
-		{#each sortState.options as option}
+		{#each productSortState.options as option}
 			{#if typeof option === 'string'}
 				<option value={option}>{option}</option>
 			{:else}
@@ -51,9 +37,3 @@
 		{/each}
 	</select>
 </div>
-
-
-
-
-
-

@@ -1,41 +1,26 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
+	import type { BaseCardProps } from '$stylist/commerce/type/struct/base-card-props';
+	import { createBaseCardState } from '$stylist/commerce/function/state/base-card';
 
-	type Props = HTMLAttributes<HTMLDivElement> & {
-		title?: string;
-		description?: string;
-		headerClass?: string;
-		bodyClass?: string;
-		footerClass?: string;
-	};
-
-	let {
-		title,
-		description,
-		headerClass = '',
-		bodyClass = '',
-		footerClass = '',
-		class: className = '',
-		children,
-		...restProps
-	}: Props = $props();
+	let props: BaseCardProps = $props();
+	const state = createBaseCardState(props);
 </script>
 
-<div class={`base-card rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] ${className}`} {...restProps}>
-	{#if title || description}
-		<div class={`base-card__header p-4 border-b border-[var(--color-border-primary)] ${headerClass}`}>
-			{#if title}
-				<h3 class="text-lg font-semibold">{title}</h3>
+<div class={state.containerClasses} {...props}>
+	{#if state.hasHeader}
+		<div class={state.headerClasses}>
+			{#if props.title}
+				<h3 class="text-lg font-semibold">{props.title}</h3>
 			{/if}
-			{#if description}
-				<p class="text-sm text-[var(--color-text-secondary)]">{description}</p>
+			{#if props.description}
+				<p class="text-sm text-[var(--color-text-secondary)]">{props.description}</p>
 			{/if}
 		</div>
 	{/if}
 	
-	<div class={`base-card__body p-4 ${bodyClass}`}>
-		{#if children}
-			{@render children()}
+	<div class={state.bodyClasses}>
+		{#if props.children}
+			{@render props.children()}
 		{/if}
 	</div>
 </div>

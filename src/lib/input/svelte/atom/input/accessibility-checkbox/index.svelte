@@ -1,15 +1,7 @@
 <script lang="ts">
-  import { createAccessibilityCheckboxState } from '$stylist/notification/function/state/accessibility-checkbox';
+  import { createInputAccessibilityCheckboxState } from '$stylist/input/function/state/accessibility-checkbox';
 
-  let {
-    label = '',
-    checked = false,
-    disabled = false,
-    onValueInput,
-    onValueChange,
-    onChange = (value: boolean) => {},
-    class: className = ''
-  } = $props<{
+  let props = $props<{
     label?: string;
     checked?: boolean;
     disabled?: boolean;
@@ -18,43 +10,31 @@
     onChange?: (value: boolean) => void;
     class?: string;
   }>();
+  const state = createInputAccessibilityCheckboxState(props);
 
-  let localChecked = $state(checked);
-  const viewState = $derived(
-    createAccessibilityCheckboxState({ checked: localChecked, disabled, class: className })
-  );
-
-  $effect(() => {
-    localChecked = checked;
-  });
-
-  const handleChange = () => {
-    if (!disabled) {
-      localChecked = !localChecked;
-      onValueInput?.(localChecked);
-      onValueChange?.(localChecked);
-      onChange(localChecked);
-    }
-  };
+  let {
+    label = '',
+    disabled = false
+  } = props;
 </script>
 
-<div class={viewState.containerClasses}>
+<div class={state.containerClasses}>
   <label class="flex items-center cursor-pointer">
     <input
       type="checkbox"
       class="sr-only"
-      bind:checked={localChecked}
+      checked={state.checked}
       disabled={disabled}
-      onchange={handleChange}
+      onchange={state.handleChange}
     />
-    <div class={viewState.indicatorClasses}>
-      {#if localChecked}
+    <div class={state.indicatorClasses}>
+      {#if state.checked}
         <svg class="w-4 h-4 text-[var(--color-text-inverse)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
         </svg>
       {/if}
     </div>
-    <span class={viewState.labelClasses}>{label}</span>
+    <span class={state.labelClasses}>{label}</span>
   </label>
 </div>
 

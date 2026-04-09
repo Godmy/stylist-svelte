@@ -1,85 +1,113 @@
-import type { ViewportState } from '../viewport-state/index.svelte.ts';
-import type { ViewportInput } from '../viewport-input/index.svelte.ts';
-import type { Bounds } from '../viewport-bounds/index.svelte.ts';
-import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
+import { ViewportStyleManager } from '$stylist/canvas/class/style-manager/viewport';
+import type { ViewportProps } from '$stylist/canvas/type/struct/viewport/viewport-props';
 
-function useViewport(initialState?: ViewportInput) {
-	let state = $state<ViewportState>({
-		x: initialState?.x ?? 0,
-		y: initialState?.y ?? 0,
-		zoom: initialState?.zoom ?? 1,
-		width: initialState?.width ?? 1920,
-		height: initialState?.height ?? 1080
+export function createViewportState(props: ViewportProps) {
+	let isDragging = $state(false);
+	let lastX = $state(0);
+	let lastY = $state(0);
+
+	const camera = $derived(props.camera);
+	const interactive = $derived(props.interactive ?? true);
+	const showGrid = $derived(props.showGrid ?? false);
+	const worldWidth = $derived(props.worldWidth ?? 10000);
+	const worldHeight = $derived(props.worldHeight ?? 10000);
+	const classes = $derived(
+		ViewportStyleManager.getViewportClass(isDragging, typeof props.class === 'string' ? props.class : undefined)
+	);
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			camera: _camera,
+			interactive: _interactive,
+			showGrid: _showGrid,
+			worldWidth: _worldWidth,
+			worldHeight: _worldHeight,
+			children: _children,
+			...rest
+		} = props;
+		return rest;
 	});
 
-	const pan = (dx: number, dy: number) => {
-		state.x += dx;
-		state.y += dy;
-	};
+	function handleMouseDown(event: MouseEvent): void {
+		if (!interactive) return;
+		isDragging = true;
+		lastX = event.clientX;
+		lastY = event.clientY;
+	}
 
-	const zoomAtPoint = (delta: number, pointX: number, pointY: number) => {
-		const oldZoom = state.zoom;
-		const newZoom = Math.max(0.1, Math.min(5, state.zoom * (1 + delta)));
-		const scale = newZoom / oldZoom;
-		state.x = pointX - (pointX - state.x) * scale;
-		state.y = pointY - (pointY - state.y) * scale;
-		state.zoom = newZoom;
-	};
+	function handleMouseMove(event: MouseEvent): void {
+		if (!interactive || !isDragging) return;
+		const dx = event.clientX - lastX;
+		const dy = event.clientY - lastY;
+		camera.x -= dx / camera.zoom;
+		camera.y -= dy / camera.zoom;
+		lastX = event.clientX;
+		lastY = event.clientY;
+	}
 
-	const zoomBy = (delta: number) => {
-		state.zoom = Math.max(0.1, Math.min(5, state.zoom * (1 + delta)));
-	};
+	function handleMouseUp(): void {
+		isDragging = false;
+	}
 
-	const setZoom = (zoom: number) => {
-		state.zoom = Math.max(0.1, Math.min(5, zoom));
-	};
+	function handleWheel(event: WheelEvent): void {
+		if (!interactive) return;
+		event.preventDefault();
+		const delta = -event.deltaY * 0.001;
+		camera.zoom = Math.max(0.1, Math.min(5, camera.zoom * (1 + delta)));
+	}
 
-	const fitToBounds = (bounds: Bounds, padding = 40) => {
-		const scaleX = (state.width - padding * 2) / bounds.width;
-		const scaleY = (state.height - padding * 2) / bounds.height;
-		state.zoom = Math.min(scaleX, scaleY, 1);
-		state.x = bounds.x + bounds.width / 2;
-		state.y = bounds.y + bounds.height / 2;
-	};
+	function handleKeyDown(event: KeyboardEvent): void {
+		if (!interactive) return;
 
-	const reset = () => {
-		state.x = 0;
-		state.y = 0;
-		state.zoom = 1;
-	};
-
-	const getPresentation = (worldDepth: number) => {
-		return resolveSemanticZoomPresentation(worldDepth, state.zoom);
-	};
+		switch (event.key) {
+			case 'ArrowLeft':
+				event.preventDefault();
+				camera.x -= 60 / camera.zoom;
+				break;
+			case 'ArrowRight':
+				event.preventDefault();
+				camera.x += 60 / camera.zoom;
+				break;
+			case 'ArrowUp':
+				event.preventDefault();
+				camera.y -= 60 / camera.zoom;
+				break;
+			case 'ArrowDown':
+				event.preventDefault();
+				camera.y += 60 / camera.zoom;
+				break;
+			case '+':
+			case '=':
+				event.preventDefault();
+				camera.zoom = Math.min(5, camera.zoom * 1.12);
+				break;
+			case '-':
+			case '_':
+				event.preventDefault();
+				camera.zoom = Math.max(0.1, camera.zoom / 1.12);
+				break;
+			case '0':
+				event.preventDefault();
+				camera.zoom = 1;
+				break;
+		}
+	}
 
 	return {
-		get state() {
-			return state;
-		},
-		get x() {
-			return state.x;
-		},
-		get y() {
-			return state.y;
-		},
-		get zoom() {
-			return state.zoom;
-		},
-		get width() {
-			return state.width;
-		},
-		get height() {
-			return state.height;
-		},
-		pan,
-		zoomAtPoint,
-		zoomBy,
-		setZoom,
-		fitToBounds,
-		reset,
-		getPresentation
+		get camera() { return camera; },
+		get interactive() { return interactive; },
+		get showGrid() { return showGrid; },
+		get worldWidth() { return worldWidth; },
+		get worldHeight() { return worldHeight; },
+		get isDragging() { return isDragging; },
+		get classes() { return classes; },
+		get restProps() { return restProps; },
+		handleMouseDown,
+		handleMouseMove,
+		handleMouseUp,
+		handleWheel,
+		handleKeyDown
 	};
 }
 
-export { useViewport };
-export default useViewport;
+export default createViewportState;

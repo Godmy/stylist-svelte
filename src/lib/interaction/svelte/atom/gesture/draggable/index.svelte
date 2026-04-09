@@ -18,7 +18,7 @@
 	ondragover={state.handleDragOver}
 	ondrop={state.handleDrop}
 >
-	{#if state.showDragHandle && state.draggable && !state.disabled}
+	{#if state.showHandle && state.draggable && !state.disabled}
 		<div class="drag-handle-icon absolute top-2 right-2 opacity-50">
 			<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
 				<circle cx="4" cy="4" r="1.5" />

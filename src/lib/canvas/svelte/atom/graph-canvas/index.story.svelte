@@ -4,14 +4,6 @@
 	import GraphCanvas from './index.svelte';
 	import { GraphNode } from '$stylist';
 
-	type Props = {
-		gridMode: 'dot' | 'number' | 'letter' | 'check' | 'x';
-		panMode: 'drag' | 'space' | 'always';
-		zoom: number;
-		gridSize: number;
-		snapToGrid: boolean;
-	};
-
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'gridMode', type: 'select', defaultValue: 'dot', options: ['dot', 'number', 'letter', 'check', 'x'] },
 		{ name: 'panMode', type: 'select', defaultValue: 'drag', options: ['drag', 'space', 'always'] },
@@ -30,14 +22,13 @@
 	tags={['graph', 'canvas', 'grid']}
 >
 	{#snippet children(values: any)}
-		{@const typed = values as Props}
 		<div style="background: #0f0f0f; padding: var(--spacing-5); border-radius: var(--border-radius-lg);">
 			<GraphCanvas
-				gridMode={typed.gridMode}
-				panMode={typed.panMode}
-				zoom={typed.zoom}
-				gridSize={typed.gridSize}
-				snapToGrid={typed.snapToGrid}
+				gridMode={values.gridMode}
+				panMode={values.panMode}
+				zoom={values.zoom}
+				gridSize={values.gridSize}
+				snapToGrid={values.snapToGrid}
 				width={720}
 				height={320}
 				backgroundColor="#1e1e1e"

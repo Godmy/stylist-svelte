@@ -195,30 +195,78 @@ export const createContentEditorState = (props: ContentEditorStateProps) => {
 		handleSave,
 
 		// Classes
-		rootClasses,
-		toolbarClasses,
-		editorClasses,
-		contentClasses,
-		activeElementClasses,
-		inactiveElementClasses,
-		buttonClasses,
-		dividerClasses,
-		iconButtonClasses,
-		moveButtonClasses,
-		deleteButtonClasses,
-		addButtonTextClasses,
-		addIconClasses,
-		previewClasses,
-		headingClasses,
-		quoteClasses,
-		listClasses,
-		textareaClasses,
-		headingInputClasses,
-		quoteTextareaClasses,
-		imagePlaceholderClasses,
-		imagePlaceholderIconClasses,
-		imagePlaceholderTextClasses,
-		imagePlaceholderHintClasses
+		get rootClasses() {
+			return rootClasses;
+		},
+		get toolbarClasses() {
+			return toolbarClasses;
+		},
+		get editorClasses() {
+			return editorClasses;
+		},
+		get contentClasses() {
+			return contentClasses;
+		},
+		get activeElementClasses() {
+			return activeElementClasses;
+		},
+		get inactiveElementClasses() {
+			return inactiveElementClasses;
+		},
+		get buttonClasses() {
+			return buttonClasses;
+		},
+		get dividerClasses() {
+			return dividerClasses;
+		},
+		get iconButtonClasses() {
+			return iconButtonClasses;
+		},
+		get moveButtonClasses() {
+			return moveButtonClasses;
+		},
+		get deleteButtonClasses() {
+			return deleteButtonClasses;
+		},
+		get addButtonTextClasses() {
+			return addButtonTextClasses;
+		},
+		get addIconClasses() {
+			return addIconClasses;
+		},
+		get previewClasses() {
+			return previewClasses;
+		},
+		get headingClasses() {
+			return headingClasses;
+		},
+		get quoteClasses() {
+			return quoteClasses;
+		},
+		get listClasses() {
+			return listClasses;
+		},
+		get textareaClasses() {
+			return textareaClasses;
+		},
+		get headingInputClasses() {
+			return headingInputClasses;
+		},
+		get quoteTextareaClasses() {
+			return quoteTextareaClasses;
+		},
+		get imagePlaceholderClasses() {
+			return imagePlaceholderClasses;
+		},
+		get imagePlaceholderIconClasses() {
+			return imagePlaceholderIconClasses;
+		},
+		get imagePlaceholderTextClasses() {
+			return imagePlaceholderTextClasses;
+		},
+		get imagePlaceholderHintClasses() {
+			return imagePlaceholderHintClasses;
+		}
 	};
 };
 

@@ -16,8 +16,9 @@ import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-ca
 
 export function createSharedCanvasState(contract: SharedCanvasContract) {
 	let selectedTool = $state<SharedCanvasTool>('select');
-	const currentUser = $derived(contract.users?.find(u => u.id === contract.currentUserId));
-	let selectedColor = $state(currentUser?.color ?? 'var(--color-primary-500)');
+	let selectedColor = $state(
+		contract.users?.find(u => u.id === contract.currentUserId)?.color ?? 'var(--color-primary-500)'
+	);
 	let isDrawing = $state(false);
 	let startPoint = $state<SharedCanvasPoint>({ x: 0, y: 0 });
 	let currentPoint = $state<SharedCanvasPoint>({ x: 0, y: 0 });

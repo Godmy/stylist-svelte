@@ -1,155 +1,33 @@
 <script lang="ts">
-	import type { ScheduleCalendarContract, ScheduleCalendarEvent, ScheduleCalendarTimeSlot, ScheduleCalendarDaySchedule } from '$stylist/calendar/interface/record/calendar';
+	import { createScheduleCalendarState } from '$stylist/calendar/function/state/schedule-calendar';
+	import type { ScheduleCalendarStateProps } from '$stylist/calendar/function/state/schedule-calendar';
 	import { Icon as BaseIcon, Button } from '$stylist';
 	import { TimeSlot } from '$stylist/calendar/svelte/atom/time-slot';
-	import { ScheduleCalendarStyleManager } from '$stylist/calendar/class/style-manager/schedule-calendar';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
 	const Clock = 'clock';
 	const MapPin = 'map-pin';
-	const Users = 'users';
 
-	let props: ScheduleCalendarContract = $props();
-	let {
-		events = [],
-		startDate = new Date(),
-		endDate = new Date(new Date().setDate(new Date().getDate() + 6)),
-		startTime = 8,
-		endTime = 20,
-		showHeader = true,
-		showTimeGutter = true,
-		timeSlotHeight = 60,
-		children,
-		class: hostClass = '',
-		slotClass = '',
-		eventClass = '',
-		headerClass = '',
-		onEventClick,
-		onSlotClick,
-		...restProps
-	} = props;
-
-	let viewStartDate = $state(new Date(startDate));
-	let viewEndDate = $state(new Date(endDate));
-
-	const wrapperClasses = $derived(ScheduleCalendarStyleManager.getWrapperClasses(hostClass));
-	const headerClasses = $derived(ScheduleCalendarStyleManager.getHeaderClasses(headerClass));
-	const gridClasses = $derived(ScheduleCalendarStyleManager.getGridClasses());
-
-	function generateTimeSlots(): ScheduleCalendarTimeSlot[] {
-		const slots: ScheduleCalendarTimeSlot[] = [];
-		for (let hour = startTime; hour < endTime; hour++) {
-			const period = hour >= 12 ? 'PM' : 'AM';
-			const displayHour = hour % 12 || 12;
-			slots.push({
-				time: `${displayHour} ${period}`,
-				hour,
-				events: []
-			});
-		}
-		return slots;
-	}
-
-	function generateSchedule(): ScheduleCalendarDaySchedule[] {
-		const schedule: ScheduleCalendarDaySchedule[] = [];
-		const daysCount = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-
-		for (let i = 0; i <= daysCount; i++) {
-			const date = new Date(startDate);
-			date.setDate(startDate.getDate() + i);
-
-			if (date > endDate) break;
-
-			const slots = generateTimeSlots();
-
-			for (const event of events) {
-				const eventDay = new Date(event.start);
-				eventDay.setHours(0, 0, 0, 0);
-				const dateDay = new Date(date);
-				dateDay.setHours(0, 0, 0, 0);
-
-				if (eventDay.getTime() === dateDay.getTime()) {
-					const hour = event.start.getHours();
-					const slotIndex = hour - startTime;
-
-					if (slotIndex >= 0 && slotIndex < slots.length) {
-						slots[slotIndex].events.push(event);
-					}
-				}
-			}
-
-			schedule.push({
-				date,
-				dayOfWeek: date.toLocaleDateString('en-US', { weekday: 'short' }),
-				dateStr: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-				slots
-			});
-		}
-
-		return schedule;
-	}
-
-	function handleEventClick(event: ScheduleCalendarEvent) {
-		onEventClick?.(event);
-	}
-
-	function handleSlotClick(date: Date, hour: number) {
-		const slotDate = new Date(date);
-		slotDate.setHours(hour, 0, 0, 0);
-		onSlotClick?.(slotDate);
-	}
-
-	function navigateWeek(direction: number) {
-		const newStart = new Date(viewStartDate);
-		newStart.setDate(viewStartDate.getDate() + direction * 7);
-		const newEnd = new Date(viewEndDate);
-		newEnd.setDate(viewEndDate.getDate() + direction * 7);
-
-		viewStartDate = newStart;
-		viewEndDate = newEnd;
-	}
-
-	function navigateToToday() {
-		const today = new Date();
-		today.setHours(0, 0, 0, 0);
-		const start = new Date(today);
-		start.setDate(today.getDate() - today.getDay());
-		const end = new Date(start);
-		end.setDate(start.getDate() + 6);
-
-		viewStartDate = start;
-		viewEndDate = end;
-	}
-
-	let schedule = $derived(generateSchedule());
-
-	function isToday(date: Date): boolean {
-		const today = new Date();
-		return date.toDateString() === today.toDateString();
-	}
-
-	function isWeekend(date: Date): boolean {
-		const day = date.getDay();
-		return day === 0 || day === 6;
-	}
+	let props: ScheduleCalendarStateProps = $props();
+	const state = createScheduleCalendarState(props);
 </script>
 
-<div class={`c-schedule-calendar ${wrapperClasses}`} {...restProps}>
-	{#if showHeader}
-		<div class={headerClasses}>
+<div class={`c-schedule-calendar ${state.wrapperClasses}`} {...state.restProps}>
+	{#if state.showHeader}
+		<div class={state.headerClasses}>
 			<div class="flex items-center">
-				<Button variant="ghost" size="sm" onclick={() => navigateWeek(-1)}>
+				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(-1)}>
 					<BaseIcon name={ChevronLeft} class="h-5 w-5" />
 				</Button>
-				<Button variant="ghost" size="sm" onclick={navigateToToday} class="mx-2">
+				<Button variant="ghost" size="sm" onclick={state.navigateToToday} class="mx-2">
 					Today
 				</Button>
-				<Button variant="ghost" size="sm" onclick={() => navigateWeek(1)}>
+				<Button variant="ghost" size="sm" onclick={() => state.navigateWeek(1)}>
 					<BaseIcon name={ChevronRight} class="h-5 w-5" />
 				</Button>
 				<h2 class="ml-4 text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]">
-					{viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+					{state.viewStartDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
 				</h2>
 			</div>
 
@@ -161,19 +39,19 @@
 		</div>
 	{/if}
 
-	{#if children}
+	{#if props.children}
 		<div class="schedule-content">
-			{@render children()}
+			{@render props.children()}
 		</div>
 	{:else}
-		<div class={gridClasses}>
-			{#if showTimeGutter}
-				<div class={ScheduleCalendarStyleManager.getTimeGutterClasses()}>
+		<div class={state.gridClasses}>
+			{#if state.showTimeGutter}
+				<div class={state.getTimeGutterClasses()}>
 					<div class="h-[--spacing-xl]"></div>
-					{#each generateTimeSlots() as slot}
+					{#each state.generateTimeSlots() as slot}
 						<div
-							class={ScheduleCalendarStyleManager.getTimeSlotClasses()}
-							style={`height: ${timeSlotHeight}px;`}
+							class={state.getTimeSlotClasses()}
+							style={`height: ${state.timeSlotHeight}px;`}
 						>
 							{slot.time}
 						</div>
@@ -181,9 +59,9 @@
 				</div>
 			{/if}
 
-			{#each schedule as day}
-				<div class={ScheduleCalendarStyleManager.getDayColumnClasses(isWeekend(day.date))}>
-					<div class={`${ScheduleCalendarStyleManager.getDayHeaderClasses(isToday(day.date), headerClass)}`}>
+			{#each state.schedule as day}
+				<div class={state.getDayColumnClasses(day.date)}>
+					<div class={state.getDayHeaderClasses(day.date)}>
 						<div class="font-[--font-weight-semibold]">{day.dayOfWeek}</div>
 						<div>{day.dateStr}</div>
 					</div>
@@ -195,25 +73,25 @@
 							timeLabel={slot.time}
 							available={true}
 							events={slot.events as any}
-							class={slotClass}
-							onClick={() => handleSlotClick(day.date, slot.hour)}
+							class={state.slotClass}
+							onClick={() => state.handleSlotClick(day.date, slot.hour)}
 						/>
 
 						{#each slot.events as event}
 							<div
-								class={ScheduleCalendarStyleManager.getEventClasses(event.color, eventClass)}
+								class={state.getEventClasses(event.color)}
 								style={`position: absolute; top: ${(slot.events.indexOf(event) * 20) + 2}px;`}
 								role="button"
 								tabindex="0"
 								onclick={(e) => {
 									e.stopPropagation();
-									handleEventClick(event);
+									state.handleEventClick(event);
 								}}
 								onkeydown={(e) => {
 									if (e.key === 'Enter' || e.key === ' ') {
 										e.preventDefault();
 										e.stopPropagation();
-										handleEventClick(event);
+										state.handleEventClick(event);
 									}
 								}}
 							>
@@ -229,7 +107,7 @@
 									</div>
 								{/if}
 								{#if event.priority}
-									<span class={ScheduleCalendarStyleManager.getPriorityBadgeClasses(event.priority)}>
+									<span class={state.getPriorityBadgeClasses(event.priority)}>
 										{event.priority}
 									</span>
 								{/if}

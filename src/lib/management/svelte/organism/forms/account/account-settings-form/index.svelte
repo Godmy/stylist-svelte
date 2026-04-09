@@ -1,20 +1,13 @@
 <script lang="ts">
+  import { createAccountSettingsFormState } from '$stylist/management/function/state/account-settings-form';
   import type { AccountSettingsFormProps } from '$stylist/form/interface/component/account-forms/other';
-  import { AccountFormsStyleManager } from '$stylist/form/class/style-manager/account-forms';
-  let { name='John Doe', email='john@example.com', locale='en-US', class: className='', ...restProps }: AccountSettingsFormProps = $props();
-  const nameId = 'account-settings-name';
-  const emailId = 'account-settings-email';
-  const localeId = 'account-settings-locale';
+
+  let props: AccountSettingsFormProps = $props();
+  const state = createAccountSettingsFormState(props);
 </script>
-<form class={AccountFormsStyleManager.root('c-account-settings-form border rounded-lg p-4 space-y-3', className)} {...restProps}>
-  <div><label class="text-sm" for={nameId}>Name</label><input id={nameId} class="w-full border rounded px-2 py-1" value={name} /></div>
-  <div><label class="text-sm" for={emailId}>Email</label><input id={emailId} class="w-full border rounded px-2 py-1" value={email} /></div>
-  <div><label class="text-sm" for={localeId}>Locale</label><input id={localeId} class="w-full border rounded px-2 py-1" value={locale} /></div>
+<form class={state.containerClasses} {...state.restProps}>
+  <div><label class="text-sm" for={state.nameId}>Name</label><input id={state.nameId} class="w-full border rounded px-2 py-1" value={state.name} /></div>
+  <div><label class="text-sm" for={state.emailId}>Email</label><input id={state.emailId} class="w-full border rounded px-2 py-1" value={state.email} /></div>
+  <div><label class="text-sm" for={state.localeId}>Locale</label><input id={state.localeId} class="w-full border rounded px-2 py-1" value={state.locale} /></div>
   <button type="submit" class="px-3 py-1 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded">Save</button>
 </form>
-
-
-
-
-
-

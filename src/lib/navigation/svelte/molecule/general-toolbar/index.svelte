@@ -1,39 +1,10 @@
 <script lang="ts">
   import { Button } from '$stylist';
-  import { createEventDispatcher } from 'svelte';
+  import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props';
+  import { createGeneralToolbarState } from '$stylist/navigation/function/state/general-toolbar';
 
-  type ToolbarItem = {
-    id: string;
-    label: string;
-    icon: string;
-    action: () => void;
-  };
-
-  interface ToolbarRecipe {
-    toolbarItems?: ToolbarItem[];
-    compact?: boolean;
-    disabled?: boolean;
-    class?: string;
-  }
-
-  let {
-    toolbarItems = [],
-    compact = false,
-    disabled = false,
-    class: className = ''
-  }: ToolbarRecipe = $props();
-
-  // Events
-  const dispatch = createEventDispatcher<{
-    togglelegend: {};
-    togglesearch: {};
-  }>();
-
-  // Local state
-  let showButtons = $state(true);
-
-  // Helper function to get button size based on compact prop
-  const getButtonSize = () => compact ? 'sm' : 'md';
+  let props: GeneralToolbarRecipe = $props();
+  const state = createGeneralToolbarState(props);
 </script>
 
 <style>
@@ -48,23 +19,19 @@
   }
 </style>
 
-<div class="toolbar" class:className>
-  {#each toolbarItems as item}
+<div class="toolbar" class:{props.class}>{#each props.toolbarItems ?? [] as item}
     <Button
       variant="ghost"
-      size={getButtonSize()}
+      size={state.buttonSize}
       onclick={() => {
-        if (!disabled) {
+        if (!props.disabled) {
           item.action();
         }
       }}
       title={item.label}
-      disabled={disabled}
+      disabled={props.disabled}
     >
       {item.icon}
     </Button>
   {/each}
 </div>
-
-
-

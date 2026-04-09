@@ -2,7 +2,7 @@ import type { PresentationMode } from '../presentation-mode/index.svelte.ts';
 import type { PresentationFrame } from '../presentation-frame/index.svelte.ts';
 import type { PresentationState } from '../presentation-state/index.svelte.ts';
 
-function usePresentation(initialFrames?: PresentationFrame[]) {
+export function usePresentation(initialFrames?: PresentationFrame[]) {
 	let state = $state<PresentationState>({
 		mode: 'overview',
 		currentFrameIndex: 0,
@@ -114,5 +114,4 @@ function usePresentation(initialFrames?: PresentationFrame[]) {
 	};
 }
 
-export { usePresentation };
 export default usePresentation;

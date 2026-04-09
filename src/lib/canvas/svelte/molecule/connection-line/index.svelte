@@ -3,30 +3,30 @@
 	import { createConnectionLineState } from '$stylist/canvas/function/state/connection-line';
 
 	let props: ConnectionLineRecipe = $props();
-	const connState = createConnectionLineState(props);
+	const state = createConnectionLineState(props);
 </script>
 
 <g
-	class={connState.classes}
-	data-connection-id={connState.id}
+	class={state.classes}
+	data-connection-id={state.id}
 >
-	{#if connState.showArrow}
+	{#if state.showArrow}
 		<defs>
-			{@html connState.arrowMarkerHtml}
+			{@html state.arrowMarkerHtml}
 		</defs>
 	{/if}
 
 	<path
-		d={`M ${connState.startX} ${connState.startY} C ${connState.startX + 50} ${connState.startY}, ${connState.endX - 50} ${connState.endY}, ${connState.endX} ${connState.endY}`}
-		class={connState.pathClasses}
+		d={`M ${state.startX} ${state.startY} C ${state.startX + 50} ${state.startY}, ${state.endX - 50} ${state.endY}, ${state.endX} ${state.endY}`}
+		class={state.pathClasses}
 		fill="none"
-		stroke={connState.color}
-		stroke-width={connState.width}
-		stroke-dasharray={connState.dashArray}
+		stroke={state.color}
+		stroke-width={state.width}
+		stroke-dasharray={state.dashArray}
 		stroke-linecap="round"
-		{...(connState.showArrow ? { 'marker-end': `url(#${connState.arrowMarkerId})` } : {})}
+		{...(state.showArrow ? { 'marker-end': `url(#${state.arrowMarkerId})` } : {})}
 	>
-		{#if connState.animated}
+		{#if state.animated}
 			<animate
 				attributeName="stroke-dasharray"
 				from="0, 1000"
@@ -38,18 +38,18 @@
 	</path>
 
 	<path
-		d={`M ${connState.startX} ${connState.startY} C ${connState.startX + 50} ${connState.startY}, ${connState.endX - 50} ${connState.endY}, ${connState.endX} ${connState.endY}`}
-		class={connState.hitAreaClasses}
+		d={`M ${state.startX} ${state.startY} C ${state.startX + 50} ${state.startY}, ${state.endX - 50} ${state.endY}, ${state.endX} ${state.endY}`}
+		class={state.hitAreaClasses}
 		fill="none"
 		stroke="transparent"
 		stroke-width="calc(var(--connection-stroke-width) + 10px)"
 		style="pointer-events: stroke;"
 	/>
 
-	{#if connState.label}
+	{#if state.label}
 		<text
-			x={(connState.startX + connState.endX) / 2}
-			y={(connState.startY + connState.endY) / 2}
+			x={(state.startX + state.endX) / 2}
+			y={(state.startY + state.endY) / 2}
 			text-anchor="middle"
 			dominant-baseline="middle"
 			class="connection-line__label"
@@ -57,7 +57,7 @@
 			font-size="10"
 			font-weight="500"
 		>
-			{connState.label}
+			{state.label}
 		</text>
 	{/if}
 </g>

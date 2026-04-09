@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist';
 const TestTube = 'test-tube';
 const GitBranch = 'git-branch';
@@ -12,128 +11,15 @@ const BarChart3 = 'bar-chart-3';
 const Plus = 'plus';
 
   import type { IABTestConfiguratorProps } from '$stylist/marketing/interface/component/abtest-configurator/other';
-  import type { ABTest, ABTestVariant } from '$stylist/marketing/interface/component/abtest-configurator/other';
   import { ABTestConfiguratorStyleManager } from '$stylist/marketing/class/style-manager/abtest-configurator';
-  import { validateABTest } from '$stylist/marketing/function/script/validate-ab-test';
-  import { calculateABTestTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
-  import { addABTestVariant } from '$stylist/marketing/function/script/add-ab-test-variant';
-  import { removeABTestVariant } from '$stylist/marketing/function/script/remove-ab-test-variant';
-  import { updateABTestVariantWeight } from '$stylist/marketing/function/script/update-ab-test-variant-weight';
-  import { toggleABTestVariantStatus } from '$stylist/marketing/function/script/toggle-ab-test-variant-status';
+  import { createABTestConfiguratorState } from '$stylist/marketing/function/state/abtest-configurator';
 
-  let {
-    initialTest,
-    onSave,
-    onStart,
-    onPause,
-    onComplete,
-    class: className = '',
-    headerClass = '',
-    formClass = '',
-    variantClass = '',
-    footerClass = '',
-  }: IABTestConfiguratorProps & HTMLAttributes<HTMLDivElement> = $props();
-
-  let test = $state<ABTest>({
-    id: initialTest?.id || `test-${Date.now()}`,
-    name: initialTest?.name || 'New A/B Test',
-    description: initialTest?.description || '',
-    variants: initialTest?.variants || [
-      { id: 'a', name: 'Control', description: 'Current version', weight: 50, isActive: true },
-      { id: 'b', name: 'Variant', description: 'Modified version', weight: 50, isActive: true }
-    ],
-    startDate: initialTest?.startDate || new Date(),
-    endDate: initialTest?.endDate,
-    status: initialTest?.status || 'draft',
-    targetAudience: initialTest?.targetAudience || 'All Users',
-    successMetrics: initialTest?.successMetrics || ['Conversion Rate', 'Engagement']
-  });
-
-  let startDateString = $state('');
-  $effect(() => {
-    startDateString = test.startDate.toISOString().split('T')[0];
-  });
-  $effect(() => {
-    test.startDate = new Date(startDateString);
-  });
-
-  let endDateString = $state('');
-  $effect(() => {
-    endDateString = test.endDate ? test.endDate.toISOString().split('T')[0] : '';
-  });
-  $effect(() => {
-    test.endDate = endDateString ? new Date(endDateString) : undefined;
-  });
-
-  let newVariantName = $state('');
-  let newVariantDescription = $state('');
-  let newVariantWeight = $state(0);
-  let errors = $state<Record<string, string>>({});
-
-  function saveTest() {
-    const validationErrors = validateABTest(test);
-    errors = validationErrors;
-    if (Object.keys(validationErrors).length === 0 && onSave) {
-      onSave(test);
-    }
-  }
-
-  function addVariant() {
-    if (!newVariantName.trim()) {
-      errors.newVariant = 'Variant name is required';
-      return;
-    } else {
-      errors.newVariant = ''; // Clear error if name is provided
-    }
-
-    test = addABTestVariant(test, newVariantName, newVariantDescription, newVariantWeight);
-    newVariantName = '';
-    newVariantDescription = '';
-    newVariantWeight = 0;
-  }
-
-  function removeVariant(id: string) {
-    test = removeABTestVariant(test, id);
-  }
-
-  function updateVariantWeight(id: string, weight: number) {
-    test = updateABTestVariantWeight(test, id, weight);
-  }
-
-  function toggleVariantStatus(id: string) {
-    test = toggleABTestVariantStatus(test, id);
-  }
-
-  function startTest() {
-    const validationErrors = validateABTest(test);
-    errors = validationErrors;
-    if (Object.keys(validationErrors).length === 0 && onStart) {
-      test.status = 'running';
-      test.startDate = new Date();
-      onStart(test.id);
-    }
-  }
-
-  function pauseTest() {
-    if (onPause) {
-      test.status = 'paused';
-      onPause(test.id);
-    }
-  }
-
-  function completeTest() {
-    if (onComplete) {
-      test.status = 'completed';
-      onComplete(test.id);
-    }
-  }
-
-  // Calculate total weight - make it reactive with $derived
-  const totalWeight = $derived(calculateABTestTotalWeight(test.variants));
+  let props: IABTestConfiguratorProps & { class?: string; headerClass?: string; formClass?: string; variantClass?: string; footerClass?: string } = $props();
+  const state = createABTestConfiguratorState(props);
 </script>
 
-<div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${className}`}>
-  <div class={`border-b px-6 py-5 ${headerClass}`}>
+<div class={state.containerClasses} {...state.restProps}>
+  <div class={state.headerClasses}>
     <div class="flex items-center">
       <BaseIcon name={TestTube} class="h-6 w-6 text-[var(--color-text-secondary)] mr-2" />
       <h3 class="text-lg font-medium text-[var(--color-text-primary)]">A/B Test Configurator</h3>
@@ -141,7 +27,7 @@ const Plus = 'plus';
     <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Configure and manage your A/B tests</p>
   </div>
 
-  <div class={`p-6 ${formClass}`}>
+  <div class={state.formClasses}>
     <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
       <div class="sm:col-span-4">
         <label for="test-name" class="block text-sm font-medium text-[var(--color-text-primary)]">Test Name</label>
@@ -150,13 +36,13 @@ const Plus = 'plus';
             type="text"
             id="test-name"
             class={`block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm ${
-              errors.name ? 'border-[var(--color-danger-300)]' : ''
+              state.errors.name ? 'border-[var(--color-danger-300)]' : ''
             }`}
-            bind:value={test.name}
+            bind:value={state.test.name}
             placeholder="e.g., Button Color Impact"
           />
-          {#if errors.name}
-            <p class="mt-2 text-sm text-[var(--color-danger-600)]">{errors.name}</p>
+          {#if state.errors.name}
+            <p class="mt-2 text-sm text-[var(--color-danger-600)]">{state.errors.name}</p>
           {/if}
         </div>
       </div>
@@ -168,7 +54,7 @@ const Plus = 'plus';
             id="test-description"
             rows={3}
             class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-            bind:value={test.description}
+            bind:value={state.test.description}
             placeholder="Describe the purpose and expectations of this test..."
           ></textarea>
         </div>
@@ -181,9 +67,9 @@ const Plus = 'plus';
             type="date"
             id="start-date"
             class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-            bind:value={startDateString}
+            bind:value={state.startDateString}
             onchange={(e) => {
-              startDateString = (e.target as HTMLInputElement).value;
+              state.startDateString = (e.target as HTMLInputElement).value;
             }}
           />
         </div>
@@ -196,9 +82,9 @@ const Plus = 'plus';
             type="date"
             id="end-date"
             class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-            bind:value={endDateString}
+            bind:value={state.endDateString}
             onchange={(e) => {
-              endDateString = (e.target as HTMLInputElement).value;
+              state.endDateString = (e.target as HTMLInputElement).value;
             }}
           />
         </div>
@@ -207,16 +93,16 @@ const Plus = 'plus';
       <div class="sm:col-span-6">
         <div class="flex items-center justify-between">
           <h4 class="text-sm font-medium text-[var(--color-text-primary)]">Variants</h4>
-          <span class="text-xs text-[var(--color-text-secondary)]">Total weight: {totalWeight}%</span>
+          <span class="text-xs text-[var(--color-text-secondary)]">Total weight: {state.totalWeight}%</span>
         </div>
 
-        {#if errors.weights}
-          <p class="mt-2 text-sm text-[var(--color-danger-600)]">{errors.weights}</p>
+        {#if state.errors.weights}
+          <p class="mt-2 text-sm text-[var(--color-danger-600)]">{state.errors.weights}</p>
         {/if}
 
         <div class="mt-2 space-y-4">
-          {#each test.variants as variant}
-            <div class={`border rounded-lg p-4 ${variantClass}`}>
+          {#each state.test.variants as variant}
+            <div class={`border rounded-lg p-4 ${state.variantClassName}`}>
               <div class="flex items-start justify-between">
                 <div class="flex items-center">
                   <BaseIcon name={GitBranch} class="h-5 w-5 text-[var(--color-text-tertiary)] mr-2" />
@@ -236,7 +122,7 @@ const Plus = 'plus';
                       max="100"
                       class="w-20 text-xs border border-[var(--color-border-primary)] rounded px-2 py-1"
                       bind:value={variant.weight}
-                      oninput={(e) => updateVariantWeight(variant.id, parseInt((e.target as HTMLInputElement).value) || 0)}
+                      oninput={(e) => state.handleUpdateWeight(variant.id, parseInt((e.target as HTMLInputElement).value) || 0)}
                     />
                   </div>
 
@@ -247,7 +133,7 @@ const Plus = 'plus';
                         ? 'bg-[var(--color-success-100)] text-[var(--color-success-800)] hover:bg-[var(--color-success-200)]'
                         : 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)] hover:bg-[var(--color-danger-200)]'
                     }`}
-                    onclick={() => toggleVariantStatus(variant.id)}
+                    onclick={() => state.handleToggleStatus(variant.id)}
                   >
                     {variant.isActive ? 'Active' : 'Inactive'}
                   </button>
@@ -255,7 +141,7 @@ const Plus = 'plus';
                   <button
                     type="button"
                     class="text-[var(--color-danger-600)] hover:text-[var(--color-danger-900)]"
-                    onclick={() => removeVariant(variant.id)}
+                    onclick={() => state.handleRemoveVariant(variant.id)}
                     title="Remove variant"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -275,7 +161,7 @@ const Plus = 'plus';
               <input
                 type="text"
                 class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-                bind:value={newVariantName}
+                bind:value={state.newVariantName}
                 placeholder="Variant name"
               />
             </div>
@@ -285,7 +171,7 @@ const Plus = 'plus';
                 min="0"
                 max="100"
                 class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-                bind:value={newVariantWeight}
+                bind:value={state.newVariantWeight}
                 placeholder="% traffic"
               />
             </div>
@@ -293,7 +179,7 @@ const Plus = 'plus';
               <button
                 type="button"
                 class="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
-                onclick={addVariant}
+                onclick={state.addVariant}
               >
                 <BaseIcon name={Plus} class="h-4 w-4 mr-1" />
                 Add
@@ -303,28 +189,28 @@ const Plus = 'plus';
               <input
                 type="text"
                 class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
-                bind:value={newVariantDescription}
+                bind:value={state.newVariantDescription}
                 placeholder="Variant description"
               />
             </div>
           </div>
-          {#if errors.newVariant}
-            <p class="mt-2 text-sm text-[var(--color-danger-600)]">{errors.newVariant}</p>
+          {#if state.errors.newVariant}
+            <p class="mt-2 text-sm text-[var(--color-danger-600)]">{state.errors.newVariant}</p>
           {/if}
         </div>
       </div>
     </div>
   </div>
 
-  <div class={`border-t px-6 py-4 ${footerClass}`}>
+  <div class={state.footerClasses}>
     <div class="flex items-center justify-between">
       <div class="flex items-center">
         <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-[var(--color-primary-100)] text-[var(--color-primary-800)]">
-          {test.status.charAt(0).toUpperCase() + test.status.slice(1)}
+          {state.test.status.charAt(0).toUpperCase() + state.test.status.slice(1)}
         </span>
         <span class="ml-3 text-sm text-[var(--color-text-secondary)]">
           <BaseIcon name={Users} class="h-4 w-4 inline mr-1" />
-          Targeting: {test.targetAudience || 'All Users'}
+          Targeting: {state.test.targetAudience || 'All Users'}
         </span>
       </div>
 
@@ -332,28 +218,28 @@ const Plus = 'plus';
         <button
           type="button"
           class="inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] shadow-sm text-sm font-medium rounded-md text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none"
-          onclick={saveTest}
+          onclick={state.saveTest}
         >
           <BaseIcon name={Settings} class="h-4 w-4 mr-1" />
           Save Draft
         </button>
 
-        {#if test.status === 'draft' || test.status === 'paused'}
+        {#if state.test.status === 'draft' || state.test.status === 'paused'}
           <button
             type="button"
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-success-600)] hover:bg-[var(--color-success-700)] focus:outline-none"
-            onclick={startTest}
+            onclick={state.startTest}
           >
             <BaseIcon name={Play} class="h-4 w-4 mr-1" />
             Start Test
           </button>
         {/if}
 
-        {#if test.status === 'running'}
+        {#if state.test.status === 'running'}
           <button
             type="button"
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-yellow-600 hover:bg-yellow-700 focus:outline-none"
-            onclick={pauseTest}
+            onclick={state.pauseTest}
           >
             <BaseIcon name={Pause} class="h-4 w-4 mr-1" />
             Pause Test
@@ -361,7 +247,7 @@ const Plus = 'plus';
           <button
             type="button"
             class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
-            onclick={completeTest}
+            onclick={state.completeTest}
           >
             <BaseIcon name={BarChart3} class="h-4 w-4 mr-1" />
             Complete Test
@@ -371,9 +257,3 @@ const Plus = 'plus';
     </div>
   </div>
 </div>
-
-
-
-
-
-

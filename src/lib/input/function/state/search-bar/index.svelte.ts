@@ -111,14 +111,30 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 		handleKeydown,
 
 		// Classes
-		containerClasses,
-		iconContainerClasses,
-		inputClasses,
-		controlsContainerClasses,
-		clearButtonClasses,
-		searchButtonClasses,
-		iconClasses,
-		smallIconClasses
+		get containerClasses() {
+			return containerClasses;
+		},
+		get iconContainerClasses() {
+			return iconContainerClasses;
+		},
+		get inputClasses() {
+			return inputClasses;
+		},
+		get controlsContainerClasses() {
+			return controlsContainerClasses;
+		},
+		get clearButtonClasses() {
+			return clearButtonClasses;
+		},
+		get searchButtonClasses() {
+			return searchButtonClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		get smallIconClasses() {
+			return smallIconClasses;
+		}
 	};
 };
 

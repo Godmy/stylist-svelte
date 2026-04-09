@@ -39,7 +39,7 @@ import type { ITabGroupProps } from '$stylist/control/interface/component/tab-gr
 import type { TabsProps } from '$stylist/control/interface/component/tabs/other';
 import type { TagInputProps } from '$stylist/input/interface/component/tag-input/other';
 import type { TooltipProps } from '$stylist/control/interface/component/tooltip/other';
-import type { TransformationProps } from '$stylist/control/interface/component/transformation/other';
+import type { TransformationProps } from '$stylist/animation/interface/component/transformation/other';
 import type { TranslationEditorProps } from '$stylist/localization/interface/component/translation-editor/other';
 import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
 

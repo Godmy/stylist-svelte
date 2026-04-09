@@ -38,7 +38,7 @@ export const createDraggableState = (props: DragProps) => {
 			onDragOver,
 			onDrop,
 			disabled,
-			showDragHandle,
+			showHandle,
 			dragCursor,
 			...rest
 		} = props;
@@ -125,13 +125,13 @@ export const createDraggableState = (props: DragProps) => {
 		get disabled() {
 			return normalizedProps.disabled;
 		},
-		get showDragHandle() {
-			return props.showDragHandle;
+		get showHandle() {
+			return props.showHandle;
 		},
 
 		// State
-		classes,
-		restProps,
+		get classes() { return classes; },
+		get restProps() { return restProps; },
 
 		// Handlers
 		handleDragStart,

@@ -3,3 +3,4 @@ export { AccountFormsStyleManager, FormFooterStyleManager, FormHeaderStyleManage
 export { createFormErrorMessageState, createFormFooterState, createFormHeaderState, createFormHelperTextState } from './function';
 export { AddressForm, FilterPanel, FormFooter, FormHeader, FormSelection, FormWithValidation, LoginForm, RadioGroup, ScreenReader, SearchForm, Validation } from './svelte';
 export type { AccountFormsRecipe, AccountSettingsFormProps, AddressFormProps, DocumentPreviewProps, FormFooterProps, FormFooterRecipe, FormHeaderProps, FormHeaderRecipe, FormWithValidationProps, InteractionFormsRecipe, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps, UserProfileCardProps } from './interface';
+export type { AddressData, LoginCredentials, ValidationErrors } from './type';

@@ -2,13 +2,7 @@
 	import type { GraphEdgeRecipe } from '$stylist/science/interface/recipe/graph-edge';
 	import { createGraphEdgeState } from '$stylist/canvas/function/state/graph-edge';
 
-	type CanvasGraphEdgeProps = GraphEdgeRecipe & {
-		fromNodeId: string;
-		toNodeId: string;
-		label?: string;
-	};
-
-	let props: CanvasGraphEdgeProps = $props();
+	let props: GraphEdgeRecipe & { fromNodeId: string; toNodeId: string; label?: string } = $props();
 
 	const state = createGraphEdgeState(props);
 	const fromNodeId = $derived(props.fromNodeId);

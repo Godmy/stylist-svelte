@@ -53,8 +53,8 @@ export const createFocusableState = (props: FocusProps) => {
 		},
 
 		// State
-		classes,
-		restProps,
+		get classes() { return classes; },
+		get restProps() { return restProps; },
 
 		// Handlers
 		handleFocus,

@@ -1,99 +1,38 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-  import type { IInputEmailProps } from '$stylist/input/interface/component/input/other';
+	import type { IInputEmailProps } from '$stylist/input/interface/component/input/other';
+	import { createInputEmailState } from '$stylist/input/function/state/input-email';
 	import InputText from '../input-text/index.svelte';
 
-	/**
-	 * InputEmail component - Специализированный input для email с валидацией
-	 *
-	 * @example
-	 * ```svelte
-	 * <InputEmail
-	 *   label="Email"
-	 *   bind:value={email}
-	 *   variant="default"
-	 *   size="md"
-	 *   error={hasError}
-	 *   errors={['Некорректный email']}
-	 *   helperText="Введите ваш email"
-	 * />
-	 * ```
-	 */
-
-	type Props = IInputEmailProps &
-		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'>;
-
-	let {
-		// Core props
-		variant = 'default',
-		size = 'md',
-		disabled = false,
-		error = false,
-		block = false,
-		class: className = '',
-
-		// Label props
-		label,
-		id,
-		showRequiredIndicator = true,
-
-		// Validation props
-		errors = [],
-		showErrors = true,
-
-		// Helper props
-		helperText,
-		showHelperWhenError = false,
-
-		// Email-specific props
-		value = $bindable<string>(''),
-		placeholder = 'example@email.com',
-		autocomplete = 'email',
-		name,
-		required = false,
-		readonly = false,
-		autofocus = false,
-		pattern = '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$',
-		minlength,
-		maxlength,
-
-		// Rest props
-		...restProps
-	}: Props = $props();
+	let props: IInputEmailProps &
+		Omit<HTMLInputAttributes, 'type' | 'size' | 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+	const state = createInputEmailState(props);
 </script>
 
 <InputText
-	{label}
-	{id}
-	{showRequiredIndicator}
-	{errors}
-	{showErrors}
-	{helperText}
-	{showHelperWhenError}
-	{variant}
-	{size}
-	{disabled}
-	{error}
-	{block}
-	class={className}
-	{value}
+	label={state.label}
+	id={state.id}
+	showRequiredIndicator={state.showRequiredIndicator ?? true}
+	errors={state.errors ?? []}
+	showErrors={state.showErrors ?? true}
+	helperText={state.helperText}
+	showHelperWhenError={state.showHelperWhenError ?? false}
+	variant={state.variant ?? 'default'}
+	size={state.size ?? 'md'}
+	disabled={state.disabled ?? false}
+	error={state.error ?? false}
+	block={state.block ?? false}
+	class={state.className ?? ''}
+	bind:value={props.value}
 	type="email"
-	{placeholder}
-	{autocomplete}
-	{name}
-	{required}
-	{readonly}
-	{autofocus}
-	{pattern}
-	{minlength}
-	{maxlength}
-	{...restProps}
+	placeholder={state.placeholder ?? 'example@email.com'}
+	autocomplete={state.autocomplete ?? 'email'}
+	name={state.name}
+	required={state.required ?? false}
+	readonly={state.readonly ?? false}
+	autofocus={state.autofocus ?? false}
+	pattern={state.pattern ?? '[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$'}
+	minlength={state.minlength}
+	maxlength={state.maxlength}
+	{...props}
 />
-
-
-
-
-
-
-
-

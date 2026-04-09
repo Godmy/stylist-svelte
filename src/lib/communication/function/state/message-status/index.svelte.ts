@@ -1,4 +1,4 @@
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 
 type MessageStatusProps = {

@@ -1,64 +1,29 @@
 <script lang="ts">
   import { CtaBannerStyleManager } from '$stylist/marketing/class/style-manager/cta-banner';
-import type { TokenBackground } from '$stylist/layout/type/enum/background';
+  import type { CtaBannerProps, CtaBannerButton } from '$stylist/marketing/type/struct/cta-banner';
+  import { createCtaBannerState, getButtonClasses, handleButtonClick } from '$stylist/marketing/function/state/cta-banner';
 
-  type CtaBannerButton = {
-    label: string;
-    variant: 'primary' | 'secondary' | 'outline';
-    onClick: () => void;
-  };
-
-  interface CtaBannerProps {
-    title: string;
-    description?: string;
-    buttons: CtaBannerButton[];
-    backgroundVariant?: TokenBackground;
-    backgroundImage?: string;
-    class?: string;
-  }
-
-  let {
-    title,
-    description,
-    buttons = [],
-    backgroundVariant = 'gradient',
-    backgroundImage,
-    class: className = ''
-  }: CtaBannerProps = $props();
-
-  const containerClasses = $derived(`${CtaBannerStyleManager.getContainerClasses()} ${className}`.trim());
-  const backgroundClasses = $derived(CtaBannerStyleManager.getBackgroundClasses(backgroundVariant));
-  const contentClasses = $derived(CtaBannerStyleManager.getContentClasses());
-  const titleClasses = $derived(CtaBannerStyleManager.getTitleClasses());
-  const descriptionClasses = $derived(CtaBannerStyleManager.getDescriptionClasses());
-  const buttonsContainerClasses = $derived(CtaBannerStyleManager.getButtonsContainerClasses());
-
-  function getButtonClasses(variant: 'primary' | 'secondary' | 'outline') {
-    return CtaBannerStyleManager.getButtonClasses(variant);
-  }
-
-  function handleButtonClick(onClick: () => void) {
-    onClick();
-  }
+  let props: CtaBannerProps = $props();
+  const state = createCtaBannerState(props);
 </script>
 
-<section class={containerClasses} role="banner" aria-label={`CTA Banner: ${title}`}>
-  {#if backgroundVariant === 'image' && backgroundImage}
-    <div class={backgroundClasses} style={`background-image: url('${backgroundImage}');`} aria-hidden="true"></div>
+<section class={state.containerClasses} role="banner" aria-label={`CTA Banner: ${state.title}`} {...state.restProps}>
+  {#if state.backgroundVariant === 'image' && state.backgroundImage}
+    <div class={state.backgroundClasses} style={`background-image: url('${state.backgroundImage}');`} aria-hidden="true"></div>
   {:else}
-    <div class={backgroundClasses} aria-hidden="true"></div>
+    <div class={state.backgroundClasses} aria-hidden="true"></div>
   {/if}
 
-  <div class={contentClasses}>
-    <h2 class={titleClasses} aria-label={title}>{title}</h2>
+  <div class={state.contentClasses}>
+    <h2 class={state.titleClasses} aria-label={state.title}>{state.title}</h2>
 
-    {#if description}
-      <p class={descriptionClasses} aria-label={description}>{description}</p>
+    {#if state.description}
+      <p class={state.descriptionClasses} aria-label={state.description}>{state.description}</p>
     {/if}
 
-    {#if buttons.length > 0}
-      <div class={buttonsContainerClasses}>
-        {#each buttons as button}
+    {#if state.buttons.length > 0}
+      <div class={state.buttonsContainerClasses}>
+        {#each state.buttons as button}
           <button class={getButtonClasses(button.variant)} onclick={() => handleButtonClick(button.onClick)} type="button" aria-label={button.label}>
             {button.label}
           </button>
@@ -67,5 +32,3 @@ import type { TokenBackground } from '$stylist/layout/type/enum/background';
     {/if}
   </div>
 </section>
-
-

@@ -2,14 +2,7 @@ import { joinClassNames } from '$stylist/layout/function/script/join-class-names
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { LabelStyleManager } from '$stylist/typography/class/style-manager/label';
 
-type ProductSortOption = string | { value: string; label: string };
-
-type ProductSortProps = {
-	options?: ProductSortOption[];
-	selectedOption?: string;
-	onValueChange?: (option: string) => void;
-	class?: string;
-};
+import type { ProductSortProps } from '$stylist/commerce/type/struct/product-sort-props';
 
 export function createProductSortState(props: ProductSortProps) {
 	const options = $derived(props.options);
@@ -45,6 +38,7 @@ export function createProductSortState(props: ProductSortProps) {
 }
 
 export default createProductSortState;
+
 
 
 

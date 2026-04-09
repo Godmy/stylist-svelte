@@ -1,7 +1,7 @@
 import type { SelectionMode } from '../selection-mode/index.svelte.ts';
 import type { SelectionState } from '../selection-state/index.svelte.ts';
 
-function useSelection(initialMode?: SelectionMode) {
+export function useSelection(initialMode?: SelectionMode) {
 	let state = $state<SelectionState>({
 		selectedIds: new Set(),
 		mode: initialMode ?? 'single',
@@ -120,5 +120,4 @@ function useSelection(initialMode?: SelectionMode) {
 	};
 }
 
-export { useSelection };
 export default useSelection;

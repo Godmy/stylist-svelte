@@ -1,13 +1,16 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { TokenAnalyticsChartType } from './analytics-chart';
 export type { AnalyticsChartBarPoint } from './analytics-chart-bar-point';
+export type { AnalyticsChartCanvasProps } from './analytics-chart-canvas-props';
 export type { AnalyticsChartDataPoint } from './analytics-chart-data-point';
 export type { AnalyticsChartLineSeries } from './analytics-chart-line-series';
 export type { AnalyticsChartPiePoint } from './analytics-chart-pie-point';
+export type { AnalyticsChartProps } from './analytics-chart-props';
 export type { IChartDataPoint } from './bar-chart';
 export type { IBarPosition } from './bar-chart-bar-position';
 export type { CanvasChartDataPoint } from './canvas-chart';
 export type { CanvasChartPadding } from './canvas-chart-padding';
+export type { CanvasChartProps } from './canvas-chart-props';
 export type { TokenCanvasChartType } from './canvas-chart-type';
 export type { ChartFunctionPoint } from './chart-point';
 export type { ChartSeries } from './chart-series';

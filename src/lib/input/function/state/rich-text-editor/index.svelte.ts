@@ -169,15 +169,33 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 		handleBlur,
 
 		// Classes
-		rootClasses,
-		toolbarClasses,
-		editorClasses,
-		buttonClasses,
-		dividerClasses,
-		linkInputClasses,
-		linkInputFieldClasses,
-		linkInputButtonClasses,
-		iconButtonClasses
+		get rootClasses() {
+			return rootClasses;
+		},
+		get toolbarClasses() {
+			return toolbarClasses;
+		},
+		get editorClasses() {
+			return editorClasses;
+		},
+		get buttonClasses() {
+			return buttonClasses;
+		},
+		get dividerClasses() {
+			return dividerClasses;
+		},
+		get linkInputClasses() {
+			return linkInputClasses;
+		},
+		get linkInputFieldClasses() {
+			return linkInputFieldClasses;
+		},
+		get linkInputButtonClasses() {
+			return linkInputButtonClasses;
+		},
+		get iconButtonClasses() {
+			return iconButtonClasses;
+		}
 	};
 };
 

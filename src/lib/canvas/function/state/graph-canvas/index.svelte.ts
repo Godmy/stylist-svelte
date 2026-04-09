@@ -1,12 +1,13 @@
-import type {
-	GraphCanvasRecipe as GraphCanvasProps,
-	GraphCanvasViewport,
-	GraphCanvasPosition
-} from '$stylist/science/interface/recipe/graph-canvas';
-import { DEFAULT_GRAPH_CANVAS } from '$stylist/information/const/struct/graph-canvas';
+import type { GraphCanvasViewport, GraphCanvasPosition } from '$stylist/science/interface/recipe/graph-canvas';
+import { DEFAULT_GRAPH_CANVAS } from '$stylist/science/const/struct/graph-canvas';
 import { GraphCanvasStyleManager } from '$stylist/canvas/class/style-manager/graph-canvas';
+import type { GraphCanvasProps } from '$stylist/canvas/type/struct/graph-canvas/graph-canvas-props';
 
 export function createGraphCanvasState(props: GraphCanvasProps) {
+	let isPanning = $state(false);
+	let panStart = $state({ x: 0, y: 0 });
+	let panOffsetStart = $state({ x: 0, y: 0 });
+
 	const width = $derived(props.width ?? 800);
 	const height = $derived(props.height ?? 600);
 	const zoom = $derived(props.zoom ?? 1);
@@ -40,6 +41,122 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 	const gridStyles = $derived(
 		GraphCanvasStyleManager.getGridStyles(gridSize, gridColor, backgroundColor)
 	);
+	const minZoom = $derived(props.minZoom ?? DEFAULT_GRAPH_CANVAS.minZoom);
+	const maxZoom = $derived(props.maxZoom ?? DEFAULT_GRAPH_CANVAS.maxZoom);
+	const snapThreshold = $derived(props.snapThreshold ?? DEFAULT_GRAPH_CANVAS.snapThreshold);
+
+	function handleWheel(event: WheelEvent): void {
+		if (!(props.zoomEnabled ?? true)) return;
+
+		event.preventDefault();
+
+		const zoomSensitivity = 0.001;
+		const delta = -event.deltaY * zoomSensitivity;
+		const nextZoom = Math.min(Math.max(minZoom, zoom + delta), maxZoom);
+		props.onzoomchange?.(nextZoom);
+	}
+
+	function handleMouseDown(event: MouseEvent): void {
+		const panMode = props.panMode ?? 'drag';
+		const isPanButton = event.button === 1;
+		const isPanEnabled = props.panEnabled ?? true;
+
+		if (!isPanEnabled) return;
+
+		if (panMode === 'always' || (panMode === 'space' && event.shiftKey) || isPanButton) {
+			isPanning = true;
+			panStart = { x: event.clientX, y: event.clientY };
+			panOffsetStart = { x: offsetX, y: offsetY };
+			props.onpanstart?.(event);
+		}
+	}
+
+	function handleMouseMove(event: MouseEvent): void {
+		if (!isPanning) return;
+
+		const newOffset = {
+			x: panOffsetStart.x + (event.clientX - panStart.x),
+			y: panOffsetStart.y + (event.clientY - panStart.y)
+		};
+
+		props.onoffsetchange?.(newOffset);
+		props.onpan?.(event);
+	}
+
+	function handleMouseUp(event: MouseEvent): void {
+		if (!isPanning) return;
+		isPanning = false;
+		props.onpanend?.(event);
+	}
+
+	function handleClick(event: MouseEvent): void {
+		props.oncanvasclick?.(event);
+	}
+
+	function handleDoubleClick(event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }): void {
+		props.ondblclick?.(event);
+	}
+
+	function handleContextMenu(event: MouseEvent & { currentTarget: EventTarget & HTMLDivElement }): void {
+		props.oncontextmenu?.(event);
+	}
+
+	function snapToGridValue(value: number): number {
+		if (!snapToGrid) return value;
+		const snapped = Math.round(value / gridSize) * gridSize;
+		return Math.abs(value - snapped) < snapThreshold ? snapped : value;
+	}
+
+	function resetView(): void {
+		props.onzoomchange?.(1);
+		props.onoffsetchange?.({ x: 0, y: 0 });
+	}
+
+	function zoomToFit(
+		canvasRef: HTMLDivElement | null | undefined,
+		contentRef: HTMLDivElement | null | undefined
+	): void {
+		if (!canvasRef || !contentRef) return;
+
+		const children = Array.from(contentRef.children).filter(
+			(node): node is HTMLElement => node instanceof HTMLElement
+		);
+
+		if (children.length === 0) {
+			resetView();
+			return;
+		}
+
+		let minLeft = Number.POSITIVE_INFINITY;
+		let minTop = Number.POSITIVE_INFINITY;
+		let maxRight = Number.NEGATIVE_INFINITY;
+		let maxBottom = Number.NEGATIVE_INFINITY;
+
+		for (const child of children) {
+			minLeft = Math.min(minLeft, child.offsetLeft);
+			minTop = Math.min(minTop, child.offsetTop);
+			maxRight = Math.max(maxRight, child.offsetLeft + child.offsetWidth);
+			maxBottom = Math.max(maxBottom, child.offsetTop + child.offsetHeight);
+		}
+
+		if (!Number.isFinite(minLeft) || !Number.isFinite(minTop)) return;
+
+		const contentWidth = Math.max(1, maxRight - minLeft);
+		const contentHeight = Math.max(1, maxBottom - minTop);
+		const padding = gridSize * 2;
+		const availableWidth = Math.max(1, width - padding * 2);
+		const availableHeight = Math.max(1, height - padding * 2);
+		const fitZoom = Math.min(
+			maxZoom,
+			Math.max(minZoom, Math.min(availableWidth / contentWidth, availableHeight / contentHeight))
+		);
+
+		props.onzoomchange?.(fitZoom);
+		props.onoffsetchange?.({
+			x: (width - contentWidth * fitZoom) / 2 - minLeft * fitZoom,
+			y: (height - contentHeight * fitZoom) / 2 - minTop * fitZoom
+		});
+	}
 
 	return {
 		get width() {
@@ -66,7 +183,13 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 		get backgroundColor() {
 			return backgroundColor;
 		},
-		get snapToGrid() {
+		get minZoom() {
+			return minZoom;
+		},
+		get maxZoom() {
+			return maxZoom;
+		},
+		get snapEnabled() {
 			return snapToGrid;
 		},
 		get containerClass() {
@@ -87,6 +210,16 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 		get gridStyles() {
 			return gridStyles;
 		},
+		handleWheel,
+		handleMouseDown,
+		handleMouseMove,
+		handleMouseUp,
+		handleClick,
+		handleDoubleClick,
+		handleContextMenu,
+		snapToGrid: snapToGridValue,
+		resetView,
+		zoomToFit,
 		get restProps() {
 			const {
 				width: _w,
@@ -102,6 +235,18 @@ export function createGraphCanvasState(props: GraphCanvasProps) {
 				class: _c,
 				gridClass: _gcl,
 				contentClass: _cc,
+				minZoom: _minZoom,
+				maxZoom: _maxZoom,
+				panMode: _panMode,
+				panEnabled: _panEnabled,
+				zoomEnabled: _zoomEnabled,
+				snapThreshold: _snapThreshold,
+				onzoomchange: _onzoomchange,
+				onoffsetchange: _onoffsetchange,
+				onpanstart: _onpanstart,
+				onpan: _onpan,
+				onpanend: _onpanend,
+				oncanvasclick: _oncanvasclick,
 				children: _ch,
 				...rest
 			} = props;

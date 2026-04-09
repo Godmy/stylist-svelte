@@ -1,70 +1,25 @@
 <script lang="ts">
-  // Define local types to avoid dependency on global types
-  type DrawingTool = 'pen' | 'eraser' | 'select' | 'text' | 'shape';
-
-  interface DrawingOptions {
-    lineWidth: number;
-    strokeColor: string;
-    tool: DrawingTool;
-    mode: 'draw' | 'erase';
-  }
-
   import { createEventDispatcher } from 'svelte';
+	import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/recipe/canvas-toolbar-drawing-options';
+	import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/enum/canvas-toolbar-drawing-tool';
+	import type { CanvasToolbarProps } from '$stylist/canvas/type/struct/canvas-toolbar/canvas-toolbar-props';
+	import { createCanvasToolbarState } from '$stylist/canvas/function/state/canvas-toolbar';
 
-  const dispatch = createEventDispatcher<{
-    'tool-change': { tool: DrawingTool; options: DrawingOptions };
+  let dispatch = createEventDispatcher<{
+    'tool-change': { tool: CanvasToolbarDrawingTool; options: CanvasToolbarDrawingOptions };
     'clear-canvas': undefined;
     undo: undefined;
     redo: undefined;
     save: undefined;
   }>();
 
-  type Props = {
-    selectedTool?: DrawingTool;
-    drawingOptions?: DrawingOptions;
-  };
+	let props: CanvasToolbarProps = $props();
+	const state = createCanvasToolbarState(props, (type, detail) => dispatch(type as never, detail as never));
 
-  let {
-    selectedTool = 'pen' as DrawingTool,
-    drawingOptions = {
-      lineWidth: 2,
-      strokeColor: 'black',
-      tool: 'pen',
-      mode: 'draw'
-    } as DrawingOptions
-  } = $props() as Props;
-
-  let currentTool = $state<DrawingTool>(selectedTool);
-  let currentOptions = $state<DrawingOptions>({ ...drawingOptions });
-
-  $effect(() => {
-    currentTool = selectedTool;
-    currentOptions = { ...drawingOptions };
-  });
-
-  const selectTool = (tool: DrawingTool) => {
-    currentTool = tool;
-    currentOptions = { ...currentOptions, tool, mode: tool === 'eraser' ? 'erase' : 'draw' };
-    dispatch('tool-change', { tool: currentTool, options: currentOptions });
-  };
-
-  const handleOptionsUpdate = (options: DrawingOptions) => {
-    currentOptions = { ...options };
-    dispatch('tool-change', { tool: currentTool, options: currentOptions });
-  };
-
-  export const clearCanvas = () => {
-    dispatch('clear-canvas', undefined);
-  };
-  export const undo = () => {
-    dispatch('undo', undefined);
-  };
-  export const redo = () => {
-    dispatch('redo', undefined);
-  };
-  export const save = () => {
-    dispatch('save', undefined);
-  };
+  export const clearCanvas = () => state.clearCanvas();
+  export const undo = () => state.undo();
+  export const redo = () => state.redo();
+  export const save = () => state.save();
 </script>
 
 <style>
@@ -159,15 +114,15 @@
 <div class="canvas-toolbar">
   <div class="tool-selector">
     <button
-      class="tool-btn {currentTool === 'pen' ? 'active' : ''}"
-      onclick={() => selectTool('pen')}
+      class="tool-btn {state.currentTool === 'pen' ? 'active' : ''}"
+      onclick={() => state.selectTool('pen')}
       type="button"
     >
       Pen
     </button>
     <button
-      class="tool-btn {currentTool === 'eraser' ? 'active' : ''}"
-      onclick={() => selectTool('eraser')}
+      class="tool-btn {state.currentTool === 'eraser' ? 'active' : ''}"
+      onclick={() => state.selectTool('eraser')}
       type="button"
     >
       Eraser
@@ -182,11 +137,11 @@
         type="range" 
         min="1" 
         max="20" 
-        bind:value={currentOptions.lineWidth} 
-        oninput={() => handleOptionsUpdate(currentOptions)}
+        bind:value={state.currentOptions.lineWidth} 
+        oninput={() => state.handleOptionsUpdate(state.currentOptions)}
         class="option-input"
       />
-      <span class="option-value">{currentOptions.lineWidth}px</span>
+      <span class="option-value">{state.currentOptions.lineWidth}px</span>
     </div>
     
     <div class="option-group">
@@ -194,24 +149,24 @@
       <input 
         id="color-picker"
         type="color" 
-        bind:value={currentOptions.strokeColor} 
-        oninput={() => handleOptionsUpdate(currentOptions)}
+        bind:value={state.currentOptions.strokeColor} 
+        oninput={() => state.handleOptionsUpdate(state.currentOptions)}
         class="option-input"
       />
     </div>
   </div>
 
   <div class="action-buttons">
-    <button class="action-btn" onclick={() => clearCanvas()} type="button">
+    <button class="action-btn" onclick={() => state.clearCanvas()} type="button">
       Clear
     </button>
-    <button class="action-btn" onclick={() => save()} type="button">
+    <button class="action-btn" onclick={() => state.save()} type="button">
       Save
     </button>
-    <button class="action-btn" onclick={() => undo()} type="button" disabled>
+    <button class="action-btn" onclick={() => state.undo()} type="button" disabled>
       Undo
     </button>
-    <button class="action-btn" onclick={() => redo()} type="button" disabled>
+    <button class="action-btn" onclick={() => state.redo()} type="button" disabled>
       Redo
     </button>
   </div>

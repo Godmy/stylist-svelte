@@ -6,9 +6,9 @@ export type { HoverContract } from './hover-contract';
 
 /** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
 
-import type { TokenAnimation } from '$stylist/interaction/type/enum/animation';
-import type { TokenDuration } from '$stylist/interaction/type/enum/duration';
-import type { TokenEasing } from '$stylist/interaction/type/enum/easing';
+import type { TokenAnimation } from '$stylist/animation/type/enum/animation';
+import type { TokenDuration } from '$stylist/animation/type/enum/duration';
+import type { TokenEasing } from '$stylist/animation/type/enum/easing';
 import type { TokenCursor } from '$stylist/interaction/type/enum/cursor';
 
 /**

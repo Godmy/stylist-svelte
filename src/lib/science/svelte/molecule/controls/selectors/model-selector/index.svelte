@@ -1,131 +1,70 @@
 <script lang="ts">
-	import type { HTMLAttributes } from 'svelte/elements';
 	import { Icon as BaseIcon } from '$stylist';
-	const ChevronDown = 'chevron-down';
-
-	import { ModelSelectorStyleManager } from '$stylist/science/class/style-manager/model-selector';
-	import type { ModelSelectorContract, ModelOption as Model } from '$stylist/science/interface/record/science';
+	import type { ModelSelectorContract } from '$stylist/science/interface/record/science';
+	import { createModelSelectorState } from '$stylist/science/function/state/model-selector';
 
 	let props: ModelSelectorContract = $props();
-	let {
-		models = [],
-		selectedModel,
-		onModelSelect,
-		showTags = true,
-		showCapabilities = true,
-		placeholder = 'Select a model...',
-		class: className = '',
-		dropdownClass = '',
-		modelItemClass = '',
-		headerClass = '',
-		...restProps
-	} = props;
-
-  // РћРїСЂРµРґРµР»СЏРµРј РїРµСЂРµРјРµРЅРЅС‹Рµ, РєРѕС‚РѕСЂС‹Рµ РЅРµ СЏРІР»СЏСЋС‚СЃСЏ РїСЂРѕРїСЃР°РјРё
-  let unused = { ...restProps }; // РСЃРїРѕР»СЊР·СѓРµРј restProps, С‡С‚РѕР±С‹ РёР·Р±РµР¶Р°С‚СЊ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёСЏ Рѕ РЅРµРёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
-
-  let isOpen = $state(false);
-  let selectedModelValue = $state<Model | undefined>(models.find(m => m.id === selectedModel));
-
-  function selectModel(model: Model) {
-    selectedModelValue = model;
-    isOpen = false;
-    if (onModelSelect) {
-      onModelSelect(model.id);
-    }
-  }
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(ModelSelectorStyleManager.getContainerClass(className));
-  const dropdownButtonClass = $derived(ModelSelectorStyleManager.getDropdownButtonClass(dropdownClass));
-  const modelInfoContainerClass = $derived(ModelSelectorStyleManager.getModelInfoContainerClass());
-  const selectedModelNameClass = $derived(ModelSelectorStyleManager.getSelectedModelNameClass());
-  const selectedModelDescriptionClass = $derived(ModelSelectorStyleManager.getSelectedModelDescriptionClass());
-  const placeholderClass = $derived(ModelSelectorStyleManager.getPlaceholderClass());
-  const chevronClass = $derived(ModelSelectorStyleManager.getChevronClass(isOpen));
-  const dropdownMenuClass = $derived(ModelSelectorStyleManager.getDropdownMenuClass(dropdownClass));
-  const modelDetailsContainerClass = $derived(ModelSelectorStyleManager.getModelDetailsContainerClass());
-  const modelNameClass = $derived(ModelSelectorStyleManager.getModelNameClass());
-  const modelProviderVersionClass = $derived(ModelSelectorStyleManager.getModelProviderVersionClass());
-  const modelDescriptionClass = $derived(ModelSelectorStyleManager.getModelDescriptionClass());
-  const capabilitiesContainerClass = $derived(ModelSelectorStyleManager.getCapabilitiesContainerClass());
-  const capabilityTagClass = $derived(ModelSelectorStyleManager.getCapabilityTagClass());
-  const moreCapabilitiesTagClass = $derived(ModelSelectorStyleManager.getMoreCapabilitiesTagClass());
-  const tagsContainerClass = $derived(ModelSelectorStyleManager.getTagsContainerClass());
-  const tagClass = $derived(ModelSelectorStyleManager.getTagClass());
+	const state = createModelSelectorState(props);
 </script>
-<div class={containerClass} {...restProps}>
-  <button
-    type="button"
-    class={dropdownButtonClass}
-    onclick={() => isOpen = !isOpen}
-  >
-    <div class={modelInfoContainerClass}>
-      {#if selectedModelValue}
-        <span class={selectedModelNameClass}>{selectedModelValue.name}</span>
-        <span class={selectedModelDescriptionClass}>{selectedModelValue.description}</span>
-      {:else}
-        <span class={placeholderClass}>{placeholder}</span>
-      {/if}
-    </div>
-    <BaseIcon name={ChevronDown} class={chevronClass} />
-  </button>
 
-  {#if isOpen}
-    <div class={dropdownMenuClass}>
-      {#each models as model}
-        <div
-          class={ModelSelectorStyleManager.getModelItemClass(selectedModelValue?.id === model.id, modelItemClass)}
-          onclick={() => selectModel(model)}
-          onkeydown={(e) => e.key === 'Enter' || e.key === ' ' ? selectModel(model) : null}
-          role="button"
-          tabindex="0"
-        >
-          <div class={modelDetailsContainerClass}>
-            <div class="flex items-baseline">
-              <p class={modelNameClass}>{model.name}</p>
-              <p class={modelProviderVersionClass}>{model.provider} • v{model.version}</p>
-            </div>
-            <p class={modelDescriptionClass}>{model.description}</p>
+<div class={state.containerClass} {...state.restProps}>
+	<button
+		type="button"
+		class={state.dropdownButtonClass}
+		onclick={state.toggleOpen}
+	>
+		<div class={state.modelInfoContainerClass}>
+			{#if state.selectedModelValue}
+				<span class={state.selectedModelNameClass}>{state.selectedModelValue.name}</span>
+				<span class={state.selectedModelDescriptionClass}>{state.selectedModelValue.description}</span>
+			{:else}
+				<span class={state.placeholderClass}>{state.placeholder}</span>
+			{/if}
+		</div>
+		<BaseIcon name="chevron-down" class={state.chevronClass} />
+	</button>
 
-            {#if showCapabilities && model.capabilities && model.capabilities.length > 0}
-              <div class={capabilitiesContainerClass}>
-                {#each model.capabilities.slice(0, 3) as capability, i}
-                  <span class={capabilityTagClass}>
-                    {capability}
-                  </span>
-                {/each}
-                {#if model.capabilities.length > 3}
-                  <span class={moreCapabilitiesTagClass}>
-                    +{model.capabilities.length - 3} more
-                  </span>
-                {/if}
-              </div>
-            {/if}
+	{#if state.isOpen}
+		<div class={state.dropdownMenuClass}>
+			{#each state.models as model}
+				<div
+					class={state.getModelItemClass(state.selectedModelValue?.id === model.id)}
+					onclick={() => state.selectModel(model)}
+					onkeydown={(event) => event.key === 'Enter' || event.key === ' ' ? state.selectModel(model) : null}
+					role="button"
+					tabindex="0"
+				>
+					<div class={state.modelDetailsContainerClass}>
+						<div class="flex items-baseline">
+							<p class={state.modelNameClass}>{model.name}</p>
+							<p class={state.modelProviderVersionClass}>{model.provider} � v{model.version}</p>
+						</div>
+						<p class={state.modelDescriptionClass}>{model.description}</p>
 
-            {#if showTags && model.tags && model.tags.length > 0}
-              <div class={tagsContainerClass}>
-                {#each model.tags.slice(0, 2) as tag}
-                  <span class={tagClass}>
-                    #{tag}
-                  </span>
-                {/each}
-                {#if model.tags.length > 2}
-                  <span class={tagClass}>
-                    +{model.tags.length - 2} more
-                  </span>
-                {/if}
-              </div>
-            {/if}
-          </div>
-        </div>
-      {/each}
-    </div>
-  {/if}
+						{#if state.showCapabilities && model.capabilities && model.capabilities.length > 0}
+							<div class={state.capabilitiesContainerClass}>
+								{#each model.capabilities.slice(0, 3) as capability}
+									<span class={state.capabilityTagClass}>{capability}</span>
+								{/each}
+								{#if model.capabilities.length > 3}
+									<span class={state.moreCapabilitiesTagClass}>+{model.capabilities.length - 3} more</span>
+								{/if}
+							</div>
+						{/if}
+
+						{#if state.showTags && model.tags && model.tags.length > 0}
+							<div class={state.tagsContainerClass}>
+								{#each model.tags.slice(0, 2) as tag}
+									<span class={state.tagClass}>#{tag}</span>
+								{/each}
+								{#if model.tags.length > 2}
+									<span class={state.tagClass}>+{model.tags.length - 2} more</span>
+								{/if}
+							</div>
+						{/if}
+					</div>
+				</div>
+			{/each}
+		</div>
+	{/if}
 </div>
-
-
-
-
-
-

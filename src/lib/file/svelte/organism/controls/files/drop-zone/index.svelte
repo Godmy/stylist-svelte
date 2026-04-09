@@ -1,176 +1,77 @@
-<script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+﻿<script lang="ts">
   import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist';
-const Upload = 'upload';
-const X = 'x';
-const Check = 'check';
-
+  const Upload = 'upload';
+  const X = 'x';
+  const Check = 'check';
   import { Button } from '$stylist';
+  import { createDropZoneState } from '$stylist/file/function/state/drop-zone';
+  import type { Props } from '$stylist/file/type/struct/drop-zone/props';
+  import type { DropItem } from '$stylist/file/type/struct/drop-zone/item';
+  import {
+    handleDragOver as handleDragOverFn,
+    handleDragLeave as handleDragLeaveFn,
+    handleDrop as handleDropFn,
+    handleFileInput as handleFileInputFn,
+    processFiles as processFilesFn,
+    removeItem as removeItemFn,
+    clearAll as clearAllFn,
+    formatFileSize,
+  } from '$stylist/file/function/script/drop-zone';
 
-  type DropItem = {
-    id: string;
-    name: string;
-    type: string;
-    size?: number;
-    data?: any;
-  };
-
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    children?: Snippet;
-    class?: string;
-    accept?: string;
-    multiple?: boolean;
-    disabled?: boolean;
-    maxSize?: number; // in bytes
-    maxItems?: number;
-    onDrop?: (items: DropItem[]) => void;
-    onDragOver?: (items: DragEvent) => void;
-    onDragLeave?: (items: DragEvent) => void;
-    onItemAdded?: (item: DropItem) => void;
-    onItemRemoved?: (item: DropItem) => void;
-    preview?: boolean;
-    label?: string;
-    description?: string;
-  };
-
-  let {
-    children,
-    class: hostClass = '',
-    accept = '*',
-    multiple = true,
-    disabled = false,
-    maxSize = Infinity,
-    maxItems = Infinity,
-    onDrop,
-    onDragOver,
-    onDragLeave,
-    onItemAdded,
-    onItemRemoved,
-    preview = true,
-    label = 'Drop files here',
-    description = 'or click to browse',
-    ...restProps
-  }: Props = $props();
+  let props: Props = $props();
 
   let isDragOver = $state(false);
   let items = $state<DropItem[]>([]);
   let isProcessing = $state(false);
+  let accept = $derived(props.accept ?? '');
+  let multiple = $derived(props.multiple ?? false);
+  let maxSize = $derived(props.maxSize);
+  let maxItems = $derived(props.maxItems);
+  let label = $derived(props.label);
+  let description = $derived(props.description);
+  let children = $derived(props.children);
+  const state = createDropZoneState(props);
 
-  function handleDragOver(e: DragEvent) {
-    e.preventDefault();
-    isDragOver = true;
-    onDragOver?.(e);
-  }
-
-  function handleDragLeave(e: DragEvent) {
-    e.preventDefault();
-    isDragOver = false;
-    onDragLeave?.(e);
-  }
-
-  function handleDrop(e: DragEvent) {
-    e.preventDefault();
-    isDragOver = false;
-
-    if (disabled) return;
-
-    const files = e.dataTransfer?.files;
-    if (files && files.length > 0) {
-      processFiles(files);
-    }
-  }
-
-  function handleFileInput(e: Event) {
-    if (disabled) return;
-
-    const target = e.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      processFiles(target.files);
-    }
-  }
-
-  function processFiles(fileList: FileList) {
-    isProcessing = true;
-    const newItems: DropItem[] = [];
-
-    for (let i = 0; i < fileList.length; i++) {
-      const file = fileList[i];
-
-      // Check file size
-      if (file.size > maxSize) {
-        console.warn(`File ${file.name} exceeds max size of ${maxSize} bytes`);
-        continue;
-      }
-
-      // Check file type
-      if (accept !== '*' && !accept.split(',').some(type =>
-        type.trim().startsWith('.')
-          ? file.name.toLowerCase().endsWith(type.trim().toLowerCase())
-          : file.type.startsWith(type.trim())
-      )) {
-        console.warn(`File ${file.name} is not of accepted type ${accept}`);
-        continue;
-      }
-
-      // Check max items limit
-      if (items.length + newItems.length >= maxItems) {
-        console.warn(`Maximum number of items (${maxItems}) reached`);
-        break;
-      }
-
-      const newItem: DropItem = {
-        id: `${file.name}-${file.size}-${file.lastModified}`,
-        name: file.name,
-        type: file.type || 'unknown',
-        size: file.size,
-        data: file
-      };
-
-      newItems.push(newItem);
-      onItemAdded?.(newItem);
-    }
-
-    if (newItems.length > 0) {
-      const allItems = [...items, ...newItems];
-      items = allItems;
-      onDrop?.(allItems);
-    }
-
-    isProcessing = false;
-  }
-
-  function removeItem(id: string) {
-    const item = items.find(i => i.id === id);
-    if (item) {
-      items = items.filter(i => i.id !== id);
-      onItemRemoved?.(item);
-    }
-  }
-
-  function clearAll() {
-    items = [];
-  }
-
-  // Convert bytes to human-readable format
-  function formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
+  let restProps = $derived.by(() => {
+    const {
+      children: _children, class: _class, accept: _accept, multiple: _multiple,
+      disabled, maxSize: _maxSize, maxItems: _maxItems,
+      onDrop, onDragOver, onDragLeave, onItemAdded, onItemRemoved,
+      preview, label: _label, description: _description,
+      ...rest
+    } = props;
+    return rest;
+  });
 </script>
 
 <div
   class={`c-drop-zone border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
     isDragOver ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
-  } ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${hostClass}`}
-  ondragover={handleDragOver}
-  ondragleave={handleDragLeave}
-  ondrop={handleDrop}
+  } ${state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${state.classes}`}
+  ondragover={(e) => {
+    e.preventDefault();
+    isDragOver = true;
+    props.onDragOver?.(e);
+  }}
+  ondragleave={(e) => {
+    e.preventDefault();
+    isDragOver = false;
+    props.onDragLeave?.(e);
+  }}
+  ondrop={(e) => {
+    e.preventDefault();
+    isDragOver = false;
+    if (state.disabled) return;
+    const files = e.dataTransfer?.files;
+    if (files && files.length > 0) {
+      isProcessing = true;
+      const result = processFiles(files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
+      items = result;
+      isProcessing = false;
+      props.onDrop?.(result);
+    }
+  }}
   {...restProps}
 >
   {#if children}
@@ -189,7 +90,17 @@ const Check = 'check';
       accept={accept}
       multiple={multiple}
       disabled={disabled}
-      onchange={handleFileInput}
+      onchange={(e) => {
+        if (state.disabled) return;
+        const target = e.target as HTMLInputElement;
+        if (target.files && target.files.length > 0) {
+          isProcessing = true;
+          const result = processFiles(target.files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
+          items = result;
+          isProcessing = false;
+          props.onDrop?.(result);
+        }
+      }}
     />
 
     <div class="mt-4">
@@ -202,7 +113,7 @@ const Check = 'check';
           const fileInput = parentElement ? parentElement.querySelector('input[type="file"]') : null;
           if (fileInput) (fileInput as HTMLInputElement).click();
         }}
-        disabled={disabled}
+        disabled={state.disabled}
       >
         Browse Files
       </Button>
@@ -216,8 +127,8 @@ const Check = 'check';
         <Button
           variant="ghost"
           size="sm"
-          onclick={clearAll}
-          disabled={disabled}
+          onclick={() => { items = []; }}
+          disabled={state.disabled}
         >
           Clear All
         </Button>
@@ -240,8 +151,8 @@ const Check = 'check';
               <Button
                 variant="ghost"
                 size="sm"
-                onclick={() => removeItem(item.id)}
-                disabled={disabled}
+                onclick={() => { items = items.filter((i: DropItem) => i.id !== item.id); props.onItemRemoved?.(item); }}
+                disabled={state.disabled}
               >
                 <BaseIcon name={X} class="h-4 w-4" />
               </Button>
@@ -258,8 +169,3 @@ const Check = 'check';
     </div>
   {/if}
 </div>
-
-
-
-
-

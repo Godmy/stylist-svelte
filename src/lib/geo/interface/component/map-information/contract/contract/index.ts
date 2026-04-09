@@ -5,8 +5,8 @@ import type { AlertCardRecipe as IAlertCardProps } from '$stylist/commerce/inter
 import type { AnimatedNumberRecipe as AnimatedNumberProps } from '$stylist/typography/interface/recipe/animated-number';
 import type { NumberFlowRecipe as NumberFlowProps } from '$stylist/typography/interface/recipe/number-flow';
 import type { AtomicPrinciplesRecipe as AtomicPrinciplesProps } from '$stylist/information/interface/recipe/atomic-principles';
-import type { AuthGuardRecipe as AuthGuardProps } from '$stylist/information/interface/recipe/auth-guard';
-import type { AutoCompleteRecipe as AutoCompleteProps } from '$stylist/information/interface/recipe/auto-complete';
+import type { AuthGuardRecipe as AuthGuardProps } from '$stylist/management/interface/recipe/auth-guard';
+import type { AutoCompleteRecipe as AutoCompleteProps } from '$stylist/input/interface/recipe/auto-complete';
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { BaseCardRecipe as IBaseCardElementProps } from '$stylist/commerce/interface/recipe/base-card';
 import type { IBillingSummaryProps } from '$stylist/commerce/interface/component/billing-summary/other';
@@ -18,8 +18,8 @@ import type { CategoryCardRecipe as ICategoryCardProps } from '$stylist/commerce
 import type { CommentSystemProps } from '$stylist/social/interface/component/comment-system/other';
 import type { CommentThreadProps } from '$stylist/social/interface/component/comment-thread/other';
 import type { ComparisonCardRecipe as IComparisonCardProps } from '$stylist/commerce/interface/recipe/comparison-card';
-import type { ConnectionLineRecipe as ConnectionLineProps } from '$stylist/information/interface/recipe/connection-line';
-import type { CountryFlagRecipe as CountryFlagProps } from '$stylist/information/interface/recipe/country-flag';
+import type { ConnectionLineRecipe as ConnectionLineProps } from '$stylist/science/interface/recipe/connection-line';
+import type { CountryFlagRecipe as CountryFlagProps } from '$stylist/geo/interface/recipe/country-flag';
 import type { IDownloadCardProps } from '$stylist/file/interface/component/download-card/other';
 import type { IEventCalendarProps } from '$stylist/calendar/interface/component/event-calendar/other';
 import type { ExpandableCardRecipe } from '$stylist/commerce/interface/recipe/expandable-card';

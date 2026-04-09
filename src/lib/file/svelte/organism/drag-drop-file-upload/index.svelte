@@ -1,87 +1,59 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
   import { Icon as BaseIcon } from '$stylist';
-const Upload = 'upload';
-const FileText = 'file-text';
-const X = 'x';
+  const Upload = 'upload';
+  const FileText = 'file-text';
+  const X = 'x';
+  import { createDragDropFileUploadState } from '$stylist/file/function/state/drag-drop-file-upload';
+  import type { FileType } from '$stylist/file/type/struct/drag-drop-file-upload/file-type';
+  import type { Props } from '$stylist/file/type/struct/drag-drop-file-upload/props';
+  import {
+    handleFileSelect as handleFileSelectFn,
+    handleDrop as handleDropFn,
+    processFiles as processFilesFn,
+    removeFile as removeFileFn,
+    formatFileSize,
+  } from '$stylist/file/function/script/drag-drop-file-upload';
 
-
-  type FileType = {
-    id: string;
-    name: string;
-    size: number;
-    type: string;
-    status: 'uploading' | 'success' | 'error';
-    progress?: number;
-  };
-
-  type Props = {
-    multiple?: boolean;
-    accept?: string;
-    maxSize?: number; // in bytes
-    disabled?: boolean;
-    class?: string;
-    dropZoneClass?: string;
-    fileListClass?: string;
-    fileItemClass?: string;
-    buttonClass?: string;
-    preview?: boolean;
-    onFileSelect?: (files: FileList) => void;
-    onFileUpload?: (file: File) => void;
-  } & InteractionHTMLAttributes<HTMLDivElement>;
-
-  let {
-    multiple = false,
-    accept = '',
-    maxSize = 10 * 1024 * 1024, // 10MB default
-    disabled = false,
-    class: className = '',
-    dropZoneClass = '',
-    fileListClass = '',
-    fileItemClass = '',
-    buttonClass = '',
-    preview = false,
-    onFileSelect,
-    onFileUpload,
-    ...restProps
-  }: Props = $props();
+  let props: Props = $props();
 
   let files = $state<FileType[]>([]);
   let isDragging = $state(false);
-  let fileInputRef: HTMLInputElement | null = null;
+  let fileInputRef: HTMLInputElement | null = $state(null);
+  let multiple = $derived(props.multiple ?? false);
+  let accept = $derived(props.accept ?? '');
+  let maxSize = $derived(props.maxSize ?? 10 * 1024 * 1024);
+  const state = createDragDropFileUploadState(props);
 
-  function handleFileSelect(e: Event) {
-    const target = e.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      processFiles(target.files);
-    }
+  let restProps = $derived.by(() => {
+    const {
+      multiple: _multiple, accept: _accept, maxSize: _maxSize,
+      disabled, class: _class, dropZoneClass, fileListClass, fileItemClass, buttonClass,
+      preview, onFileSelect, onFileUpload,
+      ...rest
+    } = props;
+    return rest;
+  });
+
+  function setIsDragging(value: boolean) {
+    isDragging = value;
   }
 
-  function handleDrop(e: DragEvent) {
-    e.preventDefault();
-    isDragging = false;
-
-    if (e.dataTransfer?.files && e.dataTransfer.files.length > 0) {
-      processFiles(e.dataTransfer.files);
-    }
+  function updateFile(id: string, updates: Partial<FileType>) {
+    files = files.map(f => f.id === id ? { ...f, ...updates } : f);
   }
 
-  function processFiles(selectedFiles: FileList) {
-    // Call the callback if provided
-    if (onFileSelect) {
-      onFileSelect(selectedFiles);
-    }
+  function processFilesInner(selectedFiles: FileList) {
+    props.onFileSelect?.(selectedFiles);
 
     for (let i = 0; i < selectedFiles.length; i++) {
       const file = selectedFiles[i];
 
-      // Check file size
       if (file.size > maxSize) {
         console.error(`File ${file.name} exceeds max size of ${maxSize} bytes`);
         continue;
       }
 
-      // Add file to state
       const newFile: FileType = {
         id: Math.random().toString(36).substring(2, 9),
         name: file.name,
@@ -94,52 +66,45 @@ const X = 'x';
       files = [...files, newFile];
 
       // Simulate upload process
-      simulateUpload(newFile.id, file);
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 10;
+        if (progress >= 100) {
+          clearInterval(interval);
+          updateFile(newFile.id, { progress: 100, status: 'success' });
+          props.onFileUpload?.(file);
+        } else {
+          updateFile(newFile.id, { progress });
+        }
+      }, 200);
     }
   }
 
-  function simulateUpload(fileId: string, file: File) {
-    // Simulate upload progress
-    const interval = setInterval(() => {
-      const fileIndex = files.findIndex(f => f.id === fileId);
-      if (fileIndex !== -1) {
-        const currentProgress = files[fileIndex].progress || 0;
-        if (currentProgress < 100) {
-          files[fileIndex].progress = currentProgress + 10;
-        } else {
-          clearInterval(interval);
-          files[fileIndex].status = 'success';
-          if (onFileUpload) {
-            onFileUpload(file);
-          }
-        }
-      }
-    }, 200);
+  function handleFileSelect(e: Event) {
+    handleFileSelectFn(e, processFilesInner);
+  }
+
+  function handleDrop(e: DragEvent) {
+    handleDropFn(e, setIsDragging, processFilesInner);
   }
 
   function removeFile(id: string) {
-    files = files.filter(file => file.id !== id);
-  }
-
-  function formatFileSize(bytes: number): string {
-    if (bytes < 1024) return bytes + ' bytes';
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-    else return (bytes / 1048576).toFixed(1) + ' MB';
+    files = removeFileFn(id, files);
   }
 
   function triggerFileInput() {
-    if (!disabled && fileInputRef) {
+    if (!state.disabled && fileInputRef) {
       fileInputRef.click();
     }
   }
 </script>
 
-<div class={`c-drag-drop-file-upload w-full ${className}`} {...restProps}>
+<div class={`c-drag-drop-file-upload w-full ${state.classes}`} {...restProps}>
   <!-- Drop Zone -->
   <div
     class={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
       isDragging ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
-    } ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${dropZoneClass}`}
+    } ${state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${props.dropZoneClass ?? ''}`}
     ondragover={(e: DragEvent) => {
       e.preventDefault();
       isDragging = true;
@@ -168,17 +133,17 @@ const X = 'x';
       onchange={handleFileSelect}
       {multiple}
       {accept}
-      disabled={disabled}
+      disabled={state.disabled}
     />
   </div>
 
   <!-- Selected Files List -->
   {#if files.length > 0}
-    <div class={`mt-4 ${fileListClass}`}>
+    <div class={`mt-4 ${props.fileListClass ?? ''}`}>
       <h4 class="text-sm font-medium text-[var(--color-text-primary)] mb-2">Selected Files:</h4>
       <ul class="space-y-2">
         {#each files as file}
-          <li class={`flex items-center justify-between p-3 border rounded-md ${fileItemClass} ${
+          <li class={`flex items-center justify-between p-3 border rounded-md ${props.fileItemClass ?? ''} ${
             file.status === 'error' ? 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]' :
             file.status === 'success' ? 'border-[var(--color-success-200)] bg-[var(--color-success-50)]' :
             'border-[var(--color-border-primary)] bg-[var(--color-background-secondary)]'
@@ -220,8 +185,3 @@ const X = 'x';
     </div>
   {/if}
 </div>
-
-
-
-
-

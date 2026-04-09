@@ -53,8 +53,8 @@ export const createHoverableState = (props: HoverProps) => {
 		},
 
 		// State
-		classes,
-		restProps,
+		get classes() { return classes; },
+		get restProps() { return restProps; },
 
 		// Handlers
 		handleMouseEnter,

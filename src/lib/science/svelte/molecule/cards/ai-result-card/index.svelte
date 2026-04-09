@@ -1,34 +1,28 @@
 <script lang="ts">
 	import type { AiResultCardContract } from '$stylist/science/interface/record/science';
-	import { AiResultCardStyleManager } from '$stylist/science/class/style-manager/ai-result-card';
+	import { createAiResultCardState } from '$stylist/science/function/state/ai-result-card';
 
 	let props: AiResultCardContract = $props();
-	let {
-		children,
-		title = '',
-		description = '',
-		icon = '',
-		class: className = ''
-	} = props;
+	const state = createAiResultCardState(props);
 </script>
 
-<div class={AiResultCardStyleManager.getContainerClass(className)}>
-  <div class={AiResultCardStyleManager.getContentWrapperClass()}>
-    {#if icon}
-      <div class={AiResultCardStyleManager.getIconContainerClass()}>
-        <img src={icon} alt="" class={AiResultCardStyleManager.getIconClass()} />
+<div class={state.containerClass}>
+  <div class={state.contentWrapperClass}>
+    {#if state.icon}
+      <div class={state.iconContainerClass}>
+        <img src={state.icon} alt="" class={state.iconClass} />
       </div>
     {/if}
-    <div class={AiResultCardStyleManager.getTextContentWrapperClass()}>
-      {#if title}
-        <h3 class={AiResultCardStyleManager.getTitleClass()}>{title}</h3>
+    <div class={state.textContentWrapperClass}>
+      {#if state.title}
+        <h3 class={state.titleClass}>{state.title}</h3>
       {/if}
-      {#if description}
-        <p class={AiResultCardStyleManager.getDescriptionClass()}>{description}</p>
+      {#if state.description}
+        <p class={state.descriptionClass}>{state.description}</p>
       {/if}
-      {#if children}
+      {#if state.children}
         <div>
-          {@render children()}
+          {@render state.children?.()}
         </div>
       {/if}
     </div>

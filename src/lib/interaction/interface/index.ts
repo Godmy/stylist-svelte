@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AnimateProps, ClickProps, DragProps, FocusProps, HoverProps, IAnimate, IBarClickable, ICellClickable, IClickable, IDraggable, IFocusable, IHoverable, IMotionPreset, IMotionToken, IPointClickable, ISelectable, ITooltipable, ITransformable, TransformProps } from './proto';
-export type { ButtonRecipe, CheckboxRecipe, DraggableItemRecipe, IconButtonRecipe, InteractionFeedbackRecipe, SelectControlRecipe, SelectRecipe, SharedCanvasRecipe, SliderRecipe, SliderTickRecipe, SwitchWithLabelRecipe, ToggleGroupRecipe, ToggleRecipe, ToggleSpecificProps } from './recipe';
+export type { ClickProps, DragProps, FocusProps, HoverProps, IBarClickable, ICellClickable, IClickable, IDraggable, IFocusable, IHoverable, IPointClickable, ISelectable, ITooltipable } from './proto';
+export type { ButtonRecipe, CheckboxRecipe, DraggableItemRecipe, IconButtonRecipe, InteractionFeedbackRecipe, SharedCanvasRecipe } from './recipe';
 export type { MapInteractionContract } from './record';

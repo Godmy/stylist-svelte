@@ -1,22 +1,16 @@
 <script lang="ts">
   import type { SimpleModalProps } from '$stylist/notification/interface/component/interaction-feedback/other';
-  import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-  let { open=true, title='Simple Modal', class: className='', onClose, ...restProps }: SimpleModalProps = $props();
+  import { createSimpleModalState } from '$stylist/navigation/function/state/simple-modal';
+
+  let props: SimpleModalProps = $props();
+  const state = createSimpleModalState(props);
 </script>
-{#if open}
+
+{#if props.open}
   <div class="fixed inset-0 bg-[var(--color-neutral-900)]/40 flex items-center justify-center p-4 z-[var(--z-index-modal)]">
-    <div class={InteractionFeedbackStyleManager.root('c-simple-modal bg-[var(--color-background-primary)] rounded-lg p-5 w-full max-w-sm', className)} {...restProps}>
-      <div class="flex items-center justify-between"><h3 class="font-semibold">{title}</h3><button type="button" onclick={onClose}>x</button></div>
+    <div class={state.dialogClasses} {...props}>
+      <div class="flex items-center justify-between"><h3 class="font-semibold">{props.title}</h3><button type="button" onclick={props.onClose}>x</button></div>
       <p class="text-sm text-[var(--color-text-secondary)] mt-2">Simple modal content</p>
     </div>
   </div>
 {/if}
-
-
-
-
-
-
-
-
-

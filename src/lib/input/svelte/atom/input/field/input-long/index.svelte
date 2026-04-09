@@ -1,177 +1,63 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createInputTextState } from '$stylist/input/function/state/input-text';
-	import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 	import type { IInputLongProps } from '$stylist/input/interface/component/input/other';
+	import { createInputLongState } from '$stylist/input/function/state/input-long';
 
-	/**
-	 * InputLong component - Многострочный input для длинного текста
-	 *
-	 * @example
-	 * ```svelte
-	 * <InputLong
-	 *   label="Комментарий"
-	 *   bind:value={comment}
-	 *   rows={4}
-	 *   autoResize={true}
-	 *   maxlength={500}
-	 * />
-	 * ```
-	 */
+	let props: IInputLongProps &
+		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+	const state = createInputLongState(props);
 
-	type Props = IInputLongProps &
-		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'>;
-
-	let {
-		// Core props
-		variant = 'default',
-		size = 'md',
-		disabled = false,
-		error = false,
-		block = true,
-		class: className = '',
-
-		// Label props
-		label,
-		id,
-		showRequiredIndicator = true,
-
-		// Validation props
-		errors = [],
-		showErrors = true,
-
-		// Helper props
-		helperText,
-		showHelperWhenError = false,
-
-		// Input-specific props
-		value = $bindable<string>(''),
-		placeholder,
-		autocomplete,
-		name,
-		required = false,
-		readonly = false,
-		autofocus = false,
-		minlength,
-		maxlength,
-
-		// Long input-specific props
-		rows = 4,
-		autoResize = false,
-		maxHeight = '300px',
-
-		// Rest props
-		...restProps
-	}: Props = $props();
-
-	// Derived values
-	const hasError = $derived(error || errors.length > 0);
-	const errorId = $derived(id ? `${id}-error` : undefined);
-	const labelId = $derived(id ? `${id}-label` : undefined);
-
-	// Input state
-	const inputState = $derived(
-		createInputTextState({
-			variant,
-			size,
-			disabled,
-			error: hasError,
-			block,
-			class: className
-		})
-	);
-
-	// Container classes
-	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
-	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
-	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
-	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
-	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
-
-	// Show helper text logic
-	const showHelper = $derived(
-		helperText && (showHelperWhenError || !hasError)
-	);
-
-	// Auto-resize logic
 	let textareaElement: HTMLTextAreaElement | null = null;
 	onMount(() => {
-		if (autofocus) textareaElement?.focus();
+		if (props.autofocus) textareaElement?.focus();
 	});
-
-	function autoResizeTextarea() {
-		if (autoResize && textareaElement) {
-			textareaElement.style.height = 'auto';
-			const newHeight = Math.min(textareaElement.scrollHeight, parseFloat(maxHeight));
-			textareaElement.style.height = `${newHeight}px`;
-		}
-	}
 
 	$effect(() => {
-		if (autoResize && value) {
-			autoResizeTextarea();
+		if (props.autoResize && props.value) {
+			state.autoResizeTextarea(textareaElement);
 		}
 	});
-
-	function handleInput(e: Event) {
-		if (autoResize) {
-			autoResizeTextarea();
-		}
-	}
 </script>
 
-<div class={containerClasses}>
-	{#if label}
-		<label for={id} class={labelClasses} id={labelId}>
-			{label}
-			{#if required && showRequiredIndicator}
-				<span class={requiredIndicatorClasses} aria-hidden="true">*</span>
+<div class={state.containerClasses}>
+	{#if props.label}
+		<label for={props.id} class={state.labelClasses} id={state.labelId}>
+			{props.label}
+			{#if props.required && (props.showRequiredIndicator ?? true)}
+				<span class={state.requiredIndicatorClasses} aria-hidden="true">*</span>
 			{/if}
 		</label>
 	{/if}
 
 	<textarea
-		{id}
-		{name}
-		bind:value
-		{placeholder}
-		{required}
-		{readonly}
-		{disabled}
-		{autocomplete}
-		{minlength}
-		{maxlength}
-		{rows}
+		id={props.id}
+		name={props.name}
+		bind:value={props.value}
+		placeholder={props.placeholder}
+		required={props.required ?? false}
+		readonly={props.readonly ?? false}
+		disabled={props.disabled ?? false}
+		autocomplete={props.autocomplete}
+		minlength={props.minlength}
+		maxlength={props.maxlength}
+		rows={props.rows ?? 4}
 		bind:this={textareaElement}
-		class={`${inputState.classes} resize-y`}
-		style="max-height: {maxHeight};"
-		oninput={handleInput}
-		aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
-		aria-invalid={hasError ? 'true' : 'false'}
-		aria-required={required ? 'true' : 'false'}
-		{...restProps}
+		class={`${state.inputClasses} resize-y`}
+		style={`max-height: ${props.maxHeight ?? '300px'};`}
+		oninput={() => state.handleInput(textareaElement)}
+		aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+		aria-invalid={state.hasError ? 'true' : 'false'}
+		aria-required={props.required ? 'true' : 'false'}
 	></textarea>
 
-	{#if hasError && showErrors && errors.length > 0}
-		<p id={errorId} class={errorTextClasses} role="alert">
-			{#each errors as error_msg, i}
-				{error_msg}{i < errors.length - 1 ? ' ' : ''}
+	{#if state.hasError && (props.showErrors ?? true) && (props.errors?.length ?? 0) > 0}
+		<p id={state.errorId} class={state.errorTextClasses} role="alert">
+			{#each props.errors ?? [] as error_msg, i}
+				{error_msg}{i < (props.errors?.length ?? 0) - 1 ? ' ' : ''}
 			{/each}
 		</p>
-	{:else if showHelper}
-		<p class={helperTextClasses}>{helperText}</p>
+	{:else if state.showHelper}
+		<p class={state.helperTextClasses}>{props.helperText}</p>
 	{/if}
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

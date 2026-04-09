@@ -1,4 +1,4 @@
-import { getEasingFunction, type EasingType } from '$stylist/interaction/function/script/get-easing-function';
+import { getEasingFunction, type EasingType } from '$stylist/animation/function/script/get-easing-function';
 
 export interface AnimateValueOptions {
 	from: number;

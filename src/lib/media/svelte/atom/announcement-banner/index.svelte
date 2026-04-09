@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { AnnouncementBannerContract } from '$stylist/media/interface/component/announcement-banner/contract';
-	import { createAnnouncementBannerState } from '$stylist/information/function/state/announcement-banner';
+	import { createAnnouncementBannerState } from '$stylist/media/function/state/announcement-banner';
 
 	let props: AnnouncementBannerContract = $props();
 	const state = createAnnouncementBannerState(props);

@@ -1,66 +1,25 @@
 <script lang="ts">
-	import { createPinInputDigitState } from '$stylist/input/function/script/create-pin-input-digit-state';
-import type { HTMLInputAttributes } from 'svelte/elements';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
-	import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+	import type { IPinInputDigitProps } from '$stylist/input/interface/component/input/other';
+	import { createPinInputDigitState } from '$stylist/input/function/state/input-pin-digit';
+	import type { HTMLInputAttributes } from 'svelte/elements';
 
-	type PinInputSize = (typeof TOKEN_SIZE)[number];
-
-	type InputAttributes = Omit<
-		HTMLInputAttributes,
-		'size' | 'class' | 'onchange' | 'onfocus' | 'onblur' | 'onkeydown'
-	>;
-
-	type PinInputDigitProps = {
-		id?: string;
-		label?: string;
-		errors?: string[];
-		focused?: boolean;
-		invalid?: boolean;
-		class?: string;
-		variant?: TokenAppearance;
-		size?: PinInputSize;
-		value?: string;
-		onChange?: (value: string, index: number) => void;
-		onFocus?: (index: number) => void;
-		onBlur?: () => void;
-		onKeyDown?: (e: KeyboardEvent, index: number) => void;
-	} & InputAttributes;
-
-	let {
-		id,
-		label,
-		errors,
-		focused = false,
-		invalid = false,
-		class: className = '',
-		variant = 'default',
-		size = 'md',
-		value = '',
-		onChange,
-		onFocus,
-		onBlur,
-		onKeyDown,
-		...restProps
-	}: PinInputDigitProps = $props();
-	const pinInputState = $derived(
-		createPinInputDigitState({
-			variant: variant satisfies TokenAppearance,
-			size,
-			error: invalid,
-			class: className
-		})
-	);
-
-	let classes = $derived(
-		[pinInputState.classes, focused ? 'ring-2 ring-blue-500' : ''].filter(Boolean).join(' ')
-	);
+	let props: IPinInputDigitProps &
+		Omit<HTMLInputAttributes, 'size' | 'class' | 'onchange' | 'onfocus' | 'onblur' | 'onkeydown'> & {
+			focused?: boolean;
+			invalid?: boolean;
+			variant?: string;
+			size?: 'sm' | 'md' | 'lg';
+		} = $props();
+	const state = createPinInputDigitState({
+		variant: (props.variant ?? 'default') as 'default' | 'neutral' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'error' | 'ghost' | 'link' | 'flat' | 'solid' | 'elevated' | 'outline' | 'subtle' | 'gray' | 'dark' | 'light',
+		size: props.size ?? 'md',
+		error: props.invalid,
+		class: props.class
+	});
+	const classes = $derived([
+		state.classes,
+		props.focused ? 'ring-2 ring-blue-500' : ''
+	].filter(Boolean).join(' '));
 </script>
 
-<input class={classes} maxLength={1} {value} {...restProps} />
-
-
-
-
-
-
+<input class={classes} maxLength={1} value={props.value} />

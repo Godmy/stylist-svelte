@@ -8,6 +8,6 @@
  * - DragProps из '$stylist/interaction/interface/proto/draggable-props'
  * - HoverProps из '$stylist/interaction/interface/proto/hoverable-props'
  * - FocusProps из '$stylist/interaction/interface/proto/focusable-props'
- * - TransformProps из '$stylist/interaction/interface/proto/transformable-props'
- * - AnimateProps из '$stylist/interaction/interface/proto/animate-props'
+ * - TransformProps из '$stylist/animation/interface/proto/transformable-props'
+ * - AnimateProps из '$stylist/animation/interface/proto/animate-props'
  */

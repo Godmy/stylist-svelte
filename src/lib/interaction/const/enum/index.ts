@@ -10,8 +10,6 @@ export { TOKEN_LOADING } from './loading';
 export { TOKEN_PROCESS } from './process';
 export { TOKEN_PROGRESS_TYPE } from './progress-type';
 export { TOKEN_RADIO } from './radio';
-export { TOKEN_SELECTOR_KIND } from './selection-kind';
-export { TOKEN_SELECTION_TYPE } from './selection-type';
 export { TOKEN_SEVERITY } from './sevetity';
 export { TOKEN_SORT_DIRECTION } from './sort-direction';
 export { TOKEN_TEST } from './test';

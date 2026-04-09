@@ -1,20 +1,16 @@
-/**
- * ReactionPicker types and interfaces following SOLID principles
- */
-
-import type { Snippet } from 'svelte';
-
 export interface IReactionPickerProps {
-  class?: string;
-  reactions?: Array<{id: string, emoji: string, label: string}>;
-  selected?: string[];
-  children?: Snippet;
-  onreactionselect?: (event: CustomEvent) => void;
+	reactions?: Array<{
+		type: 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view';
+		count: number;
+		active: boolean;
+	}>;
+	maxReactions?: number;
+	showCounts?: boolean;
+	showPicker?: boolean;
+	size?: 'sm' | 'md' | 'lg';
+	class?: string;
+	reactionClass?: string;
+	pickerClass?: string;
+	onReactionToggle?: (reaction: 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view') => void;
+	showPickerOnHover?: boolean;
 }
-
-export interface IReactionPickerStyleClasses {
-  base: string;
-  reaction: string;
-  selected: string;
-}
-

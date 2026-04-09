@@ -1,17 +1,13 @@
 <script lang="ts">
+  import { createUserProfileCardState } from '$stylist/management/function/state/user-profile-card';
   import type { UserProfileCardProps } from '$stylist/form/interface/component/account-forms/other';
-  import { AccountFormsStyleManager } from '$stylist/form/class/style-manager/account-forms';
-  let { name='Jane Doe', role='Administrator', email='jane@example.com', class: className='', ...restProps }: UserProfileCardProps = $props();
+
+  let props: UserProfileCardProps = $props();
+  const state = createUserProfileCardState(props);
 </script>
-<div class={AccountFormsStyleManager.root('c-user-profile-card border rounded-lg p-4', className)} {...restProps}>
-  <div class="h-12 w-12 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-700)] flex items-center justify-center font-semibold">{name.charAt(0)}</div>
-  <div class="mt-2 font-semibold">{name}</div>
-  <div class="text-sm text-[var(--color-text-secondary)]">{role}</div>
-  <div class="text-sm text-[var(--color-text-secondary)]">{email}</div>
+<div class={state.containerClasses} {...state.restProps}>
+  <div class="h-12 w-12 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-700)] flex items-center justify-center font-semibold">{state.initial}</div>
+  <div class="mt-2 font-semibold">{state.name}</div>
+  <div class="text-sm text-[var(--color-text-secondary)]">{state.role}</div>
+  <div class="text-sm text-[var(--color-text-secondary)]">{state.email}</div>
 </div>
-
-
-
-
-
-

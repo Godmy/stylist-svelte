@@ -1,13 +1,6 @@
 <script lang="ts">
-	type Idef0Port = { id: string; label?: string; color?: string };
-	type Idef0InputsProps = {
-		ports: Idef0Port[];
-		boxX: number;
-		boxY?: number;
-		boxHeight: number;
-		startX?: number;
-	};
-	import { createIdef0InputsState } from '$stylist/information/function/state/idef0';
+	import type { Idef0InputsProps } from '$stylist/science/type/struct/idef-zero';
+	import { createIdef0InputsState } from '$stylist/science/function/state/idef0';
 	import Idef0Connector from '$stylist/science/svelte/atom/diagrams/idef-zero-connector/index.svelte';
 
 	let props: Idef0InputsProps = $props();

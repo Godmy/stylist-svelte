@@ -8,7 +8,7 @@
  *   IStatusSlot        (information) — status (Status)
  */
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 

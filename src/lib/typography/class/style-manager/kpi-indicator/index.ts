@@ -5,7 +5,7 @@
  * - SRP: Класс отвечает только за генерацию CSS-классов для KPIIndicator
  * - Использует CSS-переменные из темы для стилизации
  */
-import type { TokenTrend } from '$stylist/information/type/enum/trend';
+import type { TokenTrend } from '$stylist/management/type/enum/trend';
 import type { TokenKPI } from '$stylist/typography/type/enum/kpi';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 

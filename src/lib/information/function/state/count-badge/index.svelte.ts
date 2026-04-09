@@ -1,5 +1,5 @@
 import type { CountBadgeRecipe } from '$stylist/typography/interface/recipe/count-badge';
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 
 /**
  * CountBadge state creator

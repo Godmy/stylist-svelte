@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Idef0PortLabelRecipe as Idef0PortLabelProps } from '$stylist/science/interface/recipe/idef0-port-label';
-	import { createIdef0PortLabelState } from '$stylist/information/function/state/idef0';
+	import { createIdef0PortLabelState } from '$stylist/science/function/state/idef0';
 
 	let props: Idef0PortLabelProps = $props();
 	const state = createIdef0PortLabelState(props);

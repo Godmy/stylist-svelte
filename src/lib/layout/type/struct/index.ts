@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AnimatedExpandableTableRowProps } from './animated-expandable-table-row';
 export type { AspectRatioProps, AttributeAspectRatio } from './aspect-ratio';
 export type { BorderAura } from './border-aura';
 export type { BorderStyle } from './border-style';

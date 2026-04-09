@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const Copy = 'copy'; const Check = 'check';
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import { copyTextToClipboard } from '$stylist/information/function/script/copy-text-to-clipboard';
+import { copyTextToClipboard } from '$stylist/interaction/function/script/copy-text-to-clipboard';
 import type { CopyButtonProps } from '$stylist/control/interface/component/button/other';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { createButtonState } from '$stylist/control/function/state/button';

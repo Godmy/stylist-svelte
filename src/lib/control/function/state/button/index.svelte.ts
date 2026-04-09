@@ -7,7 +7,7 @@ import type { Preset } from '$stylist/interaction/type/struct/preset';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
-import { buildPresetClassNames } from '$stylist/information/function/script/build-preset-class-names';
+import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 

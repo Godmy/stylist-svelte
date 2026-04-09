@@ -1,18 +1,11 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { ListItemMarkerType } from './list-item-marker';
-export type { PropDefinition } from './props-editor';
 export type { AccessibilityCheckboxRecipe } from './accessibility-checkbox';
 export type { AtomicPrinciplesRecipe } from './atomic-principles';
-export type { AuthGuardRecipe } from './auth-guard';
-export type { AutoCompleteRecipe } from './auto-complete';
-export type { ConnectionLineRecipe, ConnectionPathResult, Point } from './connection-line';
 export type { CounterRecipe } from './counter';
-export type { CountryFlagRecipe } from './country-flag';
 export type { DotRecipe } from './dot';
-export type { InputControlRecipe } from './input-control';
 export type { ListItemMarkerRecipe } from './list-item-marker';
 export type { MetricCardRecipe } from './metric-card';
-export type { PropsEditorRecipe } from './props-editor';
 export type { SearchResultsRecipe } from './search-results';
 export type { SortRecipe } from './sort';
 export type { SortableGridRecipe } from './sortable-grid';

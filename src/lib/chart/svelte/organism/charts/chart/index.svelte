@@ -1,19 +1,11 @@
 <script lang="ts">
-	import type { ChartRecipe } from '$stylist/chart/interface/recipe/chart';
+	import type { AnalyticsChartProps } from '$stylist/chart/type/struct/analytics-chart-props';
 	import type { ChartProps as InformationChartProps } from '$stylist/chart/interface/recipe/chart-props';
 	import { createChartState } from '$stylist/chart/function/state/chart-function';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import ChartCanvas from '$stylist/chart/svelte/molecule/charts/chart-canvas/index.svelte';
 	import ChartLegend from '$stylist/chart/svelte/molecule/charts/chart-legend/index.svelte';
 	import { ObjectManagerChart } from '$stylist/chart/class/object-manager/chart';
-
-	type AnalyticsChartProps = ChartRecipe & {
-		xTickCount?: number;
-		yTickCount?: number;
-		xAxisLabel?: string;
-		yAxisLabel?: string;
-		zAxisLabel?: string;
-	};
 
 	let props: AnalyticsChartProps = $props();
 	const state = createChartState({
@@ -52,11 +44,3 @@
 		<ChartLegend items={legendItems} />
 	{/if}
 </section>
-
-
-
-
-
-
-
-

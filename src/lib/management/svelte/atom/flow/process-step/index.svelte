@@ -2,58 +2,35 @@
   /**
    * @component ProcessStep
    * @description Process step for timeline
-   * 
+   *
    * SOLID Principles Applied:
    * - Single Responsibility: Only handles process step display
    * - Open/Closed: Extensible through props without modifying source
    * - Liskov Substitution: Can substitute any process step
    * - Interface Segregation: Minimal interface via IProcessStepProps
    * - Dependency Inversion: Depends on abstractions (props interface)
-   * 
+   *
    * Atomic Design: Molecule - Composes atoms into a meaningful process unit
    */
 
   import type { IProcessStepProps } from '$stylist/management/interface/component/process-step/other';
-  import { ProcessStepStyleManager } from '$stylist/management/class/style-manager/process-step';
+  import { createProcessStepState } from '$stylist/management/function/state/process-step';
 
-  // Define component props using the interface
-  let {
-    number,
-    title,
-    description,
-    agent,
-    icon,
-    active = false,
-    class: className = ''
-  }: IProcessStepProps = $props();
-  const hostClass = className == null ? undefined : String(className);
-
-  // Get CSS classes from style manager
-  let classes = $derived(ProcessStepStyleManager.getBaseClasses(active, hostClass));
-  let numberContainerClasses = $derived(ProcessStepStyleManager.getNumberContainerClasses(active));
-  let contentContainerClasses = $derived(ProcessStepStyleManager.getContentContainerClasses());
-  let titleClasses = $derived(ProcessStepStyleManager.getTitleClasses(active));
-  let agentBadgeClasses = $derived(ProcessStepStyleManager.getAgentBadgeClasses());
-  let descriptionClasses = $derived(ProcessStepStyleManager.getDescriptionClasses());
+  let props: IProcessStepProps = $props();
+  const state = createProcessStepState(props);
 </script>
 
-<div class={classes}>
-  <div class={numberContainerClasses}>
-    {number}
+<div class={state.classes}>
+  <div class={state.numberContainerClasses}>
+    {state.number}
   </div>
-  <div class={contentContainerClasses}>
-    <h3 class={titleClasses}>
-      {title}
-      {#if agent}
-        <span class={agentBadgeClasses}>{agent}</span>
+  <div class={state.contentContainerClasses}>
+    <h3 class={state.titleClasses}>
+      {state.title}
+      {#if state.agent}
+        <span class={state.agentBadgeClasses}>{state.agent}</span>
       {/if}
     </h3>
-    <p class={descriptionClasses}>{description}</p>
+    <p class={state.descriptionClasses}>{state.description}</p>
   </div>
 </div>
-
-
-
-
-
-

@@ -3,3 +3,4 @@ export type { TokenCodeLanguage } from './code-language';
 export type { TokenCodeView } from './code-view';
 export type { TokenDiffType } from './diff-type';
 export type { TokenDevelopmentIcon } from './icon';
+export type { TokenPropertyType } from './property-type';

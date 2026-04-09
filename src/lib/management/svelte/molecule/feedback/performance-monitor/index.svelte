@@ -1,8 +1,6 @@
 ﻿<script lang="ts">
-  
   import type { PerformanceMonitorRecipe } from '$stylist/management/interface/recipe/performance-monitor';
-  import { PerformanceMonitorStyleManager } from '$stylist/management/class/style-manager/performance-monitor';
-  import { ObjectManagerPerformanceMonitor } from '$stylist/management/class/object-manager/performance-monitor';
+  import { createPerformanceMonitorState } from '$stylist/management/function/state/performance-monitor';
 
   let {
     label = '',
@@ -13,38 +11,25 @@
     class: className = ''
   }: PerformanceMonitorRecipe = $props();
 
-  const classNameStr = className == null ? undefined : String(className);
-  const numericValue = $derived(typeof value === 'number' ? value : Number(value) || 0);
-  const numericMax = $derived(typeof max === 'number' ? max : Number(max) || 0);
-
-  const percentage = $derived(
-    ObjectManagerPerformanceMonitor.resolvePercentage(numericValue, numericMax)
-  );
-  const progressWidth = $derived(ObjectManagerPerformanceMonitor.resolveProgressWidth(percentage));
-  const statusBarClass = $derived(ObjectManagerPerformanceMonitor.resolveStatusBarClass(status));
-  const containerClasses = $derived(PerformanceMonitorStyleManager.getContainerClasses(classNameStr));
-  const headerClasses = $derived(PerformanceMonitorStyleManager.getHeaderClasses());
-  const titleClasses = $derived(PerformanceMonitorStyleManager.getTitleClasses());
-  const valueClasses = $derived(PerformanceMonitorStyleManager.getValueClasses());
-  const trackClasses = $derived(PerformanceMonitorStyleManager.getTrackClasses());
-  const barClasses = $derived(PerformanceMonitorStyleManager.getBarClasses(statusBarClass));
+  const state = createPerformanceMonitorState({
+    label,
+    value,
+    max,
+    unit,
+    status,
+    class: className
+  });
 </script>
 
-<div class={containerClasses}>
-  <div class={headerClasses}>
-    <h3 class={titleClasses}>{label}</h3>
-    <span class={valueClasses}>{percentage}{unit}</span>
+<div class={state.containerClasses}>
+  <div class={state.headerClasses}>
+    <h3 class={state.titleClasses}>{state.label}</h3>
+    <span class={state.valueClasses}>{state.percentage}{state.unit}</span>
   </div>
-  <div class={trackClasses}>
+  <div class={state.trackClasses}>
     <div
-      class={barClasses}
-      style={`width: ${progressWidth}`}
+      class={state.barClasses}
+      style={`width: ${state.progressWidth}`}
     ></div>
   </div>
 </div>
-
-
-
-
-
-

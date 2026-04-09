@@ -1,131 +1,43 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { ISliderWithInputProps } from '$stylist/input/interface/component/slider-with-input/other';
+  import { createSliderWithInputState } from '$stylist/input/function/state/slider-with-input';
 
-  type Props = {
-    value?: number;
-    min?: number;
-    max?: number;
-    step?: number;
-    disabled?: boolean;
-    showInput?: boolean;
-    inputWidth?: string;
-    class?: string;
-    sliderClass?: string;
-    inputClass?: string;
-    onValueInput?: (value: number) => void;
-    onValueChange?: (value: number) => void;
-    /** @deprecated use onValueInput/onValueChange */
-    onInput?: (value: number) => void;
-    /** @deprecated use onValueChange */
-    onChange?: (value: number) => void;
-  } & InteractionHTMLAttributes<HTMLDivElement>;
-
-  let {
-    value = 0,
-    min = 0,
-    max = 100,
-    step = 1,
-    disabled = false,
-    showInput = true,
-    inputWidth = '80px',
-    class: className = '',
-    sliderClass = '',
-    inputClass = '',
-    onValueInput,
-    onValueChange,
-    onInput,
-    onChange,
-    ...restProps
-  }: Props = $props();
-
-  let currentValue = $state<number>(value);
-
-  // Update local state when value prop changes
-  $effect(() => {
-    if (currentValue !== value) {
-      currentValue = value;
-    }
-  });
-
-  function handleSliderChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    const newValue = parseFloat(target.value);
-    currentValue = newValue;
-    
-    onValueInput?.(newValue);
-    onValueChange?.(newValue);
-    onInput?.(newValue);
-  }
-
-  function handleInputChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    const newValue = parseFloat(target.value);
-    
-    // Ensure the value is within the allowed range
-    const clampedValue = Math.min(Math.max(newValue, min), max);
-    currentValue = clampedValue;
-    
-    onValueInput?.(clampedValue);
-    onValueChange?.(clampedValue);
-    onInput?.(clampedValue);
-  }
-
-  function handleInputBlur(e: FocusEvent) {
-    const target = e.target as HTMLInputElement;
-    const value = parseFloat(target.value);
-    
-    // If the input is invalid or empty, reset to the current value
-    if (isNaN(value)) {
-      target.value = currentValue.toString();
-    } else {
-      // Ensure the value is within the allowed range and on a valid step
-      let clampedValue = Math.min(Math.max(value, min), max);
-      
-      if (step !== undefined && step !== 0) {
-        clampedValue = Math.round(clampedValue / step) * step;
-      }
-      
-      currentValue = clampedValue;
-      target.value = clampedValue.toString();
-      
-      onValueChange?.(clampedValue);
-      onChange?.(clampedValue);
-    }
-  }
+  let props: ISliderWithInputProps = $props();
+  const state = createSliderWithInputState(props);
 </script>
 
-<div class={`flex items-center space-x-4 ${className}`} {...restProps}>
+<div class={`flex items-center space-x-4 ${state.className}`} {...props}>
   <input
     type="range"
     class={`w-full h-2 bg-[var(--color-background-tertiary)] rounded-lg appearance-none cursor-pointer ${
-      disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
-    } ${sliderClass}`}
-    min={min}
-    max={max}
-    step={step}
-    bind:value={currentValue}
-    oninput={handleSliderChange}
+      state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
+    } ${state.sliderClass}`}
+    min={state.min}
+    max={state.max}
+    step={state.step}
+    bind:value={state.currentValue}
+    oninput={state.handleSliderChange}
     onchange={(e) => {
       const nextValue = parseFloat((e.target as HTMLInputElement).value);
-      onValueChange?.(nextValue);
-      onChange?.(nextValue);
+      props.onValueChange?.(nextValue);
+      props.onChange?.(nextValue);
     }}
-    disabled={disabled}
+    disabled={state.disabled}
   />
   
-  {#if showInput}
+  {#if state.showInput}
     <input
       type="number"
-      class={`w-${inputWidth.replace('px', '')} px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${
-        disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
-      } ${inputClass}`}
-      min={min}
-      max={max}
-      step={step}
-      bind:value={currentValue}
-      oninput={handleInputChange}
-      onblur={handleInputBlur}
-      disabled={disabled}
+      class={`w-${state.inputWidth.replace('px', '')} px-3 py-2 border border-[var(--color-border-primary)] rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-[var(--color-primary-500)] ${
+        state.disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed' : ''
+      } ${state.inputClass}`}
+      min={state.min}
+      max={state.max}
+      step={state.step}
+      bind:value={state.currentValue}
+      oninput={state.handleInputChange}
+      onblur={state.handleInputBlur}
+      disabled={state.disabled}
     />
   {/if}
 </div>

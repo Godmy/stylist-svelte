@@ -1,31 +1,16 @@
 <script lang="ts">
-  import type { CanvasChartRecipe } from '$stylist/chart/interface/recipe/canvas-chart';
+  import type { CanvasChartProps } from '$stylist/chart/type/struct/canvas-chart-props';
+  import { createCanvasChartState } from '$stylist/chart/function/state/canvas-chart';
   import { ObjectManagerCanvasChart } from '$stylist/chart/class/object-manager/canvas-chart';
   import { CanvasChartStyleManager } from '$stylist/chart/class/style-manager/canvas-chart';
 
-  type CanvasChartProps = CanvasChartRecipe & {
-    xAxisLabel?: string;
-    yAxisLabel?: string;
-  };
-
-  let {
-    width = 800,
-    height = 600,
-    data = [],
-    type = 'line',
-    title = '',
-    xAxisLabel = '',
-    yAxisLabel = '',
-    showGrid = true,
-    colors,
-    class: className = '',
-    ...restProps
-  }: CanvasChartProps = $props();
+  let props: CanvasChartProps = $props();
+  const state = createCanvasChartState(props);
 
   let canvasRef: HTMLCanvasElement | null = null;
-  const resolvedColors = $derived(ObjectManagerCanvasChart.resolveColors(colors));
-  const resolvedData = $derived(data as any[]); // TODO: Fix type mismatch with CanvasChartDataPoint
-  const resolvedType = $derived(type);
+  const resolvedColors = $derived(ObjectManagerCanvasChart.resolveColors(state.colors));
+  const resolvedData = $derived(state.data as any[]);
+  const resolvedType = $derived(state.type);
 
   $effect(() => {
     if (ObjectManagerCanvasChart.shouldDrawChart(canvasRef, resolvedData)) {
@@ -33,10 +18,10 @@
         canvas: canvasRef,
         data: resolvedData,
         type: resolvedType,
-        title: title ?? '',
-        xAxisLabel: xAxisLabel ?? '',
-        yAxisLabel: yAxisLabel ?? '',
-        showGrid,
+        title: state.title,
+        xAxisLabel: props.xAxisLabel ?? '',
+        yAxisLabel: props.yAxisLabel ?? '',
+        showGrid: state.showGrid,
         colors: resolvedColors
       });
     }
@@ -45,21 +30,8 @@
 
 <canvas
   bind:this={canvasRef}
-  width={width}
-  height={height}
-  class={CanvasChartStyleManager.getCanvasClasses(className ?? undefined)}
-  {...restProps}
+  width={state.width}
+  height={state.height}
+  class={state.canvasClasses}
+  {...state.restProps}
 ></canvas>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,12 +1,22 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { IAdvancedPasswordInputProps } from './advanced-password-input';
+export type { AutoCompleteProps } from './auto-complete';
+export type { IColorPickerProps } from './color-picker';
+export type { IDatePickerProps } from './date-picker';
+export type { DateRangePickerComponentProps } from './date-range-picker';
+export type { IDateTimePickerProps } from './date-time-picker';
+export type { DateTimeRangePickerComponentProps } from './date-time-range-picker';
+export type { IFieldHighlighterProps } from './field-highlighter';
+export type { IFormDatePickerProps } from './form-date-picker';
 export type { IAdvancedInputProps, ICharacterCountProps, IFormErrorMessageProps, IFormHelperTextProps, IInputAddonProps, IInputBaseProps, IInputDoubleProps, IInputEmailProps, IInputFieldProps, IInputGroupProps, IInputLongProps, IInputPasswordProps, IPinInputDigitProps, ITextareaProps, InputCoreProps, InputHelperChildrenProps, InputHelperProps, InputWithHelperProps, InputWithLabelProps, InputWithValidationProps } from './input';
 export type { InputFieldProps } from './input-field';
 export type { INumberInputProps, NumberInputProps } from './number-input';
 export type { IPhoneNumberInputProps } from './phone-number-input';
 export type { RangeInputProps } from './range-input';
 export type { IRangeSliderProps } from './range-slider';
-export type { IReactionPickerProps, IReactionPickerStyleClasses } from './reaction-picker';
+export type { IReactionPickerProps } from './reaction-picker';
+export type { ISliderWithInputProps } from './slider-with-input';
 export type { TagInputProps } from './tag-input';
 export type { TextAreaProps } from './text-area';
+export type { ITimePickerProps } from './time-picker';
 export type { ITimeSlot, ITimeSlotProps } from './time-slot';

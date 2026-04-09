@@ -2,7 +2,7 @@ import type { HTMLAttributes, HTMLButtonAttributes, HTMLInputAttributes } from '
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { HtmlAttributesWithChildren } from '$stylist/information/type/struct';
 import type { TokenOrientation } from '$stylist/layout/type/enum/orientation';
-import type { TokenSelectionType } from '$stylist/interaction/type/record/selection-type';
+import type { TokenSelectionType } from '$stylist/control/type/record/selection-type';
 
 export interface ToggleGroupRootProps
 	extends Omit<HTMLButtonAttributes, 'size' | 'class' | 'type'> {

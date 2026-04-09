@@ -4,7 +4,7 @@
  * Следует принципу единственной ответственности (SRP) из SOLID -
  * только генерирует CSS-классы на основе переданных props
  */
-import type { TokenSelectorKind } from '$stylist/interaction/type/record/selection-kind';
+import type { TokenSelectorKind } from '$stylist/control/type/record/selection-kind';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export class QuantitySelectorStyleManager {

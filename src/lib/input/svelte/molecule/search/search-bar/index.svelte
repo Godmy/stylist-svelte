@@ -7,42 +7,17 @@
    * Liskov Substitution: Can be used as a search input anywhere
    * Interface Segregation: Provides clear interface through well-defined props
    * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
-   */
+  */
   import { Icon as BaseIcon, Button } from '$stylist';
   import { createSearchBarState } from '$stylist/input/function/state/search-bar';
-  import { SearchBarStyleManager } from '$stylist/control/class/style-manager/search-bar';
   import type { ISearchBarProps } from '$stylist/control/interface/component/search-bar/other';
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
   const Search = 'search';
   const X = 'x';
 
-  type Props = ISearchBarProps & InteractionHTMLAttributes<HTMLDivElement>;
-
-  let {
-    placeholder = 'Search nodes...',
-    value = '',
-    disabled = false,
-    debounceMs = 300,
-    class: className = '',
-    onValueInput,
-    onValueChange,
-    onSearch,
-    onClear,
-    ...restProps
-  }: Props = $props();
-
-  const state = createSearchBarState({
-    placeholder,
-    value,
-    disabled,
-    debounceMs,
-    class: className,
-    onValueInput,
-    onValueChange,
-    onSearch,
-    onClear
-  });
+  let props: ISearchBarProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
+  const state = createSearchBarState(props);
 </script>
 
 <div class={state.containerClasses}>
@@ -55,22 +30,22 @@
     type="text"
     class={state.inputClasses}
     bind:value={state.searchTerm}
-    placeholder={placeholder}
-    disabled={disabled}
+    placeholder={props.placeholder ?? 'Search nodes...'}
+    disabled={props.disabled ?? false}
     oninput={state.handleInput}
     onkeydown={state.handleKeydown}
     aria-label="Search input"
   />
 
   <div class={state.controlsContainerClasses}>
-    {#if state.hasValue && !disabled}
+    {#if state.hasValue && !(props.disabled ?? false)}
       <Button
         size="sm"
         variant="ghost"
         class={state.clearButtonClasses}
         onclick={state.handleClear}
         aria-label="Clear search"
-        disabled={disabled}
+        disabled={props.disabled ?? false}
       >
         <BaseIcon name={X} class={state.smallIconClasses} aria-hidden="true" />
       </Button>
@@ -80,7 +55,7 @@
       variant="secondary"
       class={state.searchButtonClasses}
       onclick={state.triggerSearch}
-      disabled={disabled}
+      disabled={props.disabled ?? false}
     >
       Search
     </Button>

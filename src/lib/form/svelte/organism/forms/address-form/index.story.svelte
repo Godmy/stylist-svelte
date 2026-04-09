@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import type { AddressFormProps } from '$stylist/form/interface/component/interaction-forms/other';
-  import type { AddressData } from '$stylist/interaction/type/struct/forms-address-data';
+  import type { AddressData } from '$stylist/form/type/struct/forms-address-data';
   import { FormStyleManager } from '$stylist';
   import AddressForm from './index.svelte';
 

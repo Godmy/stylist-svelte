@@ -1,7 +1,9 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist';
-	import { createContentEditorState, type ContentType } from '$stylist/input/function/state';
+	import type { ContentType } from '$stylist/input/function/state/content-editor-state-content-type';
+	import type { ContentEditorStateProps } from '$stylist/input/function/state/content-editor-state-props';
+	import { createContentEditorState } from '$stylist/input/function/state/content-editor';
 	import { ContentEditorStyleManager } from '$stylist/input/class/style-manager/content-editor';
 
 	const Bold = 'bold';
@@ -21,49 +23,12 @@
 	const Eye = 'eye';
 	const FileText = 'file-text';
 
-	type Props = {
-		initialContent?: Array<{ id: string; type: ContentType; content: string; attributes?: Record<string, any> }>;
-		onSave?: (content: Array<{ id: string; type: ContentType; content: string; attributes?: Record<string, any> }>) => void;
-		onPreview?: () => void;
-		placeholder?: string;
-		showToolbar?: boolean;
-		showPreviewButton?: boolean;
-		class?: string;
-		toolbarClass?: string;
-		editorClass?: string;
-		contentClass?: string;
-	} & InteractionHTMLAttributes<HTMLDivElement>;
-
-	let {
-		initialContent = [{ id: '1', type: 'text', content: '' }],
-		onSave,
-		onPreview,
-		placeholder = 'Start writing here...',
-		showToolbar = true,
-		showPreviewButton = true,
-		class: className = '',
-		toolbarClass = '',
-		editorClass = '',
-		contentClass = '',
-		...restProps
-	} = $props();
-
-	const state = createContentEditorState({
-		initialContent,
-		onSave,
-		onPreview,
-		placeholder,
-		showToolbar,
-		showPreviewButton,
-		class: className,
-		toolbarClass,
-		editorClass,
-		contentClass
-	});
+	let props: ContentEditorStateProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
+	const state = createContentEditorState(props);
 </script>
 
-<div class={state.rootClasses} {...restProps}>
-	{#if showToolbar}
+<div class={state.rootClasses} {...props}>
+	{#if props.showToolbar ?? true}
 		<div class={state.toolbarClasses}>
 			<button
 				type="button"
@@ -173,7 +138,7 @@
 			<div class={ContentEditorStyleManager.getPreviewClasses()}>
 				{#each state.contentElements as element}
 					{#if element.type === 'text'}
-						<p class="mb-4">{element.content || placeholder}</p>
+						<p class="mb-4">{element.content || props.placeholder || 'Start writing here...'}</p>
 					{:else if element.type === 'header'}
 						<h2 class={ContentEditorStyleManager.getHeadingClasses()}>{element.content}</h2>
 					{:else if element.type === 'quote'}
@@ -204,7 +169,7 @@
 					{#if element.type === 'text'}
 						<textarea
 							class={ContentEditorStyleManager.getTextareaClasses()}
-							placeholder={index === 0 ? placeholder : ''}
+							placeholder={index === 0 ? props.placeholder || 'Start writing here...' : ''}
 							bind:value={element.content}
 							oninput={() => state.updateContent(element.id, element.content)}
 							rows={3}

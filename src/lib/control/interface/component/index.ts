@@ -36,6 +36,5 @@ export type { ToggleProps } from './toggle';
 export type { ToggleGroupProps } from './toggle-group';
 export type { ActionSegmentedControlProps, AdvancedToggleProps, RadioButtonGroupProps, ToggleBaseProps, ToggleGroupItemProps, ToggleGroupRootProps, ToggleInputProps } from './toggles';
 export type { TooltipProps } from './tooltip';
-export type { TransformationProps } from './transformation';
 export type { ZoomControlsProps } from './zoom-controls';
 export type { ZoomToolbarProps } from './zoom-toolbar';

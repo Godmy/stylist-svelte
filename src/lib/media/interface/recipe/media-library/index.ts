@@ -18,7 +18,7 @@ import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-s
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { ISizable } from '$stylist/layout/interface/proto/sizable';
 import type { IElevatable } from '$stylist/layout/interface/proto/elevatable';
-import type { IMotionToken } from '$stylist/interaction/interface/proto/motion-token';
+import type { IMotionToken } from '$stylist/animation/interface/proto/motion-token';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface MediaItemRecipe

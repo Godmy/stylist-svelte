@@ -22,132 +22,55 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
   import { Icon as BaseIcon } from '$stylist';
-const Eye = 'eye';
-const EyeOff = 'eye-off';
-
-  import { AdvancedPasswordInputStyleManager } from '$stylist/input/class/style-manager/advanced-password-input';
+  import { createAdvancedPasswordInputState } from '$stylist/input/function/state/advanced-password-input';
   import type { IAdvancedPasswordInputProps } from '$stylist/input/interface/component/advanced-password-input/other';
 
-  let {
-    value = '',
-    placeholder = 'Enter password',
-    disabled = false,
-    readonly = false,
-    class: className = '',
-    inputClass = '',
-    buttonClass = '',
-    showStrengthMeter = false,
-    onValueInput,
-    onValueChange,
-    onInput,
-    onChange,
-    ...restProps
-  }: IAdvancedPasswordInputProps & InteractionHTMLAttributes<HTMLInputElement> = $props();
+  const Eye = 'eye';
+  const EyeOff = 'eye-off';
 
-  let showPassword = $state(false);
-  let inputValue = $state(value);
-
-  function handleInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    inputValue = target.value;
-
-    if (onInput) {
-      onInput(inputValue);
-    }
-    onValueInput?.(inputValue);
-  }
-
-  function handleChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    inputValue = target.value;
-
-    if (onChange) {
-      onChange(inputValue);
-    }
-    onValueChange?.(inputValue);
-  }
-
-  // Calculate password strength (0-4 scale)
-  function getPasswordStrength(): number {
-    if (!inputValue) return 0;
-
-    let strength = 0;
-    if (inputValue.length >= 8) strength += 1;
-    if (/[A-Z]/.test(inputValue)) strength += 1;
-    if (/[0-9]/.test(inputValue)) strength += 1;
-    if (/[^A-Za-z0-9]/.test(inputValue)) strength += 1;
-
-    // Very strong if it has all criteria
-    if (strength === 4 && inputValue.length >= 12) strength = 4;
-
-    return Math.min(strength, 4);
-  }
-
-  function getStrengthLabel(): string {
-    const strength = getPasswordStrength();
-    switch (strength) {
-      case 0: return 'Empty';
-      case 1: return 'Very Weak';
-      case 2: return 'Weak';
-      case 3: return 'Medium';
-      case 4: return 'Strong';
-      default: return 'Unknown';
-    }
-  }
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(AdvancedPasswordInputStyleManager.getContainerClass(className));
-  const inputWrapperClass = $derived(AdvancedPasswordInputStyleManager.getInputWrapperClass());
-  const inputClassComputed = $derived(AdvancedPasswordInputStyleManager.getInputClass(disabled, inputClass));
-  const buttonClassComputed = $derived(AdvancedPasswordInputStyleManager.getToggleButtonClass(disabled, buttonClass));
-  const eyeIconClass = $derived(AdvancedPasswordInputStyleManager.getEyeIconClass());
-  const strengthMeterContainerClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterContainerClass());
-  const strengthLabelsContainerClass = $derived(AdvancedPasswordInputStyleManager.getStrengthLabelsContainerClass());
-  const strengthLabelClass = $derived(AdvancedPasswordInputStyleManager.getStrengthLabelClass());
-  const strengthValueClass = $derived(AdvancedPasswordInputStyleManager.getStrengthValueClass(getPasswordStrength()));
-  const strengthMeterBgClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterBackgroundClass());
-  const strengthMeterFillClass = $derived(AdvancedPasswordInputStyleManager.getStrengthMeterFillClass(getPasswordStrength()));
+  let props: IAdvancedPasswordInputProps & InteractionHTMLAttributes<HTMLInputElement> = $props();
+  const state = createAdvancedPasswordInputState(props);
 </script>
 
-<div class={containerClass}>
-  <div class={inputWrapperClass}>
+<div class={state.containerClass}>
+  <div class={state.inputWrapperClass}>
     <input
-      type={showPassword ? 'text' : 'password'}
-      class={inputClassComputed}
-      bind:value={inputValue}
-      placeholder={placeholder}
-      disabled={disabled}
-      readonly={readonly}
-      oninput={handleInput}
-      onchange={handleChange}
-      {...restProps}
+      type={state.type}
+      class={state.inputClass}
+      bind:value={state.value}
+      placeholder={state.placeholder}
+      disabled={state.disabled}
+      readonly={state.readonly}
+      oninput={state.handleInput}
+      onchange={state.handleChange}
+      {...props}
     />
     <button
       type="button"
-      class={buttonClassComputed}
-      onclick={() => showPassword = !showPassword}
-      disabled={disabled}
+      class={state.buttonClass}
+      onclick={state.togglePasswordVisibility}
+      disabled={state.disabled}
     >
-      {#if showPassword}
-        <BaseIcon name={EyeOff} class={eyeIconClass} />
+      {#if state.showPassword}
+        <BaseIcon name={EyeOff} class={state.eyeIconClass} />
       {:else}
-        <BaseIcon name={Eye} class={eyeIconClass} />
+        <BaseIcon name={Eye} class={state.eyeIconClass} />
       {/if}
     </button>
   </div>
 
-  {#if showStrengthMeter && inputValue}
-    <div class={strengthMeterContainerClass}>
-      <div class={strengthLabelsContainerClass}>
-        <span class={strengthLabelClass}>Password strength:</span>
-        <span class={strengthValueClass}>
-          {getStrengthLabel()}
+  {#if state.showStrengthMeter && state.value}
+    <div class={state.strengthMeterContainerClass}>
+      <div class={state.strengthLabelsContainerClass}>
+        <span class={state.strengthLabelClass}>Password strength:</span>
+        <span class={state.strengthValueClass}>
+          {state.strengthLabel}
         </span>
       </div>
-      <div class={strengthMeterBgClass}>
+      <div class={state.strengthMeterBgClass}>
         <div
-          class={strengthMeterFillClass}
-          style={`width: ${getPasswordStrength() * 25}%`}
+          class={state.strengthMeterFillClass}
+          style={`width: ${state.strength * 25}%`}
         ></div>
       </div>
     </div>

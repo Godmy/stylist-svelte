@@ -4,7 +4,7 @@ import type { TokenLineType } from '$stylist/architecture/type/enum/line-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { IPointClickable } from '$stylist/interaction/interface/proto/point-clickable';
 import type { ITooltipable } from '$stylist/interaction/interface/proto/tooltipable';
-import type { ILegendable } from '$stylist/information/interface/proto/legendable';
+import type { ILegendable } from '$stylist/chart/interface/proto/legendable';
 import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { IChartColorable } from '$stylist/chart/interface/proto/chart-colorable';

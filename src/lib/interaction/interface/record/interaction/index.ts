@@ -183,7 +183,7 @@ import type { IRatingProps } from '$stylist/social/interface/component/rating/ot
 // Layout - from other
 import type { DragAndDropProps } from '$stylist/control/interface/component/drag-and-drop/other';
 import type { ClickProps } from '$stylist/control/interface/component/click/other';
-import type { TransformationProps } from '$stylist/control/interface/component/transformation/other';
+import type { TransformationProps } from '$stylist/animation/interface/component/transformation/other';
 
 // Link types - from other
 import type { AbbrProps, InlineBaseProps, InlineCodeProps, InlineTextProps } from '$stylist/navigation/interface/component/link/other';

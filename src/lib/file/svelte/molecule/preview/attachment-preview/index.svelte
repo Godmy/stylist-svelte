@@ -1,61 +1,60 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { createEventDispatcher } from 'svelte';
   import { Button, Icon } from '$stylist';
+  import { createAttachmentPreviewState } from '$stylist/file/function/state/attachment-preview';
+  import type { Attachment } from '$stylist/file/interface/component/attachment-preview/other';
+  import {
+    formatFileSize,
+    getIconName,
+    handleDownload,
+    handleRemove,
+    createAttachmentDispatch,
+  } from '$stylist/file/function/script/attachment-preview';
 
-  // Define local types
-  interface Attachment {
-    id: string;
-    name: string;
-    type: string;
-    size: number;
-    url?: string;
-    previewUrl?: string;
-  }
-
-  // Props
-  let { 
-    attachment,
-    showActions = true
-  }: {
+  let props: {
     attachment: Attachment;
     showActions?: boolean;
   } = $props();
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    remove: { attachment: Attachment };
-    download: { attachment: Attachment };
-  }>();
-
-  // Format file size
-  const formatFileSize = (bytes?: number): string => {
-    if (!bytes) return '';
-    if (bytes < 1024) return bytes + ' B';
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-    else return (bytes / 1048576).toFixed(1) + ' MB';
-  };
-
-  // Get icon based on file type
-  const getIconName = (type: string) => {
-    switch (type) {
-      case 'image': return 'image';
-      case 'video': return 'video';
-      case 'audio': return 'audio';
-      case 'file': return 'file';
-      default: return 'file';
-    }
-  };
-
-  // Handle download
-  function handleDownload() {
-    dispatch('download', { attachment });
-  }
-
-  // Handle remove
-  function handleRemove() {
-    dispatch('remove', { attachment });
-  }
+  const dispatch = createAttachmentDispatch();
+  const state = createAttachmentPreviewState(props);
 </script>
+
+<div class="attachment-preview">
+  <div class="attachment-icon">
+    <Icon name={getIconName(props.attachment.type)} size="lg" />
+  </div>
+
+  <div class="attachment-details">
+    <div class="attachment-name">{props.attachment.name}</div>
+    <div class="attachment-info">
+      {#if props.attachment.size}
+        <span>{formatFileSize(props.attachment.size)}</span>
+      {/if}
+    </div>
+  </div>
+
+  {#if state.showActions}
+    <div class="attachment-actions">
+      <Button
+        variant="ghost"
+        size="sm"
+        onclick={() => handleDownload(dispatch, props.attachment)}
+        title="Скачать"
+      >
+        <Icon name="download" size="sm" />
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        onclick={() => handleRemove(dispatch, props.attachment)}
+        title="Удалить"
+      >
+        <Icon name="x" size="sm" />
+      </Button>
+    </div>
+  {/if}
+</div>
 
 <style>
   .attachment-preview {
@@ -105,43 +104,3 @@
     gap: var(--spacing-1);
   }
 </style>
-
-<div class="attachment-preview">
-  <div class="attachment-icon">
-    <Icon name={getIconName(attachment.type)} size="lg" />
-  </div>
-  
-  <div class="attachment-details">
-    <div class="attachment-name">{attachment.name}</div>
-    <div class="attachment-info">
-      {#if attachment.size}
-        <span>{formatFileSize(attachment.size)}</span>
-      {/if}
-    </div>
-  </div>
-  
-  {#if showActions}
-    <div class="attachment-actions">
-      <Button 
-        variant="ghost" 
-        size="sm" 
-        onclick={handleDownload}
-        title="Скачать"
-      >
-        <Icon name="download" size="sm" />
-      </Button>
-      <Button 
-        variant="ghost" 
-        size="sm" 
-        onclick={handleRemove}
-        title="Удалить"
-      >
-        <Icon name="x" size="sm" />
-      </Button>
-    </div>
-  {/if}
-</div>
-
-
-
-

@@ -1,4 +1,4 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon } from '$stylist';
 	import type { MessageInputProps } from '$stylist/communication/interface/component/chat/other';
@@ -21,7 +21,7 @@
 		})()
 	);
 
-	const messageState = $derived(createMessageInputState(props));
+	const messageState = createMessageInputState(props);
 
 	let messageContent = $state('');
 

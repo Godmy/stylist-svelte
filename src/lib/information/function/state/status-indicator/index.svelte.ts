@@ -1,5 +1,5 @@
 import type { StatusIndicatorRecipe } from '$stylist/information/interface/recipe/status-indicator';
-import { IndicatorsStyleManager } from '$stylist/information/class/style-manager/indicators';
+import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { TokenAvailability } from '$stylist/interaction/type/record/availability';
 

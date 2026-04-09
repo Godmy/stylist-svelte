@@ -1,5 +1,5 @@
 ﻿import type { TokenKPI } from '$stylist/typography/type/enum/kpi';
-import type { TokenTrend } from '$stylist/information/type/enum/trend';
+import type { TokenTrend } from '$stylist/management/type/enum/trend';
 
 const KPI_TREND_ICON_NAME = {
 	up: 'trending-up',

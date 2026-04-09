@@ -7,7 +7,7 @@ import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot'
 import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
 import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
 import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { IMotionPreset } from '$stylist/interaction/interface/proto/motion-preset';
+import type { IMotionPreset } from '$stylist/animation/interface/proto/motion-preset';
 import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
 import type { ISized } from '$stylist/layout/interface/proto/sized';
 import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';

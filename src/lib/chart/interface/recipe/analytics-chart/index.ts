@@ -1,7 +1,7 @@
 ﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
 import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
 import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILegendable } from '$stylist/information/interface/proto/legendable';
+import type { ILegendable } from '$stylist/chart/interface/proto/legendable';
 import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { TokenAnalyticsChartType } from '$stylist/chart/type/struct/analytics-chart';

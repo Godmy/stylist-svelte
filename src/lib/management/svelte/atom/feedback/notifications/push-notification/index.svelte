@@ -1,70 +1,25 @@
 <script lang="ts">
-  let {
-    title = '',
-    message = '',
-    type = 'info', // 'info', 'success', 'warning', 'error'
-    showIcon = true,
-    autoDismiss = true,
-    duration = 5000,
-    onClose = () => {},
-    class: className = ''
-  } = $props<{
-    title?: string;
-    message?: string;
-    type?: 'info' | 'success' | 'warning' | 'error';
-    showIcon?: boolean;
-    autoDismiss?: boolean;
-    duration?: number;
-    onClose?: () => void;
-    class?: string;
-  }>();
+  import { createPushNotificationState } from '$stylist/management/function/state/push-notification';
 
-  let visible = $state(true);
-  
-  $effect(() => {
-    if (autoDismiss && visible) {
-      const timer = setTimeout(() => {
-        visible = false;
-        onClose();
-      }, duration);
-      
-      return () => clearTimeout(timer);
-    }
-  });
-
-  const typeStyles: Record<'info' | 'success' | 'warning' | 'error', string> = {
-    info: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
-    success: 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
-    warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-    error: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
-  };
-
-  const typeIcons: Record<'info' | 'success' | 'warning' | 'error', string> = {
-    info: 'ℹ',
-    success: '✓',
-    warning: '⚠',
-    error: '✕'
-  };
+  let props: Parameters<typeof createPushNotificationState>[0] = $props();
+  const state = createPushNotificationState(props);
 </script>
 
-{#if visible}
-  <div class={`border-l-4 p-4 rounded-r-lg flex items-start justify-between ${typeStyles[type as keyof typeof typeStyles]} ${className}`}>
+{#if state.visible}
+  <div class={state.containerClasses}>
     <div class="flex items-start">
-      {#if showIcon}
-        <span class="mr-3 text-lg">{typeIcons[type as keyof typeof typeIcons]}</span>
+      {#if state.showIcon}
+        <span class="mr-3 text-lg">{state.typeIcons[state.type as keyof typeof state.typeIcons]}</span>
       {/if}
       <div>
-        {#if title}
-          <h3 class="font-semibold">{title}</h3>
+        {#if state.title}
+          <h3 class="font-semibold">{state.title}</h3>
         {/if}
-        <p>{message}</p>
+        <p>{state.message}</p>
       </div>
     </div>
     <button
-      onclick={() => {
-        visible = false;
-        onClose();
-      }}
+      onclick={state.handleClose}
       aria-label="Close notification"
       class="ml-4 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
     >
@@ -74,7 +29,3 @@
     </button>
   </div>
 {/if}
-
-
-
-

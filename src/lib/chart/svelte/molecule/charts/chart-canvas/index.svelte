@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ChartCanvasRecipe } from '$stylist/chart/interface/recipe/chart-canvas';
 	import type { ChartCanvasRecipe as InformationChartCanvasRecipe } from '$stylist/chart/interface/recipe/chart-canvas';
+	import type { AnalyticsChartCanvasProps } from '$stylist/chart/type/struct/analytics-chart-canvas-props';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 	import { createChartCanvasState } from '$stylist/chart/function/state/chart-function';
 	import ChartAxisX from '$stylist/chart/svelte/atom/charts/chart-axis-x/index.svelte';
@@ -10,12 +11,6 @@
 	import ChartName from '$stylist/chart/svelte/atom/charts/chart-name/index.svelte';
 	import ChartPolyline from '$stylist/chart/svelte/atom/charts/chart-polyline/index.svelte';
 	import { ObjectManagerChartCanvas } from '$stylist/chart/class/object-manager/chart-canvas';
-
-	type AnalyticsChartCanvasProps = ChartCanvasRecipe & {
-		xAxisLabel?: string;
-		yAxisLabel?: string;
-		zAxisLabel?: string;
-	};
 
 	let props: AnalyticsChartCanvasProps = $props();
 	const state = createChartCanvasState({
@@ -96,11 +91,3 @@
 		{/each}
 	</svg>
 </div>
-
-
-
-
-
-
-
-

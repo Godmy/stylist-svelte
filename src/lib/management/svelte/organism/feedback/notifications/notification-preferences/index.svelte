@@ -1,18 +1,13 @@
 <script lang="ts">
+  import { createNotificationPreferencesState } from '$stylist/management/function/state/notification-preferences';
   import type { NotificationPreferencesProps } from '$stylist/communication/interface/component/notifications/other';
-  import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-  let { email = true, push = true, sms = false, class: className, ...restProps }: NotificationPreferencesProps & { email?: boolean; push?: boolean; sms?: boolean } = $props();
+
+  let props: NotificationPreferencesProps & { email?: boolean; push?: boolean; sms?: boolean } = $props();
+  const state = createNotificationPreferencesState(props);
 </script>
-<div class={InteractionFeedbackStyleManager.root('c-notification-preferences border rounded-lg p-4', className != null ? String(className) : '')} {...restProps}>
+<div class={state.containerClasses} {...state.restProps}>
   <div class="font-semibold mb-2">Notification Preferences</div>
-  <label class="block text-sm"><input type="checkbox" checked={email} /> Email</label>
-  <label class="block text-sm"><input type="checkbox" checked={push} /> Push</label>
-  <label class="block text-sm"><input type="checkbox" checked={sms} /> SMS</label>
+  <label class="block text-sm"><input type="checkbox" checked={state.email} /> Email</label>
+  <label class="block text-sm"><input type="checkbox" checked={state.push} /> Push</label>
+  <label class="block text-sm"><input type="checkbox" checked={state.sms} /> SMS</label>
 </div>
-
-
-
-
-
-
-

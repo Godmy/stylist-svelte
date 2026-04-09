@@ -1,117 +1,44 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-const Search = 'search';
-
-  import type { AutoCompleteOption } from '$stylist/input/type/struct/interaction-input/auto-complete-option';
+  import type { AutoCompleteProps } from '$stylist/input/interface/component/auto-complete/other';
+  import { createAutoCompleteState } from '$stylist/input/function/state/auto-complete';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
+  const Search = 'search';
 
-  interface ExtendedAutoCompleteProps {
-    options?: AutoCompleteOption[];
-    placeholder?: string;
-    value?: string;
-    class?: string;
-    inputClass?: string;
-    listClass?: string;
-    itemClass?: string;
-    selectedClass?: string;
-    onInput?: (value: string) => void;
-    onSelect?: (option: AutoCompleteOption) => void;
-    debounce?: number;
-    showAllSuggestions?: boolean;
-  }
-
-  let {
-    options = [],
-    placeholder = 'Search...',
-    value = '',
-    class: className = '',
-    inputClass = '',
-    listClass = '',
-    itemClass = '',
-    selectedClass = 'bg-[var(--color-primary-100)]',
-    onInput,
-    onSelect,
-    debounce = 250,
-    showAllSuggestions = false,
-    ...restProps
-  }: ExtendedAutoCompleteProps = $props();
-
-  let filteredOptions = $state<AutoCompleteOption[]>([]);
-  let isOpen = $state(false);
-  let highlightedIndex = $state(-1);
-  let inputValue = $state(value);
-
-  $effect(() => {
-    if (inputValue) {
-      filteredOptions = options.filter((option) =>
-        option.label.toLowerCase().includes(inputValue.toLowerCase()) || option.value.toLowerCase().includes(inputValue.toLowerCase())
-      );
-    } else {
-      filteredOptions = showAllSuggestions ? options : [];
-    }
-  });
-
-  function handleInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    inputValue = target.value;
-    onInput?.(inputValue);
-    isOpen = true;
-    highlightedIndex = -1;
-  }
-
-  function handleSelect(option: AutoCompleteOption) {
-    inputValue = option.label;
-    onSelect?.(option);
-    isOpen = false;
-    highlightedIndex = -1;
-  }
-
-  function handleKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter' && highlightedIndex >= 0) {
-      event.preventDefault();
-      handleSelect(filteredOptions[highlightedIndex]);
-    } else if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      highlightedIndex = Math.min(highlightedIndex + 1, filteredOptions.length - 1);
-    } else if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      highlightedIndex = Math.max(highlightedIndex - 1, -1);
-    } else if (event.key === 'Escape') {
-      isOpen = false;
-    }
-  }
+  let props: AutoCompleteProps = $props();
+  const state = createAutoCompleteState(props);
 </script>
 
-<div class={InteractionInputStyleManager.root('c-auto-complete relative', className)}>
+<div class={InteractionInputStyleManager.root('c-auto-complete relative', state.className)}>
   <div class="relative">
     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
       <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
     </div>
     <input
       type="text"
-      class={InteractionInputStyleManager.input(`block w-full pl-10 pr-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 ${inputClass}`)}
-      placeholder={placeholder}
-      value={inputValue}
-      oninput={handleInput}
-      onkeydown={handleKeyDown}
-      onfocus={() => (isOpen = true)}
-      onblur={() => setTimeout(() => (isOpen = false), 120)}
-      {...restProps}
+      class={InteractionInputStyleManager.input(`block w-full pl-10 pr-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500 ${state.inputClass}`)}
+      placeholder={state.placeholder}
+      value={state.inputValue}
+      oninput={state.handleInput}
+      onkeydown={state.handleKeyDown}
+      onfocus={state.open}
+      onblur={state.close}
+      {...props}
     />
   </div>
 
-  {#if isOpen && filteredOptions.length > 0}
-    <ul class={`absolute z-[var(--z-index-docked)] mt-1 w-full bg-[var(--color-background-primary)] shadow-lg max-h-60 rounded-md py-1 overflow-auto ${listClass}`} role="listbox">
-      {#each filteredOptions as option, index}
+  {#if state.isOpen && state.options.length > 0}
+    <ul class={`absolute z-[var(--z-index-docked)] mt-1 w-full bg-[var(--color-background-primary)] shadow-lg max-h-60 rounded-md py-1 overflow-auto ${state.listClass}`} role="listbox">
+      {#each state.options as option, index}
         <li
-          class={`relative py-2 px-3 cursor-pointer hover:bg-[var(--color-primary-100)] ${index === highlightedIndex ? selectedClass : ''} ${itemClass}`}
+          class={`relative py-2 px-3 cursor-pointer hover:bg-[var(--color-primary-100)] ${index === state.highlightedIndex ? state.selectedClass : ''} ${state.itemClass}`}
           role="option"
-          aria-selected={index === highlightedIndex}
-          onclick={() => handleSelect(option)}
+          aria-selected={index === state.highlightedIndex}
+          onclick={() => state.handleSelect(option)}
           onkeydown={(event) => {
             if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
-              handleSelect(option);
+              state.handleSelect(option);
             }
           }}
           tabindex={0}

@@ -1,12 +1,8 @@
 import { formatPhoneNumber } from '../format-phone-number';
 import { normalizePhoneInputValue } from '../normalize-phone-input-value';
+import type { IPhoneNumberInputProps } from '$stylist/input/interface/component/phone-number-input/other';
 
-interface PhoneNumberInputStateProps {
-	error?: boolean;
-	disabled?: boolean;
-}
-
-export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) => {
+export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 	const error = $derived(props.error ?? false);
 	const disabled = $derived(props.disabled ?? false);
 	const containerClass = $derived('relative');
@@ -16,6 +12,16 @@ export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) =
 	const helpTextClass = $derived(
 		`mt-1 text-sm ${error ? 'text-[--color-danger-500]' : 'text-[--color-text-secondary]'}`
 	);
+	const formattedValue = $derived(formatPhoneNumber(props.value ?? ''));
+
+	function handleInput(event: Event) {
+		props.onInput?.(event);
+		const target = event.target as HTMLInputElement;
+		const nextValue = normalizePhoneInputValue(target.value);
+		props.value = nextValue;
+		props.onValueInput?.(nextValue, event);
+		props.onValueChange?.(nextValue);
+	}
 
 	return {
 		get containerClass() {
@@ -26,7 +32,11 @@ export const createPhoneNumberInputState = (props: PhoneNumberInputStateProps) =
 		},
 		get helpTextClass() {
 			return helpTextClass;
-		}
+		},
+		get formattedValue() {
+			return formattedValue;
+		},
+		handleInput
 	};
 };
 

@@ -31,22 +31,3 @@ export function domainListFile(domain: string): string[] {
 
   return listFileAll(domainPath);
 }
-
-// CLI mode: run when executed directly
-if (require.main === module) {
-  const domain = process.argv[2];
-
-  if (!domain) {
-    console.error('Usage: npx ts-node index.ts <domain-name>');
-    console.error('Example: npx ts-node index.ts development');
-    process.exit(1);
-  }
-
-  try {
-    const files = domainListFile(domain);
-    console.log(JSON.stringify(files, null, 2));
-  } catch (error) {
-    console.error((error as Error).message);
-    process.exit(1);
-  }
-}

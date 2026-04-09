@@ -5,8 +5,8 @@
 	import { Minimap, Icon } from '$stylist';
 	import { Grid } from '$stylist/layout';
 
-	const contract: PreziSceneContract = $props();
-	const preziState = usePreziState(contract);
+	const props: PreziSceneContract = $props();
+	const state = usePreziState(props);
 
 	let viewportElement: HTMLDivElement | null = null;
 
@@ -14,10 +14,10 @@
 	$effect(() => {
 		if (!viewportElement) return;
 		const el = viewportElement;
-		preziState.setViewportSize(el.clientWidth, el.clientHeight);
+		state.setViewportSize(el.clientWidth, el.clientHeight);
 
 		const observer = new ResizeObserver(() => {
-			preziState.setViewportSize(el.clientWidth, el.clientHeight);
+			state.setViewportSize(el.clientWidth, el.clientHeight);
 		});
 		observer.observe(el);
 		return () => observer.disconnect();
@@ -25,12 +25,12 @@
 
 	// Синхронизация controlled selectedNodeId
 	$effect(() => {
-		if (contract.selectedNodeId !== undefined) {
-			if (contract.selectedNodeId === null) {
-				preziState.selectNode(null);
+		if (props.selectedNodeId !== undefined) {
+			if (props.selectedNodeId === null) {
+				state.selectNode(null);
 			} else {
-				const node = preziState.nodes.find((n) => n.id === contract.selectedNodeId);
-				if (node) preziState.selectNode(node);
+				const node = state.nodes.find((n) => n.id === props.selectedNodeId);
+				if (node) state.selectNode(node);
 			}
 		}
 	});
@@ -41,26 +41,26 @@
 		x: 0,
 		y: 0,
 		zoom: 1,
-		depth: preziState.camera.depth,
-		viewportWidth: preziState.viewportWidth,
-		viewportHeight: preziState.viewportHeight
+		depth: state.camera.depth,
+		viewportWidth: state.viewportWidth,
+		viewportHeight: state.viewportHeight
 	});
 </script>
 
 <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 <section
 	class="prezi-scene"
-	class:is-panning={preziState.isPanning}
-	{...preziState.restProps}
+	class:is-panning={state.isPanning}
+	{...state.restProps}
 >
-	{#if preziState.showHeader}
+	{#if state.showHeader}
 		<header class="prezi-scene__header">
 			<div class="prezi-scene__header-content">
-				{#if preziState.title}
-					<h2 class="prezi-scene__title">{preziState.title}</h2>
+				{#if state.title}
+					<h2 class="prezi-scene__title">{state.title}</h2>
 				{/if}
-				{#if preziState.subtitle}
-					<p class="prezi-scene__subtitle">{preziState.subtitle}</p>
+				{#if state.subtitle}
+					<p class="prezi-scene__subtitle">{state.subtitle}</p>
 				{/if}
 			</div>
 
@@ -70,18 +70,18 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Zoom out"
-						onclick={() => preziState.setCamera({ zoom: Math.max(preziState.minZoom, preziState.camera.zoom / 1.2) })}
-						disabled={!preziState.zoomEnabled || preziState.camera.zoom <= preziState.minZoom}
+						onclick={() => state.setCamera({ zoom: Math.max(state.minZoom, state.camera.zoom / 1.2) })}
+						disabled={!state.zoomEnabled || state.camera.zoom <= state.minZoom}
 					>
 						<Icon name="minus" />
 					</button>
-					<span class="prezi-scene__zoom-level">{Math.round(preziState.camera.zoom * 100)}%</span>
+					<span class="prezi-scene__zoom-level">{Math.round(state.camera.zoom * 100)}%</span>
 					<button
 						type="button"
 						class="prezi-scene__control-button"
 						title="Zoom in"
-						onclick={() => preziState.setCamera({ zoom: Math.min(preziState.maxZoom, preziState.camera.zoom * 1.2) })}
-						disabled={!preziState.zoomEnabled || preziState.camera.zoom >= preziState.maxZoom}
+						onclick={() => state.setCamera({ zoom: Math.min(state.maxZoom, state.camera.zoom * 1.2) })}
+						disabled={!state.zoomEnabled || state.camera.zoom >= state.maxZoom}
 					>
 						<Icon name="plus" />
 					</button>
@@ -92,7 +92,7 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Reset view"
-						onclick={preziState.resetCamera}
+						onclick={state.resetCamera}
 					>
 						<Icon name="rotate-ccw" />
 					</button>
@@ -103,8 +103,8 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Toggle grid"
-						onclick={preziState.toggleGrid}
-						aria-pressed={preziState.showGrid}
+						onclick={state.toggleGrid}
+						aria-pressed={state.showGrid}
 					>
 						<Icon name="grid-3x3" />
 					</button>
@@ -112,8 +112,8 @@
 						type="button"
 						class="prezi-scene__control-button"
 						title="Toggle minimap"
-						onclick={preziState.toggleMinimap}
-						aria-pressed={preziState.showMinimap}
+						onclick={state.toggleMinimap}
+						aria-pressed={state.showMinimap}
 					>
 						<Icon name="map" />
 					</button>
@@ -132,51 +132,51 @@
 			aria-label="Prezi scene viewport"
 			aria-keyshortcuts="ArrowLeft ArrowRight ArrowUp ArrowDown + - 0 Escape"
 			tabindex="0"
-			onwheel={(event) => preziState.handleWheel(event, viewportElement?.getBoundingClientRect())}
-			onpointerdown={preziState.handlePointerDown}
-			onpointermove={preziState.handlePointerMove}
-			onpointerup={preziState.handlePointerUp}
-			onpointerleave={preziState.handlePointerUp}
-			onkeydown={preziState.handleKeyDown}
+			onwheel={(event) => state.handleWheel(event, viewportElement?.getBoundingClientRect())}
+			onpointerdown={state.handlePointerDown}
+			onpointermove={state.handlePointerMove}
+			onpointerup={state.handlePointerUp}
+			onpointerleave={state.handlePointerUp}
+			onkeydown={state.handleKeyDown}
 			onclick={() => viewportElement?.focus()}
 		>
-			{#if preziState.showGrid}
+			{#if state.showGrid}
 				<Grid class="prezi-scene__grid" />
 			{/if}
 
 			<!-- World: единый CSS-трансформ. Ноды внутри — raw world-координаты. -->
 			<div
 				class="prezi-scene__world"
-				class:prezi-scene__world--animating={preziState.isAnimating}
-				style="transform: translate({preziState.camera.x}px, {preziState.camera.y}px) scale({preziState.camera.zoom});"
+				class:prezi-scene__world--animating={state.isAnimating}
+				style="transform: translate({state.camera.x}px, {state.camera.y}px) scale({state.camera.zoom});"
 			>
-				{#each preziState.nodes as node (node.id)}
+				{#each state.nodes as node (node.id)}
 					<PresenterNodeShell
 						{node}
 						camera={nodeCamera}
-						selected={node.id === preziState.selectedNodeId}
-						onselect={() => preziState.focusNode(node)}
+						selected={node.id === state.selectedNodeId}
+						onselect={() => state.focusNode(node)}
 					/>
 				{/each}
 			</div>
 		</div>
 
-		{#if preziState.showMinimap}
+		{#if state.showMinimap}
 			<div class="prezi-scene__minimap">
 				<Minimap
-					nodes={preziState.nodes.map((node) => ({
+					nodes={state.nodes.map((node) => ({
 						id: node.id,
 						x: node.position.x,
 						y: node.position.y,
 						width: 200,
 						height: 120,
 						color: node.accent,
-						selected: node.id === preziState.selectedNodeId
+						selected: node.id === state.selectedNodeId
 					}))}
-					zoom={preziState.camera.zoom}
+					zoom={state.camera.zoom}
 					offset={{
-						x: -preziState.camera.x / preziState.camera.zoom,
-						y: -preziState.camera.y / preziState.camera.zoom
+						x: -state.camera.x / state.camera.zoom,
+						y: -state.camera.y / state.camera.zoom
 					}}
 					width={200}
 					height={140}
@@ -186,14 +186,14 @@
 			</div>
 		{/if}
 
-		{#if preziState.showInspector && preziState.selectedNode}
+		{#if state.showInspector && state.selectedNode}
 			<aside class="prezi-scene__inspector">
 				<div class="prezi-scene__inspector-header">
-					<h3 class="prezi-scene__inspector-title">{preziState.selectedNode.title}</h3>
+					<h3 class="prezi-scene__inspector-title">{state.selectedNode.title}</h3>
 					<button
 						type="button"
 						class="prezi-scene__inspector-close"
-						onclick={() => preziState.selectNode(null)}
+						onclick={() => state.selectNode(null)}
 						aria-label="Close inspector"
 					>
 						<Icon name="x" />
@@ -201,29 +201,29 @@
 				</div>
 
 				<div class="prezi-scene__inspector-content">
-					{#if preziState.selectedNode.label}
+					{#if state.selectedNode.label}
 						<div class="prezi-scene__inspector-field">
 							<span class="prezi-scene__inspector-label">Label</span>
-							<span class="prezi-scene__inspector-value">{preziState.selectedNode.label}</span>
+							<span class="prezi-scene__inspector-value">{state.selectedNode.label}</span>
 						</div>
 					{/if}
 
-					{#if preziState.selectedNode.description}
+					{#if state.selectedNode.description}
 						<div class="prezi-scene__inspector-field">
 							<span class="prezi-scene__inspector-label">Description</span>
-							<p class="prezi-scene__inspector-value">{preziState.selectedNode.description}</p>
+							<p class="prezi-scene__inspector-value">{state.selectedNode.description}</p>
 						</div>
 					{/if}
 
 					<div class="prezi-scene__inspector-field">
 						<span class="prezi-scene__inspector-label">Depth</span>
-						<span class="prezi-scene__inspector-value">{preziState.selectedNode.depth}</span>
+						<span class="prezi-scene__inspector-value">{state.selectedNode.depth}</span>
 					</div>
 
 					<div class="prezi-scene__inspector-field">
 						<span class="prezi-scene__inspector-label">Position</span>
 						<span class="prezi-scene__inspector-value">
-							x: {Math.round(preziState.selectedNode.position.x)}, y: {Math.round(preziState.selectedNode.position.y)}
+							x: {Math.round(state.selectedNode.position.x)}, y: {Math.round(state.selectedNode.position.y)}
 						</span>
 					</div>
 
@@ -231,14 +231,14 @@
 						<span class="prezi-scene__inspector-label">Accent</span>
 						<span
 							class="prezi-scene__inspector-color"
-							style="background-color: {preziState.selectedNode.accent};"
+							style="background-color: {state.selectedNode.accent};"
 						></span>
 					</div>
 
-					{#if preziState.selectedNode.children && preziState.selectedNode.children.length > 0}
+					{#if state.selectedNode.children && state.selectedNode.children.length > 0}
 						<div class="prezi-scene__inspector-field">
 							<span class="prezi-scene__inspector-label">Children</span>
-							<span class="prezi-scene__inspector-value">{preziState.selectedNode.children.length}</span>
+							<span class="prezi-scene__inspector-value">{state.selectedNode.children.length}</span>
 						</div>
 					{/if}
 				</div>
@@ -246,16 +246,16 @@
 		{/if}
 	</div>
 
-	{#if preziState.selectedNode}
+	{#if state.selectedNode}
 		<div class="prezi-scene__status-bar">
-			<span>Selected: {preziState.selectedNode.title}</span>
+			<span>Selected: {state.selectedNode.title}</span>
 			<span class="prezi-scene__divider">•</span>
-			<span>Depth: {preziState.camera.depth}</span>
+			<span>Depth: {state.camera.depth}</span>
 			<span class="prezi-scene__divider">•</span>
-			<span>Zoom: {Math.round(preziState.camera.zoom * 100)}%</span>
+			<span>Zoom: {Math.round(state.camera.zoom * 100)}%</span>
 			<span class="prezi-scene__divider">•</span>
 			<span>
-				Position: ({Math.round(preziState.camera.x)}, {Math.round(preziState.camera.y)})
+				Position: ({Math.round(state.camera.x)}, {Math.round(state.camera.y)})
 			</span>
 		</div>
 	{/if}
@@ -528,3 +528,4 @@
 		color: var(--color-border-primary, #e5e7eb);
 	}
 </style>
+

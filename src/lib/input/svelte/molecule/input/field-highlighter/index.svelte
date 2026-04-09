@@ -1,90 +1,29 @@
 <script lang="ts">
-  // Define local types for graph visualization
-  interface GraphNode {
-    id: string;
-    x: number;
-    y: number;
-    label?: string;
-    children?: import('svelte').Snippet;
-  }
+  import type { IFieldHighlighterProps } from '$stylist/input/interface/component/field-highlighter/other';
+  import { createFieldHighlighterState } from '$stylist/input/function/state/field-highlighter';
 
-  interface GraphEdge {
-    id: string;
-    fromNodeId: string;
-    toNodeId: string;
-    label?: string;
-  }
-
-  interface GraphVisualizationData {
-    nodes: GraphNode[];
-    edges: GraphEdge[];
-  }
-
-  import { createEventDispatcher } from 'svelte';
-
-  type Props = {
-    data: GraphVisualizationData;
-    selectedNode?: GraphNode | null;
-    selectedField?: any | null;
-  };
-
-  let {
-    data,
-    selectedNode = null,
-    selectedField = null
-  }: Props = $props();
-
-  // Events
-  const dispatch = createEventDispatcher<{
-    nodeClick: { node: GraphNode };
-    fieldClick: { node: GraphNode; field: any };
-  }>();
-
-  // Handle node clicks
-  function handleNodeClick(node: GraphNode) {
-    dispatch('nodeClick', { node });
-  }
-
-  // Handle field clicks
-  function handleFieldClick(node: GraphNode, field: any) {
-    dispatch('fieldClick', { node, field });
-  }
-
-  // Determine if a node should be highlighted
-  const isNodeHighlighted = (node: GraphNode) => {
-    if (!selectedField) return false;
-    return (
-      (selectedNode && selectedNode.id === node.id) ||
-      (node.label && node.label.includes(selectedField.name))
-    );
-  };
-
-  // Determine if an edge should be highlighted
-  const isEdgeHighlighted = (edge: GraphEdge) => {
-    if (!selectedField) return false;
-    if (!selectedNode) return false;
-    return edge.fromNodeId === selectedNode.id || edge.toNodeId === selectedNode.id;
-  };
+  let props: IFieldHighlighterProps = $props();
+  const state = createFieldHighlighterState(props);
 </script>
 
 <div class="field-highlighter-visualization">
-  {#each data.edges as edge}
+  {#each state.data.edges as edge}
     <div
       class="rounded border px-2 py-1 text-xs"
-      class:border-[var(--color-primary-400)]={isEdgeHighlighted(edge)}
-      class:border-[var(--color-border-primary)]={!isEdgeHighlighted(edge)}
+      class:border-[var(--color-primary-400)]={state.isEdgeHighlighted(edge)}
+      class:border-[var(--color-border-primary)]={!state.isEdgeHighlighted(edge)}
     >
       {edge.fromNodeId} -> {edge.toNodeId}{#if edge.label} ({edge.label}){/if}
     </div>
   {/each}
 
-  {#each data.nodes as node}
+  {#each state.data.nodes as node}
     <button
       type="button"
       class="absolute rounded border bg-[var(--color-background-primary)] px-3 py-2 text-left shadow-sm"
-      class:border-[var(--color-primary-500)]={selectedNode?.id === node.id || isNodeHighlighted(node)}
-      class:border-[var(--color-border-primary)]={!(selectedNode?.id === node.id || isNodeHighlighted(node))}
-      onclick={() => handleNodeClick(node)}
+      class:border-[var(--color-primary-500)]={state.selectedNode?.id === node.id || state.isNodeHighlighted(node)}
+      class:border-[var(--color-border-primary)]={!(state.selectedNode?.id === node.id || state.isNodeHighlighted(node))}
+      onclick={() => state.handleNodeClick(node)}
       style="left: {node.x || 0}px; top: {node.y || 0}px;"
     >
       <div class="font-medium">{node.label || node.id}</div>

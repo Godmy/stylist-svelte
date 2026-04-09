@@ -1,4 +1,4 @@
-import type { TokenPropertyType } from '$stylist/information/type/enum/property-type';
+import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 
 export interface GraphPortStateColor {
 	default: string;

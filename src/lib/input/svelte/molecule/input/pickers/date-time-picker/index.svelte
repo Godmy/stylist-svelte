@@ -1,163 +1,67 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { IDateTimePickerProps } from '$stylist/input/interface/component/date-time-picker/other';
+  import { createDateTimePickerState } from '$stylist/input/function/state/date-time-picker';
   import FormDatePicker from '../form-date-picker/index.svelte';
   import { Icon as BaseIcon } from '$stylist';
-const Calendar = 'calendar';
+  const Calendar = 'calendar';
 
-
-  type Props = {
-    value?: Date;
-    minDate?: Date;
-    maxDate?: Date;
-    disabled?: boolean;
-    class?: string;
-    dateClass?: string;
-    timeClass?: string;
-    dropdownClass?: string;
-  } & InteractionHTMLAttributes<HTMLInputElement>;
-
-  let {
-    value = new Date(),
-    minDate = undefined,
-    maxDate = undefined,
-    disabled = false,
-    class: className = '',
-    dateClass = '',
-    timeClass = '',
-    dropdownClass = '',
-    ...restProps
-  }: Props = $props();
-
-  let isOpen = $state(false);
-  let selectedDate = $state<Date>(value);
-  let selectedTime = $state<string>(value ? formatTime(value) : '12:00');
-  let dateInputRef: HTMLInputElement;
-  let datePickerRef = $state<HTMLDivElement>();
-
-  // Initialize time inputs based on current time
-  $effect(() => {
-    if (selectedDate) {
-      selectedTime = formatTime(selectedDate);
-    }
-  });
-
-  function formatTime(date: Date): string {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
-  }
-
-  function handleDateChange(evt: CustomEvent<Date> | Event) {
-    if ('detail' in evt) {
-      selectedDate = (evt as CustomEvent<Date>).detail;
-    } else {
-      const target = evt.target as HTMLInputElement;
-      if (target.value) {
-        selectedDate = new Date(target.value);
-      }
-    }
-    updateDateTime();
-  }
-
-  function handleTimeChange(e: Event) {
-    const target = e.target as HTMLSelectElement;
-    const [hours, minutes] = target.value.split(':').map(Number);
-    selectedDate.setHours(hours, minutes, 0, 0);
-    selectedTime = formatTime(selectedDate);
-    updateDateTime();
-  }
-
-  function updateDateTime() {
-    // Emit change event with the updated date-time
-    const event = new CustomEvent('change', { 
-      detail: { date: new Date(selectedDate) },
-      bubbles: true
-    });
-    dateInputRef?.dispatchEvent(event);
-  }
-
-  function toggleDropdown() {
-    if (!disabled) {
-      isOpen = !isOpen;
-    }
-  }
-
-  // Handle clicks outside to close the dropdown
-  $effect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        isOpen && 
-        dateInputRef && 
-        datePickerRef && 
-        !dateInputRef.contains(event.target as Node) && 
-        !datePickerRef.contains(event.target as Node)
-      ) {
-        isOpen = false;
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  });
+  let props: IDateTimePickerProps = $props();
+  const state = createDateTimePickerState(props);
 </script>
 
-<div class="relative" class:className>
+<div class={`relative ${state.className}`.trim()}>
   <div class="flex items-center">
-    <!-- Date Input -->
     <input
-      bind:this={dateInputRef}
+      use:state.dateInputAction
       type="text"
-      class={`w-full p-2 border border-[var(--color-border-primary)] rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer ${dateClass} ${
-        disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
+      class={`w-full p-2 border border-[var(--color-border-primary)] rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer ${state.dateClass} ${
+        state.disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
       }`}
       readonly
-      value={selectedDate ? selectedDate.toLocaleDateString() : ''}
-      onclick={toggleDropdown}
-      disabled={disabled}
-      {...restProps}
+      value={state.selectedDate ? state.selectedDate.toLocaleDateString() : ''}
+      onclick={state.toggleDropdown}
+      disabled={state.disabled}
+      {...props}
     />
     
-    <!-- Time Input -->
     <select
-      class={`p-2 border border-l-0 border-[var(--color-border-primary)] rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${timeClass} ${
-        disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
+      class={`p-2 border border-l-0 border-[var(--color-border-primary)] rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${state.timeClass} ${
+        state.disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
       }`}
-      value={selectedTime}
-      onchange={handleTimeChange}
-      disabled={disabled}
+      value={state.selectedTime}
+      onchange={state.handleTimeChange}
+      disabled={state.disabled}
     >
-      {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23] as hour}
-        {#each [0, 15, 30, 45] as minute}
-          <option value={`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`}>
-            {new Date(0, 0, 0, hour, minute).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-          </option>
-        {/each}
+      {#each state.timeOptions as option}
+        <option value={option}>
+          {new Date(`1970-01-01T${option}:00`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+        </option>
       {/each}
     </select>
     
     <button
       type="button"
-      class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-[var(--color-background-secondary)] ${disabled ? 'hidden' : 'block'}`}
-      onclick={toggleDropdown}
+      class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-[var(--color-background-secondary)] ${state.disabled ? 'hidden' : 'block'}`}
+      onclick={state.toggleDropdown}
     >
       <BaseIcon name={Calendar} class="w-4 h-4 text-[var(--color-text-secondary)]" />
     </button>
   </div>
 
-  {#if isOpen}
+  {#if state.isOpen}
     <div
-      bind:this={datePickerRef}
-      class={`absolute z-[var(--z-index-docked)] mt-1 p-4 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg ${dropdownClass}`}
+      use:state.datePickerAction
+      class={`absolute z-[var(--z-index-docked)] mt-1 p-4 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-md shadow-lg ${state.dropdownClass}`}
       onclick={(e) => e.stopPropagation()}
       onkeydown={(e: KeyboardEvent) => e.stopPropagation()}
       role="dialog"
       tabindex={0}
     >
       <FormDatePicker
-        value={selectedDate ? selectedDate.toISOString().split('T')[0] : ''}
-        onchange={handleDateChange}
-        minDate={minDate ? minDate.toISOString().split('T')[0] : undefined}
-        maxDate={maxDate ? maxDate.toISOString().split('T')[0] : undefined}
+        value={state.selectedDate ? state.selectedDate.toISOString().split('T')[0] : ''}
+        onchange={state.handleDateChange}
+        minDate={state.minDate ? state.minDate.toISOString().split('T')[0] : undefined}
+        maxDate={state.maxDate ? state.maxDate.toISOString().split('T')[0] : undefined}
       />
     </div>
   {/if}

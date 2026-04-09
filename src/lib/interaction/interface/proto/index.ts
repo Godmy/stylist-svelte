@@ -1,6 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { IAnimate } from './animate';
-export type { AnimateProps } from './animate-props';
 export type { IBarClickable } from './bar-clickable';
 export type { ICellClickable } from './cell-clickable';
 export type { IClickable } from './clickable';
@@ -11,10 +9,6 @@ export type { IFocusable } from './focusable';
 export type { FocusProps } from './focusable-props';
 export type { IHoverable } from './hoverable';
 export type { HoverProps } from './hoverable-props';
-export type { IMotionPreset } from './motion-preset';
-export type { IMotionToken } from './motion-token';
 export type { IPointClickable } from './point-clickable';
 export type { ISelectable } from './selectable';
 export type { ITooltipable } from './tooltipable';
-export type { ITransformable } from './transformable';
-export type { TransformProps } from './transformable-props';

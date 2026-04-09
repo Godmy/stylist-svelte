@@ -1,25 +1,30 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
   import { Icon as BaseIcon } from '$stylist';
-const Upload = 'upload';
-const CheckCircle = 'check-circle';
-const AlertCircle = 'alert-circle';
-const X = 'x';
-const RotateCcw = 'rotate-ccw';
-
+  const Upload = 'upload';
+  const CheckCircle = 'check-circle';
+  const AlertCircle = 'alert-circle';
+  const X = 'x';
+  const RotateCcw = 'rotate-ccw';
   import { Button } from '$stylist';
   import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
   import type { IUploadProgressProps } from '$stylist/file/interface/component/upload-progress/struct/props';
   import type { IUploadFile } from '$stylist/file/interface/component/upload-progress/struct/file';
   import type { UploadProgressVariant } from '$stylist/file/type/struct/upload-progress/variant';
+  import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';
+  import {
+    handleRetry as handleRetryFn,
+    handleCancel as handleCancelFn,
+    handleRemove as handleRemoveFn,
+    formatFileSize,
+  } from '$stylist/file/function/script/upload-progress';
 
   let props: IUploadProgressProps = $props();
 
-  // РЈСЃС‚Р°РЅРѕРІРєР° Р·РЅР°С‡РµРЅРёР№ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
-  let files = $derived(props.files || []);
-  let hostClass = $derived(props.hostClass || '');
-  let itemClass = $derived(props.itemClass || '');
-  let progressClass = $derived(props.progressClass || '');
+  let files = $derived(props.files ?? []);
+  let hostClass = $derived(props.hostClass ?? '');
+  let itemClass = $derived(props.itemClass ?? '');
+  let progressClass = $derived(props.progressClass ?? '');
   let showFileName = $derived(props.showFileName ?? true);
   let showFileSize = $derived(props.showFileSize ?? true);
   let showProgress = $derived(props.showProgress ?? true);
@@ -30,74 +35,52 @@ const RotateCcw = 'rotate-ccw';
   let autoHideCompleted = $derived(props.autoHideCompleted ?? false);
   let maxVisible = $derived(props.maxVisible ?? 5);
   let variant = $derived(props.variant ?? 'default');
+  const state = createUploadProgressState(props);
 
-  // РћСЃС‚Р°Р»СЊРЅС‹Рµ Р°С‚СЂРёР±СѓС‚С‹ РґР»СЏ РєРѕСЂРЅРµРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
-  let restProps = $derived(() => {
+  let restProps = $derived.by(() => {
     const {
-      files, hostClass, itemClass, progressClass, showFileName, showFileSize,
-      showProgress, showActions, onRetry, onCancel, onRemove,
-      autoHideCompleted, maxVisible, variant, ...rest
+      files: _files, hostClass: _hostClass, itemClass: _itemClass, progressClass: _progressClass,
+      showFileName: _showFileName, showFileSize: _showFileSize,
+      showProgress: _showProgress, showActions: _showActions, onRetry, onCancel, onRemove,
+      autoHideCompleted: _autoHideCompleted, maxVisible: _maxVisible, variant: _variant, ...rest
     } = props;
     return rest;
   });
 
-  // Р’С‹С‡РёСЃР»РµРЅРёРµ РІРёРґРёРјС‹С… С„Р°Р№Р»РѕРІ
-  let visibleFiles = $derived(() => {
+  let visibleFiles = $derived.by(() => {
     let visible = files;
-
     if (autoHideCompleted) {
       visible = files.filter(file => file.status !== 'success');
     }
-
     if (maxVisible > 0) {
       visible = visible.slice(0, maxVisible);
     }
-
     return visible;
   });
 
-  // Р¤РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ СЂР°Р·РјРµСЂР° С„Р°Р№Р»Р°
-  function formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
-
-  // РћР±СЂР°Р±РѕС‚С‡РёРєРё СЃРѕР±С‹С‚РёР№
   function handleRetry(file: IUploadFile) {
-    onRetry?.(file);
+    handleRetryFn(file, onRetry);
   }
 
   function handleCancel(file: IUploadFile) {
-    onCancel?.(file);
+    handleCancelFn(file, onCancel);
   }
 
   function handleRemove(file: IUploadFile) {
-    onRemove?.(file);
+    handleRemoveFn(file, onRemove);
   }
 </script>
 
-<!--
-  РљРѕРјРїРѕРЅРµРЅС‚ UploadProgress
-  РЎР»РµРґСѓРµС‚ РїСЂРёРЅС†РёРїР°Рј SOLID:
-  - SRP: РљРѕРјРїРѕРЅРµРЅС‚ РѕС‚РІРµС‡Р°РµС‚ С‚РѕР»СЊРєРѕ Р·Р° РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РїСЂРѕРіСЂРµСЃСЃР° Р·Р°РіСЂСѓР·РєРё С„Р°Р№Р»РѕРІ
-  - OCP: Р›РµРіРєРѕ СЂР°СЃС€РёСЂСЏРµРј РЅРѕРІС‹РјРё РІР°СЂРёР°РЅС‚Р°РјРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ
-  - LSP: РЎРѕРІРјРµСЃС‚РёРј СЃ Р±Р°Р·РѕРІС‹РјРё РєРѕРјРїРѕРЅРµРЅС‚Р°РјРё
-  - ISP: РџСЂРµРґРѕСЃС‚Р°РІР»СЏРµС‚ С‚РѕР»СЊРєРѕ РЅРµРѕР±С…РѕРґРёРјС‹Рµ СЃРІРѕР№СЃС‚РІР° Рё РјРµС‚РѕРґС‹
-  - DIP: Р—Р°РІРёСЃРёС‚ РѕС‚ Р°Р±СЃС‚СЂР°РєС†РёР№ (С‚РёРїС‹, СЃС‚РёР»Рё РёР· РѕС‚РґРµР»СЊРЅС‹С… С„Р°Р№Р»РѕРІ)
--->
-<div class={UploadProgressStyleManager.getHostClasses(variant, `c-upload-progress ${hostClass}`)} {...restProps}>
+<div class={UploadProgressStyleManager.getHostClasses(state.variant as 'default' | 'compact', `c-upload-progress ${hostClass}`)} {...restProps}>
   {#if files.length === 0}
     <div class={UploadProgressStyleManager.getNoUploadsMessageClasses()}>
       No uploads
     </div>
   {:else}
-    <div class={UploadProgressStyleManager.getVariantClasses(variant)}>
-      {#each visibleFiles() as file (file.id)}
+    <div class={UploadProgressStyleManager.getVariantClasses(state.variant as 'default' | 'compact')}>
+      {#each visibleFiles as file (file.id)}
         <div
-          class={UploadProgressStyleManager.getItemClasses(file.status, variant === 'compact', itemClass)}
+          class={UploadProgressStyleManager.getItemClasses(file.status, state.variant === 'compact', itemClass)}
         >
           <div class="flex-shrink-0">
             {#if file.status === 'success'}
@@ -182,7 +165,3 @@ const RotateCcw = 'rotate-ccw';
     </div>
   {/if}
 </div>
-
-
-
-

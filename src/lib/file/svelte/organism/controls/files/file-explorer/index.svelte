@@ -1,158 +1,105 @@
-<script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-const Folder = 'folder';
-const File = 'file';
-const Search = 'search';
-const Grid = 'grid';
-const List = 'list';
-const Download = 'download';
-const Upload = 'upload';
-const MoreHorizontal = 'more-horizontal';
-const ChevronRight = 'chevron-right';
-const ChevronDown = 'chevron-down';
-
+  const Folder = 'folder';
+  const File = 'file';
+  const Search = 'search';
+  const Grid = 'grid';
+  const List = 'list';
+  const Download = 'download';
+  const Upload = 'upload';
+  const MoreHorizontal = 'more-horizontal';
+  const ChevronRight = 'chevron-right';
+  const ChevronDown = 'chevron-down';
   import { Button } from '$stylist';
+  import { createFileExplorerState } from '$stylist/file/function/state/file-explorer';
   import type { FileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
   import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
+  import type { Props } from '$stylist/file/type/struct/file-explorer/props';
+  import {
+    handleItemClick as handleItemClickFn,
+    handleItemDoubleClick as handleItemDoubleClickFn,
+    handleItemKeyDown as handleItemKeyDownFn,
+    handleSearchInput as handleSearchInputFn,
+    handleUpload as handleUploadFn,
+    handleDownload as handleDownloadFn,
+    toggleViewMode as toggleViewModeFn,
+    formatFileSize,
+    getFileIcon,
+  } from '$stylist/file/function/script/file-explorer';
 
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    items: FileSystemItem[];
-    viewMode?: ViewMode;
-    currentPath?: string;
-    searchable?: boolean;
-    showPath?: boolean;
-    enableSelection?: boolean;
-    multiselect?: boolean;
-    onItemSelect?: (item: FileSystemItem) => void;
-    onItemDoubleClick?: (item: FileSystemItem) => void;
-    onItemAction?: (item: FileSystemItem, action: string) => void;
-    class?: string;
-    itemClass?: string;
-    headerClass?: string;
-    toolbarClass?: string;
-    searchClass?: string;
-    pathClass?: string;
-    onUpload?: (files: FileList) => void;
-    onDownload?: (item: FileSystemItem) => void;
-  };
-
-  let {
-    items: initialItems = [],
-    viewMode = 'grid',
-    currentPath = '/',
-    searchable = true,
-    showPath = true,
-    enableSelection = true,
-    multiselect = false,
-    onItemSelect,
-    onItemDoubleClick,
-    onItemAction,
-    class: hostClass = '',
-    itemClass = '',
-    headerClass = '',
-    toolbarClass = '',
-    searchClass = '',
-    pathClass = '',
-    onUpload,
-    onDownload,
-    ...restProps
-  }: Props = $props();
+  let props: Props = $props();
 
   let selectedItems = $state<FileSystemItem[]>([]);
   let searchQuery = $state('');
-  let currentViewMode = $state(viewMode);
+  let currentViewMode = $state(props.viewMode ?? 'grid');
+  let currentPath = $derived(props.currentPath ?? '/');
+  let searchable = $derived(props.searchable ?? true);
+  let showPath = $derived(props.showPath ?? true);
+  let enableSelection = $derived(props.enableSelection ?? true);
+  let multiselect = $derived(props.multiselect ?? false);
+  let items = $derived(props.items ?? []);
+  const state = $derived(createFileExplorerState(props));
   let pathParts = $derived(currentPath.split('/').filter(part => part));
+  let filteredItems = $derived<FileSystemItem[]>([]);
 
-  // Initialize items if they're provided
-  // let fileSystem = $derived<FileSystemItem[]>(initialItems as FileSystemItem[]);
-  // let filteredItems = $derived<FileSystemItem[]>(() => {
-  //   if (!searchQuery) return fileSystem;
+  let restProps = $derived.by(() => {
+    const {
+      items: _items, viewMode, currentPath: _currentPath, searchable: _searchable,
+      showPath: _showPath, enableSelection: _enableSelection, multiselect: _multiselect,
+      onItemSelect, onItemDoubleClick, onItemAction,
+      class: _class, itemClass, headerClass, toolbarClass, searchClass, pathClass,
+      onUpload, onDownload,
+      ...rest
+    } = props;
+    return rest;
+  });
 
-  //   const query = searchQuery.toLowerCase();
-  //   return fileSystem.filter(item =>
-  //     item.name.toLowerCase().includes(query)
-  //   );
-  // });
-
-  let filteredItems = $derived<FileSystemItem[]>([]); // Placeholder to avoid further errors
+  function setSelectedItems(items: FileSystemItem[]) {
+    selectedItems = items;
+  }
 
   function handleItemClick(item: FileSystemItem) {
-    if (enableSelection) {
-      if (multiselect) {
-        if (selectedItems.some(i => i.id === item.id)) {
-          selectedItems = selectedItems.filter(i => i.id !== item.id);
-        } else {
-          selectedItems = [...selectedItems, item];
-        }
-      } else {
-        selectedItems = [item];
-      }
-    }
-
-    onItemSelect?.(item);
+    handleItemClickFn(item, enableSelection, multiselect, selectedItems, setSelectedItems, props.onItemSelect);
   }
 
   function handleItemDoubleClick(item: FileSystemItem) {
-    onItemDoubleClick?.(item);
+    handleItemDoubleClickFn(item, props.onItemDoubleClick);
   }
 
   function handleItemKeyDown(event: KeyboardEvent, item: FileSystemItem) {
-    if (event.key === ' ' || event.key === 'Spacebar') {
-      event.preventDefault();
-      handleItemClick(item);
-      return;
-    }
+    handleItemKeyDownFn(
+      event, item,
+      () => handleItemClick(item),
+      () => handleItemDoubleClick(item)
+    );
+  }
 
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      handleItemClick(item);
-      handleItemDoubleClick(item);
-    }
+  function setSearchQuery(value: string) {
+    searchQuery = value;
   }
 
   function handleSearchInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    searchQuery = target.value;
+    handleSearchInputFn(e, setSearchQuery);
   }
 
   function handleUpload(e: Event) {
-    const target = e.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      onUpload?.(target.files);
-    }
+    handleUploadFn(e, props.onUpload);
   }
 
   function handleDownload(item: FileSystemItem) {
-    onDownload?.(item);
+    handleDownloadFn(item, props.onDownload);
   }
 
   function toggleViewMode() {
-    currentViewMode = currentViewMode === 'list' ? 'grid' : 'list';
-  }
-
-  function formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  }
-
-  function getFileIcon(item: FileSystemItem) {
-    if (item.type === 'folder') return Folder;
-    // For files, we could use different icons based on extension
-    return File;
+    toggleViewModeFn(currentViewMode, (mode) => { currentViewMode = mode; });
   }
 </script>
 
-<div class={`c-file-explorer border rounded-lg overflow-hidden ${hostClass}`} {...restProps}>
+<div class={`c-file-explorer border rounded-lg overflow-hidden ${state.classes}`} {...restProps}>
   <!-- Explorer header with toolbar -->
-  <div class={`p-3 border-b ${headerClass}`}>
+  <div class={`p-3 border-b ${props.headerClass ?? ''}`}>
     {#if showPath}
-      <div class={`flex items-center text-sm text-[var(--color-text-secondary)] mb-2 ${pathClass}`}>
+      <div class={`flex items-center text-sm text-[var(--color-text-secondary)] mb-2 ${props.pathClass ?? ''}`}>
         {#each pathParts as part, index}
           <span>{part}</span>
           {#if index < pathParts.length - 1}
@@ -162,7 +109,7 @@ const ChevronDown = 'chevron-down';
       </div>
     {/if}
 
-    <div class={`flex items-center justify-between ${toolbarClass}`}>
+    <div class={`flex items-center justify-between ${props.toolbarClass ?? ''}`}>
       <div class="flex items-center space-x-2">
         {#if searchable}
           <div class="relative flex-1 min-w-[200px]">
@@ -171,7 +118,7 @@ const ChevronDown = 'chevron-down';
             </div>
             <input
               type="text"
-              class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
+              class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${props.searchClass ?? ''}`}
               placeholder="Search files..."
               value={searchQuery}
               oninput={handleSearchInput}
@@ -221,7 +168,7 @@ const ChevronDown = 'chevron-down';
               selectedItems.some(i => i.id === item.id)
                 ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
                 : 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
-            } ${itemClass}`}
+            } ${props.itemClass ?? ''}`}
             role="button"
             tabindex="0"
             onclick={() => handleItemClick(item)}
@@ -245,7 +192,7 @@ const ChevronDown = 'chevron-down';
               selectedItems.some(i => i.id === item.id)
                 ? 'bg-[var(--color-primary-50)]'
                 : 'hover:bg-[var(--color-background-secondary)]'
-            } ${itemClass}`}
+            } ${props.itemClass ?? ''}`}
             role="button"
             tabindex="0"
             onclick={() => handleItemClick(item)}
@@ -280,10 +227,3 @@ const ChevronDown = 'chevron-down';
     {/if}
   </div>
 </div>
-
-
-
-
-
-
-

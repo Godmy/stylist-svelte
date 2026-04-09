@@ -1,184 +1,71 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import { createTextareaState } from '$stylist/input/function/state/text-area';
-	import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 	import type { ITextareaProps } from '$stylist/input/interface/component/input/other';
+	import { createTextareaState } from '$stylist/input/function/state/text-area';
 
-	/**
-	 * Textarea component - Многострочное текстовое поле
-	 *
-	 * @example
-	 * ```svelte
-	 * <Textarea
-	 *   label="Сообщение"
-	 *   bind:value={message}
-	 *   variant="default"
-	 *   size="md"
-	 *   rows={5}
-	 *   maxlength={1000}
-	 *   showCharacterCount={true}
-	 * />
-	 * ```
-	 */
+	let props: ITextareaProps &
+		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'> = $props();
+	const state = createTextareaState(props);
 
-	type Props = ITextareaProps &
-		Omit<HTMLTextareaAttributes, 'class' | 'autocomplete' | 'id' | 'disabled'>;
-
-	let {
-		// Core props
-		variant = 'default',
-		size = 'md',
-		disabled = false,
-		error = false,
-		block = true,
-		class: className = '',
-
-		// Label props
-		label,
-		id,
-		showRequiredIndicator = true,
-
-		// Validation props
-		errors = [],
-		showErrors = true,
-
-		// Helper props
-		helperText,
-		showHelperWhenError = false,
-
-		// Textarea-specific props
-		value = $bindable<string>(''),
-		placeholder,
-		name,
-		required = false,
-		readonly = false,
-		autofocus = false,
-		autocomplete,
-		minlength,
-		maxlength,
-		rows = 4,
-		autoResize = false,
-
-		// Rest props
-		...restProps
-	}: Props = $props();
-
-	// Derived values
-	const hasError = $derived(error || errors.length > 0);
-	const errorId = $derived(id ? `${id}-error` : undefined);
-	const labelId = $derived(id ? `${id}-label` : undefined);
-	const currentLength = $derived(value?.length || 0);
-	const remainingChars = $derived(maxlength ? maxlength - currentLength : null);
-
-	// Textarea state
-	const textareaState = $derived(
-		createTextareaState({
-			variant,
-			size,
-			disabled,
-			error: hasError,
-			block,
-			class: className
-		})
-	);
-
-	// Container classes
-	const containerClasses = $derived(InputStyleManager.getContainerClass(''));
-	const labelClasses = $derived(InputStyleManager.getLabelClass(''));
-	const helperTextClasses = $derived(InputStyleManager.getHelperTextClass(''));
-	const errorTextClasses = $derived(InputStyleManager.getErrorTextClass(''));
-	const requiredIndicatorClasses = $derived(InputStyleManager.getRequiredIndicatorClass(''));
-
-	// Show helper text logic
-	const showHelper = $derived(
-		helperText && (showHelperWhenError || !hasError)
-	);
-
-	// Auto-resize logic
 	let textareaElement: HTMLTextAreaElement | null = null;
 	onMount(() => {
-		if (autofocus) textareaElement?.focus();
+		if (props.autofocus) textareaElement?.focus();
 	});
-
-	function autoResizeTextarea() {
-		if (autoResize && textareaElement) {
-			textareaElement.style.height = 'auto';
-			textareaElement.style.height = `${textareaElement.scrollHeight}px`;
-		}
-	}
 
 	$effect(() => {
-		if (autoResize && value) {
-			autoResizeTextarea();
+		if (props.autoResize && props.value) {
+			state.autoResizeTextarea(textareaElement);
 		}
 	});
-
-	function handleInput(e: Event) {
-		if (autoResize) {
-			autoResizeTextarea();
-		}
-	}
 </script>
 
-<div class={containerClasses}>
-	{#if label}
-		<label for={id} class={labelClasses} id={labelId}>
-			{label}
-			{#if required && showRequiredIndicator}
-				<span class={requiredIndicatorClasses} aria-hidden="true">*</span>
+<div class={state.containerClasses}>
+	{#if props.label}
+		<label for={props.id} class={state.labelClasses} id={state.labelId}>
+			{props.label}
+			{#if props.required && (props.showRequiredIndicator ?? true)}
+				<span class={state.requiredIndicatorClasses} aria-hidden="true">*</span>
 			{/if}
 		</label>
 	{/if}
 
 	<textarea
-		{id}
-		{name}
-		bind:value
-		{placeholder}
-		{required}
-		{readonly}
-		{disabled}
-		{autocomplete}
-		{minlength}
-		{maxlength}
-		{rows}
+		id={props.id}
+		name={props.name}
+		bind:value={props.value}
+		placeholder={props.placeholder}
+		required={props.required ?? false}
+		readonly={props.readonly ?? false}
+		disabled={props.disabled ?? false}
+		autocomplete={props.autocomplete}
+		minlength={props.minlength}
+		maxlength={props.maxlength}
+		rows={props.rows ?? 4}
 		bind:this={textareaElement}
-		class={`${textareaState.classes} resize-y`}
-		oninput={handleInput}
-		aria-describedby={hasError && showErrors ? errorId : helperText ? undefined : undefined}
-		aria-invalid={hasError ? 'true' : 'false'}
-		aria-required={required ? 'true' : 'false'}
-		{...restProps}
+		class={`${state.classes} resize-y`}
+		oninput={() => state.handleInput(textareaElement)}
+		aria-describedby={state.hasError && (props.showErrors ?? true) ? state.errorId : props.helperText ? undefined : undefined}
+		aria-invalid={state.hasError ? 'true' : 'false'}
+		aria-required={props.required ? 'true' : 'false'}
 	></textarea>
 
-	{#if hasError && showErrors && errors.length > 0}
-		<p id={errorId} class={errorTextClasses} role="alert">
-			{#each errors as error_msg, i}
-				{error_msg}{i < errors.length - 1 ? ' ' : ''}
+	{#if state.hasError && (props.showErrors ?? true) && (props.errors?.length ?? 0) > 0}
+		<p id={state.errorId} class={state.errorTextClasses} role="alert">
+			{#each props.errors ?? [] as error_msg, i}
+				{error_msg}{i < (props.errors?.length ?? 0) - 1 ? ' ' : ''}
 			{/each}
 		</p>
-	{:else if showHelper}
-		<p class={helperTextClasses}>{helperText}</p>
+	{:else if state.showHelper}
+		<p class={state.helperTextClasses}>{props.helperText}</p>
 	{/if}
 
-	{#if maxlength}
+	{#if props.maxlength}
 		<p class="text-xs text-[var(--color-text-secondary)] mt-1">
-			{currentLength} / {maxlength}
-			{#if remainingChars !== null && remainingChars <= 10}
-				<span class="text-orange-600 ml-2">Осталось символов: {remainingChars}</span>
+			{state.currentLength} / {props.maxlength}
+			{#if state.remainingChars !== null && state.remainingChars <= 10}
+				<span class="text-orange-600 ml-2">Осталось символов: {state.remainingChars}</span>
 			{/if}
 		</p>
 	{/if}
 </div>
-
-
-
-
-
-
-
-
-
-
-
