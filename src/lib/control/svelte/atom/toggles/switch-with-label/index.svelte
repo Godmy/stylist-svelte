@@ -29,78 +29,59 @@
     ...restProps
   }: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = props;
 
-  const switchState = createSwitchWithLabelState({ checked, disabled, label, labelPosition, class: className, switchClass, labelClass });
-
-  let isChecked = $state(checked);
-
-  // Update local state when checked prop changes
-  $effect(() => {
-    if (isChecked !== checked) {
-      isChecked = checked;
-    }
+  const state = createSwitchWithLabelState({
+    checked,
+    disabled,
+    label,
+    labelPosition,
+    class: className,
+    switchClass,
+    labelClass,
+    onValueInput,
+    onValueChange,
+    onInput,
+    onChange
   });
-
-  function handleToggle() {
-    if (disabled) return;
-
-    isChecked = !isChecked;
-
-    onValueInput?.(isChecked);
-    onValueChange?.(isChecked);
-    if (onInput) {
-      onInput(isChecked);
-    }
-    if (onChange) {
-      onChange(isChecked);
-    }
-  }
-
-  function handleKeyDown(e: KeyboardEvent) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleToggle();
-    }
-  }
 </script>
 
 <div
-  class={switchState.containerClasses}
+  class={state.containerClasses}
   role="switch"
-  aria-checked={isChecked}
+  aria-checked={state.checked}
   {...restProps}
 >
   {#if labelPosition === 'left'}
     <label
       for="switch-input"
-      class={`${switchState.labelPositionClass} ${switchState.labelClasses}`}
+      class={`${state.labelPositionClass} ${state.labelClasses}`}
     >
       {label}
     </label>
   {/if}
 
   <div
-    class={switchState.switchClasses}
+    class={state.switchClasses}
     role="switch"
-    aria-checked={isChecked}
-    onclick={handleToggle}
-    onkeydown={handleKeyDown}
+    aria-checked={state.checked}
+    onclick={state.handleToggle}
+    onkeydown={state.handleKeyDown}
     tabindex={disabled ? -1 : 0}
   >
     <input
       id="switch-input"
       type="checkbox"
       class="sr-only"
-      bind:checked={isChecked}
-      onchange={handleToggle}
+      checked={state.checked}
+      onchange={state.handleToggle}
       disabled={disabled}
     />
-    <span class={switchState.handleClasses}></span>
+    <span class={state.handleClasses}></span>
   </div>
 
   {#if labelPosition === 'right'}
     <label
       for="switch-input"
-      class={`${switchState.labelPositionClass} ${switchState.labelClasses}`}
+      class={`${state.labelPositionClass} ${state.labelClasses}`}
     >
       {label}
     </label>

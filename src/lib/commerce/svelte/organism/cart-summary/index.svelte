@@ -1,169 +1,104 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+	import type { CartSummaryProps } from '$stylist/commerce/function/state/cart-summary';
+	import { createCartSummaryState } from '$stylist/commerce/function/state/cart-summary';
 
-  import CartSummaryComponent from './index.svelte';
-
-  const CartSummary = CartSummaryComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showItemThumbnails', type: 'boolean', defaultValue: true },
-      { name: 'showDiscounts', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample cart items
-  const sampleItems = [
-    {
-      id: '1',
-      name: 'Wireless Headphones',
-      price: 129.99,
-      quantity: 1,
-      originalPrice: 149.99,
-      discountPercent: 13,
-      thumbnail: 'https://placehold.co/100x100?text=Headphones',
-      inStock: true,
-      maxQuantity: 5
-    },
-    {
-      id: '2',
-      name: 'Smart Watch',
-      price: 199.99,
-      quantity: 2,
-      originalPrice: 249.99,
-      discountPercent: 20,
-      thumbnail: 'https://placehold.co/100x100?text=Watch',
-      inStock: true,
-      maxQuantity: 3
-    },
-    {
-      id: '3',
-      name: 'Bluetooth Speaker',
-      price: 79.99,
-      quantity: 1,
-      thumbnail: 'https://placehold.co/100x100?text=Speaker',
-      inStock: false,
-      maxQuantity: 10
-    }
-  ];
-
-  // Sample promotions
-  const samplePromotions = [
-    {
-      id: 'promo1',
-      code: 'SAVE10',
-      description: 'Save 10% on your order',
-      discountType: 'percentage' as const,
-      discountValue: 10,
-      applied: true
-    },
-    {
-      id: 'promo2',
-      code: 'FREESHIP',
-      description: 'Free shipping on orders over $50',
-      discountType: 'fixed' as const,
-      discountValue: 5.99,
-      applied: false
-    }
-  ];
+	let props: CartSummaryProps = $props();
+	const state = createCartSummaryState(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={CartSummary}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-cart-summary grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Cart Summary Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Interactive cart summary with item management.</p>
+<div class={state.containerClasses}>
+	<div class={state.headerClasses}>
+		<h2 class={state.titleClasses}>Cart Summary</h2>
+	</div>
 
-        <div class="mt-6">
-          <CartSummary
-            items={sampleItems}
-            promotions={samplePromotions}
-            shippingCost={5.99}
-            taxCost={12.50}
-            discountAmount={25.50}
-            showItemThumbnails={values.showItemThumbnails}
-            showDiscounts={values.showDiscounts}
-            showShipping={true}
-            showTaxes={true}
-            showPromoCode={true}
-            currency="USD"
-            onQuantityChange={(itemId: string, newQuantity: number) => console.log(`Quantity changed for ${itemId}: ${newQuantity}`)}
-            onItemRemove={(itemId: string) => console.log(`Item removed: ${itemId}`)}
-            onApplyPromotion={(code: string) => console.log(`Applying promotion: ${code}`)}
-            onCheckout={() => console.log('Proceeding to checkout')}
-          />
-        </div>
-      </div>
+	{#if state.items.length === 0}
+		<div class="px-6 py-8 text-center text-[--color-text-secondary]">Your cart is empty</div>
+	{:else}
+		<ul>
+			{#each state.items as item}
+				<li class={state.itemClasses}>
+					{#if props.showItemThumbnails !== false && item.thumbnail}
+						<img src={item.thumbnail} alt={item.name} class={state.thumbnailClasses} />
+					{/if}
+					<div class="flex-1">
+						<p class={state.itemNameClasses}>{item.name}</p>
+						<p class={state.itemPriceClasses}>{state.formatPrice(item.price)}</p>
+					</div>
+					<div class={state.quantityControlClasses}>
+						<button
+							class={state.quantityButtonClasses}
+							onclick={() => props.onQuantityChange?.(item.id, Math.max(1, item.quantity - 1))}
+						>-</button>
+						<span class={state.quantityInputClasses}>{item.quantity}</span>
+						<button
+							class={state.quantityButtonClasses}
+							onclick={() => props.onQuantityChange?.(item.id, item.quantity + 1)}
+						>+</button>
+					</div>
+					<button
+						class={state.removeButtonClasses}
+						onclick={() => props.onItemRemove?.(item.id)}
+					>&times;</button>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Cart Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different cart configurations with various options.
-        </p>
+	<div class={state.summaryClasses}>
+		<h3 class={state.summaryTitleClasses}>Order Summary</h3>
 
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Empty Cart</p>
-            <div>
-              <CartSummary
-                items={[]}
-                shippingCost={0}
-                taxCost={0}
-                discountAmount={0}
-                showItemThumbnails={true}
-                showDiscounts={true}
-                showShipping={true}
-                showTaxes={true}
-                showPromoCode={true}
-                currency="USD"
-              />
-            </div>
-          </article>
+		<div class={state.summaryRowClasses}>
+			<span class={state.summaryLabelClasses}>Subtotal</span>
+			<span class={state.summaryValueClasses}>{state.formatPrice(state.subtotal)}</span>
+		</div>
 
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Cart Without Thumbnails</p>
-            <div>
-              <CartSummary
-                items={sampleItems.slice(0, 1)}
-                shippingCost={0}
-                taxCost={8.25}
-                discountAmount={0}
-                showItemThumbnails={false}
-                showDiscounts={true}
-                showShipping={false}
-                showTaxes={true}
-                showPromoCode={false}
-                currency="USD"
-              />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  {/snippet}
-</Story>
+		{#if props.showDiscounts !== false && (props.discountAmount ?? 0) > 0}
+			<div class={state.summaryRowClasses}>
+				<span class={state.summaryLabelClasses}>Discount</span>
+				<span class={state.discountBadgeClasses}>-{state.formatPrice(props.discountAmount ?? 0)}</span>
+			</div>
+		{/if}
 
+		{#if props.showShipping}
+			<div class={state.summaryRowClasses}>
+				<span class={state.summaryLabelClasses}>Shipping</span>
+				<span class={state.summaryValueClasses}>{state.formatPrice(props.shippingCost ?? 0)}</span>
+			</div>
+		{/if}
 
+		{#if props.showTaxes}
+			<div class={state.summaryRowClasses}>
+				<span class={state.summaryLabelClasses}>Tax</span>
+				<span class={state.summaryValueClasses}>{state.formatPrice(props.taxCost ?? 0)}</span>
+			</div>
+		{/if}
 
+		<div class={state.totalClasses}>
+			<span>Total</span>
+			<span>{state.formatPrice(state.total)}</span>
+		</div>
 
+		{#if props.showPromoCode}
+			<div class="flex gap-2 mt-4">
+				<input
+					type="text"
+					placeholder="Promo code"
+					value={state.promoCode}
+					oninput={(e) => { state.promoCode = (e.target as HTMLInputElement).value; }}
+					class={state.promoCodeInputClasses}
+				/>
+				<button
+					onclick={state.handleApplyPromo}
+					class={state.promoCodeButtonClasses}
+				>Apply</button>
+			</div>
+		{/if}
 
-
+		{#if props.onCheckout}
+			<button
+				onclick={props.onCheckout}
+				class="w-full mt-4 px-4 py-2 bg-[--color-primary-600] text-white rounded font-medium"
+			>Proceed to Checkout</button>
+		{/if}
+	</div>
+</div>

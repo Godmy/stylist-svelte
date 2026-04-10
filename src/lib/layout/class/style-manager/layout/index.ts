@@ -68,12 +68,31 @@ export class LayoutStyleManager {
 	}
 
 	static getHorizontalLayoutClasses(
-		gap: TokenSize,
+		gap: TokenSize | number,
 		alignItems: TokenAlignment,
 		justifyContent: TokenJustification,
 		wrap: boolean,
 		className = ''
 	): string {
+		const gapClass =
+			typeof gap === 'number'
+				? `gap-[${gap}px]`
+				: {
+						xs: 'gap-1',
+						sm: 'gap-2',
+						md: 'gap-4',
+						lg: 'gap-6',
+						xl: 'gap-8',
+						'2xl': 'gap-12',
+						'1/4': 'gap-1',
+						'1/3': 'gap-2',
+						'2/5': 'gap-2',
+						'1/2': 'gap-4',
+						'3/5': 'gap-4',
+						'2/3': 'gap-6',
+						'3/4': 'gap-8',
+						full: 'gap-12'
+					}[gap];
 		return mergeClassNames(
 			'flex',
 			{
@@ -105,22 +124,7 @@ export class LayoutStyleManager {
 				justify: 'justify-center'
 			}[justifyContent],
 			wrap ? 'flex-wrap' : 'flex-nowrap',
-			{
-				xs: 'gap-1',
-				sm: 'gap-2',
-				md: 'gap-4',
-				lg: 'gap-6',
-				xl: 'gap-8',
-				'2xl': 'gap-12',
-				'1/4': 'gap-1',
-				'1/3': 'gap-2',
-				'2/5': 'gap-2',
-				'1/2': 'gap-4',
-				'3/5': 'gap-4',
-				'2/3': 'gap-6',
-				'3/4': 'gap-8',
-				full: 'gap-12'
-			}[gap],
+			gapClass,
 			className
 		);
 	}
@@ -209,13 +213,13 @@ export class LayoutStyleManager {
 	}
 
 	static resolveHorizontalLayout(props: {
-		gap?: TokenSize;
+		gap?: number;
 		alignItems?: TokenAlignment;
 		justifyContent?: TokenJustification;
 		wrap?: boolean;
 		class?: string;
 	}) {
-		const gap = props.gap ?? 'md';
+		const gap = props.gap ?? 16;
 		const alignItems = props.alignItems ?? 'center';
 		const justifyContent = props.justifyContent ?? 'justify';
 		const wrap = props.wrap ?? true;

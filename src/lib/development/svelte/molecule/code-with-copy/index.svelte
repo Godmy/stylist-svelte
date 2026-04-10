@@ -1,42 +1,21 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-const Check = 'check';
-const Copy = 'copy';
-
+  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { createEventDispatcher } from 'svelte';
-  import { CodeWithCopyStyleManager } from '$stylist/development/class/style-manager/code-with-copy';
+  import { createCodeWithCopyState } from '$stylist/development/function/state/code-with-copy';
+
+  const Check = 'check';
+  const Copy = 'copy';
 
   type CodeWithCopyVariant = 'default' | 'terminal' | 'diff';
 
   type Props = {
-    /**
-     * Language for syntax highlighting
-     */
     language?: string;
-    /**
-     * Variant style
-     */
     variant?: CodeWithCopyVariant;
-    /**
-     * Whether to show line numbers
-     */
     showLineNumbers?: boolean;
-    /**
-     * Starting line number
-     */
     startLineNumber?: number;
-    /**
-     * Custom copy success message
-     */
     copySuccessMessage?: string;
-    /**
-     * Custom copy error message
-     */
     copyErrorMessage?: string;
-    /**
-     * Content to render inside the component
-     */
     children: import('svelte').Snippet;
   } & InformationHTMLAttributes<HTMLElement>;
 
@@ -51,49 +30,25 @@ const Copy = 'copy';
     ...restProps
   }: Props = $props();
 
-  let copied = $state(false);
   const dispatch = createEventDispatcher();
-
-  async function copyToClipboard() {
-    const codeElement = document.querySelector<HTMLElement>('.code-content');
-    if (!codeElement) return;
-
-    try {
-      const code = codeElement.textContent || '';
-      await navigator.clipboard.writeText(code);
-      copied = true;
-      dispatch('copySuccess', { message: copySuccessMessage });
-      setTimeout(() => {
-        copied = false;
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy code:', err);
-      dispatch('copyError', { message: copyErrorMessage });
-    }
-  }
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(CodeWithCopyStyleManager.getContainerClass());
-  const codeContentClass = $derived(CodeWithCopyStyleManager.getCodeContentClass());
-  const copyButtonClass = $derived(CodeWithCopyStyleManager.getCopyButtonClass());
-  const iconClass = (isCopied: boolean) => CodeWithCopyStyleManager.getIconClass(isCopied);
+  const state = createCodeWithCopyState({ language, variant, showLineNumbers, startLineNumber, copySuccessMessage, copyErrorMessage, children, ...restProps }, dispatch);
 </script>
 
-<div {...restProps} class={containerClass}>
-  <div class={codeContentClass}>
+<div {...restProps} class={state.containerClass}>
+  <div class={state.codeContentClass}>
     {#if children}
       {@render children()}
     {/if}
   </div>
   <button
-    class={copyButtonClass}
+    class={state.copyButtonClass}
     aria-label="Copy code"
-    onclick={copyToClipboard}
+    onclick={state.handleCopyToClipboard}
   >
-    {#if copied}
-      <BaseIcon name={Check} class={iconClass(true)} />
+    {#if state.copied}
+      <BaseIcon name={Check} class={state.iconClass(true)} />
     {:else}
-      <BaseIcon name={Copy} class={iconClass(false)} />
+      <BaseIcon name={Copy} class={state.iconClass(false)} />
     {/if}
   </button>
 </div>

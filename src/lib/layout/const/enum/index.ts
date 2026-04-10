@@ -18,3 +18,4 @@ export { TOKEN_SIZE } from './size';
 export { TOKEN_SIZE_DX } from './size-dx';
 export { TOKEN_SIZE_REM } from './size-rem';
 export { TOKEN_SPACE } from './space';
+export { TOKEN_STACK_DIRECTION } from './stack-direction';

@@ -1,197 +1,70 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-  import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist';
-const MapPin = 'map-pin';
-const Info = 'info';
-const Star = 'star';
-const Phone = 'phone';
-const Mail = 'mail';
-const Navigation = 'navigation';
-const Building = 'building';
-const Settings = 'settings';
-const HeartPulse = 'heart-pulse';
-const GraduationCap = 'graduation-cap';
-const ShoppingBag = 'shopping-bag';
-const AlertTriangle = 'alert-triangle';
-const Utensils = 'utensils';
-const Car = 'car';
-
   import { Button } from '$lib';
-
-  import type { IMapMarkerProps } from '$stylist/geo/interface/component/map-marker/other';
-  import { MapMarkerStyleManager } from '$stylist/geo/class/style-manager/map-marker';
+  import { createMapMarkerState } from '$stylist/geo/function/state/map-marker';
+  import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
 
   /**
    * MapMarker component - A map marker with interactive popup and category-based icons
-   *
-   * Following SOLID principles:
-   * - Single Responsibility: Only handles map marker rendering and state
-   * - Open/Closed: Extendable through properties but closed for modification
-   * - Liskov Substitution: Can be substituted with other marker components
-   * - Interface Segregation: Small focused interface
-   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
-   *
-   * @param coordinates - Latitude and longitude of the marker
-   * @param title - Title displayed in the popup
-   * @param description - Description displayed in the popup
-   * @param snippet - Additional content snippet
-   * @param type - Type of the marker
-   * @param color - Custom color for the marker
-   * @param size - Size of the marker ('sm' | 'md' | 'lg')
-   * @param showPopup - Whether to initially show the popup
-   * @param popupContent - Custom content for the popup
-   * @param pinStyle - Shape of the marker ('vector' | 'flag' | 'circle' | 'diamond')
-   * @param rating - Rating from 0-5
-   * @param contactInfo - Contact information to display
-   * @param distance - Distance string to display
-   * @param selected - Whether the marker is currently selected
-   * @param onMarkerClick - Callback when marker is clicked
-   * @param onInfoClick - Callback when info button is clicked
-   * @param onNavigateClick - Callback when navigate button is clicked
-   * @param class - Additional CSS classes for the container
-   * @param iconClass - Additional CSS classes for the icon
-   * @param popupClass - Additional CSS classes for the popup
-   * @param contentClass - Additional CSS classes for the content
-   * @returns An accessible, styled map marker component
    */
-  let {
-    coordinates,
-    title,
-    description,
-    snippet,
-    type = 'place',
-    color = '',
-    size = 'md',
-    showPopup = false,
-    popupContent,
-    pinStyle = 'vector',
-    rating,
-    contactInfo,
-    distance,
-    selected = false,
-    onMarkerClick,
-    onInfoClick,
-    onNavigateClick,
-    class: hostClass = '',
-    iconClass = '',
-    popupClass = '',
-    contentClass = '',
-    ...restProps
-  }: IMapMarkerProps = $props();
-
-  let isPopupOpen = $state(showPopup);
-
-  function handleClick() {
-    onMarkerClick?.(coordinates);
-    isPopupOpen = !isPopupOpen;
-  }
-
-  function handleInfoClick() {
-    onInfoClick?.(coordinates);
-  }
-
-  function handleNavigateClick() {
-    onNavigateClick?.(coordinates);
-  }
-
-  function getIconForType(markerType: 'person' | 'place' | 'business'): string {
-    const typeIcons = {
-      person: MapPin,
-      place: Building,
-      business: ShoppingBag
-    } as const;
-
-    return typeIcons[markerType] ?? MapPin;
-  }
-
-  let CategoryIcon = $derived(getIconForType(type));
-
-  // Derived classes using StyleManager
-  let hostClasses = $derived(MapMarkerStyleManager.getBaseClasses(selected, hostClass));
-  let markerContainerClasses = $derived(MapMarkerStyleManager.getMarkerContainerClasses(iconClass));
-  let colorClass = $derived(MapMarkerStyleManager.getColorClass(color, type));
-  let pinStyleClasses = $derived(MapMarkerStyleManager.getPinStyleClasses(size, colorClass, selected, pinStyle));
-  let distanceLabelClasses = $derived(MapMarkerStyleManager.getDistanceLabelClasses());
-  let popupClasses = $derived(MapMarkerStyleManager.getPopupClasses(popupClass));
-  let titleClasses = $derived(MapMarkerStyleManager.getTitleClasses(''));
-  let descriptionClasses = $derived(MapMarkerStyleManager.getDescriptionClasses());
-  let ratingContainerClasses = $derived(MapMarkerStyleManager.getRatingContainerClasses());
-  let closeButtonClasses = $derived(MapMarkerStyleManager.getCloseButtonClasses());
-  let contactInfoContainerClasses = $derived(MapMarkerStyleManager.getContactInfoContainerClasses());
-  let contactItemClasses = $derived(MapMarkerStyleManager.getContactItemClasses());
-  let contactLinkClasses = $derived(MapMarkerStyleManager.getContactLinkClasses());
-  let customContentClasses = $derived(MapMarkerStyleManager.getCustomContentClasses(contentClass));
-  let actionButtonsContainerClasses = $derived(MapMarkerStyleManager.getActionButtonsContainerClasses());
-  let starClasses = (isFilled: boolean, isHalf: boolean = false) => MapMarkerStyleManager.getStarClasses(isFilled, isHalf);
-  let flagClasses = $derived(MapMarkerStyleManager.getFlagClasses(colorClass, size));
-  let flagTopClasses = $derived(MapMarkerStyleManager.getFlagTopClasses(colorClass, size));
-
-  // Define placeholder icons for category-specific markers
-  let MapPinIcon = MapPin;
-  let InfoIcon = Info;
-  let PhoneIcon = Phone;
-  let MailIcon = Mail;
-  let NavigationIcon = Navigation;
-  let StarIcon = Star;
+  let props = $props();
+  const state = createMapMarkerState(props);
 </script>
 
-<div class={hostClasses} {...restProps}>
+<div class={state.hostClasses} {...state.restProps}>
   <div
-    class={markerContainerClasses}
-    onclick={handleClick}
+    class={state.markerContainerClasses}
+    onclick={state.handleClick}
     role="button"
     tabindex={0}
-    onkeydown={(e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === ' ') handleClick();
-    }}
+    onkeydown={(e: KeyboardEvent) => state.handleKeyDown(e, state.handleClick)}
   >
-    {#if pinStyle === 'vector'}
+    {#if state.pinStyle === 'vector'}
       <BaseIcon
-        name={MapPin}
-        class={pinStyleClasses}
+        name="map-pin"
+        class={state.pinStyleClasses}
       />
-    {:else if pinStyle === 'flag'}
-      <div class={pinStyleClasses}>
-        <div class={flagClasses}></div>
-        <div class={flagTopClasses}></div>
+    {:else if state.pinStyle === 'flag'}
+      <div class={state.pinStyleClasses}>
+        <div class={state.flagClasses}></div>
+        <div class={state.flagTopClasses}></div>
       </div>
     {:else}
-      <div class={`flex items-center justify-center ${pinStyleClasses}`}>
-        <BaseIcon name={CategoryIcon} class="w-3/5 h-3/5" />
+      <div class={`flex items-center justify-center ${state.pinStyleClasses}`}>
+        <BaseIcon name={state.CategoryIcon} class="w-3/5 h-3/5" />
       </div>
     {/if}
 
-    {#if distance}
-      <div class={distanceLabelClasses}>{distance}</div>
+    {#if state.distance}
+      <div class={state.distanceLabelClasses}>{state.distance}</div>
     {/if}
   </div>
 
-  {#if isPopupOpen}
-    <div class={popupClasses}>
+  {#if state.isPopupOpen}
+    <div class={state.popupClasses}>
       <div class="flex justify-between items-start">
         <div>
-          {#if title}
-            <h3 class={titleClasses}>{title}</h3>
+          {#if state.title}
+            <h3 class={state.titleClasses}>{state.title}</h3>
           {/if}
-          {#if description}
-            <p class={descriptionClasses}>{description}</p>
+          {#if state.description}
+            <p class={state.descriptionClasses}>{state.description}</p>
           {/if}
-          {#if rating !== undefined}
-            <div class={ratingContainerClasses}>
+          {#if state.rating !== undefined}
+            <div class={state.ratingContainerClasses}>
               {#each Array(5) as _, i}
                 <BaseIcon
-                  name={Star}
-                  class={starClasses(i < Math.floor(rating))}
+                  name="star"
+                  class={state.getStarClasses(i < Math.floor(state.rating))}
                 />
               {/each}
-              <span class="ml-1 text-sm text-[--color-text-secondary]">{rating.toFixed(1)}</span>
+              <span class="ml-1 text-sm text-[--color-text-secondary]">{state.rating.toFixed(1)}</span>
             </div>
           {/if}
         </div>
         <button
-          class={closeButtonClasses}
-          onclick={() => isPopupOpen = false}
+          class={state.closeButtonClasses}
+          onclick={() => state.isPopupOpen = false}
           aria-label="Close popup"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,59 +73,53 @@ const Car = 'car';
         </button>
       </div>
 
-      {#if contactInfo}
-        <div class={contactInfoContainerClasses}>
-          {#if contactInfo.phone}
-            <div class={contactItemClasses}>
-              <BaseIcon name={Phone} class="h-4 w-4 mr-2" />
-              <a href={`tel:${contactInfo.phone}`} class={contactLinkClasses}>{contactInfo.phone}</a>
+      {#if state.contactInfo}
+        <div class={state.contactInfoContainerClasses}>
+          {#if state.contactInfo.phone}
+            <div class={state.contactItemClasses}>
+              <BaseIcon name="phone" class="h-4 w-4 mr-2" />
+              <a href={`tel:${state.contactInfo.phone}`} class={state.contactLinkClasses}>{state.contactInfo.phone}</a>
             </div>
           {/if}
-          {#if contactInfo.email}
-            <div class={contactItemClasses}>
-              <BaseIcon name={Mail} class="h-4 w-4 mr-2" />
-              <a href={`mailto:${contactInfo.email}`} class={contactLinkClasses} target="_blank">{contactInfo.email}</a>
+          {#if state.contactInfo.email}
+            <div class={state.contactItemClasses}>
+              <BaseIcon name="mail" class="h-4 w-4 mr-2" />
+              <a href={`mailto:${state.contactInfo.email}`} class={state.contactLinkClasses} target="_blank">{state.contactInfo.email}</a>
             </div>
           {/if}
-          {#if contactInfo.hours}
-            <div class={contactItemClasses}>
+          {#if state.contactInfo.hours}
+            <div class={state.contactItemClasses}>
               <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>{contactInfo.hours}</span>
+              <span>{state.contactInfo.hours}</span>
             </div>
           {/if}
         </div>
       {/if}
 
-      {#if snippet}
-        <div class={customContentClasses}>
-          {@render snippet()}
+      {#if props.snippet}
+        <div class={state.customContentClasses}>
+          {@render props.snippet()}
         </div>
       {/if}
 
-      {#if popupContent}
+      {#if props.popupContent}
         <div class="mt-3">
-          {@render popupContent()}
+          {@render props.popupContent()}
         </div>
       {/if}
 
-      <div class={actionButtonsContainerClasses}>
-        <Button variant="outline" size="sm" onclick={handleNavigateClick}>
-          <BaseIcon name={Navigation} class="h-4 w-4 mr-1" />
+      <div class={state.actionButtonsContainerClasses}>
+        <Button variant="outline" size="sm" onclick={state.handleNavigateClick}>
+          <BaseIcon name="navigation" class="h-4 w-4 mr-1" />
           Directions
         </Button>
-        <Button variant="outline" size="sm" onclick={handleInfoClick}>
-          <BaseIcon name={Info} class="h-4 w-4 mr-1" />
+        <Button variant="outline" size="sm" onclick={state.handleInfoClick}>
+          <BaseIcon name="info" class="h-4 w-4 mr-1" />
           Details
         </Button>
       </div>
     </div>
   {/if}
 </div>
-
-
-
-
-
-

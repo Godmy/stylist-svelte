@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { ComponentType, Snippet } from 'svelte';
   import { onMount } from 'svelte';
+  import { createPlaygroundErrorBoundaryState } from '$stylist/development/function/state/playground-error-boundary';
 
   type Props = {
     component: ComponentType | null | undefined;
@@ -8,15 +9,12 @@
     children?: Snippet;
   };
 
-  let { component, props = {}, children }: Props = $props();
-
-  let error = $state<string | null>(null);
+  let props: Props = $props();
+  const state = createPlaygroundErrorBoundaryState(props);
 
   onMount(() => {
     const handleError = (event: ErrorEvent) => {
-      console.error('[PlaygroundErrorBoundary] Caught error:', event.error);
-      error = event.error?.message || 'Unexpected rendering error';
-      event.preventDefault();
+      state.handleError(event);
     };
 
     window.addEventListener('error', handleError);
@@ -24,13 +22,13 @@
   });
 
   $effect(() => {
-    if (component) {
-      error = null;
+    if (state.component) {
+      state.clearError();
     }
   });
 </script>
 
-{#if error}
+{#if state.error}
   <div class="flex flex-col items-center justify-center gap-4 p-8 text-center">
     <div class="w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/20 flex items-center justify-center">
       <svg class="w-8 h-8 text-red-600 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,21 +40,19 @@
         Component render error
       </h3>
       <p class="text-sm text-gray-600 dark:text-gray-400 max-w-md">
-        {error}
+        {state.error}
       </p>
     </div>
     <button
-      onclick={() => { error = null; }}
+      onclick={() => { state.clearError(); }}
       class="mt-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-sm font-medium transition-colors"
     >
       Close
     </button>
   </div>
-{:else if component}
-  {@const DynamicComponent = component}
-  <DynamicComponent {...props} />
-{:else if children}
-  {@render children()}
+{:else if state.component}
+  {@const DynamicComponent = state.component}
+  <DynamicComponent {...state.componentProps} />
+{:else if state.children}
+  {@render state.children()}
 {/if}
-
-

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { IGeoJSONViewerProps } from '$stylist/geo/interface/component/geo-jsonviewer/other';
-  import type { GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$stylist/geo/interface/component/geo-jsonviewer/other';
   import { Icon as BaseIcon, Button } from '$stylist';
-  import { GeoJSONViewerStyleManager } from '$stylist/geo/class/style-manager/geo-jsonviewer';
+  import { createGeoJSONViewerState } from '$stylist/geo/function/state/geo-jsonviewer';
+  import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
+  import type { GeoJsonFeature } from '$stylist/geo/interface/component/geo-jsonviewer/other';
 
   const Globe = 'globe';
   const Layers = 'layers';
@@ -14,178 +14,34 @@
   const RotateCcw = 'rotate-ccw';
   const X = 'x';
 
-  let {
-    geojsonData,
-    layers = [],
-    class: hostClass = '',
-    mapClass = '',
-    initialView = { center: { lat: 51.505, lng: -0.09 }, zoom: 10 },
-    showControls = true,
-    showLayers = true,
-    showLegend = true,
-    maxZoom = 18,
-    minZoom = 1,
-    mapType = 'roadmap',
-    onFeatureClick,
-    onMapClick,
-    onDataChange,
-    ...restProps
-  }: IGeoJSONViewerProps = $props();
-
-  let currentLayers = $state<GeoJsonLayer[]>([]);
-  let currentView = $state<MapView>({ ...initialView });
-  let selectedFeature: GeoJsonFeature | null = $state(null);
-  let mapOffset = $state({ x: 0, y: 0 });
-  let isDragging = $state(false);
-  let dragStart = $state({ x: 0, y: 0 });
-
-  // Initialize layers
-  $effect(() => {
-    if (geojsonData) {
-      currentLayers = [{
-        id: 'default',
-        name: 'Default Layer',
-        data: geojsonData,
-        visible: true,
-        color: 'var(--color-primary-500)',
-        opacity: 0.8
-      }];
-    } else if (layers.length > 0) {
-      currentLayers = [...layers];
-    }
-  });
-
-  function handleMapClick(e: MouseEvent) {
-    const target = e.currentTarget as HTMLElement;
-    const rect = target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    // Convert pixel coordinates to lat/lng (simplified)
-    // In a real implementation, this would use proper coordinate transformation
-    const lat = currentView.center.lat - (y - rect.height / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
-    const lng = currentView.center.lng + (x - rect.width / 2) * 0.00001 * Math.pow(2, 20 - currentView.zoom);
-
-    onMapClick?.({ lat, lng });
-  }
-
-  function handleFeatureClick(feature: GeoJsonFeature, e: MouseEvent) {
-    e.stopPropagation();
-    selectedFeature = feature;
-    onFeatureClick?.(feature);
-  }
-
-  function handleZoomIn() {
-    if (currentView.zoom < maxZoom) {
-      currentView = { ...currentView, zoom: currentView.zoom + 1 };
-    }
-  }
-
-  function handleZoomOut() {
-    if (currentView.zoom > minZoom) {
-      currentView = { ...currentView, zoom: currentView.zoom - 1 };
-    }
-  }
-
-  function handleResetView() {
-    currentView = { ...initialView };
-    mapOffset = { x: 0, y: 0 };
-  }
-
-  function toggleLayerVisibility(layerId: string) {
-    currentLayers = currentLayers.map(layer =>
-      layer.id === layerId ? { ...layer, visible: !layer.visible } : layer
-    );
-  }
-
-  function changeLayerOpacity(layerId: string, opacity: number) {
-    currentLayers = currentLayers.map(layer =>
-      layer.id === layerId ? { ...layer, opacity } : layer
-    );
-  }
-
-  function handleLayerDragStart(e: DragEvent, index: number) {
-    e.dataTransfer?.setData('text/plain', index.toString());
-  }
-
-  // Calculate pixel position for coordinates
-  function calculatePixelPosition(lng: number, lat: number) {
-    const x = 50 + ((lng - currentView.center.lng) * 1000 * Math.pow(2, currentView.zoom - 10));
-    const y = 50 + ((currentView.center.lat - lat) * 1000 * Math.pow(2, currentView.zoom - 10));
-    return { x, y };
-  }
-
-  // Load GeoJSON from file
-  async function loadFromFile(file: File) {
-    try {
-      const text = await file.text();
-      const parsed = JSON.parse(text) as GeoJsonFeatureCollection;
-
-      // Validate GeoJSON
-      if (parsed.type !== 'FeatureCollection' || !Array.isArray(parsed.features)) {
-        throw new Error('Invalid GeoJSON format');
-      }
-
-      currentLayers = [{
-        id: 'uploaded-data',
-        name: file.name.replace('.geojson', ''),
-        data: parsed,
-        visible: true,
-        color: 'var(--color-primary-500)',
-        opacity: 0.8
-      }];
-
-      onDataChange?.(parsed);
-    } catch (error) {
-      console.error('Error loading GeoJSON file:', error);
-      alert('Invalid GeoJSON file. Please check the format and try again.');
-    }
-  }
-
-  // Handle file upload
-  function handleFileUpload(e: Event) {
-    const target = e.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      const file = target.files[0];
-      if (file.type === 'application/json' || file.name.endsWith('.geojson')) {
-        loadFromFile(file);
-      } else {
-        alert('Please upload a valid GeoJSON file (.geojson or .json)');
-      }
-    }
-  }
-
-  // Get derived styles
-  const hostClasses = $derived(GeoJSONViewerStyleManager.getHostClasses({ class: hostClass, ...restProps }));
-  const mapContainerClasses = $derived(GeoJSONViewerStyleManager.getMapContainerClasses({ mapClass, ...restProps }));
-  const mapContainerStyles = $derived(GeoJSONViewerStyleManager.getMapContainerStyles());
+  let props = $props();
+  const state = createGeoJSONViewerState(props);
 </script>
 
-<div class={hostClasses} {...restProps}>
+<div class={state.hostClasses} {...state.restProps}>
   <div class="flex flex-col h-full">
-    {#if showLayers}
-      <!-- Layer control panel -->
-      <div class={GeoJSONViewerStyleManager.getLayersPanelClasses()} style={GeoJSONViewerStyleManager.getLayersPanelStyles()}>
+    {#if state.showLayers}
+      <div class={state.layersPanelClasses} style={state.layersPanelStyles}>
         <div class="flex justify-between items-center mb-3">
           <h3 class="text-lg font-medium">Layers</h3>
           <label
-            class={GeoJSONViewerStyleManager.getFileUploadButtonClasses()}
-            style={GeoJSONViewerStyleManager.getFileUploadButtonStyles()}
+            class={state.fileUploadButtonClasses}
+            style={state.fileUploadButtonStyles}
             onmouseover={(e) => {
               const target = e.currentTarget as HTMLElement;
-              target.style.cssText = `${GeoJSONViewerStyleManager.getFileUploadButtonStyles()}${GeoJSONViewerStyleManager.getFileUploadButtonHoverStyles()}`;
+              target.style.cssText = `${state.fileUploadButtonStyles}${state.fileUploadButtonHoverStyles}`;
             }}
             onmouseout={(e) => {
               const target = e.currentTarget as HTMLElement;
-              target.style.cssText = GeoJSONViewerStyleManager.getFileUploadButtonStyles();
+              target.style.cssText = state.fileUploadButtonStyles;
             }}
             onfocus={(e) => {
               const target = e.currentTarget as HTMLElement;
-              target.style.cssText = `${GeoJSONViewerStyleManager.getFileUploadButtonStyles()}${GeoJSONViewerStyleManager.getFileUploadButtonHoverStyles()}`;
+              target.style.cssText = `${state.fileUploadButtonStyles}${state.fileUploadButtonHoverStyles}`;
             }}
             onblur={(e) => {
               const target = e.currentTarget as HTMLElement;
-              target.style.cssText = GeoJSONViewerStyleManager.getFileUploadButtonStyles();
+              target.style.cssText = state.fileUploadButtonStyles;
             }}
           >
             <BaseIcon name={Upload} class="h-4 w-4 inline mr-1" />
@@ -194,21 +50,21 @@
               type="file"
               class="hidden"
               accept=".geojson,.json"
-              onchange={handleFileUpload}
+              onchange={state.handleFileUpload}
             />
           </label>
         </div>
 
         <div class="space-y-2 max-h-60 overflow-y-auto">
-          {#each currentLayers as layer}
-            <div class={GeoJSONViewerStyleManager.getLayerControlItemClasses()} style={GeoJSONViewerStyleManager.getLayerControlItemStyles()}>
+          {#each state.currentLayers as layer}
+            <div class={state.layerControlItemClasses} style={state.layerControlItemStyles}>
               <div class="flex items-center">
                 <input
                   type="checkbox"
                   checked={layer.visible}
-                  onchange={() => toggleLayerVisibility(layer.id)}
-                  class={GeoJSONViewerStyleManager.getLayerVisibilityCheckboxClasses()}
-                  style={GeoJSONViewerStyleManager.getLayerVisibilityCheckboxStyles()}
+                  onchange={() => state.toggleLayerVisibility(layer.id)}
+                  class={state.layerVisibilityCheckboxClasses}
+                  style={state.layerVisibilityCheckboxStyles}
                 />
                 <span class="ml-2 text-sm">{layer.name}</span>
               </div>
@@ -220,8 +76,8 @@
                   max="1"
                   step="0.1"
                   value={layer.opacity}
-                  oninput={(e) => changeLayerOpacity(layer.id, parseFloat((e.target as HTMLInputElement).value))}
-                  class={GeoJSONViewerStyleManager.getLayerOpacitySliderClasses()}
+                  oninput={(e) => state.changeLayerOpacity(layer.id, parseFloat((e.target as HTMLInputElement).value))}
+                  class={state.layerOpacitySliderClasses}
                 />
                 <div class="w-4 h-4 rounded-full" style={`background-color: ${layer.color}`} title={layer.color}></div>
               </div>
@@ -231,25 +87,21 @@
       </div>
     {/if}
 
-    <div class={mapContainerClasses} style={mapContainerStyles}>
-      <!-- Map container -->
+    <div class={state.mapContainerClasses} style={state.mapContainerStyles}>
       <div
-        class={`w-full h-full ${mapClass}`}
-        onclick={handleMapClick}
-        style="cursor: grab; \${isDragging ? 'cursor: grabbing' : ''}"
+        class={`w-full h-full ${props.mapClass ?? ''}`}
+        onclick={state.handleMapClick}
+        style="cursor: grab; ${state.isDragging ? 'cursor: grabbing' : ''}"
         role="button"
         tabindex={0}
-        onkeydown={(e: KeyboardEvent) => {
-          if (e.key === 'Enter' || e.key === ' ') handleMapClick(e as unknown as MouseEvent);
-        }}
+        onkeydown={(e: KeyboardEvent) => geoHandleKeyDown(e, () => state.handleMapClick(e as unknown as MouseEvent))}
       >
         <svg
           width="100%"
           height="100%"
-          class={GeoJSONViewerStyleManager.getSvgClasses()}
+          class={state.svgClasses}
           viewBox="0 0 100 100"
         >
-          <!-- Grid pattern to simulate map background -->
           <defs>
             <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse">
               <path d="M 5 0 L 0 0 0 5" fill="none" stroke="var(--color-border-primary)" stroke-width="0.5"/>
@@ -257,71 +109,61 @@
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
 
-          <!-- Render each visible layer -->
-          {#each currentLayers as layer}
+          {#each state.currentLayers as layer}
             {#if layer.visible}
               {#each layer.data.features as feature}
                 {@const geometry = feature.geometry}
 
-                <!-- For points -->
                 {#if geometry.type === 'Point'}
                   {@const [lng, lat] = geometry.coordinates as [number, number]}
-                  {@const position = calculatePixelPosition(lng, lat)}
+                  {@const position = state.calculatePixelPosition(lng, lat)}
                   <circle
                     cx={position.x}
                     cy={position.y}
                     r={6}
-                    style={GeoJSONViewerStyleManager.getPointStyles(layer.color, layer.opacity)}
-                    class={GeoJSONViewerStyleManager.getGeometryElementClasses()}
-                    onclick={(e) => handleFeatureClick(feature, e)}
+                    style={state.getPointStyles(layer.color, layer.opacity)}
+                    class={state.geometryElementClasses}
+                    onclick={(e) => state.handleFeatureClick(feature, e)}
                     role="button"
                     tabindex={-1}
-                    onkeydown={(e: KeyboardEvent) => {
-                      if (e.key === 'Enter' || e.key === ' ') handleFeatureClick(feature, e as unknown as MouseEvent);
-                    }}
+                    onkeydown={(e: KeyboardEvent) => state.handleFeatureKeyDown(feature, e)}
                   />
                 {/if}
 
-                <!-- For polygons -->
                 {#if geometry.type === 'Polygon'}
                   {#each geometry.coordinates as ring}
                     {@const points = ring.map(([lng, lat]: [number, number]) => {
-                      const pos = calculatePixelPosition(lng, lat);
+                      const pos = state.calculatePixelPosition(lng, lat);
                       return `${pos.x},${pos.y}`;
                     }).join(' ')}
 
                     <polygon
                       points={points}
-                      style={GeoJSONViewerStyleManager.getPolygonStyles(layer.color, layer.opacity)}
-                      class={GeoJSONViewerStyleManager.getGeometryElementClasses()}
-                      onclick={(e) => handleFeatureClick(feature, e)}
+                      style={state.getPolygonStyles(layer.color, layer.opacity)}
+                      class={state.geometryElementClasses}
+                      onclick={(e) => state.handleFeatureClick(feature, e)}
                       role="button"
                       tabindex={-1}
-                      onkeydown={(e: KeyboardEvent) => {
-                        if (e.key === 'Enter' || e.key === ' ') handleFeatureClick(feature, e as unknown as MouseEvent);
-                      }}
+                      onkeydown={(e: KeyboardEvent) => state.handleFeatureKeyDown(feature, e)}
                     />
                   {/each}
                 {/if}
 
-                <!-- For lines -->
                 {#if geometry.type === 'LineString'}
                   {@const points = geometry.coordinates.map(([lng, lat]) => {
-                    const pos = calculatePixelPosition(lng, lat);
+                    const pos = state.calculatePixelPosition(lng, lat);
                     return `${pos.x},${pos.y}`;
                   }).join(' ')}
 
                   <polyline
                     points={points}
                     fill="none"
-                    style={GeoJSONViewerStyleManager.getLineStringStyles(layer.color, layer.opacity)}
-                    class={GeoJSONViewerStyleManager.getGeometryElementClasses()}
-                    onclick={(e) => handleFeatureClick(feature, e)}
+                    style={state.getLineStringStyles(layer.color, layer.opacity)}
+                    class={state.geometryElementClasses}
+                    onclick={(e) => state.handleFeatureClick(feature, e)}
                     role="button"
                     tabindex={-1}
-                    onkeydown={(e: KeyboardEvent) => {
-                      if (e.key === 'Enter' || e.key === ' ') handleFeatureClick(feature, e as unknown as MouseEvent);
-                    }}
+                    onkeydown={(e: KeyboardEvent) => state.handleFeatureKeyDown(feature, e)}
                   />
                 {/if}
               {/each}
@@ -330,34 +172,32 @@
         </svg>
       </div>
 
-      <!-- Map controls -->
-      {#if showControls}
+      {#if state.showControls}
         <div class="absolute right-4 top-4 flex flex-col space-y-2">
-          <Button variant="secondary" size="sm" onclick={handleZoomIn}>
+          <Button variant="secondary" size="sm" onclick={state.handleZoomIn}>
             <BaseIcon name={Plus} class="h-4 w-4" />
           </Button>
-          <Button variant="secondary" size="sm" onclick={handleZoomOut}>
+          <Button variant="secondary" size="sm" onclick={state.handleZoomOut}>
             <BaseIcon name={Minus} class="h-4 w-4" />
           </Button>
-          <Button variant="secondary" size="sm" onclick={handleResetView}>
+          <Button variant="secondary" size="sm" onclick={state.handleResetView}>
             <BaseIcon name={RotateCcw} class="h-4 w-4" />
           </Button>
         </div>
       {/if}
     </div>
 
-    {#if selectedFeature && selectedFeature.properties}
-      <!-- Feature details panel -->
-      <div class={GeoJSONViewerStyleManager.getFeatureInfoPanelClasses()} style={GeoJSONViewerStyleManager.getFeatureInfoPanelStyles()}>
+    {#if state.selectedFeature && state.selectedFeature.properties}
+      <div class={state.featureInfoPanelClasses} style={state.featureInfoPanelStyles}>
         <div class="flex justify-between items-start">
           <h3 class="text-lg font-medium">Selected Feature</h3>
-          <Button variant="ghost" size="sm" onclick={() => selectedFeature = null}>
+          <Button variant="ghost" size="sm" onclick={() => state.selectedFeature = null}>
             <BaseIcon name={X} class="h-4 w-4" />
           </Button>
         </div>
 
         <div class="mt-3 grid grid-cols-2 gap-2">
-          {#each Object.entries(selectedFeature.properties) as [key, value]}
+          {#each Object.entries(state.selectedFeature.properties) as [key, value]}
             <div class="flex flex-col">
               <span class="text-xs text-[var(--color-text-secondary)]">{key}</span>
               <span class="text-sm">{String(value)}</span>
@@ -368,9 +208,3 @@
     {/if}
   </div>
 </div>
-
-
-
-
-
-

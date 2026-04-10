@@ -1,28 +1,34 @@
 <script lang="ts">
   import { createBurgerMenuState } from '$stylist/control/function/state/burger-menu';
-  import type { BurgerMenuProps } from '$stylist/control/interface/component/burger-menu/other';
-  import type { HTMLButtonAttributes } from 'svelte/elements';
+  import type { BurgerMenuProps } from '$stylist/control/type/struct/burger-menu-props';
 
-  type Props = BurgerMenuProps & HTMLButtonAttributes;
-  let props: Props = $props();
-
+  let props: BurgerMenuProps = $props();
   const state = createBurgerMenuState(props);
-  const containerClasses = state.containerClasses;
-  const ariaLabel = state.ariaLabel;
 
-  const handleClick = (e: MouseEvent) => {
-    props.onValueInput?.(e);
-    props.onValueChange?.(e);
-    props.onClick?.(e);
-  };
+  const restProps = $derived.by(() => {
+    const {
+      class: _class,
+      open: _open,
+      size: _size,
+      color: _color,
+      activeColor: _activeColor,
+      ariaLabel: _ariaLabel,
+      onValueInput: _onValueInput,
+      onValueChange: _onValueChange,
+      onClick: _onClick,
+      ...rest
+    } = props;
+    return rest;
+  });
 </script>
 
 <button
-  class={$containerClasses}
-  aria-label={$ariaLabel}
+  class={state.containerClasses}
+  aria-label={state.ariaLabel}
   aria-expanded={state.open}
   tabindex="0"
-  onclick={handleClick}
+  onclick={state.handleClick}
+  {...restProps}
 >
   <div class={state.iconClasses} role="img" aria-label="Menu toggle icon">
     <!-- Hamburger lines -->

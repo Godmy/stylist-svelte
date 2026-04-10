@@ -14,7 +14,7 @@ export type { CanvasChartProps } from './canvas-chart-props';
 export type { TokenCanvasChartType } from './canvas-chart-type';
 export type { ChartFunctionPoint } from './chart-point';
 export type { ChartSeries } from './chart-series';
-export type { IHeatmapCell } from './heatmap';
+export type { HeatmapData, IHeatmapCell } from './heatmap';
 export type { HeatmapCellGrid } from './heatmap-cell-grid';
 export type { LineChartPoint } from './line-chart';
 export type { LineChartData } from './line-chart-data';

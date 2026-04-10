@@ -1,26 +1,8 @@
 <script lang="ts">
   import type { Props } from '$stylist/development/type/struct/code-section';
-  import { CodeSectionStyleManager } from '$stylist/development/class/style-manager/code-section';
+  import { createCodeSectionState } from '$stylist/development/function/state/code-section';
   import CodeEditor from '$stylist/development/svelte/molecule/code-editor-legacy/index.svelte';
   import { Badge } from '$stylist';
-
-  function stateFn(props: Props) {
-    const containerClass = $derived(CodeSectionStyleManager.getContainerClass(typeof props.class === 'string' ? props.class : undefined));
-    const headerContainerClass = $derived(CodeSectionStyleManager.getHeaderContainerClass());
-    const headerContentClass = $derived(CodeSectionStyleManager.getHeaderContentClass());
-    const titleClass = $derived(CodeSectionStyleManager.getTitleClass());
-    const tagsContainerClass = $derived(CodeSectionStyleManager.getTagsContainerClass());
-    const tagClass = $derived(CodeSectionStyleManager.getTagClass());
-
-    return {
-      get containerClass() { return containerClass; },
-      get headerContainerClass() { return headerContainerClass; },
-      get headerContentClass() { return headerContentClass; },
-      get titleClass() { return titleClass; },
-      get tagsContainerClass() { return tagsContainerClass; },
-      get tagClass() { return tagClass; }
-    };
-  }
 
   let {
     title = '',
@@ -37,7 +19,7 @@
     ...restProps
   }: Props = $props();
 
-  const state = stateFn({ title, language, code, variant, showLineNumbers, startLineNumber, showCopyButton, copySuccessMessage, copyErrorMessage, tags, class: className, ...restProps });
+  const state = createCodeSectionState({ title, language, code, variant, showLineNumbers, startLineNumber, showCopyButton, copySuccessMessage, copyErrorMessage, tags, class: className, ...restProps });
 </script>
 
 <div {...restProps} class={state.containerClass}>

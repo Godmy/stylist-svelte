@@ -1,18 +1,11 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { Snippet } from 'svelte';
 const X = 'x';
 
-	import type { ChipRecipe } from '$stylist/typography/interface/recipe/chip';
 	import { createChipState } from '$stylist/control/function/state/chip';
+	import type { ChipProps } from '$stylist/control/type/struct/chip-props';
 
-	type Props = ChipRecipe & {
-		text?: string;
-		icon?: Snippet;
-		content?: Snippet;
-	};
-
-	let props: Props = $props();
+	let props: ChipProps = $props();
 
 	const state = createChipState(props);
 	const children = $derived(props.children);

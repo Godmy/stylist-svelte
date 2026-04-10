@@ -1,195 +1,89 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+	import type { InventoryTrackerContract } from '$stylist/commerce/interface/component/inventory-tracker';
+	import { createInventoryTrackerState } from '$stylist/commerce/function/state/inventory-tracker';
 
-  import InventoryTrackerComponent from './index.svelte';
-
-  const InventoryTracker = InventoryTrackerComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showAlerts', type: 'boolean', defaultValue: true },
-      { name: 'showFilters', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample inventory items
-  const inventoryItems = [
-    {
-      id: 'item1',
-      name: 'Wireless Headphones',
-      sku: 'WH-12345',
-      currentStock: 12,
-      minStock: 5,
-      maxStock: 100,
-      reserved: 3,
-      available: 9,
-      category: 'Electronics',
-      supplier: 'TechCorp',
-      lastUpdated: new Date(),
-      status: 'in-stock' as const,
-      thumbnail: 'https://placehold.co/100x100?text=Headphones'
-    },
-    {
-      id: 'item2',
-      name: 'Bluetooth Speaker',
-      sku: 'BS-67890',
-      currentStock: 2,
-      minStock: 5,
-      maxStock: 50,
-      reserved: 1,
-      available: 1,
-      category: 'Electronics',
-      supplier: 'SoundInc',
-      lastUpdated: new Date(),
-      status: 'low-stock' as const,
-      thumbnail: 'https://placehold.co/100x100?text=Speaker'
-    },
-    {
-      id: 'item3',
-      name: 'USB Cable',
-      sku: 'UC-54321',
-      currentStock: 0,
-      minStock: 10,
-      maxStock: 200,
-      reserved: 0,
-      available: 0,
-      category: 'Accessories',
-      supplier: 'CableCo',
-      lastUpdated: new Date(),
-      status: 'out-of-stock' as const,
-      thumbnail: 'https://placehold.co/100x100?text=Cable'
-    },
-    {
-      id: 'item4',
-      name: 'Laptop Stand',
-      sku: 'LS-98765',
-      currentStock: 150,
-      minStock: 20,
-      maxStock: 100,
-      reserved: 5,
-      available: 145,
-      category: 'Office',
-      supplier: 'DeskGear',
-      lastUpdated: new Date(),
-      status: 'overstocked' as const,
-      thumbnail: 'https://placehold.co/100x100?text=Stand'
-    }
-  ];
-
-  // Sample alerts
-  const alerts = [
-    {
-      id: 'alert1',
-      itemId: 'item2',
-      itemName: 'Bluetooth Speaker',
-      threshold: 5,
-      currentLevel: 2,
-      date: new Date(),
-      acknowledged: false
-    },
-    {
-      id: 'alert2',
-      itemId: 'item3',
-      itemName: 'USB Cable',
-      threshold: 10,
-      currentLevel: 0,
-      date: new Date(),
-      acknowledged: false
-    }
-  ];
+	let props: InventoryTrackerContract = $props();
+	const state = createInventoryTrackerState(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={InventoryTracker}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-inventory-tracker grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Inventory Tracker Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Interactive inventory tracker with stock management.</p>
+<div class={state.containerClasses}>
+	<div class={state.headerClasses}>
+		<h2 class={state.titleClasses}>Inventory Tracker</h2>
 
-        <div class="mt-6">
-          <InventoryTracker
-            items={inventoryItems}
-            alerts={alerts}
-            showAlerts={values.showAlerts}
-            showFilters={values.showFilters}
-            showSearch={true}
-            showStatusFilter={true}
-            lowStockThreshold={5}
-            onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
-            onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
-            onAlertAcknowledge={(alertId: string) => console.log(`Acknowledging alert: ${alertId}`)}
-            onInventoryExport={() => console.log('Exporting inventory report')}
-          />
-        </div>
-      </div>
+		{#if props.showAlerts !== false && state.alerts.length > 0}
+			<span class={state.alertBadgeClasses}>{state.alerts.length} alerts</span>
+		{/if}
+	</div>
 
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Inventory Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different inventory configurations with various options.
-        </p>
+	{#if props.showAlerts !== false && state.alerts.length > 0}
+		<div class={state.alertsContainerClasses}>
+			{#each state.alerts as alert}
+				<div class={state.alertItemClasses}>
+					<span>{alert.itemName}: {alert.currentLevel} left (min: {alert.threshold})</span>
+					{#if props.onAlertAcknowledge}
+						<button
+							onclick={() => props.onAlertAcknowledge?.(alert.id)}
+							class="text-sm text-[--color-primary-600]"
+						>Acknowledge</button>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	{/if}
 
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Alerts</p>
-            <div>
-              <InventoryTracker
-                items={inventoryItems.slice(0, 2)}
-                alerts={[]}
-                showAlerts={false}
-                showFilters={true}
-                showSearch={false}
-                showStatusFilter={true}
-                lowStockThreshold={5}
-                onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
-                onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
-              />
-            </div>
-          </article>
+	{#if props.showFilters !== false}
+		<div class={state.filtersContainerClasses}>
+			{#if props.showSearch !== false}
+				<input
+					type="text"
+					placeholder="Search inventory..."
+					value={state.searchQuery}
+					oninput={(e) => { state.searchQuery = (e.target as HTMLInputElement).value; }}
+					class={state.searchInputClasses}
+				/>
+			{/if}
+		</div>
+	{/if}
 
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Compact View</p>
-            <div>
-              <InventoryTracker
-                items={inventoryItems.slice(0, 1)}
-                alerts={alerts.slice(0, 1)}
-                showAlerts={true}
-                showFilters={false}
-                showSearch={true}
-                showStatusFilter={false}
-                variant="compact"
-                lowStockThreshold={5}
-                onItemRestock={(item: typeof inventoryItems[number]) => console.log(`Restocking item: ${item.name}`)}
-                onItemEdit={(item: typeof inventoryItems[number]) => console.log(`Editing item: ${item.name}`)}
-              />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  {/snippet}
-</Story>
+	<div class={state.itemsContainerClasses}>
+		{#each state.filteredItems as item}
+			<div class={state.itemClasses}>
+				{#if item.thumbnail}
+					<img src={item.thumbnail} alt={item.name} class={state.itemThumbnailClasses} />
+				{/if}
+				<div class={state.itemInfoClasses}>
+					<p class={state.itemNameClasses}>{item.name}</p>
+					<p class={state.itemSkuClasses}>SKU: {item.sku}</p>
+					<span class={state.getStatusBadgeClasses(item.status)}>{item.status}</span>
+				</div>
+				<div class="flex-1">
+					<p class={state.stockLevelClasses}>{item.currentStock} / {item.maxStock ?? '∞'}</p>
+					{#if item.maxStock}
+						<div class={state.progressBarClasses}>
+							<div
+								class="h-full bg-[--color-primary-500] rounded"
+								style="width: {state.getStockProgress(item)}%"
+							></div>
+						</div>
+					{/if}
+				</div>
+				<div class={state.actionsContainerClasses}>
+					{#if props.onItemRestock}
+						<button onclick={() => props.onItemRestock?.(item)} class={state.actionButtonClasses}>Restock</button>
+					{/if}
+					{#if props.onItemEdit}
+						<button onclick={() => props.onItemEdit?.(item)} class={state.actionButtonClasses}>Edit</button>
+					{/if}
+				</div>
+			</div>
+		{/each}
+	</div>
 
-
-
-
-
-
+	{#if props.onInventoryExport}
+		<div class="px-6 py-4 border-t border-[--color-border-secondary]">
+			<button onclick={props.onInventoryExport} class="text-sm text-[--color-primary-600] font-medium">
+				Export Report
+			</button>
+		</div>
+	{/if}
+</div>

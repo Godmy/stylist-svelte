@@ -5,11 +5,17 @@ import type { AccordionHeaderProps } from '$stylist/control/interface/component/
  * AccordionHeader state
  */
 
-export function createAccordionHeaderState(props: AccordionHeaderProps) {
+type AccordionHeaderStateProps = AccordionHeaderProps & {
+	isOpen?: () => boolean;
+	handleValueChange?: (value: string) => void;
+};
+
+export function createAccordionHeaderState(props: AccordionHeaderStateProps) {
+	const open = $derived(props.isOpen ? props.isOpen() : (props.open ?? false));
 	const classes = $derived(
 		joinClassNames(
 			'accordion-header',
-			props.open ? 'open' : 'closed',
+			open ? 'open' : 'closed',
 			props.disabled ? 'disabled' : '',
 			props.class
 		)
@@ -19,7 +25,7 @@ export function createAccordionHeaderState(props: AccordionHeaderProps) {
 		joinClassNames(
 			'accordion-chevron',
 			`size-${props.chevronSize ?? 'md'}`,
-			props.open ? 'rotated' : '',
+			open ? 'rotated' : '',
 			props.chevronSizeClass
 		)
 	);
@@ -30,13 +36,18 @@ export function createAccordionHeaderState(props: AccordionHeaderProps) {
 		padding: props.padding ?? 'md',
 		paddingClass: props.paddingClass,
 		chevronSizeClass: props.chevronSizeClass,
-		open: props.open ?? false,
+		get open() {
+			return open;
+		},
 		disabled: props.disabled ?? false,
 		get classes() {
 			return classes;
 		},
 		get chevronClasses() {
 			return chevronClasses;
+		},
+		handleClick() {
+			props.handleValueChange?.(props.value);
 		}
 	};
 }

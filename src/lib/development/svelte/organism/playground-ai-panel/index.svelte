@@ -1,153 +1,33 @@
 <script lang="ts">
+  import type { Props } from '$stylist/development/type/struct/playground-ai-panel';
+  import { createPlaygroundAiPanelState } from '$stylist/development/function/state/playground-ai-panel';
   import { Icon as BaseIcon } from '$stylist';
-const ChevronRight = 'chevron-right';
-const ChevronDown = 'chevron-down';
 
-
-  interface AIProvider {
-    id: string;
-    name: string;
-    options: AIOption[];
-  }
-
-  interface AIOption {
-    id: string;
-    label: string;
-    action?: () => void;
-  }
-
-  interface Props {
-    selectedProviderId?: string | null;
-    onOptionSelect?: (providerId: string, optionId: string) => void;
-    onStartChat?: (providerId: 'gemini' | 'qwen' | 'claude' | 'codex') => void;
-  }
-
-  let { selectedProviderId = null, onOptionSelect, onStartChat }: Props = $props();
-
-  const aiProviders: AIProvider[] = [
-    {
-      id: 'claude',
-      name: 'CLAUDE',
-      options: [
-        { id: 'new-chat', label: 'РќРѕРІС‹Р№ С‡Р°С‚' },
-        { id: 'version', label: 'Р’РµСЂСЃРёСЏ' },
-        { id: 'settings', label: 'РќР°СЃС‚СЂРѕР№РєРё' }
-      ]
-    },
-    {
-      id: 'codex',
-      name: 'CODEX',
-      options: [
-        { id: 'new-chat', label: 'РќРѕРІС‹Р№ С‡Р°С‚' },
-        { id: 'version', label: 'Р’РµСЂСЃРёСЏ' },
-        { id: 'settings', label: 'РќР°СЃС‚СЂРѕР№РєРё' }
-      ]
-    },
-    {
-      id: 'gemini',
-      name: 'GEMINI',
-      options: [
-        { id: 'new-chat', label: 'РќРѕРІС‹Р№ С‡Р°С‚' },
-        { id: 'version', label: 'Р’РµСЂСЃРёСЏ' },
-        { id: 'settings', label: 'РќР°СЃС‚СЂРѕР№РєРё' }
-      ]
-    },
-    {
-      id: 'qwen',
-      name: 'QWEN',
-      options: [
-        { id: 'new-chat', label: 'РќРѕРІС‹Р№ С‡Р°С‚' },
-        { id: 'version', label: 'Р’РµСЂСЃРёСЏ' },
-        { id: 'settings', label: 'РќР°СЃС‚СЂРѕР№РєРё' }
-      ]
-    }
-  ];
-
-  let expandedProviders = $state<Set<string>>(new Set(['claude']));
-
-  function toggleProvider(providerId: string) {
-    const newExpanded = new Set(expandedProviders);
-    if (newExpanded.has(providerId)) {
-      newExpanded.delete(providerId);
-    } else {
-      newExpanded.add(providerId);
-    }
-    expandedProviders = newExpanded;
-  }
-
-  function handleOptionClick(providerId: string, optionId: string) {
-    onOptionSelect?.(providerId, optionId);
-
-    // Special handling for new-chat option
-    if (optionId === 'new-chat') {
-      onStartChat?.(providerId as 'gemini' | 'qwen' | 'claude' | 'codex');
-    }
-  }
+  let { ...props }: Props = $props();
+  const state = createPlaygroundAiPanelState(props);
 </script>
 
-<style>
-  .ai-panel-container {
-    height: 100%;
-    overflow-y: auto;
-    background: white;
-  }
-
-  /* Dark mode styles */
-  :global(.dark) .ai-panel-container {
-    background: var(--color-text-primary);
-  }
-
-  .provider-header {
-    transition: all var(--duration-200) var(--animation-ease);
-  }
-
-  .provider-header:hover {
-    background: var(--color-background-primary);
-  }
-
-  :global(.dark) .provider-header:hover {
-    background: var(--color-text-primary);
-  }
-
-  .option-item {
-    transition: all var(--duration-150) var(--animation-ease);
-  }
-
-  .option-item:hover {
-    background: var(--color-background-secondary);
-  }
-
-  :global(.dark) .option-item:hover {
-    background: var(--color-border-primary);
-  }
-
-  .option-item.selected {
-    background: color-mix(in srgb, var(--playground-accent, var(--color-warning-500)) 10%, transparent);
-    color: var(--playground-accent, var(--color-warning-500));
-  }
-</style>
-
-<div class="ai-panel-container">
-  <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+<div class={state.containerClass}>
+  <div class={state.headerClass}>
     <h2 class="text-lg font-bold text-gray-900 dark:text-white">AI Assistants</h2>
     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
-      Р’С‹Р±РµСЂРёС‚Рµ AI-РјРѕРґРµР»СЊ РґР»СЏ СЂР°Р±РѕС‚С‹
+      Выберите AI-модель для работы
     </p>
   </div>
 
   <div class="p-2">
-    {#each aiProviders as provider}
+    {#each state.aiProviders as provider}
       <div class="mb-1">
         <!-- Provider header -->
         <button
-          onclick={() => toggleProvider(provider.id)}
-          class="provider-header w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left"
+          onclick={() => state.toggleProvider(provider.id)}
+          class={state.providerHeaderClass + " w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left"}
         >
           <div class="flex items-center gap-2">
-            {#if expandedProviders.has(provider.id)}
-              <BaseIcon name={ChevronDown} class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+            {#if state.isExpanded(provider.id)}
+              <BaseIcon name={state.ChevronDown} class="w-4 h-4 text-gray-500 dark:text-gray-400" />
             {:else}
-              <BaseIcon name={ChevronRight} class="w-4 h-4 text-gray-500 dark:text-gray-400" />
+              <BaseIcon name={state.ChevronRight} class="w-4 h-4 text-gray-500 dark:text-gray-400" />
             {/if}
             <span class="font-bold text-sm text-gray-900 dark:text-white">
               {provider.name}
@@ -156,12 +36,12 @@ const ChevronDown = 'chevron-down';
         </button>
 
         <!-- Provider options -->
-        {#if expandedProviders.has(provider.id)}
+        {#if state.isExpanded(provider.id)}
           <div class="ml-6 mt-1 space-y-0.5">
             {#each provider.options as option}
               <button
-                onclick={() => handleOptionClick(provider.id, option.id)}
-                class="option-item w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300 {selectedProviderId === `${provider.id}-${option.id}` ? 'selected font-medium' : ''}"
+                onclick={() => state.handleOptionClick(provider.id, option.id)}
+                class={state.optionItemClass + " w-full text-left px-3 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300" + (state.isSelected(provider.id, option.id) ? ' ' + state.selectedOptionItemClass + ' font-medium' : '')}
               >
                 {option.label}
               </button>
@@ -172,7 +52,3 @@ const ChevronDown = 'chevron-down';
     {/each}
   </div>
 </div>
-
-
-
-

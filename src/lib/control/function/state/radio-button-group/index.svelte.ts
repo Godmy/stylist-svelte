@@ -4,11 +4,15 @@ import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggle
 
 export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
 	const containerClass = $derived(TogglesStyleManager.getToggleContainerClasses(props.class));
-	const value = $derived(props.value ?? '');
 	const options = $derived(props.options ?? []);
 	const name = $derived(props.name ?? '');
 	const disabled = $derived(props.disabled ?? false);
 	const required = $derived(props.required ?? false);
+	let selectedValue = $state(props.value ?? '');
+
+	$effect(() => {
+		selectedValue = props.value ?? '';
+	});
 	
 	const getOptionClass = (isDisabled: boolean) => {
 		return joinClassNames(
@@ -35,7 +39,7 @@ export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
 			return containerClass;
 		},
 		get value() {
-			return value;
+			return selectedValue;
 		},
 		get options() {
 			return options;
@@ -55,6 +59,14 @@ export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
 		},
 		get optionLabelClass() {
 			return optionLabelClass;
+		},
+		handleInput(optionValue: string) {
+			selectedValue = optionValue;
+			props.onValueInput?.(optionValue);
+		},
+		handleChange(optionValue: string) {
+			selectedValue = optionValue;
+			props.onValueChange?.(optionValue);
 		}
 	};
 };

@@ -9,22 +9,30 @@ export type TokenTextStateProps = {
 
 export function createTokenTextState(props: TokenTextStateProps) {
 	const definition = $derived(props.definition);
-	const value = $derived(props.value ?? '');
 	const placeholder = $derived(props.placeholder ?? definition.placeholder ?? 'Enter value');
 	const onChange = $derived(props.onChange);
+	let internalValue = $state(props.value ?? '');
+
+	$effect(() => {
+		internalValue = props.value ?? '';
+	});
 
 	return {
 		get definition() {
 			return definition;
 		},
 		get value() {
-			return value;
+			return internalValue;
 		},
 		get placeholder() {
 			return placeholder;
 		},
 		get onChange() {
 			return onChange;
+		},
+		handleInput(event: Event) {
+			internalValue = (event.target as HTMLInputElement).value;
+			onChange?.(internalValue);
 		}
 	};
 }

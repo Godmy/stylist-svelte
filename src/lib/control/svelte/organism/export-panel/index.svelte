@@ -1,25 +1,15 @@
 <script lang="ts">
   import { Button } from '$stylist';
-  import { createEventDispatcher } from 'svelte';
+  import type { ExportFormat } from '$stylist/control/function/state/export-panel';
+  import { createExportPanelState } from '$stylist/control/function/state/export-panel';
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    export: { format: 'png' | 'jpeg' | 'svg' | 'pdf'; includeLegend: boolean; includeFilters: boolean };
+  let props = $props<{
+    onExport?: (detail: { format: ExportFormat; includeLegend: boolean; includeFilters: boolean }) => void;
   }>();
 
-  // Local state
-  let exportFormat = $state<'png' | 'jpeg' | 'svg' | 'pdf'>('png');
-  let includeLegend = $state(true);
-  let includeFilters = $state(true);
-
-  // Handle export
-  function handleExport() {
-    dispatch('export', {
-      format: exportFormat,
-      includeLegend,
-      includeFilters
-    });
-  }
+  const state = createExportPanelState({
+    dispatch: (_type, detail) => props.onExport?.(detail)
+  });
 </script>
 
 <style>
@@ -94,56 +84,36 @@
     <div class="format-options">
       <button
         type="button"
-        class={`format-option ${exportFormat === 'png' ? 'active' : ''}`}
-        onclick={() => exportFormat = 'png'}
-        onkeydown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            exportFormat = 'png';
-          }
-        }}
+        class={`format-option ${state.exportFormat === 'png' ? 'active' : ''}`}
+        onclick={() => state.selectFormat('png')}
+        onkeydown={(e) => state.handleFormatKeydown(e, 'png')}
         aria-label="Export as PNG"
       >
         PNG
       </button>
       <button
         type="button"
-        class={`format-option ${exportFormat === 'jpeg' ? 'active' : ''}`}
-        onclick={() => exportFormat = 'jpeg'}
-        onkeydown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            exportFormat = 'jpeg';
-          }
-        }}
+        class={`format-option ${state.exportFormat === 'jpeg' ? 'active' : ''}`}
+        onclick={() => state.selectFormat('jpeg')}
+        onkeydown={(e) => state.handleFormatKeydown(e, 'jpeg')}
         aria-label="Export as JPEG"
       >
         JPEG
       </button>
       <button
         type="button"
-        class={`format-option ${exportFormat === 'svg' ? 'active' : ''}`}
-        onclick={() => exportFormat = 'svg'}
-        onkeydown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            exportFormat = 'svg';
-          }
-        }}
+        class={`format-option ${state.exportFormat === 'svg' ? 'active' : ''}`}
+        onclick={() => state.selectFormat('svg')}
+        onkeydown={(e) => state.handleFormatKeydown(e, 'svg')}
         aria-label="Export as SVG"
       >
         SVG
       </button>
       <button
         type="button"
-        class={`format-option ${exportFormat === 'pdf' ? 'active' : ''}`}
-        onclick={() => exportFormat = 'pdf'}
-        onkeydown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            exportFormat = 'pdf';
-          }
-        }}
+        class={`format-option ${state.exportFormat === 'pdf' ? 'active' : ''}`}
+        onclick={() => state.selectFormat('pdf')}
+        onkeydown={(e) => state.handleFormatKeydown(e, 'pdf')}
         aria-label="Export as PDF"
       >
         PDF
@@ -157,7 +127,7 @@
       <input
         type="checkbox"
         id="include-legend"
-        bind:checked={includeLegend}
+        bind:checked={state.includeLegend}
       />
       <label for="include-legend">Include Legend</label>
     </div>
@@ -165,7 +135,7 @@
       <input
         type="checkbox"
         id="include-filters"
-        bind:checked={includeFilters}
+        bind:checked={state.includeFilters}
       />
       <label for="include-filters">Include Filter Information</label>
     </div>
@@ -174,9 +144,9 @@
   <Button
     variant="primary"
     class="mt-2"
-    onclick={handleExport}
+    onclick={state.handleExport}
   >
-    Export {exportFormat.toUpperCase()}
+    Export {state.exportFormat.toUpperCase()}
   </Button>
 </div>
 

@@ -1,172 +1,74 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
   import type { TreeNodeItemNode } from '$stylist/control/type/struct/tree-node-item-node';
   import { Icon as BaseIcon } from '$stylist';
-  import { TreeNodeItemStyleManager } from '$stylist/control/class/style-manager/tree-node-item';
+  import type { TreeNodeItemProps } from '$stylist/control/function/state/tree-node-item';
+  import { createTreeNodeItemState } from '$stylist/control/function/state/tree-node-item';
   import Self from './index.svelte';
 
-  const ChevronRight = 'chevron-right';
-  const ChevronDown = 'chevron-down';
-
-  type ITreeNodeItemProps = {
-    node: TreeNodeItemNode;
-    onSelectCallback?: (key: string) => void;
-    secondaryIcon?: string;
-    faIcon?: boolean;
-    expandedNodes?: Set<string>;
-    class?: string;
-    children?: Snippet<[]>;
-  };
-
-  /**
-   * TreeNodeItem component - A flexible tree node item component with various states
-   *
-   * Following SOLID principles:
-   * - Single Responsibility: Only handles tree node item rendering and state
-   * - Open/Closed: Extendable through properties but closed for modification
-   * - Liskov Substitution: Can be substituted with other tree components
-   * - Interface Segregation: Small focused interface
-   * - Dependency Inversion: Depends on abstractions (interfaces) rather than concretions
-   *
-   * @param node - The tree node data
-   * @param onSelectCallback - Callback function when node is selected
-   * @param secondaryIcon - Secondary icon to display
-   * @param faIcon - Whether to use Font Awesome icons
-   * @param expandedNodes - Set of expanded node IDs
-   * @returns An accessible, styled tree node item element
-   */
-  let {
-    node,
-    onSelectCallback = () => {},
-    secondaryIcon = undefined,
-    faIcon = false,
-    expandedNodes,
-    class: className = '',
-    children,
-    ...restProps
-  }: ITreeNodeItemProps = $props();
-
-  // Initialize expandedNodes if not provided
-  if (!expandedNodes) {
-    expandedNodes = new Set();
-  }
-
-  import { createEventDispatcher } from 'svelte';
-
-  let dispatch = createEventDispatcher();
-
-  // Function to handle node selection
-  const handleSelect = () => {
-    if (node.key) {
-      onSelectCallback(node.key);
-      dispatch('nodeSelect', { node });
-    }
-  };
-
-  // Function to toggle node expansion
-  const toggleExpand = (e: Event) => {
-    e.stopPropagation();
-    if (node.key) {
-      if (expandedNodes.has(node.key)) {
-        expandedNodes.delete(node.key);
-      } else {
-        expandedNodes.add(node.key);
-      }
-    }
-    dispatch('nodeToggle', { node });
-  };
-
-  // Function to check if node has children
-  const hasChildren = (node: TreeNodeItemNode): boolean => {
-    return node.child !== undefined && node.child.length > 0;
-  };
-
-  // Check if this node is expanded
-  let expanded = $derived(node.key ? expandedNodes.has(node.key) : false);
-
-  // Get CSS classes
-  const containerClasses = $derived(TreeNodeItemStyleManager.getNodeContainerClasses());
-  const headerClasses = $derived(TreeNodeItemStyleManager.getNodeHeaderClasses(expanded));
-  const toggleIconClasses = $derived(TreeNodeItemStyleManager.getToggleIconClasses());
-  const noToggleClasses = $derived(TreeNodeItemStyleManager.getNoToggleClasses());
-  const textClasses = $derived(TreeNodeItemStyleManager.getNodeTextClasses());
-  const secondaryIconClasses = $derived(TreeNodeItemStyleManager.getSecondaryIconClasses());
-  const secondaryIconImageClasses = $derived(TreeNodeItemStyleManager.getSecondaryIconImageClasses());
-  const childrenClasses = $derived(TreeNodeItemStyleManager.getNodeChildrenClasses());
-
-  // Function to filter restProps to avoid conflicts with native HTML events
-  const filteredRestProps = $derived(() => {
-    // Create a copy of restProps and remove conflicting event handlers
-    const filtered: Record<string, any> = {};
-    for (const [key, value] of Object.entries(restProps)) {
-      if (key !== 'ontoggle' && key !== 'onselect') {  // Exclude conflicting event handlers
-        filtered[key] = value;
-      }
-    }
-    return filtered;
-  });
+  let props: TreeNodeItemProps = $props();
+  const state = createTreeNodeItemState(props);
 </script>
 
-<div class={containerClasses}>
+<div class={state.containerClasses}>
   <div
-    class={headerClasses}
-    onclick={() => !hasChildren(node) && handleSelect()}
+    class={state.headerClasses}
+    onclick={() => !state.hasChildren && state.handleSelect()}
     onkeydown={(e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        !hasChildren(node) && handleSelect();
+        !state.hasChildren && state.handleSelect();
       }
     }}
     role="treeitem"
     tabindex="0"
-    aria-expanded={hasChildren(node) ? expanded : undefined}
+    aria-expanded={state.hasChildren ? state.expanded : undefined}
     aria-selected="false"
-    {...filteredRestProps}
+    {...state.filteredRestProps}
   >
-    {#if hasChildren(node)}
+    {#if state.hasChildren}
       <button
         type="button"
-        class={toggleIconClasses}
-        onclick={toggleExpand}
+        class={state.toggleIconClasses}
+        onclick={state.toggleExpand}
         onkeydown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            toggleExpand(e);
+            state.toggleExpand(e);
           }
         }}
         tabindex="0"
-        aria-label={expanded ? 'Collapse' : 'Expand'}
+        aria-label={state.expanded ? 'Collapse' : 'Expand'}
       >
-        {#if expanded}
-          <BaseIcon name={ChevronDown} class="w-4 h-4" />
+        {#if state.expanded}
+          <BaseIcon name={state.ChevronDown} class="w-4 h-4" />
         {:else}
-          <BaseIcon name={ChevronRight} class="w-4 h-4" />
+          <BaseIcon name={state.ChevronRight} class="w-4 h-4" />
         {/if}
       </button>
     {:else}
-      <div class={noToggleClasses}></div>
+      <div class={state.noToggleClasses}></div>
     {/if}
 
-    <span class={textClasses}>{node.desc}</span>
+    <span class={state.textClasses}>{state.node.desc}</span>
 
-    {#if secondaryIcon}
-      {#if faIcon}
-        <span class={secondaryIconClasses}>{secondaryIcon}</span>
+    {#if state.secondaryIcon}
+      {#if state.faIcon}
+        <span class={state.secondaryIconClasses}>{state.secondaryIcon}</span>
       {:else}
-        <img src={secondaryIcon} alt="secondary icon" class={secondaryIconImageClasses} />
+        <img src={state.secondaryIcon} alt="secondary icon" class={state.secondaryIconImageClasses} />
       {/if}
     {/if}
   </div>
 
-  {#if hasChildren(node) && expanded}
-    <div class={childrenClasses} role="group">
-      {#each node.child as child (child.key || child.desc)}
+  {#if state.hasChildren && state.expanded}
+    <div class={state.childrenClasses} role="group">
+      {#each state.node.child as child (child.key || child.desc)}
         <Self
           node={child}
-          onSelectCallback={onSelectCallback}
-          secondaryIcon={secondaryIcon}
-          faIcon={faIcon}
-          expandedNodes={expandedNodes}
+          onSelectCallback={props.onSelectCallback}
+          secondaryIcon={state.secondaryIcon}
+          faIcon={state.faIcon}
+          expandedNodes={state.expandedNodes}
         />
       {/each}
     </div>

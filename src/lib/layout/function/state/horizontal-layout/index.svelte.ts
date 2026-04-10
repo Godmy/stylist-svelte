@@ -2,10 +2,9 @@ import { LayoutStyleManager } from '$stylist/layout/class/style-manager/layout';
 import type { HorizontalLayoutProps } from '$stylist/layout/type/struct/layout-extended';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
-	const gap = $derived<TokenSize>((props.gap as TokenSize | undefined) ?? 'md');
+	const gap = $derived(props.gap ?? 16);
 	const alignItems = $derived<TokenAlignment>((props.alignItems as TokenAlignment | undefined) ?? 'center');
 	const justifyContent = $derived<TokenJustification>(
 		(props.justifyContent as TokenJustification | undefined) ?? 'justify'

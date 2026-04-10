@@ -1,30 +1,30 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export type SOCIAL_SHARE_PLATFORM = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
+export type SocialPlatform = 'facebook' | 'twitter' | 'linkedin' | 'pinterest' | 'reddit' | 'whatsapp' | 'telegram' | 'email' | 'copy';
 
-export type SOCIAL_SHARE_OPTION = {
-  platform: SOCIAL_SHARE_PLATFORM;
+export type ShareOption = {
+  platform: SocialPlatform;
   label: string;
   icon: any;
   enabled: boolean;
 };
 
-export type SOCIAL_SHARE_REST_PROPS = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+export type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
-export type SOCIAL_SHARE_PROPS = SOCIAL_SHARE_REST_PROPS & {
+export type Props = RestProps & {
   title?: string;
   url?: string;
   description?: string;
-  platforms?: SOCIAL_SHARE_PLATFORM[];
+  platforms?: SocialPlatform[];
   showCopyLink?: boolean;
   showEmbed?: boolean;
   showSave?: boolean;
   showLike?: boolean;
-  customOptions?: SOCIAL_SHARE_OPTION[];
+  customOptions?: ShareOption[];
   class?: string;
   buttonClass?: string;
   dropdownClass?: string;
-  onShare?: (platform: SOCIAL_SHARE_PLATFORM, url: string) => void;
+  onShare?: (platform: SocialPlatform, url: string) => void;
   onSave?: () => void;
   onLike?: () => void;
   size?: 'sm' | 'md' | 'lg';

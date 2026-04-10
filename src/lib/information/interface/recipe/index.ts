@@ -16,16 +16,3 @@ export type { TableRecipe } from './table';
 export type { TableCellRecipe } from './table-cell';
 export type { TableRowRecipe } from './table-row';
 export type { TableSectionRecipe } from './table-section';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-/**
- * recipe/ — эталонные составные контракты (LEGO-рецепты) для домена information.
- *
- * Каждый рецепт показывает, как атомарные кирпичи из четырёх осей
- * (architecture, theme, interaction, information) объединяются в
- * конкретный компонент через RecordArchitectureMerge.
- *
- * Используй рецепты как отправную точку при создании новых компонентов —
- * либо напрямую, либо как основу для расширения через дополнительные кирпичи.
- */

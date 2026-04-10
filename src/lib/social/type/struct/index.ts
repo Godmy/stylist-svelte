@@ -1,6 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { FRIEND_LIST_FRIEND, FRIEND_LIST_PROPS, FRIEND_LIST_REST_PROPS, FRIEND_LIST_STATUS } from './friend-list';
-export type { SOCIAL_ACTIVITY_FEED_ACTIVITY, SOCIAL_ACTIVITY_FEED_ACTIVITY_TYPE, SOCIAL_ACTIVITY_FEED_PROPS, SOCIAL_ACTIVITY_FEED_REST_PROPS, SOCIAL_ACTIVITY_FEED_USER } from './social-activity-feed';
-export type { SOCIAL_FEED_FILTER_OPTION, SOCIAL_FEED_POST, SOCIAL_FEED_PROPS, SOCIAL_FEED_REST_PROPS, SOCIAL_FEED_USER } from './social-feed';
-export type { Props, Provider, ProviderConfig, RestProps } from './social-login';
-export type { SOCIAL_SHARE_OPTION, SOCIAL_SHARE_PLATFORM, SOCIAL_SHARE_PROPS, SOCIAL_SHARE_REST_PROPS } from './social-share';
+export type { Activity, ActivityType, Props, RestProps, User } from './social-activity-feed';
+export type { FeedUser, FilterOption, Post } from './social-feed';
+export type { Provider, ProviderConfig } from './social-login';
+export type { ShareOption, SocialPlatform } from './social-share';

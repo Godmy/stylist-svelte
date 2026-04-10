@@ -1,14 +1,11 @@
 <script lang="ts">
-	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { Icon as BaseIcon } from '$stylist';
 const ChevronDown = 'chevron-down';
 
-	import type { AccordionHeaderDoubleProps } from '$stylist/control/interface/component/accordion/other';
 	import { createAccordionHeaderDoubleState } from '$stylist/control/function/state/accordion-header-double';
+	import type { AccordionHeaderDoubleProps } from '$stylist/control/type/struct/accordion-header-double-props';
 
-	type Props = AccordionHeaderDoubleProps & HTMLButtonAttributes;
-
-	let props: Props = $props();
+	let props: AccordionHeaderDoubleProps = $props();
 
 	const state = createAccordionHeaderDoubleState(props);
 

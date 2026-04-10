@@ -1,4 +1,4 @@
-import type { Preset } from '..';
+import type { Preset } from '../preset';
 
 export type ExtendedPreset<V extends string, S extends string, T = {}> =
 	Preset<V, S> & {

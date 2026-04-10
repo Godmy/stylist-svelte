@@ -1,5 +1,5 @@
 import type { FocusContract } from '$stylist/interaction/type/struct/gesture-focus-contract';
-import type { GestureContract } from '$stylist/interaction/type/struct/gesture';
+import type { GestureContract } from '$stylist/interaction/type/struct/gesture/gesture-contract';
 
 /**
  * Прото-интерфейс для focusable элементов

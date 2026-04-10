@@ -1,48 +1,23 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenRangeControlDefinition } from '$stylist/control/type/struct/range-control-definition';
+	import type { TokenRangeControlProps } from '$stylist/control/type/struct/token-range-control-props';
+	import { createTokenRangeState } from '$stylist/control/function/state/token-range';
 
-	type TokenRangeControlProps = {
-		definition: TokenRangeControlDefinition;
-		value?: number;
-		onChange?: (value: number) => void;
-	};
-
-	let { definition, value = undefined, onChange }: TokenRangeControlProps = $props();
-
-	const initialValue =
-		typeof value === 'number'
-			? value
-			: typeof definition.defaultValue === 'number'
-				? definition.defaultValue
-				: definition.min;
-
-	let internalValue = $state<number>(initialValue);
-
-	$effect(() => {
-		if (typeof value === 'number' && value !== internalValue) {
-			internalValue = value;
-		}
-	});
-
-	function handleInput(event: Event) {
-		const next = Number((event.target as HTMLInputElement).value);
-		internalValue = Number.isNaN(next) ? definition.min : next;
-		onChange?.(internalValue);
-	}
+	let props: TokenRangeControlProps = $props();
+	const state = createTokenRangeState(props);
 </script>
 
-<TokenControlBase {definition} layout="inline">
+<TokenControlBase definition={state.definition} layout="inline">
 	<div class="token-range-control">
 		<input
 			type="range"
-			min={definition.min}
-			max={definition.max}
-			step={definition.step ?? 1}
-			value={internalValue}
-			oninput={handleInput}
+			min={state.definition.min}
+			max={state.definition.max}
+			step={state.definition.step ?? 1}
+			value={state.internalValue}
+			oninput={state.handleInput}
 		/>
-		<span class="token-range-control__value">{internalValue}</span>
+		<span class="token-range-control__value">{state.internalValue}</span>
 	</div>
 </TokenControlBase>
 

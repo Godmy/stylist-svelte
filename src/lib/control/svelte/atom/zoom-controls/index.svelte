@@ -3,40 +3,13 @@
 	import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
 
 	let props: ZoomControlsProps = $props();
-	const controlState = createZoomControlsState(props);
-
-	let currentZoom: number = $state(controlState.initialValue);
-
-	$effect(() => {
-		currentZoom = controlState.initialValue;
-	});
-
-	const handleZoomIn = () => {
-		currentZoom = Math.min(currentZoom + controlState.step, controlState.maxZoom);
-		props.onValueInput?.(currentZoom);
-		props.onValueChange?.(currentZoom);
-		props.onChange?.(currentZoom);
-	};
-
-	const handleZoomOut = () => {
-		currentZoom = Math.max(currentZoom - controlState.step, controlState.minZoom);
-		props.onValueInput?.(currentZoom);
-		props.onValueChange?.(currentZoom);
-		props.onChange?.(currentZoom);
-	};
-
-	const handleReset = () => {
-		currentZoom = controlState.initialValue;
-		props.onValueInput?.(currentZoom);
-		props.onValueChange?.(currentZoom);
-		props.onChange?.(currentZoom);
-	};
+	const state = createZoomControlsState(props);
 </script>
 
 <div class="zoom-controls" role="group" aria-label="Zoom controls">
 	<button
 		class="zoom-button"
-		onclick={handleZoomOut}
+		onclick={state.handleZoomOut}
 		aria-label="Zoom out"
 		title="Zoom out"
 	>
@@ -46,11 +19,11 @@
 		</svg>
 	</button>
 
-	<span class="zoom-value">{Math.round(currentZoom)}%</span>
+	<span class="zoom-value">{Math.round(state.currentZoom)}%</span>
 
 	<button
 		class="zoom-button"
-		onclick={handleZoomIn}
+		onclick={state.handleZoomIn}
 		aria-label="Zoom in"
 		title="Zoom in"
 	>
@@ -62,7 +35,7 @@
 
 	<button
 		class="zoom-button"
-		onclick={handleReset}
+		onclick={state.handleReset}
 		aria-label="Reset zoom"
 		title="Reset zoom"
 	>

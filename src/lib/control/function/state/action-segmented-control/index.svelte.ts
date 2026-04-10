@@ -7,6 +7,11 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 	const containerClasses = $derived(
 		InteractionStyleManager.getInteractiveBaseClasses(`flex rounded-lg border ${props.class ?? ''}`.trim())
 	);
+	let localSelectedIndex = $state(props.selectedIndex ?? 0);
+
+	$effect(() => {
+		localSelectedIndex = props.selectedIndex ?? 0;
+	});
 
 	return {
 		get items() {
@@ -18,6 +23,9 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 		get classes() {
 			return containerClasses;
 		},
+		get localSelectedIndex() {
+			return localSelectedIndex;
+		},
 		getItemClasses(index: number, isSelected: boolean) {
 			const totalItems = items.length;
 			const roundedClass =
@@ -27,6 +35,12 @@ export function createActionSegmentedControlState(props: ActionSegmentedControlP
 				: 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]';
 
 			return `px-4 py-2 rounded-lg transition-colors ${roundedClass} ${stateClass}`.trim();
+		},
+		handleClick(index: number) {
+			localSelectedIndex = index;
+			props.onValueInput?.(index);
+			props.onValueChange?.(index);
+			props.onChange?.(index);
 		}
 	};
 }

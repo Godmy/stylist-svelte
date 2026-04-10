@@ -5,46 +5,24 @@
 
 	let props: TabsProps = $props();
 
-	const tabsState = createTabsState(props);
-
-	const tabsId = Math.random().toString(36).substring(2, 9);
-	let selectedTabId = $state<string>(props.selectedId || '');
-	let tabs = $state<string[]>([]);
-
-	function handleTabChange(id: string) {
-		selectedTabId = id;
-		props.onValueChange?.(id);
-	}
-
-	function registerTab(id: string) {
-		if (!tabs.includes(id)) {
-			tabs = [...tabs, id];
-			if (tabs.length === 1 && !props.selectedId) {
-				selectedTabId = id;
-			}
-		}
-	}
-
-	function unregisterTab(id: string) {
-		tabs = tabs.filter((tabId) => tabId !== id);
-	}
+	const state = createTabsState(props);
 
 	setContext('tabs-context', {
-		tabsId,
+		tabsId: state.tabsId,
 		get selectedTabId() {
-			return selectedTabId;
+			return state.selectedTabId;
 		},
-		registerTab,
-		unregisterTab,
-		handleTabChange,
+		registerTab: state.registerTab,
+		unregisterTab: state.unregisterTab,
+		handleTabChange: state.handleTabChange,
 		get variant() {
-			return tabsState.variant;
+			return state.variant;
 		},
 		get size() {
-			return tabsState.size;
+			return state.size;
 		},
 		get disabled() {
-			return tabsState.disabled;
+			return state.disabled;
 		}
 	});
 
@@ -65,7 +43,7 @@
 	);
 </script>
 
-<div {...restProps} class={tabsState.classes}>
+<div {...restProps} class={state.classes}>
 	{@render props.children?.()}
 </div>
 

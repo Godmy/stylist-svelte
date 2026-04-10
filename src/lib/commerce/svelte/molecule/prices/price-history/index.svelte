@@ -1,97 +1,70 @@
 <script lang="ts">
-  import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
+	import type { PriceHistoryProps } from '$stylist/commerce/function/state/price-history';
+	import { createPriceHistoryState } from '$stylist/commerce/function/state/price-history';
+	import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
 
-  let {
-    data = [],
-    title = 'Price History',
-    currency = '$',
-    class: className = ''
-  } = $props<{
-    data: Array<{ date: string; price: number }>;
-    title?: string;
-    currency?: string;
-    class?: string;
-  }>();
-
-  // Find min and max prices for scaling the chart
-  const minPrice = $derived(data.length > 0 ? Math.min(...data.map((d: { date: string; price: number }) => d.price)) : 0);
-  const maxPrice = $derived(data.length > 0 ? Math.max(...data.map((d: { date: string; price: number }) => d.price)) : 100);
-  const priceRange = $derived(maxPrice - minPrice || 1); // Avoid division by zero
-
-  // Calculate chart dimensions
-  const chartHeight = 200;
-  const chartWidth = 400;
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(PriceHistoryStyleManager.getContainerClass(className));
-  const titleClass = $derived(PriceHistoryStyleManager.getTitleClass());
-  const chartContainerClass = $derived(PriceHistoryStyleManager.getChartContainerClass());
-  const noDataClass = $derived(PriceHistoryStyleManager.getNoDataClass());
-  const infoClass = $derived(PriceHistoryStyleManager.getInfoClass());
-  const infoTextClass = $derived(PriceHistoryStyleManager.getInfoTextClass());
+	let props: PriceHistoryProps = $props();
+	const state = createPriceHistoryState(props);
 </script>
 
-<div class={containerClass}>
-  <h3 class={titleClass}>{title}</h3>
-  <div class={chartContainerClass}>
-    {#if data.length > 0}
-      <svg width={chartWidth} height={chartHeight} class={PriceHistoryStyleManager.getSVGClass()}>
-        <!-- Grid lines -->
-        {#each [0, 0.25, 0.5, 0.75, 1] as tick}
-          <line
-            x1="0"
-            y1={tick * chartHeight}
-            x2={chartWidth}
-            y2={tick * chartHeight}
-            class={PriceHistoryStyleManager.getGridLineClass()}
-          />
-          <text
-            x={chartWidth + 5}
-            y={tick * chartHeight + 4}
-            class={PriceHistoryStyleManager.getGridTextClass()}
-          >
-            {Math.round(maxPrice - (tick * priceRange))}
-          </text>
-        {/each}
+<div class={state.containerClass}>
+	<h3 class={state.titleClass}>{props.title ?? 'Price History'}</h3>
+	<div class={state.chartContainerClass}>
+		{#if state.data.length > 0}
+			<svg width={state.chartWidth} height={state.chartHeight} class={PriceHistoryStyleManager.getSVGClass()}>
+				<!-- Grid lines -->
+				{#each [0, 0.25, 0.5, 0.75, 1] as tick}
+					<line
+						x1="0"
+						y1={tick * state.chartHeight}
+						x2={state.chartWidth}
+						y2={tick * state.chartHeight}
+						class={PriceHistoryStyleManager.getGridLineClass()}
+					/>
+					<text
+						x={state.chartWidth + 5}
+						y={tick * state.chartHeight + 4}
+						class={PriceHistoryStyleManager.getGridTextClass()}
+					>
+						{Math.round(state.maxPrice - (tick * state.priceRange))}
+					</text>
+				{/each}
 
-        <!-- Price line -->
-        <polyline
-          fill="none"
-          stroke="var(--color-primary-500)"
-          stroke-width="2"
-          points={
-            data.map((d: { date: string; price: number }, i: number) => {
-              const x = (i / (data.length - 1)) * chartWidth;
-              const y = chartHeight - ((d.price - minPrice) / priceRange) * chartHeight;
-              return `${x},${y}`;
-            }).join(' ')
-          }
-          class={PriceHistoryStyleManager.getPriceLineClass()}
-        />
+				<!-- Price line -->
+				<polyline
+					fill="none"
+					stroke="var(--color-primary-500)"
+					stroke-width="2"
+					points={
+						state.data.map((d, i) => {
+							const x = (i / (state.data.length - 1)) * state.chartWidth;
+							const y = state.chartHeight - ((d.price - state.minPrice) / state.priceRange) * state.chartHeight;
+							return `${x},${y}`;
+						}).join(' ')
+					}
+					class={PriceHistoryStyleManager.getPriceLineClass()}
+				/>
 
-        <!-- Data points -->
-        {#each data as d, i}
-          <circle
-            cx={(i / (data.length - 1)) * chartWidth}
-            cy={chartHeight - ((d.price - minPrice) / priceRange) * chartHeight}
-            r="3"
-            fill="var(--color-primary-500)"
-            class={PriceHistoryStyleManager.getDataPointClass()}
-          />
-        {/each}
-      </svg>
-    {:else}
-      <div class={noDataClass}>
-        No price history data available
-      </div>
-    {/if}
-  </div>
-  <div class={infoClass}>
-    {#if data.length > 0}
-      <div class={infoTextClass}>Lowest: {currency}{minPrice}, Highest: {currency}{maxPrice}</div>
-    {/if}
-  </div>
+				<!-- Data points -->
+				{#each state.data as d, i}
+					<circle
+						cx={(i / (state.data.length - 1)) * state.chartWidth}
+						cy={state.chartHeight - ((d.price - state.minPrice) / state.priceRange) * state.chartHeight}
+						r="3"
+						fill="var(--color-primary-500)"
+						class={PriceHistoryStyleManager.getDataPointClass()}
+					/>
+				{/each}
+			</svg>
+		{:else}
+			<div class={state.noDataClass}>
+				No price history data available
+			</div>
+		{/if}
+	</div>
+	<div class={state.infoClass}>
+		{#if state.data.length > 0}
+			<div class={state.infoTextClass}>Lowest: {props.currency ?? '$'}{state.minPrice}, Highest: {props.currency ?? '$'}{state.maxPrice}</div>
+		{/if}
+	</div>
 </div>
-
-
-

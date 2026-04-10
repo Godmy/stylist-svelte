@@ -6,13 +6,10 @@
    */
   import Code from '../code-block/index.svelte';
   import type { CodeBlockWithLineNumbersProps } from '$stylist/development/type/struct/code-block-with-line-numbers';
-
-  function stateFn(props: CodeBlockWithLineNumbersProps) {
-    return { props };
-  }
+  import { createCodeBlockWithLineNumbersState } from '$stylist/development/function/state/code-block-with-line-numbers';
 
   let props: CodeBlockWithLineNumbersProps = $props();
-  const state = stateFn(props);
+  const state = createCodeBlockWithLineNumbersState(props);
 </script>
 
 <Code

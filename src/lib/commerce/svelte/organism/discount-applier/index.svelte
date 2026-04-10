@@ -1,158 +1,71 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+	import type { DiscountApplierContract } from '$stylist/commerce/interface/component/discount-applier';
+	import { createDiscountApplierState } from '$stylist/commerce/function/state/discount-applier';
 
-  import DiscountApplierComponent from './index.svelte';
-
-  const DiscountApplier = DiscountApplierComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showCodeInput', type: 'boolean', defaultValue: true },
-      { name: 'showRuleList', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample discount rules
-  const discountRules = [
-    {
-      id: 'rule1',
-      code: 'SAVE10',
-      type: 'percentage' as const,
-      value: 10,
-      name: '10% Off',
-      description: 'Get 10% off your entire order',
-      minOrderAmount: 50,
-      startDate: new Date(),
-      endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
-      usageLimit: 100,
-      usedCount: 45
-    },
-    {
-      id: 'rule2',
-      code: 'FREESHIP',
-      type: 'free_shipping' as const,
-      value: 0,
-      name: 'Free Shipping',
-      description: 'Free shipping on orders over $75',
-      minOrderAmount: 75,
-      startDate: new Date(),
-      endDate: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000) // 15 days from now
-    },
-    {
-      id: 'rule3',
-      code: 'SAVEFIXED',
-      type: 'fixed' as const,
-      value: 20,
-      name: '$20 Off',
-      description: 'Get $20 off your order',
-      minOrderAmount: 100,
-      startDate: new Date(),
-      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // 7 days from now
-    }
-  ];
-
-  // Sample cart items
-  const cartItems = [
-    { id: 'item1', name: 'Wireless Headphones', price: 129.99, quantity: 1 },
-    { id: 'item2', name: 'Bluetooth Speaker', price: 79.99, quantity: 1 }
-  ];
+	let props: DiscountApplierContract = $props();
+	const state = createDiscountApplierState(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={DiscountApplier}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-discount-applier grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Discount Applier Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Interactive discount applier with promo codes.</p>
+<div class={state.containerClasses}>
+	<div class={state.headerClasses}>
+		<h2 class={state.titleClasses}>Discounts &amp; Promo Codes</h2>
+	</div>
 
-        <div class="mt-6">
-          <DiscountApplier
-            rules={discountRules}
-            cartItems={cartItems}
-            cartTotal={209.98}
-            showCodeInput={values.showCodeInput}
-            showRuleList={values.showRuleList}
-            showAppliedRules={true}
-            onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
-            onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
-            onRemoveRule={(ruleId: string) => console.log(`Removing rule: ${ruleId}`)}
-            onValidateCode={async (code: string) => {
-              console.log(`Validating code: ${code}`);
-              return true; // Simulate valid code
-            }}
-            currency="USD"
-          />
-        </div>
-      </div>
+	{#if props.showCodeInput !== false}
+		<div class={state.promoCodeContainerClasses}>
+			<input
+				type="text"
+				placeholder="Enter promo code"
+				value={state.codeInput}
+				oninput={(e) => { state.codeInput = (e.target as HTMLInputElement).value; }}
+				class={state.promoCodeInputClasses}
+			/>
+			<button onclick={state.handleApplyCode} class={state.applyButtonClasses}>Apply</button>
+		</div>
+	{/if}
 
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Discount Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different discount configurations with various options.
-        </p>
+	{#if state.message}
+		<div class={state.message.type === 'success' ? state.successMessageClasses : state.errorMessageClasses}>
+			{state.message.text}
+		</div>
+	{/if}
 
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Code Input</p>
-            <div>
-              <DiscountApplier
-                rules={discountRules}
-                cartItems={cartItems}
-                cartTotal={129.99}
-                showCodeInput={false}
-                showRuleList={true}
-                showAppliedRules={true}
-                onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
-                onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
-                currency="USD"
-              />
-            </div>
-          </article>
+	{#if props.showAppliedRules !== false && state.appliedCodes.length > 0}
+		<div class={state.appliedRulesContainerClasses}>
+			<h3 class="text-sm font-medium mb-2">Applied Codes</h3>
+			{#each state.appliedCodes as code}
+				<div class="flex items-center justify-between py-1">
+					<span class={state.appliedBadgeClasses}>{code}</span>
+					<button
+						onclick={() => state.handleRemoveRule(code)}
+						class="text-sm text-[--color-error-600]"
+					>&times; Remove</button>
+				</div>
+			{/each}
+		</div>
+	{/if}
 
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Applied Codes</p>
-            <div>
-              <DiscountApplier
-                rules={discountRules}
-                cartItems={cartItems}
-                cartTotal={189.99}
-                appliedCodes={['SAVE10']}
-                showCodeInput={true}
-                showRuleList={true}
-                showAppliedRules={true}
-                onApplyCode={(code: string) => console.log(`Applying code: ${code}`)}
-                onApplyRule={(rule: typeof discountRules[number]) => console.log(`Applying rule: ${rule.name}`)}
-                onRemoveRule={(ruleId: string) => console.log(`Removing rule: ${ruleId}`)}
-                currency="USD"
-              />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  {/snippet}
-</Story>
-
-
-
-
-
-
+	{#if props.showRuleList !== false && (props.rules ?? []).length > 0}
+		<div class={state.rulesListClasses}>
+			{#each props.rules ?? [] as rule}
+				<div class={state.ruleItemClasses}>
+					<div class="flex-1">
+						<p class={state.ruleNameClasses}>{rule.name}</p>
+						{#if rule.description}
+							<p class={state.ruleDescriptionClasses}>{rule.description}</p>
+						{/if}
+						<p class={state.discountValueClasses}>{state.formatDiscount(rule)}</p>
+					</div>
+					{#if state.isApplied(rule.code)}
+						<span class={state.appliedBadgeClasses}>Applied</span>
+					{:else}
+						<button
+							onclick={() => state.handleApplyRule(rule)}
+							class="text-sm text-[--color-primary-600] font-medium"
+						>Apply</button>
+					{/if}
+				</div>
+			{/each}
+		</div>
+	{/if}
+</div>

@@ -1,4 +1,4 @@
-import type { StageContract } from '..';
+import type { StageContract } from '../stage-contract';
 import type { StageCamera } from '../stage-camera';
 
 export type StageProps = StageContract & {

@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { TokenBillingItem, TokenBillingSummary, TokenCommerceIcon, TokenOrderStatus, TokenPaymentMethod, TokenPaymentStatus } from './enum';
 export type { BaseCardProps, ExtendedQuoteRequestProps, OrderItem, PaymentData, Product, ProductReviewItem, ProductReviewsProps, ProductSortOption, ProductSortProps, ProductTourProps, ProductTourStep, RFQFormData, RFQFormProps, RFQProduct } from './struct';
-export type { PaymentMethod, PaymentMethodSelectorProps, PaymentSelectorProps, PaymentSummaryDiscount, PaymentSummaryItem, PaymentSummaryProps, PaymentSummaryTax } from './struct';
+export type { BulkOrderFormItem, BulkOrderFormProduct, BulkOrderFormProps, PaymentMethod, PaymentMethodSelectorProps, PaymentSelectorProps, PaymentSummaryDiscount, PaymentSummaryItem, PaymentSummaryProps, PaymentSummaryTax } from './struct';

@@ -1,49 +1,35 @@
 <script lang="ts">
 	import { getContext, onDestroy, onMount } from 'svelte';
+	import { TAB_CONTEXT } from '$stylist/control/const/struct/tab-context';
 	import type { TabProps } from '$stylist/control/interface/component/tabs/other';
 	import { createTabState } from '$stylist/control/function/state/tab';
 
 	let props: TabProps = $props();
 
-	const context = getContext<{
-		tabsId: string;
-		selectedTabId: string;
-		registerTab: (id: string) => void;
-		unregisterTab: (id: string) => void;
-		handleTabChange: (id: string) => void;
-		variant?: TabProps['variant'];
-		size?: TabProps['size'];
-		disabled?: boolean;
-	}>('tabs-context') ?? {
-		tabsId: '',
-		selectedTabId: '',
-		registerTab: () => {},
-		unregisterTab: () => {},
-		handleTabChange: () => {}
-	};
+	const tabsContext = getContext<typeof TAB_CONTEXT>('tabs-context') ?? TAB_CONTEXT;
 
 	onMount(() => {
-		context.registerTab(props.id);
+		tabsContext.registerTab(props.id);
 	});
 
 	onDestroy(() => {
-		context.unregisterTab(props.id);
+		tabsContext.unregisterTab(props.id);
 	});
 
-	let isSelected = $derived(context.selectedTabId === props.id);
-	let tabId = $derived(`tab-${context.tabsId}-${props.id}`);
-	let panelId = $derived(`panel-${context.tabsId}-${props.id}`);
+	let isSelected = $derived(tabsContext.selectedTabId === props.id);
+	let tabId = $derived(`tab-${tabsContext.tabsId}-${props.id}`);
+	let panelId = $derived(`panel-${tabsContext.tabsId}-${props.id}`);
 
 	const state = createTabState({
 		...props,
-		variant: props.variant ?? context.variant,
-		size: props.size ?? context.size,
-		disabled: props.disabled ?? context.disabled
+		variant: props.variant ?? tabsContext.variant,
+		size: props.size ?? tabsContext.size,
+		disabled: props.disabled ?? tabsContext.disabled
 	});
 
 	function handleClick() {
 		if (!state.disabled) {
-			context.handleTabChange(props.id);
+			tabsContext.handleTabChange(props.id);
 		}
 	}
 

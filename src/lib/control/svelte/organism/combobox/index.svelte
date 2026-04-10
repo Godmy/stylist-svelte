@@ -1,177 +1,65 @@
 <script lang="ts">
-  type ComboboxItem = {
-    id: string;
-    label: string;
-    description?: string;
-    disabled?: boolean;
-    meta?: string;
-  };
+  import type { ComboboxItem } from '$stylist/control/type/struct/combobox/item';
+  import type { ComboboxProps } from '$stylist/control/type/struct/combobox-props';
+  import { createComboboxState } from '$stylist/control/function/state/combobox';
 
-  type Props = {
-    id: string;
-    items: ComboboxItem[];
-    value?: string | null;
-    label?: string;
-    description?: string;
-    placeholder?: string;
-    emptyText?: string;
-    disabled?: boolean;
-    clearable?: boolean;
-    loading?: boolean;
-    class?: string;
-  };
+  let props: ComboboxProps = $props();
+  const state = createComboboxState(props);
 
-  let {
-    id,
-    items,
-    value = $bindable<string | null>(null),
-    label,
-    description,
-    placeholder = 'Начните вводить...',
-    emptyText = 'Ничего не найдено',
-    disabled = false,
-    clearable = true,
-    loading = false,
-    class: className = ''
-  }: Props = $props();
-
-  let query = $state('');
-  let isOpen = $state(false);
-  let highlighted = $state(0);
-  let inputRef: HTMLInputElement | null = null;
-
-  const selectedItem = $derived(() => items.find((item) => item.id === value) ?? null);
-
-  const filteredItems = $derived(() => {
-    const text = query.trim().toLowerCase();
-    if (!text) return items;
-    return items.filter((item) => {
-      const haystack = `${item.label} ${item.description ?? ''} ${item.meta ?? ''}`.toLowerCase();
-      return haystack.includes(text);
-    });
+  const restProps = $derived.by(() => {
+    const {
+      class: _class,
+      id: _id,
+      items: _items,
+      value: _value,
+      label: _label,
+      description: _description,
+      placeholder: _placeholder,
+      emptyText: _emptyText,
+      disabled: _disabled,
+      clearable: _clearable,
+      loading: _loading,
+      ...rest
+    } = props;
+    return rest;
   });
-
-  const hasResults = $derived(() => filteredItems().length > 0);
-
-  $effect(() => {
-    if (!isOpen) {
-      const current = selectedItem();
-      query = current ? current.label : '';
-    }
-  });
-
-  function openList() {
-    if (disabled) return;
-    isOpen = true;
-    highlighted = 0;
-  }
-
-  function closeList() {
-    isOpen = false;
-    highlighted = 0;
-    const current = selectedItem();
-    query = current ? current.label : query;
-  }
-
-  function handleInput(event: Event) {
-    const target = event.currentTarget as HTMLInputElement;
-    query = target.value;
-    value = null;
-    if (!isOpen) {
-      openList();
-    }
-  }
-
-  function handleFocus() {
-    openList();
-  }
-
-  function handleBlur(event: FocusEvent) {
-    const related = event.relatedTarget as HTMLElement | null;
-    if (!related || !related.closest(`[data-combobox="${id}"]`)) {
-      closeList();
-    }
-  }
-
-  function handleKeydown(event: KeyboardEvent) {
-    if (!isOpen) {
-      if (event.key === 'Enter' || event.key === 'ArrowDown') {
-        openList();
-        event.preventDefault();
-      }
-      return;
-    }
-
-    const options = filteredItems();
-    if (!options.length) return;
-
-    if (event.key === 'ArrowDown') {
-      highlighted = (highlighted + 1) % options.length;
-      event.preventDefault();
-    } else if (event.key === 'ArrowUp') {
-      highlighted = (highlighted - 1 + options.length) % options.length;
-      event.preventDefault();
-    } else if (event.key === 'Enter') {
-      selectItem(options[highlighted]);
-      event.preventDefault();
-    } else if (event.key === 'Escape') {
-      closeList();
-      event.preventDefault();
-    }
-  }
-
-  function selectItem(item: ComboboxItem) {
-    if (item.disabled) return;
-    value = item.id;
-    query = item.label;
-    closeList();
-    inputRef?.blur();
-  }
-
-  function clearSelection() {
-    if (!clearable || disabled) return;
-    value = null;
-    query = '';
-    inputRef?.focus();
-    openList();
-  }
 </script>
 
-<div class={`c-combobox space-y-2 ${className}`} data-combobox={id}>
-  {#if label}
-    <label for={id} class="text-sm font-medium text-[var(--color-text-primary)]">
-      {label}
+<div class={`c-combobox space-y-2 ${state.className}`} data-combobox={state.id}>
+  {#if state.label}
+    <label for={state.id} class="text-sm font-medium text-[var(--color-text-primary)]">
+      {state.label}
     </label>
   {/if}
 
   <div class="relative">
-    <div class={`flex items-center gap-2 rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-3 py-2 text-sm shadow-sm focus-within:border-[var(--color-primary-500)] focus-within:ring-2 focus-within:ring-indigo-500 ${disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed opacity-[var(--opacity-70)]' : ''}`}>
+    <div class="flex items-center gap-2 rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-3 py-2 text-sm shadow-sm focus-within:border-[var(--color-primary-500)] focus-within:ring-2 focus-within:ring-indigo-500 ${state.disabled ? 'bg-[var(--color-background-secondary)] cursor-not-allowed opacity-[var(--opacity-70)]' : ''}">
       <input
-        id={id}
+        id={state.id}
         type="text"
-        bind:this={inputRef}
+        bind:this={state.inputRef}
         class="flex-1 bg-transparent outline-none placeholder:text-[var(--color-text-tertiary)]"
-        placeholder={placeholder}
-        bind:value={query}
-        oninput={handleInput}
-        onkeydown={handleKeydown}
-        onfocus={handleFocus}
-        onblur={handleBlur}
-        disabled={disabled}
+        placeholder={state.placeholder}
+        bind:value={state.query}
+        oninput={state.handleInput}
+        onkeydown={state.handleKeydown}
+        onfocus={state.handleFocus}
+        onblur={state.handleBlur}
+        disabled={state.disabled}
         aria-autocomplete="list"
-        aria-controls={`${id}-listbox`}
+        aria-controls={`${state.id}-listbox`}
       />
 
-      {#if loading}
+      {#if state.loading}
         <svg class="h-4 w-4 animate-spin text-[var(--color-text-tertiary)]" viewBox="0 0 24 24" fill="none">
           <circle class="opacity-[var(--opacity-25)]" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
           <path class="opacity-[var(--opacity-75)]" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
         </svg>
-      {:else if clearable && query}
+      {:else if state.clearable && state.query}
         <button
           type="button"
           class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
-          onclick={clearSelection}
+          onclick={state.clearSelection}
           aria-label="Очистить выбор"
         >
           <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -184,8 +72,8 @@
         type="button"
         class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
         aria-label="Переключить список вариантов"
-        onclick={() => (isOpen ? closeList() : openList())}
-        disabled={disabled}
+        onclick={() => (state.isOpen ? state.closeList() : state.openList())}
+        disabled={state.disabled}
       >
         <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.105l3.71-3.874a.75.75 0 111.08 1.04l-4.24 4.431a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
@@ -193,22 +81,22 @@
       </button>
     </div>
 
-    {#if isOpen}
+    {#if state.isOpen}
       <div
-        id={`${id}-listbox`}
+        id={`${state.id}-listbox`}
         class="absolute z-[var(--z-index-docked)] mt-2 max-h-60 w-full overflow-auto rounded-md border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-lg"
         role="listbox"
       >
-        {#if !loading && hasResults()}
-          {@const options = filteredItems()}
+        {#if !state.loading && state.hasResults}
+          {@const options = state.filteredItems()}
           {#each options as item, index (item.id)}
             <button
               type="button"
-              class={`w-full text-left px-3 py-2 text-sm flex flex-col gap-1 transition-colors ${item.disabled ? 'text-[var(--color-text-tertiary)] cursor-not-allowed' : 'hover:bg-[var(--color-primary-50)]'} ${value === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : ''} ${highlighted === index ? 'bg-[var(--color-primary-50)]' : ''}`}
+              class={`w-full text-left px-3 py-2 text-sm flex flex-col gap-1 transition-colors ${item.disabled ? 'text-[var(--color-text-tertiary)] cursor-not-allowed' : 'hover:bg-[var(--color-primary-50)]'} ${state.value === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : ''} ${state.highlighted === index ? 'bg-[var(--color-primary-50)]' : ''}`}
               disabled={item.disabled}
-              onclick={() => selectItem(item)}
-              onmouseenter={() => (highlighted = index)}
-              onfocus={() => (highlighted = index)}
+              onclick={() => state.selectItem(item)}
+              onmouseenter={() => (state.highlighted = index)}
+              onfocus={() => (state.highlighted = index)}
             >
               <span class="font-medium">{item.label}</span>
               {#if item.description}
@@ -219,21 +107,16 @@
               {/if}
             </button>
           {/each}
-        {:else if loading}
+        {:else if state.loading}
           <div class="flex justify-center py-4 text-sm text-[var(--color-text-secondary)]">Загрузка...</div>
         {:else}
-          <div class="px-3 py-4 text-sm text-[var(--color-text-secondary)]">{emptyText}</div>
+          <div class="px-3 py-4 text-sm text-[var(--color-text-secondary)]">{state.emptyText}</div>
         {/if}
       </div>
     {/if}
   </div>
 
-  {#if description}
-    <p class="text-sm text-[var(--color-text-secondary)]">{description}</p>
+  {#if state.description}
+    <p class="text-sm text-[var(--color-text-secondary)]">{state.description}</p>
   {/if}
 </div>
-
-
-
-
-

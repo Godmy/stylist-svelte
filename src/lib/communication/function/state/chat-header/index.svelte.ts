@@ -1,5 +1,6 @@
-import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header';
-import type { ChatHeaderChat, ChatHeaderUser } from '$stylist/communication/type/struct/chat-header';
+import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header/chat-header-props';
+import type { ChatHeaderChat } from '$stylist/communication/type/struct/chat-header/chat-header-chat';
+import type { ChatHeaderUser } from '$stylist/communication/type/struct/chat-header/chat-header-user';
 
 export function ChatHeaderModel(props: ChatHeaderProps) {
 	let isGroupChat = $state(false);

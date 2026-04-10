@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {
-		createMediaLibraryState,
-		type MediaLibraryProps
+		createMediaLibraryState
 	} from '$stylist/media/function/state/media-library';
+	import type { MediaLibraryProps } from '$stylist/media/type/struct/media-library';
 	import { Icon as BaseIcon } from '$stylist';
 
 	let props: MediaLibraryProps = $props();

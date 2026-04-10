@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundComponentInfoCardState } from '$stylist/development/function/state/playground-component-info-card';
 const X = 'x';
 const Package = 'package';
 const Tag = 'tag';
@@ -28,51 +29,16 @@ const User = 'user';
     onClose?: () => void;
   }
 
-  let {
-    componentName = '',
-    category = '',
-    subcategory = '',
-    description = 'A flexible and customizable UI component designed for modern web applications.',
-    propsCount = 0,
-    examples = [
-      'Basic usage with default props',
-      'Custom styling and theming',
-      'Advanced interactions and states',
-      'Responsive behavior across devices'
-    ],
-    npmPackage = '@stylist-svelte/components',
-    version = '1.0.0',
-    author = 'Stylist Team',
-    lastUpdated = '2025-01-13',
-    isOpen = true,
-    onClose = () => {}
-  }: Props = $props();
-
-  let copySuccess = $state(false);
-
-  async function copyNpmCommand() {
-    try {
-      await navigator.clipboard.writeText(`npm install ${npmPackage}`);
-      copySuccess = true;
-      setTimeout(() => {
-        copySuccess = false;
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  }
-
-  function handleClose() {
-    onClose();
-  }
+  let props: Props = $props();
+  const state = createPlaygroundComponentInfoCardState(props);
 </script>
 
-{#if isOpen}
+{#if state.isOpen}
   <!-- Backdrop -->
   <div
     class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[var(--z-index-overlay)] animate-fade-in"
-    onclick={handleClose}
-    onkeydown={(e) => e.key === 'Escape' && handleClose()}
+    onclick={state.handleClose}
+    onkeydown={(e) => e.key === 'Escape' && state.handleClose()}
     role="button"
     tabindex="0"
     aria-label="Close component info"
@@ -86,7 +52,7 @@ const User = 'user';
       onkeydown={(e) => {
         if (e.key === 'Escape') {
           e.stopPropagation();
-          handleClose();
+          state.handleClose();
         }
       }}
       role="dialog"
@@ -102,26 +68,26 @@ const User = 'user';
             <div class="flex items-center gap-2 mb-2">
               <BaseIcon name={Package} class="w-5 h-5 text-white" />
               <h2 id="component-info-title" class="text-2xl font-bold text-white">
-                {componentName || 'Component Info'}
+                {state.componentName || 'Component Info'}
               </h2>
             </div>
-            {#if category || subcategory}
+            {#if state.category || state.subcategory}
               <div class="flex items-center gap-2">
-                {#if category}
+                {#if state.category}
                   <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-white/20 backdrop-blur-sm text-white border border-white/30">
-                    {category}
+                    {state.category}
                   </span>
                 {/if}
-                {#if subcategory}
+                {#if state.subcategory}
                   <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-bold bg-white/20 backdrop-blur-sm text-white border border-white/30">
-                    {subcategory}
+                    {state.subcategory}
                   </span>
                 {/if}
               </div>
             {/if}
           </div>
           <button
-            onclick={handleClose}
+            onclick={state.handleClose}
             class="group p-2 rounded-lg hover:bg-white/20 transition-all hover:scale-110 active:scale-95"
             title="Close"
           >
@@ -141,7 +107,7 @@ const User = 'user';
             </h3>
           </div>
           <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-            {description}
+            {state.description}
           </p>
         </div>
 
@@ -154,7 +120,7 @@ const User = 'user';
               <span class="text-xs font-semibold text-indigo-900 dark:text-indigo-200">Props</span>
             </div>
             <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-              {propsCount}
+              {state.propsCount}
             </p>
           </div>
 
@@ -165,7 +131,7 @@ const User = 'user';
               <span class="text-xs font-semibold text-green-900 dark:text-green-200">Version</span>
             </div>
             <p class="text-2xl font-bold text-green-600 dark:text-green-400 font-mono">
-              {version}
+              {state.version}
             </p>
           </div>
 
@@ -176,7 +142,7 @@ const User = 'user';
               <span class="text-xs font-semibold text-purple-900 dark:text-purple-200">Author</span>
             </div>
             <p class="text-sm font-bold text-purple-600 dark:text-purple-400">
-              {author}
+              {state.author}
             </p>
           </div>
 
@@ -187,13 +153,13 @@ const User = 'user';
               <span class="text-xs font-semibold text-orange-900 dark:text-orange-200">Updated</span>
             </div>
             <p class="text-sm font-bold text-orange-600 dark:text-orange-400">
-              {lastUpdated}
+              {state.lastUpdated}
             </p>
           </div>
         </div>
 
         <!-- Installation -->
-        {#if npmPackage}
+        {#if state.npmPackage}
           <div class="mb-6">
             <div class="flex items-center gap-2 mb-3">
               <BaseIcon name={Package} class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -204,15 +170,15 @@ const User = 'user';
             <div class="relative">
               <div class="bg-gray-900 dark:bg-black rounded-lg p-4 border-2 border-gray-700">
                 <code class="text-sm font-mono text-green-400">
-                  npm install {npmPackage}
+                  npm install {state.npmPackage}
                 </code>
               </div>
               <button
-                onclick={copyNpmCommand}
+                onclick={state.copyNpmCommand}
                 class="absolute top-2 right-2 p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all hover:scale-110 active:scale-95"
                 title="Copy command"
               >
-                {#if copySuccess}
+                {#if state.copySuccess}
                   <BaseIcon name={CheckCircle} class="w-4 h-4 text-green-400" />
                 {:else}
                   <BaseIcon name={Copy} class="w-4 h-4 text-gray-400 hover:text-white" />
@@ -223,7 +189,7 @@ const User = 'user';
         {/if}
 
         <!-- Examples -->
-        {#if examples && examples.length > 0}
+        {#if state.examples && state.examples.length > 0}
           <div class="mb-6">
             <div class="flex items-center gap-2 mb-3">
               <BaseIcon name={FileCode} class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
@@ -232,9 +198,9 @@ const User = 'user';
               </h3>
             </div>
             <ul class="space-y-2">
-              {#each examples as example}
+              {#each state.examples as example}
                 <li class="flex items-start gap-2 p-3 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                  <span class="text-indigo-500 mt-0.5">вЂў</span>
+                  <span class="text-indigo-500 mt-0.5">•</span>
                   <span class="text-sm text-gray-700 dark:text-gray-300">{example}</span>
                 </li>
               {/each}
@@ -245,7 +211,7 @@ const User = 'user';
         <!-- Links -->
         <div class="flex gap-3">
           <a
-            href="https://www.npmjs.com/package/{npmPackage}"
+            href="https://www.npmjs.com/package/{state.npmPackage}"
             target="_blank"
             rel="noopener noreferrer"
             class="flex-1 group flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-red-50 to-orange-50 hover:from-red-100 hover:to-orange-100 dark:from-red-900/30 dark:to-orange-900/30 dark:hover:from-red-800/40 dark:hover:to-orange-800/40 text-red-700 dark:text-red-300 rounded-lg border-2 border-red-200 dark:border-red-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md font-semibold text-sm"
@@ -255,7 +221,7 @@ const User = 'user';
             <BaseIcon name={ExternalLink} class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
           <a
-            href="/docs/components/{componentName}"
+            href="/docs/components/{state.componentName}"
             class="flex-1 group flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 hover:from-indigo-100 hover:to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 dark:hover:from-indigo-800/40 dark:hover:to-purple-800/40 text-indigo-700 dark:text-indigo-300 rounded-lg border-2 border-indigo-200 dark:border-indigo-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md font-semibold text-sm"
           >
             <BaseIcon name={FileCode} class="w-4 h-4" />
@@ -312,8 +278,3 @@ const User = 'user';
     }
   }
 </style>
-
-
-
-
-

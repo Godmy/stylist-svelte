@@ -1,5 +1,5 @@
 import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
-import type { DataItem } from '$stylist/file/type/struct/data-exporter';
+import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 import type { ExportFormatDetails } from '$stylist/file/interface/component/data-exporter/other';
 
 /**

@@ -18,28 +18,30 @@ import { createIconButtonState } from '$stylist/control/function/state/icon-butt
 	 * @returns An accessible, styled icon button element
 	 */
 	let props: IconButtonProps & HTMLButtonAttributes = $props();
-	const controlState = createIconButtonState(
+	const state = createIconButtonState(
 		props as any
 	);
 
-	// Extract rest props manually to avoid $$restProps in runes mode
-	let {
-		variant,
-		size,
-		disabled,
-		loading,
-		block,
-		loadingLabel,
-		children,
-		icon,
-		class: classProp,
-		...restProps
-	} = props;
+	const restProps = $derived.by(() => {
+		const {
+			variant: _variant,
+			size: _size,
+			disabled: _disabled,
+			loading: _loading,
+			block: _block,
+			loadingLabel: _loadingLabel,
+			children: _children,
+			icon: _icon,
+			class: _class,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
-<button {...restProps} type={props.type ?? 'button'} class={controlState.classes} {...controlState.attrs}>
-	{#if controlState.loading}
-		<BaseIcon name={Loader2} class={controlState.loaderClasses} aria-hidden="true" />
+<button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
+	{#if state.loading}
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.icon !== undefined && props.icon !== null}
 		{#if typeof props.icon === 'string'}

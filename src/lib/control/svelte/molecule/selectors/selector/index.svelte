@@ -1,88 +1,62 @@
 <script lang="ts">
-  import type { ISelectProps } from '$stylist/control/interface/component/selector/other';
+  import type { SelectorProps } from '$stylist/control/type/struct/selector-props';
+  import { createSelectorState } from '$stylist/control/function/state/selector';
 
-  /**
-   * Select component - A stylized select with theme-aware dropdown
-   *
-   * @returns A form select element with custom dropdown visuals
-   */
-  type Props = ISelectProps;
+  let props: SelectorProps = $props();
+  const state = createSelectorState(props);
 
-  let {
-    id,
-    label,
-    value = $bindable(''),
-    options = [],
-    errors = [],
-    required = false,
-    disabled = false,
-    placeholder,
-    class: className = '',
-    open = false,
-    onToggle = undefined,
-    ...restProps
-  }: Props & {
-    open?: boolean;
-    onToggle?: () => void;
-  } = $props();
-
-  const labelId = `${id}-label`;
-  const triggerId = `${id}-trigger`;
-  const nativeId = `${id}-native`;
-
-  let hasError = $derived(errors.length > 0);
-  let errorId = $derived(`${id}-error`);
-  let selectedOption = $derived(options.find((option) => option.value === value));
-
-  // Define classes using utility classes (tailwind and css variables)
-  let containerClass = `mb-4 ${className}`;
-  let labelClass = 'block text-sm font-medium mb-1 text-[--color-text-primary]';
-  let fieldWrapperClass = 'relative';
-  let selectButtonClass = $derived(`w-full px-3 py-2 text-left bg-[--color-background-surface] border ${hasError ? 'border-[--color-danger-500]' : 'border-[--color-border-primary]'} rounded-md shadow-sm cursor-default focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] ${disabled ? 'bg-[--color-background-disabled] cursor-not-allowed' : ''}`);
-  let chevronClass = 'ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none';
-  let errorClass = 'mt-1 text-sm text-[--color-danger-500]';
-  let valueClass = $derived(selectedOption ? 'text-[--color-text-primary]' : 'text-[--color-text-secondary]');
-
-  function handleClick() {
-    if (onToggle && !disabled) {
-      onToggle();
-    }
-  }
+  const restProps = $derived.by(() => {
+    const {
+      class: _class,
+      id: _id,
+      label: _label,
+      value: _value,
+      options: _options,
+      errors: _errors,
+      required: _required,
+      disabled: _disabled,
+      placeholder: _placeholder,
+      open: _open,
+      onToggle: _onToggle,
+      ...rest
+    } = props;
+    return rest;
+  });
 </script>
 
-<div class={containerClass}>
-  {#if label}
+<div class={state.containerClass}>
+  {#if state.label}
     <label
-      id={labelId}
-      for={nativeId}
-      class={labelClass}
+      id={state.labelId}
+      for={state.nativeId}
+      class={state.labelClass}
     >
-      {label}
-      {#if required}
+      {state.label}
+      {#if state.required}
         <span class="text-[--color-danger-500]">*</span>
       {/if}
     </label>
   {/if}
 
-  <div class={fieldWrapperClass}>
+  <div class={state.fieldWrapperClass}>
     <button
-      id={triggerId}
+      id={state.triggerId}
       type="button"
-      class={selectButtonClass}
+      class={state.selectButtonClass}
       aria-haspopup="listbox"
-      aria-expanded={open}
-      aria-labelledby={labelId}
-      onclick={handleClick}
-      disabled={disabled}
+      aria-expanded={state.open}
+      aria-labelledby={state.labelId}
+      onclick={state.handleClick}
+      disabled={state.disabled}
     >
-      <span class={valueClass}>
-        {#if selectedOption}
-          {selectedOption.label}
+      <span class={state.valueClass}>
+        {#if state.selectedOption}
+          {state.selectedOption.label}
         {:else}
-          {placeholder ?? 'Select an option'}
+          {state.placeholder ?? 'Select an option'}
         {/if}
       </span>
-      <span class={chevronClass} aria-hidden="true">
+      <span class={state.chevronClass} aria-hidden="true">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 12 15 18 9" />
         </svg>
@@ -91,20 +65,20 @@
 
     <!-- Native select for form integration -->
     <select
-      id={nativeId}
-      bind:value={value}
+      id={state.nativeId}
+      bind:value={props.value}
       class="absolute opacity-[var(--opacity-0)] w-0 h-0 overflow-hidden"
-      disabled={disabled}
-      required={required}
+      disabled={state.disabled}
+      required={state.required}
       aria-hidden="true"
-      aria-invalid={hasError}
-      aria-describedby={hasError ? errorId : undefined}
+      aria-invalid={state.hasError}
+      aria-describedby={state.hasError ? state.errorId : undefined}
       {...restProps}
     >
-      {#if placeholder}
-        <option value="">{placeholder}</option>
+      {#if state.placeholder}
+        <option value="">{state.placeholder}</option>
       {/if}
-      {#each options as option}
+      {#each state.options as option}
         <option value={option.value}>
           {option.label}
         </option>
@@ -112,10 +86,10 @@
     </select>
   </div>
 
-  {#if hasError}
-    <p id={errorId} class={errorClass}>
-      {#each errors as error, i}
-        {error}{i < errors.length - 1 ? ' ' : ''}
+  {#if state.hasError}
+    <p id={state.errorId} class={state.errorClass}>
+      {#each state.errors as error, i}
+        {error}{i < state.errors.length - 1 ? ' ' : ''}
       {/each}
     </p>
   {/if}

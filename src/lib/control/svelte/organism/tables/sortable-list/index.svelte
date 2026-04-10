@@ -5,7 +5,7 @@ const MoreHorizontal = 'more-horizontal';
 
   import { SortableListStyleManager } from '$stylist';
   import type { SortableListProps } from '$stylist/control/interface/component/table-controls/other';
-  import type { SortableListItem } from '$stylist/control/interface/component/table-controls/other';
+  import { createSortableListState } from '$stylist/control/function/state/sortable-list';
 
   let {
     items = [],
@@ -19,20 +19,17 @@ const MoreHorizontal = 'more-horizontal';
     ...restProps
   }: SortableListProps = $props();
 
-  let dragged: SortableListItem | null = $state(null);
-  let overIndex = $state<number | null>(null);
-
-  function start(item: SortableListItem): void { if (!disabled) dragged = item; }
-  function drop(index: number): void {
-    if (!dragged) return;
-    const next = [...items];
-    const from = next.findIndex((x) => x.id === dragged?.id);
-    const [moved] = next.splice(from, 1);
-    next.splice(index, 0, moved);
-    onItemsChange?.(next);
-    dragged = null;
-    overIndex = null;
-  }
+  const state = createSortableListState({
+    items,
+    class: className,
+    onItemsChange,
+    onItemAction,
+    disabled,
+    showHandle,
+    showActions,
+    variant,
+    ...restProps
+  });
 </script>
 
 <div class={SortableListStyleManager.root(className)} {...restProps}>
@@ -41,11 +38,11 @@ const MoreHorizontal = 'more-horizontal';
       <div
         role="listitem"
         draggable={!disabled}
-        class={`border rounded-md ${variant === 'compact' ? 'p-2' : 'p-3'} ${overIndex === index ? 'border-[var(--color-primary-500)]' : 'border-[var(--color-border-primary)]'}`}
-        ondragstart={() => start(item)}
-        ondragover={(e) => { e.preventDefault(); overIndex = index; }}
-        ondrop={() => drop(index)}
-        ondragend={() => { dragged = null; overIndex = null; }}
+        class={`border rounded-md ${variant === 'compact' ? 'p-2' : 'p-3'} ${state.overIndex === index ? 'border-[var(--color-primary-500)]' : 'border-[var(--color-border-primary)]'}`}
+        ondragstart={() => state.start(item)}
+        ondragover={(e) => { e.preventDefault(); state.handleDragOver(index); }}
+        ondrop={() => state.drop(index)}
+        ondragend={() => state.endDrag()}
       >
         <div class="flex items-center justify-between gap-2">
           <div class="flex items-center gap-2">

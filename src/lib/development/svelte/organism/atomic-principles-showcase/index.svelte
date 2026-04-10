@@ -1,26 +1,10 @@
 <script lang="ts">
+  import type { Props } from '$stylist/development/type/struct/atomic-principles-showcase';
+  import { createAtomicPrinciplesShowcaseState } from '$stylist/development/function/state/atomic-principles-showcase';
   import { Icon as BaseIcon } from '$stylist';
-const GitBranch = 'git-branch';
-const Code = 'code';
-const Layers = 'layers';
-const Package = 'package';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-  import type { AtomicPrinciplesRecipe } from '$stylist/information/interface/recipe/atomic-principles';
-
-  type AtomicPrinciplesProps = AtomicPrinciplesRecipe &
-    InformationHTMLAttributes<HTMLElement> & {
-      description?: string;
-    };
-
-  let {
-    stats,
-    badgeText = 'Atomic Design',
-    title = 'Built on Atomic Principles',
-    description = 'Every component follows the proven Atomic Design methodology',
-    class: className = '',
-    ...restProps
-  }: AtomicPrinciplesProps = $props();
+  let { ...props }: Props = $props();
+  const state = createAtomicPrinciplesShowcaseState(props);
 </script>
 
 <style>
@@ -33,25 +17,25 @@ const Package = 'package';
   }
 </style>
 
-<section class={`py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 ${className}`} {...restProps}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-20">
-      <div class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-full mb-6 border-2 border-orange-300 dark:border-orange-700">
-        <BaseIcon name={GitBranch} class="w-5 h-5 text-orange-600 dark:text-orange-400" />
-        <span class="text-sm font-bold text-orange-900 dark:text-orange-300">{badgeText}</span>
+<section class={state.sectionClass} {...state.restProps}>
+  <div class={state.innerContainerClass}>
+    <div class={state.textCenterClass}>
+      <div class={state.badgeClass}>
+        <BaseIcon name={state.GitBranch} class={state.badgeIconClass} />
+        <span class={state.badgeTextClass}>{state.badgeText}</span>
       </div>
-      <h2 class="text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6">
-        {title}
+      <h2 class={state.titleClass}>
+        {state.title}
       </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-        {description}
+      <p class={state.descriptionClass}>
+        {state.description}
       </p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-10">
+    <div class={state.gridClass}>
       <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl p-10 border-2 border-blue-300 dark:border-blue-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all hover:scale-105 hover:-translate-y-2">
         <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-8 float-animation shadow-lg">
-          <BaseIcon name={Code} class="w-12 h-12 text-white" />
+          <BaseIcon name={state.Code} class="w-12 h-12 text-white" />
         </div>
         <h3 class="text-3xl font-black text-gray-900 dark:text-white mb-4">
           Atoms
@@ -60,14 +44,14 @@ const Package = 'package';
           Basic building blocks - buttons, inputs, labels, icons
         </p>
         <div class="text-5xl font-black text-blue-600 dark:text-blue-400">
-          {stats?.atoms ?? 0}
+          {state.stats?.atoms ?? 0}
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 font-semibold">components</p>
       </div>
 
       <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl p-10 border-2 border-purple-300 dark:border-purple-700 hover:border-purple-500 dark:hover:border-purple-400 transition-all hover:scale-105 hover:-translate-y-2" style="animation-delay: 0.1s">
         <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-8 float-animation shadow-lg" style="animation-delay: 1s">
-          <BaseIcon name={Layers} class="w-12 h-12 text-white" />
+          <BaseIcon name={state.Layers} class="w-12 h-12 text-white" />
         </div>
         <h3 class="text-3xl font-black text-gray-900 dark:text-white mb-4">
           Molecules
@@ -76,14 +60,14 @@ const Package = 'package';
           Combined atoms - search bars, cards, form fields
         </p>
         <div class="text-5xl font-black text-purple-600 dark:text-purple-400">
-          {stats?.molecules ?? 0}
+          {state.stats?.molecules ?? 0}
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 font-semibold">components</p>
       </div>
 
       <div class="group bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl p-10 border-2 border-green-300 dark:border-green-700 hover:border-green-500 dark:hover:border-green-400 transition-all hover:scale-105 hover:-translate-y-2" style="animation-delay: 0.2s">
         <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-8 float-animation shadow-lg" style="animation-delay: 2s">
-          <BaseIcon name={Package} class="w-12 h-12 text-white" />
+          <BaseIcon name={state.Package} class="w-12 h-12 text-white" />
         </div>
         <h3 class="text-3xl font-black text-gray-900 dark:text-white mb-4">
           Organisms
@@ -92,11 +76,10 @@ const Package = 'package';
           Complex components - headers, forms, modals
         </p>
         <div class="text-5xl font-black text-green-600 dark:text-green-400">
-          {stats?.organisms ?? 0}
+          {state.stats?.organisms ?? 0}
         </div>
         <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 font-semibold">components</p>
       </div>
     </div>
   </div>
 </section>
-

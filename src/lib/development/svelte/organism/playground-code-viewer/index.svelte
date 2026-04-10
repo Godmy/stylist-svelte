@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { buildComponentPreviewCode } from '$stylist/development/function/script/build-component-preview-code';
+  import { createPlaygroundCodeViewerState } from '$stylist/development/function/state/playground-code-viewer';
 
   type Props = {
     code?: string;
@@ -14,123 +14,34 @@
     onDownloadError?: (error: unknown) => void;
   };
 
-  const {
-    code = '',
-    componentName = '',
-    props = {},
-    language = 'svelte',
-    theme = 'github-light',
-    onCopySuccess,
-    onCopyError,
-    onDownloadSuccess,
-    onDownloadError
-  }: Props = $props();
-
-  let highlightedCode = $state('');
-  let isLoading = $state(true);
-  let currentTheme = $state(theme);
-  let darkMode = $state(false);
+  let props: Props = $props();
+  const state = createPlaygroundCodeViewerState(props);
   let highlightSequence = 0;
-  let shikiLoader: Promise<typeof import('shiki')> | null = null;
-
-  const generatedCode = $derived.by(() => {
-    if (componentName && Object.keys(props).length > 0) {
-      return buildComponentPreviewCode({ componentName, props });
-    }
-    return code;
-  });
-
-  const currentLanguage = $derived.by(() => (componentName ? 'svelte' : language));
-
-  $effect(() => {
-    const codeSnippet = generatedCode;
-    const lang = currentLanguage;
-    const activeTheme = currentTheme;
-    const requestId = ++highlightSequence;
-    highlightCode(codeSnippet, lang, activeTheme, requestId);
-  });
-
-  $effect(() => {
-    currentTheme = darkMode ? 'github-dark' : 'github-light';
-  });
-
-  const loadShiki = () => {
-    if (!shikiLoader) {
-      shikiLoader = import('shiki');
-    }
-    return shikiLoader;
-  };
-
-  async function highlightCode(codeToHighlight: string, lang: string, activeTheme: string, requestId: number) {
-    if (!codeToHighlight) {
-      highlightedCode = '';
-      isLoading = false;
-      return;
-    }
-
-    try {
-      isLoading = true;
-      const { codeToHtml } = await loadShiki();
-      const highlighted = await codeToHtml(codeToHighlight, {
-        lang,
-        theme: activeTheme
-      });
-
-      if (requestId === highlightSequence) {
-        highlightedCode = highlighted;
-      }
-    } catch (error) {
-      if (requestId === highlightSequence) {
-        console.error('Code highlight error', error);
-        highlightedCode = `<pre><code>${codeToHighlight}</code></pre>`;
-      }
-    } finally {
-      if (requestId === highlightSequence) {
-        isLoading = false;
-      }
-    }
-  }
-
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(generatedCode);
-      onCopySuccess?.();
-    } catch (error) {
-      console.error('Copy error', error);
-      onCopyError?.(error);
-    }
-  };
-
-  const downloadCode = () => {
-    try {
-      const blob = new Blob([generatedCode], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${componentName || 'component'}.svelte`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      onDownloadSuccess?.();
-    } catch (error) {
-      console.error('Download error', error);
-      onDownloadError?.(error);
-    }
-  };
 
   onMount(() => {
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      darkMode = true;
+      state.darkMode = true;
     }
 
     const media = window.matchMedia('(prefers-color-scheme: dark)');
     const handler = (e: MediaQueryListEvent) => {
-      darkMode = e.matches;
+      state.darkMode = e.matches;
     };
     media.addEventListener('change', handler);
 
     return () => media.removeEventListener('change', handler);
+  });
+
+  $effect(() => {
+    state.currentTheme = state.darkMode ? 'github-dark' : 'github-light';
+  });
+
+  $effect(() => {
+    const codeSnippet = state.generatedCode;
+    const lang = state.currentLanguage;
+    const activeTheme = state.currentTheme;
+    const requestId = ++highlightSequence;
+    state.highlightCode(codeSnippet, lang, activeTheme, requestId);
   });
 </script>
 
@@ -148,21 +59,21 @@
 
   <div class="code-toolbar flex items-center justify-between p-2 bg-gray-100 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
     <div class="text-xs text-gray-500 dark:text-gray-400">
-      {currentLanguage} • {generatedCode.split('n').length} lines
-      {#if componentName}
+      {state.currentLanguage} • {state.generatedCode.split('\n').length} lines
+      {#if state.componentName}
         • Dynamic generation
       {/if}
     </div>
     <div class="flex space-x-2">
       <button
-        onclick={copyCode}
+        onclick={state.copyCode}
         class="text-xs bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-2 py-1 rounded"
         title="Copy code"
       >
         Copy
       </button>
       <button
-        onclick={downloadCode}
+        onclick={state.downloadCode}
         class="text-xs bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-2 py-1 rounded"
         title="Download file"
       >
@@ -172,12 +83,12 @@
   </div>
 
   <div class="code-content overflow-auto max-h-96">
-    {#if isLoading}
+    {#if state.isLoading}
       <div class="p-4 text-center text-gray-500 dark:text-gray-400">
         Loading highlighted code...
       </div>
-    {:else if highlightedCode}
-      {@html highlightedCode}
+    {:else if state.highlightedCode}
+      {@html state.highlightedCode}
     {:else}
       <div class="p-4 text-gray-500 dark:text-gray-400">
         No code to display
@@ -185,7 +96,3 @@
     {/if}
   </div>
 </div>
-
-
-
-

@@ -1,77 +1,31 @@
-﻿<script lang="ts">
+<script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon } from '$stylist';
 	import type { MessageInputContract } from '$stylist/communication/interface/component/message-input';
 	import { createMessageInputState } from '$stylist/communication/function/state/message-input';
-	import {
-		handleInputFn,
-		handleKeydownFn,
-		handleAttachFn,
-		handleEmojiFn
-	} from '$stylist/communication/function/script/message-input-handlers';
 
 	let props: MessageInputContract & InteractionHTMLAttributes<HTMLDivElement> = $props();
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				disabled: _disabled,
-				placeholder: _placeholder,
-				showAttachment: _showAttachment,
-				showEmoji: _showEmoji,
-				showSend: _showSend,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
-
-	const messageState = createMessageInputState(props as any);
-
-	let messageContent = $state('');
-
-	function handleSend() {
-		if (messageContent.trim()) {
-			props.onSendMessage?.(messageContent);
-			messageContent = '';
-		}
-	}
-
-	function handleInput(e: Event) {
-		handleInputFn(e, props);
-	}
-
-	function handleKeydown(e: KeyboardEvent) {
-		handleKeydownFn(e, handleSend);
-	}
-
-	function handleAttach() {
-		handleAttachFn(props);
-	}
-
-	function handleEmoji() {
-		handleEmojiFn(props);
-	}
+	const state = createMessageInputState(props);
 </script>
 
-<div class={messageState.containerClasses} {...restProps}>
-	<div class={messageState.actionButtonsClasses}>
-		{#if messageState.showAttachmentButton}
+<div class={state.containerClasses} {...state.restProps}>
+	<div class={state.actionButtonsClasses}>
+		{#if state.showAttachmentButton}
 			<button
-				class={messageState.actionButtonClasses}
-				onclick={handleAttach}
-				disabled={messageState.disabled}
+				class={state.actionButtonClasses}
+				onclick={() => state.handleAttach()}
+				disabled={state.disabled}
 				title="Attach file"
 			>
 				<Icon name="attachment" size="md" />
 			</button>
 		{/if}
 
-		{#if messageState.showEmojiButton}
+		{#if state.showEmojiButton}
 			<button
-				class={messageState.actionButtonClasses}
-				onclick={handleEmoji}
-				disabled={messageState.disabled}
+				class={state.actionButtonClasses}
+				onclick={() => state.handleEmoji()}
+				disabled={state.disabled}
 				title="Add emoji"
 			>
 				<Icon name="smile" size="md" />
@@ -79,32 +33,26 @@
 		{/if}
 	</div>
 
-	<div class={messageState.inputContainerClasses}>
+	<div class={state.inputContainerClasses}>
 		<textarea
-			class={messageState.inputClasses}
-			bind:value={messageContent}
-			placeholder={messageState.placeholder}
-			disabled={messageState.disabled}
-			oninput={handleInput}
-			onkeydown={handleKeydown}
+			class={state.inputClasses}
+			bind:value={state.messageContent}
+			placeholder={state.placeholder}
+			disabled={state.disabled}
+			oninput={(e) => state.handleInput(e)}
+			onkeydown={(e) => state.handleKeydown(e)}
 			rows={1}
 		></textarea>
 	</div>
 
-	{#if messageState.showSendButton}
+	{#if state.showSendButton}
 		<button
-			class={messageState.sendButtonClasses}
-			onclick={handleSend}
-			disabled={messageState.disabled || !messageContent.trim()}
+			class={state.sendButtonClasses}
+			onclick={() => state.handleSend()}
+			disabled={state.disabled || !state.messageContent.trim()}
 			title="Send"
 		>
 			<Icon name="send" size="md" />
 		</button>
 	{/if}
 </div>
-
-
-
-
-
-

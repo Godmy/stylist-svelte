@@ -5,11 +5,9 @@ const ChevronDown = 'chevron-down';
 const ChevronsUpDown = 'chevrons-up-down';
 
   import { createSortableTableHeaderState } from '$stylist/control/function/state/sortable-table-header';
-  import type { SortableTableHeaderProps } from '$stylist/control/interface/component/sortable-table-header/other';
-  import type { HTMLAttributes } from 'svelte/elements';
+  import type { SortableTableHeaderProps } from '$stylist/control/type/struct/sortable-table-header-props';
 
-  type Props = SortableTableHeaderProps & HTMLAttributes<HTMLTableHeaderCellElement>;
-  let props: Props = $props();
+  let props: SortableTableHeaderProps = $props();
 
   const state = createSortableTableHeaderState(props);
 
@@ -29,17 +27,11 @@ const ChevronsUpDown = 'chevrons-up-down';
         : ChevronDown
   );
 
-  function handleClick() {
-    if (state.sortKey) {
-      props.onValueInput?.(state.sortKey);
-      props.onValueChange?.(state.sortKey);
-    }
-  }
 </script>
 
 <th
   class={state.containerClasses}
-  onclick={handleClick}
+  onclick={state.handleClick}
   {...restProps}
 >
   <div class={state.contentClasses}>

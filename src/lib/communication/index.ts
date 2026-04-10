@@ -8,4 +8,4 @@ export type { ChatInterfaceProps, ChatMessageStatus, ChatPreviewContract, Collab
 export type { AIProvider, ChatPreviewMessage, ChatPreviewProps, Message, NotificationData, NotificationSettingsData, NotificationType, TokenCommunicationIcon, TokenMessageState, TokenMessageStatus, TokenNotifictionChannel } from './type';
 export type { ChatWindowChat } from './function';
 export type { Chat, ChatItemProps, ChatListProps, ChatMessageProps, ChatRoomProps, ChatStatusIndicatorProps, ChatWindowProps, CollaborativeEditorUser, IChatHeaderProps, IChatHeaderStyleClasses, IMessageBubbleProps, IMessageComposerProps, IMessageMetaProps, IMessageMetaStyleClasses, MapCommunicationContract, MessageAttachment, MessageInputProps, MessageItemProps, MessageListProps, MessageReaction, MessageThreadMessage, MessageThreadMessageData, MessageThreadProps, MessageTimestampProps, User, UserStatusProps } from './interface';
-export type { ChatPreviewItem, INotificationSettingsPreference } from './type';
+export type { ChatHeaderChat, ChatHeaderProps, ChatHeaderUser, ChatPreviewItem, INotificationSettingsPreference } from './type';

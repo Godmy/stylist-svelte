@@ -4,7 +4,7 @@ import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
 type BaseLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	children?: Snippet;
-	gap?: string;
+	gap?: number;
 	align?: string;
 	justify?: string;
 	alignItems?: string;

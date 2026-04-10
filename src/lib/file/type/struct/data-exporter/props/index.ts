@@ -1,5 +1,5 @@
 import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
-import type { DataItem } from '$stylist/file/type/struct/data-exporter';
+import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 
 export type Props = {
   data?: DataItem[];

@@ -1,4 +1,4 @@
-import type { Preset } from '$stylist/interaction/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { AccessibilityToolbarStyleManager } from '$stylist/control/class/style-manager/accessibility-toolbar/index';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
@@ -70,7 +70,6 @@ export const createBasePreset = <V extends string, S extends string>(
 		sizes.map((s) => [s, s === 'sm' ? 'w-3 h-3' : s === 'lg' ? 'w-5 h-5' : 'w-4 h-4'])
 	) as Record<S, string>
 });
-
 
 
 

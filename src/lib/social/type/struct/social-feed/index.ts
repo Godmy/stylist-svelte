@@ -1,6 +1,6 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 
-export type SOCIAL_FEED_POST = {
+export type Post = {
   id: string;
   title: string;
   subtitle?: string;
@@ -19,27 +19,27 @@ export type SOCIAL_FEED_POST = {
   isBookmarked: boolean;
 };
 
-export type SOCIAL_FEED_FILTER_OPTION = {
+export type FilterOption = {
   id: string;
   label: string;
   active: boolean;
 };
 
-export type SOCIAL_FEED_USER = {
+export type FeedUser = {
   id: string;
   name: string;
   avatar?: string;
 };
 
-export type SOCIAL_FEED_REST_PROPS = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+export type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
 
-export type SOCIAL_FEED_PROPS = SOCIAL_FEED_REST_PROPS & {
-  posts: SOCIAL_FEED_POST[];
-  currentUser?: SOCIAL_FEED_USER;
+export type Props = RestProps & {
+  posts: Post[];
+  currentUser?: FeedUser;
   showFilters?: boolean;
   showSearch?: boolean;
   showCreatePost?: boolean;
-  filters?: SOCIAL_FEED_FILTER_OPTION[];
+  filters?: FilterOption[];
   showLoadMore?: boolean;
   onPostLike?: (postId: string) => void;
   onPostComment?: (postId: string) => void;

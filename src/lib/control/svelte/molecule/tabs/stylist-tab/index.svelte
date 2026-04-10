@@ -1,57 +1,37 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist';
-
-	type StylistTabItem = {
-		id: string;
-		label: string;
-		icon: string;
-	};
-
-	type Props = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {
-		class?: string;
-		items?: StylistTabItem[];
-		selectedId?: string;
-		onSelect?: (item: StylistTabItem) => void;
-	};
-
-	const defaultItems: StylistTabItem[] = [
-		{ id: 'architecture', label: 'Architecture', icon: 'grid-layout' },
-		{ id: 'information', label: 'Information', icon: 'text' },
-		{ id: 'interaction', label: 'Interaction', icon: 'controls' }
-	];
+	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/control/const/struct/stylist-tab-default-items';
+	import { createStylistTabState } from '$stylist/control/function/state/stylist-tab';
+	import type { StylistTabItem } from '$stylist/control/type/struct/stylist-tab-item';
+	import type { StylistTabProps } from '$stylist/control/type/struct/stylist-tab-props';
 
 	let {
 		class: className = '',
-		items = defaultItems,
+		items = STYLIST_TAB_DEFAULT_ITEMS,
 		selectedId = 'architecture',
 		onSelect,
 		...restProps
-	}: Props = $props();
+	}: StylistTabProps = $props();
 
-	let activeId = $state(selectedId);
-
-	$effect(() => {
-		activeId = selectedId;
+	const state = createStylistTabState({
+		class: className,
+		items,
+		selectedId,
+		onSelect
 	});
-
-	function handleSelect(item: StylistTabItem) {
-		activeId = item.id;
-		onSelect?.(item);
-	}
 </script>
 
-<div class={`stylist-tab ${className}`} role="tablist" aria-label="Functional taxonomy" {...restProps}>
-	{#each items as item}
+<div class={`stylist-tab ${state.className}`} role="tablist" aria-label="Functional taxonomy" {...restProps}>
+	{#each state.items as item}
 		<button
 			type="button"
 			class="tab-item"
-			class:is-active={activeId === item.id}
+			class:is-active={state.activeId === item.id}
 			role="tab"
-			aria-selected={activeId === item.id}
+			aria-selected={state.activeId === item.id}
 			aria-label={item.label}
 			data-tooltip={item.label}
-			onclick={() => handleSelect(item)}
+			onclick={() => state.handleSelect(item)}
 		>
 			<BaseIcon name={item.icon} class="tab-icon" />
 			<span class="tab-text">{item.label}</span>

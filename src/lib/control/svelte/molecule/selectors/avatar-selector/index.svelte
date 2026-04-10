@@ -1,37 +1,33 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
-  
-  let {
-    src = '',
-    alt = 'Avatar',
-    size = 'md',
-    class: className = '',
-    children
-  } = $props<{
-    src?: string;
-    alt?: string;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    class?: string;
-    children?: Snippet;
-  }>();
+  import type { AvatarSelectorProps } from '$stylist/control/function/state/avatar-selector';
+  import { createAvatarSelectorState } from '$stylist/control/function/state/avatar-selector';
 
-  const sizeClasses = {
-    sm: 'w-8 h-8',
-    md: 'w-12 h-12',
-    lg: 'w-16 h-16',
-    xl: 'w-24 h-24'
-  };
+  let props: AvatarSelectorProps = $props();
+  const state = createAvatarSelectorState(props);
+
+  const restProps = $derived.by(() => {
+    const {
+      class: _class,
+      src: _src,
+      alt: _alt,
+      size: _size,
+      children: _children,
+      ...rest
+    } = props;
+    return rest;
+  });
 </script>
 
-<div class={`inline-block ${className}`}>
-  <img 
-    src={src} 
-    alt={alt} 
-    class={`rounded-full object-cover ${sizeClasses[size as keyof typeof sizeClasses]}`}
+<div class={`${state.containerClass} ${state.className}`}>
+  <img
+    src={state.src}
+    alt={state.alt}
+    class={state.imageClass}
   />
-  {#if children}
+  {#if state.hasChildren}
     <div class="absolute bottom-0 right-0">
-      {@render children()}
+      {@render state.children()}
     </div>
   {/if}
 </div>

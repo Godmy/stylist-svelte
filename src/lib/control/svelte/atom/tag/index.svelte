@@ -1,20 +1,10 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist';
-	import type { Snippet } from 'svelte';
 const X = 'x';
-
-
-	import type { TagRecipe } from '$stylist/typography/interface/recipe/tag';
 	import { createTagState } from '$stylist/control/function/state/tag';
+	import type { TagProps } from '$stylist/control/type/struct/tag-props';
 
-	type Props = TagRecipe &
-		InteractionHTMLAttributes<HTMLSpanElement> & {
-			text?: string;
-			icon?: Snippet;
-			content?: Snippet;
-		};
-	let props: Props = $props();
+	let props: TagProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {
@@ -35,11 +25,6 @@ const X = 'x';
 	const state = createTagState(props);
 	const icon = $derived(props.icon);
 	const content = $derived(props.content);
-
-	function handleClose() {
-		if (state.disabled) return;
-		props.onClose?.();
-	}
 </script>
 
 <span class={state.classes} {...restProps}>
@@ -61,7 +46,7 @@ const X = 'x';
 		<button
 			type="button"
 			class={state.closeButtonClasses}
-			onclick={handleClose}
+			onclick={state.handleClose}
 			disabled={state.disabled}
 			aria-label="Remove tag"
 		>

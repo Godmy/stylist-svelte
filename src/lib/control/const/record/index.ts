@@ -4,6 +4,7 @@ export { ACCORDION_PANEL_PADDING_CLASSES } from './accordion-panel-padding-class
 export { BUTTON_SIZE_CLASSES } from './button-size-classes';
 export { BUTTON_VARIANT_CLASSES } from './button-variant-classes';
 export { CHECKBOX_SIZE_CLASSES } from './checkbox-size-classes';
+export { CUBE_FACE_NAMES, CUBE_FACE_NUMBERS_SNAPSHOT, CUBE_FACE_THEMES, CUBE_FACE_TITLES, CUBE_HORIZONTAL_ICONS, CUBE_VERTICAL_ICONS } from './cube-face-config';
 export { FOLLOW_BUTTON_VARIANT_CLASSES } from './follow-button-variant-classes';
 export { ICON_BUTTON_ICON_SIZE_CLASSES } from './icon-button-icon-size-classes';
 export { ICON_BUTTON_SIZE_CLASSES } from './icon-button-size-classes';

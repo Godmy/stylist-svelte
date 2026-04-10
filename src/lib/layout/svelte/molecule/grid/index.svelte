@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { GridProps } from '$stylist/layout/type/struct/grid';
+  import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
   import { stateFn } from '$stylist/layout/function/state/grid';
 
   let props: GridProps = $props();

@@ -3,7 +3,7 @@ import type { Props } from '$stylist/information/type/struct';
 import type { ButtonFactoryInput } from '$stylist/interaction/factory/button';
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { RECORD_ICON_SIZE } from '$stylist/media/const/record/icon-size';
-import type { Preset } from '$stylist/interaction/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';

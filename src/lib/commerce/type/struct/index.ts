@@ -12,6 +12,7 @@ export type { ProductTourStep } from './product-tour-step';
 export type { RFQFormData } from './rfq-form-data';
 export type { RFQProduct } from './rfq-product';
 export type { RFQFormProps } from './rfqform-props';
+export type { BulkOrderFormItem, BulkOrderFormProduct, BulkOrderFormProps } from './bulk-order-form';
 export type { PaymentMethod } from './payment-method';
 export type { PaymentMethodSelectorProps } from './payment-method-selector-props';
 export type { PaymentSelectorProps } from './payment-selector-props';

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundCtaButtonsState } from '$stylist/development/function/state/playground-cta-buttons';
 const Package = 'package';
 const Layers = 'layers';
 const ArrowRight = 'arrow-right';
@@ -19,20 +20,14 @@ const ArrowRight = 'arrow-right';
 
   let {
     totalComponents,
-    componentsHref = '/components',
-    playgroundHref = '/playground',
-    componentsTitle = 'Browse Components',
-    componentsDescriptionPrefix = 'Explore',
-    playgroundTitle = 'Interactive Playground',
-    playgroundDescription = 'Test components with live controls and code generation',
-    class: className = '',
     ...restProps
   }: Props = $props();
+  const state = createPlaygroundCtaButtonsState({ totalComponents, ...restProps });
 </script>
 
-<div class={`slide-up grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto ${className}`} style="animation-delay: 0.8s" {...restProps}>
+<div class="slide-up grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto {state.className}" style="animation-delay: 0.8s" {...restProps}>
   <a
-    href={componentsHref}
+    href={state.componentsHref}
     class="group relative bg-gradient-to-r from-orange-600 via-orange-500 to-red-600 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-orange-500/50 p-8 transition-all duration-[var(--duration-300)] hover:scale-105 hover:-translate-y-1 overflow-hidden"
   >
     <div class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity"></div>
@@ -41,15 +36,15 @@ const ArrowRight = 'arrow-right';
       <BaseIcon name={ArrowRight} class="w-8 h-8 text-white/70 group-hover:text-white group-hover:translate-x-3 transition-all" />
     </div>
     <h3 class="relative text-3xl font-black text-white mb-3">
-      {componentsTitle}
+      {state.componentsTitle}
     </h3>
     <p class="relative text-orange-50">
-      {componentsDescriptionPrefix} {totalComponents} AI-generated production-ready components
+      {state.componentsDescriptionPrefix} {state.totalComponents} AI-generated production-ready components
     </p>
   </a>
 
   <a
-    href={playgroundHref}
+    href={state.playgroundHref}
     class="group relative bg-gradient-to-br from-purple-600 via-purple-500 to-pink-600 rounded-2xl shadow-xl hover:shadow-2xl hover:shadow-purple-500/50 p-8 transition-all duration-[var(--duration-300)] hover:scale-105 hover:-translate-y-1 overflow-hidden"
   >
     <div class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity"></div>
@@ -58,13 +53,10 @@ const ArrowRight = 'arrow-right';
       <BaseIcon name={ArrowRight} class="w-8 h-8 text-white/70 group-hover:text-white group-hover:translate-x-3 transition-all" />
     </div>
     <h3 class="relative text-3xl font-black text-white mb-3">
-      {playgroundTitle}
+      {state.playgroundTitle}
     </h3>
     <p class="relative text-purple-50">
-      {playgroundDescription}
+      {state.playgroundDescription}
     </p>
   </a>
 </div>
-
-
-

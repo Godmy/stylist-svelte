@@ -14,6 +14,18 @@ export function createCountryFlagState(props: CountryFlagProps) {
 	const fallbackStyle = $derived(MediaStyleManager.getCountryFlagStyle(size));
 	const fallbackClasses = $derived(MediaStyleManager.getCountryFlagFallbackClasses());
 
+	// Rest props
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			countryCode: _countryCode,
+			size: _size,
+			content: _content,
+			...rest
+		} = props;
+		return rest;
+	});
+
 	return {
 		get countryCode() {
 			return countryCode;
@@ -38,6 +50,9 @@ export function createCountryFlagState(props: CountryFlagProps) {
 		},
 		get fallbackClasses() {
 			return fallbackClasses;
+		},
+		get restProps() {
+			return restProps;
 		}
 	};
 }

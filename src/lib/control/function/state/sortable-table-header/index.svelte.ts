@@ -35,7 +35,13 @@ export function createSortableTableHeaderState(props: SortableTableHeaderProps) 
     isCurrentSort,
     containerClasses,
     contentClasses: styles.content,
-    iconClasses: styles.icon
+    iconClasses: styles.icon,
+    handleClick() {
+      if (sortKey) {
+        props.onValueInput?.(sortKey);
+        props.onValueChange?.(sortKey);
+      }
+    }
   };
 }
 

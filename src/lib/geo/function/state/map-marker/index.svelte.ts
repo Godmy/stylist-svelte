@@ -77,6 +77,10 @@ export function createMapMarkerState(props: MapMarkerStateProps) {
 		return MapMarkerStyleManager.getStarClasses(isFilled, isHalf);
 	}
 
+	function handleKeyDown(e: KeyboardEvent, fn: () => void): void {
+		if (e.key === 'Enter' || e.key === ' ') fn();
+	}
+
 	// Rest props
 	const restProps = $derived.by(() => {
 		const {
@@ -204,7 +208,9 @@ export function createMapMarkerState(props: MapMarkerStateProps) {
 		handleInfoClick,
 		handleNavigateClick,
 		getIconForType,
-		getStarClasses
+		getStarClasses,
+		handleKeyDown,
+		set isPopupOpen(value: boolean) { isPopupOpen = value; }
 	};
 }
 

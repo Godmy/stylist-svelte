@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { IDropdownMenuProps } from '$stylist/control/interface/component/dropdown-menu/other';
-  import { DropdownMenuStyleManager } from '$stylist/control/class/style-manager/dropdown-menu';
+  import { createDropdownMenuState } from '$stylist/control/function/state/dropdown-menu';
   import { Button, Icon } from '$stylist';
 
   /**
@@ -27,67 +27,37 @@
     children,
     ...restProps
   }: IDropdownMenuProps = $props();
-
-  let isOpen = $state(false);
-  let dropdownId = `dropdown-${Math.random().toString(36).substr(2, 9)}`;
-
-  // Handle clicks outside to close dropdown
-  $effect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (isOpen && !event.composedPath().some((el) => el instanceof Element && el.id === dropdownId)) {
-        isOpen = false;
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
+  const state = createDropdownMenuState({
+    position,
+    disabled,
+    class: className
   });
-
-  const toggleDropdown = () => {
-    if (!disabled) {
-      isOpen = !isOpen;
-    }
-  };
-
-  const closeDropdown = () => {
-    isOpen = false;
-  };
-
-  let classes = $derived(
-    DropdownMenuStyleManager.getAllClasses(position, disabled, className)
-  );
-
-  const menuClasses = $derived(
-    DropdownMenuStyleManager.getMenuClasses(position)
-  );
-
-  let chevronClass = $derived(`dropdown-chevron ${isOpen ? 'rotated' : ''}`);
 </script>
 
-<div class={classes} id={dropdownId} {...restProps}>
+<div class={state.classes} id={state.dropdownId} {...restProps}>
   <div>
     <Button
       variant="ghost"
       class="dropdown-button"
-      aria-expanded={isOpen}
+      aria-expanded={state.isOpen}
       aria-haspopup="true"
       aria-controls="dropdown-menu"
       disabled={disabled}
-      onclick={toggleDropdown}
+      onclick={state.toggleDropdown}
     >
       {label}
       <Icon
         name="chevron-down"
-        class={chevronClass}
+        class={state.chevronClass}
         aria-hidden="true"
       />
     </Button>
   </div>
 
-  {#if isOpen}
+  {#if state.isOpen}
     <div
       id="dropdown-menu"
-      class={menuClasses}
+      class={state.menuClasses}
       role="menu"
       aria-orientation="vertical"
       aria-labelledby="menu-button"
@@ -95,7 +65,7 @@
     >
       <div class="dropdown-content" role="none">
         {#if children}
-          {@render children({ closeDropdown })}
+          {@render children({ closeDropdown: state.closeDropdown })}
         {/if}
       </div>
     </div>

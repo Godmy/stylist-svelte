@@ -1,8 +1,6 @@
-import type {
-	BulkOrderFormItem,
-	BulkOrderFormProduct,
-	BulkOrderFormProps
-} from '$stylist/commerce/type/struct/bulk-order-form';
+import type { BulkOrderFormItem } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-item';
+import type { BulkOrderFormProduct } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-product';
+import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';
 
 export function BulkOrderFormModel(props: BulkOrderFormProps) {
 	let items = $state<BulkOrderFormItem[]>(props.initialItems ? [...props.initialItems] : []);

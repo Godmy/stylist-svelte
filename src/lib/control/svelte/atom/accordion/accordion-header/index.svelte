@@ -1,31 +1,19 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { HTMLButtonAttributes } from 'svelte/elements';
 	import { Icon as BaseIcon } from '$stylist';
-	import type { AccordionHeaderProps } from '$stylist/control/interface/component/accordion/other';
+	import { ACCORDION_HEADER_CONTEXT } from '$stylist/control/const/struct/accordion-header-context';
 	import { createAccordionHeaderState } from '$stylist/control/function/state/accordion-header';
+	import type { AccordionHeaderProps } from '$stylist/control/type/struct/accordion-header-props';
 
-	type Props = AccordionHeaderProps & HTMLButtonAttributes;
+	let props: AccordionHeaderProps = $props();
 
-	let props: Props = $props();
+	const accordionContext = getContext<typeof ACCORDION_HEADER_CONTEXT>('accordion-context') ?? ACCORDION_HEADER_CONTEXT;
 
-	const context = getContext<{
-		accordionId: string;
-		isPanelOpen: (panelId: string) => boolean;
-		handleValueChange: (panelId: string) => void;
-	}>('accordion-context') ?? {
-		accordionId: '',
-		isPanelOpen: () => false,
-		handleValueChange: () => {}
-	};
-
-	let isOpen = $derived(context.isPanelOpen(props.value));
-
-	const state = createAccordionHeaderState(props);
-
-	function handleClick() {
-		context.handleValueChange(props.value);
-	}
+	const state = createAccordionHeaderState({
+		...props,
+		isOpen: () => accordionContext.isPanelOpen(props.value),
+		handleValueChange: accordionContext.handleValueChange
+	});
 
 	const restProps = $derived.by(() => {
 		const {
@@ -45,7 +33,7 @@
 	{...restProps}
 	type="button"
 	class={state.classes}
-	onclick={handleClick}
+	onclick={state.handleClick}
 	aria-expanded={isOpen}
 >
 	<span>{@render props.children?.()}</span>

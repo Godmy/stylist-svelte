@@ -8,6 +8,10 @@ export type SwitchWithLabelStateProps = {
   class?: string;
   switchClass?: string;
   labelClass?: string;
+  onValueInput?: (value: boolean) => void;
+  onValueChange?: (value: boolean) => void;
+  onInput?: (value: boolean) => void;
+  onChange?: (value: boolean) => void;
 };
 
 export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
@@ -15,9 +19,13 @@ export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
   const switchClassName = props.switchClass ?? '';
   const labelClassName = props.labelClass ?? '';
   const disabled = props.disabled ?? false;
-  const checked = props.checked ?? false;
+  let checked = $state(props.checked ?? false);
   const label = props.label ?? '';
   const labelPosition = props.labelPosition ?? 'right';
+
+  $effect(() => {
+    checked = props.checked ?? false;
+  });
 
   const containerClasses = joinClassNames(
     'flex items-center gap-2',
@@ -45,16 +53,53 @@ export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
 
   const labelPositionClass = labelPosition === 'left' ? 'order-first' : 'order-last';
 
+  function handleToggle() {
+    if (disabled) return;
+
+    checked = !checked;
+    props.onValueInput?.(checked);
+    props.onValueChange?.(checked);
+    props.onInput?.(checked);
+    props.onChange?.(checked);
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleToggle();
+    }
+  }
+
   return {
-    disabled,
-    checked,
-    label,
-    labelPosition,
-    containerClasses,
-    switchClasses,
-    handleClasses,
-    labelClasses,
-    labelPositionClass
+    get disabled() {
+      return disabled;
+    },
+    get checked() {
+      return checked;
+    },
+    get label() {
+      return label;
+    },
+    get labelPosition() {
+      return labelPosition;
+    },
+    get containerClasses() {
+      return containerClasses;
+    },
+    get switchClasses() {
+      return switchClasses;
+    },
+    get handleClasses() {
+      return handleClasses;
+    },
+    get labelClasses() {
+      return labelClasses;
+    },
+    get labelPositionClass() {
+      return labelPositionClass;
+    },
+    handleToggle,
+    handleKeyDown
   };
 }
 

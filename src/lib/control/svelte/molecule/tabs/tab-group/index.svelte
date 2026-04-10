@@ -1,9 +1,8 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-  import type { Snippet } from 'svelte';
-
   import type { ITabGroupProps } from '$stylist/control/interface/component/tab-group/other';
   import { TabGroupStyleManager } from '$stylist/control/class/style-manager/tab-group';
+  import { createTabGroupState } from '$stylist/control/function/state/tab-group';
 
   /**
    * TabGroup component - A flexible tab component with various visual styles and states
@@ -43,56 +42,39 @@
     ...restProps
   }: ITabGroupProps = $props();
 
-  let currentTab = $state(activeTab);
-
-  $effect(() => {
-    if (tabs.length > 0 && !tabs.some(tab => tab.id === currentTab)) {
-      currentTab = tabs[0].id;
-    }
+  const state = createTabGroupState({
+    tabs,
+    activeTab,
+    variant,
+    class: className,
+    tabListClass,
+    tabClass,
+    activeTabClass,
+    inactiveTabClass,
+    panelClass,
+    onValueInput,
+    onValueChange,
+    onChange
   });
-
-  function changeTab(tabId: string) {
-    const tab = tabs.find(t => t.id === tabId);
-    if (tab && !tab.disabled) {
-      currentTab = tabId;
-      onValueInput?.(tabId);
-      onValueChange?.(tabId);
-      onChange?.(tabId);
-    }
-  }
-
-  // Set default active tab if not provided
-  $effect(() => {
-    if (!activeTab && tabs.length > 0) {
-      currentTab = tabs[0].id;
-    } else if (activeTab) {
-      currentTab = activeTab;
-    }
-  });
-
-  // Calculate classes using the style manager
-  let wrapperClasses = $derived(TabGroupStyleManager.getWrapperClasses(className));
-  let tabListClasses = $derived(TabGroupStyleManager.getTabListClasses(variant, tabListClass));
-  let panelClasses = $derived(TabGroupStyleManager.getPanelClasses(panelClass));
 </script>
 
-<div class={wrapperClasses} {...restProps}>
+<div class={state.wrapperClasses} {...restProps}>
   <!-- Tab List -->
-  <div class={tabListClasses}>
+  <div class={state.tabListClasses}>
     {#each tabs as tab}
       <button
         type="button"
         class={TabGroupStyleManager.getTabClasses(
           variant,
-          currentTab === tab.id,
+          state.currentTab === tab.id,
           !!tab.disabled,
           tabClass,
           activeTabClass,
           inactiveTabClass
         )}
-        onclick={() => changeTab(tab.id)}
+        onclick={() => state.changeTab(tab.id)}
         disabled={tab.disabled}
-        aria-selected={currentTab === tab.id}
+        aria-selected={state.currentTab === tab.id}
         role="tab"
       >
         {tab.title}
@@ -101,9 +83,9 @@
   </div>
 
   <!-- Tab Panels -->
-  <div class={panelClasses}>
+  <div class={state.panelClasses}>
     {#each tabs as tab}
-      {#if currentTab === tab.id}
+      {#if state.currentTab === tab.id}
         <div role="tabpanel" class="p-4" aria-labelledby={`tab-${tab.id}`}>
           {@render tab.content()}
         </div>

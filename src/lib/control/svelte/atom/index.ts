@@ -10,7 +10,7 @@ export { Tick } from './sliders';
 export { SortableTableHeader } from './tables';
 export { Tab, TabIndicator, TabList, TabPanel, TabPanels } from './tabs';
 export { Tag } from './tag';
-export { AdvancedToggle, Checkbox, Radio, Switch, SwitchWithLabel, ToggleGroupItem, ToggleGroupRoot, ToggleWithDescription } from './toggles';
+export { AdvancedToggle, Checkbox, Radio, Switch, SwitchWithLabel, Toggle, ToggleGroupItem, ToggleGroupRoot, ToggleWithDescription } from './toggles';
 export { TokenArrayControl } from './token-array-control';
 export { TokenControlBase } from './token-control-base';
 export { TokenControlComposer } from './token-control-composer';

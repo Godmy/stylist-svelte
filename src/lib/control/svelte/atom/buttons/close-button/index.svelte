@@ -17,7 +17,7 @@ import { createCloseButtonState } from '$stylist/control/function/state/close-bu
 	let props: ButtonElementProps = $props();
 
 	// Use centralized state management
-	const controlState = createCloseButtonState(props);
+	const state = createCloseButtonState(props);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let restButtonProps = $derived.by(() => {
@@ -39,13 +39,13 @@ import { createCloseButtonState } from '$stylist/control/function/state/close-bu
 <button
 	{...restButtonProps}
 	type={props.type ?? 'button'}
-	class={controlState.classes}
-	disabled={controlState.disabled}
-	aria-busy={controlState.loading ? true : undefined}
-	aria-live={controlState.loading ? 'polite' : undefined}
+	class={state.classes}
+	disabled={state.disabled}
+	aria-busy={state.loading ? true : undefined}
+	aria-live={state.loading ? 'polite' : undefined}
 >
-	{#if controlState.loading}
-		<BaseIcon name={Loader2} class={controlState.loaderClasses} aria-hidden="true" />
+	{#if state.loading}
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Closing...'}</span>
 	{:else}
 		<BaseIcon name={X} class="h-4 w-4" />

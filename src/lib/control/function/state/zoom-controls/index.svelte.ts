@@ -1,14 +1,17 @@
-import { derived, writable } from 'svelte/store';
 import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createZoomControlsState(props: ZoomControlsProps) {
-  // Initialize props with defaults
-  const initialValue = props.initialValue ?? 100;
-  const minZoom = props.minZoom ?? 50;
-  const maxZoom = props.maxZoom ?? 200;
-  const step = props.step ?? 10;
-  const showPercentage = props.showPercentage ?? true;
+  const initialValue = $derived(props.initialValue ?? 100);
+  const minZoom = $derived(props.minZoom ?? 50);
+  const maxZoom = $derived(props.maxZoom ?? 200);
+  const step = $derived(props.step ?? 10);
+  const showPercentage = $derived(props.showPercentage ?? true);
+  let currentZoom = $state(props.initialValue ?? 100);
+
+  $effect(() => {
+    currentZoom = props.initialValue ?? 100;
+  });
 
   const styles = {
     container: 'inline-flex flex-col gap-3 rounded-lg border border-[--color-border-secondary] bg-[--color-background-primary] p-3 shadow-sm',
@@ -25,38 +28,78 @@ export function createZoomControlsState(props: ZoomControlsProps) {
   };
 
   // Merge classes with custom classes
-  const containerClasses = derived(
-    [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => joinClassNames($container, $class)
+  const containerClasses = $derived(
+    joinClassNames(styles.container, props.class)
   );
 
-  const controlsContainerClasses = derived(
-    [writable(props.controlsClass), writable(styles.controlsContainer)],
-    ([$class, $container]) => joinClassNames($container, $class)
+  const controlsContainerClasses = $derived(
+    joinClassNames(styles.controlsContainer, props.controlsClass)
   );
 
-  const indicatorClasses = derived(
-    [writable(props.indicatorClass), writable(styles.indicator)],
-    ([$class, $indicator]) => joinClassNames($indicator, $class)
+  const indicatorClasses = $derived(
+    joinClassNames(styles.indicator, props.indicatorClass)
   );
 
   return {
-    initialValue,
-    minZoom,
-    maxZoom,
-    step,
-    showPercentage,
-    containerClasses,
+    get initialValue() {
+      return initialValue;
+    },
+    get minZoom() {
+      return minZoom;
+    },
+    get maxZoom() {
+      return maxZoom;
+    },
+    get step() {
+      return step;
+    },
+    get showPercentage() {
+      return showPercentage;
+    },
+    get currentZoom() {
+      return currentZoom;
+    },
+    get containerClasses() {
+      return containerClasses;
+    },
     indicatorContainerClasses: styles.indicatorContainer,
-    indicatorClasses,
-    controlsContainerClasses,
+    get indicatorClasses() {
+      return indicatorClasses;
+    },
+    get controlsContainerClasses() {
+      return controlsContainerClasses;
+    },
     controlButtonClasses: styles.controlButton,
     controlButtonDisabledClasses: styles.controlButtonDisabled,
     controlButtonFirstClasses: styles.controlButtonFirst,
     controlButtonMiddleClasses: styles.controlButtonMiddle,
     controlButtonLastClasses: styles.controlButtonLast,
     hintClasses: styles.hint,
-    kbdClasses: styles.kbd
+    kbdClasses: styles.kbd,
+    handleZoomIn() {
+      currentZoom = Math.min(currentZoom + step, maxZoom);
+      this.applyZoom();
+    },
+    handleZoomOut() {
+      currentZoom = Math.max(currentZoom - step, minZoom);
+      this.applyZoom();
+    },
+    handleReset() {
+      currentZoom = initialValue;
+      this.applyZoom();
+    },
+    applyZoom() {
+      const contentContainer =
+        (document.querySelector('.content-container') as HTMLElement | null) ?? document.body;
+      contentContainer.style.transform = `scale(${currentZoom / 100})`;
+      contentContainer.style.transformOrigin = 'top left';
+      contentContainer.style.width = `${100 * (100 / currentZoom)}%`;
+      contentContainer.style.height = `${100 * (100 / currentZoom)}%`;
+
+      props.onValueInput?.(currentZoom);
+      props.onValueChange?.(currentZoom);
+      props.onChange?.(currentZoom);
+    }
   };
 }
 

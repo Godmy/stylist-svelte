@@ -1,65 +1,41 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggles';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+	import type { HTMLInputAttributes } from 'svelte/elements';
+	import type { ToggleProps } from '$stylist/control/type/struct/toggle-props';
+	import { createToggleState } from '$stylist/control/function/state/toggle';
 
-	type Props = {
-		/** Размер переключателя */
-		size?: TokenSize;
-		/** Отключен ли переключатель */
-		disabled?: boolean;
-		/** Состояние checked (поддерживает two-way binding) */
-		checked?: boolean;
-		/** Дополнительные CSS классы */
-		class?: string;
-		/** Aria label */
-		ariaLabel?: string;
-		/** HTML name attribute */
-		name?: string;
-	} & Omit<InteractionHTMLAttributes<HTMLInputElement>, 'size' | 'checked'>;
+	let props: ToggleProps & HTMLInputAttributes = $props();
+	const state = createToggleState(props);
 
-	let {
-		size = 'md',
-		disabled = false,
-		checked = $bindable<boolean>(false),
-		class: className = '',
-		ariaLabel = 'Toggle',
-		id,
-		name,
-		...restProps
-	}: Props = $props();
-
-	// Classes using style manager
-	const containerClasses = $derived(TogglesStyleManager.getToggleContainerClasses(className));
-	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));
-	const trackClasses = $derived(TogglesStyleManager.getToggleTrackClasses(disabled, checked));
-	const thumbClasses = $derived(TogglesStyleManager.getToggleThumbClasses(size, disabled, checked));
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			size: _size,
+			disabled: _disabled,
+			checked: _checked,
+			ariaLabel: _ariaLabel,
+			id: _id,
+			name: _name,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
-<div class={containerClasses}>
+<div class={state.containerClasses}>
 	<input
-		{id}
-		{name}
+		id={props.id}
+		name={props.name}
 		type="checkbox"
-		bind:checked
-		disabled={disabled}
-		class={inputClasses}
-		aria-label={ariaLabel}
+		bind:checked={props.checked}
+		disabled={state.disabled}
+		class={state.inputClasses}
+		aria-label={state.ariaLabel}
 		role="switch"
-		aria-checked={checked ? 'true' : 'false'}
+		aria-checked={state.checked ? 'true' : 'false'}
 		{...restProps}
 	/>
 
-	<span class={trackClasses}>
-		<span class={thumbClasses}></span>
+	<span class={state.trackClasses}>
+		<span class={state.thumbClasses}></span>
 	</span>
 </div>
-
-
-
-
-
-
-
-
-

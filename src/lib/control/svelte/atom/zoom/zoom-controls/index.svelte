@@ -5,16 +5,11 @@ const ZoomOut = 'zoom-out';
 const RotateCcw = 'rotate-ccw';
 
   import { createZoomControlsState } from '$stylist/control/function/state/zoom-controls';
-  import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { ZoomControlsProps } from '$stylist/control/type/struct/zoom-controls-props';
 
-  type Props = ZoomControlsProps & InteractionHTMLAttributes<HTMLDivElement>;
-  let props: Props = $props();
+  let props: ZoomControlsProps = $props();
 
-  const zoomState = createZoomControlsState(props);
-  const initialZoom = zoomState.initialValue;
-
-  let zoomLevel = $state(initialZoom);
+  const state = createZoomControlsState(props);
 
   const restProps = $derived(
     (() => {
@@ -23,68 +18,35 @@ const RotateCcw = 'rotate-ccw';
     })()
   );
 
-  function zoomIn() {
-    if (zoomLevel < zoomState.maxZoom) {
-      zoomLevel = Math.min(zoomLevel + zoomState.step, zoomState.maxZoom);
-      applyZoom();
-    }
-  }
-
-  function zoomOut() {
-    if (zoomLevel > zoomState.minZoom) {
-      zoomLevel = Math.max(zoomLevel - zoomState.step, zoomState.minZoom);
-      applyZoom();
-    }
-  }
-
-  function resetZoom() {
-    zoomLevel = zoomState.initialValue;
-    applyZoom();
-  }
-
-  function applyZoom() {
-    // Apply the zoom transformation to the main content container
-    const contentContainer = document.querySelector('.content-container') as HTMLElement || document.body;
-    contentContainer.style.transform = `scale(${zoomLevel / 100})`;
-    contentContainer.style.transformOrigin = 'top left';
-    contentContainer.style.width = `${100 * (100 / zoomLevel)}%`;
-    contentContainer.style.height = `${100 * (100 / zoomLevel)}%`;
-
-    props.onValueInput?.(zoomLevel);
-    props.onValueChange?.(zoomLevel);
-    props.onChange?.(zoomLevel);
-  }
-
-  // Initialize zoom
   $effect(() => {
-    applyZoom();
+    state.applyZoom();
   });
 </script>
 
-<div class={zoomState.containerClasses} {...restProps}>
-  <div class={zoomState.indicatorContainerClasses}>
-    <div class={zoomState.indicatorClasses}>
+<div class={state.containerClasses} {...restProps}>
+  <div class={state.indicatorContainerClasses}>
+    <div class={state.indicatorClasses}>
       <span class="text-sm font-medium text-[var(--color-text-primary)]">
-        {zoomState.showPercentage ? `${zoomLevel}%` : zoomLevel}
+        {state.showPercentage ? `${state.currentZoom}%` : state.currentZoom}
       </span>
     </div>
   </div>
 
-  <div class={zoomState.controlsContainerClasses}>
+  <div class={state.controlsContainerClasses}>
     <button
       type="button"
-      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonFirstClasses} ${zoomLevel >= zoomState.maxZoom ? zoomState.controlButtonDisabledClasses : ''}`}
-      onclick={zoomIn}
+      class={`${state.controlButtonClasses} ${state.controlButtonFirstClasses} ${state.currentZoom >= state.maxZoom ? state.controlButtonDisabledClasses : ''}`}
+      onclick={() => state.handleZoomIn()}
       aria-label="Zoom in"
-      disabled={zoomLevel >= zoomState.maxZoom}
+      disabled={state.currentZoom >= state.maxZoom}
     >
       <BaseIcon name={ZoomIn} class="h-5 w-5" />
     </button>
 
     <button
       type="button"
-      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonMiddleClasses}`}
-      onclick={resetZoom}
+      class={`${state.controlButtonClasses} ${state.controlButtonMiddleClasses}`}
+      onclick={() => state.handleReset()}
       aria-label="Reset zoom"
     >
       <BaseIcon name={RotateCcw} class="h-5 w-5" />
@@ -92,21 +54,21 @@ const RotateCcw = 'rotate-ccw';
 
     <button
       type="button"
-      class={`${zoomState.controlButtonClasses} ${zoomState.controlButtonLastClasses} ${zoomLevel <= zoomState.minZoom ? zoomState.controlButtonDisabledClasses : ''}`}
-      onclick={zoomOut}
+      class={`${state.controlButtonClasses} ${state.controlButtonLastClasses} ${state.currentZoom <= state.minZoom ? state.controlButtonDisabledClasses : ''}`}
+      onclick={() => state.handleZoomOut()}
       aria-label="Zoom out"
-      disabled={zoomLevel <= zoomState.minZoom}
+      disabled={state.currentZoom <= state.minZoom}
     >
       <BaseIcon name={ZoomOut} class="h-5 w-5" />
     </button>
   </div>
 
-  <div class={zoomState.hintClasses}>
+  <div class={state.hintClasses}>
     <div>Zoom controls</div>
     <div class="flex space-x-1">
-      <kbd class={zoomState.kbdClasses}>Ctrl</kbd>
+      <kbd class={state.kbdClasses}>Ctrl</kbd>
       <span>+</span>
-      <kbd class={zoomState.kbdClasses}>-</kbd>
+      <kbd class={state.kbdClasses}>-</kbd>
     </div>
   </div>
 </div>

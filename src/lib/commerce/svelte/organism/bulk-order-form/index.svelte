@@ -12,7 +12,7 @@ const ImageIcon = 'image';
   import { Button } from '$stylist';
   import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
   import { BulkOrderFormModel } from '$stylist/commerce/function/state/bulk-order-form';
-  import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form';
+  import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';
   import { BulkOrderFormStyleManager } from '$stylist/commerce/class/style-manager/bulk-order-form';
 
   let {

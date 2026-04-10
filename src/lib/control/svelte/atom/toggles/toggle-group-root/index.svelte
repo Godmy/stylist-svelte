@@ -5,45 +5,17 @@
 
 	let props: ToggleGroupRootProps = $props();
 
-	const toggleGroupState = createToggleGroupRootState(props);
-
-	let internalValue = $state<string | string[] | null>(props.value ?? null);
-
-	$effect(() => {
-		internalValue = props.value ?? null;
-	});
-
-	function updateValue(newValue: string) {
-		let newValueState: string | string[] | null = internalValue;
-		if (toggleGroupState.type === 'single') {
-			newValueState = internalValue === newValue ? null : newValue;
-		} else {
-			if (Array.isArray(internalValue)) {
-				if (internalValue.includes(newValue)) {
-					newValueState = internalValue.filter((v: string) => v !== newValue);
-				} else {
-					newValueState = [...internalValue, newValue];
-				}
-			} else {
-				newValueState = [newValue];
-			}
-		}
-		internalValue = newValueState;
-		const event = new CustomEvent('valueChange', { detail: { value: newValueState } });
-		props.onValueChange?.(event);
-	}
+	const state = createToggleGroupRootState(props);
 
 	setContext('toggleGroup', {
-		updateValue,
+		updateValue: state.updateValue,
 		get value() {
-			return internalValue;
+			return state.value;
 		},
-		disabled: toggleGroupState.disabled
+		disabled: state.disabled
 	});
 
-	// Create a filtered object for HTML attributes only
-	let htmlProps = $state({});
-	$effect(() => {
+	const restProps = $derived.by(() => {
 		const {
 			value: _value,
 			type: _type,
@@ -51,13 +23,13 @@
 			children: _children,
 			onValueChange: _onValueChange,
 			class: _class,
-			...filteredProps
+			...rest
 		} = props;
-		htmlProps = filteredProps;
+		return rest;
 	});
 </script>
 
-<div class={toggleGroupState.classes} role="group" {...htmlProps}>
+<div class={state.classes} role="group">
 	{@render props.children?.()}
 </div>
 

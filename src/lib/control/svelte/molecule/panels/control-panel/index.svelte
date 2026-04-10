@@ -1,8 +1,8 @@
 <script lang="ts">
   import SearchBar from '$stylist/input/svelte/molecule/search/search-bar/index.svelte';
-
   import FilterPanel from '$stylist/form/svelte/molecule/forms/filter-panel/index.svelte';
   import Toolbar from '$stylist/control/svelte/molecule/toolbars/toolbar/index.svelte';
+  import { createControlPanelState } from '$stylist/control/function/state/control-panel';
 
   // Props
   let {
@@ -19,18 +19,7 @@
     onFilterChange?: (filters: any) => void;
   } = $props();
 
-  // Local state
-  let isLegendVisible = $state(true);
-  let isSearchVisible = $state(true);
-
-  // Define event handlers separately to ensure proper typing
-  function handleSearch(query: string) {
-    onSearch?.(query);
-  }
-
-  function handleClear() {
-    onSearch?.('');
-  }
+  const state = createControlPanelState({ onSearch });
 </script>
 
 <style>
@@ -56,8 +45,8 @@
     <div class="panel-section">
       <SearchBar
         placeholder="Search for types or fields..."
-        onSearch={handleSearch}
-        onClear={handleClear}
+        onSearch={state.handleSearch}
+        onClear={state.handleClear}
       />
     </div>
   {/if}

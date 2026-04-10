@@ -8,7 +8,7 @@ import { createPageButtonState } from '$stylist/control/function/state/page-butt
 	 * Uses the same props as Button for consistency (SOLID - Liskov Substitution)
 	 */
 	let props: PageButtonProps = $props();
-	const controlState = createPageButtonState({
+	const state = createPageButtonState({
 		...props,
 		isActive: props.isActive
 	} as any);
@@ -35,14 +35,14 @@ import { createPageButtonState } from '$stylist/control/function/state/page-butt
 <button
 	{...restButtonProps}
 	type={props.type ?? 'button'}
-	class={controlState.classes}
-	disabled={controlState.disabled}
-	aria-busy={controlState.loading ? true : undefined}
-	aria-live={controlState.loading ? 'polite' : undefined}
+	class={state.classes}
+	disabled={state.disabled}
+	aria-busy={state.loading ? true : undefined}
+	aria-live={state.loading ? 'polite' : undefined}
 	aria-current={props.isActive ? 'page' : undefined}
 >
-	{#if controlState.loading}
-		<BaseIcon name={Loader2} class={controlState.loaderClasses} aria-hidden="true" />
+	{#if state.loading}
+		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.children}
 		{@render props.children?.()}

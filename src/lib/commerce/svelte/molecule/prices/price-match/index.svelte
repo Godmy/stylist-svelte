@@ -1,77 +1,39 @@
 <script lang="ts">
-  import { PriceMatchStyleManager } from '$stylist/commerce/class/style-manager/price-match';
+	import type { PriceMatchProps } from '$stylist/commerce/function/state/price-match';
+	import { createPriceMatchState } from '$stylist/commerce/function/state/price-match';
 
-  let {
-    targetPrice = 0,
-    competitorPrices = [],
-    currency = '$',
-    productName = '',
-    onFindLower = () => {},
-    class: className = ''
-  } = $props<{
-    targetPrice?: number;
-    competitorPrices: Array<{ name: string; price: number; url?: string }>;
-    currency?: string;
-    productName?: string;
-    onFindLower?: () => void;
-    class?: string;
-  }>();
-
-  const bestPrice = $derived(competitorPrices.length > 0
-    ? Math.min(...competitorPrices.map((p: { name: string; price: number; url?: string }) => p.price))
-    : null);
-  const isLowerAvailable = $derived(bestPrice !== null && bestPrice < targetPrice);
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(
-    PriceMatchStyleManager.getContainerClass(
-      isLowerAvailable 
-        ? PriceMatchStyleManager.getLowerAvailableClass() 
-        : PriceMatchStyleManager.getBestPriceClass(),
-      className
-    )
-  );
-  const titleClass = $derived(PriceMatchStyleManager.getTitleClass());
-  const priceInfoClass = $derived(PriceMatchStyleManager.getPriceInfoClass());
-  const yourPriceClass = $derived(PriceMatchStyleManager.getYourPriceClass());
-  const lowerPriceClass = $derived(PriceMatchStyleManager.getLowerPriceClass());
-  const bestPriceClass = $derived(PriceMatchStyleManager.getBestPriceTextClass());
-  const competitorsContainerClass = $derived(PriceMatchStyleManager.getCompetitorsContainerClass());
-  const competitorRowClass = $derived(PriceMatchStyleManager.getCompetitorRowClass());
-  const buttonClass = $derived(PriceMatchStyleManager.getButtonClass());
+	let props: PriceMatchProps = $props();
+	const state = createPriceMatchState(props);
 </script>
 
-<div class={containerClass}>
-  <h3 class={titleClass}>{productName || 'Price Match'}</h3>
-  <div class={priceInfoClass}>
-    <p class={yourPriceClass}>Your price: <span class={PriceMatchStyleManager.getBoldClass()}>{currency}{targetPrice}</span></p>
-    {#if isLowerAvailable}
-      <p class={lowerPriceClass}>Lower price found: {currency}{bestPrice}</p>
-    {:else}
-      <p class={bestPriceClass}>Best price available!</p>
-    {/if}
-  </div>
+<div class={state.containerClass}>
+	<h3 class={state.titleClass}>{props.productName || 'Price Match'}</h3>
+	<div class={state.priceInfoClass}>
+		<p class={state.yourPriceClass}>Your price: <span class={state.boldClass}>{props.currency ?? '$'}{props.targetPrice ?? 0}</span></p>
+		{#if state.isLowerAvailable}
+			<p class={state.lowerPriceClass}>Lower price found: {props.currency ?? '$'}{state.bestPrice}</p>
+		{:else}
+			<p class={state.bestPriceClass}>Best price available!</p>
+		{/if}
+	</div>
 
-  {#if competitorPrices.length > 0}
-    <div class={competitorsContainerClass}>
-      {#each competitorPrices as competitor}
-        <div class={competitorRowClass}>
-          <span>{competitor.name}</span>
-          <span>{currency}{competitor.price}</span>
-        </div>
-      {/each}
-    </div>
-  {/if}
+	{#if state.competitorPrices.length > 0}
+		<div class={state.competitorsContainerClass}>
+			{#each state.competitorPrices as competitor}
+				<div class={state.competitorRowClass}>
+					<span>{competitor.name}</span>
+					<span>{props.currency ?? '$'}{competitor.price}</span>
+				</div>
+			{/each}
+		</div>
+	{/if}
 
-  {#if isLowerAvailable}
-    <button
-      onclick={onFindLower}
-      class={buttonClass}
-    >
-      Find Lower Price
-    </button>
-  {/if}
+	{#if state.isLowerAvailable}
+		<button
+			onclick={props.onFindLower}
+			class={state.buttonClass}
+		>
+			Find Lower Price
+		</button>
+	{/if}
 </div>
-
-
-

@@ -31,7 +31,3 @@ export { ICON_STAR } from './star';
 export { ICON_UPLOAD } from './upload';
 export { ICON_UTENSILS } from './utensils';
 export { ICON_X } from './x';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-export {};

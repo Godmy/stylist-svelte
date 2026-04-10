@@ -1,37 +1,19 @@
 <script lang="ts">
 	import TokenControlBase from '../token-control-base/index.svelte';
-	import type { TokenRadioControlDefinition } from '$stylist/control/type/struct/radio-control-definition';
-	import type { TokenValue } from '$stylist/control/type/struct/token-value';
+	import type { TokenRadioControlProps } from '$stylist/control/type/struct/token-radio-control-props';
+	import { createTokenRadioState } from '$stylist/control/function/state/token-radio';
 
-	type TokenRadioControlProps = {
-		definition: TokenRadioControlDefinition;
-		value?: TokenValue;
-		onChange?: (value: TokenValue) => void;
-	};
-
-	let { definition, value = undefined, onChange }: TokenRadioControlProps = $props();
-
-	let internalValue = $state<TokenValue>(value ?? definition.defaultValue ?? definition.options[0]?.value ?? '');
-
-	$effect(() => {
-		if (value !== undefined && value !== internalValue) {
-			internalValue = value;
-		}
-	});
-
-	function selectOption(next: TokenValue) {
-		internalValue = next;
-		onChange?.(next);
-	}
+	let props: TokenRadioControlProps = $props();
+	const state = createTokenRadioState(props);
 </script>
 
-<TokenControlBase {definition} layout="inline">
+<TokenControlBase definition={state.definition} layout="inline">
 	<div class="token-radio-control">
-		{#each definition.options as option}
+		{#each state.definition.options as option}
 			<button
 				type="button"
-				class={`token-radio-control__chip ${internalValue === option.value ? 'token-radio-control__chip--active' : ''}`.trim()}
-				onclick={() => selectOption(option.value)}
+				class={`token-radio-control__chip ${state.internalValue === option.value ? 'token-radio-control__chip--active' : ''}`.trim()}
+				onclick={() => state.selectOption(option.value)}
 			>
 				{option.label}
 			</button>

@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundHeroState } from '$stylist/development/function/state/playground-hero';
 const Sparkles = 'sparkles';
 const ExternalLink = 'external-link';
 const Heart = 'heart';
@@ -26,22 +27,8 @@ const ArrowRight = 'arrow-right';
     class?: string;
   } & InformationHTMLAttributes<HTMLDivElement>;
 
-  let {
-    title = 'Stylist',
-    subtitle = "The world's largest Svelte 5 component library",
-    description = "OMG! This is Godmy, the product owner of the Vibe-Management team - a collective of leading LLM models. We have created the Stylist-Svelte-Coder-Model - a unified AI model specifically trained for Svelte 5 using atomic design principles. Attention, designed for those who love Svelte",
-    badgeLabel = 'AI-Generated Component Library',
-    badgeHref = 'https://www.npmjs.com/package/stylist-svelte',
-    poweredByLabel = 'Powered by Leading AI Models',
-    aiModels = [
-      { name: 'Claude', url: 'https://claude.ai', logo: '/logos/claude.png', bgColor: 'bg-orange-50 dark:bg-orange-900/20', description: 'By Anthropic' },
-      { name: 'Codex', url: 'https://openai.com', logo: '/logos/openai.png', bgColor: 'bg-blue-50 dark:bg-blue-900/20', description: 'By OpenAI' },
-      { name: 'Gemini', url: 'https://gemini.google.com', logo: '/logos/gemini.png', bgColor: 'bg-purple-50 dark:bg-purple-900/20', description: 'By Google' },
-      { name: 'Qwen', url: 'https://github.com/QwenLM', logo: '/logos/qwen.png', bgColor: 'bg-green-50 dark:bg-green-900/20', description: 'By Alibaba' }
-    ],
-    class: className = '',
-    ...restProps
-  }: Props = $props();
+  let props: Props = $props();
+  const state = createPlaygroundHeroState(props);
 
   const particleIndexes = Array.from({ length: 20 }, (_, i) => i);
 </script>
@@ -92,7 +79,7 @@ const ArrowRight = 'arrow-right';
   }
 </style>
 
-<div class={`relative min-h-screen flex items-center justify-center overflow-hidden ${className}`} {...restProps}>
+<div class={`relative min-h-screen flex items-center justify-center overflow-hidden ${state.className}`} {...props}>
   <div class="absolute inset-0 gradient-bg opacity-[var(--opacity-10)]"></div>
 
   <div class="absolute inset-0 overflow-hidden">
@@ -115,26 +102,26 @@ const ArrowRight = 'arrow-right';
     <div class="text-center">
       <div class="mb-6 slide-up" style="animation-delay: 0.1s">
         <h1 class="text-7xl md:text-8xl lg:text-9xl font-black mb-4 leading-tight text-gray-900 dark:text-white">
-          {title}
+          {state.title}
         </h1>
       </div>
 
       <div class="slide-up mb-8" style="animation-delay: 0.2s">
         <a
-          href={badgeHref}
+          href={state.badgeHref}
           target="_blank"
           rel="noopener noreferrer"
           class="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-full border-2 border-orange-300 dark:border-orange-700 pulse-glow hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-xl transition-all hover:scale-105"
         >
           <BaseIcon name={Sparkles} class="w-6 h-6 text-orange-600 group-hover:rotate-12 transition-transform" />
-          <span class="text-lg font-bold text-orange-900 dark:text-orange-300">{badgeLabel}</span>
+          <span class="text-lg font-bold text-orange-900 dark:text-orange-300">{state.badgeLabel}</span>
           <BaseIcon name={ExternalLink} class="w-5 h-5 text-orange-600 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </a>
       </div>
 
       <div class="slide-up mb-6" style="animation-delay: 0.3s">
         <p class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          {subtitle}
+          {state.subtitle}
         </p>
         <p class="text-xl text-gray-600 dark:text-gray-300">
           Created by the <span class="font-bold text-indigo-600 dark:text-indigo-400">Vibe-Management Team</span>
@@ -143,7 +130,7 @@ const ArrowRight = 'arrow-right';
 
       <div class="slide-up max-w-3xl mx-auto mb-12" style="animation-delay: 0.4s">
         <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed text-center">
-          {description}
+          {state.description}
           <span class="heart-icon align-middle ml-1">
             <BaseIcon name={Heart} class="w-5 h-5 text-red-500" style="fill: currentColor;" />
           </span>
@@ -152,10 +139,10 @@ const ArrowRight = 'arrow-right';
 
       <div class="slide-up mb-16" style="animation-delay: 0.5s">
         <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-6">
-          {poweredByLabel}
+          {state.poweredByLabel}
         </p>
         <div class="flex flex-wrap items-center justify-center gap-6">
-          {#each aiModels as model, i}
+          {#each state.aiModels as model, i}
             <a
               href={model.url}
               target="_blank"
@@ -182,7 +169,3 @@ const ArrowRight = 'arrow-right';
     </div>
   </div>
 </div>
-
-
-
-

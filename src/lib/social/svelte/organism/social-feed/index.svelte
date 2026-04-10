@@ -1,193 +1,30 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-const Heart = 'heart';
-const MessageCircle = 'message-circle';
-const Share2 = 'share-2';
-const MoreHorizontal = 'more-horizontal';
-const User = 'user';
-const Calendar = 'calendar';
-const Filter = 'filter';
-const Search = 'search';
-
+  import {
+    SOCIAL_FEED_HEART as Heart,
+    SOCIAL_FEED_MESSAGE_CIRCLE as MessageCircle,
+    SOCIAL_FEED_SHARE_2 as Share2,
+    SOCIAL_FEED_MORE_HORIZONTAL as MoreHorizontal,
+    SOCIAL_FEED_USER as User,
+    SOCIAL_FEED_CALENDAR as Calendar,
+    SOCIAL_FEED_FILTER as Filter,
+    SOCIAL_FEED_SEARCH as Search
+  } from '$stylist/social/const/map/social-feed';
   import { PostCard } from '$stylist';
-  // Removed: import type { Post } from '../post-card/PostCard.svelte';
+  import createSocialFeedState from '$stylist/social/function/state/social-feed';
+  import type { Props, Post } from '$stylist/social/type/struct/social-feed';
 
-  // Defined Post type locally
-  export type Post = {
-    id: string; // Assuming an ID is needed for actions
-    title: string;
-    subtitle?: string;
-    image?: string;
-    date?: string;
-    excerpt?: string;
-    author: string;
-    tags?: string[];
-    // Additional properties for social feed context
-    content: string; // The main content of the post for filtering
-    authorAvatar?: string;
-    authorIsVerified?: boolean;
-    likes: number;
-    comments: number;
-    shares: number;
-    isLiked: boolean;
-    isBookmarked: boolean;
-  };
-
-  export type FilterOption = {
-    id: string;
-    label: string;
-    active: boolean;
-  };
-
-  export type FeedUser = {
-    id: string;
-    name: string;
-    avatar?: string;
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  export type Props = RestProps & {
-    posts: Post[];
-    currentUser?: FeedUser;
-    showFilters?: boolean;
-    showSearch?: boolean;
-    showCreatePost?: boolean;
-    filters?: FilterOption[];
-    showLoadMore?: boolean;
-    onPostLike?: (postId: string) => void;
-    onPostComment?: (postId: string) => void;
-    onPostShare?: (postId: string) => void;
-    onPostBookmark?: (postId: string) => void;
-    onCreatePost?: () => void;
-    onLoadMore?: () => void;
-    class?: string;
-    headerClass?: string;
-    feedItemClass?: string;
-    footerClass?: string;
-  };
-
-  let {
-    posts = [],
-    currentUser,
-    showFilters = true,
-    showSearch = true,
-    showCreatePost = true,
-    filters = [
-      { id: 'all', label: 'All Posts', active: true },
-      { id: 'following', label: 'Following', active: false },
-      { id: 'popular', label: 'Popular', active: false },
-      { id: 'recent', label: 'Recent', active: false }
-    ],
-    showLoadMore = true,
-    onPostLike,
-    onPostComment,
-    onPostShare,
-    onPostBookmark,
-    onCreatePost,
-    onLoadMore,
-    class: hostClass = '',
-    headerClass = '',
-    feedItemClass = '',
-    footerClass = '',
-    ...restProps
-  }: Props = $props();
-
-  let searchQuery = $state('');
-  let activeFilter = $state(filters.find(f => f.active)?.id || 'all');
-  let newPostContent = $state('');
-  let showCreateForm = $state(false);
-
-  $effect(() => {
-    // Update active filter when props change
-    const newActiveFilter = filters.find(f => f.active)?.id;
-    if (newActiveFilter && newActiveFilter !== activeFilter) {
-      activeFilter = newActiveFilter;
-    }
-  });
-
-  function handleFilterChange(filterId: string) {
-    activeFilter = filterId;
-    // In a real app, this would filter the posts
-    // For now, just update the UI
-  }
-
-  function handleSearchInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    searchQuery = target.value;
-  }
-
-  function handleLike(postId: string) {
-    onPostLike?.(postId);
-  }
-
-  function handleComment(postId: string) {
-    onPostComment?.(postId);
-  }
-
-  function handleShare(postId: string) {
-    onPostShare?.(postId);
-  }
-
-  function handleBookmark(postId: string) {
-    onPostBookmark?.(postId);
-  }
-
-  function handleLoadMore() {
-    onLoadMore?.();
-  }
-
-  function handleCreatePost() {
-    if (newPostContent.trim()) {
-      onCreatePost?.();
-      newPostContent = '';
-      showCreateForm = false;
-    }
-  }
-
-  let filteredPosts = $derived.by(() => {
-    let result = [...posts];
-
-    // Apply search filter
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      result = result.filter(post =>
-        post.content.toLowerCase().includes(query) ||
-        post.tags?.some((tag: string) => tag.toLowerCase().includes(query)) ||
-        post.author.toLowerCase().includes(query) // Changed from post.author.name and post.author.username
-      );
-    }
-
-    return result;
-  });
-
-  function formatDate(date: Date): string { // Changed Date type to string for simplicity, assuming a string is passed from backend
-    const now = new Date();
-    const postDate = new Date(date); // Convert to Date object
-    const diffInSeconds = Math.floor((now.getTime() - postDate.getTime()) / 1000);
-
-    if (diffInSeconds < 60) return `${diffInSeconds}s ago`;
-    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
-    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
-
-    // If older than a day, show date
-    return postDate.toLocaleDateString(undefined, {
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  }
+  let props: Props = $props();
+  const state = createSocialFeedState(props);
 </script>
 
-<div class={`social-feed ${hostClass}`} {...restProps}>
-  <!-- Feed header -->
-  <div class={`border-b border-[var(--color-border-primary)] p-4 ${headerClass}`}>
+<div class={`social-feed ${state.hostClass}`} {...props}>
+  <div class={`border-b border-[var(--color-border-primary)] p-4 ${state.headerClass}`}>
     <div class="flex items-center justify-between mb-4">
       <h2 class="text-xl font-bold text-[var(--color-text-primary)]">Social Feed</h2>
 
-      {#if showSearch}
+      {#if props.showSearch}
         <div class="relative w-64">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
@@ -196,24 +33,24 @@ const Search = 'search';
             type="text"
             class="block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm"
             placeholder="Search posts..."
-            value={searchQuery}
-            oninput={handleSearchInput}
+            value={state.searchQuery}
+            oninput={state.handleSearchInput}
           />
         </div>
       {/if}
     </div>
 
-    {#if showFilters}
+    {#if props.showFilters}
       <div class="flex space-x-4">
-        {#each filters as filter}
+        {#each props.filters ?? [] as filter}
           <button
             type="button"
             class={`flex items-center px-3 py-2 text-sm font-medium rounded-full ${
-              activeFilter === filter.id
+              state.activeFilter === filter.id
                 ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]'
                 : 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] hover:bg-[var(--color-background-tertiary)]'
             }`}
-            onclick={() => handleFilterChange(filter.id)}
+            onclick={() => state.handleFilterChange(filter.id)}
           >
             {filter.label}
           </button>
@@ -222,15 +59,14 @@ const Search = 'search';
     {/if}
   </div>
 
-  <!-- Create post section -->
-  {#if showCreatePost}
+  {#if props.showCreatePost}
     <div class="border-b border-[var(--color-border-primary)] p-4">
       <div class="flex space-x-3">
-        {#if currentUser?.avatar}
+        {#if props.currentUser?.avatar}
           <img
             class="h-10 w-10 rounded-full"
-            src={currentUser.avatar}
-            alt={currentUser.name}
+            src={props.currentUser.avatar}
+            alt={props.currentUser.name}
           />
         {:else}
           <div class="h-10 w-10 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
@@ -239,28 +75,28 @@ const Search = 'search';
         {/if}
 
         <div class="flex-1">
-          {#if showCreateForm}
+          {#if state.showCreateForm}
             <div>
               <textarea
                 class="block w-full rounded-md border-[var(--color-border-primary)] shadow-sm focus:border-[var(--color-primary-500)] focus:ring-blue-500 sm:text-sm"
                 placeholder="What's on your mind?"
                 rows="3"
-                bind:value={newPostContent}
+                bind:value={state.newPostContent}
               ></textarea>
 
               <div class="mt-3 flex justify-end space-x-3">
                 <button
                   type="button"
                   class="inline-flex items-center px-4 py-2 border border-[var(--color-border-primary)] text-sm font-medium rounded-md text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  onclick={() => showCreateForm = false}
+                  onclick={() => state.showCreateForm = false}
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                  onclick={handleCreatePost}
-                  disabled={!newPostContent.trim()}
+                  onclick={state.handleCreatePost}
+                  disabled={!state.newPostContent.trim()}
                 >
                   Post
                 </button>
@@ -270,16 +106,16 @@ const Search = 'search';
             <button
               type="button"
               class="w-full flex items-center justify-start px-4 py-3 border border-[var(--color-border-primary)] rounded-md shadow-sm text-left text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onclick={() => showCreateForm = true}
+              onclick={() => state.showCreateForm = true}
             >
-              {#if currentUser?.avatar}
+              {#if props.currentUser?.avatar}
                 <img
                   class="h-8 w-8 rounded-full"
-                  src={currentUser.avatar}
-                  alt={currentUser.name}
+                  src={props.currentUser.avatar}
+                  alt={props.currentUser.name}
                 />
               {/if}
-              <span class="ml-4">What's on your mind, {currentUser?.name || 'User'}?</span>
+              <span class="ml-4">What's on your mind, {props.currentUser?.name || 'User'}?</span>
             </button>
           {/if}
         </div>
@@ -287,9 +123,8 @@ const Search = 'search';
     </div>
   {/if}
 
-  <!-- Feed items -->
   <div>
-    {#if filteredPosts.length === 0}
+    {#if state.filteredPosts.length === 0}
       <div class="text-center py-12 border-b border-[var(--color-border-primary)]">
         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-background-secondary)]">
           <BaseIcon name={MessageCircle} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
@@ -299,34 +134,34 @@ const Search = 'search';
       </div>
     {/if}
 
-    {#each filteredPosts as post}
-      <div class={`border-b border-[var(--color-border-primary)] last:border-0 ${feedItemClass}`}>
+    {#each state.filteredPosts as post}
+      <div class={`border-b border-[var(--color-border-primary)] last:border-0 ${state.feedItemClass}`}>
         <PostCard
           title={post.title}
           subtitle={post.subtitle}
           image={post.image}
-          date={post.date ? formatDate(new Date(post.date)) : ''}
+          date={post.date ? state.formatDate(new Date(post.date)) : ''}
           excerpt={post.excerpt}
           author={post.author}
           tags={post.tags}
           actions={[
-            { label: `Like (${post.likes})`, onClick: () => handleLike(post.id) },
-            { label: `Comment (${post.comments})`, onClick: () => handleComment(post.id) },
-            { label: `Share (${post.shares})`, onClick: () => handleShare(post.id) },
-            { label: `Bookmark`, onClick: () => handleBookmark(post.id) }
+            { label: `Like (${post.likes})`, onClick: () => state.handleLike(post.id) },
+            { label: `Comment (${post.comments})`, onClick: () => state.handleComment(post.id) },
+            { label: `Share (${post.shares})`, onClick: () => state.handleShare(post.id) },
+            { label: `Bookmark`, onClick: () => state.handleBookmark(post.id) }
           ]}
         />
       </div>
     {/each}
   </div>
 
-  {#if showLoadMore}
-    <div class={`p-6 text-center ${footerClass}`}>
-      {#if filteredPosts.length > 0}
+  {#if props.showLoadMore}
+    <div class={`p-6 text-center ${state.footerClass}`}>
+      {#if state.filteredPosts.length > 0}
         <button
           type="button"
           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          onclick={handleLoadMore}
+          onclick={state.handleLoadMore}
         >
           Load more posts
         </button>
@@ -334,7 +169,3 @@ const Search = 'search';
     </div>
   {/if}
 </div>
-
-
-
-

@@ -23,7 +23,9 @@
 		ontimeupdate={() => state.handleTimeUpdate()}
 		class={`w-full h-full object-contain ${state.videoClass}`}
 		controls={false}
-	></video>
+	>
+		<track kind="captions" label="No captions available" srclang="en" src="" />
+	</video>
 
 	{#if state.showControls}
 		<div

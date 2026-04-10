@@ -1,178 +1,83 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+	import type { OrderTrackingContract } from '$stylist/commerce/interface/component/order-tracking';
+	import { createOrderTrackingState } from '$stylist/commerce/function/state/order-tracking';
 
-  import OrderTrackingComponent from './index.svelte';
-
-  const OrderTracking = OrderTrackingComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showRecipientDetails', type: 'boolean', defaultValue: true },
-      { name: 'showContactCarrier', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample tracking information
-  const trackingInfo = {
-    orderId: 'ORD-2023-001',
-    trackingNumber: 'TRK123456789',
-    carrier: 'FedEx',
-    estimatedDelivery: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days from now
-    status: 'shipped' as const,
-    progress: 60,
-    events: [
-      {
-        id: 'event1',
-        status: 'processing' as const,
-        timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
-        location: 'Warehouse, NY',
-        description: 'Order processed',
-        notes: 'Package prepared for shipment'
-      },
-      {
-        id: 'event2',
-        status: 'shipped' as const,
-        timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
-        location: 'Distribution Center, NJ',
-        description: 'Shipped from facility',
-        notes: 'Package scanned and loaded onto truck'
-      },
-      {
-        id: 'event3',
-        status: 'out-for-delivery' as const,
-        timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
-        location: 'Local Facility, NY',
-        description: 'Out for delivery',
-        notes: 'Expected to be delivered today'
-      }
-    ],
-    recipientName: 'John Doe',
-    recipientPhone: '(555) 123-4567',
-    shippingAddress: '123 Main St, New York, NY 10001',
-    deliveryNotes: 'Leave at front desk if not home'
-  };
+	let props: OrderTrackingContract = $props();
+	const state = createOrderTrackingState(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={OrderTracking}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-order-tracking grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Order Tracking Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Order tracking with progress visualization.</p>
+<div class={state.containerClasses}>
+	<div class={state.headerClasses}>
+		<div class="flex items-center justify-between">
+			<h2 class={state.titleClasses}>Order Tracking</h2>
+			<span class={state.getStatusBadgeClasses(state.trackingInfo.status)}>
+				{state.trackingInfo.status}
+			</span>
+		</div>
+		<p class="text-sm text-[--color-text-secondary] mt-1">
+			Tracking: {state.trackingInfo.trackingNumber} via {state.trackingInfo.carrier}
+		</p>
+	</div>
 
-        <div class="mt-6">
-          <OrderTracking
-            trackingInfo={trackingInfo}
-            showRecipientDetails={values.showRecipientDetails}
-            showContactCarrier={values.showContactCarrier}
-            showDeliveryNotes={true}
-            showReportIssue={true}
-            onContactCarrier={() => console.log('Contacting carrier')}
-            onReportIssue={() => console.log('Reporting issue')}
-            onStatusChange={(status: string) => console.log(`Status changed to: ${status}`)}
-          />
-        </div>
-      </div>
+	<!-- Progress bar -->
+	<div class={state.progressContainerClasses}>
+		<div class={state.progressBarClasses}>
+			<div
+				class={state.progressFillClasses}
+				style="width: {state.trackingInfo.progress}%"
+			></div>
+		</div>
+		<p class="text-sm text-[--color-text-secondary] mt-1">
+			Estimated delivery: {state.formatDate(state.trackingInfo.estimatedDelivery)}
+		</p>
+	</div>
 
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Tracking Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different order tracking configurations with various options.
-        </p>
+	<!-- Timeline -->
+	<div class={state.timelineContainerClasses}>
+		{#each state.trackingInfo.events as event}
+			{@const eventStatus = state.getEventStatus(event.status, state.trackingInfo.status)}
+			<div class={state.timelineItemClasses}>
+				<div class={state.getTimelineIndicatorClasses(eventStatus)}></div>
+				<div class={state.timelineContentClasses}>
+					<p class={state.eventTitleClasses}>{event.description}</p>
+					{#if event.location}
+						<p class={state.eventDescriptionClasses}>{event.location}</p>
+					{/if}
+					<p class={state.eventDateClasses}>{state.formatDate(event.timestamp)}</p>
+				</div>
+			</div>
+		{/each}
+	</div>
 
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delivered Order</p>
-            <div>
-              <OrderTracking
-                trackingInfo={{
-                  ...trackingInfo,
-                  status: 'delivered',
-                  progress: 100,
-                  events: [
-                    ...trackingInfo.events,
-                    {
-                      id: 'event4',
-                      status: 'delivered' as const,
-                      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
-                      location: 'New York, NY',
-                      description: 'Delivered',
-                      notes: 'Received by resident'
-                    }
-                  ]
-                }}
-                showRecipientDetails={true}
-                showContactCarrier={false}
-                showDeliveryNotes={true}
-                showReportIssue={false}
-                onContactCarrier={() => console.log('Contacting carrier')}
-                onReportIssue={() => console.log('Reporting issue')}
-              />
-            </div>
-          </article>
+	<!-- Shipping info -->
+	{#if props.showRecipientDetails !== false}
+		<div class={state.shippingInfoClasses}>
+			<p class="text-sm font-medium text-[--color-text-primary] mb-2">Shipping Address</p>
+			<p class={state.addressClasses}>{state.trackingInfo.shippingAddress}</p>
+			{#if state.trackingInfo.recipientName}
+				<p class={state.addressClasses}>{state.trackingInfo.recipientName}</p>
+			{/if}
+		</div>
+	{/if}
 
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delayed Order</p>
-            <div>
-              <OrderTracking
-                trackingInfo={{
-                  ...trackingInfo,
-                  status: 'delayed',
-                  progress: 30,
-                  events: [
-                    {
-                      id: 'event1',
-                      status: 'processing' as const,
-                      timestamp: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 days ago
-                      location: 'Warehouse, NY',
-                      description: 'Order processed',
-                      notes: 'Package prepared for shipment'
-                    },
-                    {
-                      id: 'event2',
-                      status: 'delayed' as const,
-                      timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000), // 2 days ago
-                      location: 'Distribution Center, NJ',
-                      description: 'Delay in transit',
-                      notes: 'Weather conditions causing delays'
-                    }
-                  ]
-                }}
-                showRecipientDetails={false}
-                showContactCarrier={true}
-                showDeliveryNotes={false}
-                showReportIssue={true}
-                onContactCarrier={() => console.log('Contacting carrier')}
-                onReportIssue={() => console.log('Reporting issue')}
-              />
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  {/snippet}
-</Story>
+	{#if props.showDeliveryNotes !== false && state.trackingInfo.deliveryNotes}
+		<div class="px-6 py-4 border-t border-[--color-border-secondary]">
+			<p class="text-sm font-medium text-[--color-text-primary] mb-1">Delivery Notes</p>
+			<p class="text-sm text-[--color-text-secondary]">{state.trackingInfo.deliveryNotes}</p>
+		</div>
+	{/if}
 
-
-
-
-
-
+	<!-- Actions -->
+	<div class={state.actionsContainerClasses}>
+		{#if props.showContactCarrier !== false && props.onContactCarrier}
+			<button onclick={props.onContactCarrier} class={state.getActionButtonClasses('secondary')}>
+				Contact Carrier
+			</button>
+		{/if}
+		{#if props.showReportIssue !== false && props.onReportIssue}
+			<button onclick={props.onReportIssue} class={state.getActionButtonClasses('secondary')}>
+				Report Issue
+			</button>
+		{/if}
+	</div>
+</div>

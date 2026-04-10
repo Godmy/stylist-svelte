@@ -6,13 +6,10 @@
    */
   import Code from '../code-block/index.svelte';
   import type { CopyableCodeBlockProps } from '$stylist/development/type/struct/copyable-code-block';
-
-  function stateFn(props: CopyableCodeBlockProps) {
-    return { props };
-  }
+  import { createCopyableCodeBlockState } from '$stylist/development/function/state/copyable-code-block';
 
   let props: CopyableCodeBlockProps = $props();
-  const state = stateFn(props);
+  const state = createCopyableCodeBlockState(props);
 </script>
 
 <Code

@@ -13,7 +13,7 @@ type BaseLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 };
 
 export type GridLayoutExtendedProps = BaseLayoutProps & {
-	columns?: number | string;
-	rows?: number | string;
-	cols?: number | string;
+	columns?: number;
+	rows?: number;
+	cols?: number;
 };

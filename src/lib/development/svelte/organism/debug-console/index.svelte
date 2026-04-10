@@ -1,207 +1,46 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { Props, LogLevel } from '$stylist/development/type/struct/debug-console';
+  import { createDebugConsoleState } from '$stylist/development/function/state/debug-console';
   import { Icon as BaseIcon } from '$stylist';
-const Terminal = 'terminal';
-const Bug = 'bug';
-const Play = 'play';
-const Square = 'square';
-const Trash2 = 'trash-2';
-const Search = 'search';
-const Filter = 'filter';
 
-
-  type LogLevel = 'log' | 'info' | 'warn' | 'error' | 'debug';
-
-  type LogEntry = {
-    id: string;
-    timestamp: Date;
-    level: LogLevel;
-    message: string;
-    data?: any;
-  };
-
-  type Props = {
-    logs?: LogEntry[];
-    title?: string;
-    showTimestamps?: boolean;
-    showLogLevel?: boolean;
-    maxHeight?: string;
-    allowClear?: boolean;
-    allowFilter?: boolean;
-    initialLogLevelFilter?: LogLevel[];
-    onClear?: () => void;
-    onLog?: (entry: LogEntry) => void;
-    class?: string;
-    headerClass?: string;
-    consoleClass?: string;
-    entryClass?: string;
-    footerClass?: string;
-  } & InteractionHTMLAttributes<HTMLDivElement>;
-
-  let {
-    logs = [],
-    title = 'Debug Console',
-    showTimestamps = true,
-    showLogLevel = true,
-    maxHeight = '300px',
-    allowClear = true,
-    allowFilter = true,
-    initialLogLevelFilter = [],
-    onClear,
-    onLog,
-    class: className = '',
-    headerClass = '',
-    consoleClass = '',
-    entryClass = '',
-    footerClass = ''
-  } = $props();
-
-  let filteredLogs = $state<LogEntry[]>(logs);
-  let logLevelFilter = $state<LogLevel[]>(initialLogLevelFilter);
-  let searchQuery = $state('');
-  let isRunning = $state(false);
-
-  // Initialize logs
-  $effect(() => {
-    updateFilteredLogs();
-  });
-
-  function updateFilteredLogs() {
-    filteredLogs = logs.filter(log => {
-      // Filter by log level if filter is applied
-      if (logLevelFilter.length > 0 && !logLevelFilter.includes(log.level)) {
-        return false;
-      }
-      
-      // Filter by search query
-      if (searchQuery && !log.message.toLowerCase().includes(searchQuery.toLowerCase())) {
-        return false;
-      }
-      
-      return true;
-    });
-  }
-
-  function toggleLogLevel(level: LogLevel) {
-    if (logLevelFilter.includes(level)) {
-      logLevelFilter = logLevelFilter.filter(l => l !== level);
-    } else {
-      logLevelFilter = [...logLevelFilter, level];
-    }
-    updateFilteredLogs();
-  }
-
-  function clearLogs() {
-    if (onClear) {
-      onClear();
-    }
-  }
-
-  function clearSearch() {
-    searchQuery = '';
-    updateFilteredLogs();
-  }
-
-  function startSimulator() {
-    isRunning = true;
-    
-    // Simulate adding random logs
-    const interval = setInterval(() => {
-      if (!isRunning) {
-        clearInterval(interval);
-        return;
-      }
-      
-      const levels: LogLevel[] = ['log', 'info', 'warn', 'error', 'debug'];
-      const messages = [
-        'Component mounted successfully',
-        'State updated',
-        'API call completed',
-        'User interaction detected',
-        'Data fetched from server',
-        'Error occurred in component',
-        'Memory usage increased',
-        'Cache cleared',
-        'Route changed',
-        'New connection established'
-      ];
-      
-      const log: LogEntry = {
-        id: `log-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-        timestamp: new Date(),
-        level: levels[Math.floor(Math.random() * levels.length)],
-        message: messages[Math.floor(Math.random() * messages.length)]
-      };
-      
-      if (onLog) {
-        onLog(log);
-      }
-    }, 2000);
-  }
-
-  function stopSimulator() {
-    isRunning = false;
-  }
-
-  function getLevelColor(level: LogLevel) {
-    switch(level) {
-      case 'error': return 'text-red-500';
-      case 'warn': return 'text-yellow-500';
-      case 'info': return 'text-blue-500';
-      case 'debug': return 'text-purple-500';
-      default: return 'text-gray-700';
-    }
-  }
-
-  function getLevelBgColor(level: LogLevel) {
-    switch(level) {
-      case 'error': return 'bg-red-100';
-      case 'warn': return 'bg-yellow-100';
-      case 'info': return 'bg-blue-100';
-      case 'debug': return 'bg-purple-100';
-      default: return 'bg-gray-100';
-    }
-  }
-
-  function formatTimestamp(timestamp: Date) {
-    return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  }
+  let { ...props }: Props = $props();
+  const state = createDebugConsoleState(props);
 </script>
 
-<div class={`border border-gray-200 rounded-lg overflow-hidden shadow-sm ${className}`}>
-  <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
+<div class={state.containerClass}>
+  <div class={state.headerComputedClass}>
     <div class="flex items-center">
-      <BaseIcon name={Terminal} class="h-5 w-5 text-gray-500 mr-2" />
-      <h3 class="text-sm font-medium text-gray-900">{title}</h3>
-      <span class="ml-2 text-xs text-gray-500">({filteredLogs.length} entries)</span>
+      <BaseIcon name={state.Terminal} class="h-5 w-5 text-gray-500 mr-2" />
+      <h3 class="text-sm font-medium text-gray-900">{state.title}</h3>
+      <span class="ml-2 text-xs text-gray-500">({state.filteredLogs.length} entries)</span>
     </div>
-    
+
     <div class="flex items-center space-x-2">
-      {#if allowClear}
+      {#if state.allowClear}
         <button
           type="button"
           class="p-1.5 rounded text-gray-500 hover:text-red-500 hover:bg-gray-100"
-          onclick={clearLogs}
+          onclick={state.clearLogs}
           title="Clear logs"
         >
-          <BaseIcon name={Trash2} class="h-4 w-4" />
+          <BaseIcon name={state.Trash2} class="h-4 w-4" />
         </button>
       {/if}
-      
+
       <button
         type="button"
         class={`p-1.5 rounded ${
-          isRunning 
-            ? 'text-red-500 hover:text-red-700 hover:bg-red-100' 
+          state.isRunning
+            ? 'text-red-500 hover:text-red-700 hover:bg-red-100'
             : 'text-green-500 hover:text-green-700 hover:bg-green-100'
         }`}
-        onclick={isRunning ? stopSimulator : startSimulator}
-        title={isRunning ? "Stop simulator" : "Start simulator"}
+        onclick={state.isRunning ? state.stopSimulator : state.startSimulator}
+        title={state.isRunning ? "Stop simulator" : "Start simulator"}
       >
-        {#if isRunning}
-          <BaseIcon name={Square} class="h-4 w-4" />
+        {#if state.isRunning}
+          <BaseIcon name={state.Square} class="h-4 w-4" />
         {:else}
-          <BaseIcon name={Play} class="h-4 w-4" />
+          <BaseIcon name={state.Play} class="h-4 w-4" />
         {/if}
       </button>
     </div>
@@ -209,59 +48,59 @@ const Filter = 'filter';
 
   <div class="p-2 border-b bg-gray-50">
     <div class="flex items-center space-x-4">
-      {#if allowFilter}
-        {#each ['log', 'info', 'warn', 'error', 'debug'] as level}
+      {#if state.allowFilter}
+        {#each ['log', 'info', 'warn', 'error', 'debug'] as level (level)}
           <button
             type="button"
             class={`text-xs px-2 py-1 rounded-full ${
-              logLevelFilter.includes(level as LogLevel)
-                ? getLevelBgColor(level as LogLevel) + ' ' + getLevelColor(level as LogLevel)
+              state.logLevelFilter.includes(level as LogLevel)
+                ? state.getLevelBgColor(level as LogLevel) + ' ' + state.getLevelColor(level as LogLevel)
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
-            onclick={() => toggleLogLevel(level as LogLevel)}
+            onclick={() => state.toggleLogLevel(level as LogLevel)}
           >
             {level.toUpperCase()}
           </button>
         {/each}
       {/if}
-      
+
       <div class="flex-1 relative">
         <input
           type="text"
           class="block w-full pl-8 pr-4 py-1 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
           placeholder="Search logs..."
-          bind:value={searchQuery}
-          oninput={updateFilteredLogs}
+          bind:value={state.searchQuery}
+          oninput={state.updateFilteredLogs}
         />
-        <BaseIcon name={Search} class="absolute left-2.5 top-1.5 h-3 w-3 text-gray-400" />
+        <BaseIcon name={state.Search} class="absolute left-2.5 top-1.5 h-3 w-3 text-gray-400" />
       </div>
     </div>
   </div>
 
-  <div 
-    class={`font-mono text-xs ${consoleClass}`}
-    style={`max-height: ${maxHeight}; overflow-y: auto;`}
+  <div
+    class={`font-mono text-xs ${state.consoleClass}`}
+    style={`max-height: ${state.maxHeight}; overflow-y: auto;`}
   >
-    {#if filteredLogs.length === 0}
+    {#if state.filteredLogs.length === 0}
       <div class="p-4 text-center text-gray-500 italic">
-        No logs to display. {isRunning ? 'Generating logs...' : 'Start the simulator or add logs.'}
+        No logs to display. {state.isRunning ? 'Generating logs...' : 'Start the simulator or add logs.'}
       </div>
     {:else}
-      {#each filteredLogs as log}
-        <div class={`p-2 border-b ${getLevelColor(log.level)} ${entryClass}`}>
+      {#each state.filteredLogs as log}
+        <div class={`p-2 border-b ${state.getLevelColor(log.level)} ${state.entryClass}`}>
           <div class="flex">
-            {#if showTimestamps}
-              <span class="text-gray-500 mr-3 w-20 flex-shrink-0">{formatTimestamp(log.timestamp)}</span>
+            {#if state.showTimestamps}
+              <span class="text-gray-500 mr-3 w-20 flex-shrink-0">{state.formatTimestamp(log.timestamp)}</span>
             {/if}
-            
-            {#if showLogLevel}
-              <span class={`mr-2 px-1.5 py-0.5 rounded text-xs font-medium ${getLevelBgColor(log.level)} flex-shrink-0`}>
+
+            {#if state.showLogLevel}
+              <span class={`mr-2 px-1.5 py-0.5 rounded text-xs font-medium ${state.getLevelBgColor(log.level)} flex-shrink-0`}>
                 {log.level.toUpperCase()}
               </span>
             {/if}
-            
+
             <span class="break-words flex-1">{log.message}</span>
-            
+
             {#if log.data}
               <details class="ml-2">
                 <summary class="cursor-pointer text-gray-500 hover:text-gray-700">
@@ -278,17 +117,15 @@ const Filter = 'filter';
     {/if}
   </div>
 
-  <div class={`border-t px-4 py-2 text-xs text-gray-500 flex justify-between items-center ${footerClass}`}>
+  <div class={`border-t px-4 py-2 text-xs text-gray-500 flex justify-between items-center ${state.footerClass}`}>
     <div>
       <span class="inline-flex items-center">
-        <BaseIcon name={Bug} class="h-3 w-3 mr-1" />
+        <BaseIcon name={state.Bug} class="h-3 w-3 mr-1" />
         Debug Console
       </span>
     </div>
     <div>
-      {isRunning ? 'Live logging' : 'Ready'}
+      {state.isRunning ? 'Live logging' : 'Ready'}
     </div>
   </div>
 </div>
-
-

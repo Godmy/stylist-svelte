@@ -9,6 +9,8 @@ type FollowButtonProps = InteractionHTMLAttributes<HTMLButtonElement> & {
 	followingText?: string;
 	unfollowText?: string;
 	disabled?: boolean;
+	onFollow?: () => void | Promise<void>;
+	onUnfollow?: () => void | Promise<void>;
 };
 
 export function createFollowButtonState(props: FollowButtonProps) {
@@ -45,6 +47,7 @@ export function createFollowButtonState(props: FollowButtonProps) {
 	);
 
 	const ariaLabel = $derived(isFollowing ? 'Unfollow user' : 'Follow user');
+	let isPending = $state(false);
 
 	return {
 		get isFollowing() {
@@ -70,6 +73,22 @@ export function createFollowButtonState(props: FollowButtonProps) {
 		},
 		get ariaLabel() {
 			return ariaLabel;
+		},
+		get isPending() {
+			return isPending;
+		},
+		async handleToggle() {
+			if (disabled || isPending) return;
+
+			isPending = true;
+
+			if (isFollowing) {
+				await props.onUnfollow?.();
+			} else {
+				await props.onFollow?.();
+			}
+
+			isPending = false;
 		}
 	};
 }

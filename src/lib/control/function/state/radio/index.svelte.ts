@@ -33,7 +33,13 @@ export const createRadioState = (props: RadioProps) => {
 		required,
 		containerClasses,
 		radioClasses,
-		labelClasses
+		labelClasses,
+		handleChange(event: Event) {
+			const target = event.target as HTMLInputElement;
+			if (target.checked && props.onchange) {
+				(props.onchange as (e: Event) => void)(event);
+			}
+		}
 	};
 };
 

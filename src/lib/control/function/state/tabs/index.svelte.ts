@@ -8,6 +8,13 @@ export const createTabsState = (props: TabsProps) => {
 	const classes = $derived(
 		joinClassNames('inline-flex items-center gap-1', disabled ? 'opacity-[var(--opacity-50)] pointer-events-none' : '', props.class)
 	);
+	const tabsId = $derived(Math.random().toString(36).substring(2, 9));
+	let selectedTabId = $state(props.selectedId || '');
+	let tabs = $state<string[]>([]);
+
+	$effect(() => {
+		selectedTabId = props.selectedId || '';
+	});
 
 	return {
 		get classes() {
@@ -21,6 +28,30 @@ export const createTabsState = (props: TabsProps) => {
 		},
 		get disabled() {
 			return disabled;
+		},
+		get tabsId() {
+			return tabsId;
+		},
+		get selectedTabId() {
+			return selectedTabId;
+		},
+		get tabsList() {
+			return tabs;
+		},
+		handleTabChange(id: string) {
+			selectedTabId = id;
+			props.onValueChange?.(id);
+		},
+		registerTab(id: string) {
+			if (!tabs.includes(id)) {
+				tabs = [...tabs, id];
+				if (tabs.length === 1 && !props.selectedId) {
+					selectedTabId = id;
+				}
+			}
+		},
+		unregisterTab(id: string) {
+			tabs = tabs.filter((tabId) => tabId !== id);
 		}
 	};
 };

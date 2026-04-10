@@ -14,9 +14,7 @@
 		...restProps
 	}: CheckboxProps = $props();
 
-	// Extract only HTML-compatible props for the input element
-	let htmlProps = $state({});
-	$effect(() => {
+	const inputProps = $derived.by(() => {
 		const {
 			id: _id,
 			label: _label,
@@ -26,7 +24,7 @@
 			disabled: _disabled,
 			required: _required,
 			checked: _checked,
-			size: _size, // Exclude custom size prop to avoid conflict with HTML size attribute
+			size: _size,
 			...filteredProps
 		} = {
 			id,
@@ -39,10 +37,10 @@
 			class: className,
 			...restProps
 		};
-		htmlProps = filteredProps;
+		return filteredProps;
 	});
 
-	const checkboxState = createCheckboxState({
+	const state = createCheckboxState({
 		id,
 		label,
 		description,
@@ -53,40 +51,39 @@
 		class: className
 	});
 
-	let checkboxClasses = $derived(checkboxState.checkboxClasses);
 </script>
 
-<div class={checkboxState.containerClasses}>
-	<div class={checkboxState.wrapperClasses}>
-		<div class={checkboxState.checkboxWrapperClasses}>
+<div class={state.containerClasses}>
+	<div class={state.wrapperClasses}>
+		<div class={state.checkboxWrapperClasses}>
 			<input
 				{id}
 				type="checkbox"
 				bind:checked
-				class={checkboxClasses}
-				disabled={checkboxState.disabled}
-				required={checkboxState.required}
-				aria-describedby={checkboxState.hasError ? checkboxState.errorId : undefined}
-				{...htmlProps}
+				class={state.checkboxClasses}
+				disabled={state.disabled}
+				required={state.required}
+				aria-describedby={state.hasError ? state.errorId : undefined}
+				{...inputProps}
 			/>
 		</div>
-		<div class={checkboxState.labelWrapperClasses}>
-			<label for={id} class={checkboxState.labelClasses}>
+		<div class={state.labelWrapperClasses}>
+			<label for={id} class={state.labelClasses}>
 				{label}
-				{#if checkboxState.required}
+				{#if state.required}
 					<span class="text-[--color-danger-500]">*</span>
 				{/if}
 			</label>
 			{#if description}
-				<p class={checkboxState.descriptionClasses}>{description}</p>
+				<p class={state.descriptionClasses}>{description}</p>
 			{/if}
 		</div>
 	</div>
 
-	{#if checkboxState.hasError}
-		<p id={checkboxState.errorId} class={checkboxState.errorClasses}>
-			{#each checkboxState.errors as error, i}
-				{error}{i < checkboxState.errors.length - 1 ? ' ' : ''}
+	{#if state.hasError}
+		<p id={state.errorId} class={state.errorClasses}>
+			{#each state.errors as error, i}
+				{error}{i < state.errors.length - 1 ? ' ' : ''}
 			{/each}
 		</p>
 	{/if}

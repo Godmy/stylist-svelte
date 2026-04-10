@@ -1,34 +1,6 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-
-  type ListItem = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    avatar?: string;
-    status?: 'online' | 'offline' | 'away' | 'busy';
-    description?: string;
-    actions?: Array<{
-      label: string;
-      onClick: () => void;
-      variant?: 'primary' | 'secondary' | 'danger';
-    }>;
-  };
-
-  type Props = {
-    items: ListItem[];
-    showAvatar?: boolean;
-    showStatus?: boolean;
-    showSubtitle?: boolean;
-    showDescription?: boolean;
-    showActions?: boolean;
-    size?: 'sm' | 'md' | 'lg';
-    class?: string;
-    itemClass?: string;
-    avatarClass?: string;
-    contentClass?: string;
-    actionsClass?: string;
-  } & InteractionHTMLAttributes<HTMLDivElement>;
+  import type { ListWithAvatarsProps } from '$stylist/control/type/struct/list-with-avatars-props';
+  import { createListWithAvatarsState } from '$stylist/control/function/state/list-with-avatars';
 
   let {
     items = [],
@@ -44,42 +16,37 @@
     contentClass = '',
     actionsClass = '',
     ...restProps
-  } = $props();
-
-  // Define size classes
-  let avatarSize = $state('');
-  let paddingClass = $state('');
-  let textSize = $state('');
-
-  if (size === 'sm') {
-    avatarSize = 'w-8 h-8';
-    paddingClass = 'py-2';
-    textSize = 'text-sm';
-  } else if (size === 'lg') {
-    avatarSize = 'w-12 h-12';
-    paddingClass = 'py-4';
-    textSize = 'text-lg';
-  } else {
-    // md (default)
-    avatarSize = 'w-10 h-10';
-    paddingClass = 'py-3';
-    textSize = 'text-base';
-  }
+  }: ListWithAvatarsProps = $props();
+  const state = createListWithAvatarsState({
+    items,
+    showAvatar,
+    showStatus,
+    showSubtitle,
+    showDescription,
+    showActions,
+    size,
+    class: className,
+    itemClass,
+    avatarClass,
+    contentClass,
+    actionsClass,
+    ...restProps
+  });
 </script>
 
 <div class={`c-list-with-avatars divide-y divide-gray-200 rounded-md border border-[var(--color-border-primary)] ${className}`} {...restProps}>
   {#each items as item}
-    <div class={`flex items-center ${paddingClass} px-4 ${itemClass}`}>
+    <div class={`flex items-center ${state.paddingClass} px-4 ${itemClass}`}>
       {#if showAvatar}
         <div class="relative flex-shrink-0 mr-3">
           {#if item.avatar}
             <img
               src={item.avatar}
               alt={`${item.title}'s avatar`}
-              class={`${avatarSize} rounded-full object-cover ${avatarClass}`}
+              class={`${state.avatarSize} rounded-full object-cover ${avatarClass}`}
             />
           {:else}
-            <div class={`${avatarSize} rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center ${avatarClass}`}>
+            <div class={`${state.avatarSize} rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center ${avatarClass}`}>
               <span class="text-[var(--color-text-secondary)] font-medium">
                 {item.title ? item.title.charAt(0).toUpperCase() : '?'}
               </span>
@@ -98,18 +65,18 @@
       {/if}
 
       <div class={`flex-1 min-w-0 ${contentClass}`}>
-        <p class={`font-medium text-[var(--color-text-primary)] truncate ${textSize}`}>
+        <p class={`font-medium text-[var(--color-text-primary)] truncate ${state.textSize}`}>
           {item.title}
         </p>
 
         {#if showSubtitle && item.subtitle}
-          <p class={`text-[var(--color-text-secondary)] truncate ${textSize}`}>
+          <p class={`text-[var(--color-text-secondary)] truncate ${state.textSize}`}>
             {item.subtitle}
           </p>
         {/if}
 
         {#if showDescription && item.description}
-          <p class={`text-[var(--color-text-tertiary)] truncate ${textSize}`}>
+          <p class={`text-[var(--color-text-tertiary)] truncate ${state.textSize}`}>
             {item.description}
           </p>
         {/if}

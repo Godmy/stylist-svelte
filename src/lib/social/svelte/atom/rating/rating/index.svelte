@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { IRatingProps } from '$stylist/social/interface/component/rating/other';
   import { Icon as BaseIcon } from '$stylist';
-  import { RatingStyleManager } from '$stylist/social/class/style-manager/rating';
+  import { STAR } from '$stylist/social/const/map/rating';
+  import createRatingState from '$stylist/social/function/state/rating';
 
   let {
     rating = $bindable(0),
@@ -12,65 +13,44 @@
     class: className = '',
     onRatingChange,
     ...restProps
-  }: IRatingProps = $props();
+  }: IRatingProps & { rating?: number } = $props();
 
-  const STAR = 'star';
-
-  const rootClasses = $derived(RatingStyleManager.getRootClasses(className));
-  const starButtonClasses = (index: number) => RatingStyleManager.getStarButtonClasses(
-    disabled,
-    readonly,
-    index < rating,
+  const state = createRatingState({
     rating,
-    max
-  );
-  const starIconClasses = (index: number) => RatingStyleManager.getStarIconClasses(
-    index < rating,
-    size as import('$stylist').TokenSize
-  );
-  const ratingTextClasses = $derived(RatingStyleManager.getRatingTextClasses(disabled));
-
-  const handleStarClick = (value: number) => {
-    if (!readonly && !disabled) {
-      rating = value;
-      onRatingChange?.(value);
-    }
-  };
-
-  const handleStarHover = (_value: number) => {
-    // Placeholder for hover behavior
-  };
-
-  const handleMouseLeave = () => {
-    // Placeholder for mouse leave behavior
-  };
+    max,
+    readonly,
+    disabled,
+    size,
+    class: className,
+    onRatingChange
+  });
 </script>
 
 <div
-  class={rootClasses}
+  class={state.rootClasses}
   class:cursor-default={readonly || disabled}
-  onmouseleave={handleMouseLeave}
+  onmouseleave={state.handleMouseLeave}
   {...restProps}
 >
   {#each Array(max) as _, i}
     <button
       type="button"
-      class={starButtonClasses(i)}
-      onclick={() => handleStarClick(i + 1)}
-      onmouseenter={() => handleStarHover(i + 1)}
-      onfocus={() => handleStarHover(i + 1)}
+      class={state.starButtonClasses(i)}
+      onclick={() => state.handleStarClick(i + 1)}
+      onmouseenter={() => state.handleStarHover(i + 1)}
+      onfocus={() => state.handleStarHover(i + 1)}
       disabled={disabled}
       aria-label={`Рейтинг ${i + 1} из ${max}`}
       aria-pressed={i < rating}
     >
       <BaseIcon
         name={STAR}
-        class={starIconClasses(i)}
+        class={state.starIconClasses(i)}
       />
     </button>
   {/each}
 
-  <span class={ratingTextClasses}>
+  <span class={state.ratingTextClasses}>
     {rating.toFixed(1)} из {max}
   </span>
 </div>

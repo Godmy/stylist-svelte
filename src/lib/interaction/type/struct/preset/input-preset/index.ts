@@ -1,6 +1,6 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { Preset } from '..';
+import type { Preset } from '../preset';
 
 export type InputPreset<
 	V extends string = TokenAppearance,

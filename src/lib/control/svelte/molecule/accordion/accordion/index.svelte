@@ -26,6 +26,7 @@ const ChevronDown = 'chevron-down';
 
   import { AccordionStyleManager } from '$stylist/control/class/style-manager/accordion';
   import type { IAccordionProps } from '$stylist/control/interface/component/accordion/other';
+  import { createAccordionState } from '$stylist/control/function/state/accordion';
 
   let {
     items,
@@ -36,24 +37,15 @@ const ChevronDown = 'chevron-down';
     contentClass = '',
     ...restProps
   }: IAccordionProps & InteractionHTMLAttributes<HTMLElement> = $props();
-
-  let activeIds = $state<string[]>([]);
-
-  function toggleAccordion(id: string) {
-    if (activeIds.includes(id)) {
-      activeIds = activeIds.filter(activeId => activeId !== id);
-    } else {
-      if (multiple) {
-        activeIds = [...activeIds, id];
-      } else {
-        activeIds = [id];
-      }
-    }
-  }
-
-  function isExpanded(id: string): boolean {
-    return activeIds.includes(id);
-  }
+  const state = createAccordionState({
+    items,
+    multiple,
+    class: className,
+    itemClass,
+    headerClass,
+    contentClass,
+    ...restProps
+  });
 
   // Generate CSS classes using the style manager
   const containerClass = $derived(AccordionStyleManager.getContainerClass(className));
@@ -65,14 +57,14 @@ const ChevronDown = 'chevron-down';
       <h3 class="m-0">
         <button
           type="button"
-          class={AccordionStyleManager.getHeaderClass(isExpanded(item.id), item.disabled || false, headerClass)}
-          onclick={() => !item.disabled && toggleAccordion(item.id)}
-          aria-expanded={isExpanded(item.id)}
+          class={AccordionStyleManager.getHeaderClass(state.isExpanded(item.id), item.disabled || false, headerClass)}
+          onclick={() => !item.disabled && state.toggleAccordion(item.id)}
+          aria-expanded={state.isExpanded(item.id)}
           aria-controls={`panel-${item.id}`}
         >
           <span>{item.title}</span>
           <BaseIcon name={ChevronDown}
-            class={AccordionStyleManager.getChevronClass(isExpanded(item.id))}
+            class={AccordionStyleManager.getChevronClass(state.isExpanded(item.id))}
           />
         </button>
       </h3>
@@ -81,7 +73,7 @@ const ChevronDown = 'chevron-down';
         id={`panel-${item.id}`}
         role="region"
         aria-labelledby={`accordion-header-${item.id}`}
-        class={AccordionStyleManager.getContentPanelClass(isExpanded(item.id), contentClass)}
+        class={AccordionStyleManager.getContentPanelClass(state.isExpanded(item.id), contentClass)}
       >
         <div class={AccordionStyleManager.getContentWrapperClass()}>
           {#if typeof item.content === 'function'}

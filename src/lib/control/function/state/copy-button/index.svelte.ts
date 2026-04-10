@@ -4,6 +4,7 @@ import { InteractionStyleManager } from '$stylist/interaction/class/style-manage
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
+import { copyTextToClipboard } from '$stylist/interaction/function/script/copy-text-to-clipboard';
 
 type CopyButtonStateProps = CopyButtonProps & HTMLButtonAttributes;
 
@@ -48,6 +49,13 @@ export function createCopyButtonState(props: CopyButtonStateProps) {
 		props as Record<string, unknown>,
 		'Copy to clipboard'
 	));
+	let copied = $state(false);
+
+	const iconClasses = $derived(
+		`copy-button-icon transition-colors duration-[var(--duration-150)] ${
+			copied ? 'text-[var(--color-success-600)]' : 'text-current'
+		}`.trim()
+	);
 
 	return {
 		get variant() {
@@ -73,6 +81,28 @@ export function createCopyButtonState(props: CopyButtonStateProps) {
 		},
 		get ariaLabel() {
 			return ariaLabel;
+		},
+		get copied() {
+			return copied;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		async handleCopy() {
+			if (props.disabled || props.loading) return;
+
+			const success = await copyTextToClipboard(props.text ?? '');
+
+			if (success) {
+				copied = true;
+				props.onSuccess?.(props.successMessage ?? 'Copied to clipboard');
+				setTimeout(() => {
+					copied = false;
+				}, 2000);
+				return;
+			}
+
+			props.onError?.(new Error('Failed to copy to clipboard'));
 		}
 	};
 }

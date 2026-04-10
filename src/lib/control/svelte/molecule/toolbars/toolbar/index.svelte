@@ -1,57 +1,47 @@
 <script lang="ts">
   import { Button } from '$stylist';
-  import { createEventDispatcher } from 'svelte';
+  import { createToolbarState } from '$stylist/control/function/state/toolbar';
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    zoomIn: {};
-    zoomOut: {};
-    fitView: {};
-    resetView: {};
-    exportImage: { format: 'png' | 'jpeg' | 'svg' };
-    toggleLegend: {};
-    toggleSearch: {};
+  let props = $props<{
+    onZoomIn?: () => void;
+    onZoomOut?: () => void;
+    onFitView?: () => void;
+    onResetView?: () => void;
+    onExportImage?: (format: 'png' | 'jpeg' | 'svg') => void;
+    onToggleLegend?: () => void;
+    onToggleSearch?: () => void;
   }>();
 
-  // Local state
-  let isLegendVisible = $state(true);
-  let isSearchVisible = $state(true);
+  const state = createToolbarState();
 
-  // Handle zoom in
   function handleZoomIn() {
-    dispatch('zoomIn', {});
+    props.onZoomIn?.();
   }
 
-  // Handle zoom out
   function handleZoomOut() {
-    dispatch('zoomOut', {});
+    props.onZoomOut?.();
   }
 
-  // Handle fit view
   function handleFitView() {
-    dispatch('fitView', {});
+    props.onFitView?.();
   }
 
-  // Handle reset view
   function handleResetView() {
-    dispatch('resetView', {});
+    props.onResetView?.();
   }
 
-  // Handle export
   function handleExport(format: 'png' | 'jpeg' | 'svg') {
-    dispatch('exportImage', { format });
+    props.onExportImage?.(format);
   }
 
-  // Handle toggle legend
   function handleToggleLegend() {
-    isLegendVisible = !isLegendVisible;
-    dispatch('toggleLegend', {});
+    state.handleToggleLegend();
+    props.onToggleLegend?.();
   }
 
-  // Handle toggle search
   function handleToggleSearch() {
-    isSearchVisible = !isSearchVisible;
-    dispatch('toggleSearch', {});
+    state.handleToggleSearch();
+    props.onToggleSearch?.();
   }
 </script>
 
@@ -117,14 +107,14 @@
   <div class="toolbar-group">
     <Button 
       size="sm" 
-      variant={isLegendVisible ? 'primary' : 'secondary'} 
+      variant={state.isLegendVisible ? 'primary' : 'secondary'} 
       onclick={handleToggleLegend}
     >
       <span> Legend</span>
     </Button>
     <Button 
       size="sm" 
-      variant={isSearchVisible ? 'primary' : 'secondary'} 
+      variant={state.isSearchVisible ? 'primary' : 'secondary'} 
       onclick={handleToggleSearch}
     >
       <span> Search</span>

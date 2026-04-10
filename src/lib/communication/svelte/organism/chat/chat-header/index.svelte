@@ -2,7 +2,7 @@
   import { Avatar, Button, Icon } from '$stylist';
   import { UserStatus } from '$stylist';
   import { ChatHeaderModel } from '$stylist/communication/function/state/chat-header';
-  import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header';
+  import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header/chat-header-props';
   import { ChatHeaderStyleManager } from '$stylist/communication/class/style-manager/chat-header';
   import { createEventDispatcher } from 'svelte';
 

@@ -1,61 +1,68 @@
-import { derived, writable } from 'svelte/store';
-import type { BurgerMenuProps } from '$stylist/control/interface/component/burger-menu/other';
+import type { BurgerMenuProps } from '$stylist/control/type/struct/burger-menu-props';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+import { BURGER_MENU_ARIA_LABEL } from '$stylist/control/const/struct/burger-menu-aria-label';
 
 export function createBurgerMenuState(props: BurgerMenuProps) {
-  // Initialize props with defaults
-  const open = props.open ?? false;
-  const size = props.size ?? 'md';
-  const color = props.color ?? 'currentColor';
-  const activeColor = props.activeColor ?? 'currentColor';
+	const open = $derived(props.open ?? false);
+	const size = $derived((props.size ?? 'md') as 'sm' | 'md' | 'lg');
+	const color = $derived(props.color ?? 'currentColor');
+	const activeColor = $derived(props.activeColor ?? 'currentColor');
+	const className = $derived(props.class ?? '');
 
-  const sizeClasses: Record<string, string> = {
-    sm: 'h-8 w-8',
-    md: 'h-10 w-10',
-    lg: 'h-12 w-12'
-  };
+	const sizeClasses: Record<string, string> = {
+		sm: 'h-8 w-8',
+		md: 'h-10 w-10',
+		lg: 'h-12 w-12'
+	};
 
-  const iconSizes: Record<string, string> = {
-    sm: 'h-4 w-4',
-    md: 'h-5 w-5',
-    lg: 'h-6 w-6'
-  };
+	const iconSizes: Record<string, string> = {
+		sm: 'h-4 w-4',
+		md: 'h-5 w-5',
+		lg: 'h-6 w-6'
+	};
 
-  const styles = {
-    container: joinClassNames(
-      'inline-flex items-center justify-center rounded-md border border-[--color-border-secondary] bg-[--color-background-primary] transition-colors hover:bg-[--color-background-secondary]',
-      sizeClasses[size] ?? sizeClasses.md
-    ),
-    icon: joinClassNames('relative', iconSizes[size] ?? iconSizes.md),
-    line: 'absolute left-0 h-0.5 w-full rounded-full transition-all duration-[var(--duration-200)]'
-  };
+	const containerClasses = $derived(
+		joinClassNames(
+			'inline-flex items-center justify-center rounded-md border border-[--color-border-secondary] bg-[--color-background-primary] transition-colors hover:bg-[--color-background-secondary]',
+			sizeClasses[size] ?? sizeClasses.md,
+			className
+		)
+	);
 
-  // Calculate aria label
-  const ariaLabel = derived([writable(open)], ([$open]) => 
-    $open ? 'Close menu' : 'Open menu'
-  );
+	const iconClasses = $derived(iconSizes[size] ?? iconSizes.md);
+	const lineClasses = $derived('absolute left-0 h-0.5 w-full rounded-full transition-all duration-[var(--duration-200)]');
+	const ariaLabel = $derived(props.ariaLabel ?? (open ? 'Close menu' : 'Open menu') ?? BURGER_MENU_ARIA_LABEL);
 
-  // Merge classes with custom classes
-  const containerClasses = derived(
-    [writable(props.class), writable(styles.container)],
-    ([$class, $container]) => joinClassNames($container, $class)
-  );
+	function handleClick(e: MouseEvent) {
+		props.onValueInput?.(e);
+		props.onValueChange?.(e);
+		props.onClick?.(e);
+	}
 
-  return {
-    open,
-    size,
-    color,
-    activeColor,
-    ariaLabel,
-    containerClasses,
-    iconClasses: styles.icon,
-    lineClasses: styles.line
-  };
+	return {
+		get open() {
+			return open;
+		},
+		get color() {
+			return color;
+		},
+		get activeColor() {
+			return activeColor;
+		},
+		get containerClasses() {
+			return containerClasses;
+		},
+		get iconClasses() {
+			return iconClasses;
+		},
+		get lineClasses() {
+			return lineClasses;
+		},
+		get ariaLabel() {
+			return ariaLabel;
+		},
+		handleClick
+	};
 }
 
 export default createBurgerMenuState;
-
-
-
-
-

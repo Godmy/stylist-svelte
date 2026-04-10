@@ -2,22 +2,12 @@
   /**
    * @component ComponentPreview
    * @description Component preview with code and demo
-   *
-   * SOLID Principles Applied:
-   * - Single Responsibility: Only handles component preview display
-   * - Open/Closed: Extensible through props without modifying source
-   * - Liskov Substitution: Can substitute any component preview
-   * - Interface Segregation: Minimal interface via IComponentPreviewProps
-   * - Dependency Inversion: Depends on abstractions (props interface)
-   *
-   * Atomic Design: Molecule - Composes atoms into a meaningful preview unit
    */
 
   import type { Snippet } from 'svelte';
-  import { ComponentPreviewStyleManager } from '$stylist/development/class/style-manager/component-preview';
+  import { createComponentPreviewState } from '$stylist/development/function/state/component-preview';
   import CodeBlock from '../code-block/index.svelte';
 
-  // Define component props using the interface
   let {
     title,
     description,
@@ -36,57 +26,44 @@
     class?: string;
   } = $props();
 
-  // State for active tab
-  let activeTab = $state(showCode ? 'code' : 'preview');
-
-  // Get CSS classes from style manager
-  let classes = $derived(ComponentPreviewStyleManager.getBaseClasses(className));
-  let headerClasses = $derived(ComponentPreviewStyleManager.getHeaderClasses());
-  let titleClasses = $derived(ComponentPreviewStyleManager.getTitleClasses());
-  let descriptionClasses = $derived(ComponentPreviewStyleManager.getDescriptionClasses());
-  let previewContainerClasses = $derived(ComponentPreviewStyleManager.getPreviewContainerClasses());
-  let demoContainerClasses = $derived(ComponentPreviewStyleManager.getDemoContainerClasses());
-  let codeContainerClasses = $derived(ComponentPreviewStyleManager.getCodeContainerClasses());
-  let tabContainerClasses = $derived(ComponentPreviewStyleManager.getTabContainerClasses());
-  let tabListClasses = $derived(ComponentPreviewStyleManager.getTabListClasses());
-  let tabButtonClasses = (isActive: boolean) => ComponentPreviewStyleManager.getTabButtonClasses(isActive);
+  const state = createComponentPreviewState({ title, description, code, language, componentDemo, showCode, class: className });
 </script>
 
-<div class={classes}>
-  <div class={headerClasses}>
-    <h3 class={titleClasses}>{title}</h3>
+<div class={state.classes}>
+  <div class={state.headerClasses}>
+    <h3 class={state.titleClasses}>{title}</h3>
     {#if description}
-      <p class={descriptionClasses}>{description}</p>
+      <p class={state.descriptionClasses}>{description}</p>
     {/if}
   </div>
 
-  <div class={tabContainerClasses}>
-    <div class={tabListClasses}>
+  <div class={state.tabContainerClasses}>
+    <div class={state.tabListClasses}>
       <button
         type="button"
-        class={tabButtonClasses(activeTab === 'preview')}
-        onclick={() => activeTab = 'preview'}
+        class={state.tabButtonClasses(state.activeTab === 'preview')}
+        onclick={() => state.setPreviewTab('preview')}
       >
         Preview
       </button>
       <button
         type="button"
-        class={tabButtonClasses(activeTab === 'code')}
-        onclick={() => activeTab = 'code'}
+        class={state.tabButtonClasses(state.activeTab === 'code')}
+        onclick={() => state.setPreviewTab('code')}
       >
         Code
       </button>
     </div>
   </div>
 
-  {#if activeTab === 'preview'}
-    <div class={previewContainerClasses}>
-      <div class={demoContainerClasses}>
+  {#if state.activeTab === 'preview'}
+    <div class={state.previewContainerClasses}>
+      <div class={state.demoContainerClasses}>
         {@render componentDemo()}
       </div>
     </div>
   {:else}
-    <div class={codeContainerClasses}>
+    <div class={state.codeContainerClasses}>
       <CodeBlock language={language} code={code} />
     </div>
   {/if}

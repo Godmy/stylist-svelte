@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type { Snippet } from 'svelte';
+  import type { Snippet } from 'svelte';
+  import { createPlaygroundDeviceFrameState } from '$stylist/development/function/state/playground-device-frame';
 
   type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
 
@@ -8,48 +9,30 @@
     children?: Snippet;
   }
 
-  let { device, children }: Props = $props();
-
-  // Device specifications
-  const deviceSpecs: Record<
-    ViewportSize,
-    { width: number; height: number; name: string; color: string }
-  > = {
-    mobile: { width: 375, height: 667, name: 'iPhone SE', color: 'from-gray-800 to-gray-900' },
-    tablet: { width: 768, height: 1024, name: 'iPad', color: 'from-gray-700 to-gray-800' },
-    desktop: {
-      width: 1440,
-      height: 900,
-      name: 'Desktop',
-      color: 'from-gray-600 to-gray-700'
-    },
-    fullscreen: { width: 0, height: 0, name: 'Fullscreen', color: '' }
-  };
-
-  const spec = $derived(deviceSpecs[device]);
-  const showFrame = $derived(device !== 'fullscreen');
+  let props: Props = $props();
+  const state = createPlaygroundDeviceFrameState(props);
 </script>
 
-{#if showFrame}
+{#if state.showFrame}
   <div class="flex items-center justify-center p-8">
     <!-- Device Frame -->
     <div class="relative flex flex-col items-center">
       <!-- Device Name Badge -->
       <div
-        class="mb-4 px-4 py-2 rounded-full bg-gradient-to-r {spec.color} text-white text-xs font-bold shadow-lg"
+        class="mb-4 px-4 py-2 rounded-full bg-gradient-to-r {state.spec.color} text-white text-xs font-bold shadow-lg"
       >
-        {spec.name} | {spec.width}px x {spec.height}px
+        {state.spec.name} | {state.spec.width}px x {state.spec.height}px
       </div>
 
       <!-- Frame Container -->
       <div class="relative">
-        {#if device === 'mobile'}
+        {#if state.device === 'mobile'}
           <!-- Mobile Phone Frame -->
           <div class="relative">
             <!-- Phone body -->
             <div
-              class="bg-gradient-to-br {spec.color} rounded-[3rem] p-3 shadow-2xl"
-              style="width: {spec.width + 24}px;"
+              class="bg-gradient-to-br {state.spec.color} rounded-[3rem] p-3 shadow-2xl"
+              style="width: {state.spec.width + 24}px;"
             >
               <!-- Notch (iPhone style) -->
               <div class="flex justify-center mb-2">
@@ -64,11 +47,11 @@
               <!-- Screen -->
               <div
                 class="bg-white dark:bg-gray-900 rounded-[2.5rem] overflow-hidden shadow-inner"
-                style="width: {spec.width}px; height: {spec.height}px;"
+                style="width: {state.spec.width}px; height: {state.spec.height}px;"
               >
                 <div class="w-full h-full overflow-auto">
-                  {#if children}
-                    {@render children()}
+                  {#if state.children}
+                    {@render state.children()}
                   {/if}
                 </div>
               </div>
@@ -86,13 +69,13 @@
             <!-- Power button -->
             <div class="absolute right-0 top-32 w-1 h-16 bg-gray-800 rounded-r-full"></div>
           </div>
-        {:else if device === 'tablet'}
+        {:else if state.device === 'tablet'}
           <!-- Tablet Frame -->
           <div class="relative">
             <!-- Tablet body -->
             <div
-              class="bg-gradient-to-br {spec.color} rounded-[2rem] p-4 shadow-2xl"
-              style="width: {spec.width + 32}px;"
+              class="bg-gradient-to-br {state.spec.color} rounded-[2rem] p-4 shadow-2xl"
+              style="width: {state.spec.width + 32}px;"
             >
               <!-- Camera -->
               <div class="flex justify-center mb-2">
@@ -102,11 +85,11 @@
               <!-- Screen -->
               <div
                 class="bg-white dark:bg-gray-900 rounded-[1.5rem] overflow-hidden shadow-inner"
-                style="width: {spec.width}px; height: {spec.height}px;"
+                style="width: {state.spec.width}px; height: {state.spec.height}px;"
               >
                 <div class="w-full h-full overflow-auto">
-                  {#if children}
-                    {@render children()}
+                  {#if state.children}
+                    {@render state.children()}
                   {/if}
                 </div>
               </div>
@@ -120,21 +103,21 @@
             <!-- Volume buttons -->
             <div class="absolute right-0 top-32 w-1 h-16 bg-gray-800 rounded-r-full"></div>
           </div>
-        {:else if device === 'desktop'}
+        {:else if state.device === 'desktop'}
           <!-- Desktop Monitor Frame -->
           <div class="relative flex flex-col items-center">
             <!-- Monitor -->
-            <div class="bg-gradient-to-br {spec.color} rounded-2xl p-4 shadow-2xl">
+            <div class="bg-gradient-to-br {state.spec.color} rounded-2xl p-4 shadow-2xl">
               <!-- Bezel -->
               <div class="bg-black rounded-xl p-6">
                 <!-- Screen -->
                 <div
                   class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-inner"
-                  style="width: {spec.width}px; height: {spec.height}px;"
+                  style="width: {state.spec.width}px; height: {state.spec.height}px;"
                 >
                   <div class="w-full h-full overflow-auto">
-                    {#if children}
-                      {@render children()}
+                    {#if state.children}
+                      {@render state.children()}
                     {/if}
                   </div>
                 </div>
@@ -147,8 +130,8 @@
             </div>
 
             <!-- Stand -->
-            <div class="w-32 h-2 bg-gradient-to-r {spec.color} rounded-full mt-2"></div>
-            <div class="w-48 h-3 bg-gradient-to-r {spec.color} rounded-full mt-1"></div>
+            <div class="w-32 h-2 bg-gradient-to-r {state.spec.color} rounded-full mt-2"></div>
+            <div class="w-48 h-3 bg-gradient-to-r {state.spec.color} rounded-full mt-1"></div>
           </div>
         {/if}
       </div>
@@ -157,8 +140,8 @@
 {:else}
   <!-- Fullscreen mode - no frame -->
   <div class="w-full h-full">
-    {#if children}
-      {@render children()}
+    {#if state.children}
+      {@render state.children()}
     {/if}
   </div>
 {/if}
@@ -169,8 +152,3 @@
     scroll-behavior: smooth;
   }
 </style>
-
-
-
-
-

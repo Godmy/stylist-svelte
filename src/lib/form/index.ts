@@ -6,4 +6,4 @@ export { AddressForm, FilterPanel, FormFooter, FormHeader, FormSelection, FormWi
 export type { FilterChangePayload, FilterPanelLayout, RadioOption, RadioOrientation, TokenFormIcon, ValidationOrientation } from './type';
 export type { AddressFormState, FilterPanelState, FormSelectionState, FormWithValidationState, LoginFormState, RadioGroupState, ScreenReaderState, SearchFormState, ValidationState } from './function';
 export type { AccountFormsRecipe, AccountSettingsFormProps, AddressFormProps, DocumentPreviewProps, FormFooterProps, FormFooterRecipe, FormHeaderProps, FormHeaderRecipe, FormWithValidationProps, InteractionFormsRecipe, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps, UserProfileCardProps } from './interface';
-export type { AddressData, FilterPanelProps, FormSelectionProps, LoginCredentials, RadioGroupProps, ValidationErrors, ValidationProps } from './type';
+export type { AddressData, FilterPanelProps, FormData, FormSelectionProps, LoginCredentials, RadioGroupProps, ValidationErrors, ValidationProps } from './type';

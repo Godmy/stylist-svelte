@@ -4,18 +4,9 @@
 
 	let props: RadioProps = $props();
 
-	const radioState = createRadioState(props);
+	const state = createRadioState(props);
 
-	function handleChange(e: Event) {
-		const target = e.target as HTMLInputElement;
-		if (target.checked && props.onchange) {
-			(props.onchange as (e: Event) => void)(e);
-		}
-	}
-
-	// Extract only HTML-compatible props for the input element
-	let htmlProps = $state({});
-	$effect(() => {
+	const restProps = $derived.by(() => {
 		const {
 			id: _id,
 			name: _name,
@@ -25,28 +16,28 @@
 			label: _label,
 			required: _required,
 			class: _class,
-			size: _size, // Exclude custom size prop to avoid conflict with HTML size attribute
-			...filteredProps
+			size: _size,
+			...rest
 		} = props;
-		htmlProps = filteredProps;
+		return rest;
 	});
 </script>
 
-<div class={radioState.containerClasses}>
+<div class={state.containerClasses}>
 	<input
 		id={props.id}
 		type="radio"
 		name={props.name}
 		value={props.value}
-		checked={radioState.checked}
-		onchange={handleChange}
-		disabled={radioState.disabled}
+		checked={state.checked}
+		onchange={state.handleChange}
+		disabled={state.disabled}
 		required={props.required}
-		class={radioState.radioClasses}
-		{...htmlProps}
+		class={state.radioClasses}
+		{...restProps}
 	/>
 	{#if props.label}
-		<label for={props.id} class={radioState.labelClasses}>
+		<label for={props.id} class={state.labelClasses}>
 			{props.label}
 		</label>
 	{/if}

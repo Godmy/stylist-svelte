@@ -4,25 +4,7 @@
 
 	let props: RadioButtonGroupProps = $props();
 
-	const radioGroupState = createRadioButtonGroupState(props);
-
-	let selectedValue = $state(radioGroupState.value);
-
-	$effect(() => {
-		if (selectedValue !== radioGroupState.value) {
-			selectedValue = radioGroupState.value;
-		}
-	});
-
-	function handleInput(optionValue: string) {
-		selectedValue = optionValue;
-		props.onValueInput?.(optionValue);
-	}
-
-	function handleChange(optionValue: string) {
-		selectedValue = optionValue;
-		props.onValueChange?.(optionValue);
-	}
+	const state = createRadioButtonGroupState(props);
 
 	// Extract only HTML-compatible props for the container div
 	// Create a new object with only the safe properties by picking them explicitly
@@ -50,21 +32,21 @@
 	});
 </script>
 
-<div class={radioGroupState.containerClass} {...htmlProps}>
-	{#each radioGroupState.options as option}
-		<label class={radioGroupState.getOptionClass(!!option.disabled)}>
+<div class={state.containerClass} {...htmlProps}>
+	{#each state.options as option}
+		<label class={state.getOptionClass(!!option.disabled)}>
 			<input
 				type="radio"
-				name={radioGroupState.name}
-				class={radioGroupState.radioInputClass}
-				bind:group={selectedValue}
+				name={state.name}
+				class={state.radioInputClass}
+				checked={state.value === option.value}
 				value={option.value}
-				oninput={() => handleInput(option.value)}
-				onchange={() => handleChange(option.value)}
-				disabled={option.disabled || radioGroupState.disabled}
-				required={radioGroupState.required}
+				oninput={() => state.handleInput(option.value)}
+				onchange={() => state.handleChange(option.value)}
+				disabled={option.disabled || state.disabled}
+				required={state.required}
 			/>
-			<span class={radioGroupState.optionLabelClass}>{option.label}</span>
+			<span class={state.optionLabelClass}>{option.label}</span>
 		</label>
 	{/each}
 </div>

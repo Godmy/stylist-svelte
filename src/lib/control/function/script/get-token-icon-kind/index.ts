@@ -1,0 +1,93 @@
+import type { TokenIconKind } from '$stylist/control/type/struct/token-icon-kind';
+
+export function getTokenIconKind(tokenName: string): TokenIconKind {
+	switch (tokenName) {
+		case 'POSITIONS':
+		case 'TOKEN_ORIENTATION':
+		case 'TOKEN_ALIGNMENT':
+		case 'TOKEN_JUSTIFICATION':
+			return 'layout';
+		case 'GEOMETRY':
+		case 'shape':
+		case 'corner':
+			return 'shape';
+		case 'TOKEN_SIZE':
+			return 'size';
+		case 'SPACING':
+			return 'SPACING';
+		case 'RADIUS':
+			return 'radius';
+		case 'SHADOWS':
+			return 'SHADOW';
+		case 'WIDTH':
+		case 'TOKEN_BORDER_STYLE':
+			return 'border';
+		case 'TOKEN_OPACITY':
+		case 'TOKEN_OPACITY_ALT':
+			return 'TOKEN_OPACITY';
+		case 'BLUR':
+			return 'blur';
+		case 'WIDTH_CONTAINER':
+		case 'PADDING':
+			return 'container';
+		case 'GRID_COLUMNS':
+		case 'TOKEN_COLUMN':
+		case 'GRID_GAPS':
+			return 'grid';
+		case 'TOKEN_ASPECT_RATIO':
+			return 'aspect';
+		case 'TOKEN_Z_INDEX':
+			return 'layers';
+		case 'COLOR_PALETTES':
+		case 'COLORS_PALETTE':
+		case 'COLOR_PALETTES[shade]':
+		case 'COLORS_PALETTE[shade]':
+			return 'palette';
+		case 'GRADIENT_CUSTOM':
+		case 'GRADIENT_RADIAL':
+			return 'gradient';
+		case 'FONT_FAMILY':
+		case 'REM':
+		case 'FONT_WEIGHT':
+		case 'LINE_HEIGHT':
+			return 'TYPOGRAPHY';
+		case 'trajectory':
+		case 'connector':
+		case 'marker':
+		case 'chart':
+		case 'pin':
+		case 'ownership':
+			return 'graph';
+		case 'TRANSITION':
+		case 'TOKEN_DURATION':
+		case 'TOKEN_EASING':
+		case 'ANIMATION_DELAY':
+			return 'motion';
+		case 'APPEARANCE_STYLES':
+		case 'TOKEN_APPEARANCE':
+		case 'STATE_VARIANTS':
+		case 'FLOW_VARIANTS':
+		case 'ALL_VARIANTS':
+		case 'TOKEN_CODE_VIEW':
+		case 'TOKEN_DENSITY':
+		case 'skeleton':
+		case 'TABLE_CELLS':
+		case 'TOKEN_TABLE_CELL':
+			return 'variant';
+		case 'PRESENCE_STATUSES':
+		case 'MESSAGE_STATUSES':
+		case 'ACTIVITY_STATUSES':
+		case 'LOADING_STATUSES':
+		case 'VERDICTS':
+		case 'SEVERITY_LEVELS':
+		case 'PROGRESS_TYPES':
+		case 'TOKEN_PROGRESS_TYPE':
+		case 'TOKEN_MESSAGE_STATUS':
+		case 'BADGE_LABELS':
+			return 'state';
+		default:
+			return 'default';
+	}
+}
+
+export default getTokenIconKind;

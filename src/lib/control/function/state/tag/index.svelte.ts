@@ -5,6 +5,7 @@ import { TagStyleManager } from '$stylist/control/class/style-manager/tag';
 type TagProps = TagRecipe & {
 	text?: string;
 	class?: unknown;
+	onClose?: () => void;
 };
 
 
@@ -50,6 +51,10 @@ export const createTagState = (props: TagProps) => {
 		},
 		get closeButtonIconClasses() {
 			return closeButtonIconClasses;
+		},
+		handleClose() {
+			if (disabled) return;
+			props.onClose?.();
 		}
 	};
 };

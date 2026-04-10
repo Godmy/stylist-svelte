@@ -5,9 +5,9 @@ import type { GridLayoutItem } from '../grid-layout-item';
 export type GridLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;
 	children?: Snippet;
-	columns?: number | string;
-	cols?: number | string;
-	rows?: number | string;
+	columns?: number;
+	cols?: number;
+	rows?: number;
 	gap?: string;
 	responsive?: boolean;
 	alignItems?: string;

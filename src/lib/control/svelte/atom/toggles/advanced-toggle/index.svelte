@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import type { AdvancedToggleProps } from '$stylist/control/interface/component/toggles';
 	import { createAdvancedToggleState } from '$stylist/control/function/state/advanced-toggle';
+	import type { AdvancedToggleProps } from '$stylist/control/type/struct/advanced-toggle-props';
 
-	type Props = AdvancedToggleProps & InteractionHTMLAttributes<HTMLDivElement>;
-	let props: Props = $props();
+	let props: AdvancedToggleProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {
@@ -22,38 +20,23 @@
 		})()
 	);
 
-	const toggleState = createAdvancedToggleState(props);
-
-	let localChecked = $state(toggleState.checked);
-
-	$effect(() => {
-		localChecked = toggleState.checked;
-	});
-
-	const handleChange = () => {
-		if (!toggleState.disabled) {
-			localChecked = !localChecked;
-			props.onValueInput?.(localChecked);
-			props.onValueChange?.(localChecked);
-			props.onChange?.(localChecked);
-		}
-	};
+	const state = createAdvancedToggleState(props);
 </script>
 
-<div class={toggleState.containerClasses} {...restProps}>
-	<label class={toggleState.labelWrapperClasses}>
-		<div class={toggleState.toggleContainerClasses}>
+<div class={state.containerClasses} {...restProps}>
+	<label class={state.labelWrapperClasses}>
+		<div class={state.toggleContainerClasses}>
 			<input
 				type="checkbox"
-				class={toggleState.hiddenInputClasses}
-				bind:checked={localChecked}
-				disabled={toggleState.disabled}
-				onchange={handleChange}
+				class={state.hiddenInputClasses}
+				checked={state.checked}
+				disabled={state.disabled}
+				onchange={state.handleChange}
 			/>
-			<div class={toggleState.toggleBackgroundClasses}></div>
-			<div class={toggleState.toggleHandleClasses}></div>
+			<div class={state.toggleBackgroundClasses}></div>
+			<div class={state.toggleHandleClasses}></div>
 		</div>
-		<span class={toggleState.labelTextClasses}>{toggleState.label}</span>
+		<span class={state.labelTextClasses}>{state.label}</span>
 	</label>
 </div>
 

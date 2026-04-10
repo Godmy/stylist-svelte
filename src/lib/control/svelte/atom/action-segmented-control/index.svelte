@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import type { ActionSegmentedControlProps } from '$stylist/control/interface/component/toggles';
 	import { createActionSegmentedControlState } from '$stylist/control/function/state/action-segmented-control';
+	import type { ActionSegmentedControlProps } from '$stylist/control/type/struct/action-segmented-control-props';
 
-	type Props = ActionSegmentedControlProps & InteractionHTMLAttributes<HTMLDivElement>;
-
-	let props: Props = $props();
+	let props: ActionSegmentedControlProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {
@@ -21,26 +18,14 @@
 		})()
 	);
 
-	const controlState = createActionSegmentedControlState(props);
-	let localSelectedIndex = $state(controlState.selectedIndex);
-
-	$effect(() => {
-		localSelectedIndex = controlState.selectedIndex;
-	});
-
-	const handleClick = (index: number) => {
-		localSelectedIndex = index;
-		props.onValueInput?.(index);
-		props.onValueChange?.(index);
-		props.onChange?.(index);
-	};
+	const state = createActionSegmentedControlState(props);
 </script>
 
-<div class={controlState.classes} {...restProps}>
-	{#each controlState.items as item, i}
+<div class={state.classes} {...restProps}>
+	{#each state.items as item, i}
 		<button
-			class={controlState.getItemClasses(i, localSelectedIndex === i)}
-			onclick={() => handleClick(i)}
+			class={state.getItemClasses(i, state.localSelectedIndex === i)}
+			onclick={() => state.handleClick(i)}
 		>
 			{item}
 		</button>

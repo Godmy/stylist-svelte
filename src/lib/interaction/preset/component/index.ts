@@ -2,7 +2,7 @@ import { resolveAriaLabel } from '$stylist/information/function/script/resolve-a
 import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
 import { resolveAllowedOption } from '$stylist/interaction/function/script/resolve-allowed-option';
 import type { InputPreset } from '$stylist/interaction/type/struct/preset/input-preset';
-import type { Preset } from '$stylist/interaction/type/struct/preset';
+import type { Preset } from '$stylist/interaction/type/struct/preset/preset';
 import type { ComponentStateOptions } from '$stylist/layout/type/struct/component-state';
 import type { InputStateOptions } from '$stylist/layout/type/struct/component-state-input-state-options';
 

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AnimateContract, TransformContract } from './motion';
+export type { AnimateContract, MotionContract, TransformContract } from './motion';

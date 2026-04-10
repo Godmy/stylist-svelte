@@ -5,8 +5,12 @@ import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggle
 export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);
-	const checked = $derived(props.checked ?? false);
 	const label = $derived(props.label ?? '');
+	let localChecked = $state(props.checked ?? false);
+
+	$effect(() => {
+		localChecked = props.checked ?? false;
+	});
 
 	const containerClasses = $derived(
 		TogglesStyleManager.getToggleContainerClasses(props.class)
@@ -18,10 +22,10 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 		TogglesStyleManager.getToggleContainerClasses(props.class)
 	);
 	const trackClasses = $derived(
-		TogglesStyleManager.getToggleTrackClasses(disabled, checked)
+		TogglesStyleManager.getToggleTrackClasses(disabled, localChecked)
 	);
 	const thumbClasses = $derived(
-		TogglesStyleManager.getToggleThumbClasses('md', disabled, checked)
+		TogglesStyleManager.getToggleThumbClasses('md', disabled, localChecked)
 	);
 	const hiddenInputClasses = $derived(
 		joinClassNames(
@@ -45,7 +49,7 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 			return disabled;
 		},
 		get checked() {
-			return checked;
+			return localChecked;
 		},
 		get label() {
 			return label;
@@ -82,6 +86,16 @@ export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
 		},
 		get labelTextClasses() {
 			return labelTextClasses;
+		},
+		handleChange() {
+			if (disabled) {
+				return;
+			}
+
+			localChecked = !localChecked;
+			props.onValueInput?.(localChecked);
+			props.onValueChange?.(localChecked);
+			props.onChange?.(localChecked);
 		}
 	};
 };

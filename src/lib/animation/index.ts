@@ -7,4 +7,4 @@ export type { EasingFunction, EasingType } from './function';
 export type { TokenAnimation, TokenDuration, TokenEasing, TokenTransition } from './type';
 export type { AnimatedStyleManagerOptions } from './class';
 export type { AnimateProps, IAnimate, IMotionPreset, IMotionToken, ITransformable, TransformProps, TransformationProps } from './interface';
-export type { AnimateContract, TransformContract } from './type';
+export type { AnimateContract, MotionContract, TransformContract } from './type';

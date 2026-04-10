@@ -18,4 +18,5 @@ export type { TokenSize } from './size';
 export type { TokenSizeDx } from './size-dx';
 export type { TokenSizeRem } from './size-rem';
 export type { TokenSpace } from './space';
+export type { TokenStackDirection } from './stack-direction';
 export type { TokenZIndex } from './z-index';

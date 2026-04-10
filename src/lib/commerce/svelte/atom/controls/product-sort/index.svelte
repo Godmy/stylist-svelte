@@ -3,32 +3,19 @@
 	import { createProductSortState } from '$stylist/commerce/function/state/product-sort';
 
 	let props: ProductSortProps = $props();
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				options: _options,
-				selectedOption: _selectedOption,
-				onValueChange: _onValueChange,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
-
-	const productSortState = createProductSortState(props);
+	const state = createProductSortState(props);
 </script>
 
-<div class={productSortState.classes} {...restProps}>
-	<span class={productSortState.labelClasses}>Sort by:</span>
+<div class={state.classes}>
+	<span class={state.labelClasses}>Sort by:</span>
 	<select
-		value={productSortState.selectedOption}
+		value={state.selectedOption}
 		onchange={(event) => {
-			productSortState.handleSortChange((event.currentTarget as HTMLSelectElement).value);
+			state.handleSortChange((event.currentTarget as HTMLSelectElement).value);
 		}}
-		class={productSortState.selectClasses}
+		class={state.selectClasses}
 	>
-		{#each productSortState.options as option}
+		{#each state.options as option}
 			{#if typeof option === 'string'}
 				<option value={option}>{option}</option>
 			{:else}

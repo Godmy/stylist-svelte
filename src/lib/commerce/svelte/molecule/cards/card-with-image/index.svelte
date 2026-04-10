@@ -1,58 +1,42 @@
 <script lang="ts">
-  import type { CardWithImageRecipe as CardWithImageProps } from '$stylist/commerce/interface/recipe/card-with-image';
-  import { ObjectManagerCardWithImage } from '$stylist/commerce/class/object-manager/card-with-image';
-  import { CardWithImageStyleManager } from '$stylist/commerce/class/style-manager/card-with-image';
+	import type { CardWithImageRecipe } from '$stylist/commerce/interface/recipe/card-with-image';
+	import { createCardWithImageState } from '$stylist/commerce/function/state/card-with-image';
 
-  let {
-    title,
-    subtitle,
-    description,
-    image,
-    imageClass = 'h-48 w-full object-cover',
-    footer,
-    actions,
-    class: className = '',
-    headerClass = '',
-    bodyClass = '',
-    footerClass = '',
-    actionsClass = '',
-    ...restProps
-  }: CardWithImageProps = $props();
+	let props: CardWithImageRecipe = $props();
+	const state = createCardWithImageState(props);
 </script>
 
-<div class={CardWithImageStyleManager.getContainerClasses(typeof className === 'string' ? className : undefined)} {...ObjectManagerCardWithImage.getRestProps({ title, subtitle, description, image, imageClass, footer, actions, class: className, headerClass, bodyClass, footerClass, actionsClass, ...restProps })}>
-  {#if image}
-    <img src={image} alt="" class={CardWithImageStyleManager.getImageClasses(imageClass)} />
-  {/if}
-  
-  <div class={CardWithImageStyleManager.getBodyClasses(bodyClass)}>
-    {#if title || subtitle}
-      <div class={CardWithImageStyleManager.getHeaderClasses(headerClass)}>
-        {#if title}
-          <h3 class={CardWithImageStyleManager.getTitleClasses()}>{title}</h3>
-        {/if}
-        {#if subtitle}
-          <p class={CardWithImageStyleManager.getSubtitleClasses()}>{subtitle}</p>
-        {/if}
-      </div>
-    {/if}
-    
-    {#if description}
-      <p class={CardWithImageStyleManager.getDescriptionClasses()}>{description}</p>
-    {/if}
-    
-    {#if footer}
-      <div class={footerClass}>
-        {@render footer()}
-      </div>
-    {/if}
-    
-    {#if actions}
-      <div class={actionsClass}>
-        {@render actions()}
-      </div>
-    {/if}
-  </div>
+<div class={state.containerClasses} {...state.restProps}>
+	{#if props.image}
+		<img src={props.image} alt="" class={state.imageClasses} />
+	{/if}
+
+	<div class={state.bodyClasses}>
+		{#if props.title || props.subtitle}
+			<div class={state.headerClasses}>
+				{#if props.title}
+					<h3 class={state.titleClasses}>{props.title}</h3>
+				{/if}
+				{#if props.subtitle}
+					<p class={state.subtitleClasses}>{props.subtitle}</p>
+				{/if}
+			</div>
+		{/if}
+
+		{#if props.description}
+			<p class={state.descriptionClasses}>{props.description}</p>
+		{/if}
+
+		{#if props.footer}
+			<div class={props.footerClass}>
+				{@render props.footer()}
+			</div>
+		{/if}
+
+		{#if props.actions}
+			<div class={props.actionsClass}>
+				{@render props.actions()}
+			</div>
+		{/if}
+	</div>
 </div>
-
-

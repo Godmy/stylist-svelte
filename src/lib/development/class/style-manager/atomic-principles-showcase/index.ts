@@ -4,158 +4,134 @@
  */
 
 export class AtomicPrinciplesShowcaseStyleManager {
-  /**
-   * Получает CSS-классы для основного контейнера
-   */
-  static getContainerClasses(additionalClass: string = ''): string {
-    const baseClasses = 'bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-6';
-    return additionalClass ? `${baseClasses} ${additionalClass}` : baseClasses;
-  }
+	/**
+	 * Получает CSS-классы для основного контейнера секции
+	 */
+	static getSectionClasses(additionalClass: string = ''): string {
+		const baseClasses =
+			'py-32 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800';
+		return additionalClass ? `${baseClasses} ${additionalClass}` : baseClasses;
+	}
 
-  /**
-   * Получает CSS-классы для заголовка
-   */
-  static getHeaderClasses(): string {
-    return 'mb-8';
-  }
+	/**
+	 * Получает CSS-классы для внутреннего контейнера
+	 */
+	static getInnerContainerClasses(): string {
+		return 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8';
+	}
 
-  /**
-   * Получает CSS-классы для заголовка
-   */
-  static getTitleClasses(): string {
-    return 'text-2xl font-bold text-[--color-text-primary] text-center mb-4';
-  }
+	/**
+	 * Получает CSS-классы для текстового заголовка
+	 */
+	static getTextCenterClasses(): string {
+		return 'text-center mb-20';
+	}
 
-  /**
-   * Получает CSS-классы для описания
-   */
-  static getDescriptionClasses(): string {
-    return 'text-[--color-text-secondary] text-center max-w-3xl mx-auto';
-  }
+	/**
+	 * Получает CSS-классы для бейджа
+	 */
+	static getBadgeClasses(): string {
+		return 'inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-full mb-6 border-2 border-orange-300 dark:border-orange-700';
+	}
 
-  /**
-   * Получает CSS-классы для контейнера уровней
-   */
-  static getLevelsContainerClasses(): string {
-    return 'space-y-8';
-  }
+	/**
+	 * Получает CSS-классы для иконки бейджа
+	 */
+	static getBadgeIconClasses(): string {
+		return 'w-5 h-5 text-orange-600 dark:text-orange-400';
+	}
 
-  /**
-   * Получает CSS-классы для секции уровня
-   */
-  static getLevelSectionClasses(): string {
-    return 'relative';
-  }
+	/**
+	 * Получает CSS-классы для текста бейджа
+	 */
+	static getBadgeTextClasses(): string {
+		return 'text-sm font-bold text-orange-900 dark:text-orange-300';
+	}
 
-  /**
-   * Получает CSS-классы для заголовка уровня
-   */
-  static getLevelHeaderClasses(): string {
-    return 'flex items-center mb-4';
-  }
+	/**
+	 * Получает CSS-классы для заголовка h2
+	 */
+	static getTitleClasses(): string {
+		return 'text-5xl md:text-6xl font-black text-gray-900 dark:text-white mb-6';
+	}
 
-  /**
-   * Получает CSS-классы для номера уровня
-   */
-  static getLevelNumberClasses(): string {
-    return 'w-10 h-10 rounded-full bg-[--color-primary-600] text-[--color-text-inverse] flex items-center justify-center font-bold text-lg mr-4';
-  }
+	/**
+	 * Получает CSS-классы для описания
+	 */
+	static getDescriptionClasses(): string {
+		return 'text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto';
+	}
 
-  /**
-   * Получает CSS-классы для названия уровня
-   */
-  static getLevelNameClasses(): string {
-    return 'text-xl font-semibold text-[--color-text-primary]';
-  }
+	/**
+	 * Получает CSS-классы для сетки карточек
+	 */
+	static getGridClasses(): string {
+		return 'grid md:grid-cols-3 gap-10';
+	}
 
-  /**
-   * Получает CSS-классы для описания уровня
-   */
-  static getLevelDescriptionClasses(): string {
-    return 'mt-2 text-[--color-text-secondary] ml-14';
-  }
+	/**
+	 * Получает CSS-классы для карточки уровня (atom/molecule/organism)
+	 */
+	static getLevelCardClasses(colorTheme: 'blue' | 'purple' | 'green'): string {
+		const baseClasses =
+			'group bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl p-10 transition-all hover:scale-105 hover:-translate-y-2';
+		const colorClasses: Record<string, string> = {
+			blue: 'border-2 border-blue-300 dark:border-blue-700 hover:border-blue-500 dark:hover:border-blue-400',
+			purple: 'border-2 border-purple-300 dark:border-purple-700 hover:border-purple-500 dark:hover:border-purple-400',
+			green: 'border-2 border-green-300 dark:border-green-700 hover:border-green-500 dark:hover:border-green-400'
+		};
+		return `${baseClasses} ${colorClasses[colorTheme] ?? colorClasses.blue}`;
+	}
 
-  /**
-   * Получает CSS-классы для контейнера примеров
-   */
-  static getExamplesContainerClasses(): string {
-    return 'mt-4 ml-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4';
-  }
+	/**
+	 * Получает CSS-классы для контейнера иконки уровня
+	 */
+	static getLevelIconContainerClasses(colorTheme: 'blue' | 'purple' | 'green'): string {
+		const gradients: Record<string, string> = {
+			blue: 'bg-gradient-to-br from-blue-500 to-cyan-500',
+			purple: 'bg-gradient-to-br from-purple-500 to-pink-500',
+			green: 'bg-gradient-to-br from-green-500 to-emerald-500'
+		};
+		return `w-24 h-24 ${gradients[colorTheme] ?? gradients.blue} rounded-2xl flex items-center justify-center mb-8 float-animation shadow-lg`;
+	}
 
-  /**
-   * Получает CSS-классы для карточки примера
-   */
-  static getExampleCardClasses(): string {
-    return 'border border-[--color-border-primary] rounded-lg p-4 hover:shadow-md transition-shadow bg-[--color-background-secondary]';
-  }
+	/**
+	 * Получает CSS-классы для иконки уровня
+	 */
+	static getLevelIconClasses(): string {
+		return 'w-12 h-12 text-white';
+	}
 
-  /**
-   * Получает CSS-классы для превью примера
-   */
-  static getExamplePreviewClasses(): string {
-    return 'mb-3 p-4 bg-[--color-background-primary] rounded-md border border-[--color-border-divider]';
-  }
+	/**
+	 * Получает CSS-классы для заголовка уровня (h3)
+	 */
+	static getLevelTitleClasses(): string {
+		return 'text-3xl font-black text-gray-900 dark:text-white mb-4';
+	}
 
-  /**
-   * Получает CSS-классы для названия примера
-   */
-  static getExampleNameClasses(): string {
-    return 'text-sm font-medium text-[--color-text-primary]';
-  }
+	/**
+	 * Получает CSS-классы для описания уровня
+	 */
+	static getLevelDescriptionClasses(): string {
+		return 'text-gray-600 dark:text-gray-400 mb-6 min-h-[60px]';
+	}
 
-  /**
-   * Получает CSS-классы для описания примера
-   */
-  static getExampleDescriptionClasses(): string {
-    return 'text-xs text-[--color-text-secondary] mt-1';
-  }
+	/**
+	 * Получает CSS-классы для счётчика компонентов
+	 */
+	static getCounterClasses(colorTheme: 'blue' | 'purple' | 'green'): string {
+		const colors: Record<string, string> = {
+			blue: 'text-blue-600 dark:text-blue-400',
+			purple: 'text-purple-600 dark:text-purple-400',
+			green: 'text-green-600 dark:text-green-400'
+		};
+		return `text-5xl font-black ${colors[colorTheme] ?? colors.blue}`;
+	}
 
-  /**
-   * Получает CSS-классы для соединительной линии
-   */
-  static getConnectorLineClasses(): string {
-    return 'absolute left-5 top-14 bottom-0 w-0.5 bg-[--color-border-primary]';
-  }
-
-  /**
-   * Получает CSS-классы для бейджа
-   */
-  static getBadgeClasses(): string {
-    return 'inline-block px-2 py-1 rounded text-xs font-medium bg-[--color-info-100] text-[--color-info-800] ml-2';
-  }
-
-  /**
-   * Получает CSS-классы для контейнера принципов
-   */
-  static getPrinciplesContainerClasses(): string {
-    return 'mt-8 grid grid-cols-1 md:grid-cols-2 gap-4';
-  }
-
-  /**
-   * Получает CSS-классы для карточки принципа
-   */
-  static getPrincipleCardClasses(): string {
-    return 'p-4 rounded-lg bg-[--color-background-secondary] border border-[--color-border-primary]';
-  }
-
-  /**
-   * Получает CSS-классы для названия принципа
-   */
-  static getPrincipleNameClasses(): string {
-    return 'text-sm font-semibold text-[--color-text-primary] mb-2';
-  }
-
-  /**
-   * Получает CSS-классы для описания принципа
-   */
-  static getPrincipleDescriptionClasses(): string {
-    return 'text-sm text-[--color-text-secondary]';
-  }
-
-  /**
-   * Получает CSS-классы для иконки принципа
-   */
-  static getPrincipleIconClasses(): string {
-    return 'w-6 h-6 text-[--color-primary-600] mb-2';
-  }
+	/**
+	 * Получает CSS-классы для подписи счётчика
+	 */
+	static getCounterLabelClasses(): string {
+		return 'text-sm text-gray-500 dark:text-gray-400 mt-2 font-semibold';
+	}
 }

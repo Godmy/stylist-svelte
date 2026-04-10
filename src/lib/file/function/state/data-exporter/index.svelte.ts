@@ -1,6 +1,6 @@
 import { createEventDispatcher } from 'svelte';
 import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
-import type { DataItem } from '$stylist/file/type/struct/data-exporter';
+import type { DataItem } from '$stylist/file/type/struct/data-exporter/data-item';
 import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
 
 export function createDataExporterState(

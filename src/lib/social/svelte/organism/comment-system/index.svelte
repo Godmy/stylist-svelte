@@ -2,99 +2,35 @@
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$lib';
   import type { CommentSystemProps, CommentItem } from '$stylist/social/interface/component/comment-system/other';
-  import { CommentSystemStyleManager } from '$stylist/social/class/style-manager/comment-system';
+  import {
+    COMMENT_SYSTEM_EDIT_3,
+    COMMENT_SYSTEM_MESSAGE_CIRCLE,
+    COMMENT_SYSTEM_MORE_HORIZONTAL,
+    COMMENT_SYSTEM_REPLY,
+    COMMENT_SYSTEM_SEND,
+    COMMENT_SYSTEM_THUMBS_DOWN,
+    COMMENT_SYSTEM_THUMBS_UP,
+    COMMENT_SYSTEM_TRASH_2,
+    COMMENT_SYSTEM_USER_ICON
+  } from '$stylist/social/const/map/comment-system';
+  import createCommentSystemState from '$stylist/social/function/state/comment-system';
 
-  const Edit3 = 'edit-3';
-  const MessageCircle = 'message-circle';
-  const MoreHorizontal = 'more-horizontal';
-  const Reply = 'reply';
-  const Send = 'send';
-  const ThumbsDown = 'thumbs-down';
-  const ThumbsUp = 'thumbs-up';
-  const Trash2 = 'trash-2';
-  const UserIcon = 'user';
-
-  let {
-    comments = [],
-    currentUser,
-    showReply = true,
-    showLikes = true,
-    showDislikes = true,
-    showEdit = true,
-    showDelete = true,
-    onCommentSubmit,
-    onCommentLike,
-    onCommentEdit,
-    onCommentDelete,
-    onReplyToggle,
-    class: hostClass = '',
-    commentClass = '',
-    formClass = '',
-    inputClass = '',
-    headerClass = '',
-    actionsClass = '',
-    buttonClass = '',
-    locale = 'en-US',
-    ...restProps
-  }: CommentSystemProps = $props();
-
-  let newComment = $state('');
-  let replyContent = $state('');
-  let showReplyForm = $state<Record<string, boolean>>({});
-  let editCommentId: string | null = $state(null);
-  let editContent = $state('');
-
-  const currentUserId = $derived(currentUser.id);
-  const wrapperClass = $derived(CommentSystemStyleManager.getWrapperClass(hostClass));
-  const cardClass = $derived(CommentSystemStyleManager.getCardClass());
-  const composerClass = $derived(CommentSystemStyleManager.getComposerClass(formClass));
-  const controlInputClass = $derived(CommentSystemStyleManager.getInputClass(inputClass));
-  const countHeaderClass = $derived(CommentSystemStyleManager.getHeaderClass(headerClass));
-  const actionBarClass = $derived(CommentSystemStyleManager.getActionsClass(actionsClass));
-  const primaryButtonClass = $derived(CommentSystemStyleManager.getPrimaryButtonClass(buttonClass));
-
-  function submitComment(parentId?: string) {
-    if (!newComment.trim()) return;
-    onCommentSubmit?.(newComment, parentId);
-    newComment = '';
-  }
-
-  function submitReply(commentId: string) {
-    if (!replyContent.trim()) return;
-    onCommentSubmit?.(replyContent, commentId);
-    replyContent = '';
-    showReplyForm = { ...showReplyForm, [commentId]: false };
-  }
-
-  function toggleReplyForm(commentId: string) {
-    const nextState = !showReplyForm[commentId];
-    showReplyForm = { ...showReplyForm, [commentId]: nextState };
-    onReplyToggle?.(commentId, nextState);
-  }
-
-  function formatDate(date: Date): string {
-    return new Date(date).toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  }
+  let props: CommentSystemProps = $props();
+  const state = createCommentSystemState(props);
 </script>
 
 {#snippet renderComment(_comment: CommentItem, depth = 0)}
   {@const comment = _comment}
-  {@const isEditing = editCommentId === comment.id}
+  {@const isEditing = state.editCommentId === comment.id}
   {@const hasReplies = comment.replies && comment.replies.length > 0}
-  <div class={CommentSystemStyleManager.getCommentItemClass(commentClass, depth)}>
+  <div class={`comment-item depth-${depth} ${props.commentClass ?? ''}`}>
     <div class="flex space-x-3">
       <div class="flex-shrink-0">
         {#if comment.author.avatar}
           <img class="h-10 w-10 rounded-full" src={comment.author.avatar} alt={comment.author.name} />
         {:else}
           <div class="h-10 w-10 rounded-full bg-[--color-background-secondary] flex items-center justify-center">
-            <BaseIcon name={UserIcon} class="h-5 w-5 text-[--color-text-secondary]" />
+            <BaseIcon name={COMMENT_SYSTEM_USER_ICON} class="h-5 w-5 text-[--color-text-secondary]" />
           </div>
         {/if}
       </div>
@@ -107,7 +43,7 @@
               {comment.author.role}
             </span>
           {/if}
-          <span class="ml-2 text-xs text-[--color-text-secondary]">{formatDate(comment.timestamp)}</span>
+          <span class="ml-2 text-xs text-[--color-text-secondary]">{state.formatDate(comment.timestamp)}</span>
           {#if comment.isEdited}
             <span class="ml-2 text-xs text-[--color-text-secondary]">(edited)</span>
           {/if}
@@ -116,69 +52,69 @@
         {#if isEditing}
           <div class="mt-2">
             <textarea
-              class={controlInputClass}
+              class={state.controlInputClass}
               rows={3}
-              bind:value={editContent}
-              onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && onCommentEdit?.(comment.id, editContent)}
+              bind:value={state.editContent}
+              onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && props.onCommentEdit?.(comment.id, state.editContent)}
             ></textarea>
             <div class="mt-2 flex space-x-2">
-              <Button variant="primary" size="sm" onclick={() => { onCommentEdit?.(comment.id, editContent); editCommentId = null; editContent = ''; }}>Save</Button>
-              <Button variant="ghost" size="sm" onclick={() => { editCommentId = null; editContent = ''; }}>Cancel</Button>
+              <Button variant="primary" size="sm" onclick={() => { props.onCommentEdit?.(comment.id, state.editContent); state.editCommentId = null; state.editContent = ''; }}>Save</Button>
+              <Button variant="ghost" size="sm" onclick={() => { state.editCommentId = null; state.editContent = ''; }}>Cancel</Button>
             </div>
           </div>
         {:else}
           <p class="mt-1 text-sm text-[--color-text-primary]">{comment.content}</p>
         {/if}
 
-        <div class={actionBarClass}>
-          {#if showLikes}
-            <button type="button" class={`flex items-center space-x-1 ${comment.isLiked ? 'text-[--color-primary-600]' : ''}`} onclick={() => onCommentLike?.(comment.id, true)}>
-              <BaseIcon name={ThumbsUp} class="h-4 w-4" />
+        <div class={state.actionBarClass}>
+          {#if props.showLikes}
+            <button type="button" class={`flex items-center space-x-1 ${comment.isLiked ? 'text-[--color-primary-600]' : ''}`} onclick={() => props.onCommentLike?.(comment.id, true)}>
+              <BaseIcon name={COMMENT_SYSTEM_THUMBS_UP} class="h-4 w-4" />
               <span>{comment.likes ?? 0}</span>
             </button>
           {/if}
-          {#if showDislikes}
-            <button type="button" class={`flex items-center space-x-1 ${comment.isDisliked ? 'text-[--color-danger-600]' : ''}`} onclick={() => onCommentLike?.(comment.id, false)}>
-              <BaseIcon name={ThumbsDown} class="h-4 w-4" />
+          {#if props.showDislikes}
+            <button type="button" class={`flex items-center space-x-1 ${comment.isDisliked ? 'text-[--color-danger-600]' : ''}`} onclick={() => props.onCommentLike?.(comment.id, false)}>
+              <BaseIcon name={COMMENT_SYSTEM_THUMBS_DOWN} class="h-4 w-4" />
               <span>{comment.dislikes ?? 0}</span>
             </button>
           {/if}
-          {#if showReply}
-            <button type="button" class="flex items-center space-x-1" onclick={() => toggleReplyForm(comment.id)}>
-              <BaseIcon name={Reply} class="h-4 w-4" />
-              <span>{showReplyForm[comment.id] ? 'Cancel reply' : 'Reply'}</span>
+          {#if props.showReply}
+            <button type="button" class="flex items-center space-x-1" onclick={() => state.toggleReplyForm(comment.id)}>
+              <BaseIcon name={COMMENT_SYSTEM_REPLY} class="h-4 w-4" />
+              <span>{state.showReplyForm[comment.id] ? 'Cancel reply' : 'Reply'}</span>
             </button>
           {/if}
-          {#if showEdit && comment.author.id === currentUserId}
-            <button type="button" class="flex items-center space-x-1" onclick={() => { editCommentId = comment.id; editContent = comment.content; }}>
-              <BaseIcon name={Edit3} class="h-4 w-4" />
+          {#if props.showEdit && comment.author.id === state.currentUserId}
+            <button type="button" class="flex items-center space-x-1" onclick={() => { state.editCommentId = comment.id; state.editContent = comment.content; }}>
+              <BaseIcon name={COMMENT_SYSTEM_EDIT_3} class="h-4 w-4" />
               <span>Edit</span>
             </button>
           {/if}
-          {#if showDelete && comment.author.id === currentUserId}
-            <button type="button" class="flex items-center space-x-1 text-[--color-danger-600]" onclick={() => onCommentDelete?.(comment.id)}>
-              <BaseIcon name={Trash2} class="h-4 w-4" />
+          {#if props.showDelete && comment.author.id === state.currentUserId}
+            <button type="button" class="flex items-center space-x-1 text-[--color-danger-600]" onclick={() => props.onCommentDelete?.(comment.id)}>
+              <BaseIcon name={COMMENT_SYSTEM_TRASH_2} class="h-4 w-4" />
               <span>Delete</span>
             </button>
           {/if}
           <button type="button" class="flex items-center">
-            <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
+            <BaseIcon name={COMMENT_SYSTEM_MORE_HORIZONTAL} class="h-4 w-4" />
           </button>
         </div>
 
-        {#if showReplyForm[comment.id]}
+        {#if state.showReplyForm[comment.id]}
           <div class="mt-4">
             <textarea
-              class={controlInputClass}
+              class={state.controlInputClass}
               placeholder="Write a reply..."
               rows={3}
-              bind:value={replyContent}
-              onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && submitReply(comment.id)}
+              bind:value={state.replyContent}
+              onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && state.submitReply(comment.id)}
             ></textarea>
             <div class="mt-2 flex justify-end space-x-2">
-              <Button variant="ghost" size="sm" onclick={() => { showReplyForm = { ...showReplyForm, [comment.id]: false }; replyContent = ''; }}>Cancel</Button>
-              <Button variant="primary" size="sm" onclick={() => submitReply(comment.id)} disabled={!replyContent.trim()}>
-                <BaseIcon name={Send} class="h-4 w-4 mr-1" />Reply
+              <Button variant="ghost" size="sm" onclick={() => { state.showReplyForm = { ...state.showReplyForm, [comment.id]: false }; state.replyContent = ''; }}>Cancel</Button>
+              <Button variant="primary" size="sm" onclick={() => state.submitReply(comment.id)} disabled={!state.replyContent.trim()}>
+                <BaseIcon name={COMMENT_SYSTEM_SEND} class="h-4 w-4 mr-1" />Reply
               </Button>
             </div>
           </div>
@@ -196,32 +132,32 @@
   {/if}
 {/snippet}
 
-<div class={wrapperClass} {...restProps}>
-  <div class={cardClass}>
-    <div class={composerClass}>
+<div class={state.wrapperClass} {...props}>
+  <div class={state.cardClass}>
+    <div class={state.composerClass}>
       <textarea
-        class={controlInputClass}
+        class={state.controlInputClass}
         placeholder="Write a comment..."
         rows={4}
-        bind:value={newComment}
-        onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && submitComment()}
+        bind:value={state.newComment}
+        onkeydown={(e) => e.key === 'Enter' && !e.shiftKey && state.submitComment()}
       ></textarea>
       <div class="mt-3 flex justify-end">
-        <button type="button" class={primaryButtonClass} onclick={() => submitComment()} disabled={!newComment.trim()}>
-          <BaseIcon name={MessageCircle} class="h-4 w-4 mr-2" />
+        <button type="button" class={state.primaryButtonClass} onclick={() => state.submitComment()} disabled={!state.newComment.trim()}>
+          <BaseIcon name={COMMENT_SYSTEM_MESSAGE_CIRCLE} class="h-4 w-4 mr-2" />
           Comment
         </button>
       </div>
     </div>
 
-    <div class={countHeaderClass}>
-      <h3 class="text-sm font-medium text-[--color-text-primary]">{comments.length} Comments</h3>
+    <div class={state.countHeaderClass}>
+      <h3 class="text-sm font-medium text-[--color-text-primary]">{props.comments?.length ?? 0} Comments</h3>
     </div>
 
     <div class="p-6">
       <div class="flow-root">
         <ul class="-mb-4 divide-y divide-[--color-border-primary]">
-          {#each comments as comment}
+          {#each props.comments ?? [] as comment}
             <li class="py-4">
               {@render renderComment(comment)}
             </li>

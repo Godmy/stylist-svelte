@@ -1,3 +1,5 @@
+import type { TokenAspectRatio } from '$stylist/layout/type/enum/aspect-ratio';
+
 export type AttributeAspectRatio = {
-	ratio?: number;
+	ratio?: TokenAspectRatio | number;
 };

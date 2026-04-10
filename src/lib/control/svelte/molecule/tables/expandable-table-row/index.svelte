@@ -1,22 +1,9 @@
 <script lang="ts">
-  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
-  import type { Snippet } from 'svelte';
   import { Icon as BaseIcon } from '$stylist';
 const ChevronDown = 'chevron-down';
 const ChevronRight = 'chevron-right';
-
-
-  type RestProps = Omit<ArchitectureHTMLAttributes<HTMLTableRowElement>, 'class'>;
-
-  type Props = RestProps & {
-    expandableContent: Snippet;
-    rowContent: Snippet;
-    isExpanded?: boolean;
-    class?: string;
-    cellClass?: string;
-    headerCellClass?: string;
-    onToggle?: (expanded: boolean) => void;
-  };
+  import type { ExpandableTableRowProps } from '$stylist/control/type/struct/expandable-table-row-props';
+  import { createExpandableTableRowState } from '$stylist/control/function/state/expandable-table-row';
 
   let {
     expandableContent,
@@ -27,18 +14,18 @@ const ChevronRight = 'chevron-right';
     headerCellClass = '',
     onToggle,
     ...restProps
-  }: Props = $props();
+  }: ExpandableTableRowProps = $props();
 
-  let expanded = $state(isExpanded);
-
-  $effect(() => {
-    expanded = isExpanded;
+  const state = createExpandableTableRowState({
+    expandableContent,
+    rowContent,
+    isExpanded,
+    class: hostClass,
+    cellClass,
+    headerCellClass,
+    onToggle,
+    ...restProps
   });
-
-  function toggleExpanded() {
-    expanded = !expanded;
-    onToggle?.(expanded);
-  }
 </script>
 
   <!-- Main row -->
@@ -47,9 +34,9 @@ const ChevronRight = 'chevron-right';
       <button 
         type="button" 
         class="flex items-center text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] focus:outline-none"
-        onclick={toggleExpanded}
+        onclick={() => state.toggleExpanded()}
       >
-        {#if expanded}
+        {#if state.expanded}
           <BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
         {:else}
           <BaseIcon name={ChevronRight} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
@@ -60,7 +47,7 @@ const ChevronRight = 'chevron-right';
   </tr>
 
   <!-- Expanded content row -->
-  {#if expanded}
+  {#if state.expanded}
     <tr class={`border-b border-[var(--color-border-primary)] ${hostClass}`}>
       <td class={`py-4 px-6 text-sm text-[var(--color-text-secondary)] ${cellClass}`} colspan="999">
         {@render expandableContent()}

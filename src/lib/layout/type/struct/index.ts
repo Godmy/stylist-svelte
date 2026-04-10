@@ -9,7 +9,7 @@ export type { InputStateOptions } from './component-state-input-state-options';
 export type { AttributeContainer, ContainerProps } from './container';
 export type { ContentHtmlAttributes } from './content';
 export type { DividerProps } from './divider';
-export type { GridSvgProps } from './grid';
+export type { GridProps, GridRestProps, GridSvgProps } from './grid';
 export type { GridItem, GridItemContent } from './grid-item';
 export type { LayoutHTMLAttributes } from './item';
 export type { ArchitectureHTMLAttributes } from './item-architecture-html-attributes';

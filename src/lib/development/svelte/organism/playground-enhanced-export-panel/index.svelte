@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundEnhancedExportPanelState } from '$stylist/development/function/state/playground-enhanced-export-panel';
 const FileCode = 'file-code';
 const Download = 'download';
 const Copy = 'copy';
@@ -9,109 +10,14 @@ const ExternalLink = 'external-link';
 const Package = 'package';
 const Terminal = 'terminal';
 
-  import { buildComponentPreviewCode } from '$stylist/development/function/script/build-component-preview-code';
-
   interface Props {
     componentName?: string;
     svelteCode?: string;
     props?: Record<string, any>;
   }
 
-  let { componentName = '', svelteCode = '', props = {} }: Props = $props();
-
-  let copySuccess = $state(false);
-  let npmCopySuccess = $state(false);
-
-  const currentCode = $derived(buildComponentPreviewCode({ componentName, svelteCode, props }));
-
-  async function copyCode() {
-    try {
-      await navigator.clipboard.writeText(currentCode);
-      copySuccess = true;
-      setTimeout(() => {
-        copySuccess = false;
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  }
-
-  function downloadCode() {
-    const blob = new Blob([currentCode], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${componentName || 'component'}.svelte`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  async function copyNpmCommand() {
-    const command = 'npm install @stylist-svelte/components';
-    try {
-      await navigator.clipboard.writeText(command);
-      npmCopySuccess = true;
-      setTimeout(() => {
-        npmCopySuccess = false;
-      }, 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
-  }
-
-  const resolvedComponentName = $derived(componentName || 'Component');
-  const appContent = $derived.by(() => {
-    const openTag = '<';
-    const closeTag = ' />';
-    const scriptClose = '<' + '/script>';
-    return '<script>\n' +
-      `  import ${resolvedComponentName} from './${resolvedComponentName}.svelte';\n` +
-      scriptClose + 'n\n' +
-      openTag + resolvedComponentName + closeTag;
-  });
-
-  function openInCodeSandbox() {
-    const parameters = {
-      files: {
-        'package.json': {
-          content: {
-            dependencies: {
-              svelte: 'latest',
-              '@stylist-svelte/components': 'latest'
-            }
-          }
-        },
-        [`${componentName || 'Component'}.svelte`]: {
-          content: currentCode
-        },
-        'App.svelte': {
-          content: appContent
-        }
-      }
-    };
-
-    const form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://codesandbox.io/api/v1/sandboxes/define';
-    form.target = '_blank';
-
-    const input = document.createElement('input');
-    input.type = 'hidden';
-    input.name = 'parameters';
-    input.value = JSON.stringify(parameters);
-
-    form.appendChild(input);
-    document.body.appendChild(form);
-    form.submit();
-    document.body.removeChild(form);
-  }
-
-  function openInStackBlitz() {
-    const url = `https://stackblitz.com/fork/svelte?file=${componentName || 'Component'}.svelte`;
-    window.open(url, '_blank');
-  }
+  let props: Props = $props();
+  const state = createPlaygroundEnhancedExportPanelState(props);
 </script>
 
 <div class="export-panel p-6 h-full overflow-auto bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
@@ -133,10 +39,10 @@ const Terminal = 'terminal';
       </h3>
       <div class="flex gap-2">
         <button
-          onclick={copyCode}
+          onclick={state.copyCode}
           class="group flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-gradient-to-r from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 dark:hover:from-green-800/40 dark:hover:to-emerald-800/40 text-green-700 dark:text-green-300 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md border-2 border-green-200 dark:border-green-800"
         >
-          {#if copySuccess}
+          {#if state.copySuccess}
             <BaseIcon name={CheckCircle} class="w-3.5 h-3.5" />
             Copied!
           {:else}
@@ -145,7 +51,7 @@ const Terminal = 'terminal';
           {/if}
         </button>
         <button
-          onclick={downloadCode}
+          onclick={state.downloadCode}
           class="group flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 dark:hover:from-blue-800/40 dark:hover:to-indigo-800/40 text-blue-700 dark:text-blue-300 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-md border-2 border-blue-200 dark:border-blue-800"
         >
           <BaseIcon name={Download} class="w-3.5 h-3.5 transition-transform group-hover:translate-y-1" />
@@ -167,7 +73,7 @@ const Terminal = 'terminal';
         <div class="w-16"></div>
       </div>
       <div class="p-4 overflow-x-auto max-h-96 overflow-y-auto">
-        <pre class="text-sm"><code class="font-mono text-gray-100">{currentCode}</code></pre>
+        <pre class="text-sm"><code class="font-mono text-gray-100">{state.currentCode}</code></pre>
       </div>
     </div>
   </div>
@@ -180,11 +86,11 @@ const Terminal = 'terminal';
     <div class="grid grid-cols-2 gap-3">
       <!-- CodeSandbox -->
       <button
-        onclick={openInCodeSandbox}
+        onclick={state.openInCodeSandbox}
         class="group p-4 bg-gradient-to-br from-yellow-50 to-COLOR_AMBER-50 dark:from-yellow-900/20 dark:to-COLOR_AMBER-900/20 hover:from-yellow-100 hover:to-COLOR_AMBER-100 dark:hover:from-yellow-800/30 dark:hover:to-COLOR_AMBER-800/30 rounded-xl border-2 border-yellow-200 dark:border-yellow-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
       >
         <div class="flex items-center justify-between mb-2">
-          <div class="text-2xl">в—†</div>
+          <div class="text-2xl">◆</div>
           <BaseIcon name={ExternalLink} class="w-4 h-4 text-yellow-600 dark:text-yellow-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </div>
         <div class="text-left">
@@ -199,11 +105,11 @@ const Terminal = 'terminal';
 
       <!-- StackBlitz -->
       <button
-        onclick={openInStackBlitz}
+        onclick={state.openInStackBlitz}
         class="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 hover:from-blue-100 hover:to-cyan-100 dark:hover:from-blue-800/30 dark:hover:to-cyan-800/30 rounded-xl border-2 border-blue-200 dark:border-blue-800 transition-all hover:scale-105 active:scale-95 shadow-sm hover:shadow-lg"
       >
         <div class="flex items-center justify-between mb-2">
-          <div class="text-2xl">в—†</div>
+          <div class="text-2xl">◆</div>
           <BaseIcon name={ExternalLink} class="w-4 h-4 text-blue-600 dark:text-blue-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </div>
         <div class="text-left">
@@ -229,10 +135,10 @@ const Terminal = 'terminal';
         <code class="flex-1">npm install @stylist-svelte/components</code>
       </div>
       <button
-        onclick={copyNpmCommand}
+        onclick={state.copyNpmCommand}
         class="px-4 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-lg font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl flex items-center gap-2"
       >
-        {#if npmCopySuccess}
+        {#if state.npmCopySuccess}
           <BaseIcon name={CheckCircle} class="w-4 h-4" />
           Copied!
         {:else}
@@ -300,11 +206,3 @@ const Terminal = 'terminal';
     display: block;
   }
 </style>
-
-
-
-
-
-
-
-

@@ -1,20 +1,18 @@
 <script lang="ts">
 	import { createTooltipState } from '$stylist/control/function/state/tooltip';
-	import type { TooltipProps } from '$stylist/control/interface/component/tooltip/other';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+	import type { TooltipProps } from '$stylist/control/type/struct/tooltip-props';
 
-	type Props = TooltipProps & InteractionHTMLAttributes<HTMLElement>;
-	let props: Props = $props();
+	let props: TooltipProps = $props();
 
-	const tooltipState = createTooltipState(props);
+	const viewModel = createTooltipState(props);
 
-	let referenceRef = $state<HTMLElement | null>(null);
-	let tooltipRef = $state<HTMLElement | null>(null);
+	let referenceRef: HTMLElement | null = $state(null);
+	let tooltipRef: HTMLElement | null = $state(null);
 
 	// Handle click outside for click trigger
 	$effect(() => {
-		if (tooltipState.trigger === 'click' && tooltipState.isVisible) {
-			return tooltipState.setupClickOutsideListener(referenceRef, tooltipRef);
+		if (viewModel.trigger === 'click' && viewModel.isVisible) {
+			return viewModel.setupClickOutsideListener(referenceRef, tooltipRef);
 		}
 	});
 
@@ -43,50 +41,50 @@
 	);
 </script>
 
-<span class={tooltipState.containerClasses} {...restProps}>
+<span class={viewModel.containerClasses} {...restProps}>
 	<span
 		bind:this={referenceRef}
-		class={tooltipState.triggerClasses}
-		onmouseenter={() => tooltipState.trigger === 'hover' && tooltipState.showTooltip()}
-		onmouseleave={() => tooltipState.trigger === 'hover' && tooltipState.hideTooltip()}
-		onfocus={() => tooltipState.trigger === 'focus' && tooltipState.showTooltip()}
-		onblur={() => tooltipState.trigger === 'focus' && tooltipState.hideTooltip()}
+		class={viewModel.triggerClasses}
+		onmouseenter={() => viewModel.trigger === 'hover' && viewModel.showTooltip()}
+		onmouseleave={() => viewModel.trigger === 'hover' && viewModel.hideTooltip()}
+		onfocus={() => viewModel.trigger === 'focus' && viewModel.showTooltip()}
+		onblur={() => viewModel.trigger === 'focus' && viewModel.hideTooltip()}
 		onclick={(e) => {
-			if (tooltipState.trigger === 'click') {
+			if (viewModel.trigger === 'click') {
 				e.stopPropagation();
-				tooltipState.toggleTooltip();
+				viewModel.toggleTooltip();
 			}
 		}}
 		onkeydown={(e) => {
-			if (tooltipState.trigger === 'click' && (e.key === 'Enter' || e.key === ' ')) {
+			if (viewModel.trigger === 'click' && (e.key === 'Enter' || e.key === ' ')) {
 				e.preventDefault();
-				tooltipState.toggleTooltip();
+				viewModel.toggleTooltip();
 			}
 		}}
 		role="button"
 		tabindex="0"
 		aria-haspopup="true"
-		aria-expanded={tooltipState.trigger === 'click' ? tooltipState.isVisible : undefined}
-		aria-disabled={tooltipState.disabled ? true : undefined}
+		aria-expanded={viewModel.trigger === 'click' ? viewModel.isVisible : undefined}
+		aria-disabled={viewModel.disabled ? true : undefined}
 	>
 		{#if props.children}
 			{@render props.children?.()}
 		{/if}
 	</span>
 
-	{#if tooltipState.isVisible}
+	{#if viewModel.isVisible}
 		<span
 			bind:this={tooltipRef}
 			role="tooltip"
-			class={tooltipState.tooltipClasses}
+			class={viewModel.tooltipClasses}
 		>
-			{#if typeof tooltipState.content === 'string'}
-				{tooltipState.content}
+			{#if typeof viewModel.content === 'string'}
+				{viewModel.content}
 			{:else}
-				{@render tooltipState.content()}
+				{@render viewModel.content()}
 			{/if}
-			{#if tooltipState.variant === 'arrow'}
-				<span class={tooltipState.arrowClasses}></span>
+			{#if viewModel.variant === 'arrow'}
+				<span class={viewModel.arrowClasses}></span>
 			{/if}
 		</span>
 	{/if}

@@ -1,83 +1,16 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-  import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/science/interface/recipe/node-property';
-	import { createNodePropertyState } from '$stylist/science/function/state/node-property';
+	import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/science/interface/recipe/node-property';
+	import { createNodePropertyControlState } from '$stylist/control/function/state/node-property';
 
 	const Check = 'check';
 
 	let props: NodePropertyProps = $props();
-
-	const propertyState = createNodePropertyState(props);
-	let currentValue = $state(props.value);
-	const label = $derived(props.label ?? props.name);
-	const description = $derived(props.description ?? '');
-	const isBoolean = $derived(propertyState.type === 'boolean');
-	const isEnum = $derived(propertyState.type === 'enum');
-	const isColor = $derived(propertyState.type === 'color');
-	const isVector = $derived(propertyState.type === 'vector2' || propertyState.type === 'vector3');
-	const isNumber = $derived(propertyState.type === 'number');
-	const isString = $derived(propertyState.type === 'string');
-	const vectorDimensions = $derived(propertyState.type === 'vector3' ? 3 : 2);
-	const vectorLabels = ['X', 'Y', 'Z'];
-
-	function handleFocus(event: FocusEvent) {
-		props.onfocus?.(event as never);
-	}
-
-	function handleBlur(event: FocusEvent) {
-		props.onblur?.(event as never);
-	}
-
-	$effect(() => {
-		currentValue = props.value;
-	});
-
-	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			id: _id,
-			name: _name,
-			type: _type,
-			value: _value,
-			defaultValue: _defaultValue,
-			size: _size,
-			editable: _editable,
-			typeEditable: _typeEditable,
-			options: _options,
-			min: _min,
-			max: _max,
-			step: _step,
-			prefix: _prefix,
-			suffix: _suffix,
-			label: _label,
-			description: _description,
-			icon: _icon,
-			error: _error,
-			errorMessage: _errorMessage,
-			onchange: _onchange,
-			onfocus: _onfocus,
-			onblur: _onblur,
-			children: _children,
-			...rest
-		} = props;
-
-		return rest;
-	});
-
-	function emitChange(nextValue: unknown) {
-		currentValue = nextValue;
-		props.onchange?.(props.name, nextValue);
-	}
-
-	function handleVectorChange(index: number, rawValue: string) {
-		const base = Array.isArray(currentValue) ? [...currentValue] : [0, 0, 0];
-		base[index] = Number(rawValue);
-		emitChange(base.slice(0, vectorDimensions));
-	}
+	const state = createNodePropertyControlState(props);
 </script>
 
-<div class={`${propertyState.classes} ${props.class ?? ''}`} data-property-type={propertyState.type} {...restProps}>
-	{#if propertyState.hasLabel || props.icon}
+<div class={`${state.propertyState.classes} ${state.className}`} data-property-type={state.propertyState.type} {...state.restProps}>
+	{#if state.propertyState.hasLabel || props.icon}
 		<div class="node-property__header">
 			{#if props.icon}
 				<span class="node-property__icon">
@@ -88,17 +21,17 @@
 					{/if}
 				</span>
 			{/if}
-			{#if propertyState.hasLabel}
+			{#if state.propertyState.hasLabel}
 				<label class="node-property__label" for={props.id}>
-					{label}
+					{state.label}
 				</label>
 			{/if}
 		</div>
 	{/if}
 
 	<div class="node-property__content">
-		{#if propertyState.hasDescription}
-			<p class="node-property__description">{description}</p>
+		{#if state.propertyState.hasDescription}
+			<p class="node-property__description">{state.description}</p>
 		{/if}
 
 		<div class="node-property__control-container">
@@ -106,99 +39,99 @@
 				<span class="node-property__prefix">{props.prefix}</span>
 			{/if}
 
-			{#if isString}
+			{#if state.isString}
 				<input
 					id={props.id}
 					type="text"
 					class="node-property__input node-property__input--string"
-					value={String(currentValue ?? '')}
+					value={String(state.currentValue ?? '')}
 					placeholder={props.placeholder}
-					disabled={!propertyState.editable}
-					onfocus={handleFocus}
-					onblur={handleBlur}
-					onchange={(event) => emitChange((event.target as HTMLInputElement).value)}
+					disabled={!state.propertyState.editable}
+					onfocus={state.handleFocus}
+					onblur={state.handleBlur}
+					onchange={(event) => state.emitChange((event.target as HTMLInputElement).value)}
 				/>
-			{:else if isNumber}
+			{:else if state.isNumber}
 				<input
 					id={props.id}
 					type="number"
 					class="node-property__input node-property__input--number"
-					value={Number(currentValue ?? 0)}
+					value={Number(state.currentValue ?? 0)}
 					min={props.min}
 					max={props.max}
 					step={props.step}
-					disabled={!propertyState.editable}
-					onfocus={handleFocus}
-					onblur={handleBlur}
-					onchange={(event) => emitChange(Number((event.target as HTMLInputElement).value))}
+					disabled={!state.propertyState.editable}
+					onfocus={state.handleFocus}
+					onblur={state.handleBlur}
+					onchange={(event) => state.emitChange(Number((event.target as HTMLInputElement).value))}
 				/>
-			{:else if isBoolean}
+			{:else if state.isBoolean}
 				<button
 					type="button"
-					class={`node-property__toggle ${currentValue ? 'node-property__toggle--active' : ''}`}
-					disabled={!propertyState.editable}
-					onclick={() => emitChange(!currentValue)}
-					onfocus={handleFocus}
-					onblur={handleBlur}
-					aria-pressed={Boolean(currentValue)}
+					class={`node-property__toggle ${state.currentValue ? 'node-property__toggle--active' : ''}`}
+					disabled={!state.propertyState.editable}
+					onclick={() => state.emitChange(!state.currentValue)}
+					onfocus={state.handleFocus}
+					onblur={state.handleBlur}
+					aria-pressed={Boolean(state.currentValue)}
 				>
 					<span class="node-property__toggle-track">
 						<span class="node-property__toggle-thumb">
-							{#if currentValue}
+							{#if state.currentValue}
 								<BaseIcon name={Check} size={12} />
 							{/if}
 						</span>
 					</span>
 				</button>
-			{:else if isEnum}
+			{:else if state.isEnum}
 				<select
 					id={props.id}
 					class="node-property__select"
-					value={String(currentValue ?? '')}
-					disabled={!propertyState.editable}
-					onfocus={handleFocus}
-					onblur={handleBlur}
-					onchange={(event) => emitChange((event.target as HTMLSelectElement).value)}
+					value={String(state.currentValue ?? '')}
+					disabled={!state.propertyState.editable}
+					onfocus={state.handleFocus}
+					onblur={state.handleBlur}
+					onchange={(event) => state.emitChange((event.target as HTMLSelectElement).value)}
 				>
 					{#each props.options ?? [] as option}
 						<option value={option}>{option}</option>
 					{/each}
 				</select>
-			{:else if isColor}
+			{:else if state.isColor}
 				<div class="node-property__color-picker">
 					<input
 						id={props.id}
 						type="color"
 						class="node-property__input node-property__input--color"
-						value={String(currentValue ?? 'var(--color-text-primary)')}
-						disabled={!propertyState.editable}
+						value={String(state.currentValue ?? 'var(--color-text-primary)')}
+						disabled={!state.propertyState.editable}
 						onfocus={props.onfocus}
 						onblur={props.onblur}
-						onchange={(event) => emitChange((event.target as HTMLInputElement).value)}
+						onchange={(event) => state.emitChange((event.target as HTMLInputElement).value)}
 					/>
-					<span class="node-property__color-value">{String(currentValue ?? '')}</span>
+					<span class="node-property__color-value">{String(state.currentValue ?? '')}</span>
 				</div>
-			{:else if isVector}
+			{:else if state.isVector}
 				<div class="node-property__vector">
-					{#each Array(vectorDimensions) as _, index}
+					{#each Array(state.vectorDimensions) as _, index}
 						<div class="node-property__vector-input">
-							<span class="node-property__vector-label">{vectorLabels[index]}</span>
+							<span class="node-property__vector-label">{state.vectorLabels[index]}</span>
 							<input
 								type="number"
 								class="node-property__input node-property__input--number"
-								value={Array.isArray(currentValue) ? Number(currentValue[index] ?? 0) : 0}
+								value={Array.isArray(state.currentValue) ? Number(state.currentValue[index] ?? 0) : 0}
 								step={props.step ?? 0.1}
-						disabled={!propertyState.editable}
+						disabled={!state.propertyState.editable}
 								onfocus={props.onfocus}
 								onblur={props.onblur}
-								onchange={(event) => handleVectorChange(index, (event.target as HTMLInputElement).value)}
+								onchange={(event) => state.handleVectorChange(index, (event.target as HTMLInputElement).value)}
 							/>
 						</div>
 					{/each}
 				</div>
 			{:else}
 				<div class="node-property__placeholder">
-					<span class="node-property__placeholder-text">{propertyState.type} editor</span>
+					<span class="node-property__placeholder-text">{state.propertyState.type} editor</span>
 				</div>
 			{/if}
 
@@ -207,7 +140,7 @@
 			{/if}
 		</div>
 
-		{#if propertyState.error && props.errorMessage}
+		{#if state.propertyState.error && props.errorMessage}
 			<p class="node-property__error">{props.errorMessage}</p>
 		{/if}
 	</div>

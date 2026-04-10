@@ -1,15 +1,8 @@
 <script lang="ts">
 	import { createToolButtonState } from '$stylist/control/function/state/tool-button';
+	import type { ToolButtonProps } from '$stylist/control/type/struct/tool-button-props';
 
-	type Props = {
-		active?: boolean;
-		tool?: string;
-		icon?: string;
-		label?: string;
-		onClick?: (tool: string) => void;
-	};
-
-	let props: Props = $props();
+	let props: ToolButtonProps = $props();
 	const state = createToolButtonState(props);
 </script>
 

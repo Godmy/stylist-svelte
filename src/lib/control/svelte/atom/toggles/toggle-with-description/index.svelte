@@ -1,20 +1,6 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-
-  type Props = {
-    checked?: boolean;
-    disabled?: boolean;
-    label: string;
-    description: string;
-    class?: string;
-    toggleClass?: string;
-    labelClass?: string;
-    descriptionClass?: string;
-    onValueInput?: (checked: boolean) => void;
-    onValueChange?: (checked: boolean) => void;
-    onInput?: (checked: boolean) => void;
-    onChange?: (checked: boolean) => void;
-  } & InteractionHTMLAttributes<HTMLDivElement>;
+  import { createToggleWithDescriptionState } from '$stylist/control/function/state/toggle-with-description';
+  import type { ToggleWithDescriptionProps } from '$stylist/control/type/struct/toggle-with-description-props';
 
   let {
     checked = false,
@@ -30,72 +16,51 @@
     onInput,
     onChange,
     ...restProps
-  }: Props = $props();
-
-  let isChecked = $state(checked);
-
-  // Update local state when checked prop changes
-  $effect(() => {
-    if (isChecked !== checked) {
-      isChecked = checked;
-    }
+  }: ToggleWithDescriptionProps = $props();
+  const state = createToggleWithDescriptionState({
+    checked,
+    disabled,
+    label,
+    description,
+    class: className,
+    toggleClass,
+    labelClass,
+    descriptionClass,
+    onValueInput,
+    onValueChange,
+    onInput,
+    onChange
   });
-
-  function handleToggle() {
-    if (disabled) return;
-    
-    isChecked = !isChecked;
-    
-    onValueInput?.(isChecked);
-    onValueChange?.(isChecked);
-    if (onInput) {
-      onInput(isChecked);
-    }
-    if (onChange) {
-      onChange(isChecked);
-    }
-  }
-
-  function handleKeyDown(e: KeyboardEvent) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleToggle();
-    }
-  }
 </script>
 
-<div class={`flex items-start p-4 border border-[var(--color-border-primary)] rounded-lg ${className} ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer'}`} 
-     onclick={handleToggle}
-     onkeydown={handleKeyDown}
+<div class={state.containerClass} 
+     onclick={state.handleToggle}
+     onkeydown={state.handleKeyDown}
      tabindex={disabled ? -1 : 0}
      role="switch"
-     aria-checked={isChecked}
+     aria-checked={state.isChecked}
      {...restProps}>
   <!-- Toggle Switch -->
-  <div class={`relative inline-flex flex-shrink-0 h-6 w-11 ${toggleClass}`}
+  <div class={`relative inline-flex flex-shrink-0 h-6 w-11 ${state.toggleClass}`}
        aria-hidden="true">
     <input
       id="toggle-input"
       type="checkbox"
       class="sr-only"
-      bind:checked={isChecked}
-      onchange={handleToggle}
+      checked={state.isChecked}
+      onchange={state.handleToggle}
       disabled={disabled}
     />
-    <div class={`absolute h-full w-full rounded-full transition-colors ${
-      isChecked ? 'bg-[var(--color-primary-600)]' : 'bg-[var(--color-background-tertiary)]'
-    }`}></div>
-    <div class={`absolute left-0 inline-block h-4 w-4 transform rounded-full border-2 bg-[var(--color-background-primary)] transition-transform ${
-      isChecked ? 'translate-x-6' : 'translate-x-1'
-    } ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}></div>
+    <div class={state.trackClass}></div>
+    <div class={state.thumbClass}></div>
   </div>
   
   <!-- Label and Description -->
   <div class="ml-3 flex-1">
-    <label for="toggle-input" class={`text-sm font-medium text-[var(--color-text-primary)] ${labelClass}`}>
+    <label for="toggle-input" class={`text-sm font-medium text-[var(--color-text-primary)] ${state.labelClass}`}>
       {label}
     </label>
-    <p class={`text-sm text-[var(--color-text-secondary)] ${descriptionClass}`}>
+    <p class={`text-sm text-[var(--color-text-secondary)] ${state.descriptionClass}`}>
       {description}
     </p>
   </div>

@@ -1,33 +1,33 @@
 <script lang="ts">
-	type TokenArrayControlProps = {
-		title: string;
-		tokens: readonly string[];
-		value?: string;
-		class?: string;
-		dedupe?: boolean;
-		onSelect?: (token: string) => void;
-	};
+	import type { TokenArrayControlProps } from '$stylist/control/type/struct/token-array-control-props';
+	import { createTokenArrayControlState } from '$stylist/control/function/state/token-array-control';
 
-	let {
-		title,
-		tokens = [],
-		value = undefined,
-		class: className = '',
-		dedupe = true,
-		onSelect
-	}: TokenArrayControlProps = $props();
+	let props: TokenArrayControlProps = $props();
+	const state = createTokenArrayControlState(props);
 
-	const displayTokens = $derived(dedupe ? Array.from(new Set(tokens)) : [...tokens]);
+	const restProps = $derived.by(() => {
+		const {
+			class: _class,
+			title: _title,
+			tokens: _tokens,
+			value: _value,
+			dedupe: _dedupe,
+			onSelect: _onSelect,
+			...rest
+		} = props;
+		return rest;
+	});
 </script>
 
-<div class={`token-array-control ${className}`.trim()}>
-	<div class="token-array-control__title">{title}</div>
+<div class={`token-array-control ${state.className}`.trim()}>
+	<div class="token-array-control__title">{state.title}</div>
 	<div class="token-array-control__items">
-		{#each displayTokens as token}
+		{#each state.displayTokens as token}
 			<button
 				type="button"
-				class={`token-array-control__chip ${value === token ? 'token-array-control__chip--active' : ''}`.trim()}
-				onclick={() => onSelect?.(token)}
+				class={`token-array-control__chip ${state.value === token ? 'token-array-control__chip--active' : ''}`.trim()}
+				onclick={() => state.onSelect?.(token)}
+				{...restProps}
 			>
 				{token}
 			</button>

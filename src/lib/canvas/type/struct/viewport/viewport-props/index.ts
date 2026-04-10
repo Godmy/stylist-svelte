@@ -1,4 +1,4 @@
-import type { ViewportContract } from '..';
+import type { ViewportContract } from '../viewport-contract';
 import type { StageCamera } from '$stylist/canvas/type/struct/stage/stage-camera';
 
 export type ViewportProps = ViewportContract & {

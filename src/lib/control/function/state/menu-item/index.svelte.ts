@@ -49,7 +49,17 @@ export function createMenuItemState(props: MenuItemProps) {
     disabled,
     external,
     children,
-    containerClasses
+    containerClasses,
+    handleClick(event: MouseEvent) {
+      if (disabled) {
+        event.preventDefault();
+        return;
+      }
+
+      props.onValueInput?.(event);
+      props.onValueChange?.(event);
+      props.onClick?.(event);
+    }
   };
 }
 

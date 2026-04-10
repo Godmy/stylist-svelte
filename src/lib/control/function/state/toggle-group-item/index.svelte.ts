@@ -4,6 +4,7 @@ import type { ToggleGroupItemProps } from '$stylist/control/interface/component/
 export type ToggleGroupItemStateProps = ToggleGroupItemProps & {
   groupValue?: string | string[] | null;
   groupDisabled?: boolean;
+  updateValue?: (value: string) => void;
 };
 
 export function createToggleGroupItemState(props: ToggleGroupItemStateProps) {
@@ -21,9 +22,20 @@ export function createToggleGroupItemState(props: ToggleGroupItemStateProps) {
   );
 
   return {
-    disabled,
-    isActive,
-    classes
+    get disabled() {
+      return disabled;
+    },
+    get isActive() {
+      return isActive;
+    },
+    get classes() {
+      return classes;
+    },
+    handleClick() {
+      if (!disabled) {
+        props.updateValue?.(props.value);
+      }
+    }
   };
 }
 

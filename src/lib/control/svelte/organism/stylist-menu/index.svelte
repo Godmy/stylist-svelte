@@ -1,76 +1,22 @@
 <script lang="ts">
 	import { tick } from 'svelte';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import BaseIcon from '$stylist/media/svelte/atom/icon/index.svelte';
 	import StylistTab from '$stylist/control/svelte/molecule/tabs/stylist-tab/index.svelte';
+	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/control/const/struct/stylist-menu-menu-items';
+	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-functional-tab-items';
+	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-atomic-tab-items';
+	import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '$stylist/control/const/struct/stylist-menu-functional-primary-sections';
+	import type { PrimaryMenuItem } from '$stylist/control/type/struct/stylist-menu-primary-menu-item';
+	import type { FunctionalTabId } from '$stylist/control/type/struct/stylist-menu-functional-tab-id';
+	import type { AtomicTabId } from '$stylist/control/type/struct/stylist-menu-atomic-tab-id';
+	import type { TabItem } from '$stylist/control/type/struct/stylist-menu-tab-item';
+	import type { FunctionalTabItem } from '$stylist/control/type/struct/stylist-menu-functional-tab-item';
+	import type { StylistMenuProps } from '$stylist/control/type/struct/stylist-menu-props';
 
-	type PrimaryMenuItem = {
-		id: string;
-		label: string;
-		icon: string;
-	};
-
-	type FunctionalTabId = 'architecture' | 'information' | 'interaction';
-	type AtomicTabId = 'atoms' | 'molecules' | 'organisms';
-
-	type TabItem = {
-		id: string;
-		label: string;
-		icon: string;
-	};
-
-	type FunctionalTabItem = {
-		id: FunctionalTabId;
-		label: string;
-		icon: string;
-	};
-
-	type Props = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'> & {
-		class?: string;
-		triggerIcon?: string;
-		currentItemId?: string;
-		avatarLabel?: string;
-		avatarName?: string;
-		avatarEmail?: string;
-		activeAvatarRoute?: 'profile' | 'settings' | '';
-		functionalTabId?: FunctionalTabId;
-		atomicTabId?: AtomicTabId;
-		onItemClick?: (item: PrimaryMenuItem) => void;
-		onFunctionalTabClick?: (tabId: FunctionalTabId) => void;
-		onAtomicTabClick?: (tabId: AtomicTabId) => void;
-		onThemeButtonClick?: () => void;
-		onSettingsButtonClick?: () => void;
-		onAvatarProfileClick?: () => void;
-		onAvatarSettingsClick?: () => void;
-		onAvatarLogoutClick?: () => void;
-	};
-
-	const menuItems: PrimaryMenuItem[] = [
-		{ id: 'components', label: 'Components', icon: 'components' },
-		{ id: 'models', label: 'Models', icon: 'models' },
-		{ id: 'samo', label: 'SAMO', icon: 'models' },
-		{ id: 'contracts', label: 'Contracts', icon: 'contracts' },
-		{ id: 'styles', label: 'Styles', icon: 'styles' },
-		{ id: 'themes', label: 'Themes', icon: 'themes' },
-		{ id: 'colors', label: 'Colors', icon: 'colors' },
-		{ id: 'tokens', label: 'Tokens', icon: 'tokens' },
-		{ id: 'icons', label: 'Icons', icon: 'icons' },
-		{ id: 'json', label: 'JSON', icon: 'json' }
-	];
-
-	const functionalTabItems: FunctionalTabItem[] = [
-		{ id: 'architecture', label: 'Architecture', icon: 'grid-layout' },
-		{ id: 'information', label: 'Information', icon: 'text' },
-		{ id: 'interaction', label: 'Interaction', icon: 'controls' }
-	];
-
-	const atomicTabItems: TabItem[] = [
-		{ id: 'atoms', label: 'Atoms', icon: 'tokens' },
-		{ id: 'molecules', label: 'Molecules', icon: 'styles' },
-		{ id: 'organisms', label: 'Organisms', icon: 'components' }
-	];
-
-	const functionalPrimarySections = new Set(['tokens', 'themes', 'contracts', 'components']);
+	const menuItems: PrimaryMenuItem[] = STYLIST_MENU_MENU_ITEMS;
+	const functionalTabItems: FunctionalTabItem[] = STYLIST_MENU_FUNCTIONAL_TAB_ITEMS;
+	const atomicTabItems: TabItem[] = STYLIST_MENU_ATOMIC_TAB_ITEMS;
+	const functionalPrimarySections = new Set<string>(STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS);
 
 	let {
 		class: className = '',
@@ -91,7 +37,7 @@
 		onAvatarSettingsClick,
 		onAvatarLogoutClick,
 		...restProps
-	}: Props = $props();
+	}: StylistMenuProps = $props();
 
 	let expandedItemId = $state(currentItemId);
 	let avatarMenuOpen = $state(false);

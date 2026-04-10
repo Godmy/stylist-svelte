@@ -1,24 +1,14 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import type { AccordionPanelProps } from '$stylist/control/interface/component/accordion/other';
+	import { ACCORDION_PANEL_CONTEXT } from '$stylist/control/const/struct/accordion-panel-context';
 	import { createAccordionPanelState } from '$stylist/control/function/state/accordion-panel';
+	import type { AccordionPanelProps } from '$stylist/control/type/struct/accordion-panel-props';
 
-	type Props = AccordionPanelProps & InteractionHTMLAttributes<HTMLDivElement>;
+	let props: AccordionPanelProps = $props();
 
-	let props: Props = $props();
+	const accordionContext = getContext<typeof ACCORDION_PANEL_CONTEXT>('accordion-context') ?? ACCORDION_PANEL_CONTEXT;
 
-	const context = getContext<{
-		accordionId: string;
-		isPanelOpen: (panelId: string) => boolean;
-		handleValueChange: (panelId: string) => void;
-	}>('accordion-context') ?? {
-		accordionId: '',
-		isPanelOpen: () => false,
-		handleValueChange: () => {}
-	};
-
-	let isOpen = $derived(context.isPanelOpen(props.value));
+	let isOpen = $derived(accordionContext.isPanelOpen(props.value));
 
 	const state = createAccordionPanelState(props);
 

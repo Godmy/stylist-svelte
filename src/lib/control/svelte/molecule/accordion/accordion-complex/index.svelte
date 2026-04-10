@@ -5,34 +5,12 @@
 
 	let props: ComplexAccordionProps = $props();
 
-	const accordionState = createComplexAccordionState(props);
-
-	const accordionId = Math.random().toString(36).substring(2, 9);
-	let openPanels = $state<string[]>(accordionState.defaultValue);
-
-	function handleValueChange(panelId: string) {
-		let newOpenPanels: string[];
-
-		if (accordionState.multiple) {
-			newOpenPanels = openPanels.includes(panelId)
-				? openPanels.filter((id) => id !== panelId)
-				: [...openPanels, panelId];
-		} else {
-			newOpenPanels = openPanels.includes(panelId) ? [] : [panelId];
-		}
-
-		openPanels = newOpenPanels;
-		props.onValueChange?.(newOpenPanels);
-	}
-
-	function isPanelOpen(panelId: string): boolean {
-		return openPanels.includes(panelId);
-	}
+	const state = createComplexAccordionState(props);
 
 	setContext('accordion-context', {
-		accordionId,
-		isPanelOpen,
-		handleValueChange
+		accordionId: state.accordionId,
+		isPanelOpen: state.isPanelOpen,
+		handleValueChange: state.handleValueChange
 	});
 
 	const restProps = $derived(
@@ -51,7 +29,7 @@
 	);
 </script>
 
-<div {...restProps} class={accordionState.classes}>
+<div {...restProps} class={state.classes}>
 	{#if props.content}
 		{@render props.content()}
 	{/if}

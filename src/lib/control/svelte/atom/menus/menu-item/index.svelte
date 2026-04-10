@@ -1,24 +1,11 @@
 <script lang="ts">
   import { Icon } from '$stylist';
   import { createMenuItemState } from '$stylist/control/function/state/menu-item';
-  import type { MenuItemProps } from '$stylist/control/interface/component/menu-item/other';
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { MenuItemProps } from '$stylist/control/type/struct/menu-item-props';
 
-  type Props = MenuItemProps & InteractionHTMLAttributes<HTMLElement>;
-  let props: Props = $props();
+  let props: MenuItemProps = $props();
 
   const state = createMenuItemState(props);
-
-  const handleClick = (e: MouseEvent) => {
-    if (state.disabled) {
-      e.preventDefault();
-      return;
-    }
-
-    props.onValueInput?.(e);
-    props.onValueChange?.(e);
-    props.onClick?.(e);
-  };
 
   const restProps = $derived(
     (() => {
@@ -36,7 +23,7 @@
     rel={state.external ? 'noopener noreferrer' : undefined}
     aria-current={state.active ? 'page' : undefined}
     role="menuitem"
-    onclick={handleClick}
+    onclick={state.handleClick}
     {...restProps}
   >
     {#if state.icon}
@@ -55,7 +42,7 @@
     disabled={state.disabled}
     aria-current={state.active ? 'true' : undefined}
     role="menuitem"
-    onclick={handleClick}
+    onclick={state.handleClick}
     {...restProps}
   >
     {#if state.icon}

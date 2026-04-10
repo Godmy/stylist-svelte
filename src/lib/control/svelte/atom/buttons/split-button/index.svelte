@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
 import { createSplitButtonState } from '$stylist/control/function/state/split-button';
+	import type { SplitButtonButtonAttributes } from '$stylist/control/type/struct/split-button-button-attributes';
 
 	const ChevronDown = 'chevron-down';
-
-	type ButtonAttributes = Omit<HTMLButtonAttributes, 'children' | 'class' | 'disabled'>;
 
 	export interface ISplitButtonItem {
 		label: string;
@@ -15,7 +13,7 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 	}
 
 	export type ISplitButtonElementProps = ButtonElementProps &
-		ButtonAttributes & {
+		SplitButtonButtonAttributes & {
 			items: ISplitButtonItem[];
 			primaryAction: () => void;
 			primaryLabel?: string;
@@ -36,21 +34,11 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 	 * @returns A split button with primary action and dropdown menu
 	 */
 	let props: ISplitButtonElementProps = $props();
-	const controlState = createSplitButtonState(
+	const state = createSplitButtonState(
 		{
 			...props,
 			class: `${props.class ?? ''} split-button__button`.trim()
 		} as any
-	);
-
-	const baseButtonClasses = $derived(
-		[controlState.classes, 'split-button__button'].filter(Boolean).join(' ')
-	);
-
-	const primaryButtonClasses = $derived(`${baseButtonClasses} rounded-r-none border-r-0`.trim());
-	const toggleButtonClasses = $derived(`${baseButtonClasses} rounded-l-none border-l-0`.trim());
-	const wrapperClasses = $derived(
-		`relative inline-flex items-center rounded-md overflow-hidden ${props.class ?? ''}`.trim()
 	);
 
 	// Extract div-specific attributes to avoid type conflicts
@@ -84,59 +72,15 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 		return divCompatibleProps;
 	});
 	const restProps = $derived(divAttributes);
-
-	let isOpen = $state(false);
-	let buttonId = `split-button-${Math.random().toString(36).substr(2, 9)}`;
-
-	// Handle clicks outside to close dropdown
-	$effect(() => {
-		if (!isOpen) return;
-
-		const handleClickOutside = (event: Event) => {
-			if (!event.composedPath().some((el) => el instanceof Element && el.id === buttonId)) {
-				isOpen = false;
-			}
-		};
-
-		document.addEventListener('click', handleClickOutside);
-		return () => document.removeEventListener('click', handleClickOutside);
-	});
-
-	const toggleDropdown = () => {
-		if (!props.disabled) {
-			isOpen = !isOpen;
-		}
-	};
-
-	const closeDropdown = () => {
-		isOpen = false;
-	};
-
-	const menuClasses = $derived(
-		[
-			'split-button-menu',
-			'absolute z-[var(--z-index-docked)] mt-1 w-48 rounded-md',
-			'border border-[var(--color-border-primary)]',
-			'bg-[var(--color-background-primary)] text-[var(--color-text-primary)]',
-			'shadow-[0_10px_15px_-3px_color-mix(in srgb, var(--color-text-primary) 20%, transparent),0_4px_6px_-2px_color-mix(in srgb, var(--color-text-primary) 12%, transparent)]',
-			'outline-none'
-		].join(' ')
-	);
-
-	const menuItemBaseClasses =
-		'split-button-menu__item w-full px-4 py-2 text-sm text-left rounded-md bg-transparent text-[inherit] transition-colors duration-[var(--duration-150)] focus-visible:outline-none hover:bg-[var(--color-secondary-100)] focus-visible:bg-[var(--color-secondary-100)]';
-
-	const menuItemDisabledClasses =
-		'split-button-menu__item--disabled opacity-[var(--opacity-50)] cursor-not-allowed pointer-events-none';
 </script>
 
-<div {...restProps} class={String(wrapperClasses ?? '')} id={buttonId}>
+<div {...restProps} class={String(state.wrapperClasses ?? '')} id={state.buttonId}>
 	<button
 		type={props.type ?? 'button'}
 		disabled={typeof props.disabled === 'boolean' ? props.disabled : undefined}
 		aria-busy={typeof props.loading === 'boolean' ? props.loading : undefined}
 		aria-live={typeof props.loading === 'boolean' && props.loading ? 'polite' : undefined}
-		class={String(primaryButtonClasses ?? '')}
+		class={String(state.primaryButtonClasses ?? '')}
 		aria-label={typeof props.ariaLabel === 'string' ? props.ariaLabel : props.primaryLabel || undefined}
 		onclick={props.primaryAction}
 	>
@@ -149,25 +93,22 @@ import { createSplitButtonState } from '$stylist/control/function/state/split-bu
 	<button
 		type={props.type ?? 'button'}
 		disabled={(typeof props.disabled === 'boolean' ? props.disabled : false) || (typeof props.loading === 'boolean' ? props.loading : false)}
-		class={toggleButtonClasses}
-		onclick={toggleDropdown}
+		class={state.toggleButtonClasses}
+		onclick={state.toggleDropdown}
 		aria-haspopup="true"
-		aria-expanded={isOpen}
+		aria-expanded={state.isOpen}
 		aria-label="Show more options"
 	>
 					<BaseIcon name={ChevronDown} class="h-4 w-4" aria-hidden="true" />
 	</button>
 
-	{#if isOpen}
-		<div class={menuClasses} role="menu" aria-orientation="vertical" tabindex="-1">
+	{#if state.isOpen}
+		<div class={state.menuClasses} role="menu" aria-orientation="vertical" tabindex="-1">
 			<div class="flex flex-col gap-1 p-1" role="none">
 				{#each props.items as item, i}
 					<button
-						class={`${menuItemBaseClasses} ${item.disabled ? menuItemDisabledClasses : ''}`.trim()}
-						onclick={() => {
-							item.onClick();
-							closeDropdown();
-						}}
+						class={`${state.menuItemBaseClasses} ${item.disabled ? state.menuItemDisabledClasses : ''}`.trim()}
+						onclick={() => state.handleItemClick(item.onClick)}
 						disabled={item.disabled}
 						role="menuitem"
 					>

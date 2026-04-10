@@ -1,18 +1,8 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { createSliderTickState } from '$stylist/control/function/state/tick';
+	import type { SliderTickComponentProps } from '$stylist/control/type/struct/slider-tick-component-props';
 
-	type SliderTickProps = {
-		value?: number;
-		position?: number;
-		active?: boolean;
-		label?: string;
-		class?: string;
-	};
-
-	type Props = SliderTickProps & InteractionHTMLAttributes<HTMLDivElement>;
-
-	let props: Props = $props();
+	let props: SliderTickComponentProps = $props();
 
 	const state = createSliderTickState(props);
 

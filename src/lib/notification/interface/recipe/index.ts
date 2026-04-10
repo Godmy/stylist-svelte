@@ -12,7 +12,3 @@ export type { SkeletonTableRecipe } from './skeleton-table';
 export type { SkeletonTextRecipe } from './skeleton-text';
 export type { LoadingRecipe } from './spinner';
 export type { ToastRecipe } from './toast';
-
-/** AREA: STYLIST CODER MODEL -> AUTO-PROTECTED */
-
-﻿
