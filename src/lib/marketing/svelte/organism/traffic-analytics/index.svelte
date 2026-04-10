@@ -8,7 +8,7 @@ const BarChart3 = 'bar-chart-3';
 const Calendar = 'calendar';
 const Filter = 'filter';
 
-  import type { TrafficAnalyticsProps } from '$stylist/marketing/type/struct/traffic-analytics';
+  import type { TrafficAnalyticsProps, TimeRange } from '$stylist/marketing/type/struct/traffic-analytics';
   import { createTrafficAnalyticsState } from '$stylist/marketing/function/state/traffic-analytics';
 
   let props: TrafficAnalyticsProps = $props();
@@ -144,10 +144,5 @@ const Filter = 'filter';
     </div>
   </div>
 </div>
-
-<Story>
-  <div>TODO: Traffic Analytics Story</div>
-</Story>
-
 
 

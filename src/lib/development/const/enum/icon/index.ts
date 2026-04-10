@@ -1,4 +1,8 @@
 export const TOKEN_DEVELOPMENT_ICON = [
+	'code',
+	'code-editor-dev',
+	'errors',
+	'json',
 	'playground',
 	'playground-ai-assistant',
 	'playground-ai-chat',
@@ -24,5 +28,6 @@ export const TOKEN_DEVELOPMENT_ICON = [
 	'playground-shell-header',
 	'playground-shortcuts-panel',
 	'playground-toast',
-	'playground-tree-node'
+	'playground-tree-node',
+	'settings'
 ] as const;

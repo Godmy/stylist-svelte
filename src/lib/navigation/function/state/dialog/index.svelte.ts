@@ -6,3 +6,8 @@ export function createDialogState(props: DialogProps) {
 	return {
 		get dialogClasses() {
 			return dialogClasses;
+		}
+	};
+}
+
+export default createDialogState;

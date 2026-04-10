@@ -9,8 +9,10 @@
    * Dependency Inversion: Depends on abstractions (types and style manager) not concretions
    */
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-  import { SwitchWithLabelStyleManager } from '$stylist/control/class/style-manager/switch-with-label';
+  import { createSwitchWithLabelState } from '$stylist/control/function/state/switch-with-label';
   import type { ISwitchWithLabelProps } from '$stylist/control/interface/component/switch-with-label/other';
+
+  let props: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 
   const {
     checked = false,
@@ -25,7 +27,9 @@
     onInput,
     onChange,
     ...restProps
-  }: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
+  }: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = props;
+
+  const switchState = createSwitchWithLabelState({ checked, disabled, label, labelPosition, class: className, switchClass, labelClass });
 
   let isChecked = $state(checked);
 
@@ -57,27 +61,10 @@
       handleToggle();
     }
   }
-
-  // Using Svelte 5 runes for derived values
-  const containerClasses = $derived(
-    SwitchWithLabelStyleManager.getContainerClasses(labelPosition, className)
-  );
-  const labelClasses = $derived(
-    SwitchWithLabelStyleManager.getLabelClasses(disabled, labelClass)
-  );
-  const switchClasses = $derived(
-    SwitchWithLabelStyleManager.getSwitchClasses(checked, disabled, switchClass)
-  );
-  const handleClasses = $derived(
-    SwitchWithLabelStyleManager.getHandleClasses(checked)
-  );
-  const labelPositionClass = $derived(
-    SwitchWithLabelStyleManager.getLabelPositionClasses(labelPosition)
-  );
 </script>
 
 <div
-  class={containerClasses}
+  class={switchState.containerClasses}
   role="switch"
   aria-checked={isChecked}
   {...restProps}
@@ -85,14 +72,14 @@
   {#if labelPosition === 'left'}
     <label
       for="switch-input"
-      class={`${labelPositionClass} ${labelClasses}`}
+      class={`${switchState.labelPositionClass} ${switchState.labelClasses}`}
     >
       {label}
     </label>
   {/if}
 
   <div
-    class={switchClasses}
+    class={switchState.switchClasses}
     role="switch"
     aria-checked={isChecked}
     onclick={handleToggle}
@@ -107,13 +94,13 @@
       onchange={handleToggle}
       disabled={disabled}
     />
-    <span class={handleClasses}></span>
+    <span class={switchState.handleClasses}></span>
   </div>
 
   {#if labelPosition === 'right'}
     <label
       for="switch-input"
-      class={`${labelPositionClass} ${labelClasses}`}
+      class={`${switchState.labelPositionClass} ${switchState.labelClasses}`}
     >
       {label}
     </label>

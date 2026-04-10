@@ -1,11 +1,16 @@
 ﻿<script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon } from '$stylist';
-	import type { MessageInputProps } from '$stylist/communication/interface/component/chat/other';
+	import type { MessageInputContract } from '$stylist/communication/interface/component/message-input';
 	import { createMessageInputState } from '$stylist/communication/function/state/message-input';
+	import {
+		handleInputFn,
+		handleKeydownFn,
+		handleAttachFn,
+		handleEmojiFn
+	} from '$stylist/communication/function/script/message-input-handlers';
 
-	type Props = MessageInputProps & InteractionHTMLAttributes<HTMLDivElement>;
-	let props: Props = $props();
+	let props: MessageInputContract & InteractionHTMLAttributes<HTMLDivElement> = $props();
 	const restProps = $derived(
 		(() => {
 			const {
@@ -21,7 +26,7 @@
 		})()
 	);
 
-	const messageState = createMessageInputState(props);
+	const messageState = createMessageInputState(props as any);
 
 	let messageContent = $state('');
 
@@ -33,23 +38,19 @@
 	}
 
 	function handleInput(e: Event) {
-		const target = e.target as HTMLTextAreaElement;
-		props.onMessageInput?.(target.value);
+		handleInputFn(e, props);
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
-		if (e.key === 'Enter' && !e.shiftKey) {
-			e.preventDefault();
-			handleSend();
-		}
+		handleKeydownFn(e, handleSend);
 	}
 
 	function handleAttach() {
-		props.onAttachClick?.();
+		handleAttachFn(props);
 	}
 
 	function handleEmoji() {
-		props.onEmojiClick?.();
+		handleEmojiFn(props);
 	}
 </script>
 

@@ -23,7 +23,7 @@
       disabled={state.disabled}
       {...props}
     />
-    
+
     <select
       class={`p-2 border border-l-0 border-[var(--color-border-primary)] rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${state.timeClass} ${
         state.disabled ? 'bg-[var(--color-background-secondary)] text-[var(--color-text-tertiary)] cursor-not-allowed' : ''
@@ -38,7 +38,7 @@
         </option>
       {/each}
     </select>
-    
+
     <button
       type="button"
       class={`absolute right-0 top-0 h-full px-3 rounded-r-md hover:bg-[var(--color-background-secondary)] ${state.disabled ? 'hidden' : 'block'}`}

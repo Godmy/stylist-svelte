@@ -1,48 +1,81 @@
-import { GridStyleManager } from '$stylist/layout/class/style-manager/grid';
-import type { GridContract } from '$stylist/layout/type/struct/grid';
+import type { GridProps, GridRestProps } from '$stylist/layout/type/struct/grid';
 
-export function createGridState(props: GridContract) {
-	const zoom = $derived(props.zoom ?? 1);
-	const gridSize = $derived(props.gridSize ?? 100);
-	const color = $derived(props.color ?? 'var(--color-border-subtle, #e0e0e0)');
-	const opacity = $derived(props.visible ? Math.max(0.1, Math.min(1, zoom * 0.5)) : 0);
-	const classes = $derived(GridStyleManager.getGridClass(typeof props.class === 'string' ? props.class : ''));
-	const style = $derived(GridStyleManager.getGridStyle(color, opacity));
-	const restProps = $derived.by(() => {
-		const {
-			class: _class,
-			zoom: _zoom,
-			gridSize: _gridSize,
-			color: _color,
-			visible: _visible,
-			...rest
-		} = props;
-		return rest;
-	});
+export type { GridProps, GridRestProps } from '$stylist/layout/type/struct/grid';
 
-	return {
-		get zoom() {
-			return zoom;
-		},
-		get gridSize() {
-			return gridSize;
-		},
-		get color() {
-			return color;
-		},
-		get opacity() {
-			return opacity;
-		},
-		get classes() {
-			return classes;
-		},
-		get style() {
-			return style;
-		},
-		get restProps() {
-			return restProps;
-		}
-	};
+export function stateFn(props: GridProps) {
+  const gapClass = $derived.by(() => {
+    const gap = props.gap ?? 'md';
+    return {
+      none: 'gap-0',
+      sm: 'gap-2',
+      md: 'gap-4',
+      lg: 'gap-6',
+      xl: 'gap-8',
+    }[gap];
+  });
+
+  const alignItemsClass = $derived.by(() => {
+    const align = props.alignItems ?? 'stretch';
+    return {
+      start: 'items-start',
+      center: 'items-center',
+      end: 'items-end',
+      stretch: 'items-stretch',
+    }[align];
+  });
+
+  const justifyContentClass = $derived.by(() => {
+    const justify = props.justifyContent ?? 'start';
+    return {
+      start: 'justify-start',
+      center: 'justify-center',
+      end: 'justify-end',
+      between: 'justify-between',
+      around: 'justify-around',
+      evenly: 'justify-evenly',
+    }[justify];
+  });
+
+  const gridClass = $derived.by(() => {
+    const cols = props.cols ?? 2;
+    const responsive = props.responsive ?? true;
+    const hostClass = props.class ?? '';
+    return `
+      grid
+      ${
+        responsive
+          ? `grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(cols, 4)} lg:grid-cols-${cols}`
+          : `grid-cols-${cols}`
+      }
+      ${gapClass}
+      ${alignItemsClass}
+      ${justifyContentClass}
+      ${hostClass}
+    `;
+  });
+
+  const restProps = $derived.by(() => {
+    const {
+      class: _class,
+      cols: _cols,
+      gap: _gap,
+      responsive: _responsive,
+      alignItems: _alignItems,
+      justifyContent: _justifyContent,
+      children: _children,
+      ...rest
+    } = props;
+    return rest as GridRestProps;
+  });
+
+  return {
+    get gridClass() {
+      return gridClass;
+    },
+    get restProps() {
+      return restProps;
+    },
+  };
 }
 
-export default createGridState;
+export default stateFn;

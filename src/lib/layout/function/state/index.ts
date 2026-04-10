@@ -9,7 +9,7 @@ export { createContainerState } from './container';
 export { createContainerQueryState } from './container-query';
 export { createDividerState } from './divider';
 export { createGradientBackgroundState } from './gradient-background';
-export { createGridState } from './grid';
+export { stateFn } from './grid';
 export { createGridLayoutState } from './grid-layout';
 export { createGridMoleculeState } from './grid-molecule';
 export { createHorizontalLayoutState } from './horizontal-layout';

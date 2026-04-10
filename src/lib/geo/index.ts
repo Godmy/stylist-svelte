@@ -1,9 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { GeoJSONViewerStyleManager, LocationPickerStyleManager, LocationSelectorStyleManager, MapMarkerStyleManager, MapSelectorStyleManager, MapWithMarkersStyleManager, RoutePlannerStyleManager, StoreLocatorStyleManager } from './class';
-export { ICON_ALERT_TRIANGLE, ICON_BUILDING, ICON_CAR, ICON_CLOCK, ICON_CROSSHAIR, ICON_DOT, ICON_DOWNLOAD, ICON_FILTER, ICON_GLOBE, ICON_GRADUATION_CAP, ICON_GRID_3X3, ICON_HEART_PULSE, ICON_INFO, ICON_LAYERS, ICON_LIST, ICON_LOCATE, ICON_LOCATE_FIXED, ICON_MAIL, ICON_MAP_PIN, ICON_MINUS, ICON_NAVIGATION, ICON_PHONE, ICON_PLUS, ICON_ROTATE_CCW, ICON_ROUTE, ICON_SEARCH, ICON_SETTINGS, ICON_SHOPPING_BAG, ICON_STAR, ICON_UPLOAD, ICON_UTENSILS, ICON_X, TOKEN_MAP_TYPE, TOKEN_PIN } from './const';
+export { ICON_ALERT_TRIANGLE, ICON_BUILDING, ICON_CAR, ICON_CLOCK, ICON_CROSSHAIR, ICON_DOT, ICON_DOWNLOAD, ICON_FILTER, ICON_GLOBE, ICON_GRADUATION_CAP, ICON_GRID_3X3, ICON_HEART_PULSE, ICON_INFO, ICON_LAYERS, ICON_LIST, ICON_LOCATE, ICON_LOCATE_FIXED, ICON_MAIL, ICON_MAP_PIN, ICON_MINUS, ICON_NAVIGATION, ICON_PHONE, ICON_PLUS, ICON_ROTATE_CCW, ICON_ROUTE, ICON_SEARCH, ICON_SETTINGS, ICON_SHOPPING_BAG, ICON_STAR, ICON_UPLOAD, ICON_UTENSILS, ICON_X, TOKEN_GEO_ICON, TOKEN_MAP_TYPE, TOKEN_PIN } from './const';
 export { createCountryFlagState, createMapMarkerState, getCountryFlagEmoji } from './function';
 export { GeoJsonviewer, LocationPicker, LocationSelector, MapMarker, MapSelector, MapWithMarkers, RoutePlanner, StoreLocator } from './svelte';
 export type { MapProvider } from './interface';
-export type { InformationContractOfT, TokenMapType, TokenPin } from './type';
+export type { InformationContractOfT, TokenGeoIcon, TokenMapType, TokenPin } from './type';
 export type { MapMarkerStateProps } from './function';
 export type { ContactInfo, Coordinates, CountryFlagRecipe, GeoJsonFeature, GeoJsonFeatureCollection, GeoJsonGeometry, GeoJsonLayer, IGeoJSONViewerProps, ILocation, ILocationPickerMarker, ILocationPickerProps, ILocationSelectorProps, IMapMarkerItem, IMapMarkerProps, IMapSelectorLocation, IMapSelectorProps, IMapSelectorStyleClasses, IMapWithMarkersProps, IMapWithMarkersView, IRouteOption, IRoutePlannerLocation, IRoutePlannerProps, IStore, IStoreLocatorProps, MapInformationContract, MapInteractionContract, MapView } from './interface';

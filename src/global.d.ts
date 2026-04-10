@@ -1,7 +1,12 @@
-// Глобальное объявление типов для Svelte компонентов
-declare module '*.svelte' {
-	import type { ComponentType } from 'svelte';
-	import type { SvelteComponent } from 'svelte';
+/// <reference types="@sveltejs/kit" />
 
-	export default class extends SvelteComponent {}
+declare global {
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface Platform {}
+	}
 }
+
+export {};

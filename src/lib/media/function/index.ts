@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createAnnouncementBannerState, createCanvasImageEditorState, createFaviconState, createImageGalleryState } from './state';
-export type { ImageGalleryStateProps } from './state';
+export { createAnnouncementBannerState, createAudioPlayerState, createAudioSliderState, createAudioVisualizerState, createAvatarGroupState, createAvatarState, createCanvasImageEditorState, createFaviconState, createIconState, createImageGalleryState, createImageState, createMediaLibraryState, createNodeIconState, createPromoBannerState, createSvgState, createTeamAvatarStackState, createVideoPlayerState } from './state';
+export type { AvatarSize, AvatarUserStatus, IconColor, IconDirection, IconShape, IconSize, IconVariant, ImageSize, MediaType, PromoBannerVariant } from './state';
+export type { AudioPlayerProps, AudioSliderProps, AudioVisualizerProps, Avatar, AvatarGroupProps, AvatarProps, IconProps, ImageGalleryStateProps, ImageProps, MediaItem, MediaLibraryProps, NodeIconProps, PromoBannerProps, SvgProps, TeamAvatarStackProps, TeamMember, VideoPlayerProps } from './state';

@@ -1,5 +1,4 @@
 import type { INotificationSettingsProps } from '$stylist/communication/interface/component/notifications/other';
-import type { INotificationSettingsPreference } from '$stylist/communication/type/struct/notification-settings-preference';
 import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
 import { updateNotificationPreference } from '$stylist/management/function/script/notification-settings';
 
@@ -9,20 +8,7 @@ const Smartphone = 'smartphone';
 const Monitor = 'monitor';
 const Settings = 'settings';
 
-export interface NotificationSettingsStateProps extends INotificationSettingsProps {
-  preferences?: INotificationSettingsPreference[];
-  onPreferenceChange?: (id: string, channel: TokenNotifictionChannel, enabled: boolean) => void;
-  showEmail?: boolean;
-  showPush?: boolean;
-  showSms?: boolean;
-  showInApp?: boolean;
-  class?: string;
-  headerClass?: string;
-  sectionClass?: string;
-  footerClass?: string;
-}
-
-export function createNotificationSettingsState(props: NotificationSettingsStateProps) {
+export function createNotificationSettingsState(props: INotificationSettingsProps) {
   // Props with defaults
   const preferences = $derived(props.preferences ?? []);
   const onPreferenceChange = $derived(props.onPreferenceChange);
@@ -30,10 +16,10 @@ export function createNotificationSettingsState(props: NotificationSettingsState
   const showPush = $derived(props.showPush ?? true);
   const showSms = $derived(props.showSms ?? true);
   const showInApp = $derived(props.showInApp ?? true);
-  const className = $derived(props.class ?? '');
-  const headerClassName = $derived(props.headerClass ?? '');
-  const sectionClassName = $derived(props.sectionClass ?? '');
-  const footerClassName = $derived(props.footerClass ?? '');
+  const className = $derived(typeof props.class === 'string' ? props.class : '');
+  const headerClassName = $derived(typeof props.headerClass === 'string' ? props.headerClass : '');
+  const sectionClassName = $derived(typeof props.sectionClass === 'string' ? props.sectionClass : '');
+  const footerClassName = $derived(typeof props.footerClass === 'string' ? props.footerClass : '');
 
   // Icons
   const bellIcon = Bell;

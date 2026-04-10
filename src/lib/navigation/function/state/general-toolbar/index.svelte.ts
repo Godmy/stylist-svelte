@@ -9,4 +9,10 @@ export function createGeneralToolbarState(props: GeneralToolbarRecipe) {
 			return buttonSize;
 		},
 		get showButtons() {
-			ret
+			return true;
+		}
+	};
+}
+ 
+ 
+export default createGeneralToolbarState; 

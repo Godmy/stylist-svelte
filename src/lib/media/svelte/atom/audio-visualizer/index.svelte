@@ -1,45 +1,31 @@
 <script lang="ts">
-  let {
-    src = '',
-    alt = 'Audio Visualization',
-    title = 'Audio Track',
-    author = 'Unknown Artist',
-    duration = '0:00',
-    isPlaying = false,
-    onPlayToggle = (isPlaying: boolean) => {},
-    class: className = ''
-  } = $props<{
-    src?: string;
-    alt?: string;
-    title?: string;
-    author?: string;
-    duration?: string;
-    isPlaying?: boolean;
-    onPlayToggle?: (isPlaying: boolean) => void;
-    class?: string;
-  }>();
+  import { createAudioVisualizerState, type AudioVisualizerProps } from '$stylist/media/function/state/audio-visualizer';
+  import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
 
-  let localIsPlaying = $state(isPlaying);
+  let props: AudioVisualizerProps = $props();
+  const vm = createAudioVisualizerState(props);
+
+  let localIsPlaying = $state(vm.isPlaying);
 
   $effect(() => {
-    localIsPlaying = isPlaying;
+    localIsPlaying = vm.isPlaying;
   });
 
-  const togglePlay = () => {
+  function togglePlay() {
     localIsPlaying = !localIsPlaying;
-    onPlayToggle(localIsPlaying);
-  };
+    vm.onPlayToggle(localIsPlaying);
+  }
 </script>
 
-<div class={`flex items-center p-4 bg-[var(--color-background-primary)] rounded-lg shadow ${className}`}>
-  {#if src}
-    <img src={src} alt={alt} class="w-16 h-16 rounded-md mr-4" />
+<div class={`flex items-center p-4 bg-[var(--color-background-primary)] rounded-lg shadow ${vm.className}`}>
+  {#if vm.src}
+    <img src={vm.src} alt={vm.alt} class="w-16 h-16 rounded-md mr-4" />
   {/if}
   <div class="flex-1 min-w-0">
-    <h4 class="font-semibold truncate">{title}</h4>
-    <p class="text-sm text-[var(--color-text-secondary)] truncate">{author}</p>
+    <h4 class="font-semibold truncate">{vm.title}</h4>
+    <p class="text-sm text-[var(--color-text-secondary)] truncate">{vm.author}</p>
   </div>
-  <div class="text-sm text-[var(--color-text-secondary)] mr-4">{duration}</div>
+  <div class="text-sm text-[var(--color-text-secondary)] mr-4">{vm.duration}</div>
   <button
     onclick={togglePlay}
     class="w-10 h-10 flex items-center justify-center rounded-full bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] hover:bg-[var(--color-primary-600)]"
@@ -55,6 +41,3 @@
     {/if}
   </button>
 </div>
-
-
-

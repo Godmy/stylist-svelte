@@ -2,10 +2,7 @@
 	import { Icon as BaseIcon } from '$stylist';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
-import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
-import { createButtonState } from '$stylist/control/function/state/button';
-import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { createSplitButtonState } from '$stylist/control/function/state/split-button';
 
 	const ChevronDown = 'chevron-down';
 
@@ -39,13 +36,7 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 	 * @returns A split button with primary action and dropdown menu
 	 */
 	let props: ISplitButtonElementProps = $props();
-
-	// Use centralized state management for base button properties
-	let buttonState = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
-			variant: 'primary',
-			size: 'md'
-		}),
+	const controlState = createSplitButtonState(
 		{
 			...props,
 			class: `${props.class ?? ''} split-button__button`.trim()
@@ -53,7 +44,7 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 	);
 
 	const baseButtonClasses = $derived(
-		[buttonState.classes, 'split-button__button'].filter(Boolean).join(' ')
+		[controlState.classes, 'split-button__button'].filter(Boolean).join(' ')
 	);
 
 	const primaryButtonClasses = $derived(`${baseButtonClasses} rounded-r-none border-r-0`.trim());

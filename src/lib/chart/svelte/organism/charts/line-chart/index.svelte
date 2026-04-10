@@ -6,24 +6,22 @@
   import { ObjectManagerLineChart } from '$stylist/chart/class/object-manager/line-chart';
 
   let props: LineChartRecipe = $props();
-  const lineChartState = createLineChartState(props);
-
-  let hoveredPoint: { seriesIndex: number; pointIndex: number } | null = $state(null);
+  const state = createLineChartState(props);
 </script>
 
-<div class={lineChartState.baseClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
+<div class={state.baseClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
   {#if props.title}
-    <div class={lineChartState.titleContainerClasses}>
-      <h3 class={lineChartState.titleClasses}>{props.title}</h3>
+    <div class={state.titleContainerClasses}>
+      <h3 class={state.titleClasses}>{props.title}</h3>
       {#if props.showTooltip}
         <Tooltip content="This is a line chart showing trends over time with data points connected by lines." placement="top">
-          <Icon name="info" size="sm" class={lineChartState.infoIconClasses} />
+          <Icon name="info" size="sm" class={state.infoIconClasses} />
         </Tooltip>
       {/if}
     </div>
   {/if}
 
-  <div class={lineChartState.chartContainerClasses}>
+  <div class={state.chartContainerClasses}>
     <svg
       width={props.width ?? 600}
       height={props.height ?? 400}
@@ -50,10 +48,10 @@
         />
 
         <!-- Y axis labels -->
-        {#each lineChartState.yAxisValues as val, i}
+        {#each state.yAxisValues as val, i}
           <text
             x={props.showAxis ? 45 : 0}
-            y={(props.height ?? 400) - 15 - (i * (lineChartState.chartHeight / 4))}
+            y={(props.height ?? 400) - 15 - (i * (state.chartHeight / 4))}
             text-anchor="end"
             font-size="10"
             fill="var(--color-text-secondary)"
@@ -62,9 +60,9 @@
           </text>
           <line
             x1={props.showAxis ? 48 : 3}
-            y1={(props.height ?? 400) - 10 - (i * (lineChartState.chartHeight / 4))}
+            y1={(props.height ?? 400) - 10 - (i * (state.chartHeight / 4))}
             x2={(props.width ?? 600) - 10}
-            y2={(props.height ?? 400) - 10 - (i * (lineChartState.chartHeight / 4))}
+            y2={(props.height ?? 400) - 10 - (i * (state.chartHeight / 4))}
             stroke={props.axisColor ?? 'var(--color-border-secondary)'}
             stroke-dasharray="3,3"
             stroke-width="0.5"
@@ -75,7 +73,7 @@
         {#if props.data?.[0]}
           {#each props.data[0].data as item, i}
             <text
-              x={50 + i * (lineChartState.chartWidth / (props.data[0].data.length - 1 || 1))}
+              x={50 + i * (state.chartWidth / (props.data[0].data.length - 1 || 1))}
               y={(props.height ?? 400) - 5}
               text-anchor="middle"
               font-size="10"
@@ -90,9 +88,9 @@
       <!-- Lines -->
       {#each props.data ?? [] as series, seriesIndex}
         <path
-          d={lineChartState.linePaths[seriesIndex]}
+          d={state.linePaths[seriesIndex]}
           fill="none"
-          stroke={series.color ?? ObjectManagerLineChart.resolveDefaultColor(seriesIndex, lineChartState.resolvedColorScheme)}
+          stroke={series.color ?? ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
           stroke-width={props.strokeWidth ?? 2}
           class="transition-all duration-[var(--duration-300)] ease-in-out"
         />
@@ -102,17 +100,17 @@
           {@const pointPosition = ObjectManagerLineChart.resolvePointPosition({
             pointIndex,
             seriesLength: series.data.length,
-            chartWidth: lineChartState.chartWidth,
-            chartHeight: lineChartState.chartHeight,
+            chartWidth: state.chartWidth,
+            chartHeight: state.chartHeight,
             showAxis: props.showAxis ?? true,
-            calculatedMaxValue: lineChartState.calculatedMaxValue,
+            calculatedMaxValue: state.calculatedMaxValue,
             pointValue: point.value
           })}
           <circle
             cx={pointPosition.x}
             cy={pointPosition.y}
-            r={hoveredPoint?.seriesIndex === seriesIndex && hoveredPoint?.pointIndex === pointIndex ? 6 : 4}
-            fill={series.color ?? ObjectManagerLineChart.resolveDefaultColor(seriesIndex, lineChartState.resolvedColorScheme)}
+            r={state.isPointHovered(seriesIndex, pointIndex) ? 6 : 4}
+            fill={series.color ?? ObjectManagerLineChart.resolveDefaultColor(seriesIndex, state.resolvedColorScheme)}
             class="cursor-pointer transition-all duration-[var(--duration-200)] ease-in-out"
             onclick={() => props.onPointClick?.(point, series)}
             onkeydown={(e) => {
@@ -121,8 +119,8 @@
                 props.onPointClick?.(point, series);
               }
             }}
-            onfocus={() => hoveredPoint = { seriesIndex, pointIndex }}
-            onblur={() => hoveredPoint = null}
+            onfocus={() => state.focusPoint(seriesIndex, pointIndex)}
+            onblur={state.clearFocusedPoint}
             role="button"
             tabindex="0"
             aria-label={ObjectManagerLineChart.resolveAriaLabel(point)}
@@ -133,14 +131,14 @@
   </div>
 
   {#if props.showLegend}
-    <div class={lineChartState.legendContainerClasses}>
+    <div class={state.legendContainerClasses}>
       {#each props.data ?? [] as series, i}
-        <div class={lineChartState.legendItemClasses}>
+        <div class={state.legendItemClasses}>
           <div
             class="w-4 h-1 rounded mr-2"
-            style={`background-color: ${series.color ?? ObjectManagerLineChart.resolveDefaultColor(i, lineChartState.resolvedColorScheme)}`}
+            style={`background-color: ${series.color ?? ObjectManagerLineChart.resolveDefaultColor(i, state.resolvedColorScheme)}`}
           ></div>
-          <span class={lineChartState.legendLabelClasses}>{series.label}</span>
+          <span class={state.legendLabelClasses}>{series.label}</span>
         </div>
       {/each}
     </div>

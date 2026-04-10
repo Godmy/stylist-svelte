@@ -8,6 +8,7 @@ export interface PopoverProps {
 	open?: boolean;
 	position?: PopoverPosition;
 	class?: string;
+	id?: string;
 }
 
 export function createPopoverState(props: PopoverProps) {
@@ -16,6 +17,7 @@ export function createPopoverState(props: PopoverProps) {
 	let popoverElement: HTMLElement | null = $state(null);
 
 	const position = $derived<PopoverPosition>(props.position ?? 'bottom');
+	const popoverId = $derived(props.id ?? `popover-${Math.random().toString(36).slice(2, 9)}`);
 	const rootClass = $derived(PopoverStyleManager.getRootClass(props.class));
 	const popoverClass = $derived(PopoverStyleManager.getPopoverClass(position, props.class));
 	const titleClass = $derived(PopoverStyleManager.getTitleClass());
@@ -52,6 +54,9 @@ export function createPopoverState(props: PopoverProps) {
 		},
 		set popoverElement(value: HTMLElement | null) {
 			popoverElement = value;
+		},
+		get popoverId() {
+			return popoverId;
 		},
 		get rootClass() {
 			return rootClass;

@@ -1,19 +1,18 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-const Edit3 = 'edit-3';
-const MessageCircle = 'message-circle';
-const MoreHorizontal = 'more-horizontal';
-const Reply = 'reply';
-const Send = 'send';
-const ThumbsDown = 'thumbs-down';
-const ThumbsUp = 'thumbs-up';
-const Trash2 = 'trash-2';
-const UserIcon = 'user';
-
   import { Button } from '$lib';
-  import type { CommentSystemProps } from '$stylist/social/interface/component/comment-system/other';
-  import type { CommentItem } from '$stylist/social/interface/component/comment-system/other';
+  import type { CommentSystemProps, CommentItem } from '$stylist/social/interface/component/comment-system/other';
   import { CommentSystemStyleManager } from '$stylist/social/class/style-manager/comment-system';
+
+  const Edit3 = 'edit-3';
+  const MessageCircle = 'message-circle';
+  const MoreHorizontal = 'more-horizontal';
+  const Reply = 'reply';
+  const Send = 'send';
+  const ThumbsDown = 'thumbs-down';
+  const ThumbsUp = 'thumbs-up';
+  const Trash2 = 'trash-2';
+  const UserIcon = 'user';
 
   let {
     comments = [],
@@ -232,7 +231,3 @@ const UserIcon = 'user';
     </div>
   </div>
 </div>
-
-
-
-

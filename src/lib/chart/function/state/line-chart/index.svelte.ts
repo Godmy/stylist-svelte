@@ -6,6 +6,7 @@ export function createLineChartState(props: LineChartRecipe) {
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);
 	const resolvedColorScheme = $derived((props.colorScheme ?? 'default') as 'default' | 'neutral' | 'warm' | 'cool');
+	let hoveredPoint = $state<{ seriesIndex: number; pointIndex: number } | null>(null);
 
 	const baseClasses = $derived(`${LineChartStyleManager.getBaseClasses()} ${LineChartStyleManager.getVariantClasses(props.variant ?? 'default')} ${hostClass}`);
 	const titleContainerClasses = $derived(LineChartStyleManager.getTitleContainerClasses());
@@ -28,6 +29,18 @@ export function createLineChartState(props: LineChartRecipe) {
 		calculatedMaxValue,
 		smooth: props.smooth ?? true
 	}));
+
+	function focusPoint(seriesIndex: number, pointIndex: number) {
+		hoveredPoint = { seriesIndex, pointIndex };
+	}
+
+	function clearFocusedPoint() {
+		hoveredPoint = null;
+	}
+
+	function isPointHovered(seriesIndex: number, pointIndex: number) {
+		return hoveredPoint?.seriesIndex === seriesIndex && hoveredPoint?.pointIndex === pointIndex;
+	}
 
 	return {
 		get hostClass() {
@@ -77,7 +90,13 @@ export function createLineChartState(props: LineChartRecipe) {
 		},
 		get linePaths() {
 			return linePaths;
-		}
+		},
+		get hoveredPoint() {
+			return hoveredPoint;
+		},
+		focusPoint,
+		clearFocusedPoint,
+		isPointHovered
 	};
 }
 

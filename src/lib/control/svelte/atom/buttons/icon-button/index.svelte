@@ -2,10 +2,7 @@
 	import { Icon as BaseIcon } from '$stylist'; const Loader2 = 'loader-2';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { IconButtonProps } from '$stylist/control/interface/component/button/other';
-import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
-import { createButtonState } from '$stylist/control/function/state/button';
-import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { createIconButtonState } from '$stylist/control/function/state/icon-button';
 
 	/**
 	 * IconButton component - A button that primarily displays an icon
@@ -21,6 +18,9 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 	 * @returns An accessible, styled icon button element
 	 */
 	let props: IconButtonProps & HTMLButtonAttributes = $props();
+	const controlState = createIconButtonState(
+		props as any
+	);
 
 	// Extract rest props manually to avoid $$restProps in runes mode
 	let {
@@ -35,23 +35,11 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 		class: classProp,
 		...restProps
 	} = props;
-
-	// Use centralized state management
-	let state = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
-			variant: 'secondary',
-			size: 'md'
-		}),
-		{
-			...props,
-			class: `${props.class ?? ''} icon-button`.trim()
-		} as any
-	);
 </script>
 
-<button {...restProps} type={props.type ?? 'button'} class={state.classes} {...state.attrs}>
-	{#if state.loading}
-		<BaseIcon name={Loader2} class={state.loaderClasses} aria-hidden="true" />
+<button {...restProps} type={props.type ?? 'button'} class={controlState.classes} {...controlState.attrs}>
+	{#if controlState.loading}
+		<BaseIcon name={Loader2} class={controlState.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{props.loadingLabel ?? 'Loading...'}</span>
 	{:else if props.icon !== undefined && props.icon !== null}
 		{#if typeof props.icon === 'string'}

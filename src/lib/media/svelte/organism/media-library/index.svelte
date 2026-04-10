@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import { createMediaLibraryState, type MediaLibraryProps, type MediaType } from '$stylist/media/function/state/media-library';
   import { Icon as BaseIcon } from '$stylist';
 const Folder = 'folder';
 const File = 'file';
@@ -16,84 +17,37 @@ const Eye = 'eye';
 const X = 'x';
 
 
-  type MediaType = 'image' | 'video' | 'audio' | 'document' | 'other';
-
-  type MediaItem = {
-    id: string;
-    name: string;
-    type: MediaType;
-    size: number; // in bytes
-    url: string;
-    thumbnail?: string;
-    uploadDate: Date;
-    tags?: string[];
-  };
-
-  type Props = {
-    items: MediaItem[];
-    onItemSelect?: (item: MediaItem) => void;
-    onItemDelete?: (id: string) => void;
-    onItemDownload?: (id: string) => void;
-    onUpload?: (files: FileList) => void;
-    viewMode?: 'grid' | 'list';
-    allowDelete?: boolean;
-    allowDownload?: boolean;
-    allowUpload?: boolean;
-    searchPlaceholder?: string;
-    class?: string;
-    headerClass?: string;
-    toolbarClass?: string;
-    gridClass?: string;
-    itemClass?: string;
-  } & InformationHTMLAttributes<HTMLDivElement>;
-
-  let {
-    items = [],
-    onItemSelect,
-    onItemDelete,
-    onItemDownload,
-    onUpload,
-    viewMode = 'grid',
-    allowDelete = true,
-    allowDownload = true,
-    allowUpload = true,
-    searchPlaceholder = 'Search media...',
-    class: className = '',
-    headerClass = '',
-    toolbarClass = '',
-    gridClass = '',
-    itemClass = '',
-    ...restProps
-  } = $props();
+  let props: MediaLibraryProps & InformationHTMLAttributes<HTMLDivElement> = $props();
+  const vm = createMediaLibraryState(props);
 
   let searchQuery = $state('');
-  let selectedViewMode = $state(viewMode);
+  let selectedViewMode = $state(vm.viewMode);
   let fileInputRef: HTMLInputElement;
   let selectedItems: string[] = $state([]);
 
   function handleFileUpload(e: Event) {
     const target = e.target as HTMLInputElement;
-    if (target.files && onUpload) {
-      onUpload(target.files);
-      target.value = ''; // Reset input
+    if (target.files && props.onUpload) {
+      props.onUpload(target.files);
+      target.value = '';
     }
   }
 
-  function handleItemSelect(item: MediaItem) {
-    if (onItemSelect) {
-      onItemSelect(item);
+  function handleItemSelect(item: any) {
+    if (props.onItemSelect) {
+      props.onItemSelect(item);
     }
   }
 
   function handleItemDelete(id: string) {
-    if (onItemDelete) {
-      onItemDelete(id);
+    if (props.onItemDelete) {
+      props.onItemDelete(id);
     }
   }
 
   function handleItemDownload(id: string) {
-    if (onItemDownload) {
-      onItemDownload(id);
+    if (props.onItemDownload) {
+      props.onItemDownload(id);
     }
   }
 
@@ -103,40 +57,16 @@ const X = 'x';
     }
   }
 
-  function formatFileSize(bytes: number): string {
-    if (bytes < 1024) return bytes + ' B';
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-    else return (bytes / 1048576).toFixed(1) + ' MB';
-  }
-
-  function getFileIcon(type: MediaType) {
-    switch(type) {
-      case 'image': return Image;
-      case 'video': return Film;
-      case 'audio': return Music;
-      case 'document': return File;
-      default: return File;
-    }
-  }
-
   function getFilteredItems() {
-    return items.filter((item: MediaItem) => 
+    return vm.items.filter((item: any) =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }
-
-  function formatDate(date: Date) {
-    return date.toLocaleDateString([], {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  }
 </script>
 
-<div class={`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`} {...restProps}>
+<div class={vm.hostClasses} {...vm.restProps}>
   <!-- Header with search and controls -->
-  <div class={`border-b px-4 py-3 bg-[var(--color-background-primary)] ${headerClass}`}>
+  <div class={`border-b px-4 py-3 bg-[var(--color-background-primary)] ${vm.headerClass}`}>
     <div class="flex items-center">
       <div class="flex-1">
         <div class="relative rounded-md shadow-sm">
@@ -146,14 +76,14 @@ const X = 'x';
           <input
             type="text"
             class="focus:ring-blue-500 focus:border-[var(--color-primary-500)] block w-full pl-10 pr-12 py-2 border border-[var(--color-border-primary)] rounded-md text-sm"
-            placeholder={searchPlaceholder}
+            placeholder={vm.searchPlaceholder}
             bind:value={searchQuery}
           />
         </div>
       </div>
-      
+
       <div class="ml-4 flex items-center space-x-3">
-        {#if allowUpload}
+        {#if vm.allowUpload}
           <button
             type="button"
             class="inline-flex items-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
@@ -163,13 +93,13 @@ const X = 'x';
             Upload
           </button>
         {/if}
-        
+
         <div class="flex border border-[var(--color-border-primary)] rounded-md">
           <button
             type="button"
             class={`p-2 rounded-l-md ${
-              selectedViewMode === 'grid' 
-                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]' 
+              selectedViewMode === 'grid'
+                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]'
                 : 'bg-[var(--color-background-primary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => selectedViewMode = 'grid'}
@@ -180,8 +110,8 @@ const X = 'x';
           <button
             type="button"
             class={`p-2 rounded-r-md ${
-              selectedViewMode === 'list' 
-                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]' 
+              selectedViewMode === 'list'
+                ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)]'
                 : 'bg-[var(--color-background-primary)] text-[var(--color-text-secondary)] hover:bg-[var(--color-background-secondary)]'
             }`}
             onclick={() => selectedViewMode = 'list'}
@@ -192,7 +122,7 @@ const X = 'x';
         </div>
       </div>
     </div>
-    
+
     <!-- Hidden file input -->
     <input
       type="file"
@@ -206,12 +136,12 @@ const X = 'x';
 
   <!-- Toolbar with selection actions -->
   {#if selectedItems.length > 0}
-    <div class={`border-b px-4 py-2 bg-[var(--color-primary-50)] flex items-center justify-between ${toolbarClass}`}>
+    <div class={`border-b px-4 py-2 bg-[var(--color-primary-50)] flex items-center justify-between ${vm.toolbarClass}`}>
       <span class="text-sm font-medium text-[var(--color-primary-800)]">
         {selectedItems.length} item{selectedItems.length !== 1 ? 's' : ''} selected
       </span>
       <div class="flex space-x-2">
-        {#if allowDownload}
+        {#if vm.allowDownload}
           <button
             type="button"
             class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-[var(--color-primary-700)] bg-[var(--color-primary-100)] hover:bg-[var(--color-primary-200)] focus:outline-none"
@@ -220,7 +150,7 @@ const X = 'x';
             Download
           </button>
         {/if}
-        {#if allowDelete}
+        {#if vm.allowDelete}
           <button
             type="button"
             class="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded text-[var(--color-danger-700)] bg-[var(--color-danger-100)] hover:bg-[var(--color-danger-200)] focus:outline-none"
@@ -242,14 +172,14 @@ const X = 'x';
   {/if}
 
   <!-- Media grid/list -->
-  <div class={`p-4 ${selectedViewMode === 'grid' ? `grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 ${gridClass}` : 'space-y-2'}`}>
+  <div class={`p-4 ${selectedViewMode === 'grid' ? `grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 ${vm.gridClass}` : 'space-y-2'}`}>
     {#each getFilteredItems() as item}
       {#if selectedViewMode === 'grid'}
         <!-- Grid view item -->
-        <div 
+        <div
           class={`border rounded-lg overflow-hidden cursor-pointer hover:shadow-md transition-shadow ${
             selectedItems.includes(item.id) ? 'ring-2 ring-blue-500' : 'border-[var(--color-border-primary)]'
-          } ${itemClass}`}
+          } ${vm.itemClass}`}
           role="button"
           tabindex="0"
           onclick={(e) => {
@@ -276,29 +206,29 @@ const X = 'x';
         >
           <div class="aspect-square bg-[var(--color-background-secondary)] flex items-center justify-center">
             {#if item.thumbnail}
-              <img 
-                src={item.thumbnail} 
-                alt={item.name} 
+              <img
+                src={item.thumbnail}
+                alt={item.name}
                 class="w-full h-full object-cover"
               />
             {:else}
               {#if true}
-                {@const FileIcon = getFileIcon(item.type)}
+                {@const FileIcon = vm.getFileIcon(item.type as MediaType)}
                 <BaseIcon name={FileIcon} class="h-10 w-10 text-[var(--color-text-tertiary)]" />
               {/if}
             {/if}
           </div>
           <div class="p-2">
             <p class="text-xs font-medium text-[var(--color-text-primary)] truncate">{item.name}</p>
-            <p class="text-xs text-[var(--color-text-secondary)]">{formatFileSize(item.size)}</p>
+            <p class="text-xs text-[var(--color-text-secondary)]">{vm.formatFileSize(item.size)}</p>
           </div>
         </div>
       {:else}
         <!-- List view item -->
-        <div 
+        <div
           class={`flex items-center p-3 border rounded-lg ${
             selectedItems.includes(item.id) ? 'bg-[var(--color-primary-50)] border-[var(--color-primary-500)]' : 'border-[var(--color-border-primary)]'
-          } ${itemClass}`}
+          } ${vm.itemClass}`}
           role="button"
           tabindex="0"
           onclick={(e) => {
@@ -325,16 +255,16 @@ const X = 'x';
         >
           <div class="flex-shrink-0 w-16 h-16 bg-[var(--color-background-secondary)] rounded flex items-center justify-center">
             {#if true}
-              {@const FileIcon = getFileIcon(item.type)}
+              {@const FileIcon = vm.getFileIcon(item.type as MediaType)}
               <BaseIcon name={FileIcon} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
             {/if}
           </div>
           <div class="ml-4 flex-1 min-w-0">
             <p class="text-sm font-medium text-[var(--color-text-primary)] truncate">{item.name}</p>
-            <p class="text-sm text-[var(--color-text-secondary)]">{formatFileSize(item.size)} вЂў {formatDate(item.uploadDate)}</p>
+            <p class="text-sm text-[var(--color-text-secondary)]">{vm.formatFileSize(item.size)} • {vm.formatDate(item.uploadDate)}</p>
           </div>
           <div class="ml-4 flex space-x-2">
-            {#if allowDownload}
+            {#if vm.allowDownload}
               <button
                 type="button"
                 class="text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)]"
@@ -358,7 +288,7 @@ const X = 'x';
             >
               <BaseIcon name={Eye} class="h-5 w-5" />
             </button>
-            {#if allowDelete}
+            {#if vm.allowDelete}
               <button
                 type="button"
                 class="text-[var(--color-text-tertiary)] hover:text-[var(--color-danger-500)]"
@@ -385,7 +315,7 @@ const X = 'x';
       <p class="text-sm text-[var(--color-text-secondary)]">
         {searchQuery ? 'No files match your search' : 'Upload files to get started'}
       </p>
-      {#if allowUpload && !searchQuery}
+      {#if vm.allowUpload && !searchQuery}
         <button
           type="button"
           class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)] focus:outline-none"
@@ -398,8 +328,3 @@ const X = 'x';
     </div>
   {/if}
 </div>
-
-
-
-
-

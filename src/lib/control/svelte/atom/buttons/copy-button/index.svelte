@@ -1,41 +1,37 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const Copy = 'copy'; const Check = 'check';
-import type { HTMLButtonAttributes } from 'svelte/elements';
 import { copyTextToClipboard } from '$stylist/interaction/function/script/copy-text-to-clipboard';
 import type { CopyButtonProps } from '$stylist/control/interface/component/button/other';
-import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
-import { createButtonState } from '$stylist/control/function/state/button';
-import { createBasePreset } from '$stylist/interaction/preset/base';
-import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
+import { createCopyButtonState } from '$stylist/control/function/state/copy-button';
 
-	let props: CopyButtonProps & HTMLButtonAttributes = $props();
+	let props: CopyButtonProps = $props();
 
 	let copied = $state(false);
 
-	// Extract rest props manually to avoid $$restProps in runes mode
-	let {
-		variant,
-		size,
-		disabled,
-		loading,
-		block,
-		loadingLabel,
-		children,
-		class: classProp,
-		...restProps
-	} = props;
-
 	// Use centralized state management for base button properties
-	let buttonState = createButtonState(
-		createBasePreset(InteractionStyleManager.getInteractiveVariants(), TOKEN_SIZE, {
-			variant: 'outline',
-			size: 'sm'
-		}),
-		{
-			...props,
-			class: `${props.class ?? ''} copy-button`.trim()
-		} as any
-	);
+	const controlState = createCopyButtonState(props);
+
+	// Extract rest props manually to avoid $$restProps in runes mode
+	let restButtonProps = $derived.by(() => {
+		const {
+			variant,
+			size,
+			disabled,
+			loading,
+			block,
+			loadingLabel,
+			children,
+			class: classProp,
+			text,
+			label,
+			successMessage,
+			showIcon,
+			onSuccess,
+			onError,
+			...restProps
+		} = props;
+		return restProps;
+	});
 
 	async function handleCopy() {
 		if (props.disabled || props.loading) return;
@@ -61,12 +57,14 @@ import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 </script>
 
 <button
-	{...restProps}
+	{...restButtonProps}
 	type={props.type ?? 'button'}
 	onclick={handleCopy}
-	class={buttonState.classes}
-	{...buttonState.attrs}
-	aria-label={copied ? 'Copied' : buttonState.ariaLabel || undefined}
+	class={controlState.classes}
+	disabled={controlState.disabled}
+	aria-busy={controlState.loading ? true : undefined}
+	aria-live={controlState.loading ? 'polite' : undefined}
+	aria-label={copied ? 'Copied' : controlState.ariaLabel || undefined}
 >
 	{#if props.showIcon}
 		{#if copied}

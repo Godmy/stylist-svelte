@@ -8,7 +8,7 @@ import type { Props } from '$stylist/file/type/struct/file-input';
 	let inputElement: HTMLInputElement | null = $state(null);
 	let internalValue: File | File[] | null = $state(null);
 	let fileName = $state('');
-	const state = createFileInputState(props);
+	const fileInputState = createFileInputState(props as Props & Record<string, unknown>);
 
 	// Update internal value when prop value changes
 	$effect(() => {
@@ -18,7 +18,7 @@ import type { Props } from '$stylist/file/type/struct/file-input';
 </script>
 
 <div class="relative">
-	<label class={`flex cursor-pointer items-center justify-center ${state.classes}`.trim()}>
+	<label class={`flex cursor-pointer items-center justify-center ${fileInputState.classes}`.trim()}>
 		<input
 			bind:this={inputElement}
 			type="file"

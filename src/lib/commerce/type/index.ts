@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { TokenBillingItem, TokenBillingSummary, TokenOrderStatus, TokenPaymentMethod, TokenPaymentStatus } from './enum';
+export type { TokenBillingItem, TokenBillingSummary, TokenCommerceIcon, TokenOrderStatus, TokenPaymentMethod, TokenPaymentStatus } from './enum';
 export type { BaseCardProps, ExtendedQuoteRequestProps, OrderItem, Product, ProductReviewItem, ProductReviewsProps, ProductSortOption, ProductSortProps, ProductTourProps, ProductTourStep, RFQFormData, RFQFormProps, RFQProduct } from './struct';

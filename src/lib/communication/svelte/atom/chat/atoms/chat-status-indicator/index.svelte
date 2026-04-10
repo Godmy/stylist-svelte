@@ -1,10 +1,8 @@
 <script lang="ts">
   import { createChatStatusIndicatorState } from '$stylist/communication/function/state/chat-status-indicator';
-  import type { ChatStatusIndicatorProps } from '$stylist/communication/interface/component/chat-status-indicator/other';
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { ChatStatusIndicatorContract } from '$stylist/communication/interface/component/chat-status-indicator/contract';
 
-  type Props = ChatStatusIndicatorProps & InteractionHTMLAttributes<HTMLSpanElement>;
-  let props: Props = $props();
+  let props: ChatStatusIndicatorContract = $props();
 
   const state = createChatStatusIndicatorState(props);
 </script>

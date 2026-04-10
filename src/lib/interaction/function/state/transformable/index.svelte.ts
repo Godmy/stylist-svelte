@@ -1,5 +1,6 @@
-/**
- * Реэкспорт createTransformableState из animation домена
- * для обратной совместимости
- */
-export { createTransformableState, createTransformableState as default } from '$stylist/animation/function/state/transformable/index.svelte';
+import type { TransformProps } from '$stylist/animation/interface/proto/transformable-props';
+import { createTransformableState as createAnimationTransformableState } from '$stylist/animation/function/state/transformable';
+
+export const createTransformableState = (props: TransformProps) => createAnimationTransformableState(props);
+
+export default createTransformableState;

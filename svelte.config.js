@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const libRoot = path.resolve(__dirname, './src/lib');
+const testRoot = path.resolve(__dirname, './src/test');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,7 +12,8 @@ const config = {
 
 	kit: {
 		alias: {
-			$stylist: libRoot
+			$stylist: libRoot,
+			'stylist-test': testRoot
 		}
 	}
 };

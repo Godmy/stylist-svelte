@@ -1,99 +1,51 @@
 <script lang="ts">
-  import type { IErrorBoundaryProps } from '$stylist/notification/interface/component/error-boundary/other';
-  import { Icon as BaseIcon, Button } from '$stylist';
-  import { ErrorBoundaryStyleManager } from '$stylist/notification/class/style-manager/error-boundary';
+	import { createErrorBoundaryState } from '$stylist/notification/function/state/error-boundary';
+	import AlertTriangle from '$stylist/svg/information/outline/alert-triangle.svg';
+	import RotateCcw from '$stylist/svg/action/outline/refresh.svg';
+	import { Icon, Button } from '$stylist';
 
-  const AlertTriangle = 'alert-triangle';
-  const RotateCcw = 'rotate-ccw';
-
-  /**
-   * @component ErrorBoundary
-   * @description Error boundary component that follows SOLID principles
-   * - Single Responsibility: Handles errors in child components
-   * - Open/Closed: Extendable via fallback prop
-   * - Liskov Substitution: Can be substituted with other error boundaries
-   * - Interface Segregation: Uses well-defined interfaces in types.ts
-   * - Dependency Inversion: Depends on abstractions (themes, types) rather than concretions
-   */
-
-  let {
-    children,
-    fallback,
-    class: hostClass = '',
-    contentClass = '',
-    headerClass = '',
-    bodyClass = '',
-    footerClass = '',
-    title = 'Something went wrong',
-    message = 'An error occurred. Please try again.',
-    showDetails = false,
-    onReset,
-    ...restProps
-  }: IErrorBoundaryProps = $props();
-
-  // Derived CSS classes using the style manager following theming system
-  const themedClasses = $derived(`${ErrorBoundaryStyleManager.getThemedClasses()} ${hostClass}`);
-  const contentClasses = $derived(`${ErrorBoundaryStyleManager.getContentClasses()} ${contentClass}`);
-  const headerClasses = $derived(`${ErrorBoundaryStyleManager.getHeaderClasses()} ${headerClass}`);
-  const bodyClasses = $derived(`${ErrorBoundaryStyleManager.getBodyClasses()} ${bodyClass}`);
-  const footerClasses = $derived(`${ErrorBoundaryStyleManager.getFooterClasses()} ${footerClass}`);
-  const detailsClasses = $derived(ErrorBoundaryStyleManager.getDetailsClasses());
-  const detailsTextClasses = $derived(ErrorBoundaryStyleManager.getDetailsTextClasses());
-  const iconClasses = $derived(ErrorBoundaryStyleManager.getIconClasses());
-  const summaryClasses = $derived(ErrorBoundaryStyleManager.getSummaryClasses());
-
-  function handleReset(reset: () => void) {
-    reset();
-    onReset?.();
-  }
+	const props = $props();
+	const state = createErrorBoundaryState(props);
 </script>
 
 <svelte:boundary>
-  {@render children()}
-  {#snippet failed(error: unknown, reset: () => void)}
-    {#if fallback}
-      {@render fallback(error, reset)}
-    {:else}
-      <div class={themedClasses} {...restProps}>
-        <div class={contentClasses}>
-          <div class="flex-shrink-0">
-            <BaseIcon name={AlertTriangle} class={iconClasses} />
-          </div>
-          <div class="ml-4">
-            <h3 class={headerClasses}>{title}</h3>
-            <div class={bodyClasses}>
-              <p class="text-[--color-text-danger]">{message}</p>
-              {#if showDetails}
-                <details class={detailsClasses}>
-                  <summary class={summaryClasses}>Error details</summary>
-                  <pre class={detailsTextClasses}>
-                    {(error as Error).stack}
-                    {`\n\nComponent Stack:`}
-                  </pre>
-                </details>
-              {/if}
-            </div>
-            <div class={footerClasses}>
-              <Button
-                variant="primary"
-                onclick={() => handleReset(reset)}
-                class="flex items-center"
-              >
-                <BaseIcon name={RotateCcw} class="w-4 h-4 mr-2" />
-                Try again
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    {/if}
-  {/snippet}
+	{@render props.children()}
+	{#snippet failed(error: unknown, reset: () => void)}
+		{#if props.fallback}
+			{@render props.fallback(error, reset)}
+		{:else}
+			<div class={state.themedClasses} {...props}>
+				<div class={state.contentClasses}>
+					<div class="flex-shrink-0">
+						<Icon name={AlertTriangle} class={state.iconClasses} />
+					</div>
+					<div class="ml-4">
+						<h3 class={state.headerClasses}>{props.title ?? 'Something went wrong'}</h3>
+						<div class={state.bodyClasses}>
+							<p class="text-[--color-text-danger]">{props.message ?? 'An error occurred. Please try again.'}</p>
+							{#if props.showDetails}
+								<details class={state.detailsClasses}>
+									<summary class={state.summaryClasses}>Error details</summary>
+									<pre class={state.detailsTextClasses}>
+										{(error as Error).stack}
+										{`\n\nComponent Stack:`}
+									</pre>
+								</details>
+							{/if}
+						</div>
+						<div class={state.footerClasses}>
+							<Button
+								variant="primary"
+								onclick={() => state.handleReset(reset)}
+								class="flex items-center"
+							>
+								<Icon name={RotateCcw} class="w-4 h-4 mr-2" />
+								Try again
+							</Button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{/if}
+	{/snippet}
 </svelte:boundary>
-
-
-
-
-
-
-
-

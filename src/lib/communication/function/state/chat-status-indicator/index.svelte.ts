@@ -1,8 +1,9 @@
 import { derived, writable } from 'svelte/store';
 import type { ChatStatusIndicatorProps } from '$stylist/communication/interface/component/chat-status-indicator/other';
+import type { ChatStatusIndicatorContract } from '$stylist/communication/interface/component/chat-status-indicator/contract';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
-export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) {
+export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps | ChatStatusIndicatorContract) {
   // Initialize props with defaults
   const status = props.status ?? 'offline';
   const size = props.size ?? 'sm';
@@ -44,7 +45,7 @@ export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps) 
 
   // Merge classes with custom classes
   const containerClasses = derived(
-    [writable(props.class), writable(styles.container)],
+    [writable(String(props.class ?? '')), writable(styles.container)],
     ([$class, $container]) => joinClassNames($container, $class)
   );
 

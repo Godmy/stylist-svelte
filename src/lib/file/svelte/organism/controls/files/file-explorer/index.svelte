@@ -29,7 +29,7 @@
 
   let props: Props = $props();
 
-  let selectedItems = $state<FileSystemItem[]>([]);
+  let selectedItems = $state([] as FileSystemItem[]);
   let searchQuery = $state('');
   let currentViewMode = $state(props.viewMode ?? 'grid');
   let currentPath = $derived(props.currentPath ?? '/');
@@ -38,9 +38,9 @@
   let enableSelection = $derived(props.enableSelection ?? true);
   let multiselect = $derived(props.multiselect ?? false);
   let items = $derived(props.items ?? []);
-  const state = $derived(createFileExplorerState(props));
+  const explorerState = createFileExplorerState(props);
   let pathParts = $derived(currentPath.split('/').filter(part => part));
-  let filteredItems = $derived<FileSystemItem[]>([]);
+  let filteredItems = $derived([] as FileSystemItem[]);
 
   let restProps = $derived.by(() => {
     const {
@@ -95,7 +95,7 @@
   }
 </script>
 
-<div class={`c-file-explorer border rounded-lg overflow-hidden ${state.classes}`} {...restProps}>
+<div class={`c-file-explorer border rounded-lg overflow-hidden ${explorerState.classes}`} {...restProps}>
   <!-- Explorer header with toolbar -->
   <div class={`p-3 border-b ${props.headerClass ?? ''}`}>
     {#if showPath}
@@ -165,7 +165,7 @@
           {@const itemIcon = getFileIcon(item)}
           <div
             class={`border rounded-lg p-3 cursor-pointer flex flex-col items-center text-center ${
-              selectedItems.some(i => i.id === item.id)
+              selectedItems.some((i: FileSystemItem) => i.id === item.id)
                 ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
                 : 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
             } ${props.itemClass ?? ''}`}
@@ -189,7 +189,7 @@
           {@const itemIcon = getFileIcon(item)}
           <div
             class={`flex items-center p-3 border-b last:border-b-0 cursor-pointer ${
-              selectedItems.some(i => i.id === item.id)
+              selectedItems.some((i: FileSystemItem) => i.id === item.id)
                 ? 'bg-[var(--color-primary-50)]'
                 : 'hover:bg-[var(--color-background-secondary)]'
             } ${props.itemClass ?? ''}`}

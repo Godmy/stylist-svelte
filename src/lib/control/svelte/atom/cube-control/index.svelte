@@ -83,6 +83,8 @@ const Radiation = 'radiation';
     onDebugLog?: (entry: CubeDebugLogEntry) => void;
   } & InteractionHTMLAttributes<HTMLDivElement>;
 
+  let props: Props = $props();
+
   let {
     size = 380,
     perspective = 700,
@@ -98,7 +100,7 @@ const Radiation = 'radiation';
     onSelectionChange,
     onDebugLog,
     ...restProps
-  }: Props = $props();
+  }: Props = props;
 
   let rotationX = $state(-22);
   let rotationY = $state(32);
@@ -110,19 +112,19 @@ const Radiation = 'radiation';
   let pointerTravel = $state(0);
   let velocityX = $state(0);
   let velocityY = $state(0);
-  let inertiaFrame = $state<number | null>(null);
-  let autoRotateFrame = $state<number | null>(null);
+  let inertiaFrame = $state(null as number | null);
+  let autoRotateFrame = $state(null as number | null);
   let autoRotatePauseUntil = $state(0);
   let autoRotateRampStart = $state(0);
-  let vectorShiftInterval = $state<number | null>(null);
+  let vectorShiftInterval = $state(null as number | null);
   let autoDriftX = $state(0);
   let autoDriftY = $state(0);
   let targetDriftX = $state(0);
   let targetDriftY = $state(0);
   let faceNumbers = $state(FACE_NUMBERS_SNAPSHOT.map((grid) => [...grid]));
   let activeCells = $state(FACE_TITLES.map(() => -1));
-  let selectedIconId = $state<string | null>(null);
-  let selectedTitleFace = $state<number | null>(null);
+  let selectedIconId = $state(null as string | null);
+  let selectedTitleFace = $state(null as number | null);
   let selectedCellByFace = $state(FACE_TITLES.map(() => -1));
   let lastSelectionSignature = '';
   let isHoveringSelectable = $state(false);
@@ -442,7 +444,7 @@ const Radiation = 'radiation';
     if (typeof window === 'undefined') return;
     const intervalId = window.setInterval(() => {
       const nextActiveCells = [...activeCells];
-      faceNumbers.forEach((grid, faceIndex) => {
+      faceNumbers.forEach((grid: number[], faceIndex: number) => {
         const previous = nextActiveCells[faceIndex];
         const next = (previous + 1 + grid.length) % grid.length;
         nextActiveCells[faceIndex] = next;

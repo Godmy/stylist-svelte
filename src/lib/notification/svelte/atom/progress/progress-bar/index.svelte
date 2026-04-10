@@ -1,86 +1,30 @@
 <script lang="ts">
-	import type { IProgressBarProps } from '$stylist/notification/interface/component/notification/other';
-	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+	import { createProgressBarState } from '$stylist/notification/function/state/progress-bar';
 
-	/**
-	 * ProgressBar component - Visual indicator of task completion
-	 *
-	 * SOLID Principles applied:
-	 *
-	 * Single Responsibility Principle: This component is responsible only for displaying a progress bar.
-	 * Open/Closed Principle: The component is closed for modification but open for extension via CSS classes.
-	 * Liskov Substitution Principle: ProgressBar can be substituted with other progress indicators without breaking functionality.
-	 * Interface Segregation Principle: IProgressBarProps provides a focused interface for the component.
-	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
-	 */
-	const props = $props<
-		{
-			value: number;
-			max?: number;
-			label?: string;
-			showPercentage?: boolean;
-			size?: 'sm' | 'md' | 'lg';
-			variant?: 'primary' | 'success' | 'warning' | 'danger';
-		} & IProgressBarProps
-	>();
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				value: _value,
-				max: _max,
-				label: _label,
-				showPercentage: _showPercentage,
-				size: _size,
-				variant: _variant,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
-
-	// Set default values
-	const value = props.value;
-	const max = props.max ?? 100;
-	const label = props.label;
-	const showPercentage = props.showPercentage ?? true;
-	const size = props.size ?? 'md';
-	const variant = props.variant ?? 'primary';
-
-	// Calculate percentage
-	const percentage = $derived(Math.min(Math.max((value / max) * 100, 0), 100));
-
-	// Generate the CSS classes using the style manager
-	const containerClass = $derived(joinClassNames('progress-bar-container', props.class));
-	const labelWrapperClass = $derived('progress-bar-label-wrapper');
-	const labelClass = $derived('progress-bar-label');
-	const trackClass = $derived(joinClassNames('progress-bar-track', `size-${size}`));
-	const fillClass = $derived(
-		joinClassNames('progress-bar-fill', `size-${size}`, `variant-${variant}`)
-	);
-	const fillStyle = $derived(`width: ${percentage}%`);
+	const props = $props();
+	const state = createProgressBarState(props);
 </script>
 
-<div class={containerClass} {...restProps}>
-	{#if label || showPercentage}
-		<div class={labelWrapperClass}>
-			{#if label}
-				<span class={labelClass}>{label}</span>
+<div class={state.containerClass} {...props}>
+	{#if state.label || state.showPercentage}
+		<div class={state.labelWrapperClass}>
+			{#if state.label}
+				<span class={state.labelClass}>{state.label}</span>
 			{/if}
-			{#if showPercentage}
-				<span class={labelClass}>{percentage.toFixed(0)}%</span>
+			{#if state.showPercentage}
+				<span class={state.labelClass}>{state.percentage.toFixed(0)}%</span>
 			{/if}
 		</div>
 	{/if}
-	<div class={trackClass}>
+	<div class={state.trackClass}>
 		<div
-			class={fillClass}
-			style={fillStyle}
+			class={state.fillClass}
+			style={state.fillStyle}
 			role="progressbar"
-			aria-valuenow={value}
+			aria-valuenow={state.value}
 			aria-valuemin={0}
-			aria-valuemax={max}
-			aria-label={label}
+			aria-valuemax={state.max}
+			aria-label={state.label}
 		></div>
 	</div>
 </div>

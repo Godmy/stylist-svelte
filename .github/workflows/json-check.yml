@@ -1,4 +1,4 @@
-name: JSON Generation Check
+name: Pipeline V3 Check
 
 on:
   pull_request:
@@ -6,17 +6,14 @@ on:
     branches: [main, master]
 
 jobs:
-  json-check:
+  pipeline-check:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: stylist-svelte
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Enable Corepack
         run: corepack enable
@@ -24,8 +21,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Generate JSON artifacts
-        run: yarn json:generate
+      - name: Run pipeline + CI checks
+        run: yarn ci:pipeline
+
+      - name: Run type checks
+        run: yarn tsc && yarn check
 
       - name: Ensure generated files are committed
-        run: git diff --exit-code -- src/lib/json src/lib/svg/icons/icon-registry.ts
+        run: git diff --exit-code -- src/lib/json src/lib/svg/icons/icon-registry.ts scripts/manifest.json

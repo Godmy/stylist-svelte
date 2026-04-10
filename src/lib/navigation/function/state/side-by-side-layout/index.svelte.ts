@@ -16,4 +16,10 @@ export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
 			return restProps;
 		},
 		getSectionWidthClass(size: string) {
-			return getSideBySideSectionWidthClass(size, props.responsive
+			return getSideBySideSectionWidthClass(size, props.responsive ?? true);
+		}
+	};
+}
+ 
+ 
+export default createSideBySideLayoutState; 

@@ -18,4 +18,3 @@ export interface IMessageMetaStyleClasses {
   sender: string;
   status: string;
 }
-

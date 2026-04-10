@@ -10,21 +10,7 @@ const X = 'x';
 
   import { Avatar, Badge, Divider } from '$stylist';
   import { createKanbanCardState, type KanbanCardType, type KanbanCardUser } from '$stylist/management/function/state/kanban-card';
-
-  interface KanbanCardProps {
-    card: KanbanCardType;
-    draggable?: boolean;
-    selected?: boolean;
-    editable?: boolean;
-    archivable?: boolean;
-    deletable?: boolean;
-    ondragstart?: (event: DragEvent) => void;
-    ondragend?: (event: DragEvent) => void;
-    onTitleChange?: (title: string) => void;
-    onArchive?: () => void;
-    onDelete?: () => void;
-    children?: Snippet;
-  }
+  import type { KanbanCardProps } from '$stylist/management/interface/component/kanban-card/other';
 
   let props: KanbanCardProps = $props();
   const state = createKanbanCardState(props);

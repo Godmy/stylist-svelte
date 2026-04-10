@@ -1,4 +1,5 @@
 import type { Snippet } from 'svelte';
+import type { KanbanCardProps } from '$stylist/management/interface/component/kanban-card/other';
 
 export type KanbanCardUser = { id?: string; name: string; avatar?: string };
 
@@ -17,20 +18,7 @@ export interface KanbanCardType {
 	updatedAt?: Date;
 }
 
-export interface KanbanCardStateProps {
-	card: KanbanCardType;
-	draggable?: boolean;
-	selected?: boolean;
-	editable?: boolean;
-	archivable?: boolean;
-	deletable?: boolean;
-	ondragstart?: (event: DragEvent) => void;
-	ondragend?: (event: DragEvent) => void;
-	onTitleChange?: (title: string) => void;
-	onArchive?: () => void;
-	onDelete?: () => void;
-	children?: Snippet;
-}
+export type KanbanCardStateProps = KanbanCardProps;
 
 export function createKanbanCardState(props: KanbanCardStateProps) {
 	const card = $derived(props.card);

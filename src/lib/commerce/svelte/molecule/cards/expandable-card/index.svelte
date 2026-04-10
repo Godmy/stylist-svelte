@@ -52,35 +52,35 @@
 
 </script>
 
-<div class={state.containerClasses} {...restProps}>
+<div class={expandableCardState.containerClasses} {...restProps}>
   <button
-    class={state.headerClasses}
-    onclick={() => state.toggleExpanded()}
-    aria-expanded={state.isExpanded}
+    class={expandableCardState.headerClasses}
+    onclick={() => expandableCardState.toggleExpanded()}
+    aria-expanded={expandableCardState.isExpanded}
     aria-controls={ObjectManagerExpandableCard.detailsId}
     disabled={disabled}
   >
     <div class="flex-1">
-      <h3 class={state.titleClasses}>{title}</h3>
+      <h3 class={expandableCardState.titleClasses}>{title}</h3>
       {#if subtitle}
-        <p class={state.subtitleClasses}>{subtitle}</p>
+        <p class={expandableCardState.subtitleClasses}>{subtitle}</p>
       {/if}
-      <div class={state.summaryContainerClasses}>
+      <div class={expandableCardState.summaryContainerClasses}>
         {@render summary?.()}
       </div>
     </div>
 
     <Icon
       name={ObjectManagerExpandableCard.chevronIcon}
-      class={state.chevronClasses}
+      class={expandableCardState.chevronClasses}
     />
   </button>
 
   <div
     id={ObjectManagerExpandableCard.detailsId}
-    class={state.detailsContainerClasses}
+    class={expandableCardState.detailsContainerClasses}
   >
-    <div class={state.detailsContentClasses}>
+    <div class={expandableCardState.detailsContentClasses}>
       {@render details?.()}
     </div>
   </div>

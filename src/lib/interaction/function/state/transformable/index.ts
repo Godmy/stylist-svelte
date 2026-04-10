@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createTransformableState, default } from './index.svelte';
+export { default as createTransformableState } from './index.svelte';

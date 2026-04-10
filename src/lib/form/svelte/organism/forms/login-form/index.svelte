@@ -1,13 +1,14 @@
 <script lang="ts">
-  import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
-  import type { LoginFormProps } from '$stylist/form/interface/component/interaction-forms/other';
-  let { email='', rememberMe=false, class: className='', ...restProps }: LoginFormProps = $props();
+  import { createLoginFormState } from '$stylist/form/function/state/login-form';
+
+  const props = $props();
+  const state = createLoginFormState(props);
 </script>
-<form class={InteractionFormsStyleManager.root('c-login-form border rounded-lg p-4 space-y-3', className)} {...restProps}>
-  <input class="w-full border rounded px-2 py-1" placeholder="Email" value={email} />
-  <input class="w-full border rounded px-2 py-1" type="password" placeholder="Password" />
-  <label class="text-sm flex items-center gap-2"><input type="checkbox" checked={rememberMe} /> Remember me</label>
-  <button class="px-3 py-1 bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] rounded" type="submit">Sign in</button>
+<form class={state.rootClass} {...props}>
+  <input class={state.inputClass} placeholder="Email" value={props.email} />
+  <input class={state.inputClass} type="password" placeholder="Password" />
+  <label class={state.checkboxLabelClass}><input type="checkbox" checked={props.rememberMe} /> Remember me</label>
+  <button class={state.submitButtonClass} type="submit">Sign in</button>
 </form>
 
 

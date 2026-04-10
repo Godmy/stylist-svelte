@@ -5,20 +5,14 @@
    * @deprecated Use Code with copyable={true} instead
    */
   import Code from '../code-block/index.svelte';
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { CopyableCodeBlockProps } from '$stylist/development/type/struct/copyable-code-block';
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+  function stateFn(props: CopyableCodeBlockProps) {
+    return { props };
+  }
 
-  type Props = RestProps & {
-    code?: string;
-    language?: string;
-    title?: string;
-    class?: string;
-    contentClass?: string;
-    headerClass?: string;
-  };
-
-  let props: Props = $props();
+  let props: CopyableCodeBlockProps = $props();
+  const state = stateFn(props);
 </script>
 
 <Code

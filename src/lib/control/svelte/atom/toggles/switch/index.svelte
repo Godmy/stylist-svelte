@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggles';
+  import { createSwitchState } from '$stylist/control/function/state/switch';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 
 	type Props = {
@@ -25,36 +25,35 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 	} & Omit<HTMLInputAttributes, 'size' | 'checked'>;
 
 	let {
-		id,
-		label = '',
-		description = '',
-		size = 'md',
-		disabled = false,
-		checked = $bindable<boolean>(false),
-		required = false,
-		class: className = '',
-		ariaLabel,
-		name,
-		...restProps
-	}: Props = $props();
+    id,
+    label = '',
+    description = '',
+    size = 'md',
+    disabled = false,
+    checked = $bindable<boolean>(false),
+    required = false,
+    class: className = '',
+    ariaLabel,
+    name,
+    ...restProps
+  }: Props = $props();
 
-	// Generate unique ID if not provided
-	const generatedId = $derived(id || `switch-${Math.random().toString(36).substr(2, 9)}`);
-	const descriptionId = $derived(description ? `${generatedId}-description` : undefined);
+  const state = createSwitchState({ id, label, description, size, disabled, checked, required, class: className, ariaLabel });
 
-	// Classes using style manager
-	const containerClasses = $derived(
-		`flex items-start gap-3 ${disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''}`
-	);
-	const trackClasses = $derived(TogglesStyleManager.getSwitchTrackClasses(size, disabled, checked));
-	const knobClasses = $derived(TogglesStyleManager.getSwitchKnobClasses(size, disabled, checked));
-	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));
-	const labelContainerClasses = $derived('flex flex-col gap-1');
-	const labelClasses = $derived('text-sm font-medium leading-5 text-[var(--color-text-primary)]');
-	const descriptionClasses = $derived('text-xs text-[var(--color-text-secondary)]');
+  // Generate unique ID if not provided
+  const generatedId = $derived(id || `switch-${Math.random().toString(36).substr(2, 9)}`);
+  const descriptionId = $derived(description ? `${generatedId}-description` : undefined);
+
+  // Reactive classes based on state
+  const trackClasses = $derived(state.getTrackClasses(checked, disabled));
+  const knobClasses = $derived(state.getKnobClasses(checked, size));
+  const inputClasses = $derived(state.getInputClasses(disabled));
+  const labelContainerClasses = $derived('flex flex-col gap-1');
+  const labelClasses = $derived(state.getLabelClasses(disabled));
+  const descriptionClasses = 'text-sm text-[var(--color-text-secondary)]';
 </script>
 
-<label class={containerClasses}>
+<label class={state.containerClasses}>
 	<span class={trackClasses}>
 		<input
 			id={generatedId}

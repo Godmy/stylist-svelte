@@ -1,28 +1,14 @@
 <script lang="ts">
+  import { createImageGalleryState, type ImageGalleryStateProps } from '$stylist/media/function/state/image-gallery';
   import { Icon as BaseIcon } from '$stylist';
 const ChevronLeft = 'chevron-left';
 const ChevronRight = 'chevron-right';
 const X = 'x';
 
   import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
-  import type { ImageItemContract, ImageGalleryContract } from '$stylist/media/interface/component/image-gallery/contract';
 
-  /**
-   * @component ImageGallery
-   */
-  let {
-    images = [],
-    showThumbnails = true,
-    autoPlay = false,
-    autoPlayInterval = 5000,
-    showCaptions = true,
-    class: className = '',
-    imageClass = '',
-    thumbnailClass = '',
-    navigationClass = '',
-    captionClass = '',
-    ...restProps
-  }: ImageGalleryContract = $props();
+  let props: ImageGalleryStateProps = $props();
+  const vm = createImageGalleryState(props);
 
   let currentIndex = $state(0);
   let isFullscreen = $state(false);
@@ -30,16 +16,15 @@ const X = 'x';
 
   // Auto-play functionality
   $effect(() => {
-    if (autoPlay) {
+    if (vm.autoPlay) {
       autoPlayTimer = window.setInterval(() => {
-        nextImage();
-      }, autoPlayInterval) as unknown as number;
+        currentIndex = (currentIndex + 1) % vm.images.length;
+      }, vm.autoPlayInterval) as unknown as number;
     } else if (autoPlayTimer) {
       clearInterval(autoPlayTimer);
       autoPlayTimer = null;
     }
 
-    // Clean up on component destroy
     return () => {
       if (autoPlayTimer) {
         clearInterval(autoPlayTimer);
@@ -48,11 +33,11 @@ const X = 'x';
   });
 
   function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
+    currentIndex = (currentIndex + 1) % vm.images.length;
   }
 
   function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    currentIndex = (currentIndex - 1 + vm.images.length) % vm.images.length;
   }
 
   function goToImage(index: number) {
@@ -70,13 +55,9 @@ const X = 'x';
 
   function handleKeyDown(e: KeyboardEvent) {
     if (isFullscreen) {
-      if (e.key === 'ArrowRight') {
-        nextImage();
-      } else if (e.key === 'ArrowLeft') {
-        prevImage();
-      } else if (e.key === 'Escape') {
-        closeFullscreen();
-      }
+      if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'Escape') closeFullscreen();
     }
   }
 
@@ -96,27 +77,27 @@ const X = 'x';
   });
 </script>
 
-<div class={ImageGalleryStyleManager.getHostClasses(className)} {...restProps}>
-  {#if images.length > 0}
+<div class={vm.containerClass} {...vm.restProps}>
+  {#if vm.images.length > 0}
     <div class="relative">
       <!-- Main image display -->
-      <div class={ImageGalleryStyleManager.getImageContainerClasses(imageClass)}
+      <div class={ImageGalleryStyleManager.getImageContainerClasses()}
         onclick={() => openFullscreen(currentIndex)}
         onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && openFullscreen(currentIndex)}
         role="button"
         tabindex="0"
       >
         <img
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt || `Gallery image ${currentIndex + 1}`}
-          class={ImageGalleryStyleManager.getImageClasses(imageClass)}
+          src={vm.images[currentIndex].src}
+          alt={vm.images[currentIndex].alt || `Gallery image ${currentIndex + 1}`}
+          class={ImageGalleryStyleManager.getImageClasses(props.imageClass ?? '')}
         />
 
         <!-- Navigation arrows -->
-        {#if images.length > 1}
+        {#if vm.images.length > 1}
           <button
             type="button"
-            class={ImageGalleryStyleManager.getLeftNavigationButtonClasses(navigationClass)}
+            class={ImageGalleryStyleManager.getLeftNavigationButtonClasses(props.navigationClass ?? '')}
             onclick={prevImage}
             aria-label="Previous image"
           >
@@ -125,7 +106,7 @@ const X = 'x';
 
           <button
             type="button"
-            class={ImageGalleryStyleManager.getRightNavigationButtonClasses(navigationClass)}
+            class={ImageGalleryStyleManager.getRightNavigationButtonClasses(props.navigationClass ?? '')}
             onclick={nextImage}
             aria-label="Next image"
           >
@@ -135,23 +116,23 @@ const X = 'x';
 
         <!-- Image counter -->
         <div class={ImageGalleryStyleManager.getImageCounterClasses()}>
-          {currentIndex + 1} / {images.length}
+          {currentIndex + 1} / {vm.images.length}
         </div>
       </div>
 
       <!-- Caption -->
-      {#if showCaptions && images[currentIndex].caption}
-        <div class={ImageGalleryStyleManager.getCaptionClasses(captionClass)}>
-          {images[currentIndex].caption}
+      {#if vm.showCaptions && vm.images[currentIndex].caption}
+        <div class={ImageGalleryStyleManager.getCaptionClasses(props.captionClass ?? '')}>
+          {vm.images[currentIndex].caption}
         </div>
       {/if}
 
       <!-- Thumbnails -->
-      {#if showThumbnails && images.length > 1}
+      {#if vm.showThumbnails && vm.images.length > 1}
         <div class={ImageGalleryStyleManager.getThumbnailsContainerClasses()}>
-          {#each images as img, index}
+          {#each vm.images as img, index}
             <div
-              class={ImageGalleryStyleManager.getThumbnailClasses(index === currentIndex, thumbnailClass)}
+              class={ImageGalleryStyleManager.getThumbnailClasses(index === currentIndex, props.thumbnailClass ?? '')}
               onclick={() => goToImage(index)}
               onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && goToImage(index)}
               role="button"
@@ -192,19 +173,19 @@ const X = 'x';
 
       <div class={ImageGalleryStyleManager.getFullscreenImageContainerClasses()}>
         <img
-          src={images[currentIndex].src}
-          alt={images[currentIndex].alt || `Fullscreen image ${currentIndex + 1}`}
+          src={vm.images[currentIndex].src}
+          alt={vm.images[currentIndex].alt || `Fullscreen image ${currentIndex + 1}`}
           class={ImageGalleryStyleManager.getFullscreenImageClasses()}
         />
 
-        {#if showCaptions && images[currentIndex].caption}
-          <div class={ImageGalleryStyleManager.getFullscreenCaptionClasses(captionClass)}>
-            {images[currentIndex].caption}
+        {#if vm.showCaptions && vm.images[currentIndex].caption}
+          <div class={ImageGalleryStyleManager.getFullscreenCaptionClasses(props.captionClass ?? '')}>
+            {vm.images[currentIndex].caption}
           </div>
         {/if}
 
         <div class={ImageGalleryStyleManager.getFullscreenCounterClasses()}>
-          {currentIndex + 1} / {images.length}
+          {currentIndex + 1} / {vm.images.length}
         </div>
       </div>
 

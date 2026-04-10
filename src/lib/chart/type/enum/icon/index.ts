@@ -1,3 +1,3 @@
-﻿import { TOKEN_ANALYTICS_ICON } from '$stylist/chart/const/enum/icon';
+import { TOKEN_CHART_ICON } from '$stylist/chart/const/enum/icon';
 
-export type TokenAnalyticsIcon = (typeof TOKEN_ANALYTICS_ICON)[number];
+export type TokenChartIcon = (typeof TOKEN_CHART_ICON)[number];

@@ -1,58 +1,46 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-const User = 'user';
-const UserPlus = 'user-plus';
-const UserCheck = 'user-check';
-const MessageCircle = 'message-circle';
-const Phone = 'phone';
-const Video = 'video';
-const MoreHorizontal = 'more-horizontal';
-const Search = 'search';
-const Circle = 'circle';
-
   import { Avatar } from '$lib';
+  import type {
+    FRIEND_LIST_STATUS,
+    FRIEND_LIST_FRIEND,
+    FRIEND_LIST_REST_PROPS,
+    FRIEND_LIST_PROPS
+  } from '$stylist/social/type/struct/friend-list';
+  import {
+    friendListHandleSearchInput as handleSearchInput,
+    friendListHandleFriendClick as handleFriendClick,
+    friendListHandleSendMessage as handleSendMessage,
+    friendListHandleCall as handleCall,
+    friendListHandleVideoCall as handleVideoCall,
+    friendListHandleAddFriend as handleAddFriend,
+    friendListGetStatusColor as getStatusColor,
+    friendListGetStatusText as getStatusText,
+    friendListFormatLastSeen as formatLastSeen
+  } from '$stylist/social/function/script/friend-list';
 
-  type FriendStatus = 'online' | 'offline' | 'away' | 'busy';
+  const FRIEND_LIST_USER = 'user';
+  const FRIEND_LIST_USER_PLUS = 'user-plus';
+  const FRIEND_LIST_USER_CHECK = 'user-check';
+  const FRIEND_LIST_MESSAGE_CIRCLE = 'message-circle';
+  const FRIEND_LIST_PHONE = 'phone';
+  const FRIEND_LIST_VIDEO = 'video';
+  const FRIEND_LIST_MORE_HORIZONTAL = 'more-horizontal';
+  const FRIEND_LIST_SEARCH = 'search';
+  const FRIEND_LIST_CIRCLE = 'circle';
 
-  type Friend = {
-    id: string;
-    name: string;
-    username?: string;
-    avatar?: string;
-    status: FriendStatus;
-    lastSeen?: Date;
-    isOnline?: boolean;
-    isFavorite?: boolean;
-    tags?: string[];
-  };
+  const MessageCircle = FRIEND_LIST_MESSAGE_CIRCLE;
+  const Phone = FRIEND_LIST_PHONE;
+  const Video = FRIEND_LIST_VIDEO;
+  const MoreHorizontal = FRIEND_LIST_MORE_HORIZONTAL;
+  const Search = FRIEND_LIST_SEARCH;
+  const UserPlus = FRIEND_LIST_USER_PLUS;
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    friends: Friend[];
-    showStatus?: boolean;
-    showLastSeen?: boolean;
-    showTags?: boolean;
-    showSearch?: boolean;
-    showInviteButton?: boolean;
-    sortBy?: 'name' | 'status' | 'lastSeen';
-    sortOrder?: 'asc' | 'desc';
-    groupByStatus?: boolean;
-    maxFriends?: number;
-    onFriendSelect?: (friend: Friend) => void;
-    onSendMessage?: (friend: Friend) => void;
-    onCall?: (friend: Friend) => void;
-    onVideoCall?: (friend: Friend) => void;
-    onAddFriend?: () => void;
-    onStatusChange?: (friendId: string, status: FriendStatus) => void;
-    class?: string;
-    itemClass?: string;
-    headerClass?: string;
-    searchClass?: string;
-    listClass?: string;
-    locale?: string;
-  };
+  type FriendStatus = FRIEND_LIST_STATUS;
+  type Friend = FRIEND_LIST_FRIEND;
+  type RestProps = FRIEND_LIST_REST_PROPS;
+  type Props = FRIEND_LIST_PROPS;
 
   let {
     friends = [],
@@ -81,24 +69,50 @@ const Circle = 'circle';
   }: Props = $props();
 
   let searchQuery = $state('');
+
+  function setSearchQuery(value: string) {
+    searchQuery = value;
+  }
+
+  function handleSearchInputEvent(event: Event) {
+    handleSearchInput(event, setSearchQuery);
+  }
+
+  function handleFriendClickEvent(friend: Friend) {
+    handleFriendClick(friend, onFriendSelect);
+  }
+
+  function handleSendMessageEvent(friend: Friend) {
+    handleSendMessage(friend, onSendMessage);
+  }
+
+  function handleCallEvent(friend: Friend) {
+    handleCall(friend, onCall);
+  }
+
+  function handleVideoCallEvent(friend: Friend) {
+    handleVideoCall(friend, onVideoCall);
+  }
+
+  function handleAddFriendEvent() {
+    handleAddFriend(onAddFriend);
+  }
   let filteredFriends = $derived.by(() => {
     let result = [...friends];
-    
-    // Apply search filter
+
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(friend => 
+      result = result.filter(friend =>
         friend.name.toLowerCase().includes(query) ||
         (friend.username && friend.username.toLowerCase().includes(query)) ||
         (friend.tags && friend.tags.some(tag => tag.toLowerCase().includes(query)))
       );
     }
-    
-    // Apply sorting
+
     result.sort((a, b) => {
       let aValue: any;
       let bValue: any;
-      
+
       switch (sortBy) {
         case 'name':
           aValue = a.name.toLowerCase();
@@ -113,84 +127,25 @@ const Circle = 'circle';
           bValue = b.lastSeen || new Date(0);
           break;
       }
-      
+
       if (aValue < bValue) return sortOrder === 'asc' ? -1 : 1;
       if (aValue > bValue) return sortOrder === 'asc' ? 1 : -1;
       return 0;
     });
-    
+
     return result;
   });
 
   let friendsByStatus = $derived.by(() => {
     if (!groupByStatus) return { all: filteredFriends };
-    
+
     const online = filteredFriends.filter(f => f.status === 'online');
     const away = filteredFriends.filter(f => f.status === 'away');
     const busy = filteredFriends.filter(f => f.status === 'busy');
     const offline = filteredFriends.filter(f => f.status === 'offline');
-    
+
     return { online, away, busy, offline };
   });
-
-  function handleSearchInput(e: Event) {
-    const target = e.target as HTMLInputElement;
-    searchQuery = target.value;
-  }
-
-  function handleFriendClick(friend: Friend) {
-    onFriendSelect?.(friend);
-  }
-
-  function handleSendMessage(friend: Friend) {
-    onSendMessage?.(friend);
-  }
-
-  function handleCall(friend: Friend) {
-    onCall?.(friend);
-  }
-
-  function handleVideoCall(friend: Friend) {
-    onVideoCall?.(friend);
-  }
-
-  function handleAddFriend() {
-    onAddFriend?.();
-  }
-
-  function getStatusColor(status: FriendStatus): string {
-    const statusColors: Record<FriendStatus, string> = {
-      'online': 'bg-[var(--color-success-500)]',
-      'away': 'bg-yellow-500',
-      'busy': 'bg-[var(--color-danger-500)]',
-      'offline': 'bg-[var(--color-neutral-400)]'
-    };
-    return statusColors[status];
-  }
-
-  function getStatusText(status: FriendStatus): string {
-    const statusTexts: Record<FriendStatus, string> = {
-      'online': 'Online',
-      'away': 'Away',
-      'busy': 'Busy',
-      'offline': 'Offline'
-    };
-    return statusTexts[status];
-  }
-
-  function formatLastSeen(date: Date): string {
-    const now = new Date();
-    const diffInSeconds = Math.floor((now.getTime() - new Date(date).getTime()) / 1000);
-    
-    if (diffInSeconds < 60) return 'Just now';
-    if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
-    if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
-    
-    return new Date(date).toLocaleDateString(locale, {
-      month: 'short',
-      day: 'numeric'
-    });
-  }
 </script>
 
 {#snippet friendEntry(friend: Friend)}
@@ -198,11 +153,11 @@ const Circle = 'circle';
     class={`p-4 flex items-center justify-between hover:bg-[var(--color-background-secondary)] cursor-pointer ${itemClass}`}
     role="button"
     tabindex="0"
-    onclick={() => handleFriendClick(friend)}
+    onclick={() => handleFriendClickEvent(friend)}
     onkeydown={(event) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        handleFriendClick(friend);
+        handleFriendClickEvent(friend);
       }
     }}
   >
@@ -246,7 +201,7 @@ const Circle = 'circle';
         class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-primary-600)] hover:bg-[var(--color-primary-100)]"
         onclick={(e) => {
           e.stopPropagation();
-          handleSendMessage(friend);
+          handleSendMessageEvent(friend);
         }}
         aria-label="Send message"
       >
@@ -258,7 +213,7 @@ const Circle = 'circle';
         class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-success-600)] hover:bg-[var(--color-success-100)]"
         onclick={(e) => {
           e.stopPropagation();
-          handleCall(friend);
+          handleCallEvent(friend);
         }}
         aria-label="Make call"
       >
@@ -270,7 +225,7 @@ const Circle = 'circle';
         class="p-1.5 rounded-full text-[var(--color-text-secondary)] hover:text-[var(--color-secondary-600)] hover:bg-[var(--color-secondary-100)]"
         onclick={(e) => {
           e.stopPropagation();
-          handleVideoCall(friend);
+          handleVideoCallEvent(friend);
         }}
         aria-label="Make video call"
       >
@@ -311,7 +266,7 @@ const Circle = 'circle';
           class={`block w-full pl-10 pr-3 py-2 border border-[var(--color-border-primary)] rounded-md leading-5 bg-[var(--color-background-primary)] placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-[var(--color-primary-500)] sm:text-sm ${searchClass}`}
           placeholder="Search friends..."
           value={searchQuery}
-          oninput={handleSearchInput}
+          oninput={handleSearchInputEvent}
         />
       </div>
     {/if}
@@ -346,7 +301,7 @@ const Circle = 'circle';
       <button
         type="button"
         class="w-full flex items-center justify-center px-4 py-2 border border-[var(--color-border-primary)] shadow-sm text-sm font-medium rounded-md text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        onclick={handleAddFriend}
+        onclick={handleAddFriendEvent}
       >
         <BaseIcon name={UserPlus} class="h-5 w-5 mr-2" />
         Add Friend
@@ -354,7 +309,6 @@ const Circle = 'circle';
     </div>
   {/if}
 </div>
-
 
 
 

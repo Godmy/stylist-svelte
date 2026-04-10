@@ -1,7 +1,8 @@
 import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
+import type { ChatPreviewContract } from '$stylist/communication/interface/component/chat-preview/contract';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
-export function createChatPreviewState(props: ChatPreviewProps) {
+export function createChatPreviewState(props: ChatPreviewProps | ChatPreviewContract) {
   // Initialize props with defaults
   const title = props.title ?? 'Chat';
   const participants = props.participants ?? [];
@@ -40,7 +41,7 @@ export function createChatPreviewState(props: ChatPreviewProps) {
   };
 
   // Merge classes with custom classes
-  const classes = $derived(joinClassNames(props.class ?? '', styles.container));
+  const classes = $derived(joinClassNames(String(props.class ?? ''), styles.container));
 
   return {
     get title() {

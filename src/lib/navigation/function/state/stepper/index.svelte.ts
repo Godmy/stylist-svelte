@@ -35,4 +35,9 @@ export function createStepperState(props: StepperProps) {
 		getStepCircleClass,
 		getStepLabelClass,
 		getStepDescriptionClass,
-		getConnect
+		getConnectorClass
+	};
+}
+ 
+ 
+export default createStepperState;

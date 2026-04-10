@@ -5,24 +5,14 @@
    * @deprecated Use Code with showLineNumbers={true} instead
    */
   import Code from '../code-block/index.svelte';
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { CodeBlockWithLineNumbersProps } from '$stylist/development/type/struct/code-block-with-line-numbers';
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+  function stateFn(props: CodeBlockWithLineNumbersProps) {
+    return { props };
+  }
 
-  type Props = RestProps & {
-    code?: string;
-    language?: string;
-    highlightLines?: number[];
-    title?: string;
-    copyable?: boolean;
-    class?: string;
-    contentClass?: string;
-    lineNumberClass?: string;
-    codeClass?: string;
-    headerClass?: string;
-  };
-
-  let props: Props = $props();
+  let props: CodeBlockWithLineNumbersProps = $props();
+  const state = stateFn(props);
 </script>
 
 <Code

@@ -1,11 +1,7 @@
 <script lang="ts">
   import { Badge, Button, Icon } from '$stylist';
   import { createOperationsHistoryState, type Operation, type OperationsHistoryEvents } from '$stylist/management/function/state/operations-history';
-
-  interface OperationsHistoryProps {
-    operations?: Operation[];
-    class?: string;
-  }
+  import type { OperationsHistoryProps } from '$stylist/management/interface/component/operations-history/other';
 
   let props: OperationsHistoryProps & OperationsHistoryEvents = $props();
   const state = createOperationsHistoryState(props);

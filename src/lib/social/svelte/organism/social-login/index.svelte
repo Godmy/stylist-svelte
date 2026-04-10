@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { Provider, ProviderConfig, RestProps, Props } from '$stylist/social/type/struct/social-login';
   import { Icon as BaseIcon } from '$stylist';
 const UserRoundPlus = 'user-round-plus';
 const Github = 'github';
@@ -15,41 +15,6 @@ const Laptop2 = 'laptop-2';
 const Loader2 = 'loader-2';
 
   import { Button } from '$lib';
-
-  type Provider = 'google' | 'facebook' | 'github' | 'twitter' | 'linkedin' | 'apple' | 'microsoft' | 'slack';
-
-  type ProviderConfig = {
-    id: Provider;
-    name: string;
-    icon: any;
-    color: string;
-    textColor: string;
-    borderColor: string;
-  };
-
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    providers?: Provider[];
-    showEmailForm?: boolean;
-    showPasswordForm?: boolean;
-    showSignUp?: boolean;
-    showForgotPassword?: boolean;
-    title?: string;
-    description?: string;
-    class?: string;
-    buttonClass?: string;
-    formClass?: string;
-    inputClass?: string;
-    onLogin?: (provider: Provider) => void;
-    onEmailLogin?: (email: string, password: string) => void;
-    onSignUp?: () => void;
-    onForgotPassword?: () => void;
-    onError?: (error: string) => void;
-    locale?: string;
-    socialLoginText?: string;
-    emailLoginText?: string;
-  };
 
   let {
     providers = ['google', 'github', 'apple'],

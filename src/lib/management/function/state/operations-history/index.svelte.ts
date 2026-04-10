@@ -1,4 +1,5 @@
 import { OperationsHistoryStyleManager } from '$stylist/management/class/style-manager/operations-history';
+import type { OperationsHistoryProps } from '$stylist/management/interface/component/operations-history/other';
 
 export interface Operation {
 	id: string;
@@ -7,11 +8,6 @@ export interface Operation {
 	timestamp: Date;
 	status: 'success' | 'error' | 'pending';
 	executionTime?: number;
-}
-
-export interface OperationsHistoryProps {
-	operations?: Operation[];
-	class?: string;
 }
 
 export interface OperationsHistoryEvents {

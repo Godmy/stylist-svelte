@@ -5,8 +5,6 @@
 	let props: PopoverProps = $props();
 	const state = createPopoverState(props);
 
-	const popoverId = `popover-${Math.random().toString(36).slice(2, 9)}`;
-
 	function handleTriggerKeydown(event: KeyboardEvent) {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
@@ -32,7 +30,7 @@
 		tabindex="0"
 		aria-expanded={state.isVisible}
 		aria-haspopup="dialog"
-		aria-controls={popoverId}
+		aria-controls={state.popoverId}
 		onclick={() => state.toggleOpen()}
 		onkeydown={handleTriggerKeydown}
 	>
@@ -41,7 +39,7 @@
 
 	{#if state.isVisible}
 		<div
-			id={popoverId}
+			id={state.popoverId}
 			bind:this={state.popoverElement}
 			class={state.popoverClass}
 			role="dialog"

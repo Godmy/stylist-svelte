@@ -1,119 +1,66 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-const Download = 'download';
-const Edit3 = 'edit-3';
-const Languages = 'languages';
-const Save = 'save';
-const Trash2 = 'trash-2';
-const Upload = 'upload';
-
-  import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
-  import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
-
-  interface ExtendedTranslationEditorProps {
-    texts?: TranslatableText[];
-    locales?: string[];
-    defaultLocale?: string;
-    currentLocale?: string;
-    class?: string;
-    headerClass?: string;
-    tableClass?: string;
-    rowClass?: string;
-    editorClass?: string;
-    showKeyColumn?: boolean;
-    showContextColumn?: boolean;
-    showStatusColumn?: boolean;
-    onTranslationChange?: (key: string, locale: string, value: string) => void;
-    onSave?: () => void;
-    onImport?: (data: any) => void;
-    onExport?: () => void;
-  }
+  import { createTranslationEditorState } from '$stylist/localization/function/state/translation-editor';
+  import type { ExtendedTranslationEditorProps } from '$stylist/localization/interface/component/translation-editor/other';
 
   let {
-    texts = [],
-    locales = [],
-    defaultLocale = 'en',
-    currentLocale = 'en',
-    class: className = '',
-    headerClass = '',
-    tableClass = '',
-    rowClass = '',
-    editorClass = '',
-    showKeyColumn = true,
-    showContextColumn = true,
-    showStatusColumn = true,
     onTranslationChange,
     onSave,
     onImport,
     onExport,
-    ...restProps
+    ...stateProps
   }: ExtendedTranslationEditorProps = $props();
-
-  let editingId = $state<string | null>(null);
-  let editedValue = $state('');
-
-  function beginEdit(text: TranslatableText) {
-    editingId = text.id;
-    editedValue = text.translations[currentLocale] || '';
-  }
-
-  function saveEdit() {
-    if (!editingId) return;
-    const text = texts.find((item) => item.id === editingId);
-    if (!text) return;
-    text.translations[currentLocale] = editedValue;
-    onTranslationChange?.(text.key, currentLocale, editedValue);
-    editingId = null;
-  }
+  
+  const state = createTranslationEditorState(stateProps);
 </script>
 
-<div class={InteractionInputStyleManager.root('c-translation-editor', className)} {...restProps}>
-  <div class={InteractionInputStyleManager.panel('overflow-hidden')}>
-    <div class={`border-b px-4 py-3 flex items-center justify-between ${headerClass}`}>
-      <div class="flex items-center gap-2"><BaseIcon name={Languages} class="h-5 w-5" /><span class="font-semibold">Translation Editor</span></div>
+<div class={state.rootClass} {...state.restProps}>
+  <div class={state.panelClass}>
+    <div class={`border-b px-4 py-3 flex items-center justify-between ${state.headerClass}`}>
+      <div class="flex items-center gap-2"><BaseIcon name={state.iconLanguages} class="h-5 w-5" /><span class="font-semibold">Translation Editor</span></div>
       <div class="flex gap-2">
-        <button type="button" class="px-2 py-1 border rounded" onclick={() => onImport?.({})}><BaseIcon name={Upload} class="h-4 w-4" /></button>
-        <button type="button" class="px-2 py-1 border rounded" onclick={() => onExport?.()}><BaseIcon name={Download} class="h-4 w-4" /></button>
-        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave()}><BaseIcon name={Save} class="h-4 w-4" /></button>{/if}
+        <button type="button" class="px-2 py-1 border rounded" onclick={() => onImport?.({})}><BaseIcon name={state.iconUpload} class="h-4 w-4" /></button>
+        <button type="button" class="px-2 py-1 border rounded" onclick={() => onExport?.()}><BaseIcon name={state.iconDownload} class="h-4 w-4" /></button>
+        {#if onSave}<button type="button" class="px-2 py-1 border rounded" onclick={() => onSave?.()}><BaseIcon name={state.iconSave} class="h-4 w-4" /></button>{/if}
       </div>
     </div>
 
     <div class="overflow-x-auto">
-      <table class={`min-w-full divide-y divide-gray-200 ${tableClass}`}>
+      <table class={`min-w-full divide-y divide-gray-200 ${state.tableClass}`}>
         <thead class="bg-[var(--color-background-secondary)] text-left text-xs text-[var(--color-text-secondary)]">
           <tr>
-            {#if showKeyColumn}<th class="px-4 py-2">Key</th>{/if}
-            <th class="px-4 py-2">Source ({defaultLocale})</th>
-            <th class="px-4 py-2">Translation ({currentLocale})</th>
-            {#if showContextColumn}<th class="px-4 py-2">Context</th>{/if}
-            {#if showStatusColumn}<th class="px-4 py-2">Status</th>{/if}
+            {#if state.showKeyColumn}<th class="px-4 py-2">Key</th>{/if}
+            <th class="px-4 py-2">Source ({state.defaultLocale})</th>
+            <th class="px-4 py-2">Translation ({state.currentLocale})</th>
+            {#if state.showContextColumn}<th class="px-4 py-2">Context</th>{/if}
+            {#if state.showStatusColumn}<th class="px-4 py-2">Status</th>{/if}
             <th class="px-4 py-2 text-right">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {#each texts as text}
-            <tr class={`border-t ${rowClass}`}>
-              {#if showKeyColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.key}</td>{/if}
+          {#each state.texts as text}
+            <tr class={`border-t ${state.rowClass}`}>
+              {#if state.showKeyColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.key}</td>{/if}
               <td class="px-4 py-2 text-sm">{text.original}</td>
               <td class="px-4 py-2 text-sm">
-                {#if editingId === text.id}
-                  <div class={`border rounded p-2 ${editorClass}`}>
-                    <textarea class="w-full border rounded p-1" rows={3} bind:value={editedValue}></textarea>
+                {#if state.editingId === text.id}
+                  <div class={`border rounded p-2 ${state.editorClass}`}>
+                    <textarea class="w-full border rounded p-1" rows={3} bind:value={state.editedValue}></textarea>
                     <div class="mt-2 flex gap-2 justify-end">
-                      <button type="button" class="px-2 py-1 border rounded" onclick={() => (editingId = null)}>Cancel</button>
-                      <button type="button" class="px-2 py-1 border rounded" onclick={saveEdit}>Save</button>
+                      <button type="button" class="px-2 py-1 border rounded" onclick={() => state.cancelEdit()}>Cancel</button>
+                      <button type="button" class="px-2 py-1 border rounded" onclick={state.saveEdit}>Save</button>
                     </div>
                   </div>
                 {:else}
                   <div class="flex items-start justify-between gap-2">
-                    <div>{text.translations[currentLocale] || '-'}</div>
-                    <button type="button" onclick={() => beginEdit(text)}><BaseIcon name={Edit3} class="h-4 w-4" /></button>
+                    <div>{text.translations[state.currentLocale] || '-'}</div>
+                    <button type="button" onclick={() => state.beginEdit(text)}><BaseIcon name={state.iconEdit} class="h-4 w-4" /></button>
                   </div>
                 {/if}
               </td>
-              {#if showContextColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.context || '-'}</td>{/if}
-              {#if showStatusColumn}<td class="px-4 py-2 text-sm">{text.status}</td>{/if}
-              <td class="px-4 py-2 text-right"><button type="button" onclick={() => onTranslationChange?.(text.key, currentLocale, '')}><BaseIcon name={Trash2} class="h-4 w-4 inline" /></button></td>
+              {#if state.showContextColumn}<td class="px-4 py-2 text-sm text-[var(--color-text-secondary)]">{text.context || '-'}</td>{/if}
+              {#if state.showStatusColumn}<td class="px-4 py-2 text-sm">{text.status}</td>{/if}
+              <td class="px-4 py-2 text-right"><button type="button" onclick={() => onTranslationChange?.(text.key, state.currentLocale, '')}><BaseIcon name={state.iconTrash} class="h-4 w-4 inline" /></button></td>
             </tr>
           {/each}
         </tbody>

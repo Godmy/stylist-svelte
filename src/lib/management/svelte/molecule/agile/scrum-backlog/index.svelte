@@ -1,8 +1,5 @@
 <script lang="ts">
-  import Icon from '$stylist/interaction/svelte/atom/icon';
-  import Badge from '$stylist/information/svelte/atom/badge';
-  import Button from '$stylist/control/svelte/atom/button';
-  import InputField from '$stylist/input/svelte/atom/input-field';
+  import { Icon, Badge, Button, InputField } from '$stylist';
   import TextArea from '$stylist/input/svelte/atom/input/field/text-area/index.svelte';
   import { createScrumBacklogState } from '$stylist/management/function/state/scrum-backlog';
   import type { BacklogItem } from '$stylist/management/interface/struct/backlog-item';
@@ -64,7 +61,11 @@
             <InputField
               id="new-item-title"
               label="Название задачи *"
-              bind:value={state.newItemTitle}
+              value={state.newItemTitle}
+              oninput={(e: Event) => {
+                const target = e.target as HTMLInputElement;
+                state.newItemTitle = target.value;
+              }}
               placeholder="Введите название задачи"
               class={state.formInputClass}
             />
@@ -120,7 +121,11 @@
             <InputField
               id="new-item-assignee"
               label="Назначена"
-              bind:value={state.newItemAssignee}
+              value={state.newItemAssignee}
+              oninput={(e: Event) => {
+                const target = e.target as HTMLInputElement;
+                state.newItemAssignee = target.value;
+              }}
               placeholder="Имя исполнителя"
               class={state.formInputClass}
             />
@@ -149,7 +154,11 @@
             <InputField
               id="search-query"
               label="Поиск"
-              bind:value={state.searchQuery}
+              value={state.searchQuery}
+              oninput={(e: Event) => {
+                const target = e.target as HTMLInputElement;
+                state.searchQuery = target.value;
+              }}
               placeholder="Поиск задач..."
               class={state.formInputClass}
             />

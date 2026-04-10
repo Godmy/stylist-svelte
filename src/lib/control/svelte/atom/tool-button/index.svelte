@@ -1,34 +1,29 @@
 <script lang="ts">
-	let {
-		active = false,
-		tool = 'select',
-		icon = '↖',
-		label,
-		onClick
-	}: {
+	import { createToolButtonState } from '$stylist/control/function/state/tool-button';
+
+	type Props = {
 		active?: boolean;
 		tool?: string;
 		icon?: string;
 		label?: string;
 		onClick?: (tool: string) => void;
-	} = $props();
-
-	const handleClick = () => {
-		onClick?.(tool);
 	};
+
+	let props: Props = $props();
+	const state = createToolButtonState(props);
 </script>
 
 <button
 	class="tool-button"
-	class:active
-	aria-pressed={active}
-	aria-label={label ?? tool}
-	title={label ?? tool}
-	onclick={handleClick}
+	class:active={state.active}
+	aria-pressed={state.active}
+	aria-label={state.label ?? state.tool}
+	title={state.label ?? state.tool}
+	onclick={state.handleClick}
 >
-	<span class="icon">{icon}</span>
-	{#if label}
-		<span class="label">{label}</span>
+	<span class="icon">{state.icon}</span>
+	{#if state.label}
+		<span class="label">{state.label}</span>
 	{/if}
 </button>
 

@@ -17,13 +17,13 @@
 
   let props: Props = $props();
 
-  let files = $state<FileType[]>([]);
+  let files = $state([] as FileType[]);
   let isDragging = $state(false);
   let fileInputRef: HTMLInputElement | null = $state(null);
   let multiple = $derived(props.multiple ?? false);
   let accept = $derived(props.accept ?? '');
   let maxSize = $derived(props.maxSize ?? 10 * 1024 * 1024);
-  const state = createDragDropFileUploadState(props);
+  const uploadState = createDragDropFileUploadState(props);
 
   let restProps = $derived.by(() => {
     const {
@@ -40,7 +40,7 @@
   }
 
   function updateFile(id: string, updates: Partial<FileType>) {
-    files = files.map(f => f.id === id ? { ...f, ...updates } : f);
+    files = files.map((f: FileType) => f.id === id ? { ...f, ...updates } : f);
   }
 
   function processFilesInner(selectedFiles: FileList) {
@@ -93,18 +93,18 @@
   }
 
   function triggerFileInput() {
-    if (!state.disabled && fileInputRef) {
+    if (!uploadState.disabled && fileInputRef) {
       fileInputRef.click();
     }
   }
 </script>
 
-<div class={`c-drag-drop-file-upload w-full ${state.classes}`} {...restProps}>
+<div class={`c-drag-drop-file-upload w-full ${uploadState.classes}`} {...restProps}>
   <!-- Drop Zone -->
   <div
     class={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
       isDragging ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
-    } ${state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${props.dropZoneClass ?? ''}`}
+    } ${uploadState.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${props.dropZoneClass ?? ''}`}
     ondragover={(e: DragEvent) => {
       e.preventDefault();
       isDragging = true;
@@ -133,7 +133,7 @@
       onchange={handleFileSelect}
       {multiple}
       {accept}
-      disabled={state.disabled}
+      disabled={uploadState.disabled}
     />
   </div>
 

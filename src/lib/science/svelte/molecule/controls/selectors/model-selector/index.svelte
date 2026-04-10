@@ -37,7 +37,7 @@
 					<div class={state.modelDetailsContainerClass}>
 						<div class="flex items-baseline">
 							<p class={state.modelNameClass}>{model.name}</p>
-							<p class={state.modelProviderVersionClass}>{model.provider} • v{model.version}</p>
+							<p class={state.modelProviderVersionClass}>{model.provider} ï¿½ v{model.version}</p>
 						</div>
 						<p class={state.modelDescriptionClass}>{model.description}</p>
 

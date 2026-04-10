@@ -13,23 +13,24 @@
     }
 
     let props: DataExporterProps = $props();
-    const state = createDataExporterState(props);
+    const exporterState = createDataExporterState(props as DataExporterProps & Record<string, unknown>);
+    let selectedFormat = $state(props.format ?? 'csv');
 
     const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
 
     function exportData() {
-        if (state.disabled) return;
-        exportDataFn(state.data, state.format, state.fileName, state.formats, dispatch);
+        if (exporterState.disabled) return;
+        exportDataFn(exporterState.data, selectedFormat, exporterState.fileName, exporterState.formats, dispatch);
     }
 </script>
 
 <div class="data-exporter">
-    <select bind:value={state.format} disabled={state.disabled}>
+    <select bind:value={selectedFormat} disabled={exporterState.disabled}>
         <option value="csv">CSV</option>
         <option value="json">JSON</option>
         <option value="excel">Excel</option>
     </select>
-    <button onclick={exportData} disabled={state.disabled}>
+    <button onclick={exportData} disabled={exporterState.disabled}>
         Export Data
     </button>
 </div>

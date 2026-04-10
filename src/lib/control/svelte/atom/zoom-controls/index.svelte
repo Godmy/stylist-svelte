@@ -1,19 +1,36 @@
 <script lang="ts">
-	let {
-		zoom = 1,
-		onZoomIn,
-		onZoomOut,
-		onReset
-	}: {
-		zoom?: number;
-		onZoomIn?: () => void;
-		onZoomOut?: () => void;
-		onReset?: () => void;
-	} = $props();
+	import { createZoomControlsState } from '$stylist/control/function/state/zoom-controls';
+	import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
 
-	const handleZoomIn = () => onZoomIn?.();
-	const handleZoomOut = () => onZoomOut?.();
-	const handleReset = () => onReset?.();
+	let props: ZoomControlsProps = $props();
+	const controlState = createZoomControlsState(props);
+
+	let currentZoom: number = $state(controlState.initialValue);
+
+	$effect(() => {
+		currentZoom = controlState.initialValue;
+	});
+
+	const handleZoomIn = () => {
+		currentZoom = Math.min(currentZoom + controlState.step, controlState.maxZoom);
+		props.onValueInput?.(currentZoom);
+		props.onValueChange?.(currentZoom);
+		props.onChange?.(currentZoom);
+	};
+
+	const handleZoomOut = () => {
+		currentZoom = Math.max(currentZoom - controlState.step, controlState.minZoom);
+		props.onValueInput?.(currentZoom);
+		props.onValueChange?.(currentZoom);
+		props.onChange?.(currentZoom);
+	};
+
+	const handleReset = () => {
+		currentZoom = controlState.initialValue;
+		props.onValueInput?.(currentZoom);
+		props.onValueChange?.(currentZoom);
+		props.onChange?.(currentZoom);
+	};
 </script>
 
 <div class="zoom-controls" role="group" aria-label="Zoom controls">
@@ -29,7 +46,7 @@
 		</svg>
 	</button>
 
-	<span class="zoom-value">{Math.round(zoom * 100)}%</span>
+	<span class="zoom-value">{Math.round(currentZoom)}%</span>
 
 	<button
 		class="zoom-button"

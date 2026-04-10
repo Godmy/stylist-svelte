@@ -1,66 +1,33 @@
 <script lang="ts">
-  import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
-  import type { Snippet } from 'svelte';
+  import { createAnimatedExpandableTableRowState } from '$stylist/layout/function/state/animated-expandable-table-row';
+  import type { AnimatedExpandableTableRowProps } from '$stylist/layout/type/struct/animated-expandable-table-row';
   import { Icon as BaseIcon } from '$stylist';
-const ChevronDown = 'chevron-down';
-const ChevronUp = 'chevron-up';
+  import { ChevronDown, ChevronUp } from '$stylist/layout/const/enum/chevron';
 
-
-  type Props = {
-    expanded?: boolean;
-    expandable?: boolean;
-    expandIcon?: string;
-    collapseIcon?: string;
-    colspan?: number;
-    children: Snippet;
-    details: Snippet;
-  } & ArchitectureHTMLAttributes<HTMLTableRowElement>;
-
-  let {
-    expanded = false,
-    expandable = true,
-    expandIcon,
-    collapseIcon,
-    colspan = 2,
-    class: className = '',
-    children,
-    details,
-    ...restProps
-  }: Props = $props();
-
-  let isExpanded = $state(expanded);
-
-  function toggle() {
-    if (expandable) {
-      isExpanded = !isExpanded;
-    }
-  }
-
-  $effect(() => {
-    isExpanded = expanded;
-  });
+  let props: AnimatedExpandableTableRowProps = $props();
+  const state = createAnimatedExpandableTableRowState(props);
 </script>
 
 <!-- Parent table row -->
-<tr {...restProps} class="parent-row {className}">
+<tr {...state.restProps} class="parent-row {state.className}">
   <!-- Cell for expand icon -->
-  {#if expandable}
+  {#if state.expandable}
     <td class="expand-cell px-6 py-4 whitespace-nowrap text-sm text-[var(--color-text-secondary)] w-12">
       <button
         class="expand-toggle focus:outline-none"
-        onclick={toggle}
-        aria-expanded={isExpanded}
-        aria-label={isExpanded ? 'Collapse' : 'Expand'}
+        onclick={state.toggle}
+        aria-expanded={state.isExpanded}
+        aria-label={state.isExpanded ? 'Collapse' : 'Expand'}
       >
-        {#if isExpanded}
-          {#if collapseIcon}
-            {@html collapseIcon}
+        {#if state.isExpanded}
+          {#if state.collapseIcon}
+            {@html state.collapseIcon}
           {:else}
             <BaseIcon name={ChevronUp} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
         {:else}
-          {#if expandIcon}
-            {@html expandIcon}
+          {#if state.expandIcon}
+            {@html state.expandIcon}
           {:else}
             <BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
@@ -70,18 +37,18 @@ const ChevronUp = 'chevron-up';
   {/if}
 
   <!-- Child slot for main row cells -->
-  {@render children()}
+  {@render state.children()}
 </tr>
 
 <!-- Expanded row with details -->
-{#if isExpanded}
+{#if state.isExpanded}
   <tr class="expanded-row">
     <td
-      colspan={expandable ? colspan : colspan - 1}
+      colspan={state.expandable ? state.colspan : state.colspan - 1}
       class="expanded-cell px-6 py-4 bg-[var(--color-background-secondary)] text-sm text-[var(--color-text-primary)]"
     >
       <div class="details-content p-4">
-        {@render details()}
+        {@render state.details()}
       </div>
     </td>
   </tr>
@@ -117,10 +84,3 @@ const ChevronUp = 'chevron-up';
     }
   }
 </style>
-
-
-
-
-
-
-

@@ -1,25 +1,54 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { Props, DiffLine } from '$stylist/development/type/struct/code-diff';
   import { CodeDiffStyleManager } from '$stylist/development/class/style-manager/code-diff';
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+  function computeDiffLines(original: string, modified: string): DiffLine[] {
+    const originalLines = original.split('\n');
+    const modifiedLines = modified.split('\n');
+    const lines: DiffLine[] = [];
+    const maxLines = Math.max(originalLines.length, modifiedLines.length);
 
-  type Props = RestProps & {
-    original?: string;
-    modified?: string;
-    language?: string;
-    class?: string;
-    contentClass?: string;
-    headerClass?: string;
-    showLineNumbers?: boolean;
-  };
+    for (let i = 0; i < maxLines; i++) {
+      const origLine = i < originalLines.length ? originalLines[i] : null;
+      const modLine = i < modifiedLines.length ? modifiedLines[i] : null;
 
-  type DiffLine = {
-    type: 'unchanged' | 'added' | 'removed' | 'changed';
-    original: string | null;
-    modified: string | null;
-    lineNumber: number;
-  };
+      if (origLine === modLine) {
+        lines.push({ type: 'unchanged', original: origLine, modified: modLine, lineNumber: i + 1 });
+      } else {
+        lines.push({
+          type: origLine === null ? 'added' : modLine === null ? 'removed' : 'changed',
+          original: origLine,
+          modified: modLine,
+          lineNumber: i + 1
+        });
+      }
+    }
+    return lines;
+  }
+
+  function stateFn(props: Props) {
+    const diffLines = $derived(computeDiffLines(props.original ?? '', props.modified ?? ''));
+    const containerClass = $derived(CodeDiffStyleManager.getContainerClass(props.class ?? ''));
+    const headerClassComputed = $derived(CodeDiffStyleManager.getHeaderClass(props.headerClass ?? ''));
+    const mainContentClass = $derived(CodeDiffStyleManager.getMainContentClass());
+    const lineNumbersContainerClass = $derived(CodeDiffStyleManager.getLineNumbersContainerClass());
+    const lineNumberItemClass = $derived(CodeDiffStyleManager.getLineNumberItemClass());
+    const contentContainerClass = $derived(CodeDiffStyleManager.getContentContainerClass(props.contentClass ?? ''));
+    const diffLineClass = (type: string) => CodeDiffStyleManager.getDiffLineClass(type);
+    const diffSpanClass = (type: string) => CodeDiffStyleManager.getDiffSpanClass(type);
+
+    return {
+      get diffLines() { return diffLines; },
+      get containerClass() { return containerClass; },
+      get headerClassComputed() { return headerClassComputed; },
+      get mainContentClass() { return mainContentClass; },
+      get lineNumbersContainerClass() { return lineNumbersContainerClass; },
+      get lineNumberItemClass() { return lineNumberItemClass; },
+      get contentContainerClass() { return contentContainerClass; },
+      diffLineClass,
+      diffSpanClass
+    };
+  }
 
   let {
     original = '',
@@ -32,90 +61,47 @@
     ...restProps
   }: Props = $props();
 
-  // Function to compute diff - simplified implementation
-  // In a real implementation, you would use a proper diff algorithm
-  let originalLines = $derived(original.split('\n'));
-  let modifiedLines = $derived(modified.split('\n'));
-
-  // For now, we'll just compare line by line
-  // A real diff would show additions, deletions, and changes with appropriate styling
-  let diffLines = $derived(() => {
-    const lines: DiffLine[] = [];
-    const maxLines = Math.max(originalLines.length, modifiedLines.length);
-
-    for (let i = 0; i < maxLines; i++) {
-      const origLine = i < originalLines.length ? originalLines[i] : null;
-      const modLine = i < modifiedLines.length ? modifiedLines[i] : null;
-
-      if (origLine === modLine) {
-        lines.push({
-          type: 'unchanged',
-          original: origLine,
-          modified: modLine,
-          lineNumber: i + 1
-        });
-      } else {
-        lines.push({
-          type: origLine === null ? 'added' : modLine === null ? 'removed' : 'changed',
-          original: origLine,
-          modified: modLine,
-          lineNumber: i + 1
-        });
-      }
-    }
-
-    return lines;
-  }) as () => DiffLine[];
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(CodeDiffStyleManager.getContainerClass(hostClass));
-  const headerClassComputed = $derived(CodeDiffStyleManager.getHeaderClass(headerClass));
-  const mainContentClass = $derived(CodeDiffStyleManager.getMainContentClass());
-  const lineNumbersContainerClass = $derived(CodeDiffStyleManager.getLineNumbersContainerClass());
-  const lineNumberItemClass = $derived(CodeDiffStyleManager.getLineNumberItemClass());
-  const contentContainerClass = $derived(CodeDiffStyleManager.getContentContainerClass(contentClass));
-  const diffLineClass = (type: string) => CodeDiffStyleManager.getDiffLineClass(type);
-  const diffSpanClass = (type: string) => CodeDiffStyleManager.getDiffSpanClass(type);
+  const state = stateFn({ original, modified, language, class: hostClass, contentClass, headerClass, showLineNumbers, ...restProps });
 </script>
 
-<div class={containerClass} {...restProps}>
-  <div class={headerClassComputed}>
+<div class={state.containerClass} {...restProps}>
+  <div class={state.headerClassComputed}>
     Code Diff
   </div>
 
-  <div class={mainContentClass}>
+  <div class={state.mainContentClass}>
     {#if showLineNumbers}
-      <div class={lineNumbersContainerClass}>
-        {#each diffLines() as line, index}
-          <div class={lineNumberItemClass}>
+      <div class={state.lineNumbersContainerClass}>
+        {#each state.diffLines as line, index}
+          <div class={state.lineNumberItemClass}>
             {line.lineNumber}
           </div>
         {/each}
       </div>
     {/if}
 
-    <div class={contentContainerClass}>
+    <div class={state.contentContainerClass}>
       <div class={CodeDiffStyleManager.getDiffContentClass()}>
-        {#each diffLines() as line}
+        {#each state.diffLines as line}
           {#if line.type === 'unchanged'}
-            <div class={diffLineClass(line.type)}>
-              <span class={diffSpanClass(line.type)}>{line.original}</span>
+            <div class={state.diffLineClass(line.type)}>
+              <span class={state.diffSpanClass(line.type)}>{line.original}</span>
             </div>
           {:else if line.type === 'added'}
-            <div class={diffLineClass(line.type)}>
-              <span class={diffSpanClass(line.type)}>+ {line.modified}</span>
+            <div class={state.diffLineClass(line.type)}>
+              <span class={state.diffSpanClass(line.type)}>+ {line.modified}</span>
             </div>
           {:else if line.type === 'removed'}
-            <div class={diffLineClass(line.type)}>
-              <span class={diffSpanClass(line.type)}>- {line.original}</span>
+            <div class={state.diffLineClass(line.type)}>
+              <span class={state.diffSpanClass(line.type)}>- {line.original}</span>
             </div>
           {:else if line.type === 'changed'}
             <div class={CodeDiffStyleManager.getChangedContainerClass()}>
-              <div class={diffLineClass('removed')}>
-                <span class={`${diffSpanClass('removed')} line-through`}>- {line.original}</span>
+              <div class={state.diffLineClass('removed')}>
+                <span class={`${state.diffSpanClass('removed')} line-through`}>- {line.original}</span>
               </div>
-              <div class={diffLineClass('added')}>
-                <span class={diffSpanClass('added')}>+ {line.modified}</span>
+              <div class={state.diffLineClass('added')}>
+                <span class={state.diffSpanClass('added')}>+ {line.modified}</span>
               </div>
             </div>
           {/if}

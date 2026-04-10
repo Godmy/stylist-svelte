@@ -1,53 +1,36 @@
 ﻿<script lang="ts">
+  import { createMetricCardState } from '$stylist/information/function/state/metric-card';
   import type { MetricCardRecipe } from '$stylist/information/interface/recipe/metric-card';
-  import { MetricCardStyleManager } from '$stylist/information/class/style-manager/metric-card';
-  import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-  import { ObjectManagerMetricCard } from '$stylist/information/class/object-manager/metric-card';
-  
+
   let {
-    label,
-    value,
-    max,
-    percentage,
-    description,
-    variant = 'info',
-    showProgressBar = true,
-    class: className = ''
+    ...stateProps
   }: MetricCardRecipe = $props();
-  
-  const containerClasses = $derived(MetricCardStyleManager.getContainerClasses(mergeClassNames(className)));
-  const titleClasses = $derived(MetricCardStyleManager.getTitleClasses());
-  const valueClasses = $derived(MetricCardStyleManager.getValueClasses());
-  const descriptionClasses = $derived(MetricCardStyleManager.getDescriptionClasses());
-  const progressBarContainerClasses = $derived(MetricCardStyleManager.getProgressBarContainerClasses());
-  const progressBarClasses = $derived(MetricCardStyleManager.getProgressBarClasses());
-  const progressBarFillClasses = $derived(MetricCardStyleManager.getProgressBarFillClasses(variant, percentage));
-  const percentageClasses = $derived(MetricCardStyleManager.getPercentageClasses(variant));
-  const progressBarWidth = $derived(ObjectManagerMetricCard.resolveProgressBarWidth(percentage));
+
+  const state = createMetricCardState(stateProps as Parameters<typeof createMetricCardState>[0]);
 </script>
 
-<div class={containerClasses} role="region" aria-label={`Metric: ${label}`}>
-  <h3 class={titleClasses} aria-label={`Metric title: ${label}`}>{label}</h3>
-  <div class={valueClasses} aria-label={`Value: ${value}`}>
-    {value}
+<div class={state.containerClasses} role="region" aria-label={`Metric: ${state.label}`} {...state.restProps}>
+  <h3 class={state.titleClasses} aria-label={`Metric title: ${state.label}`}>{state.label}</h3>
+  <div class={state.valueClasses} aria-label={`Value: ${state.value}`}>
+    {state.value}
   </div>
-  {#if description}
-    <p class={descriptionClasses} aria-label={`Description: ${description}`}>
-      {description}
+  {#if state.description}
+    <p class={state.descriptionClasses} aria-label={`Description: ${state.description}`}>
+      {state.description}
     </p>
   {/if}
-  
-  {#if showProgressBar}
-    <div class={progressBarContainerClasses}>
-      <div class={progressBarClasses} role="progressbar" aria-valuenow={percentage} aria-valuemin="0" aria-valuemax="100" aria-label={`Progress: ${percentage}%`}>
+
+  {#if state.showProgressBar}
+    <div class={state.progressBarContainerClasses}>
+      <div class={state.progressBarClasses} role="progressbar" aria-valuenow={state.percentage} aria-valuemin="0" aria-valuemax="100" aria-label={`Progress: ${state.percentage}%`}>
         <div
-          class={progressBarFillClasses}
-          style={`width: ${progressBarWidth};`}
+          class={state.progressBarFillClasses}
+          style={`width: ${state.progressBarWidth};`}
           aria-hidden="true"
         ></div>
       </div>
-      <div class={percentageClasses}>
-        {percentage}%
+      <div class={state.percentageClasses}>
+        {state.percentage}%
       </div>
     </div>
   {/if}

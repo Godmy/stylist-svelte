@@ -32,13 +32,13 @@
   let showOwner = $derived(props.showOwner ?? false);
   let enableSelection = $derived(props.enableSelection ?? true);
   let variant = $derived(props.variant ?? 'default');
-  let isSelected = $state(item?.selected || false);
+  let isSelected = $state(false);
 
   $effect(() => {
     isSelected = item?.selected || false;
   });
 
-  const state = createFileListItemState(props);
+  const fileListItemState = createFileListItemState(props);
 
   let restProps = $derived.by(() => {
     const {
@@ -57,18 +57,17 @@
   }
 
   function handleSelect() {
-    handleSelectFn(item, state.disabled, enableSelection, isSelected, setIsSelected, onItemSelect);
+    handleSelectFn(item, fileListItemState.disabled, enableSelection, isSelected, setIsSelected, props.onItemSelect);
   }
 
   function handleDoubleClick() {
-    handleDoubleClickFn(item, state.disabled, onItemDoubleClick);
+    handleDoubleClickFn(item, fileListItemState.disabled, props.onItemDoubleClick);
   }
 
   function handleAction(action: string) {
-    handleActionFn(item, action, state.disabled, onItemAction);
+    handleActionFn(item, action, fileListItemState.disabled, props.onItemAction);
   }
 
-  let FileIcon = getFileIcon(item);
 </script>
 
 <div
@@ -77,8 +76,8 @@
   } ${
     variant === 'compact' ? 'py-2' : ''
   } ${
-    state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
-  } ${state.classes}`}
+    fileListItemState.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''
+  } ${fileListItemState.classes}`}
   onclick={handleSelect}
   ondblclick={handleDoubleClick}
   {...restProps}
@@ -90,7 +89,7 @@
       checked={isSelected}
       onclick={(e) => e.stopPropagation()}
       onchange={handleSelect}
-      disabled={state.disabled}
+      disabled={fileListItemState.disabled}
     />
   {/if}
 
@@ -143,7 +142,7 @@
         e.stopPropagation();
         handleAction('preview');
       }}
-      disabled={state.disabled}
+      disabled={fileListItemState.disabled}
     >
       <BaseIcon name={Eye} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>
@@ -154,7 +153,7 @@
         e.stopPropagation();
         handleAction('download');
       }}
-      disabled={state.disabled}
+      disabled={fileListItemState.disabled}
     >
       <BaseIcon name={Download} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>
@@ -165,7 +164,7 @@
         e.stopPropagation();
         handleAction('more');
       }}
-      disabled={state.disabled}
+      disabled={fileListItemState.disabled}
     >
       <BaseIcon name={MoreHorizontal} class="h-4 w-4 text-[var(--color-text-secondary)]" />
     </Button>

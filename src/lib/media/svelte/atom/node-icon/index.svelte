@@ -1,24 +1,17 @@
 <script lang="ts">
-	let {
-		icon = '📦',
-		size = 32,
-		accent = 'var(--color-accent, #3498db)',
-		background = 'var(--color-surface-primary, #ffffff)'
-	}: {
-		icon?: string;
-		size?: number;
-		accent?: string;
-		background?: string;
-	} = $props();
+	import { createNodeIconState, type NodeIconProps } from '$stylist/media/function/state/node-icon';
+
+	let props: NodeIconProps = $props();
+	const state = createNodeIconState(props);
 </script>
 
 <div
 	class="node-icon"
-	style={`width: ${size}px; height: ${size}px; background: ${background};`}
+	style={state.iconStyle}
 	role="img"
-	aria-label={icon}
+	aria-label={state.icon}
 >
-	<span class="icon-text" style={`color: ${accent}; font-size: ${size * 0.6}px;`}>{icon}</span>
+	<span class="icon-text" style={state.iconTextStyle}>{state.icon}</span>
 </div>
 
 <style>

@@ -5,4 +5,10 @@ export function createSimpleModalState(props: SimpleModalProps) {
 
 	return {
 		get dialogClasses() {
-			return dialogCla
+			return dialogClasses;
+		}
+	};
+}
+ 
+ 
+export default createSimpleModalState; 

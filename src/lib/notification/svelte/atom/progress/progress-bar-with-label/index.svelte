@@ -1,54 +1,28 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	let {
-		value = 0,
-		max = 100,
-		label = '',
-		showPercentage = true,
-		color = 'blue',
-		height = 'h-2',
-		class: className = '',
-		...restProps
-	} = $props<{
-		value?: number;
-		max?: number;
-		label?: string;
-		showPercentage?: boolean;
-		color?: string;
-		height?: string;
-		class?: string;
-	} & InteractionHTMLAttributes<HTMLDivElement>>();
+	import { createProgressBarWithLabelState } from '$stylist/notification/function/state/progress-bar-with-label';
 
-	let percentage = $derived(Math.round((value / max) * 100));
-
-	const colorClasses: Record<string, string> = {
-		blue: 'bg-[var(--color-primary-500)]',
-		green: 'bg-[var(--color-success-500)]',
-		red: 'bg-[var(--color-danger-500)]',
-		yellow: 'bg-yellow-500',
-		purple: 'bg-[var(--color-secondary-500)]'
-	};
+	const props = $props();
+	const state = createProgressBarWithLabelState(props);
 </script>
 
-<div class={`${className}`} {...restProps}>
-	{#if label}
-		<div class="mb-1 flex justify-between">
-			<span class="text-sm font-medium">{label}</span>
-			{#if showPercentage}
-				<span class="text-sm font-medium">{percentage}%</span>
+<div class={state.containerClasses} {...props}>
+	{#if state.label}
+		<div class={state.labelWrapperClasses}>
+			<span class={state.labelClasses}>{state.label}</span>
+			{#if state.showPercentage}
+				<span class={state.labelClasses}>{state.percentage}%</span>
 			{/if}
 		</div>
 	{/if}
-	<div class="w-full rounded-full bg-[var(--color-background-tertiary)] ${height}">
+	<div class={state.trackClasses}>
 		<div
-			class="h-full rounded-full ${colorClasses[color as keyof typeof colorClasses] ||
-				colorClasses.blue}"
-			style={`width: ${percentage}%`}
+			class={state.fillClasses}
+			style={`width: ${state.percentage}%`}
 		></div>
 	</div>
-	{#if !label && showPercentage}
+	{#if !state.label && state.showPercentage}
 		<div class="mt-1 text-right">
-			<span class="text-sm font-medium">{percentage}%</span>
+			<span class="text-sm font-medium">{state.percentage}%</span>
 		</div>
 	{/if}
 </div>

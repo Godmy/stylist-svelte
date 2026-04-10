@@ -1,98 +1,37 @@
 <script lang="ts">
-	import type { IProgressCircleProps } from '$stylist/notification/interface/component/notification/other';
-	import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
+	import { createProgressCircleState } from '$stylist/notification/function/state/progress-circle';
 
-	/**
-	 * ProgressCircle component - Circular indicator of task completion
-	 *
-	 * SOLID Principles applied:
-	 *
-	 * Single Responsibility Principle: This component is responsible only for displaying a circular progress indicator.
-	 * Open/Closed Principle: The component is closed for modification but open for extension via CSS classes.
-	 * Liskov Substitution Principle: ProgressCircle can be substituted with other progress indicators without breaking functionality.
-	 * Interface Segregation Principle: IProgressCircleProps provides a focused interface for the component.
-	 * Dependency Inversion Principle: Component depends on abstractions (styles manager and types) rather than concretions.
-	 */
-	const props = $props<
-		{
-			progress?: number;
-			size?: 'sm' | 'md' | 'lg';
-			color?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info' | 'gray';
-			strokeWidth?: number;
-		} & IProgressCircleProps
-	>();
-	const restProps = $derived(
-		(() => {
-			const {
-				class: _class,
-				progress: _progress,
-				size: _size,
-				color: _color,
-				strokeWidth: _strokeWidth,
-				...rest
-			} = props;
-			return rest;
-		})()
-	);
-
-	// Set default values
-	const progress = props.progress ?? 0;
-	const size = props.size ?? 'md';
-	const color = props.color ?? 'primary';
-	const strokeWidth = props.strokeWidth ?? 8;
-
-	// Calculate normalized progress and circle properties
-	const normalizedProgress = $derived(Math.min(100, Math.max(0, progress)));
-	const circumference = 2 * Math.PI * 45;
-	const strokeDashoffset = $derived(circumference - (normalizedProgress / 100) * circumference);
-
-	// Generate the CSS classes using the style manager
-	const containerClass = $derived(joinClassNames('progress-circle-container', props.class));
-	const svgClass = $derived('progress-circle-svg');
-	const backgroundCircleClass = $derived(
-		joinClassNames('progress-circle', `stroke-[${strokeWidth}px]`, `variant-${color}`)
-	);
-	const progressCircleClass = $derived(
-		joinClassNames('progress-circle-fill', `stroke-[${strokeWidth}px]`, `variant-${color}`)
-	);
-	const labelClass = $derived('progress-circle-label');
+	const props = $props();
+	const state = createProgressCircleState(props);
 </script>
 
-<div class={containerClass} {...restProps}>
-	<svg class={svgClass} viewBox="0 0 100 100">
-		<!-- ������� ���� -->
+<div class={state.containerClass} {...props}>
+	<svg class={state.svgClass} viewBox="0 0 100 100">
 		<circle
 			cx="50"
 			cy="50"
 			r="45"
 			fill="none"
 			stroke="currentColor"
-			stroke-width={strokeWidth}
-			class={backgroundCircleClass}
+			stroke-width={state.strokeWidth}
+			class={state.backgroundCircleClass}
 		/>
-		<!-- ��������-���� -->
 		<circle
 			cx="50"
 			cy="50"
 			r="45"
 			fill="none"
 			stroke="currentColor"
-			stroke-width={strokeWidth}
+			stroke-width={state.strokeWidth}
 			stroke-linecap="round"
-			stroke-dasharray={circumference}
-			stroke-dashoffset={strokeDashoffset}
+			stroke-dasharray={state.circumference}
+			stroke-dashoffset={state.strokeDashoffset}
 			transform="rotate(-90 50 50)"
-			class={progressCircleClass}
+			class={state.progressCircleClass}
 			style="transition-property: stroke-dashoffset, stroke"
 		/>
 	</svg>
-	<span class={labelClass}>
-		{normalizedProgress}%
+	<span class={state.labelClass}>
+		{state.normalizedProgress}%
 	</span>
 </div>
-
-
-
-
-
-

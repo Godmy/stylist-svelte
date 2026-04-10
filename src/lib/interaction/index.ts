@@ -3,7 +3,7 @@ export { AccountSettingsStyleManager, AnimatedStyleManager, ClickableStyleManage
 export { DEFAULT_DRAGGABLE, DEFAULT_STATE_FLAGS, INTERACTION_MOTION, PRESET_DRAGGABLE, TAB_SIZE_CLASSES, TAB_VARIANT_CLASSES, TOKEN_ACTIVITY, TOKEN_APPEARANCE, TOKEN_AVAILABILITY, TOKEN_CONTROLLER_TYPE, TOKEN_CONTROL_KINDS, TOKEN_CURSOR, TOKEN_DURATION, TOKEN_FLOW, TOKEN_INTERACTION, TOKEN_INTERACTION_CONTRACT, TOKEN_INTERACTION_ICON, TOKEN_LOADING, TOKEN_PROCESS, TOKEN_PROGRESS_TYPE, TOKEN_RADIO, TOKEN_SEVERITY, TOKEN_SORT_DIRECTION, TOKEN_TEST, TOKEN_TRIGGER, TOKEN_VALIDATION, TOKEN_VISIBILITY, VARIANT_CLASSES } from './const';
 export { INTERACTION_DATA_CATALOG } from './data';
 export { createAtoms, createButtonFactoryInput, mergeAtomAttrs, mergeAtomClasses, mergeAtomStyles } from './factory';
-export { buildPresetClassNames, createAnimatedState, createClickableState, createDraggableState, createFocusableState, createHoverableState, createTransformableState, default, detectClipboardSupport, formatNumberValue, resolveAllowedOption } from './function';
+export { buildPresetClassNames, createAnimatedState, createClickableState, createDraggableState, createFocusableState, createHoverableState, createTransformableState, detectClipboardSupport, formatNumberValue, resolveAllowedOption } from './function';
 export { INTERACTION_TOKENS, createBasePreset, createInputState, createState } from './preset';
 export { Animated, Click, Clickable, DragAndDrop, Draggable, Focusable, GeneralToolbar, Hoverable, Transformable } from './svelte';
 export type { ContentType } from './class';

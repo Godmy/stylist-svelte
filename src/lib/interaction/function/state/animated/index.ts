@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createAnimatedState, default } from './index.svelte';
+export { default as createAnimatedState } from './index.svelte';

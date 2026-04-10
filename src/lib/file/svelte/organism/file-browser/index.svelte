@@ -23,10 +23,10 @@
   let showItemCount = $derived(props.showItemCount ?? true);
   let enableSelection = $derived(props.enableSelection ?? true);
   let defaultExpanded = $derived(props.defaultExpanded ?? false);
-  let expandedItems = $state<Set<string>>(new Set());
+  let expandedItems = $state(new Set() as Set<string>);
   let selectedItem: FolderItem | null = $state(null);
 
-  const state = createFileBrowserState(props);
+  const fileBrowserState = createFileBrowserState(props);
 
   let restProps = $derived.by(() => {
     const {
@@ -68,11 +68,11 @@
   }
 
   function toggleItem(item: FolderItem) {
-    toggleItemFn(item, state.disabled, expandedItems, setExpandedItems, props.onItemToggle);
+    toggleItemFn(item, fileBrowserState.disabled, expandedItems, setExpandedItems, props.onItemToggle);
   }
 
   function handleSelect(item: FolderItem) {
-    handleSelectFn(item, enableSelection, state.disabled, setSelectedItem, props.onItemSelect);
+    handleSelectFn(item, enableSelection, fileBrowserState.disabled, setSelectedItem, props.onItemSelect);
   }
 
   function handleAction(item: FolderItem, action: string) {
@@ -84,7 +84,7 @@
   }
 </script>
 
-<div class={`folder-tree ${state.classes}`} {...restProps}>
+<div class={`folder-tree ${fileBrowserState.classes}`} {...restProps}>
   <ul role="tree" class="space-y-1">
     {#each items as item}
       {@render TreeNode(item)}
@@ -102,9 +102,9 @@
     <div
       class={`flex items-center rounded-md px-3 py-2 text-sm cursor-pointer ${
         selectedItem?.id === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : 'hover:bg-[var(--color-background-secondary)]'
-      } ${state.disabled ? 'opacity-[var(--opacity-50)]' : ''} ${props.itemClass ?? ''}`}
+      } ${fileBrowserState.disabled ? 'opacity-[var(--opacity-50)]' : ''} ${props.itemClass ?? ''}`}
       role="button"
-      tabindex={state.disabled ? -1 : 0}
+      tabindex={fileBrowserState.disabled ? -1 : 0}
       onclick={() => {
         handleSelect(item);
         if (item.type !== 'file') {
@@ -134,7 +134,7 @@
             e.stopPropagation();
             toggleItem(item);
           }}
-          disabled={state.disabled}
+          disabled={fileBrowserState.disabled}
         >
           {#if isExpanded(item.id)}
             <BaseIcon name={ChevronDown} class="h-4 w-4 text-[var(--color-text-secondary)]" />

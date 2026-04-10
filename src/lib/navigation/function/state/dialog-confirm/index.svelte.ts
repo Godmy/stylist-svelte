@@ -50,4 +50,10 @@ export function createDialogConfirmState(props: DialogConfirmProps) {
 			return isLoading;
 		},
 		handleConfirm() {
-			handleConfirmCallback(props.onCo
+			handleConfirmCallback(props.onConfirm);
+		}
+	};
+}
+ 
+ 
+export default createDialogConfirmState; 

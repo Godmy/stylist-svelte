@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createDrawerBackdropHandler, createDrawerCloseHandler, createDrawerEscapeHandler, handleConfirmCallback } from './script';
+export { close, createDrawerBackdropHandler, createDrawerCloseHandler, createDrawerEscapeHandler, handleBackdropClick, handleBackdropKeyDown, handleConfirmCallback, handleEscape } from './script';
 export { SLASH_ICON, createBreadcrumbLinkState, createBreadcrumbSeparatorState, createBreadcrumbsState, createConfirmationDialogState, createDialogConfirmState, createDialogState, createDrawerState, createGeneralToolbarState, createModalState, createPageEllipsisState, createPaginationState, createSideBySideLayoutState, createSidebarState, createSimpleModalState, createStepperState } from './state';
 export type { PaginationStateProps, SidebarStateProps } from './state';

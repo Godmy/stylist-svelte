@@ -23,7 +23,7 @@
 				<div class="litegraph-node__semantic-copy">
 					<div class={state.semanticTitleClasses}>{props.title}</div>
 					{#if state.presentation.showDescription}
-						<div class={state.semanticDescriptionClasses}>{props.type ?? 'default'} · {state.presentation.stage} · {state.presentation.size}</div>
+						<div class={state.semanticDescriptionClasses}>{props.type ?? 'default'} ï¿½ {state.presentation.stage} ï¿½ {state.presentation.size}</div>
 					{/if}
 				</div>
 			{/if}

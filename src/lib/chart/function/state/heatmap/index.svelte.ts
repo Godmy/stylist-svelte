@@ -3,6 +3,7 @@ import { HeatmapStyleManager } from '$stylist/chart/class/style-manager/heatmap'
 import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
 
 export function createHeatmapState(props: HeatmapRecipe) {
+	let hoveredCell = $state<string | null>(null);
 	const hostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const chartClass = $derived(typeof props.chartClass === 'string' ? props.chartClass : undefined);
 	const resolvedColorScheme = $derived((props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset');
@@ -40,7 +41,18 @@ export function createHeatmapState(props: HeatmapRecipe) {
 	const tooltipButtonClasses = $derived(HeatmapStyleManager.getTooltipButtonClasses());
 	const cellClasses = $derived((isHovered: boolean) => HeatmapStyleManager.getCellClasses(isHovered));
 
+	function handleCellFocus(cellId: string) {
+		hoveredCell = cellId;
+	}
+
+	function handleCellBlur() {
+		hoveredCell = null;
+	}
+
 	return {
+		get hoveredCell() {
+			return hoveredCell;
+		},
 		get hostClass() {
 			return hostClass;
 		},
@@ -109,7 +121,9 @@ export function createHeatmapState(props: HeatmapRecipe) {
 		},
 		get cellClasses() {
 			return cellClasses;
-		}
+		},
+		handleCellFocus,
+		handleCellBlur
 	};
 }
 

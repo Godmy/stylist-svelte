@@ -1,39 +1,47 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { CodeBlockProps } from '$stylist/development/type/struct/code-block';
+  import { copyToClipboard } from '$stylist/development/function/script/code-block';
   import { Icon as BaseIcon } from '$stylist';
-const Copy = 'copy';
-const Check = 'check';
-
   import { Button } from '$stylist';
   import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
 
-  type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
+  const Copy = 'copy';
+  const Check = 'check';
 
-  /**
-   * Unified Code Component
-   * 
-   * Consolidates: code-block-with-line-numbers, copyable-code-block, code-editor
-   * 
-   * Features (all optional):
-   * - showLineNumbers: Display line numbers
-   * - highlightLines: Array of line numbers to highlight
-   * - copyable: Show copy button
-   * - title: Code block title
-   */
+  function stateFn(props: CodeBlockProps) {
+    let copied = $state(false);
+    let codeLines = $derived(props.code?.split('\n') ?? []);
+    let languageClass = $derived(`language-${props.language ?? 'text'}`);
+    const containerClass = $derived(CodeStyleManager.getContainerClass(props.class ?? ''));
+    const headerClassComputed = $derived(CodeStyleManager.getHeaderClass(props.headerClass ?? ''));
+    const lineNumbersContainerClass = $derived(CodeStyleManager.getLineNumbersContainerClass(props.lineNumberClass ?? ''));
+    const lineNumberItemClass = (isHighlighted: boolean) => CodeStyleManager.getLineNumberItemClass(isHighlighted);
+    const contentContainerClass = $derived(CodeStyleManager.getContentContainerClass(props.contentClass ?? ''));
+    const preClass = $derived(CodeStyleManager.getPreClass(props.codeClass ?? ''));
+    const copyButtonContainerClass = $derived(CodeStyleManager.getCopyButtonContainerClass());
+    const iconClass = $derived(CodeStyleManager.getIconClass());
 
-  type CodeBlockProps = RestProps & {
-    code?: string;
-    language?: string;
-    showLineNumbers?: boolean;
-    highlightLines?: number[];
-    title?: string;
-    copyable?: boolean;
-    class?: string;
-    contentClass?: string;
-    lineNumberClass?: string;
-    codeClass?: string;
-    headerClass?: string;
-  };
+    function handleCopy() {
+      copyToClipboard(props.code ?? '', (copiedValue) => {
+        copied = copiedValue;
+      });
+    }
+
+    return {
+      get copied() { return copied; },
+      get codeLines() { return codeLines; },
+      get languageClass() { return languageClass; },
+      get containerClass() { return containerClass; },
+      get headerClassComputed() { return headerClassComputed; },
+      get lineNumbersContainerClass() { return lineNumbersContainerClass; },
+      lineNumberItemClass,
+      get contentContainerClass() { return contentContainerClass; },
+      get preClass() { return preClass; },
+      get copyButtonContainerClass() { return copyButtonContainerClass; },
+      get iconClass() { return iconClass; },
+      handleCopy
+    };
+  }
 
   let {
     code = '',
@@ -50,70 +58,44 @@ const Check = 'check';
     ...restProps
   }: CodeBlockProps = $props();
 
-  let copied = $state(false);
-  let codeLines = $derived(code.split('\n'));
-
-  function copyToClipboard() {
-    navigator.clipboard.writeText(code)
-      .then(() => {
-        copied = true;
-        setTimeout(() => {
-          copied = false;
-        }, 2000);
-      })
-      .catch(err => {
-        console.error('Failed to copy code to clipboard:', err);
-      });
-  }
-
-  let languageClass = $derived(`language-${language}`);
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(CodeStyleManager.getContainerClass(hostClass));
-  const headerClassComputed = $derived(CodeStyleManager.getHeaderClass(headerClass));
-  const lineNumbersContainerClass = $derived(CodeStyleManager.getLineNumbersContainerClass(lineNumberClass));
-  const lineNumberItemClass = (isHighlighted: boolean) => CodeStyleManager.getLineNumberItemClass(isHighlighted);
-  const contentContainerClass = $derived(CodeStyleManager.getContentContainerClass(contentClass));
-  const preClass = $derived(CodeStyleManager.getPreClass(codeClass));
-  const copyButtonContainerClass = $derived(CodeStyleManager.getCopyButtonContainerClass());
-  const iconClass = $derived(CodeStyleManager.getIconClass());
+  const codeBlockState = stateFn({ code, language, showLineNumbers, highlightLines, title, copyable, class: hostClass, contentClass, lineNumberClass, codeClass, headerClass });
 </script>
 
-<div class={containerClass} {...restProps}>
+<div class={codeBlockState.containerClass} {...restProps}>
   {#if title}
-    <div class={headerClassComputed}>
+    <div class={codeBlockState.headerClassComputed}>
       {title}
     </div>
   {/if}
 
   <div class={CodeStyleManager.getMainContentClass()}>
     {#if showLineNumbers}
-      <div class={lineNumbersContainerClass}>
-        {#each codeLines as _, index}
-          <div class={lineNumberItemClass(highlightLines.includes(index + 1))}>
+      <div class={codeBlockState.lineNumbersContainerClass}>
+        {#each codeBlockState.codeLines as _, index}
+          <div class={codeBlockState.lineNumberItemClass(highlightLines.includes(index + 1))}>
             {index + 1}
           </div>
         {/each}
       </div>
     {/if}
 
-    <div class={contentContainerClass}>
-      <pre class={preClass}><code class={languageClass}>{code}</code></pre>
+    <div class={codeBlockState.contentContainerClass}>
+      <pre class={codeBlockState.preClass}><code class={codeBlockState.languageClass}>{code}</code></pre>
     </div>
   </div>
 
   {#if copyable}
-    <div class={copyButtonContainerClass}>
+    <div class={codeBlockState.copyButtonContainerClass}>
       <Button
         variant="ghost"
         size="sm"
-        onclick={copyToClipboard}
+        onclick={codeBlockState.handleCopy}
         aria-label="Copy code"
       >
-        {#if copied}
-          <BaseIcon name={Check} class={iconClass} />
+        {#if codeBlockState.copied}
+          <BaseIcon name={Check} class={codeBlockState.iconClass} />
         {:else}
-          <BaseIcon name={Copy} class={iconClass} />
+          <BaseIcon name={Copy} class={codeBlockState.iconClass} />
         {/if}
       </Button>
     </div>
@@ -135,7 +117,6 @@ const Check = 'check';
     line-height: var(--line-height-normal);
   }
 </style>
-
 
 
 

@@ -5,4 +5,10 @@ export function createPageEllipsisState(props: PageEllipsisRecipe) {
 
 	return {
 		get containerClasses() {
-			return containerC
+			return containerClasses;
+		}
+	};
+}
+ 
+ 
+export default createPageEllipsisState; 

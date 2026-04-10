@@ -1,7 +1,5 @@
-export const TOKEN_ANALYTICS_ICON = [
+export const TOKEN_CHART_ICON = [
 	'canvas-chart',
 	'charts-organism',
-	'heatmap',
-	'performance-dashboard',
-	'status-dashboard'
+	'heatmap'
 ] as const;

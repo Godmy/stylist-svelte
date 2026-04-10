@@ -43,6 +43,8 @@ const RotateCcw = 'rotate-ccw';
     ...restProps
   }: Props = $props();
 
+  const vm = { src, poster, title, width, height, showControls, autoPlay, loop, muted, hostClass, videoClass, controlsClass, restProps };
+
   let videoRef: HTMLVideoElement | null = null;
   let isPlaying = $state(false);
   let isMuted = $state(muted);

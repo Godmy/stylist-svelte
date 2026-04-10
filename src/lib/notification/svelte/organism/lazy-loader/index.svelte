@@ -1,21 +1,16 @@
 <script lang="ts">
-  import type { LazyLoaderProps } from '$stylist/notification/interface/component/interaction-feedback/other';
-  import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-  let { loading=true, text='Loading content...', children, class: className='', ...restProps }: LazyLoaderProps = $props();
+	import { createLazyLoaderState } from '../../../function/state/lazy-loader';
+
+	const props = $props();
+	const state = createLazyLoaderState(props);
 </script>
-<div class={InteractionFeedbackStyleManager.root('c-lazy-loader border rounded-lg p-4', className)} {...restProps}>
-  {#if loading}
-    <div class="animate-pulse text-sm text-[var(--color-text-secondary)]">{text}</div>
-  {:else if children}
-    {@render children()}
-  {:else}
-    Loaded content
-  {/if}
+
+<div class={state.containerClasses} {...props}>
+	{#if state.loading}
+		<div class="animate-pulse text-sm text-[var(--color-text-secondary)]">{state.text}</div>
+	{:else if props.children}
+		{@render props.children()}
+	{:else}
+		Loaded content
+	{/if}
 </div>
-
-
-
-
-
-
-

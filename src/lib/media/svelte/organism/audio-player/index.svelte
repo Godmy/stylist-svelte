@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { HTMLAttributes } from 'svelte/elements';
+  import { createAudioPlayerState, type AudioPlayerProps } from '$stylist/media/function/state/audio-player';
   import { Icon as BaseIcon } from '$stylist';
 const Play = 'play';
 const Pause = 'pause';
@@ -9,34 +10,12 @@ const RotateCcw = 'rotate-ccw';
 
   import { Button } from '$lib';
 
-  type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    src?: string;
-    title?: string;
-    showControls?: boolean;
-    autoPlay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    class?: string;
-    controlsClass?: string;
-  };
-
-  let {
-    src,
-    title,
-    showControls = true,
-    autoPlay = false,
-    loop = false,
-    muted = false,
-    class: hostClass = '',
-    controlsClass = '',
-    ...restProps
-  }: Props = $props();
+  let props: AudioPlayerProps = $props();
+  const vm = createAudioPlayerState(props);
 
   let audioRef: HTMLAudioElement | null = null;
   let isPlaying = $state(false);
-  let isMuted = $state(muted);
+  let isMuted = $state(vm.muted);
   let currentTime = $state(0);
   let duration = $state(0);
   let volume = $state(1.0);
@@ -96,12 +75,6 @@ const RotateCcw = 'rotate-ccw';
     }
   }
 
-  function formatTime(seconds: number): string {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  }
-
   function reloadAudio() {
     if (audioRef) {
       audioRef.load();
@@ -110,25 +83,25 @@ const RotateCcw = 'rotate-ccw';
   }
 </script>
 
-<div class={`audio-player bg-[var(--color-background-primary)] rounded-lg p-4 border border-[var(--color-border-primary)] ${hostClass}`} {...restProps}>
+<div class={vm.hostClasses} {...vm.restProps}>
   <audio
     bind:this={audioRef}
-    src={src}
-    autoplay={autoPlay}
-    loop={loop}
-    muted={muted}
+    src={vm.src}
+    autoplay={vm.autoPlay}
+    loop={vm.loop}
+    muted={vm.muted}
     onloadedmetadata={handleLoadedMetadata}
     ontimeupdate={handleTimeUpdate}
   ></audio>
 
-  {#if title}
+  {#if vm.title}
     <div class="font-medium text-[var(--color-text-primary)] mb-2 truncate">
-      {title}
+      {vm.title}
     </div>
   {/if}
 
-  {#if showControls}
-    <div class={`flex items-center justify-between ${controlsClass}`}>
+  {#if vm.showControls}
+    <div class={`flex items-center justify-between ${vm.controlsClass}`}>
       <div class="flex items-center space-x-2">
         <Button
           variant="ghost"
@@ -142,7 +115,7 @@ const RotateCcw = 'rotate-ccw';
             <BaseIcon name={Play} class="h-5 w-5" />
           {/if}
         </Button>
-        
+
         <Button
           variant="ghost"
           size="sm"
@@ -156,9 +129,9 @@ const RotateCcw = 'rotate-ccw';
           {/if}
         </Button>
       </div>
-      
+
       <div class="flex items-center space-x-2 flex-1 mx-4">
-        <span class="text-xs text-[var(--color-text-secondary)] w-10">{formatTime(currentTime)}</span>
+        <span class="text-xs text-[var(--color-text-secondary)] w-10">{vm.formatTime(currentTime)}</span>
         <input
           type="range"
           min="0"
@@ -167,9 +140,9 @@ const RotateCcw = 'rotate-ccw';
           oninput={handleProgressChange}
           class="flex-1 accent-blue-500"
         />
-        <span class="text-xs text-[var(--color-text-secondary)] w-10">{formatTime(duration)}</span>
+        <span class="text-xs text-[var(--color-text-secondary)] w-10">{vm.formatTime(duration)}</span>
       </div>
-      
+
       <div class="flex items-center space-x-2">
         <input
           type="range"
@@ -192,7 +165,3 @@ const RotateCcw = 'rotate-ccw';
     </div>
   {/if}
 </div>
-
-
-
-

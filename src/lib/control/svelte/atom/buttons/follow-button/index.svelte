@@ -6,7 +6,7 @@ const UserCheck = 'user-check';
 const Check = 'check';
 const Loader2 = 'loader-2';
 
-  import { Button } from '$stylist';
+  import { createFollowButtonState } from '$stylist/control/function/state/follow-button';
 
   type RestProps = Omit<InteractionHTMLAttributes<HTMLButtonElement>, 'class'>;
 
@@ -23,74 +23,46 @@ const Loader2 = 'loader-2';
     disabled?: boolean;
   };
 
-  let {
-    isFollowing = false,
-    showText = true,
-    variant = 'primary',
-    size = 'md',
-    class: hostClass = '',
-    followingText = 'Following',
-    unfollowText = 'Follow',
-    onFollow,
-    onUnfollow,
-    disabled = false,
-    ...restProps
-  }: Props = $props();
-
+  let props: Props = $props();
+  const controlState = createFollowButtonState(props);
   let isPending = $state(false);
 
   async function handleToggle() {
-    if (disabled || isPending) return;
-    
+    if (controlState.disabled || isPending) return;
+
     isPending = true;
-    
-    if (isFollowing) {
-      await onUnfollow?.();
+
+    if (controlState.isFollowing) {
+      await props.onUnfollow?.();
     } else {
-      await onFollow?.();
+      await props.onFollow?.();
     }
-    
+
     isPending = false;
   }
-
-  let buttonVariant = $derived(isFollowing ? 'outline' : variant);
-  let buttonText = $derived(isFollowing ? followingText : unfollowText);
-  let buttonIcon = $derived(isFollowing ? UserCheck : UserPlus);
 </script>
 
 <button
   type="button"
-  class={`follow-button ${
-    isFollowing ? 'text-[var(--color-text-primary)] bg-[var(--color-background-secondary)] hover:bg-[var(--color-background-tertiary)]' : 
-    variant === 'primary' ? 'text-[var(--color-text-inverse)] bg-[var(--color-primary-600)] hover:bg-[var(--color-primary-700)]' : 
-    variant === 'secondary' ? 'text-[var(--color-text-inverse)] bg-[var(--color-secondary-600)] hover:bg-[var(--color-secondary-700)]' : 
-    variant === 'outline' ? 'text-[var(--color-text-primary)] bg-[var(--color-background-primary)] hover:bg-[var(--color-background-secondary)] border border-[var(--color-border-primary)]' : 
-    'text-[var(--color-text-primary)] hover:bg-[var(--color-background-secondary)]'
-  } ${
-    size === 'sm' ? 'text-xs px-2 py-1' : 
-    size === 'lg' ? 'text-base px-4 py-2' : 
-    'text-sm px-3 py-1.5'
-  } font-medium rounded-md ${
-    disabled || isPending ? 'opacity-[var(--opacity-75)] cursor-not-allowed' : 'cursor-pointer'
-  } ${hostClass}`}
+  class={controlState.classes}
   onclick={handleToggle}
-  disabled={disabled || isPending}
-  aria-label={isFollowing ? "Unfollow user" : "Follow user"}
-  {...restProps}
+  disabled={controlState.disabled || isPending}
+  aria-label={controlState.ariaLabel}
+  {...props}
 >
   {#if isPending}
     <div class="flex items-center justify-center">
       <BaseIcon name={Loader2} class="h-4 w-4 animate-spin" />
-      {#if showText} {isFollowing ? 'Unfollowing...' : 'Following...'} {/if}
+      {#if controlState.showText} {controlState.isFollowing ? 'Unfollowing...' : 'Following...'} {/if}
     </div>
   {:else}
     <div class="flex items-center justify-center">
-      {#if isFollowing}
-        <BaseIcon name={Check} class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
+      {#if controlState.isFollowing}
+        <BaseIcon name={Check} class={`h-4 w-4 ${controlState.size === 'sm' ? 'mr-1' : 'mr-2'}`} />
       {:else}
-        <BaseIcon name={buttonIcon} class={`h-4 w-4 ${size === 'sm' ? 'mr-1' : 'mr-2'}`} />
+        <BaseIcon name={controlState.isFollowing ? UserCheck : UserPlus} class={`h-4 w-4 ${controlState.size === 'sm' ? 'mr-1' : 'mr-2'}`} />
       {/if}
-      {#if showText} {buttonText} {/if}
+      {#if controlState.showText} {controlState.text} {/if}
     </div>
   {/if}
 </button>

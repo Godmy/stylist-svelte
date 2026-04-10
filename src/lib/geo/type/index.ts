@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { InformationContractOfT } from './contract';
-export type { TokenMapType, TokenPin } from './enum';
+export type { TokenGeoIcon, TokenMapType, TokenPin } from './enum';

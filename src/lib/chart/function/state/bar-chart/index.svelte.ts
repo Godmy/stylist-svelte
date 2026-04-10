@@ -3,6 +3,7 @@ import { BarChartStyleManager } from '$stylist/chart/class/style-manager/bar-cha
 import { ObjectManagerBarChart } from '$stylist/chart/class/object-manager/bar-chart';
 
 export function createBarChartState(props: BarChartRecipe) {
+	let hoveredBar = $state<number | null>(null);
 	const containerHostClass = $derived(typeof props.class === 'string' ? props.class : undefined);
 	const resolvedColorScheme = $derived((props.colorScheme ?? 'minimal') as 'minimal' | 'ocean' | 'forest' | 'sunset');
 	const calculatedMaxValue = $derived(ObjectManagerBarChart.resolveMaxValue(props.data ?? [], props.maxValue));
@@ -31,7 +32,18 @@ export function createBarChartState(props: BarChartRecipe) {
 	const legendTextClasses = $derived(BarChartStyleManager.getLegendTextClasses());
 	const legendValueClasses = $derived(BarChartStyleManager.getLegendValueClasses());
 
+	function handleBarFocus(index: number) {
+		hoveredBar = index;
+	}
+
+	function handleBarBlur() {
+		hoveredBar = null;
+	}
+
 	return {
+		get hoveredBar() {
+			return hoveredBar;
+		},
 		get containerHostClass() {
 			return containerHostClass;
 		},
@@ -85,7 +97,9 @@ export function createBarChartState(props: BarChartRecipe) {
 		},
 		get legendValueClasses() {
 			return legendValueClasses;
-		}
+		},
+		handleBarFocus,
+		handleBarBlur
 	};
 }
 

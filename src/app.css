@@ -21,6 +21,19 @@
 		--teal: #1f7a6d;
 		--sienna: #c9783a;
 		--plum: #7a3e3e;
+
+		/* Theme semantic defaults (light mode) — overridden by ThemeProvider on client */
+		--color-background-primary: #ffffff;
+		--color-background-secondary: #f8fafc;
+		--color-text-primary: #0f172a;
+		--color-text-secondary: #64748b;
+		--color-border-primary: #cbd5e1;
+		--color-border-secondary: #e2e8f0;
+		--color-primary-500: #3b82f6;
+		--color-primary-600: #2563eb;
+		--shadow-custom45: 0 0 0 2px rgba(37, 99, 235, 0.2);
+		--duration-120: 120ms;
+		--animation-ease: cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	body {

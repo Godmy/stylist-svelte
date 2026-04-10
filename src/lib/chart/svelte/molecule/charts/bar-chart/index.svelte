@@ -5,28 +5,26 @@
   import type { BarChartRecipe } from '$stylist/chart/interface/recipe/bar-chart';
 
   let props: BarChartRecipe = $props();
-  const barChartState = createBarChartState(props);
-
-  let hoveredBar: number | null = $state(null);
+  const state = createBarChartState(props);
 </script>
 
-<div class={barChartState.containerClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
+<div class={state.containerClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
   {#if props.title}
-    <div class={barChartState.titleContainerClasses}>
-      <h3 class={barChartState.titleClasses}>{props.title}</h3>
+    <div class={state.titleContainerClasses}>
+      <h3 class={state.titleClasses}>{props.title}</h3>
       {#if props.showTooltip}
         <Tooltip content="This is a bar chart showing categorical data with rectangular bars proportional to the values they represent." placement="top">
-          <BaseIcon name="info" class={barChartState.infoIconClasses} />
+          <BaseIcon name="info" class={state.infoIconClasses} />
         </Tooltip>
       {/if}
     </div>
   {/if}
 
-  <div class={barChartState.chartContainerClasses}>
+  <div class={state.chartContainerClasses}>
     <svg
       width={props.width ?? 600}
       height={props.height ?? 400}
-      class={barChartState.svgClasses}
+      class={state.svgClasses}
     >
       {#if props.showAxis}
         <!-- X axis -->
@@ -49,10 +47,10 @@
         />
 
         <!-- Y axis labels -->
-        {#each barChartState.yAxisValues as val, i}
+        {#each state.yAxisValues as val, i}
           <text
             x={props.showAxis ? 45 : 0}
-            y={(props.height ?? 400) - 15 - (i * (barChartState.chartHeight / 4))}
+            y={(props.height ?? 400) - 15 - (i * (state.chartHeight / 4))}
             text-anchor="end"
             font-size="10"
             fill="var(--color-text-tertiary)"
@@ -61,9 +59,9 @@
           </text>
           <line
             x1={props.showAxis ? 48 : 3}
-            y1={(props.height ?? 400) - 10 - (i * (barChartState.chartHeight / 4))}
+            y1={(props.height ?? 400) - 10 - (i * (state.chartHeight / 4))}
             x2={(props.width ?? 600) - 10}
-            y2={(props.height ?? 400) - 10 - (i * (barChartState.chartHeight / 4))}
+            y2={(props.height ?? 400) - 10 - (i * (state.chartHeight / 4))}
             stroke={props.axisColor ?? 'var(--color-border-primary)'}
             stroke-dasharray="3,3"
             stroke-width="0.5"
@@ -71,7 +69,7 @@
         {/each}
 
         <!-- X axis labels -->
-        {#each barChartState.barPositions as position, i (position.x)}
+        {#each state.barPositions as position, i (position.x)}
           <text
             x={position.x + (props.barWidth ?? 30) / 2}
             y={(props.height ?? 400) - 5}
@@ -85,7 +83,7 @@
       {/if}
 
       <!-- Bars -->
-      {#each barChartState.barPositions as position, i}
+      {#each state.barPositions as position, i}
         <g
           class="cursor-pointer"
           onclick={() => props.onBarClick?.(props.data[i])}
@@ -95,8 +93,8 @@
               props.onBarClick?.(props.data[i]);
             }
           }}
-          onfocus={() => hoveredBar = i}
-          onblur={() => hoveredBar = null}
+          onfocus={() => state.handleBarFocus(i)}
+          onblur={state.handleBarBlur}
           role="button"
           tabindex="0"
           aria-label={`Bar chart item: ${props.data[i].name}, Value: ${props.data[i].value}`}
@@ -109,8 +107,8 @@
             fill={position.color}
             rx="2"
             ry="2"
-            class={barChartState.barClasses(hoveredBar === i)}
-            style={`opacity: ${hoveredBar === i ? 0.8 : 1};`}
+            class={state.barClasses(state.hoveredBar === i)}
+            style={`opacity: ${state.hoveredBar === i ? 0.8 : 1};`}
 
           />
         </g>
@@ -119,15 +117,15 @@
   </div>
 
   {#if props.showLegend}
-    <div class={barChartState.legendClasses}>
+    <div class={state.legendClasses}>
       {#each props.data ?? [] as item, i}
-        <div class={barChartState.legendItemClasses}>
+        <div class={state.legendItemClasses}>
           <div
             class="w-4 h-4 rounded mr-2"
-            style={`background-color: ${item.color ?? barChartState.resolvedColorScheme}`}
+            style={`background-color: ${item.color ?? state.resolvedColorScheme}`}
           ></div>
-          <span class={barChartState.legendTextClasses}>{item.name}</span>
-          <span class={barChartState.legendValueClasses}>({item.value})</span>
+          <span class={state.legendTextClasses}>{item.name}</span>
+          <span class={state.legendValueClasses}>({item.value})</span>
         </div>
       {/each}
     </div>

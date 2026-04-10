@@ -1,4 +1,6 @@
 import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
+import { LOCALE_SWITCHER_ICON } from '$stylist/localization/const/enum/locale-switcher-icon';
+import { formatDate, formatTime, formatDateTime } from '$stylist/localization/function/format-date-time';
 import type { LocaleSwitcherProps, LocaleSwitcherLocale } from '$stylist/localization/interface/component/locale-switcher/other';
 
 export interface LocaleSwitcherStateProps extends LocaleSwitcherProps {
@@ -6,38 +8,31 @@ export interface LocaleSwitcherStateProps extends LocaleSwitcherProps {
 }
 
 export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
-	// Props with defaults
-	const locales = $derived(props.locales ?? []);
-	const currentLocale = $derived(props.currentLocale);
-	const timezoneOptions = $derived(props.timezoneOptions ?? []);
-	const currentTimezone = $derived(props.currentTimezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone);
-	const showRegional = $derived(props.showRegional ?? true);
-	const showDatePreview = $derived(props.showDatePreview ?? true);
-	const showTimePreview = $derived(props.showTimePreview ?? true);
+	// Props with defaults - extracted from props object
+	const locales = props.locales ?? [];
+	const currentLocale = props.currentLocale;
+	const timezoneOptions = props.timezoneOptions ?? [];
+	const currentTimezone = props.currentTimezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone;
+	const showRegional = props.showRegional ?? true;
+	const showDatePreview = props.showDatePreview ?? true;
+	const showTimePreview = props.showTimePreview ?? true;
+	const propClassName = props.class ?? '';
+	const propHeaderClass = props.headerClass ?? '';
+	const propContentClass = props.contentClass ?? '';
+	const propLocaleClass = props.localeClass ?? '';
+	const propFooterClass = props.footerClass ?? '';
 
 	// Computed
 	const now = new Date();
-	const currentLocaleObj = $derived(locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0]);
-
-	function formatDate(date: Date, localeCode: string | undefined, timeZone: string | undefined): string {
-		return new Intl.DateTimeFormat(localeCode ?? 'en-US', { dateStyle: 'full', timeZone }).format(date);
-	}
-
-	function formatTime(date: Date, localeCode: string | undefined, timeZone: string | undefined): string {
-		return new Intl.DateTimeFormat(localeCode ?? 'en-US', { timeStyle: 'medium', timeZone }).format(date);
-	}
-
-	function formatDateTime(date: Date, localeCode: string | undefined, timeZone: string | undefined): string {
-		return new Intl.DateTimeFormat(localeCode ?? 'en-US', { dateStyle: 'long', timeStyle: 'short', timeZone }).format(date);
-	}
+	const currentLocaleObj = locales.find((loc: LocaleSwitcherLocale) => loc.code === currentLocale) ?? locales[0];
 
 	// Classes
-	const rootClass = $derived(LocaleSwitcherStyleManager.getRootClass(props.class));
-	const headerClass = $derived(LocaleSwitcherStyleManager.getHeaderClass(props.headerClass));
-	const contentClass = $derived(LocaleSwitcherStyleManager.getContentClass(props.contentClass));
-	const getLocaleButtonClass = (isActive: boolean) => LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, props.localeClass);
+	const rootClass = $derived(LocaleSwitcherStyleManager.getRootClass(propClassName));
+	const headerClass = $derived(LocaleSwitcherStyleManager.getHeaderClass(propHeaderClass));
+	const contentClass = $derived(LocaleSwitcherStyleManager.getContentClass(propContentClass));
+	const getLocaleButtonClass = (isActive: boolean) => LocaleSwitcherStyleManager.getLocaleButtonClass(isActive, propLocaleClass);
 	const timezoneSelectClass = $derived(LocaleSwitcherStyleManager.getTimezoneSelectClass());
-	const footerClass = $derived(LocaleSwitcherStyleManager.getFooterClass(props.footerClass));
+	const footerClass = $derived(LocaleSwitcherStyleManager.getFooterClass(propFooterClass));
 
 	// Rest props
 	const restProps = $derived.by(() => {
@@ -60,6 +55,16 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	});
 
 	return {
+		// Icons
+		get iconClock() {
+			return LOCALE_SWITCHER_ICON.CLOCK;
+		},
+		get iconGlobe() {
+			return LOCALE_SWITCHER_ICON.GLOBE;
+		},
+		get iconUser() {
+			return LOCALE_SWITCHER_ICON.USER;
+		},
 		get locales() {
 			return locales;
 		},

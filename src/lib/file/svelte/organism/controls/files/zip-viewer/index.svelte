@@ -28,7 +28,7 @@
   let props: Props = $props();
 
   let searchQuery = $state('');
-  let expandedFolders = $state<Set<string>>(new Set());
+  let expandedFolders = $state(new Set() as Set<string>);
   let currentPath = $state('/');
   let entries = $derived(props.entries ?? []);
   let archiveName = $derived(props.archiveName ?? 'Archive.zip');
@@ -36,7 +36,7 @@
   let showPath = $derived(props.showPath ?? true);
   let enableFiltering = $derived(props.enableFiltering ?? true);
   let defaultExpanded = $derived(props.defaultExpanded ?? false);
-  const state = createZipViewerState(props);
+  const zipViewerState = createZipViewerState(props);
 
   let restProps = $derived.by(() => {
     const {
@@ -111,27 +111,27 @@
   }
 
   function handleEntryClick(entry: ZipEntry) {
-    handleEntryClickFn(entry, state.disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
+    handleEntryClickFn(entry, zipViewerState.disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
   }
 
   function handlePreview(entry: ZipEntry) {
-    handlePreviewFn(entry, state.disabled, props.onEntryPreview);
+    handlePreviewFn(entry, zipViewerState.disabled, props.onEntryPreview);
   }
 
   function handleDownload(entry: ZipEntry) {
-    handleDownloadFn(entry, state.disabled, props.onEntryDownload);
+    handleDownloadFn(entry, zipViewerState.disabled, props.onEntryDownload);
   }
 
   function handleExtract(entry: ZipEntry) {
-    handleExtractFn(entry, state.disabled, props.onEntryExtract);
+    handleExtractFn(entry, zipViewerState.disabled, props.onEntryExtract);
   }
 
   function toggleFolder(entry: ZipEntry) {
-    toggleFolderFn(entry, state.disabled, expandedFolders, setExpandedFolders);
+    toggleFolderFn(entry, zipViewerState.disabled, expandedFolders, setExpandedFolders);
   }
 </script>
 
-<div class={`c-zip-viewer border rounded-lg overflow-hidden ${state.classes}`} {...restProps}>
+<div class={`c-zip-viewer border rounded-lg overflow-hidden ${zipViewerState.classes}`} {...restProps}>
   <!-- Archive header -->
   <div class={`p-4 bg-[var(--color-background-secondary)] border-b ${props.headerClass ?? ''}`}>
     <div class="flex items-center">
@@ -153,7 +153,7 @@
           placeholder="Search in archive..."
           value={searchQuery}
           oninput={handleSearchInput}
-          disabled={state.disabled}
+          disabled={zipViewerState.disabled}
         />
       </div>
     {/if}
@@ -161,13 +161,13 @@
 
   <!-- Entries list -->
   <div class="overflow-y-auto max-h-[500px]">
-    {#if zipTree().length === 0}
+    {#if zipTree.length === 0}
       <div class="text-center py-8 text-[var(--color-text-secondary)]">
         {searchQuery ? 'No matching items found' : 'Archive is empty'}
       </div>
     {:else}
       <div class="divide-y divide-gray-200">
-        {#each zipTree() as entry}
+        {#each zipTree as entry}
           {@const EntryIcon = getEntryIcon(entry)}
           <div
             class={`flex items-center p-3 hover:bg-[var(--color-background-secondary)] ${
@@ -179,7 +179,7 @@
               class="flex h-6 w-6 items-center justify-center rounded hover:bg-[var(--color-background-tertiary)] focus:outline-none mr-2"
               aria-label={expandedFolders.has(entry.path) ? `Collapse ${entry.name}` : `Expand ${entry.name}`}
               onclick={() => toggleFolder(entry)}
-              disabled={entry.type === 'file' || state.disabled}
+              disabled={entry.type === 'file' || zipViewerState.disabled}
             >
               {#if entry.type === 'directory'}
                 {#if expandedFolders.has(entry.path)}
@@ -218,7 +218,7 @@
                   variant="ghost"
                   size="sm"
                   onclick={() => handlePreview(entry)}
-                  disabled={state.disabled}
+                  disabled={zipViewerState.disabled}
                   title="Preview"
                 >
                   <BaseIcon name={Eye} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -229,7 +229,7 @@
                 variant="ghost"
                 size="sm"
                 onclick={() => handleDownload(entry)}
-                disabled={state.disabled}
+                disabled={zipViewerState.disabled}
                 title="Download"
               >
                 <BaseIcon name={Download} class="h-4 w-4 text-[var(--color-text-secondary)]" />
@@ -239,7 +239,7 @@
                 variant="ghost"
                 size="sm"
                 onclick={() => handleExtract(entry)}
-                disabled={state.disabled}
+                disabled={zipViewerState.disabled}
                 title="Extract"
               >
                 <BaseIcon name={ExternalLink} class="h-4 w-4 text-[var(--color-text-secondary)]" />

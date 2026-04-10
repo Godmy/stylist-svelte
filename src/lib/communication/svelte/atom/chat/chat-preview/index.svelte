@@ -2,35 +2,17 @@
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Avatar, Icon as BaseIcon } from '$stylist';
 	import { createChatPreviewState } from '$stylist/communication/function/state/chat-preview';
-	import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
+	import type { ChatPreviewContract } from '$stylist/communication/interface/component/chat-preview/contract';
+	import type { ChatPreviewMessage } from '$stylist/communication/type/struct/chat-preview-message';
+	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/communication/const/struct/chat-preview-icon-check';
+	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/communication/const/struct/chat-preview-icon-check-check';
+	import { getChatMessageAlignmentClass } from '$stylist/communication/function/script/chat-message-alignment-class';
+	import { getChatMessageBubbleClasses } from '$stylist/communication/function/script/chat-message-bubble-classes';
 
-	const Check = 'check';
-	const CheckCheck = 'check-check';
-
-	type Props = ChatPreviewProps & InteractionHTMLAttributes<HTMLDivElement>;
-	let props: Props = $props();
+	let props: ChatPreviewContract = $props();
 
 	const state = createChatPreviewState(props);
-	type PreviewMessage = {
-		author: string;
-		text: string;
-		timestamp: string;
-		isOwn?: boolean;
-		avatar?: string;
-		sender?: string;
-		status?: string;
-	};
-	const displayMessages = $derived(state.displayMessages as PreviewMessage[]);
-
-	const getChatMessageAlignmentClass = (isOwn: boolean) => (isOwn ? 'justify-end' : 'justify-start');
-
-	const getChatMessageBubbleClasses = (isOwn: boolean) => {
-		if (isOwn) {
-			return 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded-br-none ml-auto';
-		}
-
-		return 'bg-[var(--color-background-secondary)] text-[var(--color-text-primary)] rounded-bl-none';
-	};
+	const displayMessages = $derived(state.displayMessages as ChatPreviewMessage[]);
 </script>
 
 <div class={state.classes} role="region" aria-label={`Chat preview: ${state.title}`}>
@@ -66,9 +48,9 @@
 						{/if}
 						{#if message.isOwn && message.status}
 							{#if message.status === 'read'}
-								<BaseIcon name={CheckCheck} class="ml-1 h-3 w-3 text-[var(--color-primary-500)]" />
+								<BaseIcon name={CHAT_PREVIEW_ICON_CHECK_CHECK} class="ml-1 h-3 w-3 text-[var(--color-primary-500)]" />
 							{:else}
-								<BaseIcon name={Check} class="ml-1 h-3 w-3 text-[var(--color-text-tertiary)]" />
+								<BaseIcon name={CHAT_PREVIEW_ICON_CHECK} class="ml-1 h-3 w-3 text-[var(--color-text-tertiary)]" />
 							{/if}
 						{/if}
 					</div>

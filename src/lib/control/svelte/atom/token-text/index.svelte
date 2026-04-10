@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { createTokenTextState } from '$stylist/control/function/state/token-text';
 	import TokenControlBase from '../token-control-base/index.svelte';
 	import type { TokenTextControlDefinition } from '$stylist/control/type/struct/text-control-definition';
 
@@ -9,29 +10,25 @@
 		onChange?: (value: string) => void;
 	};
 
-	let {
-		definition,
-		value = '',
-		placeholder = definition.placeholder ?? 'Enter value',
-		onChange
-	}: TokenTextControlProps = $props();
+	let props: TokenTextControlProps = $props();
+	const controlState = createTokenTextState(props);
 
-	let internalValue = $state<string>(value);
+	let internalValue: string = $state(controlState.value);
 
 	$effect(() => {
-		if (value !== internalValue) {
-			internalValue = value;
+		if (controlState.value !== internalValue) {
+			internalValue = controlState.value;
 		}
 	});
 
 	function handleInput(event: Event) {
 		internalValue = (event.target as HTMLInputElement).value;
-		onChange?.(internalValue);
+		controlState.onChange?.(internalValue);
 	}
 </script>
 
-<TokenControlBase {definition} layout="inline">
-	<input class="token-text-control" type="text" value={internalValue} placeholder={placeholder} oninput={handleInput} />
+<TokenControlBase definition={controlState.definition} layout="inline">
+	<input class="token-text-control" type="text" value={internalValue} placeholder={controlState.placeholder} oninput={handleInput} />
 </TokenControlBase>
 
 <style>

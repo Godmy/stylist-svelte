@@ -6,28 +6,26 @@
   import { ObjectManagerHeatmap } from '$stylist/chart/class/object-manager/heatmap';
 
   let props: HeatmapRecipe = $props();
-  const heatmapState = createHeatmapState(props);
-
-  let hoveredCell: string | null = $state(null);
+  const state = createHeatmapState(props);
 </script>
 
-<div class={heatmapState.containerClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
+<div class={state.containerClasses} style={`width: ${props.width ?? 600}px; height: ${props.height ?? 400}px;`} {...props}>
   {#if props.title}
     <div class="flex items-center justify-between mb-2">
-      <h3 class={heatmapState.titleClasses}>{props.title}</h3>
+      <h3 class={state.titleClasses}>{props.title}</h3>
       {#if props.showTooltip}
         <Tooltip content="This is a heatmap showing data density through color variations in a matrix format." placement="top">
-          <Icon name="info" size="sm" class={heatmapState.tooltipButtonClasses} />
+          <Icon name="info" size="sm" class={state.tooltipButtonClasses} />
         </Tooltip>
       {/if}
     </div>
   {/if}
 
-  <div class={heatmapState.chartContainerClasses}>
+  <div class={state.chartContainerClasses}>
     <svg
       width={props.width ?? 600}
       height={props.height ?? 400}
-      class={heatmapState.svgClasses}
+      class={state.svgClasses}
     >
       {#if props.showAxis}
         <!-- X axis -->
@@ -38,7 +36,7 @@
           y2={(props.height ?? 400) - 10}
           stroke={props.axisColor ?? 'var(--color-border-primary)'}
           stroke-width="1"
-          class={heatmapState.axisClasses}
+          class={state.axisClasses}
         />
         <!-- Y axis -->
         <line
@@ -48,33 +46,33 @@
           y2={(props.height ?? 400) - 10}
           stroke={props.axisColor ?? 'var(--color-border-primary)'}
           stroke-width="1"
-          class={heatmapState.axisClasses}
+          class={state.axisClasses}
         />
 
         <!-- X axis labels -->
-        {#each heatmapState.columns as col, i}
+        {#each state.columns as col, i}
           <text
-            x={50 + i * heatmapState.cellWidth + heatmapState.cellWidth / 2}
+            x={50 + i * state.cellWidth + state.cellWidth / 2}
             y={(props.height ?? 400) - 5}
             text-anchor="middle"
             font-size="10"
             fill="var(--color-text-secondary)"
-            class={heatmapState.axisTextClasses}
+            class={state.axisTextClasses}
           >
             {ObjectManagerHeatmap.resolveAxisLabel(col)}
           </text>
         {/each}
 
         <!-- Y axis labels -->
-        {#each heatmapState.rows as row, i}
+        {#each state.rows as row, i}
           <text
             x={props.showAxis ? 45 : 0}
-            y={10 + i * heatmapState.cellHeight + heatmapState.cellHeight / 2}
+            y={10 + i * state.cellHeight + state.cellHeight / 2}
             text-anchor="end"
             font-size="10"
             fill="var(--color-text-secondary)"
             dominant-baseline="middle"
-            class={heatmapState.axisTextClasses}
+            class={state.axisTextClasses}
           >
             {ObjectManagerHeatmap.resolveAxisLabel(row)}
           </text>
@@ -82,9 +80,9 @@
       {/if}
 
       <!-- Cells -->
-      {#each heatmapState.heatmapCells as cell}
+      {#each state.heatmapCells as cell}
         <g
-          class={heatmapState.cellClasses(hoveredCell === cell.id)}
+          class={state.cellClasses(state.hoveredCell === cell.id)}
           onclick={() => props.onCellClick?.(cell)}
           onkeydown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
@@ -92,8 +90,8 @@
               props.onCellClick?.(cell);
             }
           }}
-          onfocus={() => hoveredCell = cell.id}
-          onblur={() => hoveredCell = null}
+          onfocus={() => state.handleCellFocus(cell.id)}
+          onblur={state.handleCellBlur}
           role="button"
           tabindex="0"
           aria-label={`Heatmap cell: ${cell.row} - ${cell.column}, Value: ${cell.value}`}
@@ -106,7 +104,7 @@
             fill={cell.color}
             rx="2"
             ry="2"
-            style={`opacity: ${hoveredCell === cell.id ? 0.8 : 1};`}
+            style={`opacity: ${state.hoveredCell === cell.id ? 0.8 : 1};`}
           />
           {#if cell.width > 20 && cell.height > 15}
             <text
@@ -127,15 +125,15 @@
   </div>
 
   {#if props.showLegend}
-    <div class={heatmapState.legendClasses}>
-      <div class={heatmapState.legendLabelsClasses}>
+    <div class={state.legendClasses}>
+      <div class={state.legendLabelsClasses}>
         <span>{props.minValue ?? 0}</span>
-        <span>{ObjectManagerHeatmap.resolveLegendMidpoint(props.minValue ?? 0, heatmapState.calculatedMaxValue)}</span>
-        <span>{heatmapState.calculatedMaxValue}</span>
+        <span>{ObjectManagerHeatmap.resolveLegendMidpoint(props.minValue ?? 0, state.calculatedMaxValue)}</span>
+        <span>{state.calculatedMaxValue}</span>
       </div>
-      <div class={heatmapState.legendGradientClasses} style={`background-image: ${ObjectManagerHeatmap.resolveLegendGradient(heatmapState.resolvedColorScheme)}`}></div>
-      <div class={heatmapState.legendTitleClasses}>
-        {ObjectManagerHeatmap.resolveLegendTitle(heatmapState.resolvedColorScheme)}
+      <div class={state.legendGradientClasses} style={`background-image: ${ObjectManagerHeatmap.resolveLegendGradient(state.resolvedColorScheme)}`}></div>
+      <div class={state.legendTitleClasses}>
+        {ObjectManagerHeatmap.resolveLegendTitle(state.resolvedColorScheme)}
       </div>
     </div>
   {/if}

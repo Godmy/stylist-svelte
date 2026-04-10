@@ -1,10 +1,19 @@
 <script lang="ts">
-  import Animated from '$stylist/animation/svelte/atom/motion/animated/index.svelte';
-  export { Animated };
+  import type { AnimateProps } from '$stylist/animation/interface/proto/animate-props';
+  import { createAnimatedState } from '$stylist/interaction/function/state/animated';
+
+  let props: AnimateProps = $props();
+  const state = createAnimatedState(props);
 </script>
 
-<!-- 
-  Реэкспорт Animated из animation домена
-  для обратной совместимости
--->
-<svelte:options accessors={true} />
+<div
+  class={state.classes}
+  style={state.inlineStyle}
+  {...state.restProps}
+>
+  {#if props.children}
+    {@render props.children?.()}
+  {:else}
+    {state.formattedValue}
+  {/if}
+</div>

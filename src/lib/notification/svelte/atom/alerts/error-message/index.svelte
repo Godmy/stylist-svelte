@@ -2,8 +2,7 @@
   import { createErrorMessageState } from '$stylist/notification/function/state/error-message';
   import type { ErrorMessageProps } from '$stylist/notification/interface/component/error-message/other';
 
-  type Props = ErrorMessageProps;
-  let props: Props = $props();
+  let props: ErrorMessageProps = $props();
 
   const state = createErrorMessageState(props);
 

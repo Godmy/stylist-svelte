@@ -3,6 +3,7 @@ export { TOKEN_ALIGNMENT } from './alignment';
 export { TOKEN_BACKGROUND } from './background';
 export { TOKEN_BORDER_STYLE } from './border-style';
 export { TOKEN_BREAKPOINT } from './breakpoint';
+export { ChevronDown, ChevronUp } from './chevron';
 export { TOKEN_COLUMN } from './column';
 export { TOKEN_CORNER } from './corner';
 export { TOKEN_DENSITY } from './density';

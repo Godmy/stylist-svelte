@@ -1,0 +1,3 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { commentThreadFormatDate, commentThreadHandleKeyDown, commentThreadStartEditing, commentThreadSubmitComment, commentThreadSubmitEdit, commentThreadSubmitReply } from './comment-thread';
+export { friendListFormatLastSeen, friendListGetStatusColor, friendListGetStatusText, friendListHandleAddFriend, friendListHandleCall, friendListHandleFriendClick, friendListHandleSearchInput, friendListHandleSendMessage, friendListHandleVideoCall } from './friend-list';

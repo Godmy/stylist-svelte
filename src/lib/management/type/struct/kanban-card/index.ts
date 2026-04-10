@@ -1,3 +1,5 @@
+export type KanbanCardStatus = 'todo' | 'in-progress' | 'review' | 'done' | 'archived';
+
 export type KanbanCardType = {
   id: string;
   title: string;
@@ -6,7 +8,7 @@ export type KanbanCardType = {
   assignees?: string[];
   dueDate?: Date;
   priority?: 'low' | 'medium' | 'high';
-  status?: string;
+  status?: KanbanCardStatus;
   tags?: string[];
   createdAt?: Date;
   updatedAt?: Date;

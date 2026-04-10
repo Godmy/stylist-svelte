@@ -22,7 +22,7 @@
   let props: Props = $props();
 
   let isDragOver = $state(false);
-  let items = $state<DropItem[]>([]);
+  let items = $state([] as DropItem[]);
   let isProcessing = $state(false);
   let accept = $derived(props.accept ?? '');
   let multiple = $derived(props.multiple ?? false);
@@ -31,7 +31,7 @@
   let label = $derived(props.label);
   let description = $derived(props.description);
   let children = $derived(props.children);
-  const state = createDropZoneState(props);
+  const dropZoneState = createDropZoneState(props);
 
   let restProps = $derived.by(() => {
     const {
@@ -48,7 +48,7 @@
 <div
   class={`c-drop-zone border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
     isDragOver ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]' : 'border-[var(--color-border-primary)] hover:border-[var(--color-border-primary)]'
-  } ${state.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${state.classes}`}
+  } ${dropZoneState.disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : ''} ${dropZoneState.classes}`}
   ondragover={(e) => {
     e.preventDefault();
     isDragOver = true;
@@ -62,11 +62,11 @@
   ondrop={(e) => {
     e.preventDefault();
     isDragOver = false;
-    if (state.disabled) return;
+    if (dropZoneState.disabled) return;
     const files = e.dataTransfer?.files;
     if (files && files.length > 0) {
       isProcessing = true;
-      const result = processFiles(files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
+      const result = processFilesFn(files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
       items = result;
       isProcessing = false;
       props.onDrop?.(result);
@@ -89,13 +89,13 @@
       class="hidden"
       accept={accept}
       multiple={multiple}
-      disabled={disabled}
+      disabled={dropZoneState.disabled}
       onchange={(e) => {
-        if (state.disabled) return;
+        if (dropZoneState.disabled) return;
         const target = e.target as HTMLInputElement;
         if (target.files && target.files.length > 0) {
           isProcessing = true;
-          const result = processFiles(target.files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
+          const result = processFilesFn(target.files, items, props.accept ?? '*', props.maxSize ?? Infinity, props.maxItems ?? Infinity, props.onItemAdded);
           items = result;
           isProcessing = false;
           props.onDrop?.(result);
@@ -113,7 +113,7 @@
           const fileInput = parentElement ? parentElement.querySelector('input[type="file"]') : null;
           if (fileInput) (fileInput as HTMLInputElement).click();
         }}
-        disabled={state.disabled}
+        disabled={dropZoneState.disabled}
       >
         Browse Files
       </Button>
@@ -128,7 +128,7 @@
           variant="ghost"
           size="sm"
           onclick={() => { items = []; }}
-          disabled={state.disabled}
+          disabled={dropZoneState.disabled}
         >
           Clear All
         </Button>
@@ -152,7 +152,7 @@
                 variant="ghost"
                 size="sm"
                 onclick={() => { items = items.filter((i: DropItem) => i.id !== item.id); props.onItemRemoved?.(item); }}
-                disabled={state.disabled}
+                disabled={dropZoneState.disabled}
               >
                 <BaseIcon name={X} class="h-4 w-4" />
               </Button>

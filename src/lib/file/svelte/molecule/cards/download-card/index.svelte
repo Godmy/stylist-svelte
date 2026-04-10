@@ -7,7 +7,7 @@
   import { createDownloadCardState } from '$stylist/file/function/state/download-card';
 
   let props: IDownloadCardProps = $props();
-  const state = createDownloadCardState(props);
+  const state = createDownloadCardState(props as IDownloadCardProps & Record<string, unknown>);
 
   const containerClasses = $derived(DownloadCardStyleManager.getContainerClasses(state.class));
   const iconContainerClasses = $derived(DownloadCardStyleManager.getIconContainerClasses());
@@ -19,7 +19,7 @@
   const downloadButtonClasses = $derived(DownloadCardStyleManager.getDownloadButtonClasses(state.variant));
 
   function handleDownload() {
-    handleFileDownload(state.downloadUrl);
+    if (state.downloadUrl) handleFileDownload(state.downloadUrl);
   }
 </script>
 

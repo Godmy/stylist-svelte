@@ -1,53 +1,24 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
+  import { createPromoBannerState, type PromoBannerProps } from '$stylist/media/function/state/promo-banner';
 
-  let {
-    title = '',
-    description = '',
-    cta = 'Learn More',
-    link = '#',
-    image = '',
-    variant = 'primary', // 'primary', 'secondary', 'success', 'warning', 'danger'
-    onCtaClick = () => {},
-    class: className = ''
-  } = $props<{
-    title?: string;
-    description?: string;
-    cta?: string;
-    link?: string;
-    image?: string;
-    variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-    onCtaClick?: () => void;
-    class?: string;
-  }>();
-
-  const variantClasses: Record<'primary' | 'secondary' | 'success' | 'warning' | 'danger', string> = {
-    primary: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
-    secondary: 'bg-[var(--color-background-secondary)] border-[var(--color-border-primary)] text-[var(--color-text-primary)]',
-    success: 'bg-[var(--color-success-50)] border-[var(--color-success-200)] text-[var(--color-success-800)]',
-    warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
-    danger: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
-  };
+  let props: PromoBannerProps = $props();
+  const state = createPromoBannerState(props);
 </script>
 
-<div class={`border rounded-lg p-6 flex flex-col md:flex-row items-center ${variantClasses[variant as keyof typeof variantClasses]} ${className}`}>
+<div class={state.hostClasses}>
   <div class="md:w-2/3 mb-4 md:mb-0 md:pr-6">
-    <h2 class="text-xl font-bold mb-2">{title}</h2>
-    <p class="mb-4">{description}</p>
+    <h2 class="text-xl font-bold mb-2">{state.title}</h2>
+    <p class="mb-4">{state.description}</p>
     <button
-      onclick={onCtaClick}
+      onclick={state.onCtaClick}
       class="px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]"
     >
-      {cta}
+      {state.cta}
     </button>
   </div>
-  {#if image}
+  {#if state.image}
     <div class="md:w-1/3 flex justify-center">
-      <img src={image} alt={title} class="max-h-32 object-contain" />
+      <img src={state.image} alt={state.title} class="max-h-32 object-contain" />
     </div>
   {/if}
 </div>
-
-
-
-

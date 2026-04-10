@@ -1,88 +1,15 @@
 <script lang="ts">
-import { Button } from '$stylist';
+  import { Button } from '$stylist';
   import Checkbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
   import Select from '$stylist/control/svelte/molecule/selectors/selector/index.svelte';
-  import { createEventDispatcher } from 'svelte';
+  import type { FilterPanelProps } from '$stylist/form/type/struct/filter-panel';
+  import { createFilterPanelState } from '$stylist/form/function/state/filter-panel';
+  import { handleFilterChange } from '$stylist/form/function/script/filter-panel/handle-filter-change';
+  import { handleLayoutChange } from '$stylist/form/function/script/filter-panel/handle-layout-change';
+  import { handleReset } from '$stylist/form/function/script/filter-panel/handle-reset';
 
-  // Props
-  let { 
-    showObjects = true,
-    showInterfaces = true,
-    showUnions = true,
-    showEnums = true,
-    showScalars = true,
-    showInputs = true,
-    layout = 'force-directed'
-  }: {
-    showObjects?: boolean;
-    showInterfaces?: boolean;
-    showUnions?: boolean;
-    showEnums?: boolean;
-    showScalars?: boolean;
-    showInputs?: boolean;
-    layout?: 'force-directed' | 'hierarchical' | 'circular' | 'grid';
-  } = $props();
-
-  // Events
-  const dispatch = createEventDispatcher<{
-    filterChange: {
-      showObjects: boolean;
-      showInterfaces: boolean;
-      showUnions: boolean;
-      showEnums: boolean;
-      showScalars: boolean;
-      showInputs: boolean;
-      layout: string;
-    };
-    reset: {};
-  }>();
-
-  // Local state
-  let objectsVisible = $state(showObjects);
-  let interfacesVisible = $state(showInterfaces);
-  let unionsVisible = $state(showUnions);
-  let enumsVisible = $state(showEnums);
-  let scalarsVisible = $state(showScalars);
-  let inputsVisible = $state(showInputs);
-  let currentLayout = $state(layout);
-
-  // Handle filter changes
-  function handleFilterChange() {
-    dispatch('filterChange', {
-      showObjects: objectsVisible,
-      showInterfaces: interfacesVisible,
-      showUnions: unionsVisible,
-      showEnums: enumsVisible,
-      showScalars: scalarsVisible,
-      showInputs: inputsVisible,
-      layout: currentLayout
-    });
-  }
-
-  // Handle layout change
-  function handleLayoutChange(e: Event) {
-    const target = e.target as HTMLSelectElement;
-    currentLayout = target.value as any;
-    handleFilterChange();
-  }
-
-  // Handle reset
-  function handleReset() {
-    objectsVisible = true;
-    interfacesVisible = true;
-    unionsVisible = true;
-    enumsVisible = true;
-    scalarsVisible = true;
-    inputsVisible = true;
-    currentLayout = 'force-directed';
-    handleFilterChange();
-    dispatch('reset', {});
-  }
-
-  // Initialize
-  $effect(() => {
-    handleFilterChange();
-  });
+  const { onFilterChange, onReset, ...rest }: FilterPanelProps = $props();
+  const state = createFilterPanelState(rest);
 </script>
 
 <style>
@@ -131,69 +58,69 @@ import { Button } from '$stylist';
 
 </style>
 
-<div class="filter-panel">
-  <div class="filter-section">
-    <div class="filter-header">Node Types</div>
-    <div class="filter-options">
-      <div class="filter-item">
-        <Checkbox 
+<div class={state.rootClass}>
+  <div class={state.filterSectionClass}>
+    <div class={state.filterHeaderClass}>Node Types</div>
+    <div class={state.filterOptionsClass}>
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showObjects"
           label="Show Objects"
-          bind:checked={objectsVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.objectsVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
-      <div class="filter-item">
-        <Checkbox 
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showInterfaces"
           label="Show Interfaces"
-          bind:checked={interfacesVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.interfacesVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
-      <div class="filter-item">
-        <Checkbox 
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showUnions"
           label="Show Unions"
-          bind:checked={unionsVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.unionsVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
-      <div class="filter-item">
-        <Checkbox 
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showEnums"
           label="Show Enums"
-          bind:checked={enumsVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.enumsVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
-      <div class="filter-item">
-        <Checkbox 
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showScalars"
           label="Show Scalars"
-          bind:checked={scalarsVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.scalarsVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
-      <div class="filter-item">
-        <Checkbox 
+      <div class={state.filterItemClass}>
+        <Checkbox
           id="showInputs"
           label="Show Inputs"
-          bind:checked={inputsVisible} 
-          onchange={handleFilterChange}
+          bind:checked={state.inputsVisible}
+          onchange={() => handleFilterChange(state, onFilterChange)}
         />
       </div>
     </div>
   </div>
-  
-  <div class="filter-section">
-    <div class="filter-header">Layout</div>
-    <div class="layout-controls">
-      <Select 
+
+  <div class={state.filterSectionClass}>
+    <div class={state.filterHeaderClass}>Layout</div>
+    <div class={state.layoutControlsClass}>
+      <Select
         id="layout-select"
         label="Select Layout"
-        bind:value={currentLayout} 
-        oninput={handleLayoutChange}
+        bind:value={state.currentLayout}
+        oninput={(e) => handleLayoutChange(e, state, onFilterChange)}
         options={[
             { value: 'force-directed', label: 'Force Directed' },
             { value: 'hierarchical', label: 'Hierarchical' },
@@ -203,13 +130,13 @@ import { Button } from '$stylist';
       />
     </div>
   </div>
-  
-  <Button 
-    variant="ghost" 
-    size="sm" 
+
+  <Button
+    variant="ghost"
+    size="sm"
     class="reset-btn"
     style="align-self: flex-start; margin-top: var(--spacing-2);"
-    onclick={handleReset}
+    onclick={() => handleReset(state, onFilterChange, onReset)}
   >
     Reset Filters
   </Button>

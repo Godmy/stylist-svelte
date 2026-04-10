@@ -5,4 +5,10 @@ export function createModalState(props: ModalProps) {
 
 	return {
 		get dialogClasses() {
-			return dialogClasses;
+			return dialogClasses;
+		}
+	};
+}
+ 
+ 
+export default createModalState; 

@@ -1,16 +1,24 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-const Edit3 = 'edit-3';
-const MessageCircle = 'message-circle';
-const MoreHorizontal = 'more-horizontal';
-const Reply = 'reply';
-const Send = 'send';
-const Trash2 = 'trash-2';
-const UserIcon = 'user';
-
   import type { CommentThreadProps } from '$stylist/social/interface/component/comment-thread/other';
   import type { CommentThreadItem } from '$stylist/social/interface/component/comment-thread/other';
   import { CommentThreadStyleManager } from '$stylist/social/class/style-manager/comment-thread';
+  import {
+    commentThreadSubmitComment,
+    commentThreadSubmitReply,
+    commentThreadSubmitEdit,
+    commentThreadStartEditing,
+    commentThreadHandleKeyDown,
+    commentThreadFormatDate
+  } from '$stylist/social/function/script/comment-thread';
+
+  const COMMENT_THREAD_EDIT_3 = 'edit-3';
+  const COMMENT_THREAD_MESSAGE_CIRCLE = 'message-circle';
+  const COMMENT_THREAD_MORE_HORIZONTAL = 'more-horizontal';
+  const COMMENT_THREAD_REPLY = 'reply';
+  const COMMENT_THREAD_SEND = 'send';
+  const COMMENT_THREAD_TRASH_2 = 'trash-2';
+  const COMMENT_THREAD_USER_ICON = 'user';
 
   let {
     title = 'Comments',
@@ -35,51 +43,12 @@ const UserIcon = 'user';
   let replyTexts: Record<string, string> = $state({});
   let editTexts: Record<string, string> = $state({});
   let editingCommentId: string | null = $state(null);
-
-  function submitComment() {
-    if (newComment.trim() && onCommentSubmit) {
-      onCommentSubmit(newComment.trim());
-      newComment = '';
-    }
-  }
-
-  function submitReply(parentId: string) {
-    const content = replyTexts[parentId];
-    if (content && onReplySubmit) {
-      onReplySubmit(content, parentId);
-      replyTexts[parentId] = '';
-    }
-  }
-
-  function submitEdit(commentId: string) {
-    const content = editTexts[commentId];
-    if (content && onEditSubmit) {
-      onEditSubmit(commentId, content);
-      editingCommentId = null;
-    }
-  }
-
-  function startEditing(commentId: string, content: string) {
-    editingCommentId = commentId;
-    editTexts[commentId] = content;
-  }
-
-  function handleKeyDown(e: KeyboardEvent, action: () => void) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      action();
-    }
-  }
-
-  function formatDate(date: Date) {
-    return date.toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-  }
 </script>
 
 <div class={CommentThreadStyleManager.getWrapperClass(className)} {...restProps}>
   {#if showTitle}
     <div class={CommentThreadStyleManager.getHeaderClass(headerClass)}>
-      <BaseIcon name={MessageCircle} class="h-5 w-5 text-[--color-text-secondary] mr-2" />
+      <BaseIcon name={COMMENT_THREAD_MESSAGE_CIRCLE} class="h-5 w-5 text-[--color-text-secondary] mr-2" />
       <h3 class="text-lg font-medium text-[--color-text-primary]">{title}</h3>
     </div>
   {/if}
@@ -87,21 +56,21 @@ const UserIcon = 'user';
   <div class="p-4">
     <div class="flex space-x-3 mb-6">
       <div class="h-8 w-8 rounded-full bg-[--color-background-secondary] flex items-center justify-center">
-        <BaseIcon name={UserIcon} class="h-5 w-5 text-[--color-text-secondary]" />
+        <BaseIcon name={COMMENT_THREAD_USER_ICON} class="h-5 w-5 text-[--color-text-secondary]" />
       </div>
       <div class="flex-1">
         <textarea
           class={CommentThreadStyleManager.getComposerInputClass(inputClass)}
           placeholder="Write a comment..."
           bind:value={newComment}
-          onkeydown={(e) => handleKeyDown(e, submitComment)}
+          onkeydown={(e) => commentThreadHandleKeyDown(e, () => commentThreadSubmitComment(newComment, onCommentSubmit, (v) => newComment = v))}
           rows={2}
         ></textarea>
         <div class="mt-2 flex justify-end">
           <button
             type="button"
             class={`px-4 py-2 text-sm font-medium rounded-md ${!newComment.trim() ? 'bg-[--color-background-secondary] text-[--color-text-secondary] cursor-not-allowed' : 'bg-[--color-primary-600] text-[--color-text-inverse] hover:bg-[--color-primary-700]'}`}
-            onclick={submitComment}
+            onclick={() => commentThreadSubmitComment(newComment, onCommentSubmit, (v) => newComment = v)}
             disabled={!newComment.trim()}
           >
             Comment
@@ -127,13 +96,13 @@ const UserIcon = 'user';
               <div class="flex items-center">
                 <h4 class="text-sm font-bold text-[--color-text-primary]">{comment.author.name}</h4>
                 <span class="mx-2 text-[--color-text-secondary]">-</span>
-                <span class="text-xs text-[--color-text-secondary]">{formatDate(comment.timestamp)}</span>
+                <span class="text-xs text-[--color-text-secondary]">{commentThreadFormatDate(comment.timestamp)}</span>
               </div>
 
               {#if editingCommentId === comment.id}
                 <textarea class={CommentThreadStyleManager.getComposerInputClass(inputClass)} bind:value={editTexts[comment.id]} rows={3}></textarea>
                 <div class="mt-2 flex space-x-2">
-                  <button type="button" class="px-3 py-1 text-sm font-medium text-[--color-text-inverse] bg-[--color-primary-600] rounded-md hover:bg-[--color-primary-700]" onclick={() => submitEdit(comment.id)}>Save</button>
+                  <button type="button" class="px-3 py-1 text-sm font-medium text-[--color-text-inverse] bg-[--color-primary-600] rounded-md hover:bg-[--color-primary-700]" onclick={() => commentThreadSubmitEdit(comment.id, editTexts, onEditSubmit, (v) => editingCommentId = v)}>Save</button>
                   <button type="button" class="px-3 py-1 text-sm font-medium text-[--color-text-primary] bg-[--color-background-secondary] rounded-md" onclick={() => editingCommentId = null}>Cancel</button>
                 </div>
               {:else}
@@ -148,22 +117,22 @@ const UserIcon = 'user';
                 {/if}
                 {#if showReply}
                   <button type="button" class={CommentThreadStyleManager.getActionButtonClass()} onclick={() => { if (replyTexts[comment.id] === undefined) replyTexts[comment.id] = ''; }}>
-                    <BaseIcon name={Reply} class="h-4 w-4" />
+                    <BaseIcon name={COMMENT_THREAD_REPLY} class="h-4 w-4" />
                     <span class="ml-1">Reply</span>
                   </button>
                 {/if}
                 {#if currentUserId === comment.author.id}
-                  <button type="button" class={CommentThreadStyleManager.getActionButtonClass()} onclick={() => startEditing(comment.id, comment.content)}>
-                    <BaseIcon name={Edit3} class="h-4 w-4" />
+                  <button type="button" class={CommentThreadStyleManager.getActionButtonClass()} onclick={() => commentThreadStartEditing(comment.id, comment.content, (v) => editingCommentId = v, (v) => editTexts = v, editTexts)}>
+                    <BaseIcon name={COMMENT_THREAD_EDIT_3} class="h-4 w-4" />
                     <span class="ml-1">Edit</span>
                   </button>
                   <button type="button" class="flex items-center text-sm text-[--color-danger-600]" onclick={() => onDelete?.(comment.id)}>
-                    <BaseIcon name={Trash2} class="h-4 w-4" />
+                    <BaseIcon name={COMMENT_THREAD_TRASH_2} class="h-4 w-4" />
                     <span class="ml-1">Delete</span>
                   </button>
                 {/if}
                 <button type="button" class="text-[--color-text-secondary]">
-                  <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
+                  <BaseIcon name={COMMENT_THREAD_MORE_HORIZONTAL} class="h-4 w-4" />
                 </button>
               </div>
 
@@ -173,16 +142,16 @@ const UserIcon = 'user';
                     class={CommentThreadStyleManager.getComposerInputClass(inputClass)}
                     placeholder="Write a reply..."
                     bind:value={replyTexts[comment.id]}
-                    onkeydown={(e) => handleKeyDown(e, () => submitReply(comment.id))}
+                    onkeydown={(e) => commentThreadHandleKeyDown(e, () => commentThreadSubmitReply(comment.id, replyTexts, onReplySubmit, (v) => replyTexts = v))}
                     rows={2}
                   ></textarea>
                   <button
                     type="button"
                     class={`px-3 py-1 text-sm font-medium rounded-md ${!replyTexts[comment.id]?.trim() ? 'bg-[--color-background-secondary] text-[--color-text-secondary] cursor-not-allowed' : 'bg-[--color-primary-600] text-[--color-text-inverse] hover:bg-[--color-primary-700]'}`}
-                    onclick={() => submitReply(comment.id)}
+                    onclick={() => commentThreadSubmitReply(comment.id, replyTexts, onReplySubmit, (v) => replyTexts = v)}
                     disabled={!replyTexts[comment.id]?.trim()}
                   >
-                    <BaseIcon name={Send} class="h-4 w-4" />
+                    <BaseIcon name={COMMENT_THREAD_SEND} class="h-4 w-4" />
                   </button>
                 </div>
               {/if}
@@ -201,7 +170,7 @@ const UserIcon = 'user';
                       <div class="flex items-center">
                         <h4 class="text-sm font-bold text-[--color-text-primary]">{reply.author.name}</h4>
                         <span class="mx-2 text-[--color-text-secondary]">-</span>
-                        <span class="text-xs text-[--color-text-secondary]">{formatDate(reply.timestamp)}</span>
+                        <span class="text-xs text-[--color-text-secondary]">{commentThreadFormatDate(reply.timestamp)}</span>
                       </div>
                       <p class="mt-1 text-[--color-text-primary]">{reply.content}</p>
                     </div>

@@ -1,10 +1,21 @@
 <script lang="ts">
-  import Transformable from '$stylist/animation/svelte/atom/motion/transformable/index.svelte';
-  export { Transformable };
+  import type { TransformProps } from '$stylist/animation/interface/proto/transformable-props';
+  import { createTransformableState } from '$stylist/interaction/function/state/transformable';
+
+  let props: TransformProps = $props();
+  const state = createTransformableState(props);
 </script>
 
-<!-- 
-  Реэкспорт Transformable из animation домена
-  для обратной совместимости
--->
-<svelte:options accessors={true} />
+<div
+  class={state.classes}
+  style={state.inlineStyle !== 'none' ? `transform: ${state.inlineStyle}; transition: transform 300ms ease-in-out;` : undefined}
+  {...state.restProps}
+  onmouseenter={state.handleMouseEnter}
+  onmouseleave={state.handleMouseLeave}
+  onmousedown={state.handleMouseDown}
+  onmouseup={state.handleMouseUp}
+>
+  {#if props.children}
+    {@render props.children?.()}
+  {/if}
+</div>

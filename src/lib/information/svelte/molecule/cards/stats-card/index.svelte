@@ -1,58 +1,37 @@
 ﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createStatsCardState } from '$stylist/information/function/state/stats-card';
   import type { StatsCardRecipe } from '$stylist/information/interface/recipe/stats-card';
-  import { ObjectManagerStatsCard } from '$stylist/information/class/object-manager/stats-card';
-  import { StatsCardStyleManager } from '$stylist/information/class/style-manager/stats-card';
 
-  let {
-    label,
-    value,
-    trend = 'neutral',
-    trendValue,
-    description,
-    icon,
-    class: className = ''
-  }: StatsCardRecipe = $props();
+  let stateProps: StatsCardRecipe = $props();
 
-  const classNameStr = className == null ? undefined : String(className);
-
-  const trendClasses = $derived(ObjectManagerStatsCard.resolveTrendClass(trend));
-  const trendIconName = $derived(ObjectManagerStatsCard.resolveTrendIconName(trend));
-  const containerClasses = $derived(StatsCardStyleManager.getContainerClasses(classNameStr));
-  const headerClasses = $derived(StatsCardStyleManager.getHeaderClasses());
-  const labelClasses = $derived(StatsCardStyleManager.getLabelClasses());
-  const valueClasses = $derived(StatsCardStyleManager.getValueClasses());
-  const iconWrapperClasses = $derived(StatsCardStyleManager.getIconWrapperClasses());
-  const footerClasses = $derived(StatsCardStyleManager.getFooterClasses());
-  const trendContainerClasses = $derived(StatsCardStyleManager.getTrendClasses(trendClasses));
-  const trendIconClasses = $derived(StatsCardStyleManager.getTrendIconClasses());
-  const descriptionClasses = $derived(StatsCardStyleManager.getDescriptionClasses());
+  const state = createStatsCardState(stateProps as Parameters<typeof createStatsCardState>[0]);
 </script>
 
-<article class={containerClasses}>
-  <div class={headerClasses}>
+<article class={state.containerClasses}>
+  <div class={state.headerClasses}>
     <div>
-      <p class={labelClasses}>{label}</p>
-      <p class={valueClasses}>{value}</p>
+      <p class={state.labelClasses}>{state.label}</p>
+      <p class={state.valueClasses}>{state.value}</p>
     </div>
 
-    {#if icon}
-      <div class={iconWrapperClasses}>
-        {@render icon()}
+    {#if state.icon}
+      <div class={state.iconWrapperClasses}>
+        {@render state.icon()}
       </div>
     {/if}
   </div>
 
-  <div class={footerClasses}>
-    {#if trendValue}
-      <span class={trendContainerClasses}>
-        <BaseIcon name={trendIconName} class={trendIconClasses} />
-        {trendValue}
+  <div class={state.footerClasses}>
+    {#if state.trendValue}
+      <span class={state.trendContainerClasses}>
+        <BaseIcon name={state.trendIconName} class={state.trendIconClasses} />
+        {state.trendValue}
       </span>
     {/if}
 
-    {#if description}
-      <span class={descriptionClasses}>{description}</span>
+    {#if state.description}
+      <span class={state.descriptionClasses}>{state.description}</span>
     {/if}
   </div>
 </article>

@@ -65,17 +65,14 @@
   {#if showFilter}
     <div class="panel-section">
       <FilterPanel
-        on:filterchange={(e: CustomEvent<{ filters: string[] }>) => onFilterChange?.(e.detail)}
+        onFilterChange={(filters) => onFilterChange?.(filters)}
       />
     </div>
   {/if}
 
   {#if showToolbar}
     <div class="panel-section">
-      <Toolbar
-        on:togglelegend={() => isLegendVisible = !isLegendVisible}
-        on:togglesearch={() => isSearchVisible = !isSearchVisible}
-      />
+      <Toolbar />
     </div>
   {/if}
 </div>

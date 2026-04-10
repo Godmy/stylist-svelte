@@ -3,32 +3,8 @@
   import { createNotificationSettingsState } from '$stylist/management/function/state/notification-settings';
   import type { INotificationSettingsProps } from '$stylist/communication/interface/component/notifications/other';
 
-  let {
-    preferences = [],
-    onPreferenceChange,
-    showEmail = true,
-    showPush = true,
-    showSms = true,
-    showInApp = true,
-    class: className = '',
-    headerClass = '',
-    sectionClass = '',
-    footerClass = '',
-    ...restProps
-  }: INotificationSettingsProps = $props();
-
-  const state = createNotificationSettingsState({
-    preferences,
-    onPreferenceChange,
-    showEmail,
-    showPush,
-    showSms,
-    showInApp,
-    class: className,
-    headerClass,
-    sectionClass,
-    footerClass
-  });
+  let props: INotificationSettingsProps = $props();
+  const state = createNotificationSettingsState(props);
 </script>
 
 <div class={`bg-[var(--color-background-primary)] rounded-lg shadow border border-[var(--color-border-primary)] overflow-hidden ${state.className}`} {...state.restProps}>

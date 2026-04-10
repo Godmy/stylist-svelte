@@ -1,5 +1,6 @@
-/**
- * Реэкспорт createAnimatedState из animation домена
- * для обратной совместимости
- */
-export { createAnimatedState, createAnimatedState as default } from '$stylist/animation/function/state/animated/index.svelte';
+import type { AnimateProps } from '$stylist/animation/interface/proto/animate-props';
+import { createAnimatedState as createAnimationAnimatedState } from '$stylist/animation/function/state/animated';
+
+export const createAnimatedState = (props: AnimateProps) => createAnimationAnimatedState(props);
+
+export default createAnimatedState;
