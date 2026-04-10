@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ExtendedTranslationEditorProps, LocaleSwitcherLocale, LocaleSwitcherProps, LocaleSwitcherTimezoneOption, TranslationEditorProps } from './component';
+export type { ExtendedTranslationEditorProps, ILanguageSelectorProps, ILanguageSelectorStyleClasses, LocaleSwitcherLocale, LocaleSwitcherProps, LocaleSwitcherTimezoneOption, TranslationEditorProps } from './component';

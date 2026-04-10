@@ -1,48 +1,31 @@
 ﻿<script lang="ts">
-import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
 import { createFileInputState } from '$stylist/file/function/state/file-input';
-import { handleFileChange, clearFile } from '$stylist/file/function/script/file-input';
 import type { Props } from '$stylist/file/type/struct/file-input';
 
 	let props: Props = $props();
-	let inputElement: HTMLInputElement | null = $state(null);
-	let internalValue: File | File[] | null = $state(null);
-	let fileName = $state('');
-	const fileInputState = createFileInputState(props as Props & Record<string, unknown>);
-
-	// Update internal value when prop value changes
-	$effect(() => {
-		internalValue = props.value ?? null;
-		fileName = resolveFileSelectionLabel(internalValue);
-	});
+	const state = createFileInputState(props);
 </script>
 
 <div class="relative">
-	<label class={`flex cursor-pointer items-center justify-center ${fileInputState.classes}`.trim()}>
+	<label class={`flex cursor-pointer items-center justify-center ${state.classes}`.trim()}>
 		<input
-			bind:this={inputElement}
+			bind:this={state.inputElement}
 			type="file"
-			multiple={props.multiple ?? false}
-			accept={props.accept ?? ''}
-			disabled={props.disabled ?? false}
-			onchange={(e) => {
-				const result = handleFileChange(e, props.multiple ?? false, props.onFileChange);
-				internalValue = result.internalValue;
-				fileName = result.fileName;
-			}}
+			multiple={state.multiple}
+			accept={state.accept}
+			disabled={state.disabled}
+			onchange={state.handleChange}
 			class="sr-only"
 		/>
 		<span class="flex items-center">
-			{#if fileName}
-				<span class="mr-2 truncate">{fileName}</span>
+			{#if state.fileName}
+				<span class="mr-2 truncate">{state.fileName}</span>
 				<button
 					type="button"
 					class="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
 					onclick={(e) => {
 						e.stopPropagation();
-						clearFile(inputElement, props.onFileChange);
-						internalValue = null;
-						fileName = '';
+						state.clearSelection();
 					}}
 					aria-label="Clear file"
 				>
@@ -72,7 +55,7 @@ import type { Props } from '$stylist/file/type/struct/file-input';
 						clip-rule="evenodd"
 					/>
 				</svg>
-				<span>{props.placeholder ?? 'Choose file(s)...'}</span>
+				<span>{state.placeholder}</span>
 			{/if}
 		</span>
 	</label>

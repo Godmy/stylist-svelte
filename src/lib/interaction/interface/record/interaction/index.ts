@@ -207,7 +207,7 @@ import type { SortableTableHeaderProps } from '$stylist/control/interface/compon
 import type { SharedCanvasProps } from '$stylist/canvas/interface/component/shared-canvas/other';
 
 // Node Palette - from other
-import type { NodePaletteItem, NodePaletteProps } from '$stylist/control/interface/component/node-palette/other';
+import type { NodePaletteItem, NodePaletteProps } from '$stylist/science/interface/component/node-palette/other';
 
 // Multi-select - from other
 import type { MultiSelectOption, MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';

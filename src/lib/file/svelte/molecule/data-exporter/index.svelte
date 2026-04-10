@@ -1,36 +1,18 @@
 ﻿<script lang="ts">
-    import { createEventDispatcher } from 'svelte';
-    import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
-    import type { DataItem } from '$stylist/file/type/struct/data-exporter';
-    import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
     import { createDataExporterState } from '$stylist/file/function/state/data-exporter';
+    import type { Props } from '$stylist/file/type/struct/data-exporter/props';
 
-    interface DataExporterProps {
-        data?: DataItem[];
-        format?: ExportFormat;
-        disabled?: boolean;
-        fileName?: string;
-    }
-
-    let props: DataExporterProps = $props();
-    const exporterState = createDataExporterState(props as DataExporterProps & Record<string, unknown>);
-    let selectedFormat = $state(props.format ?? 'csv');
-
-    const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
-
-    function exportData() {
-        if (exporterState.disabled) return;
-        exportDataFn(exporterState.data, selectedFormat, exporterState.fileName, exporterState.formats, dispatch);
-    }
+    let props: Props = $props();
+    const state = createDataExporterState(props);
 </script>
 
 <div class="data-exporter">
-    <select bind:value={selectedFormat} disabled={exporterState.disabled}>
+    <select bind:value={state.selectedFormat} disabled={state.disabled}>
         <option value="csv">CSV</option>
         <option value="json">JSON</option>
         <option value="excel">Excel</option>
     </select>
-    <button onclick={exportData} disabled={exporterState.disabled}>
+    <button onclick={state.exportData} disabled={state.disabled}>
         Export Data
     </button>
 </div>

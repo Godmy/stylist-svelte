@@ -1,11 +1,5 @@
 import type { ToastStackProps } from '$stylist/notification/type/struct/toast-stack-props';
 import type { ToastType } from '$stylist/notification/type/enum/toast-type';
-import CheckCircle from '$stylist/svg/information/outline/check-circle.svg';
-import AlertCircle from '$stylist/svg/information/outline/alert-circle.svg';
-import Info from '$stylist/svg/information/outline/info.svg';
-import XCircle from '$stylist/svg/information/outline/x-circle.svg';
-import AlertTriangle from '$stylist/svg/information/outline/alert-triangle.svg';
-import X from '$stylist/svg/information/outline/x.svg';
 
 const positionClassesMap = {
 	'top-right': 'top-4 right-4',
@@ -31,10 +25,10 @@ const iconClassesMap: Record<ToastType, string> = {
 };
 
 const iconMap: Record<ToastType, string> = {
-	success: CheckCircle,
-	warning: AlertTriangle,
-	error: XCircle,
-	info: Info
+	success: 'check-circle',
+	warning: 'alert-triangle',
+	error: 'x-circle',
+	info: 'info'
 };
 
 export function createToastStackState(props: ToastStackProps) {
@@ -51,7 +45,7 @@ export function createToastStackState(props: ToastStackProps) {
 	}
 
 	function getToastIcon(type: ToastType) {
-		return iconMap[type] || Info;
+		return iconMap[type] || 'info';
 	}
 
 	function getToastIconColor(type: ToastType) {
@@ -65,7 +59,7 @@ export function createToastStackState(props: ToastStackProps) {
 		getToastColor,
 		getToastIcon,
 		getToastIconColor,
-		X
+		X: 'x' as const
 	};
 }
 

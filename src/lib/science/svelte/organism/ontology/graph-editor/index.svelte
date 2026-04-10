@@ -48,10 +48,10 @@
 				searchQuery={state.paletteSearchQuery}
 				selectedCategory={state.paletteSelectedCategory}
 				viewMode="list"
-				onSearch={(query) => state.paletteSearchQuery = query}
+				onSearch={(query: string) => state.paletteSearchQuery = query}
 				onNodeSelect={state.handlePaletteNodeSelect}
 				onClose={() => state.isPaletteOpen = false}
-				onCategorySelect={(category) => state.paletteSelectedCategory = category}
+				onCategorySelect={(category: string) => state.paletteSelectedCategory = category}
 			/>
 		</div>
 	{/if}

@@ -6,3 +6,4 @@ export { createChartAxisXState, createChartAxisYState, createChartAxisZState, cr
 export { createPieChartState } from './chart-pie';
 export { createHeatmapState } from './heatmap';
 export { createLineChartState } from './line-chart';
+export { createScatterPlotState } from './scatter-plot';

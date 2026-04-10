@@ -12,6 +12,7 @@ export type Props = RestProps & {
   showPath?: boolean;
   enableSelection?: boolean;
   multiselect?: boolean;
+  disabled?: boolean;
   onItemSelect?: (item: FileSystemItem) => void;
   onItemDoubleClick?: (item: FileSystemItem) => void;
   onItemAction?: (item: FileSystemItem, action: string) => void;

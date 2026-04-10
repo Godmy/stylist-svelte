@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { TokenMediaIcon } from './enum';
 export type { AudioPlayerProps, AudioSliderProps, AudioVisualizerProps, AvatarGroupAvatar, AvatarGroupProps, AvatarProps, CanvasImageEditorProps, CountryFlagProps, FaviconProps, IconProps, ImageGalleryProps, ImageProps, MediaItem, MediaLibraryProps, MediaType, NodeIconProps, PromoBannerProps, PromoBannerVariant, SvgProps, TeamAvatarStackProps, TeamMember, VideoPlayerProps } from './struct';

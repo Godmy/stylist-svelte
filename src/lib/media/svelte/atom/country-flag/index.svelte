@@ -1,27 +1,21 @@
 <script lang="ts">
-	import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-	import type { CountryFlagRecipe } from '$stylist/geo/interface/recipe/country-flag';
+	import type { CountryFlagProps } from '$stylist/media/type/struct/country-flag';
 	import { createCountryFlagState } from '$stylist/geo/function/state/country-flag';
 
-	type Props = CountryFlagRecipe & InformationHTMLAttributes<HTMLSpanElement>;
-
-	let { content, ...restProps }: Props = $props();
-
-	const state = createCountryFlagState(restProps);
+	let props: CountryFlagProps = $props();
+	const state = createCountryFlagState(props);
 </script>
 
 {#if state.isValid}
-	<span class={state.classes} style={state.style} {...restProps}>
+	<span class={state.classes} style={state.style} {...state.restProps}>
 		{state.emoji}
 	</span>
 {:else}
 	<div class={state.fallbackClasses} style={state.fallbackStyle}>
-		{#if content}
-			{content}
+		{#if props.content}
+			{props.content}
 		{:else}
 			?
 		{/if}
 	</div>
 {/if}
-
-

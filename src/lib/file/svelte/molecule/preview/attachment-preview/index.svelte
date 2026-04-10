@@ -1,22 +1,13 @@
 ﻿<script lang="ts">
-  import { createEventDispatcher } from 'svelte';
   import { Button, Icon } from '$stylist';
   import { createAttachmentPreviewState } from '$stylist/file/function/state/attachment-preview';
-  import type { Attachment } from '$stylist/file/interface/component/attachment-preview/other';
   import {
     formatFileSize,
     getIconName,
-    handleDownload,
-    handleRemove,
-    createAttachmentDispatch,
   } from '$stylist/file/function/script/attachment-preview';
+  import type { Props } from '$stylist/file/type/struct/attachment-preview/props';
 
-  let props: {
-    attachment: Attachment;
-    showActions?: boolean;
-  } = $props();
-
-  const dispatch = createAttachmentDispatch();
+  let props: Props = $props();
   const state = createAttachmentPreviewState(props);
 </script>
 
@@ -39,7 +30,7 @@
       <Button
         variant="ghost"
         size="sm"
-        onclick={() => handleDownload(dispatch, props.attachment)}
+        onclick={state.download}
         title="Скачать"
       >
         <Icon name="download" size="sm" />
@@ -47,7 +38,7 @@
       <Button
         variant="ghost"
         size="sm"
-        onclick={() => handleRemove(dispatch, props.attachment)}
+        onclick={state.remove}
         title="Удалить"
       >
         <Icon name="x" size="sm" />

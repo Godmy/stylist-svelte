@@ -1,9 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ABTestConfiguratorStyleManager, ConversionFunnelStyleManager, CtaBannerStyleManager, HeroStyleManager } from './class';
-export { ICON_ABTEST_CONFIGURATOR, ICON_CONVERSION_FUNNEL, ICON_TEST_RESULTS_VIEWER, ICON_TRAFFIC_ANALYTICS, ICON_USER_BEHAVIOR_METRICS } from './const';
+export { ICON_ABTEST_CONFIGURATOR, ICON_CONVERSION_FUNNEL, ICON_TEST_RESULTS_VIEWER, ICON_TRAFFIC_ANALYTICS, ICON_USER_BEHAVIOR_METRICS, TOKEN_MARKETING_ICON } from './const';
 export { addABTestVariant, calculateABTestTotalWeight, createABTestConfiguratorState, createConversionFunnelState, createCtaBannerState, createHeroState, createTestResultsViewerState, createTrafficAnalyticsState, createUserBehaviorMetricsState, getBestVariant, getButtonClasses, getConversionRate, getDropoff, handleButtonClick, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './function';
 export { AbtestConfigurator, ConversionFunnel, CtaBanner, Hero, TestResultsViewer, TrafficAnalytics, UserBehaviorMetrics } from './svelte';
 export type { ABTestConfiguratorState } from './function';
 export type { ConversionFunnelContract, CtaBannerContract, TestResultsViewerContract, TrafficAnalyticsContract, UserBehaviorMetricsContract } from './interface';
-export type { ConversionFunnelProps, CtaBannerButton, CtaBannerProps, FunnelStep, IHeroCTA, IHeroStat, TestOverview, TestResult, TestResultsViewerProps, TimeRange, TrafficAnalyticsProps, TrafficDataPoint, TrafficSource, UserBehaviorMetric, UserBehaviorMetricsProps } from './type';
+export type { ConversionFunnelProps, CtaBannerButton, CtaBannerProps, FunnelStep, IHeroCTA, IHeroStat, TestOverview, TestResult, TestResultsViewerProps, TimeRange, TokenMarketingIcon, TrafficAnalyticsProps, TrafficDataPoint, TrafficSource, UserBehaviorMetric, UserBehaviorMetricsProps } from './type';
 export type { ABTest, ABTestVariant, IABTestConfiguratorProps, IHeroProps, MapMarketingContract, TestOverviewData, TestResultData, TrafficSourceData, UserBehaviorMetricData } from './interface';

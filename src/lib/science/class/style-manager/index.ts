@@ -8,6 +8,7 @@ export { LiteGraphNodeStyleManager } from './litegraph-node';
 export { ModelSelectorStyleManager } from './model-selector';
 export { ProductSearchStyleManager } from './molecules-migration';
 export { NodeHeaderStyleManager } from './node-header';
+export { NodePaletteStyleManager } from './node-palette';
 export { NodePropertiesPanelStyleManager } from './node-properties-panel';
 export { NodePropertyStyleManager } from './node-property';
 export { NodeTitleStyleManager } from './node-title';

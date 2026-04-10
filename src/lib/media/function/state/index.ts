@@ -12,6 +12,7 @@ export { createImageState } from './image';
 export { createImageGalleryState } from './image-gallery';
 export { createMediaLibraryState } from './media-library';
 export { createNodeIconState } from './node-icon';
+export { createPictureToolbarState } from './picture-toolbar';
 export { createPromoBannerState } from './promo-banner';
 export { createSvgState } from './svg';
 export { createTeamAvatarStackState } from './team-avatar-stack';

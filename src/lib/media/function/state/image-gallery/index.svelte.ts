@@ -1,57 +1,86 @@
 import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
-import type { ImageGalleryContract, ImageItemContract } from '$stylist/media/interface/component/image-gallery/contract';
+import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
+import type { ImageGalleryContract } from '$stylist/media/interface/component/image-gallery/contract';
 
 export interface ImageGalleryStateProps extends ImageGalleryContract {
 	class?: string;
 }
 
 export function createImageGalleryState(props: ImageGalleryStateProps) {
-	// Props with defaults
+	let currentIndex = $state(0);
+	let isFullscreen = $state(false);
+
 	const images = $derived(props.images ?? []);
 	const showThumbnails = $derived(props.showThumbnails ?? true);
 	const autoPlay = $derived(props.autoPlay ?? false);
 	const autoPlayInterval = $derived(props.autoPlayInterval ?? 3000);
 	const showCaptions = $derived(props.showCaptions ?? false);
 
-	// State
-	let selectedIndex = $state<number | null>(null);
-	let isLightboxOpen = $state(false);
-
-	// Classes
 	const containerClass = $derived(ImageGalleryStyleManager.getHostClasses(props.class ?? ''));
-	const imageContainerClass = $derived.by(() => ImageGalleryStyleManager.getImageContainerClasses());
-	const imageClass = $derived(ImageGalleryStyleManager.getImageClasses(props.imageClass ?? ''));
-	const captionClass = $derived(ImageGalleryStyleManager.getCaptionClasses(props.captionClass ?? ''));
-	const navigationClass = $derived(ImageGalleryStyleManager.getNavigationButtonClasses(props.navigationClass ?? ''));
-	const getThumbnailClass = (index: number) => ImageGalleryStyleManager.getThumbnailClasses(index === selectedIndex, props.thumbnailClass ?? '');
 
-	// Methods
-	function openLightbox(index: number): void {
-		selectedIndex = index;
-		isLightboxOpen = true;
+	// Auto-play functionality
+	$effect(() => {
+		let autoPlayTimer: number | null = null;
+		if (autoPlay && images.length > 0) {
+			autoPlayTimer = window.setInterval(() => {
+				currentIndex = (currentIndex + 1) % images.length;
+			}, autoPlayInterval);
+		}
+
+		return () => {
+			if (autoPlayTimer) {
+				clearInterval(autoPlayTimer);
+			}
+		};
+	});
+
+	// Handle fullscreen overflow and keyboard
+	$effect(() => {
+		if (isFullscreen) {
+			window.addEventListener('keydown', handleKeyDown);
+			document.body.style.overflow = 'hidden';
+		} else {
+			window.removeEventListener('keydown', handleKeyDown);
+			document.body.style.overflow = 'auto';
+		}
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+			document.body.style.overflow = 'auto';
+		};
+	});
+
+	function nextImage() {
+		if (images.length === 0) return;
+		currentIndex = (currentIndex + 1) % images.length;
 	}
 
-	function closeLightbox(): void {
-		isLightboxOpen = false;
-		selectedIndex = null;
+	function prevImage() {
+		if (images.length === 0) return;
+		currentIndex = (currentIndex - 1 + images.length) % images.length;
 	}
 
-	function navigate(direction: 'prev' | 'next'): void {
-		if (selectedIndex === null || images.length === 0) return;
-		const newIndex = direction === 'prev' 
-			? (selectedIndex - 1 + images.length) % images.length
-			: (selectedIndex + 1) % images.length;
-		selectedIndex = newIndex;
+	function goToImage(index: number) {
+		currentIndex = index;
 	}
 
-	function handleKeyDown(e: KeyboardEvent): void {
-		if (!isLightboxOpen) return;
-		if (e.key === 'Escape') closeLightbox();
-		if (e.key === 'ArrowLeft') navigate('prev');
-		if (e.key === 'ArrowRight') navigate('next');
+	function openFullscreen(index: number) {
+		currentIndex = index;
+		isFullscreen = true;
 	}
 
-	// Rest props
+	function closeFullscreen() {
+		isFullscreen = false;
+	}
+
+	function handleKeyDown(e: KeyboardEvent) {
+		if (isFullscreen) {
+			if (e.key === 'ArrowRight') nextImage();
+			else if (e.key === 'ArrowLeft') prevImage();
+			else if (e.key === 'Escape') closeFullscreen();
+		}
+	}
+
 	const restProps = $derived.by(() => {
 		const {
 			class: _class,
@@ -73,48 +102,32 @@ export function createImageGalleryState(props: ImageGalleryStateProps) {
 		get images() {
 			return images;
 		},
+		get currentIndex() {
+			return currentIndex;
+		},
+		get isFullscreen() {
+			return isFullscreen;
+		},
 		get showThumbnails() {
 			return showThumbnails;
-		},
-		get autoPlay() {
-			return autoPlay;
-		},
-		get autoPlayInterval() {
-			return autoPlayInterval;
 		},
 		get showCaptions() {
 			return showCaptions;
 		},
-		get selectedIndex() {
-			return selectedIndex;
-		},
-		get isLightboxOpen() {
-			return isLightboxOpen;
-		},
 		get containerClass() {
 			return containerClass;
-		},
-		get imageContainerClass() {
-			return imageContainerClass;
-		},
-		get imageClass() {
-			return imageClass;
-		},
-		get captionClass() {
-			return captionClass;
-		},
-		get navigationClass() {
-			return navigationClass;
 		},
 		get restProps() {
 			return restProps;
 		},
-		openLightbox,
-		closeLightbox,
-		navigate,
-		handleKeyDown,
-		getThumbnailClass,
-		getImageContainerClass: () => ImageGalleryStyleManager.getImageContainerClasses()
+		get icons() {
+			return TOKEN_MEDIA_ICON;
+		},
+		nextImage,
+		prevImage,
+		goToImage,
+		openFullscreen,
+		closeFullscreen
 	};
 }
 

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { LocaleSwitcherStyleManager } from './style-manager';
+export { LanguageSelectorStyleManager, LocaleSwitcherStyleManager } from './style-manager';

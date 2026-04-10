@@ -1,115 +1,49 @@
-﻿<script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
+<script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  const Upload = 'upload';
-  const CheckCircle = 'check-circle';
-  const AlertCircle = 'alert-circle';
-  const X = 'x';
-  const RotateCcw = 'rotate-ccw';
   import { Button } from '$stylist';
   import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
   import type { IUploadProgressProps } from '$stylist/file/interface/component/upload-progress/struct/props';
-  import type { IUploadFile } from '$stylist/file/interface/component/upload-progress/struct/file';
-  import type { UploadProgressVariant } from '$stylist/file/type/struct/upload-progress/variant';
   import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';
-  import {
-    handleRetry as handleRetryFn,
-    handleCancel as handleCancelFn,
-    handleRemove as handleRemoveFn,
-    formatFileSize,
-  } from '$stylist/file/function/script/upload-progress';
+  import { formatFileSize } from '$stylist/file/function/script/upload-progress';
 
   let props: IUploadProgressProps = $props();
-
-  let files = $derived(props.files ?? []);
-  let hostClass = $derived(props.hostClass ?? '');
-  let itemClass = $derived(props.itemClass ?? '');
-  let progressClass = $derived(props.progressClass ?? '');
-  let showFileName = $derived(props.showFileName ?? true);
-  let showFileSize = $derived(props.showFileSize ?? true);
-  let showProgress = $derived(props.showProgress ?? true);
-  let showActions = $derived(props.showActions ?? true);
-  let onRetry = $derived(props.onRetry);
-  let onCancel = $derived(props.onCancel);
-  let onRemove = $derived(props.onRemove);
-  let autoHideCompleted = $derived(props.autoHideCompleted ?? false);
-  let maxVisible = $derived(props.maxVisible ?? 5);
-  let variant = $derived(props.variant ?? 'default');
   const state = createUploadProgressState(props);
-
-  let restProps = $derived.by(() => {
-    const {
-      files: _files, hostClass: _hostClass, itemClass: _itemClass, progressClass: _progressClass,
-      showFileName: _showFileName, showFileSize: _showFileSize,
-      showProgress: _showProgress, showActions: _showActions, onRetry, onCancel, onRemove,
-      autoHideCompleted: _autoHideCompleted, maxVisible: _maxVisible, variant: _variant, ...rest
-    } = props;
-    return rest;
-  });
-
-  let visibleFiles = $derived.by(() => {
-    let visible = files;
-    if (autoHideCompleted) {
-      visible = files.filter(file => file.status !== 'success');
-    }
-    if (maxVisible > 0) {
-      visible = visible.slice(0, maxVisible);
-    }
-    return visible;
-  });
-
-  function handleRetry(file: IUploadFile) {
-    handleRetryFn(file, onRetry);
-  }
-
-  function handleCancel(file: IUploadFile) {
-    handleCancelFn(file, onCancel);
-  }
-
-  function handleRemove(file: IUploadFile) {
-    handleRemoveFn(file, onRemove);
-  }
 </script>
 
-<div class={UploadProgressStyleManager.getHostClasses(state.variant as 'default' | 'compact', `c-upload-progress ${hostClass}`)} {...restProps}>
-  {#if files.length === 0}
+<div class={UploadProgressStyleManager.getHostClasses(state.variant as 'default' | 'compact', `c-upload-progress ${state.hostClass}`)} {...state.restProps}>
+  {#if state.files.length === 0}
     <div class={UploadProgressStyleManager.getNoUploadsMessageClasses()}>
       No uploads
     </div>
   {:else}
     <div class={UploadProgressStyleManager.getVariantClasses(state.variant as 'default' | 'compact')}>
-      {#each visibleFiles as file (file.id)}
-        <div
-          class={UploadProgressStyleManager.getItemClasses(file.status, state.variant === 'compact', itemClass)}
-        >
+      {#each state.visibleFiles as file (file.id)}
+        <div class={UploadProgressStyleManager.getItemClasses(file.status, state.variant === 'compact', state.itemClass)}>
           <div class="flex-shrink-0">
             {#if file.status === 'success'}
-              <BaseIcon name={CheckCircle} class={UploadProgressStyleManager.getIconClasses('success')} />
+              <BaseIcon name="check-circle" class={UploadProgressStyleManager.getIconClasses('success')} />
             {:else if file.status === 'error'}
-              <BaseIcon name={AlertCircle} class={UploadProgressStyleManager.getIconClasses('error')} />
+              <BaseIcon name="alert-circle" class={UploadProgressStyleManager.getIconClasses('error')} />
             {:else if file.status === 'uploading'}
-              <BaseIcon name={Upload} class={UploadProgressStyleManager.getIconClasses('uploading')} />
+              <BaseIcon name="upload" class={UploadProgressStyleManager.getIconClasses('uploading')} />
             {:else}
-              <BaseIcon name={Upload} class={UploadProgressStyleManager.getIconClasses('idle')} />
+              <BaseIcon name="upload" class={UploadProgressStyleManager.getIconClasses('idle')} />
             {/if}
           </div>
 
           <div class="ml-3 min-w-0 flex-1">
-            {#if showFileName}
+            {#if state.showFileName}
               <p class={UploadProgressStyleManager.getFileNameClasses()}>{file.name}</p>
             {/if}
 
-            {#if showFileSize}
+            {#if state.showFileSize}
               <p class={UploadProgressStyleManager.getFileSizeClasses()}>{formatFileSize(file.size)}</p>
             {/if}
 
-            {#if showProgress && file.status === 'uploading'}
+            {#if state.showProgress && file.status === 'uploading'}
               <div class="mt-2">
-                <div class={UploadProgressStyleManager.getProgressClasses(file.progress, progressClass)}>
-                  <div
-                    class={UploadProgressStyleManager.getProgressFillClasses(file.progress)}
-                    style={`width: ${file.progress}%`}
-                  ></div>
+                <div class={UploadProgressStyleManager.getProgressClasses(file.progress, state.progressClass)}>
+                  <div class={UploadProgressStyleManager.getProgressFillClasses(file.progress)} style={`width: ${file.progress}%`}></div>
                 </div>
                 <div class={UploadProgressStyleManager.getProgressTextClasses()}>{Math.round(file.progress)}% complete</div>
               </div>
@@ -120,46 +54,31 @@
             {/if}
           </div>
 
-          {#if showActions}
+          {#if state.showActions}
             <div class={UploadProgressStyleManager.getActionsContainerClasses()}>
               {#if file.status === 'error'}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onclick={() => handleRetry(file)}
-                  title="Retry upload"
-                >
-                  <BaseIcon name={RotateCcw} class="h-4 w-4 text-[--color-text-secondary]" />
+                <Button variant="ghost" size="sm" onclick={() => state.handleRetry(file)} title="Retry upload">
+                  <BaseIcon name="rotate-ccw" class="h-4 w-4 text-[--color-text-secondary]" />
                 </Button>
               {/if}
 
               {#if file.status === 'uploading'}
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onclick={() => handleCancel(file)}
-                  title="Cancel upload"
-                >
-                  <BaseIcon name={X} class="h-4 w-4 text-[--color-text-secondary]" />
+                <Button variant="ghost" size="sm" onclick={() => state.handleCancel(file)} title="Cancel upload">
+                  <BaseIcon name="x" class="h-4 w-4 text-[--color-text-secondary]" />
                 </Button>
               {/if}
 
-              <Button
-                variant="ghost"
-                size="sm"
-                onclick={() => handleRemove(file)}
-                title="Remove"
-              >
-                <BaseIcon name={X} class="h-4 w-4 text-[--color-text-secondary]" />
+              <Button variant="ghost" size="sm" onclick={() => state.handleRemove(file)} title="Remove">
+                <BaseIcon name="x" class="h-4 w-4 text-[--color-text-secondary]" />
               </Button>
             </div>
           {/if}
         </div>
       {/each}
 
-      {#if autoHideCompleted && files.length > visibleFiles.length}
+      {#if state.autoHideCompleted && state.files.length > state.visibleFiles.length}
         <div class={UploadProgressStyleManager.getHiddenUploadsMessageClasses()}>
-          {files.length - visibleFiles.length} completed uploads hidden
+          {state.files.length - state.visibleFiles.length} completed uploads hidden
         </div>
       {/if}
     </div>

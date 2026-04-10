@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export * from './node-palette';
 export type { GraphEdgeRecipe } from './graph-edge';
 export type { GraphvizDirectedEdgeRecipe } from './graphviz-directed-edge';
 export type { LiteGraphNodeProps, LitegraphNodePresentation } from './litegraph-node';

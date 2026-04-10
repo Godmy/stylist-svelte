@@ -1,8 +1,13 @@
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
-import type { FaviconContract } from '$stylist/media/interface/component/favicon/contract';
+import type { FaviconProps } from '$stylist/media/type/struct/favicon';
 
+export function createFaviconState(props: FaviconProps) {
+	let error = $state(props.error ?? false);
 
-export function createFaviconState(props: FaviconContract) {
+	$effect(() => {
+		error = props.error ?? false;
+	});
+
 	const size = $derived(props.size ?? 16);
 	const url = $derived(props.url);
 	const faviconUrl = $derived(MediaStyleManager.getFaviconUrl(url));
@@ -12,6 +17,16 @@ export function createFaviconState(props: FaviconContract) {
 	// Define individual classes for different elements
 	const imageClasses = $derived(baseClasses);
 	const fallbackClasses = $derived(MediaStyleManager.getFaviconFallbackClasses(baseClasses));
+
+	const restProps = $derived.by(() => {
+		const { error: _error, onError: _onError, content: _content, ...rest } = props;
+		return rest;
+	});
+
+	function handleError() {
+		error = true;
+		props.onError?.();
+	}
 
 	return {
 		get size() {
@@ -23,12 +38,19 @@ export function createFaviconState(props: FaviconContract) {
 		get sizeStyle() {
 			return sizeStyle;
 		},
+		get error() {
+			return error;
+		},
 		get classes() {
 			return {
 				image: imageClasses,
 				fallback: fallbackClasses
 			};
-		}
+		},
+		get restProps() {
+			return restProps;
+		},
+		handleError
 	};
 }
 

@@ -1,10 +1,8 @@
 import type { StepIconProps } from '$stylist/notification/type/struct/step-icon-props';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import Check from '$stylist/svg/information/outline/check.svg';
-import X from '$stylist/svg/information/outline/x.svg';
 
 export type StepIconContent = 
-	| { type: 'icon'; icon: typeof Check; size: number }
+	| { type: 'icon'; icon: 'check' | 'x'; size: number }
 	| { type: 'number'; value: number | undefined };
 
 export function createStepIconState(props: StepIconProps) {
@@ -19,10 +17,10 @@ export function createStepIconState(props: StepIconProps) {
 	const content = $derived(
 		(() => {
 			if (status === 'completed') {
-				return { type: 'icon', icon: Check, size: iconSize };
+				return { type: 'icon', icon: 'check', size: iconSize };
 			}
 			if (status === 'error') {
-				return { type: 'icon', icon: X, size: iconSize };
+				return { type: 'icon', icon: 'x', size: iconSize };
 			}
 			return { type: 'number', value: props.stepNumber };
 		})()
@@ -31,8 +29,8 @@ export function createStepIconState(props: StepIconProps) {
 	return {
 		get classes() { return classes; },
 		get content() { return content; },
-		Check,
-		X
+		Check: 'check' as const,
+		X: 'x' as const
 	};
 }
 

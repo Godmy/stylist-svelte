@@ -1,97 +1,178 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type {
+	MediaLibraryProps,
+	MediaType,
+	MediaItem
+} from '$stylist/media/type/struct/media-library';
+import { formatMediaFileSize, formatMediaDate } from '$stylist/media/function/script/media-library';
+import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
 
-export type MediaType = 'image' | 'video' | 'audio' | 'document' | 'other';
+export function createMediaLibraryState(props: MediaLibraryProps) {
+	let searchQuery = $state('');
+	let selectedViewMode = $state(props.viewMode ?? 'grid');
+	let selectedItems = $state<string[]>([]);
+	let fileInputRef = $state<HTMLInputElement | null>(null);
 
-export interface MediaItem {
-	id: string;
-	name: string;
-	type: MediaType;
-	size: number;
-	url: string;
-	thumbnail?: string;
-	uploadDate: Date;
-	tags?: string[];
-}
-
-export interface MediaLibraryProps {
-	items: MediaItem[];
-	onItemSelect?: (item: MediaItem) => void;
-	onItemDelete?: (id: string) => void;
-	onItemDownload?: (id: string) => void;
-	onUpload?: (files: FileList) => void;
-	viewMode?: 'grid' | 'list';
-	allowDelete?: boolean;
-	allowDownload?: boolean;
-	allowUpload?: boolean;
-	searchPlaceholder?: string;
-	class?: string;
-	headerClass?: string;
-	toolbarClass?: string;
-	gridClass?: string;
-	itemClass?: string;
-}
-
-function formatFileSize(bytes: number): string {
-	if (bytes < 1024) return bytes + ' B';
-	else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-	else return (bytes / 1048576).toFixed(1) + ' MB';
-}
-
-function getFileIcon(type: MediaType): string {
-	switch (type) {
-		case 'image': return 'image';
-		case 'video': return 'film';
-		case 'audio': return 'music';
-		case 'document': return 'file';
-		default: return 'file';
-	}
-}
-
-function formatDate(date: Date): string {
-	return date.toLocaleDateString([], {
-		year: 'numeric',
-		month: 'short',
-		day: 'numeric'
-	});
-}
-
-export function createMediaLibraryState(props: MediaLibraryProps & InformationHTMLAttributes<HTMLDivElement>) {
 	const items = $derived(props.items ?? []);
-	const viewMode = $derived(props.viewMode ?? 'grid');
 	const allowDelete = $derived(props.allowDelete ?? true);
 	const allowDownload = $derived(props.allowDownload ?? true);
 	const allowUpload = $derived(props.allowUpload ?? true);
 	const searchPlaceholder = $derived(props.searchPlaceholder ?? 'Search media...');
-	const className = $derived(props.class ?? '');
 	const headerClass = $derived(props.headerClass ?? '');
 	const toolbarClass = $derived(props.toolbarClass ?? '');
 	const gridClass = $derived(props.gridClass ?? '');
 	const itemClass = $derived(props.itemClass ?? '');
 
-	const hostClasses = $derived(`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${className}`);
+	const hostClasses = $derived(
+		`border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${props.class ?? ''}`
+	);
+
+	const filteredItems = $derived.by(() => {
+		if (!searchQuery) return items;
+		return items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+	});
+
+	function handleFileUpload(e: Event) {
+		const target = e.target as HTMLInputElement;
+		if (target.files && props.onUpload) {
+			props.onUpload(target.files);
+			target.value = '';
+		}
+	}
+
+	function handleItemSelect(item: MediaItem) {
+		props.onItemSelect?.(item);
+	}
+
+	function handleItemDelete(id: string) {
+		props.onItemDelete?.(id);
+	}
+
+	function handleItemDownload(id: string) {
+		props.onItemDownload?.(id);
+	}
+
+	function triggerFileInput() {
+		fileInputRef?.click();
+	}
+
+	function getFileIcon(type: MediaType): string {
+		switch (type) {
+			case 'image':
+				return TOKEN_MEDIA_ICON.IMAGE;
+			case 'video':
+				return TOKEN_MEDIA_ICON.FILM;
+			case 'audio':
+				return TOKEN_MEDIA_ICON.MUSIC;
+			case 'document':
+				return TOKEN_MEDIA_ICON.FILE;
+			default:
+				return TOKEN_MEDIA_ICON.FILE;
+		}
+	}
+
+	function toggleItemSelection(id: string) {
+		if (selectedItems.includes(id)) {
+			selectedItems = selectedItems.filter((i) => i !== id);
+		} else {
+			selectedItems = [...selectedItems, id];
+		}
+	}
 
 	const restProps = $derived.by(() => {
-		const { class: _class, items: _items, onItemSelect: _onItemSelect, onItemDelete: _onItemDelete, onItemDownload: _onItemDownload, onUpload: _onUpload, viewMode: _viewMode, allowDelete: _allowDelete, allowDownload: _allowDownload, allowUpload: _allowUpload, searchPlaceholder: _searchPlaceholder, headerClass: _headerClass, toolbarClass: _toolbarClass, gridClass: _gridClass, itemClass: _itemClass, ...rest } = props;
+		const {
+			class: _class,
+			items: _items,
+			onItemSelect: _onItemSelect,
+			onItemDelete: _onItemDelete,
+			onItemDownload: _onItemDownload,
+			onUpload: _onUpload,
+			viewMode: _viewMode,
+			allowDelete: _allowDelete,
+			allowDownload: _allowDownload,
+			allowUpload: _allowUpload,
+			searchPlaceholder: _searchPlaceholder,
+			headerClass: _headerClass,
+			toolbarClass: _toolbarClass,
+			gridClass: _gridClass,
+			itemClass: _itemClass,
+			...rest
+		} = props;
 		return rest;
 	});
 
 	return {
-		get items() { return items; },
-		get viewMode() { return viewMode; },
-		get allowDelete() { return allowDelete; },
-		get allowDownload() { return allowDownload; },
-		get allowUpload() { return allowUpload; },
-		get searchPlaceholder() { return searchPlaceholder; },
-		get className() { return className; },
-		get headerClass() { return headerClass; },
-		get toolbarClass() { return toolbarClass; },
-		get gridClass() { return gridClass; },
-		get itemClass() { return itemClass; },
-		get hostClasses() { return hostClasses; },
-		get restProps() { return restProps; },
-		formatFileSize,
+		get searchQuery() {
+			return searchQuery;
+		},
+		set searchQuery(val: string) {
+			searchQuery = val;
+		},
+		get selectedViewMode() {
+			return selectedViewMode;
+		},
+		set selectedViewMode(val: 'grid' | 'list') {
+			selectedViewMode = val;
+		},
+		get selectedItems() {
+			return selectedItems;
+		},
+		set selectedItems(val: string[]) {
+			selectedItems = val;
+		},
+		get fileInputRef() {
+			return fileInputRef;
+		},
+		set fileInputRef(val: HTMLInputElement | null) {
+			fileInputRef = val;
+		},
+		get items() {
+			return items;
+		},
+		get filteredItems() {
+			return filteredItems;
+		},
+		get allowDelete() {
+			return allowDelete;
+		},
+		get allowDownload() {
+			return allowDownload;
+		},
+		get allowUpload() {
+			return allowUpload;
+		},
+		get searchPlaceholder() {
+			return searchPlaceholder;
+		},
+		get headerClass() {
+			return headerClass;
+		},
+		get toolbarClass() {
+			return toolbarClass;
+		},
+		get gridClass() {
+			return gridClass;
+		},
+		get itemClass() {
+			return itemClass;
+		},
+		get hostClasses() {
+			return hostClasses;
+		},
+		get restProps() {
+			return restProps;
+		},
+		get icons() {
+			return TOKEN_MEDIA_ICON;
+		},
+		handleFileUpload,
+		handleItemSelect,
+		handleItemDelete,
+		handleItemDownload,
+		triggerFileInput,
 		getFileIcon,
-		formatDate
+		formatMediaFileSize,
+		formatMediaDate,
+		toggleItemSelection
 	};
 }
 

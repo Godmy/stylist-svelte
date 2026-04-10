@@ -1,32 +1,24 @@
 <script lang="ts">
-	import type { HTMLImgAttributes } from 'svelte/elements';
-	import type { FaviconContract } from '$stylist/media/interface/component/favicon/contract';
+	import type { FaviconProps } from '$stylist/media/type/struct/favicon';
 	import { createFaviconState } from '$stylist/media/function/state/favicon';
 
-	type Props = FaviconContract & HTMLImgAttributes;
-
-	let { error = false, onError, content, ...restProps }: Props = $props();
-
-	const state = createFaviconState(restProps);
-
-	function handleError() {
-		if (onError) onError();
-	}
+	let props: FaviconProps = $props();
+	const state = createFaviconState(props);
 </script>
 
-{#if state.faviconUrl && !error}
+{#if state.faviconUrl && !state.error}
 	<img
 		src={state.faviconUrl}
 		width={state.size}
 		height={state.size}
 		class={state.classes.image}
-		onerror={handleError}
-		{...restProps}
+		onerror={() => state.handleError()}
+		{...state.restProps}
 	/>
 {:else}
 	<div class={state.classes.fallback} style={state.sizeStyle}>
-		{#if content}
-			{@render content()}
+		{#if props.content}
+			{@render props.content()}
 		{:else}
 			?
 		{/if}

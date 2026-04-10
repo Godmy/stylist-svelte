@@ -1,14 +1,118 @@
+import type { Props } from '$stylist/file/type/struct/file-browser/props';
+import type { FolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import {
+  handleAction as handleActionFn,
+  handleSelect as handleSelectFn,
+  isExpanded as isExpandedFn,
+  toggleItem as toggleItemFn,
+} from '$stylist/file/function/script/file-browser';
+
 export function createFileBrowserState(
-  props: {
-    disabled?: boolean;
-    class?: string;
-  }
+  props: Props
 ) {
+  const items = $derived(props.items ?? []);
+  const showItemCount = $derived(props.showItemCount ?? true);
+  const enableSelection = $derived(props.enableSelection ?? true);
+  const defaultExpanded = $derived(props.defaultExpanded ?? false);
+  const disabled = $derived(props.disabled ?? false);
+  const classes = $derived([props.class || ''].filter(Boolean).join(' '));
+  let expandedItems = $state<Set<string>>(new Set());
+  let selectedItem = $state<FolderItem | null>(null);
+
+  const restProps = $derived.by(() => {
+    const {
+      items: _items,
+      class: _class,
+      itemClass,
+      contentClass,
+      onItemSelect,
+      onItemToggle,
+      onItemAction,
+      showItemCount: _showItemCount,
+      enableSelection: _enableSelection,
+      defaultExpanded: _defaultExpanded,
+      disabled: _disabled,
+      ...rest
+    } = props;
+
+    return rest;
+  });
+
+  $effect(() => {
+    if (!defaultExpanded) {
+      return;
+    }
+
+    const allFolders = new Set<string>();
+
+    const addItems = (folderItems: FolderItem[]) => {
+      for (const item of folderItems) {
+        if (item.type !== 'file') {
+          allFolders.add(item.id);
+          if (item.children) {
+            addItems(item.children);
+          }
+        }
+      }
+    };
+
+    addItems(items);
+    expandedItems = allFolders;
+  });
+
+  function setExpandedItems(nextItems: Set<string>): void {
+    expandedItems = nextItems;
+  }
+
+  function setSelectedItem(item: FolderItem | null): void {
+    selectedItem = item;
+  }
+
+  function toggleItem(item: FolderItem): void {
+    toggleItemFn(item, disabled, expandedItems, setExpandedItems, props.onItemToggle);
+  }
+
+  function handleSelect(item: FolderItem): void {
+    handleSelectFn(item, enableSelection, disabled, setSelectedItem, props.onItemSelect);
+  }
+
+  function handleAction(item: FolderItem, action: string): void {
+    handleActionFn(item, action, props.onItemAction);
+  }
+
+  function isExpanded(id: string): boolean {
+    return isExpandedFn(id, expandedItems);
+  }
+
   return {
-    variant: 'default',
-    size: 'md',
-    disabled: props.disabled ?? false,
-    classes: [props.class || ''].filter(Boolean).join(' '),
+    get variant() {
+      return 'default';
+    },
+    get size() {
+      return 'md';
+    },
+    get disabled() {
+      return disabled;
+    },
+    get classes() {
+      return classes;
+    },
+    get items() {
+      return items;
+    },
+    get showItemCount() {
+      return showItemCount;
+    },
+    get selectedItem() {
+      return selectedItem;
+    },
+    get restProps() {
+      return restProps;
+    },
+    toggleItem,
+    handleSelect,
+    handleAction,
+    isExpanded,
   };
 }
 

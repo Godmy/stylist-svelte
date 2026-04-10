@@ -9,6 +9,6 @@ export { RangeSlider } from './sliders';
 export { ComparisonTable, ExpandableTableRow } from './tables';
 export { StylistTab, TabGroup, Tabs } from './tabs';
 export { CheckboxGroup, RadioButtonGroup, ToggleButtonGroup } from './toggles';
-export { PictureToolbar, Toolbar } from './toolbars';
+export { Toolbar } from './toolbars';
 export { TreeNodeItem, TreeViewer } from './trees';
 export { ZoomToolbar } from './zoom';

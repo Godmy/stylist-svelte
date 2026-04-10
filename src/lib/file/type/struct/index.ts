@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { Attachment, Props } from './attachment-preview';
 export type { FileType } from './common';
-export type { DataItem } from './data-exporter';
-export type { Props } from './drag-drop-file-upload';
 export type { DropItem, RestProps } from './drop-zone';
 export type { FolderItem } from './file-browser';
 export type { FileSystemItem, ViewMode } from './file-explorer';

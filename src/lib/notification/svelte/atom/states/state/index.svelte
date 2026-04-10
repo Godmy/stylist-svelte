@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { createStateState } from '$stylist/notification/function/state/state';
-	import Inbox from '$stylist/svg/information/outline/inbox.svg';
-	import Plus from '$stylist/svg/action/outline/add.svg';
 	import { Icon } from '$stylist';
 
 	const props = $props();
 	const state = createStateState(props);
+	const Inbox = 'inbox';
+	const Plus = 'add';
 </script>
 
 <div class={state.containerClasses}>

@@ -1,4 +1,4 @@
-import type { NodePaletteItem, NodePaletteProps } from '$stylist/control/interface/component/node-palette/other';
+import type { NodePaletteItem, NodePaletteProps } from '$stylist/science/interface/component/node-palette/other';
 
 export class ObjectManagerNodePalette {
 	static readonly defaultCategories = [

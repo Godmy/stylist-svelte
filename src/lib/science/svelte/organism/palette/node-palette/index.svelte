@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { IconButton, Icon, InputText, Separator } from '$stylist';
-	import { NodePaletteStyleManager } from '$stylist/control/class/style-manager/node-palette';
+	import { NodePaletteStyleManager } from '$stylist/science/class/style-manager/node-palette';
 	import { createNodePaletteState } from '$stylist/science/function/state/node-palette';
-	import type { NodePaletteProps } from '$stylist/control/interface/component/node-palette/other';
+	import type { NodePaletteProps } from '$stylist/science/interface/component/node-palette/other';
 
 	let {
 		items = [],

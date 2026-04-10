@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { createErrorBoundaryState } from '$stylist/notification/function/state/error-boundary';
-	import AlertTriangle from '$stylist/svg/information/outline/alert-triangle.svg';
-	import RotateCcw from '$stylist/svg/action/outline/refresh.svg';
 	import { Icon, Button } from '$stylist';
 
 	const props = $props();
 	const state = createErrorBoundaryState(props);
+	const AlertTriangle = 'alert-triangle';
+	const RotateCcw = 'refresh';
 </script>
 
 <svelte:boundary>

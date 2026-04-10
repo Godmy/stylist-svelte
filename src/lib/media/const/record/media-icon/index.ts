@@ -1,0 +1,23 @@
+export const TOKEN_MEDIA_ICON = {
+	PLAY: 'play',
+	PAUSE: 'pause',
+	VOLUME_2: 'volume-2',
+	VOLUME_X: 'volume-x',
+	ROTATE_CCW: 'rotate-ccw',
+	CHEVRON_LEFT: 'chevron-left',
+	CHEVRON_RIGHT: 'chevron-right',
+	X: 'x',
+	SEARCH: 'search',
+	UPLOAD: 'upload',
+	GRID_3X3: 'grid-3-x-3',
+	LIST: 'list',
+	TRASH_2: 'trash-2',
+	DOWNLOAD: 'download',
+	EYE: 'eye',
+	FOLDER: 'folder',
+	FILE: 'file',
+	IMAGE: 'image',
+	FILM: 'film',
+	MUSIC: 'music',
+	MAXIMIZE: 'maximize'
+} as const;

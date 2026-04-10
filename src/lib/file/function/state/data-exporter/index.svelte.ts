@@ -1,5 +1,7 @@
+import { createEventDispatcher } from 'svelte';
 import type { ExportFormat } from '$stylist/file/type/enum/data-exporter';
 import type { DataItem } from '$stylist/file/type/struct/data-exporter';
+import { exportData as exportDataFn } from '$stylist/file/function/script/data-exporter';
 
 export function createDataExporterState(
   props: {
@@ -14,12 +16,22 @@ export function createDataExporterState(
   const format = $derived(props.format ?? 'csv');
   const fileName = $derived(props.fileName ?? 'export');
   const data = $derived(props.data ?? []);
+  let selectedFormat = $state<ExportFormat>(props.format ?? 'csv');
+  const dispatch = createEventDispatcher<{ export: { format: ExportFormat; fileName: string } }>();
 
   const formats: Record<ExportFormat, { ext: string; mime: string }> = {
     csv: { ext: 'csv', mime: 'text/csv' },
     json: { ext: 'json', mime: 'application/json' },
     excel: { ext: 'xlsx', mime: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }
   };
+
+  function exportData(): void {
+    if (disabled) {
+      return;
+    }
+
+    exportDataFn(data, selectedFormat, fileName, formats, dispatch);
+  }
 
   return {
     get disabled() {
@@ -36,7 +48,14 @@ export function createDataExporterState(
     },
     get formats() {
       return formats;
-    }
+    },
+    get selectedFormat() {
+      return selectedFormat;
+    },
+    set selectedFormat(value: ExportFormat) {
+      selectedFormat = value;
+    },
+    exportData
   };
 }
 

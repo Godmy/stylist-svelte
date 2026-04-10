@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { createSpinnerState } from '$stylist/notification/function/state/spinner';
-	import Loader2 from '$stylist/svg/information/outline/loader-2.svg';
 	import { Icon } from '$stylist';
 
 	const props = $props();
 	const state = createSpinnerState(props);
+	const Loader2 = 'loader-2';
 </script>
 
 <div class={state.containerClasses} {...props} role="status" aria-live="polite">

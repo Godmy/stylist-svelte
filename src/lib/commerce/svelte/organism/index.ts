@@ -10,6 +10,7 @@ export { InventoryTracker } from './inventory-tracker';
 export { OrderConfirmation } from './order-confirmation';
 export { OrderHistory } from './order-history';
 export { OrderTracking } from './order-tracking';
+export { PaymentInfo, PaymentMethodSelector, PaymentSelector, PaymentSummary } from './payment';
 export { ProductCardExtended, ProductCatalog, ProductReviews, ProductSorting, ProductTour } from './product';
 export { QuoteRequest } from './quote-request';
 export { ReturnPolicy } from './return-policy';

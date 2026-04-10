@@ -14,11 +14,9 @@ export type { CloseDropdownFunc, IDropdownMenuProps, IDropdownMenuStyleClasses }
 export type { IExportPanelProps, IExportPanelStyleClasses } from './export-panel';
 export type { IFilterBarProps, IFilterBarStyleClasses } from './filter-bar';
 export type { FollowButtonProps } from './follow-button';
-export type { ILanguageSelectorProps, ILanguageSelectorStyleClasses } from './language-selector';
 export type { IListWithAvatarsProps, IListWithAvatarsStyleClasses } from './list-with-avatars';
 export type { MenuItemProps } from './menu-item';
 export type { MultiSelectOption, MultiSelectProps } from './multi-select';
-export type { NodePaletteItem, NodePaletteProps } from './node-palette';
 export type { IQuantitySelectorProps } from './quantity-selector';
 export type { RadioProps } from './radio';
 export type { ISearchBarEvents, ISearchBarProps, SearchBarProps } from './search-bar';
