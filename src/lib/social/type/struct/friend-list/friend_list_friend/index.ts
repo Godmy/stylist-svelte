@@ -1,3 +1,5 @@
+import type { FRIEND_LIST_STATUS } from '../friend_list_status';
+
 export type FRIEND_LIST_FRIEND = {
   id: string;
   name: string;

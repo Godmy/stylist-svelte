@@ -1,3 +1,5 @@
+import type { ProductCardCompactProps } from '../productcardcompactprops';
+
 export function createProductCardCompactState(props: ProductCardCompactProps) {
 	return { props };
 }

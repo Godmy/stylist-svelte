@@ -1,3 +1,5 @@
+import type { Snippet } from 'svelte';
+
 export type ProductCardWithActionsProps = {
 	title?: string;
 	price?: number;
@@ -8,4 +10,4 @@ export type ProductCardWithActionsProps = {
 	description?: string;
 	actions?: Snippet;
 	class?: string;
-}
+};

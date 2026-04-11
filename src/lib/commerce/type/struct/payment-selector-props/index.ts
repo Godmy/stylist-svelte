@@ -16,4 +16,4 @@ export type PaymentSelectorProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	onEdit?: (id: string) => void;
 	onDelete?: (id: string) => void;
 	onSetDefault?: (id: string) => void;
-}
+};

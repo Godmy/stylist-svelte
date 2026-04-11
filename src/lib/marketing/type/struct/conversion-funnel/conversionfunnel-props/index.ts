@@ -1,3 +1,6 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { FunnelStep } from '../funnelstep';
+
 export type ConversionFunnelProps = {
   title?: string;
   subtitle?: string;
@@ -7,7 +10,7 @@ export type ConversionFunnelProps = {
   showTrend?: boolean;
   showConversionRate?: boolean;
   height?: number;
-  class?: string;
-  headerClass?: string;
-  stepClass?: string;
+	class?: string;
+	headerClass?: string;
+	stepClass?: string;
 } & InformationHTMLAttributes<HTMLDivElement>;

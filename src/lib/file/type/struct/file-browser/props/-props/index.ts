@@ -1,3 +1,6 @@
+import type { FolderItem } from '../../folder-item';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   items: FolderItem[];
   class?: string;

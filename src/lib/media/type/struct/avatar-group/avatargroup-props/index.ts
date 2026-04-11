@@ -1,3 +1,6 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { AvatarGroupAvatar } from '../avatargroupavatar';
+
 export type AvatarGroupProps = {
 	avatars: AvatarGroupAvatar[];
 	maxVisible?: number;

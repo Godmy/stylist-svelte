@@ -1,7 +1,7 @@
 ﻿import type {
 	AnalyticsPieChartSegment,
-	PieChartDataPoint
 } from '$stylist/chart/type/struct/pie-chart-segment';
+import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
 
 const PIE_CHART_DEFAULT_COLOR = [
 	'var(--color-primary-500)',

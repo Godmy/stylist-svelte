@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/commerce/type/struct/product-sorting';
+  import type { ProductSortingProps as Props } from '$stylist/commerce/type/struct/product-sorting-props';
   import { createProductSortingState } from '$stylist/commerce/function/state/product-sorting';
 
   let props: Props = $props();

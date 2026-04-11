@@ -3,4 +3,4 @@ export type PriceHistoryProps = {
 	title?: string;
 	currency?: string;
 	class?: string;
-}
+};

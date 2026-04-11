@@ -1,6 +1,18 @@
 import type { DialogConfirmProps } from '$stylist/navigation/type/struct/dialog-confirm-props';
-import { DIALOG_CONFIRM_VARIANT_CLASSES, DIALOG_CONFIRM_ICON_COLORS, DIALOG_CONFIRM_ICON_NAMES } from '$stylist/navigation/const/record/dialog-confirm-variant-classes';
+import { DIALOG_CONFIRM_VARIANT_CLASSES } from '$stylist/navigation/const/record/dialog-confirm-variant-classes';
 import { handleConfirmCallback } from '$stylist/navigation/function/script/dialog-confirm';
+
+const DIALOG_CONFIRM_ICON_COLORS = {
+	danger: 'text-[var(--color-danger-600)]',
+	warning: 'text-[var(--color-warning-600)]',
+	info: 'text-[var(--color-primary-600)]'
+} as const;
+
+const DIALOG_CONFIRM_ICON_NAMES = {
+	danger: 'alert-triangle',
+	warning: 'triangle-alert',
+	info: 'info'
+} as const;
 
 export function createDialogConfirmState(props: DialogConfirmProps) {
 	const variantClasses = $derived(DIALOG_CONFIRM_VARIANT_CLASSES[props.variant ?? 'danger']);

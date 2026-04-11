@@ -1,3 +1,7 @@
+import type { MapWithMarkersMarker } from '../mapwithmarkersmarker';
+import type { MapWithMarkersRestProps } from '../mapwithmarkersrest-props';
+import type { MapWithMarkersView } from '../mapwithmarkersview';
+
 export type MapWithMarkersProps = MapWithMarkersRestProps & {
 	markers?: MapWithMarkersMarker[];
 	class?: string;

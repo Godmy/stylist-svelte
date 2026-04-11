@@ -1,3 +1,6 @@
+import type { Provider } from '../provider';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   providers?: Provider[];
   showEmailForm?: boolean;

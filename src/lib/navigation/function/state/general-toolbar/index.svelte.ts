@@ -1,5 +1,8 @@
 import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props';
-import { getButtonSizeForToolbar } from '$stylist/navigation/const/record/general-toolbar-dispatch-events';
+
+function getButtonSizeForToolbar(compact: boolean): 'sm' | 'md' {
+	return compact ? 'sm' : 'md';
+}
 
 export function createGeneralToolbarState(props: GeneralToolbarRecipe) {
 	const buttonSize = $derived(getButtonSizeForToolbar(props.compact ?? false));

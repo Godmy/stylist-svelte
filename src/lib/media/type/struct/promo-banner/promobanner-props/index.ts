@@ -1,3 +1,5 @@
+import type { PromoBannerVariant } from '../promobannervariant';
+
 export type PromoBannerProps = {
 	title?: string;
 	description?: string;

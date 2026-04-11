@@ -5,4 +5,4 @@ export type ProductAvailabilityProps = {
 	estimatedRestock?: string;
 	onNotifyMe?: () => void;
 	className?: string;
-}
+};

@@ -1,10 +1,13 @@
+import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
+import type { PriceHistoryProps } from '../pricehistoryprops';
+
 export function createPriceHistoryState(props: PriceHistoryProps) {
 	const chartHeight = 200;
 	const chartWidth = 400;
 
 	const data = $derived(props.data ?? []);
-	const minPrice = $derived(data.length > 0 ? Math.min(...data.map(d => d.price)) : 0);
-	const maxPrice = $derived(data.length > 0 ? Math.max(...data.map(d => d.price)) : 100);
+	const minPrice = $derived(data.length > 0 ? Math.min(...data.map((d) => d.price)) : 0);
+	const maxPrice = $derived(data.length > 0 ? Math.max(...data.map((d) => d.price)) : 100);
 	const priceRange = $derived(maxPrice - minPrice || 1);
 
 	const containerClass = $derived(PriceHistoryStyleManager.getContainerClass(props.class ?? ''));

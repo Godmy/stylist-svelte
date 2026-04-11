@@ -16,7 +16,7 @@ export function createTableWithGroupingState(props: TableWithGroupingProps) {
 			return rootClass;
 		},
 		get restProps() {
-			const { data, groupBy, class: _class, ...rest } = props as Record<string, unknown>;
+			const { data, groupBy, class: _class, ...rest } = props as unknown as Record<string, unknown>;
 			return rest as Record<string, unknown>;
 		}
 	};

@@ -1,3 +1,7 @@
+import type { RouteOption } from '../routeoption';
+import type { RoutePlannerLocation } from '../routeplannerlocation';
+import type { RoutePlannerRestProps } from '../routeplannerrest-props';
+
 export type RoutePlannerProps = RoutePlannerRestProps & {
 	startLocation?: RoutePlannerLocation;
 	endLocation?: RoutePlannerLocation;

@@ -1,0 +1,12 @@
+export const SOCIAL_LOGIN_APPLE = 'apple';
+export const SOCIAL_LOGIN_CHROME = 'chrome';
+export const SOCIAL_LOGIN_FACEBOOK = 'facebook';
+export const SOCIAL_LOGIN_GITHUB = 'github';
+export const SOCIAL_LOGIN_LAPTOP_2 = 'laptop-2';
+export const SOCIAL_LOGIN_LINKEDIN = 'linkedin';
+export const SOCIAL_LOGIN_LOADER_2 = 'loader-2';
+export const SOCIAL_LOGIN_LOCK = 'lock';
+export const SOCIAL_LOGIN_MAIL = 'mail';
+export const SOCIAL_LOGIN_SLACK = 'slack';
+export const SOCIAL_LOGIN_TWITTER = 'twitter';
+export const SOCIAL_LOGIN_USER_ROUND_PLUS = 'user-round-plus';

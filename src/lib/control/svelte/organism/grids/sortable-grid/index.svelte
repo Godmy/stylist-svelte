@@ -16,7 +16,6 @@
       items: _items,
       itemClass: _itemClass,
       onItemsChange: _onItemsChange,
-      disabled: _disabled,
       cols: _cols,
       gap: _gap,
       ...rest
@@ -29,13 +28,13 @@
   <div class={`${state.gridColsClass} ${state.gapClass}`}>
     {#each state.items as item, index}
       <div
-        draggable={!state.draggable}
+        draggable={state.draggable}
         role="gridcell"
         tabindex="0"
         class={`sortable-grid-item ${state.draggedOverIndex === index && state.draggedItem && state.draggedItem.id !== item.id ? 'drag-over' : ''}`}
         ondragstart={(e) => state.handleDragStart(e, item, index)}
         ondragover={(e) => state.handleDragOver(e, index)}
-        ondragleave={state.handleDragLeave}
+        ondragleave={() => state.handleDragLeave()}
         ondrop={(e) => state.handleDrop(e, index)}
         ondragend={state.handleDragEnd}
         aria-label={`Grid item ${item.title}`}

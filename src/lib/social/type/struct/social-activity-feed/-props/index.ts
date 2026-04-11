@@ -1,3 +1,6 @@
+import type { Activity } from '../activity';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   activities: Activity[];
   showAvatars?: boolean;

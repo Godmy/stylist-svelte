@@ -1,12 +1,20 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import {
-	DRAWER_BACKDROP_BASE_CLASS,
-	DRAWER_BACKDROP_VISIBLE_CLASS,
-	DRAWER_BASE_CLASS,
-	DRAWER_OPEN_POSITION_CLASSES,
 	DRAWER_POSITION_CLASSES
 } from '$stylist/navigation/const/record/drawer-position-classes';
 import type { DrawerPosition } from '$stylist/navigation/type/struct/drawer-props';
+
+const DRAWER_BACKDROP_BASE_CLASS =
+	'fixed inset-0 bg-[rgba(0,0,0,0.5)] transition-opacity duration-200';
+const DRAWER_BACKDROP_VISIBLE_CLASS = 'opacity-100';
+const DRAWER_BASE_CLASS =
+	'fixed z-50 bg-[var(--color-background-primary)] shadow-lg transition-transform duration-300 ease-in-out';
+const DRAWER_OPEN_POSITION_CLASSES: Record<DrawerPosition, string> = {
+	left: 'translate-x-0',
+	right: 'translate-x-0',
+	top: 'translate-y-0',
+	bottom: 'translate-y-0'
+};
 
 export class DrawerStyleManager {
 	static getBackdropClasses(showBackdrop: boolean): string {

@@ -27,7 +27,7 @@
   />
   {#if state.hasChildren}
     <div class="absolute bottom-0 right-0">
-      {@render state.children()}
+      {@render state.children?.()}
     </div>
   {/if}
 </div>

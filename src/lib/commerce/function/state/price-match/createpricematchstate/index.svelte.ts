@@ -1,8 +1,11 @@
+import { PriceMatchStyleManager } from '$stylist/commerce/class/style-manager/price-match';
+import type { PriceMatchProps } from '../pricematchprops';
+
 export function createPriceMatchState(props: PriceMatchProps) {
 	const competitorPrices = $derived(props.competitorPrices ?? []);
 	const bestPrice = $derived(
 		competitorPrices.length > 0
-			? Math.min(...competitorPrices.map(p => p.price))
+			? Math.min(...competitorPrices.map((p) => p.price))
 			: null
 	);
 	const isLowerAvailable = $derived(bestPrice !== null && bestPrice < (props.targetPrice ?? 0));

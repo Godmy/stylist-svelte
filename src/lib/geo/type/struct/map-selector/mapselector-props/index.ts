@@ -1,3 +1,7 @@
+import type { MapProvider } from '../mapprovider';
+import type { MapSelectorLocation } from '../mapselectorlocation';
+import type { MapSelectorRestProps } from '../mapselectorrest-props';
+
 export type MapSelectorProps = MapSelectorRestProps & {
 	locations: MapSelectorLocation[];
 	initialCenter?: { lat: number; lng: number };

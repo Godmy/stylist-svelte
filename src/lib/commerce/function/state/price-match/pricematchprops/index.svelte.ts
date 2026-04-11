@@ -5,4 +5,4 @@ export type PriceMatchProps = {
 	productName?: string;
 	onFindLower?: () => void;
 	class?: string;
-}
+};

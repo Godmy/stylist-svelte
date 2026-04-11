@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { IRatingProps } from '$stylist/social/interface/component/rating/other';
   import { Icon as BaseIcon } from '$stylist';
-  import { STAR } from '$stylist/social/const/map/rating';
+  import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import createRatingState from '$stylist/social/function/state/rating';
 
   let {
@@ -44,7 +44,7 @@
       aria-pressed={i < rating}
     >
       <BaseIcon
-        name={STAR}
+        name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'star') ?? 'star'}
         class={state.starIconClasses(i)}
       />
     </button>

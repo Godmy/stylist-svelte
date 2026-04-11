@@ -1,3 +1,5 @@
+import type { ProductCardWithActionsProps } from '../productcardwithactionsprops';
+
 export function createProductCardWithActionsState(props: ProductCardWithActionsProps) {
 	return { props };
 }

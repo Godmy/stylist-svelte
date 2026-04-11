@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/commerce/type/struct/checkout-form';
+  import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
   import { createCheckoutFormState } from '$stylist/commerce/function/state/checkout-form';
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$stylist';

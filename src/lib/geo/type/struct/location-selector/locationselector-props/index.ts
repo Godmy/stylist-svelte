@@ -1,3 +1,6 @@
+import type { LocationSelectorLocation } from '../locationselectorlocation';
+import type { LocationSelectorRestProps } from '../locationselectorrest-props';
+
 export type LocationSelectorProps = LocationSelectorRestProps & {
 	locations: LocationSelectorLocation[];
 	currentView?: 'list' | 'grid' | 'map';

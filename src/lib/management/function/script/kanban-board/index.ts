@@ -27,15 +27,15 @@ export function moveKanbanCard(
     return { nextBoard: boardState, safePosition: position };
   }
 
-  const fromIndex = fromColumn.cards.findIndex((card) => card.id === cardId);
+  const fromIndex = fromColumn.cards.findIndex((card: KanbanCardType) => card.id === cardId);
   if (fromIndex < 0) {
     return { nextBoard: boardState, safePosition: position };
   }
 
   const [card] = fromColumn.cards.splice(fromIndex, 1);
 
-  const activeTargetCards = toColumn.cards.filter((item) => item.status !== 'archived');
-  const archivedTargetCards = toColumn.cards.filter((item) => item.status === 'archived');
+  const activeTargetCards = toColumn.cards.filter((item: KanbanCardType) => item.status !== 'archived');
+  const archivedTargetCards = toColumn.cards.filter((item: KanbanCardType) => item.status === 'archived');
   const safePosition = Math.max(0, Math.min(position, activeTargetCards.length));
 
   const normalizedCard: KanbanCardType = {

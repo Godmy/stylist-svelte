@@ -1,3 +1,6 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { TeamMember } from '../teammember';
+
 export type TeamAvatarStackProps = {
 	members: TeamMember[];
 	maxVisible?: number;

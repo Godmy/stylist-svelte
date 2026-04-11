@@ -12,7 +12,6 @@
       size: _size,
       color: _color,
       activeColor: _activeColor,
-      ariaLabel: _ariaLabel,
       onValueInput: _onValueInput,
       onValueChange: _onValueChange,
       onClick: _onClick,

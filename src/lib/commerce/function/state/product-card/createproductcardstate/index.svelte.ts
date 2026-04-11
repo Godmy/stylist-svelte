@@ -1,3 +1,7 @@
+import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
+import type { TierContent } from '$stylist/architecture/type/enum/tier';
+import type { ProductCardStateProps } from '../productcardstateprops';
+
 export function createProductCardState(props: ProductCardStateProps) {
 	// Props with defaults
 	const variant = $derived(props.variant ?? 'detailed' as TierContent);
@@ -11,12 +15,15 @@ export function createProductCardState(props: ProductCardStateProps) {
 	const description = $derived(props.description ?? '');
 
 	// Computed
+	const badgeKey = $derived(
+		badge === 'sale' || badge === 'new' || badge === 'popular' ? badge : 'default'
+	);
 	const badgeStyles = $derived({
 		sale: ProductCardStyleManager.getSaleBadgeClass(),
 		new: ProductCardStyleManager.getNewBadgeClass(),
 		popular: ProductCardStyleManager.getPopularBadgeClass(),
 		default: ProductCardStyleManager.getDefaultBadgeClass()
-	}[badge] ?? ProductCardStyleManager.getDefaultBadgeClass());
+	}[badgeKey]);
 
 	// Classes
 	const containerClass = $derived(ProductCardStyleManager.getContainerClass(props.class ?? '', variant));

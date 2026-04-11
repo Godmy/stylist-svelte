@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/commerce/type/struct/order-confirmation';
+  import type { OrderConfirmationProps as Props } from '$stylist/commerce/type/struct/order-confirmation-props';
   import { createOrderConfirmationState } from '$stylist/commerce/function/state/order-confirmation';
   import { Icon as BaseIcon, Button } from '$stylist';
   import { OrderConfirmationStyleManager } from '$stylist/commerce/class/style-manager/order-confirmation';

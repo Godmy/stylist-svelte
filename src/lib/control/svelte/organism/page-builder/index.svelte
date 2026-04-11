@@ -187,33 +187,33 @@
         <div class="space-y-4">
           <div>
             <div class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Type</div>
-            <span class="text-sm text-[var(--color-text-primary)] capitalize">{state.selectedElement.type}</span>
+            <span class="text-sm text-[var(--color-text-primary)] capitalize">{state.selectedElement?.type}</span>
           </div>
 
-          {#if state.selectedElement.type === 'text' || state.selectedElement.type === 'heading'}
+          {#if state.selectedElement?.type === 'text' || state.selectedElement?.type === 'heading'}
             <div>
               <label for="textContent" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Content</label>
               <input
                 id="textContent"
                 type="text"
                 class={PageBuilderStyleManager.getInputFieldClasses()}
-                value={state.selectedElement.content}
+                value={state.selectedElement?.content ?? ''}
                 oninput={(event) =>
-                  state.updateElement(state.selectedElement.id, { content: (event.target as HTMLInputElement).value })}
+                  state.selectedElement && state.updateElement(state.selectedElement.id, { content: (event.target as HTMLInputElement).value })}
               />
             </div>
           {/if}
 
-          {#if state.selectedElement.type === 'button'}
+          {#if state.selectedElement?.type === 'button'}
             <div>
               <label for="buttonText" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Button Text</label>
               <input
                 id="buttonText"
                 type="text"
                 class={PageBuilderStyleManager.getInputFieldClasses()}
-                value={state.selectedElement.content}
+                value={state.selectedElement?.content ?? ''}
                 oninput={(event) =>
-                  state.updateElement(state.selectedElement.id, { content: (event.target as HTMLInputElement).value })}
+                  state.selectedElement && state.updateElement(state.selectedElement.id, { content: (event.target as HTMLInputElement).value })}
               />
             </div>
           {/if}
@@ -226,12 +226,14 @@
               class={PageBuilderStyleManager.getSliderClasses()}
               min="8"
               max="72"
-              value={(state.selectedElement.attributes as PageBuilderTextAttributes)?.FONT_SIZE?.replace('px', '') ?? '16'}
+              value={(state.selectedElement?.attributes as PageBuilderTextAttributes | undefined)?.FONT_SIZE?.replace('px', '') ?? '16'}
               oninput={(event) => {
                 const FONT_SIZE = `${(event.target as HTMLInputElement).value}px`;
-                state.updateElement(state.selectedElement.id, {
-                  attributes: { ...(state.selectedElement.attributes ?? {}), FONT_SIZE } as any
-                });
+                if (state.selectedElement) {
+                  state.updateElement(state.selectedElement.id, {
+                    attributes: { ...(state.selectedElement.attributes ?? {}), FONT_SIZE } as any
+                  });
+                }
               }}
             />
           </div>

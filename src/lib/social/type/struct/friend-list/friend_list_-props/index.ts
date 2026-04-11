@@ -1,3 +1,7 @@
+import type { FRIEND_LIST_FRIEND } from '../friend_list_friend';
+import type { FRIEND_LIST_REST_PROPS } from '../friend_list_rest_-props';
+import type { FRIEND_LIST_STATUS } from '../friend_list_status';
+
 export type FRIEND_LIST_PROPS = FRIEND_LIST_REST_PROPS & {
   friends: FRIEND_LIST_FRIEND[];
   showStatus?: boolean;

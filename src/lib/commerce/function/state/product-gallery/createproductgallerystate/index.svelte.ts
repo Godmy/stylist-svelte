@@ -1,3 +1,6 @@
+import { ProductGalleryStyleManager } from '$stylist/commerce/class/style-manager/product-gallery';
+import type { ProductGalleryProps } from '../productgalleryprops';
+
 export function createProductGalleryState(props: ProductGalleryProps) {
 	let currentImage = $state(props.mainImage || props.images?.[0] || '');
 

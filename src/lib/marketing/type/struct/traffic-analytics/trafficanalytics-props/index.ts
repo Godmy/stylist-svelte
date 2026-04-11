@@ -1,3 +1,8 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { TimeRange } from '../timerange';
+import type { TrafficDataPoint } from '../trafficdatapoint';
+import type { TrafficSource } from '../trafficsource';
+
 export type TrafficAnalyticsProps = {
   title?: string;
   subtitle?: string;
@@ -10,9 +15,9 @@ export type TrafficAnalyticsProps = {
   trafficData: TrafficDataPoint[];
   timeRange?: TimeRange;
   onTimeRangeChange?: (range: TimeRange) => void;
-  class?: string;
-  headerClass?: string;
-  summaryClass?: string;
-  chartClass?: string;
-  sourcesClass?: string;
+	class?: string;
+	headerClass?: string;
+	summaryClass?: string;
+	chartClass?: string;
+	sourcesClass?: string;
 } & InformationHTMLAttributes<HTMLDivElement>;

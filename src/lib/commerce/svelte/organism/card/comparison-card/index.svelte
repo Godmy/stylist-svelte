@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/commerce/type/struct/comparison-card';
+  import type { ComparisonCardProps as Props } from '$stylist/commerce/type/struct/comparison-card-props';
   import { createComparisonCardState } from '$stylist/commerce/function/state/comparison-card';
 
   let props: Props = $props();

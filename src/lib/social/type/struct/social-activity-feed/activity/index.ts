@@ -1,3 +1,6 @@
+import type { ActivityType } from '../activitytype';
+import type { User } from '../user';
+
 export type Activity = {
   id: string;
   type: ActivityType;

@@ -1,3 +1,6 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { MediaItem } from '../media-item';
+
 export type MediaLibraryProps = {
 	items: MediaItem[];
 	onItemSelect?: (item: MediaItem) => void;

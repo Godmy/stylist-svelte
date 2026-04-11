@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { TreeNodeItemNode } from '$stylist/control/type/struct/tree-node-item-node';
-  import AdvancedVirtualTree from './index.svelte';
+  import type { TreeNode } from '$stylist/control/type/struct/tree-node';
+  import { AdvancedVirtualTree } from '$stylist/control/svelte/organism/trees/advanced-virtual-tree';
   import { createTreeViewerState } from '$stylist/control/function/state/tree-viewer';
 
   let props = $props<{
@@ -17,6 +18,16 @@
   }>();
 
   const state = createTreeViewerState(props);
+
+  function normalizeNode(node: TreeNodeItemNode, index: number): TreeNode {
+    return {
+      id: String(node.key ?? `node-${index}`),
+      label: String(node.desc ?? node.key ?? `Node ${index + 1}`),
+      children: node.child?.map((child, childIndex) => normalizeNode(child, childIndex))
+    };
+  }
+
+  const nodes = $derived(state.tree.map((node, index) => normalizeNode(node, index)));
 
   const restProps = $derived.by(() => {
     const {
@@ -38,14 +49,7 @@
 
 <div class="tree-viewer {state.className}" {...restProps}>
   <AdvancedVirtualTree
-    tree={state.tree}
-    itemHeight={state.itemHeight}
-    visibleItemCount={state.visibleItemCount}
-    bufferSize={state.bufferSize}
-    onToggleCallback={state.handleToggle}
-    on:select={state.handleSelect}
-    on:expand={state.handleExpand}
-    on:collapse={state.handleCollapse}
+    nodes={nodes}
   />
 </div>
 

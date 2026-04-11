@@ -1,3 +1,6 @@
+import type { CartSummaryItem } from '../cartsummaryitem';
+import type { CartSummaryPromotion } from '../cartsummarypromotion';
+
 export type CartSummaryProps = {
 	items?: CartSummaryItem[];
 	promotions?: CartSummaryPromotion[];
@@ -15,4 +18,4 @@ export type CartSummaryProps = {
 	onApplyPromotion?: (code: string) => void;
 	onCheckout?: () => void;
 	class?: string;
-}
+};

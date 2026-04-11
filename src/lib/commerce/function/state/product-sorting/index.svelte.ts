@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/commerce/type/struct/product-sorting';
+import type { ProductSortingProps as Props } from '$stylist/commerce/type/struct/product-sorting-props';
 import { ProductSortingStyleManager } from '$stylist/commerce/class/style-manager/product-sorting';
 
 export function createProductSortingState(props: Props) {

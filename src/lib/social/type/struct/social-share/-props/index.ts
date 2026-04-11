@@ -1,3 +1,7 @@
+import type { RestProps } from '../rest-props';
+import type { ShareOption } from '../shareoption';
+import type { SocialPlatform } from '../socialplatform';
+
 export type Props = RestProps & {
   title?: string;
   url?: string;

@@ -1,3 +1,8 @@
+import type { FeedUser } from '../feeduser';
+import type { FilterOption } from '../filteroption';
+import type { Post } from '../post';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   posts: Post[];
   currentUser?: FeedUser;

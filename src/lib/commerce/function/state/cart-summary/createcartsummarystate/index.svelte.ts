@@ -1,10 +1,13 @@
+import type { CartSummaryProps } from '../cartsummaryprops';
+import { CartSummaryStyleManager } from '$stylist/commerce/class/style-manager/cart-summary';
+
 export function createCartSummaryState(props: CartSummaryProps) {
 	let promoCode = $state('');
 
 	const items = $derived(props.items ?? []);
 	const promotions = $derived(props.promotions ?? []);
 
-	const subtotal = $derived(items.reduce((sum, item) => sum + item.price * item.quantity, 0));
+	const subtotal = $derived(items.reduce((sum: number, item) => sum + item.price * item.quantity, 0));
 	const total = $derived(
 		subtotal
 		- (props.discountAmount ?? 0)

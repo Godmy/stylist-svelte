@@ -24,7 +24,7 @@
     <h3 class="text-sm font-semibold uppercase tracking-wide text-[var(--color-text-secondary)]">
       Filters
     </h3>
-    {#if state.hasActiveFilters}
+    {#if state.hasActiveFilters()}
       <span class="rounded-full bg-[var(--color-primary-50)] px-2 py-0.5 text-xs font-medium text-[var(--color-primary-600)]">
         Active
       </span>
@@ -71,7 +71,7 @@
     </div>
   {/if}
 
-  {#if state.range}
+  {#if state.range != null}
     <div class="mt-4">
       <label for={`filter-range-${state.range.id}`} class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
         {state.range.label}

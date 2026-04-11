@@ -1,3 +1,5 @@
+import type { Snippet } from 'svelte';
+
 export type User = {
 	id: string;
 	name: string;
@@ -6,4 +8,4 @@ export type User = {
 	role?: string;
 	title?: string;
 	actions?: Snippet;
-}
+};

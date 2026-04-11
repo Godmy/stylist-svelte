@@ -3,7 +3,7 @@ import { createButtonState as createButtonStateImpl } from '$stylist/control/fun
 export function createSplitButtonState(
 	...args: Parameters<typeof createButtonStateImpl>
 ) {
-	const [props] = args;
+	const [props] = args as [Record<string, any>];
 	const buttonState = createButtonStateImpl(...args);
 	let isOpen = $state(false);
 	const buttonId = `split-button-${Math.random().toString(36).slice(2, 11)}`;
@@ -14,7 +14,7 @@ export function createSplitButtonState(
 	const primaryButtonClasses = $derived(`${baseButtonClasses} rounded-r-none border-r-0`.trim());
 	const toggleButtonClasses = $derived(`${baseButtonClasses} rounded-l-none border-l-0`.trim());
 	const wrapperClasses = $derived(
-		`relative inline-flex items-center rounded-md overflow-hidden ${('html' in props ? props.html?.class : props.class) ?? ''}`.trim()
+		`relative inline-flex items-center rounded-md overflow-hidden ${props.html?.class ?? props.class ?? ''}`.trim()
 	);
 	const menuClasses = $derived(
 		[
@@ -48,7 +48,7 @@ export function createSplitButtonState(
 	});
 
 	function toggleDropdown() {
-		if (!('contract' in props ? props.contract?.disabled : props.disabled)) {
+		if (!(props.contract?.disabled ?? props.disabled)) {
 			isOpen = !isOpen;
 		}
 	}

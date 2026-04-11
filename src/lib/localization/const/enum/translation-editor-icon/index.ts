@@ -1,8 +1,1 @@
-export const TRANSLATION_EDITOR_ICON = {
-	DOWNLOAD: 'download',
-	EDIT: 'edit-3',
-	LANGUAGES: 'languages',
-	SAVE: 'save',
-	TRASH: 'trash-2',
-	UPLOAD: 'upload',
-} as const;
+export const TOKEN_TRANSLATION_EDITOR_ICON = ['download', 'edit-3', 'languages', 'save', 'trash-2', 'upload'] as const;

@@ -1,3 +1,5 @@
+import type { SocialPlatform } from '../socialplatform';
+
 export type ShareOption = {
   platform: SocialPlatform;
   label: string;

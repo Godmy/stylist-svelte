@@ -1,1 +1,1 @@
-export const STAR = 'star' as const;
+export const TOKEN_STAR = ['star'] as const;

@@ -1,3 +1,5 @@
+import type { Provider } from '../provider';
+
 export type ProviderConfig = {
   id: Provider;
   name: string;

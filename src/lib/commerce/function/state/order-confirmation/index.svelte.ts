@@ -1,4 +1,6 @@
-import type { Props, OrderStatus } from '$stylist/commerce/type/struct/order-confirmation';
+import type { OrderConfirmationProps as Props } from '$stylist/commerce/type/struct/order-confirmation-props';
+import type { OrderStatus } from '$stylist/commerce/type/struct/order-status';
+import type { OrderItem } from '$stylist/commerce/type/struct/order-item';
 import { OrderConfirmationStyleManager } from '$stylist/commerce/class/style-manager/order-confirmation';
 
 const ORDER_STATUS_ICONS: Record<OrderStatus, string> = {
@@ -43,7 +45,7 @@ export function createOrderConfirmationState(props: Props) {
 		})
 		: '');
 
-	const subtotal = $derived(props.items.reduce((sum, item) => sum + (item.price * item.quantity), 0));
+	const subtotal = $derived(props.items.reduce((sum: number, item: OrderItem) => sum + item.price * item.quantity, 0));
 	const formattedSubtotal = $derived(new Intl.NumberFormat(props.locale ?? 'en-US', {
 		style: 'currency',
 		currency: props.currency ?? 'USD'

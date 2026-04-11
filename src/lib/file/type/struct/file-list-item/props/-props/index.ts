@@ -1,3 +1,6 @@
+import type { FileItem } from '../../file-item';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   item: FileItem;
   class?: string;

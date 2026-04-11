@@ -115,6 +115,7 @@ export function createComboboxState(props: ComboboxProps) {
 		set query(v: string) { query = v; },
 		get isOpen() { return isOpen; },
 		get highlighted() { return highlighted; },
+		set highlighted(v: number) { highlighted = v; },
 		get inputRef() { return inputRef.current; },
 		set inputRef(v: HTMLInputElement | null) { inputRef.current = v; },
 		get selectedItem() { return selectedItem; },

@@ -6,4 +6,4 @@ export type PriceFilterProps = {
 	currency?: string;
 	onPriceChange?: (min: number, max: number) => void;
 	class?: string;
-}
+};

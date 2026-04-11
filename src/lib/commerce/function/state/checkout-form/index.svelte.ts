@@ -1,4 +1,9 @@
-import type { Props, Address, PaymentMethod, CardInfo, CheckoutStep, ShippingOption } from '$stylist/commerce/type/struct/checkout-form';
+import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
+import type { Address } from '$stylist/commerce/type/struct/address';
+import type { CardInfo } from '$stylist/commerce/type/struct/card-info';
+import type { CheckoutStep } from '$stylist/commerce/type/struct/checkout-step';
+import type { ShippingOption } from '$stylist/commerce/type/struct/shipping-option';
+import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
 import { CheckoutFormStyleManager } from '$stylist/commerce/class/style-manager/checkout-form';
 
 function createAddressState(source?: Address): Address {
@@ -41,7 +46,7 @@ export function createCheckoutFormState(props: Props) {
 	let shippingAddress = $state<Address>(createAddressState(props.defaultAddress));
 	let selectedShippingOption = $state(shippingOptions[0]?.id ?? '');
 	let selectedShippingDetails = $derived(
-		shippingOptions.find((option) => option.id === selectedShippingOption)
+		shippingOptions.find((option: ShippingOption) => option.id === selectedShippingOption)
 	);
 	let sameAsBilling = $state(false);
 	let paymentMethod = $state<PaymentMethod>({
@@ -106,7 +111,7 @@ export function createCheckoutFormState(props: Props) {
 	}
 
 	function getCountryName(code: string): string {
-		return countries.find((country) => country.value === code)?.label ?? code;
+		return countries.find((country: { value: string; label: string }) => country.value === code)?.label ?? code;
 	}
 
 	function getStepIndex(step: CheckoutStep | string): number {

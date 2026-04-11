@@ -11,18 +11,18 @@ import TokenTextControl from '$stylist/control/svelte/atom/token-text/index.svel
 </script>
 
 {#if state.controlKind === 'radio'}
-	<TokenRadioControl definition={state.definition} value={state.value} onChange={state.onChange} />
+	<TokenRadioControl definition={state.definition as any} value={state.value} onChange={state.onChange} />
 {:else if state.controlKind === 'select'}
-	<TokenSelectControl definition={state.definition} value={state.value} onChange={state.onChange} />
+	<TokenSelectControl definition={state.definition as any} value={state.value} onChange={state.onChange} />
 {:else if state.controlKind === 'range'}
 	<TokenRangeControl
-		definition={state.definition}
+		definition={state.definition as any}
 		value={state.rangeValue}
 		onChange={(next) => state.onChange?.(next)}
 	/>
 {:else}
 	<TokenTextControl
-		definition={state.definition}
+		definition={state.definition as any}
 		value={state.textValue}
 		onChange={(next) => state.onChange?.(next)}
 	/>

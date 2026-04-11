@@ -1,3 +1,6 @@
+import type { ZipEntry } from '../../entry';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   entries: ZipEntry[];
   archiveName?: string;

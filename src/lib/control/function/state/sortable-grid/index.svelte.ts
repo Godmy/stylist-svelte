@@ -85,7 +85,7 @@ export function createSortableGridState(props: SortableGridProps) {
 	}
 
 	const containerClass = $derived(
-		SortableGridStyleManager.root(className)
+		SortableGridStyleManager.getContainerClass('default', 'md', !draggable, className)
 	);
 
 	return {

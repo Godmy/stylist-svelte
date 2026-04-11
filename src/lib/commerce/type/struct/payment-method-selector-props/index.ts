@@ -15,4 +15,4 @@ export type PaymentMethodSelectorProps = InteractionHTMLAttributes<HTMLDivElemen
 	showRemoveButton?: boolean;
 	showSetDefaultButton?: boolean;
 	disabled?: boolean;
-}
+};

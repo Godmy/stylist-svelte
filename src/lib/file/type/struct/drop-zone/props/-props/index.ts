@@ -1,3 +1,7 @@
+import type { Snippet } from 'svelte';
+import type { DropItem } from '../../item';
+import type { RestProps } from '../rest-props';
+
 export type Props = RestProps & {
   children?: Snippet;
   class?: string;

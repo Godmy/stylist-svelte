@@ -2,7 +2,7 @@
   import { createAnimatedExpandableTableRowState } from '$stylist/layout/function/state/animated-expandable-table-row';
   import type { AnimatedExpandableTableRowProps } from '$stylist/layout/type/struct/animated-expandable-table-row';
   import { Icon as BaseIcon } from '$stylist';
-  import { ChevronDown, ChevronUp } from '$stylist/layout/const/enum/chevron';
+  import { TOKEN_LAYOUT_ICON } from '$stylist/layout/const/icon';
 
   let props: AnimatedExpandableTableRowProps = $props();
   const state = createAnimatedExpandableTableRowState(props);
@@ -23,13 +23,13 @@
           {#if state.collapseIcon}
             {@html state.collapseIcon}
           {:else}
-            <BaseIcon name={ChevronUp} class="h-5 w-5 text-[var(--color-text-secondary)]" />
+            <BaseIcon name={TOKEN_LAYOUT_ICON.find((icon) => icon === 'chevron-up') ?? 'chevron-up'} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
         {:else}
           {#if state.expandIcon}
             {@html state.expandIcon}
           {:else}
-            <BaseIcon name={ChevronDown} class="h-5 w-5 text-[var(--color-text-secondary)]" />
+            <BaseIcon name={TOKEN_LAYOUT_ICON.find((icon) => icon === 'chevron-down') ?? 'chevron-down'} class="h-5 w-5 text-[var(--color-text-secondary)]" />
           {/if}
         {/if}
       </button>

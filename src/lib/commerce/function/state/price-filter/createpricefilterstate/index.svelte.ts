@@ -1,3 +1,6 @@
+import { PriceFilterStyleManager } from '$stylist/commerce/class/style-manager/price-filter';
+import type { PriceFilterProps } from '../pricefilterprops';
+
 export function createPriceFilterState(props: PriceFilterProps) {
 	let min = $state(props.currentMin ?? 0);
 	let max = $state(props.currentMax ?? 1000);

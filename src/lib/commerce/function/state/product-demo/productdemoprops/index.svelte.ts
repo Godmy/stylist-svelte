@@ -1,3 +1,5 @@
+import type { Snippet } from 'svelte';
+
 export type ProductDemoProps = {
 	title?: string;
 	description?: string;
@@ -5,4 +7,4 @@ export type ProductDemoProps = {
 	features?: string[];
 	onDemo?: () => void;
 	class?: string;
-}
+};

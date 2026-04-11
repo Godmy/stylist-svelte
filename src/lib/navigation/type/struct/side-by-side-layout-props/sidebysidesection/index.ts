@@ -1,3 +1,5 @@
+import type { Snippet } from 'svelte';
+
 export type SideBySideSection = {
 	id: string;
 	content: Snippet;

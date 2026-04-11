@@ -66,48 +66,66 @@
         <Checkbox
           id="showObjects"
           label="Show Objects"
-          bind:checked={state.objectsVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.objectsVisible}
+          onchange={(event) => {
+            state.objectsVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
       <div class={state.filterItemClass}>
         <Checkbox
           id="showInterfaces"
           label="Show Interfaces"
-          bind:checked={state.interfacesVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.interfacesVisible}
+          onchange={(event) => {
+            state.interfacesVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
       <div class={state.filterItemClass}>
         <Checkbox
           id="showUnions"
           label="Show Unions"
-          bind:checked={state.unionsVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.unionsVisible}
+          onchange={(event) => {
+            state.unionsVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
       <div class={state.filterItemClass}>
         <Checkbox
           id="showEnums"
           label="Show Enums"
-          bind:checked={state.enumsVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.enumsVisible}
+          onchange={(event) => {
+            state.enumsVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
       <div class={state.filterItemClass}>
         <Checkbox
           id="showScalars"
           label="Show Scalars"
-          bind:checked={state.scalarsVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.scalarsVisible}
+          onchange={(event) => {
+            state.scalarsVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
       <div class={state.filterItemClass}>
         <Checkbox
           id="showInputs"
           label="Show Inputs"
-          bind:checked={state.inputsVisible}
-          onchange={() => handleFilterChange(state, onFilterChange)}
+          checked={state.inputsVisible}
+          onchange={(event) => {
+            state.inputsVisible = (event.target as HTMLInputElement).checked;
+            handleFilterChange(state, onFilterChange);
+          }}
         />
       </div>
     </div>
@@ -119,7 +137,7 @@
       <Select
         id="layout-select"
         label="Select Layout"
-        bind:value={state.currentLayout}
+        value={state.currentLayout}
         oninput={(e) => handleLayoutChange(e, state, onFilterChange)}
         options={[
             { value: 'force-directed', label: 'Force Directed' },

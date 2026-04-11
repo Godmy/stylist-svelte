@@ -1,5 +1,5 @@
 import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
-import { LOCALE_SWITCHER_ICON } from '$stylist/localization/const/enum/locale-switcher-icon';
+import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/icon';
 import { formatDate, formatTime, formatDateTime } from '$stylist/localization/function/format-date-time';
 import type { LocaleSwitcherProps, LocaleSwitcherLocale } from '$stylist/localization/interface/component/locale-switcher/other';
 
@@ -57,13 +57,13 @@ export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	return {
 		// Icons
 		get iconClock() {
-			return LOCALE_SWITCHER_ICON.CLOCK;
+			return TOKEN_LOCALIZATION_ICON.find((icon) => icon === 'clock') ?? 'clock';
 		},
 		get iconGlobe() {
-			return LOCALE_SWITCHER_ICON.GLOBE;
+			return TOKEN_LOCALIZATION_ICON.find((icon) => icon === 'globe') ?? 'globe';
 		},
 		get iconUser() {
-			return LOCALE_SWITCHER_ICON.USER;
+			return TOKEN_LOCALIZATION_ICON.find((icon) => icon === 'user') ?? 'user';
 		},
 		get locales() {
 			return locales;

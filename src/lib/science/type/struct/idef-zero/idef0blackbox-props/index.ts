@@ -1,3 +1,5 @@
+import type { Idef0Port } from '../idef0port';
+
 export type Idef0BlackBoxProps = {
 	title?: string;
 	subtitle?: string;

@@ -92,7 +92,7 @@
           {#each options as item, index (item.id)}
             <button
               type="button"
-              class={`w-full text-left px-3 py-2 text-sm flex flex-col gap-1 transition-colors ${item.disabled ? 'text-[var(--color-text-tertiary)] cursor-not-allowed' : 'hover:bg-[var(--color-primary-50)]'} ${state.value === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : ''} ${state.highlighted === index ? 'bg-[var(--color-primary-50)]' : ''}`}
+              class={`w-full text-left px-3 py-2 text-sm flex flex-col gap-1 transition-colors ${item.disabled ? 'text-[var(--color-text-tertiary)] cursor-not-allowed' : 'hover:bg-[var(--color-primary-50)]'} ${state.selectedItem?.id === item.id ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]' : ''} ${state.highlighted === index ? 'bg-[var(--color-primary-50)]' : ''}`}
               disabled={item.disabled}
               onclick={() => state.selectItem(item)}
               onmouseenter={() => (state.highlighted = index)}

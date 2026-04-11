@@ -1,3 +1,5 @@
+import type { UserCardProps } from '../usercardprops';
+
 export function createUserCardState(props: UserCardProps) {
 	const size = $derived(props.size ?? 'md');
 	const showEmail = $derived(props.showEmail ?? true);

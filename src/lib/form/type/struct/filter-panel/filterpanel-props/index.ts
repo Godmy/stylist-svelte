@@ -1,3 +1,6 @@
+import type { FilterChangePayload } from '../filterchangepayload';
+import type { FilterPanelLayout } from '../filterpanellayout';
+
 export type FilterPanelProps = {
 	showObjects?: boolean;
 	showInterfaces?: boolean;
@@ -8,4 +11,4 @@ export type FilterPanelProps = {
 	layout?: FilterPanelLayout;
 	onFilterChange?: (payload: FilterChangePayload) => void;
 	onReset?: () => void;
-}
+};

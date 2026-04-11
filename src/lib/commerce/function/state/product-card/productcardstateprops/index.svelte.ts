@@ -1,3 +1,5 @@
+import type { TierContent } from '$stylist/architecture/type/enum/tier';
+
 export type ProductCardStateProps = {
 	variant?: TierContent;
 	title?: string;
@@ -10,4 +12,4 @@ export type ProductCardStateProps = {
 	description?: string;
 	actions?: any;
 	class?: string;
-}
+};

@@ -1,2 +1,1 @@
-export const ChevronDown = 'chevron-down';
-export const ChevronUp = 'chevron-up';
+export const TOKEN_CHEVRON = ['chevron-down', 'chevron-up'] as const;

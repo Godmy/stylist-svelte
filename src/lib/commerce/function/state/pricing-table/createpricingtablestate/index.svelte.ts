@@ -1,3 +1,6 @@
+import { PricingTableStyleManager } from '$stylist/commerce/class/style-manager/pricing-table';
+import type { PricingTableProps } from '../pricingtableprops';
+
 export function createPricingTableState(props: PricingTableProps) {
 	const containerClass = $derived(PricingTableStyleManager.getContainerClass(props.className ?? ''));
 	const popularBadgeClass = $derived(PricingTableStyleManager.getPopularBadgeClass());

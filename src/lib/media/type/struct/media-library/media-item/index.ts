@@ -1,3 +1,5 @@
+import type { MediaType } from '../mediatype';
+
 export type MediaItem = {
 	id: string;
 	name: string;

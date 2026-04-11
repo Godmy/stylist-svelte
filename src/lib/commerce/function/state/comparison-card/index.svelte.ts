@@ -1,4 +1,4 @@
-import type { Props } from '$stylist/commerce/type/struct/comparison-card';
+import type { ComparisonCardProps as Props } from '$stylist/commerce/type/struct/comparison-card-props';
 import { ComparisonCardStyleManager } from '$stylist/commerce/class/style-manager/comparison-card';
 
 export function createComparisonCardState(props: Props) {

@@ -1,3 +1,7 @@
+import type { InformationHTMLAttributes } from '$stylist/information';
+import type { TokenBackground } from '$stylist/layout';
+import type { CtaBannerButton } from '../ctabannerbutton';
+
 export type CtaBannerProps = {
   title: string;
   description?: string;

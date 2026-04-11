@@ -1,3 +1,5 @@
+import type { AlertVariant } from '../alertvariant';
+
 export type AlertProps = {
 	variant?: AlertVariant;
 	title?: string;
@@ -7,4 +9,4 @@ export type AlertProps = {
 	children?: import('svelte').Snippet;
 	class?: string;
 	[propName: string]: unknown;
-}
+};

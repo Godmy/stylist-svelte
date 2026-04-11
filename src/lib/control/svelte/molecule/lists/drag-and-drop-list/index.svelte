@@ -42,9 +42,9 @@
         } rounded-lg ${state.variant === 'card' ? 'bg-[var(--color-background-primary)]' : ''} ${state.itemClass}`}
         ondragstart={(e) => state.handleDragStart(e, item, index)}
         ondragover={(e) => state.handleDragOver(e, index)}
-        ondragleave={state.handleDragLeave}
+        ondragleave={() => state.handleDragLeave()}
         ondrop={(e) => state.handleDrop(e, index)}
-        ondragend={state.handleDragEnd}
+        ondragend={() => state.handleDragEnd(item)}
       >
         {#if state.variant === 'card'}
           <BaseCard

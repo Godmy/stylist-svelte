@@ -7,13 +7,15 @@ export function createTokenControlBaseState(props: TokenControlBaseProps) {
 		const definition = props.definition;
 		if (definition.controlKind === 'range') {
 			const step = definition.step ?? 1;
+			const min = definition.min ?? 0;
+			const max = definition.max ?? min;
 			if (step <= 0) return 0;
-			return Math.floor((definition.max - definition.min) / step) + 1;
+			return Math.floor((max - min) / step) + 1;
 		}
 		if (definition.controlKind === 'text') {
 			return 1;
 		}
-		return definition.options.length;
+		return definition.options?.length ?? 0;
 	});
 
 	const iconPath = $derived(TOKEN_ICON_PATHS[getTokenIconKind(props.definition.tokenName)]);

@@ -1,3 +1,5 @@
+import type { Position2D } from '../position2d';
+
 export type OntologyNode = {
 	id: string;
 	name: string;

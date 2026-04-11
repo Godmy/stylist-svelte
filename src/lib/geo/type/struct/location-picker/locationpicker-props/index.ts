@@ -1,3 +1,7 @@
+import type { Coordinates } from '../coordinates';
+import type { LocationPickerRestProps } from '../locationpickerrest-props';
+import type { MapMarker } from '../mapmarker';
+
 export type LocationPickerProps = LocationPickerRestProps & {
 	center?: Coordinates;
 	zoom?: number;

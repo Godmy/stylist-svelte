@@ -1,3 +1,6 @@
+import type { SideBySideLayoutRestProps } from '../sidebysidelayoutrest-props';
+import type { SideBySideSection } from '../sidebysidesection';
+
 export type SideBySideLayoutProps = SideBySideLayoutRestProps & {
 	sections: SideBySideSection[];
 	class?: string;
@@ -5,4 +8,4 @@ export type SideBySideLayoutProps = SideBySideLayoutRestProps & {
 	alignItems?: 'start' | 'center' | 'end' | 'stretch';
 	justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 	responsive?: boolean;
-}
+};

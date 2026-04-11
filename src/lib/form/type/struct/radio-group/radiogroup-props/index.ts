@@ -1,4 +1,8 @@
-export type RadioGroupProps = Omit<HTMLInputAttributes & 'type' | 'value' | 'name' | 'checked'> & {
+import type { HTMLInputAttributes } from 'svelte/elements';
+import type { RadioOption } from '../radiooption';
+import type { RadioOrientation } from '../radioorientation';
+
+export type RadioGroupProps = Omit<HTMLInputAttributes, 'type' | 'value' | 'name' | 'checked'> & {
 	name: string;
 	value?: string;
 	options: RadioOption[];
@@ -9,4 +13,4 @@ export type RadioGroupProps = Omit<HTMLInputAttributes & 'type' | 'value' | 'nam
 	required?: boolean;
 	error?: string;
 	class?: string;
-}
+};

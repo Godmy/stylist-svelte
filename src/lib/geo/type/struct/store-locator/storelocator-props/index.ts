@@ -1,3 +1,6 @@
+import type { StoreLocatorRestProps } from '../storelocatorrest-props';
+import type { StoreLocatorStore } from '../storelocatorstore';
+
 export type StoreLocatorProps = StoreLocatorRestProps & {
 	stores: StoreLocatorStore[];
 	showSearch?: boolean;
