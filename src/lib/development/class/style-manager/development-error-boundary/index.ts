@@ -14,10 +14,9 @@ export class DevelopmentErrorBoundaryStyleManager {
 	/**
 	 * Получает CSS-классы для контейнера fallback
 	 */
-	static getFallbackContainerClasses(fallbackClass: string = '', additionalClass: string = ''): string {
+	static getFallbackContainerClasses(): string {
 		const baseClasses = 'border border-red-200 rounded-lg bg-red-50 p-6';
-		const classes = `${baseClasses} ${fallbackClass} ${additionalClass}`.trim();
-		return classes;
+		return baseClasses;
 	}
 
 	/**

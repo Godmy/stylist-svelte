@@ -1,22 +1,12 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundCtaButtonsState } from '$stylist/development/function/state/playground-cta-buttons';
+  import type { Props } from '$stylist/development/type/struct/playground-cta-buttons';
 const Package = 'package';
 const Layers = 'layers';
 const ArrowRight = 'arrow-right';
 
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-  type Props = {
-    totalComponents: number;
-    componentsHref?: string;
-    playgroundHref?: string;
-    componentsTitle?: string;
-    componentsDescriptionPrefix?: string;
-    playgroundTitle?: string;
-    playgroundDescription?: string;
-    class?: string;
-  } & InformationHTMLAttributes<HTMLDivElement>;
 
   let {
     totalComponents,

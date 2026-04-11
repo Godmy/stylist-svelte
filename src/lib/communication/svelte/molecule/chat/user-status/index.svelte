@@ -1,40 +1,22 @@
 <script lang="ts">
-  // Define local types
-  interface User {
-    id: string;
-    name: string;
-    avatar?: string;
-    status?: 'online' | 'away' | 'offline' | 'typing';
-    lastSeen?: Date;
-  }
-
+  import type { User } from '$stylist/communication/interface/component/chat/other';
   import ChatStatusIndicator from '$stylist/communication/svelte/atom/chat/atoms/chat-status-indicator/index.svelte';
+  import { createUserStatusState } from '$stylist/communication/function/state/user-status';
 
-  // Props
-  let { 
-    user,
-    showAvatar = true,
-    showName = true,
-    showStatusText = false
-  }: {
+  export type UserStatusProps = {
     user: User;
     showAvatar?: boolean;
     showName?: boolean;
     showStatusText?: boolean;
-  } = $props();
+  };
 
-  // Status text
-  const statusText = $derived(() => {
-    switch (user.status) {
-      case 'online': return 'РІ СЃРµС‚Рё';
-      case 'away': return 'РЅРµ РЅР° РјРµСЃС‚Рµ';
-      case 'typing': return 'РїРµС‡Р°С‚Р°РµС‚...';
-      case 'offline': 
-        return user.lastSeen 
-          ? `Р±С‹Р»(Р°) ${new Date(user.lastSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` 
-          : 'РЅРµ РІ СЃРµС‚Рё';
-      default: return '';
-    }
+  let props: UserStatusProps = $props();
+
+  const state = createUserStatusState({
+    user: props.user,
+    showAvatar: props.showAvatar,
+    showName: props.showName,
+    showStatusText: props.showStatusText
   });
 </script>
 
@@ -62,26 +44,23 @@
   }
 </style>
 
-<div class="user-status">
-  {#if showAvatar && user}
-    <ChatStatusIndicator 
-      status={user.status}
+<div class={state.containerClasses}>
+  {#if state.showAvatar && props.user}
+    <ChatStatusIndicator
+      status={props.user.status === 'idle' ? 'away' : props.user.status}
       size="md"
       showLabel={false}
     />
   {/if}
-  
-  {#if showName || showStatusText}
-    <div class="user-info">
-      {#if showName && user.name}
-        <div class="user-name">{user.name}</div>
+
+  {#if state.showName || state.showStatusText}
+    <div class={state.userInfoClasses}>
+      {#if state.showName && props.user.name}
+        <div class={state.userNameClasses}>{props.user.name}</div>
       {/if}
-      {#if showStatusText}
-        <div class="status-text">{statusText}</div>
+      {#if state.showStatusText}
+        <div class={state.statusTextClasses}>{state.statusText}</div>
       {/if}
     </div>
   {/if}
 </div>
-
-
-

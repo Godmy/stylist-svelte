@@ -1,63 +1,20 @@
 <script lang="ts">
 import type { Message, User } from '$stylist/communication/interface/component/chat/other';
-  import MessageItem from '../message-item/index.svelte';
-  import { createEventDispatcher, onMount } from 'svelte';
+import MessageItem from '../message-item/index.svelte';
+import { createMessageListState } from '$stylist/communication/function/state/message-list';
+import { onMount } from 'svelte';
 
-  // Props
-  let { 
-    messages = [],
-    currentUser,
-    onMessageAction
-  }: {
-    messages: Message[];
-    currentUser: User;
-    onMessageAction?: (action: string, message: Message) => void;
-  } = $props();
+export type MessageListProps = {
+  messages: Message[];
+  currentUser: User;
+  onMessageAction?: (action: string, message: Message) => void;
+  onMessageClick?: (message: Message) => void;
+  onMessageReaction?: (messageId: string, reaction: string) => void;
+};
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    messageClick: { message: Message };
-    messageReaction: { message: Message; reaction: string };
-  }>();
+let props: MessageListProps = $props();
 
-  // Handle message click
-  function handleMessageClick(message: Message) {
-    dispatch('messageClick', { message });
-  }
-
-  // Handle message reaction
-  function handleMessageReaction(event: CustomEvent<{ reaction: string }>, message: Message) {
-    dispatch('messageReaction', { message, reaction: event.detail.reaction });
-    onMessageAction?.('reaction', message);
-  }
-
-  // Function to enhance scroll behavior for chat
-  function enhanceScroll(node: HTMLElement) {
-    let handleScroll: () => void;
-    
-    // Auto-scroll to bottom when new messages arrive
-    onMount(() => {
-      if (messages.length > 0) {
-        node.scrollTop = node.scrollHeight;
-      }
-      
-      // Handle scroll events to detect if user has scrolled up
-      handleScroll = () => {
-        // This could be used to implement "show new messages" indicator
-        // when user scrolls up and new messages arrive
-      };
-      
-      node.addEventListener('scroll', handleScroll);
-    });
-    
-    return {
-      destroy() {
-        if (handleScroll) {
-          node.removeEventListener('scroll', handleScroll);
-        }
-      }
-    };
-  }
+const state = createMessageListState(props);
 </script>
 
 <style>
@@ -89,16 +46,14 @@ import type { Message, User } from '$stylist/communication/interface/component/c
   }
 </style>
 
-<div class="message-list" use:enhanceScroll>
-  {#each messages as message (message.id)}
+<div class={state.containerClasses} use:state.enhanceScroll>
+  {#each props.messages as message (message.id)}
     <MessageItem
-      {message}
-      isOwn={message.senderId === currentUser.id}
-      on:click={() => handleMessageClick(message)}
-      on:reaction={(e: CustomEvent<{ reaction: string }>) => handleMessageReaction(e, message)}
+      message={message}
+      isOwn={message.senderId === props.currentUser.id}
+      onReaction={(reaction: string) => props.onMessageReaction?.(message.id, reaction)}
+      onReply={() => props.onMessageAction?.('reply', message)}
+      onForward={() => props.onMessageAction?.('forward', message)}
     />
   {/each}
 </div>
-
-
-

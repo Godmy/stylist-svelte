@@ -16,23 +16,28 @@ export function createDesignTokensState(props: Props) {
 	const showShadows = $derived(props.showShadows ?? true);
 
 	const containerClass = $derived(DesignTokensStyleManager.getContainerClasses());
-	const sectionClass = $derived(DesignTokensStyleManager.getSectionClasses());
+	const headerClass = $derived(DesignTokensStyleManager.getHeaderClasses());
+	const titleClass = $derived(DesignTokensStyleManager.getTitleClasses());
+	const descriptionClass = $derived(DesignTokensStyleManager.getDescriptionClasses());
+	const tokensGridClass = $derived(DesignTokensStyleManager.getTokensGridClasses());
+	const tokenCardClass = $derived(DesignTokensStyleManager.getTokenCardClasses());
+	const getTokenPreviewClass = (color: string) => DesignTokensStyleManager.getTokenPreviewClasses(color);
+	const tokenNameClass = $derived(DesignTokensStyleManager.getTokenNameClasses());
+	const tokenValueClass = $derived(DesignTokensStyleManager.getTokenValueClasses());
+	const tokenCategoryClass = $derived(DesignTokensStyleManager.getTokenCategoryClasses());
+	const sectionContainerClass = $derived(DesignTokensStyleManager.getSectionContainerClasses());
 	const sectionTitleClass = $derived(DesignTokensStyleManager.getSectionTitleClasses());
-	const colorGridClass = $derived(DesignTokensStyleManager.getColorGridClasses());
-	const colorItemClass = $derived(DesignTokensStyleManager.getColorItemClasses());
-	const colorPreviewClass = $derived(DesignTokensStyleManager.getColorPreviewClasses());
-	const colorNameClass = $derived(DesignTokensStyleManager.getColorNameClasses());
-	const colorValueClass = $derived(DesignTokensStyleManager.getColorValueClasses());
-	const spacingSectionClass = $derived(DesignTokensStyleManager.getSpacingSectionClasses());
-	const spacingItemClass = $derived(DesignTokensStyleManager.getSpacingItemClasses());
-	const spacingPreviewClass = $derived(DesignTokensStyleManager.getSpacingPreviewClasses());
-	const typographySectionClass = $derived(DesignTokensStyleManager.getTypographySectionClasses());
-	const typographyItemClass = $derived(DesignTokensStyleManager.getTypographyItemClasses());
-	const borderRadiusSectionClass = $derived(DesignTokensStyleManager.getBorderRadiusSectionClasses());
-	const borderRadiusItemClass = $derived(DesignTokensStyleManager.getBorderRadiusItemClasses());
-	const borderRadiusPreviewClass = $derived(DesignTokensStyleManager.getBorderRadiusPreviewClasses());
-	const shadowsSectionClass = $derived(DesignTokensStyleManager.getShadowsSectionClasses());
-	const shadowItemClass = $derived(DesignTokensStyleManager.getShadowItemClasses());
+	const tokensTableClass = $derived(DesignTokensStyleManager.getTokensTableClasses());
+	const tableRowClass = $derived(DesignTokensStyleManager.getTableRowClasses());
+	const tableCellClass = $derived(DesignTokensStyleManager.getTableCellClasses());
+	const previewCellClass = $derived(DesignTokensStyleManager.getPreviewCellClasses());
+	const getColorPreviewClass = (color: string) => DesignTokensStyleManager.getColorPreviewClasses(color);
+	const nameCellClass = $derived(DesignTokensStyleManager.getNameCellClasses());
+	const valueCellClass = $derived(DesignTokensStyleManager.getValueCellClasses());
+	const copyButtonClass = $derived(DesignTokensStyleManager.getCopyButtonClasses());
+	const copyIconClass = $derived(DesignTokensStyleManager.getCopyIconClasses());
+	const filtersContainerClass = $derived(DesignTokensStyleManager.getFiltersContainerClasses());
+	const getFilterButtonClass = (isActive: boolean) => DesignTokensStyleManager.getFilterButtonClasses(isActive);
 
 	$effect(() => {
 		currentTheme = theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK;
@@ -69,23 +74,28 @@ export function createDesignTokensState(props: Props) {
 		get showBorderRadius() { return showBorderRadius; },
 		get showShadows() { return showShadows; },
 		get containerClass() { return containerClass; },
-		get sectionClass() { return sectionClass; },
+		get headerClass() { return headerClass; },
+		get titleClass() { return titleClass; },
+		get descriptionClass() { return descriptionClass; },
+		get tokensGridClass() { return tokensGridClass; },
+		get tokenCardClass() { return tokenCardClass; },
+		getTokenPreviewClass,
+		get tokenNameClass() { return tokenNameClass; },
+		get tokenValueClass() { return tokenValueClass; },
+		get tokenCategoryClass() { return tokenCategoryClass; },
+		get sectionContainerClass() { return sectionContainerClass; },
 		get sectionTitleClass() { return sectionTitleClass; },
-		get colorGridClass() { return colorGridClass; },
-		get colorItemClass() { return colorItemClass; },
-		get colorPreviewClass() { return colorPreviewClass; },
-		get colorNameClass() { return colorNameClass; },
-		get colorValueClass() { return colorValueClass; },
-		get spacingSectionClass() { return spacingSectionClass; },
-		get spacingItemClass() { return spacingItemClass; },
-		get spacingPreviewClass() { return spacingPreviewClass; },
-		get typographySectionClass() { return typographySectionClass; },
-		get typographyItemClass() { return typographyItemClass; },
-		get borderRadiusSectionClass() { return borderRadiusSectionClass; },
-		get borderRadiusItemClass() { return borderRadiusItemClass; },
-		get borderRadiusPreviewClass() { return borderRadiusPreviewClass; },
-		get shadowsSectionClass() { return shadowsSectionClass; },
-		get shadowItemClass() { return shadowItemClass; },
+		get tokensTableClass() { return tokensTableClass; },
+		get tableRowClass() { return tableRowClass; },
+		get tableCellClass() { return tableCellClass; },
+		get previewCellClass() { return previewCellClass; },
+		getColorPreviewClass,
+		get nameCellClass() { return nameCellClass; },
+		get valueCellClass() { return valueCellClass; },
+		get copyButtonClass() { return copyButtonClass; },
+		get copyIconClass() { return copyIconClass; },
+		get filtersContainerClass() { return filtersContainerClass; },
+		getFilterButtonClass,
 		renderColorToken,
 		isColorToken
 	};

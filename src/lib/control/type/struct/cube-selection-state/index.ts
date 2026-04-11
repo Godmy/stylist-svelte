@@ -4,4 +4,4 @@ export type CubeSelectionState = {
 	selectedCellByFace: number[];
 };
 
-export default CubeSelectionState;
+export type { CubeSelectionState as default };

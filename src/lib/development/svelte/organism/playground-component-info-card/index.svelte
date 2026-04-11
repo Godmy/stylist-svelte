@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundComponentInfoCardState } from '$stylist/development/function/state/playground-component-info-card';
+  import type { Props } from '$stylist/development/type/struct/playground-component-info-card';
 const X = 'x';
 const Package = 'package';
 const Tag = 'tag';
@@ -13,21 +14,6 @@ const Layers = 'layers';
 const Calendar = 'calendar';
 const User = 'user';
 
-
-  interface Props {
-    componentName?: string;
-    category?: string;
-    subcategory?: string;
-    description?: string;
-    propsCount?: number;
-    examples?: string[];
-    npmPackage?: string;
-    version?: string;
-    author?: string;
-    lastUpdated?: string;
-    isOpen?: boolean;
-    onClose?: () => void;
-  }
 
   let props: Props = $props();
   const state = createPlaygroundComponentInfoCardState(props);

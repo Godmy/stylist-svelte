@@ -6,16 +6,16 @@
 
 	let props: ToggleGroupItemProps = $props();
 
-	const toggleGroupContext = getContext<ToggleGroupContext>('toggleGroup') ?? {
+	const context = getContext<ToggleGroupContext>('toggleGroup') ?? {
 		updateValue: () => {},
 		value: null,
 		disabled: false
 	};
   const state = createToggleGroupItemState({
 		...props,
-		groupValue: toggleGroupContext.value,
-		groupDisabled: toggleGroupContext.disabled,
-		updateValue: toggleGroupContext.updateValue
+		groupValue: context.value,
+		groupDisabled: context.disabled,
+		updateValue: context.updateValue
 	});
 
 	const restProps = $derived(

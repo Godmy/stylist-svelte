@@ -1,6 +1,7 @@
 import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
 
 export const createChatItemState = (props: { chat: Chat; currentUser: User; isActive?: boolean; class?: string }) => {
+	const isActiveVal = $derived(props.isActive ?? false);
 	const isGroupChat = $derived(props.chat.participants.length > 2);
 
 	const otherUser = $derived(
@@ -15,7 +16,7 @@ export const createChatItemState = (props: { chat: Chat; currentUser: User; isAc
 	});
 
 	const containerClasses = $derived(
-		`flex items-center gap-3 p-3 cursor-pointer border-b border-[var(--color-border-primary)] transition-colors duration-200 hover:bg-[var(--color-background-secondary)] ${props.isActive ? 'bg-[var(--color-primary-50)]' : ''} ${props.class ?? ''}`.trim()
+		`flex items-center gap-3 p-3 cursor-pointer border-b border-[var(--color-border-primary)] transition-colors duration-200 hover:bg-[var(--color-background-secondary)] ${isActiveVal ? 'bg-[var(--color-primary-50)]' : ''} ${props.class ?? ''}`.trim()
 	);
 
 	const chatInfoClasses = 'flex-1 min-w-0';

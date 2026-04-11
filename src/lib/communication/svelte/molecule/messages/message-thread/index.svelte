@@ -1,49 +1,35 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import MessageThreadComponent from './index.svelte';
+  import type { MessageThreadProps } from '$stylist/communication/interface/component/chat/other';
+  import { createMessageThreadState } from '$stylist/communication/function/state/message-thread';
 
-  const MessageThread = MessageThreadComponent as any;
+  let props: MessageThreadProps = $props();
 
-  let lastAction = $state('none');
-
-  const controls: InterfaceControllerSettings[] = [
-    { name: 'title', type: 'text', defaultValue: 'Project chat' },
-    { name: 'loading', type: 'boolean', defaultValue: false },
-    { name: 'messageCount', type: 'number', defaultValue: 4, min: 1, max: 8 }
-  ];
-
-  const allMessages = [
-    { id: '1', text: 'Hello!', sender: 'contact', timestamp: '14:30', isOwn: false },
-    { id: '2', text: 'Hi there!', sender: 'current-user', timestamp: '14:31', isOwn: true },
-    { id: '3', text: 'Can we ship this today?', sender: 'contact', timestamp: '14:32', isOwn: false },
-    { id: '4', text: 'Yes, after final QA.', sender: 'current-user', timestamp: '14:33', isOwn: true },
-    { id: '5', text: 'Perfect, thanks.', sender: 'contact', timestamp: '14:34', isOwn: false }
-  ];
+  const state = createMessageThreadState(props);
 </script>
 
-<Story
-  id="molecules-message-thread"
-  title="Molecules / Information / Messages / MessageThread"
-  component={MessageThread}
-  category="Molecules/Information/Messages"
-  description="Composed thread container for rendering a full conversation."
-  {controls}
->
-  {#snippet children(args: any)}
-    <div class="h-96 p-4 rounded-xl bg-[var(--color-background-secondary)] space-y-3">
-      <MessageThread
-        title={args.title}
-        messages={allMessages.slice(0, args.messageCount)}
-        loading={args.loading}
-        class="h-[320px]"
-        onMessageAction={(action: string, message: { id: string }) => (lastAction = `${action}:${message.id}`)}
-      />
-      <p class="text-sm text-[var(--color-text-secondary)]">Last action: {lastAction}</p>
-    </div>
-  {/snippet}
-</Story>
+<div class={state.hostClasses} {...props}>
+  {#if state.title}
+    <header class={state.headerClasses}>
+      <h3 class="font-semibold text-lg">{state.title}</h3>
+    </header>
+  {/if}
 
-
-
-
+  <div class={state.containerClasses}>
+    {#if state.loading}
+      <div class={state.loadingClasses}>
+        <div class={state.spinnerClasses}></div>
+      </div>
+    {:else}
+      <div class={state.messageContainerClasses}>
+        {#each state.messages as message}
+          <div class={`message-item ${state.variantClass}`}>
+            <p>{message.text}</p>
+            <span class="text-xs text-[var(--color-text-secondary)]">
+              {message.sender} - {message.timestamp}
+            </span>
+          </div>
+        {/each}
+      </div>
+    {/if}
+  </div>
+</div>

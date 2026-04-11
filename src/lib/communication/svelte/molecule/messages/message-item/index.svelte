@@ -3,61 +3,22 @@
   import { Avatar, Icon } from '$stylist';
   import MessageMeta from '$stylist/communication/svelte/atom/messages/message-meta/index.svelte';
   import AttachmentPreview from '$stylist/file/svelte/molecule/preview/attachment-preview/index.svelte';
-  import { createEventDispatcher } from 'svelte';
+  import { createMessageItemState } from '$stylist/communication/function/state/message-item';
 
-  // Props
-  let { 
-    message,
-    isOwn = false,
-    showAvatar = true,
-    enableReactions = true,
-    sender
-  }: {
+  export type MessageItemProps = {
     message: Message;
     isOwn?: boolean;
     showAvatar?: boolean;
     enableReactions?: boolean;
     sender?: User;
-  } = $props();
+    onReaction?: (reaction: string) => void;
+    onReply?: () => void;
+    onForward?: () => void;
+  };
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    reaction: { reaction: string };
-    reply: { message: Message };
-    forward: { message: Message };
-  }>();
+  let props: MessageItemProps = $props();
 
-  // Local state
-  let reactionsVisible = $state(false);
-  let availableReactions = $state(['рџ‘Ќ', 'рџ‘Ћ', 'вќ¤пёЏ', 'рџ‚', 'рџ®', 'рџў']);
-
-  // Positioning for own vs other messages
-  const messageAlignment = $derived(isOwn ? 'items-end' : 'items-start');
-  const messageBackground = $derived(isOwn ? 'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)]' : 'bg-[var(--color-background-primary)] text-[var(--color-text-primary)]');
-  const messageBorder = $derived(isOwn ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]');
-  const messageMargin = $derived(isOwn ? 'ml-auto' : '');
-
-  // Handle reaction click
-  function handleReactionClick(reaction: string) {
-    dispatch('reaction', { reaction });
-    reactionsVisible = false;
-  }
-
-  function handleReactionKeydown(event: KeyboardEvent, reaction: string) {
-    if (event.key === 'Enter' || event.key === ' ') {
-      handleReactionClick(reaction);
-    }
-  }
-
-  // Handle reply
-  function handleReply() {
-    dispatch('reply', { message });
-  }
-
-  // Handle forward
-  function handleForward() {
-    dispatch('forward', { message });
-  }
+  const compState = createMessageItemState(props);
 </script>
 
 <style>
@@ -132,41 +93,41 @@
   }
 </style>
 
-<div class="message-container {messageAlignment}">
-  {#if showAvatar && !isOwn && sender}
-    <Avatar 
-      src={sender.avatar} 
-      name={sender.name} 
-      status={sender.status} 
-      size="sm" 
+<div class="message-container {compState.messageAlignment}">
+  {#if compState.showAvatar && !compState.isOwn && props.sender}
+    <Avatar
+      src={props.sender.avatar}
+      name={props.sender.name}
+      status={props.sender.status}
+      size="sm"
       showStatus={false} />
   {/if}
-  
-  <div class="message-bubble {messageBackground} {messageBorder} {messageMargin}">
-    {#if !isOwn && sender}
-      <div class="font-semibold text-sm mb-1">{sender.name}</div>
+
+  <div class={compState.messageBubbleClasses}>
+    {#if !compState.isOwn && props.sender}
+      <div class="font-semibold text-sm mb-1">{props.sender.name}</div>
     {/if}
-    
-    {#if message.replyTo}
+
+    {#if props.message.replyTo}
       <div class="text-xs italic mb-1" style="border-left: 2px solid var(--color-border-secondary); padding-left: var(--spacing-2);">
-        Р’ РѕС‚РІРµС‚ РЅР° СЃРѕРѕР±С‰РµРЅРёРµ
+        В ответ на сообщение
       </div>
     {/if}
-    
-    <div class="message-content">
-      {#if message.type === 'text'}
-        {message.content}
-      {:else if message.type === 'image'}
-        <img 
-          src={message.content} 
-          alt="РР·РѕР±СЂР°Р¶РµРЅРёРµ" 
+
+    <div class={compState.messageContentClasses}>
+      {#if props.message.type === 'text'}
+        {props.message.content}
+      {:else if props.message.type === 'image'}
+        <img
+          src={props.message.content}
+          alt="Изображение"
           class="max-w-xs rounded-md"
         />
-      {:else if message.type === 'file' && message.attachments?.length}
-        {#each message.attachments as attachment, index}
+      {:else if props.message.type === 'file' && props.message.attachments?.length}
+        {#each props.message.attachments as attachment, index}
           <AttachmentPreview
             attachment={{
-              id: attachment.id ?? `${message.id}-attachment-${index}`,
+              id: attachment.id ?? `${props.message.id}-attachment-${index}`,
               name: attachment.name ?? 'Attachment',
               type: attachment.type ?? 'file',
               size: typeof attachment.size === 'number' ? attachment.size : 0,
@@ -177,32 +138,35 @@
         {/each}
       {/if}
     </div>
-    
-    <MessageMeta {message} />
-    
-    {#if enableReactions}
-      <div class="message-actions">
-        <button class="action-button" onclick={() => reactionsVisible = !reactionsVisible}>
+
+    <MessageMeta message={props.message} />
+
+    {#if compState.enableReactions}
+      <div class={compState.messageActionsClasses}>
+        <button class={compState.actionButtonClasses} onclick={() => compState.reactionsVisible = !compState.reactionsVisible}>
           <Icon name="smile" size="sm" />
         </button>
-        <button class="action-button" onclick={handleReply}>
+        <button class={compState.actionButtonClasses} onclick={() => props.onReply?.()}>
           <Icon name="reply" size="sm" />
         </button>
-        <button class="action-button" onclick={handleForward}>
+        <button class={compState.actionButtonClasses} onclick={() => props.onForward?.()}>
           <Icon name="share" size="sm" />
         </button>
       </div>
     {/if}
-    
-    {#if reactionsVisible}
-      <div class="reactions-picker">
-        {#each availableReactions as reaction}
-          <span 
-            class="reaction-option" 
+
+    {#if compState.reactionsVisible}
+      <div class={compState.reactionsPickerClasses}>
+        {#each compState.availableReactions as reaction}
+          <span
+            class={compState.reactionOptionClasses}
             role="button"
             tabindex="0"
-            onclick={() => handleReactionClick(reaction)}
-            onkeydown={(e) => handleReactionKeydown(e, reaction)}
+            onclick={() => {
+              props.onReaction?.(reaction);
+              compState.handleReactionClick(reaction);
+            }}
+            onkeydown={(e) => compState.handleReactionKeydown(e, reaction)}
           >
             {reaction}
           </span>
@@ -211,10 +175,3 @@
     {/if}
   </div>
 </div>
-
-
-
-
-
-
-

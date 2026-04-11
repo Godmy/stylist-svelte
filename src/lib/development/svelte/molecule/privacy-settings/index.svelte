@@ -1,18 +1,6 @@
 <script lang="ts">
+  import type { Props } from '$stylist/development/type/struct/privacy-settings';
   import { createPrivacySettingsState } from '$stylist/development/function/state/privacy-settings';
-
-  type Setting = {
-    id: string;
-    label: string;
-    description: string;
-    enabled: boolean;
-  };
-
-  type Props = {
-    settings: Setting[];
-    onSave?: () => void;
-    class?: string;
-  };
 
   let {
     settings = [],

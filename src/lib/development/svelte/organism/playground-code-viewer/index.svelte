@@ -1,18 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { createPlaygroundCodeViewerState } from '$stylist/development/function/state/playground-code-viewer';
-
-  type Props = {
-    code?: string;
-    componentName?: string;
-    props?: Record<string, any>;
-    language?: string;
-    theme?: 'light' | 'dark' | 'github-light' | 'github-dark';
-    onCopySuccess?: () => void;
-    onCopyError?: (error: unknown) => void;
-    onDownloadSuccess?: () => void;
-    onDownloadError?: (error: unknown) => void;
-  };
+  import type { Props } from '$stylist/development/type/struct/playground-code-viewer';
 
   let props: Props = $props();
   const state = createPlaygroundCodeViewerState(props);

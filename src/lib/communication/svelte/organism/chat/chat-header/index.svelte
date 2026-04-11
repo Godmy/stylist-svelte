@@ -1,55 +1,31 @@
 <script lang="ts">
   import { Avatar, Button, Icon } from '$stylist';
   import { UserStatus } from '$stylist';
-  import { ChatHeaderModel } from '$stylist/communication/function/state/chat-header';
-  import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header/chat-header-props';
+  import type { User } from '$stylist/communication/interface/component/chat/other';
   import { ChatHeaderStyleManager } from '$stylist/communication/class/style-manager/chat-header';
-  import { createEventDispatcher } from 'svelte';
+  import { createChatHeaderState } from '$stylist/communication/function/state/chat-header';
 
-  const dispatch = createEventDispatcher<{
-    call: { chat: any };
-    videoCall: { chat: any };
-    info: { chat: any };
-  }>();
+  export type ChatHeaderChat = {
+    id: string;
+    name?: string;
+    participants: User[];
+    isGroup: boolean;
+    avatar?: string;
+  };
 
-  // Props including event handlers using Svelte 5 runes syntax
-  let {
-    chat,
-    currentUser,
-    showActions = true,
-    class: className = ''
-  }: ChatHeaderProps = $props();
+  export type ChatHeaderOrganismProps = {
+    chat: ChatHeaderChat;
+    currentUser: User;
+    showActions?: boolean;
+    class?: string;
+    onCall?: () => void;
+    onVideoCall?: () => void;
+    onInfo?: () => void;
+  };
 
-  // Initialize the model
-  const model = ChatHeaderModel({
-    chat,
-    currentUser,
-    showActions
-  });
-  
-  // Update model when props change
-  $effect(() => {
-    model.updateFromProps({
-      chat,
-      currentUser,
-      showActions
-    });
-  });
+  let props: ChatHeaderOrganismProps = $props();
 
-  // Handle call action
-  function handleCall() {
-    model.handleCall(chat, (type, detail) => dispatch(type as any, detail));
-  }
-
-  // Handle video call action
-  function handleVideoCall() {
-    model.handleVideoCall(chat, (type, detail) => dispatch(type as any, detail));
-  }
-
-  // Handle info action
-  function handleInfo() {
-    model.handleInfo(chat, (type, detail) => dispatch(type as any, detail));
-  }
+  const state = createChatHeaderState(props);
 </script>
 
 <style>
@@ -87,25 +63,25 @@
   }
 </style>
 
-<div class={ChatHeaderStyleManager.getAllClasses(className)}>
-  <div class={ChatHeaderStyleManager.getInfoClasses()}>
+<div class={state.containerClasses}>
+  <div class={state.infoClasses}>
     <div class="relative">
       <Avatar
-        id={model.isGroupChat ? chat.id : model.otherUser?.id || chat.id}
-        name={model.isGroupChat ? chat.name || '' : model.otherUser?.name || ''}
-        status={model.isGroupChat ? 'online' : model.otherUser?.status}
+        id={state.isGroupChat ? props.chat.id : state.otherUser?.id || props.chat.id}
+        name={state.isGroupChat ? props.chat.name || '' : state.otherUser?.name || ''}
+        status={state.isGroupChat ? 'online' : state.otherUser?.status}
         size="lg"
-        showStatus={!model.isGroupChat}
+        showStatus={!state.isGroupChat}
       />
     </div>
 
-    <div class={ChatHeaderStyleManager.getDetailsClasses()}>
-      <div class={ChatHeaderStyleManager.getNameClasses()}>
-        {model.isGroupChat ? chat.name : model.otherUser?.name}
+    <div class={state.detailsClasses}>
+      <div class={state.nameClasses}>
+        {state.isGroupChat ? props.chat.name : state.otherUser?.name}
       </div>
-      {#if !model.isGroupChat && model.otherUser}
+      {#if !state.isGroupChat && state.otherUser}
         <UserStatus
-          user={model.otherUser}
+          user={state.otherUser}
           showAvatar={false}
           showName={false}
           showStatusText={true}
@@ -114,12 +90,12 @@
     </div>
   </div>
 
-  {#if showActions}
-    <div class={ChatHeaderStyleManager.getActionsClasses()}>
+  {#if state.showActions}
+    <div class={state.actionsClasses}>
       <Button
         variant="ghost"
         size="sm"
-        onclick={handleCall}
+        onclick={state.handleCall}
         title="Start call"
       >
         <Icon name="call" size="sm" />
@@ -127,7 +103,7 @@
       <Button
         variant="ghost"
         size="sm"
-        onclick={handleVideoCall}
+        onclick={state.handleVideoCall}
         title="Start video call"
       >
         <Icon name="video" size="sm" />
@@ -135,7 +111,7 @@
       <Button
         variant="ghost"
         size="sm"
-        onclick={handleInfo}
+        onclick={state.handleInfo}
         title="Chat info"
       >
         <Icon name="info" size="sm" />
@@ -143,8 +119,3 @@
     </div>
   {/if}
 </div>
-
-
-
-
-

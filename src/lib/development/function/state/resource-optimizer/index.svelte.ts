@@ -21,10 +21,10 @@ export function createResourceOptimizerState(props: Props) {
   const title = $derived(props.title ?? 'Resource Optimizer');
   const description = $derived(props.description ?? 'Optimize your application resources for better performance');
   const className = $derived(props.class ?? '');
-  const headerClass = $derived(props.headerClass ?? '');
-  const resourceClass = $derived(props.resourceClass ?? '');
-  const suggestionClass = $derived(props.suggestionClass ?? '');
-  const footerClass = $derived(props.footerClass ?? '');
+  const headerClass = $derived('');
+  const resourceClass = $derived('');
+  const suggestionClass = $derived('');
+  const footerClass = $derived('');
 
   let expandedResources = $state<Record<string, boolean>>({});
   let selectedOptimizations = $state<string[]>([]);

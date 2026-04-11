@@ -8,7 +8,7 @@ const Send = 'send';
   import { Button } from '$stylist';
 
   import type { IMessageComposerProps } from '$stylist/communication/interface/component/message-composer/other';
-  import { MessageComposerStyleManager } from '$stylist/communication/class/style-manager/message-composer';
+  import { createMessageComposerState } from '$stylist/communication/function/state/message-composer';
 
   /**
    * MessageComposer component - A message input component with attachment and voice options
@@ -33,118 +33,58 @@ const Send = 'send';
    * @param onVoiceClick - Callback when voice button is clicked
    * @returns An accessible, styled message composer component
    */
-  let {
-    value = '',
-    placeholder = 'Type a message...',
-    class: hostClass = '',
-    inputClass = '',
-    buttonClass = '',
-    disabled = false,
-    showAttachmentButton = true,
-    showVoiceButton = true,
-    onSendMessage,
-    onAttachmentClick,
-    onVoiceClick,
-    ...restProps
-  }: IMessageComposerProps = $props();
+  let props: IMessageComposerProps = $props();
 
-  let messageText = $state(value);
-
-  $effect(() => {
-    messageText = value;
-  });
-
-  function handleInput(e: Event) {
-    const target = e.target as HTMLTextAreaElement;
-    messageText = target.value;
-  }
-
-  function handleSubmit(e: Event) {
-    e.preventDefault();
-    if (messageText.trim() && !disabled) {
-      onSendMessage?.(messageText);
-      messageText = '';
-    }
-  }
-
-  function handleKeyDown(e: KeyboardEvent) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSubmit(e);
-    }
-  }
-
-  function handleAttachmentClick() {
-    onAttachmentClick?.();
-  }
-
-  function handleVoiceClick() {
-    onVoiceClick?.();
-  }
-
-  // Derived classes using StyleManager
-  let containerClasses = $derived(MessageComposerStyleManager.getContainerClasses(hostClass != null ? String(hostClass) : ''));
-  let formClasses = $derived(MessageComposerStyleManager.getFormClasses());
-  let attachmentButtonClasses = $derived(MessageComposerStyleManager.getAttachmentButtonClasses());
-  let inputContainerClasses = $derived(MessageComposerStyleManager.getInputContainerClasses());
-  let inputClasses = $derived(MessageComposerStyleManager.getInputClasses(inputClass != null ? String(inputClass) : ''));
-  let sendButtonClasses = $derived(MessageComposerStyleManager.getSendButtonClasses(buttonClass != null ? String(buttonClass) : ''));
-  let voiceButtonClasses = $derived(MessageComposerStyleManager.getVoiceButtonClasses(buttonClass != null ? String(buttonClass) : ''));
+  const compState = createMessageComposerState(props);
 </script>
 
-<div class={containerClasses} {...restProps}>
-  <form class={formClasses} onsubmit={handleSubmit}>
-    {#if showAttachmentButton}
+<div class={compState.containerClasses} {...props}>
+  <form class={compState.formClasses} onsubmit={compState.handleSubmit}>
+    {#if compState.showAttachmentButton}
       <Button
         variant="ghost"
         size="sm"
         type="button"
-        onclick={handleAttachmentClick}
-        disabled={disabled}
-        class={attachmentButtonClasses}
+        onclick={compState.handleAttachmentClick}
+        disabled={compState.disabled}
+        class={compState.attachmentButtonClasses}
       >
         <BaseIcon name={Paperclip} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>
     {/if}
 
-    <div class={inputContainerClasses}>
+    <div class={compState.inputContainerClasses}>
       <textarea
-        class={inputClasses}
-        value={messageText}
-        placeholder={placeholder}
-        oninput={handleInput}
-        onkeydown={handleKeyDown}
-        disabled={disabled}
+        class={compState.inputClasses}
+        value={compState.messageText}
+        placeholder={props.placeholder}
+        oninput={compState.handleInput}
+        onkeydown={compState.handleKeyDown}
+        disabled={compState.disabled}
         rows="1"
       ></textarea>
     </div>
 
-    {#if messageText.trim()}
+    {#if compState.showSendButton}
       <Button
         variant="primary"
         type="submit"
-        disabled={disabled}
-        class={sendButtonClasses}
+        disabled={compState.disabled}
+        class={compState.sendButtonClasses}
       >
         <BaseIcon name={Send} class="h-5 w-5" />
       </Button>
-    {:else if showVoiceButton}
+    {:else if compState.showVoiceButton}
       <Button
         variant="ghost"
         size="sm"
         type="button"
-        onclick={handleVoiceClick}
-        disabled={disabled}
-        class={voiceButtonClasses}
+        onclick={compState.handleVoiceClick}
+        disabled={compState.disabled}
+        class={compState.voiceButtonClasses}
       >
         <BaseIcon name={Mic} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>
     {/if}
   </form>
 </div>
-
-
-
-
-
-

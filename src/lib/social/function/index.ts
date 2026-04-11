@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { commentSystemFormatDate, commentSystemSubmitComment, commentSystemSubmitReply, commentSystemToggleReplyForm, commentThreadFormatDate, commentThreadHandleKeyDown, commentThreadStartEditing, commentThreadSubmitComment, commentThreadSubmitEdit, commentThreadSubmitReply, friendListFormatLastSeen, friendListGetStatusColor, friendListGetStatusText, friendListHandleAddFriend, friendListHandleCall, friendListHandleFriendClick, friendListHandleSearchInput, friendListHandleSendMessage, friendListHandleVideoCall, socialActivityFeedFormatTime, socialActivityFeedGetDescription, socialActivityFeedGetIcon } from './script';
 export { createCommentSystemState, createCommentThreadState, createFriendListState, createRatingState, createSocialActivityFeedState, createSocialFeedState, createSocialLoginState, createSocialShareState } from './state';
-export type { CommentSystemState, FriendListState, RatingState, SocialActivityFeedState, SocialFeedState, SocialLoginState, SocialShareState } from './state';
-export type { CommentThreadStateProps } from './state';
+export type { CommentSystemState, CommentThreadState, FriendListState, RatingState, SocialActivityFeedState, SocialFeedState, SocialLoginState, SocialShareState } from './state';

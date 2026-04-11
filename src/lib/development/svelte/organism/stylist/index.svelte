@@ -1,265 +1,46 @@
 <script lang="ts">
-	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-	import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
+	import type { Props } from '$stylist/development/type/struct/stylist';
 	import { Icon as BaseIcon } from '$stylist';
-const Bell = 'bell';
-const Building2 = 'building-2';
-const CheckCircle = 'check-circle';
-const Grid = 'grid';
-const Hand = 'hand';
-const Info = 'info';
-const Layout = 'layout';
-const Layers = 'layers';
-const Palette = 'palette';
-const Ruler = 'ruler';
-const Settings = 'settings';
-const Sparkles = 'sparkles';
-const Type = 'type';
-const X = 'x';
+	import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
+	import { createStylistState, categories } from '$stylist/development/function/state/stylist/index.svelte';
+	import { panelId } from '$stylist/development/const/stylist/panel-id';
 
+	const Sparkles = 'sparkles';
+	const X = 'x';
 
-	type StylistCategoryId = 'architecture' | 'information' | 'interaction';
-
-	type StylistOption = {
-		id: string;
-		label: string;
-		description: string;
-		hint: string;
-		accent: string;
-		icon: any;
-	};
-
-	type StylistCategory = {
-		id: StylistCategoryId;
-		label: string;
-		description: string;
-		accent: string;
-		icon: any;
-		options: StylistOption[];
-	};
-
-	export type StylistSelection = {
-		category: StylistCategoryId;
-		option: string;
-		selections: Record<StylistCategoryId, string>;
-	};
-
-	type Props = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {
-		initialCategory?: StylistCategoryId;
-		class?: string;
-		onSelectionChange?: (selection: StylistSelection) => void;
-	};
-
-	const categories: StylistCategory[] = [
-		{
-			id: 'architecture',
-			label: 'Архитектурные',
-			description: 'Размер, компоновка и пространственная структура компонента.',
-			accent: 'var(--color-primary-600)',
-			icon: Building2,
-			options: [
-				{
-					id: 'size',
-					label: 'Размер',
-					description: 'Контролирует общий масштаб и плотность блока.',
-					hint: 'Меняйте высоту, ширину и визуальный вес компонента.',
-					accent: 'var(--color-primary-600)',
-					icon: Ruler
-				},
-				{
-					id: 'layout',
-					label: 'Расположение',
-					description: 'Отвечает за выравнивание и направление компоновки.',
-					hint: 'Подходит для выбора сетки, выравнивания и ориентации.',
-					accent: 'var(--color-primary-700)',
-					icon: Layout
-				},
-				{
-					id: 'padding',
-					label: 'Паддинги',
-					description: 'Управляет внутренними отступами и дыханием интерфейса.',
-					hint: 'Помогает регулировать внутренний воздух внутри карточки или панели.',
-					accent: 'var(--color-primary-500)',
-					icon: Grid
-				},
-				{
-					id: 'margin',
-					label: 'Марджины',
-					description: 'Настраивает внешний ритм между соседними блоками.',
-					hint: 'Используйте для разделения секций и стабилизации композиции.',
-					accent: 'var(--color-primary-400)',
-					icon: Layers
-				}
-			]
-		},
-		{
-			id: 'information',
-			label: 'Информационные',
-			description: 'Цвет, типографика и читаемость содержимого.',
-			accent: 'var(--color-warning-600)',
-			icon: Info,
-			options: [
-				{
-					id: 'color',
-					label: 'Цвет',
-					description: 'Настраивает палитру, акценты и контраст.',
-					hint: 'Влияет на фоны, акценты, текст и эмоциональный тон интерфейса.',
-					accent: 'var(--color-warning-500)',
-					icon: Palette
-				},
-				{
-					id: 'font-family',
-					label: 'Шрифт',
-					description: 'Выбирает характер типографики для блока.',
-					hint: 'Переключайтесь между нейтральным, редакционным и техническим стилем.',
-					accent: 'var(--color-warning-500)',
-					icon: Type
-				},
-				{
-					id: 'font-size',
-					label: 'Размер шрифта',
-					description: 'Регулирует иерархию текста и плотность чтения.',
-					hint: 'Полезно для усиления заголовков и балансировки secondary-copy.',
-					accent: 'var(--color-warning-400)',
-					icon: Ruler
-				},
-				{
-					id: 'contrast',
-					label: 'Контраст',
-					description: 'Подтягивает читаемость и визуальный фокус.',
-					hint: 'Используйте для режимов повышенной доступности и светотени.',
-					accent: 'var(--color-warning-300)',
-					icon: Layers
-				}
-			]
-		},
-		{
-			id: 'interaction',
-			label: 'Интерактивные',
-			description: 'Поведение на клик, hover и ответ интерфейса на действия.',
-			accent: 'var(--color-success-600)',
-			icon: Hand,
-			options: [
-				{
-					id: 'press-action',
-					label: 'Нажатие',
-					description: 'Определяет действие по клику или tap-жесту.',
-					hint: 'Открыть модалку, отправить событие, запустить сценарий или переключение.',
-					accent: 'var(--color-success-500)',
-					icon: Hand
-				},
-				{
-					id: 'verdict',
-					label: 'Вердикт',
-					description: 'Задаёт статус, подтверждение или реакцию после действия.',
-					hint: 'Подходит для success, warning, validation и async-result состояний.',
-					accent: 'var(--color-success-400)',
-					icon: CheckCircle
-				},
-				{
-					id: 'tooltips',
-					label: 'Тултипы',
-					description: 'Добавляет пояснения при наведении курсора.',
-					hint: 'Показывайте краткую подсказку или расширенное объяснение по hover.',
-					accent: 'var(--color-success-300)',
-					icon: Info
-				},
-				{
-					id: 'hover-state',
-					label: 'Hover-события',
-					description: 'Настраивает реакции на наведение и фокус.',
-					hint: 'Подсветка, звуковой отклик, показ бейджей и вторичных действий.',
-					accent: 'var(--color-success-200)',
-					icon: Bell
-				}
-			]
-		}
-	];
-
-	let {
-		initialCategory = 'architecture',
-		class: className = '',
-		onSelectionChange,
-		...restProps
-	}: Props = $props();
-
-	let rootElement = $state<HTMLElement | null>(null);
-	let isOpen = $state(false);
-	let selectedCategoryId = $state<StylistCategoryId>(initialCategory);
-	let selections = $state<Record<StylistCategoryId, string>>({
-		architecture: 'size',
-		information: 'color',
-		interaction: 'tooltips'
-	});
-
-	const panelId = `stylist-panel-${Math.random().toString(36).slice(2, 9)}`;
-
-	const activeCategory = $derived(
-		categories.find((category) => category.id === selectedCategoryId) ?? categories[0]
-	);
-
-	const activeOption = $derived(
-		activeCategory.options.find((option) => option.id === selections[selectedCategoryId]) ??
-			activeCategory.options[0]
-	);
+	let props: Props = $props();
+	const state = createStylistState(props);
+  let rootElement: HTMLElement;
 
 	$effect(() => {
-		onSelectionChange?.({
-			category: selectedCategoryId,
-			option: activeOption.id,
-			selections: { ...selections }
+		state.onSelectionChange?.({
+			category: state.selectedCategoryId,
+			option: state.activeOption.id,
+			selections: { ...state.selections }
 		});
 	});
 
-	function toggleOpen() {
-		isOpen = !isOpen;
-	}
-
-	function closePanel() {
-		isOpen = false;
-	}
-
-	function handleCategorySelect(categoryId: StylistCategoryId) {
-		selectedCategoryId = categoryId;
-	}
-
-	function handleOptionSelect(optionId: string) {
-		selections = {
-			...selections,
-			[selectedCategoryId]: optionId
-		};
-	}
-
 	function handleWindowClick(event: MouseEvent) {
-		if (!isOpen || !rootElement) {
-			return;
-		}
-
-		const path = event.composedPath();
-		if (!path.includes(rootElement)) {
-			closePanel();
-		}
+		state.handleWindowClick(event, rootElement);
 	}
 
 	function handleWindowKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape') {
-			closePanel();
-		}
+		state.handleWindowKeydown(event);
 	}
 </script>
 
 <svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
 
-<div class={`stylist ${className}`} bind:this={rootElement} {...restProps}>
+<div class="stylist {state.className}" bind:this={rootElement}>
 	<button
 		type="button"
-		class:is-open={isOpen}
+		class:is-open={state.isOpen}
 		class="stylist-trigger"
 		aria-label="Открыть Stylist"
 		aria-haspopup="dialog"
-		aria-expanded={isOpen}
+		aria-expanded={state.isOpen}
 		aria-controls={panelId}
-		onclick={toggleOpen}
+		onclick={state.toggleOpen}
 	>
 		<span class="trigger-ring"></span>
 		<span class="trigger-core">
@@ -268,7 +49,7 @@ const X = 'x';
 		<span class="trigger-ping"></span>
 	</button>
 
-	{#if isOpen}
+	{#if state.isOpen}
 		<div class="stylist-panel" id={panelId} role="dialog" aria-label="Stylist popover">
 			<div class="panel-header">
 				<div>
@@ -279,7 +60,7 @@ const X = 'x';
 					type="button"
 					class="close-button"
 					aria-label="Закрыть Stylist"
-					onclick={closePanel}
+					onclick={state.closePanel}
 				>
 					<BaseIcon name={X} class="close-icon" />
 				</button>
@@ -294,15 +75,15 @@ const X = 'x';
 				{#each categories as category}
 					<button
 						type="button"
-						class:selected={category.id === selectedCategoryId}
+						class:selected={category.id === state.selectedCategoryId}
 						class="category-button"
 						style={`--category-accent: ${category.accent};`}
 						role="tab"
-						aria-selected={category.id === selectedCategoryId}
-						onclick={() => handleCategorySelect(category.id)}
+						aria-selected={category.id === state.selectedCategoryId}
+						onclick={() => state.handleCategorySelect(category.id)}
 					>
 						<span class="category-icon">
-							<category.icon class="mini-icon" />
+							<BaseIcon name={category.icon} class="mini-icon" />
 						</span>
 						<span class="category-text">
 							<strong>{category.label}</strong>
@@ -312,28 +93,28 @@ const X = 'x';
 				{/each}
 			</div>
 
-			<section class="option-section" style={`--option-accent: ${activeCategory.accent};`}>
+			<section class="option-section" style={`--option-accent: ${state.activeCategory.accent};`}>
 				<div class="section-heading">
 					<div>
 						<p class="eyebrow">Активная группа</p>
-						<h4>{activeCategory.label}</h4>
+						<h4>{state.activeCategory.label}</h4>
 					</div>
-					<span class="section-pill">{activeOption.label}</span>
+					<span class="section-pill">{state.activeOption.label}</span>
 				</div>
 
 				<div class="option-grid">
-					{#each activeCategory.options as option}
+					{#each state.activeCategory.options as option}
 						<Tooltip content={option.hint} placement="top" variant="arrow">
 							{#snippet children()}
 								<button
 									type="button"
-									class:selected={selections[selectedCategoryId] === option.id}
+									class:selected={state.selections[state.selectedCategoryId] === option.id}
 									class="option-button"
 									style={`--option-card-accent: ${option.accent};`}
-									onclick={() => handleOptionSelect(option.id)}
+									onclick={() => state.handleOptionSelect(option.id)}
 								>
 									<span class="option-icon">
-										<option.icon class="mini-icon" />
+										<BaseIcon name={option.icon} class="mini-icon" />
 									</span>
 									<span class="option-meta">
 										<strong>{option.label}</strong>
@@ -356,10 +137,10 @@ const X = 'x';
 
 				<div class="summary-list">
 					{#each categories as category}
-						{@const selectedOption = category.options.find((option) => option.id === selections[category.id])}
+						{@const selectedOption = category.options.find((option) => option.id === state.selections[category.id])}
 						<div class="summary-item" style={`--summary-accent: ${category.accent};`}>
 							<span class="summary-icon">
-								<category.icon class="mini-icon" />
+								<BaseIcon name={category.icon} class="mini-icon" />
 							</span>
 							<div class="summary-copy">
 								<strong>{category.label}</strong>
@@ -675,4 +456,6 @@ const X = 'x';
 	}
 </style>
 
-
+<story name="default">
+	<!-- Stylist organism component -->
+</story>

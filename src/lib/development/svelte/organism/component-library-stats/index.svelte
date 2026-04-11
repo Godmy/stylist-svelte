@@ -7,39 +7,39 @@
 </script>
 
 <div id={state.sectionId} class={state.containerClass} {...state.restProps}>
-  <div class={state.gridClass}>
-    <div class={state.getCardClass('orange')}>
-      <div class={state.getCounterClass('orange')}>
+  <div class={state.statsGridClass}>
+    <div class={state.getStatCardClass('orange')}>
+      <div class={state.getStatValueClass('orange')}>
         {state.animatedStats.totalComponents}
       </div>
-      <div class={state.getLabelClass}>
+      <div class={state.getStatLabelClass}>
         Components
       </div>
     </div>
 
-    <div class={state.getCardClass('blue')}>
-      <div class={state.getCounterClass('blue')}>
+    <div class={state.getStatCardClass('blue')}>
+      <div class={state.getStatValueClass('blue')}>
         {state.animatedStats.atoms}
       </div>
-      <div class={state.getLabelClass}>
+      <div class={state.getStatLabelClass}>
         Atoms
       </div>
     </div>
 
-    <div class={state.getCardClass('purple')}>
-      <div class={state.getCounterClass('purple')}>
+    <div class={state.getStatCardClass('purple')}>
+      <div class={state.getStatValueClass('purple')}>
         {state.animatedStats.molecules}
       </div>
-      <div class={state.getLabelClass}>
+      <div class={state.getStatLabelClass}>
         Molecules
       </div>
     </div>
 
-    <div class={state.getCardClass('green')}>
-      <div class={state.getCounterClass('green')}>
+    <div class={state.getStatCardClass('green')}>
+      <div class={state.getStatValueClass('green')}>
         {state.animatedStats.organisms}
       </div>
-      <div class={state.getLabelClass}>
+      <div class={state.getStatLabelClass}>
         Organisms
       </div>
     </div>

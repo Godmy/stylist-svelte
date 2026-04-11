@@ -1,35 +1,18 @@
 <script lang="ts">
 import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
-  import * as ChatItemModule from '../chat-item/index.svelte';
-  const ChatItem: any = ChatItemModule.default ?? ChatItemModule;
-  import { createEventDispatcher } from 'svelte';
+import * as ChatItemModule from '../chat-item/index.svelte';
+const ChatItem: any = ChatItemModule.default ?? ChatItemModule;
+import { createChatListState } from '$stylist/communication/function/state/chat-list';
 
-  // Props
-  let { 
-    chats = [],
-    currentUser,
-    activeChatId
-  }: {
-    chats: Chat[];
-    currentUser: User;
-    activeChatId?: string;
-  } = $props();
+let props: {
+  chats: Chat[];
+  currentUser: User;
+  activeChatId?: string;
+  onChatSelect?: (chat: Chat) => void;
+  onChatDelete?: (chat: Chat) => void;
+} = $props();
 
-  // Events
-  const dispatch = createEventDispatcher<{
-    chatSelect: { chat: Chat };
-    chatDelete: { chat: Chat };
-  }>();
-
-  // Handle chat selection
-  function handleChatSelect(chat: Chat) {
-    dispatch('chatSelect', { chat });
-  }
-
-  // Handle chat deletion
-  function handleChatDelete(chat: Chat) {
-    dispatch('chatDelete', { chat });
-  }
+const state = createChatListState(props);
 </script>
 
 <style>
@@ -60,17 +43,14 @@ import type { Chat, User } from '$stylist/communication/interface/component/chat
   }
 </style>
 
-<div class="chat-list">
-  {#each chats as chat}
+<div class={state.containerClasses}>
+  {#each props.chats as chat}
     <ChatItem
       {chat}
-      {currentUser}
-      isActive={chat.id === activeChatId}
-      on:select={() => handleChatSelect(chat)}
-      on:delete={() => handleChatDelete(chat)}
+      currentUser={props.currentUser}
+      isActive={chat.id === props.activeChatId}
+      onSelect={() => props.onChatSelect?.(chat)}
+      onDelete={() => props.onChatDelete?.(chat)}
     />
   {/each}
 </div>
-
-
-

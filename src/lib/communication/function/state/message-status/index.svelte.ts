@@ -1,10 +1,6 @@
 import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
-
-type MessageStatusProps = {
-	status?: TokenMessageStatus;
-	size?: 'sm' | 'md' | 'lg';
-};
+import type { MessageStatusProps } from '$stylist/communication/interface/component/message-status';
 
 /**
  * MessageStatus state creator

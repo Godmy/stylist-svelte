@@ -1,97 +1,42 @@
 <script lang="ts">
-  import { ProductAvailabilityStyleManager } from '$stylist/commerce/class/style-manager/product-availability';
+	import { createProductAvailabilityState } from '$stylist/commerce/function/state/product-availability';
+	import type { ProductAvailabilityProps } from '$stylist/commerce/function/state/product-availability';
 
-  let {
-    available = true,
-    stock = 0,
-    location = '',
-    estimatedRestock = '',
-    onNotifyMe = () => {},
-    className = ''
-  } = $props<{
-    available?: boolean;
-    stock?: number;
-    location?: string;
-    estimatedRestock?: string;
-    onNotifyMe?: () => void;
-    className?: string;
-  }>();
-
-  let showNotificationForm = $state(false);
-
-  // Generate CSS classes using the style manager
-  const containerClass = $derived(
-    ProductAvailabilityStyleManager.getContainerClass(
-      available 
-        ? ProductAvailabilityStyleManager.getInStockClass() 
-        : ProductAvailabilityStyleManager.getOutOfStockClass(),
-      className
-    )
-  );
-  const headerClass = $derived(ProductAvailabilityStyleManager.getHeaderClass());
-  const titleClass = $derived(ProductAvailabilityStyleManager.getTitleClass());
-  const statusBadgeClass = $derived(
-    ProductAvailabilityStyleManager.getStatusBadgeClass(
-      available 
-        ? ProductAvailabilityStyleManager.getInStockBadgeClass() 
-        : ProductAvailabilityStyleManager.getOutOfStockBadgeClass()
-    )
-  );
-  const descriptionClass = $derived(ProductAvailabilityStyleManager.getDescriptionClass());
-  const notifyButtonClass = $derived(ProductAvailabilityStyleManager.getNotifyButtonClass());
-  const notificationFormClass = $derived(ProductAvailabilityStyleManager.getNotificationFormClass());
-  const notificationTextClass = $derived(ProductAvailabilityStyleManager.getNotificationTextClass());
-  const formContainerClass = $derived(ProductAvailabilityStyleManager.getFormContainerClass());
-  const emailInputClass = $derived(ProductAvailabilityStyleManager.getEmailInputClass());
-  const notifySubmitButtonClass = $derived(ProductAvailabilityStyleManager.getNotifySubmitButtonClass());
+	let props: ProductAvailabilityProps = $props();
+	const state = createProductAvailabilityState(props);
 </script>
 
-<div class={containerClass}>
-  <div class={headerClass}>
-    <h3 class={titleClass}>Availability</h3>
-    <span class={statusBadgeClass}>
-      {available ? 'In Stock' : 'Out of Stock'}
-    </span>
-  </div>
+<div class={state.containerClass}>
+	<div class={state.headerClass}>
+		<h3 class={state.titleClass}>Availability</h3>
+		<span class={state.statusBadgeClass}>
+			{props.available ? 'In Stock' : 'Out of Stock'}
+		</span>
+	</div>
 
-  <p class={descriptionClass}>
-    {#if available}
-      {stock > 0 ? `${stock} item${stock !== 1 ? 's' : ''} available` : 'Available'}
-      {#if location} at {location}{/if}
-    {:else}
-      Currently unavailable
-      {#if estimatedRestock} (Expected {estimatedRestock}){/if}
-    {/if}
-  </p>
+	<p class={state.descriptionClass}>
+		{#if props.available}
+			{props.stock && props.stock > 0 ? `${props.stock} item${props.stock !== 1 ? 's' : ''} available` : 'Available'}
+			{#if props.location} at {props.location}{/if}
+		{:else}
+			Currently unavailable
+			{#if props.estimatedRestock} (Expected {props.estimatedRestock}){/if}
+		{/if}
+	</p>
 
-  {#if !available}
-    <button
-      onclick={() => (showNotificationForm = true)}
-      class={notifyButtonClass}
-    >
-      Notify me when available
-    </button>
+	{#if !props.available}
+		<button onclick={() => state.showForm()} class={state.notifyButtonClass}>
+			Notify me when available
+		</button>
 
-    {#if showNotificationForm}
-      <div class={notificationFormClass}>
-        <p class={notificationTextClass}>Enter your email to be notified when this product is back in stock.</p>
-        <div class={formContainerClass}>
-          <input
-            type="email"
-            placeholder="Your email"
-            class={emailInputClass}
-          />
-          <button
-            onclick={onNotifyMe}
-            class={notifySubmitButtonClass}
-          >
-            Notify
-          </button>
-        </div>
-      </div>
-    {/if}
-  {/if}
+		{#if state.showNotificationForm}
+			<div class={state.notificationFormClass}>
+				<p class={state.notificationTextClass}>Enter your email to be notified when this product is back in stock.</p>
+				<div class={state.formContainerClass}>
+					<input type="email" placeholder="Your email" class={state.emailInputClass} />
+					<button onclick={props.onNotifyMe} class={state.notifySubmitButtonClass}>Notify</button>
+				</div>
+			</div>
+		{/if}
+	{/if}
 </div>
-
-
-

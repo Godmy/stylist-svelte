@@ -6,10 +6,10 @@
 
 	let props: TabPanelProps = $props();
 
-	const tabsContext = getContext<typeof TAB_PANEL_CONTEXT>('tabs-context') ?? TAB_PANEL_CONTEXT;
+	const context = getContext<typeof TAB_PANEL_CONTEXT>('tabs-context') ?? TAB_PANEL_CONTEXT;
 
-	let selectedTabId = $derived(tabsContext?.selectedTabId ?? '');
-	let tabsId = $derived(tabsContext?.tabsId ?? '');
+	let selectedTabId = $derived(context?.selectedTabId ?? '');
+	let tabsId = $derived(context?.tabsId ?? '');
 	let isSelected = $derived(selectedTabId === props.id);
 	let tabId = $derived(`tab-${tabsId}-${props.id}`);
 	let panelId = $derived(`panel-${tabsId}-${props.id}`);

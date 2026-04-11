@@ -7,12 +7,11 @@
 
 	let props: AccordionHeaderProps = $props();
 
-	const accordionContext = getContext<typeof ACCORDION_HEADER_CONTEXT>('accordion-context') ?? ACCORDION_HEADER_CONTEXT;
-
+	// Svelte context can only be accessed in components, pass to state function
+	const context = getContext<typeof ACCORDION_HEADER_CONTEXT>('accordion-context') ?? ACCORDION_HEADER_CONTEXT;
 	const state = createAccordionHeaderState({
 		...props,
-		isOpen: () => accordionContext.isPanelOpen(props.value),
-		handleValueChange: accordionContext.handleValueChange
+		accordionContext: context
 	});
 
 	const restProps = $derived.by(() => {
@@ -34,7 +33,7 @@
 	type="button"
 	class={state.classes}
 	onclick={state.handleClick}
-	aria-expanded={isOpen}
+	aria-expanded={state.open}
 >
 	<span>{@render props.children?.()}</span>
 	<BaseIcon name="chevron-down" class={state.chevronClasses} />

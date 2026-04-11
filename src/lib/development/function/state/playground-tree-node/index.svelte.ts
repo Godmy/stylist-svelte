@@ -69,6 +69,7 @@ export function createPlaygroundTreeNodeState(props: Props) {
     get leftPadding() { return leftPadding; },
     get isSelected() { return isSelected; },
     get isFocused() { return isFocused; },
+    get onToggle() { return onToggle; },
     handleToggle,
     handleClick,
     handleComponentClick,

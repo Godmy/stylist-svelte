@@ -1,5 +1,9 @@
 import type { MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';
 import type { MultiSelectOption } from '$stylist/control/interface/component/multi-select/other';
+import { MultiSelectStyleManager } from '$stylist';
+
+const ChevronDown = 'chevron-down';
+const X = 'x';
 
 export function createMultiSelectState(props: MultiSelectProps) {
 	const options = $derived(props.options ?? []);
@@ -15,9 +19,9 @@ export function createMultiSelectState(props: MultiSelectProps) {
 	const placeholderClass = $derived(props.placeholderClass ?? '');
 	const searchInputClass = $derived(props.searchInputClass ?? '');
 
-	const isOpen = $state(false);
-	const selectedValues = $state<string[]>(value);
-	const searchQuery = $state('');
+	let isOpen = $state(false);
+	let selectedValues = $state<string[]>(value);
+	let searchQuery = $state('');
 	const containerRef = { current: null as HTMLDivElement | null };
 	const dropdownRef = { current: null as HTMLDivElement | null };
 
@@ -25,6 +29,22 @@ export function createMultiSelectState(props: MultiSelectProps) {
 		if (JSON.stringify(selectedValues) !== JSON.stringify(value)) {
 			selectedValues = [...value];
 		}
+	});
+
+	$effect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (
+				isOpen &&
+				containerRef.current &&
+				dropdownRef.current &&
+				!containerRef.current.contains(event.target as Node) &&
+				!dropdownRef.current.contains(event.target as Node)
+			) {
+				isOpen = false;
+			}
+		};
+		document.addEventListener('click', handleClickOutside);
+		return () => document.removeEventListener('click', handleClickOutside);
 	});
 
 	function getFilteredOptions(): MultiSelectOption[] {
@@ -38,46 +58,63 @@ export function createMultiSelectState(props: MultiSelectProps) {
 
 	function emitChange(nextValue: string[]): void {
 		props.onChange?.(nextValue);
+		props.onInput?.(nextValue);
 	}
 
-	function selectOption(option: MultiSelectOption): void {
-		if (option.disabled) return;
-		if (selectedValues.includes(option.value)) {
-			selectedValues = selectedValues.filter((v) => v !== option.value);
-		} else {
-			if (maxSelections > 0 && selectedValues.length >= maxSelections) return;
-			selectedValues = [...selectedValues, option.value];
+	function selectOption(optionValue: string): void {
+		if (disabled || options.find((o) => o.value === optionValue)?.disabled) return;
+		if (!selectedValues.includes(optionValue)) {
+			if (maxSelections <= 0 || selectedValues.length < maxSelections) {
+				selectedValues = [...selectedValues, optionValue];
+				emitChange([...selectedValues]);
+			}
 		}
-		emitChange(selectedValues);
+		if (searchable) {
+			searchQuery = '';
+		}
 	}
 
 	function removeOption(optionValue: string): void {
+		if (disabled) return;
 		selectedValues = selectedValues.filter((v) => v !== optionValue);
-		emitChange(selectedValues);
+		emitChange([...selectedValues]);
 	}
 
 	function clearSelections(): void {
+		if (disabled) return;
 		selectedValues = [];
 		emitChange([]);
 	}
 
 	function toggleDropdown(): void {
-		if (disabled) return;
-		isOpen = !isOpen;
+		if (!disabled) {
+			isOpen = !isOpen;
+		}
+	}
+
+	const containerClasses = $derived(MultiSelectStyleManager.getContainerClasses(className));
+	const selectDisplayClasses = $derived(MultiSelectStyleManager.getSelectDisplayClasses(disabled, isOpen));
+	const placeholderClasses = $derived(MultiSelectStyleManager.getPlaceholderClasses(placeholderClass));
+	const selectedValueContainerClasses = $derived(MultiSelectStyleManager.getSelectedValueContainerClasses(selectedClass));
+	const removeButtonClasses = $derived(MultiSelectStyleManager.getRemoveButtonClasses());
+	const clearButtonClasses = $derived(MultiSelectStyleManager.getClearButtonClasses(disabled, selectedValues.length > 0));
+	const chevronClasses = $derived(MultiSelectStyleManager.getChevronClasses(isOpen));
+	const dropdownClasses = $derived(MultiSelectStyleManager.getDropdownClasses(dropdownClass));
+	const searchContainerClasses = $derived(MultiSelectStyleManager.getSearchContainerClasses());
+	const searchInputClasses = $derived(MultiSelectStyleManager.getSearchInputClasses(searchInputClass));
+	const noOptionsMessageClasses = $derived(MultiSelectStyleManager.getNoOptionsMessageClasses());
+
+	function getOptionClasses(option: MultiSelectOption): string {
+		return MultiSelectStyleManager.getOptionClasses(optionClass, selectedValues.includes(option.value), !!option.disabled);
 	}
 
 	return {
 		get options() { return options; },
+		get value() { return value; },
 		get placeholder() { return placeholder; },
 		get disabled() { return disabled; },
 		get searchable() { return searchable; },
 		get maxSelections() { return maxSelections; },
-		get className() { return className; },
-		get dropdownClass() { return dropdownClass; },
-		get selectedClass() { return selectedClass; },
-		get optionClass() { return optionClass; },
-		get placeholderClass() { return placeholderClass; },
-		get searchInputClass() { return searchInputClass; },
 		get isOpen() { return isOpen; },
 		get selectedValues() { return selectedValues; },
 		get searchQuery() { return searchQuery; },
@@ -86,12 +123,25 @@ export function createMultiSelectState(props: MultiSelectProps) {
 		set containerRef(v: HTMLDivElement | null) { containerRef.current = v; },
 		get dropdownRef() { return dropdownRef.current; },
 		set dropdownRef(v: HTMLDivElement | null) { dropdownRef.current = v; },
+		get containerClasses() { return containerClasses; },
+		get selectDisplayClasses() { return selectDisplayClasses; },
+		get placeholderClasses() { return placeholderClasses; },
+		get selectedValueContainerClasses() { return selectedValueContainerClasses; },
+		get removeButtonClasses() { return removeButtonClasses; },
+		get clearButtonClasses() { return clearButtonClasses; },
+		get chevronClasses() { return chevronClasses; },
+		get dropdownClasses() { return dropdownClasses; },
+		get searchContainerClasses() { return searchContainerClasses; },
+		get searchInputClasses() { return searchInputClasses; },
+		get noOptionsMessageClasses() { return noOptionsMessageClasses; },
+		ChevronDown,
+		X,
 		getFilteredOptions,
 		selectOption,
 		removeOption,
 		clearSelections,
 		toggleDropdown,
-		onInput: props.onInput
+		getOptionClasses
 	};
 }
 

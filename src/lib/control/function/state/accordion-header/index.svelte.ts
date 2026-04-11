@@ -1,17 +1,18 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { AccordionHeaderProps } from '$stylist/control/interface/component/accordion/other';
 
-/**
- * AccordionHeader state
- */
+type AccordionHeaderContext = {
+	isPanelOpen: (value: string) => boolean;
+	handleValueChange: (value: string) => void;
+};
 
 type AccordionHeaderStateProps = AccordionHeaderProps & {
-	isOpen?: () => boolean;
-	handleValueChange?: (value: string) => void;
+	accordionContext: AccordionHeaderContext;
 };
 
 export function createAccordionHeaderState(props: AccordionHeaderStateProps) {
-	const open = $derived(props.isOpen ? props.isOpen() : (props.open ?? false));
+	const ctx = props.accordionContext;
+	const open = $derived(ctx.isPanelOpen(props.value));
 	const classes = $derived(
 		joinClassNames(
 			'accordion-header',
@@ -47,7 +48,7 @@ export function createAccordionHeaderState(props: AccordionHeaderStateProps) {
 			return chevronClasses;
 		},
 		handleClick() {
-			props.handleValueChange?.(props.value);
+			ctx.handleValueChange?.(props.value);
 		}
 	};
 }

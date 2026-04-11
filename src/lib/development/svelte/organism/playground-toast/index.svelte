@@ -1,21 +1,18 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { onMount } from 'svelte';
+  import { createPlaygroundToastState } from '$stylist/development/function/state/playground-toast';
+  import type { Props } from '$stylist/development/type/struct/playground-toast';
 
   const Check = 'check';
 
-  type Props = {
-    message: string;
-    duration?: number;
-    onClose?: () => void;
-  };
-
-  let { message, duration = 3000, onClose }: Props = $props();
+  let props: Props = $props();
+  const state = createPlaygroundToastState(props);
 
   onMount(() => {
     const timer = setTimeout(() => {
-      onClose?.();
-    }, duration);
+      state.onClose?.();
+    }, state.duration);
 
     return () => clearTimeout(timer);
   });
@@ -42,7 +39,5 @@
   <div class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
     <BaseIcon name={Check} class="w-4 h-4" />
   </div>
-  <p class="text-sm font-medium flex-1">{message}</p>
+  <p class="text-sm font-medium flex-1">{state.message}</p>
 </div>
-
-

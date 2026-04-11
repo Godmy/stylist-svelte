@@ -1,36 +1,22 @@
 <script lang="ts">
+	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import ToolButton from './index.svelte';
 
-	let activeTool = $state('select');
-
-	const tools = [
-		{ id: 'select', icon: '↖', label: 'Select' },
-		{ id: 'pan', icon: '✋', label: 'Pan' },
-		{ id: 'frame', icon: '□', label: 'Frame' },
-		{ id: 'connect', icon: '⌇', label: 'Connect' },
-		{ id: 'text', icon: 'T', label: 'Text' }
+	const controls = [
+		{ name: 'tool', type: 'select', options: ['select', 'pan', 'frame', 'connect', 'text'], defaultValue: 'select' },
+		{ name: 'label', type: 'text', defaultValue: 'Tool' },
+		{ name: 'active', type: 'boolean', defaultValue: false }
 	];
-
-	const handleClick = (tool: string) => {
-		activeTool = tool;
-	};
 </script>
 
-<div style="display: flex; gap: 20px; padding: 40px; background: #f5f5f5;">
-	<div style="display: flex; gap: 4px;">
-		{#each tools as tool}
+<Story {controls} component={ToolButton} title="ToolButton" category="Atoms/Control/ToolButton" description="Tool button component for design canvas">
+	{#snippet children(values: any)}
+		<div style="display: flex; gap: 8px; padding: 20px; background: var(--color-background-primary);">
 			<ToolButton
-				tool={tool.id}
-				icon={tool.icon}
-				label={tool.label}
-				active={activeTool === tool.id}
-				{onClick: handleClick}
+				tool={values.tool as string}
+				label={values.label as string}
+				active={values.active as boolean}
 			/>
-		{/each}
-	</div>
-</div>
-
-<div style="padding: 20px; font-family: monospace; font-size: 12px;">
-	<p>Tool Button — кнопка инструмента</p>
-	<p>Активный инструмент: {activeTool}</p>
-</div>
+		</div>
+	{/snippet}
+</Story>

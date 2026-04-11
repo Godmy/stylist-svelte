@@ -1,56 +1,89 @@
-import type { ChatHeaderProps } from '$stylist/communication/type/struct/chat-header/chat-header-props';
-import type { ChatHeaderChat } from '$stylist/communication/type/struct/chat-header/chat-header-chat';
-import type { ChatHeaderUser } from '$stylist/communication/type/struct/chat-header/chat-header-user';
+import type { User } from '$stylist/communication/interface/component/chat/other';
+import { ChatHeaderStyleManager } from '$stylist/communication/class/style-manager/chat-header';
 
-export function ChatHeaderModel(props: ChatHeaderProps) {
-	let isGroupChat = $state(false);
-	let otherUser = $state<ChatHeaderUser | null>(null);
+export type ChatHeaderChat = {
+  id: string;
+  name?: string;
+  participants: User[];
+  isGroup: boolean;
+  avatar?: string;
+};
 
-	function updateFromProps(nextProps: ChatHeaderProps) {
-		isGroupChat = nextProps.chat.participants.length > 2;
+export type ChatHeaderOrganismProps = {
+  chat: ChatHeaderChat;
+  currentUser: User;
+  showActions?: boolean;
+  class?: string;
+  onCall?: () => void;
+  onVideoCall?: () => void;
+  onInfo?: () => void;
+};
 
-		if (!isGroupChat) {
-			otherUser =
-				nextProps.chat.participants.find(
-					(user: ChatHeaderUser) => user.id !== nextProps.currentUser.id
-				) || null;
-			return;
-		}
+export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
+  const chat = $derived(props.chat);
+  const currentUser = $derived(props.currentUser);
+  const showActions = $derived(props.showActions ?? true);
+  const className = $derived(props.class ?? '');
 
-		otherUser = null;
-	}
+  const isGroupChat = $derived(chat.participants.length > 2);
 
-	function handleCall(chat: ChatHeaderChat, dispatch: (event: string, detail: any) => void) {
-		dispatch('call', { chat });
-	}
+  const otherUser = $derived(
+    !isGroupChat ? chat.participants.find((u: User) => u.id !== currentUser.id) : null
+  ) as User | null;
 
-	function handleVideoCall(
-		chat: ChatHeaderChat,
-		dispatch: (event: string, detail: any) => void
-	) {
-		dispatch('videoCall', { chat });
-	}
+  const containerClasses = $derived(ChatHeaderStyleManager.getAllClasses(className));
+  const infoClasses = $derived(ChatHeaderStyleManager.getInfoClasses());
+  const detailsClasses = $derived(ChatHeaderStyleManager.getDetailsClasses());
+  const nameClasses = $derived(ChatHeaderStyleManager.getNameClasses());
+  const actionsClasses = $derived(ChatHeaderStyleManager.getActionsClasses());
 
-	function handleInfo(chat: ChatHeaderChat, dispatch: (event: string, detail: any) => void) {
-		dispatch('info', { chat });
-	}
+  function handleCall() {
+    props.onCall?.();
+  }
 
-	updateFromProps(props);
+  function handleVideoCall() {
+    props.onVideoCall?.();
+  }
 
-	return {
-		get isGroupChat() {
-			return isGroupChat;
-		},
-		get otherUser() {
-			return otherUser;
-		},
-		updateFromProps,
-		handleCall,
-		handleVideoCall,
-		handleInfo
-	};
-}
+  function handleInfo() {
+    props.onInfo?.();
+  }
 
-export default ChatHeaderModel;
+  return {
+    get isGroupChat() {
+      return isGroupChat;
+    },
+    get otherUser() {
+      return otherUser;
+    },
+    get containerClasses() {
+      return containerClasses;
+    },
+    get infoClasses() {
+      return infoClasses;
+    },
+    get detailsClasses() {
+      return detailsClasses;
+    },
+    get nameClasses() {
+      return nameClasses;
+    },
+    get actionsClasses() {
+      return actionsClasses;
+    },
+    get showActions() {
+      return showActions;
+    },
+    get chat() {
+      return chat;
+    },
+    get currentUser() {
+      return currentUser;
+    },
+    handleCall,
+    handleVideoCall,
+    handleInfo
+  };
+};
 
-
+export default createChatHeaderState;

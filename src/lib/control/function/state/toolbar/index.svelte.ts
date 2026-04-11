@@ -1,6 +1,6 @@
 export function createToolbarState() {
-	const isLegendVisible = $state(false);
-	const isSearchVisible = $state(false);
+	let isLegendVisible = $state(false);
+	let isSearchVisible = $state(false);
 
 	function handleToggleLegend() {
 		isLegendVisible = !isLegendVisible;

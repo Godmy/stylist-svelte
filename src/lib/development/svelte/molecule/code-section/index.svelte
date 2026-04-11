@@ -1,37 +1,31 @@
 <script lang="ts">
   import type { Props } from '$stylist/development/type/struct/code-section';
+  import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor';
   import { createCodeSectionState } from '$stylist/development/function/state/code-section';
   import CodeEditor from '$stylist/development/svelte/molecule/code-editor-legacy/index.svelte';
   import { Badge } from '$stylist';
 
-  let {
-    title = '',
-    language = 'javascript',
-    code = '',
-    variant = 'default',
-    showLineNumbers = false,
-    startLineNumber = 1,
-    showCopyButton = true,
-    copySuccessMessage = 'Code copied to clipboard!',
-    copyErrorMessage = 'Failed to copy code',
-    tags = [],
-    class: className = '',
-    ...restProps
-  }: Props = $props();
-
-  const state = createCodeSectionState({ title, language, code, variant, showLineNumbers, startLineNumber, showCopyButton, copySuccessMessage, copyErrorMessage, tags, class: className, ...restProps });
+  let props: Props = $props();
+  const state = createCodeSectionState(props);
+  const editorProps = $derived({
+    code: props.code,
+    language: props.language,
+    showLineNumbers: props.showLineNumbers,
+    showCopyButton: props.showCopyButton,
+    class: typeof props.class === 'string' ? props.class : undefined
+  } as CodeEditorProps);
 </script>
 
-<div {...restProps} class={state.containerClass}>
-  {#if title || tags.length > 0}
+<div {...props} class={state.containerClass}>
+  {#if props.title || (props.tags && props.tags.length > 0)}
     <div class={state.headerContainerClass}>
       <div class={state.headerContentClass}>
-        {#if title}
-          <h3 class={state.titleClass}>{title}</h3>
+        {#if props.title}
+          <h3 class={state.titleClass}>{props.title}</h3>
         {/if}
-        {#if tags && tags.length > 0}
+        {#if props.tags && props.tags.length > 0}
           <div class={state.tagsContainerClass}>
-            {#each tags as tag}
+            {#each props.tags as tag}
               <Badge variant="default" class={state.tagClass}>{tag}</Badge>
             {/each}
           </div>
@@ -40,18 +34,5 @@
     </div>
   {/if}
 
-  <CodeEditor
-    {code}
-    {language}
-    {showLineNumbers}
-    showCopyButton={showCopyButton}
-    {...restProps}
-  />
+  <CodeEditor {...editorProps} />
 </div>
-
-
-
-
-
-
-

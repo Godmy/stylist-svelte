@@ -1,19 +1,14 @@
 <script lang="ts">
 	import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
+	import type { MessageStatusProps } from '$stylist/communication/interface/component/message-status';
 	import { createMessageStatusState } from '$stylist/communication/function/state/message-status';
 
-	interface Props {
-		status?: TokenMessageStatus;
-		size?: 'sm' | 'md' | 'lg';
-		class?: string;
-	}
+	let props: MessageStatusProps = $props();
 
-	let { status = 'sent', size = 'sm', class: className = '' }: Props = $props();
-
-	const state = createMessageStatusState({ status, size });
+	const state = createMessageStatusState({ status: props.status ?? 'sent', size: props.size ?? 'sm', class: props.class });
 </script>
 
-<span class={state.containerClasses} class:{className}>
+<span class={state.containerClasses} class:{props.class}>
 	<svg class={state.iconClasses} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 		{#if state.isDoubleCheck}
 			<path d="M1 13l5 5L17 7" />

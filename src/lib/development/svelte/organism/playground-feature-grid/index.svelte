@@ -1,29 +1,13 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundFeatureGridState } from '$stylist/development/function/state/playground-feature-grid';
-
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-  type FeatureCard = {
-    title: string;
-    description: string;
-    palette: string;
-    iconBg: string;
-    icon: 'sparkles' | 'zap' | 'git-branch' | 'code' | 'layers' | 'users';
-  };
-
-  type Props = {
-    title?: string;
-    subtitle?: string;
-    features?: FeatureCard[];
-    class?: string;
-  } & InformationHTMLAttributes<HTMLElement>;
+  import type { Props } from '$stylist/development/type/struct/playground-feature-grid';
 
   let props: Props = $props();
   const state = createPlaygroundFeatureGridState(props);
 </script>
 
-<section class={`py-24 bg-white dark:bg-gray-800 ${state.className}`} {...props}>
+<section class={`py-24 bg-white dark:bg-gray-800 ${state.className}`}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-5xl font-black text-gray-900 dark:text-white mb-4">

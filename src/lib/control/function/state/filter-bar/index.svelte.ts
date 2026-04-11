@@ -6,18 +6,18 @@ export function createFilterBarState(props: FilterBarProps) {
 	const range = $derived(props.range);
 	const className = $derived(props.class ?? '');
 
-	const toggleState = $state<Record<string, boolean>>(
+	let toggleState = $state<Record<string, boolean>>(
 		toggles.reduce((acc, current) => {
 			acc[current.id] = !!current.checked;
 			return acc;
 		}, {} as Record<string, boolean>)
 	);
 
-	const activeTags = $state<Set<string>>(
+	let activeTags = $state<Set<string>>(
 		new Set(tags.filter((tag) => tag.active).map((tag) => tag.id))
 	);
 
-	const rangeValue = $state(range?.value ?? range?.min ?? 0);
+	let rangeValue = $state(range?.value ?? range?.min ?? 0);
 
 	const hasActiveFilters = $derived(() => {
 		const togglesActive = Object.values(toggleState).some(Boolean);

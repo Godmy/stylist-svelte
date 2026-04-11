@@ -1,36 +1,16 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundHeroState } from '$stylist/development/function/state/playground-hero';
-const Sparkles = 'sparkles';
-const ExternalLink = 'external-link';
-const Heart = 'heart';
-const ArrowRight = 'arrow-right';
+  import type { Props } from '$stylist/development/type/struct/playground-hero';
+  import { particleIndexes } from '$stylist/development/const/playground-hero/particle-indexes';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-  type AIModel = {
-    name: string;
-    url: string;
-    logo: string;
-    bgColor: string;
-    description: string;
-  };
-
-  type Props = {
-    title?: string;
-    subtitle?: string;
-    description?: string;
-    badgeLabel?: string;
-    badgeHref?: string;
-    poweredByLabel?: string;
-    aiModels?: AIModel[];
-    class?: string;
-  } & InformationHTMLAttributes<HTMLDivElement>;
+  const PLAYGROUND_HERO_SPARKLES = 'sparkles';
+  const PLAYGROUND_HERO_EXTERNAL_LINK = 'external-link';
+  const PLAYGROUND_HERO_HEART = 'heart';
+  const PLAYGROUND_HERO_ARROW_RIGHT = 'arrow-right';
 
   let props: Props = $props();
   const state = createPlaygroundHeroState(props);
-
-  const particleIndexes = Array.from({ length: 20 }, (_, i) => i);
 </script>
 
 <style>
@@ -113,9 +93,9 @@ const ArrowRight = 'arrow-right';
           rel="noopener noreferrer"
           class="group inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-full border-2 border-orange-300 dark:border-orange-700 pulse-glow hover:border-orange-500 dark:hover:border-orange-500 hover:shadow-xl transition-all hover:scale-105"
         >
-          <BaseIcon name={Sparkles} class="w-6 h-6 text-orange-600 group-hover:rotate-12 transition-transform" />
+          <BaseIcon name={PLAYGROUND_HERO_SPARKLES} class="w-6 h-6 text-orange-600 group-hover:rotate-12 transition-transform" />
           <span class="text-lg font-bold text-orange-900 dark:text-orange-300">{state.badgeLabel}</span>
-          <BaseIcon name={ExternalLink} class="w-5 h-5 text-orange-600 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
+          <BaseIcon name={PLAYGROUND_HERO_EXTERNAL_LINK} class="w-5 h-5 text-orange-600 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
         </a>
       </div>
 
@@ -132,7 +112,7 @@ const ArrowRight = 'arrow-right';
         <p class="text-base text-gray-600 dark:text-gray-400 leading-relaxed text-center">
           {state.description}
           <span class="heart-icon align-middle ml-1">
-            <BaseIcon name={Heart} class="w-5 h-5 text-red-500" style="fill: currentColor;" />
+            <BaseIcon name={PLAYGROUND_HERO_HEART} class="w-5 h-5 text-red-500" style="fill: currentColor;" />
           </span>
         </p>
       </div>
@@ -157,7 +137,7 @@ const ArrowRight = 'arrow-right';
                 <div class="text-left">
                   <div class="flex items-center gap-2">
                     <span class="text-lg font-bold text-gray-900 dark:text-white transition-all">{model.name}</span>
-                    <BaseIcon name={ArrowRight} class="w-4 h-4 text-orange-500 dark:text-orange-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] group-hover:translate-x-1 transition-all" />
+                    <BaseIcon name={PLAYGROUND_HERO_ARROW_RIGHT} class="w-4 h-4 text-orange-500 dark:text-orange-400 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] group-hover:translate-x-1 transition-all" />
                   </div>
                   <span class="text-xs text-gray-500 dark:text-gray-400">{model.description}</span>
                 </div>

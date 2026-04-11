@@ -2,54 +2,25 @@
   import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
   import { Avatar, Badge } from '$stylist';
   import { MessageTimestamp } from '$stylist/communication/svelte/atom/chat/atoms/message-timestamp';
-  import { createEventDispatcher } from 'svelte';
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import { createChatItemState } from '$stylist/communication/function/state/chat-item';
 
-  type Props = {
+  export type ChatItemProps = {
     chat: Chat;
     currentUser: User;
     isActive?: boolean;
+    onSelect?: () => void;
+    onDelete?: () => void;
   } & InteractionHTMLAttributes<HTMLDivElement>;
 
-  const dispatch = createEventDispatcher<{
-    select: void;
-    delete: void;
-  }>();
+  let props: ChatItemProps = $props();
 
-  let {
-    chat,
-    currentUser,
-    isActive = false,
-    class: className = '',
-    ...restProps
-  } = $props() as Props;
-
-  const isGroupChat = $derived(chat.participants.length > 2);
-
-  const otherUser = $derived(
-    !isGroupChat ? chat.participants.find((user: User) => user.id !== currentUser.id) : null
-  );
-
-  const lastMessagePreview = $derived(() => {
-    if (!chat.lastMessage) return 'No messages yet';
-
-    const content = typeof chat.lastMessage === 'object' ? chat.lastMessage.content : chat.lastMessage || '';
-    return content.length > 30 ? `${content.substring(0, 30)}...` : content;
+  const state = createChatItemState({
+    chat: props.chat,
+    currentUser: props.currentUser,
+    isActive: props.isActive,
+    class: props.class != null ? String(props.class) : undefined
   });
-
-  function handleClick() {
-    dispatch('select');
-  }
-
-  function handleKeydown(keyEvent: KeyboardEvent) {
-    if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
-      handleClick();
-    }
-  }
-
-  function handleDelete() {
-    dispatch('delete');
-  }
 </script>
 
 <style>
@@ -114,59 +85,58 @@
   }
 </style>
 
-<div 
-  class={`chat-item ${className}`.trim()} 
-  class:active={isActive}
+<div
+  class={state.containerClasses}
+  class:active={props.isActive}
   role="button"
   tabindex="0"
-  onclick={handleClick}
-  onkeydown={handleKeydown}
-  {...restProps}
+  onclick={() => props.onSelect?.()}
+  onkeydown={state.handleKeydown}
+  {...props}
 >
-  <Avatar 
-    src={isGroupChat ? undefined : otherUser?.avatar}
-    name={isGroupChat ? chat.name : otherUser?.name}
-    status={isGroupChat ? 'online' : otherUser?.status}
+  <Avatar
+    src={state.isGroupChat ? undefined : state.otherUser?.avatar}
+    name={state.isGroupChat ? props.chat.name : state.otherUser?.name}
+    status={state.isGroupChat ? 'online' : state.otherUser?.status}
     size="md"
-    showStatus={!isGroupChat}
+    showStatus={!state.isGroupChat}
   />
-  
+
   <div class="chat-info">
     <div class="chat-name">
-      {isGroupChat ? chat.name : otherUser?.name}
+      {state.isGroupChat ? props.chat.name : state.otherUser?.name}
     </div>
     <div class="last-message">
-      {#if typeof chat.lastMessage !== 'string' && chat.lastMessage?.senderId !== currentUser.id}
-        {lastMessagePreview}
+      {#if typeof props.chat.lastMessage !== 'string' && props.chat.lastMessage?.senderId !== props.currentUser.id}
+        {state.lastMessagePreview}
       {:else}
-        <span style="font-style: italic;">You: {lastMessagePreview}</span>
+        <span style="font-style: italic;">You: {state.lastMessagePreview}</span>
       {/if}
     </div>
   </div>
-  
+
   <div class="chat-meta">
-    {#if chat.lastMessage}
-      <MessageTimestamp 
-        timestamp={typeof chat.lastMessage === 'object' ? chat.lastMessage.timestamp : new Date()} 
-        formatStyle="time" 
+    {#if props.chat.lastMessage}
+      <MessageTimestamp
+        timestamp={typeof props.chat.lastMessage === 'object' ? props.chat.lastMessage.timestamp : new Date()}
+        formatStyle="time"
       />
     {/if}
-    
-    {#if chat.unreadCount && chat.unreadCount > 0}
-      <Badge 
-        variant="default" 
-        size="sm" 
+
+    {#if props.chat.unreadCount && props.chat.unreadCount > 0}
+      <Badge
+        variant="default"
+        size="sm"
         class="absolute top-2 right-2"
       >
-        {chat.unreadCount}
+        {props.chat.unreadCount}
       </Badge>
     {/if}
   </div>
-  
+
   <div class="chat-actions">
-    <!-- Context menu or actions can go here -->
+    {#if props.onDelete}
+      <button type="button" onclick={(e) => { e.stopPropagation(); props.onDelete?.(); }}>Delete</button>
+    {/if}
   </div>
 </div>
-
-
-

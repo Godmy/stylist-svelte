@@ -6,30 +6,30 @@
 
 	let props: TabProps = $props();
 
-	const tabsContext = getContext<typeof TAB_CONTEXT>('tabs-context') ?? TAB_CONTEXT;
+	const context = getContext<typeof TAB_CONTEXT>('tabs-context') ?? TAB_CONTEXT;
 
 	onMount(() => {
-		tabsContext.registerTab(props.id);
+		context.registerTab(props.id);
 	});
 
 	onDestroy(() => {
-		tabsContext.unregisterTab(props.id);
+		context.unregisterTab(props.id);
 	});
 
-	let isSelected = $derived(tabsContext.selectedTabId === props.id);
-	let tabId = $derived(`tab-${tabsContext.tabsId}-${props.id}`);
-	let panelId = $derived(`panel-${tabsContext.tabsId}-${props.id}`);
+	let isSelected = $derived(context.selectedTabId === props.id);
+	let tabId = $derived(`tab-${context.tabsId}-${props.id}`);
+	let panelId = $derived(`panel-${context.tabsId}-${props.id}`);
 
 	const state = createTabState({
 		...props,
-		variant: props.variant ?? tabsContext.variant,
-		size: props.size ?? tabsContext.size,
-		disabled: props.disabled ?? tabsContext.disabled
+		variant: props.variant ?? context.variant,
+		size: props.size ?? context.size,
+		disabled: props.disabled ?? context.disabled
 	});
 
 	function handleClick() {
 		if (!state.disabled) {
-			tabsContext.handleTabChange(props.id);
+			context.handleTabChange(props.id);
 		}
 	}
 

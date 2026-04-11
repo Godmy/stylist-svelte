@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ChatHeaderModel } from './chat-header';
+export { createAuthGuardState } from './auth-guard';
+export { createChatHeaderState } from './chat-header';
+export { createChatInterfaceState } from './chat-interface';
 export { createChatItemState } from './chat-item';
 export { createChatListState } from './chat-list';
 export { createChatMessageState } from './chat-message';
@@ -7,6 +9,7 @@ export { createChatPreviewState } from './chat-preview';
 export { createChatRoomState } from './chat-room';
 export { createChatStatusIndicatorState } from './chat-status-indicator';
 export { createChatWindowState } from './chat-window';
+export { createCollaborativeEditorState } from './collaborative-editor';
 export { createMessageBubbleState } from './message-bubble';
 export { createMessageComposerState } from './message-composer';
 export { createMessageInputState } from './message-input';
@@ -17,5 +20,8 @@ export { createMessageStatusState } from './message-status';
 export { createMessageThreadState } from './message-thread';
 export { createMessageTimestampState } from './message-timestamp';
 export { createUserStatusState } from './user-status';
+export type { AuthGuardProps } from './auth-guard';
+export type { ChatHeaderChat, ChatHeaderOrganismProps } from './chat-header';
 export type { ChatRoomMessage } from './chat-room';
+export type { CollaborativeEditEvent, CollaborativeEditorProps, CollaborativeUser } from './collaborative-editor';
 export type { ChatWindowChat } from './chat-window';

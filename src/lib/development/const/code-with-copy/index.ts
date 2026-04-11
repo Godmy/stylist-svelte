@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { CODE_WITH_COPY_DISPATCH } from './dispatch';

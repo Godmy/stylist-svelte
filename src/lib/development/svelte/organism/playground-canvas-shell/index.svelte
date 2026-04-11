@@ -1,23 +1,8 @@
 <script lang="ts">
-  import type { ComponentType, Snippet } from 'svelte';
   import PlaygroundDeviceFrame from '../playground-device-frame/index.svelte';
   import PlaygroundErrorBoundary from '../playground-error-boundary/index.svelte';
   import { createPlaygroundCanvasShellState } from '$stylist/development/function/state/playground-canvas-shell';
-
-  type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
-  type BackgroundType = 'white' | 'gray' | 'dark' | 'transparent';
-
-  interface Props {
-    component?: ComponentType | null;
-    props?: Record<string, any>;
-    children?: Snippet;
-    viewport?: ViewportSize;
-    zoom?: number;
-    background?: BackgroundType;
-    showGrid?: boolean;
-    showDeviceFrame?: boolean;
-    onZoomChange?: (zoom: number) => void;
-  }
+  import type { Props } from '$stylist/development/type/struct/playground-canvas-shell';
 
   let props: Props = $props();
   const state = createPlaygroundCanvasShellState(props);

@@ -1,163 +1,89 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundTreeNodeState } from '$stylist/development/function/state/playground-tree-node';
+
+  import Self from './index.svelte';
+  import type { Props } from '$stylist/development/type/struct/playground-tree-node';
 const ChevronRight = 'chevron-right';
 const Folder = 'folder';
 const FolderOpen = 'folder-open';
 const FileCode = 'file-code';
 
-  import Self from './index.svelte';
-
-  interface Story {
-    id: string;
-    componentName: string;
-    category: string;
-    subcategory?: string;
-    path: string;
-  }
-
-  interface TreeNodeData {
-    name: string;
-    type: 'category' | 'folder' | 'component';
-    children?: TreeNodeData[];
-    story?: Story;
-    autoStory?: Story;
-    path: string;
-    count?: number;
-  }
-
-  interface Props {
-    node: TreeNodeData;
-    level: number;
-    expandedNodes: Set<string>;
-    categoryConfig: Record<string, {
-      icon: any;
-      color: string;
-      bg: string;
-      border: string;
-    }>;
-    onToggle: (path: string) => void;
-    onComponentClick: (story: Story) => void;
-    selectedStoryId?: string | null;
-    focusedPath?: string | null;
-  }
-
-  let {
-    node,
-    level,
-    expandedNodes,
-    categoryConfig,
-    onToggle,
-    onComponentClick,
-    selectedStoryId = null,
-    focusedPath = null
-  }: Props = $props();
-
-  const isExpanded = $derived(expandedNodes.has(node.path));
-  const hasChildren = $derived(node.children && node.children.length > 0);
-  const isAutoSelectable = $derived(!!node.autoStory);
-
-  // Get category config based on path
-  const config = $derived.by(() => {
-    const categoryName = node.path.split('/')[0];
-    return categoryConfig[categoryName];
-  });
-
-  // Calculate padding based on level and type
-  // Folders use level * 12px
-  // Components add extra space to align with folder content (chevron 14px + gap 8px = 22px)
-  const leftPadding = $derived(
-    node.type === 'component'
-      ? `padding-left: ${level * 12 + 22}px`
-      : `padding-left: ${level * 12}px`
-  );
-
-  // Determine if this component node is selected
-  const isSelected = $derived(
-    (node.type === 'component' && node.story?.id && node.story.id === selectedStoryId) ||
-      (node.type === 'folder' && node.autoStory?.id && node.autoStory.id === selectedStoryId)
-  );
-
-  // Determine if this node is focused (for keyboard navigation)
-  const isFocused = $derived(focusedPath === node.path);
+  let props: Props = $props();
+  const state = createPlaygroundTreeNodeState(props);
 </script>
 
-{#if node.type === 'category'}
+{#if state.node.type === 'category'}
   <!-- Category Node -->
   <div class="space-y-0.5">
     <button
-      onclick={() => onToggle(node.path)}
+      onclick={state.handleToggle}
       class="w-full flex items-center gap-2 pr-2 py-2 rounded-lg transition-all duration-[var(--duration-200)] hover:bg-gray-100 dark:hover:bg-gray-800 group"
-      class:focused={isFocused}
+      class:focused={state.isFocused}
       style="padding-left: 0px"
     >
       <!-- Chevron -->
-      <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {isExpanded ? 'rotate-90' : ''}">
+      <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {state.isExpanded ? 'rotate-90' : ''}">
         <BaseIcon name={ChevronRight} class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
       </div>
 
       <!-- Icon -->
-      {#if config?.icon}
+      {#if state.config?.icon}
         <div class="flex-shrink-0 w-3.5">
-          <BaseIcon name={config.icon} class="w-3.5 h-3.5 {config.color}" />
+          <BaseIcon name={state.config.icon} class="w-3.5 h-3.5 {state.config.color}" />
         </div>
       {/if}
 
       <!-- Name -->
       <span class="flex-1 text-left font-semibold text-xs text-gray-900 dark:text-gray-100 min-w-0">
-        {node.name}
+        {state.node.name}
       </span>
 
       <!-- Count -->
       <span class="w-8 text-right text-xs font-bold text-gray-500 dark:text-gray-400 tabular-nums flex-shrink-0">
-        {node.count || 0}
+        {state.node.count || 0}
       </span>
     </button>
 
     <!-- Category Children with border -->
-    {#if isExpanded && hasChildren}
+    {#if state.isExpanded && state.hasChildren}
       <div class="relative mt-1">
         <!-- Vertical border line -->
-        <div class="absolute left-[14px] top-0 bottom-0 w-0.5 {config.border} bg-current"></div>
+        <div class="absolute left-[14px] top-0 bottom-0 w-0.5 {state.config.border} bg-current"></div>
 
         <!-- Children -->
         <div class="space-y-0.5">
-          {#each node.children || [] as child}
+          {#each state.node.children || [] as child}
             <Self
               node={child}
-              level={level + 1}
-              {expandedNodes}
-              {categoryConfig}
-              {onToggle}
-              {onComponentClick}
-              {selectedStoryId}
-              {focusedPath}
+              level={state.level + 1}
+              expandedNodes={state.expandedNodes}
+              categoryConfig={state.categoryConfig}
+              onToggle={state.onToggle}
+              onComponentClick={state.onComponentClick}
+              selectedStoryId={state.selectedStoryId}
+              focusedPath={state.focusedPath}
             />
           {/each}
         </div>
       </div>
     {/if}
   </div>
-{:else if node.type === 'folder'}
+{:else if state.node.type === 'folder'}
   <!-- Folder Node -->
   <div class="space-y-0.5">
     <button
-      onclick={() => {
-        if (isAutoSelectable && node.autoStory) {
-          onComponentClick(node.autoStory);
-        } else {
-          onToggle(node.path);
-        }
-      }}
-      style={leftPadding}
+      onclick={state.handleClick}
+      style={state.leftPadding}
       class="folder-node w-full flex items-center gap-2 pr-2 py-1.5 rounded-md transition-all duration-[var(--duration-200)] hover:bg-gray-50 dark:hover:bg-gray-800/50 group"
-      class:auto-selectable={isAutoSelectable}
-      class:auto-selected={isAutoSelectable && node.autoStory?.id === selectedStoryId}
-      class:focused={isFocused}
-      aria-current={isAutoSelectable && node.autoStory?.id === selectedStoryId ? 'true' : undefined}
+      class:auto-selectable={state.isAutoSelectable}
+      class:auto-selected={state.isAutoSelectable && state.node.autoStory?.id === state.selectedStoryId}
+      class:focused={state.isFocused}
+      aria-current={state.isAutoSelectable && state.node.autoStory?.id === state.selectedStoryId ? 'true' : undefined}
     >
       <!-- Chevron -->
-      {#if !isAutoSelectable}
-        <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {isExpanded ? 'rotate-90' : ''}">
+      {#if !state.isAutoSelectable}
+        <div class="flex-shrink-0 w-3.5 transition-transform duration-[var(--duration-200)] {state.isExpanded ? 'rotate-90' : ''}">
           <BaseIcon name={ChevronRight} class="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
         </div>
       {:else}
@@ -168,11 +94,11 @@ const FileCode = 'file-code';
 
       <!-- Folder Icon -->
       <div class="flex-shrink-0 w-3.5">
-        {#if isAutoSelectable}
+        {#if state.isAutoSelectable}
           <BaseIcon name={Folder} class="w-3.5 h-3.5 text-[var(--playground-accent,var(--color-warning-500))]" />
         {:else}
-          {#if isExpanded}
-            <BaseIcon name={FolderOpen} class="w-3.5 h-3.5 {config.color} opacity-[var(--opacity-70)]" />
+          {#if state.isExpanded}
+            <BaseIcon name={FolderOpen} class="w-3.5 h-3.5 {state.config.color} opacity-[var(--opacity-70)]" />
           {:else}
             <BaseIcon name={Folder} class="w-3.5 h-3.5 text-gray-500 dark:text-gray-400" />
           {/if}
@@ -181,48 +107,48 @@ const FileCode = 'file-code';
 
       <!-- Name -->
       <span class="flex-1 text-left text-xs font-medium text-gray-700 dark:text-gray-300 min-w-0">
-        {node.name}
+        {state.node.name}
       </span>
 
       <!-- Count -->
       <span class="w-8 text-right text-xs font-medium text-gray-400 dark:text-gray-500 tabular-nums flex-shrink-0">
-        {node.count || 0}
+        {state.node.count || 0}
       </span>
     </button>
 
     <!-- Folder Children with border -->
-    {#if !isAutoSelectable && isExpanded && hasChildren}
+    {#if !state.isAutoSelectable && state.isExpanded && state.hasChildren}
       <div class="relative mt-0.5">
         <!-- Vertical border line -->
-        <div class="absolute w-px bg-gray-200 dark:bg-gray-700 top-0 bottom-0" style="left: {level * 12 + 14}px"></div>
+        <div class="absolute w-px bg-gray-200 dark:bg-gray-700 top-0 bottom-0" style="left: {state.level * 12 + 14}px"></div>
 
         <!-- Children -->
         <div class="space-y-0.5">
-          {#each node.children || [] as child}
+          {#each state.node.children || [] as child}
             <Self
               node={child}
-              level={level + 1}
-              {expandedNodes}
-              {categoryConfig}
-              {onToggle}
-              {onComponentClick}
-              {selectedStoryId}
-              {focusedPath}
+              level={state.level + 1}
+              expandedNodes={state.expandedNodes}
+              categoryConfig={state.categoryConfig}
+              onToggle={state.onToggle}
+              onComponentClick={state.onComponentClick}
+              selectedStoryId={state.selectedStoryId}
+              focusedPath={state.focusedPath}
             />
           {/each}
         </div>
       </div>
     {/if}
   </div>
-{:else if node.type === 'component' && node.story}
+{:else if state.node.type === 'component' && state.node.story}
   <!-- Component Node -->
   <button
-    onclick={() => onComponentClick(node.story!)}
-    style={leftPadding}
+    onclick={state.handleComponentClick}
+    style={state.leftPadding}
     class="component-node w-full flex items-center gap-2 pr-2 pl-1 py-1.5 text-xs rounded-md border border-transparent transition-all duration-[var(--duration-150)] group text-gray-600 dark:text-gray-400"
-    class:selected={isSelected}
-    class:focused={isFocused}
-    aria-current={isSelected ? 'true' : undefined}
+    class:selected={state.isSelected}
+    class:focused={state.isFocused}
+    aria-current={state.isSelected ? 'true' : undefined}
   >
     <span class="component-indicator" aria-hidden="true"></span>
     <div class="flex items-center gap-2 flex-1 min-w-0">
@@ -230,7 +156,7 @@ const FileCode = 'file-code';
         <BaseIcon name={FileCode} class="w-3.5 h-3.5 opacity-[var(--opacity-40)] group-hover:opacity-[var(--opacity-100)] transition-opacity" />
       </div>
       <span class="flex-1 text-left truncate font-medium min-w-0">
-        {node.name}
+        {state.node.name}
       </span>
     </div>
   </button>
@@ -288,9 +214,3 @@ const FileCode = 'file-code';
     outline-color: color-mix(in srgb, var(--color-primary-500) 60%, transparent);
   }
 </style>
-
-
-
-
-
-

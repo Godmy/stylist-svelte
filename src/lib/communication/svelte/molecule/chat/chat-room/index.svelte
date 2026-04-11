@@ -3,8 +3,9 @@
   import type { Snippet } from 'svelte';
   import ChatMessage from '../chat-message/index.svelte';
   import { MessageComposer } from '$stylist';
+  import { createChatRoomState } from '$stylist/communication/function/state/chat-room';
 
-  export type Message = {
+  export type ChatRoomMessage = {
     id: string;
     text: string;
     sender: string;
@@ -14,10 +15,8 @@
     isOwn: boolean;
   };
 
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    messages: Message[];
+  export type ChatRoomProps = {
+    messages: ChatRoomMessage[];
     currentUser: {
       id: string;
       name: string;
@@ -37,71 +36,53 @@
     onMessageSend?: (text: string) => void;
     loading?: boolean;
     variant?: 'default' | 'compact' | 'spacious';
-  };
+  } & InteractionHTMLAttributes<HTMLDivElement>;
 
-  let {
-    messages = [],
-    currentUser,
-    participants = [],
-    title,
-    subtitle,
-    class: hostClass = '',
-    messagesClass = '',
-    headerClass = '',
-    footerClass = '',
-    onMessageSend,
-    loading = false,
-    variant = 'default',
-    ...restProps
-  }: Props = $props();
+  let props: ChatRoomProps = $props();
 
-  let newMessage = $state('');
+  const state = createChatRoomState(props);
+
+  let messageText = $state('');
 
   function handleSend(text: string) {
-    onMessageSend?.(text);
-    newMessage = '';
+    props.onMessageSend?.(text);
+    messageText = '';
   }
-
-  let variantClass = $derived({
-    'default': 'p-4',
-    'compact': 'p-2',
-    'spacious': 'p-6'
-  }[variant]);
 </script>
 
-<div class={`chat-room flex flex-col h-full border rounded-lg shadow-sm ${hostClass}`} {...restProps}>
+<div class={state.containerClasses} {...props}>
   <!-- Header -->
-  <header class={`bg-[var(--color-background-primary)] border-b p-4 flex items-center ${headerClass}`}>
+  <header class={state.headerClasses}>
     <div class="flex-1">
-      {#if title}
-        <h2 class="font-semibold text-lg">{title}</h2>
+      {#if props.title}
+        <h2 class="font-semibold text-lg">{props.title}</h2>
       {/if}
-      {#if subtitle}
-        <p class="text-sm text-[var(--color-text-secondary)]">{subtitle}</p>
+      {#if props.subtitle}
+        <p class="text-sm text-[var(--color-text-secondary)]">{props.subtitle}</p>
       {/if}
     </div>
     <div class="flex items-center">
-      {#each participants.slice(0, 3) as participant, index}
-        <div class={`w-8 h-8 rounded-full overflow-hidden -ml-2 first:ml-0 border-2 border-[var(--color-background-primary)]`} style="z-index: {10 - index};">
+      {#each props.participants.slice(0, 3) as participant, index}
+        <div class={state.participantAvatarClasses(index)} style="z-index: {10 - index};">
           <img src={participant.avatar} alt={participant.name} class="w-full h-full object-cover" />
         </div>
       {/each}
-      {#if participants.length > 3}
+      {#if props.participants.length > 3}
         <div class="w-8 h-8 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center -ml-2 border-2 border-[var(--color-background-primary)]" style="z-index: var(--z-index-base);">
-          <span class="text-xs">+{participants.length - 3}</span>
+          <span class="text-xs">+{props.participants.length - 3}</span>
         </div>
       {/if}
     </div>
   </header>
 
   <!-- Messages area -->
-  <div class={`flex-1 overflow-y-auto p-4 space-y-4 ${messagesClass} ${variantClass}`}>
-    {#if loading}
+  <div class={state.messagesAreaClasses}>
+    {#if props.loading}
       <div class="flex justify-center items-center h-full">
         <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary-500)]"></div>
       </div>
     {:else}
-      {#each messages as message}
+      {#each props.messages as message}
         <ChatMessage
           text={message.text}
           sender={message.sender}
@@ -115,14 +96,11 @@
   </div>
 
   <!-- Message composer -->
-  <footer class={`bg-[var(--color-background-secondary)] border-t p-4 ${footerClass}`}>
+  <footer class={state.footerClasses}>
     <MessageComposer
-      value={newMessage}
+      value={messageText}
       onSendMessage={handleSend}
       placeholder="Type a message..."
     />
   </footer>
 </div>
-
-
-

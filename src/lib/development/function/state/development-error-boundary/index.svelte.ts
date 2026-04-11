@@ -22,18 +22,14 @@ export function createDevelopmentErrorBoundaryState(props: Props) {
 	const reportUrl = $derived(props.reportUrl ?? 'https://github.com/issues');
 	const title = $derived(props.title ?? 'Something went wrong');
 	const message = $derived(props.message ?? 'An unexpected error occurred. Our team has been notified.');
-	const className = $derived(props.class ?? '');
-	const fallbackClass = $derived(props.fallbackClass ?? '');
-	const headerClass = $derived(props.headerClass ?? '');
-	const detailsClass = $derived(props.detailsClass ?? '');
-	const actionsClass = $derived(props.actionsClass ?? '');
+	const className = $derived(props.class == null ? '' : String(props.class));
 	const children = $derived(props.children);
 
 	const containerClass = $derived(DevelopmentErrorBoundaryStyleManager.getContainerClasses(className));
-	const fallbackContainerClass = $derived(DevelopmentErrorBoundaryStyleManager.getFallbackContainerClasses(fallbackClass, className));
-	const headerComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getHeaderClasses() + ' ' + headerClass);
-	const detailsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getDetailsClasses() + ' ' + detailsClass);
-	const actionsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getActionsClasses() + ' ' + actionsClass);
+	const fallbackContainerClass = $derived(DevelopmentErrorBoundaryStyleManager.getFallbackContainerClasses());
+	const headerComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getHeaderClasses());
+	const detailsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getDetailsClasses());
+	const actionsComputedClass = $derived(DevelopmentErrorBoundaryStyleManager.getActionsClasses());
 
 	$effect(() => {
 		if (hasError && error && errorInfo && onError) {
@@ -65,8 +61,7 @@ export function createDevelopmentErrorBoundaryState(props: Props) {
 
 	const restProps = $derived(() => {
 		const {
-			class: _className, fallbackClass: _fallbackClass, headerClass: _headerClass,
-			detailsClass: _detailsClass, actionsClass: _actionsClass, fallback: _fallback,
+			class: _className, fallback: _fallback,
 			onError: _onError, showDetails: _showDetails, showReload: _showReload,
 			showCopyError: _showCopyError, showReportIssue: _showReportIssue,
 			reportUrl: _reportUrl, title: _title, message: _message, children: _children, ...rest
@@ -93,10 +88,6 @@ export function createDevelopmentErrorBoundaryState(props: Props) {
 		get title() { return title; },
 		get message() { return message; },
 		get className() { return className; },
-		get fallbackClass() { return fallbackClass; },
-		get headerClass() { return headerClass; },
-		get detailsClass() { return detailsClass; },
-		get actionsClass() { return actionsClass; },
 		get children() { return children; },
 		get containerClass() { return containerClass; },
 		get fallbackContainerClass() { return fallbackContainerClass; },

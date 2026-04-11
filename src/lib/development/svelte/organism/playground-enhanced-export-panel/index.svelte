@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundEnhancedExportPanelState } from '$stylist/development/function/state/playground-enhanced-export-panel';
+  import type { Props } from '$stylist/development/type/struct/playground-enhanced-export-panel';
 const FileCode = 'file-code';
 const Download = 'download';
 const Copy = 'copy';
@@ -9,12 +10,6 @@ const Code2 = 'code-2';
 const ExternalLink = 'external-link';
 const Package = 'package';
 const Terminal = 'terminal';
-
-  interface Props {
-    componentName?: string;
-    svelteCode?: string;
-    props?: Record<string, any>;
-  }
 
   let props: Props = $props();
   const state = createPlaygroundEnhancedExportPanelState(props);

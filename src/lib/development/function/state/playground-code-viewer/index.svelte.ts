@@ -106,7 +106,7 @@ export function createPlaygroundCodeViewerState(props: Props) {
     get generatedCode() { return generatedCode; },
     get currentLanguage() { return currentLanguage; },
     set darkMode(value: boolean) { darkMode = value; },
-    set currentTheme(value: string) { currentTheme = value; },
+    set currentTheme(value: 'light' | 'dark' | 'github-light' | 'github-dark') { currentTheme = value; },
     highlightCode,
     copyCode,
     downloadCode,

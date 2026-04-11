@@ -6,6 +6,19 @@ import type { IMockDataSelectorStyleClasses } from '$stylist/development/interfa
  * Uses CSS variables from the theme system
  */
 export class MockDataSelectorStyleManager {
+  static getContainerClasses(className: string): string {
+    const baseClasses = 'c-mock-data-selector bg-[--color-background-primary] rounded-lg border border-[--color-border-primary] p-6';
+    return `${baseClasses} ${className}`.trim();
+  }
+
+  static getHeaderClasses(): string {
+    return 'mb-6';
+  }
+
+  static getFooterClasses(): string {
+    return 'mt-6 flex justify-end gap-3';
+  }
+
   static getBaseClasses(className: string): string {
     const baseClasses = 'c-mock-data-selector';
     return `${baseClasses} ${className}`;

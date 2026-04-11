@@ -6,11 +6,12 @@
 
 	let props: AccordionPanelProps = $props();
 
-	const accordionContext = getContext<typeof ACCORDION_PANEL_CONTEXT>('accordion-context') ?? ACCORDION_PANEL_CONTEXT;
-
-	let isOpen = $derived(accordionContext.isPanelOpen(props.value));
-
-	const state = createAccordionPanelState(props);
+	// Svelte context can only be accessed in components, pass to state function
+	const context = getContext<typeof ACCORDION_PANEL_CONTEXT>('accordion-context') ?? ACCORDION_PANEL_CONTEXT;
+	const state = createAccordionPanelState({
+		...props,
+		accordionContext: context
+	});
 
 	const content = $derived(props.content);
 	const children = $derived(props.children);
@@ -32,10 +33,10 @@
 	);
 </script>
 
-<div {...restProps} class={state.classes} aria-hidden={!isOpen}>
+<div {...restProps} class={state.classes} aria-hidden={!state.isOpen}>
 	<div class={state.contentClasses}>
-		{#if content}
-			{@render content()}
+		{#if state.content}
+			{@render state.content()}
 		{:else if children}
 			{@render children?.()}
 		{/if}

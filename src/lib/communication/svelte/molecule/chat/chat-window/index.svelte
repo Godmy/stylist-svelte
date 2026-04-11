@@ -1,76 +1,30 @@
 <script lang="ts">
 import type { User, Message } from '$stylist/communication/interface/component/chat/other';
 import MessageList from '$stylist/communication/svelte/molecule/messages/message-list/index.svelte';
-  import MessageInput from '$stylist/communication/svelte/atom/input/message-input/index.svelte';
-  import { createEventDispatcher } from 'svelte';
+import MessageInput from '$stylist/communication/svelte/atom/input/message-input/index.svelte';
+import { createChatWindowState } from '$stylist/communication/function/state/chat-window';
 
-  interface Chat {
+let props: {
+  chat: {
     id: string;
     name?: string;
     participants: User[];
     isGroup: boolean;
-    lastMessage?: Message | string; // Support both formats
+    lastMessage?: Message | string;
     lastMessageTime?: Date;
     unreadCount?: number;
     avatar?: string;
-  }
+  };
+  currentUser: User;
+  messages: Message[];
+  onMessageSend?: (content: string) => void;
+  onMessageReaction?: (messageId: string, reaction: string) => void;
+  onCall?: () => void;
+  onVideoCall?: () => void;
+  onChatInfo?: () => void;
+} = $props();
 
-  const dispatch = createEventDispatcher<{
-    messageSend: { content: string; chatId: string };
-    messageReaction: { messageId: string; reaction: string };
-    call: { chat: Chat };
-    videoCall: { chat: Chat };
-    chatInfo: { chat: Chat };
-  }>();
-
-  let {
-    chat,
-    currentUser,
-    messages = []
-  } = $props<{
-    chat: Chat;
-    currentUser: User;
-    messages: Message[];
-  }>();
-
-  // Create a version of chat compatible with ChatHeader (lastMessage as string)
-  let compatibleChat = $derived({
-    ...chat,
-    lastMessage: typeof chat.lastMessage === 'object' && chat.lastMessage ?
-      (chat.lastMessage as Message).content :
-      chat.lastMessage as string
-  });
-
-  // Handle sending a message
-  function handleMessageSend(content: string) {
-    dispatch('messageSend', {
-      content,
-      chatId: chat.id
-    });
-  }
-
-  // Handle message reaction
-  function handleMessageReaction(event: CustomEvent<{ message: Message; reaction: string }>) {
-    dispatch('messageReaction', {
-      messageId: event.detail.message.id,
-      reaction: event.detail.reaction
-    });
-  }
-
-  // Handle call
-  function handleCall(event: CustomEvent<{ chat: Chat }>) {
-    dispatch('call', { chat: event.detail.chat });
-  }
-
-  // Handle video call
-  function handleVideoCall(event: CustomEvent<{ chat: Chat }>) {
-    dispatch('videoCall', { chat: event.detail.chat });
-  }
-
-  // Handle chat info
-  function handleChatInfo(event: CustomEvent<{ chat: Chat }>) {
-    dispatch('chatInfo', { chat: event.detail.chat });
-  }
+const state = createChatWindowState(props);
 </script>
 
 <style>
@@ -96,33 +50,29 @@ import MessageList from '$stylist/communication/svelte/molecule/messages/message
   }
 </style>
 
-  <div class="chat-window">
-  {#if chat}
-    <div class="flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3">
-      <div class="font-semibold text-[var(--color-text-primary)]">{compatibleChat.name}</div>
+  <div class={state.containerClasses}>
+  {#if props.chat}
+    <div class={state.headerClasses}>
+      <div class="font-semibold text-[var(--color-text-primary)]">{state.compatibleChat.name}</div>
       <div class="flex gap-2">
-        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('call', { chat })}>Call</button>
-        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('videoCall', { chat })}>Video</button>
-        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => dispatch('chatInfo', { chat })}>Info</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => props.onCall?.()}>Call</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => props.onVideoCall?.()}>Video</button>
+        <button type="button" class="text-sm text-[var(--color-text-secondary)]" onclick={() => props.onChatInfo?.()}>Info</button>
       </div>
     </div>
   {/if}
-  
-  <div class="chat-messages">
-    <MessageList 
-      {messages} 
-      {currentUser}
-      on:messageReaction={handleMessageReaction}
+
+  <div class={state.messagesClasses}>
+    <MessageList
+      messages={props.messages}
+      currentUser={props.currentUser}
+      onMessageReaction={props.onMessageReaction}
     />
   </div>
-  
-  <div class="chat-input">
-    <MessageInput 
-      onSendMessage={handleMessageSend}
+
+  <div class={state.inputClasses}>
+    <MessageInput
+      onSendMessage={state.handleMessageSend}
     />
   </div>
 </div>
-
-
-
-

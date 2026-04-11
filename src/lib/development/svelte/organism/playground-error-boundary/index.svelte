@@ -1,13 +1,7 @@
 <script lang="ts">
-  import type { ComponentType, Snippet } from 'svelte';
   import { onMount } from 'svelte';
   import { createPlaygroundErrorBoundaryState } from '$stylist/development/function/state/playground-error-boundary';
-
-  type Props = {
-    component: ComponentType | null | undefined;
-    props?: Record<string, any>;
-    children?: Snippet;
-  };
+  import type { Props } from '$stylist/development/type/struct/playground-error-boundary';
 
   let props: Props = $props();
   const state = createPlaygroundErrorBoundaryState(props);

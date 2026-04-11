@@ -1,10 +1,6 @@
 <script lang="ts">
-  import type { PropsEditorRecipe } from '$stylist/development/interface/recipe/props-editor';
+  import type { PropsEditorProps } from '$stylist/development/type/struct/props-editor';
   import { createPropsEditorState } from '$stylist/development/function/state/playground/props-editor';
-
-  type PropsEditorProps = PropsEditorRecipe & {
-    class?: string;
-  };
 
   let {
     propDefinitions = [],

@@ -1,13 +1,6 @@
 <script lang="ts">
-  import type { Snippet } from 'svelte';
   import { createPlaygroundDeviceFrameState } from '$stylist/development/function/state/playground-device-frame';
-
-  type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
-
-  interface Props {
-    device: ViewportSize;
-    children?: Snippet;
-  }
+  import type { Props, ViewportSize } from '$stylist/development/type/struct/playground-device-frame';
 
   let props: Props = $props();
   const state = createPlaygroundDeviceFrameState(props);

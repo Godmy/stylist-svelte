@@ -1,20 +1,5 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+import type { Props } from '$stylist/development/type/struct/documentation-block';
 import { DocumentationBlockStyleManager } from '$stylist/development/class/style-manager/documentation-block';
-
-type DocumentationBlockVariant = 'default' | 'info' | 'warning' | 'success' | 'danger';
-
-export type Props = {
-	title?: string;
-	content: string;
-	variant?: DocumentationBlockVariant;
-	codeExamples?: {
-		title?: string;
-		code: string;
-		language?: string;
-		showLineNumbers?: boolean;
-	}[];
-	tags?: string[];
-} & InformationHTMLAttributes<HTMLElement>;
 
 export function createDocumentationBlockState(props: Props) {
 	let variantClasses = $derived({

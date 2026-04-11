@@ -8,7 +8,7 @@ export function createTokenSelectState(props: TokenSelectControlProps) {
 			props.definition.options.findIndex((option) => option.value === candidate)
 		);
 
-	const internalIndex = $state<number>(
+	let internalIndex = $state<number>(
 		valueToIndex(props.value ?? props.definition.defaultValue ?? props.definition.options[0]?.value ?? '')
 	);
 

@@ -10,9 +10,9 @@ export function createDragAndDropListState(props: DragAndDropListProps) {
 	const headerClass = $derived(props.headerClass ?? '');
 	const bodyClass = $derived(props.bodyClass ?? '');
 
-	const draggedItem = $state<DragAndDropListItem | null>(null);
-	const draggedOverIndex = $state<number | null>(null);
-	const isDragging = $state(false);
+	let draggedItem = $state<DragAndDropListItem | null>(null);
+	let draggedOverIndex = $state<number | null>(null);
+	let isDragging = $state(false);
 
 	function handleDragStart(e: DragEvent, item: DragAndDropListItem, index: number) {
 		if (disabled) return;

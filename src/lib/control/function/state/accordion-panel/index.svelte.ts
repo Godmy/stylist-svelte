@@ -1,13 +1,18 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { AccordionPanelProps } from '$stylist/control/interface/component/accordion/other';
 
-/**
- * AccordionPanel state
- */
+type AccordionPanelContext = {
+	isPanelOpen: (value: string) => boolean;
+};
 
-export function createAccordionPanelState(props: AccordionPanelProps) {
-	const classes = $derived(joinClassNames('accordion-panel', props.open ? 'open' : 'closed', props.class));
+type AccordionPanelStateProps = AccordionPanelProps & {
+	accordionContext: AccordionPanelContext;
+};
+
+export function createAccordionPanelState(props: AccordionPanelStateProps) {
+	const ctx = props.accordionContext;
+	const isOpen = $derived(ctx.isPanelOpen(props.value));
+	const classes = $derived(joinClassNames('accordion-panel', isOpen ? 'open' : 'closed', props.class));
 
 	const contentClasses = $derived(
 		joinClassNames(
@@ -23,7 +28,9 @@ export function createAccordionPanelState(props: AccordionPanelProps) {
 		paddingClass: props.paddingClass,
 		borderClass: props.borderClass,
 		bgClass: props.bgClass,
-		open: props.open ?? false,
+		get isOpen() {
+			return isOpen;
+		},
 		get classes() {
 			return classes;
 		},
@@ -34,8 +41,3 @@ export function createAccordionPanelState(props: AccordionPanelProps) {
 }
 
 export default createAccordionPanelState;
-
-
-
-
-

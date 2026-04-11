@@ -1,48 +1,28 @@
 <script lang="ts">
   import { Button } from '$stylist';
   import { createToolbarState } from '$stylist/control/function/state/toolbar';
+  import {
+    toolbarHandleZoomIn,
+    toolbarHandleZoomOut,
+    toolbarHandleFitView,
+    toolbarHandleResetView,
+    toolbarHandleExport,
+    toolbarHandleLegendToggle,
+    toolbarHandleSearchToggle,
+    type ToolbarExportFormat
+  } from '$stylist/control/function/script/toolbar';
 
   let props = $props<{
     onZoomIn?: () => void;
     onZoomOut?: () => void;
     onFitView?: () => void;
     onResetView?: () => void;
-    onExportImage?: (format: 'png' | 'jpeg' | 'svg') => void;
+    onExportImage?: (format: ToolbarExportFormat) => void;
     onToggleLegend?: () => void;
     onToggleSearch?: () => void;
   }>();
 
   const state = createToolbarState();
-
-  function handleZoomIn() {
-    props.onZoomIn?.();
-  }
-
-  function handleZoomOut() {
-    props.onZoomOut?.();
-  }
-
-  function handleFitView() {
-    props.onFitView?.();
-  }
-
-  function handleResetView() {
-    props.onResetView?.();
-  }
-
-  function handleExport(format: 'png' | 'jpeg' | 'svg') {
-    props.onExportImage?.(format);
-  }
-
-  function handleToggleLegend() {
-    state.handleToggleLegend();
-    props.onToggleLegend?.();
-  }
-
-  function handleToggleSearch() {
-    state.handleToggleSearch();
-    props.onToggleSearch?.();
-  }
 </script>
 
 <style>
@@ -63,8 +43,6 @@
     gap: var(--spacing-1);
   }
 
-
-
   .toolbar-separator {
     height: 1px;
     background-color: var(--color-border-primary);
@@ -74,51 +52,50 @@
 
 <div class="toolbar">
   <div class="toolbar-group">
-    <Button size="sm" onclick={handleZoomIn}>
+    <Button size="sm" onclick={() => toolbarHandleZoomIn(props.onZoomIn)}>
       <span>+</span> <span>Zoom In</span>
     </Button>
-    <Button size="sm" onclick={handleZoomOut}>
+    <Button size="sm" onclick={() => toolbarHandleZoomOut(props.onZoomOut)}>
       <span>-</span> <span>Zoom Out</span>
     </Button>
-    <Button size="sm" onclick={handleFitView}>
+    <Button size="sm" onclick={() => toolbarHandleFitView(props.onFitView)}>
       <span> Fit View</span>
     </Button>
-    <Button size="sm" onclick={handleResetView}>
+    <Button size="sm" onclick={() => toolbarHandleResetView(props.onResetView)}>
       <span> Reset View</span>
     </Button>
   </div>
-  
+
   <div class="toolbar-separator"></div>
-  
+
   <div class="toolbar-group">
-    <Button size="sm" onclick={() => handleExport('png')}>
+    <Button size="sm" onclick={() => toolbarHandleExport('png', props.onExportImage)}>
       <span> PNG</span>
     </Button>
-    <Button size="sm" onclick={() => handleExport('jpeg')}>
+    <Button size="sm" onclick={() => toolbarHandleExport('jpeg', props.onExportImage)}>
       <span> JPEG</span>
     </Button>
-    <Button size="sm" onclick={() => handleExport('svg')}>
+    <Button size="sm" onclick={() => toolbarHandleExport('svg', props.onExportImage)}>
       <span> SVG</span>
     </Button>
   </div>
-  
+
   <div class="toolbar-separator"></div>
-  
+
   <div class="toolbar-group">
-    <Button 
-      size="sm" 
-      variant={state.isLegendVisible ? 'primary' : 'secondary'} 
-      onclick={handleToggleLegend}
+    <Button
+      size="sm"
+      variant={state.isLegendVisible ? 'primary' : 'secondary'}
+      onclick={() => toolbarHandleLegendToggle(state.isLegendVisible, props.onToggleLegend)}
     >
       <span> Legend</span>
     </Button>
-    <Button 
-      size="sm" 
-      variant={state.isSearchVisible ? 'primary' : 'secondary'} 
-      onclick={handleToggleSearch}
+    <Button
+      size="sm"
+      variant={state.isSearchVisible ? 'primary' : 'secondary'}
+      onclick={() => toolbarHandleSearchToggle(state.isSearchVisible, props.onToggleSearch)}
     >
       <span> Search</span>
     </Button>
   </div>
 </div>
-

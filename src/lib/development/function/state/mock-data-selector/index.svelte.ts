@@ -31,8 +31,14 @@ export function createMockDataSelectorState(props: Props) {
 	const footerClass = $derived(props.footerClass ?? '');
 
 	const containerClass = $derived(MockDataSelectorStyleManager.getContainerClasses(className));
-	const headerComputedClass = $derived(MockDataSelectorStyleManager.getHeaderClasses() + ' ' + headerClass);
-	const footerComputedClass = $derived(MockDataSelectorStyleManager.getFooterClasses() + ' ' + footerClass);
+	const headerComputedClass = $derived.by(() => {
+		const header = MockDataSelectorStyleManager.getHeaderClasses();
+		return headerClass ? `${header} ${headerClass}` : header;
+	});
+	const footerComputedClass = $derived.by(() => {
+		const footer = MockDataSelectorStyleManager.getFooterClasses();
+		return footerClass ? `${footer} ${footerClass}` : footer;
+	});
 
 	// Initialize tags
 	$effect(() => {

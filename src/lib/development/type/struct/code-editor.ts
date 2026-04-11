@@ -2,4 +2,5 @@ import type { CodeEditorRecipe } from '$stylist/development/interface/recipe/cod
 
 export type CodeEditorProps = CodeEditorRecipe & {
   class?: string;
+  showCopyButton?: boolean;
 };

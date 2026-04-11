@@ -10,9 +10,9 @@ export function createComboboxState(props: ComboboxProps) {
 	const emptyText = $derived(props.emptyText ?? 'Ничего не найдено');
 	const className = $derived(props.class ?? '');
 
-	const query = $state('');
-	const isOpen = $state(false);
-	const highlighted = $state(0);
+	let query = $state('');
+	let isOpen = $state(false);
+	let highlighted = $state(0);
 	const inputRef = { current: null as HTMLInputElement | null };
 
 	const selectedItem = $derived(items.find((item) => item.id === props.value) ?? null);
@@ -51,7 +51,6 @@ export function createComboboxState(props: ComboboxProps) {
 	function handleInput(event: Event) {
 		const target = event.currentTarget as HTMLInputElement;
 		query = target.value;
-		props.value = null;
 		if (!isOpen) {
 			openList();
 		}
@@ -112,51 +111,21 @@ export function createComboboxState(props: ComboboxProps) {
 	}
 
 	return {
-		get query() {
-			return query;
-		},
-		set query(value: string) {
-			query = value;
-		},
-		get isOpen() {
-			return isOpen;
-		},
-		get highlighted() {
-			return highlighted;
-		},
-		get inputRef() {
-			return inputRef.current;
-		},
-		set inputRef(value: HTMLInputElement | null) {
-			inputRef.current = value;
-		},
-		get selectedItem() {
-			return selectedItem;
-		},
-		get filteredItems() {
-			return filteredItems;
-		},
-		get hasResults() {
-			return hasResults;
-		},
-		get disabled() {
-			return disabled;
-		},
-		get clearable() {
-			return clearable;
-		},
-		get loading() {
-			return loading;
-		},
-		get placeholder() {
-			return placeholder;
-		},
-		get emptyText() {
-			return emptyText;
-		},
-		get className() {
-			return className;
-		},
+		get query() { return query; },
+		set query(v: string) { query = v; },
+		get isOpen() { return isOpen; },
+		get highlighted() { return highlighted; },
+		get inputRef() { return inputRef.current; },
+		set inputRef(v: HTMLInputElement | null) { inputRef.current = v; },
+		get selectedItem() { return selectedItem; },
+		get filteredItems() { return filteredItems; },
+		get hasResults() { return hasResults; },
+		get disabled() { return disabled; },
+		get clearable() { return clearable; },
+		get loading() { return loading; },
+		get placeholder() { return placeholder; },
+		get emptyText() { return emptyText; },
+		get className() { return className; },
 		openList,
 		closeList,
 		handleInput,

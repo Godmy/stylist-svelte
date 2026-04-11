@@ -1,10 +1,6 @@
 <script lang="ts">
   import { createPlaygroundDrawingOverlayState } from '$stylist/development/function/state/playground-drawing-overlay';
-
-  interface Props {
-    drawColor?: string;
-    onClose?: () => void;
-  }
+  import type { Props } from '$stylist/development/type/struct/playground-drawing-overlay';
 
   let props: Props = $props();
   const state = createPlaygroundDrawingOverlayState(props);

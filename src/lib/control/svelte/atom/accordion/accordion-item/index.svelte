@@ -6,11 +6,12 @@
 
 	let props: AccordionItemProps = $props();
 
-	const state = createAccordionItemState(props);
-
-	const accordionContext = getContext<typeof ACCORDION_ITEM_CONTEXT>('accordion-context') ?? ACCORDION_ITEM_CONTEXT;
-
-	let uniqueId = $derived(`${accordionContext.accordionId}-${props.value}`);
+	// Svelte context can only be accessed in components, pass to state function
+	const context = getContext<typeof ACCORDION_ITEM_CONTEXT>('accordion-context') ?? ACCORDION_ITEM_CONTEXT;
+	const state = createAccordionItemState({
+		...props,
+		accordionContext: context
+	});
 
 	const restProps = $derived(
 		(() => {
@@ -20,7 +21,7 @@
 	);
 </script>
 
-<div {...restProps} id={uniqueId} class={state.classes}>
+<div {...restProps} id={state.uniqueId} class={state.classes}>
 	{@render props.children?.()}
 </div>
 

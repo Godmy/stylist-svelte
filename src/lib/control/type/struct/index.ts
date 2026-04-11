@@ -1,7 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { CubeDebugLogEntry } from './cube-debug-log-entry';
-export type { CubeRotation } from './cube-rotation';
-export type { CubeSelectionState } from './cube-selection-state';
 export type { AccessibilityToolbarProps } from './accessibility-toolbar-props';
 export type { AccordionHeaderDoubleProps } from './accordion-header-double-props';
 export type { AccordionHeaderProps } from './accordion-header-props';
@@ -22,6 +19,9 @@ export type { ComparisonTableFeature } from './comparison-table-feature';
 export type { ComparisonTableProduct } from './comparison-table-product';
 export type { ComparisonTableProps } from './comparison-table-props';
 export type { CubeControlProps } from './cube-control-props';
+export type { CubeDebugLogEntry } from './cube-debug-log-entry';
+export type { CubeRotation } from './cube-rotation';
+export type { CubeSelectionState } from './cube-selection-state';
 export type { DragAndDropListItem } from './drag-and-drop-list-item';
 export type { DragAndDropListProps } from './drag-and-drop-list-props';
 export type { DragAndDropListRestProps } from './drag-and-drop-list-rest-props';

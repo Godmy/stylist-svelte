@@ -11,15 +11,15 @@ export function createComponentLibraryStatsState(props: Props) {
 	const durationMs = $derived(props.durationMs ?? 2000);
 	const steps = $derived(props.steps ?? 60);
 	const stats = $derived(props.stats);
-	const className = $derived(props.class ?? '');
+	const className = $derived(props.class == null ? '' : String(props.class));
 
 	const containerClass = $derived(ComponentLibraryStatsStyleManager.getContainerClasses(className));
-	const gridClass = $derived(ComponentLibraryStatsStyleManager.getGridClasses());
-	const getCardClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		ComponentLibraryStatsStyleManager.getCardClasses(colorTheme);
-	const getCounterClass = (colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
-		ComponentLibraryStatsStyleManager.getCounterClasses(colorTheme);
-	const getLabelClass = $derived(ComponentLibraryStatsStyleManager.getLabelClasses());
+	const statsGridClass = $derived(ComponentLibraryStatsStyleManager.getStatsGridClasses());
+	const getStatCardClass = (_colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
+		ComponentLibraryStatsStyleManager.getStatCardClasses();
+	const getStatValueClass = (_colorTheme: 'orange' | 'blue' | 'purple' | 'green') =>
+		ComponentLibraryStatsStyleManager.getStatValueClasses();
+	const getStatLabelClass = $derived(ComponentLibraryStatsStyleManager.getStatLabelClasses());
 
 	function animateStats() {
 		const safeSteps = Math.max(1, steps);
@@ -90,12 +90,12 @@ export function createComponentLibraryStatsState(props: Props) {
 		get containerClass() {
 			return containerClass;
 		},
-		get gridClass() {
-			return gridClass;
+		get statsGridClass() {
+			return statsGridClass;
 		},
-		getCardClass,
-		getCounterClass,
-		getLabelClass,
+		getStatCardClass,
+		getStatValueClass,
+		getStatLabelClass,
 		get restProps() {
 			return restProps();
 		}

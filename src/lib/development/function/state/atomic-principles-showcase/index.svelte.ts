@@ -7,7 +7,7 @@ export function createAtomicPrinciplesShowcaseState(props: Props) {
 	const Layers = 'layers';
 	const Package = 'package';
 
-	const sectionClass = $derived(AtomicPrinciplesShowcaseStyleManager.getSectionClasses(props.class ?? ''));
+	const sectionClass = $derived(AtomicPrinciplesShowcaseStyleManager.getSectionClasses(props.class == null ? undefined : String(props.class)));
 	const innerContainerClass = $derived(AtomicPrinciplesShowcaseStyleManager.getInnerContainerClasses());
 	const textCenterClass = $derived(AtomicPrinciplesShowcaseStyleManager.getTextCenterClasses());
 	const badgeClass = $derived(AtomicPrinciplesShowcaseStyleManager.getBadgeClasses());

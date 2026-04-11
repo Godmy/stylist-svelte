@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { TreeNodeItemNode } from '$stylist/control/type/struct/tree-node-item-node';
   import AdvancedVirtualTree from './index.svelte';
+  import { createTreeViewerState } from '$stylist/control/function/state/tree-viewer';
 
   let props = $props<{
     tree?: TreeNodeItemNode[];
@@ -15,33 +16,7 @@
     onCollapse?: (detail: { node: TreeNodeItemNode }) => void;
   }>();
 
-  const tree = $derived(props.tree ?? []);
-  const itemHeight = $derived(props.itemHeight ?? 36);
-  const visibleItemCount = $derived(props.visibleItemCount ?? 15);
-  const bufferSize = $derived(props.bufferSize ?? 5);
-  const className = $derived(props.class ?? '');
-
-  // Handle node selection
-  const handleSelect = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-    props.onSelect?.(e.detail);
-    props.onSelectCallback?.(e.detail.node.key);
-  };
-
-  // Handle toggle events
-  const handleToggle = (key: string | undefined) => {
-    if (key) {
-      props.onToggleCallback?.(key);
-    }
-  };
-
-  // Handle expand/collapse
-  const handleExpand = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-    props.onExpand?.(e.detail);
-  };
-
-  const handleCollapse = (e: CustomEvent<{ node: TreeNodeItemNode }>) => {
-    props.onCollapse?.(e.detail);
-  };
+  const state = createTreeViewerState(props);
 
   const restProps = $derived.by(() => {
     const {
@@ -61,17 +36,16 @@
   });
 </script>
 
-<div class="tree-viewer {className}" {...restProps}>
-  <AdvancedVirtualTree 
-    {tree}
-    {itemHeight}
-    {visibleItemCount}
-    {bufferSize}
-    onSelectCallback={onSelectCallback}
-    onToggleCallback={handleToggle}
-    on:select={handleSelect}
-    on:expand={handleExpand}
-    on:collapse={handleCollapse}
+<div class="tree-viewer {state.className}" {...restProps}>
+  <AdvancedVirtualTree
+    tree={state.tree}
+    itemHeight={state.itemHeight}
+    visibleItemCount={state.visibleItemCount}
+    bufferSize={state.bufferSize}
+    onToggleCallback={state.handleToggle}
+    on:select={state.handleSelect}
+    on:expand={state.handleExpand}
+    on:collapse={state.handleCollapse}
   />
 </div>
 
@@ -82,5 +56,3 @@
     gap: var(--spacing-1);
   }
 </style>
-
-

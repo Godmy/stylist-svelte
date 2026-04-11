@@ -19,6 +19,7 @@ export type { IMessageComposerProps } from './message-composer';
 export type { MessageItemProps } from './message-item';
 export type { MessageListProps } from './message-list';
 export type { IMessageMetaProps, IMessageMetaStyleClasses } from './message-meta';
+export type { MessageStatusProps } from './message-status';
 export type { MessageThreadMessageData } from './message-thread';
 export type { MessageTimestampProps } from './message-timestamp';
 export type { UserStatusProps } from './user-status';

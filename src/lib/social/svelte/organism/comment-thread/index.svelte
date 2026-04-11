@@ -19,7 +19,7 @@
     COMMENT_THREAD_TRASH_2,
     COMMENT_THREAD_USER_ICON
   } from '$stylist/social/const/map/comment-thread';
-  import createCommentThreadState from '$stylist/social/function/state/comment-thread';
+  import { createCommentThreadState } from '$stylist/social/function/state/comment-thread';
 
   let props: CommentThreadProps = $props();
   const state = createCommentThreadState(props);

@@ -85,13 +85,13 @@
               <span>{state.showReplyForm[comment.id] ? 'Cancel reply' : 'Reply'}</span>
             </button>
           {/if}
-          {#if props.showEdit && comment.author.id === state.currentUserId}
+          {#if props.showEdit && state.currentUserId != null && comment.author.id === state.currentUserId}
             <button type="button" class="flex items-center space-x-1" onclick={() => { state.editCommentId = comment.id; state.editContent = comment.content; }}>
               <BaseIcon name={COMMENT_SYSTEM_EDIT_3} class="h-4 w-4" />
               <span>Edit</span>
             </button>
           {/if}
-          {#if props.showDelete && comment.author.id === state.currentUserId}
+          {#if props.showDelete && state.currentUserId != null && comment.author.id === state.currentUserId}
             <button type="button" class="flex items-center space-x-1 text-[--color-danger-600]" onclick={() => props.onCommentDelete?.(comment.id)}>
               <BaseIcon name={COMMENT_SYSTEM_TRASH_2} class="h-4 w-4" />
               <span>Delete</span>

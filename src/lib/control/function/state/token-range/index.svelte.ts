@@ -8,7 +8,7 @@ export function createTokenRangeState(props: TokenRangeControlProps) {
 				? props.definition.defaultValue
 				: props.definition.min;
 
-	const internalValue = $state<number>(initialValue);
+	let internalValue = $state<number>(initialValue);
 
 	$effect(() => {
 		if (typeof props.value === 'number' && props.value !== internalValue) {

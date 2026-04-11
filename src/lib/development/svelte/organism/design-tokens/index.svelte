@@ -11,18 +11,18 @@
     <h2 class={state.sectionTitleClass}>Design Tokens</h2>
 
     {#if state.showColorPalette}
-      <section class={state.sectionClass}>
+      <section class={state.sectionContainerClass}>
         <h3 class={state.sectionTitleClass}>Color Palette</h3>
-        <div class={state.colorGridClass}>
+        <div class={state.tokensGridClass}>
           {#each Object.entries(state.currentTheme.colors) as [tokenName, tokenValue]}
             {#if state.isColorToken(tokenName)}
-              <div class={state.colorItemClass}>
+              <div class={state.tokenCardClass}>
                 <div
-                  class={state.colorPreviewClass}
+                  class={state.getColorPreviewClass(String(tokenValue))}
                   style="background-color: {tokenValue}"
                 ></div>
-                <span class={state.colorNameClass}>{tokenName}</span>
-                <span class={state.colorValueClass}>{tokenValue}</span>
+                <span class={state.tokenNameClass}>{tokenName}</span>
+                <span class={state.tokenValueClass}>{tokenValue}</span>
               </div>
             {/if}
           {/each}
@@ -31,13 +31,13 @@
     {/if}
 
     {#if state.showSpacing}
-      <section class={state.spacingSectionClass}>
+      <section class={state.sectionContainerClass}>
         <h3 class={state.sectionTitleClass}>Spacing</h3>
         <div class="flex flex-wrap gap-2">
           {#each Object.entries(state.layoutTokens.spacing ?? {}) as [tokenName, tokenValue]}
-            <div class={state.spacingItemClass}>
+            <div class={state.tokenCardClass}>
               <div
-                class={state.spacingPreviewClass}
+                class={state.previewCellClass}
                 style="width: {tokenValue}; height: {tokenValue}"
               ></div>
               <span class="text-xs font-mono">{tokenName}</span>
@@ -49,11 +49,11 @@
     {/if}
 
     {#if state.showTypography}
-      <section class={state.typographySectionClass}>
+      <section class={state.sectionContainerClass}>
         <h3 class={state.sectionTitleClass}>Typography</h3>
         <div class="space-y-2">
           {#each Object.entries(state.currentTheme.typography.fontSize) as [tokenName, tokenValue]}
-            <div class={state.typographyItemClass}>
+            <div class={state.tokenCardClass}>
               <span class="font-mono text-sm">{tokenName}</span>
               <span style="font-size: {tokenValue}">Aa Bb Cc</span>
             </div>
@@ -63,13 +63,13 @@
     {/if}
 
     {#if state.showBorderRadius}
-      <section class={state.borderRadiusSectionClass}>
+      <section class={state.sectionContainerClass}>
         <h3 class={state.sectionTitleClass}>Border Radius</h3>
         <div class="flex flex-wrap gap-4 items-end">
           {#each Object.entries(state.layoutTokens.borderRadius ?? {}) as [tokenName, tokenValue]}
-            <div class={state.borderRadiusItemClass}>
+            <div class={state.tokenCardClass}>
               <div
-                class={state.borderRadiusPreviewClass}
+                class={state.previewCellClass}
                 style="width: var(--border-radius-full); height: var(--spacing-16); border-radius: {tokenValue}"
               ></div>
               <span class="text-xs font-mono mt-2">{tokenName}</span>
@@ -81,13 +81,13 @@
     {/if}
 
     {#if state.showShadows}
-      <section class={state.shadowsSectionClass}>
+      <section class={state.sectionContainerClass}>
         <h3 class={state.sectionTitleClass}>Shadows</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {#each Object.entries(state.layoutTokens.boxShadow ?? {}) as [tokenName, tokenValue]}
             {#if tokenValue !== 'none'}
               <div
-                class={state.shadowItemClass}
+                class={state.tokenCardClass}
                 style={`box-shadow: var(--shadow-${tokenName}, ${tokenValue})`}
               >
                 <div class="font-mono text-sm mb-2">{tokenName}</div>

@@ -44,8 +44,8 @@ export function createSortableGridState(props: SortableGridProps) {
 	);
 	const gapClass = $derived(gapMap[gap] ?? 'gap-4');
 
-	const draggedItem = $state<SortableGridItem | null>(null);
-	const draggedOverIndex = $state<number | null>(null);
+	let draggedItem = $state<SortableGridItem | null>(null);
+	let draggedOverIndex = $state<number | null>(null);
 
 	function handleDragStart(e: DragEvent, item: SortableGridItem, index: number) {
 		draggedItem = item;

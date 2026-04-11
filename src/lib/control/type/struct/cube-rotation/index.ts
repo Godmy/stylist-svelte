@@ -3,4 +3,4 @@ export type CubeRotation = {
 	y: number;
 };
 
-export default CubeRotation;
+export type { CubeRotation as default };

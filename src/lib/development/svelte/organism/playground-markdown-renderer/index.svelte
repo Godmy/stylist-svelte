@@ -1,15 +1,10 @@
 <script lang="ts">
   import { marked } from 'marked';
-  import { onMount } from 'svelte';
+  import { createPlaygroundMarkdownRendererState } from '$stylist/development/function/state/playground-markdown-renderer';
+  import type { Props } from '$stylist/development/type/struct/playground-markdown-renderer';
 
-  type Props = {
-    content: string;
-    class?: string;
-  };
-
-  let { content, class: hostClass = '' }: Props = $props();
-
-  let html = $state('');
+  let props: Props = $props();
+  const state = createPlaygroundMarkdownRendererState(props);
 
   // Configure marked for safe rendering
   marked.setOptions({
@@ -19,18 +14,18 @@
 
   $effect(() => {
     try {
-      html = marked.parse(content) as string;
+      state.html = marked.parse(state.content) as string;
     } catch (error) {
       console.error('Error parsing markdown:', error);
-      html = `<p class="text-red-600">Error rendering markdown</p>`;
+      state.html = `<p class="text-red-600">Error rendering markdown</p>`;
     }
   });
 </script>
 
 <div
-  class={`markdown-content prose prose-sm max-w-none dark:prose-invert ${hostClass}`}
+  class={`markdown-content prose prose-sm max-w-none dark:prose-invert ${state.hostClass}`}
 >
-  {@html html}
+  {@html state.html}
 </div>
 
 <style>
@@ -185,4 +180,3 @@
     border-top-color: color-mix(in srgb, var(--color-background-primary) 10%, transparent);
   }
 </style>
-

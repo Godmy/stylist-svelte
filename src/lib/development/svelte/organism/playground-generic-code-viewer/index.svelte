@@ -1,10 +1,6 @@
 <script lang="ts">
   import { createPlaygroundGenericCodeViewerState } from '$stylist/development/function/state/playground-generic-code-viewer';
-
-  interface Props {
-    code?: string;
-    language?: string;
-  }
+  import type { Props } from '$stylist/development/type/struct/playground-generic-code-viewer';
 
   let props: Props = $props();
   const state = createPlaygroundGenericCodeViewerState(props);

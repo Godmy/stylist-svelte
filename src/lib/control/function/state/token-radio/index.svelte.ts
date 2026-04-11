@@ -2,7 +2,7 @@ import type { TokenRadioControlProps } from '$stylist/control/type/struct/token-
 import type { TokenValue } from '$stylist/control/type/struct/token-value';
 
 export function createTokenRadioState(props: TokenRadioControlProps) {
-	const internalValue = $state<TokenValue>(
+	let internalValue = $state<TokenValue>(
 		props.value ?? props.definition.defaultValue ?? props.definition.options[0]?.value ?? ''
 	);
 

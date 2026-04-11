@@ -1,5 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundShortcutsPanelState } from '$stylist/development/function/state/playground-shortcuts-panel';
+  import type { Props } from '$stylist/development/type/struct/playground-shortcuts-panel';
 const Keyboard = 'keyboard';
 const Command = 'command';
 const Search = 'search';
@@ -13,94 +15,8 @@ const Code = 'code';
 const Copy = 'copy';
 
 
-  interface Shortcut {
-    keys: string[];
-    description: string;
-    category: string;
-    icon?: any;
-  }
-
-  const shortcuts: Shortcut[] = [
-    // Navigation
-    { keys: ['Ctrl', '/'], description: 'Toggle Sidebar', category: 'Navigation', icon: SidebarIcon },
-    { keys: ['Ctrl', 'B'], description: 'Toggle Bottom Panel', category: 'Navigation', icon: Layout },
-    { keys: ['Ctrl', 'K'], description: 'Open Command Palette', category: 'Navigation', icon: Command },
-    { keys: ['Ctrl', 'P'], description: 'Quick Search Components', category: 'Navigation', icon: Search },
-
-    // View Controls
-    { keys: ['Ctrl', 'G'], description: 'Toggle Grid', category: 'View', icon: Grid },
-    { keys: ['Ctrl', 'D'], description: 'Toggle Dark Mode', category: 'View', icon: Moon },
-    { keys: ['Ctrl', '+'], description: 'Zoom In', category: 'View', icon: Eye },
-    { keys: ['Ctrl', '-'], description: 'Zoom Out', category: 'View', icon: Eye },
-    { keys: ['Ctrl', '0'], description: 'Reset Zoom', category: 'View', icon: Eye },
-
-    // Actions
-    { keys: ['Ctrl', 'C'], description: 'Copy Code', category: 'Actions', icon: Copy },
-    { keys: ['Ctrl', 'E'], description: 'Export Component', category: 'Actions', icon: Code },
-    { keys: ['Ctrl', 'R'], description: 'Reset All Props', category: 'Actions', icon: Zap },
-    { keys: ['Ctrl', 'S'], description: 'Save Variant', category: 'Actions', icon: Zap },
-
-    // Viewport
-    { keys: ['Alt', '1'], description: 'Mobile Viewport', category: 'Viewport', icon: Layout },
-    { keys: ['Alt', '2'], description: 'Tablet Viewport', category: 'Viewport', icon: Layout },
-    { keys: ['Alt', '3'], description: 'Desktop Viewport', category: 'Viewport', icon: Layout },
-    { keys: ['Alt', '4'], description: 'Fullscreen Viewport', category: 'Viewport', icon: Layout },
-
-    // Tabs
-    { keys: ['Ctrl', '1'], description: 'Go to Controls Tab', category: 'Tabs', icon: Layout },
-    { keys: ['Ctrl', '2'], description: 'Go to Code Tab', category: 'Tabs', icon: Layout },
-    { keys: ['Ctrl', '3'], description: 'Go to Actions Tab', category: 'Tabs', icon: Layout },
-    { keys: ['Ctrl', '4'], description: 'Go to Variants Tab', category: 'Tabs', icon: Layout },
-
-    // Misc
-    { keys: ['?'], description: 'Show Shortcuts Panel', category: 'Misc', icon: Keyboard },
-    { keys: ['Esc'], description: 'Close Modals/Panels', category: 'Misc', icon: Keyboard },
-  ];
-
-  // Group shortcuts by category
-  const groupedShortcuts = $derived.by(() => {
-    const groups = new Map<string, Shortcut[]>();
-    shortcuts.forEach(shortcut => {
-      if (!groups.has(shortcut.category)) {
-        groups.set(shortcut.category, []);
-      }
-      groups.get(shortcut.category)!.push(shortcut);
-    });
-    return groups;
-  });
-
-  const categoryOrder = ['Navigation', 'View', 'Actions', 'Viewport', 'Tabs', 'Misc'];
-
-  function getCategoryIcon(category: string) {
-    switch (category) {
-      case 'Navigation': return SidebarIcon;
-      case 'View': return Eye;
-      case 'Actions': return Zap;
-      case 'Viewport': return Layout;
-      case 'Tabs': return Layout;
-      case 'Misc': return Keyboard;
-      default: return Keyboard;
-    }
-  }
-
-  function getCategoryColor(category: string) {
-    switch (category) {
-      case 'Navigation': return 'from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 border-indigo-200 dark:border-indigo-800';
-      case 'View': return 'from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 border-green-200 dark:border-green-800';
-      case 'Actions': return 'from-orange-50 to-COLOR_AMBER-50 dark:from-orange-900/30 dark:to-COLOR_AMBER-900/30 border-orange-200 dark:border-orange-800';
-      case 'Viewport': return 'from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 border-blue-200 dark:border-blue-800';
-      case 'Tabs': return 'from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 border-purple-200 dark:border-purple-800';
-      case 'Misc': return 'from-gray-50 to-slate-50 dark:from-gray-900/30 dark:to-slate-900/30 border-gray-200 dark:border-gray-800';
-      default: return 'from-gray-50 to-slate-50 dark:from-gray-900/30 dark:to-slate-900/30 border-gray-200 dark:border-gray-800';
-    }
-  }
-
-  function getKeyColor(key: string) {
-    if (key === 'Ctrl' || key === 'Alt' || key === 'Shift') {
-      return 'bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 border-indigo-300 dark:border-indigo-700';
-    }
-    return 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600';
-  }
+  let props: Props = $props();
+  const state = createPlaygroundShortcutsPanelState(props);
 </script>
 
 <div class="shortcuts-panel p-6 h-full overflow-auto bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
@@ -121,14 +37,14 @@ const Copy = 'copy';
 
   <!-- Shortcuts by category -->
   <div class="space-y-6">
-    {#each categoryOrder as category}
-      {#if groupedShortcuts.has(category)}
-        {@const categoryShortcuts = groupedShortcuts.get(category) || []}
+    {#each state.categoryOrder as category}
+      {#if state.groupedShortcuts.has(category)}
+        {@const categoryShortcuts = state.groupedShortcuts.get(category) || []}
         <div class="category-section">
           <!-- Category header -->
           <div class="flex items-center gap-2 mb-3">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br {getCategoryColor(category)} flex items-center justify-center border-2">
-              <BaseIcon name={getCategoryIcon(category)} class="w-4 h-4 text-gray-700 dark:text-gray-300" />
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br {state.getCategoryColor(category)} flex items-center justify-center border-2">
+              <BaseIcon name={state.getCategoryIcon(category)} class="w-4 h-4 text-gray-700 dark:text-gray-300" />
             </div>
             <h4 class="text-sm font-bold text-gray-900 dark:text-white">
               {category}
@@ -156,7 +72,7 @@ const Copy = 'copy';
                   </div>
                   <div class="flex items-center gap-1 flex-shrink-0">
                     {#each shortcut.keys as key, i}
-                      <kbd class="px-2.5 py-1 rounded text-xs font-bold {getKeyColor(key)} border shadow-sm font-mono transition-all group-hover:scale-105">
+                      <kbd class="px-2.5 py-1 rounded text-xs font-bold {state.getKeyColor(key)} border shadow-sm font-mono transition-all group-hover:scale-105">
                         {key}
                       </kbd>
                       {#if i < shortcut.keys.length - 1}
@@ -181,15 +97,15 @@ const Copy = 'copy';
     </h4>
     <ul class="space-y-1.5 text-xs text-indigo-700 dark:text-indigo-300">
       <li class="flex items-start gap-2">
-        <span class="text-indigo-500 mt-0.5">вЂў</span>
+        <span class="text-indigo-500 mt-0.5">•</span>
         <span>Hold <kbd class="px-1 py-0.5 bg-white dark:bg-gray-800 rounded border border-indigo-300 dark:border-indigo-700 font-mono text-[10px]">Shift</kbd> while using zoom shortcuts for finer control</span>
       </li>
       <li class="flex items-start gap-2">
-        <span class="text-indigo-500 mt-0.5">вЂў</span>
+        <span class="text-indigo-500 mt-0.5">•</span>
         <span>Press <kbd class="px-1 py-0.5 bg-white dark:bg-gray-800 rounded border border-indigo-300 dark:border-indigo-700 font-mono text-[10px]">?</kbd> anytime to open this shortcuts panel</span>
       </li>
       <li class="flex items-start gap-2">
-        <span class="text-indigo-500 mt-0.5">вЂў</span>
+        <span class="text-indigo-500 mt-0.5">•</span>
         <span>Use <kbd class="px-1 py-0.5 bg-white dark:bg-gray-800 rounded border border-indigo-300 dark:border-indigo-700 font-mono text-[10px]">Esc</kbd> to close any modal or panel</span>
       </li>
     </ul>
@@ -198,7 +114,7 @@ const Copy = 'copy';
   <!-- Platform note -->
   <div class="mt-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
     <p class="text-xs text-gray-600 dark:text-gray-400 text-center">
-      On macOS, replace <kbd class="px-1 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 font-mono">Ctrl</kbd> with <kbd class="px-1 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 font-mono">вЊ</kbd> (Command)
+      On macOS, replace <kbd class="px-1 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 font-mono">Ctrl</kbd> with <kbd class="px-1 py-0.5 bg-white dark:bg-gray-700 rounded border border-gray-300 dark:border-gray-600 font-mono">⌘</kbd> (Command)
     </p>
   </div>
 </div>
@@ -232,5 +148,3 @@ const Copy = 'copy';
     }
   }
 </style>
-
-

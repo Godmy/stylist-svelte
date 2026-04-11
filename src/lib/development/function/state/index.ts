@@ -46,3 +46,4 @@ export { createResourceOptimizerState } from './resource-optimizer';
 export { createStylistState } from './stylist';
 export type { Props } from './code-with-copy';
 export type { ComponentPreviewProps } from './component-preview';
+export type { PlaygroundComponentTreeState } from './playground-component-tree';

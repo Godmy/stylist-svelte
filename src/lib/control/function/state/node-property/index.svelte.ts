@@ -4,7 +4,7 @@ import { NODE_PROPERTY_VECTOR_LABELS } from '$stylist/control/const/struct/node-
 
 export function createNodePropertyControlState(props: NodePropertyRecipe) {
 	const propertyState = createNodePropertyState(props);
-	const currentValue = $state(props.value);
+	let currentValue = $state(props.value);
 	const label = $derived(props.label ?? props.name);
 	const description = $derived(props.description ?? '');
 	const isBoolean = $derived(propertyState.type === 'boolean');

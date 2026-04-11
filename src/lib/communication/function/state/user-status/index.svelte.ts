@@ -1,13 +1,7 @@
-interface UserStatusUser {
-	id: string;
-	name: string;
-	avatar?: string;
-	status?: 'online' | 'away' | 'offline' | 'typing';
-	lastSeen?: Date;
-}
+import type { User } from '$stylist/communication/interface/component/chat/other';
 
 export const createUserStatusState = (props: {
-	user: UserStatusUser;
+	user: User;
 	showAvatar?: boolean;
 	showName?: boolean;
 	showStatusText?: boolean;
@@ -17,16 +11,19 @@ export const createUserStatusState = (props: {
 	const showStatusText = $derived(props.showStatusText ?? false);
 
 	const statusText = $derived(() => {
-		switch (props.user.status) {
+		const userStatus = props.user.status;
+		const lastSeen = ((props.user as unknown) as Record<string, unknown>).lastSeen as Date | undefined;
+		switch (userStatus) {
 			case 'online':
 				return 'в сети';
 			case 'away':
+			case 'idle':
 				return 'не на месте';
 			case 'typing':
 				return 'печатает...';
 			case 'offline':
-				return props.user.lastSeen
-					? `был(а) ${new Date(props.user.lastSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
+				return lastSeen
+					? `был(а) ${new Date(lastSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`
 					: 'не в сети';
 			default:
 				return '';

@@ -1,24 +1,9 @@
 <script lang="ts">
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
+  import type { Props } from '$stylist/development/type/struct/documentation-block';
   import { createDocumentationBlockState } from '$stylist/development/function/state/documentation-block';
   import CodeSection from '$stylist/development/svelte/molecule/code-section/index.svelte';
   import { Badge } from '$stylist';
   import { Divider } from '$stylist';
-
-  type DocumentationBlockVariant = 'default' | 'info' | 'warning' | 'success' | 'danger';
-
-  type Props = {
-    title?: string;
-    content: string;
-    variant?: DocumentationBlockVariant;
-    codeExamples?: {
-      title?: string;
-      code: string;
-      language?: string;
-      showLineNumbers?: boolean;
-    }[];
-    tags?: string[];
-  } & InformationHTMLAttributes<HTMLElement>;
 
   let {
     title = '',

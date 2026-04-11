@@ -1,5 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
+  import { createPlaygroundShellHeaderState } from '$stylist/development/function/state/playground-shell-header';
+  import type { Props, ViewportSize, ColorScheme } from '$stylist/development/type/struct/playground-shell-header';
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';
 const Smartphone = 'smartphone';
@@ -12,165 +14,47 @@ const Sparkles = 'sparkles';
 const Pencil = 'pencil';
 const X = 'x';
 
-  import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-  type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
-
-  type ColorScheme = {
-    id: string;
-    name: string;
-    accent: string;
-    accentStrong: string;
-  };
-
-  type Props = {
-    showComponentTree?: boolean;
-    showAIPanel?: boolean;
-    drawingMode?: boolean;
-    drawColor?: string;
-    currentViewport?: ViewportSize;
-    showDeviceFrame?: boolean;
-    showGrid?: boolean;
-    zoom?: number;
-    darkMode?: boolean;
-    colorSchemes?: ColorScheme[];
-    activeColorScheme?: ColorScheme;
-    onToggleComponentTree?: () => void;
-    onToggleAIPanel?: () => void;
-    onToggleDrawingMode?: () => void;
-    onTakeScreenshot?: () => void;
-    onChangeDrawColor?: (color: string) => void;
-    onSetViewport?: (id: ViewportSize) => void;
-    onToggleDeviceFrame?: () => void;
-    onZoomOut?: () => void;
-    onZoomIn?: () => void;
-    onToggleGrid?: () => void;
-    onToggleDarkMode?: () => void;
-    onSetColorScheme?: (id: string) => void;
-    class?: string;
-  } & InformationHTMLAttributes<HTMLDivElement>;
-
-  let {
-    showComponentTree = false,
-    showAIPanel = false,
-    drawingMode = false,
-    drawColor = 'var(--color-error-500)',
-    currentViewport = 'desktop',
-    showDeviceFrame = false,
-    showGrid = false,
-    zoom = 1,
-    darkMode = false,
-    colorSchemes = [],
-    activeColorScheme,
-    onToggleComponentTree,
-    onToggleAIPanel,
-    onToggleDrawingMode,
-    onTakeScreenshot,
-    onChangeDrawColor,
-    onSetViewport,
-    onToggleDeviceFrame,
-    onZoomOut,
-    onZoomIn,
-    onToggleGrid,
-    onToggleDarkMode,
-    onSetColorScheme,
-    class: className = '',
-    ...restProps
-  }: Props = $props();
-
-  type ViewportChoice = {
-    id: ViewportSize;
-    label: string;
-    description: string;
-    icon: string;
-  };
-
-  const deviceOptions: ViewportChoice[] = [
-    { id: 'mobile', label: 'Mobile (375px)', description: 'iPhone SE breakpoint', icon: Smartphone },
-    { id: 'tablet', label: 'Tablet (768px)', description: 'iPad breakpoint', icon: Tablet },
-    { id: 'desktop', label: 'Desktop (1440px)', description: 'Large screen layout', icon: Monitor }
-  ];
-
-  const drawColors = [
-    { name: 'Red', value: 'var(--color-error-500)' },
-    { name: 'Orange', value: 'var(--color-warning-500)' },
-    { name: 'Yellow', value: 'var(--color-warning-500)' },
-    { name: 'Green', value: 'var(--color-success-500)' },
-    { name: 'Blue', value: 'var(--color-primary-500)' },
-    { name: 'Purple', value: 'var(--color-secondary-500)' },
-    { name: 'Pink', value: 'var(--color-danger-500)' },
-    { name: 'White', value: 'var(--color-background-primary)' },
-    { name: 'Black', value: 'var(--color-text-primary)' }
-  ];
-
-  let deviceMenuOpen = $state(false);
-  let colorMenuOpen = $state(false);
-  let drawColorMenuOpen = $state(false);
-
-  const selectedDevice = $derived(deviceOptions.find((device) => device.id === currentViewport) ?? deviceOptions[0]);
-  const selectedColorScheme = $derived(activeColorScheme ?? colorSchemes[0]);
-
-  function selectDevice(id: ViewportSize) {
-    onSetViewport?.(id);
-    deviceMenuOpen = false;
-  }
-
-  function selectColorScheme(id: string) {
-    onSetColorScheme?.(id);
-    colorMenuOpen = false;
-  }
-
-  function toggleButtonClasses(isActive: boolean) {
-    return [
-      'flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border shadow-sm transition-all h-9',
-      isActive
-        ? 'bg-gradient-to-r from-[var(--playground-accent)] to-[var(--playground-accent-strong)] border-[var(--playground-accent)] text-[var(--playground-accent-contrast)] shadow-[0_12px_30px_var(--playground-accent-shadow)]'
-        : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
-    ].join(' ');
-  }
+  let props: Props = $props();
+  const state = createPlaygroundShellHeaderState(props);
 </script>
 
 <svelte:window
-  onclick={() => {
-    deviceMenuOpen = false;
-    colorMenuOpen = false;
-    drawColorMenuOpen = false;
-  }}
+  onclick={() => { state.closeAllMenus(); }}
 />
 
-<div class={`flex items-center justify-between h-14 px-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 relative z-[var(--z-index-modal)] ${className}`} {...restProps}>
+<div class="flex items-center justify-between h-14 px-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 relative z-[var(--z-index-modal)] {state.className}">
   <div class="flex items-center gap-2">
     <a href="/" class="flex items-center group">
       <img src="/stylist.png" alt="Stylist" class="w-10 h-10" loading="lazy" decoding="async" />
     </a>
 
     <button
-      onclick={onToggleComponentTree}
-      class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-[var(--duration-200)] {showComponentTree
+      onclick={state.onToggleComponentTree}
+      class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-[var(--duration-200)] {state.showComponentTree
         ? 'bg-[var(--playground-accent-surface)] dark:bg-[var(--playground-accent-surface-strong)] ring-2 ring-[var(--playground-accent)] shadow-[0_15px_30px_var(--playground-accent-shadow)]'
         : 'hover:bg-[var(--playground-accent-surface)] dark:hover:bg-[var(--playground-accent-surface-strong)]'}"
     >
-      <span class="text-xl font-black tracking-tight {showComponentTree ? 'text-[var(--playground-accent)]' : 'text-gray-900 dark:text-white'}">
+      <span class="text-xl font-black tracking-tight {state.showComponentTree ? 'text-[var(--playground-accent)]' : 'text-gray-900 dark:text-white'}">
         STYLIST
       </span>
     </button>
 
     <button
-      onclick={onToggleAIPanel}
-      class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-[var(--duration-200)] {showAIPanel
+      onclick={state.onToggleAIPanel}
+      class="flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-[var(--duration-200)] {state.showAIPanel
         ? 'bg-[var(--playground-accent-surface)] dark:bg-[var(--playground-accent-surface-strong)] ring-2 ring-[var(--playground-accent)] shadow-[0_15px_30px_var(--playground-accent-shadow)]'
         : 'hover:bg-[var(--playground-accent-surface)] dark:hover:bg-[var(--playground-accent-surface-strong)]'}"
       title="AI Panel"
     >
-      <BaseIcon name={Sparkles} class="w-5 h-5 {showAIPanel ? 'text-[var(--playground-accent)]' : 'text-gray-600 dark:text-gray-400'}" />
-      <span class="text-sm font-bold {showAIPanel ? 'text-[var(--playground-accent)]' : 'text-gray-900 dark:text-white'}">
+      <BaseIcon name={Sparkles} class="w-5 h-5 {state.showAIPanel ? 'text-[var(--playground-accent)]' : 'text-gray-600 dark:text-gray-400'}" />
+      <span class="text-sm font-bold {state.showAIPanel ? 'text-[var(--playground-accent)]' : 'text-gray-900 dark:text-white'}">
         AI
       </span>
     </button>
 
     <button
-      onclick={onToggleDrawingMode}
-      class="p-2 rounded-lg transition-all duration-[var(--duration-200)] {drawingMode
+      onclick={state.onToggleDrawingMode}
+      class="p-2 rounded-lg transition-all duration-[var(--duration-200)] {state.drawingMode
         ? 'bg-red-500 text-white shadow-lg'
         : 'text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30'}"
       title="Drawing mode"
@@ -178,29 +62,29 @@ const X = 'x';
       <BaseIcon name={Pencil} class="w-5 h-5" />
     </button>
 
-    {#if drawingMode}
+    {#if state.drawingMode}
       <div class="relative">
         <div
-          onclick={(e) => { e.stopPropagation(); drawColorMenuOpen = !drawColorMenuOpen; }}
-          onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); drawColorMenuOpen = !drawColorMenuOpen; }}}
+          onclick={(e) => { e.stopPropagation(); state.drawColorMenuOpen = !state.drawColorMenuOpen; }}
+          onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); state.drawColorMenuOpen = !state.drawColorMenuOpen; }}}
           class="w-8 h-8 rounded-full border-2 shadow-sm transition-colors cursor-pointer hover:scale-110"
-          style="background-color: {drawColor}; border-color: {drawingMode ? 'var(--color-error-500)' : 'currentColor'};"
+          style="background-color: {state.drawColor}; border-color: {state.drawingMode ? 'var(--color-error-500)' : 'currentColor'};"
           title="Select drawing color"
           role="button"
           tabindex="0"
         ></div>
 
-        {#if drawColorMenuOpen}
+        {#if state.drawColorMenuOpen}
           <div class="absolute left-0 top-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-2xl p-2 z-[var(--z-index-modal)]">
             <div class="grid grid-cols-3 gap-1.5">
-              {#each drawColors as color}
+              {#each state.drawColors as color}
                 <button
                   onclick={(e) => {
                     e.stopPropagation();
-                    onChangeDrawColor?.(color.value);
-                    drawColorMenuOpen = false;
+                    state.onChangeDrawColor?.(color.value);
+                    state.drawColorMenuOpen = false;
                   }}
-                  class="w-8 h-8 rounded-md border-2 transition-all hover:scale-110 {color.value === drawColor ? 'ring-2 ring-red-500 border-red-500' : 'border-gray-300 dark:border-gray-600'}"
+                  class="w-8 h-8 rounded-md border-2 transition-all hover:scale-110 {color.value === state.drawColor ? 'ring-2 ring-red-500 border-red-500' : 'border-gray-300 dark:border-gray-600'}"
                   style="background-color: {color.value};"
                   title={color.name}
                 ></button>
@@ -211,7 +95,7 @@ const X = 'x';
       </div>
 
       <button
-        onclick={onToggleDrawingMode}
+        onclick={state.onToggleDrawingMode}
         class="p-2 rounded-lg transition-all duration-[var(--duration-200)] text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30"
         title="Close drawing mode"
       >
@@ -220,7 +104,7 @@ const X = 'x';
     {/if}
 
     <button
-      onclick={onTakeScreenshot}
+      onclick={state.onTakeScreenshot}
       class="p-2 rounded-lg transition-all duration-[var(--duration-200)] text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
       title="Take screenshot"
     >
@@ -228,34 +112,34 @@ const X = 'x';
     </button>
   </div>
 
-  {#if showComponentTree}
+  {#if state.showComponentTree}
     <div class="flex items-center gap-2">
       <div class="relative">
         <button
           class="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 px-3 py-1.5 shadow-sm h-9 min-w-[11rem]"
           aria-haspopup="listbox"
-          aria-expanded={deviceMenuOpen}
-          onclick={(e) => { e.stopPropagation(); deviceMenuOpen = !deviceMenuOpen; }}
+          aria-expanded={state.deviceMenuOpen}
+          onclick={(e) => { e.stopPropagation(); state.deviceMenuOpen = !state.deviceMenuOpen; }}
         >
-          {#if selectedDevice}
-            <BaseIcon name={selectedDevice.icon} class="w-4 h-4 text-[var(--playground-accent)]" />
+          {#if state.selectedDevice}
+            <BaseIcon name={state.selectedDevice.icon} class="w-4 h-4 text-[var(--playground-accent)]" />
             <div class="flex flex-col leading-tight text-left">
-              <span class="text-xs font-semibold text-gray-900 dark:text-white">{selectedDevice.label}</span>
-              <span class="text-[11px] text-gray-500 dark:text-gray-400">{selectedDevice.description}</span>
+              <span class="text-xs font-semibold text-gray-900 dark:text-white">{state.selectedDevice.label}</span>
+              <span class="text-[11px] text-gray-500 dark:text-gray-400">{state.selectedDevice.description}</span>
             </div>
           {/if}
-          <BaseIcon name={ChevronDown} class={`w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform ml-auto ${deviceMenuOpen ? 'rotate-180' : ''}`} />
+          <BaseIcon name={ChevronDown} class={`w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform ml-auto ${state.deviceMenuOpen ? 'rotate-180' : ''}`} />
         </button>
-        {#if deviceMenuOpen}
+        {#if state.deviceMenuOpen}
           <div class="absolute top-full mt-2 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl p-1 z-[var(--z-index-modal)]" role="listbox">
-            {#each deviceOptions as option}
+            {#each state.deviceOptions as option}
               <button
-                class={`w-full flex items-start gap-3 px-3 py-2 rounded-lg text-left transition-colors ${option.id === currentViewport
+                class={`w-full flex items-start gap-3 px-3 py-2 rounded-lg text-left transition-colors ${option.id === state.currentViewport
                   ? 'bg-[var(--playground-accent-surface)] text-[var(--playground-accent)]'
                   : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                 role="option"
-                aria-selected={option.id === currentViewport}
-                onclick={(e) => { e.stopPropagation(); selectDevice(option.id); }}
+                aria-selected={option.id === state.currentViewport}
+                onclick={(e) => { e.stopPropagation(); state.selectDevice(option.id); }}
               >
                 <BaseIcon name={option.icon} class="w-4 h-4 mt-0.5" />
                 <div class="flex flex-col leading-tight">
@@ -268,40 +152,40 @@ const X = 'x';
         {/if}
       </div>
 
-      {#if currentViewport !== 'fullscreen'}
-        <button class={toggleButtonClasses(showDeviceFrame)} aria-pressed={showDeviceFrame} title="Toggle device frame" onclick={onToggleDeviceFrame}>
-          <span class="inline-flex h-2 w-2 rounded-full {showDeviceFrame ? 'bg-white' : 'bg-gray-400/70'}"></span>
+      {#if state.currentViewport !== 'fullscreen'}
+        <button class={state.toggleButtonClasses(state.showDeviceFrame)} aria-pressed={state.showDeviceFrame} title="Toggle device frame" onclick={state.onToggleDeviceFrame}>
+          <span class="inline-flex h-2 w-2 rounded-full {state.showDeviceFrame ? 'bg-white' : 'bg-gray-400/70'}"></span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <rect x="4" y="3" width="16" height="18" rx="2" stroke-width="2"/>
             <path d="M9 21h6" stroke-width="2" stroke-linecap="round"/>
           </svg>
           <span class="text-xs font-medium">
             Frame
-            <span class="ml-1 text-[10px] font-semibold uppercase tracking-wide">{showDeviceFrame ? 'ON' : 'OFF'}</span>
+            <span class="ml-1 text-[10px] font-semibold uppercase tracking-wide">{state.showDeviceFrame ? 'ON' : 'OFF'}</span>
           </span>
         </button>
       {/if}
 
       <div class="flex items-center gap-0.5 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-0.5 shadow-sm h-9">
-        <button onclick={onZoomOut} class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-all group h-8" title="Zoom out (Ctrl + -)">
+        <button onclick={state.onZoomOut} class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-all group h-8" title="Zoom out (Ctrl + -)">
           <BaseIcon name={ZoomOut} class="w-3.5 h-3.5 text-gray-600 dark:text-gray-400 group-hover:text-[var(--playground-accent)] dark:group-hover:text-[var(--playground-accent)] transition-colors" />
         </button>
         <span class="text-xs font-mono font-semibold text-[var(--playground-accent)] min-w-[2.5rem] text-center px-2 h-8 flex items-center justify-center">
-          {Math.round(zoom * 100)}%
+          {Math.round(state.zoom * 100)}%
         </span>
-        <button onclick={onZoomIn} class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-all group h-8" title="Zoom in (Ctrl + +)">
+        <button onclick={state.onZoomIn} class="p-1.5 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-all group h-8" title="Zoom in (Ctrl + +)">
           <BaseIcon name={ZoomIn} class="w-3.5 h-3.5 text-gray-600 dark:text-gray-400 group-hover:text-[var(--playground-accent)] dark:group-hover:text-[var(--playground-accent)] transition-colors" />
         </button>
       </div>
 
-      <button class={toggleButtonClasses(showGrid)} aria-pressed={showGrid} title="Toggle grid" onclick={onToggleGrid}>
-        <span class="inline-flex h-2 w-2 rounded-full {showGrid ? 'bg-white' : 'bg-gray-400/70'}"></span>
+      <button class={state.toggleButtonClasses(state.showGrid)} aria-pressed={state.showGrid} title="Toggle grid" onclick={state.onToggleGrid}>
+        <span class="inline-flex h-2 w-2 rounded-full {state.showGrid ? 'bg-white' : 'bg-gray-400/70'}"></span>
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
         </svg>
         <span class="text-xs font-medium">
           Grid
-          <span class="ml-1 text-[10px] font-semibold uppercase tracking-wide">{showGrid ? 'ON' : 'OFF'}</span>
+          <span class="ml-1 text-[10px] font-semibold uppercase tracking-wide">{state.showGrid ? 'ON' : 'OFF'}</span>
         </span>
       </button>
     </div>
@@ -325,8 +209,8 @@ const X = 'x';
       </svg>
     </a>
 
-    <button onclick={onToggleDarkMode} class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
-      {#if darkMode}
+    <button onclick={state.onToggleDarkMode} class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+      {#if state.darkMode}
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
         </svg>
@@ -341,18 +225,18 @@ const X = 'x';
       <button
         class="w-9 h-9 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center shadow-sm transition-all"
         aria-haspopup="menu"
-        aria-expanded={colorMenuOpen}
+        aria-expanded={state.colorMenuOpen}
         aria-label="Select color scheme"
-        onclick={(e) => { e.stopPropagation(); colorMenuOpen = !colorMenuOpen; }}
-        style={`--gradient-start: ${selectedColorScheme?.accent ?? 'var(--color-warning-500)'}; --gradient-end: ${selectedColorScheme?.accentStrong ?? 'var(--color-warning-600)'}; background-image: var(--gradient-directional-diagonal);`}
+        onclick={(e) => { e.stopPropagation(); state.colorMenuOpen = !state.colorMenuOpen; }}
+        style={`--gradient-start: ${state.selectedColorScheme?.accent ?? 'var(--color-warning-500)'}; --gradient-end: ${state.selectedColorScheme?.accentStrong ?? 'var(--color-warning-600)'}; background-image: var(--gradient-directional-diagonal);`}
       ></button>
-      {#if colorMenuOpen}
+      {#if state.colorMenuOpen}
         <div class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl p-2 z-[var(--z-index-modal)]">
           <p class="px-3 pb-2 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Color Schemes</p>
-          {#each colorSchemes as scheme}
+          {#each state.colorSchemes as scheme}
             <button
               class="w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              onclick={() => selectColorScheme(scheme.id)}
+              onclick={() => state.selectColorScheme(scheme.id)}
             >
               <span class="font-medium">{scheme.name}</span>
               <div class="flex items-center gap-2">
@@ -360,7 +244,7 @@ const X = 'x';
                   class="w-6 h-6 rounded-full border border-white/70 ring-1 ring-gray-200 dark:ring-gray-700"
                   style={`--gradient-start: ${scheme.accent}; --gradient-end: ${scheme.accentStrong}; background-image: var(--gradient-directional-diagonal);`}
                 ></span>
-                {#if scheme.id === selectedColorScheme?.id}
+                {#if scheme.id === state.selectedColorScheme?.id}
                   <BaseIcon name={Check} class="w-4 h-4" style={`color: ${scheme.accent};`} />
                 {/if}
               </div>
@@ -371,7 +255,3 @@ const X = 'x';
     </div>
   </div>
 </div>
-
-
-
-
