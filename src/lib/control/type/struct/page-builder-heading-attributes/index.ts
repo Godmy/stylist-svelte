@@ -1,5 +1,5 @@
 import type { PageBuilderTextAttributes } from '../page-builder-text-attributes';
 
-export interface PageBuilderHeadingAttributes extends PageBuilderTextAttributes {
+export type PageBuilderHeadingAttributes = PageBuilderTextAttributes & {
   level?: number;
 }

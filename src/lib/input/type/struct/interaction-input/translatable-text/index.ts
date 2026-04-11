@@ -1,6 +1,6 @@
 import type { TokenTranslation } from '$stylist/localization/type/enum/translation';
 
-export interface TranslatableText {
+export type TranslatableText = {
 	id: string;
 	key: string;
 	original: string;

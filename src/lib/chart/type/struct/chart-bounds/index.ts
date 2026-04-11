@@ -1,4 +1,4 @@
-export interface ChartBounds {
+export type ChartBounds = {
 	minX: number;
 	maxX: number;
 	minY: number;

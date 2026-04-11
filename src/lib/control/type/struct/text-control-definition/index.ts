@@ -1,6 +1,6 @@
 import type { TokenControlDefinitionData } from '$stylist/control/type/struct/token-control-domain';
 
-export interface TokenTextControlDefinition extends TokenControlDefinitionData {
+export type TokenTextControlDefinition = TokenControlDefinitionData & {
 	controlKind: 'text';
 	placeholder?: string;
 }

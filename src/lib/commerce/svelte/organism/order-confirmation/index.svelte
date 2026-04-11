@@ -1,8 +1,8 @@
 <script lang="ts">
+  import type { Props } from '$stylist/commerce/type/struct/order-confirmation';
+  import { createOrderConfirmationState } from '$stylist/commerce/function/state/order-confirmation';
   import { Icon as BaseIcon, Button } from '$stylist';
   import { OrderConfirmationStyleManager } from '$stylist/commerce/class/style-manager/order-confirmation';
-  import type { IOrderConfirmationProps } from '$stylist/commerce/interface/component/order-confirmation/other';
-  import type { HTMLAttributes } from 'svelte/elements';
 
   const CheckCircle = 'check-circle';
   const Package = 'package';
@@ -18,116 +18,11 @@
   const Home = 'home';
   const X = 'x';
 
-  let {
-    orderId,
-    orderDate,
-    items = [],
-    total,
-    shippingAddress,
-    paymentInfo,
-    estimatedDelivery,
-    trackingNumber,
-    orderStatus = 'processing',
-    shippingCost = 0,
-    taxAmount = 0,
-    class: hostClass = '',
-    headerClass = '',
-    summaryClass = '',
-    itemClass = '',
-    addressClass = '',
-    actionsClass = '',
-    showDownloadInvoice = true,
-    showShareOrder = true,
-    onDownloadInvoice,
-    onShareOrder,
-    onContinueShopping,
-    onTrackOrder,
-    currency = 'USD',
-    locale = 'en-US',
-    ...restProps
-  }: IOrderConfirmationProps = $props();
-
-  let orderStatusConfig = $derived({
-    'pending': {
-      icon: Package,
-      text: 'Pending',
-      color: OrderConfirmationStyleManager.getOrderStatusClasses('pending')
-    },
-    'processing': {
-      icon: Package,
-      text: 'Processing',
-      color: OrderConfirmationStyleManager.getOrderStatusClasses('processing')
-    },
-    'shipped': {
-      icon: Truck,
-      text: 'Shipped',
-      color: OrderConfirmationStyleManager.getOrderStatusClasses('shipped')
-    },
-    'delivered': {
-      icon: CheckCircle,
-      text: 'Delivered',
-      color: OrderConfirmationStyleManager.getOrderStatusClasses('delivered')
-    },
-    'cancelled': {
-      icon: X,
-      text: 'Cancelled',
-      color: OrderConfirmationStyleManager.getOrderStatusClasses('cancelled')
-    }
-  }[orderStatus]);
-
-  let OrderStatusIcon = $derived(orderStatusConfig.icon);
-
-  let formattedTotal = $derived(new Intl.NumberFormat(locale, {
-    style: 'currency',
-    currency: currency
-  }).format(total));
-
-  let formattedOrderDate = $derived(orderDate.toLocaleDateString(locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }));
-
-  let formattedEstimatedDelivery = $derived(estimatedDelivery
-    ? estimatedDelivery.toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
-    : '');
-
-  function handleDownloadInvoice() {
-    onDownloadInvoice?.();
-  }
-
-  function handleShareOrder() {
-    onShareOrder?.();
-  }
-
-  function handleContinueShopping() {
-    onContinueShopping?.();
-  }
-
-  function handleTrackOrder() {
-    onTrackOrder?.();
-  }
-
-  // Import icons
-  let CheckCircleIcon = CheckCircle;
-  let PackageIcon = Package;
-  let TruckIcon = Truck;
-  let CalendarIcon = Calendar;
-  let CreditCardIcon = CreditCard;
-  let MapPinIcon = MapPin;
-  let UserIcon = User;
-  let MailIcon = Mail;
-  let PhoneIcon = Phone;
-  let DownloadIcon = Download;
-  let ShareIcon = Share2;
-  let HomeIcon = Home;
+  let props: Props = $props();
+  const state = createOrderConfirmationState(props);
 </script>
 
-<div class={`c-order-confirmation ${OrderConfirmationStyleManager.getBaseClasses(hostClass)}`} {...restProps}>
+<div class={`c-order-confirmation ${OrderConfirmationStyleManager.getBaseClasses(props.class ?? '')}`} {...props}>
   <div class={OrderConfirmationStyleManager.getContainerClasses()}>
     <div class="text-center">
       <div class="flex justify-center">
@@ -136,12 +31,12 @@
         </div>
       </div>
 
-      <h1 class={OrderConfirmationStyleManager.getHeaderClasses(headerClass)}>
+      <h1 class={OrderConfirmationStyleManager.getHeaderClasses(props.headerClass ?? '')}>
         Thank you for your order!
       </h1>
 
       <p class="mt-4 text-[--color-gray-600]">
-        Your order <span class="font-medium">#{orderId}</span> has been confirmed and is being processed
+        Your order <span class="font-medium">#{props.orderId}</span> has been confirmed and is being processed
       </p>
     </div>
 
@@ -150,17 +45,17 @@
         <div class={OrderConfirmationStyleManager.getOrderHeaderClasses()}>
           <div class="flex flex-wrap justify-between items-center gap-4">
             <h3 class="text-lg leading-6 font-medium text-[--color-gray-900]">
-              Order #{orderId}
+              Order #{props.orderId}
             </h3>
 
-            <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${orderStatusConfig.color}`}>
-              <BaseIcon name={OrderStatusIcon} class="h-4 w-4 mr-1" />
-              {orderStatusConfig.text}
+            <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${state.orderStatusConfig.color}`}>
+              <BaseIcon name={state.orderStatusConfig.icon} class="h-4 w-4 mr-1" />
+              {state.orderStatusConfig.text}
             </span>
           </div>
 
           <p class="mt-1 text-sm text-[--color-gray-500]">
-            Placed on {formattedOrderDate}
+            Placed on {state.formattedOrderDate}
           </p>
         </div>
 
@@ -171,7 +66,7 @@
               <h4 class="text-md font-medium text-[--color-gray-900] mb-4">Order Items</h4>
 
               <div class="space-y-4">
-                {#each items as item}
+                {#each props.items as item}
                   <div class="flex items-center">
                     {#if item.thumbnail}
                       <img
@@ -185,9 +80,9 @@
                       <div class="flex items-baseline justify-between">
                         <h5 class="text-sm font-medium text-[--color-gray-900]">{item.name}</h5>
                         <p class="text-sm font-medium text-[--color-gray-900]">
-                          {new Intl.NumberFormat(locale, {
+                          {new Intl.NumberFormat(props.locale ?? 'en-US', {
                             style: 'currency',
-                            currency: currency
+                            currency: props.currency ?? 'USD'
                           }).format(item.price * item.quantity)}
                         </p>
                       </div>
@@ -204,43 +99,28 @@
             </div>
 
             <!-- Order summary -->
-            <div class={OrderConfirmationStyleManager.getOrderDetailsClasses(summaryClass)}>
+            <div class={OrderConfirmationStyleManager.getOrderDetailsClasses(props.summaryClass ?? '')}>
               <h4 class="text-md font-medium text-[--color-gray-900] mb-4">Order Summary</h4>
 
               <div class="space-y-3">
                 <div class="flex justify-between text-sm text-[--color-gray-600]">
                   <dt>Subtotal</dt>
-                  <dd>
-                    {new Intl.NumberFormat(locale, {
-                      style: 'currency',
-                      currency: currency
-                    }).format(items.reduce((sum, item) => sum + (item.price * item.quantity), 0))}
-                  </dd>
+                  <dd>{state.formattedSubtotal}</dd>
                 </div>
 
                 <div class="flex justify-between text-sm text-[--color-gray-600]">
                   <dt>Shipping</dt>
-                  <dd>
-                    {new Intl.NumberFormat(locale, {
-                      style: 'currency',
-                      currency: currency
-                    }).format(shippingCost)}
-                  </dd>
+                  <dd>{state.formattedShipping}</dd>
                 </div>
 
                 <div class="flex justify-between text-sm text-[--color-gray-600]">
                   <dt>Tax</dt>
-                  <dd>
-                    {new Intl.NumberFormat(locale, {
-                      style: 'currency',
-                      currency: currency
-                    }).format(taxAmount)}
-                  </dd>
+                  <dd>{state.formattedTax}</dd>
                 </div>
 
                 <div class="flex justify-between text-base font-medium text-[--color-gray-900] pt-3 border-t border-[--color-gray-200]">
                   <dt>Total</dt>
-                  <dd>{formattedTotal}</dd>
+                  <dd>{state.formattedTotal}</dd>
                 </div>
               </div>
             </div>
@@ -255,16 +135,16 @@
                 Shipping Address
               </h4>
 
-              <div class={OrderConfirmationStyleManager.getShippingAddressClasses(addressClass)}>
-                <p class="text-sm text-[--color-gray-900]">{shippingAddress.firstName} {shippingAddress.lastName}</p>
-                <p class="text-sm text-[--color-gray-900]">{shippingAddress.address1}</p>
-                {#if shippingAddress.address2}
-                  <p class="text-sm text-[--color-gray-900]">{shippingAddress.address2}</p>
+              <div class={OrderConfirmationStyleManager.getShippingAddressClasses(props.addressClass ?? '')}>
+                <p class="text-sm text-[--color-gray-900]">{props.shippingAddress.firstName} {props.shippingAddress.lastName}</p>
+                <p class="text-sm text-[--color-gray-900]">{props.shippingAddress.address1}</p>
+                {#if props.shippingAddress.address2}
+                  <p class="text-sm text-[--color-gray-900]">{props.shippingAddress.address2}</p>
                 {/if}
                 <p class="text-sm text-[--color-gray-900]">
-                  {shippingAddress.city}, {shippingAddress.state} {shippingAddress.zipCode}
+                  {props.shippingAddress.city}, {props.shippingAddress.state} {props.shippingAddress.zipCode}
                 </p>
-                <p class="text-sm text-[--color-gray-900]">{shippingAddress.country}</p>
+                <p class="text-sm text-[--color-gray-900]">{props.shippingAddress.country}</p>
               </div>
             </div>
 
@@ -279,37 +159,37 @@
                 <div class="flex items-start">
                   <BaseIcon name={CreditCard} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                   <div class="ml-3">
-                    <p class="text-sm font-medium text-[--color-gray-900] capitalize">{paymentInfo.method}</p>
-                    {#if paymentInfo.lastFour}
-                      <p class="text-sm text-[--color-gray-500]">Ending in {paymentInfo.lastFour}</p>
+                    <p class="text-sm font-medium text-[--color-gray-900] capitalize">{props.paymentInfo.method}</p>
+                    {#if props.paymentInfo.lastFour}
+                      <p class="text-sm text-[--color-gray-500]">Ending in {props.paymentInfo.lastFour}</p>
                     {/if}
                     <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                      paymentInfo.status === 'paid' ? OrderConfirmationStyleManager.getPaymentStatusClasses('paid') :
-                      paymentInfo.status === 'pending' ? OrderConfirmationStyleManager.getPaymentStatusClasses('pending') :
+                      props.paymentInfo.status === 'paid' ? OrderConfirmationStyleManager.getPaymentStatusClasses('paid') :
+                      props.paymentInfo.status === 'pending' ? OrderConfirmationStyleManager.getPaymentStatusClasses('pending') :
                       OrderConfirmationStyleManager.getPaymentStatusClasses('failed')
                     }`}>
-                      {paymentInfo.status === 'paid' ? 'Paid' :
-                       paymentInfo.status === 'pending' ? 'Pending' : 'Failed'}
+                      {props.paymentInfo.status === 'paid' ? 'Paid' :
+                       props.paymentInfo.status === 'pending' ? 'Pending' : 'Failed'}
                     </span>
                   </div>
                 </div>
 
-                {#if estimatedDelivery}
+                {#if props.estimatedDelivery}
                   <div class="flex items-start">
                     <BaseIcon name={Calendar} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                     <div class="ml-3">
                       <p class="text-sm font-medium text-[--color-gray-900]">Estimated Delivery</p>
-                      <p class="text-sm text-[--color-gray-500]">{formattedEstimatedDelivery}</p>
+                      <p class="text-sm text-[--color-gray-500]">{state.formattedEstimatedDelivery}</p>
                     </div>
                   </div>
                 {/if}
 
-                {#if trackingNumber}
+                {#if props.trackingNumber}
                   <div class="flex items-start">
                     <BaseIcon name={Truck} class="h-5 w-5 text-[--color-gray-400] mt-0.5 flex-shrink-0" />
                     <div class="ml-3">
                       <p class="text-sm font-medium text-[--color-gray-900]">Tracking Number</p>
-                      <p class="text-sm text-[--color-gray-500]">{trackingNumber}</p>
+                      <p class="text-sm text-[--color-gray-500]">{props.trackingNumber}</p>
                     </div>
                   </div>
                 {/if}
@@ -321,28 +201,28 @@
     </div>
 
     <!-- Action buttons -->
-    <div class={OrderConfirmationStyleManager.getActionButtonsClasses(actionsClass)}>
-      <Button variant="primary" onclick={handleContinueShopping}>
+    <div class={OrderConfirmationStyleManager.getActionButtonsClasses(props.actionsClass ?? '')}>
+      <Button variant="primary" onclick={state.handleContinueShopping}>
         <BaseIcon name={Home} class="h-4 w-4 mr-2" />
         Continue Shopping
       </Button>
 
-      {#if trackingNumber}
-        <Button variant="ghost" onclick={handleTrackOrder}>
+      {#if props.trackingNumber}
+        <Button variant="ghost" onclick={state.handleTrackOrder}>
           <BaseIcon name={Truck} class="h-4 w-4 mr-2" />
           Track Order
         </Button>
       {/if}
 
-      {#if showDownloadInvoice}
-        <Button variant="ghost" onclick={handleDownloadInvoice}>
+      {#if props.showDownloadInvoice ?? true}
+        <Button variant="ghost" onclick={state.handleDownloadInvoice}>
           <BaseIcon name={Download} class="h-4 w-4 mr-2" />
           Download Invoice
         </Button>
       {/if}
 
-      {#if showShareOrder}
-        <Button variant="ghost" onclick={handleShareOrder}>
+      {#if props.showShareOrder ?? true}
+        <Button variant="ghost" onclick={state.handleShareOrder}>
           <BaseIcon name={Share2} class="h-4 w-4 mr-2" />
           Share Order
         </Button>

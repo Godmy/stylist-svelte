@@ -1,36 +1,22 @@
 <script lang="ts">
-  import type { IProductSortingProps } from '$stylist/commerce/interface/component/product-sorting/other';
-  import { ProductSortingStyleManager } from '$stylist/commerce/class/style-manager/product-sorting';
+  import type { Props } from '$stylist/commerce/type/struct/product-sorting';
+  import { createProductSortingState } from '$stylist/commerce/function/state/product-sorting';
 
-  const { getBaseClasses, getSelectClasses, getOptionClasses } = ProductSortingStyleManager;
-
-  export let options: NonNullable<IProductSortingProps['options']> = [];
-  export let value: IProductSortingProps['value'] = '';
-  export let className: IProductSortingProps['class'] = '';
-  export let children: IProductSortingProps['children'] = undefined;
-  export let oninput: IProductSortingProps['oninput'] = undefined;
-  export let onchange: IProductSortingProps['onchange'] = undefined;
-
-  const handleChange = (event: Event) => {
-    onchange?.(event);
-  };
-
-  const handleInput = (event: Event) => {
-    oninput?.(event);
-  };
+  let props: Props = $props();
+  const state = createProductSortingState(props);
 </script>
 
-<div class={getBaseClasses(className ?? '')}>
-  <select class={getSelectClasses()} value={value} on:change={handleChange} on:input={handleInput}>
-    {#each options as option (option.value)}
-      <option class={getOptionClasses()} value={option.value}>
+<div class={state.baseClasses}>
+  <select class={state.selectClasses} value={props.value} onchange={state.handleChange} oninput={state.handleInput}>
+    {#each props.options as option (option.value)}
+      <option class={state.getOptionClasses()} value={option.value}>
         {option.label}
       </option>
     {/each}
   </select>
 
-  {#if children}
-    {@render children()}
+  {#if props.children}
+    {@render props.children()}
   {/if}
 </div>
 

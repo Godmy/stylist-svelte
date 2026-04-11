@@ -3,7 +3,7 @@ import type { GestureContract } from '..';
 /**
  * Контракт для draggable элементов
  */
-export interface DragContract extends GestureContract {
+export type DragContract = GestureContract & {
 	/** Разрешить перетаскивание */
 	draggable: boolean;
 	/** Разрешить drop зону */

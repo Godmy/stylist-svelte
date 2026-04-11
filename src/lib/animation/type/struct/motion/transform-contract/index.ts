@@ -3,7 +3,7 @@ import type { MotionContract } from '..';
 /**
  * Контракт для трансформации
  */
-export interface TransformContract extends MotionContract {
+export type TransformContract = MotionContract & {
 	/** Масштаб */
 	scale: number;
 	/** Вращение (градусы) */

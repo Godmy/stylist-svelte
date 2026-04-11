@@ -1,13 +1,3 @@
-export type DialogConfirmVariant = 'danger' | 'warning' | 'info';
-
-export interface DialogConfirmProps {
-	isOpen: boolean;
-	onClose: () => void;
-	onConfirm: () => void;
-	title: string;
-	message: string;
-	confirmText?: string;
-	cancelText?: string;
-	variant?: DialogConfirmVariant;
-	isLoading?: boolean;
-}
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { DialogConfirmProps } from './dialogconfirm-props';
+export type { DialogConfirmVariant } from './dialogconfirmvariant';

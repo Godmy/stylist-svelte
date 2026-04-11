@@ -1,4 +1,4 @@
-export interface IToastStyleClasses {
+export type IToastStyleClasses = {
 	type: string;
 	visible: string;
 }

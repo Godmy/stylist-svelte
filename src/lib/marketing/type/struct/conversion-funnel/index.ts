@@ -1,22 +1,3 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-export type FunnelStep = {
-  id: string;
-  name: string;
-  value: number;
-  color?: string;
-};
-
-export type ConversionFunnelProps = {
-  title?: string;
-  subtitle?: string;
-  steps: FunnelStep[];
-  showPercentage?: boolean;
-  showValues?: boolean;
-  showTrend?: boolean;
-  showConversionRate?: boolean;
-  height?: number;
-  class?: string;
-  headerClass?: string;
-  stepClass?: string;
-} & InformationHTMLAttributes<HTMLDivElement>;
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { ConversionFunnelProps } from './conversionfunnel-props';
+export type { FunnelStep } from './funnelstep';

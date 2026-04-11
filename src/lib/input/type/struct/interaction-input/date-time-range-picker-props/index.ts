@@ -1,7 +1,7 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { DateTimeRangeValue } from '$stylist/input/type/struct/interaction-input-date-time-range-value';
 
-export interface DateTimeRangePickerProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'oninput' | 'value'> {
+export type DateTimeRangePickerProps = Omit<InteractionHTMLAttributes<HTMLDivElement> & 'oninput' | 'value'> & {
 	value?: DateTimeRangeValue;
 	disabled?: boolean;
 	placeholder?: string;

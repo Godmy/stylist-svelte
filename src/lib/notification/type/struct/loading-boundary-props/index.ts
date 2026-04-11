@@ -1,7 +1,7 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { Snippet } from 'svelte';
 
-export interface LoadingBoundaryProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type LoadingBoundaryProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	loading?: boolean;
 	error?: string;
 	children?: Snippet;

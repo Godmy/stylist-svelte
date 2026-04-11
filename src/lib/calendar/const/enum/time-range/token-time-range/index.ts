@@ -1,3 +1,1 @@
-import { PERFORMANCE_RANGES } from '../performance-ranges';
-
-export const TOKEN_TIME_RANGE = PERFORMANCE_RANGES;
+export const TOKEN_TIME_RANGE = ['1d', '7d', '30d', '90d'] as const;

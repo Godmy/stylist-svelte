@@ -1,3 +1,3 @@
-export interface PageBuilderDividerAttributes {
+export type PageBuilderDividerAttributes = {
   color?: string;
 }

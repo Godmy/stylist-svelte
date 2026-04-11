@@ -9,5 +9,3 @@ export type CubeDebugLogEntry = {
 	x?: number;
 	y?: number;
 };
-
-export type { CubeDebugLogEntry as default };

@@ -1,4 +1,4 @@
-export interface BulkOrderFormItem {
+export type BulkOrderFormItem = {
 	id: string;
 	productId: string;
 	quantity: number;

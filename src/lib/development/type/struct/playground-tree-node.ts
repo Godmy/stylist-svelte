@@ -1,4 +1,4 @@
-export interface Story {
+export type Story = {
   id: string;
   componentName: string;
   category: string;
@@ -6,7 +6,7 @@ export interface Story {
   path: string;
 }
 
-export interface TreeNodeData {
+export type TreeNodeData = {
   name: string;
   type: 'category' | 'folder' | 'component';
   children?: TreeNodeData[];
@@ -16,7 +16,7 @@ export interface TreeNodeData {
   count?: number;
 }
 
-export interface Props {
+export type Props = {
   node: TreeNodeData;
   level: number;
   expandedNodes: Set<string>;

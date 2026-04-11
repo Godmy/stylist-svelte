@@ -1,0 +1,1 @@
+export const DRAWER_BASE_CLASS = 'flex flex-col min-w-[var(--size)] max-w-[90vw] h-full bg-[var(--color-background-primary)] shadow-[var(--shadow-custom17)] transition-transform duration-[var(--duration-300)]';

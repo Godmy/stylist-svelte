@@ -1,5 +1,5 @@
 /** Data model for dashboard metrics. UI contract lives in interface/recipe. */
-export interface Metric {
+export type Metric = {
   id: string;
   title: string;
   value: string | number;

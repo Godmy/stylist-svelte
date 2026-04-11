@@ -5,7 +5,7 @@ import type { TokenEasing } from '$stylist/animation/type/enum/easing';
 /**
  * Базовый контракт для motion
  */
-export interface MotionContract {
+export type MotionContract = {
 	/** Токен анимации */
 	animation: TokenAnimation;
 	/** Токен длительности */

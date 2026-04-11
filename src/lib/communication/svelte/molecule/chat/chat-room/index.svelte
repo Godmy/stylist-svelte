@@ -1,53 +1,11 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
   import type { Snippet } from 'svelte';
   import ChatMessage from '../chat-message/index.svelte';
   import { MessageComposer } from '$stylist';
-  import { createChatRoomState } from '$stylist/communication/function/state/chat-room';
-
-  export type ChatRoomMessage = {
-    id: string;
-    text: string;
-    sender: string;
-    senderAvatar?: string;
-    timestamp: string;
-    status?: 'sent' | 'delivered' | 'read';
-    isOwn: boolean;
-  };
-
-  export type ChatRoomProps = {
-    messages: ChatRoomMessage[];
-    currentUser: {
-      id: string;
-      name: string;
-      avatar?: string;
-    };
-    participants: {
-      id: string;
-      name: string;
-      avatar?: string;
-    }[];
-    title?: string;
-    subtitle?: string;
-    class?: string;
-    messagesClass?: string;
-    headerClass?: string;
-    footerClass?: string;
-    onMessageSend?: (text: string) => void;
-    loading?: boolean;
-    variant?: 'default' | 'compact' | 'spacious';
-  } & InteractionHTMLAttributes<HTMLDivElement>;
+  import { createChatRoomState as stateFn, type ChatRoomProps } from '$stylist/communication/function/state/chat-room';
 
   let props: ChatRoomProps = $props();
-
-  const state = createChatRoomState(props);
-
-  let messageText = $state('');
-
-  function handleSend(text: string) {
-    props.onMessageSend?.(text);
-    messageText = '';
-  }
+  const state = stateFn(props);
 </script>
 
 <div class={state.containerClasses} {...props}>
@@ -98,8 +56,8 @@
   <!-- Message composer -->
   <footer class={state.footerClasses}>
     <MessageComposer
-      value={messageText}
-      onSendMessage={handleSend}
+      value={state.messageText}
+      onSendMessage={state.handleSend}
       placeholder="Type a message..."
     />
   </footer>

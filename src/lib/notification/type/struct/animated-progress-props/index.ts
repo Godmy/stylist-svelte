@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
-export interface AnimatedProgressProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type AnimatedProgressProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	value?: number;
 	min?: number;
 	max?: number;

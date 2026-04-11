@@ -1,21 +1,3 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { ZipEntry } from '../entry';
-
-export type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-export type Props = RestProps & {
-  entries: ZipEntry[];
-  archiveName?: string;
-  class?: string;
-  entryClass?: string;
-  headerClass?: string;
-  onEntryClick?: (entry: ZipEntry) => void;
-  onEntryPreview?: (entry: ZipEntry) => void;
-  onEntryDownload?: (entry: ZipEntry) => void;
-  onEntryExtract?: (entry: ZipEntry) => void;
-  searchable?: boolean;
-  showPath?: boolean;
-  enableFiltering?: boolean;
-  defaultExpanded?: boolean;
-  disabled?: boolean;
-};
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { Props } from './-props';
+export type { RestProps } from './rest-props';

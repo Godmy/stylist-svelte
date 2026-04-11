@@ -1,7 +1,7 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { Snippet } from 'svelte';
 
-export interface FormSelectionProps extends InteractionHTMLAttributes<HTMLElement> {
+export type FormSelectionProps = InteractionHTMLAttributes<HTMLElement> & {
 	title?: string;
 	description?: string;
 	collapsible?: boolean;

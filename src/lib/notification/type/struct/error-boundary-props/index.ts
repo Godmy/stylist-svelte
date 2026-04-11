@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 
-export interface ErrorBoundaryProps {
+export type ErrorBoundaryProps = {
 	children: Snippet;
 	fallback?: Snippet<[error: unknown, reset: () => void]>;
 	class?: string;

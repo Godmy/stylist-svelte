@@ -1,7 +1,7 @@
 /**
  * Login Credentials structure
  */
-export interface LoginCredentials {
+export type LoginCredentials = {
 	email: string;
 	password: string;
 	rememberMe?: boolean;

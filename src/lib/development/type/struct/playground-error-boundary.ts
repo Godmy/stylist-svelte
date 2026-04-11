@@ -1,6 +1,6 @@
 import type { ComponentType, Snippet } from 'svelte';
 
-export interface Props {
+export type Props = {
   component: ComponentType | null | undefined;
   props?: Record<string, any>;
   children?: Snippet;

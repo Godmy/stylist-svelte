@@ -1,4 +1,4 @@
-export interface InterfaceControllerSettings {
+export type InterfaceControllerSettings = {
 	name: string;
 	type:
 		| 'text'

@@ -1,4 +1,4 @@
-export interface DateTimeRangeValue {
+export type DateTimeRangeValue = {
 	start: Date | null;
 	end: Date | null;
 }

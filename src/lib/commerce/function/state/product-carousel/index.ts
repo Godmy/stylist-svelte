@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProductCarouselState } from './index.svelte';
-export type { ProductCarouselProduct, ProductCarouselProps } from './index.svelte';
+export { createProductCarouselState } from './createproductcarouselstate';
+export type { ProductCarouselProduct } from './productcarouselproduct';
+export type { ProductCarouselProps } from './productcarouselprops';

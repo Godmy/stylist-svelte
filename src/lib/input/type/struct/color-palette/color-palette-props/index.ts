@@ -1,7 +1,7 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import type { ColorItem } from '../color-item';
 
-export interface ColorPaletteProps extends HTMLAttributes<HTMLDivElement> {
+export type ColorPaletteProps = HTMLAttributes<HTMLDivElement> & {
 	colors: ColorItem[];
 	title?: string;
 	showLabels?: boolean;

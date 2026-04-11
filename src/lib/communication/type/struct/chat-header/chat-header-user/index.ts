@@ -1,4 +1,4 @@
-export interface ChatHeaderUser {
+export type ChatHeaderUser = {
 	id: string;
 	name: string;
 	avatar?: string;

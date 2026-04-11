@@ -1,203 +1,70 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+  import type { ShippingInfoContract } from '$stylist/commerce/interface/component/shipping-info';
+  import { createShippingInfoState as stateFn } from '$stylist/commerce/function/state/shipping-info';
 
-  import ShippingInfoComponent from './index.svelte';
-
-  const ShippingInfo = ShippingInfoComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showOptions', type: 'boolean', defaultValue: true },
-      { name: 'showFreeShipping', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample shipping options
-  const shippingOptions = [
-    {
-      id: 'standard',
-      name: 'Standard Shipping',
-      description: 'Ground shipping via major carriers',
-      price: 7.99,
-      estimatedDays: 5,
-      carrier: 'USPS',
-      trackingAvailable: true,
-      signatureRequired: false,
-      insurance: false,
-      carbonNeutral: false
-    },
-    {
-      id: 'express',
-      name: 'Express Shipping',
-      description: '2-day expedited shipping',
-      price: 14.99,
-      estimatedDays: 2,
-      carrier: 'FedEx',
-      trackingAvailable: true,
-      signatureRequired: true,
-      insurance: true,
-      carbonNeutral: true
-    },
-    {
-      id: 'overnight',
-      name: 'Overnight Shipping',
-      description: 'Next-day delivery',
-      price: 24.99,
-      estimatedDays: 1,
-      carrier: 'FedEx',
-      trackingAvailable: true,
-      signatureRequired: true,
-      insurance: true,
-      carbonNeutral: false
-    }
-  ];
-
-  // Sample regions
-  const regions = [
-    {
-      id: 'na',
-      name: 'North America',
-      countries: ['US', 'CA', 'MX'],
-      additionalFee: 0
-    },
-    {
-      id: 'eu',
-      name: 'Europe',
-      countries: ['GB', 'DE', 'FR', 'IT', 'ES'],
-      additionalFee: 5.99
-    },
-    {
-      id: 'asia',
-      name: 'Asia-Pacific',
-      countries: ['JP', 'CN', 'AU', 'SG', 'KR'],
-      additionalFee: 8.99
-    }
-  ];
+  let props: ShippingInfoContract = $props();
+  const state = stateFn(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={ShippingInfo}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-shipping-info grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Shipping Info Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Shipping information with options and regions.</p>
+<div class={state.containerClasses}>
+  <header class={state.headerClasses}>
+    <h3 class={state.titleClasses}>Shipping Information</h3>
+  </header>
 
-        <div class="mt-6">
-          <ShippingInfo
-            shippingOptions={shippingOptions}
-            regions={regions}
-            showOptions={values.showOptions}
-            showRegions={true}
-            showDeliveryEstimate={true}
-            showFreeShippingInfo={values.showFreeShipping}
-            showRestrictions={true}
-            showEstimates={true}
-            deliveryEstimate={new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)}
-            freeShippingThreshold={50}
-            showFreeShipping={true}
-            onOptionSelect={(option: typeof shippingOptions[number]) => console.log('Selected shipping option:', option)}
-            onRegionSelect={(region: typeof regions[number]) => console.log('Selected region:', region)}
-          />
-        </div>
-      </div>
-
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Shipping Info Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different shipping information configurations with various options.
-        </p>
-
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Options</p>
+  {#if props.showOptions !== false}
+    <section class={state.optionsContainerClasses}>
+      {#each state.options as option}
+        <button
+          type="button"
+          class={`${state.optionClasses} ${state.selectedOptionId === option.id ? 'ring-2 ring-[var(--color-border-primary)]' : ''}`}
+          disabled={option.disabled}
+          onclick={() => state.handleOptionSelect(option)}
+        >
+          <div class="flex items-start justify-between gap-4">
             <div>
-              <ShippingInfo
-                shippingOptions={[]}
-                regions={regions.slice(0, 2)}
-                showOptions={false}
-                showRegions={true}
-                showDeliveryEstimate={false}
-                showFreeShippingInfo={true}
-                showRestrictions={false}
-                showEstimates={false}
-                freeShippingThreshold={75}
-                showFreeShipping={true}
-                onOptionSelect={(option: typeof shippingOptions[number]) => console.log('Selected shipping option:', option)}
-                onRegionSelect={(region: typeof regions[number]) => console.log('Selected region:', region)}
-              />
+              <p class={state.optionNameClasses}>{option.name}</p>
+              <p class={state.optionDescriptionClasses}>{option.description}</p>
             </div>
-          </article>
-
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Carbon Neutral Options</p>
-            <div>
-              <ShippingInfo
-                shippingOptions={[
-                  {
-                    id: 'eco-standard',
-                    name: 'Eco Standard Shipping',
-                    description: 'Carbon neutral ground shipping',
-                    price: 9.99,
-                    estimatedDays: 7,
-                    carrier: 'USPS',
-                    trackingAvailable: true,
-                    signatureRequired: false,
-                    insurance: false,
-                    carbonNeutral: true
-                  },
-                  {
-                    id: 'eco-express',
-                    name: 'Eco Express Shipping',
-                    description: 'Carbon neutral expedited shipping',
-                    price: 16.99,
-                    estimatedDays: 3,
-                    carrier: 'FedEx',
-                    trackingAvailable: true,
-                    signatureRequired: true,
-                    insurance: true,
-                    carbonNeutral: true
-                  }
-                ]}
-                regions={[]}
-                showOptions={true}
-                showRegions={false}
-                showDeliveryEstimate={true}
-                showFreeShippingInfo={false}
-                showRestrictions={true}
-                showEstimates={true}
-                deliveryEstimate={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)}
-                showFreeShipping={false}
-                onOptionSelect={(option: typeof shippingOptions[number]) => console.log('Selected eco shipping option:', option)}
-              />
+            <div class="text-right">
+              <p class={state.optionPriceClasses}>{state.formatPrice(option.price)}</p>
+              <p class={state.deliveryTimeClasses}>{state.formatDelivery(option.estimatedDays)}</p>
             </div>
-          </article>
-        </div>
-      </div>
+          </div>
+        </button>
+      {/each}
     </section>
-  {/snippet}
-</Story>
+  {/if}
 
+  {#if props.showRegions && state.regions.length}
+    <section class={state.regionsContainerClasses}>
+      <h4 class={state.regionNameClasses}>Regions</h4>
+      {#each state.regions as region}
+        <article class={state.regionItemClasses}>
+          <p class={state.regionNameClasses}>{region.name}</p>
+          <p class={state.countriesListClasses}>{region.countries.join(', ')}</p>
+          {#if props.showRestrictions && region.restrictions?.length}
+            <p class={state.shippingDetailValueClasses}>{region.restrictions.join(', ')}</p>
+          {/if}
+        </article>
+      {/each}
+    </section>
+  {/if}
 
+  <section class={state.shippingDetailsContainerClasses}>
+    {#if props.showDeliveryEstimate && props.deliveryEstimate}
+      <div class={state.shippingDetailItemClasses}>
+        <span class={state.shippingDetailLabelClasses}>Estimated Delivery</span>
+        <span class={state.shippingDetailValueClasses}>
+          {new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(props.deliveryEstimate)}
+        </span>
+      </div>
+    {/if}
 
-
-
-
-
+    {#if props.showFreeShipping && props.freeShippingThreshold !== undefined}
+      <div class={state.shippingDetailItemClasses}>
+        <span class={state.shippingDetailLabelClasses}>Free Shipping Threshold</span>
+        <span class={state.shippingDetailValueClasses}>{state.formatPrice(props.freeShippingThreshold)}</span>
+      </div>
+    {/if}
+  </section>
+</div>

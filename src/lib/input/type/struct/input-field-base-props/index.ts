@@ -1,4 +1,4 @@
-export interface InputFieldBaseProps {
+export type InputFieldBaseProps = {
 	label?: string;
 	helperText?: string;
 	error?: boolean;

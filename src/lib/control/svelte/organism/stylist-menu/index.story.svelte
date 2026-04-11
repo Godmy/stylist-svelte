@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import StylistMenu from './index.svelte';
 
 	interface StoryProps {
@@ -59,26 +60,33 @@
 	}
 </script>
 
-<div class="story-container">
-	<div class="story-preview">
-		<StylistMenu
-			class={className}
-			triggerIcon={triggerIcon}
-			avatarLabel={avatarLabel}
-			avatarName={avatarName}
-			avatarEmail={avatarEmail}
-			onItemClick={handleItemClick}
-			onFunctionalTabClick={handleFunctionalTabClick}
-			onAtomicTabClick={handleAtomicTabClick}
-			onThemeButtonClick={handleThemeButtonClick}
-			onSettingsButtonClick={handleSettingsButtonClick}
-			onAvatarProfileClick={handleAvatarProfileClick}
-			onAvatarSettingsClick={handleAvatarSettingsClick}
-			onAvatarLogoutClick={handleAvatarLogoutClick}
-			{...restProps}
-		/>
+<Story
+	component={StylistMenu}
+	title="StylistMenu"
+	category="Organisms/Control"
+	description="Menu for switching stylist sections, atomic levels, and account actions."
+>
+	<div class="story-container">
+		<div class="story-preview">
+			<StylistMenu
+				class={className}
+				triggerIcon={triggerIcon}
+				avatarLabel={avatarLabel}
+				avatarName={avatarName}
+				avatarEmail={avatarEmail}
+				onItemClick={handleItemClick}
+				onFunctionalTabClick={handleFunctionalTabClick}
+				onAtomicTabClick={handleAtomicTabClick}
+				onThemeButtonClick={handleThemeButtonClick}
+				onSettingsButtonClick={handleSettingsButtonClick}
+				onAvatarProfileClick={handleAvatarProfileClick}
+				onAvatarSettingsClick={handleAvatarSettingsClick}
+				onAvatarLogoutClick={handleAvatarLogoutClick}
+				{...restProps}
+			/>
+		</div>
 	</div>
-</div>
+</Story>
 
 <style>
 	.story-container {

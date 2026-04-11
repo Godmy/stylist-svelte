@@ -1,4 +1,4 @@
-export interface BulkOrderFormProduct {
+export type BulkOrderFormProduct = {
 	id: string;
 	name: string;
 	price: number;

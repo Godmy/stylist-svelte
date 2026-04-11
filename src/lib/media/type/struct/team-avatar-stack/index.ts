@@ -1,22 +1,3 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-export type TeamMember = {
-	id: string;
-	name: string;
-	avatar?: string;
-	role?: string;
-	status?: 'online' | 'away' | 'busy' | 'offline';
-	presence?: boolean;
-};
-
-export type TeamAvatarStackProps = {
-	members: TeamMember[];
-	maxVisible?: number;
-	showStatus?: boolean;
-	showTooltip?: boolean;
-	size?: 'sm' | 'md' | 'lg';
-	stackDirection?: 'horizontal' | 'vertical';
-	class?: string;
-	avatarClass?: string;
-	tooltipClass?: string;
-} & InformationHTMLAttributes<HTMLDivElement>;
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { TeamAvatarStackProps } from './teamavatarstack-props';
+export type { TeamMember } from './teammember';

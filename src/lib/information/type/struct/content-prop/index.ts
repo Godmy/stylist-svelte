@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
 
-export interface ContentProp {
+export type ContentProp = {
 	content?: Snippet<[]>;
 }

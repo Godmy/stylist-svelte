@@ -1,4 +1,5 @@
 import type { User, Message } from '$stylist/communication/interface/component/chat/other';
+import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
 export type ChatRoomMessage = {
 	id: string;
@@ -10,7 +11,7 @@ export type ChatRoomMessage = {
 	isOwn: boolean;
 };
 
-export const createChatRoomState = (props: {
+export type ChatRoomProps = {
 	messages: ChatRoomMessage[];
 	currentUser: { id: string; name: string; avatar?: string };
 	participants: { id: string; name: string; avatar?: string }[];
@@ -23,7 +24,11 @@ export const createChatRoomState = (props: {
 	onMessageSend?: (text: string) => void;
 	loading?: boolean;
 	variant?: 'default' | 'compact' | 'spacious';
-}) => {
+} & InteractionHTMLAttributes<HTMLDivElement>;
+
+export function createChatRoomState(props: ChatRoomProps) {
+	let messageText = $state('');
+
 	const variantClass = $derived(
 		({
 			default: 'p-4',
@@ -53,9 +58,13 @@ export const createChatRoomState = (props: {
 
 	function handleSend(text: string) {
 		props.onMessageSend?.(text);
+		messageText = '';
 	}
 
 	return {
+		get messageText() {
+			return messageText;
+		},
 		get variantClass() {
 			return variantClass;
 		},
@@ -74,6 +83,6 @@ export const createChatRoomState = (props: {
 		participantAvatarClasses,
 		handleSend
 	};
-};
+}
 
 export default createChatRoomState;

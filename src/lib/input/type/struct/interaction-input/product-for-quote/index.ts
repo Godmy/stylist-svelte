@@ -1,4 +1,4 @@
-export interface ProductForQuote {
+export type ProductForQuote = {
 	id: string;
 	name: string;
 	quantity: number;

@@ -1,18 +1,15 @@
 <script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
-	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-	import AlertCardComponent from './index.svelte';
+	import { alertCardControls } from '$stylist/commerce/const/alert-card/controls';
+  import { createAlertCardStoryState, type AlertCardStoryProps } from '$stylist/commerce/function/state/alert-card-story';
 
-	const AlertCard = AlertCardComponent as any;
+  import AlertCardComponent from './index.svelte';
 
-	const controls: InterfaceControllerSettings[] = [
-		{ name: 'title', type: 'text', defaultValue: 'Usage Limit Reached' },
-		{ name: 'subtitle', type: 'text', defaultValue: 'Upgrade to continue processing requests.' },
-		{ name: 'variant', type: 'select', defaultValue: 'warning', options: ['info', 'success', 'warning', 'error'] }
-	];
+  let props: AlertCardStoryProps = $props();
+  const state = createAlertCardStoryState({ ...props, component: AlertCardComponent as any });
 </script>
 
-<Story component={AlertCard} title="AlertCard" description="Attention card with severity styling and actions." {controls}>
+<Story component={state.component} title={state.title} description={state.description} controls={state.controls}>
 	{#snippet children(values: any)}
 		<AlertCard
 			title={values.title}
@@ -22,6 +19,3 @@
 		/>
 	{/snippet}
 </Story>
-
-
-

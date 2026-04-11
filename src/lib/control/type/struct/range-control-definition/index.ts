@@ -1,6 +1,6 @@
 import type { TokenControlDefinitionData } from '$stylist/control/type/struct/token-control-domain';
 
-export interface TokenRangeControlDefinition extends TokenControlDefinitionData {
+export type TokenRangeControlDefinition = TokenControlDefinitionData & {
 	controlKind: 'range';
 	min: number;
 	max: number;

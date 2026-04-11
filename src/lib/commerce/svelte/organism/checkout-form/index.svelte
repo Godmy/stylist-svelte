@@ -1,347 +1,32 @@
 <script lang="ts">
-  import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
+  import type { Props } from '$stylist/commerce/type/struct/checkout-form';
+  import { createCheckoutFormState } from '$stylist/commerce/function/state/checkout-form';
   import { Icon as BaseIcon } from '$stylist';
-const CreditCard = 'credit-card';
-const MapPin = 'map-pin';
-const User = 'user';
-const Mail = 'mail';
-const Phone = 'phone';
-const Lock = 'lock';
-const Package = 'package';
-const Truck = 'truck';
-const Wallet = 'wallet';
-const Building2 = 'building-2';
-const Home = 'home';
-const Landmark = 'landmark';
-const Globe = 'globe';
-const Check = 'check';
-const CheckCircle = 'check-circle';
-
   import { Button } from '$stylist';
   import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
-  type CheckoutStep = 'cart' | 'information' | 'shipping' | 'payment' | 'review' | 'confirmation';
+  const CreditCard = 'credit-card';
+  const MapPin = 'map-pin';
+  const User = 'user';
+  const Mail = 'mail';
+  const Phone = 'phone';
+  const Lock = 'lock';
+  const Package = 'package';
+  const Truck = 'truck';
+  const Wallet = 'wallet';
+  const Building2 = 'building-2';
+  const Home = 'home';
+  const Landmark = 'landmark';
+  const Globe = 'globe';
+  const Check = 'check';
+  const CheckCircle = 'check-circle';
 
-  type CartItem = {
-    id: string;
-    name: string;
-    price: number;
-    quantity: number;
-    thumbnail?: string;
-  };
-
-  type Address = {
-    firstName: string;
-    lastName: string;
-    company?: string;
-    address1: string;
-    address2?: string;
-    city: string;
-    state: string;
-    zipCode: string;
-    country: string;
-    phone?: string;
-    email?: string;
-  };
-
-  type PaymentMethod = {
-    id: string;
-    type: 'credit_card' | 'paypal' | 'bank_transfer' | 'digital_wallet';
-    lastFour?: string;
-    expiry?: string;
-  };
-
-  type ShippingOption = {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    estimatedDays: number;
-  };
-
-  type RestProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'>;
-
-  type Props = RestProps & {
-    cartItems: CartItem[];
-    subtotal: number;
-    tax: number;
-    shipping: number;
-    total: number;
-    class?: string;
-    step?: CheckoutStep;
-    onStepChange?: (step: CheckoutStep) => void;
-    onComplete?: () => void;
-    onError?: (error: string) => void;
-    countries?: { value: string; label: string }[];
-    states?: { value: string; label: string }[];
-    shippingOptions?: ShippingOption[];
-    defaultAddress?: Address;
-    defaultPaymentMethod?: PaymentMethod;
-    showProgress?: boolean;
-    allowGuestCheckout?: boolean;
-    requireAccount?: boolean;
-    currency?: string;
-    locale?: string;
-  };
-
-  function createAddressState(source?: Address): Address {
-    return {
-      firstName: source?.firstName ?? '',
-      lastName: source?.lastName ?? '',
-      company: source?.company ?? '',
-      address1: source?.address1 ?? '',
-      address2: source?.address2 ?? '',
-      city: source?.city ?? '',
-      state: source?.state ?? '',
-      zipCode: source?.zipCode ?? '',
-      country: source?.country ?? 'US',
-      phone: source?.phone ?? '',
-      email: source?.email ?? ''
-    };
-  }
-
-  let {
-    cartItems = [],
-    subtotal = 0,
-    tax = 0,
-    shipping = 0,
-    total = 0,
-    class: hostClass = '',
-    step = 'information',
-    onStepChange,
-    onComplete,
-    onError,
-    countries = [
-      { value: 'US', label: 'United States' },
-      { value: 'CA', label: 'Canada' },
-      { value: 'GB', label: 'United Kingdom' },
-      { value: 'DE', label: 'Germany' },
-      { value: 'FR', label: 'France' }
-    ],
-    states = [
-      { value: 'AL', label: 'Alabama' },
-      { value: 'AK', label: 'Alaska' },
-      { value: 'AZ', label: 'Arizona' },
-      // Add more states as needed
-    ],
-    shippingOptions = [
-      { id: 'standard', name: 'Standard Shipping', description: '5-7 business days', price: 5.99, estimatedDays: 7 },
-      { id: 'express', name: 'Express Shipping', description: '2-3 business days', price: 12.99, estimatedDays: 3 },
-      { id: 'overnight', name: 'Overnight Shipping', description: 'Next business day', price: 24.99, estimatedDays: 1 }
-    ],
-    defaultAddress,
-    defaultPaymentMethod,
-    showProgress = true,
-    allowGuestCheckout = true,
-    requireAccount = false,
-    currency = 'USD',
-    locale = 'en-US',
-    ...restProps
-  }: Props = $props();
-
-  let currentStep: CheckoutStep = $state(step);
-  let billingAddress = $state<Address>(createAddressState(defaultAddress));
-  let shippingAddress = $state<Address>(createAddressState(defaultAddress));
-  let selectedShippingOption = $state(shippingOptions[0]?.id || '');
-  let selectedShippingDetails = $derived(
-    shippingOptions.find((option) => option.id === selectedShippingOption)
-  );
-  let sameAsBilling = $state(false);
-  let paymentMethod = $state<PaymentMethod>({
-    id: 'credit_card',
-    type: 'credit_card'
-  });
-  let cardInfo = $state({
-    number: '',
-    expiry: '',
-    cvv: '',
-    name: ''
-  });
-  let createAccount = $state(false);
-  let termsAccepted = $state(false);
-  let errors = $state<Record<string, string>>({});
-
-  $effect(() => {
-    currentStep = step;
-  });
-
-  $effect(() => {
-    if (sameAsBilling) {
-      shippingAddress = { ...billingAddress };
-    }
-  });
-
-  function handleInputChange(field: keyof Address, value: string, isShipping: boolean = false) {
-    if (isShipping) {
-      shippingAddress = { ...shippingAddress, [field]: value };
-    } else {
-      billingAddress = { ...billingAddress, [field]: value };
-    }
-  }
-
-  function handleCardChange(field: keyof typeof cardInfo, value: string) {
-    cardInfo = { ...cardInfo, [field]: value };
-  }
-
-  function handlePaymentMethodChange(type: PaymentMethod['type']) {
-    paymentMethod = { ...paymentMethod, type };
-  }
-
-  function validateStep(step: CheckoutStep): boolean {
-    let newErrors: Record<string, string> = {};
-
-    switch (step) {
-      case 'information':
-        if (!billingAddress.firstName) newErrors.firstName = 'First name is required';
-        if (!billingAddress.lastName) newErrors.lastName = 'Last name is required';
-        if (!billingAddress.address1) newErrors.address1 = 'Address is required';
-        if (!billingAddress.city) newErrors.city = 'City is required';
-        if (!billingAddress.state) newErrors.state = 'State is required';
-        if (!billingAddress.zipCode) newErrors.zipCode = 'ZIP code is required';
-        if (!billingAddress.country) newErrors.country = 'Country is required';
-        break;
-
-      case 'shipping':
-        // Validation for shipping step if needed
-        break;
-
-      case 'payment':
-        if (paymentMethod.type === 'credit_card') {
-          if (!cardInfo.number || cardInfo.number.length < 13) newErrors.cardNumber = 'Valid card number is required';
-          if (!cardInfo.expiry) newErrors.expiry = 'Expiry date is required';
-          if (!cardInfo.cvv || cardInfo.cvv.length < 3) newErrors.cvv = 'CVV is required';
-          if (!cardInfo.name) newErrors.cardName = 'Cardholder name is required';
-        }
-        break;
-    }
-
-    errors = newErrors;
-    return Object.keys(newErrors).length === 0;
-  }
-
-  function goToNextStep() {
-    if (validateStep(currentStep)) {
-      switch (currentStep) {
-        case 'information':
-          setCurrentStep('shipping');
-          break;
-        case 'shipping':
-          setCurrentStep('payment');
-          break;
-        case 'payment':
-          setCurrentStep('review');
-          break;
-        case 'review':
-          setCurrentStep('confirmation');
-          // Here you would typically submit the order
-          onComplete?.();
-          break;
-      }
-    }
-  }
-
-  function goToPreviousStep() {
-    switch (currentStep) {
-      case 'shipping':
-        setCurrentStep('information');
-        break;
-      case 'payment':
-        setCurrentStep('shipping');
-        break;
-      case 'review':
-        setCurrentStep('payment');
-        break;
-      case 'confirmation':
-        setCurrentStep('review');
-        break;
-    }
-  }
-
-  function setCurrentStep(step: CheckoutStep) {
-    currentStep = step;
-    onStepChange?.(step);
-  }
-
-  const orderedSteps: CheckoutStep[] = ['information', 'shipping', 'payment', 'review', 'confirmation'];
-  const stepTitleMap: Record<CheckoutStep, string> = {
-    cart: 'Cart',
-    information: 'Information',
-    shipping: 'Shipping',
-    payment: 'Payment',
-    review: 'Review',
-    confirmation: 'Confirmation'
-  };
-
-  type StepStatus = 'completed' | 'current' | 'upcoming';
-
-  function getStepIndex(step: CheckoutStep | string) {
-    const idx = orderedSteps.indexOf(step as CheckoutStep);
-    return idx === -1 ? 0 : idx;
-  }
-
-  function getStepStatus(step: CheckoutStep | string): StepStatus {
-    const currentIndex = getStepIndex(currentStep);
-    const targetIndex = getStepIndex(step);
-
-    if (targetIndex < currentIndex) {
-      return 'completed';
-    }
-
-    if (targetIndex === currentIndex) {
-      return 'current';
-    }
-
-    return 'upcoming';
-  }
-
-  function formatStepTitle(step: CheckoutStep | string) {
-    return stepTitleMap[step as CheckoutStep] ?? step;
-  }
-
-  function getNextStepTitle(step: CheckoutStep | string) {
-    const nextIndex = Math.min(getStepIndex(step) + 1, orderedSteps.length - 1);
-    return formatStepTitle(orderedSteps[nextIndex]);
-  }
-
-  function getPreviousStepTitle(step: CheckoutStep | string) {
-    const previousIndex = Math.max(getStepIndex(step) - 1, 0);
-    return formatStepTitle(orderedSteps[previousIndex]);
-  }
-
-  function formatCardNumber(value: string) {
-    const digits = value.replace(/\D/g, '').slice(0, 16);
-    const groups = digits.match(/.{1,4}/g) ?? [];
-    return groups.join(' ');
-  }
-
-  function formatExpiryDate(value: string) {
-    const digits = value.replace(/\D/g, '').slice(0, 4);
-    if (digits.length <= 2) {
-      return digits;
-    }
-
-    return `${digits.slice(0, 2)}/${digits.slice(2)}`;
-  }
-
-  function getCountryName(code: string) {
-    return countries.find((country) => country.value === code)?.label ?? code;
-  }
-
-  function formatCurrency(amount: number): string {
-    return new Intl.NumberFormat(locale, {
-      style: 'currency',
-      currency: currency
-    }).format(amount);
-  }
-
-  let formattedSubtotal = $derived(formatCurrency(subtotal));
-  let formattedTax = $derived(formatCurrency(tax));
-  let formattedShipping = $derived(formatCurrency(shipping));
-  let formattedTotal = $derived(formatCurrency(total));
+  let props: Props = $props();
+  const state = createCheckoutFormState(props);
 </script>
 
-<div class={mergeClassNames('c-checkout-form', hostClass)} {...restProps}>
-  {#if showProgress}
+<div class={mergeClassNames('c-checkout-form', props.class ?? '')} {...props}>
+  {#if props.showProgress ?? true}
     <!-- Progress indicator -->
     <div class="mb-8">
       <nav aria-label="Checkout progress" class="flex justify-between">
@@ -349,13 +34,13 @@ const CheckCircle = 'check-circle';
           <div class={`flex flex-col items-center ${i < 3 ? 'flex-1' : ''}`}>
             <div class="flex items-center">
               <div class={`w-8 h-8 rounded-full flex items-center justify-center ${
-                getStepStatus(step) === 'completed' ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]' :
-                getStepStatus(step) === 'current' ? 'bg-[var(--color-background-primary)] border-2 border-[var(--color-primary-600)] text-[var(--color-primary-600)]' :
+                state.getStepStatus(step) === 'completed' ? 'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)]' :
+                state.getStepStatus(step) === 'current' ? 'bg-[var(--color-background-primary)] border-2 border-[var(--color-primary-600)] text-[var(--color-primary-600)]' :
                 'bg-[var(--color-background-tertiary)] text-[var(--color-text-secondary)]'
               }`}>
-                {#if getStepStatus(step) === 'completed'}
+                {#if state.getStepStatus(step) === 'completed'}
                   <BaseIcon name={Check} class="h-4 w-4" />
-                {:else if getStepStatus(step) === 'current'}
+                {:else if state.getStepStatus(step) === 'current'}
                   {i + 1}
                 {:else}
                   {i + 1}
@@ -363,14 +48,14 @@ const CheckCircle = 'check-circle';
               </div>
               {#if i < 3}
                 <div class={`flex-auto border-t-2 ${
-                  i < getStepIndex(currentStep) ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]'
+                  i < state.getStepIndex(state.currentStep) ? 'border-[var(--color-primary-600)]' : 'border-[var(--color-border-primary)]'
                 }`}></div>
               {/if}
             </div>
             <div class={`mt-2 text-xs font-medium ${
-              getStepStatus(step) === 'current' ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-secondary)]'
+              state.getStepStatus(step) === 'current' ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-secondary)]'
             }`}>
-              {formatStepTitle(step)}
+              {state.formatStepTitle(step)}
             </div>
           </div>
         {/each}
@@ -382,7 +67,7 @@ const CheckCircle = 'check-circle';
     <!-- Main content -->
     <div class="lg:col-span-2">
       <!-- Step 1: Information -->
-      {#if currentStep === 'information'}
+      {#if state.currentStep === 'information'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={User} class="h-5 w-5 mr-2" />
@@ -397,11 +82,11 @@ const CheckCircle = 'check-circle';
                 type="text"
                 placeholder="John"
                 class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                value={billingAddress.firstName}
-                oninput={(e: Event) => handleInputChange('firstName', (e.target as HTMLInputElement).value)}
+                value={state.billingAddress.firstName}
+                oninput={(e: Event) => state.handleInputChange('firstName', (e.target as HTMLInputElement).value)}
               />
-              {#if errors.firstName}
-                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.firstName}</p>
+              {#if state.errors.firstName}
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.firstName}</p>
               {/if}
             </div>
 
@@ -412,11 +97,11 @@ const CheckCircle = 'check-circle';
                 type="text"
                 placeholder="Doe"
                 class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                value={billingAddress.lastName}
-                oninput={(e: Event) => handleInputChange('lastName', (e.target as HTMLInputElement).value)}
+                value={state.billingAddress.lastName}
+                oninput={(e: Event) => state.handleInputChange('lastName', (e.target as HTMLInputElement).value)}
               />
-              {#if errors.lastName}
-                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.lastName}</p>
+              {#if state.errors.lastName}
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.lastName}</p>
               {/if}
             </div>
 
@@ -427,11 +112,11 @@ const CheckCircle = 'check-circle';
                 type="email"
                 placeholder="john@example.com"
                 class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                value={billingAddress.email}
-                oninput={(e: Event) => handleInputChange('email', (e.target as HTMLInputElement).value)}
+                value={state.billingAddress.email}
+                oninput={(e: Event) => state.handleInputChange('email', (e.target as HTMLInputElement).value)}
               />
-              {#if errors.email}
-                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.email}</p>
+              {#if state.errors.email}
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.email}</p>
               {/if}
             </div>
 
@@ -442,11 +127,11 @@ const CheckCircle = 'check-circle';
                 type="tel"
                 placeholder="(555) 123-4567"
                 class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                value={billingAddress.phone}
-                oninput={(e: Event) => handleInputChange('phone', (e.target as HTMLInputElement).value)}
+                value={state.billingAddress.phone}
+                oninput={(e: Event) => state.handleInputChange('phone', (e.target as HTMLInputElement).value)}
               />
-              {#if errors.phone}
-                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.phone}</p>
+              {#if state.errors.phone}
+                <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.phone}</p>
               {/if}
             </div>
           </div>
@@ -463,8 +148,7 @@ const CheckCircle = 'check-circle';
                   id="same-as-billing"
                   type="checkbox"
                   class="h-4 w-4 rounded border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500"
-                  checked={sameAsBilling}
-                  onchange={(e: Event) => sameAsBilling = (e.target as HTMLInputElement).checked}
+                  bind:checked={state.sameAsBilling}
                 />
                 <label for="same-as-billing" class="ml-2 block text-sm text-[--color-text-primary]">
                   Same as billing address
@@ -479,12 +163,12 @@ const CheckCircle = 'check-circle';
                     type="text"
                     placeholder="1234 Main St"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.address1}
-                    disabled={sameAsBilling}
-                    oninput={(e: Event) => handleInputChange('address1', (e.target as HTMLInputElement).value, true)}
+                    value={state.shippingAddress.address1}
+                    disabled={state.sameAsBilling}
+                    oninput={(e: Event) => state.handleInputChange('address1', (e.target as HTMLInputElement).value, true)}
                   />
-                  {#if errors.address1}
-                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.address1}</p>
+                  {#if state.errors.address1}
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.address1}</p>
                   {/if}
                 </div>
 
@@ -495,9 +179,9 @@ const CheckCircle = 'check-circle';
                     type="text"
                     placeholder="Apt 1B"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.address2}
-                    disabled={sameAsBilling}
-                    oninput={(e: Event) => handleInputChange('address2', (e.target as HTMLInputElement).value, true)}
+                    value={state.shippingAddress.address2}
+                    disabled={state.sameAsBilling}
+                    oninput={(e: Event) => state.handleInputChange('address2', (e.target as HTMLInputElement).value, true)}
                   />
                 </div>
 
@@ -508,12 +192,12 @@ const CheckCircle = 'check-circle';
                     type="text"
                     placeholder="New York"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.city}
-                    disabled={sameAsBilling}
-                    oninput={(e: Event) => handleInputChange('city', (e.target as HTMLInputElement).value, true)}
+                    value={state.shippingAddress.city}
+                    disabled={state.sameAsBilling}
+                    oninput={(e: Event) => state.handleInputChange('city', (e.target as HTMLInputElement).value, true)}
                   />
-                  {#if errors.city}
-                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.city}</p>
+                  {#if state.errors.city}
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.city}</p>
                   {/if}
                 </div>
 
@@ -522,17 +206,17 @@ const CheckCircle = 'check-circle';
                   <select
                     id="state"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.state}
-                    disabled={sameAsBilling}
-                    onchange={(e: Event) => handleInputChange('state', (e.target as HTMLSelectElement).value, true)}
+                    value={state.shippingAddress.state}
+                    disabled={state.sameAsBilling}
+                    onchange={(e: Event) => state.handleInputChange('state', (e.target as HTMLSelectElement).value, true)}
                   >
                     <option value="" disabled>Select state</option>
-                    {#each states as state}
-                      <option value={state.value}>{state.label}</option>
+                    {#each state.states as s}
+                      <option value={s.value}>{s.label}</option>
                     {/each}
                   </select>
-                  {#if errors.state}
-                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.state}</p>
+                  {#if state.errors.state}
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.state}</p>
                   {/if}
                 </div>
 
@@ -543,12 +227,12 @@ const CheckCircle = 'check-circle';
                     type="text"
                     placeholder="10001"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.zipCode}
-                    disabled={sameAsBilling}
-                    oninput={(e: Event) => handleInputChange('zipCode', (e.target as HTMLInputElement).value, true)}
+                    value={state.shippingAddress.zipCode}
+                    disabled={state.sameAsBilling}
+                    oninput={(e: Event) => state.handleInputChange('zipCode', (e.target as HTMLInputElement).value, true)}
                   />
-                  {#if errors.zipCode}
-                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.zipCode}</p>
+                  {#if state.errors.zipCode}
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.zipCode}</p>
                   {/if}
                 </div>
 
@@ -557,16 +241,16 @@ const CheckCircle = 'check-circle';
                   <select
                     id="country"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                    value={shippingAddress.country}
-                    disabled={sameAsBilling}
-                    onchange={(e: Event) => handleInputChange('country', (e.target as HTMLSelectElement).value, true)}
+                    value={state.shippingAddress.country}
+                    disabled={state.sameAsBilling}
+                    onchange={(e: Event) => state.handleInputChange('country', (e.target as HTMLSelectElement).value, true)}
                   >
-                    {#each countries as country}
+                    {#each state.countries as country}
                       <option value={country.value}>{country.label}</option>
                     {/each}
                   </select>
-                  {#if errors.country}
-                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.country}</p>
+                  {#if state.errors.country}
+                    <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.country}</p>
                   {/if}
                 </div>
               </div>
@@ -576,7 +260,7 @@ const CheckCircle = 'check-circle';
       {/if}
 
       <!-- Step 2: Shipping -->
-      {#if currentStep === 'shipping'}
+      {#if state.currentStep === 'shipping'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={Truck} class="h-5 w-5 mr-2" />
@@ -584,9 +268,9 @@ const CheckCircle = 'check-circle';
           </h2>
 
           <div role="radiogroup" aria-label="Shipping method">
-            {#each shippingOptions as option}
+            {#each state.shippingOptions as option}
               <div class={`border rounded-lg p-4 flex justify-between items-start ${
-                selectedShippingOption === option.id ? 'border-[var(--color-primary-500)] ring-2 ring-blue-500' : 'border-[var(--color-border-primary)]'
+                state.selectedShippingOption === option.id ? 'border-[var(--color-primary-500)] ring-2 ring-blue-500' : 'border-[var(--color-border-primary)]'
               }`}>
                 <div>
                   <div class="flex items-center">
@@ -596,8 +280,8 @@ const CheckCircle = 'check-circle';
                       name="shipping-method"
                       value={option.id}
                       class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
-                      checked={selectedShippingOption === option.id}
-                      onchange={(e: Event) => selectedShippingOption = (e.target as HTMLInputElement).value}
+                      checked={state.selectedShippingOption === option.id}
+                      onchange={() => state.selectedShippingOption = option.id}
                     />
                     <label for={`shipping-option-${option.id}`} class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                       {option.name}
@@ -606,7 +290,7 @@ const CheckCircle = 'check-circle';
                   <p class="ml-7 text-sm text-[var(--color-text-secondary)]">{option.description}</p>
                 </div>
                 <div class="text-right">
-                  <p class="text-sm font-medium text-[var(--color-text-primary)]">{formatCurrency(option.price)}</p>
+                  <p class="text-sm font-medium text-[var(--color-text-primary)]">{state.formatCurrency(option.price, props.currency ?? 'USD', props.locale ?? 'en-US')}</p>
                   <p class="text-sm text-[var(--color-text-secondary)]">{option.estimatedDays} days</p>
                 </div>
               </div>
@@ -616,7 +300,7 @@ const CheckCircle = 'check-circle';
       {/if}
 
       <!-- Step 3: Payment -->
-      {#if currentStep === 'payment'}
+      {#if state.currentStep === 'payment'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={CreditCard} class="h-5 w-5 mr-2" />
@@ -632,15 +316,15 @@ const CheckCircle = 'check-circle';
                   name="payment-method"
                   value="credit_card"
                   class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
-                  checked={paymentMethod.type === 'credit_card'}
-                  onchange={() => handlePaymentMethodChange('credit_card')}
+                  checked={state.paymentMethod.type === 'credit_card'}
+                  onchange={() => state.handlePaymentMethodChange('credit_card')}
                 />
                 <label for="payment-credit" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   Credit Card
                 </label>
               </div>
 
-              {#if paymentMethod.type === 'credit_card'}
+              {#if state.paymentMethod.type === 'credit_card'}
                 <div class="mt-4 space-y-4 ml-7">
                   <div>
                     <label for="card-number" class="block text-sm font-medium text-[--color-text-primary] mb-1">Card number</label>
@@ -649,12 +333,12 @@ const CheckCircle = 'check-circle';
                       type="text"
                       placeholder="0000 0000 0000 0000"
                       class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                      value={cardInfo.number}
+                      value={state.cardInfo.number}
                       maxlength={19}
-                      oninput={(e: Event) => handleCardChange('number', formatCardNumber((e.target as HTMLInputElement).value))}
+                      oninput={(e: Event) => state.handleCardChange('number', state.formatCardNumber((e.target as HTMLInputElement).value))}
                     />
-                    {#if errors.cardNumber}
-                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cardNumber}</p>
+                    {#if state.errors.cardNumber}
+                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.cardNumber}</p>
                     {/if}
                   </div>
 
@@ -666,12 +350,12 @@ const CheckCircle = 'check-circle';
                         type="text"
                         placeholder="MM/YY"
                         class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                        value={cardInfo.expiry}
+                        value={state.cardInfo.expiry}
                         maxlength={5}
-                        oninput={(e: Event) => handleCardChange('expiry', formatExpiryDate((e.target as HTMLInputElement).value))}
+                        oninput={(e: Event) => state.handleCardChange('expiry', state.formatExpiryDate((e.target as HTMLInputElement).value))}
                       />
-                      {#if errors.expiry}
-                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.expiry}</p>
+                      {#if state.errors.expiry}
+                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.expiry}</p>
                       {/if}
                     </div>
 
@@ -682,12 +366,12 @@ const CheckCircle = 'check-circle';
                         type="text"
                         placeholder="123"
                         class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                        value={cardInfo.cvv}
+                        value={state.cardInfo.cvv}
                         maxlength={4}
-                        oninput={(e: Event) => handleCardChange('cvv', (e.target as HTMLInputElement).value)}
+                        oninput={(e: Event) => state.handleCardChange('cvv', (e.target as HTMLInputElement).value)}
                       />
-                      {#if errors.cvv}
-                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cvv}</p>
+                      {#if state.errors.cvv}
+                        <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.cvv}</p>
                       {/if}
                     </div>
                   </div>
@@ -699,11 +383,11 @@ const CheckCircle = 'check-circle';
                       type="text"
                       placeholder="John Doe"
                       class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
-                      value={cardInfo.name}
-                      oninput={(e: Event) => handleCardChange('name', (e.target as HTMLInputElement).value)}
+                      value={state.cardInfo.name}
+                      oninput={(e: Event) => state.handleCardChange('name', (e.target as HTMLInputElement).value)}
                     />
-                    {#if errors.cardName}
-                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{errors.cardName}</p>
+                    {#if state.errors.cardName}
+                      <p class="mt-1 text-sm text-[var(--color-danger-600)]">{state.errors.cardName}</p>
                     {/if}
                   </div>
                 </div>
@@ -718,8 +402,8 @@ const CheckCircle = 'check-circle';
                   name="payment-method"
                   value="paypal"
                   class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
-                  checked={paymentMethod.type === 'paypal'}
-                  onchange={() => handlePaymentMethodChange('paypal')}
+                  checked={state.paymentMethod.type === 'paypal'}
+                  onchange={() => state.handlePaymentMethodChange('paypal')}
                 />
                 <label for="payment-paypal" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   PayPal
@@ -735,8 +419,8 @@ const CheckCircle = 'check-circle';
                   name="payment-method"
                   value="digital_wallet"
                   class="h-4 w-4 text-[var(--color-primary-600)] focus:ring-blue-500 border-[var(--color-border-primary)]"
-                  checked={paymentMethod.type === 'digital_wallet'}
-                  onchange={() => handlePaymentMethodChange('digital_wallet')}
+                  checked={state.paymentMethod.type === 'digital_wallet'}
+                  onchange={() => state.handlePaymentMethodChange('digital_wallet')}
                 />
                 <label for="payment-digital" class="ml-3 block text-sm font-medium text-[var(--color-text-primary)]">
                   Digital Wallet (Apple Pay, Google Pay, etc.)
@@ -748,7 +432,7 @@ const CheckCircle = 'check-circle';
       {/if}
 
       <!-- Step 4: Review -->
-      {#if currentStep === 'review'}
+      {#if state.currentStep === 'review'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={Package} class="h-5 w-5 mr-2" />
@@ -758,36 +442,36 @@ const CheckCircle = 'check-circle';
           <div class="space-y-6">
             <div>
               <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Contact Information</h3>
-              <p class="text-[var(--color-text-primary)]">{billingAddress.firstName} {billingAddress.lastName}</p>
-              <p class="text-[var(--color-text-primary)]">{billingAddress.email}</p>
-              <p class="text-[var(--color-text-primary)]">{billingAddress.phone}</p>
+              <p class="text-[var(--color-text-primary)]">{state.billingAddress.firstName} {state.billingAddress.lastName}</p>
+              <p class="text-[var(--color-text-primary)]">{state.billingAddress.email}</p>
+              <p class="text-[var(--color-text-primary)]">{state.billingAddress.phone}</p>
             </div>
 
             <div>
               <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Shipping Address</h3>
-              <p class="text-[var(--color-text-primary)]">{shippingAddress.firstName} {shippingAddress.lastName}</p>
-              <p class="text-[var(--color-text-primary)]">{shippingAddress.address1}</p>
-              {#if shippingAddress.address2}
-                <p class="text-[var(--color-text-primary)]">{shippingAddress.address2}</p>
+              <p class="text-[var(--color-text-primary)]">{state.shippingAddress.firstName} {state.shippingAddress.lastName}</p>
+              <p class="text-[var(--color-text-primary)]">{state.shippingAddress.address1}</p>
+              {#if state.shippingAddress.address2}
+                <p class="text-[var(--color-text-primary)]">{state.shippingAddress.address2}</p>
               {/if}
-              <p class="text-[var(--color-text-primary)]">{shippingAddress.city}, {shippingAddress.state} {shippingAddress.zipCode}</p>
-              <p class="text-[var(--color-text-primary)]">{getCountryName(shippingAddress.country)}</p>
+              <p class="text-[var(--color-text-primary)]">{state.shippingAddress.city}, {state.shippingAddress.state} {state.shippingAddress.zipCode}</p>
+              <p class="text-[var(--color-text-primary)]">{state.getCountryName(state.shippingAddress.country)}</p>
             </div>
 
             <div>
               <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Shipping Method</h3>
-              <p class="text-[var(--color-text-primary)]">{selectedShippingDetails?.name}</p>
+              <p class="text-[var(--color-text-primary)]">{state.selectedShippingDetails?.name}</p>
               <p class="text-[var(--color-text-primary)] text-sm">
-                {selectedShippingDetails?.description} - {formatCurrency(selectedShippingDetails?.price ?? 0)}
+                {state.selectedShippingDetails?.description} - {state.formatCurrency(state.selectedShippingDetails?.price ?? 0, props.currency ?? 'USD', props.locale ?? 'en-US')}
               </p>
             </div>
 
             <div>
               <h3 class="text-md font-medium text-[var(--color-text-primary)] mb-4">Payment Method</h3>
-              <p class="text-[var(--color-text-primary)] capitalize">{paymentMethod.type}</p>
-              {#if paymentMethod.type === 'credit_card' && cardInfo.number}
+              <p class="text-[var(--color-text-primary)] capitalize">{state.paymentMethod.type}</p>
+              {#if state.paymentMethod.type === 'credit_card' && state.cardInfo.number}
                 <p class="text-[var(--color-text-primary)] text-sm">
-                  **** **** **** {cardInfo.number.replace(/\s/g, '').slice(-4)}
+                  **** **** **** {state.cardInfo.number.replace(/\s/g, '').slice(-4)}
                 </p>
               {/if}
             </div>
@@ -796,7 +480,7 @@ const CheckCircle = 'check-circle';
       {/if}
 
       <!-- Step 5: Confirmation -->
-      {#if currentStep === 'confirmation'}
+      {#if state.currentStep === 'confirmation'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <div class="text-center">
             <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-success-100)]">
@@ -804,7 +488,7 @@ const CheckCircle = 'check-circle';
             </div>
             <h2 class="mt-4 text-lg font-medium text-[var(--color-text-primary)]">Thank you for your order!</h2>
             <p class="mt-2 text-[var(--color-text-secondary)]">
-              Your order number is <span class="font-medium">var(--color-primary-700)</span>. We've emailed your receipt to {billingAddress.email}.
+              Your order number is <span class="font-medium">var(--color-primary-700)</span>. We've emailed your receipt to {state.billingAddress.email}.
             </p>
             <div class="mt-6">
               <Button
@@ -820,24 +504,24 @@ const CheckCircle = 'check-circle';
 
       <!-- Navigation buttons -->
       <div class="mt-8 flex flex-col sm:flex-row sm:justify-between sm:space-x-4">
-        {#if currentStep !== 'information' && currentStep !== 'confirmation'}
+        {#if state.currentStep !== 'information' && state.currentStep !== 'confirmation'}
           <Button
             variant="ghost"
-            onclick={goToPreviousStep}
+            onclick={state.goToPreviousStep}
           >
-            ← Return to {getPreviousStepTitle(currentStep)}
+            ← Return to {state.getPreviousStepTitle(state.currentStep)}
           </Button>
         {/if}
 
-        <div class="{currentStep === 'information' ? 'sm:col-span-2' : ''}">
+        <div class="{state.currentStep === 'information' ? 'sm:col-span-2' : ''}">
           <Button
             variant="primary"
             class="w-full sm:w-auto"
-            onclick={goToNextStep}
+            onclick={state.goToNextStep}
           >
-            {currentStep === 'review' ? 'Place Order →' :
-             currentStep === 'confirmation' ? 'Continue Shopping →' :
-             `Continue to ${getNextStepTitle(currentStep)} →`}
+            {state.currentStep === 'review' ? 'Place Order →' :
+             state.currentStep === 'confirmation' ? 'Continue Shopping →' :
+             `Continue to ${state.getNextStepTitle(state.currentStep)} →`}
           </Button>
         </div>
       </div>
@@ -849,7 +533,7 @@ const CheckCircle = 'check-circle';
 
       <div class="flow-root">
         <ul class="-my-6 divide-y divide-gray-200">
-          {#each cartItems as item}
+          {#each props.cartItems ?? [] as item}
             <li class="py-6 flex">
               {#if item.thumbnail}
                 <div class="flex-shrink-0 w-24 h-24 rounded-md overflow-hidden">
@@ -865,7 +549,7 @@ const CheckCircle = 'check-circle';
                 <div>
                   <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)]">
                     <h3>{item.name}</h3>
-                    <p class="ml-4">{formatCurrency(item.price * item.quantity)}</p>
+                    <p class="ml-4">{state.formatCurrency(item.price * item.quantity, props.currency ?? 'USD', props.locale ?? 'en-US')}</p>
                   </div>
                   <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Qty {item.quantity}</p>
                 </div>
@@ -879,15 +563,15 @@ const CheckCircle = 'check-circle';
         <div class="space-y-3">
           <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Subtotal</dt>
-            <dd>{formattedSubtotal}</dd>
+            <dd>{state.formattedSubtotal}</dd>
           </div>
           <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Shipping</dt>
-            <dd>{formattedShipping}</dd>
+            <dd>{state.formattedShipping}</dd>
           </div>
           <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Tax</dt>
-            <dd>{formattedTax}</dd>
+            <dd>{state.formattedTax}</dd>
           </div>
           <div class="flex justify-between text-sm text-[var(--color-text-secondary)]">
             <dt>Discount</dt>
@@ -895,26 +579,25 @@ const CheckCircle = 'check-circle';
           </div>
           <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)] border-t border-[var(--color-border-primary)] pt-3">
             <dt>Order total</dt>
-            <dd>{formattedTotal}</dd>
+            <dd>{state.formattedTotal}</dd>
           </div>
         </div>
       </div>
 
-      {#if currentStep !== 'confirmation'}
+      {#if state.currentStep !== 'confirmation'}
         <div class="mt-6 space-y-2">
           <div class="flex items-start">
             <input
               id="terms"
               type="checkbox"
               class="h-4 w-4 rounded border-[var(--color-border-primary)] text-[var(--color-primary-600)] focus:ring-blue-500"
-              checked={termsAccepted}
-              onchange={(e: Event) => termsAccepted = (e.target as HTMLInputElement).checked}
+              bind:checked={state.termsAccepted}
             />
             <label for="terms" class="ml-2 block text-sm text-[--color-text-primary]">
               I agree to the terms and conditions
             </label>
           </div>
-          {#if !termsAccepted && currentStep === 'review'}
+          {#if !state.termsAccepted && state.currentStep === 'review'}
             <p class="mt-1 text-sm text-[var(--color-danger-600)]">You must agree to the terms and conditions to continue.</p>
           {/if}
           <p class="text-sm text-[var(--color-text-primary)]">
@@ -925,10 +608,3 @@ const CheckCircle = 'check-circle';
     </div>
   </div>
 </div>
-
-
-
-
-
-
-

@@ -22,6 +22,6 @@ export { createMessageTimestampState } from './message-timestamp';
 export { createUserStatusState } from './user-status';
 export type { AuthGuardProps } from './auth-guard';
 export type { ChatHeaderChat, ChatHeaderOrganismProps } from './chat-header';
-export type { ChatRoomMessage } from './chat-room';
+export type { ChatRoomMessage, ChatRoomProps } from './chat-room';
 export type { CollaborativeEditEvent, CollaborativeEditorProps, CollaborativeUser } from './collaborative-editor';
 export type { ChatWindowChat } from './chat-window';

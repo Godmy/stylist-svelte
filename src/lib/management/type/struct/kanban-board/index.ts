@@ -1,17 +1,3 @@
-import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
-
-export type KanbanBoardType = {
-  id: string;
-  title?: string;
-  columns: KanbanColumnType[];
-};
-
-export type KanbanBoardAction =
-  | { type: 'move-card'; cardId: string; fromColumnId: string; toColumnId: string; position: number }
-  | { type: 'add-card'; columnId: string; cardId: string }
-  | { type: 'add-column'; columnId: string }
-  | { type: 'rename-column'; columnId: string; title: string }
-  | { type: 'rename-card'; columnId: string; cardId: string; title: string }
-  | { type: 'archive-card'; columnId: string; cardId: string }
-  | { type: 'delete-card'; columnId: string; cardId: string };
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { KanbanBoardAction } from './kanbanboardaction';
+export type { KanbanBoardType } from './kanbanboardtype';

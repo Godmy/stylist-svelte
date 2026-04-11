@@ -1,7 +1,7 @@
 /**
  * Address Data structure
  */
-export interface AddressData {
+export type AddressData = {
 	country?: string;
 	state?: string;
 	city?: string;

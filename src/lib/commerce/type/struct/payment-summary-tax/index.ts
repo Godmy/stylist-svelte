@@ -1,4 +1,4 @@
-export interface PaymentSummaryTax {
+export type PaymentSummaryTax = {
 	id: string;
 	name: string;
 	rate: number;

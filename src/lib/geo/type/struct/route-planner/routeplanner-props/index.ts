@@ -1,0 +1,23 @@
+export type RoutePlannerProps = RoutePlannerRestProps & {
+	startLocation?: RoutePlannerLocation;
+	endLocation?: RoutePlannerLocation;
+	waypoints?: RoutePlannerLocation[];
+	routeOptions?: RouteOption[];
+	selectedRoute?: string;
+	showSearch?: boolean;
+	showRouteOptions?: boolean;
+	showDirections?: boolean;
+	showMap?: boolean;
+	showTravelMode?: boolean;
+	travelModes?: ('driving' | 'walking' | 'cycling' | 'transit')[];
+	class?: string;
+	mapClass?: string;
+	inputClass?: string;
+	directionsClass?: string;
+	optionClass?: string;
+	onRouteCalculated?: (route: RouteOption) => void;
+	onRouteSelect?: (routeId: string) => void;
+	onLocationChange?: (type: 'start' | 'end' | 'waypoint', location: RoutePlannerLocation) => void;
+	height?: string;
+	width?: string;
+};

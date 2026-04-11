@@ -6,7 +6,7 @@ export type AIModel = {
   description: string;
 };
 
-export interface Props {
+export type Props = {
   title?: string;
   subtitle?: string;
   description?: string;

@@ -1,163 +1,104 @@
 <script lang="ts">
-  // @ts-nocheck
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+  import type { WarrantyInfoContract } from '$stylist/commerce/interface/component/warranty-info';
+  import { createWarrantyInfoState as stateFn } from '$stylist/commerce/function/state/warranty-info';
 
-  import WarrantyInfo from './index.svelte';
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showCoverageDetails', type: 'boolean', defaultValue: true },
-      { name: 'showClaimsHistory', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample warranty data
-  const coverageDetails = [
-    'Electronic components and batteries',
-    'Housing materials and headband',
-    'Cables and adapters included in the package',
-    'Firmware update support'
-  ];
-
-  const exclusions = [
-    'Wear caused by improper storage',
-    'Damage from water exposure',
-    'Modifications or disassembly without authorized service'
-  ];
-
-  const claims = [
-    {
-      id: 'claim-1',
-      date: new Date('2024-06-12'),
-      status: 'resolved',
-      issue: 'Battery drain',
-      description: 'Device drains quickly, battery replacement required.',
-      resolution: 'Battery replaced and firmware updated.',
-      claimNumber: 'WC-10452'
-    },
-    {
-      id: 'claim-2',
-      date: new Date('2024-08-03'),
-      status: 'approved',
-      issue: 'Audio imbalance',
-      description: 'Right channel sounds quieter.',
-      claimNumber: 'WC-10988'
-    }
-  ];
-
-  const warrantyData = {
-    productName: 'Aurora Pro Headphones',
-    purchaseDate: new Date('2023-03-18'),
-    warrantyPeriod: {
-      type: 'extended' as const,
-      duration: 24,
-      description: 'Extended protection for premium electronics.',
-      coverage: coverageDetails,
-      exclusions
-    },
-    claims,
-    serialNumber: 'AP-4482-NEBULA',
-    productId: 'SKY-2048',
-    termsUrl: 'https://example.com/warranty'
-  };
+  let props: WarrantyInfoContract = $props();
+  const state = stateFn(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={WarrantyInfo}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-warranty-info grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Warranty Info Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Warranty information with coverage and claims history.</p>
+<div class={state.containerClasses}>
+  <header class={state.headerClasses}>
+    <div>
+      <h3 class={state.titleClasses}>Warranty Information</h3>
+      <p class={state.claimTitleClasses}>{props.productName}</p>
+    </div>
+    <span class={state.warrantyPeriodBadgeClasses}>{props.warrantyPeriod.type}</span>
+  </header>
 
-        <div class="mt-6">
-          <WarrantyInfo
-            {...warrantyData}
-            showCoverageDetails={values.showCoverageDetails}
-            showExclusions={true}
-            showClaimsHistory={values.showClaimsHistory}
-            showFileDownload={true}
-            showClaimForm={true}
-            onClaimSubmit={(claim) => console.log('Submitting warranty claim:', claim)}
-            onTermsClick={() => console.log('Viewing warranty terms')}
-            onFileDownload={() => console.log('Downloading warranty certificate')}
-          />
-        </div>
-      </div>
-
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Warranty Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different warranty configurations with various options.
-        </p>
-
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Basic Warranty</p>
-            <div>
-              <WarrantyInfo
-                {...warrantyData}
-                warrantyPeriod={{
-                  ...warrantyData.warrantyPeriod,
-                  type: 'limited',
-                  duration: 12
-                }}
-                showCoverageDetails={true}
-                showExclusions={false}
-                showClaimsHistory={false}
-                showFileDownload={false}
-                showClaimForm={false}
-                onClaimSubmit={(claim) => console.log('Submitting basic warranty claim:', claim)}
-              />
-            </div>
-          </article>
-
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Extended Warranty</p>
-            <div>
-              <WarrantyInfo
-                {...warrantyData}
-                warrantyPeriod={{
-                  ...warrantyData.warrantyPeriod,
-                  type: 'extended',
-                  duration: 36,
-                  description: 'Comprehensive 3-year protection plan with premium support.'
-                }}
-                showCoverageDetails={true}
-                showExclusions={true}
-                showClaimsHistory={true}
-                showFileDownload={true}
-                showClaimForm={true}
-                onClaimSubmit={(claim) => console.log('Submitting extended warranty claim:', claim)}
-              />
-            </div>
-          </article>
-        </div>
+  <div class={state.contentContainerClasses}>
+    <section class={state.sectionClasses}>
+      <h4 class={state.sectionTitleClasses}>Coverage Summary</h4>
+      <div class="space-y-2">
+        <p>Purchased: {state.formatDate(props.purchaseDate)}</p>
+        {#if props.serialNumber}
+          <p>Serial: {props.serialNumber}</p>
+        {/if}
+        <p>Duration: {props.warrantyPeriod.duration} year(s)</p>
+        {#if state.getWarrantyEndDate()}
+          <p>Ends: {state.formatDate(state.getWarrantyEndDate() ?? undefined)}</p>
+        {/if}
       </div>
     </section>
-  {/snippet}
-</Story>
 
+    {#if props.showCoverageDetails !== false && state.coverage.length}
+      <section class={state.sectionClasses}>
+        <h4 class={state.sectionTitleClasses}>Covered</h4>
+        <div class={state.coverageListClasses}>
+          {#each state.coverage as item}
+            <div class={state.coverageItemClasses}>
+              <span class={state.coverageTextClasses}>{item}</span>
+            </div>
+          {/each}
+        </div>
+      </section>
+    {/if}
 
+    {#if props.showExclusions && state.exclusions.length}
+      <section class={state.sectionClasses}>
+        <h4 class={state.sectionTitleClasses}>Exclusions</h4>
+        <div class={state.exclusionsListClasses}>
+          {#each state.exclusions as item}
+            <div class={state.exclusionItemClasses}>
+              <span class={state.exclusionTextClasses}>{item}</span>
+            </div>
+          {/each}
+        </div>
+      </section>
+    {/if}
 
+    {#if props.showClaimsHistory && state.claims.length}
+      <section class={state.sectionClasses}>
+        <h4 class={state.sectionTitleClasses}>Claims History</h4>
+        <div class={state.claimsContainerClasses}>
+          {#each state.claims as claim}
+            <article class={state.claimItemClasses}>
+              <div class="flex items-center justify-between gap-3">
+                <h5 class={state.claimTitleClasses}>{claim.issue}</h5>
+                <span class={state.getClaimStatusBadgeClasses(claim.status)}>{claim.status}</span>
+              </div>
+              <p class="text-sm text-[var(--color-text-secondary)]">{claim.claimNumber}</p>
+              {#if claim.description}
+                <p>{claim.description}</p>
+              {/if}
+            </article>
+          {/each}
+        </div>
+      </section>
+    {/if}
 
-
-
-
+    {#if props.showClaimForm !== false}
+      <section class={state.sectionClasses}>
+        <h4 class={state.sectionTitleClasses}>Submit a Claim</h4>
+        <div class={state.formContainerClasses}>
+          <input class={state.inputClasses} type="text" placeholder="Issue" bind:value={state.claimIssue} />
+          <textarea class={state.textAreaClasses} rows={4} placeholder="Describe the issue" bind:value={state.claimDescription}></textarea>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" class={state.getButtonClasses('primary')} onclick={state.handleSubmitClaim}>
+              Submit Claim
+            </button>
+            {#if props.termsUrl}
+              <button type="button" class={state.getButtonClasses('secondary')} onclick={props.onTermsClick}>
+                Warranty Terms
+              </button>
+            {/if}
+            {#if props.showFileDownload}
+              <button type="button" class={state.getButtonClasses('secondary')} onclick={props.onFileDownload}>
+                Download PDF
+              </button>
+            {/if}
+          </div>
+        </div>
+      </section>
+    {/if}
+  </div>
+</div>

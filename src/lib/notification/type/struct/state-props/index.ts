@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 
-export interface StateProps {
+export type StateProps = {
 	title: string;
 	description?: string;
 	action?: {

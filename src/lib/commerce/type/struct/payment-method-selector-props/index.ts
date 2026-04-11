@@ -1,7 +1,7 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { PaymentMethod } from '../payment-method';
 
-export interface PaymentMethodSelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type PaymentMethodSelectorProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	methods: PaymentMethod[];
 	selectedMethod?: string;
 	class?: string;

@@ -36,6 +36,13 @@ export function createShippingCalculatorState(props: ShippingCalculatorContract)
 		props.onOptionSelect?.(option);
 	}
 
+	function updateDimension(key: keyof typeof dimensions, value: number) {
+		dimensions = {
+			...dimensions,
+			[key]: value
+		};
+	}
+
 	return {
 		get selectedOptionId() { return selectedOptionId; },
 		get weight() { return weight; },
@@ -59,7 +66,8 @@ export function createShippingCalculatorState(props: ShippingCalculatorContract)
 		get badgeClasses() { return badgeClasses; },
 		getShippingOptionClasses,
 		handleCalculate,
-		handleSelectOption
+		handleSelectOption,
+		updateDimension
 	};
 }
 

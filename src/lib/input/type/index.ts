@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { InputTextStateOptions, TextAreaStateOptions } from './struct';
-export type { AutoCompleteOption, ColorItem, ColorPaletteProps, DateRangePickerProps, DateRangeValue, DateTimeRangePickerProps, DateTimeRangeValue, InputAttributesBase, InputFieldBaseProps, InputFieldRequiredProps, InputLabelProps, InputValidationProps, InputValueProps, ProductForQuote, QuoteRequestValue, TranslatableText, TranslationLocale } from './struct';
+export type { AutoCompleteOption, ColorItem, ColorPaletteProps, DateRangeValue, DateTimeRangePickerProps, DateTimeRangeValue, InputAttributesBase, InputFieldBaseProps, InputFieldRequiredProps, InputLabelProps, InputTextStateOptions, InputValidationProps, InputValueProps, ProductForQuote, QuoteRequestValue, TextAreaStateOptions, TranslatableText, TranslationLocale } from './struct';
+export type { DateRangePickerProps } from './struct';

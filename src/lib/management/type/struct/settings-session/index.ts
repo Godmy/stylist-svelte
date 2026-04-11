@@ -1,7 +1,7 @@
 /**
  * Session data structure
  */
-export interface Session {
+export type Session = {
   id: string;
   device: string;
   location: string;

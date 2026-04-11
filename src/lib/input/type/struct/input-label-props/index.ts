@@ -1,4 +1,4 @@
-export interface InputLabelProps {
+export type InputLabelProps = {
 	label?: string;
 	htmlFor?: string;
 }

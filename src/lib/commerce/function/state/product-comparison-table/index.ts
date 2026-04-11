@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProductComparisonTableState } from './index.svelte';
-export type { ProductComparisonTableProps } from './index.svelte';
+export { createProductComparisonTableState } from './createproductcomparisontablestate';
+export type { ProductComparisonTableProps } from './productcomparisontableprops';

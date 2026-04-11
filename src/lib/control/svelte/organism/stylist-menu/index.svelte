@@ -5,196 +5,25 @@
 	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/control/const/struct/stylist-menu-menu-items';
 	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-functional-tab-items';
 	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-atomic-tab-items';
-	import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '$stylist/control/const/struct/stylist-menu-functional-primary-sections';
-	import type { PrimaryMenuItem } from '$stylist/control/type/struct/stylist-menu-primary-menu-item';
-	import type { FunctionalTabId } from '$stylist/control/type/struct/stylist-menu-functional-tab-id';
-	import type { AtomicTabId } from '$stylist/control/type/struct/stylist-menu-atomic-tab-id';
-	import type { TabItem } from '$stylist/control/type/struct/stylist-menu-tab-item';
-	import type { FunctionalTabItem } from '$stylist/control/type/struct/stylist-menu-functional-tab-item';
 	import type { StylistMenuProps } from '$stylist/control/type/struct/stylist-menu-props';
+	import { createStylistMenuState } from '$stylist/control/function/state/stylist-menu';
 
-	const menuItems: PrimaryMenuItem[] = STYLIST_MENU_MENU_ITEMS;
-	const functionalTabItems: FunctionalTabItem[] = STYLIST_MENU_FUNCTIONAL_TAB_ITEMS;
-	const atomicTabItems: TabItem[] = STYLIST_MENU_ATOMIC_TAB_ITEMS;
-	const functionalPrimarySections = new Set<string>(STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS);
-
-	let {
-		class: className = '',
-		triggerIcon = 'stylist-organism',
-		currentItemId = '',
-		avatarLabel = 'ME',
-		avatarName = 'Dmitrii',
-		avatarEmail = 'dmitrii@example.com',
-		activeAvatarRoute = '',
-		functionalTabId = 'architecture',
-		atomicTabId = 'atoms',
-		onItemClick,
-		onFunctionalTabClick,
-		onAtomicTabClick,
-		onThemeButtonClick,
-		onSettingsButtonClick,
-		onAvatarProfileClick,
-		onAvatarSettingsClick,
-		onAvatarLogoutClick,
-		...restProps
-	}: StylistMenuProps = $props();
-
-	let expandedItemId = $state(currentItemId);
-	let avatarMenuOpen = $state(false);
-	let focusedAvatarMenuIndex = $state(0);
-	let avatarProfileButton = $state<HTMLButtonElement | null>(null);
-	let avatarSettingsButton = $state<HTMLButtonElement | null>(null);
-	let avatarLogoutButton = $state<HTMLButtonElement | null>(null);
-
-	$effect(() => {
-		if (currentItemId) {
-			expandedItemId = currentItemId;
-		}
-	});
-
-	const showAtomicTabs = $derived(expandedItemId === 'components');
-	const showFunctionalTabs = $derived(functionalPrimarySections.has(expandedItemId));
-
-	function handleItemClick(item: PrimaryMenuItem) {
-		expandedItemId = item.id;
-		onItemClick?.(item);
-	}
-
-	function handleFunctionalTabSelect(tab: { id: string }) {
-		if (tab.id === 'architecture' || tab.id === 'information' || tab.id === 'interaction') {
-			onFunctionalTabClick?.(tab.id);
-		}
-	}
-
-	function handleAtomicTabSelect(tab: { id: string }) {
-		if (tab.id === 'atoms' || tab.id === 'molecules' || tab.id === 'organisms') {
-			onAtomicTabClick?.(tab.id);
-		}
-	}
-
-	function toggleAvatarMenu() {
-		avatarMenuOpen = !avatarMenuOpen;
-	}
-
-	function closeAvatarMenu() {
-		avatarMenuOpen = false;
-	}
-
-	function getAvatarMenuButtons(): (HTMLButtonElement | null)[] {
-		return [avatarProfileButton, avatarSettingsButton, avatarLogoutButton];
-	}
-
-	function focusAvatarMenuItem(index: number) {
-		const buttons = getAvatarMenuButtons();
-		const target = buttons[index];
-		if (!target) {
-			return;
-		}
-		focusedAvatarMenuIndex = index;
-		target.focus();
-	}
-
-	function handleAvatarMenuAction(action: 'profile' | 'settings' | 'logout') {
-		avatarMenuOpen = false;
-		if (action === 'profile') {
-			onAvatarProfileClick?.();
-			return;
-		}
-		if (action === 'settings') {
-			onAvatarSettingsClick?.();
-			return;
-		}
-		onAvatarLogoutClick?.();
-	}
-
-	function handleWindowClick(event: MouseEvent) {
-		if (!avatarMenuOpen) {
-			return;
-		}
-		const path = event.composedPath();
-		const clickedInsideAvatar = path.some((node) => {
-			if (!(node instanceof HTMLElement)) {
-				return false;
-			}
-			return node.classList.contains('avatar-menu-shell');
-		});
-		if (!clickedInsideAvatar) {
-			closeAvatarMenu();
-		}
-	}
-
-	function handleWindowKeydown(event: KeyboardEvent) {
-		if (event.key === 'Escape' && avatarMenuOpen) {
-			closeAvatarMenu();
-		}
-	}
-
-	function handleAvatarMenuKeydown(event: KeyboardEvent) {
-		if (!avatarMenuOpen) {
-			return;
-		}
-
-		if (event.key === 'ArrowDown') {
-			event.preventDefault();
-			focusAvatarMenuItem((focusedAvatarMenuIndex + 1) % 3);
-			return;
-		}
-
-		if (event.key === 'ArrowUp') {
-			event.preventDefault();
-			focusAvatarMenuItem((focusedAvatarMenuIndex + 2) % 3);
-			return;
-		}
-
-		if (event.key === 'Home') {
-			event.preventDefault();
-			focusAvatarMenuItem(0);
-			return;
-		}
-
-		if (event.key === 'End') {
-			event.preventDefault();
-			focusAvatarMenuItem(2);
-			return;
-		}
-
-		if (event.key === 'Enter' || event.key === ' ') {
-			event.preventDefault();
-			if (focusedAvatarMenuIndex === 0) {
-				handleAvatarMenuAction('profile');
-				return;
-			}
-			if (focusedAvatarMenuIndex === 1) {
-				handleAvatarMenuAction('settings');
-				return;
-			}
-			handleAvatarMenuAction('logout');
-		}
-	}
-
-	$effect(() => {
-		if (!avatarMenuOpen) {
-			return;
-		}
-
-		const initialIndex = activeAvatarRoute === 'settings' ? 1 : 0;
-		focusedAvatarMenuIndex = initialIndex;
-		void tick().then(() => focusAvatarMenuItem(initialIndex));
-	});
+	let props: StylistMenuProps = $props();
+	const state = createStylistMenuState(props);
 </script>
 
-<svelte:window onclick={handleWindowClick} onkeydown={handleWindowKeydown} />
+<svelte:window onclick={state.handleWindowClick} onkeydown={state.handleWindowKeydown} />
 
-<nav class={`stylist-menu ${className}`} aria-label="Main menu" {...restProps}>
+<nav class={`stylist-menu ${state.className}`} aria-label="Main menu" {...state.restProps}>
 	<div class="menu-main">
 		<div class="menu-logo" aria-hidden="true">
-			<BaseIcon name={triggerIcon} class="menu-icon" />
+			<BaseIcon name={state.triggerIcon} class="menu-icon" />
 		</div>
 
 		<div class="menu-left" aria-label="Sections and taxonomies">
 			<div class="menu-track" aria-label="Sections">
-				{#each menuItems as item}
-					{@const expanded = expandedItemId === item.id}
+				{#each STYLIST_MENU_MENU_ITEMS as item}
+					{@const expanded = state.expandedItemId === item.id}
 					<div class="menu-item-shell" class:expanded>
 						<button
 							type="button"
@@ -203,7 +32,7 @@
 							aria-current={expanded ? 'page' : undefined}
 							aria-label={item.label}
 							data-tooltip={item.label}
-							onclick={() => handleItemClick(item)}
+							onclick={() => state.handleItemClick(item)}
 						>
 							<BaseIcon name={item.icon} class="menu-icon" />
 							<span class="menu-text">{item.label}</span>
@@ -212,59 +41,59 @@
 				{/each}
 			</div>
 
-			{#if showAtomicTabs}
+			{#if state.showAtomicTabs}
 				<StylistTab
 					class="token-tab-switcher"
-					items={atomicTabItems}
-					selectedId={atomicTabId}
-					onSelect={handleAtomicTabSelect}
+					items={STYLIST_MENU_ATOMIC_TAB_ITEMS}
+					selectedId={state.atomicTabId}
+					onSelect={state.handleAtomicTabSelect}
 				/>
 			{/if}
 
-			{#if showFunctionalTabs}
+			{#if state.showFunctionalTabs}
 				<StylistTab
 					class="token-tab-switcher"
-					items={functionalTabItems}
-					selectedId={functionalTabId}
-					onSelect={handleFunctionalTabSelect}
+					items={STYLIST_MENU_FUNCTIONAL_TAB_ITEMS}
+					selectedId={state.functionalTabId}
+					onSelect={state.handleFunctionalTabSelect}
 				/>
 			{/if}
 		</div>
 	</div>
 
 	<div class="menu-tools" aria-label="User actions">
-		<button type="button" class="tool-btn" onclick={() => onThemeButtonClick?.()} aria-label="Theme">
+		<button type="button" class="tool-btn" onclick={() => props.onThemeButtonClick?.()} aria-label="Theme">
 			Theme
 		</button>
-		<button type="button" class="tool-btn" onclick={() => onSettingsButtonClick?.()} aria-label="Settings">
+		<button type="button" class="tool-btn" onclick={() => props.onSettingsButtonClick?.()} aria-label="Settings">
 			Settings
 		</button>
 		<div class="avatar-menu-shell">
 			<button
 				type="button"
 				class="tool-btn tool-btn-avatar"
-				class:is-active={avatarMenuOpen}
-				onclick={toggleAvatarMenu}
+				class:is-active={state.avatarMenuOpen}
+				onclick={state.toggleAvatarMenu}
 				aria-label="Profile"
 				aria-haspopup="menu"
-				aria-expanded={avatarMenuOpen}
+				aria-expanded={state.avatarMenuOpen}
 			>
-				{avatarLabel}
+				{state.avatarLabel}
 			</button>
-			{#if avatarMenuOpen}
-				<div class="avatar-menu" role="menu" tabindex="0" aria-label="Profile menu" onkeydown={handleAvatarMenuKeydown}>
+			{#if state.avatarMenuOpen}
+				<div class="avatar-menu" role="menu" tabindex="0" aria-label="Profile menu" onkeydown={state.handleAvatarMenuKeydown}>
 					<div class="avatar-menu-header">
-						<strong>{avatarName}</strong>
-						<small>{avatarEmail}</small>
+						<strong>{state.avatarName}</strong>
+						<small>{state.avatarEmail}</small>
 					</div>
 					<div class="avatar-menu-divider" role="separator" aria-hidden="true"></div>
 					<button
 						type="button"
 						class="avatar-menu-item"
-						class:is-active={activeAvatarRoute === 'profile'}
+						class:is-active={state.activeAvatarRoute === 'profile'}
 						role="menuitem"
-						onclick={() => handleAvatarMenuAction('profile')}
-						bind:this={avatarProfileButton}
+						onclick={() => state.handleAvatarMenuAction('profile')}
+						bind:this={state.avatarProfileButton}
 					>
 						<BaseIcon name="user" class="avatar-menu-item-icon" />
 						Profile
@@ -272,10 +101,10 @@
 					<button
 						type="button"
 						class="avatar-menu-item"
-						class:is-active={activeAvatarRoute === 'settings'}
+						class:is-active={state.activeAvatarRoute === 'settings'}
 						role="menuitem"
-						onclick={() => handleAvatarMenuAction('settings')}
-						bind:this={avatarSettingsButton}
+						onclick={() => state.handleAvatarMenuAction('settings')}
+						bind:this={state.avatarSettingsButton}
 					>
 						<BaseIcon name="settings" class="avatar-menu-item-icon" />
 						Settings
@@ -284,8 +113,8 @@
 						type="button"
 						class="avatar-menu-item avatar-menu-item-danger"
 						role="menuitem"
-						onclick={() => handleAvatarMenuAction('logout')}
-						bind:this={avatarLogoutButton}
+						onclick={() => state.handleAvatarMenuAction('logout')}
+						bind:this={state.avatarLogoutButton}
 					>
 						<BaseIcon name="x" class="avatar-menu-item-icon" />
 						Log out

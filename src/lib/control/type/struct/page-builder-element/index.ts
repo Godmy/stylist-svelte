@@ -8,7 +8,7 @@ import type {
   PageBuilderContainerAttributes
 } from '$stylist/control/type/struct/page-builder-element-attributes';
 
-export interface PageBuilderElement {
+export type PageBuilderElement = {
   id: string;
   type: TokenComponentType;
   content?: string;

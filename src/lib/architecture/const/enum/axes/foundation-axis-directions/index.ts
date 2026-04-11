@@ -1,4 +1,4 @@
-export const FOUNDATION_AXIS_DIRECTIONS = [
+export const TOKEN_FOUNDATION_AXIS_DIRECTIONS = [
 	'negative',
 	'center',
 	'positive',

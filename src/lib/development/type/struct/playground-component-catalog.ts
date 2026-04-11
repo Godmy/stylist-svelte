@@ -1,19 +1,19 @@
 export type ViewMode = 'grid' | 'list';
 export type SortBy = 'name' | 'category' | 'recent';
 
-export interface ComponentCatalogStory {
+export type ComponentCatalogStory = {
   id: string;
   componentName: string;
   category: string;
   subcategory?: string;
 }
 
-export interface ComponentCatalogStats {
+export type ComponentCatalogStats = {
   total: number;
   filtered: number;
 }
 
-export interface Props {
+export type Props = {
   stories: ComponentCatalogStory[];
   categories: string[];
   categoryCounts: Record<string, number>;

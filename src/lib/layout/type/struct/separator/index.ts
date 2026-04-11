@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'svelte/elements';
 
-export interface SeparatorProps extends HTMLAttributes<HTMLHRElement> {
+export type SeparatorProps = HTMLAttributes<HTMLHRElement> & {
 	class?: string;
 	orientation?: 'horizontal' | 'vertical';
 	decorative?: boolean;

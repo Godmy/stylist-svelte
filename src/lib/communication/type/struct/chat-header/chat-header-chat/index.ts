@@ -1,6 +1,6 @@
 import type { ChatHeaderUser } from '../chat-header-user';
 
-export interface ChatHeaderChat {
+export type ChatHeaderChat = {
 	id: string;
 	name?: string;
 	participants: ChatHeaderUser[];

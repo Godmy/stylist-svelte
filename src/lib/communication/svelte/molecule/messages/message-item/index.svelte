@@ -18,7 +18,7 @@
 
   let props: MessageItemProps = $props();
 
-  const compState = createMessageItemState(props);
+  const state = createMessageItemState(props);
 </script>
 
 <style>
@@ -93,8 +93,8 @@
   }
 </style>
 
-<div class="message-container {compState.messageAlignment}">
-  {#if compState.showAvatar && !compState.isOwn && props.sender}
+<div class="message-container {state.messageAlignment}">
+  {#if state.showAvatar && !state.isOwn && props.sender}
     <Avatar
       src={props.sender.avatar}
       name={props.sender.name}
@@ -103,8 +103,8 @@
       showStatus={false} />
   {/if}
 
-  <div class={compState.messageBubbleClasses}>
-    {#if !compState.isOwn && props.sender}
+  <div class={state.messageBubbleClasses}>
+    {#if !state.isOwn && props.sender}
       <div class="font-semibold text-sm mb-1">{props.sender.name}</div>
     {/if}
 
@@ -114,7 +114,7 @@
       </div>
     {/if}
 
-    <div class={compState.messageContentClasses}>
+    <div class={state.messageContentClasses}>
       {#if props.message.type === 'text'}
         {props.message.content}
       {:else if props.message.type === 'image'}
@@ -141,32 +141,32 @@
 
     <MessageMeta message={props.message} />
 
-    {#if compState.enableReactions}
-      <div class={compState.messageActionsClasses}>
-        <button class={compState.actionButtonClasses} onclick={() => compState.reactionsVisible = !compState.reactionsVisible}>
+    {#if state.enableReactions}
+      <div class={state.messageActionsClasses}>
+        <button class={state.actionButtonClasses} onclick={() => state.reactionsVisible = !state.reactionsVisible}>
           <Icon name="smile" size="sm" />
         </button>
-        <button class={compState.actionButtonClasses} onclick={() => props.onReply?.()}>
+        <button class={state.actionButtonClasses} onclick={() => props.onReply?.()}>
           <Icon name="reply" size="sm" />
         </button>
-        <button class={compState.actionButtonClasses} onclick={() => props.onForward?.()}>
+        <button class={state.actionButtonClasses} onclick={() => props.onForward?.()}>
           <Icon name="share" size="sm" />
         </button>
       </div>
     {/if}
 
-    {#if compState.reactionsVisible}
-      <div class={compState.reactionsPickerClasses}>
-        {#each compState.availableReactions as reaction}
+    {#if state.reactionsVisible}
+      <div class={state.reactionsPickerClasses}>
+        {#each state.availableReactions as reaction}
           <span
-            class={compState.reactionOptionClasses}
+            class={state.reactionOptionClasses}
             role="button"
             tabindex="0"
             onclick={() => {
               props.onReaction?.(reaction);
-              compState.handleReactionClick(reaction);
+              state.handleReactionClick(reaction);
             }}
-            onkeydown={(e) => compState.handleReactionKeydown(e, reaction)}
+            onkeydown={(e) => state.handleReactionKeydown(e, reaction)}
           >
             {reaction}
           </span>

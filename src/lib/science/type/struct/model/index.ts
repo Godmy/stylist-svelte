@@ -1,4 +1,4 @@
-export interface Model {
+export type Model = {
 	id: string;
 	name: string;
 	description: string;

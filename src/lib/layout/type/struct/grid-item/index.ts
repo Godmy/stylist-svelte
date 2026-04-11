@@ -1,11 +1,3 @@
-import type { Snippet } from 'svelte';
-
-export type GridItemContent = Snippet | string;
-
-export type GridItem = {
-	id: string;
-	content: GridItemContent;
-	colSpan?: number;
-	rowSpan?: number;
-	class?: string;
-};
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { GridItem } from './grid-item';
+export type { GridItemContent } from './grid-itemcontent';

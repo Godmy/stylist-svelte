@@ -1,16 +1,16 @@
 export type AIProviderId = 'gemini' | 'qwen' | 'claude' | 'codex';
 
-export interface ChatMessage {
+export type ChatMessage = {
 	role: 'user' | 'assistant';
 	content: string;
 	timestamp: number;
 }
 
-export interface ChatResponse {
+export type ChatResponse = {
 	text?: string;
 }
 
-export interface AIClientLike {
+export type AIClientLike = {
 	chat: (params: { prompt: string; autoApproveTools?: boolean }) => Promise<ChatResponse>;
 	resetSession: () => void;
 	getSessionId: () => string | null;

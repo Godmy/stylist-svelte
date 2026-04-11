@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 
-export interface Props {
+export type Props = {
   badgeText?: string;
   title?: string;
   description?: string;

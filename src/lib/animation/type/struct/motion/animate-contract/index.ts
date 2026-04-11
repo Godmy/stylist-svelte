@@ -3,7 +3,7 @@ import type { MotionContract } from '..';
 /**
  * Контракт для анимированных значений
  */
-export interface AnimateContract extends MotionContract {
+export type AnimateContract = MotionContract & {
 	/** Начальное значение */
 	from: number;
 	/** Конечное значение */

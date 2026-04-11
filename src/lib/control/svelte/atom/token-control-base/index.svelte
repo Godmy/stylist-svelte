@@ -1,27 +1,12 @@
 <script lang="ts">
-	import type { TokenControlDefinition } from '$stylist/control/type/struct/token-control-definition';
 	import type { TokenControlBaseProps } from '$stylist/control/type/struct/token-control-base-props';
-	import { TOKEN_ICON_PATHS } from '$stylist/control/const/map/token-icon-paths';
-	import { getTokenIconKind } from '$stylist/control/function/script/get-token-icon-kind';
+	import { createTokenControlBaseState } from '$stylist/control/function/state/token-control-base';
 
-	let { definition, layout = 'stack', class: className = '', children }: TokenControlBaseProps = $props();
-
-	const tokenCount = $derived.by(() => {
-		if (definition.controlKind === 'range') {
-			const step = definition.step ?? 1;
-			if (step <= 0) return 0;
-			return Math.floor((definition.max - definition.min) / step) + 1;
-		}
-		if (definition.controlKind === 'text') {
-			return 1;
-		}
-		return definition.options.length;
-	});
-
-	const iconPath = $derived(TOKEN_ICON_PATHS[getTokenIconKind(definition.tokenName)]);
+	let props: TokenControlBaseProps = $props();
+	const state = createTokenControlBaseState(props);
 </script>
 
-<article class={`token-control-base token-control-base--${layout} ${className}`.trim()}>
+<article class={state.cssClass}>
 	<header class="token-control-base__header">
 		<div class="token-control-base__name-row">
 			<svg
@@ -34,17 +19,17 @@
 				stroke-linejoin="round"
 				aria-hidden="true"
 			>
-				<path d={iconPath} />
+				<path d={state.iconPath} />
 			</svg>
-			<div class="token-control-base__name">{definition.tokenName}</div>
-			<sup class="token-control-base__count">{tokenCount}</sup>
+			<div class="token-control-base__name">{state.definition.tokenName}</div>
+			<sup class="token-control-base__count">{state.tokenCount}</sup>
 		</div>
-		{#if definition.description}
-			<p class="token-control-base__description">{definition.description}</p>
+		{#if state.description}
+			<p class="token-control-base__description">{state.description}</p>
 		{/if}
 	</header>
 	<div class="token-control-base__body">
-		{@render children?.()}
+		{@render state.children?.()}
 	</div>
 </article>
 

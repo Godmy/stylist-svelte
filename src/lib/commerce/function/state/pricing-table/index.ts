@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPricingTableState } from './index.svelte';
-export type { PricingTablePlan, PricingTableProps } from './index.svelte';
+export { createPricingTableState } from './createpricingtablestate';
+export type { PricingTablePlan } from './pricingtableplan';
+export type { PricingTableProps } from './pricingtableprops';

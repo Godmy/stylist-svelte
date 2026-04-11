@@ -1,4 +1,4 @@
-export interface PageBuilderContainerAttributes {
+export type PageBuilderContainerAttributes = {
   backgroundColor?: string;
   padding?: string;
   margin?: string;

@@ -1,4 +1,4 @@
-export interface Props {
+export type Props = {
   drawingMode?: boolean;
   drawColor?: string;
 }

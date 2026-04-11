@@ -1,7 +1,7 @@
 /**
  * Validation Errors structure
  */
-export interface ValidationErrors {
+export type ValidationErrors = {
 	email?: string;
 	password?: string;
 	phone?: string;

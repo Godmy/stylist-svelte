@@ -1,7 +1,7 @@
 /**
  * User Data structure
  */
-export interface UserData {
+export type UserData = {
   id: string;
   name: string;
   email?: string;

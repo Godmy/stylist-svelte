@@ -1,4 +1,4 @@
-export interface Props {
+export type Props = {
   componentName?: string;
   category?: string;
   subcategory?: string;

@@ -2,7 +2,7 @@ import type { HTMLAttributes } from 'svelte/elements';
 import type { BulkOrderFormItem } from '../bulk-order-form-item';
 import type { BulkOrderFormProduct } from '../bulk-order-form-product';
 
-export interface BulkOrderFormProps extends Omit<HTMLAttributes<HTMLElement>, 'class'> {
+export type BulkOrderFormProps = Omit<HTMLAttributes<HTMLElement>, 'class'> & {
 	products: BulkOrderFormProduct[];
 	initialItems?: BulkOrderFormItem[];
 	title?: string;

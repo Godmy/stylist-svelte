@@ -21,6 +21,6 @@ export type { LayoutElevationSemantic } from './layout-elevation-semantic';
 export type { CardProps, CenteredLayoutProps, ContainerQueryProps, GridLayoutExtendedProps, GridMoleculeProps, HorizontalLayoutProps, LayoutSection, OverlayLayerProps, OverlayLayoutProps, SidebarLayoutProps, SplitLayoutProps, StickyLayoutProps, VerticalLayoutProps } from './layout-extended';
 export type { LayoutGradients } from './layout-gradients';
 export type { LayoutTheme } from './layout-theme';
+export type { SeparatorProps } from './separator';
 export type { SpacerProps } from './spacer';
 export type { StackProps } from './stack';
-export type { SeparatorProps } from './separator';

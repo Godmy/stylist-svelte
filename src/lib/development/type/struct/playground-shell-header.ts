@@ -7,7 +7,7 @@ export type ColorScheme = {
   accentStrong: string;
 };
 
-export interface Props {
+export type Props = {
   showComponentTree?: boolean;
   showAIPanel?: boolean;
   drawingMode?: boolean;

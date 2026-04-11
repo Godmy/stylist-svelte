@@ -1,4 +1,4 @@
-export interface PageBuilderImageAttributes {
+export type PageBuilderImageAttributes = {
   src?: string;
   alt?: string;
   width?: string;

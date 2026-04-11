@@ -1,4 +1,4 @@
-export interface InputValueProps {
+export type InputValueProps = {
 	value?: string;
 	defaultValue?: string;
 	onValueChange?: (value: string) => void;

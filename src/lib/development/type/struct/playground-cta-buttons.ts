@@ -1,4 +1,4 @@
-export interface Props {
+export type Props = {
   totalComponents: number;
   componentsHref?: string;
   playgroundHref?: string;

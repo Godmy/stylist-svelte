@@ -1,4 +1,4 @@
-export const TIER_CONTENT = [
+export const TOKEN_TIER_CONTENT = [
 	'dot',
 	'icon',
 	'pill',

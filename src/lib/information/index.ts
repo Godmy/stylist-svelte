@@ -5,7 +5,7 @@ export { buildConditionalClassNames, createAbbrState, createAriaAttributes, crea
 export { MetricCard, StatCard, StatsCard, Table, TableBody, TableCell, TableHeader, TableRow } from './svelte';
 export type { ClassValue } from './function';
 export type { ListItemMarkerType, StatusSeverity, StatusState } from './interface';
-export type { InformationHTMLAttributes, StatsCardData, StatsCardTrend, TokenInformationIcon, TokenStatus, TokenTableCell } from './type';
+export type { ChildrenProp, ClassProp, ContentProp, InformationHTMLAttributes, Props, StatsCardData, StatsCardTrend, TokenInformationIcon, TokenStatus, TokenTableCell } from './type';
 export type { MetricCardStateProps, StatsCardStateProps } from './function';
 export type { AccessibilityCheckboxRecipe, AtomicPrinciplesRecipe, CounterRecipe, DotRecipe, IMetricValue, IStatusSlot, ITrendable, ListItemMarkerRecipe, MetricCardRecipe, SearchResultsRecipe, SortRecipe, SortableGridRecipe, StatCardRecipe, StatsCardRecipe, StatusIndicatorRecipe, TableCellRecipe, TableRecipe, TableRowRecipe, TableSectionRecipe } from './interface';
-export type { ChildrenProp, ClassProp, ContentProp, HtmlAttributesBase, HtmlAttributesWithChildren, HtmlAttributesWithContent, Props } from './type';
+export type { HtmlAttributesBase, HtmlAttributesWithChildren, HtmlAttributesWithContent } from './type';

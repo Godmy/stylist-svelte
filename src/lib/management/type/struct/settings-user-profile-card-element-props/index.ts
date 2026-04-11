@@ -4,7 +4,7 @@ import type { UserData } from '../settings-user-data';
 /**
  * User Profile Card Props
  */
-export interface UserProfileCardElementProps extends HTMLAttributes<HTMLDivElement> {
+export type UserProfileCardElementProps = HTMLAttributes<HTMLDivElement> & {
   /** User data */
   user?: UserData;
   /** Show avatar */

@@ -1,6 +1,6 @@
 import type { ProductForQuote } from '../product-for-quote';
 
-export interface QuoteRequestValue {
+export type QuoteRequestValue = {
 	requesterName: string;
 	requesterEmail: string;
 	requesterPhone?: string;

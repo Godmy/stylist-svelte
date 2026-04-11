@@ -1,3 +1,3 @@
-export interface IDisableable {
+export type IDisableable = {
 	disabled?: boolean;
 }

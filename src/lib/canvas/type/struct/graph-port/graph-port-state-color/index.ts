@@ -1,6 +1,6 @@
 import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 
-export interface GraphPortStateColor {
+export type GraphPortStateColor = {
 	default: string;
 	connected: string;
 	hovered: string;

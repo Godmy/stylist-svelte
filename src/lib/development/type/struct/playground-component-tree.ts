@@ -1,4 +1,4 @@
-export interface Story {
+export type Story = {
   id: string;
   componentName: string;
   category: string;
@@ -6,13 +6,13 @@ export interface Story {
   path: string;
 }
 
-export interface GroupedStories {
+export type GroupedStories = {
   [category: string]: {
     [subcategory: string]: Story[];
   };
 }
 
-export interface TreeNodeData {
+export type TreeNodeData = {
   name: string;
   type: 'category' | 'folder' | 'component';
   children?: TreeNodeData[];
@@ -22,7 +22,7 @@ export interface TreeNodeData {
   count?: number;
 }
 
-export interface Props {
+export type Props = {
   onComponentSelect?: (storyId: string) => void;
   groupedStories?: GroupedStories;
   selectedStoryId?: string | null;

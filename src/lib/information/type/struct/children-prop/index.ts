@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
 
-export interface ChildrenProp {
+export type ChildrenProp = {
 	children?: Snippet<[]>;
 }

@@ -1,6 +1,6 @@
 import type { TokenComponentType } from '$stylist/architecture/type/enum/component-type';
 
-export interface PageBuilderToolbarItem {
+export type PageBuilderToolbarItem = {
   type: TokenComponentType;
   label: string;
   icon: string;

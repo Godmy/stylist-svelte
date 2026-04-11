@@ -1,7 +1,7 @@
 /**
  * Account Settings data structure
  */
-export interface AccountSettings {
+export type AccountSettings = {
   email?: string;
   password?: string;
   twoFactorEnabled?: boolean;

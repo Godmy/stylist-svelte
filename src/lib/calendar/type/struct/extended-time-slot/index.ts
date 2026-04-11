@@ -1,10 +1,4 @@
-export type CalendarEventTimeGrid = {
-	id: string;
-	title: string;
-	start: Date;
-	end: Date;
-	color?: string;
-};
+import type { CalendarEventTimeGrid } from '$stylist/calendar/type/struct/calendar-event-time-grid';
 
 export type ExtendedTimeSlot = {
 	start: Date;

@@ -1,28 +1,16 @@
 <script lang="ts">
-  let {
-    products = [],
-    layout = 'grid', // 'grid' or 'list'
-    class: className = ''
-  } = $props<{
-    products: Array<{
-      id: string;
-      title: string;
-      price: number;
-      currency: string;
-      image: string;
-      rating: number;
-      badge?: string;
-    }>;
-    layout?: 'grid' | 'list';
-    class?: string;
-  }>();
+  import type { Props } from '$stylist/commerce/type/struct/product-catalog';
+  import { createProductCatalogState } from '$stylist/commerce/function/state/product-catalog';
+
+  let props: Props = $props();
+  const state = createProductCatalogState(props);
 </script>
 
-<div class={`bg-[var(--color-background-primary)] rounded-lg shadow ${className}`}>
-  <div class={`${layout === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6' : 'flex flex-col p-4'}`}>
-    {#each products as product}
-      {#if layout === 'grid'}
-        <div class="border rounded-lg overflow-hidden">
+<div class={state.containerClass}>
+  <div class={state.contentClass}>
+    {#each props.products as product}
+      {#if state.isGridLayout()}
+        <div class={state.getGridItemClass()}>
           {#if product.image}
             <img src={product.image} alt={product.title} class="w-full h-48 object-cover" />
           {/if}
@@ -46,7 +34,7 @@
           </div>
         </div>
       {:else}
-        <div class="flex border-b py-4 last:border-b-0">
+        <div class={state.getListItemClass()}>
           {#if product.image}
             <img src={product.image} alt={product.title} class="w-24 h-24 object-cover rounded mr-4" />
           {/if}

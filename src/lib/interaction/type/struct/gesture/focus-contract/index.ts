@@ -3,7 +3,7 @@ import type { GestureContract } from '..';
 /**
  * Контракт для focusable элементов
  */
-export interface FocusContract extends GestureContract {
+export type FocusContract = GestureContract & {
 	/** Обработчик фокуса */
 	onFocus?: (event: FocusEvent) => void;
 	/** Обработчик потери фокуса */

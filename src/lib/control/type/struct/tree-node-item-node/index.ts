@@ -1,4 +1,4 @@
-export interface TreeNodeItemNode {
+export type TreeNodeItemNode = {
   key?: string;
   desc: string;
   child?: TreeNodeItemNode[];

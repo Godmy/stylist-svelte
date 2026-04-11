@@ -3,7 +3,7 @@ import type { ComponentType, Snippet } from 'svelte';
 export type ViewportSize = 'mobile' | 'tablet' | 'desktop' | 'fullscreen';
 export type BackgroundType = 'white' | 'gray' | 'dark' | 'transparent';
 
-export interface Props {
+export type Props = {
   component?: ComponentType | null;
   props?: Record<string, any>;
   children?: Snippet;

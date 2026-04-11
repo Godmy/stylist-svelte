@@ -1,7 +1,6 @@
 <script lang="ts">
 import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
-import * as ChatItemModule from '../chat-item/index.svelte';
-const ChatItem: any = ChatItemModule.default ?? ChatItemModule;
+import ChatItem from '../chat-item/index.svelte';
 import { createChatListState } from '$stylist/communication/function/state/chat-list';
 
 let props: {

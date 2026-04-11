@@ -1,7 +1,7 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { Model } from '../model';
 
-export interface ModelSelectorProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type ModelSelectorProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	models?: Model[];
 	selectedModel?: string;
 	onModelSelect?: (modelId: string) => void;

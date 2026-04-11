@@ -1,4 +1,4 @@
-export interface InformationPieChartSegment {
+export type InformationPieChartSegment = {
 	fill: string;
 	path: string;
 }

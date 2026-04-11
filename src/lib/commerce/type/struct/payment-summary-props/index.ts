@@ -4,7 +4,7 @@ import type { PaymentSummaryItem } from '../payment-summary-item';
 import type { PaymentSummaryDiscount } from '../payment-summary-discount';
 import type { PaymentSummaryTax } from '../payment-summary-tax';
 
-export interface PaymentSummaryProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type PaymentSummaryProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	title?: string;
 	subtitle?: string;
 	items: PaymentSummaryItem[];

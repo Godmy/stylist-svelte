@@ -1,20 +1,6 @@
-import type { TokenPaymentMethod } from '$stylist/commerce/type/enum/payment-method';
-
-export interface PaymentMethod {
+export type PaymentMethod = {
 	id: string;
-	type: TokenPaymentMethod;
-	name: string;
-	description?: string;
-	details?: string;
+	type: 'credit_card' | 'paypal' | 'bank_transfer' | 'digital_wallet';
 	lastFour?: string;
 	expiry?: string;
-	issuer?: string;
-	enabled?: boolean;
-	fee?: number;
-	processingTime?: string;
-	limitations?: string[];
-	disabled?: boolean;
-	isDefault?: boolean;
-	isVerified?: boolean;
-	nickname?: string;
 }

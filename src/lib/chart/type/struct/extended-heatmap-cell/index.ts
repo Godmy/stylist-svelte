@@ -1,6 +1,6 @@
 ﻿import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
 
-export interface IExtendedHeatmapCell extends IHeatmapCell {
+export type IExtendedHeatmapCell = IHeatmapCell & {
 	id: string;
 	x: number;
 	y: number;

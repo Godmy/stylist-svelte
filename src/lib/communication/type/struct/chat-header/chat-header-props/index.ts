@@ -3,7 +3,7 @@ import type { Snippet } from 'svelte';
 import type { ChatHeaderChat } from '../chat-header-chat';
 import type { ChatHeaderUser } from '../chat-header-user';
 
-export interface ChatHeaderProps extends Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
+export type ChatHeaderProps = Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> & {
 	chat: ChatHeaderChat;
 	currentUser: ChatHeaderUser;
 	showActions?: boolean;

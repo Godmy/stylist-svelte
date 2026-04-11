@@ -1,7 +1,7 @@
 import type { User } from '../user';
 
 // Chat type
-export interface Chat {
+export type Chat = {
   id: string;
   name?: string;
   participants: User[];

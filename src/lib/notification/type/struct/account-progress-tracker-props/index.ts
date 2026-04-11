@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
-export interface AccountProgressTrackerProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type AccountProgressTrackerProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	steps?: string[];
 	currentStep?: number;
 	class?: string;

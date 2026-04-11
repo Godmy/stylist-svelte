@@ -1,4 +1,4 @@
-export interface TextInputBaseProps {
+export type TextInputBaseProps = {
 	value?: string;
 	placeholder?: string;
 	maxLength?: number;

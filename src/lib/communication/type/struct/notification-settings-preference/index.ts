@@ -1,6 +1,6 @@
 import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
 
-export interface INotificationSettingsPreference {
+export type INotificationSettingsPreference = {
   id: string;
   name: string;
   description?: string;

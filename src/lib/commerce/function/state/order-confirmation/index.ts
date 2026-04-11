@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createOrderConfirmationState } from './index.svelte.ts';
+export { default as createOrderConfirmationState } from './index.svelte';

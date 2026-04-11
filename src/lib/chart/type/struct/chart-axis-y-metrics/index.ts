@@ -1,4 +1,4 @@
-export interface ChartAxisYMetrics {
+export type ChartAxisYMetrics = {
 	x: number;
 	startY: number;
 	endY: number;

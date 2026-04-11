@@ -1,4 +1,4 @@
-export interface TypographyTextProps {
+export type TypographyTextProps = {
 	text?: string;
 	variant?: string;
 	size?: string;

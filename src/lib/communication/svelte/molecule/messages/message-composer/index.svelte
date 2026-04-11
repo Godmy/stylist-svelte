@@ -35,53 +35,53 @@ const Send = 'send';
    */
   let props: IMessageComposerProps = $props();
 
-  const compState = createMessageComposerState(props);
+  const state = createMessageComposerState(props);
 </script>
 
-<div class={compState.containerClasses} {...props}>
-  <form class={compState.formClasses} onsubmit={compState.handleSubmit}>
-    {#if compState.showAttachmentButton}
+<div class={state.containerClasses} {...props}>
+  <form class={state.formClasses} onsubmit={state.handleSubmit}>
+    {#if state.showAttachmentButton}
       <Button
         variant="ghost"
         size="sm"
         type="button"
-        onclick={compState.handleAttachmentClick}
-        disabled={compState.disabled}
-        class={compState.attachmentButtonClasses}
+        onclick={state.handleAttachmentClick}
+        disabled={state.disabled}
+        class={state.attachmentButtonClasses}
       >
         <BaseIcon name={Paperclip} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>
     {/if}
 
-    <div class={compState.inputContainerClasses}>
+    <div class={state.inputContainerClasses}>
       <textarea
-        class={compState.inputClasses}
-        value={compState.messageText}
+        class={state.inputClasses}
+        value={state.messageText}
         placeholder={props.placeholder}
-        oninput={compState.handleInput}
-        onkeydown={compState.handleKeyDown}
-        disabled={compState.disabled}
+        oninput={state.handleInput}
+        onkeydown={state.handleKeyDown}
+        disabled={state.disabled}
         rows="1"
       ></textarea>
     </div>
 
-    {#if compState.showSendButton}
+    {#if state.showSendButton}
       <Button
         variant="primary"
         type="submit"
-        disabled={compState.disabled}
-        class={compState.sendButtonClasses}
+        disabled={state.disabled}
+        class={state.sendButtonClasses}
       >
         <BaseIcon name={Send} class="h-5 w-5" />
       </Button>
-    {:else if compState.showVoiceButton}
+    {:else if state.showVoiceButton}
       <Button
         variant="ghost"
         size="sm"
         type="button"
-        onclick={compState.handleVoiceClick}
-        disabled={compState.disabled}
-        class={compState.voiceButtonClasses}
+        onclick={state.handleVoiceClick}
+        disabled={state.disabled}
+        class={state.voiceButtonClasses}
       >
         <BaseIcon name={Mic} class="h-5 w-5 text-[--color-text-secondary]" />
       </Button>

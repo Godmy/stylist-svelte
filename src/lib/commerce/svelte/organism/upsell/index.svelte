@@ -1,156 +1,79 @@
 <script lang="ts">
-  import { Story } from '$stylist/development/svelte/playground';
-  import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+  import type { UpsellContract } from '$stylist/commerce/interface/component/upsell';
+  import { createUpsellState as stateFn } from '$stylist/commerce/function/state/upsell';
 
-  import UpsellComponent from './index.svelte';
-
-  const Upsell = UpsellComponent as any;
-
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'showSavings', type: 'boolean', defaultValue: true },
-      { name: 'showReason', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
-
-  // Sample products for the upsell component
-  const currentProduct = {
-    id: 'plan-basic',
-    name: 'Starter Plan',
-    description: 'Includes 5 projects, basic analytics, and community support.',
-    price: 12
-  };
-
-  const upsellProducts = [
-    {
-      id: 'plan-pro',
-      name: 'Professional Plan',
-      description: 'Unlimited projects, advanced reports, and CRM sync.',
-      price: 32,
-      originalPrice: 42,
-      discountPercent: 25,
-      rating: 4.8,
-      reviewCount: 187,
-      tags: ['Most popular', 'Save 20%']
-    },
-    {
-      id: 'plan-enterprise',
-      name: 'Enterprise Plan',
-      description: 'Everything in Pro plus automation rules and premium support.',
-      price: 58,
-      originalPrice: 74,
-      discountPercent: 18,
-      tags: ['Automation', 'Teams']
-    },
-    {
-      id: 'plan-premium',
-      name: 'Premium Plan',
-      description: 'AI-powered insights and predictive analytics for growth teams.',
-      price: 86,
-      originalPrice: 102,
-      discountPercent: 15,
-      tags: ['AI Features']
-    }
-  ];
+  let props: UpsellContract = $props();
+  const state = stateFn(props);
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={Upsell}
-  category="Organisms"
-  controls={controls}
->
-  {#snippet children(values: any)}
-    <section class="sb-organisms-upsell grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Upsell Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Upsell component with upgrade recommendations.</p>
+<div class={state.containerClasses}>
+  <header class={state.headerClasses}>
+    <div>
+      <h3 class={state.titleClasses}>{props.title ?? 'You May Also Like'}</h3>
+      {#if props.description}
+        <p class={state.descriptionClasses}>{props.description}</p>
+      {/if}
+    </div>
+  </header>
 
-        <div class="mt-6">
-          <Upsell
-            currentProduct={currentProduct}
-            upsellProducts={upsellProducts}
-            title="You might upgrade to"
-            description="Consider these premium options"
-            showSavings={values.showSavings}
-            showReason={values.showReason}
-            maxProducts={3}
-            onProductUpgrade={(product: typeof upsellProducts[number]) => console.log('Upgraded to:', product.name)}
-            onProductAddToCart={(product: typeof upsellProducts[number]) => console.log('Added to cart:', product.name)}
-          />
-        </div>
+  <section class="mb-6 rounded-xl border border-[var(--color-border-primary)] p-4">
+    <p class="text-sm text-[var(--color-text-secondary)]">Current product</p>
+    <div class="mt-2 flex items-center justify-between gap-4">
+      <div>
+        <p class="font-medium text-[var(--color-text-primary)]">{props.currentProduct.name}</p>
+        {#if props.currentProduct.description}
+          <p class="text-sm text-[var(--color-text-secondary)]">{props.currentProduct.description}</p>
+        {/if}
       </div>
+      <p class={state.productPriceClasses}>{state.formatPrice(props.currentProduct.price)}</p>
+    </div>
+  </section>
 
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Upsell Variations</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Different upsell configurations with various options.
-        </p>
-
-        <div class="mt-5 space-y-4">
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Limited Products</p>
-            <div>
-              <Upsell
-                currentProduct={currentProduct}
-                upsellProducts={upsellProducts.slice(0, 1)}
-                title="Premium Upgrade"
-                description="Single recommendation for focused upsell"
-                showSavings={true}
-                showReason={false}
-                maxProducts={1}
-                onProductUpgrade={(product: typeof upsellProducts[number]) => console.log('Upgraded to:', product.name)}
-              />
-            </div>
-          </article>
-
-          <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Savings Highlight</p>
-            <div>
-              <Upsell
-                currentProduct={{
-                  ...currentProduct,
-                  name: 'Basic Package',
-                  price: 25
-                }}
-                upsellProducts={[
-                  {
-                    ...upsellProducts[0],
-                    name: 'Pro Package',
-                    price: 45,
-                    originalPrice: 60,
-                    discountPercent: 25
-                  }
-                ]}
-                title="Upgrade Opportunity"
-                description="Save money with our premium package"
-                showSavings={true}
-                showReason={true}
-                maxProducts={1}
-                onProductUpgrade={(product: typeof upsellProducts[number]) => console.log('Upgraded to:', product.name)}
-              />
-            </div>
-          </article>
+  <div class={state.productsContainerClasses}>
+    {#each state.visibleProducts as product}
+      <article class={state.productCardClasses}>
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h4 class={state.productTitleClasses}>{product.name}</h4>
+            {#if product.description}
+              <p class={state.descriptionClasses}>{product.description}</p>
+            {/if}
+          </div>
+          {#if product.isRecommended}
+            <span class={state.recommendedBadgeClasses}>Recommended</span>
+          {/if}
         </div>
-      </div>
-    </section>
-  {/snippet}
-</Story>
 
+        <div class="mt-3 flex items-center gap-3">
+          <span class={state.productPriceClasses}>{state.formatPrice(product.price)}</span>
+          {#if product.originalPrice}
+            <span class={state.productOriginalPriceClasses}>{state.formatPrice(product.originalPrice)}</span>
+          {/if}
+          {#if props.showSavings && state.getSavings(product) > 0}
+            <span class={state.savingsTextClasses}>Save {state.formatPrice(state.getSavings(product))}</span>
+          {/if}
+        </div>
 
+        {#if product.rating}
+          <div class="mt-3 flex items-center gap-1">
+            {#each Array.from({ length: 5 }) as _, index}
+              <span class={state.getStarClasses(index < Math.round(product.rating))}>★</span>
+            {/each}
+            <span class="ml-2 text-sm text-[var(--color-text-secondary)]">
+              {product.rating.toFixed(1)}{#if product.reviewCount} ({product.reviewCount}){/if}
+            </span>
+          </div>
+        {/if}
 
-
-
-
+        <div class={state.actionsContainerClasses}>
+          <button type="button" class={state.getActionButtonClasses('primary')} onclick={() => props.onProductUpgrade?.(product)}>
+            Upgrade
+          </button>
+          <button type="button" class={state.getActionButtonClasses('secondary')} onclick={() => props.onProductAddToCart?.(product)}>
+            Add to Cart
+          </button>
+        </div>
+      </article>
+    {/each}
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
-export interface ProgressBarWithLabelProps extends InteractionHTMLAttributes<HTMLDivElement> {
+export type ProgressBarWithLabelProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	value?: number;
 	max?: number;
 	label?: string;
