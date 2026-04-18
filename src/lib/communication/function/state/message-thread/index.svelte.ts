@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { MessageThreadProps } from '$stylist/communication/interface/component/chat/other';
+import type { SlotMessageThread as MessageThreadProps } from '$stylist/communication/interface/slot/message-thread';
 
 export const createMessageThreadState = (props: MessageThreadProps) => {
 	const hostClasses = $derived(

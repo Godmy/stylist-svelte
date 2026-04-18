@@ -1,7 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { PopoverPosition } from '$stylist/layout/class/style-manager/popover-position';
-
-export type { PopoverPosition } from '$stylist/layout/class/style-manager/popover-position';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
 
 export class PopoverStyleManager {
 	static getPositionClass(position: PopoverPosition): string {

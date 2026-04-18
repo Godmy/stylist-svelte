@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-screenshot-selector';
-
-export function createPlaygroundScreenshotSelectorState(props: Props) {
+import type { PlaygroundScreenshotSelectorProps } from '$stylist/development/type/struct/playground-screenshot-selector-props';
+export function createPlaygroundScreenshotSelectorState(props: PlaygroundScreenshotSelectorProps) {
   const drawingMode = $derived(props.drawingMode ?? false);
   const drawColor = $derived(props.drawColor ?? 'var(--color-error-500)');
 

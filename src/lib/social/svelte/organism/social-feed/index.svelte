@@ -1,16 +1,7 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
-  import {
-    SOCIAL_FEED_HEART as Heart,
-    SOCIAL_FEED_MESSAGE_CIRCLE as MessageCircle,
-    SOCIAL_FEED_SHARE_2 as Share2,
-    SOCIAL_FEED_MORE_HORIZONTAL as MoreHorizontal,
-    SOCIAL_FEED_USER as User,
-    SOCIAL_FEED_CALENDAR as Calendar,
-    SOCIAL_FEED_FILTER as Filter,
-    SOCIAL_FEED_SEARCH as Search
-  } from '$stylist/social/const/map/social-feed';
+  import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import { PostCard } from '$stylist';
   import createSocialFeedState from '$stylist/social/function/state/social-feed';
   import type { Props, Post } from '$stylist/social/type/struct/social-feed';
@@ -27,7 +18,7 @@
       {#if props.showSearch}
         <div class="relative w-64">
           <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <BaseIcon name={Search} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
+            <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'search') ?? 'search'} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
           </div>
           <input
             type="text"
@@ -70,7 +61,7 @@
           />
         {:else}
           <div class="h-10 w-10 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center">
-            <BaseIcon name={User} class="h-6 w-6 text-[var(--color-text-secondary)]" />
+            <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'user') ?? 'user'} class="h-6 w-6 text-[var(--color-text-secondary)]" />
           </div>
         {/if}
 
@@ -127,7 +118,7 @@
     {#if state.filteredPosts.length === 0}
       <div class="text-center py-12 border-b border-[var(--color-border-primary)]">
         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-[var(--color-background-secondary)]">
-          <BaseIcon name={MessageCircle} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
+          <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'message-circle') ?? 'message-circle'} class="h-6 w-6 text-[var(--color-text-tertiary)]" />
         </div>
         <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No posts</h3>
         <p class="mt-1 text-sm text-[var(--color-text-secondary)]">Get started by creating your first post.</p>

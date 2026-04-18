@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createCanvasToolbarState } from './index.svelte';
+export { createCanvasToolbarState } from './index.svelte';

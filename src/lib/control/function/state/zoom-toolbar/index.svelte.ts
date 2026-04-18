@@ -1,5 +1,5 @@
 import { ZoomToolbarStyleManager } from '$stylist/control/class/style-manager/zoom-toolbar';
-import type { ZoomToolbarProps } from '$stylist/control/interface/component/zoom-toolbar/other';
+import type { SlotZoomToolbar as ZoomToolbarProps } from '$stylist/control/interface/slot/zoom-toolbar';
 
 export function createZoomToolbarState(props: ZoomToolbarProps) {
 	let currentZoom = $state(props.zoomLevel ?? 100);

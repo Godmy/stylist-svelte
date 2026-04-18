@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ExtendedTranslationEditorProps, ILanguageSelectorProps, ILanguageSelectorStyleClasses, LocaleSwitcherLocale, LocaleSwitcherProps, LocaleSwitcherTimezoneOption, TranslationEditorProps } from './component';
+export type { LocaleSwitcherStateProps, TranslationEditorStateProps } from './recipe';
+export type { SlotExtendedTranslationEditor, SlotLanguageSelector, SlotLanguageSelectorStyleClasses, SlotLocaleSwitcher, SlotLocaleSwitcherLocale, SlotLocaleSwitcherTimezoneOption, SlotTranslationEditor } from './slot';

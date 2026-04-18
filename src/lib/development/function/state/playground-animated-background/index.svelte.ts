@@ -1,7 +1,7 @@
-import type { Props } from '$stylist/development/type/struct/playground-animated-background';
+import type { PlaygroundAnimatedBackgroundProps } from '$stylist/development/type/struct/playground-animated-background-props';
 import { PlaygroundAnimatedBackgroundStyleManager } from '$stylist/development/class/style-manager/playground-animated-background';
 
-export function createPlaygroundAnimatedBackgroundState(props: Props) {
+export function createPlaygroundAnimatedBackgroundState(props: PlaygroundAnimatedBackgroundProps) {
 	const children = $derived(props.children);
 
 	const containerClass = $derived(PlaygroundAnimatedBackgroundStyleManager.getContainerClasses());

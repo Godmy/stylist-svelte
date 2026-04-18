@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TaxCalculatorContract } from '$stylist/commerce/interface/component/tax-calculator';
+  import type { RecipeTaxCalculator as TaxCalculatorContract } from '$stylist/commerce/interface/recipe/tax-calculator';
   import { createTaxCalculatorState as stateFn } from '$stylist/commerce/function/state/tax-calculator';
 
   let props: TaxCalculatorContract = $props();
@@ -19,7 +19,7 @@
 
     {#if props.showLocationSelector !== false}
       <div class={state.fieldGroupClasses}>
-        <label class={state.labelClasses} for="tax-calculator-location">Location</label>
+        <label class={state.labelClasses} for="tax-calculator-location">SlotLocation</label>
         <select id="tax-calculator-location" class={state.selectClasses} bind:value={state.selectedLocationId}>
           {#each props.locations as location}
             <option value={location.id}>{location.name}</option>

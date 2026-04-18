@@ -1,7 +1,5 @@
 import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
-import type { SessionManagerProps } from '$stylist/form/interface/component/interaction-forms/other';
-
-export interface SessionManagerStateProps extends SessionManagerProps {}
+import type { SessionManagerStateProps } from '$stylist/management/interface/recipe/session-manager';
 
 export function createSessionManagerState(props: SessionManagerStateProps) {
 	const activeSessions = $derived(props.activeSessions ?? 1);

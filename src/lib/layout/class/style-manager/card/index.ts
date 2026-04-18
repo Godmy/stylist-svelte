@@ -2,31 +2,9 @@ import { mergeClassNames } from '$stylist/layout/function/script/merge-class-nam
 import { InteractiveStyleManager } from '$stylist/layout/class/style-manager/interactive';
 import type { LayoutShape } from '$stylist/layout/type/struct/item-layout-shape';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-
-const SHAPE_MAP: Record<LayoutShape, string> = {
-	rectangular: 'rounded-none',
-	rounded: 'rounded-xl',
-	pill: 'rounded-full',
-	circular: 'rounded-full aspect-square'
-};
-
-const PADDING_MAP: Record<string, string> = {
-	xs: 'p-2',
-	sm: 'p-3',
-	md: 'p-4',
-	lg: 'p-6',
-	xl: 'p-8'
-};
-
-const ELEVATION_MAP: Record<number, string> = {
-	0: '',
-	1: 'shadow-sm',
-	2: 'shadow',
-	3: 'shadow-md',
-	4: 'shadow-lg',
-	5: 'shadow-xl',
-	6: 'shadow-2xl'
-};
+import { CARD_SHAPE_MAP as SHAPE_MAP } from '$stylist/layout/const/map/card-shape-map';
+import { CARD_PADDING_MAP as PADDING_MAP } from '$stylist/layout/const/map/card-padding-map';
+import { CARD_ELEVATION_MAP as ELEVATION_MAP } from '$stylist/layout/const/map/card-elevation-map';
 
 export class CardStyleManager {
 	static getShapeClass(shape: LayoutShape): string {

@@ -1,7 +1,7 @@
-import type { IFieldHighlighterProps } from '$stylist/input/interface/component/field-highlighter/other';
-import type { IFieldHighlighterSelectedField } from '$stylist/input/interface/api/field-highlighter-selected-field';
-import type { IGraphEdge } from '$stylist/input/interface/api/graph-edge';
-import type { IGraphNode } from '$stylist/input/interface/api/graph-node';
+import type { SlotFieldHighlighter as IFieldHighlighterProps } from '$stylist/input/interface/slot/field-highlighter';
+import type { SlotFieldHighlighterSelectedField as IFieldHighlighterSelectedField } from '$stylist/input/interface/slot/field-highlighter-selected-field';
+import type { SlotGraphEdge as IGraphEdge } from '$stylist/input/interface/slot/graph-edge';
+import type { SlotGraphNode as IGraphNode } from '$stylist/input/interface/slot/graph-node';
 
 export const createFieldHighlighterState = (props: IFieldHighlighterProps) => {
 	function handleNodeClick(node: IGraphNode) {

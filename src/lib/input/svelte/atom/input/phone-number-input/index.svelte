@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IPhoneNumberInputProps } from '$stylist/input/interface/component/phone-number-input/other';
+	import type { SlotPhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/slot/phone-number-input';
 	import { createPhoneNumberInputState } from '$stylist/input/function/state/phone-number-input';
 
 	let props: IPhoneNumberInputProps = $props();

@@ -25,5 +25,3 @@ export { createStepConnectorState } from './step-connector';
 export { createStepIconState } from './step-icon';
 export { createToastState } from './toast';
 export { createToastStackState } from './toast-stack';
-export type { SpinnerVariant } from './spinner';
-export type { StepIconContent } from './step-icon';

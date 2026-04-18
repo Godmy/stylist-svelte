@@ -1,5 +1,5 @@
 import { ConfirmationDialogStyleManager } from '$stylist/navigation/class/style-manager/confirmation-dialog';
-import type { ConfirmationDialogProps } from '$stylist/navigation/interface/component/confirmation-dialog/other';
+import type { SlotConfirmationDialog as ConfirmationDialogProps } from '$stylist/navigation/interface/slot/confirmation-dialog';
 
 export function createConfirmationDialogState(props: ConfirmationDialogProps) {
 	const handleConfirm = () => {

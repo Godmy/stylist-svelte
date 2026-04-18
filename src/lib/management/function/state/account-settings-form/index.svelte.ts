@@ -1,7 +1,5 @@
-import type { AccountSettingsFormProps } from '$stylist/form/interface/component/account-forms/other';
 import { AccountFormsStyleManager } from '$stylist/form/class/style-manager/account-forms';
-
-export interface AccountSettingsFormStateProps extends AccountSettingsFormProps {}
+import type { AccountSettingsFormStateProps } from '$stylist/management/interface/recipe/account-settings-form';
 
 export function createAccountSettingsFormState(props: AccountSettingsFormStateProps) {
 	const name = $derived(props.name ?? 'John Doe');

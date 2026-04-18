@@ -1,5 +1,5 @@
 import { PriceFilterStyleManager } from '$stylist/commerce/class/style-manager/price-filter';
-import type { PriceFilterProps } from '../pricefilterprops';
+import type { PriceFilterProps } from '$stylist/commerce/interface/recipe/price-filter-props';
 
 export function createPriceFilterState(props: PriceFilterProps) {
 	let min = $state(props.currentMin ?? 0);

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/playground-ai-assistant';
+  import type { PlaygroundAiAssistantProps } from '$stylist/development/type/struct/playground-ai-assistant-props';
   import { createPlaygroundAiAssistantState } from '$stylist/development/function/state/playground-ai-assistant';
   import { Icon as BaseIcon } from '$stylist';
 
-  let { ...props }: Props = $props();
+  let { ...props }: PlaygroundAiAssistantProps = $props();
   const state = createPlaygroundAiAssistantState(props);
 </script>
 

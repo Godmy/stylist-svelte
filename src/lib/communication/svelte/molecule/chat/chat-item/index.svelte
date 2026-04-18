@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import { Avatar, Badge } from '$stylist';
   import { MessageTimestamp } from '$stylist/communication/svelte/atom/chat/atoms/message-timestamp';
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';

@@ -1,5 +1,5 @@
 import { clampFoundationDepth } from '$stylist/architecture/function/script/depth';
-import type { FoundationDepth } from '$stylist/architecture/function/script/foundation-depth-range';
+import type { FoundationDepth } from '$stylist/architecture/type/script/foundation-depth-range';
 
 export function getFoundationDepthDistance(
 	worldDepth: FoundationDepth,

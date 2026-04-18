@@ -5,20 +5,8 @@
   import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';
   import type { PageBuilderButtonAttributes } from '$stylist/control/type/struct/page-builder-button-attributes';
   import type { PageBuilderImageAttributes } from '$stylist/control/type/struct/page-builder-image-attributes';
-  import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/control/const/struct/page-builder-toolbar-items';
-  import {
-    PAGE_BUILDER_ICON_COLUMNS_2,
-    PAGE_BUILDER_ICON_COPY,
-    PAGE_BUILDER_ICON_EYE,
-    PAGE_BUILDER_ICON_GRIP_VERTICAL,
-    PAGE_BUILDER_ICON_IMAGE,
-    PAGE_BUILDER_ICON_PLUS,
-    PAGE_BUILDER_ICON_SAVE,
-    PAGE_BUILDER_ICON_SQUARE,
-    PAGE_BUILDER_ICON_TRASH_2,
-    PAGE_BUILDER_ICON_TYPE,
-    PAGE_BUILDER_ICON_X
-  } from '$stylist/control/const/map/page-builder-icons';
+  import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/control/const/record/page-builder-toolbar-items';
+  import { PAGE_BUILDER_ICON } from '$stylist/control/const/map/page-builder-icons';
   import { createPageBuilderState } from '$stylist/control/function/state/page-builder';
   import { pageBuilderRenderElement } from '$stylist/control/function/script/page-builder';
   import type { PageBuilderProps } from '$stylist/control/type/struct/page-builder-props';
@@ -52,7 +40,7 @@
           onclick={() => (state.isPreviewMode = !state.isPreviewMode)}
           title="Preview"
         >
-          <BaseIcon name={PAGE_BUILDER_ICON_EYE} class="h-4 w-4" />
+          <BaseIcon name={PAGE_BUILDER_ICON.EYE} class="h-4 w-4" />
         </button>
         <button
           type="button"
@@ -60,7 +48,7 @@
           onclick={state.handleSave}
           title="Save"
         >
-          <BaseIcon name={PAGE_BUILDER_ICON_SAVE} class="h-4 w-4" />
+          <BaseIcon name={PAGE_BUILDER_ICON.SAVE} class="h-4 w-4" />
         </button>
       </div>
     </div>
@@ -78,7 +66,7 @@
         <div class="max-w-4xl mx-auto border border-dashed border-[var(--color-border-primary)] rounded-lg min-h-[400px] p-4">
           {#if state.elements.length === 0}
             <div class="flex flex-col items-center justify-center h-64 text-[var(--color-text-secondary)]">
-              <BaseIcon name={PAGE_BUILDER_ICON_SQUARE} class="h-12 w-12 mb-4" />
+              <BaseIcon name={PAGE_BUILDER_ICON.SQUARE} class="h-12 w-12 mb-4" />
               <p>Drag elements here to start building your page</p>
               <p class="text-sm mt-2">Or use the toolbar to add elements</p>
             </div>
@@ -101,7 +89,7 @@
                 }}
               >
                 <div class={PageBuilderStyleManager.getDragHandleClasses()}>
-                  <BaseIcon name={PAGE_BUILDER_ICON_GRIP_VERTICAL} class="h-4 w-4" />
+                  <BaseIcon name={PAGE_BUILDER_ICON.GRIP_VERTICAL} class="h-4 w-4" />
                 </div>
 
                 {#if element.type === 'text'}
@@ -123,7 +111,7 @@
                 {:else if element.type === 'image'}
                   {@const attrs = element.attributes as PageBuilderImageAttributes | undefined}
                   <div class="border border-[var(--color-border-primary)] rounded flex items-center justify-center h-32 bg-[var(--color-background-secondary)]">
-                    <BaseIcon name={PAGE_BUILDER_ICON_IMAGE} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
+                    <BaseIcon name={PAGE_BUILDER_ICON.IMAGE} class="h-8 w-8 text-[var(--color-text-tertiary)]" />
                     <span class="ml-2 text-sm text-[var(--color-text-secondary)]">Image: {attrs?.alt ?? 'Placeholder'}</span>
                   </div>
                 {/if}
@@ -138,7 +126,7 @@
                     }}
                     title="Duplicate"
                   >
-                    <BaseIcon name={PAGE_BUILDER_ICON_COPY} class="h-4 w-4" />
+                    <BaseIcon name={PAGE_BUILDER_ICON.COPY} class="h-4 w-4" />
                   </button>
                   <button
                     type="button"
@@ -149,7 +137,7 @@
                     }}
                     title="Delete"
                   >
-                    <BaseIcon name={PAGE_BUILDER_ICON_TRASH_2} class="h-4 w-4" />
+                    <BaseIcon name={PAGE_BUILDER_ICON.TRASH_2} class="h-4 w-4" />
                   </button>
                 </div>
               </div>
@@ -162,7 +150,7 @@
               class={PageBuilderStyleManager.getAddElementButtonClasses()}
               onclick={() => state.addElement('text', state.elements.length)}
             >
-              <BaseIcon name={PAGE_BUILDER_ICON_PLUS} class="h-4 w-4 mr-1" />
+              <BaseIcon name={PAGE_BUILDER_ICON.PLUS} class="h-4 w-4 mr-1" />
               Add Element
             </button>
           </div>
@@ -180,7 +168,7 @@
             onclick={() => (state.selectedElementId = null)}
             title="Close"
           >
-            <BaseIcon name={PAGE_BUILDER_ICON_X} class="h-5 w-5" />
+            <BaseIcon name={PAGE_BUILDER_ICON.X} class="h-5 w-5" />
           </button>
         </div>
 

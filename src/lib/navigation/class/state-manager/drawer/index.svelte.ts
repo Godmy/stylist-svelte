@@ -62,5 +62,3 @@ export class DrawerManager {
 		handleEscape(e, this.closable, () => this.close());
 	}
 }
-
-export default DrawerManager;

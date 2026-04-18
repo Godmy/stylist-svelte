@@ -1,25 +1,5 @@
-import type { Snippet } from 'svelte';
-import type { HTMLAttributes } from 'svelte/elements';
-
-export type DashboardLayoutVariant = 'default' | 'compact' | 'spacious';
-
-export interface DashboardLayoutProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-	header?: Snippet;
-	sidebar?: Snippet;
-	sidebarOpen?: boolean;
-	footer?: Snippet;
-	children: Snippet;
-	class?: string;
-	headerClass?: string;
-	sidebarClass?: string;
-	contentClass?: string;
-	footerClass?: string;
-	collapsibleSidebar?: boolean;
-	onSidebarToggle?: (open: boolean) => void;
-	mobileBreakpoint?: string;
-	showSidebarToggle?: boolean;
-	variant?: DashboardLayoutVariant;
-}
+import type { DashboardLayoutVariant } from '$stylist/management/type/alias/dashboard-layout-variant';
+import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
 
 export function createDashboardLayoutState(props: DashboardLayoutProps) {
 	// Props with defaults
@@ -30,7 +10,7 @@ export function createDashboardLayoutState(props: DashboardLayoutProps) {
 	const showSidebarToggle = $derived(props.showSidebarToggle ?? true);
 	const variant = $derived<DashboardLayoutVariant>(props.variant ?? 'default');
 
-	// State
+	// SlotState
 	let isSidebarOpen = $state(props.sidebarOpen ?? true);
 
 	// Sync with sidebarOpen prop

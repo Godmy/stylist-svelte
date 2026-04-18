@@ -1,6 +1,5 @@
 import type { MapWithMarkersMarker, MapWithMarkersView, MapWithMarkersProps } from '$stylist/geo/type/struct/map-with-markers';
-
-export interface MapWithMarkersStateProps extends MapWithMarkersProps {}
+import type { MapWithMarkersStateProps } from '$stylist/geo/interface/recipe/map-with-markers';
 
 export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 	const markers = $derived(props.markers ?? []);

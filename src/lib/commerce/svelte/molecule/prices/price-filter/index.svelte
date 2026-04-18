@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PriceFilterProps } from '$stylist/commerce/function/state/price-filter';
+	import type { PriceFilterProps } from '$stylist/commerce/interface/recipe/price-filter-props';
 	import { createPriceFilterState } from '$stylist/commerce/function/state/price-filter';
 
 	let props: PriceFilterProps = $props();

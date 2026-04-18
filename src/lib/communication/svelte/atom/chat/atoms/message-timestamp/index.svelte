@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createMessageTimestampState } from '$stylist/communication/function/state/message-timestamp';
-  import type { MessageTimestampContract } from '$stylist/communication/interface/component/message-timestamp/contract';
+  import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/communication/interface/slot/message-timestamp';
 
   let props: MessageTimestampContract = $props();
 

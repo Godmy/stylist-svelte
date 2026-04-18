@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ProductCardStateProps } from '$stylist/commerce/function/state/product-card';
+	import type { ProductCardStateProps } from '$stylist/commerce/interface/recipe/product-card-state-props';
 	import { createProductCardState } from '$stylist/commerce/function/state/product-card';
 	import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
 

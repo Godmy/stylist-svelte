@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createShippingInfoState } from './index.svelte';
+export { createShippingInfoState } from './index.svelte';

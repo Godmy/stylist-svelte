@@ -1,5 +1,5 @@
 import { PriceMatchStyleManager } from '$stylist/commerce/class/style-manager/price-match';
-import type { PriceMatchProps } from '../pricematchprops';
+import type { PriceMatchProps } from '$stylist/commerce/interface/recipe/price-match-props';
 
 export function createPriceMatchState(props: PriceMatchProps) {
 	const competitorPrices = $derived(props.competitorPrices ?? []);

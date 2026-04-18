@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import OrderTracking from './index.svelte';
+  import RecipeOrderTracking from './index.svelte';
 
   let {
     id = '',
@@ -33,7 +33,7 @@
         status: 'processing' as const,
         timestamp: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000), // 3 days ago
         location: 'Warehouse, NY',
-        description: 'Order processed',
+        description: 'SlotOrder processed',
         notes: 'Package prepared for shipment'
       },
       {
@@ -64,7 +64,7 @@
   {id}
   {title}
   {description}
-  component={OrderTracking}
+  component={RecipeOrderTracking}
   category="Organisms"
   controls={controls}
 >
@@ -72,12 +72,12 @@
     <section class="sb-organisms-order-tracking grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Order Tracking Example
+          Primary SlotOrder Tracking Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Order tracking with progress visualization.</p>
+        <p class="mt-1 text-[--color-text-primary]">SlotOrder tracking with progress visualization.</p>
 
         <div class="mt-6">
-          <OrderTracking
+          <RecipeOrderTracking
             trackingInfo={trackingInfo}
             showRecipientDetails={values.showRecipientDetails}
             showContactCarrier={values.showContactCarrier}
@@ -98,9 +98,9 @@
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delivered Order</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delivered SlotOrder</p>
             <div>
-              <OrderTracking
+              <RecipeOrderTracking
                 trackingInfo={{
                   ...trackingInfo,
                   status: 'delivered',
@@ -128,9 +128,9 @@
           </article>
 
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delayed Order</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delayed SlotOrder</p>
             <div>
-              <OrderTracking
+              <RecipeOrderTracking
                 trackingInfo={{
                   ...trackingInfo,
                   status: 'delayed',
@@ -141,7 +141,7 @@
                       status: 'processing' as const,
                       timestamp: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000), // 5 days ago
                       location: 'Warehouse, NY',
-                      description: 'Order processed',
+                      description: 'SlotOrder processed',
                       notes: 'Package prepared for shipment'
                     },
                     {

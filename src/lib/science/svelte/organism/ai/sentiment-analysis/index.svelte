@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { SentimentAnalysisContract } from '$stylist/science/interface/record/science';
+	import type { RecipeSentimentAnalysis as SentimentAnalysisContract } from '$stylist/science/interface/recipe/sentiment-analysis';
 	import { createSentimentAnalysisState } from '$stylist/science/function/state/sentiment-analysis';
 
 	let props: SentimentAnalysisContract = $props();

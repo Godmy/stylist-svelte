@@ -1,6 +1,4 @@
-export type ControlPanelStateProps = {
-  onSearch?: (query: string) => void;
-};
+import type { ControlPanelStateProps } from '$stylist/control/type/alias/control-panel-state-props';
 
 export function createControlPanelState(props: ControlPanelStateProps) {
   function handleSearch(query: string) {

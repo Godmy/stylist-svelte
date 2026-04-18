@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { OrderHistoryContract } from '$stylist/commerce/interface/component/order-history';
+	import type { RecipeOrderHistory as OrderHistoryContract } from '$stylist/commerce/interface/recipe/order-history';
 	import { createOrderHistoryState } from '$stylist/commerce/function/state/order-history';
 
 	let props: OrderHistoryContract = $props();
@@ -8,7 +8,7 @@
 
 <div class={state.containerClasses}>
 	<div class={state.headerClasses}>
-		<h2 class={state.titleClasses}>Order History</h2>
+		<h2 class={state.titleClasses}>SlotOrder History</h2>
 	</div>
 
 	{#if props.showSearch !== false}
@@ -28,7 +28,7 @@
 			<div class={state.orderItemClasses}>
 				<div class="flex items-center justify-between">
 					<div>
-						<p class={state.orderNumberClasses}>Order #{order.orderNumber}</p>
+						<p class={state.orderNumberClasses}>SlotOrder #{order.orderNumber}</p>
 						<p class={state.orderDateClasses}>{state.formatDate(order.date)}</p>
 					</div>
 					<div class="text-right">

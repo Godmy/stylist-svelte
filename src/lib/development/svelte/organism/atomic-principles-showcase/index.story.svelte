@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import AtomicPrinciplesShowcase from './index.svelte';
+  import RecipeAtomicPrinciplesShowcase from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'atoms', type: 'number', defaultValue: 180, min: 0, max: 1000, step: 1 },
@@ -13,13 +13,13 @@
 </script>
 
 <Story
-  component={AtomicPrinciplesShowcase}
+  component={RecipeAtomicPrinciplesShowcase}
   title="Atomic Principles Showcase"
   description="Landing block that presents atomic architecture levels with highlighted counters."
   {controls}
 >
   {#snippet children(values: any)}
-    <AtomicPrinciplesShowcase
+    <RecipeAtomicPrinciplesShowcase
       stats={{ atoms: values.atoms, molecules: values.molecules, organisms: values.organisms }}
       title={values.title}
       description={values.description}

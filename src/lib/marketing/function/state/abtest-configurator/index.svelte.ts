@@ -1,4 +1,5 @@
-import type { IABTestConfiguratorProps, ABTest } from '$stylist/marketing/interface/component/abtest-configurator/other';
+import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
+import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
 import { validateABTest } from '$stylist/marketing/function/script/validate-ab-test';
 import { calculateABTestTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
 import { addABTestVariant } from '$stylist/marketing/function/script/add-ab-test-variant';
@@ -6,14 +7,6 @@ import { removeABTestVariant } from '$stylist/marketing/function/script/remove-a
 import { updateABTestVariantWeight } from '$stylist/marketing/function/script/update-ab-test-variant-weight';
 import { toggleABTestVariantStatus } from '$stylist/marketing/function/script/toggle-ab-test-variant-status';
 import { ABTestConfiguratorStyleManager } from '$stylist/marketing/class/style-manager/abtest-configurator';
-
-export type ABTestConfiguratorState = {
-  containerClasses: string;
-  headerClasses: string;
-  formClasses: string;
-  variantClasses: string;
-  footerClasses: string;
-};
 
 export function createABTestConfiguratorState(props: IABTestConfiguratorProps & { class?: string; headerClass?: string; formClass?: string; variantClass?: string; footerClass?: string }) {
   const initialTest = $derived(props.initialTest);

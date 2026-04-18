@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PropsEditorProps } from '$stylist/development/type/struct/props-editor';
+  import type { PropsEditorProps } from '$stylist/development/type/struct/props-editor-props';
   import { createPropsEditorState } from '$stylist/development/function/state/playground/props-editor';
 
   let {

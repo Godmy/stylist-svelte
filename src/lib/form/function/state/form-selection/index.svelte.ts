@@ -1,21 +1,7 @@
 import type { FormSelectionProps } from '$stylist/form/type/struct/form-selection';
+import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
-export interface FormSelectionState {
-	isCollapsed: boolean;
-	sectionClasses: string;
-	showHeader: boolean;
-	rootClass: string;
-	sectionHeaderClass: string;
-	headerContentClass: string;
-	titleClass: string;
-	requiredMarkClass: string;
-	collapseButtonClass: string;
-	iconClass: string;
-	sectionDescriptionClass: string;
-	sectionContentClass: string;
-}
-
-export function createFormSelectionState(props: FormSelectionProps): FormSelectionState {
+export function createFormSelectionState(props: FormSelectionProps): SlotFormSelectionState {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
 
 	const sectionClasses = $derived(`

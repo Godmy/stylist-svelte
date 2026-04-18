@@ -1,16 +1,9 @@
-﻿import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
-import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
+﻿import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { TokenMonitoringType } from '$stylist/management/type/enum/monitoring-type';
 import { PRICE_ALERT_VARIANT_CLASSES } from '$stylist/commerce/const/record/price-alert-variant-classes';
-
-const PRICE_ALERT_BASE_CLASSES = `${StyleManagerBase.classes.card} p-4`;
-
-const PRICE_ALERT_SIZE_CLASSES = {
-	sm: 'p-2 text-sm',
-	md: 'p-4 text-base',
-	lg: 'p-6 text-lg'
-} as const;
+import { PRICE_ALERT_SIZE_CLASSES } from '$stylist/commerce/const/map/price-alert-size-classes';
+import { PRICE_ALERT_BASE_CLASSES } from '$stylist/commerce/const/value/price-alert-base-classes';
 
 export class PriceAlertStyleManager {
   static getClasses(

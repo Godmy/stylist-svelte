@@ -1,4 +1,4 @@
-import type { IMessageBubbleProps } from '$stylist/communication/interface/component/message-bubble/other';
+import type { SlotMessageBubble as IMessageBubbleProps } from '$stylist/communication/interface/slot/message-bubble';
 import { MessageBubbleStyleManager } from '$stylist/communication/class/style-manager/message-bubble';
 
 export const createMessageBubbleState = (props: IMessageBubbleProps) => {

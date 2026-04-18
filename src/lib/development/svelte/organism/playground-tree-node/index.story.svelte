@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundTreeNode from './index.svelte';
+  import RecipePlaygroundTreeNode from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'selectedStoryId', type: 'select', defaultValue: 'button-story', options: ['button-story', 'input-story'] }
@@ -32,13 +32,13 @@
 </script>
 
 <Story
-  component={PlaygroundTreeNode}
+  component={RecipePlaygroundTreeNode}
   title="Playground Tree Node"
   description="Individual node component for tree structures."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundTreeNode
+    <RecipePlaygroundTreeNode
       {node}
       level={0}
       expandedNodes={new Set(['Atoms', 'Atoms/Controls'])}

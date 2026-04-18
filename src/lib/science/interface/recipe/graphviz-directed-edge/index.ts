@@ -1,22 +1,20 @@
-/**
- * GraphvizDirectedEdge — ребро Graphviz..
+﻿/**
+ * GraphvizDirectedEdge вЂ” СЂРµР±СЂРѕ Graphviz..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export type GraphvizDirectedEdgeRecipe =
-	Omit<
-		RecordArchitectureMerge<[
+export interface GraphvizDirectedEdgeRecipe extends StructIntersectAll<[Omit<
+		StructIntersectAll<[
 			ILabelSlot,
 			ThemeAttributes<SVGPathElement>
 		]>,
 		'style'
-	> & {
-		id?: string;
+	>]> {		id?: string;
 		sourceX?: number;
 		sourceY?: number;
 		targetX?: number;
@@ -24,4 +22,6 @@ export type GraphvizDirectedEdgeRecipe =
 		color?: string;
 		width?: number;
 		style?: 'solid' | 'dashed' | 'dotted';
-	};
+	
+}
+

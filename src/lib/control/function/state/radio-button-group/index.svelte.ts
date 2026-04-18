@@ -1,8 +1,8 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { RadioButtonGroupProps } from '$stylist/control/interface/component/toggles';
+import type { RecipeRadioButtonGroupProps as RecipeRadioButtonGroupProps } from '$stylist/control/interface/recipe/radio-button-group-props';
 import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggles';
 
-export const createRadioButtonGroupState = (props: RadioButtonGroupProps) => {
+export const createRadioButtonGroupState = (props: RecipeRadioButtonGroupProps) => {
 	const containerClass = $derived(TogglesStyleManager.getToggleContainerClasses(props.class));
 	const options = $derived(props.options ?? []);
 	const name = $derived(props.name ?? '');

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createCalendarViewState } from '$stylist/calendar/function/state/calendar-view';
-	import type { CalendarViewStateProps } from '$stylist/calendar/function/state/calendar-view';
+	import type { RecipeCalendarView as CalendarViewStateProps } from '$stylist/calendar/interface/recipe/calendar-view';
 	import { Icon as BaseIcon, Button } from '$stylist';
 
 	const ChevronLeft = 'chevron-left';

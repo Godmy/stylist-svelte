@@ -1,4 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ChartLegendProps } from './recipe';
-export type { AbbrProps, BreadcrumbLinkProps, ConfirmationDialogProps, DialogProps, InlineBaseProps, InlineCodeProps, InlineTextProps, LinkProps, ModalProps, PaginationProps, SidebarProps } from './component';
-export type { BreadcrumbLinkRecipe, BreadcrumbRecipe, BreadcrumbsRecipe, ChartLegendRecipe, ConfirmationDialogRecipe, DialogControlsRecipe, LayoutRecipe, LayoutSpecificProps, LinkRecipe, LinkSpecificProps, PageEllipsisRecipe, PaginationRecipe, ToolbarFieldRecipe, ToolbarGroupRecipe, ToolbarRecipe, ToolbarSeparatorRecipe, TooltipWithArrowRecipe } from './recipe';
+export type { BreadcrumbLinkRecipe, BreadcrumbRecipe, BreadcrumbsRecipe, ChartLegendProps, ConfirmationDialogRecipe, DialogControlsRecipe, LayoutRecipe, LayoutSpecificProps, LinkRecipe, LinkSpecificProps, PageEllipsisRecipe, PaginationRecipe, PaginationStateProps, RecipeBreadcrumbLinkProps, RecipeLinkProps, RecipePaginationProps, SidebarStateProps, ToolbarFieldRecipe, ToolbarGroupRecipe, ToolbarRecipe, ToolbarSeparatorRecipe, TooltipWithArrowRecipe } from './recipe';
+export type { SlotAbbr, SlotConfirmationDialog, SlotDialog, SlotInlineBase, SlotInlineCode, SlotInlineText, SlotLink, SlotModal, SlotPagination, SlotSidebar } from './slot';

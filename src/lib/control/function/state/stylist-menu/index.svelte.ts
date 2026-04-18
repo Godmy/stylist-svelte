@@ -3,7 +3,7 @@ import type { PrimaryMenuItem } from '../../../type/struct/stylist-menu-primary-
 import type { FunctionalTabId } from '../../../type/struct/stylist-menu-functional-tab-id';
 import type { AtomicTabId } from '../../../type/struct/stylist-menu-atomic-tab-id';
 import type { StylistMenuProps } from '../../../type/struct/stylist-menu-props';
-import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '../../../const/struct/stylist-menu-functional-primary-sections';
+import { STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS } from '../../../const/record/stylist-menu-functional-primary-sections';
 
 const functionalPrimarySections = new Set<string>(STYLIST_MENU_FUNCTIONAL_PRIMARY_SECTIONS);
 

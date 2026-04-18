@@ -1,4 +1,4 @@
-import type { ReturnPolicyContract } from '$stylist/commerce/interface/component/return-policy';
+import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commerce/interface/recipe/return-policy';
 import { ReturnPolicyStyleManager } from '$stylist/commerce/class/style-manager/return-policy';
 
 export function createReturnPolicyState(props: ReturnPolicyContract) {

@@ -1,6 +1,6 @@
 <script lang="ts">
   /**
-   * @component ComponentPreview
+   * @component RecipeComponentPreview
    * @description Component preview with code and demo
    */
 

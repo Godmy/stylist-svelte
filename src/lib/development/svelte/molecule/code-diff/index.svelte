@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/code-diff';
+  import type { CodeDiffProps } from '$stylist/development/type/struct/code-diff-props';
   import { createCodeDiffState } from '$stylist/development/function/state/code-diff';
 
   let {
@@ -11,7 +11,7 @@
     headerClass = '',
     showLineNumbers = true,
     ...restProps
-  }: Props = $props();
+  }: CodeDiffProps = $props();
 
   const state = createCodeDiffState({ original, modified, language, class: hostClass, contentClass, headerClass, showLineNumbers, ...restProps });
 </script>
@@ -68,7 +68,3 @@
     position: relative;
   }
 </style>
-
-
-
-

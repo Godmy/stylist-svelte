@@ -1,8 +1,8 @@
 <script lang="ts">
   import { createPlaygroundDeviceFrameState } from '$stylist/development/function/state/playground-device-frame';
-  import type { Props, ViewportSize } from '$stylist/development/type/struct/playground-device-frame';
-
-  let props: Props = $props();
+  import type { PlaygroundDeviceFrameProps } from '$stylist/development/type/struct/playground-device-frame-props';
+  import type { PlaygroundDeviceFrameViewportSize } from '$stylist/development/type/struct/playground-device-frame-viewport-size';
+  let props: PlaygroundDeviceFrameProps = $props();
   const state = createPlaygroundDeviceFrameState(props);
 </script>
 

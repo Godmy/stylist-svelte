@@ -11,6 +11,3 @@ export { createMinimapState } from './minimap';
 export { createSharedCanvasState } from './shared-canvas';
 export { createStageState } from './stage';
 export { createViewportState } from './viewport';
-export type { Bounds } from './viewport-bounds';
-export type { ViewportInput } from './viewport-input';
-export type { ViewportState } from './viewport-state';

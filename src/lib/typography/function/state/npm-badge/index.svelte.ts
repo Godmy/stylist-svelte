@@ -1,6 +1,6 @@
 import type { NpmBadgeRecipe as NpmBadgeProps } from '$stylist/typography/interface/recipe/npm-badge';
 import { DataDisplayStyleManager } from '$stylist/typography/class/style-manager/data-display';
-import { DEFAULT_BADGE_LABEL } from '$stylist/typography/const/struct/badge-label';
+import { DEFAULT_BADGE_LABEL } from '$stylist/typography/const/record/badge-label';
 
 export function createNpmBadgeState(props: NpmBadgeProps) {
 	const type = $derived(props.type);

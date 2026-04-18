@@ -1,6 +1,6 @@
-﻿import type { ChartFunctionPoint, ChartSeries } from '$stylist/chart/interface/recipe/chart';
+﻿import type { ChartFunctionPoint, ChartSeries } from '$stylist/chart/type/struct';
 import type { ChartAxisYProps } from '$stylist/chart/interface/recipe/chart-axis-y-props';
-import type { ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
+import type { ChartPolylineRecipe as ChartPolylineProps } from '$stylist/chart/interface/recipe/chart-polyline';
 import type { PieChartProps } from '$stylist/chart/interface/recipe/pie-chart-props';
 import type { AnalyticsChartDataPoint } from '$stylist/chart/type/struct/analytics-chart-data-point';
 import type { ChartLegendItem } from '$stylist/navigation/type/struct/chart-legend-item';

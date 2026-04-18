@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProductCardExtendedState } from './index.svelte';
+export { createProductCardExtendedState } from './index.svelte';

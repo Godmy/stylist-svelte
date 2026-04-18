@@ -4,7 +4,7 @@
 
   import LocationSelector from './index.svelte';
 
-  type Location = {
+  type SlotLocation = {
     id: string;
     name: string;
     address?: string;
@@ -17,7 +17,7 @@
     tags?: string[];
   };
 
-  let locations: Location[] = [
+  let locations: SlotLocation[] = [
     {
       id: '1',
       name: 'Central Park',
@@ -138,7 +138,7 @@
             defaultCategory={values.defaultCategory}
             maxLocations={values.maxLocations}
             onLocationSelect={(location) => {
-              console.log('Location selected:', location.name);
+              console.log('SlotLocation selected:', location.name);
             }}
             onSearch={(query) => {
               console.log('Search query:', query);
@@ -179,7 +179,7 @@
           <div class="flex items-end">
             <label for="show-map-toggle" class="flex items-center gap-1">
               <input id="show-map-toggle" type="checkbox" bind:checked={showMapToggle} />
-              Show View Toggle
+              Show View SlotToggle
             </label>
           </div>
 

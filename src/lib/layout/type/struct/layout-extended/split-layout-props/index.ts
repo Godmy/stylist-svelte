@@ -1,6 +1,8 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
-import type { SplitLayoutDirection, SplitLayoutGap, SplitLayoutPanelSize } from '$stylist/layout/class/style-manager/split-layout';
+import type { SplitLayoutDirection } from '$stylist/layout/type/enum/split-layout-direction';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { SplitLayoutPanelSize } from '$stylist/layout/type/enum/split-layout-panel-size';
 
 export type SplitLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;

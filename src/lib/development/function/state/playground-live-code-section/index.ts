@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPlaygroundLiveCodeSectionState } from './index.svelte';
+export { createPlaygroundLiveCodeSectionState } from './index.svelte';

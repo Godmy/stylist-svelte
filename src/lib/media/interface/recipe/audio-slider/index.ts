@@ -1,23 +1,4 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AvatarSize, AvatarUserStatus } from '$stylist/media/interface/component/avatar';
-export type { IconColor, IconDirection, IconShape, IconSize, IconVariant } from '$stylist/media/interface/component/icon';
-export type { ImageSize } from '$stylist/media/interface/component/image';
-export type { AnnouncementBannerContract } from '$stylist/media/interface/component/announcement-banner';
-export type { AudioPlayerContract } from '$stylist/media/interface/component/audio-player';
-export type { AudioSliderContract } from '$stylist/media/interface/component/audio-slider';
-export type { AudioVisualizerContract } from '$stylist/media/interface/component/audio-visualizer';
-export type { AvatarContract } from '$stylist/media/interface/component/avatar';
-export type { AvatarGroupContract } from '$stylist/media/interface/component/avatar-group';
-export type { CanvasImageEditorContract } from '$stylist/media/interface/component/canvas-image-editor';
-export type { CountryFlagContract } from '$stylist/media/interface/component/country-flag';
-export type { FaviconContract } from '$stylist/media/interface/component/favicon';
-export type { IconContract } from '$stylist/media/interface/component/icon';
-export type { ImageContract } from '$stylist/media/interface/component/image';
-export type { ImageGalleryContract, ImageItemContract } from '$stylist/media/interface/component/image-gallery';
-export type { ImageWithCaptionContract } from '$stylist/media/interface/component/image-with-caption';
-export type { MediaLibraryContract } from '$stylist/media/interface/component/media-library';
-export type { NodeIconContract } from '$stylist/media/interface/component/node-icon';
-export type { PromoBannerContract } from '$stylist/media/interface/component/promo-banner';
-export type { SvgContract } from '$stylist/media/interface/component/svg';
-export type { TeamAvatarStackContract } from '$stylist/media/interface/component/team-avatar-stack';
-export type { VideoPlayerContract } from '$stylist/media/interface/component/video-player';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { ContractAudioSlider } from '$stylist/media/interface/contract/audio-slider';
+
+export interface AudioSliderRecipe extends StructIntersectAll<[ContractAudioSlider]> {}

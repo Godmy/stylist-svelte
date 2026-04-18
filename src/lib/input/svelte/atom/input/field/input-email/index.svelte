@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
-	import type { IInputEmailProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputEmail as IInputEmailProps } from '$stylist/input/interface/slot/input-email';
 	import { createInputEmailState } from '$stylist/input/function/state/input-email';
 	import InputText from '../input-text/index.svelte';
 

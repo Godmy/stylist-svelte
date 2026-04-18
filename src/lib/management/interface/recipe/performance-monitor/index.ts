@@ -1,17 +1,18 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { PerformanceMonitorStatus } from '$stylist/management/type/struct/performance-monitor';
-import type { IMetricValue } from '$stylist/information/interface/proto/metric-value';
+import type { BehaviorMetricValue as IMetricValue } from '$stylist/information/interface/behavior/metric-value';
 
 /**
  * PerformanceMonitor = shared label + metric value with analytics status.
  */
 export interface PerformanceMonitorRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IMetricValue,
 		ThemeAttributes<HTMLDivElement>
 	]> {
 	status?: PerformanceMonitorStatus;
 }
+

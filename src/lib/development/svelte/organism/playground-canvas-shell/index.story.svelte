@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundCanvasShell from './index.svelte';
+  import RecipePlaygroundCanvasShell from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'showGrid', type: 'boolean', defaultValue: true },
@@ -11,17 +11,17 @@
 </script>
 
 <Story
-  component={PlaygroundCanvasShell}
+  component={RecipePlaygroundCanvasShell}
   title="Playground Canvas Shell"
   description="Container shell for canvas-based component previews."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundCanvasShell showGrid={values.showGrid} zoom={values.zoom} viewport={values.viewport}>
+    <RecipePlaygroundCanvasShell showGrid={values.showGrid} zoom={values.zoom} viewport={values.viewport}>
       <div style="min-height: 240px; border-radius: 16px; background: white; padding: 24px;">
         Canvas shell content
       </div>
-    </PlaygroundCanvasShell>
+    </RecipePlaygroundCanvasShell>
   {/snippet}
 </Story>
 

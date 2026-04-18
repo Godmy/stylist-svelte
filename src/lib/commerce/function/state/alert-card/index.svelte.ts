@@ -1,30 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { Snippet } from 'svelte';
-import type { Props } from '$stylist/information/type/struct';
 import type { Preset } from '$stylist/interaction/type/struct/preset';
+import type { AlertCardStateProps } from '$stylist/commerce/interface/recipe/alert-card-state-props';
 import { buildPresetClassNames } from '$stylist/interaction/function/script/build-preset-class-names';
 import { resolveAriaLabel } from '$stylist/information/function/script/resolve-aria-label';
 
-interface AlertCardStateProps<V extends string, S extends string>
-	extends Omit<Props, 'variant' | 'size'> {
-	variant?: V;
-	size?: S;
-	title?: string;
-	subtitle?: string;
-}
-
-
-/**
- * Универсальный state creator для AlertCard
- * Обеспечивает реактивное управление состоянием с использованием Svelte 5 runes
- *
- * @param preset - Конфигурация пресета компонента
- * @param props - Пропсы компонента
- * @returns Реактивный объект состояния с классами, aria-атрибутами и вычисляемыми значениями
- */
 export function createAlertCardState<V extends string, S extends string>(
   preset: Preset<V, S>,
-  props: AlertCardStateProps<V, S> & HTMLAttributes<HTMLDivElement>
+  props: AlertCardStateProps & HTMLAttributes<HTMLDivElement>
 ) {
   const variant = $derived((props.variant ?? preset.defaults.variant) as V);
   const size = $derived((props.size ?? preset.defaults.size) as S);
@@ -71,8 +53,3 @@ export function createAlertCardState<V extends string, S extends string>(
 }
 
 export default createAlertCardState;
-
-
-
-
-

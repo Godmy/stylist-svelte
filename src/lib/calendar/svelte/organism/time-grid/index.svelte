@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createTimeGridState } from '$stylist/calendar/function/state/time-grid';
-	import type { TimeGridStateProps } from '$stylist/calendar/function/state/time-grid';
+	import type { RecipeTimeGrid as TimeGridStateProps } from '$stylist/calendar/interface/recipe/time-grid';
 	import { TimeSlot as TimeSlotComponent, Icon, Button } from '$stylist';
 
 	let props: TimeGridStateProps = $props();

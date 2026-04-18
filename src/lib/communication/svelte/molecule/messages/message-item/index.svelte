@@ -1,8 +1,9 @@
 <script lang="ts">
-  import type { Message, User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import { Avatar, Icon } from '$stylist';
   import MessageMeta from '$stylist/communication/svelte/atom/messages/message-meta/index.svelte';
-  import AttachmentPreview from '$stylist/file/svelte/molecule/preview/attachment-preview/index.svelte';
+  import RecipeAttachmentPreview from '$stylist/file/svelte/molecule/preview/attachment-preview/index.svelte';
   import { createMessageItemState } from '$stylist/communication/function/state/message-item';
 
   export type MessageItemProps = {
@@ -125,7 +126,7 @@
         />
       {:else if props.message.type === 'file' && props.message.attachments?.length}
         {#each props.message.attachments as attachment, index}
-          <AttachmentPreview
+          <RecipeAttachmentPreview
             attachment={{
               id: attachment.id ?? `${props.message.id}-attachment-${index}`,
               name: attachment.name ?? 'Attachment',

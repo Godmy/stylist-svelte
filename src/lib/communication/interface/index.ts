@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ChatInterfaceProps, ChatMessageStatus, ChatPreviewContract, CollaborativeEditorContract, MessageInputContract, MessageThreadContract } from './component';
-export type { Chat, ChatItemProps, ChatListProps, ChatMessageProps, ChatPreviewMessage, ChatRoomProps, ChatStatusIndicatorProps, ChatWindowProps, CollaborativeEditorUser, IChatHeaderProps, IChatHeaderStyleClasses, IMessageBubbleProps, IMessageComposerProps, IMessageMetaProps, IMessageMetaStyleClasses, Message, MessageAttachment, MessageInputProps, MessageItemProps, MessageListProps, MessageReaction, MessageStatusProps, MessageThreadMessage, MessageThreadMessageData, MessageThreadProps, MessageTimestampProps, User, UserStatusProps } from './component';
-export type { MapCommunicationContract } from './record';
+export type { ContractCommunication } from './contract';
+export type { RecipeMessageStatusProps } from './recipe';
+export type { ChatWindowChat, SlotChat, SlotChatHeader, SlotChatHeaderStyleClasses, SlotChatItem, SlotChatList, SlotChatMessage, SlotChatRoom, SlotChatStatusIndicator, SlotChatWindow, SlotMessage, SlotMessageAttachment, SlotMessageBubble, SlotMessageComposer, SlotMessageInput, SlotMessageItem, SlotMessageList, SlotMessageMeta, SlotMessageMetaStyleClasses, SlotMessageReaction, SlotMessageThread, SlotMessageThreadMessage, SlotMessageTimestamp, SlotUser, SlotUserStatus } from './slot';

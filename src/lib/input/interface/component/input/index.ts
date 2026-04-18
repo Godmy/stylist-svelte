@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { IAdvancedInputProps, ICharacterCountProps, IFormErrorMessageProps, IFormHelperTextProps, IInputAddonProps, IInputBaseProps, IInputDoubleProps, IInputEmailProps, IInputFieldProps, IInputGroupProps, IInputLongProps, IInputPasswordProps, IPinInputDigitProps, ITextareaProps, InputCoreProps, InputHelperChildrenProps, InputHelperProps, InputWithHelperProps, InputWithLabelProps, InputWithValidationProps } from './other';

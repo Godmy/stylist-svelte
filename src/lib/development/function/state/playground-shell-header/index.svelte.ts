@@ -1,5 +1,6 @@
-import type { Props, ViewportSize, ColorScheme } from '$stylist/development/type/struct/playground-shell-header';
-
+import type { PlaygroundShellHeaderProps } from '$stylist/development/type/struct/playground-shell-header-props';
+import type { PlaygroundShellHeaderViewportSize } from '$stylist/development/type/struct/playground-shell-header-viewport-size';
+import type { PlaygroundShellHeaderColorScheme } from '$stylist/development/type/struct/playground-shell-header-color-scheme';
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';
 const Smartphone = 'smartphone';
@@ -11,7 +12,7 @@ const Sparkles = 'sparkles';
 const Pencil = 'pencil';
 const X = 'x';
 
-export function createPlaygroundShellHeaderState(props: Props) {
+export function createPlaygroundShellHeaderState(props: PlaygroundShellHeaderProps) {
   const showComponentTree = $derived(props.showComponentTree ?? false);
   const showAIPanel = $derived(props.showAIPanel ?? false);
   const drawingMode = $derived(props.drawingMode ?? false);
@@ -37,7 +38,7 @@ export function createPlaygroundShellHeaderState(props: Props) {
   const onSetColorScheme = $derived(props.onSetColorScheme);
   const className = $derived(props.class ?? '');
 
-  const deviceOptions: Array<{ id: ViewportSize; label: string; description: string; icon: string }> = [
+  const deviceOptions: Array<{ id: PlaygroundShellHeaderViewportSize; label: string; description: string; icon: string }> = [
     { id: 'mobile', label: 'Mobile (375px)', description: 'iPhone SE breakpoint', icon: Smartphone },
     { id: 'tablet', label: 'Tablet (768px)', description: 'iPad breakpoint', icon: Tablet },
     { id: 'desktop', label: 'Desktop (1440px)', description: 'Large screen layout', icon: Monitor }
@@ -62,7 +63,7 @@ export function createPlaygroundShellHeaderState(props: Props) {
   const selectedDevice = $derived(deviceOptions.find((device) => device.id === currentViewport) ?? deviceOptions[0]);
   const selectedColorScheme = $derived(activeColorScheme ?? colorSchemes[0]);
 
-  function selectDevice(id: ViewportSize) {
+  function selectDevice(id: PlaygroundShellHeaderViewportSize) {
     onSetViewport?.(id);
     deviceMenuOpen = false;
   }

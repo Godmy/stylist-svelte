@@ -1,8 +1,7 @@
 <script lang="ts">
   import { createPlaygroundScreenshotSelectorState } from '$stylist/development/function/state/playground-screenshot-selector';
-  import type { Props } from '$stylist/development/type/struct/playground-screenshot-selector';
-
-  let props: Props = $props();
+  import type { PlaygroundScreenshotSelectorProps } from '$stylist/development/type/struct/playground-screenshot-selector-props';
+  let props: PlaygroundScreenshotSelectorProps = $props();
   const state = createPlaygroundScreenshotSelectorState(props);
 
   $effect(() => {

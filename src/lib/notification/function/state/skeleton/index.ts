@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createSkeletonState } from './index.svelte';
+export { createSkeletonState } from './index.svelte';

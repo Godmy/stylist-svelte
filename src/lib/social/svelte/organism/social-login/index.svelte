@@ -1,20 +1,7 @@
 <script lang="ts">
   import type { Provider, ProviderConfig, RestProps, Props } from '$stylist/social/type/struct/social-login';
   import { Icon as BaseIcon } from '$stylist';
-  import {
-    SOCIAL_LOGIN_USER_ROUND_PLUS,
-    SOCIAL_LOGIN_GITHUB,
-    SOCIAL_LOGIN_CHROME,
-    SOCIAL_LOGIN_APPLE,
-    SOCIAL_LOGIN_MAIL,
-    SOCIAL_LOGIN_LOCK,
-    SOCIAL_LOGIN_FACEBOOK,
-    SOCIAL_LOGIN_TWITTER,
-    SOCIAL_LOGIN_LINKEDIN,
-    SOCIAL_LOGIN_SLACK,
-    SOCIAL_LOGIN_LAPTOP_2,
-    SOCIAL_LOGIN_LOADER_2
-  } from '$stylist/social/const/map/social-login';
+  import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import { Button } from '$lib';
   import createSocialLoginState from '$stylist/social/function/state/social-login';
 
@@ -26,7 +13,7 @@
   <div class="max-w-md mx-auto bg-[var(--color-background-primary)] p-8 rounded-lg shadow-md">
     <div class="text-center">
       <div class="mx-auto h-12 w-12 rounded-full bg-[var(--color-primary-100)] flex items-center justify-center">
-        <BaseIcon name={SOCIAL_LOGIN_USER_ROUND_PLUS} class="h-6 w-6 text-[var(--color-primary-600)]" />
+        <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'user-round-plus') ?? 'user-round-plus'} class="h-6 w-6 text-[var(--color-primary-600)]" />
       </div>
       <h2 class="mt-4 text-2xl font-bold text-[var(--color-text-primary)]">{props.title ?? 'Sign in to your account'}</h2>
       {#if props.description}
@@ -80,7 +67,7 @@
             <label for="email" class="block text-sm font-medium text-[var(--color-text-primary)]">Email address</label>
             <div class="mt-1 relative rounded-md shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <BaseIcon name={SOCIAL_LOGIN_MAIL} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
+                <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'mail') ?? 'mail'} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
               </div>
               <input
                 id="email"
@@ -101,7 +88,7 @@
               <label for="password" class="block text-sm font-medium text-[var(--color-text-primary)]">Password</label>
               <div class="mt-1 relative rounded-md shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <BaseIcon name={SOCIAL_LOGIN_LOCK} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
+                  <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'lock') ?? 'lock'} class="h-5 w-5 text-[var(--color-text-tertiary)]" />
                 </div>
                 <input
                   id="password"
@@ -152,7 +139,7 @@
               disabled={state.isLoading}
             >
               {#if state.isLoading}
-                <BaseIcon name={SOCIAL_LOGIN_LOADER_2} class="h-4 w-4 mr-2 animate-spin" />
+                <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'loader-2') ?? 'loader-2'} class="h-4 w-4 mr-2 animate-spin" />
                 Signing in...
               {:else}
                 Sign in

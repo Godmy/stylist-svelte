@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createActionSegmentedControlState } from '$stylist/control/function/state/action-segmented-control';
-	import type { ActionSegmentedControlProps } from '$stylist/control/type/struct/action-segmented-control-props';
+	import type { RecipeActionSegmentedControlProps } from '$stylist/control/type/struct/action-segmented-control-props';
 
-	let props: ActionSegmentedControlProps = $props();
+	let props: RecipeActionSegmentedControlProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {

@@ -1,4 +1,4 @@
-import type { DragAndDropProps } from '$stylist/control/interface/component/drag-and-drop/other';
+import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
 import { clsx } from 'clsx';
 
 export function createDragAndDropState(props: DragAndDropProps) {

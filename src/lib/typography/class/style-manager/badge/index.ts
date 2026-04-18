@@ -2,8 +2,8 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenCodeView } from '$stylist/development/type/enum/code-view';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { DEFAULT_BADGE } from '$stylist/typography/const/struct/badge';
-import { DEFAULT_CODE_BLOCK } from '$stylist/typography/const/struct/code-block';
+import { DEFAULT_BADGE } from '$stylist/typography/const/record/badge';
+import { DEFAULT_CODE_BLOCK } from '$stylist/typography/const/record/code-block';
 
 export class BadgeStyleManager {
 	static root(classes: string): string {

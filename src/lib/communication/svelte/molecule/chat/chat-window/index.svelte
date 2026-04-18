@@ -1,5 +1,6 @@
 <script lang="ts">
-import type { User, Message } from '$stylist/communication/interface/component/chat/other';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 import MessageList from '$stylist/communication/svelte/molecule/messages/message-list/index.svelte';
 import MessageInput from '$stylist/communication/svelte/atom/input/message-input/index.svelte';
 import { createChatWindowState } from '$stylist/communication/function/state/chat-window';

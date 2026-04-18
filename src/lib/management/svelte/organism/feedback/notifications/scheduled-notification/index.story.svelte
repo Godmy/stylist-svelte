@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import type { ScheduledNotificationProps, ScheduledNotificationItem } from '$stylist/communication/interface/component/notifications/other';
+  import type { ScheduledNotificationItem, ScheduledNotificationItem } from '$stylist/communication/type/struct/scheduled-notification-item';
   import { NotificationStyleManager } from '$stylist';
   import ScheduledNotification from './index.svelte';
 
@@ -63,7 +63,7 @@
   }
 
   function handleToggle(id: string) {
-    console.log('Toggle notification:', id);
+    console.log('SlotToggle notification:', id);
   }
 </script>
 

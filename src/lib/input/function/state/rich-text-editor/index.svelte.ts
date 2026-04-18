@@ -1,8 +1,8 @@
-import type { RichTextEditorStateProps } from '../rich-text-editor-state-props/index.svelte.ts';
+type RichTextEditorStateProps = { [key: string]: any };
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
-	// State
+	// SlotState
 	let editorRef: HTMLDivElement | null = $state(null);
 	let isFocused = $state(false);
 	let showLinkInput = $state(false);
@@ -122,7 +122,7 @@ export const createRichTextEditorState = (props: RichTextEditorStateProps) => {
 	const iconButtonClasses = $derived.by(() => 'h-4 w-4');
 
 	return {
-		// State getters
+		// SlotState getters
 		get content() {
 			return content;
 		},

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createMiniCalendarState } from '$stylist/calendar/function/state/mini-calendar';
-	import type { MiniCalendarStateProps } from '$stylist/calendar/function/state/mini-calendar';
+	import type { RecipeMiniCalendar as MiniCalendarStateProps } from '$stylist/calendar/interface/recipe/mini-calendar';
 	import { Icon as BaseIcon, Button } from '$stylist';
 
 	const ChevronLeft = 'chevron-left';

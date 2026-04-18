@@ -4,7 +4,7 @@ import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 import type { TokenJustification } from '$stylist/layout/type/enum/justification';
 
 export function createHorizontalLayoutState(props: HorizontalLayoutProps) {
-	const gap = $derived(props.gap ?? 16);
+	const gap = $derived((props.gap ?? 16) as Parameters<typeof LayoutStyleManager.getHorizontalLayoutClasses>[0]);
 	const alignItems = $derived<TokenAlignment>((props.alignItems as TokenAlignment | undefined) ?? 'center');
 	const justifyContent = $derived<TokenJustification>(
 		(props.justifyContent as TokenJustification | undefined) ?? 'justify'

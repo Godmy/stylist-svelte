@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { TabPanelProps } from '$stylist/control/interface/component/tabs/other';
+import type { SlotTabPanel as TabPanelProps } from '$stylist/control/interface/slot/tab-panel';
 
 export const createTabPanelState = (props: TabPanelProps, selected: () => boolean) => {
 	const isSelected = $derived.by(selected);

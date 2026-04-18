@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { HoverableStyleManagerOptions } from '$stylist/interaction/class/style-manager/hoverable-style-manager-options';
+import type { HoverableStyleManagerOptions } from '$stylist/interaction/interface/slot/hoverable-style-manager-options';
 
 export class HoverableStyleManager {
 	private static readonly BASE = 'transition-all duration-150 ease-in-out';

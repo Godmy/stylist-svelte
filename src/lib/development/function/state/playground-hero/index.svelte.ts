@@ -1,9 +1,9 @@
-import type { Props, AIModel } from '$stylist/development/type/struct/playground-hero';
-
-export function createPlaygroundHeroState(props: Props) {
-  const title = $derived(props.title ?? 'Stylist');
+import type { PlaygroundHeroProps } from '$stylist/development/type/struct/playground-hero-props';
+import type { PlaygroundHeroAIModel } from '$stylist/development/type/struct/playground-hero-ai-model';
+export function createPlaygroundHeroState(props: PlaygroundHeroProps) {
+  const title = $derived(props.title ?? 'RecipeStylist');
   const subtitle = $derived(props.subtitle ?? "The world's largest Svelte 5 component library");
-  const description = $derived(props.description ?? "OMG! This is Godmy, the product owner of the Vibe-Management team - a collective of leading LLM models. We have created the Stylist-Svelte-Coder-Model - a unified AI model specifically trained for Svelte 5 using atomic design principles. Attention, designed for those who love Svelte");
+  const description = $derived(props.description ?? "OMG! This is Godmy, the product owner of the Vibe-Management team - a collective of leading LLM models. We have created the RecipeStylist-Svelte-Coder-Model - a unified AI model specifically trained for Svelte 5 using atomic design principles. Attention, designed for those who love Svelte");
   const badgeLabel = $derived(props.badgeLabel ?? 'AI-Generated Component Library');
   const badgeHref = $derived(props.badgeHref ?? 'https://www.npmjs.com/package/stylist-svelte');
   const poweredByLabel = $derived(props.poweredByLabel ?? 'Powered by Leading AI Models');

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPageBuilderState } from './index.svelte';
+export { createPageBuilderState } from './index.svelte';

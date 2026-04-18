@@ -1,11 +1,8 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { StackedLayoutDirection } from '$stylist/layout/class/style-manager/stacked-layout-direction';
-import type { StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout-gap';
-import type { StackedLayoutAlignItems } from '$stylist/layout/class/style-manager/stacked-layout-align-items';
-import type { StackedLayoutJustifyContent } from '$stylist/layout/class/style-manager/stacked-layout-justify-content';
-
-export type { StackedLayoutDirection } from '$stylist/layout/class/style-manager/stacked-layout-direction';
-export type { StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout-gap';
+import type { StackedLayoutDirection } from '$stylist/layout/type/enum/stacked-layout-direction';
+import type { StackedLayoutGap } from '$stylist/layout/type/enum/stacked-layout-gap';
+import type { StackedLayoutAlignItems } from '$stylist/layout/type/enum/stacked-layout-align-items';
+import type { StackedLayoutJustifyContent } from '$stylist/layout/type/enum/stacked-layout-justify-content';
 
 export class StackedLayoutStyleManager {
 	static getDirectionClass(direction: StackedLayoutDirection): string {

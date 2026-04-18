@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ModalProps } from '$stylist/navigation/interface/component/dialog-controls/other';
+  import type { SlotModal as ModalProps } from '$stylist/navigation/interface/slot/modal';
   import { createModalState } from '$stylist/navigation/function/state/modal';
 
   let props: ModalProps = $props();

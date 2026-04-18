@@ -1,6 +1,6 @@
 <script lang="ts">
   import Story from '$stylist/development/svelte/playground/Story.svelte';
-  import Timeline from './index.svelte';
+  import RecipeTimeline from './index.svelte';
   import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
 
   const defaultItems = [
@@ -24,13 +24,13 @@
 
 <Story
   {controls}
-  title="Timeline Component"
-  description="Timeline component to show events chronologically"
+  title="RecipeTimeline Component"
+  description="RecipeTimeline component to show events chronologically"
 
 >
   {#snippet children(controlValues: any)}
   <div class="p-4">
-    <Timeline
+    <RecipeTimeline
       items={defaultItems as any}
       orientation={controlValues.orientation}
     />

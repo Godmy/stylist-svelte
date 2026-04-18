@@ -1,7 +1,5 @@
 import { FeatureToggleStyleManager } from '$stylist/management/class/style-manager/feature-toggle';
-import type { FeatureToggleProps } from '$stylist/management/interface/component/feature-toggle/other';
-
-export interface FeatureToggleStateProps extends FeatureToggleProps {}
+import type { FeatureToggleStateProps } from '$stylist/management/interface/recipe/feature-toggle';
 
 export function createFeatureToggleState(props: FeatureToggleStateProps) {
 	const label = $derived(props.label ?? 'Feature toggle');

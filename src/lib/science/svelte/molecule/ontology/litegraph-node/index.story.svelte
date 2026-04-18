@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-	import type { LiteGraphPort, LiteGraphNodeProperty } from '$stylist/science/interface/recipe/litegraph-node';
+	import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
+import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 	import LiteGraphNode from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [

@@ -1,4 +1,4 @@
-import { FOUNDATION_DEPTH_RANGE, type FoundationDepth } from '$stylist/architecture/function/script/foundation-depth-range';
+import { FOUNDATION_DEPTH_RANGE } from '$stylist/architecture/const/script/foundation-depth-range';
 import { clampFoundationDepth } from '$stylist/architecture/function/script/depth';
 
 export function normalizeFoundationDepthDistance(distance: number): number {

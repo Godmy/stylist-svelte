@@ -2,7 +2,7 @@
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import GraphCanvas from './index.svelte';
-	import { GraphNode } from '$stylist';
+	import { SlotGraphNode } from '$stylist';
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'gridMode', type: 'select', defaultValue: 'dot', options: ['dot', 'number', 'letter', 'check', 'x'] },
@@ -35,13 +35,13 @@
 				gridColor="rgba(128, 128, 128, 0.2)"
 			>
 				<div style="position: absolute; left: 100px; top: 100px;">
-					<GraphNode id="node1" x={0} y={0} label="Node 1" />
+					<SlotGraphNode id="node1" x={0} y={0} label="Node 1" />
 				</div>
 				<div style="position: absolute; left: 360px; top: 140px;">
-					<GraphNode id="node2" x={0} y={0} label="Node 2" />
+					<SlotGraphNode id="node2" x={0} y={0} label="Node 2" />
 				</div>
 				<div style="position: absolute; left: 240px; top: 220px;">
-					<GraphNode id="node3" x={0} y={0} label="Node 3" />
+					<SlotGraphNode id="node3" x={0} y={0} label="Node 3" />
 				</div>
 			</GraphCanvas>
 		</div>

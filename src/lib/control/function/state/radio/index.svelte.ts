@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { RadioProps } from '$stylist/control/interface/component/toggles';
+import type { SlotRadio as RadioProps } from '$stylist/control/interface/slot/radio-toggles';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 
 export const createRadioState = (props: RadioProps) => {

@@ -1,10 +1,9 @@
-import type { IGeoJSONViewerProps, GeoJsonLayer, MapView, GeoJsonFeature, GeoJsonFeatureCollection } from '$stylist/geo/interface/component/geo-jsonviewer/other';
+import type { SlotGeoJsonLayer as GeoJsonLayer } from '$stylist/geo/interface/slot/geo-json-layer';
+import type { SlotMapView as MapView } from '$stylist/geo/interface/slot/map-view';
+import type { SlotGeoJsonFeature as GeoJsonFeature } from '$stylist/geo/interface/slot/geo-json-feature';
+import type { SlotGeoJsonFeatureCollection as GeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
 import { GeoJSONViewerStyleManager } from '$stylist/geo/class/style-manager/geo-jsonviewer';
-
-export interface GeoJSONViewerStateProps extends IGeoJSONViewerProps {
-	class?: string;
-	mapClass?: string;
-}
+import type { GeoJSONViewerStateProps } from '$stylist/geo/interface/recipe/geo-jsonviewer-state-props';
 
 export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	// Props with defaults
@@ -18,7 +17,7 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	const minZoom = $derived(props.minZoom ?? 1);
 	const mapType = $derived(props.mapType ?? 'roadmap');
 
-	// State
+	// SlotState
 	let currentLayers = $state<GeoJsonLayer[]>([]);
 	let currentView = $state<MapView>({ ...initialView });
 	let selectedFeature: GeoJsonFeature | null = $state(null);

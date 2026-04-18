@@ -3,5 +3,3 @@ export type CubeSelectionState = {
 	selectedTitleFace: number | null;
 	selectedCellByFace: number[];
 };
-
-export type { CubeSelectionState as default };

@@ -23,11 +23,11 @@
   }
 
   function handleToggleLegend() {
-    console.log('Toggle legend');
+    console.log('SlotToggle legend');
   }
 
   function handleToggleSearch() {
-    console.log('Toggle search');
+    console.log('SlotToggle search');
   }
 </script>
 

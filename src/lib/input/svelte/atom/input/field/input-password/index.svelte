@@ -2,7 +2,7 @@
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
 	import { Icon as BaseIcon } from '$stylist';
-	import type { IInputPasswordProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputPassword as IInputPasswordProps } from '$stylist/input/interface/slot/input-password';
 	import { createInputPasswordState } from '$stylist/input/function/state/input-password';
 
 	const Eye = 'eye';

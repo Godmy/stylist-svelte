@@ -1,4 +1,4 @@
-import type { TransformationProps } from '$stylist/animation/interface/component/transformation/other';
+import type { SlotTransformation as TransformationProps } from '$stylist/animation/interface/slot/transformation';
 import { clsx } from 'clsx';
 
 export function createTransformationState(props: TransformationProps) {

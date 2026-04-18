@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { RichTextEditorStyleManagerOptions } from '$stylist/input/class/style-manager/rich-text-editor-style-manager-options';
+import type { RichTextEditorStyleManagerOptions } from '$stylist/input/interface/slot/rich-text-editor-style-manager-options';
 
 export class RichTextEditorStyleManager {
 	private static readonly BASE_ROOT = 'border border-[var(--color-border-primary)] rounded-lg overflow-hidden';

@@ -1,9 +1,10 @@
 <script lang="ts">
-  import type { Props, LogLevel } from '$stylist/development/type/struct/debug-console';
+  import type { DebugConsoleProps } from '$stylist/development/type/struct/debug-console-props';
+  import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
   import { createDebugConsoleState } from '$stylist/development/function/state/debug-console';
   import { Icon as BaseIcon } from '$stylist';
 
-  let { ...props }: Props = $props();
+  let { ...props }: DebugConsoleProps = $props();
   const state = createDebugConsoleState(props);
 </script>
 
@@ -53,11 +54,11 @@
           <button
             type="button"
             class={`text-xs px-2 py-1 rounded-full ${
-              state.logLevelFilter.includes(level as LogLevel)
-                ? state.getLevelBgColor(level as LogLevel) + ' ' + state.getLevelColor(level as LogLevel)
+              state.logLevelFilter.includes(level as DebugConsoleLogLevel)
+                ? state.getLevelBgColor(level as DebugConsoleLogLevel) + ' ' + state.getLevelColor(level as DebugConsoleLogLevel)
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
-            onclick={() => state.toggleLogLevel(level as LogLevel)}
+            onclick={() => state.toggleLogLevel(level as DebugConsoleLogLevel)}
           >
             {level.toUpperCase()}
           </button>

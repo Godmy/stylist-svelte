@@ -1,4 +1,4 @@
-import type { IInputEmailProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputEmail as IInputEmailProps } from '$stylist/input/interface/slot/input-email';
 
 export const createInputEmailState = (props: IInputEmailProps) => {
 	return {

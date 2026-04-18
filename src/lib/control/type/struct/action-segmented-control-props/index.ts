@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { ActionSegmentedControlProps as ActionSegmentedControlComponentProps } from '$stylist/control/interface/component/toggles';
+import type { RecipeActionSegmentedControlProps as ActionSegmentedControlComponentProps } from '$stylist/control/interface/recipe/action-segmented-control-props';
 
-export type ActionSegmentedControlProps = ActionSegmentedControlComponentProps &
+export type RecipeActionSegmentedControlProps = ActionSegmentedControlComponentProps &
 	InteractionHTMLAttributes<HTMLDivElement>;

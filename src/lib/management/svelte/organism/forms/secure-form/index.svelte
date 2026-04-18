@@ -3,7 +3,7 @@
 const Lock = 'lock';
 
   import { createSecureFormState } from '$stylist/management/function/state/secure-form';
-  import type { SecureFormProps } from '$stylist/form/interface/component/interaction-forms/other';
+  import type { SlotSecureForm as SecureFormProps } from '$stylist/form/interface/slot/secure-form';
 
   let props: SecureFormProps = $props();
   const state = createSecureFormState(props);

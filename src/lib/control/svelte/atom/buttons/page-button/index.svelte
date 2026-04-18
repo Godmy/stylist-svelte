@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const Loader2 = 'loader-2';
-import type { PageButtonProps } from '$stylist/control/interface/component/button/other';
+import type { SlotPageButton as PageButtonProps } from '$stylist/control/interface/slot/page-button';
 import { createPageButtonState } from '$stylist/control/function/state/page-button';
 
 	/**

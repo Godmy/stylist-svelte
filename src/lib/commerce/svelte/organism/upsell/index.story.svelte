@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import Upsell from './index.svelte';
+  import RecipeUpsell from './index.svelte';
 
   let {
     id = '',
@@ -64,7 +64,7 @@
   {id}
   {title}
   {description}
-  component={Upsell}
+  component={RecipeUpsell}
   category="Organisms"
   controls={controls}
 >
@@ -72,12 +72,12 @@
     <section class="sb-organisms-upsell grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Upsell Example
+          Primary RecipeUpsell Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Upsell component with upgrade recommendations.</p>
+        <p class="mt-1 text-[--color-text-primary]">RecipeUpsell component with upgrade recommendations.</p>
 
         <div class="mt-6">
-          <Upsell
+          <RecipeUpsell
             currentProduct={currentProduct}
             upsellProducts={upsellProducts}
             title="You might upgrade to"
@@ -92,7 +92,7 @@
       </div>
 
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Upsell Variations</h3>
+        <h3 class="text-base font-semibold text-[--color-text-primary]">RecipeUpsell Variations</h3>
         <p class="text-sm text-[--color-text-secondary]">
           Different upsell configurations with various options.
         </p>
@@ -101,7 +101,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Limited Products</p>
             <div>
-              <Upsell
+              <RecipeUpsell
                 currentProduct={currentProduct}
                 upsellProducts={upsellProducts.slice(0, 1)}
                 title="Premium Upgrade"
@@ -117,7 +117,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Savings Highlight</p>
             <div>
-              <Upsell
+              <RecipeUpsell
                 currentProduct={{
                   ...currentProduct,
                   name: 'Basic Package',

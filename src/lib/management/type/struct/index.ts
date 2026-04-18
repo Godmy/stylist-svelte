@@ -10,4 +10,3 @@ export type { Session } from './settings-session';
 export type { UserData } from './settings-user-data';
 export type { UserProfileCardElementProps } from './settings-user-profile-card-element-props';
 export type { StatusItem } from './status-item';
-export type { AccountSettingsFormElementProps } from './settings';

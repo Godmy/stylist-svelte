@@ -1,4 +1,5 @@
-import type { ABTest, ABTestVariant } from '$stylist/marketing/interface/component/abtest-configurator/other';
+import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
+import type { SlotABTestVariant as ABTestVariant } from '$stylist/marketing/interface/slot/ab-test-variant';
 import { calculateABTestTotalWeight } from '$stylist/marketing/function/script/calculate-ab-test-total-weight';
 
 export function addABTestVariant(

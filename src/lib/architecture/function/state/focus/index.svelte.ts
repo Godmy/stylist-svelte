@@ -1,5 +1,5 @@
-import type { FocusTarget } from '../focus-target/index.svelte.ts';
-import type { FocusState } from '../focus-state/index.svelte.ts';
+import type { FocusTarget } from '$stylist/architecture/interface/slot/focus-target';
+import type { FocusState } from '$stylist/architecture/interface/recipe/focus-state';
 
 export function useFocus() {
 	let state = $state<FocusState>({

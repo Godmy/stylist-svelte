@@ -1,19 +1,20 @@
-/**
- * SearchResults — результаты поиска..
+﻿/**
+ * SearchResults вЂ” СЂРµР·СѓР»СЊС‚Р°С‚С‹ РїРѕРёСЃРєР°..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   ICaptionSlot        (information) — caption (Caption)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   ICaptionSlot        (information) вЂ” caption (Caption)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface SearchResultsRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		ThemeAttributes<HTMLDivElement>
 	]>
 {}
+

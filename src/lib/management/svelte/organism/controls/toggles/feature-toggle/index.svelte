@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createFeatureToggleState } from '$stylist/management/function/state/feature-toggle';
-  import type { FeatureToggleProps } from '$stylist/management/interface/component/feature-toggle/other';
+  import type { SlotFeatureToggle as FeatureToggleProps } from '$stylist/management/interface/slot/feature-toggle';
 
   let props: FeatureToggleProps = $props();
   const state = createFeatureToggleState(props);

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createZoomControlsState } from '$stylist/control/function/state/zoom-controls';
-	import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
+	import type { SlotZoomControls as ZoomControlsProps } from '$stylist/control/interface/slot/zoom-controls';
 
 	let props: ZoomControlsProps = $props();
 	const state = createZoomControlsState(props);

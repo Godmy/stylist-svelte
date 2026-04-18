@@ -1,7 +1,9 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundShellHeaderState } from '$stylist/development/function/state/playground-shell-header';
-  import type { Props, ViewportSize, ColorScheme } from '$stylist/development/type/struct/playground-shell-header';
+  import type { PlaygroundShellHeaderProps } from '$stylist/development/type/struct/playground-shell-header-props';
+  import type { PlaygroundShellHeaderViewportSize } from '$stylist/development/type/struct/playground-shell-header-viewport-size';
+  import type { PlaygroundShellHeaderColorScheme } from '$stylist/development/type/struct/playground-shell-header-color-scheme';
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';
 const Smartphone = 'smartphone';
@@ -14,7 +16,7 @@ const Sparkles = 'sparkles';
 const Pencil = 'pencil';
 const X = 'x';
 
-  let props: Props = $props();
+  let props: PlaygroundShellHeaderProps = $props();
   const state = createPlaygroundShellHeaderState(props);
 </script>
 
@@ -25,7 +27,7 @@ const X = 'x';
 <div class="flex items-center justify-between h-14 px-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800 relative z-[var(--z-index-modal)] {state.className}">
   <div class="flex items-center gap-2">
     <a href="/" class="flex items-center group">
-      <img src="/stylist.png" alt="Stylist" class="w-10 h-10" loading="lazy" decoding="async" />
+      <img src="/stylist.png" alt="RecipeStylist" class="w-10 h-10" loading="lazy" decoding="async" />
     </a>
 
     <button
@@ -153,7 +155,7 @@ const X = 'x';
       </div>
 
       {#if state.currentViewport !== 'fullscreen'}
-        <button class={state.toggleButtonClasses(state.showDeviceFrame)} aria-pressed={state.showDeviceFrame} title="Toggle device frame" onclick={state.onToggleDeviceFrame}>
+        <button class={state.toggleButtonClasses(state.showDeviceFrame)} aria-pressed={state.showDeviceFrame} title="SlotToggle device frame" onclick={state.onToggleDeviceFrame}>
           <span class="inline-flex h-2 w-2 rounded-full {state.showDeviceFrame ? 'bg-white' : 'bg-gray-400/70'}"></span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <rect x="4" y="3" width="16" height="18" rx="2" stroke-width="2"/>
@@ -178,7 +180,7 @@ const X = 'x';
         </button>
       </div>
 
-      <button class={state.toggleButtonClasses(state.showGrid)} aria-pressed={state.showGrid} title="Toggle grid" onclick={state.onToggleGrid}>
+      <button class={state.toggleButtonClasses(state.showGrid)} aria-pressed={state.showGrid} title="SlotToggle grid" onclick={state.onToggleGrid}>
         <span class="inline-flex h-2 w-2 rounded-full {state.showGrid ? 'bg-white' : 'bg-gray-400/70'}"></span>
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
@@ -209,7 +211,7 @@ const X = 'x';
       </svg>
     </a>
 
-    <button onclick={state.onToggleDarkMode} class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle dark mode">
+    <button onclick={state.onToggleDarkMode} class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="SlotToggle dark mode">
       {#if state.darkMode}
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>

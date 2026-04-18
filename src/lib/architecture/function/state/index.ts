@@ -1,18 +1,17 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { useCamera } from './camera';
 export { useFocus } from './focus';
+export { createFocusState } from './focus-state';
+export { createFocusTarget } from './focus-target';
 export { usePresentation } from './presentation';
+export { createPresentationFrame } from './presentation-frame';
+export { createPresentationMode } from './presentation-mode';
+export { createPresentationState } from './presentation-state';
 export { createPresenterNodeShellState } from './presenter-node-shell';
 export { createPresenterSceneState } from './presenter-scene';
 export { usePreziState } from './prezi-scene';
 export { createSceneState } from './scene';
+export { createSelectedItem } from './selected-item';
 export { useSelection } from './selection';
-export type { PresentationMode } from './presentation-mode';
-export type { SelectionMode } from './selection-mode';
-export type { FocusState } from './focus-state';
-export type { FocusTarget } from './focus-target';
-export type { PresentationFrame } from './presentation-frame';
-export type { PresentationState } from './presentation-state';
-export type { PreziCamera, PreziSceneMethods, PreziSceneState } from './prezi-scene';
-export type { SelectedItem } from './selected-item';
-export type { SelectionState } from './selection-state';
+export { createSelectionMode } from './selection-mode';
+export { createSelectionState } from './selection-state';

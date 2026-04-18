@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createMediaLibraryState } from './index.svelte';
+export { createMediaLibraryState } from './index.svelte';

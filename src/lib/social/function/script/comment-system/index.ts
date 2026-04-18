@@ -39,5 +39,3 @@ export function commentSystemFormatDate(date: Date, locale: string = 'en-US'): s
     minute: '2-digit'
   });
 }
-
-export default commentSystemSubmitComment;

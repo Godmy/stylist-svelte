@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { DraggableStyleManagerOptions } from '$stylist/interaction/class/style-manager/draggable-style-manager-options';
+import type { DraggableStyleManagerOptions } from '$stylist/interaction/interface/slot/draggable-style-manager-options';
 
 export class DraggableStyleManager {
 	private static readonly BASE = 'transition-all duration-200 ease-in-out';

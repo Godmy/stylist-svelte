@@ -1,8 +1,7 @@
 <script lang="ts">
   import { createPlaygroundGenericCodeViewerState } from '$stylist/development/function/state/playground-generic-code-viewer';
-  import type { Props } from '$stylist/development/type/struct/playground-generic-code-viewer';
-
-  let props: Props = $props();
+  import type { PlaygroundGenericCodeViewerProps } from '$stylist/development/type/struct/playground-generic-code-viewer-props';
+  let props: PlaygroundGenericCodeViewerProps = $props();
   const state = createPlaygroundGenericCodeViewerState(props);
 
   $effect(() => {

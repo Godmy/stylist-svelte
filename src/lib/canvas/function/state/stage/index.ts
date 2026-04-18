@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createStageState } from './index.svelte';
+export { createStageState } from './index.svelte';

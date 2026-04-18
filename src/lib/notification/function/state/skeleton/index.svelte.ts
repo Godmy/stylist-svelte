@@ -1,4 +1,4 @@
-import type { ISkeletonProps } from '$stylist/notification/interface/component/notification/other';
+import type { SlotSkeleton as ISkeletonProps } from '$stylist/notification/interface/slot/skeleton';
 
 export function createSkeletonState(
 	props: {

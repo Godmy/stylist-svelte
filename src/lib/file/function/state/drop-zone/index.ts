@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDropZoneState } from './index.svelte';
+export { createDropZoneState } from './index.svelte';

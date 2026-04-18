@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createFormHeaderState } from '$stylist/form/function/state/form-header';
-  import type { FormHeaderProps } from '$stylist/form/interface/component/form-header/other';
+  import type { SlotFormHeader as FormHeaderProps } from '$stylist/form/interface/slot/form-header';
 
   let {
     title,

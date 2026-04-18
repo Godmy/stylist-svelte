@@ -1,4 +1,4 @@
-import type { TagInputProps } from '$stylist/input/interface/component/tag-input/other';
+import type { SlotTagInput as TagInputProps } from '$stylist/input/interface/slot/tag-input';
 
 export const createTagInputState = (props: TagInputProps) => {
 	let currentTags = $state<string[]>([...(props.tags ?? [])]);

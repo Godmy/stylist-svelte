@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createChatStatusIndicatorState } from '$stylist/communication/function/state/chat-status-indicator';
-  import type { ChatStatusIndicatorContract } from '$stylist/communication/interface/component/chat-status-indicator/contract';
+  import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/communication/interface/slot/chat-status-indicator';
 
   let props: ChatStatusIndicatorContract = $props();
 

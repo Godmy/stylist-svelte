@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPresenterSceneState } from './index.svelte';
+export { createPresenterSceneState } from './index.svelte';

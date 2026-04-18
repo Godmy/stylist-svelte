@@ -69,7 +69,7 @@
 					{values.quote as string}
 				</Blockquote>
 				<p class="mt-4 text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-					Toggle border/background to preview different emphasis treatments while keeping the same
+					SlotToggle border/background to preview different emphasis treatments while keeping the same
 					content.
 				</p>
 				<p class="text-sm text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">

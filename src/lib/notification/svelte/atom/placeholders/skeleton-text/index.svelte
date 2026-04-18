@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSkeletonTextState } from '$stylist/notification/function/state/skeleton-text';
-	import type { SkeletonTextProps } from '$stylist/notification/interface/component/skeleton-text/other/skeleton-text';
+	import type { SkeletonTextProps } from '$stylist/notification/type/struct/skeleton-text-props';
 
 	let props: SkeletonTextProps = $props();
 	const state = createSkeletonTextState(props);

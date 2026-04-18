@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ChartNameProps } from '$stylist/chart/interface/recipe/chart-name';
-	import { createChartNameState } from '$stylist/chart/function/state/chart-function';
+	import type { ChartNameRecipe as ChartNameProps } from '$stylist/chart/interface/recipe/chart-name';
+	import { createChartNameState } from '$stylist/chart/function/state/chart-name';
 
 	let props: ChartNameProps = $props();
 	const state = createChartNameState(props);

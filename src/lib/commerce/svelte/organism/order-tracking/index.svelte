@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { OrderTrackingContract } from '$stylist/commerce/interface/component/order-tracking';
+	import type { RecipeOrderTracking as OrderTrackingContract } from '$stylist/commerce/interface/recipe/order-tracking';
 	import { createOrderTrackingState } from '$stylist/commerce/function/state/order-tracking';
 
 	let props: OrderTrackingContract = $props();
@@ -9,7 +9,7 @@
 <div class={state.containerClasses}>
 	<div class={state.headerClasses}>
 		<div class="flex items-center justify-between">
-			<h2 class={state.titleClasses}>Order Tracking</h2>
+			<h2 class={state.titleClasses}>SlotOrder Tracking</h2>
 			<span class={state.getStatusBadgeClasses(state.trackingInfo.status)}>
 				{state.trackingInfo.status}
 			</span>
@@ -32,7 +32,7 @@
 		</p>
 	</div>
 
-	<!-- Timeline -->
+	<!-- RecipeTimeline -->
 	<div class={state.timelineContainerClasses}>
 		{#each state.trackingInfo.events as event}
 			{@const eventStatus = state.getEventStatus(event.status, state.trackingInfo.status)}

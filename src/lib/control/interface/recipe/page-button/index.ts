@@ -1,23 +1,24 @@
 /**
- * Page Button — кнопка страницы (пагинация).
+ * Page Button вЂ” РєРЅРѕРїРєР° СЃС‚СЂР°РЅРёС†С‹ (РїР°РіРёРЅР°С†РёСЏ).
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   IClickable                (interaction/clickable)
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface PageButtonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IClickable,
 		IFocusable,
 		ISizable
 	]>
 {}
+

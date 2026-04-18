@@ -2,7 +2,7 @@ import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method
 import type { Address } from '$stylist/commerce/type/struct/address';
 import type { CardInfo } from '$stylist/commerce/type/struct/card-info';
 import type { CheckoutStep } from '$stylist/commerce/type/struct/checkout-step';
-import type { ShippingOption } from '$stylist/commerce/type/struct/shipping-option';
+import type { SlotShippingOption } from '$stylist/commerce/type/struct/shipping-option';
 import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
 import { CheckoutFormStyleManager } from '$stylist/commerce/class/style-manager/checkout-form';
 
@@ -46,7 +46,7 @@ export function createCheckoutFormState(props: Props) {
 	let shippingAddress = $state<Address>(createAddressState(props.defaultAddress));
 	let selectedShippingOption = $state(shippingOptions[0]?.id ?? '');
 	let selectedShippingDetails = $derived(
-		shippingOptions.find((option: ShippingOption) => option.id === selectedShippingOption)
+		shippingOptions.find((option: SlotShippingOption) => option.id === selectedShippingOption)
 	);
 	let sameAsBilling = $state(false);
 	let paymentMethod = $state<PaymentMethod>({
@@ -68,7 +68,7 @@ export function createCheckoutFormState(props: Props) {
 		information: 'Information',
 		shipping: 'Shipping',
 		payment: 'Payment',
-		review: 'Review',
+		review: 'SlotReview',
 		confirmation: 'Confirmation'
 	} as Record<CheckoutStep, string>);
 
@@ -166,9 +166,9 @@ export function createCheckoutFormState(props: Props) {
 				if (!billingAddress.lastName) newErrors.lastName = 'Last name is required';
 				if (!billingAddress.address1) newErrors.address1 = 'Address is required';
 				if (!billingAddress.city) newErrors.city = 'City is required';
-				if (!billingAddress.state) newErrors.state = 'State is required';
+				if (!billingAddress.state) newErrors.state = 'SlotState is required';
 				if (!billingAddress.zipCode) newErrors.zipCode = 'ZIP code is required';
-				if (!billingAddress.country) newErrors.country = 'Country is required';
+				if (!billingAddress.country) newErrors.country = 'SlotCountry is required';
 				break;
 			case 'payment':
 				if (paymentMethod.type === 'credit_card') {

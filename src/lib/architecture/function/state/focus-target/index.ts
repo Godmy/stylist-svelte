@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { FocusTarget } from './index.svelte';
+export { createFocusTarget } from './index.svelte';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Idef0ConnectorRecipe as Idef0ConnectorProps } from '$stylist/science/interface/recipe/idef0-connector';
-	import { createIdef0ConnectorState } from '$stylist/science/function/state/idef0';
+	import { createIdef0ConnectorState } from '$stylist/science/function/state/idef0-connector';
 	import Idef0PortLabel from '$stylist/science/svelte/atom/diagrams/idef-zero-port-label/index.svelte';
 
 	let props: Idef0ConnectorProps = $props();

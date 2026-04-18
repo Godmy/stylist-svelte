@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { HTMLAttributes } from 'svelte/elements';
-import type { IPriceAlertElementProps } from '$stylist/commerce/interface/component/price-alert/other';
+import type { SlotPriceAlertElement as IPriceAlertElementProps } from '$stylist/commerce/interface/slot/price-alert-element';
 import { createPriceAlertState } from '$stylist/commerce/function/state/price-alert';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';
 import { createBasePreset } from '$stylist/interaction/preset/base';

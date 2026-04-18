@@ -1,7 +1,6 @@
 import { StickyLayoutStyleManager } from '$stylist/layout/class/style-manager/sticky-layout';
 import type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended/sticky-layout-props';
 
-export type { StickyLayoutProps } from '$stylist/layout/type/struct/layout-extended/sticky-layout-props';
 
 export function createStickyLayoutState(props: StickyLayoutProps) {
 	const fillHeight = $derived(props.fillHeight ?? true);

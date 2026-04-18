@@ -24,6 +24,3 @@ export { createStickyLayoutState } from './sticky-layout';
 export { createThemeSurfaceState } from './theme-surface';
 export { createVerticalLayoutState } from './vertical-layout';
 export { createWidgetContainerState } from './widget-container';
-export type { WidgetContainerProps } from './widget-container';
-export type { PopoverProps } from './popover';
-export type { StackedLayoutProps } from './stacked-layout';

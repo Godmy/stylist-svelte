@@ -18,10 +18,10 @@
     controls?: InterfaceControllerSettings[]
   }>();
 
-  type FolderItem = {
+  type SlotFolderItem = {
     id: string;
     name: string;
-    children?: FolderItem[];
+    children?: SlotFolderItem[];
     expanded?: boolean;
     selected?: boolean;
     type?: 'folder' | 'file';
@@ -29,7 +29,7 @@
     data?: any;
   };
 
-  const items: FolderItem[] = [
+  const items: SlotFolderItem[] = [
     {
       id: 'folder1',
       name: 'Documents',
@@ -58,11 +58,11 @@
     }
   ];
 
-  function handleSelect(item: FolderItem) {
+  function handleSelect(item: SlotFolderItem) {
     console.log('Selected:', item.name);
   }
 
-  function handleExpand(item: FolderItem) {
+  function handleExpand(item: SlotFolderItem) {
     console.log('Expanded:', item.name);
   }
 </script>

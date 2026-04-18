@@ -1,4 +1,4 @@
-import type { Message } from '$stylist/communication/interface/component/chat/other';
+import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 
 const Check = 'check';
 const CheckCheck = 'check-check';

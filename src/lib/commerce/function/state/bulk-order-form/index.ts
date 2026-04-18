@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as BulkOrderFormModel } from './index.svelte';
+export { BulkOrderFormModel } from './index.svelte';

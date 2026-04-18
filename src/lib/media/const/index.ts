@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { TOKEN_MEDIA_ICON } from './enum';
-export { RECORD_ICON_SIZE } from './record';
+export { ANNOUNCEMENT_BANNER_CLASSES } from './map';
+export { IMAGE_WITH_CAPTION_CLASSES, RECORD_ICON_SIZE } from './record';

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';
+  import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
   import { createMultiSelectState } from '$stylist/control/function/state/multi-select';
 
   let props: MultiSelectProps = $props();

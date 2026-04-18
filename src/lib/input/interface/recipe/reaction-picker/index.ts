@@ -1,22 +1,22 @@
 /**
- * Reaction Picker — выбор реакции.
+ * Reaction Picker вЂ” РІС‹Р±РѕСЂ СЂРµР°РєС†РёРё.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   IIconSlot                 (information/icon-slot)
  *   ISelectable<string>       (interaction/selectable)
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSelectable as ISelectable } from '$stylist/interaction/interface/behavior/selectable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface ReactionPickerRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		ISelectable<string>,
@@ -24,3 +24,4 @@ export interface ReactionPickerRecipe
 		ISizable
 	]>
 {}
+

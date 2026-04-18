@@ -1,6 +1,9 @@
 import { LITEGRAPH_CANVAS_ICONS } from '$stylist/science/const/record/litegraph-canvas-icons';
-import type { GraphToolbarItem, LitegraphCanvasContract, LitegraphPort } from '$stylist/science/interface/record/science';
-import type { GraphCanvasRecipe, LiteGraphPort as LitegraphPortRecipe } from '$stylist/science/interface/recipe';
+import type { RecipeLitegraphCanvas as LitegraphCanvasContract } from '$stylist/science/interface/recipe/litegraph-canvas';
+import type { SlotGraphToolbarItem as GraphToolbarItem } from '$stylist/science/interface/slot/graph-toolbar-item';
+import type { ContractLitegraphPort as LitegraphPort } from '$stylist/science/interface/contract/litegraph-port';
+import type { GraphCanvasRecipe } from '$stylist/science/interface/recipe/graph-canvas';
+import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist/science/type/struct/litegraph-port';
 import type { LitegraphCanvasNodeAddPayload } from '$stylist/science/type/struct/litegraph-canvas-node-add-payload';
 
 export function createLitegraphCanvasState(props: LitegraphCanvasContract) {

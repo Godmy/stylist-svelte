@@ -82,7 +82,6 @@ export class GraphCanvasStyleManager {
 	}
 }
 
-export default GraphCanvasStyleManager;
 
 
 

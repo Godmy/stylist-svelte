@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundCtaButtonsState } from '$stylist/development/function/state/playground-cta-buttons';
-  import type { Props } from '$stylist/development/type/struct/playground-cta-buttons';
+  import type { PlaygroundCtaButtonsProps } from '$stylist/development/type/struct/playground-cta-buttons-props';
 const Package = 'package';
 const Layers = 'layers';
 const ArrowRight = 'arrow-right';
@@ -11,7 +11,7 @@ const ArrowRight = 'arrow-right';
   let {
     totalComponents,
     ...restProps
-  }: Props = $props();
+  }: PlaygroundCtaButtonsProps = $props();
   const state = createPlaygroundCtaButtonsState({ totalComponents, ...restProps });
 </script>
 

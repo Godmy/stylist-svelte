@@ -3,7 +3,8 @@
   import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
   import { Icon as BaseIcon } from '$stylist';
   import { createSortableGridState } from '$stylist/control/function/state/sortable-grid';
-  import type { SortableGridItem, SortableGridProps } from '$stylist/control/function/state/sortable-grid';
+  import type { SortableGridItem } from '$stylist/control/type/alias/sortable-grid-item';
+  import type { SortableGridProps } from '$stylist/control/type/alias/sortable-grid-props';
 
   const GripVertical = 'grip-vertical';
 

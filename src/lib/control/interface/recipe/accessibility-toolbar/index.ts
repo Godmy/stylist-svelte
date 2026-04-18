@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { Snippet } from 'svelte';
 
-export interface AccessibilityToolbarRecipe {
+export interface AccessibilityToolbarRecipe extends StructIntersectAll<[]> {
   showFontSizeControls?: boolean;
   showScreenReaderTester?: boolean;
   showFocusIndicatorToggle?: boolean;

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import PlaygroundTreeNode from '../playground-tree-node/index.svelte';
-  import type { Props } from '$stylist/development/type/struct/playground-component-tree';
+  import RecipePlaygroundTreeNode from '../playground-tree-node/index.svelte';
+  import type { PlaygroundComponentTreeProps } from '$stylist/development/type/struct/playground-component-tree-props';
   import { createPlaygroundComponentTreeState } from '$stylist/development/function/state/playground-component-tree';
 
-  let props: Props = $props();
+  let props: PlaygroundComponentTreeProps = $props();
   const state = createPlaygroundComponentTreeState(props);
 </script>
 
@@ -17,7 +17,7 @@
 >
   <nav class="space-y-1">
     {#each state.tree as categoryNode}
-      <PlaygroundTreeNode
+      <RecipePlaygroundTreeNode
         node={categoryNode}
         level={0}
         expandedNodes={state.expandedNodes}

@@ -1,8 +1,5 @@
-const joinClassNames = (...classNames: Array<string | false | null | undefined>): string =>
-	classNames.filter(Boolean).join(' ');
-
-const normalizeKeys = <TKey extends string>(keys: TKey | readonly TKey[]): readonly TKey[] =>
-	(Array.isArray(keys) ? [...keys] : [keys]) as readonly TKey[];
+import { joinClassNames } from '$stylist/architecture/function/script/join-class-names';
+import { normalizeKeys } from '$stylist/architecture/function/script/normalize-keys';
 
 export class StyleManagerBase {
 	static readonly classes = {

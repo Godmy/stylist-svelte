@@ -1,22 +1,12 @@
-﻿/**
- * NodeProperty — свойство узла..
- *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   ICaptionSlot        (information) — caption (Caption)
- *   IStatusSlot        (information) — status (Status)
- */
 import type { Snippet } from 'svelte';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface NodePropertyState {
-	error?: boolean;
-	editable?: boolean;
-}
-
-export type NodePropertyRecipe = Omit<ThemeAttributes<HTMLDivElement>, 'onchange'> & {
+export interface NodePropertyRecipe
+	extends StructIntersectAll<[Omit<ThemeAttributes<HTMLDivElement>, 'onchange'>]>
+{
 	id?: string;
 	name: string;
 	type?: TokenPropertyType;
@@ -38,4 +28,4 @@ export type NodePropertyRecipe = Omit<ThemeAttributes<HTMLDivElement>, 'onchange
 	errorMessage?: string;
 	placeholder?: string;
 	onchange?: (name: string, value: unknown) => void;
-};
+}

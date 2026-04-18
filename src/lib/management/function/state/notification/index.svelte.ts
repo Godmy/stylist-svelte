@@ -1,10 +1,6 @@
 import { NotificationAtomStyleManager } from '$stylist/management/class/style-manager/notification';
-import type { INotificationProps } from '$stylist/communication/interface/component/notifications/other';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-
-export interface NotificationStateProps extends INotificationProps {
-	class?: string;
-}
+import type { NotificationStateProps } from '$stylist/management/interface/recipe/notification';
 
 export function createNotificationState(props: NotificationStateProps) {
 	// Props with defaults
@@ -17,7 +13,7 @@ export function createNotificationState(props: NotificationStateProps) {
 	const position = $derived(props.position ?? 'top-end');
 	const showIcon = $derived(props.showIcon ?? true);
 
-	// State
+	// SlotState
 	let isVisible = $state(props.show ?? false);
 	let timeoutId: ReturnType<typeof setTimeout> | null = null;
 

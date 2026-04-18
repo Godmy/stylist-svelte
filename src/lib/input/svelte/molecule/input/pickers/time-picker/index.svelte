@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { ITimePickerProps } from '$stylist/input/interface/component/time-picker/other';
+  import type { SlotTimePicker as ITimePickerProps } from '$stylist/input/interface/slot/time-picker';
   import { createTimePickerState } from '$stylist/input/function/state/time-picker';
 
   const Clock = 'clock';

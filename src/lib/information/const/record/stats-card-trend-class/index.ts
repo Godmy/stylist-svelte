@@ -1,4 +1,4 @@
-﻿import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card-data';
+﻿import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card';
 
 export const STATS_CARD_TREND_CLASS: Record<StatsCardTrend, string> = {
 	up: 'text-emerald-600',

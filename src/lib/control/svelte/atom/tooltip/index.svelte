@@ -4,15 +4,15 @@
 
 	let props: TooltipProps = $props();
 
-	const tooltipState = createTooltipState(props);
+	const state = createTooltipState(props);
 
 	let referenceRef: HTMLElement | null = $state(null);
 	let tooltipRef: HTMLElement | null = $state(null);
 
 	// Handle click outside for click trigger
 	$effect(() => {
-		if (tooltipState.trigger === 'click' && tooltipState.isVisible) {
-			return tooltipState.setupClickOutsideListener(referenceRef, tooltipRef);
+		if (state.trigger === 'click' && state.isVisible) {
+			return state.setupClickOutsideListener(referenceRef, tooltipRef);
 		}
 	});
 
@@ -41,50 +41,50 @@
 	);
 </script>
 
-<span class={tooltipState.containerClasses} {...restProps}>
+<span class={state.containerClasses} {...restProps}>
 	<span
 		bind:this={referenceRef}
-		class={tooltipState.triggerClasses}
-		onmouseenter={() => tooltipState.trigger === 'hover' && tooltipState.showTooltip()}
-		onmouseleave={() => tooltipState.trigger === 'hover' && tooltipState.hideTooltip()}
-		onfocus={() => tooltipState.trigger === 'focus' && tooltipState.showTooltip()}
-		onblur={() => tooltipState.trigger === 'focus' && tooltipState.hideTooltip()}
+		class={state.triggerClasses}
+		onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
+		onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
+		onfocus={() => state.trigger === 'focus' && state.showTooltip()}
+		onblur={() => state.trigger === 'focus' && state.hideTooltip()}
 		onclick={(e) => {
-			if (tooltipState.trigger === 'click') {
+			if (state.trigger === 'click') {
 				e.stopPropagation();
-				tooltipState.toggleTooltip();
+				state.toggleTooltip();
 			}
 		}}
 		onkeydown={(e) => {
-			if (tooltipState.trigger === 'click' && (e.key === 'Enter' || e.key === ' ')) {
+			if (state.trigger === 'click' && (e.key === 'Enter' || e.key === ' ')) {
 				e.preventDefault();
-				tooltipState.toggleTooltip();
+				state.toggleTooltip();
 			}
 		}}
 		role="button"
 		tabindex="0"
 		aria-haspopup="true"
-		aria-expanded={tooltipState.trigger === 'click' ? tooltipState.isVisible : undefined}
-		aria-disabled={tooltipState.disabled ? true : undefined}
+		aria-expanded={state.trigger === 'click' ? state.isVisible : undefined}
+		aria-disabled={state.disabled ? true : undefined}
 	>
 		{#if props.children}
 			{@render props.children?.()}
 		{/if}
 	</span>
 
-	{#if tooltipState.isVisible}
+	{#if state.isVisible}
 		<span
 			bind:this={tooltipRef}
 			role="tooltip"
-			class={tooltipState.tooltipClasses}
+			class={state.tooltipClasses}
 		>
-			{#if typeof tooltipState.content === 'string'}
-				{tooltipState.content}
+			{#if typeof state.content === 'string'}
+				{state.content}
 			{:else}
-				{@render tooltipState.content()}
+				{@render state.content()}
 			{/if}
-			{#if tooltipState.variant === 'arrow'}
-				<span class={tooltipState.arrowClasses}></span>
+			{#if state.variant === 'arrow'}
+				<span class={state.arrowClasses}></span>
 			{/if}
 		</span>
 	{/if}

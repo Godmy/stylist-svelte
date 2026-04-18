@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundGenericCodeViewer from './index.svelte';
+  import RecipePlaygroundGenericCodeViewer from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'language', type: 'select', defaultValue: 'svelte', options: ['svelte', 'ts', 'js', 'css', 'html'] }
@@ -15,13 +15,13 @@
 </script>
 
 <Story
-  component={PlaygroundGenericCodeViewer}
+  component={RecipePlaygroundGenericCodeViewer}
   title="Playground Generic Code Viewer"
   description="Generic syntax-highlighted code viewer for any language."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundGenericCodeViewer
+    <RecipePlaygroundGenericCodeViewer
       code={sampleCode}
       language={values.language}
     />

@@ -1,0 +1,16 @@
+export type IconVariant =
+	| 'default'
+	| 'primary'
+	| 'secondary'
+	| 'success'
+	| 'warning'
+	| 'danger'
+	| 'info'
+	| 'solid'
+	| 'outline'
+	| 'ghost'
+	| 'link'
+	| 'subtle'
+	| 'neutral'
+	| 'dark'
+	| 'light';

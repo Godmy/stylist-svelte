@@ -3,13 +3,13 @@
   import { createPlaygroundTreeNodeState } from '$stylist/development/function/state/playground-tree-node';
 
   import Self from './index.svelte';
-  import type { Props } from '$stylist/development/type/struct/playground-tree-node';
+  import type { PlaygroundTreeNodeProps } from '$stylist/development/type/struct/playground-tree-node-props';
 const ChevronRight = 'chevron-right';
 const Folder = 'folder';
 const FolderOpen = 'folder-open';
 const FileCode = 'file-code';
 
-  let props: Props = $props();
+  let props: PlaygroundTreeNodeProps = $props();
   const state = createPlaygroundTreeNodeState(props);
 </script>
 

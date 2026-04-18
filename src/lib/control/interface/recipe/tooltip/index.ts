@@ -1,22 +1,23 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { IMotionPreset } from '$stylist/animation/interface/proto/motion-preset';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorMotionPreset as IMotionPreset } from '$stylist/animation/interface/behavior/motion-preset';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface TooltipRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IFocusable,
 		ISized,
 		IShapeable,
 		IMotionPreset,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLDivElement>
 	]>
 {}
+

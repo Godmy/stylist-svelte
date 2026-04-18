@@ -1,4 +1,4 @@
-import type { SentimentAnalysisContract } from '$stylist/science/interface/record/science';
+import type { RecipeSentimentAnalysis as SentimentAnalysisContract } from '$stylist/science/interface/recipe/sentiment-analysis';
 import { SentimentAnalysisStyleManager } from '$stylist/science/class/style-manager/sentiment-analysis';
 
 export function createSentimentAnalysisState(props: SentimentAnalysisContract) {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createTimeSlotState } from '$stylist/calendar/function/state/time-slot';
-	import type { TimeSlotProps } from '$stylist/calendar/function/state/time-slot';
+	import type { TimeSlotProps } from '$stylist/calendar/interface/recipe/time-slot';
 	import { TimeSlotStyleManager } from '$stylist/input/class/style-manager/time-slot';
 
 	let props: TimeSlotProps = $props();

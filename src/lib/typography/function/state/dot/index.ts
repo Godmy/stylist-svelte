@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDotState } from './index.svelte';
+export { createDotState } from './index.svelte';

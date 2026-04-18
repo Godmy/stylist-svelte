@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createNotificationPreferencesState } from '$stylist/management/function/state/notification-preferences';
-  import type { NotificationPreferencesProps } from '$stylist/communication/interface/component/notifications/other';
+  import type { NotificationPreferencesProps } from '$stylist/communication/type/struct/notification-preferences-props';
 
   let props: NotificationPreferencesProps & { email?: boolean; push?: boolean; sms?: boolean } = $props();
   const state = createNotificationPreferencesState(props);

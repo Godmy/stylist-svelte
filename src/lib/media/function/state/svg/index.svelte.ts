@@ -1,11 +1,4 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-export interface SvgProps extends InformationHTMLAttributes<HTMLSpanElement> {
-	svg: string;
-	size?: number | string;
-	strokeWidth?: number;
-	class?: string;
-}
+import type { SvgProps } from '$stylist/media/interface/recipe/svg-svg-props';
 
 function escapeAttr(value: string): string {
 	return value

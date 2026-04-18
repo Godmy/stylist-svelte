@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist';
   import { createFileBrowserState } from '$stylist/file/function/state/file-browser';
   import { getItemCount } from '$stylist/file/function/script/file-browser';
-  import type { FolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+  import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
   import type { Props } from '$stylist/file/type/struct/file-browser/props';
 
   let props: Props = $props();
@@ -17,7 +17,7 @@
   </ul>
 </div>
 
-{#snippet TreeNode(item: FolderItem)}
+{#snippet TreeNode(item: SlotFolderItem)}
   <li role="treeitem" aria-expanded={item.children?.length ? state.isExpanded(item.id) : undefined} aria-selected={state.selectedItem?.id === item.id} class="select-none">
     <div
       class={`flex items-center rounded-md px-3 py-2 text-sm cursor-pointer ${

@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-enhanced-export-panel';
-
-export function createPlaygroundEnhancedExportPanelState(props: Props) {
+import type { PlaygroundEnhancedExportPanelProps } from '$stylist/development/type/struct/playground-enhanced-export-panel-props';
+export function createPlaygroundEnhancedExportPanelState(props: PlaygroundEnhancedExportPanelProps) {
   const componentName = $derived(props.componentName ?? '');
   const svelteCode = $derived(props.svelteCode ?? '');
   const componentProps = $derived(props.props ?? {});

@@ -1,4 +1,4 @@
-import type { NodeTitleVariant } from '$stylist/science/interface/recipe/node-title';
+import type { NodeTitleVariant } from '$stylist/science/type/enum/node-title-variant';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
@@ -44,7 +44,6 @@ export class NodeTitleStyleManager {
 	}
 }
 
-export default NodeTitleStyleManager;
 
 
 

@@ -1,19 +1,7 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import { CodeWithCopyStyleManager } from '$stylist/development/class/style-manager/code-with-copy';
+import type { Props } from '$stylist/development/type/alias/props';
 
-type CodeWithCopyVariant = 'default' | 'terminal' | 'diff';
-
-export type Props = {
-	language?: string;
-	variant?: CodeWithCopyVariant;
-	showLineNumbers?: boolean;
-	startLineNumber?: number;
-	copySuccessMessage?: string;
-	copyErrorMessage?: string;
-	children: import('svelte').Snippet;
-} & InformationHTMLAttributes<HTMLElement>;
-
-export function copyToClipboard(
+function copyToClipboard(
 	copied: boolean,
 	copySuccessMessage: string,
 	copyErrorMessage: string,

@@ -77,7 +77,7 @@
             maxZoom={values.maxZoom}
             minZoom={values.minZoom}
             onLocationSelect={(coords) => {
-              console.log('Location selected:', coords);
+              console.log('SlotLocation selected:', coords);
             }}
             onMarkerClick={(marker) => {
               selectedMarker = marker.id;
@@ -107,7 +107,7 @@
           <div class="flex items-end">
             <label for="show-current-location" class="flex items-center gap-1">
               <input id="show-current-location" type="checkbox" bind:checked={showCurrentLocation} />
-              Show Current Location
+              Show Current SlotLocation
             </label>
           </div>
 

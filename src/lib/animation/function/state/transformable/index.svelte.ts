@@ -1,9 +1,9 @@
 import { TransformableStyleManager } from '$stylist/interaction/class/style-manager/transformable';
 import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
-import type { TransformProps } from '$stylist/animation/interface/proto/transformable-props';
+import type { SlotTransformable as TransformProps } from '$stylist/animation/interface/slot/transformable';
 
 export const createTransformableState = (props: TransformProps) => {
-	// State
+	// SlotState
 	let isHovered = $state(false);
 	let isActive = $state(false);
 
@@ -82,7 +82,7 @@ export const createTransformableState = (props: TransformProps) => {
 	}
 
 	return {
-		// State getters
+		// SlotState getters
 		get isHovered() {
 			return isHovered;
 		},
@@ -90,7 +90,7 @@ export const createTransformableState = (props: TransformProps) => {
 			return isActive;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get inlineStyle() { return inlineStyle; },
 		get restProps() { return restProps; },

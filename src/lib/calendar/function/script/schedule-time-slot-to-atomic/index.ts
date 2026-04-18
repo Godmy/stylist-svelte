@@ -1,4 +1,4 @@
-import type { ITimeSlot } from '$stylist/input/interface/component/time-slot/other';
+import type { SlotTimeSlot as ITimeSlot } from '$stylist/input/interface/slot/time-slot-time-slot';
 
 /**
  * Converts a schedule TimeSlot (molecular) to an atomic TimeSlot

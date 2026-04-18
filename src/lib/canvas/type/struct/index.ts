@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { CanvasObject } from './canvas-object';
 export type { CanvasToolbarProps } from './canvas-toolbar';
+export type { CanvasUser } from './canvas-user';
 export type { DrawingSurfaceCanvasClearedEvent, DrawingSurfaceContract, DrawingSurfaceExposeMethodsEvent, DrawingSurfaceProps, DrawingSurfaceTool } from './drawing-surface';
 export type { GraphToolbarItem, GraphToolbarProps } from './graph';
 export type { GraphCanvasProps } from './graph-canvas';

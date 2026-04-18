@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import ReturnPolicy from './index.svelte';
+  import RecipeReturnPolicy from './index.svelte';
 
   let {
     id = '',
@@ -69,7 +69,7 @@
   {id}
   {title}
   {description}
-  component={ReturnPolicy}
+  component={RecipeReturnPolicy}
   category="Organisms"
   controls={controls}
 >
@@ -82,7 +82,7 @@
         <p class="mt-1 text-[--color-text-primary]">Return policy with conditions and process steps.</p>
 
         <div class="mt-6">
-          <ReturnPolicy
+          <RecipeReturnPolicy
             {...policyData}
             showConditions={values.showConditions}
             showSteps={values.showSteps}
@@ -104,7 +104,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Free Return Shipping</p>
             <div>
-              <ReturnPolicy
+              <RecipeReturnPolicy
                 {...policyData}
                 shippingCosts="seller"
                 restockingFee={0}
@@ -121,7 +121,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Strict Policy</p>
             <div>
-              <ReturnPolicy
+              <RecipeReturnPolicy
                 {...policyData}
                 policyPeriod={14}
                 conditions={[

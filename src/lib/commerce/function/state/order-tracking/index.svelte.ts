@@ -1,4 +1,5 @@
-import type { OrderTrackingContract, TrackingStatusType } from '$stylist/commerce/interface/component/order-tracking';
+import type { TrackingStatusType } from '$stylist/commerce/type/struct/tracking-status-type';
+import type { RecipeOrderTracking as OrderTrackingContract } from '$stylist/commerce/interface/recipe/order-tracking';
 import { OrderTrackingStyleManager } from '$stylist/commerce/class/style-manager/order-tracking';
 
 export function createOrderTrackingState(props: OrderTrackingContract) {

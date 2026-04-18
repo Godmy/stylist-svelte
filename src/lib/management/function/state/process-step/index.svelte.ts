@@ -1,7 +1,5 @@
-import type { IProcessStepProps } from '$stylist/management/interface/component/process-step/other';
 import { ProcessStepStyleManager } from '$stylist/management/class/style-manager/process-step';
-
-export interface ProcessStepStateProps extends IProcessStepProps {}
+import type { ProcessStepStateProps } from '$stylist/management/interface/recipe/process-step';
 
 export function createProcessStepState(props: ProcessStepStateProps) {
 	const number = $derived(props.number);

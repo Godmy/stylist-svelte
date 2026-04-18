@@ -1,23 +1,8 @@
 import type { RadioGroupProps } from '$stylist/form/type/struct/radio-group';
 import { RADIO_GROUP_LAYOUT_CLASS } from '$stylist/form/const/map/radio-group-layout';
+import type { SlotRadioGroupState } from '$stylist/form/interface/slot/radio-group-state';
 
-export interface RadioGroupState {
-	internalValue: string;
-	layoutClass: string;
-	rootClass: string;
-	labelClass: string;
-	requiredMarkClass: string;
-	descriptionClass: string;
-	optionsContainerClass: string;
-	optionLabelClass: string;
-	optionTextClass: string;
-	optionDescriptionClass: string;
-	inputClass: string;
-	indicatorClass: string;
-	errorClass: string;
-}
-
-export function createRadioGroupState(props: RadioGroupProps): RadioGroupState {
+export function createRadioGroupState(props: RadioGroupProps): SlotRadioGroupState {
 	let internalValue = $state(props.value ?? '');
 
 	const layoutClass = $derived(RADIO_GROUP_LAYOUT_CLASS[props.orientation ?? 'vertical'] ?? RADIO_GROUP_LAYOUT_CLASS.vertical);

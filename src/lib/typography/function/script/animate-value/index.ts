@@ -1,14 +1,5 @@
-import { getEasingFunction, type EasingType } from '$stylist/animation/function/script/get-easing-function';
-
-export interface AnimateValueOptions {
-	from: number;
-	to: number;
-	duration: number;
-	delay: number;
-	easing: EasingType;
-	onUpdate: (value: number) => void;
-	onFinish?: () => void;
-}
+import { getEasingFunction } from '$stylist/animation/function/script/get-easing-function';
+import type { AnimateValueOptions } from '$stylist/typography/interface/slot/animate-value-options';
 
 export function animateValue({
 	from,

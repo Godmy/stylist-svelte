@@ -1,15 +1,5 @@
-import type { Snippet } from 'svelte';
 import { ComponentPreviewStyleManager } from '$stylist/development/class/style-manager/component-preview';
-
-export type ComponentPreviewProps = {
-	title: string;
-	description?: string;
-	code: string;
-	language?: string;
-	componentDemo: Snippet;
-	showCode?: boolean;
-	class?: string;
-};
+import type { ComponentPreviewProps } from '$stylist/development/type/alias/component-preview-props';
 
 export function createComponentPreviewState(props: ComponentPreviewProps) {
 	let activeTab = $state(props.showCode ? 'code' : 'preview');

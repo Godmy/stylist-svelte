@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createSecuritySettingsState } from '$stylist/management/function/state/security-settings';
-  import type { SecuritySettingsProps } from '$stylist/form/interface/component/interaction-forms/other';
+  import type { SlotSecuritySettings as SecuritySettingsProps } from '$stylist/form/interface/slot/security-settings';
 
   let props: SecuritySettingsProps = $props();
   const state = createSecuritySettingsState(props);

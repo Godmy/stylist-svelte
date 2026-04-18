@@ -3,7 +3,7 @@
 	import Idef0Inputs from './index.svelte';
 
 	const ports = [
-		{ id: 'i1', label: 'Order request' },
+		{ id: 'i1', label: 'SlotOrder request' },
 		{ id: 'i2', label: 'Customer profile' },
 		{ id: 'i3', label: 'Business rules' }
 	];

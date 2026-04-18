@@ -2,9 +2,10 @@
 	import { Story } from '$stylist/development/svelte/playground';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import GraphEditor from './index.svelte';
-	import type { LiteGraphPort, LitegraphNodeRecipe } from '$stylist/science/interface/recipe/litegraph-node';
+	import type { LitegraphNodeRecipe } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 	import type { ConnectionLineRecipe } from '$stylist/information/interface/recipe/connection-line';
-	import type { GraphToolbarItem } from '$stylist/science/interface/record/science';
+	import type { SlotGraphToolbarItem as GraphToolbarItem } from '$stylist/science/interface/slot/graph-toolbar-item';
 
 	const sampleNodes: LitegraphNodeRecipe[] = [
 		{ id: 'node-1', title: 'Data Source', type: 'source', x: 100, y: 100, color: 'var(--color-success-500)', inputs: [], outputs: [{ id: 'out-1', direction: 'output', dataType: 'any', label: 'Data' }] satisfies LiteGraphPort[], properties: [] },

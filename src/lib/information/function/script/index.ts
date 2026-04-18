@@ -6,4 +6,3 @@ export { joinTailwindClassNames } from './join-tailwind-class-names';
 export { mergeClassNames } from './merge-class-names';
 export { mergeTailwindClassNames } from './merge-tailwind-class-names';
 export { resolveAriaLabel } from './resolve-aria-label';
-export type { ClassValue } from './join-tailwind-class-names';

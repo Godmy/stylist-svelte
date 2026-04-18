@@ -1,5 +1,5 @@
-import type { FoundationCameraState } from '$stylist/architecture/function/script/foundation-camera-state';
-import type { FoundationDepth } from '$stylist/architecture/function/script/foundation-depth-range';
+import type { FoundationCameraState } from '$stylist/architecture/type/script/foundation-camera-state';
+import type { FoundationDepth } from '$stylist/architecture/type/script/foundation-depth-range';
 import { getFoundationDepthDistance } from '$stylist/architecture/function/script/get-foundation-depth-distance';
 import { getFoundationCameraDepth } from '$stylist/architecture/function/script/get-foundation-camera-depth';
 

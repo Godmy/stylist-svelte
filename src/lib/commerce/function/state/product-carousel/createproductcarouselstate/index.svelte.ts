@@ -1,5 +1,5 @@
 import { ProductCarouselStyleManager } from '$stylist/commerce/class/style-manager/product-carousel';
-import type { ProductCarouselProps } from '../productcarouselprops';
+import type { ProductCarouselProps } from '$stylist/commerce/interface/recipe/product-carousel-props';
 
 export function createProductCarouselState(props: ProductCarouselProps) {
 	let currentIndex = $state(0);

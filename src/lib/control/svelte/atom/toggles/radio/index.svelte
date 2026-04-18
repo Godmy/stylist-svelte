@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RadioProps } from '$stylist/control/interface/component/toggles';
+	import type { SlotRadio as RadioProps } from '$stylist/control/interface/slot/radio-toggles';
 	import { createRadioState } from '$stylist/control/function/state/radio';
 
 	let props: RadioProps = $props();

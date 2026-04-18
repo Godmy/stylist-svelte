@@ -1,4 +1,4 @@
-import type { IGeoJSONViewerProps } from '$stylist/geo/interface/component/geo-jsonviewer/other';
+import type { SlotGeoJSONViewer as IGeoJSONViewerProps } from '$stylist/geo/interface/slot/geo-json-viewer';
 
 export class GeoJSONViewerStyleManager {
   static getHostClasses(props: IGeoJSONViewerProps): string {

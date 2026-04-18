@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import DesignTokens from './index.svelte';
+  import RecipeDesignTokens from './index.svelte';
 
   let {
     id = '',
@@ -41,7 +41,7 @@
   {id}
   {title}
   {description}
-  component={DesignTokens}
+  component={RecipeDesignTokens}
   category="Organisms"
   controls={controls}
 >
@@ -54,7 +54,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive design tokens with customizable options.</p>
 
         <div class="mt-6">
-          <DesignTokens
+          <RecipeDesignTokens
             theme={values.theme}
             showColorPalette={values.showColorPalette}
             showSpacing={values.showSpacing}
@@ -74,7 +74,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Dark Theme</p>
             <div>
-              <DesignTokens
+              <RecipeDesignTokens
                 theme="dark"
                 showColorPalette={true}
               />
@@ -84,7 +84,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Colors Only</p>
             <div>
-              <DesignTokens
+              <RecipeDesignTokens
                 theme="light"
                 showColorPalette={true}
                 showSpacing={false}

@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import DebugConsole from './index.svelte';
+  import RecipeDebugConsole from './index.svelte';
 
   let {
     id = '',
@@ -51,7 +51,7 @@
   {id}
   {title}
   {description}
-  component={DebugConsole}
+  component={RecipeDebugConsole}
   category="Organisms"
   controls={controls}
 >
@@ -64,7 +64,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive debug console with customizable options.</p>
 
         <div class="mt-6">
-          <DebugConsole
+          <RecipeDebugConsole
             logs={consoleLogs}
             showTimestamps={values.showTimestamps}
             showLogLevel={values.showLogLevel}
@@ -86,7 +86,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Minimal</p>
             <div>
-              <DebugConsole
+              <RecipeDebugConsole
                 logs={consoleLogs.slice(0, 2)}
                 showTimestamps={false}
                 allowFilter={false}
@@ -99,7 +99,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Errors Only</p>
             <div>
-              <DebugConsole
+              <RecipeDebugConsole
                 logs={consoleLogs.filter(log => log.level === 'error')}
                 showLogLevel={true}
                 allowClear={true}

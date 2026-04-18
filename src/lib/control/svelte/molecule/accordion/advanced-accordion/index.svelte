@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IAdvancedAccordionProps } from '$stylist/control/interface/component/advanced-accordion';
+  import type { RecipeAdvancedAccordionProps as IAdvancedAccordionProps } from '$stylist/control/interface/recipe/advanced-accordion-props';
   import { AdvancedAccordionStyleManager } from '$stylist/control/class/style-manager/advanced-accordion';
   import { createAdvancedAccordionState } from '$stylist/control/function/state/advanced-accordion';
 

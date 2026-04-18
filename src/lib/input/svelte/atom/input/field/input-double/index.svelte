@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IInputDoubleProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputDouble as IInputDoubleProps } from '$stylist/input/interface/slot/input-double';
 	import { createInputDoubleState } from '$stylist/input/function/state/input-double';
 
 	let props: IInputDoubleProps = $props();

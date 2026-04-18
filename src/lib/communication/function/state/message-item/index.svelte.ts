@@ -1,4 +1,5 @@
-import type { Message, User } from '$stylist/communication/interface/component/chat/other';
+import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 
 export const createMessageItemState = (props: {
 	message: Message;

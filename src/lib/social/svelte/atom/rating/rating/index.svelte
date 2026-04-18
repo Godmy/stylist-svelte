@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IRatingProps } from '$stylist/social/interface/component/rating/other';
+  import type { SlotRating as IRatingProps } from '$stylist/social/interface/slot/rating';
   import { Icon as BaseIcon } from '$stylist';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import createRatingState from '$stylist/social/function/state/rating';

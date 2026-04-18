@@ -1,6 +1,6 @@
 import { derived, writable } from 'svelte/store';
-import type { ChatStatusIndicatorProps } from '$stylist/communication/interface/component/chat-status-indicator/other';
-import type { ChatStatusIndicatorContract } from '$stylist/communication/interface/component/chat-status-indicator/contract';
+import type { SlotChatStatusIndicator as ChatStatusIndicatorProps } from '$stylist/communication/interface/slot/chat-status-indicator';
+import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/communication/interface/slot/chat-status-indicator';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatStatusIndicatorState(props: ChatStatusIndicatorProps | ChatStatusIndicatorContract) {

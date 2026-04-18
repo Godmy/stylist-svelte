@@ -1,5 +1,5 @@
 import { AutoSearchStyleManager } from '$stylist/control/class/style-manager/auto-search';
-import type { AutoSearchProps } from '$stylist/control/interface/component/auto-search/other';
+import type { SlotAutoSearch as AutoSearchProps } from '$stylist/control/interface/slot/auto-search';
 
 export function createAutoSearchState(props: AutoSearchProps) {
 	let localValue = $state(props.value ?? '');

@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента DevelopmentErrorBoundary
+ * Менеджер стилей для компонента RecipeDevelopmentErrorBoundary
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

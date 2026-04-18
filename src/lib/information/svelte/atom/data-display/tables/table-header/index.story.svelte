@@ -26,7 +26,7 @@
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
           Primary Table Header Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Toggle structure and sorting hint visibility.</p>
+        <p class="mt-1 text-[--color-text-primary]">SlotToggle structure and sorting hint visibility.</p>
 
         <div class="mt-6 overflow-x-auto">
           <table class="min-w-full divide-y divide-[--color-border-primary]">

@@ -4,16 +4,8 @@ import type { TokenMarker } from '$stylist/architecture/type/enum/marker';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { NOTIFICATION_BADGE_APPEARANCE_CLASSES } from '$stylist/management/const/record/notification-badge-appearance-classes';
 import { NOTIFICATION_BADGE_MARKER_CLASSES } from '$stylist/management/const/record/notification-badge-marker-classes';
-
-const NOTIFICATION_BADGE_BASE_CLASSES =
-	'absolute inline-flex items-center justify-center rounded-full font-medium ring-2 ring-[var(--color-background-primary)]';
-
-const NOTIFICATION_BADGE_POSITION_CLASSES = {
-	'top-end': 'top-0 right-0 translate-x-1/2 -translate-y-1/2',
-	'top-start': 'top-0 left-0 -translate-x-1/2 -translate-y-1/2',
-	'bottom-end': 'bottom-0 right-0 translate-x-1/2 translate-y-1/2',
-	'bottom-start': 'bottom-0 left-0 -translate-x-1/2 translate-y-1/2'
-} as const;
+import { NOTIFICATION_BADGE_POSITION_CLASSES } from '$stylist/management/const/map/notification-badge-position-classes';
+import { NOTIFICATION_BADGE_BASE_CLASSES } from '$stylist/management/const/value/notification-badge-base-classes';
 
 export class NotificationBadgeStyleManager {
 	static getContainerClasses(className = ''): string {

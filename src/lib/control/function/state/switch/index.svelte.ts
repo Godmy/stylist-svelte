@@ -1,17 +1,6 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-
-export type SwitchStateProps = {
-  id?: string;
-  label?: string;
-  description?: string;
-  size?: TokenSize;
-  disabled?: boolean;
-  checked?: boolean;
-  required?: boolean;
-  class?: string;
-  ariaLabel?: string;
-};
+import type { SwitchStateProps } from '$stylist/control/type/alias/switch-state-props';
 
 export function createSwitchState(props: SwitchStateProps) {
   const className = props.class ?? '';

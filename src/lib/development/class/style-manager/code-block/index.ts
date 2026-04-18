@@ -81,6 +81,3 @@ export class CodeStyleManager {
 		}[type];
 	}
 }
-
-export default CodeStyleManager;
-

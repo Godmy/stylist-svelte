@@ -1,20 +1,19 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
-import type { LoadingSpecificProps } from '$stylist/notification/interface/recipe/loading-specific-props';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
 export interface LoadingRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ISized,
 		IShapeable,
 		ISpaced,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLDivElement>
-	]>,
-		LoadingSpecificProps
+	]>
 {}
+

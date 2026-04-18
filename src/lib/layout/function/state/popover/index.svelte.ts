@@ -1,15 +1,6 @@
-import { PopoverStyleManager, type PopoverPosition } from '$stylist/layout/class/style-manager/popover';
-import type { Snippet } from 'svelte';
-
-export interface PopoverProps {
-	title?: string;
-	content: Snippet;
-	trigger: Snippet;
-	open?: boolean;
-	position?: PopoverPosition;
-	class?: string;
-	id?: string;
-}
+import { PopoverStyleManager } from '$stylist/layout/class/style-manager/popover';
+import type { PopoverPosition } from '$stylist/layout/type/enum/popover-position';
+import type { PopoverProps } from '$stylist/layout/interface/recipe/popover';
 
 export function createPopoverState(props: PopoverProps) {
 	let isVisible = $state(props.open ?? false);
@@ -73,5 +64,3 @@ export function createPopoverState(props: PopoverProps) {
 }
 
 export default createPopoverState;
-
-

@@ -3,7 +3,7 @@
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
   import EventCalendar from './index.svelte';
-  import type { CalendarEvent } from '$stylist/calendar/interface/component/event-calendar/other';
+  import type { SlotCalendarEvent as RecipeCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
   let {
     id = '',
@@ -21,7 +21,7 @@
   }>();
 
   // Sample events data
-  const sampleEvents: CalendarEvent[] = [
+  const sampleEvents: RecipeCalendarEvent[] = [
     {
       id: '1',
       title: 'Team Meeting',
@@ -57,7 +57,7 @@
   ];
 
   // Event handlers
-  function handleEventClick(event: CalendarEvent) {
+  function handleEventClick(event: RecipeCalendarEvent) {
     console.log('Event clicked:', event.title);
   }
 
@@ -65,11 +65,11 @@
     console.log('Creating event on date:', date);
   }
 
-  function handleEventEdit(event: CalendarEvent) {
+  function handleEventEdit(event: RecipeCalendarEvent) {
     console.log('Editing event:', event.title);
   }
 
-  function handleEventDelete(event: CalendarEvent) {
+  function handleEventDelete(event: RecipeCalendarEvent) {
     console.log('Deleting event:', event.title);
   }
 </script>

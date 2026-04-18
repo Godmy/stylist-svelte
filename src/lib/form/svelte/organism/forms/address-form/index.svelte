@@ -12,7 +12,7 @@
   </div>
   <div class={state.gridClass}>
     <input class={state.gridItemClass} placeholder="Postal code" value={props.postalCode} />
-    <input class={state.gridItemClass} placeholder="Country" value={props.country} />
+    <input class={state.gridItemClass} placeholder="SlotCountry" value={props.country} />
   </div>
 </form>
 

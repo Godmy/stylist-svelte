@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
-  import PlaygroundShellHeader from './index.svelte';
+  import RecipePlaygroundShellHeader from './index.svelte';
 
   const colorSchemes = [
     { id: 'sunset', name: 'Sunset', accent: '#f97316', accentStrong: '#ea580c' },
@@ -10,12 +10,12 @@
 </script>
 
 <Story
-  component={PlaygroundShellHeader}
+  component={RecipePlaygroundShellHeader}
   title="Playground Shell Header"
   description="Header shell for playground controls and quick actions."
 >
   {#snippet children()}
-    <PlaygroundShellHeader
+    <RecipePlaygroundShellHeader
       showComponentTree={true}
       showAIPanel={false}
       drawingMode={false}

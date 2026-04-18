@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import type { ScreenReaderProps } from '$stylist/form/interface/component/interaction-forms/other';
+  import type { SlotScreenReader as ScreenReaderProps } from '$stylist/form/interface/slot/screen-reader';
   import { ScreenReaderStyleManager } from '$stylist';
   import ScreenReader from './index.svelte';
 

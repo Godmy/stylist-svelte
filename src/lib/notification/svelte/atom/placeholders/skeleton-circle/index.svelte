@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSkeletonCircleState } from '$stylist/notification/function/state/skeleton-circle';
-	import type { SkeletonCircleProps } from '$stylist/notification/interface/component/skeleton-circle/other/skeleton-circle';
+	import type { SkeletonCircleProps } from '$stylist/notification/type/struct/skeleton-circle-props';
 
 	let props: SkeletonCircleProps = $props();
 	const state = createSkeletonCircleState(props);

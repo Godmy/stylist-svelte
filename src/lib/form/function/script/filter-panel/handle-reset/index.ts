@@ -1,8 +1,8 @@
-import type { FilterPanelState } from '$stylist/form/function/state/filter-panel';
+import type { SlotFilterPanelState } from '$stylist/form/interface/slot/filter-panel-state';
 import type { FilterChangePayload } from '$stylist/form/type/struct/filter-panel';
 import { handleFilterChange } from '$stylist/form/function/script/filter-panel/handle-filter-change';
 
-export function handleReset(state: FilterPanelState, onFilterChange?: (payload: FilterChangePayload) => void, onReset?: () => void) {
+export function handleReset(state: SlotFilterPanelState, onFilterChange?: (payload: FilterChangePayload) => void, onReset?: () => void) {
 	state.objectsVisible = true;
 	state.interfacesVisible = true;
 	state.unionsVisible = true;

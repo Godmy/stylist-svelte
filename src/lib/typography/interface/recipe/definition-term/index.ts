@@ -1,3 +1,4 @@
-import type { InlineBaseProps } from '$stylist/navigation/interface/component/link/other';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotInlineBase as InlineBaseProps } from '$stylist/navigation/interface/slot/inline-base';
 
-export type ThemeDefinitionTermRecipe = InlineBaseProps<HTMLElement>;
+export interface ThemeDefinitionTermRecipe extends StructIntersectAll<[InlineBaseProps<HTMLElement>]> {}

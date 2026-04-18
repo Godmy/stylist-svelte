@@ -1,12 +1,12 @@
-import type { FileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 
 export function handleItemClick(
-  item: FileSystemItem,
+  item: SlotFileSystemItem,
   enableSelection: boolean,
   multiselect: boolean,
-  selectedItems: FileSystemItem[],
-  setSelectedItems: (items: FileSystemItem[]) => void,
-  onItemSelect?: (item: FileSystemItem) => void
+  selectedItems: SlotFileSystemItem[],
+  setSelectedItems: (items: SlotFileSystemItem[]) => void,
+  onItemSelect?: (item: SlotFileSystemItem) => void
 ): void {
   if (enableSelection) {
     if (multiselect) {
@@ -24,15 +24,15 @@ export function handleItemClick(
 }
 
 export function handleItemDoubleClick(
-  item: FileSystemItem,
-  onItemDoubleClick?: (item: FileSystemItem) => void
+  item: SlotFileSystemItem,
+  onItemDoubleClick?: (item: SlotFileSystemItem) => void
 ): void {
   onItemDoubleClick?.(item);
 }
 
 export function handleItemKeyDown(
   event: KeyboardEvent,
-  item: FileSystemItem,
+  item: SlotFileSystemItem,
   handleItemClickFn: () => void,
   handleItemDoubleClickFn: () => void
 ): void {
@@ -68,8 +68,8 @@ export function handleUpload(
 }
 
 export function handleDownload(
-  item: FileSystemItem,
-  onDownload?: (item: FileSystemItem) => void
+  item: SlotFileSystemItem,
+  onDownload?: (item: SlotFileSystemItem) => void
 ): void {
   onDownload?.(item);
 }
@@ -89,7 +89,7 @@ export function formatFileSize(bytes: number): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-export function getFileIcon(item: FileSystemItem): string {
+export function getFileIcon(item: SlotFileSystemItem): string {
   if (item.type === 'folder') return 'folder';
   return 'file';
 }

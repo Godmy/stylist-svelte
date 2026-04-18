@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-  import type { IReactionPickerProps } from '$stylist/input/interface/component/reaction-picker/other';
+  import type { SlotReactionPicker as IReactionPickerProps } from '$stylist/input/interface/slot/reaction-picker';
   import { createReactionPickerState } from '$stylist/input/function/state/reaction-picker';
   import { Icon as BaseIcon } from '$stylist';
   const Smile = 'smile';

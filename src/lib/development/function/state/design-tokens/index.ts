@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDesignTokensState } from './index.svelte';
+export { createDesignTokensState } from './index.svelte';

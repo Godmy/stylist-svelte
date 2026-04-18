@@ -1,27 +1,12 @@
 import { KanbanColumnStyleManager } from '$stylist/management/class/style-manager/kanban-column';
-import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
-import type { Snippet } from 'svelte';
+import type { KanbanCardType } from '$stylist/management/interface/slot/kanban-card-type';
 import { applyKanbanColumnDrop } from '$stylist/management/function/script/kanban-column';
+import type { KanbanColumnStateProps } from '$stylist/management/interface/recipe/kanban-column';
 
 const Check = 'check';
 const Pencil = 'pencil';
 const Plus = 'plus';
 const X = 'x';
-
-export interface KanbanColumnStateProps {
-  column: KanbanColumnType;
-  droppable?: boolean;
-  editable?: boolean;
-  showArchivedCards?: boolean;
-  onAddCard?: (columnId: string) => void;
-  onCardDrop?: (cardId: string, fromColumnId: string, toColumnId: string, position: number) => void;
-  onColumnTitleChange?: (columnId: string, title: string) => void;
-  onCardTitleChange?: (columnId: string, cardId: string, title: string) => void;
-  onCardDelete?: (columnId: string, cardId: string) => void;
-  onCardArchive?: (columnId: string, cardId: string) => void;
-  content?: Snippet;
-}
 
 export function createKanbanColumnState(props: KanbanColumnStateProps) {
   // Props with defaults
@@ -37,7 +22,7 @@ export function createKanbanColumnState(props: KanbanColumnStateProps) {
   const onCardArchive = $derived(props.onCardArchive);
   const content = $derived(props.content);
 
-  // State
+  // SlotState
   let dragOverIndex = $state<number | null>(null);
   let isEditingTitle = $state(false);
   let draftTitle = $state(column.title);

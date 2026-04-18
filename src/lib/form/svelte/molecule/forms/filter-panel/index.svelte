@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button } from '$stylist';
-  import Checkbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
+  import SlotCheckbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
   import Select from '$stylist/control/svelte/molecule/selectors/selector/index.svelte';
   import type { FilterPanelProps } from '$stylist/form/type/struct/filter-panel';
   import { createFilterPanelState } from '$stylist/form/function/state/filter-panel';
@@ -63,7 +63,7 @@
     <div class={state.filterHeaderClass}>Node Types</div>
     <div class={state.filterOptionsClass}>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showObjects"
           label="Show Objects"
           checked={state.objectsVisible}
@@ -74,7 +74,7 @@
         />
       </div>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showInterfaces"
           label="Show Interfaces"
           checked={state.interfacesVisible}
@@ -85,7 +85,7 @@
         />
       </div>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showUnions"
           label="Show Unions"
           checked={state.unionsVisible}
@@ -96,7 +96,7 @@
         />
       </div>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showEnums"
           label="Show Enums"
           checked={state.enumsVisible}
@@ -107,7 +107,7 @@
         />
       </div>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showScalars"
           label="Show Scalars"
           checked={state.scalarsVisible}
@@ -118,7 +118,7 @@
         />
       </div>
       <div class={state.filterItemClass}>
-        <Checkbox
+        <SlotCheckbox
           id="showInputs"
           label="Show Inputs"
           checked={state.inputsVisible}

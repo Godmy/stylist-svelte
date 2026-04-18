@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createRFQFormState } from './index.svelte';
+export { createRFQFormState } from './index.svelte';

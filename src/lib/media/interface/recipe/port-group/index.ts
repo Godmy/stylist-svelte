@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * PortGroup — группа портов..
  *
@@ -8,7 +9,7 @@ import type { TokenRelationship } from '$stylist/architecture/type/enum/relation
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface PortGroupRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface PortGroupRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	title?: string;
 	direction?: TokenRelationship;
 	portSize?: TokenSize;

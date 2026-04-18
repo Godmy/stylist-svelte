@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundComponentInfoCardState } from '$stylist/development/function/state/playground-component-info-card';
-  import type { Props } from '$stylist/development/type/struct/playground-component-info-card';
+  import type { PlaygroundComponentInfoCardProps } from '$stylist/development/type/struct/playground-component-info-card-props';
 const X = 'x';
 const Package = 'package';
 const Tag = 'tag';
@@ -15,7 +15,7 @@ const Calendar = 'calendar';
 const User = 'user';
 
 
-  let props: Props = $props();
+  let props: PlaygroundComponentInfoCardProps = $props();
   const state = createPlaygroundComponentInfoCardState(props);
 </script>
 
@@ -99,11 +99,11 @@ const User = 'user';
 
         <!-- Stats Grid -->
         <div class="grid grid-cols-2 gap-4 mb-6">
-          <!-- Props Count -->
+          <!-- PlaygroundComponentInfoCardProps Count -->
           <div class="stat-card p-4 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl border-2 border-indigo-200 dark:border-indigo-800">
             <div class="flex items-center gap-2 mb-2">
               <BaseIcon name={Layers} class="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              <span class="text-xs font-semibold text-indigo-900 dark:text-indigo-200">Props</span>
+              <span class="text-xs font-semibold text-indigo-900 dark:text-indigo-200">PlaygroundComponentInfoCardProps</span>
             </div>
             <p class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
               {state.propsCount}

@@ -1,22 +1,22 @@
 /**
- * Range Input — ползунковый ввод диапазона.
+ * Range Input вЂ” РїРѕР»Р·СѓРЅРєРѕРІС‹Р№ РІРІРѕРґ РґРёР°РїР°Р·РѕРЅР°.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   ICaptionSlot              (information/caption-slot)
  *   ISelectable<number>       (interaction/selectable)
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSelectable as ISelectable } from '$stylist/interaction/interface/behavior/selectable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface RangeInputRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		ISelectable<number>,
@@ -24,3 +24,4 @@ export interface RangeInputRecipe
 		ISizable
 	]>
 {}
+

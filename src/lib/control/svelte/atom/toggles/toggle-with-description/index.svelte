@@ -40,7 +40,7 @@
      role="switch"
      aria-checked={state.isChecked}
      {...restProps}>
-  <!-- Toggle Switch -->
+  <!-- SlotToggle Switch -->
   <div class={`relative inline-flex flex-shrink-0 h-6 w-11 ${state.toggleClass}`}
        aria-hidden="true">
     <input

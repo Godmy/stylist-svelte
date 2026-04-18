@@ -1,16 +1,8 @@
-import type { FormWithValidationProps } from '$stylist/form/interface/component/interaction-forms/other';
+import type { SlotFormWithValidation as FormWithValidationProps } from '$stylist/form/interface/slot/form-with-validation';
 import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
+import type { SlotFormWithValidationState } from '$stylist/form/interface/slot/form-with-validation-state';
 
-export interface FormWithValidationState {
-	rootClass: string;
-	inputClass: string;
-	emailValidText: string;
-	emailValidClass: string;
-	passwordValidText: string;
-	passwordValidClass: string;
-}
-
-export function createFormWithValidationState(props: FormWithValidationProps): FormWithValidationState {
+export function createFormWithValidationState(props: FormWithValidationProps): SlotFormWithValidationState {
 	const emailValid = $derived(props.email?.includes('@') ?? false);
 	const passwordValid = $derived((props.password?.length ?? 0) >= 8);
 

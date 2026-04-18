@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IDatePickerProps } from '$stylist/input/interface/component/date-picker/other';
+  import type { SlotDatePicker as IDatePickerProps } from '$stylist/input/interface/slot/date-picker';
   import { createDatePickerState } from '$stylist/input/function/state/date-picker';
 
   let props: IDatePickerProps = $props();

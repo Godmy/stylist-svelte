@@ -1,4 +1,4 @@
-import type { DateRangePickerComponentProps } from '$stylist/input/interface/component/date-range-picker/other';
+import type { SlotDateRangePickerComponent as DateRangePickerComponentProps } from '$stylist/input/interface/slot/date-range-picker-component';
 
 export const createDateRangePickerState = (props: DateRangePickerComponentProps) => {
 	let selectedRange = $state({

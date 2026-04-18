@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ChartAxisZProps } from '$stylist/chart/interface/recipe/chart-axis-z-props';
-	import { createChartAxisZState } from '$stylist/chart/function/state/chart-function';
+	import { createChartAxisZState } from '$stylist/chart/function/state/chart-axis-z';
 
 	let props: ChartAxisZProps = $props();
 	const state = createChartAxisZState(props);

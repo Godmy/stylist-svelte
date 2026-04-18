@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { FocusableStyleManagerOptions } from '$stylist/interaction/class/style-manager/focusable-style-manager-options';
+import type { FocusableStyleManagerOptions } from '$stylist/interaction/interface/slot/focusable-style-manager-options';
 
 export class FocusableStyleManager {
 	private static readonly BASE = 'transition-all duration-100 ease-in-out';

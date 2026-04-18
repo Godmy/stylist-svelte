@@ -1,10 +1,24 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AnnouncementBannerRecipe } from './announcement-banner';
+export type { AudioPlayerRecipe } from './audio-player';
+export type { AudioPlayerProps } from './audio-player-audio-player-props';
+export type { AudioSliderRecipe } from './audio-slider';
+export type { AudioVisualizerRecipe } from './audio-visualizer';
 export type { AvatarRecipe } from './avatar';
+export type { AvatarProps } from './avatar-avatar-props';
+export type { AvatarGroupProps } from './avatar-group-avatar-group-props';
 export type { CanvasImageEditorRecipe } from './canvas-image-editor';
 export type { IconChevronRecipe } from './icon-chevron';
 export type { IconCircleRecipe } from './icon-circle';
-export type { ThemeIconItem, ThemeIconPickerRecipe, ThemeIconPickerRest } from './icon-picker';
+export type { IconProps } from './icon-icon-props';
+export type { ThemeIconPickerRecipe } from './icon-picker';
 export type { IconWrapperRecipe } from './icon-wrapper';
+export type { ImageGalleryStateProps } from './image-gallery-image-gallery-state-props';
 export type { MediaItemRecipe } from './media-item';
+export type { NodeIconProps } from './node-icon-node-icon-props';
 export type { PictureToolbarRecipe } from './picture-toolbar';
 export type { PortGroupRecipe } from './port-group';
+export type { PromoBannerProps } from './promo-banner-promo-banner-props';
+export type { SvgProps } from './svg-svg-props';
+export type { TeamAvatarStackProps } from './team-avatar-stack-team-avatar-stack-props';
+export type { VideoPlayerProps } from './video-player-video-player-props';

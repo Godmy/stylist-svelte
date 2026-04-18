@@ -1,10 +1,10 @@
 import type { Snippet } from 'svelte';
 
-// FolderItem type
-export type FolderItem = {
+// SlotFolderItem type
+export type SlotFolderItem = {
   id: string;
   name: string;
-  children?: FolderItem[];
+  children?: SlotFolderItem[];
   expanded?: boolean;
   selected?: boolean;
   type?: 'folder' | 'file';

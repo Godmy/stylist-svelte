@@ -1,9 +1,5 @@
 import { MapMarkerStyleManager } from '$stylist/geo/class/style-manager/map-marker';
-import type { IMapMarkerProps } from '$stylist/geo/interface/component/map-marker/other';
-
-export interface MapMarkerStateProps extends IMapMarkerProps {
-	class?: string;
-}
+import type { MapMarkerStateProps } from '$stylist/geo/interface/recipe/map-marker';
 
 export function createMapMarkerState(props: MapMarkerStateProps) {
 	// Props with defaults
@@ -20,7 +16,7 @@ export function createMapMarkerState(props: MapMarkerStateProps) {
 	const distance = $derived(props.distance);
 	const selected = $derived(props.selected ?? false);
 
-	// State
+	// SlotState
 	let isPopupOpen = $state(props.showPopup ?? false);
 
 	// Sync with showPopup prop

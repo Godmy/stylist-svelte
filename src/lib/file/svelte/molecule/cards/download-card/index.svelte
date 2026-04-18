@@ -1,5 +1,5 @@
 ﻿<script lang="ts">
-  import type { IDownloadCardProps } from '$stylist/file/interface/component/download-card/other';
+  import type { SlotDownloadCard as IDownloadCardProps } from '$stylist/file/interface/slot/download-card';
   import { Icon as BaseIcon } from '$stylist';
   import { DownloadCardStyleManager } from '$stylist/file/class/style-manager/download-card';
   import { formatFileSize } from '$stylist/file/function/script/format-file-size';

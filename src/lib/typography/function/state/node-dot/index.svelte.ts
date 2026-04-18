@@ -1,8 +1,4 @@
-export interface NodeDotProps {
-	accent?: string;
-	size?: number;
-	opacity?: number;
-}
+import type { NodeDotProps } from '$stylist/typography/interface/recipe/node-dot';
 
 export function createNodeDotState(props: NodeDotProps) {
 	const accent = $derived(props.accent ?? 'var(--color-accent, #3498db)');

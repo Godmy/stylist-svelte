@@ -1,17 +1,17 @@
-/**
- * AnimatedNumber — анимированное число..
+﻿/**
+ * AnimatedNumber вЂ” Р°РЅРёРјРёСЂРѕРІР°РЅРЅРѕРµ С‡РёСЃР»Рѕ..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   IBadgeSlot        (information) — badge (Badge)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   IBadgeSlot        (information) вЂ” badge (Badge)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AnimatedNumberRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IBadgeSlot,
 		ThemeAttributes<HTMLSpanElement>
@@ -24,3 +24,4 @@ export interface AnimatedNumberRecipe
 	separator?: string;
 	decimals?: number;
 }
+

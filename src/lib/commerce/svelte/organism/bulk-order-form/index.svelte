@@ -18,7 +18,7 @@ const ImageIcon = 'image';
   let {
     products = [],
     initialItems = [],
-    title = 'Bulk Order',
+    title = 'Bulk SlotOrder',
     description = 'Add multiple products to your order',
     showTotal = true,
     showNotes = true,
@@ -135,7 +135,7 @@ const ImageIcon = 'image';
             disabled={!state.selectedProduct}
           >
             <BaseIcon name={Plus} class="h-4 w-4 mr-2" />
-            Add to Order
+            Add to SlotOrder
           </Button>
         </div>
       </div>
@@ -171,7 +171,7 @@ const ImageIcon = 'image';
     {/if}
 
     <div class={BulkOrderFormStyleManager.getItemsListClasses()}>
-      <h3 class={BulkOrderFormStyleManager.getItemsListTitleClasses()}>Order Items</h3>
+      <h3 class={BulkOrderFormStyleManager.getItemsListTitleClasses()}>SlotOrder Items</h3>
 
       {#if state.items.length === 0}
         <div class={BulkOrderFormStyleManager.getEmptyStateClasses()}>
@@ -290,7 +290,7 @@ const ImageIcon = 'image';
         onclick={() => state.handleSubmit(state.items, onOrderSubmit)}
         disabled={state.items.length === 0}
       >
-        Place Bulk Order
+        Place Bulk SlotOrder
       </Button>
     </div>
   </div>

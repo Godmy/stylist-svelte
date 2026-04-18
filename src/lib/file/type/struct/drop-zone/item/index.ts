@@ -1,7 +1,7 @@
 import type { Snippet } from 'svelte';
 
-// DropItem type
-export type DropItem = {
+// SlotDropItem type
+export type SlotDropItem = {
   id: string;
   name: string;
   type: string;

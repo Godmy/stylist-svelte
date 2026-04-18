@@ -1,23 +1,9 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
 import { formatTime } from '$stylist/media/function/script/format-time';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
+import type { VideoPlayerProps } from '$stylist/media/interface/recipe/video-player-video-player-props';
 
 type RestProps = Omit<InformationHTMLAttributes<HTMLDivElement>, 'class'>;
-
-export interface VideoPlayerProps extends RestProps {
-	src?: string;
-	poster?: string;
-	title?: string;
-	width?: string;
-	height?: string;
-	showControls?: boolean;
-	autoPlay?: boolean;
-	loop?: boolean;
-	muted?: boolean;
-	class?: string;
-	videoClass?: string;
-	controlsClass?: string;
-}
 
 export function createVideoPlayerState(props: VideoPlayerProps) {
 	let videoRef = $state<HTMLVideoElement | null>(null);

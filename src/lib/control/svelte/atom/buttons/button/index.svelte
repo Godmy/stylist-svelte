@@ -1,8 +1,8 @@
 <script lang="ts">
 	import BaseIcon from '$stylist/media/svelte/atom/icon/index.svelte';
-	import { CONTROL_BUTTON_LOADER } from '$stylist/control/const/map/button';
+	import { CONTROL_BUTTON_ICON } from '$stylist/control/const/map/button';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
-	import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
+	import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
 	import { createButtonState } from '$stylist/control/function/state/button-atom';
 
 	let props: ButtonElementProps & HTMLButtonAttributes = $props();
@@ -16,7 +16,7 @@
 	{...state.attrs}
 >
 	{#if state.loading}
-		<BaseIcon name={CONTROL_BUTTON_LOADER} class={state.loaderClasses} aria-hidden="true" />
+		<BaseIcon name={CONTROL_BUTTON_ICON.LOADER} class={state.loaderClasses} aria-hidden="true" />
 		<span class="sr-only">{state.factoryInput.contract.loadingLabel ?? 'Loading...'}</span>
 	{/if}
 

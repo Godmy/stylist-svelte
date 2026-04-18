@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundComponentInfoCard from './index.svelte';
+  import RecipePlaygroundComponentInfoCard from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'componentName', type: 'text', defaultValue: 'Button' },
@@ -11,13 +11,13 @@
 </script>
 
 <Story
-  component={PlaygroundComponentInfoCard}
+  component={RecipePlaygroundComponentInfoCard}
   title="Playground Component Info Card"
   description="Information card displaying component details and props."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundComponentInfoCard
+    <RecipePlaygroundComponentInfoCard
       componentName={values.componentName}
       propsCount={values.propsCount}
       isOpen={values.isOpen}

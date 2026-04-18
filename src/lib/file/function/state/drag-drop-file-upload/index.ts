@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDragDropFileUploadState } from './index.svelte';
+export { createDragDropFileUploadState } from './index.svelte';

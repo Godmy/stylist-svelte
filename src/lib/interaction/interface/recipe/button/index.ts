@@ -1,24 +1,24 @@
 /**
- * Button = Label + иконки + клик + размер + тема.
+ * Button = Label + РёРєРѕРЅРєРё + РєР»РёРє + СЂР°Р·РјРµСЂ + С‚РµРјР°.
  *
- * LEGO-состав:
- *   LabelRecipe       (recipe)      — базовый текстовый кирпич
- *   IIconSlot         (information) — iconLeft, iconRight
- *   IClickable        (interaction) — onClick, disabled, loading, cursor
- *   IFocusable        (interaction) — onFocus, onBlur, tabIndex, autoFocus
- *   ISizable          (architecture) — size, density, shape, layoutPadding
- *   IBadgeSlot        (information) — count, dot (опционально, для уведомлений)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   LabelRecipe       (recipe)      вЂ” Р±Р°Р·РѕРІС‹Р№ С‚РµРєСЃС‚РѕРІС‹Р№ РєРёСЂРїРёС‡
+ *   IIconSlot         (information) вЂ” iconLeft, iconRight
+ *   IClickable        (interaction) вЂ” onClick, disabled, loading, cursor
+ *   IFocusable        (interaction) вЂ” onFocus, onBlur, tabIndex, autoFocus
+ *   ISizable          (architecture) вЂ” size, density, shape, layoutPadding
+ *   IBadgeSlot        (information) вЂ” count, dot (РѕРїС†РёРѕРЅР°Р»СЊРЅРѕ, РґР»СЏ СѓРІРµРґРѕРјР»РµРЅРёР№)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { LabelRecipe } from '$stylist/typography/interface/recipe/label';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
 
 export interface ButtonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		LabelRecipe,
 		IIconSlot,
 		IClickable,
@@ -27,3 +27,4 @@ export interface ButtonRecipe
 		IBadgeSlot
 	]>
 {}
+

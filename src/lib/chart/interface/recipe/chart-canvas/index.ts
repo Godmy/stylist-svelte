@@ -4,17 +4,13 @@
  * LEGO-состав:
 
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
 import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
-
-export type ChartScale = [number, number];
-
-export type { ChartFunctionPoint, ChartSeries };
+import type { ChartScale } from '$stylist/chart/type/struct/chart-scale';
 
 export interface ChartCanvasRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ThemeAttributes<HTMLDivElement>
 	]>
 {
@@ -35,3 +31,4 @@ export interface ChartCanvasRecipe
 	zAxisLabel?: string;
 	title?: string;
 }
+

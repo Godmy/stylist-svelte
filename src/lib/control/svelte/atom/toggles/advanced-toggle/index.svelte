@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createAdvancedToggleState } from '$stylist/control/function/state/advanced-toggle';
-	import type { AdvancedToggleProps } from '$stylist/control/type/struct/advanced-toggle-props';
+	import type { RecipeAdvancedToggleProps } from '$stylist/control/type/struct/advanced-toggle-props';
 
-	let props: AdvancedToggleProps = $props();
+	let props: RecipeAdvancedToggleProps = $props();
 	const restProps = $derived(
 		(() => {
 			const {

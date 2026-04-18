@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createCounterState } from './index.svelte';
+export { createCounterState } from './index.svelte';

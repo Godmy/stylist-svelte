@@ -1,7 +1,7 @@
 import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { NodePropertyState } from '$stylist/science/interface/recipe/node-property';
+import type { SlotNodePropertyState } from '$stylist/science/interface/slot/node-property';
 
 
 /**
@@ -14,7 +14,7 @@ export class NodePropertyStyleManager {
 	static getPropertyClasses(
 		type: TokenPropertyType,
 		size: TokenSize,
-		state: NodePropertyState
+		state: SlotNodePropertyState
 	): string {
 		return mergeClassNames(
 			'node-property',
@@ -68,14 +68,3 @@ export class NodePropertyStyleManager {
 		return controlMap[type] || 'node-property__control';
 	}
 }
-
-export default NodePropertyStyleManager;
-
-
-
-
-
-
-
-
-

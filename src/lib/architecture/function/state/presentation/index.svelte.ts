@@ -1,6 +1,6 @@
-import type { PresentationMode } from '../presentation-mode/index.svelte.ts';
-import type { PresentationFrame } from '../presentation-frame/index.svelte.ts';
-import type { PresentationState } from '../presentation-state/index.svelte.ts';
+import type { PresentationMode } from '$stylist/architecture/type/struct/presentation-mode';
+import type { PresentationFrame } from '$stylist/architecture/interface/slot/presentation-frame';
+import type { PresentationState } from '$stylist/architecture/interface/recipe/presentation-state';
 
 export function usePresentation(initialFrames?: PresentationFrame[]) {
 	let state = $state<PresentationState>({

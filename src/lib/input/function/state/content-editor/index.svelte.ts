@@ -1,10 +1,10 @@
-import type { ContentType } from '../content-editor-state-content-type/index.svelte.ts';
-import type { ContentElement } from '../content-editor-state-content-element/index.svelte.ts';
-import type { ContentEditorStateProps } from '../content-editor-state-props/index.svelte.ts';
+type ContentType = string;
+type ContentElement = { [key: string]: any; id: string; type: ContentType; content: string };
+type ContentEditorStateProps = { [key: string]: any };
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createContentEditorState = (props: ContentEditorStateProps) => {
-	// State
+	// SlotState
 	let contentElements = $state<ContentElement[]>(props.initialContent ?? [{ id: '1', type: 'text', content: '' }]);
 	let activeElementId: string | null = $state(null);
 	let isPreviewMode = $state(false);
@@ -167,7 +167,7 @@ export const createContentEditorState = (props: ContentEditorStateProps) => {
 	const imagePlaceholderHintClasses = $derived.by(() => 'text-sm text-[var(--color-text-tertiary)] mt-1');
 
 	return {
-		// State getters
+		// SlotState getters
 		get contentElements() {
 			return contentElements;
 		},

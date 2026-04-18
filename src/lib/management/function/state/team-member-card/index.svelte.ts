@@ -1,9 +1,5 @@
 import { TeamMemberCardStyleManager } from '$stylist/management/class/style-manager/team-member-card';
-import type { ITeamMemberCardProps } from '$stylist/management/interface/component/team-member-card/other';
-
-export interface TeamMemberCardStateProps extends ITeamMemberCardProps {
-	class?: string;
-}
+import type { TeamMemberCardStateProps } from '$stylist/management/interface/recipe/team-member-card';
 
 export function createTeamMemberCardState(props: TeamMemberCardStateProps) {
 	// Props with defaults

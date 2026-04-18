@@ -1,5 +1,5 @@
 import { createFormErrorMessageState as createFormErrorMessageScriptState } from '$stylist/input/function/script/create-form-error-message-state';
-import type { IFormErrorMessageProps } from '$stylist/input/interface/component/input/other';
+import type { SlotFormErrorMessage as IFormErrorMessageProps } from '$stylist/input/interface/slot/form-error-message';
 
 export const createFormErrorMessageState = (props: IFormErrorMessageProps) => {
 	const state = $derived(

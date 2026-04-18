@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SubscriptionManagerContract } from '$stylist/commerce/interface/component/subscription-manager';
+  import type { RecipeSubscriptionManager as SubscriptionManagerContract } from '$stylist/commerce/interface/recipe/subscription-manager';
   import { createSubscriptionManagerState as stateFn } from '$stylist/commerce/function/state/subscription-manager';
 
   let props: SubscriptionManagerContract = $props();
@@ -9,7 +9,7 @@
 <div class={state.containerClasses}>
   <header class={state.headerClasses}>
     <div>
-      <h3 class={state.titleClasses}>{props.title ?? 'Subscription Manager'}</h3>
+      <h3 class={state.titleClasses}>{props.title ?? 'SlotSubscription Manager'}</h3>
       {#if props.subtitle}
         <p class={state.subtitleClasses}>{props.subtitle}</p>
       {/if}

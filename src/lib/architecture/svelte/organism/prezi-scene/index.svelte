@@ -102,7 +102,7 @@
 					<button
 						type="button"
 						class="prezi-scene__control-button"
-						title="Toggle grid"
+						title="SlotToggle grid"
 						onclick={state.toggleGrid}
 						aria-pressed={state.showGrid}
 					>
@@ -111,7 +111,7 @@
 					<button
 						type="button"
 						class="prezi-scene__control-button"
-						title="Toggle minimap"
+						title="SlotToggle minimap"
 						onclick={state.toggleMinimap}
 						aria-pressed={state.showMinimap}
 					>

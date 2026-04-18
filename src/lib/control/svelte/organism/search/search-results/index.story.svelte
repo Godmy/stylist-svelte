@@ -16,7 +16,7 @@
   };
 
   const results: SearchResultItem[] = [
-    { id: '1', title: 'Order #1001', description: 'Order detail page', type: 'generic', metadata: { date: '2026-02-14', author: 'Admin' } },
+    { id: '1', title: 'SlotOrder #1001', description: 'SlotOrder detail page', type: 'generic', metadata: { date: '2026-02-14', author: 'Admin' } },
     { id: '2', title: 'Invoice Document', description: 'PDF invoice', type: 'document', metadata: { date: '2026-02-10' } },
     { id: '3', title: 'John Doe', description: 'Customer profile', type: 'user', metadata: { location: 'NYC' } }
   ];

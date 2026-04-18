@@ -1,9 +1,9 @@
 import { DraggableStyleManager } from '$stylist/interaction/class/style-manager/draggable';
 import { ObjectManagerGesture } from '$stylist/interaction/class/object-manager/gesture';
-import type { DragProps } from '$stylist/interaction/interface/proto/draggable-props';
+import type { SlotDraggable as DragProps } from '$stylist/interaction/interface/slot/draggable';
 
 export const createDraggableState = (props: DragProps) => {
-	// State
+	// SlotState
 	let isDragging = $state(false);
 	let isOverDropZone = $state(false);
 
@@ -112,7 +112,7 @@ export const createDraggableState = (props: DragProps) => {
 	}
 
 	return {
-		// State getters
+		// SlotState getters
 		get isDragging() {
 			return isDragging;
 		},
@@ -129,7 +129,7 @@ export const createDraggableState = (props: DragProps) => {
 			return props.showHandle;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get restProps() { return restProps; },
 

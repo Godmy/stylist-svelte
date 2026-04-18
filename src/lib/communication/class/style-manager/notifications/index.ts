@@ -1,23 +1,7 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-const NOTIFICATION_ITEM_TYPE_CLASSES = {
-	info: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',
-	success: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
-	warning: 'border-[var(--color-warning-200)] bg-[var(--color-warning-50)]',
-	error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]'
-} as const;
-
-const NOTIFICATION_BADGE_STATE_CLASSES = {
-	unread: 'bg-[var(--color-danger-500)] text-[var(--color-text-inverse)]',
-	read: 'bg-[var(--color-neutral-200)] text-[var(--color-text-secondary)]'
-} as const;
-
-const RESPONSE_VIEWER_STATUS_CLASSES = {
-	success: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
-	error: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]',
-	loading: 'border-[var(--color-primary-200)] bg-[var(--color-primary-50)]',
-	info: 'border-[var(--color-neutral-200)] bg-[var(--color-background-secondary)]'
-} as const;
+import { NOTIFICATION_ITEM_TYPE_CLASSES } from '$stylist/communication/const/map/notification-item-type-classes';
+import { NOTIFICATION_BADGE_STATE_CLASSES } from '$stylist/communication/const/map/notification-badge-state-classes';
+import { RESPONSE_VIEWER_STATUS_CLASSES } from '$stylist/communication/const/map/response-viewer-status-classes';
 
 /**
  * Notification Components Style Manager

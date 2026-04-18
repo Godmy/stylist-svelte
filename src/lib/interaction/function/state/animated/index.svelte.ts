@@ -1,4 +1,4 @@
-import type { AnimateProps } from '$stylist/animation/interface/proto/animate-props';
+import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
 import { createAnimatedState as createAnimationAnimatedState } from '$stylist/animation/function/state/animated';
 
 export const createAnimatedState = (props: AnimateProps) => createAnimationAnimatedState(props);

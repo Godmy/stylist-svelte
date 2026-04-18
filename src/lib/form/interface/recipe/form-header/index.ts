@@ -1,17 +1,18 @@
-/**
- * Form Header — заголовок формы.
+﻿/**
+ * Form Header вЂ” Р·Р°РіРѕР»РѕРІРѕРє С„РѕСЂРјС‹.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   ICaptionSlot              (information/caption-slot)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface FormHeaderRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot
 	]>
 {}
+

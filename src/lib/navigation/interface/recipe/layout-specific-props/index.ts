@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для layout-компонентов */
 import type { Snippet } from 'svelte';
 
-export interface LayoutSpecificProps {
+export interface LayoutSpecificProps extends StructIntersectAll<[]> {
 	/** Тип layout-компонента */
 	type?: 'sidebar' | 'overlay' | 'drag-drop' | 'transform' | 'container';
 

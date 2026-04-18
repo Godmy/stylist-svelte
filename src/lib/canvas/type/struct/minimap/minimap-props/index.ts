@@ -1,4 +1,4 @@
-import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProps } from '$stylist/science/type/struct/lite-graph-node-props';
 import type { Snippet } from 'svelte';
 import type { MinimapOffset } from '../minimap-offset';
 import type { MinimapPoint } from '../minimap-point';

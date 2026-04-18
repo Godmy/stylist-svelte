@@ -1,7 +1,11 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundComponentCatalogState } from '$stylist/development/function/state/playground-component-catalog';
-  import type { ViewMode, SortBy, ComponentCatalogStory, ComponentCatalogStats, Props } from '$stylist/development/type/struct/playground-component-catalog';
+  import type { PlaygroundComponentCatalogViewMode } from '$stylist/development/type/struct/playground-component-catalog-view-mode';
+  import type { PlaygroundComponentCatalogSortBy } from '$stylist/development/type/struct/playground-component-catalog-sort-by';
+  import type { PlaygroundComponentCatalogComponentCatalogStory } from '$stylist/development/type/struct/playground-component-catalog-component-catalog-story';
+  import type { PlaygroundComponentCatalogComponentCatalogStats } from '$stylist/development/type/struct/playground-component-catalog-component-catalog-stats';
+  import type { PlaygroundComponentCatalogProps } from '$stylist/development/type/struct/playground-component-catalog-props';
 const Search = 'search';
 const Filter = 'filter';
 const Grid = 'grid';
@@ -15,7 +19,7 @@ const Package = 'package';
 const ArrowRight = 'arrow-right';
 const Sparkles = 'sparkles';
 
-  let props: Props = $props();
+  let props: PlaygroundComponentCatalogProps = $props();
   const state = createPlaygroundComponentCatalogState(props);
 </script>
 
@@ -62,7 +66,7 @@ const Sparkles = 'sparkles';
         <div class="relative">
           <select
             value={state.sortBy}
-            onchange={(event) => state.onSortByChange((event.currentTarget as HTMLSelectElement).value as SortBy)}
+            onchange={(event) => state.onSortByChange((event.currentTarget as HTMLSelectElement).value as PlaygroundComponentCatalogSortBy)}
             class="appearance-none pl-4 pr-12 py-3 rounded-lg border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:border-orange-500 dark:focus:border-orange-400 transition-colors cursor-pointer hover:border-orange-400 dark:hover:border-orange-500 min-w-[180px] shadow-sm"
             style="color-scheme: light dark;"
           >

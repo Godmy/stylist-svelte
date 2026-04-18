@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента PlaygroundDeviceFrame
+ * Менеджер стилей для компонента RecipePlaygroundDeviceFrame
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

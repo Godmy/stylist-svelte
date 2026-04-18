@@ -1,7 +1,7 @@
 /**
  * TokenBorderStyle manager for SwitchWithLabel component
  * Following SOLID principles by separating styling logic from component logic
- * Uses the Stylist-Svelte theming system with CSS variables
+ * Uses the RecipeStylist-Svelte theming system with CSS variables
  */
 
 import type { TokenAlignment as LabelPosition } from '$stylist/layout/type/enum/alignment';

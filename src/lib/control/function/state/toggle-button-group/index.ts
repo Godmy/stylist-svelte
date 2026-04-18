@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createToggleButtonGroupState } from './index.svelte';
+export { createToggleButtonGroupState } from './index.svelte';

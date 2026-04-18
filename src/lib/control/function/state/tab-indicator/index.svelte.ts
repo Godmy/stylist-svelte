@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { TabIndicatorProps } from '$stylist/control/interface/component/tabs/other';
+import type { SlotTabIndicator as TabIndicatorProps } from '$stylist/control/interface/slot/tab-indicator';
 
 export const createTabIndicatorState = (props: TabIndicatorProps) => {
 	const color = $derived(props.color ?? 'primary');

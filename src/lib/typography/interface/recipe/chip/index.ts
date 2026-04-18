@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * Chip — интерактивная метка.
  *
@@ -11,7 +12,7 @@ import type { ChildrenProp } from '$stylist/information/type/struct/children-pro
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ChipRecipe extends ChildrenProp, ThemeAttributes<HTMLDivElement> {
+export interface ChipRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLDivElement>]> {
 	variant?: TokenAppearance;
 	size?: TokenSize;
 	disabled?: boolean;

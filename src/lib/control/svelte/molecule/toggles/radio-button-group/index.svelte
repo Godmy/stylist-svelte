@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { RadioButtonGroupProps } from '$stylist/control/interface/component/toggles';
+	import type { RecipeRadioButtonGroupProps as RecipeRadioButtonGroupProps } from '$stylist/control/interface/recipe/radio-button-group-props';
 	import { createRadioButtonGroupState } from '$stylist/control/function/state/radio-button-group';
 
-	let props: RadioButtonGroupProps = $props();
+	let props: RecipeRadioButtonGroupProps = $props();
 
 	const state = createRadioButtonGroupState(props);
 

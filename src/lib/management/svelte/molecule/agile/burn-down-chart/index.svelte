@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { createBurnDownChartState } from '$stylist/management/function/state/burn-down-chart';
-  import type { BurnDownPoint } from '$stylist/management/interface/struct/burn-down-point';
-  import type { BurnDownData } from '$stylist/management/interface/struct/burn-down-data';
+  import type { SlotBurnDownPoint as BurnDownPoint } from '$stylist/management/interface/slot/burn-down-point';
+  import type { SlotBurnDownData as BurnDownData } from '$stylist/management/interface/slot/burn-down-data';
 
   /**
    * Компонент диаграммы сгорания задач (Burn Down Chart)
@@ -130,7 +130,3 @@
     text-align: center;
   }
 </style>
-
-
-
-

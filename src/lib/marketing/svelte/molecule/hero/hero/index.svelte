@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IHeroProps } from '$stylist/marketing/interface/component/hero/other';
+  import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
   import { createHeroState } from '$stylist/marketing/function/state/hero';
   import AnimatedNumber from '$stylist/typography/svelte/atom/animation/animated-number/index.svelte';
 

@@ -1,4 +1,5 @@
-import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
+import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 
 export const createChatItemState = (props: { chat: Chat; currentUser: User; isActive?: boolean; class?: string }) => {
 	const isActiveVal = $derived(props.isActive ?? false);

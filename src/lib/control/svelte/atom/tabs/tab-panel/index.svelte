@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { TAB_PANEL_CONTEXT } from '$stylist/control/const/struct/tab-panel-context';
-	import type { TabPanelProps } from '$stylist/control/interface/component/tabs/other';
+	import { TAB_PANEL_CONTEXT } from '$stylist/control/const/record/tab-panel-context';
+	import type { SlotTabPanel as TabPanelProps } from '$stylist/control/interface/slot/tab-panel';
 	import { createTabPanelState } from '$stylist/control/function/state/tab-panel';
 
 	let props: TabPanelProps = $props();

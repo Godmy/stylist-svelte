@@ -1,5 +1,5 @@
 import { createCharacterCountState as createCharacterCountScriptState } from '$stylist/input/function/script/create-character-count-state';
-import type { ICharacterCountProps } from '$stylist/input/interface/component/input/other';
+import type { SlotCharacterCount as ICharacterCountProps } from '$stylist/input/interface/slot/character-count';
 
 export const createCharactersCountState = (props: ICharacterCountProps) => {
 	const percentage = $derived(props.max && props.max > 0 ? Math.min(100, ((props.current ?? 0) / props.max) * 100) : 0);

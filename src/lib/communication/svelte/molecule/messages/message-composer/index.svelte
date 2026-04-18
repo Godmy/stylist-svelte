@@ -7,7 +7,7 @@ const Send = 'send';
 
   import { Button } from '$stylist';
 
-  import type { IMessageComposerProps } from '$stylist/communication/interface/component/message-composer/other';
+  import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/communication/interface/slot/message-composer';
   import { createMessageComposerState } from '$stylist/communication/function/state/message-composer';
 
   /**

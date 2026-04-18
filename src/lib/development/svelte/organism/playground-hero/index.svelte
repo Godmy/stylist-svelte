@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundHeroState } from '$stylist/development/function/state/playground-hero';
-  import type { Props } from '$stylist/development/type/struct/playground-hero';
+  import type { PlaygroundHeroProps } from '$stylist/development/type/struct/playground-hero-props';
   import { particleIndexes } from '$stylist/development/const/playground-hero/particle-indexes';
 
   const PLAYGROUND_HERO_SPARKLES = 'sparkles';
@@ -9,7 +9,7 @@
   const PLAYGROUND_HERO_HEART = 'heart';
   const PLAYGROUND_HERO_ARROW_RIGHT = 'arrow-right';
 
-  let props: Props = $props();
+  let props: PlaygroundHeroProps = $props();
   const state = createPlaygroundHeroState(props);
 </script>
 

@@ -1,0 +1,9 @@
+import type { TokenTrend } from '$stylist/management/type/enum/trend';
+
+/** Динамика метрики: тренд и изменение */
+export interface BehaviorTrendable {
+	trend?: TokenTrend | 'up' | 'down' | 'neutral';
+	trendValue?: string | number;
+	change?: number;
+	changeType?: 'positive' | 'negative';
+}

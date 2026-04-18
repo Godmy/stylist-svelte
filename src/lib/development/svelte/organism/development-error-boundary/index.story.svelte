@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import DevelopmentErrorBoundary from './index.svelte';
+  import RecipeDevelopmentErrorBoundary from './index.svelte';
 
   let {
     id = '',
@@ -37,7 +37,7 @@
   {id}
   {title}
   {description}
-  component={DevelopmentErrorBoundary}
+  component={RecipeDevelopmentErrorBoundary}
   category="Organisms"
   controls={controls}
 >
@@ -53,7 +53,7 @@
           {#if shouldThrow}
             {@const _ = throwStoryError()}
           {/if}
-          <DevelopmentErrorBoundary
+          <RecipeDevelopmentErrorBoundary
             showDetails={values.showDetails}
           >
             <button
@@ -62,7 +62,7 @@
             >
               Trigger Error
             </button>
-          </DevelopmentErrorBoundary>
+          </RecipeDevelopmentErrorBoundary>
         </div>
       </div>
 
@@ -76,7 +76,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Details</p>
             <div>
-              <DevelopmentErrorBoundary
+              <RecipeDevelopmentErrorBoundary
                 showDetails={false}
               >
                 <button
@@ -85,7 +85,7 @@
                 >
                   Trigger Error
                 </button>
-              </DevelopmentErrorBoundary>
+              </RecipeDevelopmentErrorBoundary>
             </div>
           </article>
         </div>

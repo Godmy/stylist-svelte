@@ -1,35 +1,36 @@
-/**
- * CanvasImageEditor — редактор изображений..
+﻿/**
+ * CanvasImageEditor вЂ” СЂРµРґР°РєС‚РѕСЂ РёР·РѕР±СЂР°Р¶РµРЅРёР№..
  *
- * LEGO-состав:
- *   IMediaSlot        (information) — media (Media)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   IMediaSlot        (information) вЂ” media (Media)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CanvasImageEditorRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IMediaSlot,
 		ThemeAttributes<HTMLCanvasElement>
 	]>
 {
-	/** Ширина холста */
+	/** РЁРёСЂРёРЅР° С…РѕР»СЃС‚Р° */
 	width?: number;
-	/** Высота холста */
+	/** Р’С‹СЃРѕС‚Р° С…РѕР»СЃС‚Р° */
 	height?: number;
-	/** Включен ли режим обрезки */
+	/** Р’РєР»СЋС‡РµРЅ Р»Рё СЂРµР¶РёРј РѕР±СЂРµР·РєРё */
 	cropEnabled?: boolean;
-	/** Тип фильтра */
+	/** РўРёРї С„РёР»СЊС‚СЂР° */
 	filter?: 'none' | 'grayscale' | 'sepia' | 'invert' | 'blur' | 'brightness' | 'contrast' | 'saturate' | 'hue-rotate';
-	/** Область обрезки */
+	/** РћР±Р»Р°СЃС‚СЊ РѕР±СЂРµР·РєРё */
 	cropArea?: { x: number; y: number; width: number; height: number };
-	/** Яркость (0-200) */
+	/** РЇСЂРєРѕСЃС‚СЊ (0-200) */
 	brightness?: number;
-	/** Контраст (0-200) */
+	/** РљРѕРЅС‚СЂР°СЃС‚ (0-200) */
 	contrast?: number;
-	/** Насыщенность (0-200) */
+	/** РќР°СЃС‹С‰РµРЅРЅРѕСЃС‚СЊ (0-200) */
 	saturation?: number;
-	/** Оттенок (0-360) */
+	/** РћС‚С‚РµРЅРѕРє (0-360) */
 	hue?: number;
 }
+

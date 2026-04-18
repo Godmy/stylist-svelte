@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { WarrantyInfoContract } from '$stylist/commerce/interface/component/warranty-info';
+  import type { RecipeWarrantyInfo as WarrantyInfoContract } from '$stylist/commerce/interface/recipe/warranty-info';
   import { createWarrantyInfoState as stateFn } from '$stylist/commerce/function/state/warranty-info';
 
   let props: WarrantyInfoContract = $props();

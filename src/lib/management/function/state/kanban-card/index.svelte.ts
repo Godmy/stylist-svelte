@@ -1,27 +1,15 @@
-import type { Snippet } from 'svelte';
-import type { KanbanCardProps } from '$stylist/management/interface/component/kanban-card/other';
-
-export type KanbanCardUser = { id?: string; name: string; avatar?: string };
-
-export type KanbanCardPriority = 'low' | 'medium' | 'high';
-
-export type KanbanCardStatus = 'todo' | 'in-progress' | 'review' | 'done' | 'archived';
-
-export interface KanbanCardType {
-	id: string;
-	title: string;
-	description?: string;
-	assignee?: string | KanbanCardUser;
-	priority?: KanbanCardPriority;
-	status?: KanbanCardStatus;
-	tags?: string[];
-	updatedAt?: Date;
-}
-
-export type KanbanCardStateProps = KanbanCardProps;
+import type { KanbanCardPriority } from '$stylist/management/type/alias/kanban-card-priority';
+import type { KanbanCardStateProps } from '$stylist/management/type/alias/kanban-card-state-props';
 
 export function createKanbanCardState(props: KanbanCardStateProps) {
-	const card = $derived(props.card);
+	const card = $derived(props.card as {
+		title: string;
+		priority?: KanbanCardPriority;
+		description?: string;
+		tags?: string[];
+		updatedAt?: Date | string;
+		assignee?: { name?: string; avatar?: string } | string;
+	});
 	const draggable = $derived(props.draggable ?? true);
 	const selected = $derived(props.selected ?? false);
 	const editable = $derived(props.editable ?? true);
@@ -59,7 +47,7 @@ export function createKanbanCardState(props: KanbanCardStateProps) {
 		isEditingTitle = false;
 	}
 
-	function formatDate(date: Date): string {
+	function formatDate(date: Date | string): string {
 		return new Date(date).toLocaleDateString('en-US', {
 			month: 'short',
 			day: 'numeric',

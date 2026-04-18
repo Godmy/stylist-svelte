@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createTableRowState } from './index.svelte';
+export { createTableRowState } from './index.svelte';

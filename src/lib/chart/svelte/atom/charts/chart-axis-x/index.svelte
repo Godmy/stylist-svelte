@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { ChartAxisXProps } from '$stylist/chart/interface/recipe/chart-axis-x';
-	import { createChartAxisXState } from '$stylist/chart/function/state/chart-function';
+	import type { ChartAxisXRecipe as ChartAxisXProps } from '$stylist/chart/interface/recipe/chart-axis-x';
+	import { createChartAxisXState } from '$stylist/chart/function/state/chart-axis-x';
 
 	let props: ChartAxisXProps = $props();
 	const state = createChartAxisXState(props);

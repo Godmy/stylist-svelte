@@ -1,4 +1,4 @@
-import type { IRangeSliderProps } from '$stylist/input/interface/component/range-slider/other';
+import type { SlotRangeSlider as IRangeSliderProps } from '$stylist/input/interface/slot/range-slider';
 
 /**
  * Style utility class following Single Responsibility Principle

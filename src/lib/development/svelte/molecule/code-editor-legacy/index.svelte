@@ -5,7 +5,7 @@
    * @deprecated Use Code with basic props instead
    */
   import Code from '../code-block/index.svelte';
-  import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor';
+  import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
   import { createCodeEditorLegacyState } from '$stylist/development/function/state/code-editor-legacy';
 
   let {
@@ -26,7 +26,3 @@
   copyable={state.props.showCopyButton}
   class={state.props.class}
 />
-
-
-
-

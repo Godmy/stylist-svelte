@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-live-code-section';
-
-export function createPlaygroundLiveCodeSectionState(props: Props) {
+import type { PlaygroundLiveCodeSectionProps } from '$stylist/development/type/struct/playground-live-code-section-props';
+export function createPlaygroundLiveCodeSectionState(props: PlaygroundLiveCodeSectionProps) {
   const badgeText = $derived(props.badgeText ?? 'Live Preview');
   const title = $derived(props.title ?? 'See It In Action');
   const description = $derived(props.description ?? 'Every component comes with ready-to-use code');

@@ -1,7 +1,5 @@
-import type { INotificationBadgeProps } from '$stylist/notification/interface/component/notification/other';
 import { NotificationBadgeStyleManager } from '$stylist';
-
-export interface NotificationBadgeStateProps extends INotificationBadgeProps {}
+import type { NotificationBadgeStateProps } from '$stylist/management/interface/recipe/notification-badge';
 
 export function createNotificationBadgeState(props: NotificationBadgeStateProps) {
 	const count = $derived(props.count ?? 0);

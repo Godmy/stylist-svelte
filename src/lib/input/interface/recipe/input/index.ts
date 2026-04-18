@@ -1,26 +1,26 @@
-import type { Snippet } from 'svelte';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { InputSpecificProps } from '$stylist/input/type/struct/input-specific-props';
 
 /**
- * InputRecipe � ��������������� ������ ��� ���� ����� ����� �����.
+ * InputRecipe пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.
  *
- * LEGO-������:
- *   ILabelSlot                (information) � label
- *   ICaptionSlot              (information) � helperText, caption, error
- *   IIconSlot                 (information) � iconLeft, iconRight
- *   IStatusSlot               (information) � error, disabled
- *   IFocusable                (interaction) � onFocus, onBlur, tabIndex
- *   ISizable                  (architecture) � size, density
- *   ThemeAttributes           (theme)       � variant, tone
+ * LEGO-пїЅпїЅпїЅпїЅпїЅпїЅ:
+ *   ILabelSlot                (information) пїЅ label
+ *   ICaptionSlot              (information) пїЅ helperText, caption, error
+ *   IIconSlot                 (information) пїЅ iconLeft, iconRight
+ *   IStatusSlot               (information) пїЅ error, disabled
+ *   IFocusable                (interaction) пїЅ onFocus, onBlur, tabIndex
+ *   ISizable                  (architecture) пїЅ size, density
+ *   ThemeAttributes           (theme)       пїЅ variant, tone
  *
- * �������� �������������:
+ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
  *   - Input: type='text'
  *   - Email: type='email'
  *   - Password: type='password', showPasswordToggle
@@ -31,7 +31,7 @@ import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attribute
  *   - Search: type='search', onSearch
  */
 export interface InputRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IIconSlot,
@@ -42,29 +42,3 @@ export interface InputRecipe
 	]>,
 		InputSpecificProps
 {}
-
-/** ����������� �������� ��� ��������� ����� ����� ����� */
-export interface InputSpecificProps {
-	/** ��� ���� ����� */
-	type?: 'text' | 'email' | 'password' | 'textarea' | 'number' | 'pin' | 'tel' | 'search';
-
-	/** ������������ ����� */
-	maxLength?: number;
-
-	/** ��� TextArea: ���������� ����� */
-	rows?: number;
-
-	/** ��� Password: ��������/������ ������ */
-	showPasswordToggle?: boolean;
-
-	/** ��� Pin: ���������� ���� */
-	length?: number;
-
-	/** ��� Number: min/max/step */
-	min?: number;
-	max?: number;
-	step?: number;
-
-	/** children ��� Snippet (��� �������) */
-	children?: Snippet;
-}

@@ -1,4 +1,4 @@
-import type { IColorPickerProps } from '$stylist/input/interface/component/color-picker/other';
+import type { SlotColorPicker as IColorPickerProps } from '$stylist/input/interface/slot/color-picker';
 
 export const createColorPickerState = (props: IColorPickerProps) => {
 	let selectedColor = $state(props.value ?? 'var(--color-text-primary)');

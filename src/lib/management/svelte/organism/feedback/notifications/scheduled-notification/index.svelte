@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createScheduledNotificationState } from '$stylist/management/function/state/scheduled-notification';
-  import type { ScheduledNotificationProps } from '$stylist/communication/interface/component/notifications/other';
+  import type { ScheduledNotificationProps } from '$stylist/communication/type/struct/scheduled-notification-props';
 
   let props: ScheduledNotificationProps = $props();
   const state = createScheduledNotificationState(props);

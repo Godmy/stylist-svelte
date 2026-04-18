@@ -1,19 +1,19 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundAiChat from './index.svelte';
+  import RecipePlaygroundAiChat from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [];
 </script>
 
 <Story
-  component={PlaygroundAiChat}
+  component={RecipePlaygroundAiChat}
   title="Playground AI Chat"
   description="Chat interface for AI-powered conversations."
   {controls}
 >
   {#snippet children()}
-    <PlaygroundAiChat />
+    <RecipePlaygroundAiChat />
   {/snippet}
 </Story>
 

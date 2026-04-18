@@ -1,6 +1,6 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { createInputTextState } from '$stylist/input/function/state/input-text';
-import type { IInputLongProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputLong as IInputLongProps } from '$stylist/input/interface/slot/input-long';
 
 export const createInputLongState = (props: IInputLongProps) => {
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);

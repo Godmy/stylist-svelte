@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * Badge — метка статуса или категории..
  *
@@ -12,7 +13,7 @@ import type { ChildrenProp } from '$stylist/information/type/struct/children-pro
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface BadgeRecipe extends ChildrenProp, ThemeAttributes<HTMLSpanElement> {
+export interface BadgeRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLSpanElement>]> {
 	variant?: TokenAppearance;
 	size?: TokenSize;
 	disabled?: boolean;

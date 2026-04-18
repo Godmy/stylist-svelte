@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DialogProps } from '$stylist/navigation/interface/component/dialog-controls/other';
+  import type { SlotDialog as DialogProps } from '$stylist/navigation/interface/slot/dialog';
   import { createDialogState } from '$stylist/navigation/function/state/dialog';
 
   let props: DialogProps = $props();

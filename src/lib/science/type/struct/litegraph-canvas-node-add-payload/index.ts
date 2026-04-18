@@ -1,3 +1,3 @@
-import type { LitegraphNode } from '$stylist/science/interface/record/science';
+import type { ContractLitegraphNode as LitegraphNode } from '$stylist/science/interface/contract/litegraph-node';
 
 export type LitegraphCanvasNodeAddPayload = LitegraphNode;

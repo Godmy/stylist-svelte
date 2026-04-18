@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createLinkState } from './index.svelte';
+export { createLinkState } from './index.svelte';

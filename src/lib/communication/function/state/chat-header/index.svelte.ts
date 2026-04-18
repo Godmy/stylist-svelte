@@ -1,23 +1,6 @@
-import type { User } from '$stylist/communication/interface/component/chat/other';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 import { ChatHeaderStyleManager } from '$stylist/communication/class/style-manager/chat-header';
-
-export type ChatHeaderChat = {
-  id: string;
-  name?: string;
-  participants: User[];
-  isGroup: boolean;
-  avatar?: string;
-};
-
-export type ChatHeaderOrganismProps = {
-  chat: ChatHeaderChat;
-  currentUser: User;
-  showActions?: boolean;
-  class?: string;
-  onCall?: () => void;
-  onVideoCall?: () => void;
-  onInfo?: () => void;
-};
+import type { ChatHeaderOrganismProps } from '$stylist/communication/type/alias/chat-header-organism-props';
 
 export const createChatHeaderState = (props: ChatHeaderOrganismProps) => {
   const chat = $derived(props.chat);

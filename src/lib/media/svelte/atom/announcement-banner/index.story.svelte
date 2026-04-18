@@ -45,7 +45,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <AnnouncementBanner
               title="Warning"
-              description="Review settings before continuing."
+              description="SlotReview settings before continuing."
               icon="https://placehold.co/64x64/f59e0b/ffffff?text=!"
             />
           </article>

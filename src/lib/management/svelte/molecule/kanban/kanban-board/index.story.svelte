@@ -21,7 +21,7 @@
     columns: [
       { id: 'todo', title: 'To do', cards: [{ id: 't1', title: 'Draft plan', priority: 'medium', status: 'todo' }, { id: 't2', title: 'Collect feedback', priority: 'high', status: 'todo' }] },
       { id: 'in-progress', title: 'In progress', cards: [{ id: 't3', title: 'Build onboarding', priority: 'high', status: 'in-progress' }] },
-      { id: 'review', title: 'Review', cards: [{ id: 't4', title: 'QA pass', priority: 'medium', status: 'review' }] },
+      { id: 'review', title: 'SlotReview', cards: [{ id: 't4', title: 'QA pass', priority: 'medium', status: 'review' }] },
       { id: 'done', title: 'Done', cards: [{ id: 't5', title: 'Design system sync', priority: 'low', status: 'done' }] }
     ]
   };

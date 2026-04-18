@@ -5,7 +5,7 @@ const ChevronUp = 'chevron-up';
 const ChevronsUpDown = 'chevrons-up-down';
 
   import { ColumnManagerStyleManager } from '$stylist';
-  import type { ColumnManagerProps } from '$stylist/control/interface/component/table-controls/other';
+  import type { SlotColumnManager as ColumnManagerProps } from '$stylist/control/interface/slot/column-manager';
   import { createColumnManagerState } from '$stylist/control/function/state/column-manager';
 
   let { columns = [], onColumnsChange, class: className = '', ...restProps }: ColumnManagerProps = $props();

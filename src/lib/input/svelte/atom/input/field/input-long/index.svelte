@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import type { IInputLongProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputLong as IInputLongProps } from '$stylist/input/interface/slot/input-long';
 	import { createInputLongState } from '$stylist/input/function/state/input-long';
 
 	let props: IInputLongProps &

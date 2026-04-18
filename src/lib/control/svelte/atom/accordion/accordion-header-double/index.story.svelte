@@ -6,7 +6,7 @@
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'open', type: 'boolean', defaultValue: false },
 		{ name: 'disabled', type: 'boolean', defaultValue: false },
-		{ name: 'label', type: 'text', defaultValue: 'Toggle details' }
+		{ name: 'label', type: 'text', defaultValue: 'SlotToggle details' }
 	];
 </script>
 

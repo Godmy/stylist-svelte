@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import CodeDiff from './index.svelte';
+  import RecipeCodeDiff from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'language', type: 'select', options: ['javascript', 'typescript', 'python'], defaultValue: 'javascript' },
@@ -18,15 +18,15 @@
 
 <Story
   id="molecules-code-diff"
-  title="Molecules / Information / Development / CodeDiff"
-  component={CodeDiff}
+  title="Molecules / Information / Development / RecipeCodeDiff"
+  component={RecipeCodeDiff}
   category="Molecules/Information/Development"
   description="Visual comparison between old and new code versions."
   {controls}
 >
   {#snippet children(args: any)}
     <div class="p-4 rounded-xl bg-gray-50">
-      <CodeDiff
+      <RecipeCodeDiff
         original={args.preset === 'bugfix' ? bugfixOriginal : refactorOriginal}
         modified={args.preset === 'bugfix' ? bugfixModified : refactorModified}
         language={args.language}

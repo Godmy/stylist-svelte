@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { Toast } from '$stylist/notification/type/enum/toast-type';
+import type { Toast } from '$stylist/notification/interface/slot';
 
 export type ToastStackProps = InteractionHTMLAttributes<HTMLDivElement> & {
 	toasts: Toast[];

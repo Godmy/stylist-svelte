@@ -1,4 +1,4 @@
-import type { IAccordionProps } from '$stylist/control/interface/component/accordion/other';
+import type { SlotAccordion as IAccordionProps } from '$stylist/control/interface/slot/accordion';
 
 export function createAccordionState(props: IAccordionProps) {
 	let activeIds = $state<string[]>([]);

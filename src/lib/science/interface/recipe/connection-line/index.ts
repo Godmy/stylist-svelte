@@ -1,26 +1,9 @@
-﻿/**
- * ConnectionLine — линия соединения..
- *
- * LEGO-состав:
-
- */
-import type { TokenBorderStyle } from '$stylist/layout/type/enum/border-style';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
+import type { TokenBorderStyle } from '$stylist/layout/type/enum/border-style';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface Point {
-	x: number;
-	y: number;
-}
-
-export interface ConnectionPathResult {
-	path: string;
-	length: number;
-	midPoint: Point;
-	angle: number;
-}
-
-export interface ConnectionLineRecipe extends ThemeAttributes<SVGPathElement> {
+export interface ConnectionLineRecipe extends StructIntersectAll<[ThemeAttributes<SVGPathElement>]> {
 	startX: number;
 	startY: number;
 	endX: number;

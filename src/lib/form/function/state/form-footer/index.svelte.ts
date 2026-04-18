@@ -1,5 +1,5 @@
 import { FormFooterStyleManager } from '$stylist/form/class/style-manager/form-footer';
-import type { FormFooterProps } from '$stylist/form/interface/component/form-footer/other';
+import type { SlotFormFooter as FormFooterProps } from '$stylist/form/interface/slot/form-footer';
 
 export function createFormFooterState(props: FormFooterProps) {
 	let rootClass = $derived(FormFooterStyleManager.root(props.class ?? ''));

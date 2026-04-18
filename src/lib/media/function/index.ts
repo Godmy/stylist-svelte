@@ -1,5 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { formatMediaDate, formatMediaFileSize, formatTime } from './script';
 export { createAnnouncementBannerState, createAudioPlayerState, createAudioSliderState, createAudioVisualizerState, createAvatarGroupState, createAvatarState, createCanvasImageEditorState, createFaviconState, createIconState, createImageGalleryState, createImageState, createMediaLibraryState, createNodeIconState, createPictureToolbarState, createPromoBannerState, createSvgState, createTeamAvatarStackState, createVideoPlayerState } from './state';
-export type { AvatarSize, AvatarUserStatus, IconColor, IconDirection, IconShape, IconSize, IconVariant, PictureToolbarProps, PictureToolbarTool, PromoBannerVariant } from './state';
-export type { AudioPlayerProps, Avatar, AvatarGroupProps, AvatarProps, IconProps, ImageGalleryStateProps, NodeIconProps, PromoBannerProps, SvgProps, TeamAvatarStackProps, TeamMember, VideoPlayerProps } from './state';

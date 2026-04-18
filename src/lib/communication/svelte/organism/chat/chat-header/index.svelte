@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Avatar, Button, Icon } from '$stylist';
   import { UserStatus } from '$stylist';
-  import type { User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import { ChatHeaderStyleManager } from '$stylist/communication/class/style-manager/chat-header';
   import { createChatHeaderState } from '$stylist/communication/function/state/chat-header';
 

@@ -39,7 +39,7 @@
 
       <div class="space-y-4">
         <div>
-          <label for="start-location-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Start Location</label>
+          <label for="start-location-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Start SlotLocation</label>
           <div class="flex">
             <input
               id="start-location-input"
@@ -58,7 +58,7 @@
         </div>
 
         <div>
-          <label for="end-location-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">End Location</label>
+          <label for="end-location-input" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">End SlotLocation</label>
           <div class="flex">
             <input
               id="end-location-input"

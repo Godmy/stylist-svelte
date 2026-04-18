@@ -1,0 +1,1 @@
+export const DEFAULT_PERFORMANCE_DASHBOARD_SIZE = 'md';

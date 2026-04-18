@@ -1,19 +1,6 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { PictureToolbarRecipe } from '$stylist/media/interface/recipe/picture-toolbar';
 import type { Snippet } from 'svelte';
-
-export type PictureToolbarTool = {
-	id: string;
-	label: string;
-	icon?: string;
-};
-
-export type PictureToolbarProps = PictureToolbarRecipe & {
-	tools: PictureToolbarTool[];
-	activeTool?: string;
-	onToolSelect?: (toolId: string) => void;
-	children?: Snippet;
-};
+import type { PictureToolbarProps } from '$stylist/media/type/alias/picture-toolbar-props';
 
 export function createPictureToolbarState(props: PictureToolbarProps) {
 	let activeTool = $state(props.activeTool);

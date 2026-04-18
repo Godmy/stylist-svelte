@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createQuantitySelectorState } from '$stylist/control/function/state/quantity-selector';
-  import type { IQuantitySelectorProps } from '$stylist/control/interface/component/quantity-selector/other';
+  import type { SlotQuantitySelector as IQuantitySelectorProps } from '$stylist/control/interface/slot/quantity-selector';
   import { Icon as BaseIcon } from '$stylist';
 
   const Plus = 'plus';

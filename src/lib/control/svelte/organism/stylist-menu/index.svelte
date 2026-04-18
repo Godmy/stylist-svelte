@@ -2,9 +2,9 @@
 	import { tick } from 'svelte';
 	import BaseIcon from '$stylist/media/svelte/atom/icon/index.svelte';
 	import StylistTab from '$stylist/control/svelte/molecule/tabs/stylist-tab/index.svelte';
-	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/control/const/struct/stylist-menu-menu-items';
-	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-functional-tab-items';
-	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/control/const/struct/stylist-menu-atomic-tab-items';
+	import { STYLIST_MENU_MENU_ITEMS } from '$stylist/control/const/record/stylist-menu-menu-items';
+	import { STYLIST_MENU_FUNCTIONAL_TAB_ITEMS } from '$stylist/control/const/record/stylist-menu-functional-tab-items';
+	import { STYLIST_MENU_ATOMIC_TAB_ITEMS } from '$stylist/control/const/record/stylist-menu-atomic-tab-items';
 	import type { StylistMenuProps } from '$stylist/control/type/struct/stylist-menu-props';
 	import { createStylistMenuState } from '$stylist/control/function/state/stylist-menu';
 

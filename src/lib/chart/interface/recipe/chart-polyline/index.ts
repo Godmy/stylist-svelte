@@ -1,13 +1,14 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * ChartPolyline — полилиния графика..
  *
  * LEGO-состав:
 
  */
-import type { ChartFunctionPoint } from '$stylist/chart/interface/recipe/chart';
+import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ChartPolylineRecipe extends ThemeAttributes<SVGPolylineElement> {
+export interface ChartPolylineRecipe extends StructIntersectAll<[ThemeAttributes<SVGPolylineElement>]> {
 	points?: ChartFunctionPoint[];
 	width: number;
 	height: number;
@@ -17,4 +18,3 @@ export interface ChartPolylineRecipe extends ThemeAttributes<SVGPolylineElement>
 	strokeWidth?: number;
 }
 
-export type ChartPolylineProps = ChartPolylineRecipe;

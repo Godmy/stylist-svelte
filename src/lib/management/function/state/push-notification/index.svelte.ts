@@ -1,13 +1,4 @@
-export interface PushNotificationProps {
-	title?: string;
-	message?: string;
-	type?: 'info' | 'success' | 'warning' | 'error';
-	showIcon?: boolean;
-	autoDismiss?: boolean;
-	duration?: number;
-	onClose?: () => void;
-	class?: string;
-}
+import type { PushNotificationProps } from '$stylist/management/interface/recipe/push-notification';
 
 export function createPushNotificationState(props: PushNotificationProps) {
 	const title = $derived(props.title ?? '');

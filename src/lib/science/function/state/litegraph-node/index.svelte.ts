@@ -1,5 +1,5 @@
 import type { LitegraphNodeProps } from '$stylist/science/type/struct/litegraph-node-props';
-import type { LiteGraphPort } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 import type { TokenInteration } from '$stylist/interaction/type/record/interaction';
 import type { TokenSeverity } from '$stylist/interaction/type/record/sevetity';
 import type { TokenNodeType } from '$stylist/architecture/type/enum/node-type';

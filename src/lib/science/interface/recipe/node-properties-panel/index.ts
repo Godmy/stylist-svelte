@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /**
  * NodePropertiesPanel — панель свойств узла..
  *
@@ -6,10 +7,10 @@
  */
 import type { ChildrenProp } from '$stylist/information/type/struct/children-prop';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { LiteGraphNodeProperty } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface NodePropertiesPanelRecipe extends ChildrenProp, ThemeAttributes<HTMLElement> {
+export interface NodePropertiesPanelRecipe extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLElement>]> {
 	nodeId?: string;
 	title?: string;
 	visible?: boolean;

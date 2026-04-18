@@ -1,6 +1,6 @@
 import { ObjectManagerTableControls } from '$stylist/control/class/object-manager/table-controls';
 import { TableExtendedStyleManager } from '$stylist/control/class/style-manager/table-extended';
-import type { TableWithFiltersProps } from '$stylist/control/interface/component/table-extended/other';
+import type { SlotTableWithFilters as TableWithFiltersProps } from '$stylist/control/interface/slot/table-with-filters';
 
 export function createTableWithFiltersState(props: TableWithFiltersProps) {
 	let filters = $state<Record<string, string>>({});

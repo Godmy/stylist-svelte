@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProductTourState } from './index.svelte';
+export { createProductTourState } from './index.svelte';

@@ -9,7 +9,7 @@ export function createToggleState(props: ToggleStateProps) {
 	const size = $derived((props.size ?? 'md') as TokenSize);
 	const disabled = $derived(props.disabled ?? false);
 	const checked = $derived(props.checked ?? false);
-	const ariaLabel = $derived(props.ariaLabel ?? 'Toggle');
+	const ariaLabel = $derived(props.ariaLabel ?? 'SlotToggle');
 
 	const containerClasses = $derived(TogglesStyleManager.getToggleContainerClasses(props.class as string | undefined));
 	const inputClasses = $derived(TogglesStyleManager.getSwitchInputClasses(disabled));

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IFieldHighlighterProps } from '$stylist/input/interface/component/field-highlighter/other';
+  import type { SlotFieldHighlighter as IFieldHighlighterProps } from '$stylist/input/interface/slot/field-highlighter';
   import { createFieldHighlighterState } from '$stylist/input/function/state/field-highlighter';
 
   let props: IFieldHighlighterProps = $props();

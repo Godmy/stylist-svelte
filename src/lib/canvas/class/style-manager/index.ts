@@ -8,4 +8,3 @@ export { MinimapStyleManager } from './minimap';
 export { StyleManagerSharedCanvas } from './shared-canvas';
 export { StageStyleManager } from './stage';
 export { ViewportStyleManager } from './viewport';
-export type { ConnectionPathResult } from './connection-line-path-result';

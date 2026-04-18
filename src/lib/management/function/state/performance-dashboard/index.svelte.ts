@@ -1,9 +1,7 @@
 import { PerformanceDashboardStyleManager } from '$stylist';
-import type { PerformanceDashboardRecipe } from '$stylist/management/interface/recipe/performance-dashboard';
 import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
 import { ObjectManagerPerformanceDashboard } from '$stylist/management/class/object-manager/performance-dashboard';
-
-export interface PerformanceDashboardStateProps extends PerformanceDashboardRecipe {}
+import type { PerformanceDashboardStateProps } from '$stylist/management/interface/recipe/performance-dashboard-performance-dashboard-state-props';
 
 export function createPerformanceDashboardState(props: PerformanceDashboardStateProps) {
 	const label = $derived(props.label ?? 'Performance Dashboard');

@@ -1,5 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { getChatMessageAlignmentClass, getChatMessageBubbleClasses, handleAttachFn, handleEmojiFn, handleInputFn, handleKeydownFn, resolveAuthGuardState } from './script';
+export { getChatMessageAlignmentClass, getChatMessageBubbleClasses, getMessageAlignmentClass, handleAttachFn, handleEmojiFn, handleInputFn, handleKeydownFn, resolveAuthGuardState } from './script';
 export { createAuthGuardState, createChatHeaderState, createChatInterfaceState, createChatItemState, createChatListState, createChatMessageState, createChatPreviewState, createChatRoomState, createChatStatusIndicatorState, createChatWindowState, createCollaborativeEditorState, createMessageBubbleState, createMessageComposerState, createMessageInputState, createMessageItemState, createMessageListState, createMessageMetaState, createMessageStatusState, createMessageThreadState, createMessageTimestampState, createUserStatusState } from './state';
-export type { AuthGuardProps, ChatHeaderChat, ChatHeaderOrganismProps, ChatRoomMessage, ChatRoomProps, CollaborativeEditEvent, CollaborativeEditorProps, CollaborativeUser } from './state';
-export type { ChatWindowChat } from './state';

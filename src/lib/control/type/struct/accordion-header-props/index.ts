@@ -1,4 +1,4 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { AccordionHeaderProps as AccordionHeaderComponentProps } from '$stylist/control/interface/component/accordion/other';
+import type { SlotAccordionHeader as AccordionHeaderComponentProps } from '$stylist/control/interface/slot/accordion-header';
 
 export type AccordionHeaderProps = AccordionHeaderComponentProps & HTMLButtonAttributes;

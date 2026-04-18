@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundComponentCatalog from './index.svelte';
+  import RecipePlaygroundComponentCatalog from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'viewMode', type: 'select', defaultValue: 'grid', options: ['grid', 'list'] },
@@ -20,13 +20,13 @@
 </script>
 
 <Story
-  component={PlaygroundComponentCatalog}
+  component={RecipePlaygroundComponentCatalog}
   title="Playground Component Catalog"
   description="Browse and search component library catalog."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundComponentCatalog
+    <RecipePlaygroundComponentCatalog
       stories={stories}
       categories={categories}
       categoryCounts={categoryCounts}

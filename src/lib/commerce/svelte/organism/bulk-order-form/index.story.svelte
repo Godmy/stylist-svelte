@@ -16,7 +16,7 @@
     { name: 'showTotal', type: 'boolean', defaultValue: true },
     { name: 'showNotes', type: 'boolean', defaultValue: true },
     { name: 'allowFileUpload', type: 'boolean', defaultValue: true },
-    { name: 'title', type: 'text', defaultValue: 'Bulk Order' },
+    { name: 'title', type: 'text', defaultValue: 'Bulk SlotOrder' },
     { name: 'description', type: 'text', defaultValue: 'Add multiple products to your order' }
   ];
 
@@ -32,7 +32,7 @@
   let orderItems = $state<any[]>([]);
   
   const handleOrderSubmit = (items: any[]) => {
-    console.log('Order submitted with items:', items);
+    console.log('SlotOrder submitted with items:', items);
     orderItems = items;
   };
 
@@ -65,7 +65,7 @@
         
         {#if orderItems.length > 0}
           <div class="mt-6 p-4 bg-[--color-background-secondary] rounded-lg">
-            <h3 class="font-medium text-[--color-text-primary]">Submitted Order Items:</h3>
+            <h3 class="font-medium text-[--color-text-primary]">Submitted SlotOrder Items:</h3>
             <ul class="mt-2 space-y-1">
               {#each orderItems as item}
                 <li class="text-sm text-[--color-text-secondary]">

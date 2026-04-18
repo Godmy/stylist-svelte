@@ -1,6 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-export type CenteredLayoutAxis = 'both' | 'horizontal' | 'vertical';
+import type { CenteredLayoutAxis } from '$stylist/layout/type/enum/centered-layout-axis';
 
 export class CenteredLayoutStyleManager {
 	static getHostClass(

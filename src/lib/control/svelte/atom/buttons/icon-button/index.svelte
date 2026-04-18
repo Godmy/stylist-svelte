@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const Loader2 = 'loader-2';
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { IconButtonProps } from '$stylist/control/interface/component/button/other';
+import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
 import { createIconButtonState } from '$stylist/control/function/state/icon-button';
 
 	/**

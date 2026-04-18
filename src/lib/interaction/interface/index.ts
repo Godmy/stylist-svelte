@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ClickProps, DragProps, FocusProps, HoverProps, IBarClickable, ICellClickable, IClickable, IDraggable, IFocusable, IHoverable, IPointClickable, ISelectable, ITooltipable } from './proto';
+export type { BehaviorBarClickable, BehaviorCellClickable, BehaviorClickable, BehaviorDraggable, BehaviorFocusable, BehaviorHoverable, BehaviorPointClickable, BehaviorSelectable, BehaviorTooltipable } from './behavior';
+export type { ContractInteraction } from './contract';
 export type { ButtonRecipe, CheckboxRecipe, DraggableItemRecipe, IconButtonRecipe, InteractionFeedbackRecipe, SharedCanvasRecipe } from './recipe';
-export type { MapInteractionContract } from './record';
+export type { ClickableStyleManagerOptions, DraggableStyleManagerOptions, FocusableStyleManagerOptions, HoverableStyleManagerOptions, NumberFormatOptions, SearchSuggestion, SlotClickable, SlotDraggable, SlotFocusable, SlotHoverable, TransformableStyleManagerOptions } from './slot';

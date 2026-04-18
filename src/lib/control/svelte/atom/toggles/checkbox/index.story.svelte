@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
-	import Checkbox from './index.svelte';
+	import SlotCheckbox from './index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
 	// Define CheckboxProps type locally
@@ -32,7 +32,7 @@
 	const checkboxId: string = `checkbox-${Math.random().toString(36).substr(2, 9)}`;
 </script>
 
-<Story {id} {title} {description} component={Checkbox} category="Atoms" {controls}>
+<Story {id} {title} {description} component={SlotCheckbox} category="Atoms" {controls}>
 	{#snippet children(values: any)}
 		{@const label =
 			typeof values.label === 'string' ? values.label : 'Accept terms and conditions'}
@@ -40,7 +40,7 @@
 		{@const disabled = typeof values.disabled === 'boolean' ? values.disabled : false}
 		{@const description =
 			typeof values.description === 'string' ? values.description : 'Please read and accept our terms'}
-		<Checkbox
+		<SlotCheckbox
 			id={checkboxId}
 			{label}
 			{required}

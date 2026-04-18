@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { AutoCompleteProps } from '$stylist/input/interface/component/auto-complete/other';
+  import type { SlotAutoComplete as AutoCompleteProps } from '$stylist/input/interface/slot/auto-complete';
   import { createAutoCompleteState } from '$stylist/input/function/state/auto-complete';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
   const Search = 'search';

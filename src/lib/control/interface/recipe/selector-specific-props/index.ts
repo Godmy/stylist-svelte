@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для различных типов селекторов */
 import type { Snippet } from 'svelte';
 
-export interface SelectorSpecificProps {
+export interface SelectorSpecificProps extends StructIntersectAll<[]> {
 	/** Тип селектора */
 	type?: 'selector' | 'multi' | 'combobox' | 'dropdown' | 'autocomplete';
 

@@ -4,11 +4,12 @@
  * LEGO-состав:
 
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface ToolbarSeparatorRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ThemeAttributes<HTMLDivElement>
 	]>
 {}
+

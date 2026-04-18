@@ -1,6 +1,6 @@
-import type { FormSelectionState } from '$stylist/form/function/state/form-selection';
+import type { SlotFormSelectionState } from '$stylist/form/interface/slot/form-selection-state';
 
-export function toggleCollapsed(state: FormSelectionState, collapsible: boolean) {
+export function toggleCollapsed(state: SlotFormSelectionState, collapsible: boolean) {
 	if (collapsible) {
 		state.isCollapsed = !state.isCollapsed;
 	}

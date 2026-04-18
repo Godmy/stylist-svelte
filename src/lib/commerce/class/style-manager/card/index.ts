@@ -141,5 +141,4 @@ export class CardStyleManager {
 	}
 }
 
-export default CardStyleManager;
 

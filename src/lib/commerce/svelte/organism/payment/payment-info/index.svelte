@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
 	import { createPaymentInfoState } from '$stylist/commerce/function/state/payment-info';
-	import type { PaymentInfoProps } from '$stylist/commerce/function/state/payment-info';
+	import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
 	let props: PaymentInfoProps = $props();
 	const state = createPaymentInfoState(props);

@@ -1,5 +1,5 @@
 import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
-import type { PriceHistoryProps } from '../pricehistoryprops';
+import type { PriceHistoryProps } from '$stylist/commerce/interface/recipe/price-history-props';
 
 export function createPriceHistoryState(props: PriceHistoryProps) {
 	const chartHeight = 200;

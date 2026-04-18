@@ -2,23 +2,7 @@
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { Icon as BaseIcon } from '$stylist';
   import { Avatar } from '$lib';
-  import {
-    SOCIAL_ACTIVITY_FEED_HEART as Heart,
-    SOCIAL_ACTIVITY_FEED_MESSAGE_CIRCLE as MessageCircle,
-    SOCIAL_ACTIVITY_FEED_SHARE_2 as Share2,
-    SOCIAL_ACTIVITY_FEED_USER_PLUS as UserPlus,
-    SOCIAL_ACTIVITY_FEED_AT_SIGN as AtSign,
-    SOCIAL_ACTIVITY_FEED_AWARD as Award,
-    SOCIAL_ACTIVITY_FEED_SETTINGS as Settings,
-    SOCIAL_ACTIVITY_FEED_BELL as Bell,
-    SOCIAL_ACTIVITY_FEED_ACTIVITY as ActivityGlyph,
-    SOCIAL_ACTIVITY_FEED_CIRCLE as Circle,
-    SOCIAL_ACTIVITY_FEED_CHECK as Check,
-    SOCIAL_ACTIVITY_FEED_MORE_HORIZONTAL as MoreHorizontal,
-    SOCIAL_ACTIVITY_FEED_ARROW_RIGHT as ArrowRight,
-    SOCIAL_ACTIVITY_FEED_CHECK_CIRCLE as CheckCircle,
-    SOCIAL_ACTIVITY_FEED_CLOCK as Clock
-  } from '$stylist/social/const/map/social-activity-feed';
+  import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import {
     socialActivityFeedGetDescription,
     socialActivityFeedFormatTime
@@ -34,7 +18,7 @@
   <div class={`border-b border-[var(--color-border-primary)] p-4 ${state.headerClass}`}>
     <div class="flex items-center justify-between">
       <div class="flex items-center">
-        <BaseIcon name={ActivityGlyph} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
+        <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'activity') ?? 'activity'} class="h-5 w-5 text-[var(--color-text-secondary)] mr-2" />
         <h2 class="text-lg font-medium text-[var(--color-text-primary)]">Activity Feed</h2>
 
         {#if props.showReadStatus && state.unreadCount > 0}
@@ -78,7 +62,7 @@
   <div class="divide-y divide-gray-200">
     {#if state.filteredActivities.length === 0}
       <div class="text-center py-8">
-        <BaseIcon name={ActivityGlyph} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" />
+        <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'activity') ?? 'activity'} class="mx-auto h-12 w-12 text-[var(--color-text-tertiary)]" />
         <h3 class="mt-2 text-sm font-medium text-[var(--color-text-primary)]">No activities</h3>
         <p class="mt-1 text-sm text-[var(--color-text-secondary)]">When activities happen, they'll appear here.</p>
       </div>
@@ -115,14 +99,14 @@
                   {activity.actor.name}
                   {#if activity.actor.isVerified}
                     <span class="ml-1 text-[var(--color-primary-600)]">
-                      <BaseIcon name={CheckCircle} class="h-4 w-4 inline" />
+                      <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'check-circle') ?? 'check-circle'} class="h-4 w-4 inline" />
                     </span>
                   {/if}
                 </p>
 
                 {#if props.showTimestamp}
                   <div class="flex items-center">
-                    <BaseIcon name={Clock} class="h-4 w-4 text-[var(--color-text-tertiary)] mr-1" />
+                    <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'clock') ?? 'clock'} class="h-4 w-4 text-[var(--color-text-tertiary)] mr-1" />
                     <span class="text-xs text-[var(--color-text-secondary)]">
                       {socialActivityFeedFormatTime(activity.timestamp, props.locale)}
                     </span>
@@ -151,7 +135,7 @@
                   }}
                 >
                   View related content
-                  <BaseIcon name={ArrowRight} class="h-4 w-4 ml-1" />
+                  <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'arrow-right') ?? 'arrow-right'} class="h-4 w-4 ml-1" />
                 </a>
               {/if}
             </div>
@@ -168,7 +152,7 @@
                     }}
                     aria-label="Mark as unread"
                   >
-                    <BaseIcon name={Check} class="h-4 w-4" />
+                    <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'check') ?? 'check'} class="h-4 w-4" />
                   </button>
                 {:else}
                   <button
@@ -180,7 +164,7 @@
                     }}
                     aria-label="Mark as read"
                   >
-                    <BaseIcon name={Circle} class="h-4 w-4" />
+                    <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'circle') ?? 'circle'} class="h-4 w-4" />
                   </button>
                 {/if}
               {/if}
@@ -194,7 +178,7 @@
                 }}
                 aria-label="More options"
               >
-                <BaseIcon name={MoreHorizontal} class="h-4 w-4" />
+                <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'more-horizontal') ?? 'more-horizontal'} class="h-4 w-4" />
               </button>
             </div>
           </div>

@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента PlaygroundAnimatedBackground
+ * Менеджер стилей для компонента RecipePlaygroundAnimatedBackground
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

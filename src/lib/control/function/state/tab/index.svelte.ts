@@ -1,4 +1,4 @@
-import type { TabProps } from '$stylist/control/interface/component/tabs/other';
+import type { SlotTab as TabProps } from '$stylist/control/interface/slot/tab-tabs';
 import { TabsStyleManager } from '$stylist/control/class/style-manager/tabs';
 
 export function createTabState(props: TabProps) {

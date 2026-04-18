@@ -1,4 +1,4 @@
-import type { INumberInputProps } from '$stylist/input/interface/component/number-input/other';
+import type { SlotNumberInput as INumberInputProps } from '$stylist/input/interface/slot/number-input';
 
 export const createNumberInputState = (props: INumberInputProps) => {
 	let currentValue = $state(props.value ?? 0);

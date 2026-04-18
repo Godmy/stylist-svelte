@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDataExporterState } from './index.svelte';
+export { createDataExporterState } from './index.svelte';

@@ -1,5 +1,6 @@
 import type { Snippet } from 'svelte';
-import type { LiteGraphPort, LitegraphNodeRecipe } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LitegraphNodeRecipe } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 
 export type LitegraphNodeProps = LitegraphNodeRecipe & {
 	selectable?: boolean;

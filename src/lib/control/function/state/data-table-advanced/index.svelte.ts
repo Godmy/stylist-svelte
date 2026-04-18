@@ -1,8 +1,6 @@
 import { DataTableAdvancedStyleManager } from '$stylist/control/class/style-manager/data-table-advanced-style-manager';
-import type {
-	AdvancedColumnDefinition,
-	DataTableAdvancedProps
-} from '$stylist/control/interface/component/table-controls/other';
+import type { SlotAdvancedColumnDefinition as AdvancedColumnDefinition } from '$stylist/control/interface/slot/advanced-column-definition';
+import type { SlotDataTableAdvanced as DataTableAdvancedProps } from '$stylist/control/interface/slot/data-table-advanced';
 
 type TableRow = Record<string, unknown>;
 

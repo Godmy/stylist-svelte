@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Message } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
   import { Icon as BaseIcon } from '$stylist';
   import MessageTimestamp from '$stylist/communication/svelte/atom/chat/atoms/message-timestamp/index.svelte';
   import { createMessageMetaState } from '$stylist/communication/function/state/message-meta';

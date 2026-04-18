@@ -1,4 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ChartAxisXProps, ChartAxisYProps, ChartAxisZProps, ChartBackgroundProps, ChartNameProps, ChartPolylineProps, ChartProps, ChartScale, PieChartProps } from './recipe';
-export type { IChartAxis, IChartColorable, ILegendable } from './proto';
-export type { AnalyticsChartRecipe, BarChartRecipe, CanvasChartRecipe, ChartAxisXRecipe, ChartAxisYRecipe, ChartAxisZRecipe, ChartBackgroundRecipe, ChartCanvasRecipe, ChartNameRecipe, ChartPolylineRecipe, ChartRecipe, HeatmapRecipe, LineChartRecipe, PieChartRecipe, ScatterPlotRecipe } from './recipe';
+export type { BehaviorChartAxis, BehaviorChartColorable, BehaviorLegendable } from './behavior';
+export type { AnalyticsChartRecipe, BarChartRecipe, CanvasChartRecipe, ChartAxisXRecipe, ChartAxisYProps, ChartAxisYRecipe, ChartAxisZProps, ChartAxisZRecipe, ChartBackgroundProps, ChartBackgroundRecipe, ChartCanvasRecipe, ChartNameRecipe, ChartPolylineRecipe, ChartProps, ChartRecipe, HeatmapRecipe, LineChartRecipe, PieChartProps, PieChartRecipe, ScatterPlotRecipe } from './recipe';

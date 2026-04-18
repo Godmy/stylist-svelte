@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import ComponentLibraryStats from './index.svelte';
+  import RecipeComponentLibraryStats from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'totalComponents', type: 'number', defaultValue: 320, min: 0, max: 1000, step: 1 },
@@ -14,13 +14,13 @@
 </script>
 
 <Story
-  component={ComponentLibraryStats}
+  component={RecipeComponentLibraryStats}
   title="Component Library Stats"
   description="Animated counters for total components and architecture levels."
   {controls}
 >
   {#snippet children(values: any)}
-    <ComponentLibraryStats
+    <RecipeComponentLibraryStats
       stats={{
         totalComponents: values.totalComponents,
         atoms: values.atoms,

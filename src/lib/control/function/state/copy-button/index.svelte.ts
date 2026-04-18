@@ -1,5 +1,5 @@
 import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { CopyButtonProps } from '$stylist/control/interface/component/button/other';
+import type { SlotCopyButton as CopyButtonProps } from '$stylist/control/interface/slot/copy-button';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { createBasePreset } from '$stylist/interaction/preset/base';
 import { TOKEN_SIZE } from '$stylist/layout/const/enum/size';

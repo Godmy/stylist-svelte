@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { SimpleModalProps } from '$stylist/notification/interface/component/interaction-feedback/other';
+  import type { SlotSimpleModal as SimpleModalProps } from '$stylist/notification/interface/slot/simple-modal';
   import { createSimpleModalState } from '$stylist/navigation/function/state/simple-modal';
 
   let props: SimpleModalProps = $props();

@@ -1,0 +1,16 @@
+/**
+ * DiscountApplierContract вЂ” РїСЂРёРјРµРЅРµРЅРёРµ СЃРєРёРґРѕРє Рё РїСЂРѕРјРѕРєРѕРґРѕРІ.
+ *
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ThemeAttributes   (theme) вЂ” class, data-variant, data-tone
+ */
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+
+export interface SlotCartItem {
+	id: string;
+	name: string;
+	price: number;
+	quantity: number;
+	category?: string;
+}

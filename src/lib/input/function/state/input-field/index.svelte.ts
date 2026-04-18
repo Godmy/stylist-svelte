@@ -1,5 +1,5 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
-import type { IInputFieldProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
 
 export const createInputFieldState = (props: IInputFieldProps) => {
 	const showHelper = $derived(!!props.helperText && (props.errors?.length ?? 0) === 0);

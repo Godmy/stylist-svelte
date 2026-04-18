@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundShortcutsPanelState } from '$stylist/development/function/state/playground-shortcuts-panel';
-  import type { Props } from '$stylist/development/type/struct/playground-shortcuts-panel';
+  import type { PlaygroundShortcutsPanelProps } from '$stylist/development/type/struct/playground-shortcuts-panel-props';
 const Keyboard = 'keyboard';
 const Command = 'command';
 const Search = 'search';
@@ -15,7 +15,7 @@ const Code = 'code';
 const Copy = 'copy';
 
 
-  let props: Props = $props();
+  let props: PlaygroundShortcutsPanelProps = $props();
   const state = createPlaygroundShortcutsPanelState(props);
 </script>
 

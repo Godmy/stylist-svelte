@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
-import type { CenteredLayoutAxis } from '$stylist/layout/class/style-manager/centered-layout';
+import type { CenteredLayoutAxis } from '$stylist/layout/type/enum/centered-layout-axis';
 
 export type CenteredLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;

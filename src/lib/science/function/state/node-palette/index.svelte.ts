@@ -1,6 +1,7 @@
 import { NodePaletteStyleManager } from '$stylist/science/class/style-manager/node-palette';
 import { ObjectManagerNodePalette } from '$stylist/science/class/object-manager/node-palette';
-import type { NodePaletteItem, NodePaletteProps } from '$stylist/science/interface/component/node-palette/other';
+import type { SlotNodePaletteItem as NodePaletteItem } from '$stylist/science/interface/slot/node-palette-item';
+import type { SlotNodePalette as NodePaletteProps } from '$stylist/science/interface/slot/node-palette';
 
 export function createNodePaletteState(props: NodePaletteProps) {
 	const filteredItems = $derived(

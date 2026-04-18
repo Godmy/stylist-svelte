@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import { createSearchFormState, SEARCH_ICON_NAME } from '$stylist/form/function/state/search-form';
+  import { createSearchFormState } from '$stylist/form/function/state/search-form';
+  import { SEARCH_ICON_NAME } from '$stylist/form/const/value/search-icon-name';
 
   const props = $props();
   const state = createSearchFormState(props);

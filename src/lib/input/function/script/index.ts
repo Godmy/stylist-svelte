@@ -15,4 +15,3 @@ export { getSharedPasswordInputContainerClass } from './get-shared-password-inpu
 export { getSharedPasswordInputHelpTextClass } from './get-shared-password-input-help-text-class';
 export { getSharedPasswordInputToggleButtonClass } from './get-shared-password-input-toggle-button-class';
 export { resolveCharacterCountState } from './resolve-character-count-state';
-export type { InputStateOptions } from './create-input-field-state';

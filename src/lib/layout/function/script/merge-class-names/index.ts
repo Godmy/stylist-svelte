@@ -1,7 +1,6 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-
-export type ClassValue = import('clsx').ClassValue;
+import type { ClassValue } from '$stylist/layout/type/script/merge-class-names';
 
 export function mergeClassNames(...inputs: ClassValue[]): string {
 	return twMerge(clsx(inputs));

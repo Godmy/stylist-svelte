@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createInventoryTrackerState } from './index.svelte';
+export { createInventoryTrackerState } from './index.svelte';

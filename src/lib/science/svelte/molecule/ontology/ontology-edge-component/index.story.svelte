@@ -12,7 +12,7 @@
   const controls: InterfaceControllerSettings[] = [{ name: 'showLabel', type: 'boolean', defaultValue: true }];
 
   const accountNode: OntologyNode = { id: 'account', name: 'Account', type: 'entity', position: { x: 80, y: 60 }, width: 140, height: 80 };
-  const subscriptionNode: OntologyNode = { id: 'subscription', name: 'Subscription', type: 'entity', position: { x: 260, y: 220 }, width: 160, height: 90 };
+  const subscriptionNode: OntologyNode = { id: 'subscription', name: 'SlotSubscription', type: 'entity', position: { x: 260, y: 220 }, width: 160, height: 90 };
   const relationship: OntologyEdge = { id: 'edge-1', source: accountNode.id, target: subscriptionNode.id, relationship: 'owns', label: 'Owns', cardinality: '1..*' };
 </script>
 

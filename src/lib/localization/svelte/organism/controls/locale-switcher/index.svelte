@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createLocaleSwitcherState } from '$stylist/localization/function/state/locale-switcher';
-  import type { LocaleSwitcherProps } from '$stylist/localization/interface/component/locale-switcher/other';
+  import type { SlotLocaleSwitcher as LocaleSwitcherProps } from '$stylist/localization/interface/slot/locale-switcher';
 
   let {
     onLocaleChange,

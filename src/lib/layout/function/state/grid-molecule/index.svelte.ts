@@ -1,8 +1,9 @@
 import { GridMoleculeStyleManager } from '$stylist/layout/class/style-manager/grid-molecule';
-import type { GridMoleculeAlign, GridMoleculeGap, GridMoleculeJustify } from '$stylist/layout/class/style-manager/grid-molecule';
+import type { GridMoleculeAlign } from '$stylist/layout/type/enum/grid-molecule-align';
+import type { GridMoleculeGap } from '$stylist/layout/type/enum/grid-molecule-gap';
+import type { GridMoleculeJustify } from '$stylist/layout/type/enum/grid-molecule-justify';
 import type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
 
-export type { GridMoleculeProps } from '$stylist/layout/type/struct/layout-extended/grid-molecule-props';
 
 export function createGridMoleculeState(props: GridMoleculeProps) {
 	const cols = $derived(props.cols ?? 2);

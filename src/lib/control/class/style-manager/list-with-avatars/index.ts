@@ -1,4 +1,4 @@
-import type { IListWithAvatarsStyleClasses } from '$stylist/control/interface/component/list-with-avatars/struct/styles';
+import type { SlotListWithAvatarsStyleClasses as IListWithAvatarsStyleClasses } from '$stylist/control/interface/slot/list-with-avatars-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

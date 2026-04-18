@@ -1,6 +1,5 @@
 import type { StoreLocatorStore, StoreLocatorProps } from '$stylist/geo/type/struct/store-locator';
-
-export interface StoreLocatorStateProps extends StoreLocatorProps {}
+import type { StoreLocatorStateProps } from '$stylist/geo/interface/recipe/store-locator';
 
 export function createStoreLocatorState(props: StoreLocatorStateProps) {
 	const stores = $derived(props.stores ?? []);

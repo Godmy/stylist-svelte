@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createUserProfileCardState } from '$stylist/management/function/state/user-profile-card';
-  import type { UserProfileCardProps } from '$stylist/form/interface/component/account-forms/other';
+  import type { SlotUserProfileCard as UserProfileCardProps } from '$stylist/form/interface/slot/user-profile-card';
 
   let props: UserProfileCardProps = $props();
   const state = createUserProfileCardState(props);

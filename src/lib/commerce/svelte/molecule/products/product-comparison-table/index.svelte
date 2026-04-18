@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductComparisonTableState } from '$stylist/commerce/function/state/product-comparison-table';
-	import type { ProductComparisonTableProps } from '$stylist/commerce/function/state/product-comparison-table';
+	import type { ProductComparisonTableProps } from '$stylist/commerce/interface/recipe/product-comparison-table-props';
 
 	let props: ProductComparisonTableProps = $props();
 	const state = createProductComparisonTableState(props);

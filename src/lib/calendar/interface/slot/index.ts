@@ -1,0 +1,22 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { SlotCalendarDay } from './calendar-day';
+export type { SlotCalendarEvent } from './calendar-event';
+export type { SlotCalendarViewEvent } from './calendar-view-event';
+export type { ChildrenHtmlAttributes } from './children-html-attributes';
+export type { SlotDaySchedule } from './day-schedule';
+export type { SlotEventCalendar } from './event-calendar';
+export type { SlotEventCalendarEvent } from './event-calendar-event';
+export type { SlotMiniCalendar } from './mini-calendar';
+export type { SlotMiniCalendarEvent } from './mini-calendar-event';
+export type { SlotPresenceUser } from './presence-user';
+export type { SlotRealTimePresence } from './real-time-presence';
+export type { SlotRealTimePresenceStyleClasses } from './real-time-presence-style-classes';
+export type { SlotRealTimePresenceUser } from './real-time-presence-user';
+export type { SlotScheduleCalendar } from './schedule-calendar';
+export type { SlotScheduleCalendarEvent } from './schedule-calendar-event';
+export type { SlotScheduleEvent } from './schedule-event';
+export type { SlotScheduleTimeSlot } from './schedule-time-slot';
+export type { SlotTimeGrid } from './time-grid';
+export type { SlotTimeGridEvent } from './time-grid-event';
+export type { SlotTimeSlotEvent } from './time-slot-event';
+export type { SlotTimelineItem } from './timeline-item';

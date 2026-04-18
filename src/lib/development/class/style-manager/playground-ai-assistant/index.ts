@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента PlaygroundAiAssistant
+ * Менеджер стилей для компонента RecipePlaygroundAiAssistant
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

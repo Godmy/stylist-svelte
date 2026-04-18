@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSkeletonState } from '$stylist/notification/function/state/skeleton';
-	import type { ISkeletonProps } from '$stylist/notification/interface/component/notification/other';
+	import type { SlotSkeleton as ISkeletonProps } from '$stylist/notification/interface/slot/skeleton';
 
 	let props = $props<
 		{

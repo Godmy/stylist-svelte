@@ -1,17 +1,5 @@
 import { PageHeaderStyleManager } from '$stylist/management/class/style-manager/page-header';
-import type { IPageHeaderProps } from '$stylist/management/interface/component/page-header/other';
-
-export interface BreadcrumbItem {
-	label: string;
-	href?: string;
-}
-
-export interface PageHeaderStateProps extends IPageHeaderProps {
-	description?: string;
-	breadcrumbs?: BreadcrumbItem[];
-	actions?: any;
-	class?: string;
-}
+import type { PageHeaderStateProps } from '$stylist/management/interface/recipe/page-header';
 
 export function createPageHeaderState(props: PageHeaderStateProps) {
 	// Props with defaults

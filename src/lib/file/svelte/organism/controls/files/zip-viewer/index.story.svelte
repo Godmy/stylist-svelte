@@ -4,7 +4,7 @@
 
   import ZipViewer from './index.svelte';
 
-  type ZipEntry = {
+  type SlotZipEntry = {
     id: string;
     name: string;
     type: 'file' | 'directory';
@@ -16,7 +16,7 @@
     parentPath?: string;
   };
 
-  const primaryEntries: ZipEntry[] = [
+  const primaryEntries: SlotZipEntry[] = [
     { id: '1', name: 'design-system/', type: 'directory', path: 'design-system/' },
     {
       id: '2',

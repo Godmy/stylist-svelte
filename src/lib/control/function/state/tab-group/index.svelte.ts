@@ -1,5 +1,5 @@
 import { TabGroupStyleManager } from '$stylist/control/class/style-manager/tab-group';
-import type { ITabGroupProps } from '$stylist/control/interface/component/tab-group/other';
+import type { SlotTabGroup as ITabGroupProps } from '$stylist/control/interface/slot/tab-group';
 
 export function createTabGroupState(props: ITabGroupProps) {
   let currentTab = $state(props.activeTab ?? props.tabs?.[0]?.id ?? '');

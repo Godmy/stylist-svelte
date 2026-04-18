@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createTableWithFiltersState } from '$stylist/control/function/state/table-with-filters';
-  import type { TableWithFiltersProps } from '$stylist/control/interface/component/table-extended/other';
+  import type { SlotTableWithFilters as TableWithFiltersProps } from '$stylist/control/interface/slot/table-with-filters';
 
   let { data = [], columns = [], class: className = '', ...restProps }: TableWithFiltersProps = $props();
   const state = createTableWithFiltersState({ data, columns, class: className });

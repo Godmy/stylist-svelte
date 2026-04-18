@@ -1,8 +1,6 @@
 import { StatusDashboardStyleManager } from '$stylist/management/class/style-manager/status-dashboard';
-import type { StatusDashboardRecipe } from '$stylist/management/interface/recipe/status-dashboard';
 import { ObjectManagerStatusDashboard } from '$stylist/management/class/object-manager/status-dashboard';
-
-export interface StatusDashboardStateProps extends StatusDashboardRecipe {}
+import type { StatusDashboardStateProps } from '$stylist/management/interface/recipe/status-dashboard-status-dashboard-state-props';
 
 export function createStatusDashboardState(props: StatusDashboardStateProps) {
 	const title = $derived(props.title);

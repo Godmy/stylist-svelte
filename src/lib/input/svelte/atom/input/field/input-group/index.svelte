@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLInputAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import type { IInputGroupProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputGroup as IInputGroupProps } from '$stylist/input/interface/slot/input-group';
 	import { createInputGroupState } from '$stylist/input/function/state/input-group';
 	import { Button } from '$stylist';
 

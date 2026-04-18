@@ -37,7 +37,7 @@
   
   {#if showAddReview}
     <div class="mb-8 p-4 border rounded-lg bg-[var(--color-background-secondary)]">
-      <h3 class="font-bold mb-3">Write a Review</h3>
+      <h3 class="font-bold mb-3">Write a SlotReview</h3>
       <div class="mb-3">
         <label class="block text-sm font-medium mb-1" for="rating">Rating</label>
         <div class="flex">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="mb-3">
-        <label for="review-title" class="block text-sm font-medium mb-1">Review Title</label>
+        <label for="review-title" class="block text-sm font-medium mb-1">SlotReview Title</label>
         <input
           id="review-title"
           type="text"
@@ -68,7 +68,7 @@
         />
       </div>
       <div class="mb-3">
-        <label for="review-content" class="block text-sm font-medium mb-1">Review</label>
+        <label for="review-content" class="block text-sm font-medium mb-1">SlotReview</label>
         <textarea
           id="review-content"
           bind:value={state.newReview.content}
@@ -81,7 +81,7 @@
         onclick={() => state.submitReview()}
         class="px-4 py-2 bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] rounded hover:bg-[var(--color-primary-600)]"
       >
-        Submit Review
+        Submit SlotReview
       </button>
     </div>
   {/if}

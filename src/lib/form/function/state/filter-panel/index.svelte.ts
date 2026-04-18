@@ -1,22 +1,7 @@
 import type { FilterPanelProps, FilterPanelLayout } from '$stylist/form/type/struct/filter-panel';
+import type { SlotFilterPanelState } from '$stylist/form/interface/slot/filter-panel-state';
 
-export interface FilterPanelState {
-	objectsVisible: boolean;
-	interfacesVisible: boolean;
-	unionsVisible: boolean;
-	enumsVisible: boolean;
-	scalarsVisible: boolean;
-	inputsVisible: boolean;
-	currentLayout: FilterPanelLayout;
-	rootClass: string;
-	filterSectionClass: string;
-	filterHeaderClass: string;
-	filterOptionsClass: string;
-	filterItemClass: string;
-	layoutControlsClass: string;
-}
-
-export function createFilterPanelState(props: FilterPanelProps): FilterPanelState {
+export function createFilterPanelState(props: FilterPanelProps): SlotFilterPanelState {
 	let objectsVisible = $state(props.showObjects ?? true);
 	let interfacesVisible = $state(props.showInterfaces ?? true);
 	let unionsVisible = $state(props.showUnions ?? true);

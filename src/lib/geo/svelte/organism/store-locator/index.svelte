@@ -23,7 +23,7 @@
         {#if state.showSearch}
           <div class="mb-4">
             <label for="store-search" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">
-              Search Location
+              Search SlotLocation
             </label>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

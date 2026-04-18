@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createSessionManagerState } from '$stylist/management/function/state/session-manager';
-  import type { SessionManagerProps } from '$stylist/form/interface/component/interaction-forms/other';
+  import type { SlotSessionManager as SessionManagerProps } from '$stylist/form/interface/slot/session-manager';
 
   let props: SessionManagerProps = $props();
   const state = createSessionManagerState(props);

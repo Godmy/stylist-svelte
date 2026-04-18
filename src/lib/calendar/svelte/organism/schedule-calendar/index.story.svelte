@@ -4,8 +4,8 @@
 
   import * as ScheduleCalendarModule from './index.svelte';
   const ScheduleCalendar: any = ScheduleCalendarModule.default ?? ScheduleCalendarModule;
-  import type { IScheduleCalendarProps } from '$stylist/calendar/interface/component/schedule-calendar/other';
-  import type { ScheduleEvent } from '$stylist/calendar/interface/component/schedule-calendar/other';
+  import type { SlotScheduleCalendar as IScheduleCalendarProps } from '$stylist/calendar/interface/slot/schedule-calendar';
+  import type { SlotScheduleEvent as ScheduleEvent } from '$stylist/calendar/interface/slot/schedule-event';
 
   export let id: string;
   export let title: string;
@@ -28,7 +28,7 @@
     },
     {
       id: '2',
-      title: 'Design Review',
+      title: 'Design SlotReview',
       start: new Date(new Date().setDate(new Date().getDate() + 1), new Date().setHours(14, 0, 0, 0)),
       end: new Date(new Date().setDate(new Date().getDate() + 1), new Date().setHours(15, 30, 0, 0)),
       location: 'Design Studio',

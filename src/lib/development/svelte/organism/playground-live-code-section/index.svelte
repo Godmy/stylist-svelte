@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundLiveCodeSectionState } from '$stylist/development/function/state/playground-live-code-section';
-  import type { Props } from '$stylist/development/type/struct/playground-live-code-section';
+  import type { PlaygroundLiveCodeSectionProps } from '$stylist/development/type/struct/playground-live-code-section-props';
 const Play = 'play';
 const ArrowRight = 'arrow-right';
 
-  let props: Props = $props();
+  let props: PlaygroundLiveCodeSectionProps = $props();
   const state = createPlaygroundLiveCodeSectionState(props);
 </script>
 

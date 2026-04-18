@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { AnimateProps } from '$stylist/animation/interface/proto/animate-props';
+  import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
   import { createAnimatedState } from '$stylist/interaction/function/state/animated';
 
   let props: AnimateProps = $props();

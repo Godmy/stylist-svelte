@@ -1,5 +1,5 @@
-import type { Props, Shortcut } from '$stylist/development/type/struct/playground-shortcuts-panel';
-
+import type { PlaygroundShortcutsPanelProps } from '$stylist/development/type/struct/playground-shortcuts-panel-props';
+import type { PlaygroundShortcutsPanelShortcut } from '$stylist/development/type/struct/playground-shortcuts-panel-shortcut';
 const Keyboard = 'keyboard';
 const Command = 'command';
 const Search = 'search';
@@ -12,19 +12,19 @@ const Moon = 'moon';
 const Code = 'code';
 const Copy = 'copy';
 
-const shortcuts: Shortcut[] = [
-  { keys: ['Ctrl', '/'], description: 'Toggle Sidebar', category: 'Navigation', icon: SidebarIcon },
-  { keys: ['Ctrl', 'B'], description: 'Toggle Bottom Panel', category: 'Navigation', icon: Layout },
+const shortcuts: PlaygroundShortcutsPanelShortcut[] = [
+  { keys: ['Ctrl', '/'], description: 'SlotToggle Sidebar', category: 'Navigation', icon: SidebarIcon },
+  { keys: ['Ctrl', 'B'], description: 'SlotToggle Bottom Panel', category: 'Navigation', icon: Layout },
   { keys: ['Ctrl', 'K'], description: 'Open Command Palette', category: 'Navigation', icon: Command },
   { keys: ['Ctrl', 'P'], description: 'Quick Search Components', category: 'Navigation', icon: Search },
-  { keys: ['Ctrl', 'G'], description: 'Toggle Grid', category: 'View', icon: Grid },
-  { keys: ['Ctrl', 'D'], description: 'Toggle Dark Mode', category: 'View', icon: Moon },
+  { keys: ['Ctrl', 'G'], description: 'SlotToggle Grid', category: 'View', icon: Grid },
+  { keys: ['Ctrl', 'D'], description: 'SlotToggle Dark Mode', category: 'View', icon: Moon },
   { keys: ['Ctrl', '+'], description: 'Zoom In', category: 'View', icon: Eye },
   { keys: ['Ctrl', '-'], description: 'Zoom Out', category: 'View', icon: Eye },
   { keys: ['Ctrl', '0'], description: 'Reset Zoom', category: 'View', icon: Eye },
   { keys: ['Ctrl', 'C'], description: 'Copy Code', category: 'Actions', icon: Copy },
   { keys: ['Ctrl', 'E'], description: 'Export Component', category: 'Actions', icon: Code },
-  { keys: ['Ctrl', 'R'], description: 'Reset All Props', category: 'Actions', icon: Zap },
+  { keys: ['Ctrl', 'R'], description: 'Reset All PlaygroundShortcutsPanelProps', category: 'Actions', icon: Zap },
   { keys: ['Ctrl', 'S'], description: 'Save Variant', category: 'Actions', icon: Zap },
   { keys: ['Alt', '1'], description: 'Mobile Viewport', category: 'Viewport', icon: Layout },
   { keys: ['Alt', '2'], description: 'Tablet Viewport', category: 'Viewport', icon: Layout },
@@ -38,9 +38,9 @@ const shortcuts: Shortcut[] = [
   { keys: ['Esc'], description: 'Close Modals/Panels', category: 'Misc', icon: Keyboard },
 ];
 
-export function createPlaygroundShortcutsPanelState(_props: Props) {
+export function createPlaygroundShortcutsPanelState(_props: PlaygroundShortcutsPanelProps) {
   const groupedShortcuts = $derived.by(() => {
-    const groups = new Map<string, Shortcut[]>();
+    const groups = new Map<string, PlaygroundShortcutsPanelShortcut[]>();
     shortcuts.forEach(shortcut => {
       if (!groups.has(shortcut.category)) {
         groups.set(shortcut.category, []);

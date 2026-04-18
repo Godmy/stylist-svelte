@@ -7,4 +7,3 @@ export type { ProductForQuote } from './product-for-quote';
 export type { QuoteRequestValue } from './quote-request-value';
 export type { TranslatableText } from './translatable-text';
 export type { TranslationLocale } from './translation-locale';
-export type { DateRangePickerProps } from './date-range-picker-props';

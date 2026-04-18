@@ -3,7 +3,7 @@
   import { Button } from '$stylist';
   import { FileExplorerStyleManager } from '$stylist/file/class/style-manager/file-explorer';
   import { createFileExplorerState } from '$stylist/file/function/state/file-explorer';
-  import type { FileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+  import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
   import type { Props } from '$stylist/file/type/struct/file-explorer/props';
   import {
     formatFileSize,
@@ -82,7 +82,7 @@
           {@const itemIcon = getFileIcon(item)}
           <div
             class={`border rounded-lg p-3 cursor-pointer flex flex-col items-center text-center ${
-              state.selectedItems.some((candidate: FileSystemItem) => candidate.id === item.id)
+              state.selectedItems.some((candidate: SlotFileSystemItem) => candidate.id === item.id)
                 ? 'border-[var(--color-primary-500)] bg-[var(--color-primary-50)]'
                 : 'border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]'
             } ${props.itemClass ?? ''}`}
@@ -106,7 +106,7 @@
           {@const itemIcon = getFileIcon(item)}
           <div
             class={`flex items-center p-3 border-b last:border-b-0 cursor-pointer ${
-              state.selectedItems.some((candidate: FileSystemItem) => candidate.id === item.id)
+              state.selectedItems.some((candidate: SlotFileSystemItem) => candidate.id === item.id)
                 ? 'bg-[var(--color-primary-50)]'
                 : 'hover:bg-[var(--color-background-secondary)]'
             } ${props.itemClass ?? ''}`}

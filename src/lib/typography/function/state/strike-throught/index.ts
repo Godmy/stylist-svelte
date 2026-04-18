@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createStrikeThroughState, createStrikeThroughtState } from './index.svelte';
+export { createStrikeThroughState } from './index.svelte';

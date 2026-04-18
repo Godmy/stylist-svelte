@@ -1,11 +1,5 @@
-import type { NotificationPreferencesProps } from '$stylist/communication/interface/component/notifications/other';
 import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-
-export interface NotificationPreferencesStateProps extends NotificationPreferencesProps {
-	email?: boolean;
-	push?: boolean;
-	sms?: boolean;
-}
+import type { NotificationPreferencesStateProps } from '$stylist/management/interface/recipe/notification-preferences';
 
 export function createNotificationPreferencesState(props: NotificationPreferencesStateProps) {
 	const email = $derived(props.email ?? true);

@@ -2,11 +2,10 @@
   import { Icon as BaseIcon } from '$stylist';
   import { onMount } from 'svelte';
   import { createPlaygroundToastState } from '$stylist/development/function/state/playground-toast';
-  import type { Props } from '$stylist/development/type/struct/playground-toast';
-
+  import type { PlaygroundToastProps } from '$stylist/development/type/struct/playground-toast-props';
   const Check = 'check';
 
-  let props: Props = $props();
+  let props: PlaygroundToastProps = $props();
   const state = createPlaygroundToastState(props);
 
   onMount(() => {

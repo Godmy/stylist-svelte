@@ -1,4 +1,4 @@
-import type { IFormDatePickerProps } from '$stylist/input/interface/component/form-date-picker/other';
+import type { SlotFormDatePicker as IFormDatePickerProps } from '$stylist/input/interface/slot/form-date-picker';
 
 export const createFormDatePickerState = (props: IFormDatePickerProps) => {
 	let selectedDate = $state(props.value ?? '');

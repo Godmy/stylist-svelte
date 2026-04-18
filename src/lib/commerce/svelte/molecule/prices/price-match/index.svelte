@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PriceMatchProps } from '$stylist/commerce/function/state/price-match';
+	import type { PriceMatchProps } from '$stylist/commerce/interface/recipe/price-match-props';
 	import { createPriceMatchState } from '$stylist/commerce/function/state/price-match';
 
 	let props: PriceMatchProps = $props();

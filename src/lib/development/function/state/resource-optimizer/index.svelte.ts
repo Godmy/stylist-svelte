@@ -1,5 +1,7 @@
-import type { Props, ResourceType, Resource, OptimizationSuggestion } from '$stylist/development/type/struct/resource-optimizer';
-
+import type { ResourceOptimizerProps } from '$stylist/development/type/struct/resource-optimizer-props';
+import type { ResourceOptimizerResourceType } from '$stylist/development/type/struct/resource-optimizer-resource-type';
+import type { ResourceOptimizerResource } from '$stylist/development/type/struct/resource-optimizer-resource';
+import type { ResourceOptimizerOptimizationSuggestion } from '$stylist/development/type/struct/resource-optimizer-optimization-suggestion';
 const HardDrive = 'hard-drive';
 const Zap = 'zap';
 const Image = 'image';
@@ -9,7 +11,7 @@ const Upload = 'upload';
 const Download = 'download';
 const Settings = 'settings';
 
-export function createResourceOptimizerState(props: Props) {
+export function createResourceOptimizerState(props: ResourceOptimizerProps) {
   const resources = $derived(props.resources ?? []);
   const suggestions = $derived(props.suggestions ?? []);
   const showResourceDetails = $derived(props.showResourceDetails ?? true);
@@ -18,7 +20,7 @@ export function createResourceOptimizerState(props: Props) {
   const showSizeComparison = $derived(props.showSizeComparison ?? true);
   const onResourceOptimize = $derived(props.onResourceOptimize);
   const onApplySuggestions = $derived(props.onApplySuggestions);
-  const title = $derived(props.title ?? 'Resource Optimizer');
+  const title = $derived(props.title ?? 'ResourceOptimizerResource Optimizer');
   const description = $derived(props.description ?? 'Optimize your application resources for better performance');
   const className = $derived(props.class ?? '');
   const headerClass = $derived('');
@@ -38,7 +40,7 @@ export function createResourceOptimizerState(props: Props) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  function getResourceTypeIcon(type: ResourceType) {
+  function getResourceTypeIcon(type: ResourceOptimizerResourceType) {
     switch(type) {
       case 'image': return Image;
       case 'api': return Package;

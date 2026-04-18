@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/component-library-stats';
+  import type { ComponentLibraryStatsProps } from '$stylist/development/type/struct/component-library-stats-props';
   import { createComponentLibraryStatsState } from '$stylist/development/function/state/component-library-stats';
 
-  let { ...props }: Props = $props();
+  let { ...props }: ComponentLibraryStatsProps = $props();
   const state = createComponentLibraryStatsState(props);
 </script>
 

@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import { Story } from '$stylist/development/svelte/playground';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-	import Radio from './index.svelte';
+	import SlotRadio from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'label', type: 'text', defaultValue: 'Email notifications' },
@@ -12,10 +12,10 @@
 	];
 </script>
 
-<Story component={Radio} title="Radio" description="Single radio option with clear checked and disabled states." {controls}>
+<Story component={SlotRadio} title="SlotRadio" description="Single radio option with clear checked and disabled states." {controls}>
 	{#snippet children(values: any)}
 		<div class="space-y-4">
-			<Radio
+			<SlotRadio
 				id="radio-main"
 				name="story-radio"
 				value="primary"

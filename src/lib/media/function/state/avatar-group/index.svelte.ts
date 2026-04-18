@@ -1,23 +1,5 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-export interface Avatar {
-	id: string;
-	name: string;
-	src?: string;
-	status?: 'online' | 'offline' | 'away' | 'busy';
-	onClick?: () => void;
-}
-
-export interface AvatarGroupProps {
-	avatars: Avatar[];
-	maxVisible?: number;
-	size?: 'sm' | 'md' | 'lg';
-	showTooltip?: boolean;
-	tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
-	class?: string;
-	avatarClass?: string;
-	overflowClass?: string;
-}
+import type { AvatarGroupProps } from '$stylist/media/interface/recipe/avatar-group-avatar-group-props';
 
 export function createAvatarGroupState(props: AvatarGroupProps & InformationHTMLAttributes<HTMLDivElement>) {
 	const avatars = $derived(props.avatars ?? []);

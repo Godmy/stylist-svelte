@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { SortableTableHeaderProps as SortableTableHeaderComponentProps } from '$stylist/control/interface/component/sortable-table-header/other';
+import type { SlotSortableTableHeader as SortableTableHeaderComponentProps } from '$stylist/control/interface/slot/sortable-table-header';
 
 export type SortableTableHeaderProps = SortableTableHeaderComponentProps &
 	HTMLAttributes<HTMLTableHeaderCellElement>;

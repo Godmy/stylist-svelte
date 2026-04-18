@@ -1,5 +1,5 @@
-import type { SelectionMode } from '../selection-mode/index.svelte.ts';
-import type { SelectionState } from '../selection-state/index.svelte.ts';
+import type { SelectionMode } from '$stylist/architecture/type/struct/selection-mode';
+import type { SelectionState } from '$stylist/architecture/interface/recipe/selection-state';
 
 export function useSelection(initialMode?: SelectionMode) {
 	let state = $state<SelectionState>({

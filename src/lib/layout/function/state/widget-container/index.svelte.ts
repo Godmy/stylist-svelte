@@ -1,22 +1,6 @@
 import { WidgetContainerStyleManager } from '$stylist/layout/class/style-manager/widget-container';
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { Snippet } from 'svelte';
-
-export type WidgetContainerProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
-	title?: string;
-	subtitle?: string;
-	content: Snippet;
-	actions?: Snippet;
-	collapsible?: boolean;
-	initiallyCollapsed?: boolean;
-	resizable?: boolean;
-	draggable?: boolean;
-	maximizable?: boolean;
-	size?: 'sm' | 'md' | 'lg';
-	headerClass?: string;
-	bodyClass?: string;
-};
+import type { WidgetContainerProps } from '$stylist/layout/type/alias/widget-container-props';
 
 export function createWidgetContainerState(props: WidgetContainerProps) {
 	let isCollapsed = $state(props.initiallyCollapsed ?? false);
@@ -138,6 +122,3 @@ export function createWidgetContainerState(props: WidgetContainerProps) {
 }
 
 export default createWidgetContainerState;
-
-
-

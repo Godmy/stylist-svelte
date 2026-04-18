@@ -5,7 +5,7 @@
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'diagramTitle', type: 'text', defaultValue: 'IDEF0 A-0 Context' },
-		{ name: 'functionTitle', type: 'text', defaultValue: 'A0 Process Customer Order' },
+		{ name: 'functionTitle', type: 'text', defaultValue: 'A0 Process Customer SlotOrder' },
 		{ name: 'width', type: 'number', defaultValue: 980, min: 700, max: 1400, step: 20 },
 		{ name: 'height', type: 'number', defaultValue: 460, min: 320, max: 760, step: 20 }
 	];
@@ -22,11 +22,11 @@
 				subtitle: 'Black Box Function',
 				inputs: [
 					{ id: 'i1', label: 'Customer request' },
-					{ id: 'i2', label: 'Order items' },
+					{ id: 'i2', label: 'SlotOrder items' },
 					{ id: 'i3', label: 'Payment data' }
 				],
 				outputs: [
-					{ id: 'o1', label: 'Order confirmation' },
+					{ id: 'o1', label: 'SlotOrder confirmation' },
 					{ id: 'o2', label: 'Invoice + receipt' },
 					{ id: 'o3', label: 'Shipping task' }
 				]

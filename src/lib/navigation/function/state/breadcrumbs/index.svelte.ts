@@ -1,6 +1,6 @@
+import { SLASH_ICON } from '$stylist/navigation/const/value/slash-icon';
 import type { BreadcrumbsProps } from '$stylist/navigation/type/struct/breadcrumbs-props';
 
-export const SLASH_ICON = 'slash';
 
 export function createBreadcrumbsState(props: BreadcrumbsProps) {
 	const totalCrumbs = $derived(props.crumbs?.length || 0);
@@ -31,3 +31,5 @@ export function createBreadcrumbsState(props: BreadcrumbsProps) {
 		}
 	};
 }
+
+export default createBreadcrumbsState;

@@ -1,4 +1,4 @@
-import type { TableWithStripesProps } from '$stylist/control/interface/component/table-extended/other';
+import type { SlotTableWithStripes as TableWithStripesProps } from '$stylist/control/interface/slot/table-with-stripes';
 import { TableExtendedStyleManager } from '$stylist/control/class/style-manager/table-extended';
 
 export function createTableWithStripesState(props: TableWithStripesProps) {

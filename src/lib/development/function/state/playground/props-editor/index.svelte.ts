@@ -1,4 +1,4 @@
-import type { PropsEditorProps } from '$stylist/development/type/struct/props-editor';
+import type { PropsEditorProps } from '$stylist/development/type/struct/props-editor-props';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export function createPropsEditorState(props: PropsEditorProps) {

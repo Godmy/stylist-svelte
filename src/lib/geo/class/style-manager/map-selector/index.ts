@@ -1,4 +1,4 @@
-import type { IMapSelectorStyleClasses } from '$stylist/geo/interface/component/map-selector/struct/styles';
+import type { SlotMapSelectorStyleClasses as IMapSelectorStyleClasses } from '$stylist/geo/interface/slot/map-selector-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

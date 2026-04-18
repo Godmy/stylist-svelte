@@ -1,9 +1,9 @@
 import { CalendarViewStyleManager } from '$stylist/calendar/class/style-manager/calendar-view';
-import type { CalendarViewContract, CalendarViewEvent, CalendarViewDay } from '$stylist/calendar/interface/record/calendar';
+import type { RecipeCalendarView as CalendarViewContract } from '$stylist/calendar/interface/recipe/calendar-view';
+import type { SlotCalendarViewEvent } from '$stylist/calendar/interface/slot/calendar-view-event';
+import type { RecipeCalendarViewDay as RecipeCalendarViewDay } from '$stylist/calendar/interface/recipe/calendar-view-day';
 
-export type CalendarViewStateProps = CalendarViewContract;
-
-export function createCalendarViewState(props: CalendarViewStateProps) {
+export function createCalendarViewState(props: CalendarViewContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 
 	const events = $derived(props.events ?? []);
@@ -21,7 +21,7 @@ export function createCalendarViewState(props: CalendarViewStateProps) {
 	const todayButtonClasses = $derived(CalendarViewStyleManager.getTodayButtonClasses());
 	const navigationButtonClasses = $derived(CalendarViewStyleManager.getNavigationButtonClasses());
 
-	const days = $derived.by<CalendarViewDay[]>(() => getDaysInMonth(currentDate));
+	const days = $derived.by<RecipeCalendarViewDay[]>(() => getDaysInMonth(currentDate));
 	const weekdays = $derived(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
 	const monthYear = $derived(currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }));
 
@@ -45,7 +45,7 @@ export function createCalendarViewState(props: CalendarViewStateProps) {
 		return rest;
 	});
 
-	function getDaysInMonth(date: Date): CalendarViewDay[] {
+	function getDaysInMonth(date: Date): RecipeCalendarViewDay[] {
 		const year = date.getFullYear();
 		const month = date.getMonth();
 
@@ -56,7 +56,7 @@ export function createCalendarViewState(props: CalendarViewStateProps) {
 		const endDay = new Date(lastDay);
 		endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
 
-		const calendarDays: CalendarViewDay[] = [];
+		const calendarDays: RecipeCalendarViewDay[] = [];
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 
@@ -65,7 +65,7 @@ export function createCalendarViewState(props: CalendarViewStateProps) {
 			const isCurrentMonth = dayDate.getMonth() === month;
 			const isTodayDate = dayDate.getTime() === today.getTime();
 
-			const dayEvents = events.filter((event: CalendarViewEvent) => {
+			const dayEvents = events.filter((event: SlotCalendarViewEvent) => {
 				const eventStart = new Date(event.start);
 				eventStart.setHours(0, 0, 0, 0);
 				return eventStart.getTime() === dayDate.getTime();
@@ -89,7 +89,7 @@ export function createCalendarViewState(props: CalendarViewStateProps) {
 		props.onDayClick?.(date);
 	}
 
-	function handleEventClick(event: CalendarViewEvent): void {
+	function handleEventClick(event: SlotCalendarViewEvent): void {
 		props.onEventClick?.(event);
 	}
 

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createFormFooterState } from '$stylist/form/function/state/form-footer';
-  import type { FormFooterProps } from '$stylist/form/interface/component/form-footer/other';
+  import type { SlotFormFooter as FormFooterProps } from '$stylist/form/interface/slot/form-footer';
 
   let {
     primaryButtonLabel = 'Submit',

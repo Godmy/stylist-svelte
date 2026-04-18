@@ -1,5 +1,5 @@
 import type { CanvasChartRecipe } from '$stylist/chart/interface/recipe/canvas-chart';
-import { PRESET_CANVAS_CHART } from '$stylist/chart/const/struct/canvas-chart';
+import { PRESET_CANVAS_CHART } from '$stylist/chart/const/preset/canvas-chart';
 
 export function resolveCanvasChartPreset(
 	name: 'default' | 'minimal' | 'bold' | 'small' | 'large'

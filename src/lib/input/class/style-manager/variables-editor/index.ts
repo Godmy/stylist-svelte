@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { VariablesEditorStyleManagerOptions } from '$stylist/input/class/style-manager/variables-editor-style-manager-options';
+import type { VariablesEditorStyleManagerOptions } from '$stylist/input/interface/slot/variables-editor-style-manager-options';
 
 export class VariablesEditorStyleManager {
 	private static readonly BASE_ROOT = 'variables-editor border border-[var(--color-border-primary)] rounded-md dark:border-[var(--color-border-primary)] bg-[var(--color-background-primary)] dark:bg-[var(--color-neutral-800)] overflow-hidden';

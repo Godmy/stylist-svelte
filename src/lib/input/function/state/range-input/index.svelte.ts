@@ -1,4 +1,4 @@
-import type { RangeInputProps } from '$stylist/input/interface/component/range-input/other';
+import type { SlotRangeInput as RangeInputProps } from '$stylist/input/interface/slot/range-input';
 
 export const createRangeInputState = (props: RangeInputProps) => {
 	let minVal = $state(props.minValue ?? props.min ?? 0);

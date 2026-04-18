@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { INotificationBadgeProps } from '$stylist/notification/interface/component/notification/other';
+	import type { SlotNotificationBadge as INotificationBadgeProps } from '$stylist/notification/interface/slot/notification-badge';
 	import { createNotificationBadgeState } from '$stylist/management/function/state/notification-badge';
 
 	let props: INotificationBadgeProps = $props();

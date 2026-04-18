@@ -1,12 +1,13 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 
 export interface SkeletonRectangleRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ISized,
 		IShapeable,
 		ISpaced
 	]>
 {}
+

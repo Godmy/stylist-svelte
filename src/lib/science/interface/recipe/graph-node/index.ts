@@ -1,5 +1,6 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
- * GraphNode — узел графа..
+ * SlotGraphNode — узел графа..
  *
  * LEGO-состав:
  *   ILabelSlot        (information) — label (Label)
@@ -9,7 +10,7 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface GraphNodeRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface GraphNodeRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	id: string;
 	x: number;
 	y: number;

@@ -1,10 +1,5 @@
 import { DropdownMenuStyleManager } from '$stylist/control/class/style-manager/dropdown-menu';
-
-export type DropdownMenuStateProps = {
-  position?: string;
-  disabled?: boolean;
-  class?: string;
-};
+import type { DropdownMenuStateProps } from '$stylist/control/type/alias/dropdown-menu-state-props';
 
 export function createDropdownMenuState(props: DropdownMenuStateProps) {
   const normalizedPosition = $derived(

@@ -1,4 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ThemeGradientBackgroundDirection } from './recipe';
-export type { IBorderToken, IDimensionable, IElevatable, IPositionable, IScrollable, IShapeable, ISizable, ISized, ISpaced } from './proto';
-export type { BorderRecipe, CardRecipe, ThemeBackgroundRecipe, ThemeGradientBackgroundRecipe, ThemeSurfaceRecipe } from './recipe';
+export type { BehaviorBorderToken, BehaviorDimensionable, BehaviorElevatable, BehaviorPositionable, BehaviorScrollable, BehaviorShapeable, BehaviorSizable, BehaviorSized, BehaviorSpaced } from './behavior';
+export type { BorderRecipe, CardRecipe, PopoverProps, StackedLayoutProps, ThemeBackgroundRecipe, ThemeGradientBackgroundRecipe, ThemeSurfaceRecipe } from './recipe';

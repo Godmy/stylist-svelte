@@ -1,7 +1,9 @@
-import type { Props, LogLevel, LogEntry } from '$stylist/development/type/struct/debug-console';
+import type { DebugConsoleProps } from '$stylist/development/type/struct/debug-console-props';
+import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
+import type { DebugConsoleLogEntry } from '$stylist/development/type/struct/debug-console-log-entry';
 import { DebugConsoleStyleManager } from '$stylist/development/class/style-manager/debug-console';
 
-export function createDebugConsoleState(props: Props) {
+export function createDebugConsoleState(props: DebugConsoleProps) {
 	const Terminal = 'terminal';
 	const Bug = 'bug';
 	const Play = 'play';
@@ -10,8 +12,8 @@ export function createDebugConsoleState(props: Props) {
 	const Search = 'search';
 	const Filter = 'filter';
 
-	let filteredLogs = $state<LogEntry[]>(props.logs ?? []);
-	let logLevelFilter = $state<LogLevel[]>(props.initialLogLevelFilter ?? []);
+	let filteredLogs = $state<DebugConsoleLogEntry[]>(props.logs ?? []);
+	let logLevelFilter = $state<DebugConsoleLogLevel[]>(props.initialLogLevelFilter ?? []);
 	let searchQuery = $state('');
 	let isRunning = $state(false);
 
@@ -48,7 +50,7 @@ export function createDebugConsoleState(props: Props) {
 		});
 	}
 
-	function toggleLogLevel(level: LogLevel) {
+	function toggleLogLevel(level: DebugConsoleLogLevel) {
 		if (logLevelFilter.includes(level)) {
 			logLevelFilter = logLevelFilter.filter(l => l !== level);
 		} else {
@@ -77,10 +79,10 @@ export function createDebugConsoleState(props: Props) {
 				return;
 			}
 
-			const levels: LogLevel[] = ['log', 'info', 'warn', 'error', 'debug'];
+			const levels: DebugConsoleLogLevel[] = ['log', 'info', 'warn', 'error', 'debug'];
 			const messages = [
 				'Component mounted successfully',
-				'State updated',
+				'SlotState updated',
 				'API call completed',
 				'User interaction detected',
 				'Data fetched from server',
@@ -91,7 +93,7 @@ export function createDebugConsoleState(props: Props) {
 				'New connection established'
 			];
 
-			const log: LogEntry = {
+			const log: DebugConsoleLogEntry = {
 				id: `log-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
 				timestamp: new Date(),
 				level: levels[Math.floor(Math.random() * levels.length)],
@@ -108,7 +110,7 @@ export function createDebugConsoleState(props: Props) {
 		isRunning = false;
 	}
 
-	function getLevelColor(level: LogLevel) {
+	function getLevelColor(level: DebugConsoleLogLevel) {
 		switch (level) {
 			case 'error': return 'text-red-500';
 			case 'warn': return 'text-yellow-500';
@@ -118,7 +120,7 @@ export function createDebugConsoleState(props: Props) {
 		}
 	}
 
-	function getLevelBgColor(level: LogLevel) {
+	function getLevelBgColor(level: DebugConsoleLogLevel) {
 		switch (level) {
 			case 'error': return 'bg-red-100';
 			case 'warn': return 'bg-yellow-100';

@@ -1,19 +1,19 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { AccordionSpecificProps } from '$stylist/control/interface/recipe/accordion-specific-props';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISelectable } from '$stylist/interaction/interface/proto/selectable';
-import type { IScrollable } from '$stylist/layout/interface/proto/scrollable';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSelectable as ISelectable } from '$stylist/interaction/interface/behavior/selectable';
+import type { BehaviorScrollable as IScrollable } from '$stylist/layout/interface/behavior/scrollable';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface AccordionRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IIconSlot,
@@ -23,8 +23,9 @@ export interface AccordionRecipe
 		IShapeable,
 		ISpaced,
 		IScrollable,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLDivElement>
 	]>,
 		AccordionSpecificProps
 {}
+

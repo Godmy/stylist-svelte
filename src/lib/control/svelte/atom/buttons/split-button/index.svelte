@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
+import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
 import { createSplitButtonState } from '$stylist/control/function/state/split-button';
 	import type { SplitButtonButtonAttributes } from '$stylist/control/type/struct/split-button-button-attributes';
 

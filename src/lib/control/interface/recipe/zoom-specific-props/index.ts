@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для зум-контролов */
 import type { Snippet } from 'svelte';
 
-export interface ZoomSpecificProps {
+export interface ZoomSpecificProps extends StructIntersectAll<[]> {
 	/** Тип зум-контрола */
 	type?: 'controls' | 'toolbar';
 

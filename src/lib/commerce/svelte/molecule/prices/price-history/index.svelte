@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PriceHistoryProps } from '$stylist/commerce/function/state/price-history';
+	import type { PriceHistoryProps } from '$stylist/commerce/interface/recipe/price-history-props';
 	import { createPriceHistoryState } from '$stylist/commerce/function/state/price-history';
 	import { PriceHistoryStyleManager } from '$stylist/commerce/class/style-manager/price-history';
 

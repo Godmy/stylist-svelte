@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createNpmBadgeState } from './index.svelte';
+export { createNpmBadgeState } from './index.svelte';

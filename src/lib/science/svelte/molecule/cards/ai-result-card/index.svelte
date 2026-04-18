@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { AiResultCardContract } from '$stylist/science/interface/record/science';
+	import type { RecipeAiResultCard as AiResultCardContract } from '$stylist/science/interface/recipe/ai-result-card';
 	import { createAiResultCardState } from '$stylist/science/function/state/ai-result-card';
 
 	let props: AiResultCardContract = $props();
@@ -28,6 +28,3 @@
     </div>
   </div>
 </div>
-
-
-

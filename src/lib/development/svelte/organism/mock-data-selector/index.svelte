@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/mock-data-selector';
+  import type { MockDataSelectorProps } from '$stylist/development/type/struct/mock-data-selector-props';
   import { createMockDataSelectorState } from '$stylist/development/function/state/mock-data-selector';
   import { Icon as BaseIcon } from '$stylist';
 
-  let { ...props }: Props = $props();
+  let { ...props }: MockDataSelectorProps = $props();
   const state = createMockDataSelectorState(props);
 </script>
 

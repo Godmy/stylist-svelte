@@ -1,6 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-export type ContainerQueryType = 'inline-size' | 'size' | 'normal';
+import type { ContainerQueryType } from '$stylist/layout/type/enum/container-query-type';
 
 export class ContainerQueryStyleManager {
 	/**

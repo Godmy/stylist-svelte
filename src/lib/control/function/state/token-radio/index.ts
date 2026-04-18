@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createTokenRadioState } from './index.svelte';
+export { createTokenRadioState } from './index.svelte';

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createUpsellState } from './index.svelte';
+export { createUpsellState } from './index.svelte';

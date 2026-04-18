@@ -4,7 +4,7 @@ const ChevronDown = 'chevron-down';
 const ChevronUp = 'chevron-up';
 
   import { createDataTableState } from '$stylist/control/function/state/data-table';
-	import type { DataTableRecipe } from '$stylist/control/interface/component/table-controls/other';
+	import type { SlotDataTableRecipe as DataTableRecipe } from '$stylist/control/interface/slot/data-table-recipe';
 
   let {
     data = [],

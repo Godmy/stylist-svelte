@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import type { MenuItemProps } from '$stylist/control/interface/component/menu-item/other';
+import type { SlotMenuItem as MenuItemProps } from '$stylist/control/interface/slot/menu-item';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createMenuItemState(props: MenuItemProps) {

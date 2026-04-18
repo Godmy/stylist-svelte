@@ -2,7 +2,9 @@
 	import { Story } from '$stylist/development/svelte/playground';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import LitegraphCanvas from './index.svelte';
-	import type { LitegraphConnection, LitegraphNode, LitegraphPort } from '$stylist/science/interface/record/science';
+	import type { SlotLitegraphConnection as LitegraphConnection } from '$stylist/science/interface/slot/litegraph-connection';
+import type { ContractLitegraphNode as LitegraphNode } from '$stylist/science/interface/contract/litegraph-node';
+import type { ContractLitegraphPort as LitegraphPort } from '$stylist/science/interface/contract/litegraph-port';
 
 	const sampleNodes: LitegraphNode[] = [
 		{ id: 'node-1', title: 'Input Node', type: 'source', x: 50, y: 80, color: 'var(--color-success-500)', width: 180, height: 100, inputs: [], outputs: [{ id: 'out-1', name: 'Text', type: 'string', direction: 'output', dataType: 'string', label: 'Text' }, { id: 'out-2', name: 'Value', type: 'number', direction: 'output', dataType: 'number', label: 'Value' }] satisfies LitegraphPort[], properties: [] },

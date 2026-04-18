@@ -1,9 +1,10 @@
 import { onMount } from 'svelte';
-import type { Props, ComponentStats } from '$stylist/development/type/struct/component-library-stats';
+import type { ComponentLibraryStatsProps } from '$stylist/development/type/struct/component-library-stats-props';
+import type { ComponentLibraryStatsComponentStats } from '$stylist/development/type/struct/component-library-stats-component-stats';
 import { ComponentLibraryStatsStyleManager } from '$stylist/development/class/style-manager/component-library-stats';
 
-export function createComponentLibraryStatsState(props: Props) {
-	let animatedStats = $state<ComponentStats>({ totalComponents: 0, atoms: 0, molecules: 0, organisms: 0 });
+export function createComponentLibraryStatsState(props: ComponentLibraryStatsProps) {
+	let animatedStats = $state<ComponentLibraryStatsComponentStats>({ totalComponents: 0, atoms: 0, molecules: 0, organisms: 0 });
 	let animationStarted = $state(false);
 
 	const sectionId = $derived(props.sectionId ?? 'stats-section');

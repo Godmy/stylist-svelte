@@ -1,6 +1,6 @@
 import { ClickableStyleManager } from '$stylist/interaction/class/style-manager/clickable';
 import { ObjectManagerGesture } from '$stylist/interaction/class/object-manager/gesture';
-import type { ClickProps } from '$stylist/interaction/interface/proto/clickable-props';
+import type { SlotClickable as ClickProps } from '$stylist/interaction/interface/slot/clickable';
 
 export const createClickableState = (props: ClickProps) => {
 	// Нормализация props
@@ -63,7 +63,7 @@ export const createClickableState = (props: ClickProps) => {
 			return normalizedProps.cursor;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get restProps() { return restProps; },
 

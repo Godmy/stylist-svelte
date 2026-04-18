@@ -1,4 +1,4 @@
-import type { CodeBlockProps } from '$stylist/development/type/struct/code-block';
+import type { CodeBlockProps } from '$stylist/development/type/struct/code-block-props';
 import { copyToClipboard } from '$stylist/development/function/script/code-block';
 import { CodeStyleManager } from '$stylist/development/class/style-manager/code-block';
 

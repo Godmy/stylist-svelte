@@ -1,4 +1,4 @@
-import type { IExportPanelStyleClasses } from '$stylist/control/interface/component/export-panel/struct/styles';
+import type { SlotExportPanelStyleClasses as IExportPanelStyleClasses } from '$stylist/control/interface/slot/export-panel-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

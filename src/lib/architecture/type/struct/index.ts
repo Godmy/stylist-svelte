@@ -1,8 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { CameraState } from './camera';
 export type { SceneCameraInput } from './camera-input';
+export type { StructIntersectAll } from './intersect-all';
 export type { ArchitectureHTMLAttributes } from './item-architecture-html-attributes';
 export type { Position2D } from './position2d';
+export type { PresentationMode } from './presentation-mode';
 export type { PresenterNodeShellProps } from './presenter-node-shell';
 export type { PresenterSceneContract } from './presenter-scene';
 export type { PresenterSceneLink } from './presenter-scene-link';
@@ -27,6 +29,7 @@ export type { SceneMolecule } from './scene-molecule';
 export type { SceneNode } from './scene-node';
 export type { SceneNodePoint } from './scene-node-point';
 export type { SceneProps } from './scene-props';
+export type { SelectionMode } from './selection-mode';
 export type { SemanticZoomPresentation } from './semantic-zoom';
 export type { Zoom } from './zoom';
 export type { ZoomStep } from './zoom-step';

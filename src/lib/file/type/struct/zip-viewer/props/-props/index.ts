@@ -1,16 +1,16 @@
-import type { ZipEntry } from '../../entry';
+import type { SlotZipEntry } from '../../entry';
 import type { RestProps } from '../rest-props';
 
 export type Props = RestProps & {
-  entries: ZipEntry[];
+  entries: SlotZipEntry[];
   archiveName?: string;
   class?: string;
   entryClass?: string;
   headerClass?: string;
-  onEntryClick?: (entry: ZipEntry) => void;
-  onEntryPreview?: (entry: ZipEntry) => void;
-  onEntryDownload?: (entry: ZipEntry) => void;
-  onEntryExtract?: (entry: ZipEntry) => void;
+  onEntryClick?: (entry: SlotZipEntry) => void;
+  onEntryPreview?: (entry: SlotZipEntry) => void;
+  onEntryDownload?: (entry: SlotZipEntry) => void;
+  onEntryExtract?: (entry: SlotZipEntry) => void;
   searchable?: boolean;
   showPath?: boolean;
   enableFiltering?: boolean;

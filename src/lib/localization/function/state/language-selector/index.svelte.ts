@@ -1,4 +1,4 @@
-import type { ILanguageSelectorProps } from '$stylist/localization/interface/component/language-selector/struct/props';
+import type { SlotLanguageSelector as ILanguageSelectorProps } from '$stylist/localization/interface/slot/language-selector';
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import { LanguageSelectorStyleManager } from '$stylist/localization/class/style-manager/language-selector';
 

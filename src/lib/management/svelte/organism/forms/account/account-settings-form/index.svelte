@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createAccountSettingsFormState } from '$stylist/management/function/state/account-settings-form';
-  import type { AccountSettingsFormProps } from '$stylist/form/interface/component/account-forms/other';
+  import type { SlotAccountSettingsForm as AccountSettingsFormProps } from '$stylist/form/interface/slot/account-settings-form';
 
   let props: AccountSettingsFormProps = $props();
   const state = createAccountSettingsFormState(props);

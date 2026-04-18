@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /**
  * ChartAxisY — ось Y графика..
  *
@@ -6,7 +7,7 @@
  */
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface ChartAxisYRecipe extends ThemeAttributes<SVGGElement> {
+export interface ChartAxisYRecipe extends StructIntersectAll<[ThemeAttributes<SVGGElement>]> {
 	label?: string;
 	x?: number;
 	startY?: number;

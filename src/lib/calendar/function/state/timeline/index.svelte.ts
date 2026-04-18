@@ -1,7 +1,5 @@
-import type { TimelineStatus } from '$stylist/calendar/interface/record/calendar';
+import type { TimelineStatus } from '$stylist/calendar/type/struct/timeline-status';
 import type { TimelineProps } from '$stylist/calendar/type/struct/timeline';
-
-export type { TimelineProps };
 
 export function createTimelineState(props: TimelineProps) {
 	const items = $derived(props.items ?? []);

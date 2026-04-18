@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TabContainerProps } from '$stylist/control/interface/component/tabs/other';
+	import type { SlotTabContainer as TabContainerProps } from '$stylist/control/interface/slot/tab-container';
 	import { createTabPanelsState } from '$stylist/control/function/state/tab-panels';
 
 	let props: TabContainerProps = $props();

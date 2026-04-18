@@ -1,8 +1,8 @@
-import type { VariablesEditorStateProps } from '../variables-editor-state-props/index.svelte.ts';
+type VariablesEditorStateProps = { [key: string]: any };
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 export const createVariablesEditorState = (props: VariablesEditorStateProps) => {
-	// State
+	// SlotState
 	let variablesContent = $state(JSON.stringify(props.variables ?? {}, null, 2));
 	let isValid = $state(true);
 	const placeholderText = '{"userId": 123}';
@@ -111,7 +111,7 @@ export const createVariablesEditorState = (props: VariablesEditorStateProps) => 
 	const iconClasses = $derived.by(() => 'h-8 w-8 mx-auto mb-1');
 
 	return {
-		// State getters
+		// SlotState getters
 		get variablesContent() {
 			return variablesContent;
 		},

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createAccordionHeaderDoubleState } from './index.svelte';
+export { createAccordionHeaderDoubleState } from './index.svelte';

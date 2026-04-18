@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CheckboxProps } from '$stylist/control/interface/component/toggles';
+	import type { SlotCheckbox as CheckboxProps } from '$stylist/control/interface/slot/checkbox-toggles';
 	import { createCheckboxState } from '$stylist/control/function/state/checkbox';
 
 	let {

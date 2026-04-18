@@ -2,7 +2,7 @@
 	import { Story } from '$stylist/development/svelte/playground';
 	import StepIcon from './index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import type { IStepIconProps } from '$stylist/notification/interface/component/notification/other';
+  import type { SlotStepIcon as IStepIconProps } from '$stylist/notification/interface/slot/step-icon';
 
 	let {
 		id = '',

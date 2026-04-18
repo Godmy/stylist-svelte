@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * NodeHeader — заголовок узла..
  *
@@ -8,7 +9,7 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface NodeHeaderRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface NodeHeaderRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	label?: string;
 	icon?: string;
 	size?: TokenSize;

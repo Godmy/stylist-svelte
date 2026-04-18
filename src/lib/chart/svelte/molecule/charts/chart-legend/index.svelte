@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { ChartLegendRecipe } from '$stylist/navigation/interface/recipe/chart-legend';
+	import type { ChartLegendProps } from '$stylist/navigation/interface/recipe/chart-legend';
 	import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-	import { createChartLegendState } from '$stylist/chart/function/state/chart-function';
+	import { createChartLegendState } from '$stylist/chart/function/state/chart-legend';
 
-	let props: ChartLegendRecipe = $props();
+	let props: ChartLegendProps = $props();
 	const state = createChartLegendState({ ...props, class: mergeClassNames(props.class) });
 </script>
 

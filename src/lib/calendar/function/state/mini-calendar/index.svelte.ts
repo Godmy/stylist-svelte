@@ -1,9 +1,9 @@
-import type { MiniCalendarContract, MiniCalendarEvent, MiniCalendarDay } from '$stylist/calendar/interface/record/calendar';
+import type { RecipeMiniCalendar as MiniCalendarContract } from '$stylist/calendar/interface/recipe/mini-calendar';
+import type { SlotMiniCalendarEvent as SlotMiniCalendarEvent } from '$stylist/calendar/interface/slot/mini-calendar-event';
+import type { RecipeMiniCalendarDay as RecipeMiniCalendarDay } from '$stylist/calendar/interface/recipe/mini-calendar-day';
 import { MiniCalendarStyleManager } from '$stylist/calendar/class/style-manager/mini-calendar';
 
-export type MiniCalendarStateProps = MiniCalendarContract;
-
-export function createMiniCalendarState(props: MiniCalendarStateProps) {
+export function createMiniCalendarState(props: MiniCalendarContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
 	let selectedDate = $state<Date | null>(null);
 
@@ -21,7 +21,7 @@ export function createMiniCalendarState(props: MiniCalendarStateProps) {
 	const weekdayHeaderClasses = $derived(MiniCalendarStyleManager.getWeekdayHeaderClasses(headerClassProp));
 	const gridClasses = $derived(MiniCalendarStyleManager.getGridClasses());
 
-	const days = $derived.by<MiniCalendarDay[]>(() => getDaysInMonth(currentDate));
+	const days = $derived.by<RecipeMiniCalendarDay[]>(() => getDaysInMonth(currentDate));
 	const weekdays = $derived(['S', 'M', 'T', 'W', 'T', 'F', 'S']);
 	const monthYear = $derived(currentDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }));
 
@@ -43,7 +43,7 @@ export function createMiniCalendarState(props: MiniCalendarStateProps) {
 		return rest;
 	});
 
-	function getDaysInMonth(date: Date): MiniCalendarDay[] {
+	function getDaysInMonth(date: Date): RecipeMiniCalendarDay[] {
 		const year = date.getFullYear();
 		const month = date.getMonth();
 
@@ -54,7 +54,7 @@ export function createMiniCalendarState(props: MiniCalendarStateProps) {
 		const endDay = new Date(lastDay);
 		endDay.setDate(lastDay.getDate() + (6 - lastDay.getDay()));
 
-		const calendarDays: MiniCalendarDay[] = [];
+		const calendarDays: RecipeMiniCalendarDay[] = [];
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 
@@ -95,7 +95,7 @@ export function createMiniCalendarState(props: MiniCalendarStateProps) {
 		props.onDateSelect?.(date);
 	}
 
-	function handleEventClick(event: MiniCalendarEvent, e: Event): void {
+	function handleEventClick(event: SlotMiniCalendarEvent, e: Event): void {
 		e.stopPropagation();
 		props.onEventClick?.(event);
 	}

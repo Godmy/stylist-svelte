@@ -13,7 +13,7 @@
    * Atomic Design: Molecule - Composes atoms into a meaningful process unit
    */
 
-  import type { IProcessStepProps } from '$stylist/management/interface/component/process-step/other';
+  import type { SlotProcessStep as IProcessStepProps } from '$stylist/management/interface/slot/process-step';
   import { createProcessStepState } from '$stylist/management/function/state/process-step';
 
   let props: IProcessStepProps = $props();

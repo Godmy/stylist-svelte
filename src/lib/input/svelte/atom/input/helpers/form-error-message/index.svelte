@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IFormErrorMessageProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotFormErrorMessage as IFormErrorMessageProps } from '$stylist/input/interface/slot/form-error-message';
 	import { createFormErrorMessageState } from '$stylist/input/function/state/form-error-message';
 
 	let props: IFormErrorMessageProps = $props();

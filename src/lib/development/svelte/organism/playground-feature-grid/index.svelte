@@ -1,9 +1,8 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundFeatureGridState } from '$stylist/development/function/state/playground-feature-grid';
-  import type { Props } from '$stylist/development/type/struct/playground-feature-grid';
-
-  let props: Props = $props();
+  import type { PlaygroundFeatureGridProps } from '$stylist/development/type/struct/playground-feature-grid-props';
+  let props: PlaygroundFeatureGridProps = $props();
   const state = createPlaygroundFeatureGridState(props);
 </script>
 

@@ -1,6 +1,5 @@
-import type { TreeNodeData } from '$stylist/development/type/struct/playground-component-tree';
-
-export function playgroundComponentTreeSortTreeNode(node: TreeNodeData): void {
+import type { PlaygroundComponentTreeTreeNodeData } from '$stylist/development/type/struct/playground-component-tree-tree-node-data';
+export function playgroundComponentTreeSortTreeNode(node: PlaygroundComponentTreeTreeNodeData): void {
   if (!node.children) return;
 
   node.children.sort((a, b) => {
@@ -13,7 +12,7 @@ export function playgroundComponentTreeSortTreeNode(node: TreeNodeData): void {
   node.children.forEach(playgroundComponentTreeSortTreeNode);
 }
 
-export function playgroundComponentTreeAnnotateAutoSelectable(node: TreeNodeData): void {
+export function playgroundComponentTreeAnnotateAutoSelectable(node: PlaygroundComponentTreeTreeNodeData): void {
   if (!node.children || node.children.length === 0) return;
 
   node.children.forEach(playgroundComponentTreeAnnotateAutoSelectable);
@@ -24,7 +23,7 @@ export function playgroundComponentTreeAnnotateAutoSelectable(node: TreeNodeData
   }
 }
 
-export function playgroundComponentTreeFindNodeByPath(nodes: TreeNodeData[], path: string): TreeNodeData | null {
+export function playgroundComponentTreeFindNodeByPath(nodes: PlaygroundComponentTreeTreeNodeData[], path: string): PlaygroundComponentTreeTreeNodeData | null {
   for (const node of nodes) {
     if (node.path === path) return node;
     if (node.children) {
@@ -34,5 +33,3 @@ export function playgroundComponentTreeFindNodeByPath(nodes: TreeNodeData[], pat
   }
   return null;
 }
-
-export default playgroundComponentTreeSortTreeNode;

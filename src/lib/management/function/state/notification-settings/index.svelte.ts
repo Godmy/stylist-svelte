@@ -1,4 +1,4 @@
-import type { INotificationSettingsProps } from '$stylist/communication/interface/component/notifications/other';
+import type { INotificationSettingsProps } from '$stylist/communication/type/struct/notification-settings-props';
 import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
 import { updateNotificationPreference } from '$stylist/management/function/script/notification-settings';
 

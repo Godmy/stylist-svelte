@@ -1,16 +1,11 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import { StyleManagerBase } from '$stylist/architecture/class/style-manager/base/index';
-import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-const PRIMARY_SOLID_CLASSES =
-	'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] ' +
-	'border border-transparent hover:bg-[var(--color-primary-700)]';
 
 export const VARIANT_CLASSES: Record<TokenAppearance, string> = {
 	default:
 		'bg-[var(--color-background-primary)] text-[var(--color-text-primary)] ' +
 		'border border-[var(--color-border-primary)] hover:bg-[var(--color-background-secondary)]',
-	primary: PRIMARY_SOLID_CLASSES,
+	primary:
+		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]',
 	secondary:
 		'bg-[var(--color-secondary-600)] text-[var(--color-text-inverse)] ' +
 		'border border-[var(--color-secondary-700)] hover:bg-[var(--color-secondary-500)]',
@@ -29,7 +24,8 @@ export const VARIANT_CLASSES: Record<TokenAppearance, string> = {
 	info:
 		'bg-[var(--color-primary-500)] text-[var(--color-text-inverse)] ' +
 		'border border-transparent hover:bg-[var(--color-primary-600)]',
-	solid: PRIMARY_SOLID_CLASSES,
+	solid:
+		'bg-[var(--color-primary-600)] text-[var(--color-text-inverse)] border border-transparent hover:bg-[var(--color-primary-700)]',
 	outline:
 		'bg-transparent text-[var(--color-text-primary)] ' +
 		'border border-[var(--color-neutral-400)] hover:bg-[var(--color-background-secondary)] hover:border-[var(--color-neutral-500)]',

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createComplexAccordionState } from './index.svelte';
+export { createComplexAccordionState } from './index.svelte';

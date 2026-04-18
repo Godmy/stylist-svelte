@@ -1,24 +1,9 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import ts from 'typescript';
+import type { ExtractConstEnumValue, ExtractConstEnumTokenPayload, ExtractConstEnumDomainPayload } from '$stylist/development/type/script/extract/const/enum';
 
 import { domainForEach } from '../../../lambda';
-
-export type ExtractConstEnumValue = string | number | boolean | null;
-
-export interface ExtractConstEnumTokenPayload {
-	tokenName: string;
-	values: ExtractConstEnumValue[];
-	absolutePath: string;
-	relativePath: string;
-}
-
-export interface ExtractConstEnumDomainPayload {
-	domainName: string;
-	sourceDirectory: string;
-	outputFile: string;
-	tokens: ExtractConstEnumTokenPayload[];
-}
 
 const collectFilesRecursively = (directoryPath: string, baseDirectoryPath: string): string[] => {
 	const entries = readdirSync(directoryPath, { withFileTypes: true });

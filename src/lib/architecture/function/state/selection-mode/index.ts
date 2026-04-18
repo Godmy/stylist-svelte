@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { SelectionMode } from './index.svelte';
+export { createSelectionMode } from './index.svelte';

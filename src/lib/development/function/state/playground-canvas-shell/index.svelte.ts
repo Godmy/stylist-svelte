@@ -1,6 +1,7 @@
-import type { Props, ViewportSize, BackgroundType } from '$stylist/development/type/struct/playground-canvas-shell';
-
-export function createPlaygroundCanvasShellState(props: Props) {
+import type { PlaygroundCanvasShellProps } from '$stylist/development/type/struct/playground-canvas-shell-props';
+import type { PlaygroundCanvasShellViewportSize } from '$stylist/development/type/struct/playground-canvas-shell-viewport-size';
+import type { PlaygroundCanvasShellBackgroundType } from '$stylist/development/type/struct/playground-canvas-shell-background-type';
+export function createPlaygroundCanvasShellState(props: PlaygroundCanvasShellProps) {
   const component = $derived(props.component);
   const componentProps = $derived(props.props);
   const children = $derived(props.children);
@@ -18,14 +19,14 @@ export function createPlaygroundCanvasShellState(props: Props) {
   let lastPointerY = $state(0);
   let canvasContainer: HTMLDivElement;
 
-  const viewportSizes: Record<ViewportSize, string> = {
+  const viewportSizes: Record<PlaygroundCanvasShellViewportSize, string> = {
     mobile: '375px',
     tablet: '768px',
     desktop: '1440px',
     fullscreen: '100%'
   };
 
-  const backgroundClasses: Record<BackgroundType, string> = {
+  const backgroundClasses: Record<PlaygroundCanvasShellBackgroundType, string> = {
     white: 'bg-white',
     gray: 'bg-gray-50 dark:bg-gray-900',
     dark: 'bg-gray-900',

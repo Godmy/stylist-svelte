@@ -3,8 +3,7 @@ import type { IExtendedHeatmapCell } from '$stylist/chart/type/struct/extended-h
 import type { TokenThemeScheme } from '$stylist/theme/type/enum/theme-scheme';
 import { TOKEN_THEME_SCHEME } from '$stylist/theme/const/enum/theme-scheme';
 import { HEATMAP_GRADIENT_BY_SCHEME } from '$stylist/chart/const/record/heatmap-gradient-by-scheme';
-
-type HeatmapAxisValue = IHeatmapCell['row'] | IHeatmapCell['column'];
+import type { HeatmapAxisValue } from '$stylist/chart/type/alias/heatmap-axis-value';
 
 export class ObjectManagerHeatmap {
 	static resolveRows(data: IHeatmapCell[]): HeatmapAxisValue[] {

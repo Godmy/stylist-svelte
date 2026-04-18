@@ -1,4 +1,5 @@
-import type { ABTest, ABTestVariant } from '$stylist/marketing/interface/component/abtest-configurator/other';
+import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
+import type { SlotABTestVariant as ABTestVariant } from '$stylist/marketing/interface/slot/ab-test-variant';
 
 export function validateABTest(test: ABTest): Record<string, string> {
 	const errors: Record<string, string> = {};

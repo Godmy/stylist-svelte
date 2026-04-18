@@ -1,18 +1,9 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$lib';
-  import type { CommentSystemProps, CommentItem } from '$stylist/social/interface/component/comment-system/other';
-  import {
-    COMMENT_SYSTEM_EDIT_3,
-    COMMENT_SYSTEM_MESSAGE_CIRCLE,
-    COMMENT_SYSTEM_MORE_HORIZONTAL,
-    COMMENT_SYSTEM_REPLY,
-    COMMENT_SYSTEM_SEND,
-    COMMENT_SYSTEM_THUMBS_DOWN,
-    COMMENT_SYSTEM_THUMBS_UP,
-    COMMENT_SYSTEM_TRASH_2,
-    COMMENT_SYSTEM_USER_ICON
-  } from '$stylist/social/const/map/comment-system';
+  import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
+import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
+  import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import createCommentSystemState from '$stylist/social/function/state/comment-system';
 
   let props: CommentSystemProps = $props();
@@ -30,7 +21,7 @@
           <img class="h-10 w-10 rounded-full" src={comment.author.avatar} alt={comment.author.name} />
         {:else}
           <div class="h-10 w-10 rounded-full bg-[--color-background-secondary] flex items-center justify-center">
-            <BaseIcon name={COMMENT_SYSTEM_USER_ICON} class="h-5 w-5 text-[--color-text-secondary]" />
+            <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'user') ?? 'user'} class="h-5 w-5 text-[--color-text-secondary]" />
           </div>
         {/if}
       </div>
@@ -69,36 +60,36 @@
         <div class={state.actionBarClass}>
           {#if props.showLikes}
             <button type="button" class={`flex items-center space-x-1 ${comment.isLiked ? 'text-[--color-primary-600]' : ''}`} onclick={() => props.onCommentLike?.(comment.id, true)}>
-              <BaseIcon name={COMMENT_SYSTEM_THUMBS_UP} class="h-4 w-4" />
+              <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'thumbs-up') ?? 'thumbs-up'} class="h-4 w-4" />
               <span>{comment.likes ?? 0}</span>
             </button>
           {/if}
           {#if props.showDislikes}
             <button type="button" class={`flex items-center space-x-1 ${comment.isDisliked ? 'text-[--color-danger-600]' : ''}`} onclick={() => props.onCommentLike?.(comment.id, false)}>
-              <BaseIcon name={COMMENT_SYSTEM_THUMBS_DOWN} class="h-4 w-4" />
+              <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'thumbs-down') ?? 'thumbs-down'} class="h-4 w-4" />
               <span>{comment.dislikes ?? 0}</span>
             </button>
           {/if}
           {#if props.showReply}
             <button type="button" class="flex items-center space-x-1" onclick={() => state.toggleReplyForm(comment.id)}>
-              <BaseIcon name={COMMENT_SYSTEM_REPLY} class="h-4 w-4" />
+              <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'reply') ?? 'reply'} class="h-4 w-4" />
               <span>{state.showReplyForm[comment.id] ? 'Cancel reply' : 'Reply'}</span>
             </button>
           {/if}
           {#if props.showEdit && state.currentUserId != null && comment.author.id === state.currentUserId}
             <button type="button" class="flex items-center space-x-1" onclick={() => { state.editCommentId = comment.id; state.editContent = comment.content; }}>
-              <BaseIcon name={COMMENT_SYSTEM_EDIT_3} class="h-4 w-4" />
+              <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'edit-3') ?? 'edit-3'} class="h-4 w-4" />
               <span>Edit</span>
             </button>
           {/if}
           {#if props.showDelete && state.currentUserId != null && comment.author.id === state.currentUserId}
             <button type="button" class="flex items-center space-x-1 text-[--color-danger-600]" onclick={() => props.onCommentDelete?.(comment.id)}>
-              <BaseIcon name={COMMENT_SYSTEM_TRASH_2} class="h-4 w-4" />
+              <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'trash-2') ?? 'trash-2'} class="h-4 w-4" />
               <span>Delete</span>
             </button>
           {/if}
           <button type="button" class="flex items-center">
-            <BaseIcon name={COMMENT_SYSTEM_MORE_HORIZONTAL} class="h-4 w-4" />
+            <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'more-horizontal') ?? 'more-horizontal'} class="h-4 w-4" />
           </button>
         </div>
 
@@ -114,7 +105,7 @@
             <div class="mt-2 flex justify-end space-x-2">
               <Button variant="ghost" size="sm" onclick={() => { state.showReplyForm = { ...state.showReplyForm, [comment.id]: false }; state.replyContent = ''; }}>Cancel</Button>
               <Button variant="primary" size="sm" onclick={() => state.submitReply(comment.id)} disabled={!state.replyContent.trim()}>
-                <BaseIcon name={COMMENT_SYSTEM_SEND} class="h-4 w-4 mr-1" />Reply
+                <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'send') ?? 'send'} class="h-4 w-4 mr-1" />Reply
               </Button>
             </div>
           </div>
@@ -144,7 +135,7 @@
       ></textarea>
       <div class="mt-3 flex justify-end">
         <button type="button" class={state.primaryButtonClass} onclick={() => state.submitComment()} disabled={!state.newComment.trim()}>
-          <BaseIcon name={COMMENT_SYSTEM_MESSAGE_CIRCLE} class="h-4 w-4 mr-2" />
+          <BaseIcon name={TOKEN_SOCIAL_ICON.find((icon) => icon === 'message-circle') ?? 'message-circle'} class="h-4 w-4 mr-2" />
           Comment
         </button>
       </div>

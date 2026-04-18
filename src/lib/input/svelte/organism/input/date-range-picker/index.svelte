@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { DateRangePickerComponentProps } from '$stylist/input/interface/component/date-range-picker/other';
+  import type { SlotDateRangePickerComponent as DateRangePickerComponentProps } from '$stylist/input/interface/slot/date-range-picker-component';
   import { createDateRangePickerState } from '$stylist/input/function/state/date-range-picker';
   import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
   const Calendar = 'calendar';

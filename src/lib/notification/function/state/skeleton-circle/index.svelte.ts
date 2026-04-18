@@ -1,5 +1,5 @@
 import { SkeletonCircleStyleManager } from '$stylist/notification/class/style-manager/skeleton-circle';
-import type { SkeletonCircleProps } from '$stylist/notification/interface/component/skeleton-circle/other/skeleton-circle';
+import type { SkeletonCircleProps } from '$stylist/notification/type/struct/skeleton-circle-props';
 
 export function createSkeletonCircleState(props: SkeletonCircleProps) {
 	let content = $derived(props.content);

@@ -1,7 +1,5 @@
 import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
-import type { SecureFormProps } from '$stylist/form/interface/component/interaction-forms/other';
-
-export interface SecureFormStateProps extends SecureFormProps {}
+import type { SecureFormStateProps } from '$stylist/management/interface/recipe/secure-form';
 
 export function createSecureFormState(props: SecureFormStateProps) {
 	const token = $derived(props.token ?? 'SECURE_TOKEN');

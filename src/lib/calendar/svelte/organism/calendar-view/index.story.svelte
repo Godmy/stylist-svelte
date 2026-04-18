@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import CalendarView from './index.svelte';
+  import RecipeCalendarView from './index.svelte';
 
   let {
     id = '',
@@ -19,7 +19,7 @@
     controls?: InterfaceControllerSettings[]
   }>();
 
-  // Sample events data for the CalendarView component
+  // Sample events data for the RecipeCalendarView component
   const sampleEvents = [
     { id: '1', title: 'Meeting', start: new Date(2023, 5, 15, 10, 0), end: new Date(2023, 5, 15, 11, 0) },
     { id: '2', title: 'Lunch', start: new Date(2023, 5, 16, 12, 30), end: new Date(2023, 5, 16, 13, 30) },
@@ -39,7 +39,7 @@
   {id}
   {title}
   {description}
-  component={CalendarView}
+  component={RecipeCalendarView}
   category="Organisms"
   controls={controls}
 >
@@ -52,7 +52,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive calendar view with customizable options.</p>
 
         <div class="mt-6">
-          <CalendarView
+          <RecipeCalendarView
             events={sampleEvents as any}
             viewMode={values.viewMode}
             showWeekNumbers={values.showWeekNumbers}
@@ -72,7 +72,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Week View</p>
             <div>
-              <CalendarView
+              <RecipeCalendarView
                 events={sampleEvents as any}
                 viewMode="week"
                 showWeekNumbers={true}
@@ -85,7 +85,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Day View</p>
             <div>
-              <CalendarView
+              <RecipeCalendarView
                 events={sampleEvents.slice(0, 1) as any}
                 viewMode="day"
                 showWeekNumbers={false}

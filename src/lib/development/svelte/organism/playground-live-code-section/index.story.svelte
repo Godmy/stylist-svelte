@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundLiveCodeSection from './index.svelte';
+  import RecipePlaygroundLiveCodeSection from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'title', type: 'text', defaultValue: 'See It In Action' },
@@ -19,13 +19,13 @@
 </script>
 
 <Story
-  component={PlaygroundLiveCodeSection}
+  component={RecipePlaygroundLiveCodeSection}
   title="Playground Live Code Section"
   description="Landing section with code preview block and call to action."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundLiveCodeSection
+    <RecipePlaygroundLiveCodeSection
       title={values.title}
       description={values.description}
       ctaText={values.ctaText}

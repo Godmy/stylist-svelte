@@ -1,35 +1,10 @@
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
-import type { Snippet } from 'svelte';
 import { SortableGridStyleManager } from '$stylist/control/class/style-manager/sortable-grid';
+import type { SortableGridItem } from '$stylist/control/type/alias/sortable-grid-item';
+import type { SortableGridProps } from '$stylist/control/type/alias/sortable-grid-props';
 
-const gridColsMap = {
-	1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4',
-	5: 'grid-cols-5', 6: 'grid-cols-6', 7: 'grid-cols-7', 8: 'grid-cols-8',
-	9: 'grid-cols-9', 10: 'grid-cols-10', 11: 'grid-cols-11', 12: 'grid-cols-12'
-} as const;
-
-const gapMap = {
-	xs: 'gap-1', sm: 'gap-2', md: 'gap-4', lg: 'gap-6', xl: 'gap-8', '2xl': 'gap-10',
-	'1/4': 'gap-1', '1/3': 'gap-2', '2/5': 'gap-2', '1/2': 'gap-4',
-	'3/5': 'gap-4', '2/3': 'gap-6', '3/4': 'gap-8', full: 'gap-10'
-} as const;
-
-export type SortableGridItem = {
-	id: string;
-	title: string;
-	content?: string;
-	render?: Snippet;
-};
-
-export type SortableGridProps = {
-	items?: SortableGridItem[];
-	class?: string;
-	itemClass?: string;
-	cols?: number | keyof typeof gridColsMap;
-	gap?: keyof typeof gapMap;
-	draggable?: boolean;
-	onItemsChange?: (items: SortableGridItem[]) => void;
-} & ArchitectureHTMLAttributes;
+const gridColsMap: Record<number | string, string> = { 1: 'grid-cols-1', 2: 'grid-cols-2', 3: 'grid-cols-3', 4: 'grid-cols-4', 5: 'grid-cols-5', 6: 'grid-cols-6' };
+const gapMap: Record<string, string> = { none: 'gap-0', sm: 'gap-2', md: 'gap-4', lg: 'gap-6' };
 
 export function createSortableGridState(props: SortableGridProps) {
 	const items = $derived(props.items ?? []);

@@ -1,20 +1,7 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-
-export type AvatarSize = 'sm' | 'md' | 'lg' | 'xl';
-export type AvatarUserStatus = 'online' | 'away' | 'offline' | 'typing' | 'idle';
-
-export interface AvatarProps {
-	variant?: 'default';
-	size?: AvatarSize;
-	src?: string;
-	alt?: string;
-	id?: string;
-	name?: string;
-	status?: AvatarUserStatus;
-	showStatus?: boolean;
-	children?: any;
-	class?: string;
-}
+import type { AvatarSize } from '$stylist/media/type/alias/avatar-size';
+import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
+import type { AvatarProps } from '$stylist/media/interface/recipe/avatar-avatar-props';
 
 const SIZE_CLASSES: Record<AvatarSize, string> = {
 	sm: 'w-6 h-6 text-sm',

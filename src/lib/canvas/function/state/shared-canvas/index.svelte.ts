@@ -9,7 +9,7 @@ import {
 	updateDraftCanvasObject
 } from '$stylist/canvas/function/script/canvas/share/index';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { CanvasObject } from '$stylist/canvas/interface/component/shared-canvas/other';
+import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';
 import type { SharedCanvasTool } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool';
 import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';

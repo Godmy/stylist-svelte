@@ -2,14 +2,12 @@ import type { CubeControlProps } from '$stylist/control/type/struct/cube-control
 import type { CubeRotation } from '$stylist/control/type/struct/cube-rotation';
 import type { CubeSelectionState } from '$stylist/control/type/struct/cube-selection-state';
 import type { CubeDebugLogEntry } from '$stylist/control/type/struct/cube-debug-log-entry';
-import {
-	CUBE_FACE_TITLES,
-	CUBE_FACE_NAMES,
-	CUBE_FACE_THEMES,
-	CUBE_VERTICAL_ICONS,
-	CUBE_HORIZONTAL_ICONS,
-	CUBE_FACE_NUMBERS_SNAPSHOT
-} from '$stylist/control/const/record/cube-face-config';
+import { TOKEN_CUBE_FACE_TITLE } from '$stylist/control/const/enum/cube-face-title';
+import { TOKEN_CUBE_FACE_NAME } from '$stylist/control/const/enum/cube-face-name';
+import { CUBE_FACE_NUMBERS_SNAPSHOT } from '$stylist/control/const/record/cube-face-numbers-snapshot';
+import { CUBE_FACE_THEMES } from '$stylist/control/const/record/cube-face-theme';
+import { CUBE_HORIZONTAL_ICONS } from '$stylist/control/const/record/cube-horizontal-icon';
+import { CUBE_VERTICAL_ICONS } from '$stylist/control/const/record/cube-vertical-icon';
 
 export function createCubeControlState(props: CubeControlProps) {
 	const size = $derived(props.size ?? 380);
@@ -49,10 +47,10 @@ export function createCubeControlState(props: CubeControlProps) {
 	let targetDriftX = $state(0);
 	let targetDriftY = $state(0);
 	let faceNumbers = $state(CUBE_FACE_NUMBERS_SNAPSHOT.map((grid) => [...grid]));
-	let activeCells = $state(CUBE_FACE_TITLES.map(() => -1));
+	let activeCells = $state(TOKEN_CUBE_FACE_TITLE.map(() => -1));
 	let selectedIconId = $state(null as string | null);
 	let selectedTitleFace = $state(null as number | null);
-	let selectedCellByFace = $state(CUBE_FACE_TITLES.map(() => -1));
+	let selectedCellByFace = $state(TOKEN_CUBE_FACE_TITLE.map(() => -1));
 	let lastSelectionSignature = '';
 	let isHoveringSelectable = $state(false);
 
@@ -187,8 +185,8 @@ export function createCubeControlState(props: CubeControlProps) {
 		get interactive() { return interactive; },
 		get faceLabels() { return faceLabels; },
 		get className() { return className; },
-		get FACE_TITLES() { return CUBE_FACE_TITLES; },
-		get FACE_NAMES() { return CUBE_FACE_NAMES; },
+		get FACE_TITLES() { return TOKEN_CUBE_FACE_TITLE; },
+		get FACE_NAMES() { return TOKEN_CUBE_FACE_NAME; },
 		get FACE_THEMES() { return CUBE_FACE_THEMES; },
 		get VERTICAL_ICONS() { return CUBE_VERTICAL_ICONS; },
 		get HORIZONTAL_ICONS() { return CUBE_HORIZONTAL_ICONS; },

@@ -1,11 +1,11 @@
-import type { FolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
 
 export function toggleItem(
-  item: FolderItem,
+  item: SlotFolderItem,
   disabled: boolean,
   expandedItems: Set<string>,
   setExpandedItems: (items: Set<string>) => void,
-  onItemToggle?: (item: FolderItem, expanded: boolean) => void
+  onItemToggle?: (item: SlotFolderItem, expanded: boolean) => void
 ): void {
   if (item.type === 'file' || disabled) return;
 
@@ -21,11 +21,11 @@ export function toggleItem(
 }
 
 export function handleSelect(
-  item: FolderItem,
+  item: SlotFolderItem,
   enableSelection: boolean,
   disabled: boolean,
-  setSelectedItem: (item: FolderItem | null) => void,
-  onItemSelect?: (item: FolderItem) => void
+  setSelectedItem: (item: SlotFolderItem | null) => void,
+  onItemSelect?: (item: SlotFolderItem) => void
 ): void {
   if (!enableSelection || disabled) return;
   setSelectedItem(item);
@@ -33,9 +33,9 @@ export function handleSelect(
 }
 
 export function handleAction(
-  item: FolderItem,
+  item: SlotFolderItem,
   action: string,
-  onItemAction?: (item: FolderItem, action: string) => void
+  onItemAction?: (item: SlotFolderItem, action: string) => void
 ): void {
   onItemAction?.(item, action);
 }
@@ -47,7 +47,7 @@ export function isExpanded(
   return expandedItems.has(id);
 }
 
-export function getItemCount(item: FolderItem): number {
+export function getItemCount(item: SlotFolderItem): number {
   if (!item.children) return 0;
 
   let count = 0;

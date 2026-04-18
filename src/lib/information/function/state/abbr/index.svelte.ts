@@ -1,4 +1,4 @@
-import type { AbbrProps } from '$stylist/navigation/interface/component/link/other';
+import type { SlotAbbr as AbbrProps } from '$stylist/navigation/interface/slot/abbr';
 import { AbbrStyleManager } from '$stylist/typography/class/style-manager/abbr';
 
 /**

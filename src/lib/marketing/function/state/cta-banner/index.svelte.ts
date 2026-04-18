@@ -2,14 +2,6 @@ import type { CtaBannerProps, CtaBannerButton } from '$stylist/marketing/type/st
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import { CtaBannerStyleManager } from '$stylist/marketing/class/style-manager/cta-banner';
 
-export function getButtonClasses(variant: 'primary' | 'secondary' | 'outline'): string {
-  return CtaBannerStyleManager.getButtonClasses(variant);
-}
-
-export function handleButtonClick(onClick: () => void): void {
-  onClick();
-}
-
 export function createCtaBannerState(props: CtaBannerProps) {
   const title = $derived(props.title);
   const description = $derived(props.description);
@@ -41,6 +33,9 @@ export function createCtaBannerState(props: CtaBannerProps) {
     get titleClasses() { return titleClasses; },
     get descriptionClasses() { return descriptionClasses; },
     get buttonsContainerClasses() { return buttonsContainerClasses; },
-    get restProps() { return restProps; }
+    get restProps() { return restProps; },
+    getButtonClasses: (variant: 'primary' | 'secondary' | 'outline') => CtaBannerStyleManager.getButtonClasses(variant)
   };
 }
+
+export default createCtaBannerState;

@@ -1,64 +1,18 @@
 import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/semantic-zoom/index';
 import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
-import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
-import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene';
-
-const FOCUS_DURATION_MS = 600;
-
-export interface PreziCamera {
-	x: number;
-	y: number;
-	zoom: number;
-	depth: number;
-}
-
-export interface PreziSceneState {
-	camera: PreziCamera;
-	viewportWidth: number;
-	viewportHeight: number;
-	selectedNode: SceneNode | null;
-	selectedNodeId: string | null;
-	isPanning: boolean;
-	isAnimating: boolean;
-	showGrid: boolean;
-	showMinimap: boolean;
-	showInspector: boolean;
-	showHeader: boolean;
-	title: string | undefined;
-	subtitle: string | undefined;
-	panMode: 'drag' | 'space' | 'always';
-	zoomEnabled: boolean;
-	panEnabled: boolean;
-	minZoom: number;
-	maxZoom: number;
-	nodes: readonly SceneNode[];
-	restProps: Record<string, unknown>;
-}
-
-export interface PreziSceneMethods {
-	setCamera: (camera: Partial<PreziCamera>) => void;
-	setViewportSize: (width: number, height: number) => void;
-	selectNode: (node: SceneNode | null) => void;
-	toggleGrid: () => void;
-	toggleMinimap: () => void;
-	toggleInspector: () => void;
-	handleWheel: (event: WheelEvent, viewportRect?: DOMRect) => void;
-	handlePointerDown: (event: PointerEvent) => void;
-	handlePointerMove: (event: PointerEvent) => void;
-	handlePointerUp: (event: PointerEvent) => void;
-	handleKeyDown: (event: KeyboardEvent) => void;
-	focusNode: (node: SceneNode) => void;
-	resetCamera: () => void;
-	stepDepth: (delta: number) => void;
-	getPresentation: (node: SceneNode) => ReturnType<typeof resolveSemanticZoomNode>;
-}
+import { FOCUS_DURATION_MS } from '$stylist/architecture/const/value/prezi-scene/index';
+import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/index';
+import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene/index';
+import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
+import type { PreziSceneState } from '$stylist/architecture/interface/recipe/prezi-scene-state/index';
+import type { BehaviorPreziSceneMethods } from '$stylist/architecture/interface/behavior/prezi-scene-methods';
 
 /**
  * Hook для управления состоянием PreziScene.
  * Coordinate system: CSS-translate — transform: translate(x, y) scale(zoom) с origin 0 0.
  * Nodes внутри world-div используют raw position (не трансформированные).
  */
-export function usePreziState(contract: PreziSceneContract): PreziSceneState & PreziSceneMethods {
+export function usePreziState(contract: PreziSceneContract): PreziSceneState & BehaviorPreziSceneMethods {
 	const {
 		nodes = [],
 		initialCamera = { x: 0, y: 0, zoom: 1 },

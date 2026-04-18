@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundMarkdownRenderer from './index.svelte';
+  import RecipePlaygroundMarkdownRenderer from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'className', type: 'text', defaultValue: '' }
@@ -21,13 +21,13 @@ const x = 10;
 </script>
 
 <Story
-  component={PlaygroundMarkdownRenderer}
+  component={RecipePlaygroundMarkdownRenderer}
   title="Playground Markdown Renderer"
   description="Renders markdown content with syntax highlighting."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundMarkdownRenderer
+    <RecipePlaygroundMarkdownRenderer
       content={sampleMarkdown}
       class={values.className}
     />

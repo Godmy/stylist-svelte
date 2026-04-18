@@ -1,12 +1,9 @@
 import { SidebarStyleManager } from '$stylist/navigation/class/style-manager/sidebar';
-import type { SidebarProps, NavItem } from '$stylist/navigation/interface/component/sidebar/other';
-
-export interface SidebarStateProps extends SidebarProps {
-	class?: string;
-}
+import type { NavItem } from '$stylist/navigation/type/struct/sidebar';
+import type { SidebarStateProps } from '$stylist/navigation/interface/recipe/sidebar-sidebar-state-props';
 
 export function createSidebarState(props: SidebarStateProps) {
-	// State
+	// SlotState
 	let isMobile = $state(false);
 	let isSidebarOpen = $state(!props.collapsed);
 

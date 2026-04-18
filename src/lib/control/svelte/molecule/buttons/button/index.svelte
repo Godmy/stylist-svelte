@@ -9,7 +9,7 @@
 	 * - click: интерактивность (клики, hover, disabled)
 	 */
 
-	import type { ButtonMoleculeProps } from '$stylist/control/function/state/button-molecule';
+	import type { ButtonMoleculeProps } from '$stylist/control/type/alias/button-molecule-props';
 	import { createButtonMoleculeState } from '$stylist/control/function/state/button-molecule';
 
 	let props: ButtonMoleculeProps = $props();

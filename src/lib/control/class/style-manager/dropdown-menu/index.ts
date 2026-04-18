@@ -1,4 +1,4 @@
-import type { IDropdownMenuStyleClasses } from '$stylist/control/interface/component/dropdown-menu/other';
+import type { SlotDropdownMenuStyleClasses as IDropdownMenuStyleClasses } from '$stylist/control/interface/slot/dropdown-menu-style-classes';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 
 /**

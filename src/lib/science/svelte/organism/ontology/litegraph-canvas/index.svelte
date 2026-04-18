@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist';
-	import type { LitegraphCanvasContract } from '$stylist/science/interface/record/science';
+	import type { LiteGraphPort as LitegraphPortRecipe } from '$stylist/science/type/struct/litegraph-port';
+	import type { RecipeLitegraphCanvas as LitegraphCanvasContract } from '$stylist/science/interface/recipe/litegraph-canvas';
 	import { GraphCanvas, GraphToolbar, ConnectionLine, Minimap } from '$stylist';
 	import LitegraphNodeComponent from '$stylist/science/svelte/molecule/ontology/litegraph-node/index.svelte';
 	import { createLitegraphCanvasState } from '$stylist/science/function/state/litegraph-canvas';

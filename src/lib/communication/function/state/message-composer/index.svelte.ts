@@ -1,4 +1,4 @@
-import type { IMessageComposerProps } from '$stylist/communication/interface/component/message-composer/other';
+import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/communication/interface/slot/message-composer';
 import { MessageComposerStyleManager } from '$stylist/communication/class/style-manager/message-composer';
 
 export const createMessageComposerState = (props: IMessageComposerProps) => {

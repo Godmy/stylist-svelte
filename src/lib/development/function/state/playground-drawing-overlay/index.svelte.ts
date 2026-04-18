@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-drawing-overlay';
-
-export function createPlaygroundDrawingOverlayState(props: Props) {
+import type { PlaygroundDrawingOverlayProps } from '$stylist/development/type/struct/playground-drawing-overlay-props';
+export function createPlaygroundDrawingOverlayState(props: PlaygroundDrawingOverlayProps) {
   const drawColor = $derived(props.drawColor ?? 'var(--color-error-500)');
   const onClose = $derived(props.onClose);
 

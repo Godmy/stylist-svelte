@@ -1,4 +1,4 @@
-import type { ISelectProps } from '$stylist/control/interface/component/selector/other';
+import type { SlotSelect as ISelectProps } from '$stylist/control/interface/slot/select';
 
 /**
  * Style utility class following Single Responsibility Principle

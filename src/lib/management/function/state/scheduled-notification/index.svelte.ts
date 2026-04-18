@@ -1,7 +1,5 @@
-import type { ScheduledNotificationProps } from '$stylist/communication/interface/component/notifications/other';
 import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-
-export interface ScheduledNotificationStateProps extends ScheduledNotificationProps {}
+import type { ScheduledNotificationStateProps } from '$stylist/management/interface/recipe/scheduled-notification';
 
 export function createScheduledNotificationState(props: ScheduledNotificationStateProps) {
 	const notifications = $derived(props.notifications ?? []);

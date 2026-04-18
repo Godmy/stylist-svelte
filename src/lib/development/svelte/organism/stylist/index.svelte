@@ -1,14 +1,15 @@
 <script lang="ts">
-	import type { Props } from '$stylist/development/type/struct/stylist';
+	import type { StylistProps } from '$stylist/development/type/struct/stylist-props';
 	import { Icon as BaseIcon } from '$stylist';
 	import Tooltip from '$stylist/control/svelte/atom/tooltip/index.svelte';
-	import { createStylistState, categories } from '$stylist/development/function/state/stylist/index.svelte';
+	import { categories } from '$stylist/development/const/record/stylist-categories';
+	import { createStylistState } from '$stylist/development/function/state/stylist';
 	import { panelId } from '$stylist/development/const/stylist/panel-id';
 
 	const Sparkles = 'sparkles';
 	const X = 'x';
 
-	let props: Props = $props();
+	let props: StylistProps = $props();
 	const state = createStylistState(props);
   let rootElement: HTMLElement;
 
@@ -36,7 +37,7 @@
 		type="button"
 		class:is-open={state.isOpen}
 		class="stylist-trigger"
-		aria-label="Открыть Stylist"
+		aria-label="Открыть RecipeStylist"
 		aria-haspopup="dialog"
 		aria-expanded={state.isOpen}
 		aria-controls={panelId}
@@ -50,16 +51,16 @@
 	</button>
 
 	{#if state.isOpen}
-		<div class="stylist-panel" id={panelId} role="dialog" aria-label="Stylist popover">
+		<div class="stylist-panel" id={panelId} role="dialog" aria-label="RecipeStylist popover">
 			<div class="panel-header">
 				<div>
-					<p class="eyebrow">Stylist</p>
+					<p class="eyebrow">RecipeStylist</p>
 					<h3>Группа дополнительных настроек</h3>
 				</div>
 				<button
 					type="button"
 					class="close-button"
-					aria-label="Закрыть Stylist"
+					aria-label="Закрыть RecipeStylist"
 					onclick={state.closePanel}
 				>
 					<BaseIcon name={X} class="close-icon" />
@@ -71,7 +72,7 @@
 				каждой группе отдельно.
 			</p>
 
-			<div class="category-list" role="tablist" aria-label="Категории Stylist">
+			<div class="category-list" role="tablist" aria-label="Категории RecipeStylist">
 				{#each categories as category}
 					<button
 						type="button"
@@ -457,5 +458,5 @@
 </style>
 
 <story name="default">
-	<!-- Stylist organism component -->
+	<!-- RecipeStylist organism component -->
 </story>

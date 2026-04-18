@@ -1,23 +1,10 @@
 import { OperationsHistoryStyleManager } from '$stylist/management/class/style-manager/operations-history';
-import type { OperationsHistoryProps } from '$stylist/management/interface/component/operations-history/other';
+import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';
+import type { Operation } from '$stylist/management/interface/slot/operation';
+import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
 
-export interface Operation {
-	id: string;
-	name: string;
-	query: string;
-	timestamp: Date;
-	status: 'success' | 'error' | 'pending';
-	executionTime?: number;
-}
-
-export interface OperationsHistoryEvents {
-	onSelect?: (operation: Operation) => void;
-	onDelete?: (id: string) => void;
-	onClear?: () => void;
-}
-
-export function createOperationsHistoryState(props: OperationsHistoryProps & OperationsHistoryEvents) {
-	const operations = $derived(props.operations ?? []);
+export function createOperationsHistoryState(props: OperationsHistoryProps & BehaviorOperationsHistoryEvents) {
+	const operations = $derived((props.operations ?? []) as unknown as Operation[]);
 	const className = $derived(props.class ?? '');
 
 	let searchQuery = $state('');

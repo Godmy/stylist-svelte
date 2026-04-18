@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IInputAddonProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputAddon as IInputAddonProps } from '$stylist/input/interface/slot/input-addon';
 	import { createInputAddonState } from '$stylist/input/function/state/input-addon';
 
 	let props: IInputAddonProps & { position?: 'left' | 'right' } = $props();

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ProductCard from '../product-card/index.svelte';
 	import { createProductCardCompactState } from '$stylist/commerce/function/state/product-card-compact';
-	import type { ProductCardCompactProps } from '$stylist/commerce/function/state/product-card-compact';
+	import type { ProductCardCompactProps } from '$stylist/commerce/interface/recipe/product-card-compact-props';
 
 	let props: ProductCardCompactProps = $props();
 	const state = createProductCardCompactState(props);

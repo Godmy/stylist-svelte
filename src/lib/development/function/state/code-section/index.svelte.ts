@@ -1,7 +1,7 @@
-import type { Props } from '$stylist/development/type/struct/code-section';
+import type { CodeSectionProps } from '$stylist/development/type/struct/code-section-props';
 import { CodeSectionStyleManager } from '$stylist/development/class/style-manager/code-section';
 
-export function createCodeSectionState(props: Props) {
+export function createCodeSectionState(props: CodeSectionProps) {
 	const containerClass = $derived(CodeSectionStyleManager.getContainerClass(typeof props.class === 'string' ? props.class : undefined));
 	const headerContainerClass = $derived(CodeSectionStyleManager.getHeaderContainerClass());
 	const headerContentClass = $derived(CodeSectionStyleManager.getHeaderContentClass());

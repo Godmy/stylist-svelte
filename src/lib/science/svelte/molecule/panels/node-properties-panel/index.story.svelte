@@ -2,7 +2,7 @@
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 	import NodePropertiesPanel from './index.svelte';
-	import type { LiteGraphNodeProperty } from '$stylist/science/interface/recipe/litegraph-node';
+	import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'title', type: 'text', defaultValue: 'Properties' },

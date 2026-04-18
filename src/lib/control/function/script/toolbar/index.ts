@@ -1,45 +1,29 @@
-export type ToolbarExportFormat = 'png' | 'jpeg' | 'svg';
-
-export interface ToolbarHandlersProps {
-  onZoomIn?: () => void;
-  onZoomOut?: () => void;
-  onFitView?: () => void;
-  onResetView?: () => void;
-  onExportImage?: (format: ToolbarExportFormat) => void;
-  onToggleLegend?: () => void;
-  onToggleSearch?: () => void;
-  isLegendVisible: boolean;
-  isSearchVisible: boolean;
-  handleToggleLegend: () => void;
-  handleToggleSearch: () => void;
-}
+import type { ToolbarExportFormat } from '$stylist/control/type/script/toolbar';
 
 export function toolbarHandleZoomIn(onZoomIn?: () => void): void {
-  onZoomIn?.();
+	onZoomIn?.();
 }
 
 export function toolbarHandleZoomOut(onZoomOut?: () => void): void {
-  onZoomOut?.();
+	onZoomOut?.();
 }
 
 export function toolbarHandleFitView(onFitView?: () => void): void {
-  onFitView?.();
+	onFitView?.();
 }
 
 export function toolbarHandleResetView(onResetView?: () => void): void {
-  onResetView?.();
+	onResetView?.();
 }
 
 export function toolbarHandleExport(format: ToolbarExportFormat, onExportImage?: (format: ToolbarExportFormat) => void): void {
-  onExportImage?.(format);
+	onExportImage?.(format);
 }
 
 export function toolbarHandleLegendToggle(isVisible: boolean, onToggle?: () => void): void {
-  onToggle?.();
+	onToggle?.();
 }
 
 export function toolbarHandleSearchToggle(isVisible: boolean, onToggle?: () => void): void {
-  onToggle?.();
+	onToggle?.();
 }
-
-export default toolbarHandleZoomIn;

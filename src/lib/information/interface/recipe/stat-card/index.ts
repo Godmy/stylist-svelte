@@ -1,15 +1,15 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
-import type { IMetricValue } from '$stylist/information/interface/proto/metric-value';
-import type { ITrendable } from '$stylist/information/interface/proto/trendable';
+import type { BehaviorMetricValue as IMetricValue } from '$stylist/information/interface/behavior/metric-value';
+import type { BehaviorTrendable as ITrendable } from '$stylist/information/interface/behavior/trendable';
 
 /** StatCard = shared information slots + metric value + trend. */
 export interface StatCardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IIconSlot,
@@ -20,3 +20,4 @@ export interface StatCardRecipe
 	variant?: TokenBackground;
 	animated?: boolean;
 }
+

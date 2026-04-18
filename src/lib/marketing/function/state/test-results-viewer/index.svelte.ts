@@ -1,6 +1,6 @@
 import type { TestResultsViewerProps, TestResult } from '$stylist/marketing/type/struct/test-results-viewer';
 
-export function getBestVariant(results: TestResult[]): TestResult | undefined {
+function getBestVariant(results: TestResult[]): TestResult | undefined {
   if (results.length === 0) return undefined;
   return results.reduce((best, current) =>
     current.conversionRate > best.conversionRate ? current : best
@@ -56,3 +56,5 @@ export function createTestResultsViewerState(props: TestResultsViewerProps) {
     get restProps() { return restProps; }
   };
 }
+
+export default createTestResultsViewerState;

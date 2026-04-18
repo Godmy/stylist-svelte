@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ReturnPolicyContract } from '$stylist/commerce/interface/component/return-policy';
+  import type { RecipeReturnPolicy as ReturnPolicyContract } from '$stylist/commerce/interface/recipe/return-policy';
   import { createReturnPolicyState as stateFn } from '$stylist/commerce/function/state/return-policy';
 
   let props: ReturnPolicyContract = $props();

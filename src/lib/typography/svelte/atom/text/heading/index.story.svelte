@@ -32,7 +32,7 @@
 			</Heading>
 
 			<div class="grid gap-2 text-sm text-[var(--color-text-secondary)]">
-				<p>State preview:</p>
+				<p>SlotState preview:</p>
 				<p>variant={values.variant}, size={values.size}, disabled={String(values.disabled)}, block={String(values.block)}</p>
 			</div>
 		</div>

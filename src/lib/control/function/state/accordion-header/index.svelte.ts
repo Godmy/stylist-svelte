@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { AccordionHeaderProps } from '$stylist/control/interface/component/accordion/other';
+import type { SlotAccordionHeader as AccordionHeaderProps } from '$stylist/control/interface/slot/accordion-header';
 
 type AccordionHeaderContext = {
 	isPanelOpen: (value: string) => boolean;

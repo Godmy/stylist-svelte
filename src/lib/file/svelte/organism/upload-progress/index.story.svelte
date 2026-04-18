@@ -3,7 +3,7 @@
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
   import UploadProgress from './index.svelte';
-  import type { IUploadFile } from '$stylist/file/interface/component/upload-progress/struct/file';
+  import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
   import type { UploadProgressVariant } from '$stylist/file/type/struct/upload-progress/variant';
 
   // РњРѕРєРѕРІС‹Рµ РґР°РЅРЅС‹Рµ РґР»СЏ С„Р°Р№Р»РѕРІ

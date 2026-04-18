@@ -1,4 +1,4 @@
-import type { ZoomControlsProps } from '$stylist/control/interface/component/zoom-controls/other';
+import type { SlotZoomControls as ZoomControlsProps } from '$stylist/control/interface/slot/zoom-controls';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createZoomControlsState(props: ZoomControlsProps) {

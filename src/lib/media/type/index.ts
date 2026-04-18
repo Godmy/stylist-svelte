@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AvatarSize, AvatarUserStatus, IconColor, IconDirection, IconShape, IconSize, IconVariant, PictureToolbarProps, PictureToolbarTool, PromoBannerVariant } from './alias';
 export type { TokenMediaIcon } from './enum';
-export type { AudioPlayerProps, AudioSliderProps, AudioVisualizerProps, AvatarGroupAvatar, AvatarGroupProps, AvatarProps, CanvasImageEditorProps, CountryFlagProps, FaviconProps, IconProps, ImageGalleryProps, ImageProps, MediaItem, MediaLibraryProps, MediaType, NodeIconProps, PromoBannerProps, PromoBannerVariant, SvgProps, TeamAvatarStackProps, TeamMember, VideoPlayerProps } from './struct';
+export type { AudioPlayerProps, AudioSliderProps, AudioVisualizerProps, AvatarGroupAvatar, AvatarGroupProps, AvatarProps, CanvasImageEditorProps, CountryFlagProps, FaviconProps, IconProps, ImageGalleryProps, ImageProps, ImageSize, MediaItem, MediaLibraryProps, MediaType, NodeIconProps, PromoBannerProps, SvgProps, TeamAvatarStackProps, TeamMember, VideoPlayerProps } from './struct';

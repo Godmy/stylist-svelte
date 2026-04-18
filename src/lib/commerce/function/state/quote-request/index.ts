@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createQuoteRequestState } from './index.svelte';
+export { createQuoteRequestState } from './index.svelte';

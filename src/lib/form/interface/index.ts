@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AccountSettingsFormProps, AddressFormProps, DocumentPreviewProps, FormFooterProps, FormHeaderProps, FormWithValidationProps, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps, UserProfileCardProps } from './component';
 export type { AccountFormsRecipe, FormFooterRecipe, FormHeaderRecipe, InteractionFormsRecipe } from './recipe';
+export type { SlotAccountSettingsForm, SlotAddressForm, SlotAddressFormState, SlotDocumentPreview, SlotFilterPanelState, SlotFormFooter, SlotFormHeader, SlotFormSelectionState, SlotFormWithValidation, SlotFormWithValidationState, SlotLoginForm, SlotLoginFormState, SlotRadioGroupState, SlotScreenReader, SlotScreenReaderState, SlotSearchForm, SlotSearchFormState, SlotSecureForm, SlotSecuritySettings, SlotSessionManager, SlotUserProfileCard, SlotValidationState } from './slot';

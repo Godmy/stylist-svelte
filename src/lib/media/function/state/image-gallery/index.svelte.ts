@@ -1,10 +1,6 @@
 import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
-import type { ImageGalleryContract } from '$stylist/media/interface/component/image-gallery/contract';
-
-export interface ImageGalleryStateProps extends ImageGalleryContract {
-	class?: string;
-}
+import type { ImageGalleryStateProps } from '$stylist/media/interface/recipe/image-gallery-image-gallery-state-props';
 
 export function createImageGalleryState(props: ImageGalleryStateProps) {
 	let currentIndex = $state(0);

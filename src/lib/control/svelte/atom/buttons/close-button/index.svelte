@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const X = 'x'; const Loader2 = 'loader-2';
-import type { ButtonElementProps } from '$stylist/control/interface/component/button/other';
+import type { SlotButtonElement as ButtonElementProps } from '$stylist/control/interface/slot/button-element';
 import { createCloseButtonState } from '$stylist/control/function/state/close-button';
 
 	/**

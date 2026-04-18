@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ShippingCalculatorContract } from '$stylist/commerce/interface/component/shipping-calculator';
+  import type { RecipeShippingCalculator as ShippingCalculatorContract } from '$stylist/commerce/interface/recipe/shipping-calculator';
   import { createShippingCalculatorState as stateFn } from '$stylist/commerce/function/state/shipping-calculator';
 
   let props: ShippingCalculatorContract = $props();
@@ -14,7 +14,7 @@
   <div class={state.formContainerClasses}>
     {#if props.showCountrySelector}
       <div class={state.fieldGroupClasses}>
-        <label class={state.labelClasses} for="shipping-calculator-country">Destination Country</label>
+        <label class={state.labelClasses} for="shipping-calculator-country">Destination SlotCountry</label>
         <select id="shipping-calculator-country" class={state.selectClasses}>
           {#each props.countries as country}
             <option value={country.code} selected={country.code === props.defaultDestinationCountry}>{country.name}</option>
@@ -25,7 +25,7 @@
 
     {#if props.showStateSelector && props.states?.length}
       <div class={state.fieldGroupClasses}>
-        <label class={state.labelClasses} for="shipping-calculator-state">Destination State</label>
+        <label class={state.labelClasses} for="shipping-calculator-state">Destination SlotState</label>
         <select id="shipping-calculator-state" class={state.selectClasses}>
           {#each props.states as region}
             <option value={region.code}>{region.name}</option>
@@ -43,7 +43,7 @@
 
     {#if props.showDimensionsInput}
       <div class={state.fieldGroupClasses}>
-        <label class={state.labelClasses} for="shipping-calculator-dimension-length">Package Dimensions</label>
+        <label class={state.labelClasses} for="shipping-calculator-dimension-length">Package SlotDimensions</label>
         <div class="grid grid-cols-3 gap-3">
           <input
             id="shipping-calculator-dimension-length"

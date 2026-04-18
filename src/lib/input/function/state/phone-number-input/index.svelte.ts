@@ -1,6 +1,6 @@
 import { formatPhoneNumber } from '../format-phone-number';
 import { normalizePhoneInputValue } from '../normalize-phone-input-value';
-import type { IPhoneNumberInputProps } from '$stylist/input/interface/component/phone-number-input/other';
+import type { SlotPhoneNumberInput as IPhoneNumberInputProps } from '$stylist/input/interface/slot/phone-number-input';
 
 export const createPhoneNumberInputState = (props: IPhoneNumberInputProps) => {
 	const error = $derived(props.error ?? false);

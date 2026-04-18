@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/documentation-block';
+  import type { DocumentationBlockProps } from '$stylist/development/type/struct/documentation-block-props';
   import { createDocumentationBlockState } from '$stylist/development/function/state/documentation-block';
   import CodeSection from '$stylist/development/svelte/molecule/code-section/index.svelte';
   import { Badge } from '$stylist';
@@ -13,7 +13,7 @@
     tags = [],
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: DocumentationBlockProps = $props();
 
   const state = createDocumentationBlockState({ title, content, variant, codeExamples, tags, class: className, ...restProps });
 </script>

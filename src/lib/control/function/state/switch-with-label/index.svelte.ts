@@ -1,18 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-
-export type SwitchWithLabelStateProps = {
-  checked?: boolean;
-  disabled?: boolean;
-  label?: string;
-  labelPosition?: string;
-  class?: string;
-  switchClass?: string;
-  labelClass?: string;
-  onValueInput?: (value: boolean) => void;
-  onValueChange?: (value: boolean) => void;
-  onInput?: (value: boolean) => void;
-  onChange?: (value: boolean) => void;
-};
+import type { SwitchWithLabelStateProps } from '$stylist/control/type/alias/switch-with-label-state-props';
 
 export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
   const className = props.class ?? '';

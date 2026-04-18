@@ -1,9 +1,9 @@
-import type { FileSystemItem } from '../../file-system-item';
+import type { SlotFileSystemItem } from '../../file-system-item';
 import type { ViewMode } from '../../view-mode';
 import type { RestProps } from '../rest-props';
 
 export type Props = RestProps & {
-  items: FileSystemItem[];
+  items: SlotFileSystemItem[];
   viewMode?: ViewMode;
   currentPath?: string;
   searchable?: boolean;
@@ -11,9 +11,9 @@ export type Props = RestProps & {
   enableSelection?: boolean;
   multiselect?: boolean;
   disabled?: boolean;
-  onItemSelect?: (item: FileSystemItem) => void;
-  onItemDoubleClick?: (item: FileSystemItem) => void;
-  onItemAction?: (item: FileSystemItem, action: string) => void;
+  onItemSelect?: (item: SlotFileSystemItem) => void;
+  onItemDoubleClick?: (item: SlotFileSystemItem) => void;
+  onItemAction?: (item: SlotFileSystemItem, action: string) => void;
   class?: string;
   itemClass?: string;
   headerClass?: string;
@@ -21,5 +21,5 @@ export type Props = RestProps & {
   searchClass?: string;
   pathClass?: string;
   onUpload?: (files: FileList) => void;
-  onDownload?: (item: FileSystemItem) => void;
+  onDownload?: (item: SlotFileSystemItem) => void;
 };

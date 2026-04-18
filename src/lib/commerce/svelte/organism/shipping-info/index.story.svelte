@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import ShippingInfo from './index.svelte';
+  import RecipeShippingInfo from './index.svelte';
 
   let {
     id = '',
@@ -86,7 +86,7 @@
   {id}
   {title}
   {description}
-  component={ShippingInfo}
+  component={RecipeShippingInfo}
   category="Organisms"
   controls={controls}
 >
@@ -99,7 +99,7 @@
         <p class="mt-1 text-[--color-text-primary]">Shipping information with options and regions.</p>
 
         <div class="mt-6">
-          <ShippingInfo
+          <RecipeShippingInfo
             shippingOptions={shippingOptions}
             regions={regions}
             showOptions={values.showOptions}
@@ -127,7 +127,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Options</p>
             <div>
-              <ShippingInfo
+              <RecipeShippingInfo
                 shippingOptions={[]}
                 regions={regions.slice(0, 2)}
                 showOptions={false}
@@ -147,7 +147,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Carbon Neutral Options</p>
             <div>
-              <ShippingInfo
+              <RecipeShippingInfo
                 shippingOptions={[
                   {
                     id: 'eco-standard',

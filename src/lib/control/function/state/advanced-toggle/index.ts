@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createAdvancedToggleState } from './index.svelte';
+export { createAdvancedToggleState } from './index.svelte';

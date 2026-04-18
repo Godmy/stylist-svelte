@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$stylist';
   import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
-  import type { IUploadProgressProps } from '$stylist/file/interface/component/upload-progress/struct/props';
+  import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
   import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';
   import { formatFileSize } from '$stylist/file/function/script/upload-progress';
 

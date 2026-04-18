@@ -1,19 +1,11 @@
 import { ScrumBacklogStyleManager } from '$stylist/management/class/style-manager/scrum-backlog';
-import type { BacklogData } from '$stylist/management/interface/struct/backlog-data';
-import type { BacklogItem } from '$stylist/management/interface/struct/backlog-item';
+import type { ScrumBacklogStateProps } from '$stylist/management/interface/recipe/scrum-backlog';
+
 import {
   filterBacklogItems,
   createBacklogItem,
   formatBacklogItemDate
 } from '$stylist/management/function/script/scrum-backlog';
-
-export interface ScrumBacklogStateProps {
-  data: BacklogData;
-  showFilters?: boolean;
-  onItemAdd?: (item: BacklogItem) => void;
-  onItemUpdate?: (item: BacklogItem) => void;
-  onItemDelete?: (id: string) => void;
-}
 
 export function createScrumBacklogState(props: ScrumBacklogStateProps) {
   // Props with defaults
@@ -23,12 +15,12 @@ export function createScrumBacklogState(props: ScrumBacklogStateProps) {
   const onItemUpdate = $derived(props.onItemUpdate);
   const onItemDelete = $derived(props.onItemDelete);
 
-  // State for filters
+  // SlotState for filters
   let statusFilter = $state<string>('all');
   let priorityFilter = $state<string>('all');
   let searchQuery = $state<string>('');
 
-  // State for new item form
+  // SlotState for new item form
   let showAddForm = $state<boolean>(false);
   let newItemTitle = $state<string>('');
   let newItemDescription = $state<string>('');

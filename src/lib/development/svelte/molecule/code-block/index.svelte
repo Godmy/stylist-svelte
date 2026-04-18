@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CodeBlockProps } from '$stylist/development/type/struct/code-block';
+  import type { CodeBlockProps } from '$stylist/development/type/struct/code-block-props';
   import { createCodeBlockState } from '$stylist/development/function/state/code-block';
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$stylist';
@@ -71,8 +71,3 @@
     position: relative;
   }
 </style>
-
-
-
-
-

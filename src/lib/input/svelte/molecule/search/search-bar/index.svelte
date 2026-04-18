@@ -10,7 +10,7 @@
   */
   import { Icon as BaseIcon, Button } from '$stylist';
   import { createSearchBarState } from '$stylist/input/function/state/search-bar';
-  import type { ISearchBarProps } from '$stylist/control/interface/component/search-bar/other';
+  import type { SlotSearchBar as ISearchBarProps } from '$stylist/control/interface/slot/search-bar';
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 
   const Search = 'search';

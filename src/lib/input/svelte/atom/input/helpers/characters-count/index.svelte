@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ICharacterCountProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotCharacterCount as ICharacterCountProps } from '$stylist/input/interface/slot/character-count';
 	import { createCharactersCountState } from '$stylist/input/function/state/characters-count';
 
 	let props: ICharacterCountProps = $props();

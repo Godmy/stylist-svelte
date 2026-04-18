@@ -3,7 +3,7 @@
   import FieldHighlighter from './index.svelte';
   import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
 
-  type GraphNode = {
+  type SlotGraphNode = {
     id: string;
     name: string;
     type: string;
@@ -14,7 +14,7 @@
     fields?: Array<{ name: string; type: string; isRequired?: boolean }>;
   };
 
-  type GraphEdge = {
+  type SlotGraphEdge = {
     id: string;
     source: string;
     target: string;
@@ -22,7 +22,7 @@
     label?: string;
   };
 
-  const graphData: { nodes: GraphNode[]; edges: GraphEdge[] } = {
+  const graphData: { nodes: SlotGraphNode[]; edges: SlotGraphEdge[] } = {
     nodes: [
       {
         id: 'customer',
@@ -41,7 +41,7 @@
       },
       {
         id: 'order',
-        name: 'Order',
+        name: 'SlotOrder',
         type: 'table',
         position: { x: 320, y: 220 },
         width: 220,
@@ -100,10 +100,10 @@
   let selectedNodeId = $state('customer');
   let selectedFieldName = $state('email');
 
-  const selectedNode = $derived(graphData.nodes.find((node: GraphNode) => node.id === selectedNodeId) ?? graphData.nodes[0]);
+  const selectedNode = $derived(graphData.nodes.find((node: SlotGraphNode) => node.id === selectedNodeId) ?? graphData.nodes[0]);
   const selectedField = $derived(selectedNode?.fields?.find((field: { name: string }) => field.name === selectedFieldName) ?? null);
 
-  function handleNodeSelection(node: GraphNode) {
+  function handleNodeSelection(node: SlotGraphNode) {
     selectedNodeId = node.id;
     selectedFieldName = node.fields?.[0]?.name ?? '';
   }

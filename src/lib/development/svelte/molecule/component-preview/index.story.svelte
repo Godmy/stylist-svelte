@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import ComponentPreview from './index.svelte';
+  import RecipeComponentPreview from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'title', type: 'text', defaultValue: 'Primary Button' },
@@ -21,15 +21,15 @@
 
 <Story
   id="molecules-component-preview"
-  title="Molecules / Information / Development / ComponentPreview"
-  component={ComponentPreview}
+  title="Molecules / Information / Development / RecipeComponentPreview"
+  component={RecipeComponentPreview}
   category="Molecules/Information/Development"
   description="Preview card with demo/codetab switch and configurable snippet text."
   {controls}
 >
   {#snippet children(args: any)}
     <div class="p-4 rounded-xl bg-gray-50">
-      <ComponentPreview
+      <RecipeComponentPreview
         title={args.title}
         description={args.description}
         code={args.code}
@@ -39,7 +39,7 @@
         {#snippet componentDemo()}
           <button class={`px-4 py-2 rounded text-sm ${variantClass(args.demoVariant)}`} type="button">Preview action</button>
         {/snippet}
-      </ComponentPreview>
+      </RecipeComponentPreview>
     </div>
   {/snippet}
 </Story>

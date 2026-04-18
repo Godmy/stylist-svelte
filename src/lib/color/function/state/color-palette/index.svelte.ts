@@ -1,7 +1,7 @@
 import { ObjectManagerColorPalette } from '$stylist/color/class/object-manager/color-palette';
 import { StyleManagerColorPalette } from '$stylist/color/class/style-manager/color-palette';
 import type { ThemeColorPaletteRecipe } from '$stylist/color/interface/recipe/color-palette';
-import type { ThemeColorPaletteItem } from '$stylist/color/interface/recipe/color-palette-item';
+import type { ThemeColorPaletteItem } from '$stylist/color/interface/slot/color-palette-item';
 
 export function createColorPaletteState(props: ThemeColorPaletteRecipe) {
 	const colors = $derived(ObjectManagerColorPalette.resolveColors(props));

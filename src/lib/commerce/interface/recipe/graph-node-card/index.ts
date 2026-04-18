@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /**
  * GraphNodeCard — карточка узла графа..
  *
@@ -9,7 +10,7 @@
  */
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface GraphNodeCardRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface GraphNodeCardRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	label?: string;
 	caption?: string;
 	badge?: string | number;

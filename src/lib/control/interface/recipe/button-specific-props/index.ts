@@ -1,5 +1,6 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для различных типов кнопок */
-export interface ButtonSpecificProps {
+export interface ButtonSpecificProps extends StructIntersectAll<[]> {
 	/** Тип кнопки (определяет поведение) */
 	type?: 'button' | 'icon' | 'close' | 'copy' | 'follow' | 'page';
 

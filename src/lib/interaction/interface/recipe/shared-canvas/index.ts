@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Shared Canvas — общая канва.
  *
  * LEGO-состав:
@@ -6,15 +6,16 @@
  *   ITransformable            (interaction/transformable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDraggable } from '$stylist/interaction/interface/proto/draggable';
-import type { ITransformable } from '$stylist/animation/interface/proto/transformable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorDraggable as IDraggable } from '$stylist/interaction/interface/behavior/draggable';
+import type { BehaviorTransformable as ITransformable } from '$stylist/animation/interface/behavior/transformable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 
 export interface SharedCanvasRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IDraggable,
 		ITransformable,
 		ISizable
 	]>
 {}
+

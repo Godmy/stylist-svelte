@@ -26,7 +26,7 @@
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
           Primary Table Body Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Toggle row states and verify visual behavior.</p>
+        <p class="mt-1 text-[--color-text-primary]">SlotToggle row states and verify visual behavior.</p>
 
         <div class="mt-6 overflow-x-auto">
           <table class="min-w-full divide-y divide-[--color-border-primary]">

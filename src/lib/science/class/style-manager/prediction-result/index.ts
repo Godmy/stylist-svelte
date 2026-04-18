@@ -1,4 +1,4 @@
-import type { PredictionResultStatus } from '$stylist/science/interface/component/prediction-result/other';
+import type { PredictionResultStatus } from '$stylist/science/type/struct/prediction-result-status';
 
 export class PredictionResultStyleManager {
   static getContainerClass(customClass = ''): string {

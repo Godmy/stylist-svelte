@@ -11,8 +11,8 @@ import { RECORD_SHAPE } from '$stylist/architecture/const/record/shape/index';
 import { RECORD_SIZE } from '$stylist/architecture/const/record/size/index';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
-import type { FoundationSemanticZoomStage } from '$stylist/architecture/function/script/foundation-semantic-zoom-stages';
-import type { FoundationDepth } from '$stylist/architecture/function/script/foundation-depth-range';
+import type { FoundationSemanticZoomStage } from '$stylist/architecture/type/script/foundation-semantic-zoom-stages';
+import type { FoundationDepth } from '$stylist/architecture/type/script/foundation-depth-range';
 
 type SemanticZoomParams =
 	| {
@@ -23,8 +23,6 @@ type SemanticZoomParams =
 			node: SceneNode;
 			cameraDepth: FoundationDepth;
 	  };
-
-export type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom/index';
 
 export function resolveSemanticZoomPresentation(
 	worldDepth: FoundationDepth,
@@ -85,4 +83,3 @@ export function useSemanticZoom(params: SemanticZoomParams) {
 		}
 	};
 }
-

@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
 
-export interface ConnectionLineRecipe {
+export interface ConnectionLineRecipe extends StructIntersectAll<[]> {
   id?: string;
   startX?: number;
   startY?: number;

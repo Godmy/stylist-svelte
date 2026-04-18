@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createAlertState } from './index.svelte';
+export { createAlertState } from './index.svelte';

@@ -4,7 +4,7 @@ const GripVertical = 'grip-vertical';
 const MoreHorizontal = 'more-horizontal';
 
   import { SortableListStyleManager } from '$stylist';
-  import type { SortableListProps } from '$stylist/control/interface/component/table-controls/other';
+  import type { SlotSortableList as SortableListProps } from '$stylist/control/interface/slot/sortable-list';
   import { createSortableListState } from '$stylist/control/function/state/sortable-list';
 
   let {

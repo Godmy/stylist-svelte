@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createPopoverState } from '$stylist/layout/function/state/popover';
-	import type { PopoverProps } from '$stylist/layout/function/state/popover';
+	import type { PopoverProps } from '$stylist/layout/interface/recipe/popover';
 
 	let props: PopoverProps = $props();
 	const state = createPopoverState(props);

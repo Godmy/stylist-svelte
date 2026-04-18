@@ -1,30 +1,5 @@
-import type { User, Message } from '$stylist/communication/interface/component/chat/other';
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-
-export type ChatRoomMessage = {
-	id: string;
-	text: string;
-	sender: string;
-	senderAvatar?: string;
-	timestamp: string;
-	status?: 'sent' | 'delivered' | 'read';
-	isOwn: boolean;
-};
-
-export type ChatRoomProps = {
-	messages: ChatRoomMessage[];
-	currentUser: { id: string; name: string; avatar?: string };
-	participants: { id: string; name: string; avatar?: string }[];
-	title?: string;
-	subtitle?: string;
-	class?: string;
-	messagesClass?: string;
-	headerClass?: string;
-	footerClass?: string;
-	onMessageSend?: (text: string) => void;
-	loading?: boolean;
-	variant?: 'default' | 'compact' | 'spacious';
-} & InteractionHTMLAttributes<HTMLDivElement>;
+import type { ChatRoomProps } from '$stylist/communication/type/alias/chat-room-props';
 
 export function createChatRoomState(props: ChatRoomProps) {
 	let messageText = $state('');
@@ -34,7 +9,7 @@ export function createChatRoomState(props: ChatRoomProps) {
 			default: 'p-4',
 			compact: 'p-2',
 			spacious: 'p-6'
-		})[props.variant ?? 'default']
+		} as Record<string, string>)[props.variant ?? 'default']
 	);
 
 	const containerClasses = $derived(

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import { Icon as BaseIcon } from '$stylist';
-	import { ACCORDION_HEADER_CONTEXT } from '$stylist/control/const/struct/accordion-header-context';
+	import { ACCORDION_HEADER_CONTEXT } from '$stylist/control/const/record/accordion-header-context';
 	import { createAccordionHeaderState } from '$stylist/control/function/state/accordion-header';
 	import type { AccordionHeaderProps } from '$stylist/control/type/struct/accordion-header-props';
 

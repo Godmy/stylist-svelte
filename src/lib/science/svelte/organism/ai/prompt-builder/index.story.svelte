@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import PromptBuilder from './index.svelte';
-  import type { PromptTemplate } from '$stylist/science/interface/component/prompt-builder/other';
+  import type { SlotPromptTemplate as PromptTemplate } from '$stylist/science/interface/slot/prompt-template';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'showTemplates', type: 'boolean', defaultValue: true },

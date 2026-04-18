@@ -53,5 +53,3 @@ export function socialActivityFeedFormatTime(date: Date, locale: string = 'en-US
     year: now.getFullYear() !== new Date(date).getFullYear() ? 'numeric' : undefined
   });
 }
-
-export default socialActivityFeedGetIcon;

@@ -1,14 +1,14 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
 import type { TokenLineType } from '$stylist/architecture/type/enum/line-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { IPointClickable } from '$stylist/interaction/interface/proto/point-clickable';
-import type { ITooltipable } from '$stylist/interaction/interface/proto/tooltipable';
-import type { ILegendable } from '$stylist/chart/interface/proto/legendable';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { BehaviorPointClickable as IPointClickable } from '$stylist/interaction/interface/behavior/point-clickable';
+import type { BehaviorTooltipable as ITooltipable } from '$stylist/interaction/interface/behavior/tooltipable';
+import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { IChartColorable } from '$stylist/chart/interface/proto/chart-colorable';
-import type { IChartAxis } from '$stylist/chart/interface/proto/chart-axis';
+import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
+import type { BehaviorChartAxis as IChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
 import type { LineChartData } from '$stylist/chart/type/struct/line-chart-data';
 import type { LineChartPoint } from '$stylist/chart/type/struct/line-chart';
 
@@ -16,7 +16,7 @@ import type { LineChartPoint } from '$stylist/chart/type/struct/line-chart';
  * LineChart = label + frame + axis config + legend/tooltip toggles + line dataset.
  */
 export interface LineChartRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IDimensionable,
 		ILabelSlot,
 		IChartAxis,
@@ -38,3 +38,4 @@ export interface LineChartRecipe
 	variant?: TokenLineType;
 	size?: TokenSize;
 }
+

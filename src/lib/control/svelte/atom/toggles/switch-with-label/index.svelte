@@ -10,7 +10,7 @@
    */
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
   import { createSwitchWithLabelState } from '$stylist/control/function/state/switch-with-label';
-  import type { ISwitchWithLabelProps } from '$stylist/control/interface/component/switch-with-label/other';
+  import type { SlotSwitchWithLabel as ISwitchWithLabelProps } from '$stylist/control/interface/slot/switch-with-label';
 
   let props: ISwitchWithLabelProps & InteractionHTMLAttributes<HTMLDivElement> = $props();
 

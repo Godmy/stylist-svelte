@@ -1,6 +1,6 @@
 import { ObjectManagerTableControls } from '$stylist/control/class/object-manager/table-controls';
 import { DataTableStyleManager } from '$stylist/control/class/style-manager/data-table-style-manager';
-import type { DataTableRecipe } from '$stylist/control/interface/component/table-controls/other';
+import type { SlotDataTableRecipe as DataTableRecipe } from '$stylist/control/interface/slot/data-table-recipe';
 
 type Row = Record<string, unknown>;
 

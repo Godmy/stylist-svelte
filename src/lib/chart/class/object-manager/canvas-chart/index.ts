@@ -1,25 +1,12 @@
 ﻿import type { CanvasChartPadding } from '$stylist/chart/type/struct/canvas-chart-padding';
 import type { TokenCanvasChartType } from '$stylist/chart/type/struct/canvas-chart-type';
 import type { CanvasChartDataPoint } from '$stylist/chart/type/struct/canvas-chart';
-
-const DEFAULT_CANVAS_CHART_COLORS = [
-	'var(--color-primary-500)',
-	'var(--color-error-500)',
-	'var(--color-success-500)',
-	'var(--color-warning-500)',
-	'var(--color-secondary-500)'
-] as const;
-
-const DEFAULT_CANVAS_CHART_PADDING: CanvasChartPadding = {
-	top: 40,
-	right: 40,
-	bottom: 60,
-	left: 80
-};
+import { TOKEN_CHART_COLORS } from '$stylist/chart/const/enum/chart-colors';
+import { DEFAULT_CANVAS_CHART_PADDING } from '$stylist/chart/const/map/default-canvas-chart-padding';
 
 export class ObjectManagerCanvasChart {
 	static resolveColors(colors?: readonly string[]): string[] {
-		return colors && colors.length > 0 ? [...colors] : [...DEFAULT_CANVAS_CHART_COLORS];
+		return colors && colors.length > 0 ? [...colors] : [...TOKEN_CHART_COLORS];
 	}
 
 	static resolvePadding(): CanvasChartPadding {

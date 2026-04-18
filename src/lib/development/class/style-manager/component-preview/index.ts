@@ -1,23 +1,23 @@
 /**
- * @file ComponentPreview Style Manager
- * @description Style management for ComponentPreview component following Atomic Design principles
+ * @file RecipeComponentPreview Style Manager
+ * @description Style management for RecipeComponentPreview component following Atomic Design principles
  * @author Vibe Management Pro
  * @version 1.0.0
  *
  * SOLID Principles Applied:
- * - Single Responsibility: Only handles styling logic for ComponentPreview
+ * - Single Responsibility: Only handles styling logic for RecipeComponentPreview
  */
 
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 
 /**
- * Style manager for ComponentPreview component
- * Manages all class names and styling for the ComponentPreview molecule
+ * Style manager for RecipeComponentPreview component
+ * Manages all class names and styling for the RecipeComponentPreview molecule
  */
 export class ComponentPreviewStyleManager {
   /**
-   * Gets the base classes for the ComponentPreview component
+   * Gets the base classes for the RecipeComponentPreview component
    * @param className - Additional CSS classes to append
    * @returns Combined string of base and additional classes
    */
@@ -30,7 +30,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the header classes for the ComponentPreview component
+   * Gets the header classes for the RecipeComponentPreview component
    * @returns Header classes
    */
   static getHeaderClasses(): string {
@@ -38,7 +38,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the title classes for the ComponentPreview component
+   * Gets the title classes for the RecipeComponentPreview component
    * @returns Title classes
    */
   static getTitleClasses(): string {
@@ -46,7 +46,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the description classes for the ComponentPreview component
+   * Gets the description classes for the RecipeComponentPreview component
    * @returns Description classes
    */
   static getDescriptionClasses(): string {
@@ -54,7 +54,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the preview container classes for the ComponentPreview component
+   * Gets the preview container classes for the RecipeComponentPreview component
    * @returns Preview container classes
    */
   static getPreviewContainerClasses(): string {
@@ -62,7 +62,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the demo container classes for the ComponentPreview component
+   * Gets the demo container classes for the RecipeComponentPreview component
    * @returns Demo container classes
    */
   static getDemoContainerClasses(): string {
@@ -70,7 +70,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the code container classes for the ComponentPreview component
+   * Gets the code container classes for the RecipeComponentPreview component
    * @returns Code container classes
    */
   static getCodeContainerClasses(): string {
@@ -78,7 +78,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the tab container classes for the ComponentPreview component
+   * Gets the tab container classes for the RecipeComponentPreview component
    * @returns Tab container classes
    */
   static getTabContainerClasses(): string {
@@ -86,7 +86,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the tab list classes for the ComponentPreview component
+   * Gets the tab list classes for the RecipeComponentPreview component
    * @returns Tab list classes
    */
   static getTabListClasses(): string {
@@ -94,7 +94,7 @@ export class ComponentPreviewStyleManager {
   }
 
   /**
-   * Gets the tab button classes for the ComponentPreview component
+   * Gets the tab button classes for the RecipeComponentPreview component
    * @param isActive - Whether the tab is currently active
    * @returns Tab button classes
    */

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { createInputTextState } from '$stylist/input/function/state/input-text';
-	import type { IInputBaseProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputBase as IInputBaseProps } from '$stylist/input/interface/slot/input-base';
 	import type { TokenAppearance } from '$stylist';
 	import type { TokenSize } from '$stylist/layout/type/enum/size';
 

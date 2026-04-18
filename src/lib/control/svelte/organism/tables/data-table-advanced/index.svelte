@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { DataTableAdvancedProps } from '$stylist/control/interface/component/table-controls/other';
+  import type { SlotDataTableAdvanced as DataTableAdvancedProps } from '$stylist/control/interface/slot/data-table-advanced';
   import { createDataTableAdvancedState } from '$stylist/control/function/state/data-table-advanced';
 
   let {

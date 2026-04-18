@@ -1,5 +1,6 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для различных типов ссылок */
-export interface LinkSpecificProps {
+export interface LinkSpecificProps extends StructIntersectAll<[]> {
 	/** Тип ссылки */
 	type?: 'link' | 'breadcrumb' | 'inline' | 'button';
 

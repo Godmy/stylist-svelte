@@ -1,8 +1,9 @@
 import { SidebarLayoutStyleManager } from '$stylist/layout/class/style-manager/sidebar-layout';
-import type { SidebarLayoutGap, SidebarLayoutSide, SidebarLayoutWidth } from '$stylist/layout/class/style-manager/sidebar-layout';
+import type { SidebarLayoutGap } from '$stylist/layout/type/enum/sidebar-layout-gap';
+import type { SidebarLayoutSide } from '$stylist/layout/type/enum/sidebar-layout-side';
+import type { SidebarLayoutWidth } from '$stylist/layout/type/enum/sidebar-layout-width';
 import type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
-export type { SidebarLayoutProps } from '$stylist/layout/type/struct/layout-extended/sidebar-layout-props';
 
 export function createSidebarLayoutState(props: SidebarLayoutProps) {
 	const side = $derived<SidebarLayoutSide>(props.side ?? 'left');

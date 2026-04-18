@@ -1,4 +1,4 @@
-export type ShippingOption = {
+export type SlotShippingOption = {
 	id: string;
 	name: string;
 	description: string;

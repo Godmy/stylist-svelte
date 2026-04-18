@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TransformationProps } from '$stylist/animation/interface/component/transformation/other';
+	import type { SlotTransformation as TransformationProps } from '$stylist/animation/interface/slot/transformation';
 	import { createTransformationState } from '$stylist/animation/function/state/transformation';
 
 	let props: TransformationProps = $props();

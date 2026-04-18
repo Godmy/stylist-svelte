@@ -1,15 +1,6 @@
-import type { User, Message } from '$stylist/communication/interface/component/chat/other';
-
-export interface ChatWindowChat {
-	id: string;
-	name?: string;
-	participants: User[];
-	isGroup: boolean;
-	lastMessage?: Message | string;
-	lastMessageTime?: Date;
-	unreadCount?: number;
-	avatar?: string;
-}
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
+import type { ChatWindowChat } from '$stylist/communication/interface/slot/chat-window-chat';
 
 export const createChatWindowState = (props: {
 	chat: ChatWindowChat;

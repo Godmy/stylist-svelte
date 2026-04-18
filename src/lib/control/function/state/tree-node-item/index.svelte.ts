@@ -1,18 +1,7 @@
 import type { Snippet } from 'svelte';
 import type { TreeNodeItemNode } from '$stylist/control/type/struct/tree-node-item-node';
 import { TreeNodeItemStyleManager } from '$stylist/control/class/style-manager/tree-node-item';
-
-export type TreeNodeItemProps = {
-	node: TreeNodeItemNode;
-	onSelectCallback?: (key: string) => void;
-	secondaryIcon?: string;
-	faIcon?: boolean;
-	expandedNodes?: Set<string>;
-	class?: string;
-	children?: Snippet<[]>;
-	onNodeSelect?: (node: TreeNodeItemNode) => void;
-	onNodeToggle?: (node: TreeNodeItemNode) => void;
-};
+import type { TreeNodeItemProps } from '$stylist/control/type/alias/tree-node-item-props';
 
 export function createTreeNodeItemState(props: TreeNodeItemProps) {
 	const ChevronRight = 'chevron-right';

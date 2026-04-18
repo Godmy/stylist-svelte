@@ -1,23 +1,24 @@
 /**
- * Interaction Forms — формы взаимодействия.
+ * Interaction Forms вЂ” С„РѕСЂРјС‹ РІР·Р°РёРјРѕРґРµР№СЃС‚РІРёСЏ.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   ICaptionSlot              (information/caption-slot)
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 
 export interface InteractionFormsRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IFocusable,
 		ISizable
 	]>
 {}
+

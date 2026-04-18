@@ -3,8 +3,8 @@
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
   import MiniCalendar from './index.svelte';
-  import type { IMiniCalendarProps } from '$stylist/calendar/interface/component/mini-calendar/struct';
-  import type { CalendarEventMini as CalendarEvent } from '$stylist/calendar/type/struct';
+  import type { SlotMiniCalendar as IMiniCalendarProps } from '$stylist/calendar/interface/slot/mini-calendar';
+  import type { CalendarEventMini as RecipeCalendarEvent } from '$stylist/calendar/type/struct';
 
   export let id: string;
   export let title: string;
@@ -15,7 +15,7 @@
   ];
 
   // Sample events data
-  const sampleEvents: CalendarEvent[] = [
+  const sampleEvents: RecipeCalendarEvent[] = [
     {
       id: '1',
       title: 'Meeting',
@@ -51,7 +51,7 @@
     console.log('Date selected:', date);
   }
 
-  function handleEventClick(event: CalendarEvent) {
+  function handleEventClick(event: RecipeCalendarEvent) {
     console.log('Event clicked:', event.title);
   }
 

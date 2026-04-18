@@ -1,4 +1,4 @@
-import type { IZipViewerStyleClasses } from '$stylist/file/interface/component/zip-viewer/struct/styles';
+import type { SlotZipViewerStyleClasses as IZipViewerStyleClasses } from '$stylist/file/interface/slot/zip-viewer-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

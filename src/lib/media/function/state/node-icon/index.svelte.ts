@@ -1,9 +1,4 @@
-export interface NodeIconProps {
-	icon?: string;
-	size?: number;
-	accent?: string;
-	background?: string;
-}
+import type { NodeIconProps } from '$stylist/media/interface/recipe/node-icon-node-icon-props';
 
 export function createNodeIconState(props: NodeIconProps) {
 	const icon = $derived(props.icon ?? '📦');

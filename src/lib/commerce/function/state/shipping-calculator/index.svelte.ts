@@ -1,4 +1,5 @@
-import type { ShippingCalculatorContract, ShippingOptionContract } from '$stylist/commerce/interface/component/shipping-calculator';
+import type { RecipeShippingCalculator as ShippingCalculatorContract } from '$stylist/commerce/interface/recipe/shipping-calculator';
+import type { SlotShippingOption as ShippingOptionContract } from '$stylist/commerce/interface/slot/shipping-option';
 import { ShippingCalculatorStyleManager } from '$stylist/commerce/class/style-manager/shipping-calculator';
 
 export function createShippingCalculatorState(props: ShippingCalculatorContract) {

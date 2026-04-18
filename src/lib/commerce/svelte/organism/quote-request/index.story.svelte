@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import QuoteRequest from './index.svelte';
+  import RecipeQuoteRequest from './index.svelte';
   import type { QuoteRequestValue } from '$stylist/input/type/struct/interaction-input/quote-request-value';
 
   type Props = {
@@ -59,7 +59,7 @@
 <Story
   id="organisms-quote-request"
   title="Organisms / Interaction / Input / Quote Request"
-  component={QuoteRequest}
+  component={RecipeQuoteRequest}
   category="Organisms/Interaction/Input"
   description="A quote request form component."
   tags={['form', 'quote', 'request']}
@@ -67,7 +67,7 @@
 >
   {#snippet children(values: any)}
     <div class="p-4 max-w-2xl">
-      <QuoteRequest 
+      <RecipeQuoteRequest 
         title={values.title}
         description={values.description}
         showCompanyFields={values.showCompanyFields}

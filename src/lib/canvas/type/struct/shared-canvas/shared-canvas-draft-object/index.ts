@@ -1,3 +1,3 @@
-import type { CanvasObject } from '$stylist/canvas/interface/component/shared-canvas/other';
+import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 
 export type SharedCanvasDraftObject = CanvasObject | null;

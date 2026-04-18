@@ -1,5 +1,5 @@
 import type { Props } from '$stylist/file/type/struct/zip-viewer/props';
-import type { ZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
 import {
   handleDownload as handleDownloadFn,
   handleEntryClick as handleEntryClickFn,
@@ -60,8 +60,8 @@ export function createZipViewerState(
 
   const zipTree = $derived.by(() => {
     const sourceEntries = filteredEntries;
-    const tree: ZipEntry[] = [];
-    const map = new Map<string, ZipEntry>();
+    const tree: SlotZipEntry[] = [];
+    const map = new Map<string, SlotZipEntry>();
 
     for (const entry of sourceEntries) {
       map.set(entry.path, entry);
@@ -117,23 +117,23 @@ export function createZipViewerState(
     });
   }
 
-  function handleEntryClick(entry: ZipEntry): void {
+  function handleEntryClick(entry: SlotZipEntry): void {
     handleEntryClickFn(entry, disabled, expandedFolders, setExpandedFolders, props.onEntryClick);
   }
 
-  function handlePreview(entry: ZipEntry): void {
+  function handlePreview(entry: SlotZipEntry): void {
     handlePreviewFn(entry, disabled, props.onEntryPreview);
   }
 
-  function handleDownload(entry: ZipEntry): void {
+  function handleDownload(entry: SlotZipEntry): void {
     handleDownloadFn(entry, disabled, props.onEntryDownload);
   }
 
-  function handleExtract(entry: ZipEntry): void {
+  function handleExtract(entry: SlotZipEntry): void {
     handleExtractFn(entry, disabled, props.onEntryExtract);
   }
 
-  function toggleFolder(entry: ZipEntry): void {
+  function toggleFolder(entry: SlotZipEntry): void {
     toggleFolderFn(entry, disabled, expandedFolders, setExpandedFolders);
   }
 

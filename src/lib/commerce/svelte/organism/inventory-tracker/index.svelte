@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { InventoryTrackerContract } from '$stylist/commerce/interface/component/inventory-tracker';
+	import type { RecipeInventoryTracker as InventoryTrackerContract } from '$stylist/commerce/interface/recipe/inventory-tracker';
 	import { createInventoryTrackerState } from '$stylist/commerce/function/state/inventory-tracker';
 
 	let props: InventoryTrackerContract = $props();

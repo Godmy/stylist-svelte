@@ -1,4 +1,4 @@
-import type { GraphPortState } from '$stylist/science/interface/recipe/graph-port';
+import type { SlotGraphPortState } from '$stylist/science/interface/slot/graph-port';
 import type { GraphPortDataTypeColor } from '$stylist/canvas/type/struct/graph-port/graph-port-data-type-color';
 import type { GraphPortStateColor } from '$stylist/canvas/type/struct/graph-port/graph-port-state-color';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
@@ -34,7 +34,7 @@ export class GraphPortStyleManager {
 	/**
 	 * Получает классы состояния порта
 	 */
-	static getPortStateClasses(state: GraphPortState): string {
+	static getPortStateClasses(state: SlotGraphPortState): string {
 		return mergeClassNames(
 			'graph-port',
 			state.connected && 'graph-port--connected',
@@ -66,8 +66,6 @@ export class GraphPortStyleManager {
 		return `var(--color-graph-port-state-${state}, var(--color-graph-port-state-default))`;
 	}
 }
-
-export default GraphPortStyleManager;
 
 
 

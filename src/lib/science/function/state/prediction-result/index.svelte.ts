@@ -1,4 +1,4 @@
-import type { PredictionResultContract } from '$stylist/science/interface/record/science';
+import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
 import { PredictionResultStyleManager } from '$stylist/science/class/style-manager/prediction-result';
 
 export function createPredictionResultState(props: PredictionResultContract) {

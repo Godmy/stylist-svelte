@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import ShippingCalculator from './index.svelte';
+  import RecipeShippingCalculator from './index.svelte';
 
   let {
     id = '',
@@ -73,7 +73,7 @@
   {id}
   {title}
   {description}
-  component={ShippingCalculator}
+  component={RecipeShippingCalculator}
   category="Organisms"
   controls={controls}
 >
@@ -86,7 +86,7 @@
         <p class="mt-1 text-[--color-text-primary]">Shipping calculator with weight and dimension inputs.</p>
 
         <div class="mt-6">
-          <ShippingCalculator
+          <RecipeShippingCalculator
             shippingOptions={shippingOptions}
             countries={countries}
             states={states}
@@ -112,9 +112,9 @@
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Dimensions</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without SlotDimensions</p>
             <div>
-              <ShippingCalculator
+              <RecipeShippingCalculator
                 shippingOptions={shippingOptions.slice(0, 2)}
                 countries={countries.slice(0, 3)}
                 showWeightInput={true}
@@ -133,7 +133,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Weight Input</p>
             <div>
-              <ShippingCalculator
+              <RecipeShippingCalculator
                 shippingOptions={shippingOptions.slice(1, 3)}
                 countries={countries.slice(1, 4)}
                 showWeightInput={false}

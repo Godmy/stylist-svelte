@@ -1,4 +1,4 @@
-export type CartItem = {
+export type SlotCartItem = {
 	id: string;
 	name: string;
 	price: number;

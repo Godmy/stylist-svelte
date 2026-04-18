@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/resource-optimizer';
+  import type { ResourceOptimizerProps } from '$stylist/development/type/struct/resource-optimizer-props';
   import { Icon as BaseIcon } from '$stylist';
   import { createResourceOptimizerState } from '$stylist/development/function/state/resource-optimizer';
 
@@ -25,7 +25,7 @@
     description,
     class: className = '',
     ...restProps
-  }: Props = $props();
+  }: ResourceOptimizerProps = $props();
 
   const state = createResourceOptimizerState({ resources, suggestions, showResourceDetails, showOptimizationSuggestions, showPrioritization, showSizeComparison, onResourceOptimize, onApplySuggestions, title, description, class: className, ...restProps });
 </script>

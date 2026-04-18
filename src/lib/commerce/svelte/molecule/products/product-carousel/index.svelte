@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductCarouselState } from '$stylist/commerce/function/state/product-carousel';
-	import type { ProductCarouselProps } from '$stylist/commerce/function/state/product-carousel';
+	import type { ProductCarouselProps } from '$stylist/commerce/interface/recipe/product-carousel-props';
 
 	let props: ProductCarouselProps = $props();
 	const state = createProductCarouselState(props);

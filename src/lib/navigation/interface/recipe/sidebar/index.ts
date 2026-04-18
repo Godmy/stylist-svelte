@@ -1,39 +1,39 @@
 import type { Snippet } from 'svelte';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IDraggable } from '$stylist/interaction/interface/proto/draggable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { IScrollable } from '$stylist/layout/interface/proto/scrollable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ITransformable } from '$stylist/animation/interface/proto/transformable';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorDraggable as IDraggable } from '$stylist/interaction/interface/behavior/draggable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorScrollable as IScrollable } from '$stylist/layout/interface/behavior/scrollable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { BehaviorTransformable as ITransformable } from '$stylist/animation/interface/behavior/transformable';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { LayoutSpecificProps } from '$stylist/navigation/interface/recipe/layout-specific-props';
 
 /**
- * LayoutRecipe � ��������������� ������ ��� layout-�����������.
+ * LayoutRecipe пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ layout-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
  *
- * LEGO-������:
- *   ILabelSlot                (information) � label, title
- *   IIconSlot                 (information) � icon
- *   IClickable                (interaction) � onClick, onDismiss
- *   IDraggable                (interaction) � draggable, onDrag*, onDrop
- *   ITransformable            (interaction) � scale, rotate, translate
- *   IFocusable                (interaction) � tabIndex, onFocus, onBlur
- *   ISizable                  (architecture) � size, density
- *   IScrollable               (architecture) � overflowX, overflowY
- *   ThemeAttributes           (theme)       � variant, tone
+ * LEGO-пїЅпїЅпїЅпїЅпїЅпїЅ:
+ *   ILabelSlot                (information) пїЅ label, title
+ *   IIconSlot                 (information) пїЅ icon
+ *   IClickable                (interaction) пїЅ onClick, onDismiss
+ *   IDraggable                (interaction) пїЅ draggable, onDrag*, onDrop
+ *   ITransformable            (interaction) пїЅ scale, rotate, translate
+ *   IFocusable                (interaction) пїЅ tabIndex, onFocus, onBlur
+ *   ISizable                  (architecture) пїЅ size, density
+ *   IScrollable               (architecture) пїЅ overflowX, overflowY
+ *   ThemeAttributes           (theme)       пїЅ variant, tone
  *
- * �������� �������������:
- *   - Sidebar: type='sidebar', ������� ������
- *   - Overlay: type='overlay', ������������� ����
- *   - DragAndDrop: type='drag-drop', ��������������
- *   - Transformation: type='transform', �������������
- *   - Container: type='container', ������� ���������
+ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
+ *   - Sidebar: type='sidebar', пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+ *   - Overlay: type='overlay', пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+ *   - DragAndDrop: type='drag-drop', пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+ *   - Transformation: type='transform', пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+ *   - Container: type='container', пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
  */
 export interface LayoutRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		IClickable,
@@ -46,3 +46,4 @@ export interface LayoutRecipe
 	]>,
 		LayoutSpecificProps
 {}
+

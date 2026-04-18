@@ -50,7 +50,6 @@ export class NodePropertiesPanelStyleManager {
 	}
 }
 
-export default NodePropertiesPanelStyleManager;
 
 
 

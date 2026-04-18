@@ -1,5 +1,5 @@
 import type { Props } from '$stylist/file/type/struct/drop-zone/props';
-import type { DropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
 import {
   clearAll,
   handleDragLeave as handleDragLeaveFn,
@@ -14,7 +14,7 @@ export function createDropZoneState(
   props: Props
 ) {
   let isDragOver = $state(false);
-  let items = $state<DropItem[]>([]);
+  let items = $state<SlotDropItem[]>([]);
   let isProcessing = $state(false);
   let fileInputElement = $state<HTMLInputElement | null>(null);
   const accept = $derived(props.accept ?? '');

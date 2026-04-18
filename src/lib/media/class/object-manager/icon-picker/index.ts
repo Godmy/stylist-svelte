@@ -1,5 +1,6 @@
 import type { TokenColumn } from '$stylist/layout/type/enum/column';
-import type { ThemeIconItem, ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
+import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
+import type { ThemeIconItem } from '$stylist/media/interface/slot/icon-picker';
 
 export class ObjectManagerIconPicker {
 	static resolveIcons(props: ThemeIconPickerRecipe): ThemeIconItem[] {

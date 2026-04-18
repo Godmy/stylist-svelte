@@ -1,10 +1,6 @@
 import type { StepIconProps } from '$stylist/notification/type/struct/step-icon-props';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
-export type StepIconContent = 
-	| { type: 'icon'; icon: 'check' | 'x'; size: number }
-	| { type: 'number'; value: number | undefined };
-
 export function createStepIconState(props: StepIconProps) {
 	const status = $derived(props.status ?? 'pending');
 	const size = $derived(props.size ?? 'md');

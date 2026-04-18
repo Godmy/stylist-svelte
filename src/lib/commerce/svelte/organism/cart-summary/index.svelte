@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CartSummaryProps } from '$stylist/commerce/function/state/cart-summary';
+	import type { CartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
 	import { createCartSummaryState } from '$stylist/commerce/function/state/cart-summary';
 
 	let props: CartSummaryProps = $props();
@@ -45,7 +45,7 @@
 	{/if}
 
 	<div class={state.summaryClasses}>
-		<h3 class={state.summaryTitleClasses}>Order Summary</h3>
+		<h3 class={state.summaryTitleClasses}>SlotOrder Summary</h3>
 
 		<div class={state.summaryRowClasses}>
 			<span class={state.summaryLabelClasses}>Subtotal</span>

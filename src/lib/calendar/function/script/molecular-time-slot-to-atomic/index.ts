@@ -1,5 +1,5 @@
-import type { ITimeSlot } from '$stylist/input/interface/component/time-slot/other';
-import type { CalendarEvent } from '$stylist/calendar/interface/component/event-calendar/other';
+import type { SlotTimeSlot as ITimeSlot } from '$stylist/input/interface/slot/time-slot-time-slot';
+import type { SlotCalendarEvent as RecipeCalendarEvent } from '$stylist/calendar/interface/slot/calendar-event';
 
 /**
  * Converts a calendar TimeSlot (molecular) to an atomic TimeSlot
@@ -9,8 +9,8 @@ export function molecularTimeSlotToAtomic(molecularSlot: {
   end: Date;
   time: string;
   available: boolean;
-  events: CalendarEvent[];
-  event?: CalendarEvent;
+  events: RecipeCalendarEvent[];
+  event?: RecipeCalendarEvent;
   hour: number;
   minute: number;
 }): ITimeSlot {

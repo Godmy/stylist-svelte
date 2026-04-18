@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента PlaygroundShellHeader
+ * Менеджер стилей для компонента RecipePlaygroundShellHeader
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

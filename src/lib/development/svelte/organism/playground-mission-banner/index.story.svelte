@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundMissionBanner from './index.svelte';
+  import RecipePlaygroundMissionBanner from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'badgeText', type: 'text', defaultValue: 'Our Mission' },
@@ -12,13 +12,13 @@
 </script>
 
 <Story
-  component={PlaygroundMissionBanner}
+  component={RecipePlaygroundMissionBanner}
   title="Playground Mission Banner"
   description="Hero mission section with dual CTA links and strong gradient styling."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundMissionBanner
+    <RecipePlaygroundMissionBanner
       badgeText={values.badgeText}
       title={values.title}
       primaryLabel={values.primaryLabel}

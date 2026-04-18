@@ -1,7 +1,5 @@
-import type {
-	GraphCanvasPosition,
-	GraphCanvasRecipe as GraphCanvasPropsBase
-} from '$stylist/science/interface/recipe/graph-canvas';
+import type { GraphCanvasRecipe as GraphCanvasPropsBase } from '$stylist/science/interface/recipe/graph-canvas';
+import type { GraphCanvasPosition } from '$stylist/science/type/struct/graph-canvas-position';
 
 export type GraphCanvasProps = GraphCanvasPropsBase & {
 	minZoom?: number;

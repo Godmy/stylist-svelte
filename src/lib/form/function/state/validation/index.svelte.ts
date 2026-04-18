@@ -1,18 +1,7 @@
 import type { ValidationProps } from '$stylist/form/type/struct/validation-form-field';
+import type { SlotValidationState } from '$stylist/form/interface/slot/validation-state';
 
-export interface ValidationState {
-	containerClasses: string;
-	hasError: boolean;
-	rootClass: string;
-	labelClass: string;
-	requiredMarkClass: string;
-	contentClass: string;
-	descriptionClass: string;
-	errorClass: string;
-	hintClass: string;
-}
-
-export function createValidationState(props: ValidationProps): ValidationState {
+export function createValidationState(props: ValidationProps): SlotValidationState {
 	const containerClasses = $derived(`field-group ${props.orientation === 'horizontal' ? 'flex items-start gap-3' : 'flex flex-col gap-2'} ${props.disabled ? 'opacity-[var(--opacity-70)] cursor-not-allowed' : ''} ${props.class ?? ''}`);
 	const hasError = $derived(!!props.error);
 

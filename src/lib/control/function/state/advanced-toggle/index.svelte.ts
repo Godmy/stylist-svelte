@@ -1,8 +1,8 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { AdvancedToggleProps } from '$stylist/control/interface/component/toggles';
+import type { RecipeAdvancedToggleProps as RecipeAdvancedToggleProps } from '$stylist/control/interface/recipe/advanced-toggle-props';
 import { TogglesStyleManager } from '$stylist/control/class/style-manager/toggles';
 
-export const createAdvancedToggleState = (props: AdvancedToggleProps) => {
+export const createAdvancedToggleState = (props: RecipeAdvancedToggleProps) => {
 	const size = $derived(props.size ?? 'md');
 	const disabled = $derived(props.disabled ?? false);
 	const label = $derived(props.label ?? '');

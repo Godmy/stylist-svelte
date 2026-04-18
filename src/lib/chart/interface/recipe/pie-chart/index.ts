@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * PieChart — круговая диаграмма..
  *
@@ -8,7 +9,7 @@
 import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface PieChartRecipe extends ThemeAttributes<SVGSVGElement> {
+export interface PieChartRecipe extends StructIntersectAll<[ThemeAttributes<SVGSVGElement>]> {
 	label?: string;
 	badge?: string | number;
 	data?: readonly PieChartDataPoint[];

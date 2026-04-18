@@ -1,12 +1,12 @@
 import type { HTMLAttributes } from 'svelte/elements';
-import type { CartItem } from '../cart-item';
+import type { SlotCartItem } from '../cart-item';
 import type { Address } from '../address';
 import type { PaymentMethod } from '../payment-method';
-import type { ShippingOption } from '../shipping-option';
+import type { SlotShippingOption } from '../shipping-option';
 import type { CheckoutStep } from '../checkout-step';
 
 export type CheckoutFormProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & {
-	cartItems: CartItem[];
+	cartItems: SlotCartItem[];
 	subtotal: number;
 	tax: number;
 	shipping: number;
@@ -18,7 +18,7 @@ export type CheckoutFormProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'> & 
 	onError?: (error: string) => void;
 	countries?: { value: string; label: string }[];
 	states?: { value: string; label: string }[];
-	shippingOptions?: ShippingOption[];
+	shippingOptions?: SlotShippingOption[];
 	defaultAddress?: Address;
 	defaultPaymentMethod?: PaymentMethod;
 	showProgress?: boolean;

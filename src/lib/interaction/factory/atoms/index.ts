@@ -23,7 +23,7 @@
 import type { ContainerProps } from '$stylist/layout/type/struct/container';
 import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
 import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
-import type { ClickProps } from '$stylist/control/interface/component/click/other';
+import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
 
 import { createContainerState } from '$stylist/layout/function/state/container';
 import { createBackgroundState } from '$stylist/layout/function/state/background';

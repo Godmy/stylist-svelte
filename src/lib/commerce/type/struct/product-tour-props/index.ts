@@ -1,7 +1,7 @@
-import type { ProductTourStep } from '$stylist/commerce/type/struct/product-tour-step';
+import type { SlotProductTourStep } from '$stylist/commerce/type/struct/product-tour-step';
 
 export type ProductTourProps = {
-	steps: ProductTourStep[];
+	steps: SlotProductTourStep[];
 	currentStep?: number;
 	showTour?: boolean;
 	onComplete?: () => void;

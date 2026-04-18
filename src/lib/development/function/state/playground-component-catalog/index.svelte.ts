@@ -1,5 +1,7 @@
-import type { Props, ViewMode, SortBy, ComponentCatalogStory } from '$stylist/development/type/struct/playground-component-catalog';
-
+import type { PlaygroundComponentCatalogProps } from '$stylist/development/type/struct/playground-component-catalog-props';
+import type { PlaygroundComponentCatalogViewMode } from '$stylist/development/type/struct/playground-component-catalog-view-mode';
+import type { PlaygroundComponentCatalogSortBy } from '$stylist/development/type/struct/playground-component-catalog-sort-by';
+import type { PlaygroundComponentCatalogComponentCatalogStory } from '$stylist/development/type/struct/playground-component-catalog-component-catalog-story';
 const Search = 'search';
 const Filter = 'filter';
 const Grid = 'grid';
@@ -13,7 +15,7 @@ const Package = 'package';
 const ArrowRight = 'arrow-right';
 const Sparkles = 'sparkles';
 
-export function createPlaygroundComponentCatalogState(props: Props) {
+export function createPlaygroundComponentCatalogState(props: PlaygroundComponentCatalogProps) {
   const stories = $derived(props.stories);
   const categories = $derived(props.categories);
   const categoryCounts = $derived(props.categoryCounts);
@@ -52,7 +54,7 @@ export function createPlaygroundComponentCatalogState(props: Props) {
     return Sparkles;
   }
 
-  function getComponentDescription(story: ComponentCatalogStory) {
+  function getComponentDescription(story: PlaygroundComponentCatalogComponentCatalogStory) {
     const category = story.category.toLowerCase();
     const subcategory = story.subcategory || '';
 
@@ -60,7 +62,7 @@ export function createPlaygroundComponentCatalogState(props: Props) {
     if (subcategory.includes('input')) return 'Form input with validation';
     if (subcategory.includes('card')) return 'Flexible card container';
     if (subcategory.includes('modal')) return 'Modal dialog overlay';
-    if (subcategory.includes('toggle')) return 'Toggle switch control';
+    if (subcategory.includes('toggle')) return 'SlotToggle switch control';
     if (subcategory.includes('select')) return 'Dropdown selection';
     if (subcategory.includes('slider')) return 'Range slider control';
 

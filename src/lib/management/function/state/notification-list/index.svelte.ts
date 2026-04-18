@@ -1,7 +1,5 @@
-import type { NotificationListProps } from '$stylist/communication/interface/component/notifications/other';
 import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-
-export interface NotificationListStateProps extends NotificationListProps {}
+import type { NotificationListStateProps } from '$stylist/management/interface/recipe/notification-list';
 
 export function createNotificationListState(props: NotificationListStateProps) {
 	const notifications = $derived(props.notifications ?? []);

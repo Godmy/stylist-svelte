@@ -1,5 +1,5 @@
 import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
-import type { ChatPreviewContract } from '$stylist/communication/interface/component/chat-preview/contract';
+import type { ChatPreviewContract } from '$stylist/communication/type/struct/chat-preview-contract';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createChatPreviewState(props: ChatPreviewProps | ChatPreviewContract) {

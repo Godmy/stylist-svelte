@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { TableWithStripesProps } from '$stylist/control/interface/component/table-extended/other';
+  import type { SlotTableWithStripes as TableWithStripesProps } from '$stylist/control/interface/slot/table-with-stripes';
   import { createTableWithStripesState } from '$stylist/control/function/state/table-with-stripes';
 
   let props: TableWithStripesProps = $props();

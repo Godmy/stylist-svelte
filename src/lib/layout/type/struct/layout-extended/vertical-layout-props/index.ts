@@ -1,15 +1,3 @@
-import type { Snippet } from 'svelte';
-import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct';
-
-type BaseLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
-	class?: string;
-	children?: Snippet;
-	gap?: string;
-	align?: string;
-	justify?: string;
-	alignItems?: string;
-	justifyContent?: string;
-	fillHeight?: boolean;
-};
+import type { BaseLayoutProps } from '$stylist/layout/type/struct/layout-extended/base-layout-props';
 
 export type VerticalLayoutProps = BaseLayoutProps;

@@ -1,5 +1,5 @@
 import { createEventDispatcher } from 'svelte';
-import type { Attachment } from '$stylist/file/interface/component/attachment-preview/other';
+import type { SlotAttachment as Attachment } from '$stylist/file/interface/slot/attachment';
 
 export function createAttachmentDispatch() {
   return createEventDispatcher<{

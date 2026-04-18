@@ -1,7 +1,7 @@
 /**
- * Input Field — поле ввода с лейблом и подсказками.
+ * Input Field вЂ” РїРѕР»Рµ РІРІРѕРґР° СЃ Р»РµР№Р±Р»РѕРј Рё РїРѕРґСЃРєР°Р·РєР°РјРё.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   ILabelSlot                (information/label-slot)
  *   ICaptionSlot              (information/caption-slot)
  *   IIconSlot                 (information/icon-slot)
@@ -9,16 +9,16 @@
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 
 export interface InputFieldRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IIconSlot,
@@ -27,3 +27,4 @@ export interface InputFieldRecipe
 		ISizable
 	]>
 {}
+

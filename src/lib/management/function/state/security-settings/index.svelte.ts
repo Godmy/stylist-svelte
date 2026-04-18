@@ -1,7 +1,5 @@
 import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
-import type { SecuritySettingsProps } from '$stylist/form/interface/component/interaction-forms/other';
-
-export interface SecuritySettingsStateProps extends SecuritySettingsProps {}
+import type { SecuritySettingsStateProps } from '$stylist/management/interface/recipe/security-settings';
 
 export function createSecuritySettingsState(props: SecuritySettingsStateProps) {
 	const twoFactor = $derived(props.twoFactor ?? true);

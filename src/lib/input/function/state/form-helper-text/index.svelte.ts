@@ -1,5 +1,5 @@
 import { createFormHelperTextState as createFormHelperTextScriptState } from '$stylist/input/function/script/create-form-helper-text-state';
-import type { IFormHelperTextProps } from '$stylist/input/interface/component/input/other';
+import type { SlotFormHelperText as IFormHelperTextProps } from '$stylist/input/interface/slot/form-helper-text';
 
 export const createFormHelperTextState = (props: IFormHelperTextProps) => {
 	const state = $derived(

@@ -1,8 +1,8 @@
 import { HoverableStyleManager } from '$stylist/interaction/class/style-manager/hoverable';
-import type { HoverProps } from '$stylist/interaction/interface/proto/hoverable-props';
+import type { SlotHoverable as HoverProps } from '$stylist/interaction/interface/slot/hoverable';
 
 export const createHoverableState = (props: HoverProps) => {
-	// State
+	// SlotState
 	let isHovered = $state(false);
 
 	// Вычисляемые классы
@@ -44,7 +44,7 @@ export const createHoverableState = (props: HoverProps) => {
 	}
 
 	return {
-		// State getters
+		// SlotState getters
 		get isHovered() {
 			return isHovered;
 		},
@@ -52,7 +52,7 @@ export const createHoverableState = (props: HoverProps) => {
 			return props.disabled;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get restProps() { return restProps; },
 

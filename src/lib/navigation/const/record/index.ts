@@ -12,4 +12,8 @@ export { GENERAL_TOOLBAR_DISPATCH_EVENTS } from './general-toolbar-dispatch-even
 export { LINK_SIZE_CLASSES } from './link-size-classes';
 export { LINK_VARIANT_CLASSES } from './link-variant-classes';
 export { PAGINATION_SIZE_CLASSES } from './pagination-size-classes';
-export { SIDE_BY_SIDE_ALIGN_CLASSES, SIDE_BY_SIDE_GAP_CLASSES, SIDE_BY_SIDE_JUSTIFY_CLASSES, SIDE_BY_SIDE_SECTION_WIDTH_MOBILE, SIDE_BY_SIDE_SECTION_WIDTH_RESPONSIVE, getSideBySideLayoutClasses, getSideBySideSectionWidthClass } from './side-by-side-layout-classes';
+export { SIDE_BY_SIDE_ALIGN_CLASSES } from './side-by-side-align-classes';
+export { SIDE_BY_SIDE_GAP_CLASSES } from './side-by-side-gap-classes';
+export { SIDE_BY_SIDE_JUSTIFY_CLASSES } from './side-by-side-justify-classes';
+export { SIDE_BY_SIDE_SECTION_WIDTH_MOBILE } from './side-by-side-section-width-mobile';
+export { SIDE_BY_SIDE_SECTION_WIDTH_RESPONSIVE } from './side-by-side-section-width-responsive';

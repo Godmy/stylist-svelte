@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
-	import Stylist from './index.svelte';
+	import RecipeStylist from './index.svelte';
 
 	const controls = [
 		{ name: 'initialCategory', type: 'select', options: ['architecture', 'theme', 'control', 'development', 'social'], defaultValue: 'architecture' }
@@ -11,8 +11,8 @@
 	}
 </script>
 
-<Story {controls} component={Stylist} title="Stylist" category="Organisms/Development/Stylist" description="Main Stylist component library browser">
+<Story {controls} component={RecipeStylist} title="RecipeStylist" category="Organisms/Development/RecipeStylist" description="Main RecipeStylist component library browser">
 	{#snippet children(values: any)}
-		<Stylist initialCategory={values.initialCategory as string} onSelectionChange={handleSelectionChange} />
+		<RecipeStylist initialCategory={values.initialCategory as string} onSelectionChange={handleSelectionChange} />
 	{/snippet}
 </Story>

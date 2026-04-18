@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon as BaseIcon } from '$stylist';
-	import type { ContentType } from '$stylist/input/function/state/content-editor-state-content-type';
-	import type { ContentEditorStateProps } from '$stylist/input/function/state/content-editor-state-props';
+	import type { ContentType } from '$stylist/input/type/enum/content-editor-style-content-type';
+	import type { ContentEditorStateProps } from '$stylist/input/interface/recipe/content-editor-state-props';
 	import { createContentEditorState } from '$stylist/input/function/state/content-editor';
 	import { ContentEditorStyleManager } from '$stylist/input/class/style-manager/content-editor';
 

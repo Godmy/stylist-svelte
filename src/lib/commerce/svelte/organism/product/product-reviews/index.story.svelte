@@ -20,7 +20,7 @@
     controls?: InterfaceControllerSettings[]
   }>();
 
-  type Review = {
+  type SlotReview = {
     id: string;
     author: string;
     rating: number;
@@ -30,13 +30,13 @@
     verified?: boolean;
   };
 
-  const reviews: Review[] = [
+  const reviews: SlotReview[] = [
     { id: '1', author: 'John D.', rating: 5, title: 'Great product!', content: 'Highly recommend this product.', date: new Date().toISOString(), verified: true },
     { id: '2', author: 'Jane S.', rating: 4, title: 'Good value', content: 'Good quality for the price.', date: new Date().toISOString(), verified: false }
   ];
 
   function handleAddReview(review: { title: string; content: string; rating: number }) {
-    console.log('Review added:', review);
+    console.log('SlotReview added:', review);
   }
 
   function handleHelpful(reviewId: string) {
@@ -79,7 +79,7 @@
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Add Review</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Add SlotReview</p>
             <div>
               <ProductReviews
                 reviews={reviews}

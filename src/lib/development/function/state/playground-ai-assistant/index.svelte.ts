@@ -1,8 +1,10 @@
 import { onMount } from 'svelte';
-import type { Props, ChatMessage, AIClientLike } from '$stylist/development/type/struct/playground-ai-assistant';
+import type { PlaygroundAiAssistantProps } from '$stylist/development/type/struct/playground-ai-assistant-props';
+import type { PlaygroundAiAssistantChatMessage } from '$stylist/development/type/struct/playground-ai-assistant-chat-message';
+import type { PlaygroundAiAssistantAIClientLike } from '$stylist/development/type/struct/playground-ai-assistant-ai-client-like';
 import { PlaygroundAiAssistantStyleManager } from '$stylist/development/class/style-manager/playground-ai-assistant';
 
-const fallbackCreateAIClient = (): AIClientLike => ({
+const fallbackCreateAIClient = (): PlaygroundAiAssistantAIClientLike => ({
 	chat: async () => {
 		throw new Error('AI client is not configured');
 	},
@@ -17,16 +19,16 @@ const providerNames: Record<string, string> = {
 	codex: 'Codex',
 };
 
-export function createPlaygroundAiAssistantState(props: Props) {
+export function createPlaygroundAiAssistantState(props: PlaygroundAiAssistantProps) {
 	const X = 'x';
 	const Send = 'send';
 	const Trash2 = 'trash-2';
 	const RotateCcw = 'rotate-ccw';
 	const Loader2 = 'loader-2';
 
-	// State
+	// SlotState
 	let inputMessage = $state('');
-	let messages = $state<ChatMessage[]>([]);
+	let messages = $state<PlaygroundAiAssistantChatMessage[]>([]);
 	let isLoading = $state(false);
 	let error = $state<string | null>(null);
 	let messagesContainer: HTMLDivElement | undefined = $state(undefined);
@@ -50,7 +52,7 @@ export function createPlaygroundAiAssistantState(props: Props) {
 	async function sendMessage() {
 		if (!inputMessage.trim() || isLoading) return;
 
-		const userMessage: ChatMessage = {
+		const userMessage: PlaygroundAiAssistantChatMessage = {
 			role: 'user',
 			content: inputMessage.trim(),
 			timestamp: Date.now(),
@@ -71,7 +73,7 @@ export function createPlaygroundAiAssistantState(props: Props) {
 				autoApproveTools: true,
 			});
 
-			const assistantMessage: ChatMessage = {
+			const assistantMessage: PlaygroundAiAssistantChatMessage = {
 				role: 'assistant',
 				content: response.text || '(empty response)',
 				timestamp: Date.now(),

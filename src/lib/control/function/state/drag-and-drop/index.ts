@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDragAndDropState } from './index.svelte';
+export { createDragAndDropState } from './index.svelte';

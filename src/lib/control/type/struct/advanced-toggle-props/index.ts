@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { AdvancedToggleProps as AdvancedToggleComponentProps } from '$stylist/control/interface/component/toggles';
+import type { RecipeAdvancedToggleProps as AdvancedToggleComponentProps } from '$stylist/control/interface/recipe/advanced-toggle-props';
 
-export type AdvancedToggleProps = AdvancedToggleComponentProps &
+export type RecipeAdvancedToggleProps = AdvancedToggleComponentProps &
 	InteractionHTMLAttributes<HTMLDivElement>;

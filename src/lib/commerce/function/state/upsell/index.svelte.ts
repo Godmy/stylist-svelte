@@ -1,4 +1,5 @@
-import type { UpsellContract, UpsellProductContract } from '$stylist/commerce/interface/component/upsell';
+import type { RecipeUpsell as UpsellContract } from '$stylist/commerce/interface/recipe/upsell';
+import type { SlotUpsellProduct as UpsellProductContract } from '$stylist/commerce/interface/slot/upsell-product';
 import { UpsellStyleManager } from '$stylist/commerce/class/style-manager/upsell';
 
 export function createUpsellState(props: UpsellContract) {

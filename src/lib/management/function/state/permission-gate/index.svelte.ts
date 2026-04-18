@@ -1,10 +1,4 @@
-import type { Snippet } from 'svelte';
-
-export interface PermissionGateProps {
-	hasPermission?: boolean;
-	fallback?: Snippet | null;
-	children: Snippet;
-}
+import type { PermissionGateProps } from '$stylist/management/interface/recipe/permission-gate';
 
 export function createPermissionGateState(props: PermissionGateProps) {
 	const hasPermission = $derived(props.hasPermission ?? true);

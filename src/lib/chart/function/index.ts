@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { resolveCanvasChartPreset } from './script';
-export { createAnalyticsChartState, createBarChartState, createCanvasChartState, createChartAxisXState, createChartAxisYState, createChartAxisZState, createChartBackgroundState, createChartCanvasState, createChartLegendState, createChartNameState, createChartPolylineState, createChartState, createHeatmapState, createLineChartState, createPieChartState, createScatterPlotState, mapPointsToViewBox } from './state';
+export { createAnalyticsChartState, createBarChartState, createCanvasChartState, createChartAxisXState, createChartAxisYState, createChartAxisZState, createChartBackgroundState, createChartCanvasState, createChartLegendState, createChartNameState, createChartPolylineState, createChartState, createHeatmapState, createLineChartState, createPieChartState, createScatterPlotState } from './state';

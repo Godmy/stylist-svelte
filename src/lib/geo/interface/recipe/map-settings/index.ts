@@ -1,9 +1,10 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /**
  * Рецепт настроек карты — комбинация базовых proto для отображения карты.
  */
-import type { ICoordinatesProto } from '$stylist/geo/interface/proto/coordinates';
+import type { BehaviorCoordinatesProto as ICoordinatesProto } from '$stylist/geo/interface/behavior/coordinates';
 
-export interface IMapSettingsRecipe {
+export interface IMapSettingsRecipe extends StructIntersectAll<[]> {
   center: ICoordinatesProto;
   zoom: number;
   minZoom?: number;

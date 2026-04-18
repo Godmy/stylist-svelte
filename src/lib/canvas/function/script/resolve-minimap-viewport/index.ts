@@ -1,5 +1,5 @@
 import type { MinimapBounds } from '$stylist/canvas/type/struct/minimap/minimap-bounds';
-import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProps } from '$stylist/science/type/struct/lite-graph-node-props';
 
 export function resolveMinimapViewport(
 	offset: { x: number; y: number },

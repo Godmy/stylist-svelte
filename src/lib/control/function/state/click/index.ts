@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createClickState } from './index.svelte';
+export { createClickState } from './index.svelte';

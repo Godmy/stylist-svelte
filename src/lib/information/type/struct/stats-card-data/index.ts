@@ -1,7 +1,6 @@
 ﻿import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card';
 import type { Snippet } from 'svelte';
 
-export type { StatsCardTrend } from '$stylist/information/type/struct/stats-card';
 
 /** Raw compact stats card payload. UI contract lives in interface/recipe. */
 export type StatsCardData = {

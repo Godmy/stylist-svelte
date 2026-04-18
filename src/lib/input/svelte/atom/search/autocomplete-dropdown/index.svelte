@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createAutocompleteDropdownState } from '$stylist/control/function/state/autocomplete-dropdown';
-  import type { AutocompleteDropdownProps } from '$stylist/control/interface/component/autocomplete-dropdown/other';
+  import type { SlotAutocompleteDropdown as AutocompleteDropdownProps } from '$stylist/control/interface/slot/autocomplete-dropdown';
 
   let {
     options = [],

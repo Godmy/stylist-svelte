@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-﻿import type { CheckboxProps } from '$stylist/control/interface/component/toggles';
+﻿import type { SlotCheckbox as CheckboxProps } from '$stylist/control/interface/slot/checkbox-toggles';
 import { StyleManagerState } from '$stylist/architecture/class/style-manager/state/index';
 
 export function createCheckboxState(props: CheckboxProps) {

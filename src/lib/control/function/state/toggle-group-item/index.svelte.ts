@@ -1,11 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { ToggleGroupItemProps } from '$stylist/control/interface/component/toggles';
-
-export type ToggleGroupItemStateProps = ToggleGroupItemProps & {
-  groupValue?: string | string[] | null;
-  groupDisabled?: boolean;
-  updateValue?: (value: string) => void;
-};
+import type { ToggleGroupItemStateProps } from '$stylist/control/type/alias/toggle-group-item-state-props';
 
 export function createToggleGroupItemState(props: ToggleGroupItemStateProps) {
   const disabled = props.disabled ?? props.groupDisabled ?? false;

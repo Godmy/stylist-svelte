@@ -1,4 +1,5 @@
-import type { ABTest, ABTestVariant } from '$stylist/marketing/interface/component/abtest-configurator/other';
+import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
+import type { SlotABTestVariant as ABTestVariant } from '$stylist/marketing/interface/slot/ab-test-variant';
 
 export function toggleABTestVariantStatus(test: ABTest, id: string): ABTest {
 	const updatedTest = { ...test };

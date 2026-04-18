@@ -1,28 +1,28 @@
 /**
- * MediaItem � ����������� / �����-������ / �����-������.
+ * MediaItem пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ / пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ / пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅ.
  *
- * LEGO-������:
- *   IMediaSlot        (information) � src, alt, thumbnail, srcSet, loading
- *   ILabelSlot        (information) � label (������� ��� �����)
- *   ICaptionSlot      (information) � caption, description
- *   IClickable        (interaction) � onClick (������� � ���������)
- *   ISizable          (architecture) � size, shape
- *   IElevatable       (architecture) � layoutElevation (�������� � �����)
- *   IMotionToken      (theme)       � duration, easing (fade-in ��� ��������)
- *   ThemeAttributes   (theme)       � data-variant
+ * LEGO-пїЅпїЅпїЅпїЅпїЅпїЅ:
+ *   IMediaSlot        (information) пїЅ src, alt, thumbnail, srcSet, loading
+ *   ILabelSlot        (information) пїЅ label (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)
+ *   ICaptionSlot      (information) пїЅ caption, description
+ *   IClickable        (interaction) пїЅ onClick (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+ *   ISizable          (architecture) пїЅ size, shape
+ *   IElevatable       (architecture) пїЅ layoutElevation (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ)
+ *   IMotionToken      (theme)       пїЅ duration, easing (fade-in пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+ *   ThemeAttributes   (theme)       пїЅ data-variant
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { IElevatable } from '$stylist/layout/interface/proto/elevatable';
-import type { IMotionToken } from '$stylist/animation/interface/proto/motion-token';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { BehaviorElevatable as IElevatable } from '$stylist/layout/interface/behavior/elevatable';
+import type { BehaviorMotionToken as IMotionToken } from '$stylist/animation/interface/behavior/motion-token';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface MediaItemRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IMediaSlot,
 		ILabelSlot,
 		ICaptionSlot,
@@ -33,3 +33,4 @@ export interface MediaItemRecipe
 		ThemeAttributes<HTMLDivElement>
 	]>
 {}
+

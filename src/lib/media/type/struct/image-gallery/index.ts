@@ -1,4 +1,4 @@
-import type { ImageGalleryContract } from '$stylist/media/interface/component/image-gallery/contract';
+import type { ContractImageGallery as ImageGalleryContract } from '$stylist/media/interface/contract/image-gallery';
 
 export type ImageGalleryProps = ImageGalleryContract & {
 	class?: string;

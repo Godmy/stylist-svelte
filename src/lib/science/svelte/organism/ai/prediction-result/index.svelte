@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { PredictionResultContract } from '$stylist/science/interface/record/science';
+	import type { RecipePredictionResult as PredictionResultContract } from '$stylist/science/interface/recipe/prediction-result';
 	import { createPredictionResultState } from '$stylist/science/function/state/prediction-result';
 
 	let props: PredictionResultContract = $props();

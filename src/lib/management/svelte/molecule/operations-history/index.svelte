@@ -1,9 +1,9 @@
 <script lang="ts">
   import { Badge, Button, Icon } from '$stylist';
-  import { createOperationsHistoryState, type Operation, type OperationsHistoryEvents } from '$stylist/management/function/state/operations-history';
-  import type { OperationsHistoryProps } from '$stylist/management/interface/component/operations-history/other';
+  import { createOperationsHistoryState, type Operation, type BehaviorOperationsHistoryEvents } from '$stylist/management/function/state/operations-history';
+  import type { SlotOperationsHistory as OperationsHistoryProps } from '$stylist/management/interface/slot/operations-history';
 
-  let props: OperationsHistoryProps & OperationsHistoryEvents = $props();
+  let props: OperationsHistoryProps & BehaviorOperationsHistoryEvents = $props();
   const state = createOperationsHistoryState(props);
 </script>
 

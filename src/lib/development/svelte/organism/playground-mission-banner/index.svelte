@@ -1,10 +1,10 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createPlaygroundMissionBannerState } from '$stylist/development/function/state/playground-mission-banner';
-  import type { Props } from '$stylist/development/type/struct/playground-mission-banner';
+  import type { PlaygroundMissionBannerProps } from '$stylist/development/type/struct/playground-mission-banner-props';
 const Sparkles = 'sparkles';
 
-  let props: Props = $props();
+  let props: PlaygroundMissionBannerProps = $props();
   const state = createPlaygroundMissionBannerState(props);
 </script>
 

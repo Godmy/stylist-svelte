@@ -1,0 +1,43 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
+import type { ScienceHTMLAttributes } from '$stylist/science/type/struct';
+import type { ChildrenHtmlAttributes } from '$stylist/science/interface/slot';
+import type { Snippet } from 'svelte';
+import type { SlotGraphToolbarItem } from '$stylist/science/interface/slot/graph-toolbar-item';
+import type { ContractLitegraphPort } from '$stylist/science/interface/contract/litegraph-port';
+import type { ContractLitegraphNode } from '$stylist/science/interface/contract/litegraph-node';
+import type { SlotLitegraphConnection } from '$stylist/science/interface/slot/litegraph-connection';
+import type { GraphGridMode } from '$stylist/science/type/struct/graph-grid-mode';
+import type { GraphPanMode } from '$stylist/science/type/struct/graph-pan-mode';
+
+export interface RecipeLitegraphCanvas extends StructIntersectAll<[]> {
+	nodes?: ContractLitegraphNode[];
+	connections?: SlotLitegraphConnection[];
+	selectedNodeIds?: string[];
+	zoom?: number;
+	offset?: { x: number; y: number };
+	showGrid?: boolean;
+	gridMode?: GraphGridMode;
+	panMode?: GraphPanMode;
+	showToolbar?: boolean;
+	showMiniMap?: boolean;
+	toolbarItems?: SlotGraphToolbarItem[];
+	allowAddNodes?: boolean;
+	allowDeleteNodes?: boolean;
+	allowDuplicateNodes?: boolean;
+	onNodeSelect?: (nodeId: string) => void;
+	onNodeDrag?: (nodeId: string, position: { x: number; y: number }) => void;
+	onNodeDelete?: (nodeId: string) => void;
+	onNodeDuplicate?: (nodeId: string) => void;
+	onNodeAdd?: (node: ContractLitegraphNode) => void;
+	onConnectionStart?: (port: ContractLitegraphPort, event: MouseEvent) => void;
+	onConnectionEnd?: (fromPort: ContractLitegraphPort, toPort: ContractLitegraphPort) => void;
+	onZoomChange?: (zoom: number) => void;
+	onOffsetChange?: (offset: { x: number; y: number }) => void;
+	onSave?: () => void;
+	onExport?: () => void;
+	onImport?: (data: unknown) => void;
+	class?: string;
+	children?: Snippet;
+	toolbarContent?: Snippet;
+}

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/development-error-boundary';
+  import type { DevelopmentErrorBoundaryProps } from '$stylist/development/type/struct/development-error-boundary-props';
   import { createDevelopmentErrorBoundaryState } from '$stylist/development/function/state/development-error-boundary';
   import { Icon as BaseIcon } from '$stylist';
 
-  let { ...props }: Props = $props();
+  let { ...props }: DevelopmentErrorBoundaryProps = $props();
   const state = createDevelopmentErrorBoundaryState(props);
 </script>
 

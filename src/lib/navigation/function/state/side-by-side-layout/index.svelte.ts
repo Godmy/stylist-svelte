@@ -1,5 +1,6 @@
 import type { SideBySideLayoutProps } from '$stylist/navigation/type/struct/side-by-side-layout-props';
-import { getSideBySideLayoutClasses, getSideBySideSectionWidthClass } from '$stylist/navigation/const/record/side-by-side-layout-classes';
+import { getSideBySideLayoutClasses } from '$stylist/navigation/function/script/get-side-by-side-layout-classes';
+import { getSideBySideSectionWidthClass } from '$stylist/navigation/function/script/get-side-by-side-section-width-class';
 
 export function createSideBySideLayoutState(props: SideBySideLayoutProps) {
 	const layoutClass = $derived(getSideBySideLayoutClasses(props));

@@ -1,4 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { cloneCanvasObjects, createCanvasObjectId, createDraftCanvasObject, drawCanvasObjects, exportCanvasImage, finalizeDraftCanvasObject, getCanvasObjectBounds, getCanvasPointerPosition, hitTestCanvasObject, resolveMinimapBounds, resolveMinimapCanvasPoint, resolveMinimapFitOffset, resolveMinimapFitZoom, resolveMinimapNodeRect, resolveMinimapOffsetForPoint, resolveMinimapViewport, updateDraftCanvasObject } from './script';
 export { createCanvasToolbarState, createConnectionLineState, createDrawingSurfaceState, createGraphCanvasState, createGraphEdgeState, createGraphNodeState, createGraphPortState, createGraphToolbarState, createMinimapState, createSharedCanvasState, createStageState, createViewportState } from './state';
-export type { Bounds, ViewportInput, ViewportState } from './state';

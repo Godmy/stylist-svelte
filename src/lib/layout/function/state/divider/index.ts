@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDividerState } from './index.svelte';
+export { createDividerState } from './index.svelte';

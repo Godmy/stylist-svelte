@@ -1,4 +1,4 @@
-﻿import type { ILanguageSelectorStyleClasses } from '$stylist/localization/interface/component/language-selector/struct/styles';
+﻿import type { SlotLanguageSelectorStyleClasses as ILanguageSelectorStyleClasses } from '$stylist/localization/interface/slot/language-selector-style-classes';
 
 export class LanguageSelectorStyleManager {
 	static getBaseClasses(className?: string): string {

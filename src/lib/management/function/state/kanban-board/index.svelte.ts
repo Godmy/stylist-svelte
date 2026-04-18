@@ -1,8 +1,7 @@
 import { KanbanBoardStyleManager } from '$stylist/management/class/style-manager/kanban-board';
 import type { KanbanBoardType, KanbanBoardAction } from '$stylist/management/type/struct/kanban-board';
-import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
-import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
-import type { Snippet } from 'svelte';
+import type { KanbanBoardStateProps } from '$stylist/management/interface/recipe/kanban-board';
+
 import {
   cloneKanbanBoard,
   moveKanbanCard,
@@ -15,27 +14,6 @@ import {
 } from '$stylist/management/function/script/kanban-board';
 
 const Plus = 'plus';
-
-export interface KanbanBoardStateProps {
-  board: KanbanBoardType;
-  controlled?: boolean;
-  allowReordering?: boolean;
-  allowColumnAdd?: boolean;
-  allowCardAdd?: boolean;
-  allowInlineEdit?: boolean;
-  allowCardArchive?: boolean;
-  allowCardDelete?: boolean;
-  showArchivedCards?: boolean;
-  onCardMove?: (cardId: string, fromColumnId: string, toColumnId: string, position: number) => void;
-  onColumnAdd?: (column: KanbanColumnType) => void;
-  onCardAdd?: (columnId: string, card: KanbanCardType) => void;
-  onColumnTitleChange?: (columnId: string, title: string) => void;
-  onCardTitleChange?: (columnId: string, cardId: string, title: string) => void;
-  onCardArchive?: (columnId: string, cardId: string) => void;
-  onCardDelete?: (columnId: string, cardId: string) => void;
-  onBoardChange?: (nextBoard: KanbanBoardType, action: KanbanBoardAction) => void;
-  content?: Snippet;
-}
 
 export function createKanbanBoardState(props: KanbanBoardStateProps) {
   // Props with defaults
@@ -58,7 +36,7 @@ export function createKanbanBoardState(props: KanbanBoardStateProps) {
   const onBoardChange = $derived(props.onBoardChange);
   const content = $derived(props.content);
 
-  // State
+  // SlotState
   let internalBoard = $state<KanbanBoardType>(cloneKanbanBoard(board));
   let previousBoardRef = $state(board);
 

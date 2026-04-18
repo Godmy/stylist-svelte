@@ -1,20 +1,21 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
-import type { IScrollable } from '$stylist/layout/interface/proto/scrollable';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
+import type { BehaviorScrollable as IScrollable } from '$stylist/layout/interface/behavior/scrollable';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
 import type { SkeletonSpecificProps } from '$stylist/notification/interface/recipe/skeleton-specific-props';
 
 export interface SkeletonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ISized,
 		IShapeable,
 		ISpaced,
 		IScrollable,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLDivElement>
 	]>,
 		SkeletonSpecificProps
 {}
+

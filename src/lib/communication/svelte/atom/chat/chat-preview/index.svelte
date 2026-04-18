@@ -2,10 +2,10 @@
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Avatar, Icon as BaseIcon } from '$stylist';
 	import { createChatPreviewState } from '$stylist/communication/function/state/chat-preview';
-	import type { ChatPreviewContract } from '$stylist/communication/interface/component/chat-preview/contract';
+	import type { ChatPreviewContract } from '$stylist/communication/type/struct/chat-preview-contract';
 	import type { ChatPreviewMessage } from '$stylist/communication/type/struct/chat-preview-message';
-	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/communication/const/struct/chat-preview-icon-check';
-	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/communication/const/struct/chat-preview-icon-check-check';
+	import { CHAT_PREVIEW_ICON_CHECK } from '$stylist/communication/const/value/chat-preview-icon-check';
+	import { CHAT_PREVIEW_ICON_CHECK_CHECK } from '$stylist/communication/const/value/chat-preview-icon-check-check';
 	import { getChatMessageAlignmentClass } from '$stylist/communication/function/script/chat-message-alignment-class';
 	import { getChatMessageBubbleClasses } from '$stylist/communication/function/script/chat-message-bubble-classes';
 

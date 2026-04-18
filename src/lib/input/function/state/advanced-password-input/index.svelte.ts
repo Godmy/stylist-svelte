@@ -1,6 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import { AdvancedPasswordInputStyleManager } from '$stylist/input/class/style-manager/advanced-password-input';
-import type { IAdvancedPasswordInputProps } from '$stylist/input/interface/component/advanced-password-input/other';
+import type { SlotAdvancedPasswordInput as IAdvancedPasswordInputProps } from '$stylist/input/interface/slot/advanced-password-input';
 
 export const createAdvancedPasswordInputState = (
 	props: IAdvancedPasswordInputProps & InteractionHTMLAttributes<HTMLInputElement>

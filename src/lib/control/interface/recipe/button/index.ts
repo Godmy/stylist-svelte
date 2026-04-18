@@ -1,17 +1,17 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ButtonSpecificProps } from '$stylist/control/interface/recipe/button-specific-props';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface ButtonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		IBadgeSlot,
@@ -19,8 +19,9 @@ export interface ButtonRecipe
 		IFocusable,
 		ISized,
 		IShapeable,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLButtonElement>
 	]>,
 		ButtonSpecificProps
 {}
+

@@ -1,4 +1,4 @@
-import type { AlertCardStoryProps } from '../alertcardstoryprops';
+import type { AlertCardStoryProps } from '$stylist/commerce/interface/recipe/alert-card-story-props';
 
 export function createAlertCardStoryState(props: AlertCardStoryProps) {
 	return {

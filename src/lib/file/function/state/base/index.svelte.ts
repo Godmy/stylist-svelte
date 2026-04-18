@@ -1,21 +1,10 @@
+import type { FileStateOptions } from '$stylist/file/type/alias/file-state-options';
+import type { FileStateResult } from '$stylist/file/type/alias/file-state-result';
+
 /**
  * Base state builder for file domain components
  * Provides consistent state structure without external dependencies
  */
-
-export type FileStateOptions<V extends string, S extends string> = {
-  variant?: V;
-  size?: S;
-  disabled?: boolean;
-  class?: string;
-};
-
-export type FileStateResult<V extends string, S extends string> = {
-  variant: V;
-  size: S;
-  disabled: boolean;
-  classes: string;
-};
 
 export function createFileState<V extends string, S extends string>(
   options: FileStateOptions<V, S> & Record<string, unknown>,

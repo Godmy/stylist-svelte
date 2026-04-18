@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundComponentTree from './index.svelte';
+  import RecipePlaygroundComponentTree from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'selectedStoryId', type: 'select', defaultValue: 'button-story', options: ['button-story', 'input-story', 'card-story'] }
@@ -23,13 +23,13 @@
 </script>
 
 <Story
-  component={PlaygroundComponentTree}
+  component={RecipePlaygroundComponentTree}
   title="Playground Component Tree"
   description="Tree view of component hierarchy and structure."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundComponentTree groupedStories={groupedStories} selectedStoryId={values.selectedStoryId} />
+    <RecipePlaygroundComponentTree groupedStories={groupedStories} selectedStoryId={values.selectedStoryId} />
   {/snippet}
 </Story>
 

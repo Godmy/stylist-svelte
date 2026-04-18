@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductWishlistState } from '$stylist/commerce/function/state/product-wishlist';
-	import type { ProductWishlistProps } from '$stylist/commerce/function/state/product-wishlist';
+	import type { ProductWishlistProps } from '$stylist/commerce/interface/recipe/product-wishlist-props';
 
 	let props: ProductWishlistProps = $props();
 	const state = createProductWishlistState(props);

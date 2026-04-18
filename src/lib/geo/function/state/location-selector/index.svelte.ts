@@ -1,6 +1,5 @@
 import type { LocationSelectorLocation, LocationSelectorProps } from '$stylist/geo/type/struct/location-selector';
-
-export interface LocationSelectorStateProps extends LocationSelectorProps {}
+import type { LocationSelectorStateProps } from '$stylist/geo/interface/recipe/location-selector';
 
 export function createLocationSelectorState(props: LocationSelectorStateProps) {
 	const locations = $derived(props.locations ?? []);

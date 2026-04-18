@@ -1,8 +1,4 @@
-export interface ComponentPreviewCodeOptions {
-	componentName?: string;
-	props?: Record<string, any>;
-	svelteCode?: string;
-}
+import type { ComponentPreviewCodeOptions } from '$stylist/development/interface/slot/component-preview-code-options';
 
 function formatPreviewPropValue(value: any): string {
 	if (typeof value === 'string') return `${value.replace(/"/g, '&quot;')}`;

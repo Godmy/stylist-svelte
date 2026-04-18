@@ -1,4 +1,4 @@
-import type { BacklogItem } from '$stylist/management/interface/struct/backlog-item';
+import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
 
 export function filterBacklogItems(
   items: BacklogItem[],

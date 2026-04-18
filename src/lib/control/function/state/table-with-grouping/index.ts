@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createTableWithGroupingState } from './index.svelte';
+export { createTableWithGroupingState } from './index.svelte';

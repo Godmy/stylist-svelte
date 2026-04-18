@@ -10,7 +10,7 @@ const Settings = 'settings';
 const BarChart3 = 'bar-chart-3';
 const Plus = 'plus';
 
-  import type { IABTestConfiguratorProps } from '$stylist/marketing/interface/component/abtest-configurator/other';
+  import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
   import { ABTestConfiguratorStyleManager } from '$stylist/marketing/class/style-manager/abtest-configurator';
   import { createABTestConfiguratorState } from '$stylist/marketing/function/state/abtest-configurator';
 

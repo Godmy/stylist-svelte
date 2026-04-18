@@ -1,6 +1,6 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { UserCardSize } from '$stylist/commerce/class/style-manager/user-card-size';
-import type { UserStatus } from '$stylist/commerce/class/style-manager/user-card-status';
+import type { UserCardSize } from '$stylist/commerce/type/enum/user-card-style-size';
+import type { UserStatus } from '$stylist/commerce/type/enum/user-card-status';
 
 export class UserCardStyleManager {
 	static getSizeClasses(size: UserCardSize): {

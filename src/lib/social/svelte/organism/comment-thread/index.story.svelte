@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import CommentThread from './index.svelte';
-  import type { CommentThreadItem } from '$stylist/social/interface/component/comment-thread/other';
+  import type { SlotCommentThreadItem as CommentThreadItem } from '$stylist/social/interface/slot/comment-thread-item';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'title', type: 'text', defaultValue: 'Discussion Thread' },

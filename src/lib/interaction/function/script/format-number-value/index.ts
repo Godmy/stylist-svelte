@@ -1,8 +1,4 @@
-export interface NumberFormatOptions {
-	format?: (n: number) => string;
-	separator?: string;
-	decimals?: number;
-}
+import type { NumberFormatOptions } from '$stylist/interaction/interface/slot/number-format-options';
 
 export function formatNumberValue(value: number, options: NumberFormatOptions): string {
 	if (options.format) return options.format(value);

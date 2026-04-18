@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Checkbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
+  import SlotCheckbox from '$stylist/control/svelte/atom/toggles/checkbox/index.svelte';
   import { CheckboxGroupStyleManager } from '$stylist/control/class/style-manager/checkbox-group';
   import type { CheckboxGroupProps } from '$stylist/control/type/struct/checkbox-group-props';
   import { createCheckboxGroupState } from '$stylist/control/function/state/checkbox-group';
@@ -60,7 +60,7 @@
     {#each options as option}
       <div class={CheckboxGroupStyleManager.getItemWrapperClass(itemClass)}>
         <div class={CheckboxGroupStyleManager.getCheckboxContainerClass()}>
-          <Checkbox
+          <SlotCheckbox
             id={option.id}
             name={name}
             value={option.value}

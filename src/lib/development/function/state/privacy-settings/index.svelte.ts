@@ -1,7 +1,7 @@
-import type { Props } from '$stylist/development/type/struct/privacy-settings';
+import type { PrivacySettingsProps } from '$stylist/development/type/struct/privacy-settings-props';
 import { PrivacySettingsStyleManager } from '$stylist/development/class/style-manager/privacy-settings';
 
-export function createPrivacySettingsState(props: Props) {
+export function createPrivacySettingsState(props: PrivacySettingsProps) {
 	let localSettings = $state([...props.settings]);
 	$effect(() => {
 		localSettings = [...props.settings];

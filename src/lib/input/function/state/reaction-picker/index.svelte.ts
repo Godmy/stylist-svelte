@@ -1,4 +1,4 @@
-import type { IReactionPickerProps } from '$stylist/input/interface/component/reaction-picker/other';
+import type { SlotReactionPicker as IReactionPickerProps } from '$stylist/input/interface/slot/reaction-picker';
 
 type ReactionType = 'like' | 'love' | 'laugh' | 'wow' | 'sad' | 'angry' | 'care' | 'share' | 'save' | 'view';
 type Reaction = {

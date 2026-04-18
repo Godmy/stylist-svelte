@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSkeletonTableState } from '$stylist/notification/function/state/skeleton-table';
-	import type { SkeletonTableProps } from '$stylist/notification/interface/component/skeleton-table/other/skeleton-table';
+	import type { SkeletonTableProps } from '$stylist/notification/type/struct/skeleton-table-props';
 
 	let props: SkeletonTableProps = $props();
 	const state = createSkeletonTableState(props);

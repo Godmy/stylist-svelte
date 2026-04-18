@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductGalleryState } from '$stylist/commerce/function/state/product-gallery';
-	import type { ProductGalleryProps } from '$stylist/commerce/function/state/product-gallery';
+	import type { ProductGalleryProps } from '$stylist/commerce/interface/recipe/product-gallery-props';
 
 	let props: ProductGalleryProps = $props();
 	const state = createProductGalleryState(props);

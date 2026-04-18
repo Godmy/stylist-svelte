@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createTranslationEditorState } from '$stylist/localization/function/state/translation-editor';
-  import type { ExtendedTranslationEditorProps } from '$stylist/localization/interface/component/translation-editor/other';
+  import type { SlotExtendedTranslationEditor as ExtendedTranslationEditorProps } from '$stylist/localization/interface/slot/extended-translation-editor';
 
   let {
     onTranslationChange,

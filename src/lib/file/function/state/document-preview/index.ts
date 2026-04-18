@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDocumentPreviewState } from './index.svelte';
+export { createDocumentPreviewState } from './index.svelte';

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/privacy-settings';
+  import type { PrivacySettingsProps } from '$stylist/development/type/struct/privacy-settings-props';
   import { createPrivacySettingsState } from '$stylist/development/function/state/privacy-settings';
 
   let {
     settings = [],
     onSave = () => {},
     class: className = ''
-  }: Props = $props();
+  }: PrivacySettingsProps = $props();
 
   const state = createPrivacySettingsState({ settings, onSave, class: className });
 </script>

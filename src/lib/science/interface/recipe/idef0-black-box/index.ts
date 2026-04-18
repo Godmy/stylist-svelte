@@ -1,15 +1,15 @@
-/**
- * Idef0BlackBox — чёрный ящик IDEF0..
+﻿/**
+ * Idef0BlackBox вЂ” С‡С‘СЂРЅС‹Р№ СЏС‰РёРє IDEF0..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0BlackBoxRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ThemeAttributes<HTMLDivElement>
 	]>
@@ -19,3 +19,4 @@ export interface Idef0BlackBoxRecipe
 	boxWidth?: number;
 	boxHeight?: number;
 }
+

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Idef0OutputsProps } from '$stylist/science/type/struct/idef-zero';
-	import { createIdef0OutputsState } from '$stylist/science/function/state/idef0';
+	import { createIdef0OutputsState } from '$stylist/science/function/state/idef0-outputs';
 	import Idef0Connector from '$stylist/science/svelte/atom/diagrams/idef-zero-connector/index.svelte';
 
 	let props: Idef0OutputsProps = $props();

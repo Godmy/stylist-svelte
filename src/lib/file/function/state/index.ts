@@ -13,5 +13,3 @@ export { createFileListItemState } from './file-list-item';
 export { createFileUploadState } from './file-upload';
 export { createUploadProgressState } from './upload-progress';
 export { createZipViewerState } from './zip-viewer';
-export type { FileStateOptions, FileStateResult } from './base';
-export type { UploadProgressStateProps } from './upload-progress';

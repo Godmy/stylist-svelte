@@ -23,7 +23,7 @@
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
   import { Icon as BaseIcon } from '$stylist';
   import { createAdvancedPasswordInputState } from '$stylist/input/function/state/advanced-password-input';
-  import type { IAdvancedPasswordInputProps } from '$stylist/input/interface/component/advanced-password-input/other';
+  import type { SlotAdvancedPasswordInput as IAdvancedPasswordInputProps } from '$stylist/input/interface/slot/advanced-password-input';
 
   const Eye = 'eye';
   const EyeOff = 'eye-off';

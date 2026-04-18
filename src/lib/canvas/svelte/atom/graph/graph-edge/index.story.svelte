@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
-	import GraphEdge from './index.svelte';
-	import GraphNode from '../graph-node/index.svelte';
+	import SlotGraphEdge from './index.svelte';
+	import SlotGraphNode from '../graph-node/index.svelte';
 	import type { TokenSize as GraphNodeSize } from '$stylist/layout/type/enum/size';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
@@ -200,8 +200,8 @@
 
 <Story
 	{controls}
-	component={GraphEdge}
-	title="GraphEdge Component"
+	component={SlotGraphEdge}
+	title="SlotGraphEdge Component"
 	description="Interactive graph edges between draggable nodes. Try dragging nodes and switching edge type/direction."
 >
 	{#snippet children(values: any)}
@@ -235,7 +235,7 @@
 					{@const from = findNode(edge.from)}
 					{@const to = findNode(edge.to)}
 					{#if from && to}
-						<GraphEdge
+						<SlotGraphEdge
 							fromNodeId={edge.from}
 							toNodeId={edge.to}
 							directed={Boolean(values.directed)}
@@ -248,7 +248,7 @@
 				{/each}
 
 				{#each nodes as node (node.id)}
-					<GraphNode
+					<SlotGraphNode
 						id={node.id}
 						label={node.label}
 						x={node.position.x}

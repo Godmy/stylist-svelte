@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createCardSkeletonState } from '$stylist/notification/function/state/card-skeleton';
-	import type { CardSkeletonProps } from '$stylist/notification/interface/component/card-skeleton/other';
+	import type { SlotCardSkeleton as CardSkeletonProps } from '$stylist/notification/interface/slot/card-skeleton';
 	import { Skeleton } from '../skeleton';
 
 	let {

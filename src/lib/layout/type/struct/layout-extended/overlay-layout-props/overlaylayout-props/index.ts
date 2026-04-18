@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
-import type { OverlayLayoutAlign } from '$stylist/layout/class/style-manager/overlay-layout';
+import type { OverlayLayoutAlign } from '$stylist/layout/type/enum/overlay-layout-align';
 import type { OverlayLayerProps } from '../overlaylayer-props';
 
 export type OverlayLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {

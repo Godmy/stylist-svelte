@@ -28,9 +28,9 @@
 <Story
 	{controls}
 	component={TokenRadio}
-	title="Token Radio"
+	title="Token SlotRadio"
 	category="Atoms/Interaction/Controls"
-	description="Radio-РєРѕРЅС‚СЂРѕР» РґР»СЏ РІС‹Р±РѕСЂР° РѕРґРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РёР· РЅР°Р±РѕСЂР° С‚РѕРєРµРЅРѕРІ"
+	description="SlotRadio-РєРѕРЅС‚СЂРѕР» РґР»СЏ РІС‹Р±РѕСЂР° РѕРґРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ РёР· РЅР°Р±РѕСЂР° С‚РѕРєРµРЅРѕРІ"
 	tags={['token', 'radio', 'select']}
 >
 	{#snippet children(values: any)}

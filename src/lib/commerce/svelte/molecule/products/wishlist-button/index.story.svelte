@@ -21,7 +21,7 @@
         disabled={values.disabled}
         onToggle={() => (toggles += 1)}
       />
-      <p class="text-sm text-[var(--color-text-secondary)]">Toggle count: {toggles}</p>
+      <p class="text-sm text-[var(--color-text-secondary)]">SlotToggle count: {toggles}</p>
     </div>
   {/snippet}
 </Story>

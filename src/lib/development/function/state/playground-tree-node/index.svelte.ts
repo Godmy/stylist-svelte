@@ -1,11 +1,12 @@
-import type { Props, Story, TreeNodeData } from '$stylist/development/type/struct/playground-tree-node';
-
+import type { PlaygroundTreeNodeProps } from '$stylist/development/type/struct/playground-tree-node-props';
+import type { PlaygroundTreeNodeStory } from '$stylist/development/type/struct/playground-tree-node-story';
+import type { PlaygroundTreeNodeTreeNodeData } from '$stylist/development/type/struct/playground-tree-node-tree-node-data';
 const ChevronRight = 'chevron-right';
 const Folder = 'folder';
 const FolderOpen = 'folder-open';
 const FileCode = 'file-code';
 
-export function createPlaygroundTreeNodeState(props: Props) {
+export function createPlaygroundTreeNodeState(props: PlaygroundTreeNodeProps) {
   const node = $derived(props.node);
   const level = $derived(props.level);
   const expandedNodes = $derived(props.expandedNodes);

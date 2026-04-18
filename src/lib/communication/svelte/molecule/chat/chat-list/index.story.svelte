@@ -1,7 +1,8 @@
 <script lang="ts">
   import Story from '$stylist/development/svelte/playground/Story.svelte';
   import ChatList from './index.svelte';
-  import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
 
   const currentUser: User = {

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createSyntaxHighlightedCodeState } from './index.svelte';
+export { createSyntaxHighlightedCodeState } from './index.svelte';

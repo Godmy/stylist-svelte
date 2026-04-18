@@ -1,26 +1,9 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-export type SidebarLayoutSide = 'left' | 'right';
-export type SidebarLayoutGap = 'none' | 'sm' | 'md' | 'lg' | 'xl';
-export type SidebarLayoutWidth = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-
-const GAP_MAP: Record<SidebarLayoutGap, string> = {
-	none: 'gap-0',
-	sm: 'gap-2',
-	md: 'gap-4',
-	lg: 'gap-6',
-	xl: 'gap-8'
-};
-
-const SIDEBAR_WIDTH_MAP: Record<SidebarLayoutWidth, string> = {
-	xs: 'w-48',
-	sm: 'w-56',
-	md: 'w-64',
-	lg: 'w-72',
-	xl: 'w-80'
-};
-
-const SIDEBAR_COLLAPSED_WIDTH = 'w-0 overflow-hidden';
+import { SIDEBAR_LAYOUT_GAP_MAP as GAP_MAP } from '$stylist/layout/const/map/sidebar-layout-gap-map';
+import { SIDEBAR_LAYOUT_WIDTH_MAP as SIDEBAR_WIDTH_MAP } from '$stylist/layout/const/map/sidebar-layout-width-map';
+import { SIDEBAR_COLLAPSED_WIDTH } from '$stylist/layout/const/value/sidebar-collapsed-width';
+import type { SidebarLayoutGap } from '$stylist/layout/type/enum/sidebar-layout-gap';
+import type { SidebarLayoutWidth } from '$stylist/layout/type/enum/sidebar-layout-width';
 
 export class SidebarLayoutStyleManager {
 	static getGapClass(gap: SidebarLayoutGap): string {

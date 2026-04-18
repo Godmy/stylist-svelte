@@ -1,4 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { handleFilterChange, handleLayoutChange, handleReset, toggleCollapsed } from './script';
-export { SEARCH_ICON_NAME, createAddressFormState, createFilterPanelState, createFormErrorMessageState, createFormFooterState, createFormHeaderState, createFormHelperTextState, createFormSelectionState, createFormWithValidationState, createLoginFormState, createRadioGroupState, createScreenReaderState, createSearchFormState, createValidationState } from './state';
-export type { AddressFormState, FilterPanelState, FormSelectionState, FormWithValidationState, LoginFormState, RadioGroupState, ScreenReaderState, SearchFormState, ValidationState } from './state';
+export { createAddressFormState, createFilterPanelState, createFormErrorMessageState, createFormFooterState, createFormHeaderState, createFormHelperTextState, createFormSelectionState, createFormWithValidationState, createLoginFormState, createRadioGroupState, createScreenReaderState, createSearchFormState, createValidationState } from './state';

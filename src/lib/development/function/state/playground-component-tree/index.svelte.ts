@@ -1,33 +1,31 @@
-import type { Props, GroupedStories, TreeNodeData, Story } from '$stylist/development/type/struct/playground-component-tree';
-import {
-  PLAYGROUND_COMPONENT_TREE_CODE,
-  PLAYGROUND_COMPONENT_TREE_LAYERS,
-  PLAYGROUND_COMPONENT_TREE_PACKAGE
-} from '$stylist/development/const/map/playground-component-tree';
+import type { PlaygroundComponentTreeProps } from '$stylist/development/type/struct/playground-component-tree-props';
+import type { PlaygroundComponentTreeGroupedStories } from '$stylist/development/type/struct/playground-component-tree-grouped-stories';
+import type { PlaygroundComponentTreeTreeNodeData } from '$stylist/development/type/struct/playground-component-tree-tree-node-data';
+import type { PlaygroundComponentTreeStory } from '$stylist/development/type/struct/playground-component-tree-story';
+import { TOKEN_DEVELOPMENT_ICON } from '$stylist/development/const/icon';
+
 import {
   playgroundComponentTreeSortTreeNode,
   playgroundComponentTreeAnnotateAutoSelectable,
   playgroundComponentTreeFindNodeByPath
 } from '$stylist/development/function/script/playground-component-tree';
 
-export type PlaygroundComponentTreeState = ReturnType<typeof createPlaygroundComponentTreeState>;
-
-export function createPlaygroundComponentTreeState(props: Props) {
+export function createPlaygroundComponentTreeState(props: PlaygroundComponentTreeProps) {
   const categoryConfig: Record<string, { icon: any; color: string; bg: string; border: string }> = {
     'Atoms': {
-      icon: PLAYGROUND_COMPONENT_TREE_CODE,
+      icon: TOKEN_DEVELOPMENT_ICON.find((icon) => icon === 'code') ?? 'code',
       color: 'text-blue-600 dark:text-blue-400',
       bg: 'bg-blue-50 dark:bg-blue-900/10',
       border: 'border-blue-200 dark:border-blue-700'
     },
     'Molecules': {
-      icon: PLAYGROUND_COMPONENT_TREE_LAYERS,
+      icon: TOKEN_DEVELOPMENT_ICON.find((icon) => icon === 'layers') ?? 'layers',
       color: 'text-purple-600 dark:text-purple-400',
       bg: 'bg-purple-50 dark:bg-purple-900/10',
       border: 'border-purple-200 dark:border-purple-700'
     },
     'Organisms': {
-      icon: PLAYGROUND_COMPONENT_TREE_PACKAGE,
+      icon: TOKEN_DEVELOPMENT_ICON.find((icon) => icon === 'package') ?? 'package',
       color: 'text-green-600 dark:text-green-400',
       bg: 'bg-green-50 dark:bg-green-900/10',
       border: 'border-green-200 dark:border-green-700'
@@ -39,12 +37,12 @@ export function createPlaygroundComponentTreeState(props: Props) {
   let focusedPath = $state<string | null>(null);
   let treeContainer: HTMLDivElement | undefined;
 
-  function buildTree(): TreeNodeData[] {
+  function buildTree(): PlaygroundComponentTreeTreeNodeData[] {
     storyPathMap.clear();
-    const tree: TreeNodeData[] = [];
+    const tree: PlaygroundComponentTreeTreeNodeData[] = [];
 
     Object.keys(categoryConfig).forEach(category => {
-      const categoryNode: TreeNodeData = {
+      const categoryNode: PlaygroundComponentTreeTreeNodeData = {
         name: category,
         type: 'category',
         path: category,
@@ -52,13 +50,13 @@ export function createPlaygroundComponentTreeState(props: Props) {
         count: 0
       };
 
-      const categoryStories = (props.groupedStories ?? {} as GroupedStories)[category];
+      const categoryStories = (props.groupedStories ?? {} as PlaygroundComponentTreeGroupedStories)[category];
       if (!categoryStories) {
         tree.push(categoryNode);
         return;
       }
 
-      const folderMap = new Map<string, TreeNodeData>();
+      const folderMap = new Map<string, PlaygroundComponentTreeTreeNodeData>();
 
       Object.entries(categoryStories).forEach(([subcategory, stories]) => {
         stories.forEach(story => {
@@ -74,7 +72,7 @@ export function createPlaygroundComponentTreeState(props: Props) {
           segments.forEach((segment) => {
             const segmentPath = `${currentPath}/${segment}`;
             if (!folderMap.has(segmentPath)) {
-              const folderNode: TreeNodeData = {
+              const folderNode: PlaygroundComponentTreeTreeNodeData = {
                 name: segment.charAt(0).toUpperCase() + segment.slice(1),
                 type: 'folder',
                 path: segmentPath,
@@ -134,7 +132,7 @@ export function createPlaygroundComponentTreeState(props: Props) {
     focusedPath = path;
   };
 
-  const handleComponentClick = (story: Story) => {
+  const handleComponentClick = (story: PlaygroundComponentTreeStory) => {
     props.onComponentSelect?.(story.id);
     const storyPath = Array.from(storyPathMap.entries()).find(([id]) => id === story.id)?.[1];
     if (storyPath && storyPath.length > 0) focusedPath = storyPath[storyPath.length - 1];
@@ -142,7 +140,7 @@ export function createPlaygroundComponentTreeState(props: Props) {
 
   function buildFlatNodeList(): string[] {
     const flatList: string[] = [];
-    function traverse(node: TreeNodeData) {
+    function traverse(node: PlaygroundComponentTreeTreeNodeData) {
       flatList.push(node.path);
       if (expandedNodes.has(node.path) && node.children?.length) node.children.forEach(traverse);
     }

@@ -89,5 +89,3 @@ export function getTokenIconKind(tokenName: string): TokenIconKind {
 			return 'default';
 	}
 }
-
-export default getTokenIconKind;

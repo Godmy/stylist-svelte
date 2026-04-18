@@ -11,7 +11,7 @@
 
   const initialItems: DragItem[] = [
     { id: '1', title: 'Define north star', content: 'Set success metrics for the next launch.' },
-    { id: '2', title: 'Sync with design', content: 'Review motion specs for onboarding.' },
+    { id: '2', title: 'Sync with design', content: 'SlotReview motion specs for onboarding.' },
     { id: '3', title: 'QA checkout', content: 'Verify discount flows on mobile.' },
     { id: '4', title: 'Plan rollout', content: 'Confirm phased release with GTM.' }
   ];

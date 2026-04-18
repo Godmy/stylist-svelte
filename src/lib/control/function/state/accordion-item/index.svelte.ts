@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { AccordionItemProps } from '$stylist/control/interface/component/accordion/other';
+import type { SlotAccordionItem as AccordionItemProps } from '$stylist/control/interface/slot/accordion-item';
 
 type AccordionItemContext = {
 	accordionId: string;

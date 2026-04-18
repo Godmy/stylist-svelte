@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { AccordionPanelProps } from '$stylist/control/interface/component/accordion/other';
+import type { SlotAccordionPanel as AccordionPanelProps } from '$stylist/control/interface/slot/accordion-panel';
 
 type AccordionPanelContext = {
 	isPanelOpen: (value: string) => boolean;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createNotificationCenterState } from '$stylist/management/function/state/notification-center';
-  import type { NotificationCenterProps } from '$stylist/communication/interface/component/notifications/other';
+  import type { NotificationCenterProps } from '$stylist/communication/type/struct/notification-center-props';
 
   let props: NotificationCenterProps = $props();
   const state = createNotificationCenterState(props);

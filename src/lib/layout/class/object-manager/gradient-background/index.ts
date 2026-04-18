@@ -1,17 +1,8 @@
 import type { ThemeGradientBackgroundRecipe } from '$stylist/layout/interface/recipe/gradient-background';
 import type { GradientLinear } from '$stylist/layout/type/map/gradient-linear';
 import type { TokenGradient } from '$stylist/layout/type/enum/gradient-mode';
-
-type GradientBackgroundStyle = {
-	backgroundImage: string;
-	gradientStart: string;
-	gradientEnd: string;
-	gradientInner: string;
-	gradientOuter: string;
-	animationDuration?: string;
-};
-
-type GradientDirection = 'horizontal' | 'vertical' | 'diagonal' | 'reverseDiagonal';
+import type { GradientBackgroundStyle } from '$stylist/layout/type/struct/gradient-background-style';
+import type { GradientDirection } from '$stylist/layout/type/alias/gradient-direction';
 
 export class ObjectManagerGradientBackground {
 	static readonly defaultColors = [

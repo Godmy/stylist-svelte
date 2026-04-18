@@ -3,8 +3,7 @@ import type { TokenAppearance } from '$stylist/interaction/type/record/appearanc
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 import { BUTTON_VARIANT_CLASSES } from '$stylist/control/const/record/button-variant-classes';
 import { BUTTON_SIZE_CLASSES } from '$stylist/control/const/record/button-size-classes';
-
-const BUTTON_LOADER_CLASSES = 'absolute inset-0 flex items-center justify-center';
+import { TOKEN_BUTTON_LOADER_CLASSES } from '$stylist/control/const/enum/button-loader-classes';
 
 export class ButtonStyleManager {
 	private static join(classes: Array<string | false | null | undefined>): string {
@@ -20,7 +19,7 @@ export class ButtonStyleManager {
 	}
 
 	static getButtonLoaderClasses(): string {
-		return BUTTON_LOADER_CLASSES;
+		return TOKEN_BUTTON_LOADER_CLASSES.join(' ');
 	}
 
 	static getButtonClasses(

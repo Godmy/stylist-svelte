@@ -1,11 +1,6 @@
-import { Icon as BaseIcon } from '$stylist';
 import { ObjectManagerStatsCard } from '$stylist/information/class/object-manager/stats-card';
 import { StatsCardStyleManager } from '$stylist/information/class/style-manager/stats-card';
-import type { StatsCardRecipe } from '$stylist/information/interface/recipe/stats-card';
-
-export interface StatsCardStateProps extends StatsCardRecipe {
-	class?: string;
-}
+import type { StatsCardStateProps } from '$stylist/information/interface/recipe/stats-card-stats-card-state-props';
 
 export function createStatsCardState(props: StatsCardStateProps) {
 	// Props with defaults

@@ -1,21 +1,5 @@
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import { DraggableCardStyleManager } from '$stylist/management/class/style-manager/draggable-card';
-import type { DraggableCardProps } from '$stylist/management/interface/component/draggable-card/other';
-
-export type CardData = {
-	id: string;
-	title: string;
-	description?: string;
-	content?: any;
-	status?: string;
-	tags?: string[];
-	dueDate?: Date;
-	assignedTo?: string;
-};
-
-export type DraggableCardRestProps = Omit<InteractionHTMLAttributes<HTMLElement>, 'class'>;
-
-export type DraggableCardStateProps = DraggableCardProps;
+import type { DraggableCardStateProps } from '$stylist/management/type/alias/draggable-card-state-props';
 
 export function createDraggableCardState(props: DraggableCardStateProps) {
 	const data = $derived(props.data);
@@ -52,7 +36,7 @@ export function createDraggableCardState(props: DraggableCardStateProps) {
 	function handleDragStart(e: DragEvent): void {
 		if (disabled || !draggable) return;
 		isDragging = true;
-		e.dataTransfer?.setData('text/plain', data.id);
+		e.dataTransfer?.setData('text/plain', String(data.id ?? ''));
 		props.onDragStart?.(data);
 	}
 

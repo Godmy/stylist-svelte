@@ -1,4 +1,5 @@
-import type { ModelSelectorContract, ModelOption } from '$stylist/science/interface/record/science';
+import type { RecipeModelSelector as ModelSelectorContract } from '$stylist/science/interface/recipe/model-selector';
+import type { SlotModelOption as ModelOption } from '$stylist/science/interface/slot/model-option';
 import { ModelSelectorStyleManager } from '$stylist/science/class/style-manager/model-selector';
 
 export function createModelSelectorState(props: ModelSelectorContract) {

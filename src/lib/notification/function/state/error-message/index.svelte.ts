@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import type { ErrorMessageProps } from '$stylist/notification/interface/component/error-message/other';
+import type { SlotErrorMessage as ErrorMessageProps } from '$stylist/notification/interface/slot/error-message-error-message';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createErrorMessageState(props: ErrorMessageProps) {

@@ -1,4 +1,4 @@
-import type { IErrorBoundaryProps } from '$stylist/notification/interface/component/error-boundary/other';
+import type { SlotErrorBoundary as IErrorBoundaryProps } from '$stylist/notification/interface/slot/error-boundary';
 
 /**
  * @class ErrorBoundaryStyleManager

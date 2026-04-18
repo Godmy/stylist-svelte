@@ -1,17 +1,18 @@
 /**
- * Click — базовый кликабельный элемент.
+ * Click вЂ” Р±Р°Р·РѕРІС‹Р№ РєР»РёРєР°Р±РµР»СЊРЅС‹Р№ СЌР»РµРјРµРЅС‚.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   IClickable                (interaction/clickable)
  *   IFocusable                (interaction/focusable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
 
 export interface ClickRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IClickable,
 		IFocusable
 	]>
 {}
+

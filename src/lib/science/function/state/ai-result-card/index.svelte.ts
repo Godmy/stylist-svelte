@@ -1,4 +1,4 @@
-import type { AiResultCardContract } from '$stylist/science/interface/record/science';
+import type { RecipeAiResultCard as AiResultCardContract } from '$stylist/science/interface/recipe/ai-result-card';
 import { AiResultCardStyleManager } from '$stylist/science/class/style-manager/ai-result-card';
 
 export function createAiResultCardState(props: AiResultCardContract) {

@@ -1,6 +1,6 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { createInputTextState } from '$stylist/input/function/state/input-text';
-import type { IInputDoubleProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputDouble as IInputDoubleProps } from '$stylist/input/interface/slot/input-double';
 
 export const createInputDoubleState = (props: IInputDoubleProps) => {
 	const hasError1 = $derived((props.errors1?.length ?? 0) > 0);

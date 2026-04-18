@@ -1,4 +1,4 @@
-import type { IDropZoneStyleClasses } from '$stylist/file/interface/component/drop-zone/struct/styles';
+import type { SlotDropZoneStyleClasses as IDropZoneStyleClasses } from '$stylist/file/interface/slot/drop-zone-style-classes';
 
 /**
  * Style utility class following Single Responsibility Principle

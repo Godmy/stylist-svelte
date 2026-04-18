@@ -1,5 +1,5 @@
 import { FormHeaderStyleManager } from '$stylist/form/class/style-manager/form-header';
-import type { FormHeaderProps } from '$stylist/form/interface/component/form-header/other';
+import type { SlotFormHeader as FormHeaderProps } from '$stylist/form/interface/slot/form-header';
 
 export function createFormHeaderState(props: FormHeaderProps) {
 	let rootClass = $derived(FormHeaderStyleManager.root(props.class ?? ''));

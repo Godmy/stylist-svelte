@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import DocumentationBlock from './index.svelte';
+  import RecipeDocumentationBlock from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'title', type: 'text', defaultValue: 'Deployment Guide' },
@@ -43,15 +43,15 @@
 
 <Story
   id="molecules-documentation-block"
-  title="Molecules / Information / Development / DocumentationBlock"
-  component={DocumentationBlock}
+  title="Molecules / Information / Development / RecipeDocumentationBlock"
+  component={RecipeDocumentationBlock}
   category="Molecules/Information/Development"
   description="Rich documentation section with HTML content and optional code examples."
   {controls}
 >
   {#snippet children(args: any)}
     <div class="p-4 rounded-xl bg-gray-50">
-      <DocumentationBlock
+      <RecipeDocumentationBlock
         title={args.title}
         content={content}
         variant={args.variant}

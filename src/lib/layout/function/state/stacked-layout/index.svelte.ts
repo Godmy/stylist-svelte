@@ -1,15 +1,8 @@
-import { StackedLayoutStyleManager, type StackedLayoutDirection, type StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout';
+import { StackedLayoutStyleManager } from '$stylist/layout/class/style-manager/stacked-layout';
+import type { StackedLayoutDirection } from '$stylist/layout/type/enum/stacked-layout-direction';
+import type { StackedLayoutGap } from '$stylist/layout/type/enum/stacked-layout-gap';
+import type { StackedLayoutProps } from '$stylist/layout/interface/recipe/stacked-layout';
 
-export type { StackedLayoutDirection, StackedLayoutGap } from '$stylist/layout/class/style-manager/stacked-layout';
-
-export interface StackedLayoutProps {
-	direction?: StackedLayoutDirection;
-	gap?: StackedLayoutGap;
-	alignItems?: 'start' | 'center' | 'end' | 'stretch';
-	justifyContent?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
-	class?: string;
-	children?: any;
-}
 
 export function createStackedLayoutState(props: StackedLayoutProps) {
 	const direction = $derived<StackedLayoutDirection>(props.direction ?? 'vertical');
@@ -58,5 +51,3 @@ export function createStackedLayoutState(props: StackedLayoutProps) {
 }
 
 export default createStackedLayoutState;
-
-

@@ -1,23 +1,24 @@
 /**
- * Burger Menu — кнопка открытия/закрытия меню.
+ * Burger Menu вЂ” РєРЅРѕРїРєР° РѕС‚РєСЂС‹С‚РёСЏ/Р·Р°РєСЂС‹С‚РёСЏ РјРµРЅСЋ.
  *
- * LEGO-состав:
+ * LEGO-СЃРѕСЃС‚Р°РІ:
  *   IIconSlot                 (information/icon-slot)
  *   IClickable                (interaction/clickable)
  *   IFocusable                (interaction/focusable)
  *   ISizable                  (architecture/sizable)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 
 export interface BurgerMenuRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IIconSlot,
 		IClickable,
 		IFocusable,
 		ISizable
 	]>
 {}
+

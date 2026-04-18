@@ -1,5 +1,5 @@
 import { SearchSuggestionStyleManager } from '$stylist/control/class/style-manager/search-suggestion';
-import type { SearchSuggestionProps } from '$stylist/control/interface/component/search-suggestion/other';
+import type { SlotSearchSuggestion as SearchSuggestionProps } from '$stylist/control/interface/slot/search-suggestion';
 
 export function createSearchSuggestionState(props: SearchSuggestionProps) {
 	let displayedSuggestions = $derived((props.suggestions ?? []).slice(0, props.maxSuggestions ?? 5));

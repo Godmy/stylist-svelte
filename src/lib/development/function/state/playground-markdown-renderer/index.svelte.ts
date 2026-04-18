@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-markdown-renderer';
-
-export function createPlaygroundMarkdownRendererState(props: Props) {
+import type { PlaygroundMarkdownRendererProps } from '$stylist/development/type/struct/playground-markdown-renderer-props';
+export function createPlaygroundMarkdownRendererState(props: PlaygroundMarkdownRendererProps) {
   const content = $derived(props.content);
   const hostClass = $derived(props.class ?? '');
 

@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для компонентов обратной связи */
 import type { Snippet } from 'svelte';
 
-export interface FeedbackSpecificProps {
+export interface FeedbackSpecificProps extends StructIntersectAll<[]> {
 	/** Тип компонента */
 	type?: 'feedback' | 'error' | 'toast' | 'dialog' | 'boundary';
 

@@ -2,4 +2,3 @@
 export type { TokenNotificationIcon } from './icon';
 export type { SpinnerVariant } from './spinner-variant';
 export type { ToastType } from './toast-type';
-export type { Toast, ToastAction } from './toast-type';

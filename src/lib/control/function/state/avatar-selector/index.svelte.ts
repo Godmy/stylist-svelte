@@ -1,12 +1,5 @@
-export type AvatarSelectorSize = 'sm' | 'md' | 'lg' | 'xl';
-
-export interface AvatarSelectorProps {
-	src?: string;
-	alt?: string;
-	size?: AvatarSelectorSize;
-	class?: string;
-	children?: import('svelte').Snippet;
-}
+import type { AvatarSelectorSize } from '$stylist/control/type/alias/avatar-selector-size';
+import type { AvatarSelectorProps } from '$stylist/control/interface/recipe/avatar-selector';
 
 export function createAvatarSelectorState(props: AvatarSelectorProps) {
 	const sizeClasses = {

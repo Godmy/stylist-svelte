@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
   import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
-  import type { DocumentPreviewProps } from '$stylist/form/interface/component/interaction-forms/other';
+  import type { SlotDocumentPreview as DocumentPreviewProps } from '$stylist/form/interface/slot/document-preview';
   import { createDocumentPreviewState } from '$stylist/file/function/state/document-preview';
   let props: DocumentPreviewProps = $props();
   const state = createDocumentPreviewState(props);

@@ -1,6 +1,6 @@
 import { PaymentInfoStyleManager } from '$stylist/commerce/class/style-manager/payment-controls';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
-import type { PaymentInfoProps } from '../paymentinfoprops';
+import type { PaymentInfoProps } from '$stylist/commerce/interface/recipe/payment-info-props';
 
 export function createPaymentInfoState(props: PaymentInfoProps) {
 	let selectedMethodId = $state(

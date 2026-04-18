@@ -1,7 +1,7 @@
-import type { ActionSegmentedControlProps } from '$stylist/control/interface/component/toggles';
+import type { RecipeActionSegmentedControlProps as RecipeActionSegmentedControlProps } from '$stylist/control/interface/recipe/action-segmented-control-props';
 import { InteractionStyleManager } from '$stylist/interaction/class/style-manager/interaction';
 
-export function createActionSegmentedControlState(props: ActionSegmentedControlProps) {
+export function createActionSegmentedControlState(props: RecipeActionSegmentedControlProps) {
 	const items = $derived(props.items);
 	const selectedIndex = $derived(props.selectedIndex ?? 0);
 	const containerClasses = $derived(

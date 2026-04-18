@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import ChatStatusIndicator from '$stylist/communication/svelte/atom/chat/atoms/chat-status-indicator/index.svelte';
   import { createUserStatusState } from '$stylist/communication/function/state/user-status';
 

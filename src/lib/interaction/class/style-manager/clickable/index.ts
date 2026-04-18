@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { ClickableStyleManagerOptions } from '$stylist/interaction/class/style-manager/clickable-style-manager-options';
+import type { ClickableStyleManagerOptions } from '$stylist/interaction/interface/slot/clickable-style-manager-options';
 
 export class ClickableStyleManager {
 	private static readonly BASE = 'transition-all duration-120 ease-in-out';

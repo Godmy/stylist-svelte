@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { AnimatedStyleManagerOptions } from '$stylist/animation/class/style-manager/animated-style-manager-options';
+import type { AnimatedStyleManagerOptions } from '$stylist/animation/interface/slot/animated-style-manager-options';
 
 export class AnimatedStyleManager {
 	private static readonly BASE = 'will-change-transform';

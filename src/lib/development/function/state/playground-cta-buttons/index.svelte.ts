@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-cta-buttons';
-
-export function createPlaygroundCtaButtonsState(props: Props) {
+import type { PlaygroundCtaButtonsProps } from '$stylist/development/type/struct/playground-cta-buttons-props';
+export function createPlaygroundCtaButtonsState(props: PlaygroundCtaButtonsProps) {
   const totalComponents = $derived(props.totalComponents);
   const componentsHref = $derived(props.componentsHref ?? '/components');
   const playgroundHref = $derived(props.playgroundHref ?? '/playground');

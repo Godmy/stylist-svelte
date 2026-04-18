@@ -1,15 +1,7 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-const PERFORMANCE_DASHBOARD_SIZE_CLASSES = {
-	sm: 'text-sm',
-	md: 'text-base',
-	lg: 'text-lg'
-} as const;
-
-const PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES =
-	'px-3 py-1.5 text-sm rounded-md border border-[--color-border-primary] transition-colors';
-
-const DEFAULT_PERFORMANCE_DASHBOARD_SIZE: keyof typeof PERFORMANCE_DASHBOARD_SIZE_CLASSES = 'md';
+import { PERFORMANCE_DASHBOARD_SIZE_CLASSES } from '$stylist/management/const/map/performance-dashboard-size-classes';
+import { DEFAULT_PERFORMANCE_DASHBOARD_SIZE } from '$stylist/management/const/value/default-performance-dashboard-size';
+import { PERFORMANCE_DASHBOARD_TIME_RANGE_BUTTON_BASE_CLASSES } from '$stylist/management/const/value/performance-dashboard-time-range-button-base-classes';
 
 export class PerformanceDashboardStyleManager {
 	static getContainerClass(variant: string, size: string, className?: string): string {

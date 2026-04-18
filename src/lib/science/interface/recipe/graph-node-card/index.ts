@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { Snippet } from 'svelte';
 
-export interface GraphNodeCardRecipe {
+export interface GraphNodeCardRecipe extends StructIntersectAll<[]> {
   id?: string;
   name?: string;
   type?: string;

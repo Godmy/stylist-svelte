@@ -77,9 +77,9 @@
     <section class="sb-organisms-order-confirmation grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Order Confirmation Example
+          Primary SlotOrder Confirmation Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Order confirmation page with all details.</p>
+        <p class="mt-1 text-[--color-text-primary]">SlotOrder confirmation page with all details.</p>
 
         <div class="mt-6">
           <OrderConfirmation
@@ -95,14 +95,14 @@
       </div>
 
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Order Variations</h3>
+        <h3 class="text-base font-semibold text-[--color-text-primary]">SlotOrder Variations</h3>
         <p class="text-sm text-[--color-text-secondary]">
           Different order confirmation configurations with various options.
         </p>
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Shipped Order</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Shipped SlotOrder</p>
             <div>
               <OrderConfirmation
                 {...orderData}
@@ -119,7 +119,7 @@
           </article>
 
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delivered Order</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Delivered SlotOrder</p>
             <div>
               <OrderConfirmation
                 {...orderData}

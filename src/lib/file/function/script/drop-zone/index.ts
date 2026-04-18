@@ -1,4 +1,4 @@
-import type { DropItem } from '$stylist/file/type/struct/drop-zone/item';
+import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
 
 export function handleDragOver(
   e: DragEvent,
@@ -52,14 +52,14 @@ export function handleFileInput(
 
 export function processFiles(
   fileList: FileList,
-  items: DropItem[],
+  items: SlotDropItem[],
   accept: string,
   maxSize: number,
   maxItems: number,
-  onItemAdded?: (item: DropItem) => void,
-  onDrop?: (items: DropItem[]) => void
-): DropItem[] {
-  const newItems: DropItem[] = [];
+  onItemAdded?: (item: SlotDropItem) => void,
+  onDrop?: (items: SlotDropItem[]) => void
+): SlotDropItem[] {
+  const newItems: SlotDropItem[] = [];
 
   for (let i = 0; i < fileList.length; i++) {
     const file = fileList[i];
@@ -83,7 +83,7 @@ export function processFiles(
       break;
     }
 
-    const newItem: DropItem = {
+    const newItem: SlotDropItem = {
       id: `${file.name}-${file.size}-${file.lastModified}`,
       name: file.name,
       type: file.type || 'unknown',
@@ -106,9 +106,9 @@ export function processFiles(
 
 export function removeItem(
   id: string,
-  items: DropItem[],
-  onItemRemoved?: (item: DropItem) => void
-): DropItem[] {
+  items: SlotDropItem[],
+  onItemRemoved?: (item: SlotDropItem) => void
+): SlotDropItem[] {
   const item = items.find(i => i.id === id);
   if (item) {
     onItemRemoved?.(item);
@@ -117,7 +117,7 @@ export function removeItem(
   return items;
 }
 
-export function clearAll(): DropItem[] {
+export function clearAll(): SlotDropItem[] {
   return [];
 }
 

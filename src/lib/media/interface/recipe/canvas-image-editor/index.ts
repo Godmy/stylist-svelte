@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 import type { Snippet } from 'svelte';
 
-export interface CanvasImageEditorRecipe {
+export interface CanvasImageEditorRecipe extends StructIntersectAll<[]> {
   width?: number;
   height?: number;
   src?: string;

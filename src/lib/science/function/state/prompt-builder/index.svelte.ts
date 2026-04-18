@@ -1,4 +1,5 @@
-import type { PromptBuilderContract, PromptVariable } from '$stylist/science/interface/record/science';
+import type { RecipePromptBuilder as PromptBuilderContract } from '$stylist/science/interface/recipe/prompt-builder';
+import type { ContractPromptVariable as PromptVariable } from '$stylist/science/interface/contract/prompt-variable';
 import { PromptBuilderStyleManager } from '$stylist/science/class/style-manager/prompt-builder';
 
 export function createPromptBuilderState(props: PromptBuilderContract) {

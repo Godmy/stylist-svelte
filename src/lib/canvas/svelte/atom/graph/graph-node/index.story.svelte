@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
 	import Story from '$stylist/development/svelte/playground/Story.svelte';
-	import GraphNode from './index.svelte';
-	import GraphEdge from '../graph-edge/index.svelte';
+	import SlotGraphNode from './index.svelte';
+	import SlotGraphEdge from '../graph-edge/index.svelte';
 	import type { TokenSize as GraphNodeSize } from '$stylist/layout/type/enum/size';
 	import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
@@ -192,8 +192,8 @@
 
 <Story
 	{controls}
-	component={GraphNode}
-	title="GraphNode Component"
+	component={SlotGraphNode}
+	title="SlotGraphNode Component"
 	description="Interactive graph nodes with selection, drag-and-drop and keyboard movement."
 >
 	{#snippet children(values: any)}
@@ -218,7 +218,7 @@
 						{@const from = findNode(link.from)}
 						{@const to = findNode(link.to)}
 						{#if from && to}
-							<GraphEdge
+							<SlotGraphEdge
 								fromNodeId={from.id}
 								toNodeId={to.id}
 								type="straight"
@@ -230,7 +230,7 @@
 				{/if}
 
 				{#each nodes as node (node.id)}
-					<GraphNode
+					<SlotGraphNode
 						id={node.id}
 						x={node.position.x}
 						y={node.position.y}

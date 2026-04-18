@@ -1,18 +1,18 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
-import type { IPointClickable } from '$stylist/interaction/interface/proto/point-clickable';
-import type { ILegendable } from '$stylist/chart/interface/proto/legendable';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
+import type { BehaviorPointClickable as IPointClickable } from '$stylist/interaction/interface/behavior/point-clickable';
+import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { IChartColorable } from '$stylist/chart/interface/proto/chart-colorable';
-import type { IChartAxis } from '$stylist/chart/interface/proto/chart-axis';
+import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
+import type { BehaviorChartAxis as IChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
 import type { ScatterPlotDataPoint } from '$stylist/chart/type/struct/scatter-plot-point';
 
 /**
  * ScatterPlot = label + frame + axis config + legend toggle + scatter dataset.
  */
 export interface ScatterPlotRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IDimensionable,
 		ILabelSlot,
 		IChartAxis,
@@ -30,3 +30,4 @@ export interface ScatterPlotRecipe
 	pointSize?: number;
 	showLabels?: boolean;
 }
+

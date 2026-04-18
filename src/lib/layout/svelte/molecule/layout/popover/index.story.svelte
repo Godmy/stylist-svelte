@@ -14,7 +14,7 @@
 	{#snippet children(values: any)}
 		<Popover title={values.title} open={values.open} position={values.position}>
 			{#snippet trigger()}
-				<button class="rounded-md bg-[--color-primary-600] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)]">Toggle popover</button>
+				<button class="rounded-md bg-[--color-primary-600] px-3 py-2 text-sm font-semibold text-[var(--color-text-inverse)]">SlotToggle popover</button>
 			{/snippet}
 			{#snippet content()}
 				<ul class="space-y-1 text-sm">

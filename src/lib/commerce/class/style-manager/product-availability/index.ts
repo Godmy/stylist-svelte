@@ -1,14 +1,6 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-const PRODUCT_AVAILABILITY_STATUS_CLASSES = {
-	inStock: 'border-[var(--color-success-200)] bg-[var(--color-success-50)]',
-	outOfStock: 'border-[var(--color-danger-200)] bg-[var(--color-danger-50)]'
-} as const;
-
-const PRODUCT_AVAILABILITY_BADGE_CLASSES = {
-	inStock: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
-	outOfStock: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
-} as const;
+import { PRODUCT_AVAILABILITY_STATUS_CLASSES } from '$stylist/commerce/const/map/product-availability-status-classes';
+import { PRODUCT_AVAILABILITY_BADGE_CLASSES } from '$stylist/commerce/const/map/product-availability-badge-classes';
 
 
 

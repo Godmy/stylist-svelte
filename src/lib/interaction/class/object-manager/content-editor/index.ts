@@ -1,5 +1,5 @@
-import type { ContentType } from '$stylist/interaction/class/object-manager/content-editor-content-type';
-import type { ContentElement } from '$stylist/interaction/class/object-manager/content-editor-content-element';
+import type { ContentType } from '$stylist/interaction/type/enum/content-editor-content-type';
+import type { ContentElement } from '$stylist/interaction/type/struct/content-editor-content-element';
 
 export class ObjectManagerContentEditor {
 	/**

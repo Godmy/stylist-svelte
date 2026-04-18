@@ -1,28 +1,7 @@
-import type { HTMLButtonAttributes } from 'svelte/elements';
-import type { Snippet } from 'svelte';
-import type { ContainerProps } from '$stylist/layout/type/struct/container';
-import type { ThemeBackgroundRecipe } from '$stylist/layout/interface/recipe/background';
-import type { BorderRecipe } from '$stylist/layout/interface/recipe/border';
-import type { ClickProps } from '$stylist/control/interface/component/click/other';
-import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ButtonMouseEvent } from '$stylist/control/type/struct/button-mouse-event';
 import type { ButtonPropsRecord } from '$stylist/control/type/struct/button-props-record';
 import { createAtoms, mergeAtomClasses, mergeAtomStyles } from '$stylist/interaction/factory/atoms';
-
-export type ButtonMoleculeProps = HTMLButtonAttributes &
-	ContainerProps &
-	ThemeBackgroundRecipe &
-	BorderRecipe &
-	ClickProps & {
-		variant?: TokenAppearance;
-		size?: TokenSize;
-		loading?: boolean;
-		block?: boolean;
-		loadingLabel?: string;
-		children?: Snippet;
-		class?: string;
-	};
+import type { ButtonMoleculeProps } from '$stylist/control/type/alias/button-molecule-props';
 
 export function createButtonMoleculeState(props: ButtonMoleculeProps) {
 	const atoms = $derived(createAtoms(['container', 'background', 'border', 'click'], props));

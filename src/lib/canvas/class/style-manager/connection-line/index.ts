@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { ConnectionPathResult } from '$stylist/canvas/class/style-manager/connection-line-path-result';
+import type { ConnectionPathResult } from '$stylist/canvas/interface/slot/connection-line-path-result';
 
 export class ConnectionLineStyleManager {
   static getBaseLineClasses(className?: string): string {

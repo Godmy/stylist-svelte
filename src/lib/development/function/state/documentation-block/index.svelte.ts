@@ -1,7 +1,7 @@
-import type { Props } from '$stylist/development/type/struct/documentation-block';
+import type { DocumentationBlockProps } from '$stylist/development/type/struct/documentation-block-props';
 import { DocumentationBlockStyleManager } from '$stylist/development/class/style-manager/documentation-block';
 
-export function createDocumentationBlockState(props: Props) {
+export function createDocumentationBlockState(props: DocumentationBlockProps) {
 	let variantClasses = $derived({
 		default: 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900',
 		info: 'border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20',

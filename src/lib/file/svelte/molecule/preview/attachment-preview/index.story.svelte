@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import AttachmentPreview from './index.svelte';
+  import RecipeAttachmentPreview from './index.svelte';
 
   type Props = {
     attachmentName: string;
@@ -31,8 +31,8 @@
 
 <Story
   id="molecules-attachment-preview"
-  title="AttachmentPreview"
-  component={AttachmentPreview}
+  title="RecipeAttachmentPreview"
+  component={RecipeAttachmentPreview}
   category="Molecules"
   description="A component to preview file attachments."
   tags={['file', 'preview', 'attachment']}
@@ -42,7 +42,7 @@
     <div class="p-6">
       <h2 class="text-xl font-semibold mb-6">Attachment Preview</h2>
       <div class="max-w-md mx-auto">
-        <AttachmentPreview
+        <RecipeAttachmentPreview
           attachment={{
             id: '1',
             name: values.attachmentName,

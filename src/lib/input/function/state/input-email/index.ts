@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createInputEmailState } from './index.svelte';
+export { createInputEmailState } from './index.svelte';

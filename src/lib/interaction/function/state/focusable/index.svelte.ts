@@ -1,8 +1,8 @@
 import { FocusableStyleManager } from '$stylist/interaction/class/style-manager/focusable';
-import type { FocusProps } from '$stylist/interaction/interface/proto/focusable-props';
+import type { SlotFocusable as FocusProps } from '$stylist/interaction/interface/slot/focusable';
 
 export const createFocusableState = (props: FocusProps) => {
-	// State
+	// SlotState
 	let isFocused = $state(false);
 
 	// Вычисляемые классы
@@ -44,7 +44,7 @@ export const createFocusableState = (props: FocusProps) => {
 	}
 
 	return {
-		// State getters
+		// SlotState getters
 		get isFocused() {
 			return isFocused;
 		},
@@ -52,7 +52,7 @@ export const createFocusableState = (props: FocusProps) => {
 			return props.disabled;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get restProps() { return restProps; },
 

@@ -1,5 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { MessageInputContract } from '$stylist/communication/interface/component/message-input';
+import type { SlotMessageInput as MessageInputContract } from '$stylist/communication/interface/slot/message-input';
 import {
 	handleInputFn,
 	handleKeydownFn,

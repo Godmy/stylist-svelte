@@ -3,7 +3,7 @@
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
   import TeamMemberCard from './index.svelte';
-  import type { ITeamMemberCardProps } from '$stylist/management/interface/component/team-member-card/other';
+  import type { SlotTeamMemberCard as ITeamMemberCardProps } from '$stylist/management/interface/slot/team-member-card';
 
   let {
     id = '',

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 	import { Icon } from '$stylist';
-	import type { MessageInputContract } from '$stylist/communication/interface/component/message-input';
+	import type { SlotMessageInput as MessageInputContract } from '$stylist/communication/interface/slot/message-input';
 	import { createMessageInputState } from '$stylist/communication/function/state/message-input';
 
 	let props: MessageInputContract & InteractionHTMLAttributes<HTMLDivElement> = $props();

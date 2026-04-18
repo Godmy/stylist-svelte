@@ -4,8 +4,8 @@ export type { AccordionHeaderDoubleProps } from './accordion-header-double-props
 export type { AccordionHeaderProps } from './accordion-header-props';
 export type { AccordionItemProps } from './accordion-item-props';
 export type { AccordionPanelProps } from './accordion-panel-props';
-export type { ActionSegmentedControlProps } from './action-segmented-control-props';
-export type { AdvancedToggleProps } from './advanced-toggle-props';
+export type { RecipeActionSegmentedControlProps } from './action-segmented-control-props';
+export type { RecipeAdvancedToggleProps } from './advanced-toggle-props';
 export type { AdvancedVirtualTreeProps } from './advanced-virtual-tree-props';
 export type { BurgerMenuProps } from './burger-menu-props';
 export type { ButtonMouseEvent } from './button-mouse-event';

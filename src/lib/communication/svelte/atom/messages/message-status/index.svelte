@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
-	import type { MessageStatusProps } from '$stylist/communication/interface/component/message-status';
+	import type { RecipeMessageStatusProps as RecipeMessageStatusProps } from '$stylist/communication/interface/recipe/message-status-props';
 	import { createMessageStatusState } from '$stylist/communication/function/state/message-status';
 
-	let props: MessageStatusProps = $props();
+	let props: RecipeMessageStatusProps = $props();
 
 	const state = createMessageStatusState({ status: props.status ?? 'sent', size: props.size ?? 'sm', class: props.class });
 </script>

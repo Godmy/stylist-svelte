@@ -1,4 +1,4 @@
-import type { IUploadFile } from '$stylist/file/interface/component/upload-progress/struct/file';
+import type { SlotUploadFile as IUploadFile } from '$stylist/file/interface/slot/upload-file-upload-progress-2';
 
 export function handleRetry(
   file: IUploadFile,

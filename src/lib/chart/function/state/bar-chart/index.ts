@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createBarChartState } from './index.svelte';
+export { createBarChartState } from './index.svelte';

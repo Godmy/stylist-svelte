@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import SentimentAnalysis from './index.svelte';
-  import type { SentimentResult } from '$stylist/science/interface/component/sentiment-analysis/other';
+  import type { SlotSentimentResult as SentimentResult } from '$stylist/science/interface/slot/sentiment-result';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'text', type: 'text', defaultValue: 'I like this product. It works very well.' },

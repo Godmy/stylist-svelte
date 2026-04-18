@@ -1,9 +1,8 @@
 <script lang="ts">
   import { marked } from 'marked';
   import { createPlaygroundMarkdownRendererState } from '$stylist/development/function/state/playground-markdown-renderer';
-  import type { Props } from '$stylist/development/type/struct/playground-markdown-renderer';
-
-  let props: Props = $props();
+  import type { PlaygroundMarkdownRendererProps } from '$stylist/development/type/struct/playground-markdown-renderer-props';
+  let props: PlaygroundMarkdownRendererProps = $props();
   const state = createPlaygroundMarkdownRendererState(props);
 
   // Configure marked for safe rendering

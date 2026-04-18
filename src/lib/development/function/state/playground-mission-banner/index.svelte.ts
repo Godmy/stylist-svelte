@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-mission-banner';
-
-export function createPlaygroundMissionBannerState(props: Props) {
+import type { PlaygroundMissionBannerProps } from '$stylist/development/type/struct/playground-mission-banner-props';
+export function createPlaygroundMissionBannerState(props: PlaygroundMissionBannerProps) {
   const badgeText = $derived(props.badgeText ?? 'Our Mission');
   const title = $derived(props.title ?? 'Building the Future of\nComponent Libraries');
   const description = $derived(props.description ?? "To create the world's largest library of visual components for Svelte 5 developers. Every release expands this AI-curated collection, enabling teams to build consistent user interfaces faster with components designed by collective intelligence.");

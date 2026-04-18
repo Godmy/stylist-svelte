@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { MessageThreadProps } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotMessageThread as MessageThreadProps } from '$stylist/communication/interface/slot/message-thread';
   import { createMessageThreadState } from '$stylist/communication/function/state/message-thread';
 
   let props: MessageThreadProps = $props();

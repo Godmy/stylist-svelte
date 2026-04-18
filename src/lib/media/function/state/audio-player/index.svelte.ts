@@ -1,19 +1,9 @@
 import type { HTMLAttributes } from 'svelte/elements';
 import { formatTime } from '$stylist/media/function/script/format-time';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
+import type { AudioPlayerProps } from '$stylist/media/interface/recipe/audio-player-audio-player-props';
 
 type RestProps = Omit<HTMLAttributes<HTMLDivElement>, 'class'>;
-
-export interface AudioPlayerProps extends RestProps {
-	src?: string;
-	title?: string;
-	showControls?: boolean;
-	autoPlay?: boolean;
-	loop?: boolean;
-	muted?: boolean;
-	class?: string;
-	controlsClass?: string;
-}
 
 export function createAudioPlayerState(props: AudioPlayerProps) {
 	let audioRef = $state<HTMLAudioElement | null>(null);

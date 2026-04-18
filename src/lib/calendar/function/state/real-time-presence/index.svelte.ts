@@ -1,8 +1,7 @@
-import type { RealTimePresenceContract, RealTimePresenceStatus } from '$stylist/calendar/interface/record/calendar';
+import type { RealTimePresenceStatus } from '$stylist/calendar/type/struct/real-time-presence-status';
+import type { RecipeRealTimePresence as RealTimePresenceContract } from '$stylist/calendar/interface/recipe/real-time-presence';
 
-export type RealTimePresenceStateProps = RealTimePresenceContract;
-
-export function createRealTimePresenceState(props: RealTimePresenceStateProps) {
+export function createRealTimePresenceState(props: RealTimePresenceContract) {
 	const users = $derived(props.users ?? []);
 	const showAvatars = $derived(props.showAvatars ?? true);
 	const showStatus = $derived(props.showStatus ?? true);

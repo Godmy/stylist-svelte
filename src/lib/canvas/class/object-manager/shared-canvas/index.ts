@@ -1,7 +1,5 @@
-import {
-	SHARED_CANVAS_ACTION_ICONS,
-	SHARED_CANVAS_TOOL_DEFINITIONS
-} from '$stylist/canvas/const/struct/canvas';
+import { SHARED_CANVAS_ACTION_ICONS } from '$stylist/canvas/const/map/canvas-action-icons';
+import { SHARED_CANVAS_TOOL_DEFINITIONS } from '$stylist/canvas/const/record/canvas-tool-definitions';
 import type { SharedCanvasToolDefinition } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-tool-definition';
 import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
 

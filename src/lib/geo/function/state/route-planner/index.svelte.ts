@@ -1,6 +1,5 @@
 import type { RoutePlannerLocation, RouteOption, RoutePlannerProps } from '$stylist/geo/type/struct/route-planner';
-
-export interface RoutePlannerStateProps extends RoutePlannerProps {}
+import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
 
 export function createRoutePlannerState(props: RoutePlannerStateProps) {
 	const startLocation = $derived(props.startLocation);

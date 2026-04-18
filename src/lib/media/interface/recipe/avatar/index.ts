@@ -1,26 +1,26 @@
 /**
- * Avatar — представление пользователя (фото, инициалы, статус).
+ * Avatar вЂ” РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ (С„РѕС‚Рѕ, РёРЅРёС†РёР°Р»С‹, СЃС‚Р°С‚СѓСЃ).
  *
- * LEGO-состав:
- *   IMediaSlot        (information) — src, alt (фото пользователя)
- *   ILabelSlot        (information) — label (имя пользователя / инициалы fallback)
- *   IStatusSlot       (information) — status (online, away, offline…)
- *   IBadgeSlot        (information) — count, dot (счётчик уведомлений поверх аватара)
- *   IClickable        (interaction) — onClick (открыть профиль)
- *   ISizable          (architecture) — size, shape (circular / rounded)
- *   ThemeAttributes   (theme)       — data-variant
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   IMediaSlot        (information) вЂ” src, alt (С„РѕС‚Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ)
+ *   ILabelSlot        (information) вЂ” label (РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ / РёРЅРёС†РёР°Р»С‹ fallback)
+ *   IStatusSlot       (information) вЂ” status (online, away, offlineвЂ¦)
+ *   IBadgeSlot        (information) вЂ” count, dot (СЃС‡С‘С‚С‡РёРє СѓРІРµРґРѕРјР»РµРЅРёР№ РїРѕРІРµСЂС… Р°РІР°С‚Р°СЂР°)
+ *   IClickable        (interaction) вЂ” onClick (РѕС‚РєСЂС‹С‚СЊ РїСЂРѕС„РёР»СЊ)
+ *   ISizable          (architecture) вЂ” size, shape (circular / rounded)
+ *   ThemeAttributes   (theme)       вЂ” data-variant
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface AvatarRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IMediaSlot,
 		ILabelSlot,
 		IStatusSlot,
@@ -30,3 +30,4 @@ export interface AvatarRecipe
 		ThemeAttributes<HTMLDivElement>
 	]>
 {}
+

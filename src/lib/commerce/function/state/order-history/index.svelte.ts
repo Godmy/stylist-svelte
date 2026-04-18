@@ -1,4 +1,5 @@
-import type { OrderHistoryContract, OrderContract } from '$stylist/commerce/interface/component/order-history';
+import type { RecipeOrderHistory as OrderHistoryContract } from '$stylist/commerce/interface/recipe/order-history';
+import type { SlotOrder as OrderContract } from '$stylist/commerce/interface/slot/order';
 import { OrderHistoryStyleManager } from '$stylist/commerce/class/style-manager/order-history';
 
 export function createOrderHistoryState(props: OrderHistoryContract) {

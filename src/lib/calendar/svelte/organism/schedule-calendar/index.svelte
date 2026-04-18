@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createScheduleCalendarState } from '$stylist/calendar/function/state/schedule-calendar';
-	import type { ScheduleCalendarStateProps } from '$stylist/calendar/function/state/schedule-calendar';
+	import type { RecipeScheduleCalendar as ScheduleCalendarStateProps } from '$stylist/calendar/interface/recipe/schedule-calendar';
 	import { Icon as BaseIcon, Button } from '$stylist';
 	import { TimeSlot } from '$stylist/calendar/svelte/atom/time-slot';
 

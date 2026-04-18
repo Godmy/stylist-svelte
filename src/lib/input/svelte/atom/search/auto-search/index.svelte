@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createAutoSearchState } from '$stylist/control/function/state/auto-search';
-  import type { AutoSearchProps } from '$stylist/control/interface/component/auto-search/other';
+  import type { SlotAutoSearch as AutoSearchProps } from '$stylist/control/interface/slot/auto-search';
 
   let {
     value = '',

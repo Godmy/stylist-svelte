@@ -1,4 +1,4 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { TooltipProps as TooltipComponentProps } from '$stylist/control/interface/component/tooltip/other';
+import type { SlotTooltip as TooltipComponentProps } from '$stylist/control/interface/slot/tooltip';
 
 export type TooltipProps = TooltipComponentProps & InteractionHTMLAttributes<HTMLElement>;

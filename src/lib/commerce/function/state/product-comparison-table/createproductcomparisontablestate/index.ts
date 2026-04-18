@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProductComparisonTableState } from './index.svelte';
+export { createProductComparisonTableState } from './index.svelte';

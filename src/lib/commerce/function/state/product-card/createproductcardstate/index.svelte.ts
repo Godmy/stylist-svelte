@@ -1,6 +1,6 @@
 import { ProductCardStyleManager } from '$stylist/commerce/class/style-manager/product-card';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
-import type { ProductCardStateProps } from '../productcardstateprops';
+import type { ProductCardStateProps } from '$stylist/commerce/interface/recipe/product-card-state-props';
 
 export function createProductCardState(props: ProductCardStateProps) {
 	// Props with defaults

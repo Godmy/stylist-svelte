@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { ModelSelectorContract } from '$stylist/science/interface/record/science';
+	import type { RecipeModelSelector as ModelSelectorContract } from '$stylist/science/interface/recipe/model-selector';
 	import { createModelSelectorState } from '$stylist/science/function/state/model-selector';
 
 	let props: ModelSelectorContract = $props();

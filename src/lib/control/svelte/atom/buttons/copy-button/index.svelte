@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist'; const Copy = 'copy'; const Check = 'check';
-import type { CopyButtonProps } from '$stylist/control/interface/component/button/other';
+import type { SlotCopyButton as CopyButtonProps } from '$stylist/control/interface/slot/copy-button';
 import { createCopyButtonState } from '$stylist/control/function/state/copy-button';
 
 	let props: CopyButtonProps = $props();

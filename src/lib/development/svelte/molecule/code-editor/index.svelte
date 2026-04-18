@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor';
+  import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
   import { createCodeEditorState } from '$stylist/development/function/state/code-editor';
 
   const Copy = 'copy';
@@ -41,9 +41,3 @@
     readonly={readOnly}
   ></textarea>
 </div>
-
-
-
-
-
-

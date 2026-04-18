@@ -1,6 +1,8 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
-import type { SidebarLayoutGap, SidebarLayoutSide, SidebarLayoutWidth } from '$stylist/layout/class/style-manager/sidebar-layout';
+import type { SidebarLayoutGap } from '$stylist/layout/type/enum/sidebar-layout-gap';
+import type { SidebarLayoutSide } from '$stylist/layout/type/enum/sidebar-layout-side';
+import type { SidebarLayoutWidth } from '$stylist/layout/type/enum/sidebar-layout-width';
 
 export type SidebarLayoutProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;

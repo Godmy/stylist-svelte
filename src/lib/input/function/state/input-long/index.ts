@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createInputLongState } from './index.svelte';
+export { createInputLongState } from './index.svelte';

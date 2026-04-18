@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import {
-		createWidgetContainerState,
-		type WidgetContainerProps
-	} from '$stylist/layout/function/state/widget-container';
+	import { createWidgetContainerState } from '$stylist/layout/function/state/widget-container';
+	import type { WidgetContainerProps } from '$stylist/layout/type/alias/widget-container-props';
 
 	const GripVertical = 'grip-vertical';
 	const MoreHorizontal = 'more-horizontal';

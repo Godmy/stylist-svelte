@@ -1,6 +1,6 @@
 import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
-import type { MessageStatusProps } from '$stylist/communication/interface/component/message-status';
+import type { RecipeMessageStatusProps as RecipeMessageStatusProps } from '$stylist/communication/interface/recipe/message-status-props';
 
 /**
  * MessageStatus state creator
@@ -9,7 +9,7 @@ import type { MessageStatusProps } from '$stylist/communication/interface/compon
  * @param props - MessageStatus component props
  * @returns Reactive state object with classes and computed values
  */
-export function createMessageStatusState(props: MessageStatusProps) {
+export function createMessageStatusState(props: RecipeMessageStatusProps) {
 	const status = $derived(props.status ?? 'sent');
 	const size = $derived(props.size ?? 'sm');
 	const containerClasses = $derived(

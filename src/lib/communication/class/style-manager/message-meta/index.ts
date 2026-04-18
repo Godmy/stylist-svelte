@@ -1,4 +1,4 @@
-import type { IMessageMetaStyleClasses } from '$stylist/communication/interface/component/message-meta/other';
+import type { SlotMessageMetaStyleClasses as IMessageMetaStyleClasses } from '$stylist/communication/interface/slot/message-meta-style-classes';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
 /**

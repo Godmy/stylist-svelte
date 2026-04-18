@@ -1,7 +1,7 @@
-import type { Props } from '$stylist/development/type/struct/atomic-principles-showcase';
+import type { AtomicPrinciplesShowcaseProps } from '$stylist/development/type/struct/atomic-principles-showcase-props';
 import { AtomicPrinciplesShowcaseStyleManager } from '$stylist/development/class/style-manager/atomic-principles-showcase';
 
-export function createAtomicPrinciplesShowcaseState(props: Props) {
+export function createAtomicPrinciplesShowcaseState(props: AtomicPrinciplesShowcaseProps) {
 	const GitBranch = 'git-branch';
 	const Code = 'code';
 	const Layers = 'layers';

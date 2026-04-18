@@ -1,6 +1,6 @@
 import { ObjectManagerTableControls } from '$stylist/control/class/object-manager/table-controls';
 import { TableExtendedStyleManager } from '$stylist/control/class/style-manager/table-extended';
-import type { TableWithGroupingProps } from '$stylist/control/interface/component/table-extended/other';
+import type { SlotTableWithGrouping as TableWithGroupingProps } from '$stylist/control/interface/slot/table-with-grouping';
 
 export function createTableWithGroupingState(props: TableWithGroupingProps) {
 	const groups = $derived(

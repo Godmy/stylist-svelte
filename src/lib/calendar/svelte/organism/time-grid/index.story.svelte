@@ -1,12 +1,12 @@
 <script lang="ts">
   import Story from '$stylist/development/svelte/playground/Story.svelte';
   import TimeGrid from './index.svelte';
-  import type { ITimeGridProps } from '$stylist/calendar/interface/component/time-grid/struct';
-  import type { CalendarEventTimeGrid as CalendarEvent } from '$stylist/calendar/type/struct';
+  import type { SlotTimeGrid as ITimeGridProps } from '$stylist/calendar/interface/slot/time-grid';
+  import type { CalendarEventTimeGrid as RecipeCalendarEvent } from '$stylist/calendar/type/struct';
   import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
 
   // Sample events data
-  const sampleEvents: CalendarEvent[] = [
+  const sampleEvents: RecipeCalendarEvent[] = [
     {
       id: '1',
       title: 'Team Meeting',
@@ -18,7 +18,7 @@
     },
     {
       id: '2',
-      title: 'Design Review',
+      title: 'Design SlotReview',
       start: (() => {
         const date = new Date();
         date.setDate(date.getDate() + 1);
@@ -84,7 +84,7 @@
     }
   ];
 
-  function handleEventClick(event: CalendarEvent) {
+  function handleEventClick(event: RecipeCalendarEvent) {
     console.log('Event clicked:', event.title);
   }
 

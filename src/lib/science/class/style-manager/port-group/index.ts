@@ -38,7 +38,6 @@ export class PortGroupStyleManager {
 	}
 }
 
-export default PortGroupStyleManager;
 
 
 

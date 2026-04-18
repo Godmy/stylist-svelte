@@ -1,19 +1,19 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IDimensionable } from '$stylist/layout/interface/proto/dimensionable';
-import type { ICellClickable } from '$stylist/interaction/interface/proto/cell-clickable';
-import type { ITooltipable } from '$stylist/interaction/interface/proto/tooltipable';
-import type { ILegendable } from '$stylist/chart/interface/proto/legendable';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorDimensionable as IDimensionable } from '$stylist/layout/interface/behavior/dimensionable';
+import type { BehaviorCellClickable as ICellClickable } from '$stylist/interaction/interface/behavior/cell-clickable';
+import type { BehaviorTooltipable as ITooltipable } from '$stylist/interaction/interface/behavior/tooltipable';
+import type { BehaviorLegendable as ILegendable } from '$stylist/chart/interface/behavior/legendable';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { IChartColorable } from '$stylist/chart/interface/proto/chart-colorable';
-import type { IChartAxis } from '$stylist/chart/interface/proto/chart-axis';
+import type { BehaviorChartColorable as IChartColorable } from '$stylist/chart/interface/behavior/chart-colorable';
+import type { BehaviorChartAxis as IChartAxis } from '$stylist/chart/interface/behavior/chart-axis';
 import type { IHeatmapCell } from '$stylist/chart/type/struct/heatmap/cell';
 
 /**
  * Heatmap = label + frame + axis config + legend/tooltip toggles + heatmap cells.
  */
 export interface HeatmapRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IDimensionable,
 		ILabelSlot,
 		IChartAxis,
@@ -32,3 +32,4 @@ export interface HeatmapRecipe
 	showAxisArrows?: boolean;
 	cellPadding?: number;
 }
+

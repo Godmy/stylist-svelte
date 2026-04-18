@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-  import type { INumberInputProps } from '$stylist/input/interface/component/number-input/other';
+  import type { SlotNumberInput as INumberInputProps } from '$stylist/input/interface/slot/number-input';
   import { Icon as BaseIcon } from '$stylist';
   import { createNumberInputState } from '$stylist/input/function/state/number-input';
 

@@ -1,12 +1,13 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для различных типов переключателей */
-export interface ToggleSpecificProps {
+export interface ToggleSpecificProps extends StructIntersectAll<[]> {
 	/** Тип переключателя */
 	type?: 'toggle' | 'checkbox' | 'radio' | 'switch';
 
-	/** Для Checkbox: разрешить множественный выбор */
+	/** Для SlotCheckbox: разрешить множественный выбор */
 	multiple?: boolean;
 
-	/** Для Radio: имя группы */
+	/** Для SlotRadio: имя группы */
 	groupName?: string;
 
 	/** Для Switch: описание под переключателем */

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createTimelineState } from './index.svelte';
+export { createTimelineState } from './index.svelte';

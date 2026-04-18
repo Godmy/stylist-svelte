@@ -1,4 +1,4 @@
-import type { IAdvancedAccordionProps } from '$stylist/control/interface/component/advanced-accordion';
+import type { RecipeAdvancedAccordionProps as IAdvancedAccordionProps } from '$stylist/control/interface/recipe/advanced-accordion-props';
 
 export function createAdvancedAccordionState(props: IAdvancedAccordionProps) {
 	let activeIndex = $state(0);

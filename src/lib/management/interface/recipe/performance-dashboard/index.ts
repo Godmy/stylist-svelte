@@ -1,16 +1,16 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { ITimeRangeFilter } from '$stylist/calendar/interface/proto/time-range-filter';
+import type { BehaviorTimeRangeFilter as ITimeRangeFilter } from '$stylist/calendar/interface/behavior/time-range-filter';
 import type { Metric } from '$stylist/management/type/struct/performance-dashboard';
 
 /**
  * PerformanceDashboard = shared information slots + time range filter + size.
  */
 export interface PerformanceDashboardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		ITimeRangeFilter,
@@ -23,3 +23,4 @@ export interface PerformanceDashboardRecipe
 	metricCardClass?: string;
 	variant?: 'default' | 'compact' | 'minimal';
 }
+

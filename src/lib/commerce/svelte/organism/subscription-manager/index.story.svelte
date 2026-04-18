@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import SubscriptionManager from './index.svelte';
+  import RecipeSubscriptionManager from './index.svelte';
 
   let {
     id = '',
@@ -50,7 +50,7 @@
   {id}
   {title}
   {description}
-  component={SubscriptionManager}
+  component={RecipeSubscriptionManager}
   category="Organisms"
   controls={controls}
 >
@@ -58,12 +58,12 @@
     <section class="sb-organisms-subscription-manager grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Subscription Manager Example
+          Primary SlotSubscription Manager Example
         </p>
-        <p class="mt-1 text-[--color-text-primary]">Subscription manager with plan and billing details.</p>
+        <p class="mt-1 text-[--color-text-primary]">SlotSubscription manager with plan and billing details.</p>
 
         <div class="mt-6">
-          <SubscriptionManager
+          <RecipeSubscriptionManager
             subscription={subscription}
             showActions={values.showActions}
             showPaymentMethod={values.showPaymentMethod}
@@ -80,16 +80,16 @@
       </div>
 
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Subscription Variations</h3>
+        <h3 class="text-base font-semibold text-[--color-text-primary]">SlotSubscription Variations</h3>
         <p class="text-sm text-[--color-text-secondary]">
           Different subscription configurations with various options.
         </p>
 
         <div class="mt-5 space-y-4">
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Paused Subscription</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Paused SlotSubscription</p>
             <div>
-              <SubscriptionManager
+              <RecipeSubscriptionManager
                 subscription={{
                   ...subscription,
                   status: 'paused' as const,
@@ -105,9 +105,9 @@
           </article>
 
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
-            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Trial Subscription</p>
+            <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Trial SlotSubscription</p>
             <div>
-              <SubscriptionManager
+              <RecipeSubscriptionManager
                 subscription={{
                   ...subscription,
                   status: 'trialing' as const,

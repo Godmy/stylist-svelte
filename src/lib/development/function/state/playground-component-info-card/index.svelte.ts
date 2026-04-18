@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-component-info-card';
-
-export function createPlaygroundComponentInfoCardState(props: Props) {
+import type { PlaygroundComponentInfoCardProps } from '$stylist/development/type/struct/playground-component-info-card-props';
+export function createPlaygroundComponentInfoCardState(props: PlaygroundComponentInfoCardProps) {
   const componentName = $derived(props.componentName ?? '');
   const category = $derived(props.category ?? '');
   const subcategory = $derived(props.subcategory ?? '');
@@ -14,7 +13,7 @@ export function createPlaygroundComponentInfoCardState(props: Props) {
   ]);
   const npmPackage = $derived(props.npmPackage ?? '@stylist-svelte/components');
   const version = $derived(props.version ?? '1.0.0');
-  const author = $derived(props.author ?? 'Stylist Team');
+  const author = $derived(props.author ?? 'RecipeStylist Team');
   const lastUpdated = $derived(props.lastUpdated ?? '2025-01-13');
   const isOpen = $derived(props.isOpen ?? true);
   const onClose = $derived(props.onClose ?? (() => {}));

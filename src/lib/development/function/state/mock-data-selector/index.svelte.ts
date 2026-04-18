@@ -1,7 +1,9 @@
-import type { Props, MockDataSchema, DataSelection } from '$stylist/development/type/struct/mock-data-selector';
+import type { MockDataSelectorProps } from '$stylist/development/type/struct/mock-data-selector-props';
+import type { MockDataSelectorMockDataSchema } from '$stylist/development/type/struct/mock-data-selector-mock-data-schema';
+import type { MockDataSelectorDataSelection } from '$stylist/development/type/struct/mock-data-selector-data-selection';
 import { MockDataSelectorStyleManager } from '$stylist/development/class/style-manager/mock-data-selector';
 
-export function createMockDataSelectorState(props: Props) {
+export function createMockDataSelectorState(props: MockDataSelectorProps) {
 	const Database = 'database';
 	const Shuffle = 'shuffle';
 	const Download = 'download';
@@ -9,7 +11,7 @@ export function createMockDataSelectorState(props: Props) {
 	const Search = 'search';
 	const Filter = 'filter';
 
-	let selections = $state<DataSelection[]>(
+	let selections = $state<MockDataSelectorDataSelection[]>(
 		props.initialSelections && props.initialSelections.length > 0 ? props.initialSelections : []
 	);
 	let searchQuery = $state('');
@@ -51,7 +53,7 @@ export function createMockDataSelectorState(props: Props) {
 
 	function addSelection(schemaId: string) {
 		const schema = schemas.find(s => s.id === schemaId);
-		const newSelection: DataSelection = {
+		const newSelection: MockDataSelectorDataSelection = {
 			schemaId,
 			count: 5,
 			selectedFields: allowFieldSelection

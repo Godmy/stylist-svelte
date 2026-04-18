@@ -1,4 +1,4 @@
-import type { CartSummaryProps } from '../cartsummaryprops';
+import type { CartSummaryProps } from '$stylist/commerce/interface/recipe/cart-summary-props';
 import { CartSummaryStyleManager } from '$stylist/commerce/class/style-manager/cart-summary';
 
 export function createCartSummaryState(props: CartSummaryProps) {

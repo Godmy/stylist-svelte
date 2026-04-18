@@ -1,4 +1,4 @@
-import type { SubscriptionManagerContract } from '$stylist/commerce/interface/component/subscription-manager';
+import type { RecipeSubscriptionManager as SubscriptionManagerContract } from '$stylist/commerce/interface/recipe/subscription-manager';
 import { SubscriptionManagerStyleManager } from '$stylist/commerce/class/style-manager/subscription-manager';
 
 export function createSubscriptionManagerState(props: SubscriptionManagerContract) {

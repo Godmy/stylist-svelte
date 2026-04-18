@@ -1,4 +1,4 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { MenuItemProps as MenuItemComponentProps } from '$stylist/control/interface/component/menu-item/other';
+import type { SlotMenuItem as MenuItemComponentProps } from '$stylist/control/interface/slot/menu-item';
 
 export type MenuItemProps = MenuItemComponentProps & InteractionHTMLAttributes<HTMLElement>;

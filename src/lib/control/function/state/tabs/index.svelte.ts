@@ -1,5 +1,5 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
-import type { TabsProps } from '$stylist/control/interface/component/tabs/other';
+import type { SlotTabs as TabsProps } from '$stylist/control/interface/slot/tabs';
 
 export const createTabsState = (props: TabsProps) => {
 	const variant = $derived(props.variant ?? 'default');

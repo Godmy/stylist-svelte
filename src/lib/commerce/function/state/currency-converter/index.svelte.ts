@@ -1,4 +1,6 @@
-import type { CurrencyConverterContract, CurrencyContract, ExchangeRateContract } from '$stylist/commerce/interface/component/currency-converter';
+import type { RecipeCurrencyConverter as CurrencyConverterContract } from '$stylist/commerce/interface/recipe/currency-converter';
+import type { SlotCurrency as CurrencyContract } from '$stylist/commerce/interface/slot/currency';
+import type { SlotExchangeRate as ExchangeRateContract } from '$stylist/commerce/interface/slot/exchange-rate';
 import { CurrencyConverterStyleManager } from '$stylist/commerce/class/style-manager/currency-converter';
 
 export function createCurrencyConverterState(props: CurrencyConverterContract) {

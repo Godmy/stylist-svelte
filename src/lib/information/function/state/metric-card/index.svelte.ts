@@ -1,10 +1,6 @@
 import { MetricCardStyleManager } from '$stylist/information/class/style-manager/metric-card';
 import { ObjectManagerMetricCard } from '$stylist/information/class/object-manager/metric-card';
-import type { MetricCardRecipe } from '$stylist/information/interface/recipe/metric-card';
-
-export interface MetricCardStateProps extends MetricCardRecipe {
-	class?: string;
-}
+import type { MetricCardStateProps } from '$stylist/information/interface/recipe/metric-card-metric-card-state-props';
 
 export function createMetricCardState(props: MetricCardStateProps) {
 	// Props with defaults

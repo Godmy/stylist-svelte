@@ -1,5 +1,5 @@
 /**
- * Менеджер стилей для компонента ComponentLibraryStats
+ * Менеджер стилей для компонента RecipeComponentLibraryStats
  * Следует принципу единственной ответственности (SRP) из SOLID
  */
 

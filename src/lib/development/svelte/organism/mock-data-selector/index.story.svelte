@@ -54,7 +54,7 @@
     },
     {
       id: 'orders',
-      name: 'Order Data',
+      name: 'SlotOrder Data',
       description: 'Sample order data for transactions',
       fields: [
         { name: 'id', type: 'id', required: true, example: 'order_001' },

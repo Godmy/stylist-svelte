@@ -1,8 +1,6 @@
 import { AutocompleteDropdownStyleManager } from '$stylist/control/class/style-manager/autocomplete-dropdown';
-import type {
-	AutocompleteDropdownOption,
-	AutocompleteDropdownProps
-} from '$stylist/control/interface/component/autocomplete-dropdown/other';
+import type { SlotAutocompleteDropdownOption as AutocompleteDropdownOption } from '$stylist/control/interface/slot/autocomplete-dropdown-option';
+import type { SlotAutocompleteDropdown as AutocompleteDropdownProps } from '$stylist/control/interface/slot/autocomplete-dropdown';
 
 export function createAutocompleteDropdownState(props: AutocompleteDropdownProps) {
 	let isOpen = $state(false);

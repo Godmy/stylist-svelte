@@ -5,18 +5,18 @@ export interface IDropZoneProps {
   disabled?: boolean;
   maxSize?: number;
   maxItems?: number;
-  onDrop?: (items: DropItem[]) => void;
+  onDrop?: (items: SlotDropItem[]) => void;
   onDragOver?: (event: DragEvent) => void;
   onDragLeave?: (event: DragEvent) => void;
-  onItemAdded?: (item: DropItem) => void;
-  onItemRemoved?: (item: DropItem) => void;
+  onItemAdded?: (item: SlotDropItem) => void;
+  onItemRemoved?: (item: SlotDropItem) => void;
   preview?: boolean;
   label?: string;
   description?: string;
   children?: any;
 }
 
-export interface DropItem {
+export interface SlotDropItem {
   id: string;
   name: string;
   type: string;

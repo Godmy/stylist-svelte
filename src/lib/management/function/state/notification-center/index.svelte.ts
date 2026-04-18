@@ -1,13 +1,11 @@
-import type { NotificationCenterProps } from '$stylist/communication/interface/component/notifications/other';
 import { InteractionFeedbackStyleManager } from '$stylist/notification/class/style-manager/interaction-feedback';
-
-export interface NotificationCenterStateProps extends NotificationCenterProps {}
+import type { NotificationCenterStateProps } from '$stylist/management/interface/recipe/notification-center';
 
 export function createNotificationCenterState(props: NotificationCenterStateProps) {
 	const notifications = $derived(props.notifications ?? []);
 	const className = $derived(props.class ?? '');
 
-	const unread = $derived(notifications.filter((n) => !n.read).length);
+	const unread = $derived(notifications.filter((n: { read?: boolean }) => !n.read).length);
 
 	const containerClasses = $derived(
 		InteractionFeedbackStyleManager.root(

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createCardSkeletonState } from './index.svelte';
+export { createCardSkeletonState } from './index.svelte';

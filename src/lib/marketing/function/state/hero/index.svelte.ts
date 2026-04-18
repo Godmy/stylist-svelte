@@ -1,4 +1,4 @@
-import type { IHeroProps } from '$stylist/marketing/interface/component/hero/other';
+import type { SlotHero as IHeroProps } from '$stylist/marketing/interface/slot/hero';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { HeroStyleManager } from '$stylist/marketing/class/style-manager/hero';

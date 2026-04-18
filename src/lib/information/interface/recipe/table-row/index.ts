@@ -4,12 +4,12 @@
  * LEGO-состав:
 
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface TableRowRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ThemeAttributes<HTMLTableRowElement>
 	]>
 {
@@ -17,3 +17,4 @@ export interface TableRowRecipe
 	striped?: boolean;
 	active?: boolean;
 }
+

@@ -1,4 +1,4 @@
-import type { IQuantitySelectorProps } from '$stylist/control/interface/component/quantity-selector/other';
+import type { SlotQuantitySelector as IQuantitySelectorProps } from '$stylist/control/interface/slot/quantity-selector';
 import type { TokenSelectorKind } from '$stylist/control/type/record/selection-kind';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import { QuantitySelectorStyleManager } from '$stylist/control/class/style-manager/quantity-selector';

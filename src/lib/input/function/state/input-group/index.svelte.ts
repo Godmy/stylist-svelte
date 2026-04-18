@@ -1,6 +1,6 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { createInputTextState } from '$stylist/input/function/state/input-text';
-import type { IInputGroupProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputGroup as IInputGroupProps } from '$stylist/input/interface/slot/input-group';
 
 export const createInputGroupState = (props: IInputGroupProps) => {
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);

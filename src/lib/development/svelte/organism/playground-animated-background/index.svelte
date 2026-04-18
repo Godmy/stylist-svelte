@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Props } from '$stylist/development/type/struct/playground-animated-background';
+  import type { PlaygroundAnimatedBackgroundProps } from '$stylist/development/type/struct/playground-animated-background-props';
   import { createPlaygroundAnimatedBackgroundState } from '$stylist/development/function/state/playground-animated-background';
 
-  let { ...props }: Props = $props();
+  let { ...props }: PlaygroundAnimatedBackgroundProps = $props();
   const state = createPlaygroundAnimatedBackgroundState(props);
 </script>
 

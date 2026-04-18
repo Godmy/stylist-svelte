@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createDialogState } from './index.svelte';
+export { createDialogState } from './index.svelte';

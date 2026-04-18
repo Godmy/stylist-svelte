@@ -13,6 +13,4 @@ export function createStrikeThroughState(props: ThemeStrikeThroughtRecipe) {
 	return { get children() { return children; }, get classes() { return classes; }, get restProps() { return restProps; } };
 }
 
-export const createStrikeThroughtState = createStrikeThroughState;
-
 export default createStrikeThroughState;

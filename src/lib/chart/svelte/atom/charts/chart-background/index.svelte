@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ChartBackgroundProps } from '$stylist/chart/interface/recipe/chart-background-props';
-	import { createChartBackgroundState } from '$stylist/chart/function/state/chart-function';
+	import { createChartBackgroundState } from '$stylist/chart/function/state/chart-background';
 
 	let props: ChartBackgroundProps = $props();
 	const state = createChartBackgroundState(props);

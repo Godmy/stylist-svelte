@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для таблиц */
 import type { Snippet } from 'svelte';
 
-export interface TableSpecificProps {
+export interface TableSpecificProps extends StructIntersectAll<[]> {
 	/** Тип таблицы */
 	type?: 'extended' | 'controls' | 'header' | 'data';
 

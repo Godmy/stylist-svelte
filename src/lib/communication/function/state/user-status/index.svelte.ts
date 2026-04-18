@@ -1,4 +1,4 @@
-import type { User } from '$stylist/communication/interface/component/chat/other';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 
 export const createUserStatusState = (props: {
 	user: User;

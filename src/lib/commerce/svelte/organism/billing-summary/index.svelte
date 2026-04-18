@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IBillingSummaryProps } from '$stylist/commerce/interface/component/billing-summary/other';
+	import type { SlotBillingSummary as IBillingSummaryProps } from '$stylist/commerce/interface/slot/billing-summary';
 	import { Icon as BaseIcon } from '$stylist';
 	import { createBillingSummaryState } from '$stylist/commerce/function/state/billing-summary';
 

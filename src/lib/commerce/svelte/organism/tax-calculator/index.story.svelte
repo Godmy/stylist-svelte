@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import TaxCalculator from './index.svelte';
+  import RecipeTaxCalculator from './index.svelte';
 
   let {
     id = '',
@@ -30,9 +30,9 @@
       taxRates: [
         {
           id: 'ny-state',
-          name: 'NY State Tax',
+          name: 'NY SlotState Tax',
           rate: 4.0,
-          description: 'State tax for New York',
+          description: 'SlotState tax for New York',
           compound: false
         },
         {
@@ -53,9 +53,9 @@
       taxRates: [
         {
           id: 'ca-state',
-          name: 'CA State Tax',
+          name: 'CA SlotState Tax',
           rate: 6.0,
-          description: 'State tax for California',
+          description: 'SlotState tax for California',
           compound: false
         },
         {
@@ -84,7 +84,7 @@
   {id}
   {title}
   {description}
-  component={TaxCalculator}
+  component={RecipeTaxCalculator}
   category="Organisms"
   controls={controls}
 >
@@ -97,7 +97,7 @@
         <p class="mt-1 text-[--color-text-primary]">Tax calculator with location and rate selection.</p>
 
         <div class="mt-6">
-          <TaxCalculator
+          <RecipeTaxCalculator
             locations={locations}
             taxRates={taxRates}
             showLocationSelector={values.showLocationSelector}
@@ -122,7 +122,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">California Rates</p>
             <div>
-              <TaxCalculator
+              <RecipeTaxCalculator
                 locations={locations}
                 taxRates={taxRates}
                 showLocationSelector={true}
@@ -140,7 +140,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Simple Mode</p>
             <div>
-              <TaxCalculator
+              <RecipeTaxCalculator
                 locations={[]}
                 taxRates={[
                   {

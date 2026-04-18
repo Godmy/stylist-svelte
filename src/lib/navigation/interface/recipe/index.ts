@@ -1,17 +1,21 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ChartLegendProps } from './chart-legend';
 export type { BreadcrumbRecipe } from './breadcrumb';
 export type { BreadcrumbLinkRecipe } from './breadcrumb-link';
+export type { RecipeBreadcrumbLinkProps } from './breadcrumb-link-props';
 export type { BreadcrumbsRecipe } from './breadcrumbs';
-export type { ChartLegendRecipe } from './chart-legend';
+export type { ChartLegendProps } from './chart-legend';
 export type { ConfirmationDialogRecipe } from './confirmation-dialog';
 export type { DialogControlsRecipe } from './dialog-controls';
 export type { LayoutSpecificProps } from './layout-specific-props';
 export type { LinkRecipe } from './link';
+export type { RecipeLinkProps } from './link-props';
 export type { LinkSpecificProps } from './link-specific-props';
 export type { PageEllipsisRecipe } from './page-ellipsis';
 export type { PaginationRecipe } from './pagination';
+export type { PaginationStateProps } from './pagination-pagination-state-props';
+export type { RecipePaginationProps } from './pagination-props';
 export type { LayoutRecipe } from './sidebar';
+export type { SidebarStateProps } from './sidebar-sidebar-state-props';
 export type { ToolbarRecipe } from './toolbar';
 export type { ToolbarFieldRecipe } from './toolbar-field';
 export type { ToolbarGroupRecipe } from './toolbar-group';

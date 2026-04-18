@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductDemoState } from '$stylist/commerce/function/state/product-demo';
-	import type { ProductDemoProps } from '$stylist/commerce/function/state/product-demo';
+	import type { ProductDemoProps } from '$stylist/commerce/interface/recipe/product-demo-props';
 
 	let props: ProductDemoProps = $props();
 	const state = createProductDemoState(props);

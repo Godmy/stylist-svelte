@@ -1,6 +1,6 @@
 import { InputStyleManager } from '$stylist/input/class/style-manager/input';
 import { createInputTextState } from '$stylist/input/function/state/input-text';
-import type { IInputPasswordProps } from '$stylist/input/interface/component/input/other';
+import type { SlotInputPassword as IInputPasswordProps } from '$stylist/input/interface/slot/input-password';
 
 export const createInputPasswordState = (props: IInputPasswordProps) => {
 	const hasError = $derived(!!props.error || (props.errors?.length ?? 0) > 0);

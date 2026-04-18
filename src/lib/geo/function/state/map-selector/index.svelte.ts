@@ -1,7 +1,5 @@
 import type { MapSelectorProps, MapSelectorLocation } from '$stylist/geo/type/struct/map-selector';
-
-export interface MapSelectorStateProps extends MapSelectorProps {
-}
+import type { MapSelectorStateProps } from '$stylist/geo/interface/recipe/map-selector';
 
 export function createMapSelectorState(props: MapSelectorStateProps) {
 	// Props with defaults
@@ -24,7 +22,7 @@ export function createMapSelectorState(props: MapSelectorStateProps) {
 	const height = $derived(props.height ?? '400px');
 	const width = $derived(props.width ?? '100%');
 
-	// State
+	// SlotState
 	let currentCenter = $state({ ...initialCenter });
 	let currentZoom = $state(initialZoom);
 	let searchQuery = $state('');

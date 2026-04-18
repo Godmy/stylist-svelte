@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createFileUploadState } from './index.svelte';
+export { createFileUploadState } from './index.svelte';

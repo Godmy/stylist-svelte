@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPlaygroundErrorBoundaryState } from './index.svelte';
+export { createPlaygroundErrorBoundaryState } from './index.svelte';

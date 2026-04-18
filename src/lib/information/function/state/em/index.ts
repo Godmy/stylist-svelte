@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createEmState } from './index.svelte';
+export { createEmState } from './index.svelte';

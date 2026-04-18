@@ -1,6 +1,5 @@
 import type { Coordinates, MapMarker, LocationPickerProps } from '$stylist/geo/type/struct/location-picker';
-
-export interface LocationPickerStateProps extends LocationPickerProps {}
+import type { LocationPickerStateProps } from '$stylist/geo/interface/recipe/location-picker';
 
 export function createLocationPickerState(props: LocationPickerStateProps) {
 	const center = $derived(props.center ?? { lat: 51.505, lng: -0.09 });

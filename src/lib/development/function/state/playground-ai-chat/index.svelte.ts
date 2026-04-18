@@ -1,12 +1,13 @@
-import type { Props, ChatMessage } from '$stylist/development/type/struct/playground-ai-chat';
+import type { PlaygroundAiChatProps } from '$stylist/development/type/struct/playground-ai-chat-props';
+import type { PlaygroundAiChatChatMessage } from '$stylist/development/type/struct/playground-ai-chat-chat-message';
 import { PlaygroundAiChatStyleManager } from '$stylist/development/class/style-manager/playground-ai-chat';
 
-export function createPlaygroundAiChatState(props: Props) {
+export function createPlaygroundAiChatState(props: PlaygroundAiChatProps) {
 	const X = 'x';
 	const Send = 'send';
 
 	let inputMessage = $state('');
-	let messages = $state<ChatMessage[]>([
+	let messages = $state<PlaygroundAiChatChatMessage[]>([
 		{
 			role: 'assistant',
 			content: 'Здравствуйте! Я помогу вам с анализом скриншота. Опишите, что вы хотите узнать или обсудить.'

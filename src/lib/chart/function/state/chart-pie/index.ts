@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPieChartState } from './index.svelte';
+export { createPieChartState } from './index.svelte';

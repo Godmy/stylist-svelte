@@ -1,10 +1,5 @@
 import { PaginationStyleManager } from '$stylist/navigation/class/style-manager/pagination';
-import type { PaginationProps } from '$stylist/navigation/interface/component/pagination/other';
-import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-
-export interface PaginationStateProps extends PaginationProps, Omit<InteractionHTMLAttributes<HTMLDivElement>, 'class'> {
-	class?: string;
-}
+import type { PaginationStateProps } from '$stylist/navigation/interface/recipe/pagination-pagination-state-props';
 
 export function createPaginationState(props: PaginationStateProps) {
 	// Props with defaults

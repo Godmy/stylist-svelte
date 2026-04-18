@@ -1,15 +1,15 @@
-/**
- * Idef0Diagram — диаграмма IDEF0..
+﻿/**
+ * Idef0Diagram вЂ” РґРёР°РіСЂР°РјРјР° IDEF0..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0DiagramRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ThemeAttributes<HTMLDivElement>
 	]>
@@ -17,3 +17,4 @@ export interface Idef0DiagramRecipe
 	width?: number;
 	height?: number;
 }
+

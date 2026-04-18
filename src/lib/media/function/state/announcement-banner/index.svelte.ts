@@ -1,4 +1,4 @@
-import type { AnnouncementBannerContract } from '$stylist/media/interface/component/announcement-banner/contract';
+import type { ContractAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/contract/announcement-banner';
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
 export function createAnnouncementBannerState(props: AnnouncementBannerContract) {

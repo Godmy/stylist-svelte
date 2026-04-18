@@ -2,13 +2,6 @@
   import { Icon as BaseIcon } from '$stylist';
   import type { CubeControlProps } from '$stylist/control/type/struct/cube-control-props';
   import { createCubeControlState } from '$stylist/control/function/state/cube-control';
-  import {
-    CUBE_FACE_TITLES,
-    CUBE_FACE_NAMES,
-    CUBE_FACE_THEMES,
-    CUBE_VERTICAL_ICONS,
-    CUBE_HORIZONTAL_ICONS
-  } from '$stylist/control/const/record/cube-face-config';
 
   const Atom = 'atom';
   const Biohazard = 'biohazard';

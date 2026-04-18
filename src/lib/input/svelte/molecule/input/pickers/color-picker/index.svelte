@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IColorPickerProps } from '$stylist/input/interface/component/color-picker/other';
+  import type { SlotColorPicker as IColorPickerProps } from '$stylist/input/interface/slot/color-picker';
   import { createColorPickerState } from '$stylist/input/function/state/color-picker';
 
   let props: IColorPickerProps = $props();

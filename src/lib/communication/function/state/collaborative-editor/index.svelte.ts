@@ -1,44 +1,17 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { Snippet } from 'svelte';
+import type { CollaborativeEditorProps } from '$stylist/communication/type/alias/collaborative-editor-props';
 
-export type CollaborativeUser = {
-	id: string;
-	name: string;
-	color: string;
-	avatar?: string;
-};
-
-export type CollaborativeEditEvent = {
-	userId: string;
-	position: number;
-	text: string;
-	timestamp: Date;
-};
-
-export type CollaborativeEditorProps = {
-	content?: string;
-	users?: CollaborativeUser[];
-	currentUser?: CollaborativeUser;
-	onContentChange?: (content: string) => void;
-	showToolbar?: boolean;
-	showUserList?: boolean;
-	class?: string;
-	toolbarClass?: string;
-	editorClass?: string;
-	userListClass?: string;
-} & InteractionHTMLAttributes<HTMLDivElement>;
-
-const Bold = 'bold';
-const Italic = 'italic';
-const Underline = 'underline';
-const AlignLeft = 'align-left';
-const AlignCenter = 'align-center';
-const AlignRight = 'align-right';
-const List = 'list';
-const ListOrdered = 'list-ordered';
-const MessageCircle = 'message-circle';
-const UserIcon = 'user';
-const Users = 'users';
+const Bold = null;
+const Italic = null;
+const Underline = null;
+const AlignLeft = null;
+const AlignCenter = null;
+const AlignRight = null;
+const List = null;
+const ListOrdered = null;
+const MessageCircle = null;
+const UserIcon = null;
+const Users = null;
 
 export const createCollaborativeEditorState = (props: CollaborativeEditorProps) => {
 	let editorContent = $state(props.content ?? '');

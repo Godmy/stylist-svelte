@@ -1,24 +1,24 @@
 /**
- * ComparisonCard — карточка сравнения..
+ * ComparisonCard вЂ” РєР°СЂС‚РѕС‡РєР° СЃСЂР°РІРЅРµРЅРёСЏ..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   ICaptionSlot        (information) — caption (Caption)
- *   IMediaSlot        (information) — media (Media)
- *   IBadgeSlot        (information) — badge (Badge)
- *   IStatusSlot        (information) — status (Status)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   ICaptionSlot        (information) вЂ” caption (Caption)
+ *   IMediaSlot        (information) вЂ” media (Media)
+ *   IBadgeSlot        (information) вЂ” badge (Badge)
+ *   IStatusSlot        (information) вЂ” status (Status)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
-import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { ComparisonCardColumn } from '$stylist/commerce/interface/recipe/comparison-card-column';
+import type { ComparisonCardColumn } from '$stylist/commerce/interface/slot/comparison-card-column';
 
 export interface ComparisonCardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IMediaSlot,
@@ -31,3 +31,4 @@ export interface ComparisonCardRecipe
 	before: ComparisonCardColumn;
 	after: ComparisonCardColumn;
 }
+

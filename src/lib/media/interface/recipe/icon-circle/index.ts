@@ -1,16 +1,17 @@
-/**
- * IconCircle — иконка круга..
+﻿/**
+ * IconCircle вЂ” РёРєРѕРЅРєР° РєСЂСѓРіР°..
  *
- * LEGO-состав:
- *   IIconSlot        (information) — icon (Icon)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   IIconSlot        (information) вЂ” icon (Icon)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface IconCircleRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IIconSlot,
 		ThemeAttributes<SVGSVGElement>
 	]>
 {}
+

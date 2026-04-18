@@ -1,4 +1,4 @@
-import type { ZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
+import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
 
 export function handleSearchInput(
   e: Event,
@@ -9,11 +9,11 @@ export function handleSearchInput(
 }
 
 export function handleEntryClick(
-  entry: ZipEntry,
+  entry: SlotZipEntry,
   disabled: boolean,
   expandedFolders: Set<string>,
   setExpandedFolders: (folders: Set<string>) => void,
-  onEntryClick?: (entry: ZipEntry) => void
+  onEntryClick?: (entry: SlotZipEntry) => void
 ): void {
   if (disabled) return;
 
@@ -32,34 +32,34 @@ export function handleEntryClick(
 }
 
 export function handlePreview(
-  entry: ZipEntry,
+  entry: SlotZipEntry,
   disabled: boolean,
-  onEntryPreview?: (entry: ZipEntry) => void
+  onEntryPreview?: (entry: SlotZipEntry) => void
 ): void {
   if (disabled) return;
   onEntryPreview?.(entry);
 }
 
 export function handleDownload(
-  entry: ZipEntry,
+  entry: SlotZipEntry,
   disabled: boolean,
-  onEntryDownload?: (entry: ZipEntry) => void
+  onEntryDownload?: (entry: SlotZipEntry) => void
 ): void {
   if (disabled) return;
   onEntryDownload?.(entry);
 }
 
 export function handleExtract(
-  entry: ZipEntry,
+  entry: SlotZipEntry,
   disabled: boolean,
-  onEntryExtract?: (entry: ZipEntry) => void
+  onEntryExtract?: (entry: SlotZipEntry) => void
 ): void {
   if (disabled) return;
   onEntryExtract?.(entry);
 }
 
 export function toggleFolder(
-  entry: ZipEntry,
+  entry: SlotZipEntry,
   disabled: boolean,
   expandedFolders: Set<string>,
   setExpandedFolders: (folders: Set<string>) => void
@@ -84,6 +84,6 @@ export function formatFileSize(bytes: number): string {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
 
-export function getEntryIcon(entry: ZipEntry): string {
+export function getEntryIcon(entry: SlotZipEntry): string {
   return entry.type === 'directory' ? 'folder' : 'file';
 }

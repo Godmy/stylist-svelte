@@ -1,4 +1,4 @@
-import type { ClickProps } from '$stylist/control/interface/component/click/other';
+import type { SlotClick as ClickProps } from '$stylist/control/interface/slot/click';
 import { clsx } from 'clsx';
 
 export function createClickState(props: ClickProps) {

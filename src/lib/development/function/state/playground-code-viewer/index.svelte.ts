@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-code-viewer';
-
-export function createPlaygroundCodeViewerState(props: Props) {
+import type { PlaygroundCodeViewerProps } from '$stylist/development/type/struct/playground-code-viewer-props';
+export function createPlaygroundCodeViewerState(props: PlaygroundCodeViewerProps) {
   const code = $derived(props.code ?? '');
   const componentName = $derived(props.componentName ?? '');
   const componentProps = $derived(props.props ?? {});

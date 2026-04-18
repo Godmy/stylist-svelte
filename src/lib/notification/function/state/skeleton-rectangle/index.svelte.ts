@@ -1,5 +1,5 @@
 import { SkeletonRectangleStyleManager } from '$stylist/notification/class/style-manager/skeleton-rectangle';
-import type { SkeletonRectangleProps } from '$stylist/notification/interface/component/skeleton-rectangle/other/skeleton-rectangle';
+import type { SkeletonRectangleProps } from '$stylist/notification/type/struct/skeleton-rectangle-props';
 
 export function createSkeletonRectangleState(props: SkeletonRectangleProps) {
 	let content = $derived(props.content);

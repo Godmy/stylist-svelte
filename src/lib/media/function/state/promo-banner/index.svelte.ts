@@ -1,4 +1,5 @@
-export type PromoBannerVariant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+import type { PromoBannerVariant } from '$stylist/media/type/alias/promo-banner-variant';
+import type { PromoBannerProps } from '$stylist/media/interface/recipe/promo-banner-promo-banner-props';
 
 const VARIANT_CLASSES: Record<PromoBannerVariant, string> = {
 	primary: 'bg-[var(--color-primary-50)] border-[var(--color-primary-200)] text-[var(--color-primary-800)]',
@@ -7,17 +8,6 @@ const VARIANT_CLASSES: Record<PromoBannerVariant, string> = {
 	warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
 	danger: 'bg-[var(--color-danger-50)] border-[var(--color-danger-200)] text-[var(--color-danger-800)]'
 };
-
-export interface PromoBannerProps {
-	title?: string;
-	description?: string;
-	cta?: string;
-	link?: string;
-	image?: string;
-	variant?: PromoBannerVariant;
-	onCtaClick?: () => void;
-	class?: string;
-}
 
 export function createPromoBannerState(props: PromoBannerProps) {
 	const title = $derived(props.title ?? '');

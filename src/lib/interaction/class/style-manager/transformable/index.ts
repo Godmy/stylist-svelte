@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { TransformableStyleManagerOptions } from '$stylist/interaction/class/style-manager/transformable-style-manager-options';
+import type { TransformableStyleManagerOptions } from '$stylist/interaction/interface/slot/transformable-style-manager-options';
 
 export class TransformableStyleManager {
 	private static readonly BASE = 'transition-transform duration-300 ease-in-out';

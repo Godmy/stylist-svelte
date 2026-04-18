@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DiscountApplierContract } from '$stylist/commerce/interface/component/discount-applier';
+	import type { RecipeDiscountApplier as DiscountApplierContract } from '$stylist/commerce/interface/recipe/discount-applier';
 	import { createDiscountApplierState } from '$stylist/commerce/function/state/discount-applier';
 
 	let props: DiscountApplierContract = $props();

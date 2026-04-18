@@ -1,11 +1,13 @@
-import type { Props, AIProvider, AIOption } from '$stylist/development/type/struct/playground-ai-panel';
+import type { PlaygroundAiPanelProps } from '$stylist/development/type/struct/playground-ai-panel-props';
+import type { PlaygroundAiPanelAIProvider } from '$stylist/development/type/struct/playground-ai-panel-ai-provider';
+import type { PlaygroundAiPanelAIOption } from '$stylist/development/type/struct/playground-ai-panel-ai-option';
 import { PlaygroundAiPanelStyleManager } from '$stylist/development/class/style-manager/playground-ai-panel';
 
-export function createPlaygroundAiPanelState(props: Props) {
+export function createPlaygroundAiPanelState(props: PlaygroundAiPanelProps) {
 	const ChevronRight = 'chevron-right';
 	const ChevronDown = 'chevron-down';
 
-	const aiProviders: AIProvider[] = [
+	const aiProviders: PlaygroundAiPanelAIProvider[] = [
 		{
 			id: 'claude',
 			name: 'CLAUDE',

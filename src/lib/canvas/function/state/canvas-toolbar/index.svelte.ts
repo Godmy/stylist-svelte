@@ -1,4 +1,4 @@
-import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/recipe/canvas-toolbar-drawing-options';
+import type { CanvasToolbarDrawingOptions } from '$stylist/canvas/interface/slot/canvas-toolbar-drawing-options';
 import type { CanvasToolbarDrawingTool } from '$stylist/canvas/type/enum/canvas-toolbar-drawing-tool';
 import type { CanvasToolbarProps } from '$stylist/canvas/type/struct/canvas-toolbar/canvas-toolbar-props';
 

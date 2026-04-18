@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import PlaygroundCtaButtons from './index.svelte';
+  import RecipePlaygroundCtaButtons from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'totalComponents', type: 'number', defaultValue: 320, min: 0, max: 1000, step: 1 },
@@ -11,13 +11,13 @@
 </script>
 
 <Story
-  component={PlaygroundCtaButtons}
+  component={RecipePlaygroundCtaButtons}
   title="Playground CTA Buttons"
   description="Dual CTA cards for browsing components and opening the interactive playground."
   {controls}
 >
   {#snippet children(values: any)}
-    <PlaygroundCtaButtons
+    <RecipePlaygroundCtaButtons
       totalComponents={values.totalComponents}
       componentsTitle={values.componentsTitle}
       playgroundTitle={values.playgroundTitle}

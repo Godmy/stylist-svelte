@@ -1,12 +1,11 @@
 ﻿import type { PerformanceDashboardRecipe } from '$stylist/management/interface/recipe/performance-dashboard';
 import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
-
-const PERFORMANCE_DASHBOARD_TIME_RANGE = ['1d', '7d', '30d', '90d'] as const satisfies readonly TokenTimeRange[];
-const PERFORMANCE_DASHBOARD_CHART_BAR_HEIGHT = [42, 56, 38, 64, 51, 70, 58, 76, 63, 68, 74, 61] as const;
+import { TOKEN_PERFORMANCE_RANGE } from '$stylist/management/const/enum/performance-range';
+import { TOKEN_PERFORMANCE_BARS } from '$stylist/management/const/enum/performance-bars';
 
 export class ObjectManagerPerformanceDashboard {
 	static resolveTimeRanges(): readonly TokenTimeRange[] {
-		return PERFORMANCE_DASHBOARD_TIME_RANGE;
+		return TOKEN_PERFORMANCE_RANGE;
 	}
 
 	static resolveTimeRangeLabel(range: TokenTimeRange): string {
@@ -33,6 +32,6 @@ export class ObjectManagerPerformanceDashboard {
 	}
 
 	static resolveChartBarHeights(): readonly number[] {
-		return PERFORMANCE_DASHBOARD_CHART_BAR_HEIGHT;
+		return TOKEN_PERFORMANCE_BARS;
 	}
 }

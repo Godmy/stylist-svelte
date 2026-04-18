@@ -4,7 +4,7 @@
 	import Idef0FunctionBox from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'title', type: 'text', defaultValue: 'A0 Process Order' },
+		{ name: 'title', type: 'text', defaultValue: 'A0 Process SlotOrder' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'Black Box Function' }
 	];
 </script>

@@ -1,11 +1,13 @@
-export const PAGE_BUILDER_ICON_COLUMNS_2 = 'columns-2';
-export const PAGE_BUILDER_ICON_COPY = 'copy';
-export const PAGE_BUILDER_ICON_EYE = 'eye';
-export const PAGE_BUILDER_ICON_GRIP_VERTICAL = 'grip-vertical';
-export const PAGE_BUILDER_ICON_IMAGE = 'image';
-export const PAGE_BUILDER_ICON_PLUS = 'plus';
-export const PAGE_BUILDER_ICON_SAVE = 'save';
-export const PAGE_BUILDER_ICON_SQUARE = 'square';
-export const PAGE_BUILDER_ICON_TRASH_2 = 'trash-2';
-export const PAGE_BUILDER_ICON_TYPE = 'type';
-export const PAGE_BUILDER_ICON_X = 'x';
+export const PAGE_BUILDER_ICON = {
+	COLUMNS_2: 'columns-2',
+	COPY: 'copy',
+	EYE: 'eye',
+	GRIP_VERTICAL: 'grip-vertical',
+	IMAGE: 'image',
+	PLUS: 'plus',
+	SAVE: 'save',
+	SQUARE: 'square',
+	TRASH_2: 'trash-2',
+	TYPE: 'type',
+	X: 'x'
+} as const;

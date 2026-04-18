@@ -1,5 +1,5 @@
 import type { Props } from '$stylist/file/type/struct/file-browser/props';
-import type { FolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
+import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
 import {
   handleAction as handleActionFn,
   handleSelect as handleSelectFn,
@@ -17,7 +17,7 @@ export function createFileBrowserState(
   const disabled = $derived(props.disabled ?? false);
   const classes = $derived([props.class || ''].filter(Boolean).join(' '));
   let expandedItems = $state<Set<string>>(new Set());
-  let selectedItem = $state<FolderItem | null>(null);
+  let selectedItem = $state<SlotFolderItem | null>(null);
 
   const restProps = $derived.by(() => {
     const {
@@ -45,7 +45,7 @@ export function createFileBrowserState(
 
     const allFolders = new Set<string>();
 
-    const addItems = (folderItems: FolderItem[]) => {
+    const addItems = (folderItems: SlotFolderItem[]) => {
       for (const item of folderItems) {
         if (item.type !== 'file') {
           allFolders.add(item.id);
@@ -64,19 +64,19 @@ export function createFileBrowserState(
     expandedItems = nextItems;
   }
 
-  function setSelectedItem(item: FolderItem | null): void {
+  function setSelectedItem(item: SlotFolderItem | null): void {
     selectedItem = item;
   }
 
-  function toggleItem(item: FolderItem): void {
+  function toggleItem(item: SlotFolderItem): void {
     toggleItemFn(item, disabled, expandedItems, setExpandedItems, props.onItemToggle);
   }
 
-  function handleSelect(item: FolderItem): void {
+  function handleSelect(item: SlotFolderItem): void {
     handleSelectFn(item, enableSelection, disabled, setSelectedItem, props.onItemSelect);
   }
 
-  function handleAction(item: FolderItem, action: string): void {
+  function handleAction(item: SlotFolderItem, action: string): void {
     handleActionFn(item, action, props.onItemAction);
   }
 

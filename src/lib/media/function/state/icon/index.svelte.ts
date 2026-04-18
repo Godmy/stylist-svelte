@@ -1,45 +1,5 @@
-import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { TokenShape } from '$stylist/layout/type/enum/shape';
 import { IconStyleManager } from '$stylist/media/class/style-manager/icons';
-
-export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
-export type IconDirection = 'up' | 'down' | 'left' | 'right';
-export type IconVariant =
-	| 'default'
-	| 'primary'
-	| 'secondary'
-	| 'success'
-	| 'warning'
-	| 'danger'
-	| 'info'
-	| 'solid'
-	| 'outline'
-	| 'ghost'
-	| 'link'
-	| 'subtle'
-	| 'neutral'
-	| 'dark'
-	| 'light';
-export type IconShape = TokenShape | 'rounded';
-export type IconColor = IconVariant | 'gray';
-
-export interface IconProps extends InformationHTMLAttributes<HTMLSpanElement> {
-	name?: string;
-	svg?: string;
-	size?: IconSize;
-	strokeWidth?: number;
-	variant?: IconVariant;
-	direction?: IconDirection;
-	isOpen?: boolean;
-	disabled?: boolean;
-	class?: string;
-	containerClass?: string;
-	container?: 'none' | 'wrapper' | 'circle';
-	containerSize?: Exclude<IconSize, number>;
-	shape?: IconShape;
-	color?: IconColor;
-	filled?: boolean;
-}
+import type { IconProps } from '$stylist/media/interface/recipe/icon-icon-props';
 
 function normalizeIconName(value: string): string {
 	return value
@@ -125,7 +85,7 @@ export function createIconState(props: IconProps) {
 	const containerClasses = $derived.by(() => {
 		if (container === 'circle') {
 			return IconStyleManager.getIconCircleClasses({
-				variant: color !== 'default' ? color : variant,
+				variant: (color !== 'default' ? color : variant) as Parameters<typeof IconStyleManager.getIconCircleClasses>[0]['variant'],
 				size: containerSize,
 				filled,
 				disabled,
@@ -137,7 +97,7 @@ export function createIconState(props: IconProps) {
 				size: containerSize,
 				variant,
 				shape,
-				color,
+				color: color as Parameters<typeof IconStyleManager.getIconWrapperClasses>[0]['color'],
 				disabled,
 				className: containerClass
 			});

@@ -1,11 +1,8 @@
 import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
 import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/icon';
 import { formatDate, formatTime, formatDateTime } from '$stylist/localization/function/format-date-time';
-import type { LocaleSwitcherProps, LocaleSwitcherLocale } from '$stylist/localization/interface/component/locale-switcher/other';
-
-export interface LocaleSwitcherStateProps extends LocaleSwitcherProps {
-	class?: string;
-}
+import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/localization/interface/slot/locale-switcher-locale';
+import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';
 
 export function createLocaleSwitcherState(props: LocaleSwitcherStateProps) {
 	// Props with defaults - extracted from props object

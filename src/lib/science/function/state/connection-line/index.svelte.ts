@@ -1,8 +1,5 @@
-import type {
-	ConnectionLineRecipe as ConnectionLineProps,
-	ConnectionPathResult,
-	Point
-} from '$stylist/science/interface/recipe/connection-line';
+import type { ConnectionLineRecipe as ConnectionLineProps } from '$stylist/science/interface/recipe/connection-line';
+import type { ConnectionPathResult } from '$stylist/science/type/struct/connection-path-result';
 import type { TokenTrajectory } from '$stylist/architecture/type/enum/trajectory';
 import type { TokenBorderStyle as LineStyleToken } from '$stylist/layout/type/enum/border-style';
 import { ConnectionLineStyleManager } from '$stylist/canvas/class/style-manager/connection-line';

@@ -1,17 +1,17 @@
-/**
- * CountryFlag — флаг страны..
+﻿/**
+ * CountryFlag вЂ” С„Р»Р°Рі СЃС‚СЂР°РЅС‹..
  *
- * LEGO-состав:
- *   IMediaSlot        (information) — media (Media)
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   IMediaSlot        (information) вЂ” media (Media)
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface CountryFlagRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IMediaSlot,
 		ILabelSlot,
 		ThemeAttributes<HTMLSpanElement>
@@ -21,3 +21,4 @@ export interface CountryFlagRecipe
 	size?: number;
 	content?: string;
 }
+

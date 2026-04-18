@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * Chart — график / диаграмма..
  *
@@ -7,14 +8,10 @@
  *   IBadgeSlot        (information) — badge (Badge)
  */
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { ChartFunctionPoint } from '$stylist/chart/type/struct/chart-point';
 import type { ChartSeries } from '$stylist/chart/type/struct/chart-series';
+import type { ChartScale } from '$stylist/chart/type/struct/chart-scale';
 
-export type ChartScale = [number, number];
-
-export type { ChartFunctionPoint, ChartSeries };
-
-export interface ChartRecipe extends ThemeAttributes<SVGSVGElement> {
+export interface ChartRecipe extends StructIntersectAll<[ThemeAttributes<SVGSVGElement>]> {
 	label?: string;
 	caption?: string;
 	badge?: string | number;

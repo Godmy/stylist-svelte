@@ -1,16 +1,16 @@
 /**
- * Idef0Outputs — выходы IDEF0..
+ * Idef0Outputs вЂ” РІС‹С…РѕРґС‹ IDEF0..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { Idef0Port } from '$stylist/science/interface/recipe/idef0-inputs';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { Idef0Port } from '$stylist/science/type/struct/idef-zero/idef0port';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface Idef0OutputsRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ThemeAttributes<HTMLDivElement>
 	]>
@@ -19,3 +19,4 @@ export interface Idef0OutputsRecipe
 	boxY: number;
 	boxHeight: number;
 }
+

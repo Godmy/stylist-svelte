@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Button } from '$stylist';
 import { createConfirmationDialogState } from '$stylist/navigation/function/state/confirmation-dialog';
-import type { ConfirmationDialogProps } from '$stylist/navigation/interface/component/confirmation-dialog/other';
+import type { SlotConfirmationDialog as ConfirmationDialogProps } from '$stylist/navigation/interface/slot/confirmation-dialog';
 
   let {
     open = false,

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventCalendarState } from '$stylist/calendar/function/state/event-calendar';
-	import type { EventCalendarStateProps } from '$stylist/calendar/function/state/event-calendar';
+	import type { RecipeEventCalendar as EventCalendarStateProps } from '$stylist/calendar/interface/recipe/event-calendar';
 	import { Icon as BaseIcon, Button } from '$stylist';
 
 	const ChevronLeft = 'chevron-left';
@@ -159,7 +159,7 @@
 						<p>Start: {state.selectedEvent.start.toLocaleString()}</p>
 						<p>End: {state.selectedEvent.end.toLocaleString()}</p>
 						{#if state.selectedEvent.location}
-							<p>Location: {state.selectedEvent.location}</p>
+							<p>SlotLocation: {state.selectedEvent.location}</p>
 						{/if}
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductRecommendationState } from '$stylist/commerce/function/state/product-recommendation';
-	import type { ProductRecommendationProps } from '$stylist/commerce/function/state/product-recommendation';
+	import type { ProductRecommendationProps } from '$stylist/commerce/interface/recipe/product-recommendation-props';
 
 	let props: ProductRecommendationProps = $props();
 	const state = createProductRecommendationState(props);

@@ -1,9 +1,9 @@
 import { AnimatedStyleManager } from '$stylist/animation/class/style-manager/animated';
 import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
-import type { AnimateProps } from '$stylist/animation/interface/proto/animate-props';
+import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
 
 export const createAnimatedState = (props: AnimateProps) => {
-	// State
+	// SlotState
 	let isAnimating = $state(false);
 	let currentValue = $state(props.from ?? 0);
 
@@ -107,7 +107,7 @@ export const createAnimatedState = (props: AnimateProps) => {
 	}
 
 	return {
-		// State getters
+		// SlotState getters
 		get isAnimating() {
 			return isAnimating;
 		},
@@ -118,7 +118,7 @@ export const createAnimatedState = (props: AnimateProps) => {
 			return formattedValue;
 		},
 
-		// State
+		// SlotState
 		get classes() { return classes; },
 		get inlineStyle() { return inlineStyle; },
 		get restProps() { return restProps; },

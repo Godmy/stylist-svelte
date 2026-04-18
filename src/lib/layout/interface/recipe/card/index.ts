@@ -1,18 +1,18 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
-import type { IStatusSlot } from '$stylist/information/interface/proto/status-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IElevatable } from '$stylist/layout/interface/proto/elevatable';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { SlotStatus as IStatusSlot } from '$stylist/information/interface/slot/status';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorElevatable as IElevatable } from '$stylist/layout/interface/behavior/elevatable';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface CardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IMediaSlot,
@@ -22,7 +22,8 @@ export interface CardRecipe
 		IShapeable,
 		ISpaced,
 		IElevatable,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLDivElement>
 	]>
 {}
+

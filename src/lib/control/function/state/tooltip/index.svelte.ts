@@ -1,4 +1,4 @@
-import type { TooltipProps } from '$stylist/control/interface/component/tooltip/other';
+import type { SlotTooltip as TooltipProps } from '$stylist/control/interface/slot/tooltip';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { TokenAlignment } from '$stylist/layout/type/enum/alignment';
 
@@ -109,7 +109,7 @@ export function createTooltipState(props: TooltipStateProps) {
 		}
 	}
 
-	// Toggle tooltip visibility
+	// SlotToggle tooltip visibility
 	function toggleTooltip() {
 		if (isVisible) {
 			hideTooltip();

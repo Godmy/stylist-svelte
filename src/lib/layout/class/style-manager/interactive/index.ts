@@ -1,30 +1,10 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-
-export type InteractiveTransition = 'all' | 'colors' | 'shadow' | 'transform' | 'opacity';
-export type InteractiveHoverShadow = 'sm' | 'md' | 'lg' | 'xl';
-export type InteractiveFocusColor = 'primary' | 'accent' | 'error' | 'success';
-
-const TRANSITION_MAP: Record<InteractiveTransition, string> = {
-	all: 'transition-all duration-150 ease-in-out',
-	colors: 'transition-colors duration-150 ease-in-out',
-	shadow: 'transition-shadow duration-150 ease-in-out',
-	transform: 'transition-transform duration-150 ease-in-out',
-	opacity: 'transition-opacity duration-150 ease-in-out'
-};
-
-const HOVER_SHADOW_MAP: Record<InteractiveHoverShadow, string> = {
-	sm: 'hover:shadow-sm',
-	md: 'hover:shadow-md',
-	lg: 'hover:shadow-lg',
-	xl: 'hover:shadow-xl'
-};
-
-const FOCUS_COLOR_MAP: Record<InteractiveFocusColor, string> = {
-	primary: 'focus-visible:ring-[--color-primary-500]',
-	accent: 'focus-visible:ring-[--color-accent-500]',
-	error: 'focus-visible:ring-[--color-error-500]',
-	success: 'focus-visible:ring-[--color-success-500]'
-};
+import { INTERACTIVE_TRANSITION_MAP as TRANSITION_MAP } from '$stylist/layout/const/map/interactive-transition-map';
+import { INTERACTIVE_HOVER_SHADOW_MAP as HOVER_SHADOW_MAP } from '$stylist/layout/const/map/interactive-hover-shadow-map';
+import { INTERACTIVE_FOCUS_COLOR_MAP as FOCUS_COLOR_MAP } from '$stylist/layout/const/map/interactive-focus-color-map';
+import type { InteractiveTransition } from '$stylist/layout/type/enum/interactive-transition';
+import type { InteractiveHoverShadow } from '$stylist/layout/type/enum/interactive-hover-shadow';
+import type { InteractiveFocusColor } from '$stylist/layout/type/enum/interactive-focus-color';
 
 export class InteractiveStyleManager {
 	// ─── Transition ───────────────────────────────────────────────────────────

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createVerticalLayoutState } from './index.svelte';
+export { createVerticalLayoutState } from './index.svelte';

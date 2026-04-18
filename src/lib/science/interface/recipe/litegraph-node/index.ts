@@ -1,45 +1,11 @@
-﻿/**
- * LitegraphNode — узел LiteGraph..
- *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   ICaptionSlot        (information) — caption (Caption)
- *   IBadgeSlot        (information) — badge (Badge)
- *   IStatusSlot        (information) — status (Status)
- */
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
-import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
-import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
+import type { LiteGraphNodeProperty } from '$stylist/science/type/struct/litegraph-node-property';
+import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
+import type { LitegraphNodePresentation } from '$stylist/science/type/struct/litegraph-node-presentation';
 
-export interface LiteGraphNodeProperty {
-	id: string;
-	name: string;
-	type?: TokenPropertyType;
-	value?: unknown;
-	label?: string;
-	description?: string;
-	options?: string[];
-}
-
-export interface LiteGraphPort {
-	id: string;
-	name?: string;
-	type?: string;
-	label?: string;
-	dataType?: string;
-	direction?: 'input' | 'output';
-}
-
-export type LitegraphNodePresentation = Partial<SemanticZoomPresentation> & {
-	stage?: SemanticZoomPresentation['stage'];
-	size?: TokenSize;
-	width?: number;
-	height?: number | 'auto';
-	showChildren?: boolean;
-};
-
-export interface LitegraphNodeRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface LitegraphNodeRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	id?: string;
 	title?: string;
 	x: number;
@@ -72,5 +38,3 @@ export interface LitegraphNodeRecipe extends ThemeAttributes<HTMLDivElement> {
 	headerContent?: string;
 	bodyContent?: string;
 }
-
-export type LiteGraphNodeProps = LitegraphNodeRecipe;

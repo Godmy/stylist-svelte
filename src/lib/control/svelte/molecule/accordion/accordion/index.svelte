@@ -25,7 +25,7 @@
 const ChevronDown = 'chevron-down';
 
   import { AccordionStyleManager } from '$stylist/control/class/style-manager/accordion';
-  import type { IAccordionProps } from '$stylist/control/interface/component/accordion/other';
+  import type { SlotAccordion as IAccordionProps } from '$stylist/control/interface/slot/accordion';
   import { createAccordionState } from '$stylist/control/function/state/accordion';
 
   let {

@@ -1,4 +1,4 @@
-import type { SharedCanvasProps } from '$stylist/canvas/interface/component/shared-canvas/other';
+import type { SlotSharedCanvas as SharedCanvasProps } from '$stylist/canvas/interface/slot/shared-canvas';
 
 export type SharedCanvasContract = SharedCanvasProps & {
 	selectedTool?: string;

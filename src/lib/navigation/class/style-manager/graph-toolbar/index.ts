@@ -54,7 +54,6 @@ export class GraphToolbarStyleManager {
 	}
 }
 
-export default GraphToolbarStyleManager;
 
 
 

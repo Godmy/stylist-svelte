@@ -1,6 +1,6 @@
 import type { MinimapBounds } from '$stylist/canvas/type/struct/minimap/minimap-bounds';
 import type { MinimapNodeRect } from '$stylist/canvas/type/struct/minimap/minimap-node-rect';
-import type { LiteGraphNodeProps } from '$stylist/science/interface/recipe/litegraph-node';
+import type { LiteGraphNodeProps } from '$stylist/science/type/struct/lite-graph-node-props';
 
 export function resolveMinimapNodeRect(
 	node: LiteGraphNodeProps,

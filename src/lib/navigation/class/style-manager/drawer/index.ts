@@ -1,20 +1,10 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import {
-	DRAWER_POSITION_CLASSES
-} from '$stylist/navigation/const/record/drawer-position-classes';
+import { DRAWER_POSITION_CLASSES } from '$stylist/navigation/const/record/drawer-position-classes';
 import type { DrawerPosition } from '$stylist/navigation/type/struct/drawer-props';
-
-const DRAWER_BACKDROP_BASE_CLASS =
-	'fixed inset-0 bg-[rgba(0,0,0,0.5)] transition-opacity duration-200';
-const DRAWER_BACKDROP_VISIBLE_CLASS = 'opacity-100';
-const DRAWER_BASE_CLASS =
-	'fixed z-50 bg-[var(--color-background-primary)] shadow-lg transition-transform duration-300 ease-in-out';
-const DRAWER_OPEN_POSITION_CLASSES: Record<DrawerPosition, string> = {
-	left: 'translate-x-0',
-	right: 'translate-x-0',
-	top: 'translate-y-0',
-	bottom: 'translate-y-0'
-};
+import { DRAWER_BACKDROP_BASE_CLASS } from '$stylist/navigation/const/record/drawer-backdrop-base-class';
+import { DRAWER_BACKDROP_VISIBLE_CLASS } from '$stylist/navigation/const/record/drawer-backdrop-visible-class';
+import { DRAWER_BASE_CLASS } from '$stylist/navigation/const/record/drawer-base-class';
+import { DRAWER_OPEN_POSITION_CLASSES } from '$stylist/navigation/const/record/drawer-open-position-classes';
 
 export class DrawerStyleManager {
 	static getBackdropClasses(showBackdrop: boolean): string {
@@ -52,5 +42,3 @@ export class DrawerStyleManager {
 		return 'close-button bg-transparent border-none text-[var(--font-size-6)] cursor-pointer p-[var(--spacing-1)] rounded-[var(--border-radius-base)] hover:bg-[var(--color-background-secondary)]';
 	}
 }
-
-export default DrawerStyleManager;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import type { UserCardProps } from '$stylist/commerce/function/state/user-card';
+	import type { UserCardProps } from '$stylist/commerce/interface/recipe/user-card-props';
 	import { createUserCardState } from '$stylist/commerce/function/state/user-card';
 
 	const MoreVertical = 'more-vertical';

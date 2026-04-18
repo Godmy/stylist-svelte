@@ -1,7 +1,5 @@
-import type { UserProfileCardProps } from '$stylist/form/interface/component/account-forms/other';
 import { AccountFormsStyleManager } from '$stylist/form/class/style-manager/account-forms';
-
-export interface UserProfileCardStateProps extends UserProfileCardProps {}
+import type { UserProfileCardStateProps } from '$stylist/management/interface/recipe/user-profile-card';
 
 export function createUserProfileCardState(props: UserProfileCardStateProps) {
 	const name = $derived(props.name ?? 'Jane Doe');

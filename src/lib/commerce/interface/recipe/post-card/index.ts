@@ -1,25 +1,25 @@
 /**
- * PostCard — карточка поста..
+ * PostCard вЂ” РєР°СЂС‚РѕС‡РєР° РїРѕСЃС‚Р°..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   ICaptionSlot        (information) — caption (Caption)
- *   IMediaSlot        (information) — media (Media)
- *   IBadgeSlot        (information) — badge (Badge)
- *   IIconSlot        (information) — icon (Icon)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   ICaptionSlot        (information) вЂ” caption (Caption)
+ *   IMediaSlot        (information) вЂ” media (Media)
+ *   IBadgeSlot        (information) вЂ” badge (Badge)
+ *   IIconSlot        (information) вЂ” icon (Icon)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
-import type { IMediaSlot } from '$stylist/media/interface/proto/media-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
 import type { Snippet } from 'svelte';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-import type { PostCardAction } from '$stylist/commerce/interface/recipe/post-card-action';
+import type { PostCardAction } from '$stylist/commerce/interface/slot/post-card-action';
 
 export interface PostCardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		IMediaSlot,
@@ -38,3 +38,4 @@ export interface PostCardRecipe
 	actions?: PostCardAction[];
 	children?: Snippet;
 }
+

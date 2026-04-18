@@ -1,4 +1,4 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-import type { ZoomControlsProps as ZoomControlsComponentProps } from '$stylist/control/interface/component/zoom-controls/other';
+import type { SlotZoomControls as ZoomControlsComponentProps } from '$stylist/control/interface/slot/zoom-controls';
 
 export type ZoomControlsProps = ZoomControlsComponentProps & InteractionHTMLAttributes<HTMLDivElement>;

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createIconButtonState } from './index.svelte';
+export { createIconButtonState } from './index.svelte';

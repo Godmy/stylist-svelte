@@ -1,19 +1,20 @@
-/**
- * Breadcrumbs — навигационная цепочка..
+﻿/**
+ * Breadcrumbs вЂ” РЅР°РІРёРіР°С†РёРѕРЅРЅР°СЏ С†РµРїРѕС‡РєР°..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   IIconSlot        (information) — icon (Icon)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   IIconSlot        (information) вЂ” icon (Icon)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface BreadcrumbsRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		ThemeAttributes<HTMLElement>
 	]>
 {}
+

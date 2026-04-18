@@ -1,7 +1,8 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import type { Message, User } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
   import MessageItem from './index.svelte';
 
   let lastEvent = $state('none');

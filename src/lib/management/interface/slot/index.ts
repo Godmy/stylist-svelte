@@ -1,0 +1,22 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { SlotAchievement } from './achievement';
+export type { SlotBacklogData } from './backlog-data';
+export type { SlotBacklogItem } from './backlog-item';
+export type { BreadcrumbItem } from './breadcrumb-item';
+export type { BurnDownChartMargins } from './burn-down-chart-margins';
+export type { SlotBurnDownData } from './burn-down-data';
+export type { BurnDownLabel } from './burn-down-label';
+export type { BurnDownMinMaxResult } from './burn-down-min-max-result';
+export type { SlotBurnDownPoint } from './burn-down-point';
+export type { BurnDownTimestamps } from './burn-down-timestamps';
+export type { SlotDraggableCard } from './draggable-card';
+export type { CardData } from './draggable-card-data';
+export type { DraggableCardProps } from './draggable-card-props';
+export type { SlotFeatureToggle } from './feature-toggle';
+export type { SlotKanbanCard } from './kanban-card';
+export type { KanbanCardType } from './kanban-card-type';
+export type { Operation } from './operation';
+export type { SlotOperationsHistory } from './operations-history';
+export type { SlotPageHeader } from './page-header';
+export type { SlotProcessStep } from './process-step';
+export type { SlotTeamMemberCard } from './team-member-card';

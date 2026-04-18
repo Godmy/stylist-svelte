@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
   import ChatMessage from '../chat-message/index.svelte';
   import { MessageComposer } from '$stylist';
-  import { createChatRoomState as stateFn, type ChatRoomProps } from '$stylist/communication/function/state/chat-room';
+  import { createChatRoomState as stateFn } from '$stylist/communication/function/state/chat-room';
+  import type { ChatRoomProps } from '$stylist/communication/type/alias/chat-room-props';
 
   let props: ChatRoomProps = $props();
   const state = stateFn(props);

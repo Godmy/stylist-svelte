@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { HTMLTextareaAttributes } from 'svelte/elements';
 	import { onMount } from 'svelte';
-	import type { ITextareaProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotTextarea as ITextareaProps } from '$stylist/input/interface/slot/textarea';
 	import { createTextareaState } from '$stylist/input/function/state/text-area';
 
 	let props: ITextareaProps &

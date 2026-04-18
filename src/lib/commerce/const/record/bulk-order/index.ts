@@ -4,7 +4,7 @@ import type { BulkOrderFormProduct } from '$stylist/commerce/type/struct/bulk-or
 export const DEFAULT_BULK_ORDER = {
 	products: [] as BulkOrderFormProduct[],
 	initialItems: [] as BulkOrderFormItem[],
-	title: 'Bulk Order',
+	title: 'Bulk SlotOrder',
 	description: 'Add multiple products to your order',
 	showTotal: true,
 	showNotes: true,

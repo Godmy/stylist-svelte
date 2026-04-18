@@ -1,13 +1,13 @@
-﻿import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ICaptionSlot } from '$stylist/typography/interface/proto/caption-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+﻿import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotCaption as ICaptionSlot } from '$stylist/typography/interface/slot/caption';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { Snippet } from 'svelte';
-import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card-data';
+import type { StatsCardTrend } from '$stylist/information/type/struct/stats-card';
 
 /** StatsCard = label + caption + icon + compact stats trend. */
 export interface StatsCardRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ICaptionSlot,
 		ThemeAttributes<HTMLDivElement>

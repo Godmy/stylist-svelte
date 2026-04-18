@@ -1,5 +1,5 @@
-import type { MessageTimestampProps } from '$stylist/communication/interface/component/message-timestamp/other';
-import type { MessageTimestampContract } from '$stylist/communication/interface/component/message-timestamp/contract';
+import type { SlotMessageTimestamp as MessageTimestampProps } from '$stylist/communication/interface/slot/message-timestamp';
+import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/communication/interface/slot/message-timestamp';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createMessageTimestampState(props: MessageTimestampProps | MessageTimestampContract) {

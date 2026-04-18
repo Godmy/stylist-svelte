@@ -1,5 +1,6 @@
 <script lang="ts">
-import type { Chat, User } from '$stylist/communication/interface/component/chat/other';
+import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
+import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 import ChatItem from '../chat-item/index.svelte';
 import { createChatListState } from '$stylist/communication/function/state/chat-list';
 

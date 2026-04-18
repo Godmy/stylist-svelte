@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PricingTableProps } from '$stylist/commerce/function/state/pricing-table';
+	import type { PricingTableProps } from '$stylist/commerce/interface/recipe/pricing-table-props';
 	import { createPricingTableState } from '$stylist/commerce/function/state/pricing-table';
 
 	let props: PricingTableProps = $props();

@@ -1,14 +1,8 @@
-import type { LoginFormProps } from '$stylist/form/interface/component/interaction-forms/other';
+import type { SlotLoginForm as LoginFormProps } from '$stylist/form/interface/slot/login-form';
 import { InteractionFormsStyleManager } from '$stylist/form/class/style-manager/interaction-forms';
+import type { SlotLoginFormState } from '$stylist/form/interface/slot/login-form-state';
 
-export interface LoginFormState {
-	rootClass: string;
-	inputClass: string;
-	checkboxLabelClass: string;
-	submitButtonClass: string;
-}
-
-export function createLoginFormState(props: LoginFormProps): LoginFormState {
+export function createLoginFormState(props: LoginFormProps): SlotLoginFormState {
 	const rootClass = $derived(InteractionFormsStyleManager.root('c-login-form border rounded-lg p-4 space-y-3', props.class ?? ''));
 	const inputClass = $derived('w-full border rounded px-2 py-1');
 	const checkboxLabelClass = $derived('text-sm flex items-center gap-2');

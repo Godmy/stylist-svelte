@@ -1,6 +1,6 @@
 import type { Snippet } from 'svelte';
 import type { ArchitectureHTMLAttributes } from '$stylist/layout/type/struct/item-architecture-html-attributes';
-import type { ContainerQueryType } from '$stylist/layout/class/style-manager/container-query';
+import type { ContainerQueryType } from '$stylist/layout/type/enum/container-query-type';
 
 export type ContainerQueryProps = ArchitectureHTMLAttributes<HTMLDivElement> & {
 	class?: string;

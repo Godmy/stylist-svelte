@@ -1,5 +1,5 @@
 import { ProductAvailabilityStyleManager } from '$stylist/commerce/class/style-manager/product-availability';
-import type { ProductAvailabilityProps } from '../productavailabilityprops';
+import type { ProductAvailabilityProps } from '$stylist/commerce/interface/recipe/product-availability-props';
 
 export function createProductAvailabilityState(props: ProductAvailabilityProps) {
 	let showNotificationForm = $state(false);

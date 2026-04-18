@@ -1,4 +1,4 @@
-import type { SearchSuggestion } from '$stylist/interaction/class/object-manager/search-bar-suggestion';
+import type { SearchSuggestion } from '$stylist/interaction/interface/slot/search-bar-suggestion';
 
 export class ObjectManagerSearchBar {
 	/**

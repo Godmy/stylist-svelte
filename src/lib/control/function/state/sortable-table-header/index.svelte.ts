@@ -1,5 +1,5 @@
 import { derived, writable } from 'svelte/store';
-import type { SortableTableHeaderProps } from '$stylist/control/interface/component/sortable-table-header/other';
+import type { SlotSortableTableHeader as SortableTableHeaderProps } from '$stylist/control/interface/slot/sortable-table-header';
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 export function createSortableTableHeaderState(props: SortableTableHeaderProps) {

@@ -1,19 +1,7 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
-
-const ORDER_STATUS_CLASSES = {
-	pending: 'bg-[var(--color-neutral-100)] text-[var(--color-neutral-800)]',
-	processing: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)]',
-	shipped: 'bg-[var(--color-primary-100)] text-[var(--color-primary-800)]',
-	delivered: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
-	cancelled: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
-} as const;
-
-const PAYMENT_STATUS_CLASSES = {
-	paid: 'bg-[var(--color-success-100)] text-[var(--color-success-800)]',
-	pending: 'bg-[var(--color-warning-100)] text-[var(--color-warning-800)]',
-	failed: 'bg-[var(--color-danger-100)] text-[var(--color-danger-800)]'
-} as const;
+import { ORDER_STATUS_CLASSES } from '$stylist/commerce/const/map/order-status-classes';
+import { PAYMENT_STATUS_CLASSES } from '$stylist/commerce/const/map/payment-status-classes';
 
 
 

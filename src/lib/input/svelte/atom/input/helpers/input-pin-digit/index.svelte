@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { IPinInputDigitProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotPinInputDigit as IPinInputDigitProps } from '$stylist/input/interface/slot/pin-input-digit';
 	import { createPinInputDigitState } from '$stylist/input/function/state/input-pin-digit';
 	import type { HTMLInputAttributes } from 'svelte/elements';
 

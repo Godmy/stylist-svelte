@@ -1,18 +1,8 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
-
-const STAT_CARD_VARIANT_CLASSES = {
-	default: '',
-	gradient:
-		'[background-image:var(--gradient-primary)] border-[var(--color-primary-200)]'
-} as const;
-
-const STAT_CARD_TREND_TEXT_CLASSES = {
-	up: 'text-[var(--color-success-700)]',
-	down: 'text-[var(--color-danger-700)]',
-	neutral: 'text-[var(--color-text-secondary)]'
-} as const;
+import { STAT_CARD_VARIANT_CLASSES } from '$stylist/information/const/map/stat-card-variant-classes';
+import { STAT_CARD_TREND_TEXT_CLASSES } from '$stylist/information/const/map/stat-card-trend-text-classes';
 
 
 

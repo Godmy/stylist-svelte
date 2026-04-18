@@ -1,22 +1,23 @@
-import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { IShapeable } from '$stylist/layout/interface/proto/shapeable';
-import type { ISized } from '$stylist/layout/interface/proto/sized';
-import type { ISpaced } from '$stylist/layout/interface/proto/spaced';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+﻿import type { HTMLAttributes } from 'svelte/elements';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorShapeable as IShapeable } from '$stylist/layout/interface/behavior/shapeable';
+import type { BehaviorSized as ISized } from '$stylist/layout/interface/behavior/sized';
+import type { BehaviorSpaced as ISpaced } from '$stylist/layout/interface/behavior/spaced';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface IconButtonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		IIconSlot,
 		IClickable,
 		IFocusable,
 		ISized,
 		IShapeable,
 		ISpaced,
-		ProtoTheme,
+		SlotTheme,
 		HTMLAttributes<HTMLButtonElement>
 	]>
 {}
+

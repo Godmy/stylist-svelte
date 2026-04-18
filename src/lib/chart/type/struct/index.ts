@@ -15,6 +15,7 @@ export type { TokenCanvasChartType } from './canvas-chart-type';
 export type { ChartAxisYMetrics } from './chart-axis-y-metrics';
 export type { ChartBounds } from './chart-bounds';
 export type { ChartFunctionPoint } from './chart-point';
+export type { ChartScale } from './chart-scale';
 export type { ChartSeries } from './chart-series';
 export type { IExtendedHeatmapCell } from './extended-heatmap-cell';
 export type { HeatmapData, IHeatmapCell } from './heatmap';

@@ -1,25 +1,10 @@
-﻿/**
- * GraphCanvas — canvas для графа..
- *
- * LEGO-состав:
-
- */
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { ChildrenProp } from '$stylist/information/type/struct/children-prop';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface GraphCanvasPosition {
-	x: number;
-	y: number;
-}
-
-export interface GraphCanvasViewport {
-	position: GraphCanvasPosition;
-	zoom: number;
-	width: number;
-	height: number;
-}
-
-export interface GraphCanvasRecipe extends ChildrenProp, ThemeAttributes<HTMLDivElement> {
+export interface GraphCanvasRecipe
+	extends StructIntersectAll<[ChildrenProp, ThemeAttributes<HTMLDivElement>]>
+{
 	width?: number;
 	height?: number;
 	zoom?: number;

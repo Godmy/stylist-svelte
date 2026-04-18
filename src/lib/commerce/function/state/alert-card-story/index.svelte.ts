@@ -1,12 +1,4 @@
-import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-
-export type AlertCardStoryProps = {
-	id?: string;
-	title?: string;
-	description?: string;
-	controls?: InterfaceControllerSettings[];
-	component?: any;
-};
+import type { AlertCardStoryProps } from '$stylist/commerce/interface/recipe/alert-card-story-props';
 
 export function createAlertCardStoryState(props: AlertCardStoryProps) {
 	return {

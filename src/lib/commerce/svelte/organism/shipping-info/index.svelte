@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ShippingInfoContract } from '$stylist/commerce/interface/component/shipping-info';
+  import type { RecipeShippingInfo as ShippingInfoContract } from '$stylist/commerce/interface/recipe/shipping-info';
   import { createShippingInfoState as stateFn } from '$stylist/commerce/function/state/shipping-info';
 
   let props: ShippingInfoContract = $props();

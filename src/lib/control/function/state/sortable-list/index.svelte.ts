@@ -1,7 +1,5 @@
-import type {
-	SortableListItem,
-	SortableListProps
-} from '$stylist/control/interface/component/table-controls/other';
+import type { SlotSortableListItem as SortableListItem } from '$stylist/control/interface/slot/sortable-list-item';
+import type { SlotSortableList as SortableListProps } from '$stylist/control/interface/slot/sortable-list';
 
 export function createSortableListState(props: SortableListProps) {
 	let dragged = $state<SortableListItem | null>(null);

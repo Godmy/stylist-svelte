@@ -1,5 +1,6 @@
-import type { GraphCanvasViewport, GraphCanvasPosition } from '$stylist/science/interface/recipe/graph-canvas';
-import { DEFAULT_GRAPH_CANVAS } from '$stylist/science/const/struct/graph-canvas';
+import type { GraphCanvasPosition } from '$stylist/science/type/struct/graph-canvas-position';
+import type { GraphCanvasViewport } from '$stylist/science/type/struct/graph-canvas-viewport';
+import { DEFAULT_GRAPH_CANVAS } from '$stylist/science/const/record/graph-canvas';
 import { GraphCanvasStyleManager } from '$stylist/canvas/class/style-manager/graph-canvas';
 import type { GraphCanvasProps } from '$stylist/canvas/type/struct/graph-canvas/graph-canvas-props';
 

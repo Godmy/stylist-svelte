@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import DiscountApplier from './index.svelte';
+  import RecipeDiscountApplier from './index.svelte';
 
   let {
     id = '',
@@ -69,7 +69,7 @@
   {id}
   {title}
   {description}
-  component={DiscountApplier}
+  component={RecipeDiscountApplier}
   category="Organisms"
   controls={controls}
 >
@@ -82,7 +82,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive discount applier with promo codes.</p>
 
         <div class="mt-6">
-          <DiscountApplier
+          <RecipeDiscountApplier
             rules={discountRules}
             cartItems={cartItems}
             cartTotal={209.98}
@@ -111,7 +111,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Code Input</p>
             <div>
-              <DiscountApplier
+              <RecipeDiscountApplier
                 rules={discountRules}
                 cartItems={cartItems}
                 cartTotal={129.99}
@@ -128,7 +128,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">With Applied Codes</p>
             <div>
-              <DiscountApplier
+              <RecipeDiscountApplier
                 rules={discountRules}
                 cartItems={cartItems}
                 cartTotal={189.99}

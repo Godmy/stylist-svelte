@@ -2,14 +2,7 @@
 	AnalyticsPieChartSegment,
 } from '$stylist/chart/type/struct/pie-chart-segment';
 import type { PieChartDataPoint } from '$stylist/chart/type/struct/pie-chart';
-
-const PIE_CHART_DEFAULT_COLOR = [
-	'var(--color-primary-500)',
-	'var(--color-success-500)',
-	'var(--color-warning-500)',
-	'var(--color-error-500)',
-	'var(--color-secondary-500)'
-] as const;
+import { TOKEN_PIE_COLORS } from '$stylist/chart/const/enum/pie-colors';
 
 export class ObjectManagerPieChart {
 	static resolveTotal(data: PieChartDataPoint[]): number {
@@ -17,7 +10,7 @@ export class ObjectManagerPieChart {
 	}
 
 	static resolveColors(colors?: string[]): string[] {
-		return colors && colors.length > 0 ? colors : [...PIE_CHART_DEFAULT_COLOR];
+		return colors && colors.length > 0 ? colors : [...TOKEN_PIE_COLORS];
 	}
 
 	static resolveSegments(

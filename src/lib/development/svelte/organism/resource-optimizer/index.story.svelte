@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import ResourceOptimizer from './index.svelte';
+  import RecipeResourceOptimizer from './index.svelte';
 
   let {
     id = '',
@@ -47,7 +47,7 @@
   {id}
   {title}
   {description}
-  component={ResourceOptimizer}
+  component={RecipeResourceOptimizer}
   category="Organisms"
   controls={controls}
 >
@@ -60,7 +60,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive resource optimizer with real-time monitoring.</p>
 
         <div class="mt-6">
-          <ResourceOptimizer
+          <RecipeResourceOptimizer
             {resources}
           />
         </div>
@@ -76,7 +76,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">High Priority Only</p>
             <div>
-              <ResourceOptimizer
+              <RecipeResourceOptimizer
                 resources={resources.filter(r => r.priority === 'high')}
               />
             </div>
@@ -85,7 +85,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Not Optimized</p>
             <div>
-              <ResourceOptimizer
+              <RecipeResourceOptimizer
                 resources={resources.filter(r => !r.isOptimized)}
               />
             </div>

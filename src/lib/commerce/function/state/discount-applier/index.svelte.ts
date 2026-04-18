@@ -1,4 +1,5 @@
-import type { DiscountApplierContract, DiscountRuleContract } from '$stylist/commerce/interface/component/discount-applier';
+import type { RecipeDiscountApplier as DiscountApplierContract } from '$stylist/commerce/interface/recipe/discount-applier';
+import type { SlotDiscountRule as DiscountRuleContract } from '$stylist/commerce/interface/slot/discount-rule';
 import { DiscountApplierStyleManager } from '$stylist/commerce/class/style-manager/discount-applier';
 
 export function createDiscountApplierState(props: DiscountApplierContract) {

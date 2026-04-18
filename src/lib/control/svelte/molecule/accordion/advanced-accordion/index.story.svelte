@@ -2,7 +2,7 @@
   import Story from '$stylist/development/svelte/playground/Story.svelte';
   import AdvancedAccordion from './index.svelte';
   import { createRawSnippet } from 'svelte';
-  import type { IAdvancedAccordionItem } from '$stylist/control/interface/component/advanced-accordion';
+  import type { SlotAdvancedAccordionItem as IAdvancedAccordionItem } from '$stylist/control/interface/slot/advanced-accordion-item';
 
   const createHtmlSnippet = (html: string) =>
     createRawSnippet(() => ({

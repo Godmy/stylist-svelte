@@ -4,12 +4,12 @@
 	import Idef0BlackBox from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'title', type: 'text', defaultValue: 'A0 Fulfill Order' },
+		{ name: 'title', type: 'text', defaultValue: 'A0 Fulfill SlotOrder' },
 		{ name: 'subtitle', type: 'text', defaultValue: 'Black Box' }
 	];
 
 	const inputs = [
-		{ id: 'i1', label: 'Order' },
+		{ id: 'i1', label: 'SlotOrder' },
 		{ id: 'i2', label: 'Customer data' },
 		{ id: 'i3', label: 'Pricing rules' }
 	];

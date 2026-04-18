@@ -29,5 +29,3 @@ export { createTableBodyState } from './table-body';
 export { createTableCellState } from './table-cell';
 export { createTableHeaderState } from './table-header';
 export { createTableRowState } from './table-row';
-export type { MetricCardStateProps } from './metric-card';
-export type { StatsCardStateProps } from './stats-card';

@@ -1,20 +1,12 @@
 import { BurnDownChartStyleManager } from '$stylist/management/class/style-manager/burn-down-chart';
-import type { BurnDownData } from '$stylist/management/interface/struct/burn-down-data';
-import { BURN_DOWN_CHART_DEFAULT_MARGINS } from '$stylist/management/const/struct/burn-down-chart-margins';
-import {
-  getBurnDownMinMaxValues,
-  generateBurnDownIdealPath,
-  generateBurnDownActualPath,
-  generateBurnDownXLabels,
-  generateBurnDownYLabels
-} from '$stylist/management/function/script/burn-down-chart';
+import { BURN_DOWN_CHART_DEFAULT_MARGINS } from '$stylist/management/const/map/burn-down-chart-default-margins';
+import type { BurnDownChartStateProps } from '$stylist/management/interface/recipe/burn-down-chart';
 
-export interface BurnDownChartStateProps {
-  data: BurnDownData;
-  width?: number;
-  height?: number;
-  title?: string;
-}
+import { getBurnDownMinMaxValues } from '$stylist/management/function/script/get-burn-down-min-max-values';
+import { generateBurnDownIdealPath } from '$stylist/management/function/script/generate-burn-down-ideal-path';
+import { generateBurnDownActualPath } from '$stylist/management/function/script/generate-burn-down-actual-path';
+import { generateBurnDownXLabels } from '$stylist/management/function/script/generate-burn-down-x-labels';
+import { generateBurnDownYLabels } from '$stylist/management/function/script/generate-burn-down-y-labels';
 
 export function createBurnDownChartState(props: BurnDownChartStateProps) {
   // Props with defaults

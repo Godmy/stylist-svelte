@@ -1,6 +1,5 @@
-import type { Props } from '$stylist/development/type/struct/playground-error-boundary';
-
-export function createPlaygroundErrorBoundaryState(props: Props) {
+import type { PlaygroundErrorBoundaryProps } from '$stylist/development/type/struct/playground-error-boundary-props';
+export function createPlaygroundErrorBoundaryState(props: PlaygroundErrorBoundaryProps) {
   const component = $derived(props.component);
   const componentProps = $derived(props.props ?? {});
   const children = $derived(props.children);
@@ -8,7 +7,7 @@ export function createPlaygroundErrorBoundaryState(props: Props) {
   let error = $state<string | null>(null);
 
   function handleError(event: ErrorEvent) {
-    console.error('[PlaygroundErrorBoundary] Caught error:', event.error);
+    console.error('[RecipePlaygroundErrorBoundary] Caught error:', event.error);
     error = event.error?.message || 'Unexpected rendering error';
     event.preventDefault();
   }

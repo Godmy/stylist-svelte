@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button } from '$stylist';
-  import type { ExportFormat } from '$stylist/control/function/state/export-panel';
+  import type { ExportFormat } from '$stylist/control/type/alias/export-format';
   import { createExportPanelState } from '$stylist/control/function/state/export-panel';
 
   let props = $props<{

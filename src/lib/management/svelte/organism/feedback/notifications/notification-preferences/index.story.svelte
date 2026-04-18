@@ -1,7 +1,7 @@
 ﻿<script lang="ts">
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
-  import type { NotificationPreferencesProps } from '$stylist/communication/interface/component/notifications/other';
+  import type { NotificationPreferencesProps } from '$stylist/communication/type/struct/notification-preferences-props';
   import { NotificationStyleManager } from '$stylist';
   import NotificationPreferences from './index.svelte';
 

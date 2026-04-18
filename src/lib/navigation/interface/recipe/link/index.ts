@@ -1,32 +1,32 @@
 import type { Snippet } from 'svelte';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IClickable } from '$stylist/interaction/interface/proto/clickable';
-import type { IFocusable } from '$stylist/interaction/interface/proto/focusable';
-import type { ISizable } from '$stylist/layout/interface/proto/sizable';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { BehaviorClickable as IClickable } from '$stylist/interaction/interface/behavior/clickable';
+import type { BehaviorFocusable as IFocusable } from '$stylist/interaction/interface/behavior/focusable';
+import type { BehaviorSizable as ISizable } from '$stylist/layout/interface/behavior/sizable';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 import type { LinkSpecificProps } from '$stylist/navigation/interface/recipe/link-specific-props';
 
 /**
- * LinkRecipe � ��������������� ������ ��� ���� ����� ������.
+ * LinkRecipe пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
  *
- * LEGO-������:
- *   ILabelSlot                (information) � text, children
- *   IIconSlot                 (information) � icon
- *   IClickable                (interaction) � onClick, disabled
- *   IFocusable                (interaction) � tabIndex, onFocus, onBlur
- *   ISizable                  (architecture) � size
- *   ThemeAttributes           (theme)       � variant, tone
+ * LEGO-пїЅпїЅпїЅпїЅпїЅпїЅ:
+ *   ILabelSlot                (information) пїЅ text, children
+ *   IIconSlot                 (information) пїЅ icon
+ *   IClickable                (interaction) пїЅ onClick, disabled
+ *   IFocusable                (interaction) пїЅ tabIndex, onFocus, onBlur
+ *   ISizable                  (architecture) пїЅ size
+ *   ThemeAttributes           (theme)       пїЅ variant, tone
  *
- * �������� �������������:
+ * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
  *   - Link: type='link', href, target
- *   - BreadcrumbLink: type='breadcrumb' (� ������� ���������)
- *   - InlineText: type='inline' (� ������)
- *   - ButtonLink: type='button' (������������� ������)
+ *   - BreadcrumbLink: type='breadcrumb' (пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ)
+ *   - InlineText: type='inline' (пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)
+ *   - ButtonLink: type='button' (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ)
  */
 export interface LinkRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		IClickable,
@@ -36,3 +36,4 @@ export interface LinkRecipe
 	]>,
 		LinkSpecificProps
 {}
+

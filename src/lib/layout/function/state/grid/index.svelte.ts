@@ -1,8 +1,6 @@
 import type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
 import type { GridRestProps } from '$stylist/layout/type/struct/grid/grid-rest-props';
 
-export type { GridProps } from '$stylist/layout/type/struct/grid/grid-props';
-export type { GridRestProps } from '$stylist/layout/type/struct/grid/grid-rest-props';
 
 export function stateFn(props: GridProps) {
   const gapClass = $derived.by(() => {

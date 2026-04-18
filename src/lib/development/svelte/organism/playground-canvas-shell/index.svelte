@@ -1,10 +1,9 @@
 <script lang="ts">
-  import PlaygroundDeviceFrame from '../playground-device-frame/index.svelte';
-  import PlaygroundErrorBoundary from '../playground-error-boundary/index.svelte';
+  import RecipePlaygroundDeviceFrame from '../playground-device-frame/index.svelte';
+  import RecipePlaygroundErrorBoundary from '../playground-error-boundary/index.svelte';
   import { createPlaygroundCanvasShellState } from '$stylist/development/function/state/playground-canvas-shell';
-  import type { Props } from '$stylist/development/type/struct/playground-canvas-shell';
-
-  let props: Props = $props();
+  import type { PlaygroundCanvasShellProps } from '$stylist/development/type/struct/playground-canvas-shell-props';
+  let props: PlaygroundCanvasShellProps = $props();
   const state = createPlaygroundCanvasShellState(props);
 </script>
 
@@ -74,20 +73,20 @@
         style="transform: translate({state.panX}px, {state.panY}px) scale({state.zoom}); transform-origin: center; transition: {state.isPanning ? 'none' : 'transform var(--duration-300) var(--easing-ease-standard)'};"
       >
         {#if state.showDeviceFrame && state.viewport !== 'fullscreen'}
-          <PlaygroundDeviceFrame device={state.viewport}>
+          <RecipePlaygroundDeviceFrame device={state.viewport}>
             <div class="relative w-full h-full {state.backgroundClass}">
               {#if state.showGrid}
                 <div class="grid-overlay absolute inset-0 pointer-events-none rounded-[2.5rem]"></div>
               {/if}
               <div class="relative z-[var(--z-index-docked)] p-8">
-                <PlaygroundErrorBoundary component={state.component} props={state.componentProps}>
+                <RecipePlaygroundErrorBoundary component={state.component} props={state.componentProps}>
                   {#if state.children}
                     {@render state.children()}
                   {/if}
-                </PlaygroundErrorBoundary>
+                </RecipePlaygroundErrorBoundary>
               </div>
             </div>
-          </PlaygroundDeviceFrame>
+          </RecipePlaygroundDeviceFrame>
         {:else}
           <div
             class="canvas-frame rounded-2xl shadow-2xl relative overflow-hidden {state.backgroundClass} border-2 border-gray-200/50 dark:border-gray-700/50 pointer-events-auto"
@@ -97,11 +96,11 @@
               <div class="grid-overlay absolute inset-0 pointer-events-none rounded-2xl"></div>
             {/if}
             <div class="relative z-[var(--z-index-docked)] p-8">
-              <PlaygroundErrorBoundary component={state.component} props={state.componentProps}>
+              <RecipePlaygroundErrorBoundary component={state.component} props={state.componentProps}>
                 {#if state.children}
                   {@render state.children()}
                 {/if}
-              </PlaygroundErrorBoundary>
+              </RecipePlaygroundErrorBoundary>
             </div>
           </div>
         {/if}

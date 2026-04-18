@@ -202,7 +202,7 @@
                 </div>
 
                 <div>
-                  <label for="state" class="block text-sm font-medium text-[--color-text-primary] mb-1">State</label>
+                  <label for="state" class="block text-sm font-medium text-[--color-text-primary] mb-1">SlotState</label>
                   <select
                     id="state"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
@@ -237,7 +237,7 @@
                 </div>
 
                 <div>
-                  <label for="country" class="block text-sm font-medium text-[--color-text-primary] mb-1">Country</label>
+                  <label for="country" class="block text-sm font-medium text-[--color-text-primary] mb-1">SlotCountry</label>
                   <select
                     id="country"
                     class="block w-full rounded-md border border-[--color-border-primary] bg-[--color-background-primary] px-3 py-2 shadow-sm focus:border-[--color-primary-500] focus:outline-none focus:ring-1 focus:ring-[--color-primary-500]"
@@ -431,12 +431,12 @@
         </div>
       {/if}
 
-      <!-- Step 4: Review -->
+      <!-- Step 4: SlotReview -->
       {#if state.currentStep === 'review'}
         <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6">
           <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-6 flex items-center">
             <BaseIcon name={Package} class="h-5 w-5 mr-2" />
-            Review Your Order
+            SlotReview Your SlotOrder
           </h2>
 
           <div class="space-y-6">
@@ -519,7 +519,7 @@
             class="w-full sm:w-auto"
             onclick={state.goToNextStep}
           >
-            {state.currentStep === 'review' ? 'Place Order →' :
+            {state.currentStep === 'review' ? 'Place SlotOrder →' :
              state.currentStep === 'confirmation' ? 'Continue Shopping →' :
              `Continue to ${state.getNextStepTitle(state.currentStep)} →`}
           </Button>
@@ -527,9 +527,9 @@
       </div>
     </div>
 
-    <!-- Order summary sidebar -->
+    <!-- SlotOrder summary sidebar -->
     <div class="bg-[var(--color-background-primary)] shadow rounded-lg p-6 h-fit sticky top-6">
-      <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-4">Order Summary</h2>
+      <h2 class="text-lg font-medium text-[var(--color-text-primary)] mb-4">SlotOrder Summary</h2>
 
       <div class="flow-root">
         <ul class="-my-6 divide-y divide-gray-200">
@@ -578,7 +578,7 @@
             <dd>- $0.00</dd>
           </div>
           <div class="flex justify-between text-base font-medium text-[var(--color-text-primary)] border-t border-[var(--color-border-primary)] pt-3">
-            <dt>Order total</dt>
+            <dt>SlotOrder total</dt>
             <dd>{state.formattedTotal}</dd>
           </div>
         </div>

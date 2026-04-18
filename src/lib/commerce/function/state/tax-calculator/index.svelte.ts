@@ -1,4 +1,6 @@
-import type { TaxCalculatorContract, LocationContract, TaxRateContract } from '$stylist/commerce/interface/component/tax-calculator';
+import type { RecipeTaxCalculator as TaxCalculatorContract } from '$stylist/commerce/interface/recipe/tax-calculator';
+import type { SlotLocation as LocationContract } from '$stylist/commerce/interface/slot/location';
+import type { SlotTaxRate as TaxRateContract } from '$stylist/commerce/interface/slot/tax-rate';
 import { TaxCalculatorStyleManager } from '$stylist/commerce/class/style-manager/tax-calculator';
 
 export function createTaxCalculatorState(props: TaxCalculatorContract) {

@@ -1,5 +1,5 @@
 import { SkeletonTableStyleManager } from '$stylist/notification/class/style-manager/skeleton-table';
-import type { SkeletonTableProps } from '$stylist/notification/interface/component/skeleton-table/other/skeleton-table';
+import type { SkeletonTableProps } from '$stylist/notification/type/struct/skeleton-table-props';
 
 export function createSkeletonTableState(props: SkeletonTableProps) {
 	const rows = $derived(props.rows ?? 5);

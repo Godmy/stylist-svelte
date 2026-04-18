@@ -1,11 +1,7 @@
 import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
 import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/icon';
 import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
-import type { ExtendedTranslationEditorProps } from '$stylist/localization/interface/component/translation-editor/other';
-
-export interface TranslationEditorStateProps extends ExtendedTranslationEditorProps {
-	class?: string;
-}
+import type { TranslationEditorStateProps } from '$stylist/localization/interface/recipe/translation-editor';
 
 export function createTranslationEditorState(props: TranslationEditorStateProps) {
 	// Props with defaults - extracted from props object
@@ -17,7 +13,7 @@ export function createTranslationEditorState(props: TranslationEditorStateProps)
 	const showContextColumn = props.showContextColumn ?? true;
 	const showStatusColumn = props.showStatusColumn ?? true;
 
-	// State
+	// SlotState
 	let editingId = $state<string | null>(null);
 	let editedValue = $state('');
 

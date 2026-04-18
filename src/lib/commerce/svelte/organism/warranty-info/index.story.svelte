@@ -3,7 +3,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import WarrantyInfo from './index.svelte';
+  import RecipeWarrantyInfo from './index.svelte';
 
   let {
     id = '',
@@ -75,7 +75,7 @@
   {id}
   {title}
   {description}
-  component={WarrantyInfo}
+  component={RecipeWarrantyInfo}
   category="Organisms"
   controls={controls}
 >
@@ -88,7 +88,7 @@
         <p class="mt-1 text-[--color-text-primary]">Warranty information with coverage and claims history.</p>
 
         <div class="mt-6">
-          <WarrantyInfo
+          <RecipeWarrantyInfo
             {...warrantyData}
             showCoverageDetails={values.showCoverageDetails}
             showExclusions={true}
@@ -112,7 +112,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Basic Warranty</p>
             <div>
-              <WarrantyInfo
+              <RecipeWarrantyInfo
                 {...warrantyData}
                 warrantyPeriod={{
                   ...warrantyData.warrantyPeriod,
@@ -132,7 +132,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Extended Warranty</p>
             <div>
-              <WarrantyInfo
+              <RecipeWarrantyInfo
                 {...warrantyData}
                 warrantyPeriod={{
                   ...warrantyData.warrantyPeriod,

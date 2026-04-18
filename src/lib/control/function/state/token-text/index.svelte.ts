@@ -1,11 +1,4 @@
-import type { TokenTextControlDefinition } from '$stylist/control/type/struct/text-control-definition';
-
-export type TokenTextStateProps = {
-	definition: TokenTextControlDefinition;
-	value?: string;
-	placeholder?: string;
-	onChange?: (value: string) => void;
-};
+import type { TokenTextStateProps } from '$stylist/control/type/alias/token-text-state-props';
 
 export function createTokenTextState(props: TokenTextStateProps) {
 	const definition = $derived(props.definition);

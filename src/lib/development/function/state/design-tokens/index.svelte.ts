@@ -1,10 +1,11 @@
-import { THEME_MODE_DARK } from '$stylist/theme/const/struct/theme-mode-dark';
-import { THEME_MODE_LIGHT } from '$stylist/theme/const/struct/theme-mode-light';
-import type { Props, Theme } from '$stylist/development/type/struct/design-tokens';
+import { THEME_MODE_DARK } from '$stylist/theme/const/record/theme-mode-dark';
+import { THEME_MODE_LIGHT } from '$stylist/theme/const/record/theme-mode-light';
+import type { DesignTokensProps } from '$stylist/development/type/struct/design-tokens-props';
+import type { DesignTokensTheme } from '$stylist/development/type/struct/design-tokens-theme';
 import { DesignTokensStyleManager } from '$stylist/development/class/style-manager/design-tokens';
 
-export function createDesignTokensState(props: Props) {
-	let currentTheme = $state<Theme>(props.theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK);
+export function createDesignTokensState(props: DesignTokensProps) {
+	let currentTheme = $state<DesignTokensTheme>(props.theme === 'light' ? THEME_MODE_LIGHT : THEME_MODE_DARK);
 	const layoutTokens = $derived((currentTheme as any).layout ?? {});
 
 	const theme = $derived(props.theme ?? 'light');

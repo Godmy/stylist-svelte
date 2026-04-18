@@ -1,21 +1,5 @@
-import type { TimeSlotEvent } from '$stylist/calendar/interface/record/calendar';
 import { TimeSlotStyleManager } from '$stylist/input/class/style-manager/time-slot';
-import type { HTMLAttributes } from 'svelte/elements';
-
-export interface TimeSlotProps extends Omit<HTMLAttributes<HTMLDivElement>, 'class'> {
-	start: Date;
-	end: Date;
-	timeLabel?: string;
-	available?: boolean;
-	selected?: boolean;
-	active?: boolean;
-	events?: TimeSlotEvent[];
-	class?: string;
-	onValueInput?: (slot: { start: Date; end: Date; timeLabel?: string; available?: boolean; selected?: boolean; active?: boolean; events?: TimeSlotEvent[] }) => void;
-	onValueChange?: (slot: { start: Date; end: Date; timeLabel?: string; available?: boolean; selected?: boolean; active?: boolean; events?: TimeSlotEvent[] }) => void;
-	onClick?: (slot: { start: Date; end: Date; timeLabel?: string; available?: boolean; selected?: boolean; active?: boolean; events?: TimeSlotEvent[] }) => void;
-	onKeyDown?: (event: KeyboardEvent) => void;
-}
+import type { TimeSlotProps } from '$stylist/calendar/interface/recipe/time-slot';
 
 export function createTimeSlotState(props: TimeSlotProps) {
 	const safeStart = $derived(

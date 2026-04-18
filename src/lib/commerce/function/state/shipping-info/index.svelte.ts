@@ -1,4 +1,5 @@
-import type { ShippingInfoContract, ShippingOptionInfoContract } from '$stylist/commerce/interface/component/shipping-info';
+import type { RecipeShippingInfo as ShippingInfoContract } from '$stylist/commerce/interface/recipe/shipping-info';
+import type { SlotShippingOptionInfo as ShippingOptionInfoContract } from '$stylist/commerce/interface/slot/shipping-option-info';
 import { ShippingInfoStyleManager } from '$stylist/commerce/class/style-manager/shipping-info';
 
 export function createShippingInfoState(props: ShippingInfoContract) {

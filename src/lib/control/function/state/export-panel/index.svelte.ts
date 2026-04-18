@@ -1,8 +1,5 @@
-export type ExportFormat = 'png' | 'jpeg' | 'svg' | 'pdf';
-
-export type ExportPanelStateProps = {
-  dispatch?: (type: 'export', detail: { format: ExportFormat; includeLegend: boolean; includeFilters: boolean }) => void;
-};
+import type { ExportFormat } from '$stylist/control/type/alias/export-format';
+import type { ExportPanelStateProps } from '$stylist/control/type/alias/export-panel-state-props';
 
 export function createExportPanelState(props: ExportPanelStateProps) {
   let exportFormat = $state<ExportFormat>('png');

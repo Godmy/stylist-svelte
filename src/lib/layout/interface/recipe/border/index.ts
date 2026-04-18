@@ -1,10 +1,10 @@
-import type { Snippet } from 'svelte';
+﻿import type { Snippet } from 'svelte';
 import type { HTMLAttributes } from 'svelte/elements';
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ProtoTheme } from '$stylist/theme/interface/proto/thema';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotTheme } from '$stylist/theme/interface/slot/theme';
 
 export interface BorderRecipe
-	extends RecordArchitectureMerge<[ProtoTheme, HTMLAttributes<HTMLDivElement>]>
+	extends StructIntersectAll<[SlotTheme, HTMLAttributes<HTMLDivElement>]>
 {
 	borderStyle?: 'solid' | 'dashed' | 'dotted' | 'double' | 'bold' | 'none' | 'invisible';
 	borderWidth?: string;
@@ -17,3 +17,4 @@ export interface BorderRecipe
 	animated?: boolean;
 	children?: Snippet;
 }
+

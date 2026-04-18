@@ -78,7 +78,7 @@
 >
 	{#snippet children()}
 		<div class="flex flex-col gap-4">
-			<TokenControlComposer definition={radioDefinition} onChange={(v) => console.log('Radio:', v)} />
+			<TokenControlComposer definition={radioDefinition} onChange={(v) => console.log('SlotRadio:', v)} />
 			<TokenControlComposer definition={selectDefinition} onChange={(v) => console.log('Select:', v)} />
 			<TokenControlComposer definition={rangeDefinition} onChange={(v) => console.log('Range:', v)} />
 			<TokenControlComposer definition={textDefinition} onChange={(v) => console.log('Text:', v)} />

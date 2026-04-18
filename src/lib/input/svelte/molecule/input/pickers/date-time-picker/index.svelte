@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IDateTimePickerProps } from '$stylist/input/interface/component/date-time-picker/other';
+  import type { SlotDateTimePicker as IDateTimePickerProps } from '$stylist/input/interface/slot/date-time-picker';
   import { createDateTimePickerState } from '$stylist/input/function/state/date-time-picker';
   import FormDatePicker from '../form-date-picker/index.svelte';
   import { Icon as BaseIcon } from '$stylist';

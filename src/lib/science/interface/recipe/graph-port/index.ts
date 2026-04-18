@@ -1,28 +1,10 @@
-﻿/**
- * GraphPort — порт узла графа..
- *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   IStatusSlot        (information) — status (Status)
- */
 import type { Snippet } from 'svelte';
-import type { TokenSize } from '$stylist/layout/type/enum/size';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 import type { TokenPropertyType } from '$stylist/development/type/enum/property-type';
+import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface GraphPortState {
-	connected?: boolean;
-	active?: boolean;
-	hovered?: boolean;
-}
-
-export interface GraphPortDimensions {
-	width: number;
-	height: number;
-	hitArea: number;
-}
-
-export interface GraphPortRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface GraphPortRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	id?: string;
 	direction?: 'input' | 'output';
 	dataType?: TokenPropertyType | string;

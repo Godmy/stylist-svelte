@@ -1,7 +1,7 @@
 <script lang="ts">
   import MessageMeta from './index.svelte';
   import Story from '$stylist/development/svelte/playground/Story.svelte';
-  import type { Message } from '$stylist/communication/interface/component/chat/other';
+  import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
   import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
 
   const message = {

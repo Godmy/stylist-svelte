@@ -1,12 +1,12 @@
-import type { EventCalendarContract, EventCalendarEvent, EventCalendarDay } from '$stylist/calendar/interface/record/calendar';
+import type { RecipeEventCalendar as EventCalendarContract } from '$stylist/calendar/interface/recipe/event-calendar';
+import type { SlotEventCalendarEvent as SlotEventCalendarEvent } from '$stylist/calendar/interface/slot/event-calendar-event';
+import type { RecipeEventCalendarDay as RecipeEventCalendarDay } from '$stylist/calendar/interface/recipe/event-calendar-day';
 import type { TokenTimeMeasure } from '$stylist/calendar/type/enum/time-measure';
 import { EventCalendarStyleManager } from '$stylist/calendar/class/style-manager/event-calendar';
 
-export type EventCalendarStateProps = EventCalendarContract;
-
-export function createEventCalendarState(props: EventCalendarStateProps) {
+export function createEventCalendarState(props: EventCalendarContract) {
 	let currentDate = $state(new Date(props.initialDate ?? new Date()));
-	let selectedEvent: EventCalendarEvent | null = $state(null);
+	let selectedEvent: SlotEventCalendarEvent | null = $state(null);
 	let showEventActions = $state(false);
 	let currentViewMode = $state<TokenTimeMeasure>(props.viewMode ?? 'month');
 
@@ -21,7 +21,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 	const wrapperClasses = $derived(EventCalendarStyleManager.getWrapperClasses(currentViewMode));
 	const headerClasses = $derived(EventCalendarStyleManager.getHeaderClasses());
 
-	const days = $derived.by<EventCalendarDay[]>(() => {
+	const days = $derived.by<RecipeEventCalendarDay[]>(() => {
 		if (currentViewMode === 'month') return getDaysInMonth(currentDate);
 		if (currentViewMode === 'week') return getDaysInWeek(currentDate);
 		return getDayInDay(currentDate);
@@ -51,7 +51,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		return rest;
 	});
 
-	function isEventInDay(event: EventCalendarEvent, dayDate: Date): boolean {
+	function isEventInDay(event: SlotEventCalendarEvent, dayDate: Date): boolean {
 		const eventDate = new Date(event.start);
 		eventDate.setHours(0, 0, 0, 0);
 		return eventDate.getTime() === dayDate.getTime();
@@ -61,9 +61,9 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		startDate: Date,
 		endDate: Date,
 		currentMonth: number,
-		eventsArr: EventCalendarEvent[]
-	): EventCalendarDay[] {
-		const calendarDays: EventCalendarDay[] = [];
+		eventsArr: SlotEventCalendarEvent[]
+	): RecipeEventCalendarDay[] {
+		const calendarDays: RecipeEventCalendarDay[] = [];
 		const today = new Date();
 		today.setHours(0, 0, 0, 0);
 
@@ -78,7 +78,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		return calendarDays;
 	}
 
-	function getDaysInMonth(date: Date): EventCalendarDay[] {
+	function getDaysInMonth(date: Date): RecipeEventCalendarDay[] {
 		const year = date.getFullYear();
 		const month = date.getMonth();
 		const firstDay = new Date(year, month, 1);
@@ -90,7 +90,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		return generateCalendarDays(startDay, endDay, month, events);
 	}
 
-	function getDaysInWeek(date: Date): EventCalendarDay[] {
+	function getDaysInWeek(date: Date): RecipeEventCalendarDay[] {
 		const startOfWeek = new Date(date);
 		startOfWeek.setDate(date.getDate() - date.getDay());
 		const endOfWeek = new Date(startOfWeek);
@@ -98,7 +98,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		return generateCalendarDays(startOfWeek, endOfWeek, date.getMonth(), events);
 	}
 
-	function getDayInDay(date: Date): EventCalendarDay[] {
+	function getDayInDay(date: Date): RecipeEventCalendarDay[] {
 		const startOfDay = new Date(date);
 		startOfDay.setHours(0, 0, 0, 0);
 		const endOfDay = new Date(date);
@@ -136,7 +136,7 @@ export function createEventCalendarState(props: EventCalendarStateProps) {
 		props.onEventCreate?.(date);
 	}
 
-	function handleEventClick(event: EventCalendarEvent, e: Event): void {
+	function handleEventClick(event: SlotEventCalendarEvent, e: Event): void {
 		e.stopPropagation();
 		selectedEvent = event;
 		showEventActions = true;

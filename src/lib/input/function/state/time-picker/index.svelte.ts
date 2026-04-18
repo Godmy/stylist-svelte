@@ -1,4 +1,4 @@
-import type { ITimePickerProps } from '$stylist/input/interface/component/time-picker/other';
+import type { SlotTimePicker as ITimePickerProps } from '$stylist/input/interface/slot/time-picker';
 
 export const createTimePickerState = (props: ITimePickerProps) => {
 	let isOpen = $state(false);

@@ -2,7 +2,8 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
   import CommentSystem from './index.svelte';
-  import type { CommentItem, CommentUser } from '$stylist/social/interface/component/comment-system/other';
+  import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
+import type { SlotCommentUser as CommentUser } from '$stylist/social/interface/slot/comment-user';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'showReply', type: 'boolean', defaultValue: true },

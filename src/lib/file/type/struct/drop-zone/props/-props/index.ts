@@ -1,5 +1,5 @@
 import type { Snippet } from 'svelte';
-import type { DropItem } from '../../item';
+import type { SlotDropItem } from '../../item';
 import type { RestProps } from '../rest-props';
 
 export type Props = RestProps & {
@@ -10,11 +10,11 @@ export type Props = RestProps & {
   disabled?: boolean;
   maxSize?: number;
   maxItems?: number;
-  onDrop?: (items: DropItem[]) => void;
+  onDrop?: (items: SlotDropItem[]) => void;
   onDragOver?: (items: DragEvent) => void;
   onDragLeave?: (items: DragEvent) => void;
-  onItemAdded?: (item: DropItem) => void;
-  onItemRemoved?: (item: DropItem) => void;
+  onItemAdded?: (item: SlotDropItem) => void;
+  onItemRemoved?: (item: SlotDropItem) => void;
   preview?: boolean;
   label?: string;
   description?: string;

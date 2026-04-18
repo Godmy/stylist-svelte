@@ -1,4 +1,4 @@
-import type { LinkProps } from '$stylist/navigation/interface/component/link/other';
+import type { SlotLink as LinkProps } from '$stylist/navigation/interface/slot/link';
 import { LinkStyleManager } from '$stylist/navigation/class/style-manager/link';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';

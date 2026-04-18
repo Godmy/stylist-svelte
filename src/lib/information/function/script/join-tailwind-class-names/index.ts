@@ -1,14 +1,5 @@
 import { clsx } from 'clsx';
-
-export type ClassValue =
-	| string
-	| number
-	| bigint
-	| null
-	| undefined
-	| boolean
-	| { [key: string]: boolean }
-	| Iterable<ClassValue>;
+import type { ClassValue } from '$stylist/information/type/script/join-tailwind-class-names';
 
 export function joinTailwindClassNames(...inputs: ClassValue[]): string {
 	return clsx(inputs);

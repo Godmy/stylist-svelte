@@ -5,16 +5,6 @@ import type { TokenSelectControlDefinition } from '$stylist/control/type/struct/
 import type { TokenTextControlDefinition } from '$stylist/control/type/struct/text-control-definition';
 import type { TokenValue } from '$stylist/control/type/struct/token-value';
 
-export type {
-	TokenControlDefinitionData,
-	TokenControlKind,
-	TokenRadioControlDefinition,
-	TokenRangeControlDefinition,
-	TokenSelectControlDefinition,
-	TokenTextControlDefinition,
-	TokenValue
-};
-
 export type TokenControlDefinition =
 	| TokenRadioControlDefinition
 	| TokenRangeControlDefinition

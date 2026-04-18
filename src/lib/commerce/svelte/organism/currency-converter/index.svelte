@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CurrencyConverterContract } from '$stylist/commerce/interface/component/currency-converter';
+	import type { RecipeCurrencyConverter as CurrencyConverterContract } from '$stylist/commerce/interface/recipe/currency-converter';
 	import { createCurrencyConverterState } from '$stylist/commerce/function/state/currency-converter';
 
 	let props: CurrencyConverterContract = $props();
@@ -8,7 +8,7 @@
 
 <div class={state.containerClasses}>
 	<div class={state.headerClasses}>
-		<h2 class={state.titleClasses}>Currency Converter</h2>
+		<h2 class={state.titleClasses}>SlotCurrency Converter</h2>
 	</div>
 
 	<div class={state.formContainerClasses}>

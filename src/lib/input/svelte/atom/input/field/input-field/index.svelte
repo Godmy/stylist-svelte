@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { InputText } from '$stylist';
-	import type { IInputFieldProps } from '$stylist/input/interface/component/input/other';
+	import type { SlotInputField as IInputFieldProps } from '$stylist/input/interface/slot/input-field';
 	import { createInputFieldState } from '$stylist/input/function/state/input-field';
 
 	let props: IInputFieldProps = $props();

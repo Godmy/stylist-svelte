@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import CurrencyConverter from './index.svelte';
+  import RecipeCurrencyConverter from './index.svelte';
 
   let {
     id = '',
@@ -68,7 +68,7 @@
   {id}
   {title}
   {description}
-  component={CurrencyConverter}
+  component={RecipeCurrencyConverter}
   category="Organisms"
   controls={controls}
 >
@@ -76,12 +76,12 @@
     <section class="sb-organisms-currency-converter grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
         <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary Currency Converter Example
+          Primary SlotCurrency Converter Example
         </p>
         <p class="mt-1 text-[--color-text-primary]">Interactive currency converter with real-time exchange rates.</p>
 
         <div class="mt-6">
-          <CurrencyConverter
+          <RecipeCurrencyConverter
             amount={100}
             fromCurrency="USD"
             toCurrency="EUR"
@@ -93,13 +93,13 @@
             showFeeEstimate={false}
             feePercentage={0.5}
             onConvert={(result) => console.log('Conversion result:', result)}
-            onCurrencyChange={(from, to) => console.log(`Currency changed: ${from} to ${to}`)}
+            onCurrencyChange={(from, to) => console.log(`SlotCurrency changed: ${from} to ${to}`)}
           />
         </div>
       </div>
 
       <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">Currency Variations</h3>
+        <h3 class="text-base font-semibold text-[--color-text-primary]">SlotCurrency Variations</h3>
         <p class="text-sm text-[--color-text-secondary]">
           Different currency converter configurations with various options.
         </p>
@@ -108,7 +108,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">EUR to GBP</p>
             <div>
-              <CurrencyConverter
+              <RecipeCurrencyConverter
                 amount={50}
                 fromCurrency="EUR"
                 toCurrency="GBP"
@@ -120,7 +120,7 @@
                 showFeeEstimate={true}
                 feePercentage={1.2}
                 onConvert={(result) => console.log('Conversion result:', result)}
-                onCurrencyChange={(from, to) => console.log(`Currency changed: ${from} to ${to}`)}
+                onCurrencyChange={(from, to) => console.log(`SlotCurrency changed: ${from} to ${to}`)}
               />
             </div>
           </article>
@@ -128,7 +128,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">JPY to USD</p>
             <div>
-              <CurrencyConverter
+              <RecipeCurrencyConverter
                 amount={10000}
                 fromCurrency="JPY"
                 toCurrency="USD"
@@ -140,7 +140,7 @@
                 showFeeEstimate={false}
                 feePercentage={0}
                 onConvert={(result) => console.log('Conversion result:', result)}
-                onCurrencyChange={(from, to) => console.log(`Currency changed: ${from} to ${to}`)}
+                onCurrencyChange={(from, to) => console.log(`SlotCurrency changed: ${from} to ${to}`)}
               />
             </div>
           </article>

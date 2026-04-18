@@ -49,7 +49,7 @@
             items={[
               {
                 id: '1',
-                description: 'Subscription Fee',
+                description: 'SlotSubscription Fee',
                 amount: 29.99,
                 date: new Date(),
                 currency: 'USD',
@@ -92,7 +92,7 @@
                 items={[
                   {
                     id: '1',
-                    description: 'Premium Subscription',
+                    description: 'Premium SlotSubscription',
                     amount: 99.99,
                     date: new Date(),
                     currency: 'USD',

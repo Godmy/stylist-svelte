@@ -1,4 +1,4 @@
-import type { ImageWithCaptionContract } from '$stylist/media/interface/component/image-with-caption/contract';
+import type { ContractImageWithCaption as ImageWithCaptionContract } from '$stylist/media/interface/contract/image-with-caption';
 import { MediaStyleManager } from '$stylist/media/class/style-manager/media';
 
 

@@ -1,7 +1,8 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 /** Специфичные свойства для аккордеонов */
 import type { Snippet } from 'svelte';
 
-export interface AccordionSpecificProps {
+export interface AccordionSpecificProps extends StructIntersectAll<[]> {
 	/** Тип аккордеона */
 	type?: 'accordion' | 'advanced';
 

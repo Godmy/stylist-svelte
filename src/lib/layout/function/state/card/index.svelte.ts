@@ -3,7 +3,6 @@ import type { LayoutShape } from '$stylist/layout/type/struct/item-layout-shape'
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { CardProps } from '$stylist/layout/type/struct/layout-extended/card-props';
 
-export type { CardProps } from '$stylist/layout/type/struct/layout-extended/card-props';
 
 export function createCardState(props: CardProps) {
 	const shape = $derived<LayoutShape>(props.shape ?? 'rounded');

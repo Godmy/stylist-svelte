@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
-  import type { Props } from '$stylist/development/type/struct/code-with-copy';
-  import { CODE_WITH_COPY_CHECK, CODE_WITH_COPY_COPY } from '$stylist/development/const/map/code-with-copy';
+  import type { CodeWithCopyProps } from '$stylist/development/type/struct/code-with-copy-props';
+  import { TOKEN_DEVELOPMENT_ICON } from '$stylist/development/const/icon';
   import { createEventDispatcher } from 'svelte';
   import { createCodeWithCopyState } from '$stylist/development/function/state/code-with-copy';
 
-  let props: Props = $props();
+  let props: CodeWithCopyProps = $props();
   const dispatch = createEventDispatcher();
   const state = createCodeWithCopyState(props, dispatch);
 </script>
@@ -22,9 +22,15 @@
     onclick={state.handleCopyToClipboard}
   >
     {#if state.copied}
-      <BaseIcon name={CODE_WITH_COPY_CHECK} class={state.iconClass(true)} />
+      <BaseIcon
+        name={TOKEN_DEVELOPMENT_ICON.find((icon) => icon === 'check') ?? 'check'}
+        class={state.iconClass(true)}
+      />
     {:else}
-      <BaseIcon name={CODE_WITH_COPY_COPY} class={state.iconClass(false)} />
+      <BaseIcon
+        name={TOKEN_DEVELOPMENT_ICON.find((icon) => icon === 'copy') ?? 'copy'}
+        class={state.iconClass(false)}
+      />
     {/if}
   </button>
 </div>

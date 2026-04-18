@@ -1,9 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { createPlaygroundCodeViewerState } from '$stylist/development/function/state/playground-code-viewer';
-  import type { Props } from '$stylist/development/type/struct/playground-code-viewer';
-
-  let props: Props = $props();
+  import type { PlaygroundCodeViewerProps } from '$stylist/development/type/struct/playground-code-viewer-props';
+  let props: PlaygroundCodeViewerProps = $props();
   const state = createPlaygroundCodeViewerState(props);
   let highlightSequence = 0;
 

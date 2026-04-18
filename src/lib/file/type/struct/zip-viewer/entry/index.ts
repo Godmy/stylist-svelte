@@ -1,7 +1,7 @@
 import type { ZipEntryType } from '$stylist/file/type/struct/zip-viewer/entry-type';
 
-// ZipEntry type
-export type ZipEntry = {
+// SlotZipEntry type
+export type SlotZipEntry = {
   id: string;
   name: string;
   type: ZipEntryType;

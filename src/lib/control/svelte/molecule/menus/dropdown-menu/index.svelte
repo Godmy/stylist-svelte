@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IDropdownMenuProps } from '$stylist/control/interface/component/dropdown-menu/other';
+  import type { SlotDropdownMenu as IDropdownMenuProps } from '$stylist/control/interface/slot/dropdown-menu';
   import { createDropdownMenuState } from '$stylist/control/function/state/dropdown-menu';
   import { Button, Icon } from '$stylist';
 

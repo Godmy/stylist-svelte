@@ -17,7 +17,7 @@
 	component={FollowButton}
 	title="FollowButton"
 	category="Atoms/Interaction/Controls/Buttons"
-	description="Toggle follow/unfollow action button"
+	description="SlotToggle follow/unfollow action button"
 >
 	{#snippet children(values: any)}
 		<FollowButton

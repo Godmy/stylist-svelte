@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createProductAvailabilityState } from '$stylist/commerce/function/state/product-availability';
-	import type { ProductAvailabilityProps } from '$stylist/commerce/function/state/product-availability';
+	import type { ProductAvailabilityProps } from '$stylist/commerce/interface/recipe/product-availability-props';
 
 	let props: ProductAvailabilityProps = $props();
 	const state = createProductAvailabilityState(props);

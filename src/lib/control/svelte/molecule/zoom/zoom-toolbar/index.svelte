@@ -2,7 +2,7 @@
   import { Icon as BaseIcon } from '$stylist';
   import { Button } from '$stylist';
   import { createZoomToolbarState } from '$stylist/control/function/state/zoom-toolbar';
-  import type { ZoomToolbarProps } from '$stylist/control/interface/component/zoom-toolbar/other';
+  import type { SlotZoomToolbar as ZoomToolbarProps } from '$stylist/control/interface/slot/zoom-toolbar';
 
 const ZoomIn = 'zoom-in';
 const ZoomOut = 'zoom-out';

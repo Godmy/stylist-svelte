@@ -3,39 +3,11 @@ import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 import type { TokenMessageState } from '$stylist/communication/type/enum/message-state';
 import { MESSAGE_AVATAR_SIZE_CLASSES } from '$stylist/communication/const/record/message-avatar-size-classes';
-
-const MESSAGE_ALIGNMENT_CLASSES = {
-	left: 'items-start',
-	right: 'items-end',
-	center: 'items-center'
-} as const satisfies Partial<Record<MessageAlignment, string>>;
-
-function getMessageAlignmentClass(align: MessageAlignment): string {
-	if (align === 'right') return MESSAGE_ALIGNMENT_CLASSES.right;
-	if (align === 'center') return MESSAGE_ALIGNMENT_CLASSES.center;
-	return MESSAGE_ALIGNMENT_CLASSES.left;
-}
-
-const MESSAGE_VARIANT_BG_CLASSES = {
-	draft: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
-	system: 'bg-[--color-background-secondary] border-[--color-border-primary]',
-	incoming: 'bg-[var(--color-background-primary)] border-[--color-border-secondary]',
-	outgoing: 'bg-[--color-primary-500] border-[--color-primary-600]'
-} as const;
-
-const MESSAGE_VARIANT_TEXT_CLASSES = {
-	draft: 'text-[--color-text-primary]',
-	system: 'text-[--color-text-secondary]',
-	incoming: 'text-[--color-text-primary]',
-	outgoing: 'text-[--color-text-inverse]'
-} as const;
-
-const MESSAGE_STATUS_CLASSES = {
-	sent: 'text-[--color-primary-500]',
-	delivered: 'text-[--color-text-tertiary]',
-	read: 'text-[--color-success-500]',
-	error: 'text-[--color-danger-500]'
-} as const;
+import { MESSAGE_ALIGNMENT_CLASSES } from '$stylist/communication/const/map/message-alignment-classes';
+import { MESSAGE_VARIANT_BG_CLASSES } from '$stylist/communication/const/map/message-variant-bg-classes';
+import { MESSAGE_VARIANT_TEXT_CLASSES } from '$stylist/communication/const/map/message-variant-text-classes';
+import { MESSAGE_STATUS_CLASSES } from '$stylist/communication/const/map/message-status-classes';
+import { getMessageAlignmentClass } from '$stylist/communication/function/script/get-message-alignment-class';
 
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
@@ -146,6 +118,4 @@ export class MessageStyleManager {
 		return 'p-2 rounded-md hover:bg-[--color-background-secondary] transition-colors';
 	}
 }
-
-export default MessageStyleManager;
 

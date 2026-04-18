@@ -1,19 +1,19 @@
-/**
- * WishlistButton — кнопка избранного..
+﻿/**
+ * WishlistButton вЂ” РєРЅРѕРїРєР° РёР·Р±СЂР°РЅРЅРѕРіРѕ..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
- *   IIconSlot        (information) — icon (Icon)
- *   IBadgeSlot        (information) — badge (Badge)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
+ *   IIconSlot        (information) вЂ” icon (Icon)
+ *   IBadgeSlot        (information) вЂ” badge (Badge)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { IBadgeSlot } from '$stylist/typography/interface/proto/badge-slot';
-import type { IIconSlot } from '$stylist/media/interface/proto/icon-slot';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotBadge as IBadgeSlot } from '$stylist/typography/interface/slot/badge';
+import type { SlotIcon as IIconSlot } from '$stylist/media/interface/slot/icon';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
 export interface WishlistButtonRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		IIconSlot,
 		IBadgeSlot,
@@ -28,3 +28,4 @@ export interface WishlistButtonRecipe
 	onSuccess?: () => void;
 	onError?: (error: Error) => void;
 }
+

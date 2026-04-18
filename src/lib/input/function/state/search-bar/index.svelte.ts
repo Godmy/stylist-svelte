@@ -1,9 +1,9 @@
-import type { SearchBarStateProps } from '../search-bar-state-props/index.svelte.ts';
+type SearchBarStateProps = { [key: string]: any };
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { debounce } from '$stylist/interaction/function/script/debounce';
 
 export const createSearchBarState = (props: SearchBarStateProps) => {
-	// State
+	// SlotState
 	let searchTerm = $state(props.value ?? '');
 
 	// Update local state when value prop changes
@@ -91,7 +91,7 @@ export const createSearchBarState = (props: SearchBarStateProps) => {
 	const smallIconClasses = $derived.by(() => 'h-4 w-4');
 
 	return {
-		// State getters
+		// SlotState getters
 		get searchTerm() {
 			return searchTerm;
 		},

@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createPlaygroundDeviceFrameState } from './index.svelte';
+export { createPlaygroundDeviceFrameState } from './index.svelte';

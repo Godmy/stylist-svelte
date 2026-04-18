@@ -1,6 +1,5 @@
 import type { SpinnerProps } from '$stylist/notification/type/struct/spinner-props';
-
-export type SpinnerVariant = 'css' | 'svg' | 'icon';
+import type { SpinnerVariant } from '$stylist/notification/type/alias/spinner-variant';
 
 const sizeClassesMap: Record<string, string> = {
 	xs: 'w-4 h-4',

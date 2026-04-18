@@ -4,7 +4,7 @@
   import { ChatInterfaceStyleManager } from '$stylist/communication/class/style-manager/chat-interface';
   import type { Message } from '$stylist/communication/type/struct/chat-interface/message';
   import type { AIProvider } from '$stylist/communication/type/struct/chat-interface/ai-provider';
-  import type { ChatInterfaceProps } from '$stylist/communication/interface/component/chat-interface/struct/props';
+  import type { ChatInterfaceProps } from '$stylist/communication/type/struct/chat-interface-props';
   import { createChatInterfaceState } from '$stylist/communication/function/state/chat-interface';
 
   let props: ChatInterfaceProps = $props();

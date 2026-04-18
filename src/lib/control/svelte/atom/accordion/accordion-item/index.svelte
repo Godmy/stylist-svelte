@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { ACCORDION_ITEM_CONTEXT } from '$stylist/control/const/struct/accordion-item-context';
+	import { ACCORDION_ITEM_CONTEXT } from '$stylist/control/const/record/accordion-item-context';
 	import { createAccordionItemState } from '$stylist/control/function/state/accordion-item';
 	import type { AccordionItemProps } from '$stylist/control/type/struct/accordion-item-props';
 

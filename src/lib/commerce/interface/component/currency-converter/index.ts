@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { ConversionResultContract, CurrencyContract, CurrencyConverterContract, CurrencyConverterEventsContract, ExchangeRateContract } from './contract';

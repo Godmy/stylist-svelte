@@ -1,6 +1,6 @@
 import type { NodePropertyRecipe } from '$stylist/science/interface/recipe/node-property';
 import { createNodePropertyState } from '$stylist/science/function/state/node-property';
-import { NODE_PROPERTY_VECTOR_LABELS } from '$stylist/control/const/struct/node-property-vector-labels';
+import { NODE_PROPERTY_VECTOR_LABELS } from '$stylist/control/const/record/node-property-vector-labels';
 
 export function createNodePropertyControlState(props: NodePropertyRecipe) {
 	const propertyState = createNodePropertyState(props);

@@ -45,7 +45,7 @@
         <div class={OrderConfirmationStyleManager.getOrderHeaderClasses()}>
           <div class="flex flex-wrap justify-between items-center gap-4">
             <h3 class="text-lg leading-6 font-medium text-[--color-gray-900]">
-              Order #{props.orderId}
+              SlotOrder #{props.orderId}
             </h3>
 
             <span class={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${state.orderStatusConfig.color}`}>
@@ -61,9 +61,9 @@
 
         <div class={OrderConfirmationStyleManager.getOrderContentClasses()}>
           <div class={OrderConfirmationStyleManager.getMainGridClasses()}>
-            <!-- Order items -->
+            <!-- SlotOrder items -->
             <div class="md:col-span-2">
-              <h4 class="text-md font-medium text-[--color-gray-900] mb-4">Order Items</h4>
+              <h4 class="text-md font-medium text-[--color-gray-900] mb-4">SlotOrder Items</h4>
 
               <div class="space-y-4">
                 {#each props.items as item}
@@ -98,9 +98,9 @@
               </div>
             </div>
 
-            <!-- Order summary -->
+            <!-- SlotOrder summary -->
             <div class={OrderConfirmationStyleManager.getOrderDetailsClasses(props.summaryClass ?? '')}>
-              <h4 class="text-md font-medium text-[--color-gray-900] mb-4">Order Summary</h4>
+              <h4 class="text-md font-medium text-[--color-gray-900] mb-4">SlotOrder Summary</h4>
 
               <div class="space-y-3">
                 <div class="flex justify-between text-sm text-[--color-gray-600]">
@@ -210,7 +210,7 @@
       {#if props.trackingNumber}
         <Button variant="ghost" onclick={state.handleTrackOrder}>
           <BaseIcon name={Truck} class="h-4 w-4 mr-2" />
-          Track Order
+          Track SlotOrder
         </Button>
       {/if}
 
@@ -224,7 +224,7 @@
       {#if props.showShareOrder ?? true}
         <Button variant="ghost" onclick={state.handleShareOrder}>
           <BaseIcon name={Share2} class="h-4 w-4 mr-2" />
-          Share Order
+          Share SlotOrder
         </Button>
       {/if}
     </div>

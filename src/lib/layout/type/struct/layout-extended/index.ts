@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BaseLayoutProps } from './base-layout-props';
 export type { CardProps } from './card-props';
 export type { CenteredLayoutProps } from './centered-layout-props';
 export type { ContainerQueryProps } from './container-query-props';

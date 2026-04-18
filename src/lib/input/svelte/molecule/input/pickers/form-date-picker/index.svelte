@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IFormDatePickerProps } from '$stylist/input/interface/component/form-date-picker/other';
+  import type { SlotFormDatePicker as IFormDatePickerProps } from '$stylist/input/interface/slot/form-date-picker';
   import { createFormDatePickerState } from '$stylist/input/function/state/form-date-picker';
   import { Icon as BaseIcon } from '$stylist';
   const Calendar = 'calendar';

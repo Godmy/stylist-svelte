@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
-	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/control/const/struct/stylist-tab-default-items';
+	import { STYLIST_TAB_DEFAULT_ITEMS } from '$stylist/control/const/record/stylist-tab-default-items';
 	import { createStylistTabState } from '$stylist/control/function/state/stylist-tab';
 	import type { StylistTabItem } from '$stylist/control/type/struct/stylist-tab-item';
 	import type { StylistTabProps } from '$stylist/control/type/struct/stylist-tab-props';

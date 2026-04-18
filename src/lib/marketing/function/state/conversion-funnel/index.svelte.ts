@@ -1,14 +1,14 @@
 import type { ConversionFunnelProps, FunnelStep } from '$stylist/marketing/type/struct/conversion-funnel';
 import { ConversionFunnelStyleManager } from '$stylist/marketing/class/style-manager/conversion-funnel';
 
-export function getConversionRate(steps: FunnelStep[], stepIndex: number): number {
+function getConversionRate(steps: FunnelStep[], stepIndex: number): number {
   if (stepIndex === 0 || steps.length <= stepIndex) return 100;
   const current = steps[stepIndex].value;
   const previous = steps[stepIndex - 1].value;
   return previous > 0 ? Math.round((current / previous) * 100) : 0;
 }
 
-export function getDropoff(steps: FunnelStep[], stepIndex: number): number {
+function getDropoff(steps: FunnelStep[], stepIndex: number): number {
   if (stepIndex === 0 || steps.length <= stepIndex) return 0;
   const current = steps[stepIndex].value;
   const previous = steps[stepIndex - 1].value;
@@ -45,6 +45,10 @@ export function createConversionFunnelState(props: ConversionFunnelProps) {
     get containerClasses() { return containerClasses; },
     get headerClasses() { return headerClasses; },
     get maxValue() { return maxValue; },
-    get restProps() { return restProps; }
+    get restProps() { return restProps; },
+    getConversionRate: (stepIndex: number) => getConversionRate(steps, stepIndex),
+    getDropoff: (stepIndex: number) => getDropoff(steps, stepIndex)
   };
 }
+
+export default createConversionFunnelState;

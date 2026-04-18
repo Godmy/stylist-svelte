@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { default as createProgressCircleState } from './index.svelte';
+export { createProgressCircleState } from './index.svelte';

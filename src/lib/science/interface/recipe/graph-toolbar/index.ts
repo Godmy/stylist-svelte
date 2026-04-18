@@ -1,3 +1,4 @@
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
 ﻿/**
  * GraphToolbar — тулбар графа..
  *
@@ -7,7 +8,7 @@
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface GraphToolbarRecipe extends ThemeAttributes<HTMLDivElement> {
+export interface GraphToolbarRecipe extends StructIntersectAll<[ThemeAttributes<HTMLDivElement>]> {
 	label?: string;
 	size?: TokenSize;
 	orientation?: 'horizontal' | 'vertical';

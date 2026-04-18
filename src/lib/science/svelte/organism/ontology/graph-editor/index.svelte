@@ -123,8 +123,8 @@
 		<IconButton
 			variant="ghost"
 			size="md"
-			aria-label="Toggle properties panel"
-			title="Toggle Properties"
+			aria-label="SlotToggle properties panel"
+			title="SlotToggle Properties"
 			onclick={state.handleToggleProperties}
 		>
 			<Icon name="settings" size={18} />

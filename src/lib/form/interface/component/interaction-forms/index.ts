@@ -1,2 +1,0 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { AddressFormProps, DocumentPreviewProps, FormWithValidationProps, LoginFormProps, ScreenReaderProps, SearchFormProps, SecureFormProps, SecuritySettingsProps, SessionManagerProps } from './other';

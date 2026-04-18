@@ -1,8 +1,7 @@
 <script lang="ts">
   import { createPlaygroundDrawingOverlayState } from '$stylist/development/function/state/playground-drawing-overlay';
-  import type { Props } from '$stylist/development/type/struct/playground-drawing-overlay';
-
-  let props: Props = $props();
+  import type { PlaygroundDrawingOverlayProps } from '$stylist/development/type/struct/playground-drawing-overlay-props';
+  let props: PlaygroundDrawingOverlayProps = $props();
   const state = createPlaygroundDrawingOverlayState(props);
 </script>
 

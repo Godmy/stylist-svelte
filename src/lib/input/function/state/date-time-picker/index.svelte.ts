@@ -1,4 +1,4 @@
-import type { IDateTimePickerProps } from '$stylist/input/interface/component/date-time-picker/other';
+import type { SlotDateTimePicker as IDateTimePickerProps } from '$stylist/input/interface/slot/date-time-picker';
 
 export const createDateTimePickerState = (props: IDateTimePickerProps) => {
 	let isOpen = $state(false);

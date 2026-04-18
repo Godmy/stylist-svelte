@@ -2,8 +2,8 @@
   import { Icon, Badge, Button, InputField } from '$stylist';
   import TextArea from '$stylist/input/svelte/atom/input/field/text-area/index.svelte';
   import { createScrumBacklogState } from '$stylist/management/function/state/scrum-backlog';
-  import type { BacklogItem } from '$stylist/management/interface/struct/backlog-item';
-  import type { BacklogData } from '$stylist/management/interface/struct/backlog-data';
+  import type { SlotBacklogItem as BacklogItem } from '$stylist/management/interface/slot/backlog-item';
+  import type { SlotBacklogData as BacklogData } from '$stylist/management/interface/slot/backlog-data';
   import { ScrumBacklogStyleManager } from '$stylist/management/class/style-manager/scrum-backlog';
 
   const Plus = 'plus';

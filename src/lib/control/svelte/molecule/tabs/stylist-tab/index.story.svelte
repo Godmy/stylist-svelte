@@ -26,7 +26,7 @@
 
 <Story
 	{controls}
-	title="Stylist Tab"
+	title="RecipeStylist Tab"
 	description="РљРѕРјРїРѕРЅРµРЅС‚ РїРµСЂРµРєР»СЋС‡РµРЅРёСЏ С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅС‹С… С‚Р°РєСЃРѕРЅРѕРјРёР№ СЃ Р°РЅРёРјР°С†РёРµР№"
 >
 	{#snippet children(controlValues: any)}

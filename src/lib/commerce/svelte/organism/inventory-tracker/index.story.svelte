@@ -2,7 +2,7 @@
   import { Story } from '$stylist/development/svelte/playground';
   import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
 
-  import InventoryTracker from './index.svelte';
+  import RecipeInventoryTracker from './index.svelte';
 
   let {
     id = '',
@@ -110,7 +110,7 @@
   {id}
   {title}
   {description}
-  component={InventoryTracker}
+  component={RecipeInventoryTracker}
   category="Organisms"
   controls={controls}
 >
@@ -123,7 +123,7 @@
         <p class="mt-1 text-[--color-text-primary]">Interactive inventory tracker with stock management.</p>
 
         <div class="mt-6">
-          <InventoryTracker
+          <RecipeInventoryTracker
             items={inventoryItems}
             alerts={alerts}
             showAlerts={values.showAlerts}
@@ -149,7 +149,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Without Alerts</p>
             <div>
-              <InventoryTracker
+              <RecipeInventoryTracker
                 items={inventoryItems.slice(0, 2)}
                 alerts={[]}
                 showAlerts={false}
@@ -166,7 +166,7 @@
           <article class="rounded-2xl border border-dashed border-[--color-border-primary] bg-[--color-background-primary] p-4">
             <p class="text-sm font-semibold text-[--color-text-primary] mb-2">Compact View</p>
             <div>
-              <InventoryTracker
+              <RecipeInventoryTracker
                 items={inventoryItems.slice(0, 1)}
                 alerts={alerts.slice(0, 1)}
                 showAlerts={true}

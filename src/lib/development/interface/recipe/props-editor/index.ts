@@ -1,26 +1,16 @@
 /**
- * PropsEditor — редактор пропсов..
+ * PropsEditor вЂ” СЂРµРґР°РєС‚РѕСЂ РїСЂРѕРїСЃРѕРІ..
  *
- * LEGO-состав:
- *   ILabelSlot        (information) — label (Label)
+ * LEGO-СЃРѕСЃС‚Р°РІ:
+ *   ILabelSlot        (information) вЂ” label (Label)
  */
-import type { RecordArchitectureMerge } from '$stylist/architecture/type/record/architecture-merge';
-import type { ILabelSlot } from '$stylist/typography/interface/proto/label-slot';
+import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
 import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
-
-export type PropDefinition = {
-	name: string;
-	type: string;
-	defaultValue?: unknown;
-	description?: string;
-	options?: string[];
-	min?: number;
-	max?: number;
-	step?: number;
-};
+import type { PropDefinition } from '$stylist/development/type/struct/prop-definition';
 
 export interface PropsEditorRecipe
-	extends RecordArchitectureMerge<[
+	extends StructIntersectAll<[
 		ILabelSlot,
 		ThemeAttributes<HTMLDivElement>
 	]>
@@ -29,3 +19,4 @@ export interface PropsEditorRecipe
 	propValues?: Record<string, unknown>;
 	onPropChange?: (name: string, value: unknown) => void;
 }
+

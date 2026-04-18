@@ -1,5 +1,5 @@
-import type { MultiSelectProps } from '$stylist/control/interface/component/multi-select/other';
-import type { MultiSelectOption } from '$stylist/control/interface/component/multi-select/other';
+import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
+import type { SlotMultiSelectOption as MultiSelectOption } from '$stylist/control/interface/slot/multi-select-option';
 import { MultiSelectStyleManager } from '$stylist';
 
 const ChevronDown = 'chevron-down';

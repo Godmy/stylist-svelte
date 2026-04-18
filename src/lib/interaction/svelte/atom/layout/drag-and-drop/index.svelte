@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DragAndDropProps } from '$stylist/control/interface/component/drag-and-drop/other';
+	import type { SlotDragAndDrop as DragAndDropProps } from '$stylist/control/interface/slot/drag-and-drop';
 	import { createDragAndDropState } from '$stylist/control/function/state/drag-and-drop';
 
 	let props: DragAndDropProps = $props();

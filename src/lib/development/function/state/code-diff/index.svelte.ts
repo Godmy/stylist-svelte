@@ -1,10 +1,11 @@
-import type { Props, DiffLine } from '$stylist/development/type/struct/code-diff';
+import type { CodeDiffProps } from '$stylist/development/type/struct/code-diff-props';
+import type { CodeDiffDiffLine } from '$stylist/development/type/struct/code-diff-diff-line';
 import { CodeDiffStyleManager } from '$stylist/development/class/style-manager/code-diff';
 
-export function computeDiffLines(original: string, modified: string): DiffLine[] {
+function computeDiffLines(original: string, modified: string): CodeDiffDiffLine[] {
 	const originalLines = original.split('\n');
 	const modifiedLines = modified.split('\n');
-	const lines: DiffLine[] = [];
+	const lines: CodeDiffDiffLine[] = [];
 	const maxLines = Math.max(originalLines.length, modifiedLines.length);
 
 	for (let i = 0; i < maxLines; i++) {
@@ -25,7 +26,7 @@ export function computeDiffLines(original: string, modified: string): DiffLine[]
 	return lines;
 }
 
-export function createCodeDiffState(props: Props) {
+export function createCodeDiffState(props: CodeDiffProps) {
 	const diffLines = $derived(computeDiffLines(props.original ?? '', props.modified ?? ''));
 	const containerClass = $derived(CodeDiffStyleManager.getContainerClass(props.class ?? ''));
 	const headerClassComputed = $derived(CodeDiffStyleManager.getHeaderClass(props.headerClass ?? ''));

@@ -10,7 +10,7 @@ const X = 'x';
 
   import { Avatar, Badge, Divider } from '$stylist';
   import { createKanbanCardState, type KanbanCardType, type KanbanCardUser } from '$stylist/management/function/state/kanban-card';
-  import type { KanbanCardProps } from '$stylist/management/interface/component/kanban-card/other';
+  import type { SlotKanbanCard as KanbanCardProps } from '$stylist/management/interface/slot/kanban-card';
 
   let props: KanbanCardProps = $props();
   const state = createKanbanCardState(props);

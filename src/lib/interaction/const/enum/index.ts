@@ -12,6 +12,7 @@ export { TOKEN_PROGRESS_TYPE } from './progress-type';
 export { TOKEN_RADIO } from './radio';
 export { TOKEN_SEVERITY } from './sevetity';
 export { TOKEN_SORT_DIRECTION } from './sort-direction';
+export { TOKEN_STATUS_LABEL_CONTAINER } from './status-label-container';
 export { TOKEN_TEST } from './test';
 export { TOKEN_CONTROL_KINDS } from './token-control-kind';
 export { TOKEN_TRIGGER } from './trigger';

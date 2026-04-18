@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createTableWithGroupingState } from '$stylist/control/function/state/table-with-grouping';
-  import type { TableWithGroupingProps } from '$stylist/control/interface/component/table-extended/other';
+  import type { SlotTableWithGrouping as TableWithGroupingProps } from '$stylist/control/interface/slot/table-with-grouping';
 
   let props: TableWithGroupingProps = $props();
   const state = createTableWithGroupingState(props);

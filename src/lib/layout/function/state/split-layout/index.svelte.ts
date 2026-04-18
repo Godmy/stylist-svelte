@@ -1,8 +1,9 @@
 import { SplitLayoutStyleManager } from '$stylist/layout/class/style-manager/split-layout';
-import type { SplitLayoutDirection, SplitLayoutGap, SplitLayoutPanelSize } from '$stylist/layout/class/style-manager/split-layout';
+import type { SplitLayoutDirection } from '$stylist/layout/type/enum/split-layout-direction';
+import type { SplitLayoutGap } from '$stylist/layout/type/enum/split-layout-gap';
+import type { SplitLayoutPanelSize } from '$stylist/layout/type/enum/split-layout-panel-size';
 import type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
 
-export type { SplitLayoutProps } from '$stylist/layout/type/struct/layout-extended/split-layout-props';
 
 export function createSplitLayoutState(props: SplitLayoutProps) {
 	const direction = $derived<SplitLayoutDirection>(props.direction ?? 'horizontal');

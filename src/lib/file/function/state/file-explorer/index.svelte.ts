@@ -1,5 +1,5 @@
 import type { Props } from '$stylist/file/type/struct/file-explorer/props';
-import type { FileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
+import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
 import {
   handleDownload as handleDownloadFn,
@@ -14,7 +14,7 @@ import {
 export function createFileExplorerState(
   props: Props
 ) {
-  let selectedItems = $state<FileSystemItem[]>([]);
+  let selectedItems = $state<SlotFileSystemItem[]>([]);
   let searchQuery = $state('');
   let currentViewMode = $state<ViewMode>(props.viewMode ?? 'grid');
   let fileInputElement = $state<HTMLInputElement | null>(null);
@@ -67,19 +67,19 @@ export function createFileExplorerState(
     return rest;
   });
 
-  function setSelectedItems(nextItems: FileSystemItem[]): void {
+  function setSelectedItems(nextItems: SlotFileSystemItem[]): void {
     selectedItems = nextItems;
   }
 
-  function handleItemClick(item: FileSystemItem): void {
+  function handleItemClick(item: SlotFileSystemItem): void {
     handleItemClickFn(item, enableSelection, multiselect, selectedItems, setSelectedItems, props.onItemSelect);
   }
 
-  function handleItemDoubleClick(item: FileSystemItem): void {
+  function handleItemDoubleClick(item: SlotFileSystemItem): void {
     handleItemDoubleClickFn(item, props.onItemDoubleClick);
   }
 
-  function handleItemKeyDown(event: KeyboardEvent, item: FileSystemItem): void {
+  function handleItemKeyDown(event: KeyboardEvent, item: SlotFileSystemItem): void {
     handleItemKeyDownFn(
       event,
       item,
@@ -98,7 +98,7 @@ export function createFileExplorerState(
     handleUploadFn(event, props.onUpload);
   }
 
-  function handleDownload(item: FileSystemItem): void {
+  function handleDownload(item: SlotFileSystemItem): void {
     handleDownloadFn(item, props.onDownload);
   }
 
