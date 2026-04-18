@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageHeaderStateProps } from '$stylist/management/function/state/page-header';
+	import type { PageHeaderStateProps } from '$stylist/management/interface/recipe/page-header';
 	import { PageHeaderStyleManager } from '$stylist/management/class/style-manager/page-header';
 	import { createPageHeaderState } from '$stylist/management/function/state/page-header';
 	import Link from '$stylist/typography/svelte/atom/inline/link/index.svelte';

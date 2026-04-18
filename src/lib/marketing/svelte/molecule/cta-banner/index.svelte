@@ -1,7 +1,7 @@
 <script lang="ts">
   import { CtaBannerStyleManager } from '$stylist/marketing/class/style-manager/cta-banner';
-  import type { CtaBannerProps, CtaBannerButton } from '$stylist/marketing/type/struct/cta-banner';
-  import { createCtaBannerState, getButtonClasses, handleButtonClick } from '$stylist/marketing/function/state/cta-banner';
+  import type { CtaBannerProps } from '$stylist/marketing/type/struct/cta-banner';
+  import { createCtaBannerState } from '$stylist/marketing/function/state/cta-banner';
 
   let props: CtaBannerProps = $props();
   const state = createCtaBannerState(props);
@@ -24,7 +24,7 @@
     {#if state.buttons.length > 0}
       <div class={state.buttonsContainerClasses}>
         {#each state.buttons as button}
-          <button class={getButtonClasses(button.variant)} onclick={() => handleButtonClick(button.onClick)} type="button" aria-label={button.label}>
+          <button class={state.getButtonClasses(button.variant)} onclick={() => button.onClick?.()} type="button" aria-label={button.label}>
             {button.label}
           </button>
         {/each}

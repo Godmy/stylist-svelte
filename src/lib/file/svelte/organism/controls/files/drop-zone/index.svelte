@@ -3,7 +3,7 @@
   import { Button } from '$stylist';
   import { DropZoneStyleManager } from '$stylist/file/class/style-manager/drop-zone';
   import { createDropZoneState } from '$stylist/file/function/state/drop-zone';
-  import { formatFileSize } from '$stylist/file/function/script/drop-zone';
+  import { formatFileSize } from '$stylist/file/function/script/drop-zone-format-file-size';
   import type { Props } from '$stylist/file/type/struct/drop-zone/props';
 
   let props: Props = $props();

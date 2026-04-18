@@ -4,7 +4,7 @@
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
 	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas';
 	import { exportCanvasImage } from '$stylist/canvas/function/script/canvas/export-image';
-	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas/share/index';
+	import { getCanvasPointerPosition } from '$stylist/canvas/function/script/canvas-get-pointer-position';
 
 	const contract: SharedCanvasContract = $props();
 	const state = createSharedCanvasState(contract);

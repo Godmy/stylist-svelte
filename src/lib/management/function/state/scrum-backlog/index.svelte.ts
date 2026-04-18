@@ -1,11 +1,9 @@
 import { ScrumBacklogStyleManager } from '$stylist/management/class/style-manager/scrum-backlog';
 import type { ScrumBacklogStateProps } from '$stylist/management/interface/recipe/scrum-backlog';
 
-import {
-  filterBacklogItems,
-  createBacklogItem,
-  formatBacklogItemDate
-} from '$stylist/management/function/script/scrum-backlog';
+import { createBacklogItem } from '$stylist/management/function/script/create-backlog-item';
+import { filterBacklogItems } from '$stylist/management/function/script/scrum-backlog';
+import { formatBacklogItemDate } from '$stylist/management/function/script/format-backlog-item-date';
 
 export function createScrumBacklogState(props: ScrumBacklogStateProps) {
   // Props with defaults

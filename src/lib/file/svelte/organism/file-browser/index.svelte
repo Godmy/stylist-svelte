@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import { createFileBrowserState } from '$stylist/file/function/state/file-browser';
-  import { getItemCount } from '$stylist/file/function/script/file-browser';
+  import { getItemCount } from '$stylist/file/function/script/file-browser-get-item-count';
   import type { SlotFolderItem } from '$stylist/file/type/struct/file-browser/folder-item';
   import type { Props } from '$stylist/file/type/struct/file-browser/props';
 

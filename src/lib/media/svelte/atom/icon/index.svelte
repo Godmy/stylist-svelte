@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { createIconState, type IconProps } from '$stylist/media/function/state/icon';
+	import { createIconState } from '$stylist/media/function/state/icon';
+	import type { IconProps } from '$stylist/media/interface/recipe/icon-icon-props';
 	import Svg from '../svg/index.svelte';
 
 	let props: IconProps = $props();

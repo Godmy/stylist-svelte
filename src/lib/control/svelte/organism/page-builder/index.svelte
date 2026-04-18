@@ -8,7 +8,7 @@
   import { PAGE_BUILDER_TOOLBAR_ITEMS } from '$stylist/control/const/record/page-builder-toolbar-items';
   import { PAGE_BUILDER_ICON } from '$stylist/control/const/map/page-builder-icons';
   import { createPageBuilderState } from '$stylist/control/function/state/page-builder';
-  import { pageBuilderRenderElement } from '$stylist/control/function/script/page-builder';
+  import { pageBuilderRenderElement } from '$stylist/control/function/script/page-builder-render-element';
   import type { PageBuilderProps } from '$stylist/control/type/struct/page-builder-props';
 
   let props: PageBuilderProps = $props();

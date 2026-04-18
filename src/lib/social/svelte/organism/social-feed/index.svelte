@@ -3,7 +3,7 @@
   import { Icon as BaseIcon } from '$stylist';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import { PostCard } from '$stylist';
-  import createSocialFeedState from '$stylist/social/function/state/social-feed';
+  import { createSocialFeedState } from '$stylist/social/function/state/social-feed';
   import type { Props, Post } from '$stylist/social/type/struct/social-feed';
 
   let props: Props = $props();

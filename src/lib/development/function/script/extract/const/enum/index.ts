@@ -129,7 +129,8 @@ const extractTokensFromFile = (
 	return tokens;
 };
 
-export const extractConstEnum = async (): Promise<void> => {
+export function extractConstEnum(): Promise<void> {
+	return (async () => {
 	await domainForEach(async ({ domainName, domainPath }) => {
 		const sourceDirectory = join(domainPath, 'const', 'enum');
 		const outputDirectory = join(domainPath, 'data', 'json', 'const', 'enum');
@@ -148,4 +149,5 @@ export const extractConstEnum = async (): Promise<void> => {
 		mkdirSync(outputDirectory, { recursive: true });
 		writeFileSync(outputFile, JSON.stringify(payload, null, 2), 'utf-8');
 	});
-};
+	})();
+}

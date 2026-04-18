@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { DashboardLayoutProps } from '$stylist/management/function/state/dashboard-layout';
+	import type { DashboardLayoutProps } from '$stylist/management/interface/recipe/dashboard-layout';
 	import { Icon } from '$stylist';
 	import { Button } from '$stylist';
 	import { createDashboardLayoutState } from '$stylist/management/function/state/dashboard-layout';

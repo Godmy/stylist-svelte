@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PaginationStateProps } from '$stylist/navigation/function/state/pagination';
+	import type { PaginationStateProps } from '$stylist/navigation/interface/recipe/pagination-pagination-state-props';
 	import { Icon } from '$stylist';
 	import { createPaginationState } from '$stylist/navigation/function/state/pagination';
 

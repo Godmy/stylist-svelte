@@ -1,4 +1,4 @@
-import { Matrix4 } from '$stylist/architecture/function/script/matrix4';
+import { Matrix4 } from '$stylist/architecture/class/object-manager/matrix4';
 
 export function createSceneProgram(
 	gl: WebGLRenderingContext | WebGL2RenderingContext,

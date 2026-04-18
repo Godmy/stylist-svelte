@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {
-		createImageGalleryState,
-		type ImageGalleryStateProps
+		createImageGalleryState
 	} from '$stylist/media/function/state/image-gallery';
+	import type { ImageGalleryStateProps } from '$stylist/media/interface/recipe/image-gallery-image-gallery-state-props';
 	import { Icon as BaseIcon } from '$stylist';
 	import { ImageGalleryStyleManager } from '$stylist/media/class/style-manager/image-gallery';
 

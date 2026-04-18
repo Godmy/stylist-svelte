@@ -1,13 +1,11 @@
 import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas';
 import { StyleManagerSharedCanvas } from '$stylist/canvas/class/style-manager/shared-canvas';
-import {
-	cloneCanvasObjects,
-	createDraftCanvasObject,
-	drawCanvasObjects,
-	finalizeDraftCanvasObject,
-	hitTestCanvasObject,
-	updateDraftCanvasObject
-} from '$stylist/canvas/function/script/canvas/share/index';
+import { cloneCanvasObjects } from '$stylist/canvas/function/script/canvas/share/index';
+import { createDraftCanvasObject } from '$stylist/canvas/function/script/canvas-create-draft-object';
+import { drawCanvasObjects } from '$stylist/canvas/function/script/canvas-draw-objects';
+import { finalizeDraftCanvasObject } from '$stylist/canvas/function/script/canvas-finalize-draft-object';
+import { hitTestCanvasObject } from '$stylist/canvas/function/script/canvas-hit-test-object';
+import { updateDraftCanvasObject } from '$stylist/canvas/function/script/canvas-update-draft-object';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import type { CanvasObject } from '$stylist/canvas/type/struct/canvas-object';
 import type { SharedCanvasPoint } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-point';

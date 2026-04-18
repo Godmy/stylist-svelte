@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const TREE_TRAVERSAL_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 const STYLIST_SVELTE_LIB_DIRECTORY = join(TREE_TRAVERSAL_DIRECTORY, '..', '..', '..', '..', '..', '..');
 
-export async function domainForEach(
+export function domainForEach(
 	lambda: (context: {
 		domainName: string;
 		domainPath: string;
@@ -18,6 +18,7 @@ export async function domainForEach(
 		filter?: (context: { domainName: string; domainPath: string; libPath: string }) => boolean;
 	} = {}
 ): Promise<void> {
+	return (async () => {
 	const libPath = options.libPath ?? STYLIST_SVELTE_LIB_DIRECTORY;
 	const domainEntries = readdirSync(libPath, { withFileTypes: true })
 		.filter((entry) => entry.isDirectory())
@@ -36,4 +37,5 @@ export async function domainForEach(
 			total: domainEntries.length
 		});
 	}
+	})();
 }

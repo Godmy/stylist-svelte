@@ -1,10 +1,8 @@
 import type { Props } from '$stylist/file/type/struct/file-list-item/props';
-import {
-  getFileIcon,
-  handleAction as handleActionFn,
-  handleDoubleClick as handleDoubleClickFn,
-  handleSelect as handleSelectFn,
-} from '$stylist/file/function/script/file-list-item';
+import { getFileIcon } from '$stylist/file/function/script/file-list-item-get-file-icon';
+import { handleAction as handleActionFn } from '$stylist/file/function/script/file-list-item-handle-action';
+import { handleDoubleClick as handleDoubleClickFn } from '$stylist/file/function/script/file-list-item-handle-double-click';
+import { handleSelect as handleSelectFn } from '$stylist/file/function/script/file-list-item';
 
 export function createFileListItemState(
   props: Props

@@ -1,15 +1,13 @@
 import type { Props } from '$stylist/file/type/struct/file-explorer/props';
 import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
 import type { ViewMode } from '$stylist/file/type/struct/file-explorer/view-mode';
-import {
-  handleDownload as handleDownloadFn,
-  handleItemClick as handleItemClickFn,
-  handleItemDoubleClick as handleItemDoubleClickFn,
-  handleItemKeyDown as handleItemKeyDownFn,
-  handleSearchInput as handleSearchInputFn,
-  handleUpload as handleUploadFn,
-  toggleViewMode as toggleViewModeFn,
-} from '$stylist/file/function/script/file-explorer';
+import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/file-explorer-handle-download';
+import { handleItemClick as handleItemClickFn } from '$stylist/file/function/script/file-explorer';
+import { handleItemDoubleClick as handleItemDoubleClickFn } from '$stylist/file/function/script/file-explorer-handle-item-double-click';
+import { handleItemKeyDown as handleItemKeyDownFn } from '$stylist/file/function/script/file-explorer-handle-item-key-down';
+import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function/script/file-explorer-handle-search-input';
+import { handleUpload as handleUploadFn } from '$stylist/file/function/script/file-explorer-handle-upload';
+import { toggleViewMode as toggleViewModeFn } from '$stylist/file/function/script/file-explorer-toggle-view-mode';
 
 export function createFileExplorerState(
   props: Props

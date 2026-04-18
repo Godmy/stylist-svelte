@@ -3,14 +3,12 @@
   import type { SlotCommentThread as CommentThreadProps } from '$stylist/social/interface/slot/comment-thread';
 import type { SlotCommentThreadItem as CommentThreadItem } from '$stylist/social/interface/slot/comment-thread-item';
   import { CommentThreadStyleManager } from '$stylist/social/class/style-manager/comment-thread';
-  import {
-    commentThreadSubmitComment,
-    commentThreadSubmitReply,
-    commentThreadSubmitEdit,
-    commentThreadStartEditing,
-    commentThreadHandleKeyDown,
-    commentThreadFormatDate
-  } from '$stylist/social/function/script/comment-thread';
+  import { commentThreadFormatDate } from '$stylist/social/function/script/comment-thread-format-date';
+  import { commentThreadHandleKeyDown } from '$stylist/social/function/script/comment-thread-handle-key-down';
+  import { commentThreadStartEditing } from '$stylist/social/function/script/comment-thread-start-editing';
+  import { commentThreadSubmitComment } from '$stylist/social/function/script/comment-thread';
+  import { commentThreadSubmitEdit } from '$stylist/social/function/script/comment-thread-submit-edit';
+  import { commentThreadSubmitReply } from '$stylist/social/function/script/comment-thread-submit-reply';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import { createCommentThreadState } from '$stylist/social/function/state/comment-thread';
 

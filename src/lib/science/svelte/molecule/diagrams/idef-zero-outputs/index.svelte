@@ -13,7 +13,7 @@
 <g>
 	{#each state.positions as item (item.port.id)}
 		<Idef0Connector
-			label={item.port.label}
+			label={item.port.label ?? ''}
 			direction="output"
 			x1={startX}
 			y1={item.y}
@@ -23,6 +23,5 @@
 		/>
 	{/each}
 </g>
-
 
 

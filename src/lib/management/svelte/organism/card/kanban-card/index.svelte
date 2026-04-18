@@ -9,7 +9,9 @@ const Trash2 = 'trash-2';
 const X = 'x';
 
   import { Avatar, Badge, Divider } from '$stylist';
-  import { createKanbanCardState, type KanbanCardType, type KanbanCardUser } from '$stylist/management/function/state/kanban-card';
+  import { createKanbanCardState } from '$stylist/management/function/state/kanban-card';
+  import type { KanbanCardType } from '$stylist/management/type/struct/kanban-card';
+  import type { KanbanCardUser } from '$stylist/management/type/alias/kanban-card-user';
   import type { SlotKanbanCard as KanbanCardProps } from '$stylist/management/interface/slot/kanban-card';
 
   let props: KanbanCardProps = $props();

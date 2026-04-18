@@ -1,6 +1,8 @@
 <script lang="ts">
   import { Icon } from '$stylist';
-  import { createLegendItemState, type LegendItemType, type LegendItemVariant } from '$stylist/management/function/state/legend-item';
+  import { createLegendItemState } from '$stylist/management/function/state/legend-item';
+  import type { LegendItemType } from '$stylist/management/type/alias/legend-item-type';
+  import type { LegendItemVariant } from '$stylist/management/type/alias/legend-item-variant';
 
   let props: Parameters<typeof createLegendItemState>[0] = $props();
   const state = createLegendItemState(props);

@@ -1,5 +1,5 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { AvatarGroupProps } from '$stylist/media/interface/recipe/avatar-group-avatar-group-props';
+import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group';
 
 export function createAvatarGroupState(props: AvatarGroupProps & InformationHTMLAttributes<HTMLDivElement>) {
 	const avatars = $derived(props.avatars ?? []);

@@ -3,7 +3,8 @@ import type {
 	MediaType,
 	MediaItem
 } from '$stylist/media/type/struct/media-library';
-import { formatMediaFileSize, formatMediaDate } from '$stylist/media/function/script/media-library';
+import { formatMediaDate } from '$stylist/media/function/script/format-media-date';
+import { formatMediaFileSize } from '$stylist/media/function/script/media-library';
 import { TOKEN_MEDIA_ICON } from '$stylist/media/const/record/media-icon';
 
 export function createMediaLibraryState(props: MediaLibraryProps) {

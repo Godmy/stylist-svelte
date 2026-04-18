@@ -6,7 +6,9 @@ const MoreHorizontal = 'more-horizontal';
 
   import { Button } from '$stylist';
   import BaseCard from '$stylist/commerce/svelte/molecule/cards/base-card/index.svelte';
-  import { createDraggableCardState, type CardData, type DraggableCardRestProps } from '$stylist/management/function/state/draggable-card';
+  import { createDraggableCardState } from '$stylist/management/function/state/draggable-card';
+  import type { CardData } from '$stylist/management/interface/slot/draggable-card-data';
+  import type { DraggableCardRestProps } from '$stylist/management/type/alias/draggable-card-rest-props';
   import type { SlotDraggableCard as DraggableCardProps } from '$stylist/management/interface/slot/draggable-card';
 
   let props: DraggableCardProps = $props();

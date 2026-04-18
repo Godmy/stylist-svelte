@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NodeDotProps } from '$stylist/typography/function/state/node-dot';
+	import type { NodeDotProps } from '$stylist/typography/interface/recipe/node-dot';
 	import { createNodeDotState } from '$stylist/typography/function/state/node-dot';
 
 	let props: NodeDotProps = $props();

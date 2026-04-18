@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TeamMemberCardStateProps } from '$stylist/management/function/state/team-member-card';
+	import type { TeamMemberCardStateProps } from '$stylist/management/interface/recipe/team-member-card';
 	import { TeamMemberCardStyleManager } from '$stylist/management/class/style-manager/team-member-card';
 	import { createTeamMemberCardState } from '$stylist/management/function/state/team-member-card';
 	import Avatar from '$stylist/media/svelte/atom/avatar/index.svelte';

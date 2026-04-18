@@ -1,14 +1,16 @@
+import type { CardData } from '$stylist/management/interface/slot/draggable-card-data';
+
 export interface SlotDraggableCard extends Record<string, unknown> {
-	data: Record<string, unknown>;
+	data: CardData;
 	class?: string;
 	contentClass?: string;
 	headerClass?: string;
 	bodyClass?: string;
 	footerClass?: string;
-	onDragStart?: (data: Record<string, unknown>) => void;
-	onDragEnd?: (data: Record<string, unknown>) => void;
-	onCardClick?: (data: Record<string, unknown>) => void;
-	onContextMenu?: (data: Record<string, unknown>, event: MouseEvent) => void;
+	onDragStart?: (data: CardData) => void;
+	onDragEnd?: (data: CardData) => void;
+	onCardClick?: (data: CardData) => void;
+	onContextMenu?: (data: CardData, event: MouseEvent) => void;
 	disabled?: boolean;
 	draggable?: boolean;
 	showHandle?: boolean;

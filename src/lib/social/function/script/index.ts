@@ -1,5 +1,23 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { commentSystemFormatDate, commentSystemSubmitComment, commentSystemSubmitReply, commentSystemToggleReplyForm } from './comment-system';
-export { commentThreadFormatDate, commentThreadHandleKeyDown, commentThreadStartEditing, commentThreadSubmitComment, commentThreadSubmitEdit, commentThreadSubmitReply } from './comment-thread';
-export { friendListFormatLastSeen, friendListGetStatusColor, friendListGetStatusText, friendListHandleAddFriend, friendListHandleCall, friendListHandleFriendClick, friendListHandleSearchInput, friendListHandleSendMessage, friendListHandleVideoCall } from './friend-list';
-export { socialActivityFeedFormatTime, socialActivityFeedGetDescription, socialActivityFeedGetIcon } from './social-activity-feed';
+export { commentSystemSubmitComment } from './comment-system';
+export { commentSystemFormatDate } from './comment-system-format-date';
+export { commentSystemSubmitReply } from './comment-system-submit-reply';
+export { commentSystemToggleReplyForm } from './comment-system-toggle-reply-form';
+export { commentThreadSubmitComment } from './comment-thread';
+export { commentThreadFormatDate } from './comment-thread-format-date';
+export { commentThreadHandleKeyDown } from './comment-thread-handle-key-down';
+export { commentThreadStartEditing } from './comment-thread-start-editing';
+export { commentThreadSubmitEdit } from './comment-thread-submit-edit';
+export { commentThreadSubmitReply } from './comment-thread-submit-reply';
+export { friendListHandleSearchInput } from './friend-list';
+export { friendListFormatLastSeen } from './friend-list-format-last-seen';
+export { friendListGetStatusColor } from './friend-list-get-status-color';
+export { friendListGetStatusText } from './friend-list-get-status-text';
+export { friendListHandleAddFriend } from './friend-list-handle-add-friend';
+export { friendListHandleCall } from './friend-list-handle-call';
+export { friendListHandleFriendClick } from './friend-list-handle-friend-click';
+export { friendListHandleSendMessage } from './friend-list-handle-send-message';
+export { friendListHandleVideoCall } from './friend-list-handle-video-call';
+export { socialActivityFeedGetIcon } from './social-activity-feed';
+export { socialActivityFeedFormatTime } from './social-activity-feed-format-time';
+export { socialActivityFeedGetDescription } from './social-activity-feed-get-description';

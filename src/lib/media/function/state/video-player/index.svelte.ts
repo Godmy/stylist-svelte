@@ -46,7 +46,7 @@ export function createVideoPlayerState(props: VideoPlayerProps) {
 			controlsClass: _controlsClass,
 			...rest
 		} = props;
-		return rest;
+		return rest as RestProps;
 	});
 
 	function togglePlay() {

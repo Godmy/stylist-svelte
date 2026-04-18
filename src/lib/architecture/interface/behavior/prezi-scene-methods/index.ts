@@ -1,6 +1,6 @@
 import type { PreziCamera } from '$stylist/architecture/interface/slot/prezi-camera/index';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/index';
-import type { resolveSemanticZoomNode } from '$stylist/architecture/function/script/semantic-zoom/index';
+import type { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node/index';
 
 export interface BehaviorPreziSceneMethods {
 	setCamera: (camera: Partial<PreziCamera>) => void;

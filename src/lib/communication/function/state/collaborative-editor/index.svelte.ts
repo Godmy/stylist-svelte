@@ -1,17 +1,17 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { CollaborativeEditorProps } from '$stylist/communication/type/alias/collaborative-editor-props';
 
-const Bold = null;
-const Italic = null;
-const Underline = null;
-const AlignLeft = null;
-const AlignCenter = null;
-const AlignRight = null;
-const List = null;
-const ListOrdered = null;
-const MessageCircle = null;
-const UserIcon = null;
-const Users = null;
+const Bold = 'bold';
+const Italic = 'italic';
+const Underline = 'underline';
+const AlignLeft = 'align-left';
+const AlignCenter = 'align-center';
+const AlignRight = 'align-right';
+const List = 'list';
+const ListOrdered = 'list-ordered';
+const MessageCircle = 'message-circle';
+const UserIcon = 'user';
+const Users = 'users';
 
 export const createCollaborativeEditorState = (props: CollaborativeEditorProps) => {
 	let editorContent = $state(props.content ?? '');

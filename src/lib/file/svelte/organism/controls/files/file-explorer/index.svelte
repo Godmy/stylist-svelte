@@ -5,10 +5,8 @@
   import { createFileExplorerState } from '$stylist/file/function/state/file-explorer';
   import type { SlotFileSystemItem } from '$stylist/file/type/struct/file-explorer/file-system-item';
   import type { Props } from '$stylist/file/type/struct/file-explorer/props';
-  import {
-    formatFileSize,
-    getFileIcon,
-  } from '$stylist/file/function/script/file-explorer';
+  import { getFileIcon } from '$stylist/file/function/script/file-explorer-get-file-icon';
+  import { formatFileSize } from '$stylist/file/function/script/file-explorer-format-file-size';
 
   let props: Props = $props();
   const state = createFileExplorerState(props);

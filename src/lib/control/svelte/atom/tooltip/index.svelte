@@ -1,18 +1,15 @@
 <script lang="ts">
-	import { createTooltipState } from '$stylist/control/function/state/tooltip';
+	import { createTooltipState as stateFn } from '$stylist/control/function/state/tooltip';
 	import type { TooltipProps } from '$stylist/control/type/struct/tooltip-props';
 
 	let props: TooltipProps = $props();
 
-	const state = createTooltipState(props);
-
-	let referenceRef: HTMLElement | null = $state(null);
-	let tooltipRef: HTMLElement | null = $state(null);
+	const state = stateFn(props);
 
 	// Handle click outside for click trigger
 	$effect(() => {
 		if (state.trigger === 'click' && state.isVisible) {
-			return state.setupClickOutsideListener(referenceRef, tooltipRef);
+			return state.setupClickOutsideListener();
 		}
 	});
 
@@ -43,7 +40,7 @@
 
 <span class={state.containerClasses} {...restProps}>
 	<span
-		bind:this={referenceRef}
+		bind:this={state.referenceRef}
 		class={state.triggerClasses}
 		onmouseenter={() => state.trigger === 'hover' && state.showTooltip()}
 		onmouseleave={() => state.trigger === 'hover' && state.hideTooltip()}
@@ -74,7 +71,7 @@
 
 	{#if state.isVisible}
 		<span
-			bind:this={tooltipRef}
+			bind:this={state.tooltipRef}
 			role="tooltip"
 			class={state.tooltipClasses}
 		>

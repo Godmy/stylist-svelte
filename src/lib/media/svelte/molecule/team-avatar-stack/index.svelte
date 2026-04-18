@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-  import { createTeamAvatarStackState, type TeamAvatarStackProps } from '$stylist/media/function/state/team-avatar-stack';
+  import { createTeamAvatarStackState } from '$stylist/media/function/state/team-avatar-stack';
+  import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack';
   import { Icon as BaseIcon } from '$stylist';
 const Users = 'users';
 const User = 'user';

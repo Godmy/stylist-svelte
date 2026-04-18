@@ -14,18 +14,18 @@
 					state.orientation === 'vertical' ? 'mr-4' : 'mb-4'
 				}`}>
 					{#if item.icon}
-						<div class={`flex items-center justify-center w-8 h-8 rounded-full ${state.getStatusClasses(item.status || 'pending')} ${state.iconClass}`}>
+						<div class={`flex items-center justify-center w-8 h-8 rounded-full ${state.getStatusClasses(item.status || 'upcoming')} ${state.iconClass}`}>
 							{@render item.icon()}
 						</div>
 					{:else}
-						<div class={`flex items-center justify-center w-8 h-8 rounded-full ${state.getStatusClasses(item.status || 'pending')} ${state.iconClass}`}>
+						<div class={`flex items-center justify-center w-8 h-8 rounded-full ${state.getStatusClasses(item.status || 'upcoming')} ${state.iconClass}`}>
 							{index + 1}
 						</div>
 					{/if}
 				</div>
 
 				<div class={`mb-6 ${state.itemClass} ${state.orientation === 'vertical' ? 'flex-1' : ''}`}>
-					<div class={`p-4 rounded-lg ${state.getItemBackgroundClasses(item.status || 'pending')}`}>
+					<div class={`p-4 rounded-lg ${state.getItemBackgroundClasses(item.status || 'upcoming')}`}>
 						<div class="flex justify-between items-start">
 							<h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{item.title}</h3>
 							{#if item.date}

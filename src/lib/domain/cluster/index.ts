@@ -1,1 +1,3 @@
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */\n\nexport {};\n
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+
+export {};

@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { createSvgState, type SvgProps } from '$stylist/media/function/state/svg';
+	import { createSvgState } from '$stylist/media/function/state/svg';
+	import type { SvgProps } from '$stylist/media/interface/recipe/svg-svg-props';
 
 	let props: SvgProps = $props();
 	const state = createSvgState(props);

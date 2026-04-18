@@ -1,4 +1,4 @@
-import { Matrix4 } from '$stylist/architecture/function/script/matrix4';
+import { Matrix4 } from '$stylist/architecture/class/object-manager/matrix4';
 import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
 
 export function resolveSceneAtomModelMatrix(atom: SceneAtom, animationTime = 0): Matrix4 {

@@ -4,4 +4,5 @@ export interface BehaviorOperationsHistoryEvents {
 	onOperationReplay?: (operation: Record<string, unknown>) => void;
 	onSelect?: (operation: unknown) => void;
 	onDelete?: (id: string) => void;
+	onClear?: () => void;
 }

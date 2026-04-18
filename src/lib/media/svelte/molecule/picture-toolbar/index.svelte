@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {
-		createPictureToolbarState,
-		type PictureToolbarProps
+		createPictureToolbarState
 	} from '$stylist/media/function/state/picture-toolbar';
+	import type { PictureToolbarProps } from '$stylist/media/type/alias/picture-toolbar-props';
 
 	let props: PictureToolbarProps = $props();
 	const state = createPictureToolbarState(props);

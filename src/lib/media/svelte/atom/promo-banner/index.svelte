@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { createPromoBannerState, type PromoBannerProps } from '$stylist/media/function/state/promo-banner';
+  import { createPromoBannerState } from '$stylist/media/function/state/promo-banner';
+  import type { PromoBannerProps } from '$stylist/media/interface/recipe/promo-banner-promo-banner-props';
 
   let props: PromoBannerProps = $props();
   const state = createPromoBannerState(props);

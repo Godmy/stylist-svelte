@@ -4,11 +4,9 @@ import type { PlaygroundComponentTreeTreeNodeData } from '$stylist/development/t
 import type { PlaygroundComponentTreeStory } from '$stylist/development/type/struct/playground-component-tree-story';
 import { TOKEN_DEVELOPMENT_ICON } from '$stylist/development/const/icon';
 
-import {
-  playgroundComponentTreeSortTreeNode,
-  playgroundComponentTreeAnnotateAutoSelectable,
-  playgroundComponentTreeFindNodeByPath
-} from '$stylist/development/function/script/playground-component-tree';
+import { playgroundComponentTreeAnnotateAutoSelectable } from '$stylist/development/function/script/playground-component-tree-annotate-auto-selectable';
+import { playgroundComponentTreeFindNodeByPath } from '$stylist/development/function/script/playground-component-tree-find-node-by-path';
+import { playgroundComponentTreeSortTreeNode } from '$stylist/development/function/script/playground-component-tree';
 
 export function createPlaygroundComponentTreeState(props: PlaygroundComponentTreeProps) {
   const categoryConfig: Record<string, { icon: any; color: string; bg: string; border: string }> = {

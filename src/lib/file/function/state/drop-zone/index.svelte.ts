@@ -1,14 +1,12 @@
 import type { Props } from '$stylist/file/type/struct/drop-zone/props';
 import type { SlotDropItem } from '$stylist/file/type/struct/drop-zone/item';
-import {
-  clearAll,
-  handleDragLeave as handleDragLeaveFn,
-  handleDragOver as handleDragOverFn,
-  handleDrop as handleDropFn,
-  handleFileInput as handleFileInputFn,
-  processFiles,
-  removeItem,
-} from '$stylist/file/function/script/drop-zone';
+import { clearAll } from '$stylist/file/function/script/drop-zone-clear-all';
+import { handleDragLeave as handleDragLeaveFn } from '$stylist/file/function/script/drop-zone-handle-drag-leave';
+import { handleDragOver as handleDragOverFn } from '$stylist/file/function/script/drop-zone';
+import { handleDrop as handleDropFn } from '$stylist/file/function/script/drop-zone-handle-drop';
+import { handleFileInput as handleFileInputFn } from '$stylist/file/function/script/drop-zone-handle-file-input';
+import { processFiles } from '$stylist/file/function/script/drop-zone-process-files';
+import { removeItem } from '$stylist/file/function/script/drop-zone-remove-item';
 
 export function createDropZoneState(
   props: Props

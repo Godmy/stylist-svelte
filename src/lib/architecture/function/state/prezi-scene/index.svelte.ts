@@ -1,4 +1,4 @@
-import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/semantic-zoom/index';
+import { resolveSemanticZoomNode } from '$stylist/architecture/function/script/resolve-semantic-zoom-node';
 import { RECORD_FRAME } from '$stylist/architecture/const/record/frame/index';
 import { FOCUS_DURATION_MS } from '$stylist/architecture/const/value/prezi-scene/index';
 import type { SceneNode } from '$stylist/architecture/type/struct/scene-node/index';

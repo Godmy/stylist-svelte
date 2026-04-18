@@ -1,10 +1,8 @@
 ﻿<script lang="ts">
   import { Button, Icon } from '$stylist';
   import { createAttachmentPreviewState } from '$stylist/file/function/state/attachment-preview';
-  import {
-    formatFileSize,
-    getIconName,
-  } from '$stylist/file/function/script/attachment-preview';
+  import { getIconName } from '$stylist/file/function/script/attachment-preview-get-icon-name';
+  import { formatFileSize } from '$stylist/file/function/script/attachment-preview-format-file-size';
   import type { Props } from '$stylist/file/type/struct/attachment-preview/props';
 
   let props: Props = $props();

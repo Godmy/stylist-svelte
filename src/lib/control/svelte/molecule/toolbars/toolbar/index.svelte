@@ -1,16 +1,14 @@
 <script lang="ts">
   import { Button } from '$stylist';
   import { createToolbarState } from '$stylist/control/function/state/toolbar';
-  import {
-    toolbarHandleZoomIn,
-    toolbarHandleZoomOut,
-    toolbarHandleFitView,
-    toolbarHandleResetView,
-    toolbarHandleExport,
-    toolbarHandleLegendToggle,
-    toolbarHandleSearchToggle,
-    type ToolbarExportFormat
-  } from '$stylist/control/function/script/toolbar';
+  import { toolbarHandleExport } from '$stylist/control/function/script/toolbar-handle-export';
+  import { toolbarHandleFitView } from '$stylist/control/function/script/toolbar-handle-fit-view';
+  import { toolbarHandleLegendToggle } from '$stylist/control/function/script/toolbar-handle-legend-toggle';
+  import { toolbarHandleResetView } from '$stylist/control/function/script/toolbar-handle-reset-view';
+  import { toolbarHandleSearchToggle } from '$stylist/control/function/script/toolbar-handle-search-toggle';
+  import { toolbarHandleZoomOut } from '$stylist/control/function/script/toolbar-handle-zoom-out';
+  import { toolbarHandleZoomIn } from '$stylist/control/function/script/toolbar';
+  import type { ToolbarExportFormat } from '$stylist/control/type/script/toolbar';
 
   let props = $props<{
     onZoomIn?: () => void;

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-  import { createAvatarGroupState, type AvatarGroupProps } from '$stylist/media/function/state/avatar-group';
+  import { createAvatarGroupState } from '$stylist/media/function/state/avatar-group';
+  import type { AvatarGroupProps } from '$stylist/media/type/struct/avatar-group';
 
   let props: AvatarGroupProps & InformationHTMLAttributes<HTMLDivElement> = $props();
   const state = createAvatarGroupState(props);

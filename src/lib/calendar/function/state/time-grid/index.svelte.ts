@@ -4,7 +4,8 @@ import type { RecipeTimeGridExtendedTimeSlot as RecipeTimeGridExtendedTimeSlot }
 import type { RecipeTimeGridDayTimeGrid as RecipeTimeGridDayTimeGrid } from '$stylist/calendar/interface/recipe/time-grid-day-time-grid';
 import { TimeGridStyleManager } from '$stylist/management/class/style-manager/time-grid';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { isToday, isWeekend } from '$stylist/calendar/function/script/date-check';
+import { isToday } from '$stylist/calendar/function/script/date-check';
+import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
 
 export function createTimeGridState(props: TimeGridContract) {
 	let viewStartDate = $state(new Date(props.startDate ?? new Date()));

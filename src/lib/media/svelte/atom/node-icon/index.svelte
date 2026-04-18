@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { createNodeIconState, type NodeIconProps } from '$stylist/media/function/state/node-icon';
+	import { createNodeIconState } from '$stylist/media/function/state/node-icon';
+	import type { NodeIconProps } from '$stylist/media/interface/recipe/node-icon-node-icon-props';
 
 	let props: NodeIconProps = $props();
 	const state = createNodeIconState(props);

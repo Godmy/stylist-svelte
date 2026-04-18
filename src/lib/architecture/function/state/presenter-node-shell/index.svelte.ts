@@ -1,5 +1,5 @@
 import { PresenterNodeShellStyleManager } from '$stylist/architecture/class/style-manager/presenter-node-shell';
-import { useSemanticZoom } from '$stylist/architecture/function/script/semantic-zoom';
+import { useSemanticZoom } from '$stylist/architecture/function/script/use-semantic-zoom';
 import type { PresenterNodeShellProps } from '$stylist/architecture/type/struct/presenter-node-shell';
 
 export function createPresenterNodeShellState(props: PresenterNodeShellProps) {

@@ -3,7 +3,7 @@
   import { Icon as BaseIcon } from '$stylist';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
   import { Button } from '$lib';
-  import createSocialLoginState from '$stylist/social/function/state/social-login';
+  import { createSocialLoginState } from '$stylist/social/function/state/social-login';
 
   let props: Props = $props();
   const state = createSocialLoginState(props);

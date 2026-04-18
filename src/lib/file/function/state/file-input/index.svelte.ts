@@ -1,6 +1,7 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import { clearFile } from '$stylist/file/function/script/clear-file';
 import { resolveFileSelectionLabel } from '$stylist/file/function/script/resolve-file-selection-label';
-import { clearFile, handleFileChange } from '$stylist/file/function/script/file-input';
+import { handleFileChange } from '$stylist/file/function/script/file-input';
 
 export function createFileInputState(
   props: {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { SidebarStateProps } from '$stylist/navigation/function/state/sidebar';
+	import type { SidebarStateProps } from '$stylist/navigation/interface/recipe/sidebar-sidebar-state-props';
 	import { Icon } from '$stylist';
 	import { createSidebarState } from '$stylist/navigation/function/state/sidebar';
 

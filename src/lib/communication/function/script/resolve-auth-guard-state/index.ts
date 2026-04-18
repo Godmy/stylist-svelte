@@ -1,19 +1,6 @@
 import { TOKEN_LOADING } from '$stylist/interaction/const/enum/loading';
-import type { TokenLoading } from '$stylist/interaction/type/record/loading';
-
-type AuthGuardResolutionInput = {
-	isAuthenticated: boolean;
-	requiredRole?: string;
-	allowedRoles: string[];
-	userRoles: string[];
-};
-
-type AuthGuardResolution = {
-	isLoggedIn: boolean;
-	hasRequiredPermissions: boolean;
-	isAuthorized: boolean;
-	loadingStatus: TokenLoading;
-};
+import type { AuthGuardResolutionInput } from '$stylist/communication/type/struct/auth-guard-resolution-input';
+import type { AuthGuardResolution } from '$stylist/communication/type/struct/auth-guard-resolution';
 
 export function resolveAuthGuardState(input: AuthGuardResolutionInput): AuthGuardResolution {
 	const { isAuthenticated, requiredRole, allowedRoles, userRoles } = input;

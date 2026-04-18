@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { Icon as BaseIcon } from '$stylist';
 	import type { BreadcrumbsProps } from '$stylist/navigation/type/struct/breadcrumbs-props';
-	import { createBreadcrumbsState, SLASH_ICON } from '$stylist/navigation/function/state/breadcrumbs';
+	import { SLASH_ICON } from '$stylist/navigation/const/value/slash-icon';
+	import { createBreadcrumbsState } from '$stylist/navigation/function/state/breadcrumbs';
 
 	let props: BreadcrumbsProps = $props();
 	const state = createBreadcrumbsState(props);

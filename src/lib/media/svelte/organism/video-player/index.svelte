@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {
-		createVideoPlayerState,
-		type VideoPlayerProps
+		createVideoPlayerState
 	} from '$stylist/media/function/state/video-player';
+	import type { VideoPlayerProps } from '$stylist/media/interface/recipe/video-player-video-player-props';
 	import { Icon as BaseIcon } from '$stylist';
 	import { Button } from '$lib';
 

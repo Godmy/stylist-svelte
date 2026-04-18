@@ -4,7 +4,7 @@
   import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
 import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
-  import createCommentSystemState from '$stylist/social/function/state/comment-system';
+  import { createCommentSystemState } from '$stylist/social/function/state/comment-system';
 
   let props: CommentSystemProps = $props();
   const state = createCommentSystemState(props);

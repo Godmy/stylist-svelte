@@ -1,12 +1,22 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { applyKanbanColumnDrop } from './apply-kanban-column-drop';
+export { createBacklogItem } from './create-backlog-item';
+export { formatBacklogItemDate } from './format-backlog-item-date';
 export { generateBurnDownActualPath } from './generate-burn-down-actual-path';
 export { generateBurnDownIdealPath } from './generate-burn-down-ideal-path';
 export { generateBurnDownXLabels } from './generate-burn-down-x-labels';
 export { generateBurnDownYLabels } from './generate-burn-down-y-labels';
 export { getBurnDownMinMaxValues } from './get-burn-down-min-max-values';
 export { getBurnDownTimestamps } from './get-burn-down-timestamps';
-export { addKanbanCard, addKanbanColumn, archiveKanbanCard, cloneKanbanBoard, deleteKanbanCard, moveKanbanCard, renameKanbanCard, renameKanbanColumn } from './kanban-board';
-export { applyKanbanColumnDrop, parseDragPayload } from './kanban-column';
+export { cloneKanbanBoard } from './kanban-board';
+export { addKanbanCard } from './kanban-board-add-card';
+export { addKanbanColumn } from './kanban-board-add-column';
+export { archiveKanbanCard } from './kanban-board-archive-card';
+export { deleteKanbanCard } from './kanban-board-delete-card';
+export { moveKanbanCard } from './kanban-board-move-card';
+export { renameKanbanCard } from './kanban-board-rename-card';
+export { renameKanbanColumn } from './kanban-board-rename-column';
+export { parseDragPayload } from './kanban-column';
 export { updateNotificationPreference } from './notification-settings';
 export { resolveDashboardLayoutPreset } from './resolve-dashboard-layout-preset';
-export { createBacklogItem, filterBacklogItems, formatBacklogItemDate } from './scrum-backlog';
+export { filterBacklogItems } from './scrum-backlog';

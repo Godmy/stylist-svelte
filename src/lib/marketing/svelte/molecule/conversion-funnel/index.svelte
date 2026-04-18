@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist';
   import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel';
-  import { getConversionRate, getDropoff, createConversionFunnelState } from '$stylist/marketing/function/state/conversion-funnel';
+  import { createConversionFunnelState } from '$stylist/marketing/function/state/conversion-funnel';
   import { ConversionFunnelStyleManager } from '$stylist/marketing/class/style-manager/conversion-funnel';
 
 const BarChart3 = 'bar-chart-3';
@@ -39,9 +39,9 @@ const ArrowRight = 'arrow-right';
 
             {#if state.showConversionRate && index > 0}
               <div class="text-sm text-[var(--color-text-secondary)]">
-                Conversion: {getConversionRate(state.steps, index)}%
+                Conversion: {state.getConversionRate(index)}%
                 {#if state.showTrend}
-                  <span class="ml-2 text-xs">(Dropoff: {getDropoff(state.steps, index)}%)</span>
+                  <span class="ml-2 text-xs">(Dropoff: {state.getDropoff(index)}%)</span>
                 {/if}
               </div>
             {/if}

@@ -3,7 +3,8 @@ import type { SlotScheduleCalendarEvent as SlotScheduleCalendarEvent } from '$st
 import type { RecipeScheduleCalendarTimeSlot as RecipeScheduleCalendarTimeSlot } from '$stylist/calendar/interface/recipe/schedule-calendar-time-slot';
 import type { RecipeScheduleCalendarDaySchedule as RecipeScheduleCalendarDaySchedule } from '$stylist/calendar/interface/recipe/schedule-calendar-day-schedule';
 import { ScheduleCalendarStyleManager } from '$stylist/calendar/class/style-manager/schedule-calendar';
-import { isToday, isWeekend } from '$stylist/calendar/function/script/date-check';
+import { isToday } from '$stylist/calendar/function/script/date-check';
+import { isWeekend } from '$stylist/calendar/function/script/is-weekend';
 
 export function createScheduleCalendarState(props: ScheduleCalendarContract) {
 	let viewStartDate = $state(new Date(props.startDate ?? new Date()));

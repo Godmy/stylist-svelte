@@ -3,6 +3,7 @@
 	import { createIconPickerState } from '$stylist/input/function/state/icon-picker';
 	import { IconPickerStyleManager } from '$stylist/media/class/style-manager/icon-picker';
 	import type { ThemeIconPickerRecipe } from '$stylist/media/interface/recipe/icon-picker';
+	import type { Snippet } from 'svelte';
 
 	let props: ThemeIconPickerRecipe = $props();
 	const state = createIconPickerState(props);
@@ -32,6 +33,7 @@
 
 	<div class={state.gridClass}>
 		{#each state.filteredIcons as icon}
+			{@const IconComponent = icon.component as Snippet<[{ class: string }]>}
 			<button
 				type="button"
 				class={state.itemClassName(icon)}
@@ -39,7 +41,7 @@
 				title={icon.name}
 			>
 				<div class={state.iconContainerClass}>
-					{@render icon.component({ class: 'w-6 h-6' })}
+					{@render IconComponent({ class: 'w-6 h-6' })}
 				</div>
 				<div class={state.iconNameClass}>
 					{icon.name}

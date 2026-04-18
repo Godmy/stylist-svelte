@@ -1,10 +1,5 @@
 import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
-import type { SceneMaterialKind } from '$stylist/architecture/type/struct/scene-material-kind';
-
-type SceneInteractionState = {
-	hovered: boolean;
-	selected: boolean;
-};
+import type { SceneInteractionState } from '$stylist/architecture/type/struct/scene-interaction-state';
 
 export function resolveSceneAtomTint(
 	atom: SceneAtom,

@@ -1,11 +1,9 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { SlotMessageInput as MessageInputContract } from '$stylist/communication/interface/slot/message-input';
-import {
-	handleInputFn,
-	handleKeydownFn,
-	handleAttachFn,
-	handleEmojiFn
-} from '$stylist/communication/function/script/message-input-handlers';
+import { handleAttachFn } from '$stylist/communication/function/script/handle-attach-fn';
+import { handleEmojiFn } from '$stylist/communication/function/script/handle-emoji-fn';
+import { handleKeydownFn } from '$stylist/communication/function/script/handle-keydown-fn';
+import { handleInputFn } from '$stylist/communication/function/script/message-input-handlers';
 
 export const createMessageInputState = (
 	props: MessageInputContract & InteractionHTMLAttributes<HTMLDivElement>

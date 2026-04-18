@@ -1,6 +1,6 @@
 import { KanbanColumnStyleManager } from '$stylist/management/class/style-manager/kanban-column';
 import type { KanbanCardType } from '$stylist/management/interface/slot/kanban-card-type';
-import { applyKanbanColumnDrop } from '$stylist/management/function/script/kanban-column';
+import { applyKanbanColumnDrop } from '$stylist/management/function/script/apply-kanban-column-drop';
 import type { KanbanColumnStateProps } from '$stylist/management/interface/recipe/kanban-column';
 
 const Check = 'check';

@@ -59,6 +59,7 @@ export function createOperationsHistoryState(props: OperationsHistoryProps & Beh
 	return {
 		get operations() { return operations; },
 		get searchQuery() { return searchQuery; },
+		set searchQuery(value: string) { searchQuery = value; },
 		get selectedOperation() { return selectedOperation; },
 		get filteredOperations() { return filteredOperations; },
 		get baseClasses() { return baseClasses; },

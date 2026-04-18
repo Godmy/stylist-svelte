@@ -1,7 +1,9 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { close } from './close';
+export { createDrawerBackdropHandler } from './create-drawer-backdrop-handler';
+export { createDrawerEscapeHandler } from './create-drawer-escape-handler';
 export { handleConfirmCallback } from './dialog-confirm';
-export { createDrawerBackdropHandler, createDrawerCloseHandler, createDrawerEscapeHandler } from './drawer';
+export { createDrawerCloseHandler } from './drawer';
 export { getButtonSizeForToolbar } from './get-button-size-for-toolbar';
 export { getSideBySideLayoutClasses } from './get-side-by-side-layout-classes';
 export { getSideBySideSectionWidthClass } from './get-side-by-side-section-width-class';

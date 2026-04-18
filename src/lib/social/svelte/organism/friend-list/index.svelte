@@ -7,12 +7,10 @@
     FRIEND_LIST_PROPS
   } from '$stylist/social/type/struct/friend-list';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
-  import {
-    friendListGetStatusColor as getStatusColor,
-    friendListGetStatusText as getStatusText,
-    friendListFormatLastSeen as formatLastSeen
-  } from '$stylist/social/function/script/friend-list';
-  import createFriendListState from '$stylist/social/function/state/friend-list';
+  import { friendListFormatLastSeen as formatLastSeen } from '$stylist/social/function/script/friend-list-format-last-seen';
+  import { friendListGetStatusColor as getStatusColor } from '$stylist/social/function/script/friend-list-get-status-color';
+  import { friendListGetStatusText as getStatusText } from '$stylist/social/function/script/friend-list-get-status-text';
+  import { createFriendListState } from '$stylist/social/function/state/friend-list';
 
   let props: FRIEND_LIST_PROPS = $props();
   const state = createFriendListState(props);

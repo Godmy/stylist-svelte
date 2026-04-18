@@ -3,11 +3,9 @@
   import { Icon as BaseIcon } from '$stylist';
   import { Avatar } from '$lib';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/icon';
-  import {
-    socialActivityFeedGetDescription,
-    socialActivityFeedFormatTime
-  } from '$stylist/social/function/script/social-activity-feed';
-  import createSocialActivityFeedState from '$stylist/social/function/state/social-activity-feed';
+  import { socialActivityFeedFormatTime } from '$stylist/social/function/script/social-activity-feed-format-time';
+  import { socialActivityFeedGetDescription } from '$stylist/social/function/script/social-activity-feed-get-description';
+  import { createSocialActivityFeedState } from '$stylist/social/function/state/social-activity-feed';
   import type { Activity, Props } from '$stylist/social/type/struct/social-activity-feed';
 
   let props: Props = $props();

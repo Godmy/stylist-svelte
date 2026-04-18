@@ -4,10 +4,8 @@
   import { ZipViewerStyleManager } from '$stylist/file/class/style-manager/zip-viewer';
   import { createZipViewerState } from '$stylist/file/function/state/zip-viewer';
   import type { Props } from '$stylist/file/type/struct/zip-viewer/props';
-  import {
-    formatFileSize,
-    getEntryIcon,
-  } from '$stylist/file/function/script/zip-viewer';
+  import { getEntryIcon } from '$stylist/file/function/script/zip-viewer-get-entry-icon';
+  import { formatFileSize } from '$stylist/file/function/script/zip-viewer-format-file-size';
 
   let props: Props = $props();
   const state = createZipViewerState(props);

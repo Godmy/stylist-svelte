@@ -1,6 +1,7 @@
 import { detectClipboardSupport } from '$stylist/interaction/function/script/detect-clipboard-support';
 
-export async function copyTextToClipboard(text: string): Promise<boolean> {
+export function copyTextToClipboard(text: string): Promise<boolean> {
+	return (async () => {
 	if (!detectClipboardSupport()) {
 		console.error('Clipboard API is not supported in this browser');
 		return false;
@@ -27,4 +28,5 @@ export async function copyTextToClipboard(text: string): Promise<boolean> {
 			document.body.removeChild(textarea);
 		}
 	}
+	})();
 }

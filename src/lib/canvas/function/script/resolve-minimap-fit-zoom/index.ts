@@ -3,10 +3,7 @@ export function resolveMinimapFitZoom(
 	width: number,
 	height: number
 ): number {
-	const contentWidth = bounds.maxX - bounds.minX;
-	const contentHeight = bounds.maxY - bounds.minY;
+	if (bounds.maxX - bounds.minX <= 0 || bounds.maxY - bounds.minY <= 0) return 1;
 
-	if (contentWidth <= 0 || contentHeight <= 0) return 1;
-
-	return Math.min(width / contentWidth, height / contentHeight, 1);
+	return Math.min(width / (bounds.maxX - bounds.minX), height / (bounds.maxY - bounds.minY), 1);
 }

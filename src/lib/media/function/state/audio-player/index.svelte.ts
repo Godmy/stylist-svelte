@@ -37,7 +37,7 @@ export function createAudioPlayerState(props: AudioPlayerProps) {
 			controlsClass: _controlsClass,
 			...rest
 		} = props;
-		return rest;
+		return rest as RestProps;
 	});
 
 	function togglePlay() {

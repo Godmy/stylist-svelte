@@ -17,32 +17,3 @@ export function filterBacklogItems(
     return matchesStatus && matchesPriority && matchesSearch;
   });
 }
-
-export function createBacklogItem(
-  title: string,
-  description: string,
-  assignee: string,
-  priority: 'low' | 'medium' | 'high',
-  estimatedHours: number
-): BacklogItem {
-  return {
-    id: `item-${Date.now()}`,
-    title,
-    description,
-    assignee: assignee || undefined,
-    priority,
-    estimatedHours: estimatedHours || undefined,
-    status: 'todo',
-    tags: [],
-    createdAt: new Date(),
-    updatedAt: new Date()
-  };
-}
-
-export function formatBacklogItemDate(date: Date): string {
-  return new Date(date).toLocaleDateString('ru-RU', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric'
-  });
-}

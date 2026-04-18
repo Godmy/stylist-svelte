@@ -4,7 +4,7 @@
   import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
   import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
   import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';
-  import { formatFileSize } from '$stylist/file/function/script/upload-progress';
+  import { formatFileSize } from '$stylist/file/function/script/upload-progress-format-file-size';
 
   let props: IUploadProgressProps = $props();
   const state = createUploadProgressState(props);

@@ -34,7 +34,7 @@
 			</div>
 		{/if}
 
-		{#if state.status === 'completed' && state.result}
+		{#if state.status === 'success' && state.result}
 			<div class={state.resultSectionClass}>
 				<div class={state.sentimentIconContainerClass}>
 					{#if state.result.score < -0.5}

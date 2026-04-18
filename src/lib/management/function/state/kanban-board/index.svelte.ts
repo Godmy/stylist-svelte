@@ -1,17 +1,14 @@
 import { KanbanBoardStyleManager } from '$stylist/management/class/style-manager/kanban-board';
 import type { KanbanBoardType, KanbanBoardAction } from '$stylist/management/type/struct/kanban-board';
 import type { KanbanBoardStateProps } from '$stylist/management/interface/recipe/kanban-board';
-
-import {
-  cloneKanbanBoard,
-  moveKanbanCard,
-  addKanbanCard,
-  addKanbanColumn,
-  renameKanbanColumn,
-  renameKanbanCard,
-  archiveKanbanCard,
-  deleteKanbanCard
-} from '$stylist/management/function/script/kanban-board';
+import { addKanbanCard } from '$stylist/management/function/script/kanban-board-add-card';
+import { addKanbanColumn } from '$stylist/management/function/script/kanban-board-add-column';
+import { archiveKanbanCard } from '$stylist/management/function/script/kanban-board-archive-card';
+import { cloneKanbanBoard } from '$stylist/management/function/script/kanban-board';
+import { deleteKanbanCard } from '$stylist/management/function/script/kanban-board-delete-card';
+import { moveKanbanCard } from '$stylist/management/function/script/kanban-board-move-card';
+import { renameKanbanCard } from '$stylist/management/function/script/kanban-board-rename-card';
+import { renameKanbanColumn } from '$stylist/management/function/script/kanban-board-rename-column';
 
 const Plus = 'plus';
 

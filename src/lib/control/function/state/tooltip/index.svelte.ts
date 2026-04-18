@@ -46,6 +46,9 @@ function normalizePlacement(
  * @returns Reactive state object with classes, visibility, and event handlers
  */
 export function createTooltipState(props: TooltipStateProps) {
+	let referenceRef: HTMLElement | null = $state(null);
+	let tooltipRef: HTMLElement | null = $state(null);
+
 	// Extract props with defaults
 	const content = $derived(props.content);
 	const placement = $derived(props.placement ?? 'top');
@@ -119,7 +122,7 @@ export function createTooltipState(props: TooltipStateProps) {
 	}
 
 	// Handle click outside for click trigger
-	function setupClickOutsideListener(referenceEl: HTMLElement | null, tooltipEl: HTMLElement | null) {
+	function setupClickOutsideListener(referenceEl = referenceRef, tooltipEl = tooltipRef) {
 		if (trigger === 'click' && isVisible && referenceEl && tooltipEl) {
 			const handleClickOutside = (event: MouseEvent) => {
 				if (
@@ -242,6 +245,18 @@ export function createTooltipState(props: TooltipStateProps) {
 		get arrowClasses() {
 			return arrowClasses;
 		},
+		get referenceRef() {
+			return referenceRef;
+		},
+		set referenceRef(value: HTMLElement | null) {
+			referenceRef = value;
+		},
+		get tooltipRef() {
+			return tooltipRef;
+		},
+		set tooltipRef(value: HTMLElement | null) {
+			tooltipRef = value;
+		},
 		showTooltip,
 		hideTooltip,
 		toggleTooltip,
@@ -250,7 +265,6 @@ export function createTooltipState(props: TooltipStateProps) {
 }
 
 export default createTooltipState;
-
 
 
 

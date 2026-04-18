@@ -1,13 +1,11 @@
 import type { Props } from '$stylist/file/type/struct/zip-viewer/props';
 import type { SlotZipEntry } from '$stylist/file/type/struct/zip-viewer/entry';
-import {
-  handleDownload as handleDownloadFn,
-  handleEntryClick as handleEntryClickFn,
-  handleExtract as handleExtractFn,
-  handlePreview as handlePreviewFn,
-  handleSearchInput as handleSearchInputFn,
-  toggleFolder as toggleFolderFn,
-} from '$stylist/file/function/script/zip-viewer';
+import { handleDownload as handleDownloadFn } from '$stylist/file/function/script/zip-viewer-handle-download';
+import { handleEntryClick as handleEntryClickFn } from '$stylist/file/function/script/zip-viewer-handle-entry-click';
+import { handleExtract as handleExtractFn } from '$stylist/file/function/script/zip-viewer-handle-extract';
+import { handlePreview as handlePreviewFn } from '$stylist/file/function/script/zip-viewer-handle-preview';
+import { handleSearchInput as handleSearchInputFn } from '$stylist/file/function/script/zip-viewer';
+import { toggleFolder as toggleFolderFn } from '$stylist/file/function/script/zip-viewer-toggle-folder';
 
 export function createZipViewerState(
   props: Props

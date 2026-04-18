@@ -549,7 +549,7 @@ function findImportSource(typeName: string, imports: string[], componentPath: st
 
 // ============ Entry Point ============
 
-function main() {
+export function extractComponentType(): void {
 	console.log('🔍 Starting component type analysis...');
 	console.log(`📂 Scanning directory: ${STYLIST_SVELTE_LIB}`);
 
@@ -581,4 +581,4 @@ function main() {
 	console.log('✅ Analysis complete!');
 }
 
-main();
+extractComponentType();
