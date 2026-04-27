@@ -7,7 +7,7 @@ import type { ProductSortProps } from '$stylist/commerce/type/struct/product-sor
 export function createProductSortState(props: ProductSortProps) {
 	const options = $derived(props.options);
 	const selectedOption = $derived(props.selectedOption ?? '');
-	const onValueChange = $derived(() => props.onValueChange || ((option: string) => {}));
+	const onValueChange = $derived.by(() => props.onValueChange || ((option: string) => {}));
 	const containerClasses = $derived(`flex items-center ${props.class ?? ''}`.trim());
 	const labelClasses = $derived(joinClassNames('mr-2', LabelStyleManager.getLabelClasses('sm', false)));
 	const selectClasses = $derived(
@@ -31,7 +31,7 @@ export function createProductSortState(props: ProductSortProps) {
 			return selectClasses;
 		},
 		handleSortChange(option: string) {
-			const valueChangeFn = onValueChange();
+			const valueChangeFn = onValueChange;
 			valueChangeFn(option);
 		}
 	};

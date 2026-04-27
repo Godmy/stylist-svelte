@@ -1,0 +1,39 @@
+<script lang="ts">
+	import type { ContractAnnouncementBanner as AnnouncementBannerContract } from '$stylist/media/interface/contract/announcement-banner';
+	import { createAnnouncementBannerState } from '$stylist/media/function/state/announcement-banner';
+
+	let props: AnnouncementBannerContract = $props();
+	const state = createAnnouncementBannerState(props);
+	const restProps = $derived(
+		(() => {
+			const {
+				class: _class,
+				children: _children,
+				title: _title,
+				description: _description,
+				icon: _icon,
+				...rest
+			} = props;
+			return rest;
+		})()
+	);
+</script>
+
+<div class={state.containerClasses} {...restProps}>
+	<div class={state.flexClasses}>
+		{#if props.icon}
+			<img src={props.icon} alt="" class={state.iconClasses} />
+		{/if}
+		<div class={state.contentClasses}>
+			<h3 class={state.titleClasses}>{props.title ?? ''}</h3>
+			{#if props.description}
+				<p class={state.descriptionClasses}>{props.description}</p>
+			{/if}
+			{#if props.children}
+				<div class={state.childrenClasses}>
+					{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}
+				</div>
+			{/if}
+		</div>
+	</div>
+</div>

@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { RoutePlannerLocation, RouteOption, RoutePlannerProps } from '$stylist/geo/type/struct/route-planner';
 import type { RoutePlannerStateProps } from '$stylist/geo/interface/recipe/route-planner';
 
@@ -16,13 +17,13 @@ export function createRoutePlannerState(props: RoutePlannerStateProps) {
 	const height = $derived(props.height ?? '500px');
 	const width = $derived(props.width ?? '100%');
 
-	let selectedStartLocation: RoutePlannerLocation | null = $state(startLocation || null);
-	let selectedEndLocation: RoutePlannerLocation | null = $state(endLocation || null);
-	let selectedWaypoints = $state<RoutePlannerLocation[]>(waypoints);
+	let selectedStartLocation: RoutePlannerLocation | null = $state(untrack(() => startLocation || null));
+	let selectedEndLocation: RoutePlannerLocation | null = $state(untrack(() => endLocation || null));
+	let selectedWaypoints = $state<RoutePlannerLocation[]>(untrack(() => waypoints));
 	let selectedTravelMode = $state<'driving' | 'walking' | 'cycling' | 'transit'>('driving');
 	let searchQuery = $state('');
-	let localShowMap = $state(showMap);
-	let selectedRouteId = $state(selectedRoute || '');
+	let localShowMap = $state(untrack(() => showMap));
+	let selectedRouteId = $state(untrack(() => selectedRoute || ''));
 
 	$effect(() => {
 		selectedStartLocation = startLocation || null;

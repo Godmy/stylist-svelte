@@ -12,7 +12,7 @@ export function createBorderState(props: BorderRecipe) {
 	const borderRight = $derived(props.borderRight ?? false);
 	const animated = $derived(props.animated ?? false);
 
-	const classes = $derived(() => {
+	const classes = $derived.by(() => {
 		const baseClasses: string[] = ['relative'];
 
 		// Стиль границы
@@ -39,7 +39,7 @@ export function createBorderState(props: BorderRecipe) {
 		return clsx(...baseClasses, props.class ?? '');
 	});
 
-	const styles = $derived(() => {
+	const styles = $derived.by(() => {
 		const styles: Record<string, string | number> = {};
 
 		if (borderWidth && !['1px', '2px'].includes(borderWidth)) {

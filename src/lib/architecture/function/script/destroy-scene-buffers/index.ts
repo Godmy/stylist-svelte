@@ -1,3 +1,4 @@
+import { isWebGL2Context } from '$stylist/architecture/function/script/is-webgl2-context';
 import type { SceneBufferSet } from '$stylist/architecture/type/struct/scene-buffer-set';
 
 export function destroySceneBuffers(
@@ -12,10 +13,4 @@ export function destroySceneBuffers(
 	if (buffers.vertexArray && isWebGL2Context(gl)) {
 		gl.deleteVertexArray(buffers.vertexArray);
 	}
-}
-
-function isWebGL2Context(
-	gl: WebGLRenderingContext | WebGL2RenderingContext
-): gl is WebGL2RenderingContext {
-	return 'createVertexArray' in gl;
 }

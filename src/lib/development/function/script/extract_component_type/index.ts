@@ -580,5 +580,3 @@ export function extractComponentType(): void {
 	console.log(`📄 Report saved to: ${OUTPUT_FILE}`);
 	console.log('✅ Analysis complete!');
 }
-
-extractComponentType();

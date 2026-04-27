@@ -63,8 +63,12 @@ export function createCodeDiffState(props: CodeDiffProps) {
 		},
 		diffLineClass,
 		diffSpanClass,
-		getDiffContentClass,
-		getChangedContainerClass
+		get getDiffContentClass() {
+			return getDiffContentClass;
+		},
+		get getChangedContainerClass() {
+			return getChangedContainerClass;
+		}
 	};
 }
 

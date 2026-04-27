@@ -173,7 +173,7 @@ export function createMockDataSelectorState(props: MockDataSelectorProps) {
 		return result;
 	}
 
-	const restProps = $derived(() => {
+	const restProps = $derived.by(() => {
 		const {
 			class: _className, headerClass: _headerClass, selectorClass: _selectorClass,
 			previewClass: _previewClass, footerClass: _footerClass, schemas: _schemas,
@@ -221,7 +221,7 @@ export function createMockDataSelectorState(props: MockDataSelectorProps) {
 		toggleTag,
 		getFilteredSchemas,
 		getSampleData,
-		get restProps() { return restProps(); }
+		get restProps() { return restProps; }
 	};
 }
 

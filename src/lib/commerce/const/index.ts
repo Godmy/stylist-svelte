@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AlertCardComponent, alertCardControls, commerceAlertCardStoryComponent } from './alert-card';
+export { AlertCardComponent, alertCardControls } from './alert-card';
 export { TOKEN_BILLING_ITEM, TOKEN_BILLING_SUMMARY, TOKEN_COMMERCE_ICON, TOKEN_ORDER_STATUS, TOKEN_PAYMENT_METHOD, TOKEN_PAYMENT_STATUS } from './enum';
 export { ORDER_STATUS_CLASSES, PAYMENT_STATUS_CLASSES, PRICE_ALERT_SIZE_CLASSES, PRODUCT_AVAILABILITY_BADGE_CLASSES, PRODUCT_AVAILABILITY_STATUS_CLASSES } from './map';
 export { PRESET_BULK_ORDER } from './preset';

@@ -1,4 +1,6 @@
 export const TOKEN_COMMUNICATION_ICON = [
+	'ai',
+	'chat',
 	'chat-item',
 	'chat-list',
 	'chat-message',
@@ -6,5 +8,9 @@ export const TOKEN_COMMUNICATION_ICON = [
 	'chat-preview',
 	'chat-room',
 	'chat-window',
-	'message-input'
+	'collaborate',
+	'communication',
+	'input',
+	'message-input',
+	'messages'
 ] as const;

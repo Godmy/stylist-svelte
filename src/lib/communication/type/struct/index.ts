@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { AuthGuardResolution } from './auth-guard-resolution';
+export type { AuthGuardResolutionInput } from './auth-guard-resolution-input';
 export type { Chat, ChatHeaderChat, ChatHeaderProps, ChatHeaderUser, User } from './chat-header';
 export type { AIProvider, Message } from './chat-interface';
 export type { ChatInterfaceContract } from './chat-interface-contract';

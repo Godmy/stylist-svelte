@@ -10,7 +10,7 @@ export const createUserStatusState = (props: {
 	const showName = $derived(props.showName ?? true);
 	const showStatusText = $derived(props.showStatusText ?? false);
 
-	const statusText = $derived(() => {
+	const statusText = $derived.by(() => {
 		const userStatus = props.user.status;
 		const lastSeen = ((props.user as unknown) as Record<string, unknown>).lastSeen as Date | undefined;
 		switch (userStatus) {

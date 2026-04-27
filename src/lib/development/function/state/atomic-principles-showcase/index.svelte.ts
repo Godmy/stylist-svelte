@@ -22,7 +22,7 @@ export function createAtomicPrinciplesShowcaseState(props: AtomicPrinciplesShowc
 	const description = $derived(props.description ?? 'Every component follows the proven Atomic Design methodology');
 	const stats = $derived(props.stats);
 
-	const restProps = $derived(() => {
+	const restProps = $derived.by(() => {
 		const { class: _className, stats: _stats, badgeText: _badgeText, title: _title, description: _desc, ...rest } = props;
 		return rest;
 	});
@@ -80,7 +80,7 @@ export function createAtomicPrinciplesShowcaseState(props: AtomicPrinciplesShowc
 			return stats;
 		},
 		get restProps() {
-			return restProps();
+			return restProps;
 		}
 	};
 }

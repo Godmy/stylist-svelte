@@ -25,7 +25,17 @@ export function createTreeViewerState(props: TreeViewerProps) {
     props.onCollapse?.(e.detail);
   };
 
-  return { tree, itemHeight, visibleItemCount, bufferSize, className, handleSelect, handleToggle, handleExpand, handleCollapse };
+  return {
+    get tree() { return tree; },
+    get itemHeight() { return itemHeight; },
+    get visibleItemCount() { return visibleItemCount; },
+    get bufferSize() { return bufferSize; },
+    get className() { return className; },
+    handleSelect,
+    handleToggle,
+    handleExpand,
+    handleCollapse
+  };
 }
 
 export default createTreeViewerState;

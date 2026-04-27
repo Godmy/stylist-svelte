@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>animation</title>
+  <path d="M4 12a8 8 0 0 1 13.7-5.7"/>
+  <path d="M20 12a8 8 0 0 1-13.7 5.7"/>
+  <path d="M16 4h3v3"/>
+  <path d="M8 20H5v-3"/>
+  <circle cx="12" cy="12" r="2.5"/>
+  <path d="M12 5v2"/>
+  <path d="M12 17v2"/>
+  <path d="M5 12h2"/>
+  <path d="M17 12h2"/>
+</svg>

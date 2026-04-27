@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import { KanbanColumnStyleManager } from '$stylist/management/class/style-manager/kanban-column';
 import type { KanbanCardType } from '$stylist/management/interface/slot/kanban-card-type';
 import { applyKanbanColumnDrop } from '$stylist/management/function/script/apply-kanban-column-drop';
@@ -25,7 +26,7 @@ export function createKanbanColumnState(props: KanbanColumnStateProps) {
   // SlotState
   let dragOverIndex = $state<number | null>(null);
   let isEditingTitle = $state(false);
-  let draftTitle = $state(column.title);
+  let draftTitle = $state(untrack(() => column.title));
 
   // Icons
   const checkIcon = Check;

@@ -134,7 +134,7 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 		return timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 	}
 
-	const restProps = $derived(() => {
+	const restProps = $derived.by(() => {
 		const {
 			class: _className, headerClass: _headerClass, consoleClass: _consoleClass,
 			entryClass: _entryClass, footerClass: _footerClass, logs: _logs, title: _title,
@@ -181,7 +181,7 @@ export function createDebugConsoleState(props: DebugConsoleProps) {
 		getLevelColor,
 		getLevelBgColor,
 		formatTimestamp,
-		get restProps() { return restProps(); }
+		get restProps() { return restProps; }
 	};
 }
 

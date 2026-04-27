@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 import type { Address } from '$stylist/commerce/type/struct/address';
 import type { CardInfo } from '$stylist/commerce/type/struct/card-info';
@@ -41,10 +42,10 @@ export function createCheckoutFormState(props: Props) {
 		{ id: 'overnight', name: 'Overnight Shipping', description: 'Next business day', price: 24.99, estimatedDays: 1 }
 	]);
 
-	let currentStep = $state(props.step ?? 'information');
-	let billingAddress = $state<Address>(createAddressState(props.defaultAddress));
-	let shippingAddress = $state<Address>(createAddressState(props.defaultAddress));
-	let selectedShippingOption = $state(shippingOptions[0]?.id ?? '');
+	let currentStep = $state(untrack(() => props.step ?? 'information'));
+	let billingAddress = $state<Address>(untrack(() => createAddressState(props.defaultAddress)));
+	let shippingAddress = $state<Address>(untrack(() => createAddressState(props.defaultAddress)));
+	let selectedShippingOption = $state(untrack(() => shippingOptions[0]?.id ?? ''));
 	let selectedShippingDetails = $derived(
 		shippingOptions.find((option: SlotShippingOption) => option.id === selectedShippingOption)
 	);

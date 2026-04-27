@@ -1,13 +1,5 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
 
 export function createPrimaryLayoutMolecule(): SceneMolecule {
 	return {
@@ -15,7 +7,7 @@ export function createPrimaryLayoutMolecule(): SceneMolecule {
 		label: 'Primary layout shell',
 		description: 'Sidebar and content surface',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'shell-surface',
 				kind: 'layout',
 				material: { kind: 'matte-panel' },
@@ -27,7 +19,7 @@ export function createPrimaryLayoutMolecule(): SceneMolecule {
 				metadata: { label: 'App shell', tags: ['layout', 'shell'] },
 				boundsRadius: 2.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'shell-sidebar',
 				kind: 'panel',
 				material: { kind: 'muted' },
@@ -39,7 +31,7 @@ export function createPrimaryLayoutMolecule(): SceneMolecule {
 				metadata: { label: 'Sidebar', tags: ['layout', 'sidebar'] },
 				boundsRadius: 1.6
 			}),
-			atom({
+			createSceneAtom({
 				id: 'shell-topbar',
 				kind: 'panel',
 				material: { kind: 'accent', color: [0.44, 0.62, 0.9] },
@@ -51,7 +43,7 @@ export function createPrimaryLayoutMolecule(): SceneMolecule {
 				metadata: { label: 'Top app bar', tags: ['layout', 'topbar'] },
 				boundsRadius: 1.7
 			}),
-			atom({
+			createSceneAtom({
 				id: 'shell-card-a',
 				kind: 'panel',
 				material: { kind: 'solid' },
@@ -63,7 +55,7 @@ export function createPrimaryLayoutMolecule(): SceneMolecule {
 				metadata: { label: 'Content card A', tags: ['layout', 'card'] },
 				boundsRadius: 0.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'shell-card-b',
 				kind: 'panel',
 				material: { kind: 'solid' },

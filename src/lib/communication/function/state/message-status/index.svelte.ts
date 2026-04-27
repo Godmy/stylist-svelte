@@ -1,6 +1,7 @@
 import { IndicatorsStyleManager } from '$stylist/interaction/class/style-manager/indicators';
 import type { TokenMessageStatus } from '$stylist/communication/type/enum/message-status';
 import type { RecipeMessageStatusProps as RecipeMessageStatusProps } from '$stylist/communication/interface/recipe/message-status-props';
+import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 
 /**
  * MessageStatus state creator
@@ -13,7 +14,10 @@ export function createMessageStatusState(props: RecipeMessageStatusProps) {
 	const status = $derived(props.status ?? 'sent');
 	const size = $derived(props.size ?? 'sm');
 	const containerClasses = $derived(
-		IndicatorsStyleManager.getMessageStatusContainerClasses(status as TokenMessageStatus)
+		joinClassNames(
+			IndicatorsStyleManager.getMessageStatusContainerClasses(status as TokenMessageStatus),
+			props.class
+		)
 	);
 	const iconClasses = $derived(
 		IndicatorsStyleManager.getMessageStatusIconClasses(
@@ -42,7 +46,6 @@ export function createMessageStatusState(props: RecipeMessageStatusProps) {
 }
 
 export default createMessageStatusState;
-
 
 
 

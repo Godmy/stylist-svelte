@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { createBreadcrumbDropdownState } from './breadcrumb-dropdown';
 export { createBreadcrumbLinkState } from './breadcrumb-link';
 export { createBreadcrumbSeparatorState } from './breadcrumb-separator';
 export { createBreadcrumbsState } from './breadcrumbs';

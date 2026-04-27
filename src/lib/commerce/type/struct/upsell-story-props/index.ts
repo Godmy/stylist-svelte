@@ -1,4 +1,4 @@
-import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+import type { InterfaceControllerSettings } from '$stylist/playground';
 
 export type UpsellStoryProps = {
 	id?: string;

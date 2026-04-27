@@ -60,7 +60,7 @@ export function createDevelopmentErrorBoundaryState(props: DevelopmentErrorBound
 		errorInfo = info;
 	}
 
-	const restProps = $derived(() => {
+	const restProps = $derived.by(() => {
 		const {
 			class: _className, fallback: _fallback,
 			onError: _onError, showDetails: _showDetails, showReload: _showReload,
@@ -98,7 +98,7 @@ export function createDevelopmentErrorBoundaryState(props: DevelopmentErrorBound
 		resetError,
 		copyError,
 		triggerError,
-		get restProps() { return restProps(); }
+		get restProps() { return restProps; }
 	};
 }
 

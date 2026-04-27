@@ -80,8 +80,8 @@ export function createTreeNodeItemState(props: TreeNodeItemProps) {
 		ChevronDown,
 		handleSelect,
 		toggleExpand,
-		filteredRestProps,
-		children: props.children
+		get filteredRestProps() { return filteredRestProps; },
+		get children() { return props.children; }
 	};
 }
 

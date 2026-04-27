@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import { PerformanceDashboardStyleManager } from '$stylist';
 import type { TokenTimeRange } from '$stylist/management/type/enum/time-range';
 import { ObjectManagerPerformanceDashboard } from '$stylist/management/class/object-manager/performance-dashboard';
@@ -22,7 +23,7 @@ export function createPerformanceDashboardState(props: PerformanceDashboardState
 	const metricsClassStr = $derived(metricsClass == null ? undefined : String(metricsClass));
 	const metricCardClassStr = $derived(metricCardClass == null ? undefined : String(metricCardClass));
 
-	let selectedTimeRange = $state(timeRange);
+	let selectedTimeRange = $state(untrack(() => timeRange));
 	const timeRanges = ObjectManagerPerformanceDashboard.resolveTimeRanges();
 	const chartBarHeights = ObjectManagerPerformanceDashboard.resolveChartBarHeights();
 

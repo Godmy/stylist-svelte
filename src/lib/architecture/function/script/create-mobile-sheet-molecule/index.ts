@@ -1,13 +1,5 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
 
 export function createMobileSheetMolecule(): SceneMolecule {
 	return {
@@ -15,7 +7,7 @@ export function createMobileSheetMolecule(): SceneMolecule {
 		label: 'Mobile bottom sheet',
 		description: 'Phone surface with a bottom sheet',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'mobile-frame',
 				kind: 'layout',
 				material: { kind: 'muted', color: [0.32, 0.36, 0.44] },
@@ -27,7 +19,7 @@ export function createMobileSheetMolecule(): SceneMolecule {
 				metadata: { label: 'Mobile frame', tags: ['mobile'] },
 				boundsRadius: 2.5
 			}),
-			atom({
+			createSceneAtom({
 				id: 'mobile-screen',
 				kind: 'panel',
 				material: { kind: 'matte-panel', color: [0.9, 0.92, 0.96] },
@@ -39,7 +31,7 @@ export function createMobileSheetMolecule(): SceneMolecule {
 				metadata: { label: 'Mobile screen', tags: ['mobile', 'screen'] },
 				boundsRadius: 2.2
 			}),
-			atom({
+			createSceneAtom({
 				id: 'mobile-sheet-panel',
 				kind: 'panel',
 				material: { kind: 'accent', color: [0.72, 0.82, 0.98] },

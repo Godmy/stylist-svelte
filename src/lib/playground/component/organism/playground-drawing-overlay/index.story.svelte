@@ -1,0 +1,21 @@
+<script lang="ts">
+  import { Story } from '$stylist/playground/component';
+  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+  import RecipePlaygroundDrawingOverlay from './index.svelte';
+
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'drawColor', type: 'color', defaultValue: '#ff0000' }
+  ];
+</script>
+
+<Story
+  component={RecipePlaygroundDrawingOverlay}
+  title="Playground Drawing Overlay"
+  description="Overlay for drawing annotations on component previews."
+  {controls}
+>
+  {#snippet children(values: any)}
+    <RecipePlaygroundDrawingOverlay drawColor={values.drawColor} />
+  {/snippet}
+</Story>
+

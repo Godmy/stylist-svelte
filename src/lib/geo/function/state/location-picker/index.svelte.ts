@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { Coordinates, MapMarker, LocationPickerProps } from '$stylist/geo/type/struct/location-picker';
 import type { LocationPickerStateProps } from '$stylist/geo/interface/recipe/location-picker';
 
@@ -13,8 +14,8 @@ export function createLocationPickerState(props: LocationPickerStateProps) {
 	const maxZoom = $derived(props.maxZoom ?? 18);
 	const minZoom = $derived(props.minZoom ?? 1);
 
-	let currentCenter = $state<Coordinates>({ ...center });
-	let currentZoom = $state(zoom);
+	let currentCenter = $state<Coordinates>(untrack(() => ({ ...center })));
+	let currentZoom = $state(untrack(() => zoom));
 	let searchQuery = $state('');
 	let mapDimensions = $state({ width: 600, height: 400 });
 

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>science</title>
+  <path d="M9 3h6"/>
+  <path d="M10 3v5.5l-4.8 8.3A3 3 0 0 0 7.8 21h8.4a3 3 0 0 0 2.6-4.2L14 8.5V3"/>
+  <path d="M8 15h8"/>
+  <path d="M10 18h4"/>
+  <circle cx="12" cy="11" r="1"/>
+</svg>

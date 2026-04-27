@@ -6,9 +6,21 @@ import type { SceneDebugInfo } from '$stylist/architecture/type/struct/scene-deb
 const DEFAULT_SCENE_TITLE = 'WebGL Demo';
 const DEFAULT_SCENE_ROTATE_HINT = 'LMB + drag to orbit the camera';
 const DEFAULT_SCENE_ZOOM_HINT = 'Mouse wheel to zoom';
+const DEFAULT_CAMERA_CONTROL = {
+	radius: 18,
+	minRadius: 2,
+	maxRadius: 50,
+	sceneFitRadius: 18,
+	targetX: 0,
+	targetY: 0,
+	targetZ: 0,
+	horizontalAngle: 0.72,
+	verticalAngle: 0.42
+};
 
 export function createSceneState(props: SceneProps) {
 	const sceneManager = new SceneObjectManager();
+	let cameraControl = $state(DEFAULT_CAMERA_CONTROL);
 	let debugInfo = $state<SceneDebugInfo>({
 		mounted: false,
 		context: 'none',
@@ -75,6 +87,7 @@ export function createSceneState(props: SceneProps) {
 		try {
 			sceneManager.start(canvas);
 			debugInfo = sceneManager.getDebugInfo();
+			cameraControl = sceneManager.getCameraControlInfo();
 		} catch (error) {
 			debugInfo = {
 				...debugInfo,
@@ -89,7 +102,20 @@ export function createSceneState(props: SceneProps) {
 
 		debugTimer = setInterval(() => {
 			debugInfo = sceneManager.getDebugInfo();
+			cameraControl = sceneManager.getCameraControlInfo();
 		}, 120);
+	}
+
+	function setCameraRadius(radius: number): void {
+		sceneManager.setCameraRadius(radius);
+		cameraControl = sceneManager.getCameraControlInfo();
+		debugInfo = sceneManager.getDebugInfo();
+	}
+
+	function setCameraTarget(x: number, y: number): void {
+		sceneManager.setCameraTarget(x, y);
+		cameraControl = sceneManager.getCameraControlInfo();
+		debugInfo = sceneManager.getDebugInfo();
 	}
 
 	function destroy(): void {
@@ -126,6 +152,11 @@ export function createSceneState(props: SceneProps) {
 		get debugInfo() {
 			return debugInfo;
 		},
+		get cameraControl() {
+			return cameraControl;
+		},
+		setCameraRadius,
+		setCameraTarget,
 		mount,
 		destroy
 	};

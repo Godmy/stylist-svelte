@@ -14,7 +14,7 @@ export function createDragAndDropState(props: DragAndDropProps) {
 		isOverDropZone: false
 	});
 
-	const classes = $derived(() => {
+	const classes = $derived.by(() => {
 		const baseClasses: string[] = ['relative'];
 
 		// Drag cursor

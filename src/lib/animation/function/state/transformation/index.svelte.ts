@@ -22,7 +22,7 @@ export function createTransformationState(props: TransformationProps) {
 		isActive: false
 	});
 
-	const classes = $derived(() => {
+	const classes = $derived.by(() => {
 		const baseClasses: string[] = ['relative', 'inline-block'];
 
 		if (disabled) {
@@ -44,7 +44,7 @@ export function createTransformationState(props: TransformationProps) {
 		return clsx(...baseClasses, props.class ?? '');
 	});
 
-	const styles = $derived(() => {
+	const styles = $derived.by(() => {
 		const styles: Record<string, string | number> = {};
 
 		// Transform

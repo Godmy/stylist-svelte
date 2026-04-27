@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { CanvasToolbarDrawingTool } from './enum';
+export type { CanvasToolbarDrawingTool, TokenCanvasIcon } from './enum';
 export type { CanvasObject, CanvasToolbarProps, CanvasUser, DrawingSurfaceCanvasClearedEvent, DrawingSurfaceContract, DrawingSurfaceExposeMethodsEvent, DrawingSurfaceProps, DrawingSurfaceTool, GraphCanvasProps, GraphPortDataTypeColor, GraphPortStateColor, GraphToolbarItem, GraphToolbarProps, MinimapBounds, MinimapContract, MinimapNodeRect, MinimapOffset, MinimapPoint, MinimapProps, MinimapViewport, SharedCanvasContract, SharedCanvasDraftObject, SharedCanvasObjectBounds, SharedCanvasPoint, SharedCanvasTool, SharedCanvasToolDefinition, StageCamera, StageContract, StageProps, ThemeGraphColors, ThemeGraphPortDataTypeColors, ThemeGraphPortStateColors, ViewportContract, ViewportProps } from './struct';

@@ -1,7 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ABTestConfiguratorStyleManager, ConversionFunnelStyleManager, CtaBannerStyleManager, HeroStyleManager } from './class';
+export { AbtestConfigurator, ConversionFunnel, CtaBanner, Hero, TestResultsViewer, TrafficAnalytics, UserBehaviorMetrics } from './component';
 export { ICON_ABTEST_CONFIGURATOR, ICON_CONVERSION_FUNNEL, ICON_TEST_RESULTS_VIEWER, ICON_TRAFFIC_ANALYTICS, ICON_USER_BEHAVIOR_METRICS, TOKEN_MARKETING_ICON } from './const';
 export { addABTestVariant, calculateABTestTotalWeight, createABTestConfiguratorState, createConversionFunnelState, createCtaBannerState, createHeroState, createTestResultsViewerState, createTrafficAnalyticsState, createUserBehaviorMetricsState, removeABTestVariant, toggleABTestVariantStatus, updateABTestVariantWeight, validateABTest } from './function';
-export { AbtestConfigurator, ConversionFunnel, CtaBanner, Hero, TestResultsViewer, TrafficAnalytics, UserBehaviorMetrics } from './svelte';
 export type { ABTestConfiguratorState, ConversionFunnelContract, ConversionFunnelProps, CtaBannerButton, CtaBannerContract, CtaBannerProps, FunnelStep, IHeroCTA, IHeroStat, TestOverview, TestResult, TestResultsViewerContract, TestResultsViewerProps, TimeRange, TokenMarketingIcon, TrafficAnalyticsContract, TrafficAnalyticsProps, TrafficDataPoint, TrafficSource, UserBehaviorMetric, UserBehaviorMetricsContract, UserBehaviorMetricsProps } from './type';
 export type { ContractMarketing, SlotABTest, SlotABTestConfigurator, SlotABTestVariant, SlotHero } from './interface';

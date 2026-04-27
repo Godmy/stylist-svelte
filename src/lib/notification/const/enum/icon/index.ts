@@ -1,11 +1,22 @@
 export const TOKEN_NOTIFICATION_ICON = [
 	'alert',
 	'alert-circle',
+	'alerts',
 	'confirmation-dialog',
 	'dialog-confirm',
 	'dialogs-organism',
+	'errors',
+	'lazy-loader',
+	'loading-boundary',
 	'notification',
 	'notifications-molecule',
+	'overlays',
+	'placeholders',
+	'progress',
+	'response-viewer',
+	'spinner',
+	'states',
 	'toast',
+	'toasts',
 	'toasts-molecule'
 ] as const;

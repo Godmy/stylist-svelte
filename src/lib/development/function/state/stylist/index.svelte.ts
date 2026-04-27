@@ -79,7 +79,7 @@ export function createStylistState(props: StylistProps) {
     handleOptionSelect,
     handleWindowClick,
     handleWindowKeydown,
-    onSelectionChange
+    get onSelectionChange() { return onSelectionChange; }
   };
 }
 

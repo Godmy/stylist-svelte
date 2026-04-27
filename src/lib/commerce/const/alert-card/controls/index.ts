@@ -1,4 +1,4 @@
-import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+import type { InterfaceControllerSettings } from '$stylist/playground';
 
 export const alertCardControls: InterfaceControllerSettings[] = [
 	{ name: 'title', type: 'text', defaultValue: 'Usage Limit Reached' },

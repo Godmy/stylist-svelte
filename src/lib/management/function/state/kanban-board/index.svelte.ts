@@ -1,4 +1,5 @@
 import { KanbanBoardStyleManager } from '$stylist/management/class/style-manager/kanban-board';
+import { untrack } from 'svelte';
 import type { KanbanBoardType, KanbanBoardAction } from '$stylist/management/type/struct/kanban-board';
 import type { KanbanBoardStateProps } from '$stylist/management/interface/recipe/kanban-board';
 import { addKanbanCard } from '$stylist/management/function/script/kanban-board-add-card';
@@ -34,8 +35,8 @@ export function createKanbanBoardState(props: KanbanBoardStateProps) {
   const content = $derived(props.content);
 
   // SlotState
-  let internalBoard = $state<KanbanBoardType>(cloneKanbanBoard(board));
-  let previousBoardRef = $state(board);
+  let internalBoard = $state<KanbanBoardType>(untrack(() => cloneKanbanBoard(board)));
+  let previousBoardRef = $state(untrack(() => board));
 
   // Sync with external board
   $effect(() => {

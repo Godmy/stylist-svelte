@@ -9,7 +9,7 @@ export const createChatItemState = (props: { chat: Chat; currentUser: User; isAc
 		!isGroupChat ? props.chat.participants.find((user: User) => user.id !== props.currentUser.id) : null
 	);
 
-	const lastMessagePreview = $derived(() => {
+	const lastMessagePreview = $derived.by(() => {
 		if (!props.chat.lastMessage) return 'No messages yet';
 
 		const content = typeof props.chat.lastMessage === 'object' ? props.chat.lastMessage.content : props.chat.lastMessage || '';

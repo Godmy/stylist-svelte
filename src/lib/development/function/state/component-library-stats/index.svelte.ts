@@ -73,7 +73,7 @@ export function createComponentLibraryStatsState(props: ComponentLibraryStatsPro
 		return () => observer.disconnect();
 	});
 
-	const restProps = $derived(() => {
+	const restProps = $derived.by(() => {
 		const { class: _className, stats: _stats, sectionId: _sectionId, animateOnVisible: _animate, durationMs: _duration, steps: _steps, ...rest } = props;
 		return rest;
 	});
@@ -96,9 +96,11 @@ export function createComponentLibraryStatsState(props: ComponentLibraryStatsPro
 		},
 		getStatCardClass,
 		getStatValueClass,
-		getStatLabelClass,
+		getStatLabelClass() {
+			return getStatLabelClass;
+		},
 		get restProps() {
-			return restProps();
+			return restProps;
 		}
 	};
 }

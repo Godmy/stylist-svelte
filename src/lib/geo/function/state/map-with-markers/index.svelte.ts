@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { MapWithMarkersMarker, MapWithMarkersView, MapWithMarkersProps } from '$stylist/geo/type/struct/map-with-markers';
 import type { MapWithMarkersStateProps } from '$stylist/geo/interface/recipe/map-with-markers';
 
@@ -17,10 +18,10 @@ export function createMapWithMarkersState(props: MapWithMarkersStateProps) {
 	const currency = $derived(props.currency ?? 'USD');
 	const locale = $derived(props.locale ?? 'en-US');
 
-	let currentView = $state<MapWithMarkersView>({
+	let currentView = $state<MapWithMarkersView>(untrack(() => ({
 		center: { ...initialView.center },
 		zoom: initialView.zoom
-	});
+	})));
 	let searchQuery = $state('');
 	let isDragging = $state(false);
 	let dragStart = $state({ x: 0, y: 0 });

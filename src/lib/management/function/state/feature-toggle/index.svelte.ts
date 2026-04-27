@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import { FeatureToggleStyleManager } from '$stylist/management/class/style-manager/feature-toggle';
 import type { FeatureToggleStateProps } from '$stylist/management/interface/recipe/feature-toggle';
 
@@ -8,7 +9,7 @@ export function createFeatureToggleState(props: FeatureToggleStateProps) {
 	const disabled = $derived(props.disabled ?? false);
 	const className = $derived(props.class ?? '');
 
-	let isChecked = $state(checked);
+	let isChecked = $state(untrack(() => checked));
 
 	const containerClasses = $derived(FeatureToggleStyleManager.root(className));
 

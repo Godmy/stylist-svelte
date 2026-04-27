@@ -1,13 +1,5 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
 
 export function createDashboardMolecule(): SceneMolecule {
 	return {
@@ -15,7 +7,7 @@ export function createDashboardMolecule(): SceneMolecule {
 		label: 'Dashboard',
 		description: 'Dashboard board with tiles',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'dashboard-board',
 				kind: 'layout',
 				material: { kind: 'matte-panel', color: [0.84, 0.88, 0.93] },
@@ -27,7 +19,7 @@ export function createDashboardMolecule(): SceneMolecule {
 				metadata: { label: 'Dashboard board', tags: ['dashboard'] },
 				boundsRadius: 2.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'dashboard-tile-a',
 				kind: 'panel',
 				material: { kind: 'solid', color: [0.95, 0.96, 0.98] },
@@ -39,7 +31,7 @@ export function createDashboardMolecule(): SceneMolecule {
 				metadata: { label: 'Dashboard tile A', tags: ['dashboard', 'tile'] },
 				boundsRadius: 0.9
 			}),
-			atom({
+			createSceneAtom({
 				id: 'dashboard-tile-b',
 				kind: 'panel',
 				material: { kind: 'solid', color: [0.95, 0.96, 0.98] },
@@ -51,7 +43,7 @@ export function createDashboardMolecule(): SceneMolecule {
 				metadata: { label: 'Dashboard tile B', tags: ['dashboard', 'tile'] },
 				boundsRadius: 0.9
 			}),
-			atom({
+			createSceneAtom({
 				id: 'dashboard-chart',
 				kind: 'panel',
 				material: { kind: 'accent', color: [0.56, 0.74, 0.94] },

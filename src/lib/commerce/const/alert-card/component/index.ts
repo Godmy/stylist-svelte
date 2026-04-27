@@ -1,1 +1,1 @@
-export { default as AlertCardComponent } from '$stylist/commerce/svelte/molecule/cards/alert-card/index.svelte';
+export { default as AlertCardComponent } from '$stylist/commerce/component/molecule/cards/alert-card/index.svelte';

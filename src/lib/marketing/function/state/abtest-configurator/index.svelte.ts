@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { SlotABTestConfigurator as IABTestConfiguratorProps } from '$stylist/marketing/interface/slot/ab-test-configurator';
 import type { SlotABTest as ABTest } from '$stylist/marketing/interface/slot/ab-test';
 import { validateABTest } from '$stylist/marketing/function/script/validate-ab-test';
@@ -20,7 +21,7 @@ export function createABTestConfiguratorState(props: IABTestConfiguratorProps & 
   const variantClassName = $derived(props.variantClass ?? '');
   const footerClassName = $derived(props.footerClass ?? '');
 
-  let test = $state<ABTest>({
+  let test = $state<ABTest>(untrack(() => ({
     id: initialTest?.id || `test-${Date.now()}`,
     name: initialTest?.name || 'New A/B Test',
     description: initialTest?.description || '',
@@ -33,7 +34,7 @@ export function createABTestConfiguratorState(props: IABTestConfiguratorProps & 
     status: initialTest?.status || 'draft',
     targetAudience: initialTest?.targetAudience || 'All Users',
     successMetrics: initialTest?.successMetrics || ['Conversion Rate', 'Engagement']
-  });
+  })));
 
   let startDateString = $state('');
   $effect(() => {

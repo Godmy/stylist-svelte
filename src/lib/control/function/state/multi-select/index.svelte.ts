@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
 import type { SlotMultiSelectOption as MultiSelectOption } from '$stylist/control/interface/slot/multi-select-option';
 import { MultiSelectStyleManager } from '$stylist';
@@ -20,7 +21,7 @@ export function createMultiSelectState(props: MultiSelectProps) {
 	const searchInputClass = $derived(props.searchInputClass ?? '');
 
 	let isOpen = $state(false);
-	let selectedValues = $state<string[]>(value);
+	let selectedValues = $state<string[]>(untrack(() => value));
 	let searchQuery = $state('');
 	const containerRef = { current: null as HTMLDivElement | null };
 	const dropdownRef = { current: null as HTMLDivElement | null };
@@ -134,14 +135,14 @@ export function createMultiSelectState(props: MultiSelectProps) {
 		get searchContainerClasses() { return searchContainerClasses; },
 		get searchInputClasses() { return searchInputClasses; },
 		get noOptionsMessageClasses() { return noOptionsMessageClasses; },
-		ChevronDown,
-		X,
-		getFilteredOptions,
-		selectOption,
-		removeOption,
-		clearSelections,
-		toggleDropdown,
-		getOptionClasses
+		get ChevronDown() { return ChevronDown; },
+		get X() { return X; },
+		get getFilteredOptions() { return getFilteredOptions; },
+		get selectOption() { return selectOption; },
+		get removeOption() { return removeOption; },
+		get clearSelections() { return clearSelections; },
+		get toggleDropdown() { return toggleDropdown; },
+		get getOptionClasses() { return getOptionClasses; }
 	};
 }
 

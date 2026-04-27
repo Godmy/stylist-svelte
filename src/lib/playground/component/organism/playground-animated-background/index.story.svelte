@@ -1,0 +1,25 @@
+<script lang="ts">
+  import { Story } from '$stylist/playground/component';
+  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+  import RecipePlaygroundAnimatedBackground from './index.svelte';
+
+  const controls: InterfaceControllerSettings[] = [];
+</script>
+
+<Story
+  component={RecipePlaygroundAnimatedBackground}
+  title="Playground Animated Background"
+  description="Animated gradient background for playground sections."
+  {controls}
+>
+  {#snippet children()}
+    <div style="position: relative; min-height: 320px; overflow: hidden; border-radius: 24px;">
+      <RecipePlaygroundAnimatedBackground>
+        <div style="position: relative; z-index: 1; padding: 48px; color: white; font-weight: 700;">
+          Ambient playground background
+        </div>
+      </RecipePlaygroundAnimatedBackground>
+    </div>
+  {/snippet}
+</Story>
+

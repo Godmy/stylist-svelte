@@ -14,34 +14,34 @@ export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
     checked = props.checked ?? false;
   });
 
-  const containerClasses = joinClassNames(
+  const containerClasses = $derived(joinClassNames(
     'flex items-center gap-2',
-    labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row',
-    className
-  );
+    (props.labelPosition ?? 'right') === 'left' ? 'flex-row-reverse' : 'flex-row',
+    props.class ?? ''
+  ));
 
-  const switchClasses = joinClassNames(
+  const switchClasses = $derived(joinClassNames(
     'relative inline-flex items-center h-6 w-11 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] focus:ring-offset-2',
     checked ? 'bg-[var(--color-primary-500)]' : 'bg-[var(--color-border-primary)]',
-    disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer',
-    switchClassName
-  );
+    (props.disabled ?? false) ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer',
+    props.switchClass ?? ''
+  ));
 
-  const handleClasses = joinClassNames(
+  const handleClasses = $derived(joinClassNames(
     'inline-block h-5 w-5 rounded-full bg-white shadow-md transform transition-transform duration-200',
     checked ? 'translate-x-5' : 'translate-x-0.5'
-  );
+  ));
 
-  const labelClasses = joinClassNames(
+  const labelClasses = $derived(joinClassNames(
     'text-sm font-medium text-[var(--color-text-primary)]',
-    disabled ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer',
-    labelClassName
-  );
+    (props.disabled ?? false) ? 'opacity-[var(--opacity-50)] cursor-not-allowed' : 'cursor-pointer',
+    props.labelClass ?? ''
+  ));
 
-  const labelPositionClass = labelPosition === 'left' ? 'order-first' : 'order-last';
+  const labelPositionClass = $derived((props.labelPosition ?? 'right') === 'left' ? 'order-first' : 'order-last');
 
   function handleToggle() {
-    if (disabled) return;
+    if (props.disabled) return;
 
     checked = !checked;
     props.onValueInput?.(checked);
@@ -59,16 +59,16 @@ export function createSwitchWithLabelState(props: SwitchWithLabelStateProps) {
 
   return {
     get disabled() {
-      return disabled;
+      return props.disabled ?? false;
     },
     get checked() {
       return checked;
     },
     get label() {
-      return label;
+      return props.label ?? '';
     },
     get labelPosition() {
-      return labelPosition;
+      return props.labelPosition ?? 'right';
     },
     get containerClasses() {
       return containerClasses;

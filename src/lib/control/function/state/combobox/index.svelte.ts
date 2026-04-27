@@ -17,7 +17,7 @@ export function createComboboxState(props: ComboboxProps) {
 
 	const selectedItem = $derived(items.find((item) => item.id === props.value) ?? null);
 
-	const filteredItems = $derived(() => {
+	const filteredItems = $derived.by(() => {
 		const text = query.trim().toLowerCase();
 		if (!text) return items;
 		return items.filter((item) => {
@@ -26,7 +26,7 @@ export function createComboboxState(props: ComboboxProps) {
 		});
 	});
 
-	const hasResults = $derived(filteredItems().length > 0);
+	const hasResults = $derived(filteredItems.length > 0);
 
 	$effect(() => {
 		if (!isOpen) {
@@ -76,7 +76,7 @@ export function createComboboxState(props: ComboboxProps) {
 			return;
 		}
 
-		const options = filteredItems();
+		const options = filteredItems;
 		if (!options.length) return;
 
 		if (event.key === 'ArrowDown') {

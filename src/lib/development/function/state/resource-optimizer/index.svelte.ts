@@ -114,8 +114,8 @@ export function createResourceOptimizerState(props: ResourceOptimizerProps) {
     toggleResourceDetails,
     toggleOptimization,
     applySelectedOptimizations,
-    onResourceOptimize,
-    onApplySuggestions
+    get onResourceOptimize() { return onResourceOptimize; },
+    get onApplySuggestions() { return onApplySuggestions; }
   };
 }
 

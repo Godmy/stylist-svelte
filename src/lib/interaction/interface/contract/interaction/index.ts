@@ -176,7 +176,7 @@ import type { SlotUserProfileCard as UserProfileCardProps } from '$stylist/form/
 import type { SlotTimeSlot as ITimeSlot } from '$stylist/input/interface/slot/time-slot-time-slot';
 import type { SlotTimeSlotProps as ITimeSlotProps } from '$stylist/input/interface/slot/time-slot-time-slot-2';
 // Controller Settings - from other
-import type { InterfaceControllerSettings } from '$stylist/development/type/struct/interface-controller-settings';
+import type { InterfaceControllerSettings } from '$stylist/playground';
 // Sortable Table Header - from other
 import type { SlotSortableTableHeader as SortableTableHeaderProps } from '$stylist/control/interface/slot/sortable-table-header';
 // Shared Canvas - from other

@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BreadcrumbRecipe } from './breadcrumb';
+export type { BreadcrumbDropdownRecipe } from './breadcrumb-dropdown';
 export type { BreadcrumbLinkRecipe } from './breadcrumb-link';
 export type { RecipeBreadcrumbLinkProps } from './breadcrumb-link-props';
 export type { BreadcrumbsRecipe } from './breadcrumbs';

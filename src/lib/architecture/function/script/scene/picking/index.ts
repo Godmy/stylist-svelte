@@ -1,6 +1,8 @@
 import type { Camera } from '$stylist/architecture/class/manager/camera';
 import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
 import { getAtomBoundsRadius } from '$stylist/architecture/function/script/get-atom-bounds-radius';
+import { projectPointToScreen } from '$stylist/architecture/function/script/project-point-to-screen';
+import { projectWorldRadiusToPixels } from '$stylist/architecture/function/script/project-world-radius-to-pixels';
 
 export function pickSceneAtom(
 	atoms: readonly SceneAtom[],
@@ -54,60 +56,4 @@ export function pickSceneAtom(
 	}
 
 	return bestAtom;
-}
-
-function projectPointToScreen(
-	camera: Camera,
-	canvas: HTMLCanvasElement,
-	point: { x: number; y: number; z: number }
-): { x: number; y: number; depth: number; distance: number } | null {
-	const view = camera.getViewMatrix().toArray();
-	const projection = camera.getProjectionMatrix().toArray();
-	const cameraPosition = camera.getPosition();
-	const viewPosition = multiplyMatrixVector(view, [point.x, point.y, point.z, 1]);
-	const clipPosition = multiplyMatrixVector(projection, viewPosition);
-
-	if (clipPosition[3] <= 0) {
-		return null;
-	}
-
-	const ndcX = clipPosition[0] / clipPosition[3];
-	const ndcY = clipPosition[1] / clipPosition[3];
-	const ndcZ = clipPosition[2] / clipPosition[3];
-
-	return {
-		x: (ndcX * 0.5 + 0.5) * canvas.clientWidth,
-		y: (1 - (ndcY * 0.5 + 0.5)) * canvas.clientHeight,
-		depth: ndcZ,
-		distance: Math.hypot(
-			cameraPosition[0] - point.x,
-			cameraPosition[1] - point.y,
-			cameraPosition[2] - point.z
-		)
-	};
-}
-
-function projectWorldRadiusToPixels(
-	camera: Camera,
-	canvas: HTMLCanvasElement,
-	worldRadius: number,
-	distance: number
-): number {
-	if (distance <= 0) {
-		return 0;
-	}
-
-	return (canvas.clientHeight * worldRadius) / (2 * Math.tan(camera.getFov() / 2) * distance);
-}
-
-function multiplyMatrixVector(
-	matrix: Float32Array,
-	vector: readonly [number, number, number, number]
-): [number, number, number, number] {
-	return [
-		matrix[0] * vector[0] + matrix[4] * vector[1] + matrix[8] * vector[2] + matrix[12] * vector[3],
-		matrix[1] * vector[0] + matrix[5] * vector[1] + matrix[9] * vector[2] + matrix[13] * vector[3],
-		matrix[2] * vector[0] + matrix[6] * vector[1] + matrix[10] * vector[2] + matrix[14] * vector[3],
-		matrix[3] * vector[0] + matrix[7] * vector[1] + matrix[11] * vector[2] + matrix[15] * vector[3]
-	];
 }

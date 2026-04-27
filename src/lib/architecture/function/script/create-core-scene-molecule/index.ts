@@ -1,13 +1,5 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
 
 export function createCoreSceneMolecule(): SceneMolecule {
 	return {
@@ -15,7 +7,7 @@ export function createCoreSceneMolecule(): SceneMolecule {
 		label: 'Core scene',
 		description: 'Primary cube and immediate debug volume',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'cube-core',
 				kind: 'cube',
 				material: { kind: 'accent' },

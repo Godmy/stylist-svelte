@@ -1,5 +1,5 @@
 import { InteractionInputStyleManager } from '$stylist/input/class/style-manager/interaction-input';
-import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/icon';
+import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/enum/icon';
 import type { TranslatableText } from '$stylist/input/type/struct/interaction-input/translatable-text';
 import type { TranslationEditorStateProps } from '$stylist/localization/interface/recipe/translation-editor';
 

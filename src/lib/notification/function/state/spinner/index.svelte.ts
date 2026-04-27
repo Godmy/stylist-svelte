@@ -28,7 +28,7 @@ export function createSpinnerState(props: SpinnerProps) {
 	const sizeClasses = $derived(sizeClassesMap[size] || sizeClassesMap.md);
 	const colorClasses = $derived(colorClassesMap[color] || `text-[${color}]`);
 	
-	const iconColorClasses = $derived(() => {
+	const iconColorClasses = $derived.by(() => {
 		if (color === 'blue') return 'text-[var(--color-primary-500)]';
 		if (color === 'gray') return 'text-[var(--color-text-secondary)]';
 		if (color === 'green') return 'text-[var(--color-success-500)]';

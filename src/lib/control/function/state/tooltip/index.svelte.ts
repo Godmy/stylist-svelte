@@ -140,7 +140,7 @@ export function createTooltipState(props: TooltipStateProps) {
 	}
 
 	// Compute position classes
-	const positionClasses = $derived(() => {
+	const positionClasses = $derived.by(() => {
 		const base = 'absolute z-[var(--z-index-modal)]';
 		const normalizedPlacement = normalizePlacement(placement);
 		const positions = {
@@ -161,16 +161,16 @@ export function createTooltipState(props: TooltipStateProps) {
 	});
 
 	// Compute tooltip content classes based on variant
-	const tooltipClasses = $derived(() => {
+	const tooltipClasses = $derived.by(() => {
 		const baseClasses = variant === 'invisible'
 			? 'px-3 py-2 text-sm font-medium rounded-lg shadow-sm bg-[--color-tooltip-bg] text-[--color-text-inverse]'
 			: 'px-2 py-1 text-xs text-[var(--color-text-inverse)] bg-[var(--color-neutral-900)] rounded whitespace-nowrap';
 
-		return `${positionClasses()} ${baseClasses} ${tooltipClassName}`.trim();
+		return `${positionClasses} ${baseClasses} ${tooltipClassName}`.trim();
 	});
 
 	// Compute arrow classes based on placement and variant
-	const arrowClasses = $derived(() => {
+	const arrowClasses = $derived.by(() => {
 		if (variant !== 'arrow') return '';
 
 		const arrowBase = 'absolute w-2 h-2 bg-[var(--color-neutral-900)] transform rotate-45';
@@ -265,7 +265,6 @@ export function createTooltipState(props: TooltipStateProps) {
 }
 
 export default createTooltipState;
-
 
 
 

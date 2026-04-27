@@ -1,3 +1,5 @@
+import { bindSceneAttributeBuffer } from '$stylist/architecture/function/script/bind-scene-attribute-buffer';
+import { isWebGL2Context } from '$stylist/architecture/function/script/is-webgl2-context';
 import { Matrix4 } from '$stylist/architecture/class/object-manager/matrix4';
 import type { SceneBufferSet } from '$stylist/architecture/type/struct/scene-buffer-set';
 
@@ -29,26 +31,4 @@ export function drawSceneBuffers(
 	}
 
 	gl.drawArrays(gl.TRIANGLES, 0, buffers.vertexCount);
-}
-
-function bindSceneAttributeBuffer(
-	gl: WebGLRenderingContext | WebGL2RenderingContext,
-	buffer: WebGLBuffer,
-	data: Float32Array | null,
-	location: number
-): void {
-	gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-
-	if (data) {
-		gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
-	}
-
-	gl.enableVertexAttribArray(location);
-	gl.vertexAttribPointer(location, 3, gl.FLOAT, false, 0, 0);
-}
-
-function isWebGL2Context(
-	gl: WebGLRenderingContext | WebGL2RenderingContext
-): gl is WebGL2RenderingContext {
-	return 'createVertexArray' in gl;
 }

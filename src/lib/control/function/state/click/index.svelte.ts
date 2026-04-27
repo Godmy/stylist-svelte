@@ -8,7 +8,7 @@ export function createClickState(props: ClickProps) {
 	const hoverEffect = $derived(props.hoverEffect ?? true);
 	const cursor = $derived(props.cursor ?? (disabled ? 'not-allowed' : 'pointer'));
 
-	const classes = $derived(() => {
+	const classes = $derived.by(() => {
 		const baseClasses: string[] = ['relative'];
 
 		// Курсор

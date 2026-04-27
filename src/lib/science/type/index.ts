@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { NodeTitleVariant } from './enum';
+export type { NodeTitleVariant, TokenScienceIcon } from './enum';
 export type { ConnectionLinePoint, ConnectionPathResult, GraphCanvasPosition, GraphCanvasViewport, GraphEditorConnectionData, GraphEditorNodeData, GraphEditorPaletteNode, GraphEditorProps, GraphGridMode, GraphNodeCardData, GraphNodeCardProps, GraphPanMode, GraphPortDimensions, Idef0BlackBoxProps, Idef0DiagramProps, Idef0InputsProps, Idef0Model, Idef0OutputsProps, Idef0Port, LiteGraphNodeProperty, LiteGraphNodeProps, LiteGraphPort, LitegraphCanvasNodeAddPayload, LitegraphNodePresentation, LitegraphNodeProps, Model, ModelSelectorProps, NodeHeaderProps, OntologyEdge, OntologyEdgeComponentProps, OntologyNode, OntologyNodeComponentProps, PortGroupProps, Position2D, PredictionResultStatus, PromptVariableType, ScienceHTMLAttributes, SentimentAnalysisStatus, ThemeSceneColors } from './struct';

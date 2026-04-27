@@ -1,13 +1,5 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
 
 export function createCardStackMolecule(): SceneMolecule {
 	return {
@@ -15,7 +7,7 @@ export function createCardStackMolecule(): SceneMolecule {
 		label: 'Card stack',
 		description: 'Layered cards for depth debugging',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'card-stack-back',
 				kind: 'panel',
 				material: { kind: 'muted' },
@@ -27,7 +19,7 @@ export function createCardStackMolecule(): SceneMolecule {
 				metadata: { label: 'Card stack back', tags: ['stack'] },
 				boundsRadius: 1.6
 			}),
-			atom({
+			createSceneAtom({
 				id: 'card-stack-mid',
 				kind: 'panel',
 				material: { kind: 'matte-panel', color: [0.88, 0.86, 0.82] },
@@ -39,7 +31,7 @@ export function createCardStackMolecule(): SceneMolecule {
 				metadata: { label: 'Card stack mid', tags: ['stack'] },
 				boundsRadius: 1.55
 			}),
-			atom({
+			createSceneAtom({
 				id: 'card-stack-front',
 				kind: 'panel',
 				material: { kind: 'solid', color: [0.94, 0.95, 0.98] },

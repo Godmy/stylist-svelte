@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { KanbanCardPriority } from '$stylist/management/type/alias/kanban-card-priority';
 import type { KanbanCardStateProps } from '$stylist/management/type/alias/kanban-card-state-props';
 
@@ -17,7 +18,7 @@ export function createKanbanCardState(props: KanbanCardStateProps) {
 	const deletable = $derived(props.deletable ?? true);
 
 	let isEditingTitle = $state(false);
-	let draftTitle = $state(card.title);
+	let draftTitle = $state(untrack(() => card.title));
 
 	$effect(() => {
 		draftTitle = card.title;

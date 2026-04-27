@@ -1,49 +1,6 @@
-import type { SceneAtom } from '$stylist/architecture/type/struct/scene-atom/scene-atom';
+import { createGridLines } from '$stylist/architecture/function/script/create-grid-lines';
+import { createSceneAtom } from '$stylist/architecture/function/script/create-scene-atom';
 import type { SceneMolecule } from '$stylist/architecture/type/struct/scene-molecule';
-
-function atom(atom: SceneAtom): SceneAtom {
-	return {
-		selectable: true,
-		boundsRadius: 1,
-		...atom
-	};
-}
-
-function createGridLines(axis: 'x' | 'z'): SceneAtom[] {
-	const lines: SceneAtom[] = [];
-
-	for (let index = -8; index <= 8; index += 1) {
-		if (index === 0) {
-			continue;
-		}
-
-		lines.push(
-			atom({
-				id: `grid-${axis}-${index}`,
-				kind: 'grid-line',
-				material: { kind: 'grid-line' },
-				geometry:
-					axis === 'x'
-						? { type: 'box', width: 16, height: 0.02, depth: 0.02 }
-						: { type: 'box', width: 0.02, height: 0.02, depth: 16 },
-				transform: {
-					position:
-						axis === 'x'
-							? { x: 0, y: -2.46, z: index }
-							: { x: index, y: -2.46, z: 0 }
-				},
-				metadata: {
-					label: `Grid ${axis.toUpperCase()} ${index}`,
-					tags: ['grid']
-				},
-				selectable: false,
-				boundsRadius: 8
-			})
-		);
-	}
-
-	return lines;
-}
 
 export function createGridMolecule(): SceneMolecule {
 	return {
@@ -51,7 +8,7 @@ export function createGridMolecule(): SceneMolecule {
 		label: 'Grid and origin',
 		description: 'Engineering grid, floor and origin marker',
 		atoms: [
-			atom({
+			createSceneAtom({
 				id: 'debug-floor',
 				kind: 'surface',
 				material: { kind: 'surface' },
@@ -63,7 +20,7 @@ export function createGridMolecule(): SceneMolecule {
 			}),
 			...createGridLines('x'),
 			...createGridLines('z'),
-			atom({
+			createSceneAtom({
 				id: 'axis-x',
 				kind: 'axis',
 				material: { kind: 'axis-emissive', color: [0.92, 0.28, 0.28] },
@@ -72,7 +29,7 @@ export function createGridMolecule(): SceneMolecule {
 				metadata: { label: 'X axis', tags: ['axis'] },
 				boundsRadius: 4.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'axis-y',
 				kind: 'axis',
 				material: { kind: 'axis-emissive', color: [0.25, 0.82, 0.45] },
@@ -81,7 +38,7 @@ export function createGridMolecule(): SceneMolecule {
 				metadata: { label: 'Y axis', tags: ['axis'] },
 				boundsRadius: 4.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'axis-z',
 				kind: 'axis',
 				material: { kind: 'axis-emissive', color: [0.3, 0.55, 0.98] },
@@ -90,7 +47,7 @@ export function createGridMolecule(): SceneMolecule {
 				metadata: { label: 'Z axis', tags: ['axis'] },
 				boundsRadius: 4.8
 			}),
-			atom({
+			createSceneAtom({
 				id: 'origin-marker',
 				kind: 'marker',
 				material: { kind: 'accent', color: [0.98, 0.96, 0.85] },

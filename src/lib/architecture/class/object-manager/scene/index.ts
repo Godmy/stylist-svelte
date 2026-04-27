@@ -240,6 +240,39 @@ export class SceneObjectManager {
 		}
 	};
 
+	setCameraRadius(radius: number): void {
+		if (!this.camera) {
+			return;
+		}
+
+		this.radius = clampSceneRadius(radius);
+		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
+	}
+
+	setCameraTarget(x: number, y: number, z: number = this.focusTarget[2]): void {
+		if (!this.camera) {
+			return;
+		}
+
+		this.focusTarget = [x, y, z];
+		this.camera.setTarget(this.focusTarget);
+		this.camera.rotateAroundTarget(this.horizontalAngle, this.verticalAngle, this.radius);
+	}
+
+	getCameraControlInfo() {
+		return {
+			radius: this.radius,
+			minRadius: 2,
+			maxRadius: 50,
+			sceneFitRadius: this.sceneFitRadius,
+			targetX: this.focusTarget[0],
+			targetY: this.focusTarget[1],
+			targetZ: this.focusTarget[2],
+			horizontalAngle: this.horizontalAngle,
+			verticalAngle: this.verticalAngle
+		};
+	}
+
 	private readonly render = (): void => {
 		if (
 			!this.canvas ||

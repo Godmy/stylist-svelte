@@ -1,5 +1,5 @@
 import { LocaleSwitcherStyleManager } from '$stylist/localization/class/style-manager/locale-switcher';
-import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/icon';
+import { TOKEN_LOCALIZATION_ICON } from '$stylist/localization/const/enum/icon';
 import { formatDate, formatTime, formatDateTime } from '$stylist/localization/function/format-date-time';
 import type { SlotLocaleSwitcherLocale as LocaleSwitcherLocale } from '$stylist/localization/interface/slot/locale-switcher-locale';
 import type { LocaleSwitcherStateProps } from '$stylist/localization/interface/recipe/locale-switcher';

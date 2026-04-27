@@ -1,0 +1,2 @@
+/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_INPUT_ICON } from './icon';

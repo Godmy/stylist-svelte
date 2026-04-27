@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { LocationSelectorLocation, LocationSelectorProps } from '$stylist/geo/type/struct/location-selector';
 import type { LocationSelectorStateProps } from '$stylist/geo/interface/recipe/location-selector';
 
@@ -14,7 +15,7 @@ export function createLocationSelectorState(props: LocationSelectorStateProps) {
 	const mapView = $derived(props.mapView ?? false);
 
 	let searchQuery = $state('');
-	let selectedCategory = $state(defaultCategory);
+	let selectedCategory = $state(untrack(() => defaultCategory));
 	let filteredLocations = $state<LocationSelectorLocation[]>([]);
 	let categories = $state<string[]>([]);
 

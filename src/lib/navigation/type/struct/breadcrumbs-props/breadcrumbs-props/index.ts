@@ -5,4 +5,6 @@ import type { BreadcrumbItem } from '../breadcrumb-item';
 export type BreadcrumbsProps = BreadcrumbsRecipe &
 	InteractionHTMLAttributes<HTMLElement> & {
 		crumbs?: BreadcrumbItem[];
+		activeId?: string;
+		onNavigate?: (id: string) => void;
 	};

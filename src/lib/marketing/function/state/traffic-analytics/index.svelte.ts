@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { TrafficAnalyticsProps, TrafficSource, TrafficDataPoint, TimeRange } from '$stylist/marketing/type/struct/traffic-analytics';
 
 export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
@@ -19,7 +20,7 @@ export function createTrafficAnalyticsState(props: TrafficAnalyticsProps) {
   const sourcesClassName = $derived(props.sourcesClass ?? '');
   const maxValue = $derived(Math.max(...trafficData.map(d => d.value), 100));
 
-  let selectedTimeRange = $state(timeRange);
+  let selectedTimeRange = $state(untrack(() => timeRange));
 
   $effect(() => {
     selectedTimeRange = timeRange;

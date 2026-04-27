@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { TOKEN_LOCALIZATION_ICON } from './icon';
 export { TOKEN_LOCALE_SWITCHER_ICON } from './locale-switcher-icon';
 export { TOKEN_TRANSLATION } from './translation';
 export { TOKEN_TRANSLATION_EDITOR_ICON } from './translation-editor-icon';

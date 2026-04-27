@@ -1,3 +1,4 @@
+import { untrack } from 'svelte';
 import type { FilterBarProps } from '$stylist/control/type/struct/filter-bar-props';
 
 export function createFilterBarState(props: FilterBarProps) {
@@ -7,19 +8,19 @@ export function createFilterBarState(props: FilterBarProps) {
 	const className = $derived(props.class ?? '');
 
 	let toggleState = $state<Record<string, boolean>>(
-		toggles.reduce((acc, current) => {
+		untrack(() => toggles.reduce((acc, current) => {
 			acc[current.id] = !!current.checked;
 			return acc;
-		}, {} as Record<string, boolean>)
+		}, {} as Record<string, boolean>))
 	);
 
 	let activeTags = $state<Set<string>>(
-		new Set(tags.filter((tag) => tag.active).map((tag) => tag.id))
+		untrack(() => new Set(tags.filter((tag) => tag.active).map((tag) => tag.id)))
 	);
 
-	let rangeValue = $state(range?.value ?? range?.min ?? 0);
+	let rangeValue = $state(untrack(() => range?.value ?? range?.min ?? 0));
 
-	const hasActiveFilters = $derived(() => {
+	const hasActiveFilters = $derived.by(() => {
 		const togglesActive = Object.values(toggleState).some(Boolean);
 		const tagsActive = activeTags.size > 0;
 		const rangeActive = range ? rangeValue !== range.min : false;
