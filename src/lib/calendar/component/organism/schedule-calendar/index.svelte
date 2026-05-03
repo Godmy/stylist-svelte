@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { createScheduleCalendarState } from '$stylist/calendar/function/state/schedule-calendar';
 	import type { RecipeScheduleCalendar as ScheduleCalendarStateProps } from '$stylist/calendar/interface/recipe/schedule-calendar';
-	import { Icon as BaseIcon, Button } from '$stylist';
+	import { Button } from '$stylist/control';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import { TimeSlot } from '$stylist/calendar/component/atom/time-slot';
 
 	const ChevronLeft = 'chevron-left';

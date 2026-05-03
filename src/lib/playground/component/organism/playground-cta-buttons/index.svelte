@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundCtaButtonsState } from '$stylist/playground/function/state/playground-cta-buttons';
   import type { PlaygroundCtaButtonsProps } from '$stylist/playground/type/struct/playground-cta-buttons-props';
 const Package = 'package';

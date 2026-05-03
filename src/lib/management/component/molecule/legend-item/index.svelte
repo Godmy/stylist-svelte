@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon } from '$stylist';
+  import Icon from '$stylist/media/component/atom/icon/index.svelte';
   import { createLegendItemState } from '$stylist/management/function/state/legend-item';
   import type { LegendItemType } from '$stylist/management/type/alias/legend-item-type';
   import type { LegendItemVariant } from '$stylist/management/type/alias/legend-item-variant';

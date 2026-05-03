@@ -1,0 +1,42 @@
+{
+  "FocusState": [
+    "target",
+    "isFocused",
+    "isFullscreen"
+  ],
+  "PresentationState": [
+    "mode",
+    "currentFrameIndex",
+    "frames",
+    "isPlaying"
+  ],
+  "PreziSceneState": [
+    "camera",
+    "viewportWidth",
+    "viewportHeight",
+    "selectedNode",
+    "selectedNodeId",
+    "isPanning",
+    "isAnimating",
+    "showGrid",
+    "showMinimap",
+    "showInspector",
+    "showHeader",
+    "title",
+    "subtitle",
+    "panMode",
+    "zoomEnabled",
+    "panEnabled",
+    "minZoom",
+    "maxZoom",
+    "nodes",
+    "restProps"
+  ],
+  "SelectionState": [
+    "selectedIds",
+    "mode",
+    "isSelecting",
+    "marqueeStart",
+    "marqueeCurrent"
+  ]
+}

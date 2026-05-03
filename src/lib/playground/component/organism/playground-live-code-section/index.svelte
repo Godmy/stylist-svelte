@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundLiveCodeSectionState } from '$stylist/playground/function/state/playground-live-code-section';
   import type { PlaygroundLiveCodeSectionProps } from '$stylist/playground/type/struct/playground-live-code-section-props';
 const Play = 'play';

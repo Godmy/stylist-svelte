@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { JointToolbar } from './organism';
+export { JointToolbar } from './molecule';

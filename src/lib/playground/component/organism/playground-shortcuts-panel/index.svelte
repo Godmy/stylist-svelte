@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundShortcutsPanelState } from '$stylist/playground/function/state/playground-shortcuts-panel';
   import type { PlaygroundShortcutsPanelProps } from '$stylist/playground/type/struct/playground-shortcuts-panel-props';
 const Keyboard = 'keyboard';

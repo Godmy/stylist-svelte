@@ -10,4 +10,3 @@ export { SecuritySettingsStyleManager } from './security-settings';
 export { SettingsStyleManager } from './settings';
 export { TabStyleManager } from './tab';
 export { ToggleStyleManager } from './toggle';
-export { TransformableStyleManager } from './transformable';

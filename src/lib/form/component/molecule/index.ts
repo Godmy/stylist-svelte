@@ -1,2 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { FilterPanel, FormSelection, RadioGroup, Validation } from './forms';
+export { FilterPanel } from './filter-panel/index';
+export { FormSelection } from './form-selection/index';
+export { RadioGroup } from './radio-group/index';
+export { Validation } from './validation/index';

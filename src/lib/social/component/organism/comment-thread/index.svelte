@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { SlotCommentThread as CommentThreadProps } from '$stylist/social/interface/slot/comment-thread';
 import type { SlotCommentThreadItem as CommentThreadItem } from '$stylist/social/interface/slot/comment-thread-item';
   import { CommentThreadStyleManager } from '$stylist/social/class/style-manager/comment-thread';

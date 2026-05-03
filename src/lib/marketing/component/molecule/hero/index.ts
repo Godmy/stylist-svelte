@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Hero } from './hero';
+export { default as Hero } from './index.svelte';

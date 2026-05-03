@@ -9,4 +9,3 @@ export type { SlotHoverable } from './hoverable';
 export type { HoverableStyleManagerOptions } from './hoverable-style-manager-options';
 export type { NumberFormatOptions } from './number-format-options';
 export type { SearchSuggestion } from './search-bar-suggestion';
-export type { TransformableStyleManagerOptions } from './transformable-style-manager-options';

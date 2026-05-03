@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { AtomicPrinciplesShowcaseProps } from '$stylist/development/type/struct/atomic-principles-showcase-props';
   import { createAtomicPrinciplesShowcaseState } from '$stylist/development/function/state/atomic-principles-showcase';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 
   let { ...props }: AtomicPrinciplesShowcaseProps = $props();
   const state = createAtomicPrinciplesShowcaseState(props);

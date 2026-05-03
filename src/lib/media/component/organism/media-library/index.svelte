@@ -3,7 +3,7 @@
 		createMediaLibraryState
 	} from '$stylist/media/function/state/media-library';
 	import type { MediaLibraryProps } from '$stylist/media/type/struct/media-library';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 
 	let props: MediaLibraryProps = $props();
 	const state = createMediaLibraryState(props);

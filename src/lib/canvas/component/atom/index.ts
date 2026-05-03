@@ -1,5 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { GraphEdge, GraphNode, GraphPort } from './graph';
-export { GraphCanvas } from './graph-canvas';
-export { Stage } from './stage';
-export { Viewport } from './viewport';
+export { GraphCanvas } from './graph-canvas/index';
+export { GraphEdge } from './graph-edge/index';
+export { GraphNode } from './graph-node/index';
+export { GraphPort } from './graph-port/index';
+export { Stage } from './stage/index';
+export { Viewport } from './viewport/index';

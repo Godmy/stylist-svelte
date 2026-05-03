@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { Icon as BaseIcon, Button } from '$stylist';
+  import { Button } from '$stylist/control';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createGeoJSONViewerState } from '$stylist/geo/function/state/geo-jsonviewer';
   import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
   import type { SlotGeoJsonFeature as GeoJsonFeature } from '$stylist/geo/interface/slot/geo-json-feature';

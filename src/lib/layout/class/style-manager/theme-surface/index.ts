@@ -27,10 +27,10 @@ export class StyleManagerThemeSurface {
 		return `
 			.c-theme-surface {
 				display: grid;
-				gap: var(--spacing-3);
-				padding: var(--spacing-4);
+				gap: var(--spacing-3, 0.75rem);
+				padding: var(--spacing-4, 1rem);
 				border: 1px solid var(--line, var(--color-border-primary));
-				border-radius: var(--border-radius-2xl);
+				border-radius: var(--border-radius-2xl, 1.25rem);
 				background:
 					linear-gradient(
 						180deg,
@@ -44,12 +44,12 @@ export class StyleManagerThemeSurface {
 			.c-theme-surface__header,
 			.c-theme-surface__footer {
 				display: grid;
-				gap: var(--spacing-2);
+				gap: var(--spacing-2, 0.5rem);
 			}
 
 			.c-theme-surface__content {
 				display: grid;
-				gap: var(--spacing-3);
+				gap: var(--spacing-3, 0.75rem);
 			}
 		`;
 	}

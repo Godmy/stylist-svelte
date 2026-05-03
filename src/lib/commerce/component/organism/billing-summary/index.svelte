@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SlotBillingSummary as IBillingSummaryProps } from '$stylist/commerce/interface/slot/billing-summary';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import { createBillingSummaryState } from '$stylist/commerce/function/state/billing-summary';
 
 	const DollarSign = 'dollar-sign';

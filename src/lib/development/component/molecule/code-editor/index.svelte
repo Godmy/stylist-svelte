@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
   import { createCodeEditorState } from '$stylist/development/function/state/code-editor';
 

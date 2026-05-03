@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
-  import { Button } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
+  import { Button } from '$stylist/control';
   import { UploadProgressStyleManager } from '$stylist/file/class/style-manager/upload-progress';
   import type { SlotUploadProgress as IUploadProgressProps } from '$stylist/file/interface/slot/upload-progress-upload-progress-2';
   import { createUploadProgressState } from '$stylist/file/function/state/upload-progress';

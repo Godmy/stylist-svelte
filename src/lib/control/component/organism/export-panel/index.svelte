@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from '$stylist';
+  import { Button } from '$stylist/control';
   import type { ExportFormat } from '$stylist/control/type/alias/export-format';
   import { createExportPanelState } from '$stylist/control/function/state/export-panel';
 

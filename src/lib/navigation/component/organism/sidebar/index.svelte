@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SidebarStateProps } from '$stylist/navigation/interface/recipe/sidebar-sidebar-state-props';
-	import { Icon } from '$stylist';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 	import { createSidebarState } from '$stylist/navigation/function/state/sidebar';
 
 	let props: SidebarStateProps = $props();

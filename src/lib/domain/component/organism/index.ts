@@ -1,2 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DomainToolbar } from './domain-toolbar';
+export { DomainSidebar } from './domain-sidebar/index';
+export { DomainToolbar } from './domain-toolbar/index';

@@ -1,0 +1,233 @@
+{
+  "SceneCameraInput": [],
+  "CameraState": [],
+  "StructIntersectAll": [],
+  "ArchitectureHTMLAttributes": [],
+  "Position2D": [
+    "x",
+    "y"
+  ],
+  "PresentationMode": [],
+  "PresenterNodeShellProps": [
+    "node",
+    "camera",
+    "selected",
+    "class",
+    "onselect"
+  ],
+  "PresenterSceneLink": [
+    "id",
+    "from",
+    "to"
+  ],
+  "PresenterSceneProps": [
+    "nodes",
+    "camera",
+    "title",
+    "class",
+    "onfocusnode"
+  ],
+  "PresenterSceneContract": [
+    "class",
+    "title",
+    "camera",
+    "nodes",
+    "showHeader",
+    "showDepthControls",
+    "showGrid",
+    "showLinks",
+    "showInspector",
+    "onfocusnode"
+  ],
+  "PreziSceneContract": [
+    "nodes",
+    "initialCamera",
+    "initialDepth",
+    "showGrid",
+    "showMinimap",
+    "showInspector",
+    "showHeader",
+    "title",
+    "subtitle",
+    "panMode",
+    "zoomEnabled",
+    "panEnabled",
+    "minZoom",
+    "maxZoom",
+    "selectedNodeId",
+    "onNodeSelect",
+    "onCameraChange",
+    "onDepthChange",
+    "class"
+  ],
+  "SceneAtomGeometry": [
+    "type",
+    "width",
+    "height",
+    "depth",
+    "color"
+  ],
+  "SceneAtomKind": [],
+  "SceneAtomMetadata": [
+    "label",
+    "description",
+    "tags"
+  ],
+  "SceneAtomMotion": [
+    "spin"
+  ],
+  "SceneAtomTransform": [
+    "position",
+    "rotation",
+    "scale"
+  ],
+  "SceneAtom": [
+    "id",
+    "kind",
+    "geometry",
+    "material",
+    "transform",
+    "motion",
+    "metadata",
+    "moleculeId",
+    "selectable",
+    "boundsRadius",
+    "visible"
+  ],
+  "SceneBufferSet": [
+    "position",
+    "color",
+    "vertexArray",
+    "vertexCount"
+  ],
+  "SceneCameraPreset": [],
+  "SceneCamera": [
+    "x",
+    "y",
+    "depth",
+    "zoom",
+    "viewportWidth",
+    "viewportHeight"
+  ],
+  "SceneDebugInfo": [
+    "mounted",
+    "context",
+    "glVersion",
+    "glslVersion",
+    "programLinked",
+    "uniformsReady",
+    "cubeReady",
+    "depthTest",
+    "canvasClient",
+    "canvasBuffer",
+    "viewport",
+    "devicePixelRatio",
+    "drawCount",
+    "lastError",
+    "cameraPosition",
+    "radius",
+    "angles",
+    "cubeRotation",
+    "sceneObjects",
+    "sceneFitRadius",
+    "sceneMolecules",
+    "cameraPreset",
+    "hoveredAtom",
+    "selectedAtom",
+    "selectedMolecule",
+    "shaderProfile"
+  ],
+  "SceneGeometry": [
+    "positions",
+    "colors",
+    "vertexCount"
+  ],
+  "SceneGraph": [
+    "id",
+    "label",
+    "molecules",
+    "atoms",
+    "boundsRadius",
+    "focusTarget",
+    "defaultPreset"
+  ],
+  "SceneInteractionState": [
+    "hovered",
+    "selected"
+  ],
+  "SceneMaterialKind": [],
+  "SceneMaterial": [
+    "kind",
+    "color"
+  ],
+  "SceneMolecule": [
+    "id",
+    "label",
+    "description",
+    "atoms"
+  ],
+  "SceneNodePoint": [
+    "x",
+    "y",
+    "z",
+    "space"
+  ],
+  "SceneNode": [
+    "id",
+    "title",
+    "label",
+    "description",
+    "iconText",
+    "position",
+    "depth",
+    "accent",
+    "layer",
+    "children"
+  ],
+  "SceneProps": [
+    "title",
+    "rotateHint",
+    "zoomHint",
+    "canvasClass",
+    "overlayClass"
+  ],
+  "ArchitectureScene": [
+    "node",
+    "surface",
+    "transitions"
+  ],
+  "SelectionMode": [],
+  "SemanticZoomParams": [
+    "worldDepth",
+    "cameraDepth"
+  ],
+  "SemanticZoomPresentation": [
+    "stage",
+    "layer",
+    "architecture",
+    "shape",
+    "density",
+    "size",
+    "showIcon",
+    "showLabel",
+    "showDescription",
+    "showChildren",
+    "width",
+    "height",
+    "scale",
+    "distance",
+    "proximity"
+  ],
+  "ZoomStep": [
+    "id",
+    "value",
+    "label",
+    "preview"
+  ],
+  "Zoom": [
+    "id",
+    "label",
+    "display",
+    "steps"
+  ]
+}

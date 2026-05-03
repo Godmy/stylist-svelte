@@ -1,5 +1,5 @@
 import { AnimatedStyleManager } from '$stylist/animation/class/style-manager/animated';
-import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
+import { ObjectManagerMotion } from '$stylist/animation/class/object-manager/motion';
 import type { SlotAnimate as AnimateProps } from '$stylist/animation/interface/slot/animate';
 
 export const createAnimatedState = (props: AnimateProps) => {

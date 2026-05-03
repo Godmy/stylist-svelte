@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { TimeSlot } from './time-slot';
+export { TimeSlot } from './time-slot/index';

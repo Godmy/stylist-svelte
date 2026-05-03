@@ -1,5 +1,5 @@
-import { PaymentSelectorStyleManager } from '$stylist';
-import type { PaymentSelectorProps } from '$stylist';
+import { PaymentSelectorStyleManager } from '$stylist/commerce';
+import type { PaymentSelectorProps } from '$stylist/commerce';
 
 export function createPaymentSelectorState(props: PaymentSelectorProps) {
 	let selectedMethodId = $state(props.selectedMethod);

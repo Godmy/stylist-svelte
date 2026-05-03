@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundShellHeaderState } from '$stylist/playground/function/state/playground-shell-header';
   import type { PlaygroundShellHeaderProps } from '$stylist/playground/type/struct/playground-shell-header-props';
   import type { PlaygroundShellHeaderViewportSize } from '$stylist/playground/type/struct/playground-shell-header-viewport-size';

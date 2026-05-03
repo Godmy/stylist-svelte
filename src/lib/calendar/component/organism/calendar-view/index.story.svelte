@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground/component';
+  import { Story } from '$stylist/playground/component/molecule/story';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
   import RecipeCalendarView from './index.svelte';

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import { ResponseViewerStyleManager } from '$stylist';
+  import { ResponseViewerStyleManager } from '$stylist/communication';
   import ResponseViewer from './index.svelte';
 
   type Props = {

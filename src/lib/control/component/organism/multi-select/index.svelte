@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { SlotMultiSelect as MultiSelectProps } from '$stylist/control/interface/slot/multi-select';
   import { createMultiSelectState } from '$stylist/control/function/state/multi-select';
 

@@ -1,6 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+  import type { SlotShippingOptionInfo } from '$stylist/commerce/interface/slot/shipping-option-info';
+  import type { RecipeShippingRegion } from '$stylist/commerce/interface/recipe/shipping-region';
 
   import RecipeShippingInfo from './index.svelte';
 
@@ -20,7 +22,7 @@
   }>();
 
   // Sample shipping options
-  const shippingOptions = [
+  const shippingOptions: SlotShippingOptionInfo[] = [
     {
       id: 'standard',
       name: 'Standard Shipping',
@@ -60,7 +62,7 @@
   ];
 
   // Sample regions
-  const regions = [
+  const regions: RecipeShippingRegion[] = [
     {
       id: 'na',
       name: 'North America',
@@ -111,8 +113,6 @@
             deliveryEstimate={new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)}
             freeShippingThreshold={50}
             showFreeShipping={true}
-            onOptionSelect={(option) => console.log('Selected shipping option:', option)}
-            onRegionSelect={(region) => console.log('Selected region:', region)}
           />
         </div>
       </div>
@@ -138,8 +138,6 @@
                 showEstimates={false}
                 freeShippingThreshold={75}
                 showFreeShipping={true}
-                onOptionSelect={(option) => console.log('Selected shipping option:', option)}
-                onRegionSelect={(region) => console.log('Selected region:', region)}
               />
             </div>
           </article>
@@ -183,7 +181,6 @@
                 showEstimates={true}
                 deliveryEstimate={new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)}
                 showFreeShipping={false}
-                onOptionSelect={(option) => console.log('Selected eco shipping option:', option)}
               />
             </div>
           </article>

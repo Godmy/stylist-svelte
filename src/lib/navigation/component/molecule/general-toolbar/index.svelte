@@ -1,5 +1,5 @@
-<script lang="ts">
-  import Button from '$stylist/control/component/atom/buttons/button/index.svelte';
+﻿<script lang="ts">
+  import Button from '$stylist/control/component/atom/button/index.svelte';
   import type { GeneralToolbarRecipe } from '$stylist/navigation/type/struct/general-toolbar-props';
   import { createGeneralToolbarState } from '$stylist/navigation/function/state/general-toolbar';
   import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
@@ -56,3 +56,4 @@
     </Button>
   {/each}
 </div>
+

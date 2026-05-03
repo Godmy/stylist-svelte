@@ -1,8 +1,9 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { PreziSceneContract } from '$stylist/architecture/type/struct/prezi-scene';
 	import { usePreziState } from '$stylist/architecture/function/state/prezi-scene';
-	import PresenterNodeShell from '$stylist/architecture/component/molecule/canvas/presenter-node-shell/index.svelte';
-	import { Minimap, Icon } from '$stylist';
+	import PresenterNodeShell from '$stylist/architecture/component/molecule/presenter-node-shell/index.svelte';
+	import { Minimap } from '$stylist/canvas';
+	import { Icon } from '$stylist/media';
 	import { Grid } from '$stylist/layout';
 
 	const props: PreziSceneContract = $props();
@@ -10,7 +11,7 @@
 
 	let viewportElement: HTMLDivElement | null = null;
 
-	// Отслеживаем размер вьюпорта через ResizeObserver
+	// РћС‚СЃР»РµР¶РёРІР°РµРј СЂР°Р·РјРµСЂ РІСЊСЋРїРѕСЂС‚Р° С‡РµСЂРµР· ResizeObserver
 	$effect(() => {
 		if (!viewportElement) return;
 		const el = viewportElement;
@@ -23,7 +24,7 @@
 		return () => observer.disconnect();
 	});
 
-	// Синхронизация controlled selectedNodeId
+	// РЎРёРЅС…СЂРѕРЅРёР·Р°С†РёСЏ controlled selectedNodeId
 	$effect(() => {
 		if (props.selectedNodeId !== undefined) {
 			if (props.selectedNodeId === null) {
@@ -35,8 +36,8 @@
 		}
 	});
 
-	// Camera для нод: x/y/zoom = 0/0/1, т.к. ноды живут внутри world-div,
-	// который уже несёт CSS-трансформ. depth и viewport нужны для semantic zoom.
+	// Camera РґР»СЏ РЅРѕРґ: x/y/zoom = 0/0/1, С‚.Рє. РЅРѕРґС‹ Р¶РёРІСѓС‚ РІРЅСѓС‚СЂРё world-div,
+	// РєРѕС‚РѕСЂС‹Р№ СѓР¶Рµ РЅРµСЃС‘С‚ CSS-С‚СЂР°РЅСЃС„РѕСЂРј. depth Рё viewport РЅСѓР¶РЅС‹ РґР»СЏ semantic zoom.
 	const nodeCamera = $derived({
 		x: 0,
 		y: 0,
@@ -144,7 +145,7 @@
 				<Grid class="prezi-scene__grid" />
 			{/if}
 
-			<!-- World: единый CSS-трансформ. Ноды внутри — raw world-координаты. -->
+			<!-- World: РµРґРёРЅС‹Р№ CSS-С‚СЂР°РЅСЃС„РѕСЂРј. РќРѕРґС‹ РІРЅСѓС‚СЂРё вЂ” raw world-РєРѕРѕСЂРґРёРЅР°С‚С‹. -->
 			<div
 				class="prezi-scene__world"
 				class:prezi-scene__world--animating={state.isAnimating}
@@ -249,11 +250,11 @@
 	{#if state.selectedNode}
 		<div class="prezi-scene__status-bar">
 			<span>Selected: {state.selectedNode.title}</span>
-			<span class="prezi-scene__divider">•</span>
+			<span class="prezi-scene__divider">вЂў</span>
 			<span>Depth: {state.camera.depth}</span>
-			<span class="prezi-scene__divider">•</span>
+			<span class="prezi-scene__divider">вЂў</span>
 			<span>Zoom: {Math.round(state.camera.zoom * 100)}%</span>
-			<span class="prezi-scene__divider">•</span>
+			<span class="prezi-scene__divider">вЂў</span>
 			<span>
 				Position: ({Math.round(state.camera.x)}, {Math.round(state.camera.y)})
 			</span>
@@ -274,7 +275,7 @@
 		overflow: hidden;
 	}
 
-	/* ─── Header ─── */
+	/* в”Ђв”Ђв”Ђ Header в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__header {
 		display: flex;
@@ -356,7 +357,7 @@
 		color: var(--color-text-secondary, #6b7280);
 	}
 
-	/* ─── Viewport ─── */
+	/* в”Ђв”Ђв”Ђ Viewport в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__viewport-container {
 		position: relative;
@@ -380,7 +381,7 @@
 		cursor: grabbing;
 	}
 
-	/* ─── World: единый GPU-layer для всех нод ─── */
+	/* в”Ђв”Ђв”Ђ World: РµРґРёРЅС‹Р№ GPU-layer РґР»СЏ РІСЃРµС… РЅРѕРґ в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__world {
 		position: absolute;
@@ -388,11 +389,11 @@
 		left: 0;
 		transform-origin: 0 0;
 		will-change: transform;
-		/* Во время drag/scroll — без задержки */
+		/* Р’Рѕ РІСЂРµРјСЏ drag/scroll вЂ” Р±РµР· Р·Р°РґРµСЂР¶РєРё */
 		transition: none;
 	}
 
-	/* Prezi-анимация: плавный zoom-to-node (CSS делает всё тяжёлое) */
+	/* Prezi-Р°РЅРёРјР°С†РёСЏ: РїР»Р°РІРЅС‹Р№ zoom-to-node (CSS РґРµР»Р°РµС‚ РІСЃС‘ С‚СЏР¶С‘Р»РѕРµ) */
 	.prezi-scene__world--animating {
 		transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 	}
@@ -404,7 +405,7 @@
 		opacity: 0.5;
 	}
 
-	/* ─── Minimap ─── */
+	/* в”Ђв”Ђв”Ђ Minimap в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__minimap {
 		position: absolute;
@@ -416,7 +417,7 @@
 		box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
 	}
 
-	/* ─── Inspector ─── */
+	/* в”Ђв”Ђв”Ђ Inspector в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__inspector {
 		position: absolute;
@@ -510,7 +511,7 @@
 		border: 1px solid var(--color-border-primary, #e5e7eb);
 	}
 
-	/* ─── Status bar ─── */
+	/* в”Ђв”Ђв”Ђ Status bar в”Ђв”Ђв”Ђ */
 
 	.prezi-scene__status-bar {
 		display: flex;
@@ -528,4 +529,5 @@
 		color: var(--color-border-primary, #e5e7eb);
 	}
 </style>
+
 

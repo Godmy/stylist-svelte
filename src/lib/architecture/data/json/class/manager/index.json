@@ -1,0 +1,25 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\manager",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\class\\manager\\index.json",
+  "tokens": [
+    {
+      "className": "Camera",
+      "methods": [
+        "constructor",
+        "getViewMatrix",
+        "getProjectionMatrix",
+        "setAspect",
+        "setPosition",
+        "getPosition",
+        "getTarget",
+        "setTarget",
+        "getFov",
+        "rotateAroundTarget",
+        "zoom"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\manager\\camera\\index.ts",
+      "relativePath": "camera\\index.ts"
+    }
+  ]
+}

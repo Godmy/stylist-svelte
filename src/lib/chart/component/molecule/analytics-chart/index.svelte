@@ -1,11 +1,11 @@
-<script lang="ts">
+﻿<script lang="ts">
   import { AnalyticsChartStyleManager } from '$stylist/chart/class/style-manager/analytics-chart';
   import { ObjectManagerAnalyticsChart } from '$stylist/chart/class/object-manager/analytics-chart';
   import type { AnalyticsChartRecipe } from '$stylist/chart/interface/recipe/analytics-chart';
   import { createAnalyticsChartState } from '$stylist/chart/function/state/analytics-chart';
-  import BarChart from '$stylist/chart/component/molecule/charts/bar-chart/index.svelte';
-  import LineChart from '$stylist/chart/component/organism/charts/line-chart/index.svelte';
-  import PieChart from '$stylist/chart/component/atom/charts/chart-pie/index.svelte';
+  import BarChart from '$stylist/chart/component/molecule/bar-chart/index.svelte';
+  import LineChart from '$stylist/chart/component/organism/line-chart/index.svelte';
+  import PieChart from '$stylist/chart/component/atom/chart-pie/index.svelte';
 
   let props: AnalyticsChartRecipe = $props();
   const state = createAnalyticsChartState(props);
@@ -59,3 +59,4 @@
     {/if}
   </div>
 </div>
+

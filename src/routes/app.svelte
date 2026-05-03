@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ThemeProvider } from '$stylist';
-	import { Button } from '$stylist/components/atoms';
+	import { Button } from '$stylist';
 
 	let selectedTheme: 'light' | 'dark' = 'light';
 
@@ -9,11 +9,11 @@
 	};
 </script>
 
-<ThemeProvider initialTheme={selectedTheme}>
+<ThemeProvider initialMode={selectedTheme}>
 	<div class="p-4">
-		<h1 class="mb-[--spacing-md] text-[--text-size-lg]">Пример с темами</h1>
+		<h1 class="mb-[--spacing-md] text-[--text-size-lg]">Theme Example</h1>
 		<Button variant="primary" onclick={toggleTheme}>
-			Переключить тему ({selectedTheme})
+			Toggle theme ({selectedTheme})
 		</Button>
 		<div class="mt-[--spacing-lg]">
 			<Button variant="primary" class="mr-[--spacing-sm]">Primary</Button>

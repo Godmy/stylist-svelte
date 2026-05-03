@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
-  import { Button } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
+  import { Button } from '$stylist/control';
   import { createLocationPickerState } from '$stylist/geo/function/state/location-picker';
   import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';
   import type { MapMarker } from '$stylist/geo/type/struct/location-picker';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { ConversionFunnelProps } from '$stylist/marketing/type/struct/conversion-funnel';
   import { createConversionFunnelState } from '$stylist/marketing/function/state/conversion-funnel';
   import { ConversionFunnelStyleManager } from '$stylist/marketing/class/style-manager/conversion-funnel';

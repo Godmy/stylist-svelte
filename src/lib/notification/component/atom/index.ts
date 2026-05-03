@@ -1,8 +1,20 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Alert, ErrorMessage } from './alerts';
-export { Overlay } from './overlays';
-export { CardSkeleton, Skeleton, SkeletonCircle, SkeletonRectangle, SkeletonTable, SkeletonText } from './placeholders';
-export { AccountProgressTracker, AnimatedProgress, ProgressBar, ProgressBarWithLabel, ProgressCircle, StepConnector, StepIcon } from './progress';
-export { Spinner } from './spinner';
-export { State } from './states';
-export { Toast } from './toasts';
+export { AccountProgressTracker } from './account-progress-tracker/index';
+export { Alert } from './alert/index';
+export { AnimatedProgress } from './animated-progress/index';
+export { CardSkeleton } from './card-skeleton/index';
+export { ErrorMessage } from './error-message/index';
+export { Overlay } from './overlay/index';
+export { ProgressBarWithLabel } from './progress-bar-with-label/index';
+export { ProgressBar } from './progress-bar/index';
+export { ProgressCircle } from './progress-circle/index';
+export { SkeletonCircle } from './skeleton-circle/index';
+export { SkeletonRectangle } from './skeleton-rectangle/index';
+export { SkeletonTable } from './skeleton-table/index';
+export { SkeletonText } from './skeleton-text/index';
+export { Skeleton } from './skeleton/index';
+export { Spinner } from './spinner/index';
+export { State } from './state/index';
+export { StepConnector } from './step-connector/index';
+export { StepIcon } from './step-icon/index';
+export { Toast } from './toast/index';

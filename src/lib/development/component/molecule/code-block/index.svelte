@@ -1,8 +1,8 @@
-<script lang="ts">
+﻿<script lang="ts">
   import type { CodeBlockProps } from '$stylist/development/type/struct/code-block-props';
   import { createCodeBlockState } from '$stylist/development/function/state/code-block';
-  import { Icon as BaseIcon } from '$stylist';
-  import { Button } from '$stylist';
+  import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+  import Button from '$stylist/control/component/atom/button/index.svelte';
 
   const Copy = 'copy';
   const Check = 'check';
@@ -71,3 +71,4 @@
     position: relative;
   }
 </style>
+

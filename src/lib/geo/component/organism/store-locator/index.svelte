@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Button } from '$lib';
   import { createStoreLocatorState } from '$stylist/geo/function/state/store-locator';
   import type { StoreLocatorStore } from '$stylist/geo/type/struct/store-locator';

@@ -2,7 +2,7 @@
   import type { DebugConsoleProps } from '$stylist/development/type/struct/debug-console-props';
   import type { DebugConsoleLogLevel } from '$stylist/development/type/struct/debug-console-log-level';
   import { createDebugConsoleState } from '$stylist/development/function/state/debug-console';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 
   let { ...props }: DebugConsoleProps = $props();
   const state = createDebugConsoleState(props);

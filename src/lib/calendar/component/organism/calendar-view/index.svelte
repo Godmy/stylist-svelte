@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { createCalendarViewState } from '$stylist/calendar/function/state/calendar-view';
 	import type { RecipeCalendarView as CalendarViewStateProps } from '$stylist/calendar/interface/recipe/calendar-view';
-	import { Icon as BaseIcon, Button } from '$stylist';
+	import { Button } from '$stylist/control/component/atom/button';
+	import { Icon } from '$stylist/media/component/atom/icon';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
@@ -15,13 +16,13 @@
 	<div class={state.headerClasses}>
 		<div class="flex items-center">
 			<Button variant="ghost" size="sm" class={state.navigationButtonClasses} onclick={() => state.navigateMonth(-1)}>
-				<BaseIcon name={ChevronLeft} class="h-5 w-5" />
+				<Icon name={ChevronLeft} class="h-5 w-5" />
 			</Button>
 			<Button variant="ghost" size="sm" class={state.todayButtonClasses} onclick={state.navigateToToday}>
 				Today
 			</Button>
 			<Button variant="ghost" size="sm" class={state.navigationButtonClasses} onclick={() => state.navigateMonth(1)}>
-				<BaseIcon name={ChevronRight} class="h-5 w-5" />
+				<Icon name={ChevronRight} class="h-5 w-5" />
 			</Button>
 			<h2 class="ml-4 text-xl font-bold text-[--color-text-primary]">{state.monthYear}</h2>
 		</div>
@@ -94,7 +95,7 @@
 								state.handleAddEvent(day.date);
 							}}
 						>
-							<BaseIcon name={Plus} class="h-4 w-4" />
+							<Icon name={Plus} class="h-4 w-4" />
 						</button>
 					</div>
 

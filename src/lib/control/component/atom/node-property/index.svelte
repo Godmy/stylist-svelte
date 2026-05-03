@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import type { NodePropertyRecipe as NodePropertyProps } from '$stylist/science/interface/recipe/node-property';
 	import { createNodePropertyControlState } from '$stylist/control/function/state/node-property';
 

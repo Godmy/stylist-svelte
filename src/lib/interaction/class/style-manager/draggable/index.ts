@@ -3,7 +3,7 @@ import type { DraggableStyleManagerOptions } from '$stylist/interaction/interfac
 
 export class DraggableStyleManager {
 	private static readonly BASE = 'transition-all duration-200 ease-in-out';
-	private static readonly DRAGGING = 'opacity-50 scale-105 shadow-xl';
+	private static readonly DRAGGING = 'scale-105 shadow-xl';
 	private static readonly DROP_ZONE = 'ring-2 ring-primary-500 bg-primary-50';
 	private static readonly DISABLED = 'opacity-50 cursor-not-allowed';
 	private static readonly HANDLE = 'cursor-grab active:cursor-grabbing';

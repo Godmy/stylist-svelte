@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { CheckoutFormProps as Props } from '$stylist/commerce/type/struct/checkout-form-props';
   import { createCheckoutFormState } from '$stylist/commerce/function/state/checkout-form';
-  import { Icon as BaseIcon } from '$stylist';
-  import { Button } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
+  import { Button } from '$stylist/control';
   import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 
   const CreditCard = 'credit-card';

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundTreeNodeState } from '$stylist/playground/function/state/playground-tree-node';
 
   import Self from './index.svelte';

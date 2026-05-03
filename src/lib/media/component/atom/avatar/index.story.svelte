@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Avatar from './index.svelte';

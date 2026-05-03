@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { StylistProps } from '$stylist/development/type/struct/stylist-props';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import Tooltip from '$stylist/control/component/atom/tooltip/index.svelte';
 	import { categories } from '$stylist/development/const/record/stylist-categories';
 	import { createStylistState } from '$stylist/development/function/state/stylist';

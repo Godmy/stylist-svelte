@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Story from '$stylist/interaction/playground/Story.svelte';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Scene from './index.svelte';
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundHeroState } from '$stylist/playground/function/state/playground-hero';
   import type { PlaygroundHeroProps } from '$stylist/playground/type/struct/playground-hero-props';
   import { particleIndexes } from '$stylist/playground/const/playground-hero/particle-indexes';

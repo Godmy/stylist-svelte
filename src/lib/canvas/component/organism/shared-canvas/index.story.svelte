@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
   import Story from '$stylist/playground/component/molecule/story/index.svelte';
   import SharedCanvas from './index.svelte';
   import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';

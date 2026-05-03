@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { onMount } from 'svelte';
   import { createPlaygroundToastState } from '$stylist/playground/function/state/playground-toast';
   import type { PlaygroundToastProps } from '$stylist/playground/type/struct/playground-toast-props';

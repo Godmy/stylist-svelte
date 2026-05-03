@@ -1,4 +1,4 @@
-import { PaymentMethodSelectorStyleManager } from '$stylist';
+import { PaymentMethodSelectorStyleManager } from '$stylist/commerce';
 import type { PaymentMethodSelectorProps } from '$stylist/commerce/type/struct/payment-method-selector-props';
 import type { PaymentMethod } from '$stylist/commerce/type/struct/payment-method';
 

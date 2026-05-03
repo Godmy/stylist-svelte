@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SharedCanvasContract } from '$stylist/canvas/type/struct/shared-canvas/shared-canvas-contract';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import { ObjectManagerSharedCanvas } from '$stylist/canvas/class/object-manager/shared-canvas/index';
 	import { createSharedCanvasState } from '$stylist/canvas/function/state/shared-canvas';
 	import { exportCanvasImage } from '$stylist/canvas/function/script/canvas/export-image';

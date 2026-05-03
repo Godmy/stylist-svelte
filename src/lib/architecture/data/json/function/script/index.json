@@ -1,0 +1,141 @@
+{
+  "createFoundationCameraState": [
+    "overrides"
+  ],
+  "clampSceneRadius": [
+    "radius"
+  ],
+  "clampSceneVerticalAngle": [
+    "angle"
+  ],
+  "createCardStackMolecule": [],
+  "createCoreSceneMolecule": [],
+  "createDashboardMolecule": [],
+  "createMobileSheetMolecule": [],
+  "createPrimaryLayoutMolecule": [],
+  "createSceneBoxGeometry": [
+    "width",
+    "height",
+    "depth",
+    "color"
+  ],
+  "createSceneBuffers": [
+    "gl",
+    "geometry"
+  ],
+  "createSceneProgram": [
+    "gl",
+    "vertexSource",
+    "fragmentSource"
+  ],
+  "createSceneRoomGeometry": [
+    "size"
+  ],
+  "clampFoundationDepth": [
+    "depth"
+  ],
+  "destroySceneBuffers": [
+    "gl",
+    "buffers"
+  ],
+  "drawSceneBuffers": [
+    "gl",
+    "buffers",
+    "modelLocation",
+    "modelMatrix",
+    "tintColorLocation",
+    "tintStrengthLocation",
+    "tintColor",
+    "tintStrength"
+  ],
+  "getAtomBoundsRadius": [
+    "atom"
+  ],
+  "getFoundationCameraDepth": [
+    "camera"
+  ],
+  "getFoundationCameraDistance": [
+    "camera",
+    "worldDepth"
+  ],
+  "getFoundationDepthDistance": [
+    "worldDepth",
+    "cameraDepth"
+  ],
+  "getZoomStep": [
+    "scale",
+    "stepId"
+  ],
+  "getZoomValue": [
+    "scale",
+    "stepId",
+    "fallback"
+  ],
+  "joinClassNames": [
+    "classNames"
+  ],
+  "interpolateFoundationValue": [
+    "start",
+    "end",
+    "progress"
+  ],
+  "normalizeFoundationDepthDistance": [
+    "distance"
+  ],
+  "normalizeFoundationValue": [
+    "value",
+    "min",
+    "max"
+  ],
+  "normalizeKeys": [
+    "keys"
+  ],
+  "projectSceneCoordinate": [
+    "value",
+    "offset",
+    "zoom"
+  ],
+  "resolveFoundationSemanticZoomStage": [
+    "worldDepth",
+    "cameraDepth"
+  ],
+  "resolveSceneAtomModelMatrix": [
+    "atom",
+    "animationTime"
+  ],
+  "resolveSceneAtomTint": [
+    "atom",
+    "interaction"
+  ],
+  "resolveSemanticZoomNode": [
+    "node",
+    "cameraDepth"
+  ],
+  "createSceneAtomBuffers": [
+    "gl",
+    "atom"
+  ],
+  "createSceneCubeGeometry": [],
+  "createDemoSceneGraph": [],
+  "resolveSceneAtomBaseColor": [
+    "atom"
+  ],
+  "createGridMolecule": [],
+  "pickSceneAtom": [
+    "atoms",
+    "camera",
+    "canvas",
+    "clientX",
+    "clientY"
+  ],
+  "resolvePresenterSceneLinks": [
+    "nodes"
+  ],
+  "resolveSemanticZoomPresentation": [
+    "worldDepth",
+    "cameraDepth"
+  ],
+  "useSemanticZoom": [
+    "params"
+  ]
+}

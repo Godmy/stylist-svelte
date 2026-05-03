@@ -31,7 +31,6 @@ export { handleUpload } from './file-explorer-handle-upload';
 export { toggleViewMode } from './file-explorer-toggle-view-mode';
 export { handleFileChange } from './file-input';
 export { handleDoubleClick } from './file-list-item-handle-double-click';
-export { forEachDirectory } from './for-each';
 export { handleFileDownload } from './handle-file-download';
 export { resolveFileIcon } from './resolve-file-icon';
 export { resolveFileSelectionLabel } from './resolve-file-selection-label';

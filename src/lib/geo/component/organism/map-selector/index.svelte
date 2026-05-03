@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
-  import { Button } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
+  import { Button } from '$stylist/control';
   import { createMapSelectorState } from '$stylist/geo/function/state/map-selector';
   import type { MapSelectorLocation } from '$stylist/geo/type/struct/map-selector';
 

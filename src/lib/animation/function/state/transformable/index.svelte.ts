@@ -1,5 +1,5 @@
-import { TransformableStyleManager } from '$stylist/interaction/class/style-manager/transformable';
-import { ObjectManagerMotion } from '$stylist/interaction/class/object-manager/motion';
+import { ObjectManagerMotion } from '$stylist/animation/class/object-manager/motion';
+import { TransformableStyleManager } from '$stylist/animation/class/style-manager/transformable';
 import type { SlotTransformable as TransformProps } from '$stylist/animation/interface/slot/transformable';
 
 export const createTransformableState = (props: TransformProps) => {

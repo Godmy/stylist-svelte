@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const BarChart3 = 'bar-chart-3';
 const TrendingUp = 'trending-up';
 const TrendingDown = 'trending-down';

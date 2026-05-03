@@ -1,4 +1,4 @@
-import { TOKEN_DURATION } from '$stylist/interaction/const/map/duration';
+import { TOKEN_DURATION } from '$stylist/animation/const/map/duration';
 
 /**
  * Тип токена длительности

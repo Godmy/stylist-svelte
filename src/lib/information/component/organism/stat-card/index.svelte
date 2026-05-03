@@ -1,7 +1,7 @@
-<script lang="ts">
+﻿<script lang="ts">
 	import type { StatCardRecipe } from '$stylist/information/interface/recipe/stat-card';
 	import { createStatCardState } from '$stylist/information/function/state/stat-card';
-	import AnimatedNumber from '$stylist/typography/component/atom/animation/animated-number/index.svelte';
+	import AnimatedNumber from '$stylist/typography/component/atom/animated-number/index.svelte';
 
 	let props: StatCardRecipe = $props();
 	const state = createStatCardState(props);
@@ -45,6 +45,7 @@
 		<p class={state.descriptionClasses}>{state.description}</p>
 	{/if}
 </div>
+
 
 
 

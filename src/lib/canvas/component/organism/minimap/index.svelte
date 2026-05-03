@@ -2,7 +2,8 @@
 	import type { MinimapContract } from '$stylist/canvas/type/struct/minimap/minimap-contract';
 	import type { MinimapProps } from '$stylist/canvas/type/struct/minimap/minimap-props';
 	import { MinimapStyleManager } from '$stylist/canvas/class/style-manager/minimap';
-	import { IconButton, Icon } from '$stylist';
+	import { IconButton } from '$stylist/control';
+	import { Icon } from '$stylist/media';
 	import { createMinimapState } from '$stylist/canvas/function/state/minimap';
 
 	const contract: MinimapContract & MinimapProps = $props();

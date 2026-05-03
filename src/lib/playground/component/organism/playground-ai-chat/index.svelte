@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PlaygroundAiChatProps } from '$stylist/playground/type/struct/playground-ai-chat-props';
   import { createPlaygroundAiChatState } from '$stylist/playground/function/state/playground-ai-chat';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 
   let { ...props }: PlaygroundAiChatProps = $props();
   const state = createPlaygroundAiChatState(props);

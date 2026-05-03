@@ -1,0 +1,28 @@
+{
+  "domainName": "science",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\object-manager",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\data\\json\\class\\object-manager\\index.json",
+  "tokens": [
+    {
+      "className": "ObjectManagerNodePalette",
+      "methods": [
+        "filterItems",
+        "groupItems",
+        "getCategories",
+        "getCategoryLabel",
+        "toggleViewMode"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\object-manager\\node-palette\\index.ts",
+      "relativePath": "node-palette\\index.ts"
+    },
+    {
+      "className": "ObjectManagerNodePropertiesPanel",
+      "methods": [
+        "getRestProps",
+        "getPropertyGroups"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\object-manager\\node-properties-panel\\index.ts",
+      "relativePath": "node-properties-panel\\index.ts"
+    }
+  ]
+}

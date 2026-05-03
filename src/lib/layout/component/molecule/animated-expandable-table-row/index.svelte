@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createAnimatedExpandableTableRowState } from '$stylist/layout/function/state/animated-expandable-table-row';
 	import type { AnimatedExpandableTableRowProps } from '$stylist/layout/type/struct/animated-expandable-table-row';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media/component/atom/icon';
 
 	const ChevronDown = 'chevron-down';
 	const ChevronUp = 'chevron-up';

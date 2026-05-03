@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { PageBuilderStyleManager } from '$stylist/control/class/style-manager/page-builder';
   import type { PageBuilderTextAttributes } from '$stylist/control/type/struct/page-builder-text-attributes';
   import type { PageBuilderHeadingAttributes } from '$stylist/control/type/struct/page-builder-heading-attributes';

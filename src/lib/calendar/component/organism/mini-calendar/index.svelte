@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { createMiniCalendarState } from '$stylist/calendar/function/state/mini-calendar';
 	import type { RecipeMiniCalendar as MiniCalendarStateProps } from '$stylist/calendar/interface/recipe/mini-calendar';
-	import { Icon as BaseIcon, Button } from '$stylist';
+	import { Button } from '$stylist/control';
+	import { Icon as BaseIcon } from '$stylist/media';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';

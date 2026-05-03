@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Rating } from './rating';
+export { default as Rating } from './index.svelte';

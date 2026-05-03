@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Button } from '$lib';
   import { createRoutePlannerState } from '$stylist/geo/function/state/route-planner';
   import type { RoutePlannerLocation } from '$stylist/geo/type/struct/route-planner';

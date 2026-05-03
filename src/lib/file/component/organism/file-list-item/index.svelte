@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Button } from '$lib';
   import { createFileListItemState } from '$stylist/file/function/state/file-list-item';
   import { formatFileSize } from '$stylist/file/function/script/file-list-item-format-file-size';

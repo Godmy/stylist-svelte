@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { LocaleSwitcher } from './controls';
-export { TranslationEditor } from './input';
-export { LanguageSelector } from './language-selector';
+export { LanguageSelector } from './language-selector/index';
+export { LocaleSwitcher } from './locale-switcher/index';
+export { TranslationEditor } from './translation-editor/index';

@@ -1,13 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AnnouncementBanner } from './announcement-banner';
-export { AudioSlider } from './audio-slider';
-export { AudioVisualizer } from './audio-visualizer';
-export { Avatar } from './avatar';
-export { CountryFlag } from './country-flag';
-export { Favicon } from './favicon';
-export { Icon } from './icon';
-export { Image } from './image';
-export { ImageWithCaption } from './image-with-caption';
-export { NodeIcon } from './node-icon';
-export { PromoBanner } from './promo-banner';
-export { Svg } from './svg';
+export { AnnouncementBanner } from './announcement-banner/index';
+export { AudioSlider } from './audio-slider/index';
+export { AudioVisualizer } from './audio-visualizer/index';
+export { Avatar } from './avatar/index';
+export { CountryFlag } from './country-flag/index';
+export { Favicon } from './favicon/index';
+export { Icon } from './icon/index';
+export { ImageWithCaption } from './image-with-caption/index';
+export { Image } from './image/index';
+export { NodeIcon } from './node-icon/index';
+export { PromoBanner } from './promo-banner/index';
+export { Svg } from './svg/index';

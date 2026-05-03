@@ -3,7 +3,7 @@
   import type { CodeEditorProps } from '$stylist/development/type/struct/code-editor-props';
   import { createCodeSectionState } from '$stylist/development/function/state/code-section';
   import CodeEditor from '$stylist/development/component/molecule/code-editor-legacy/index.svelte';
-  import { Badge } from '$stylist';
+  import { Badge } from '$stylist/typography';
 
   let props: CodeSectionProps = $props();
   const state = createCodeSectionState(props);

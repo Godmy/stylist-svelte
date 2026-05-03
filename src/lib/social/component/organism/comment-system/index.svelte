@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Button } from '$lib';
   import type { SlotCommentSystem as CommentSystemProps } from '$stylist/social/interface/slot/comment-system';
 import type { SlotCommentItem as CommentItem } from '$stylist/social/interface/slot/comment-item';

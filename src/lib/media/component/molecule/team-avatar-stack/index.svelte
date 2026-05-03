@@ -2,7 +2,7 @@
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
   import { createTeamAvatarStackState } from '$stylist/media/function/state/team-avatar-stack';
   import type { TeamAvatarStackProps } from '$stylist/media/type/struct/team-avatar-stack';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const Users = 'users';
 const User = 'user';
 

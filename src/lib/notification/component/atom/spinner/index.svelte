@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createSpinnerState } from '$stylist/notification/function/state/spinner';
-	import { Icon } from '$stylist';
+	import Icon from '$stylist/media/component/atom/icon/index.svelte';
 
 	const props = $props();
 	const state = createSpinnerState(props);

@@ -1,10 +1,10 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AspectRatio } from './aspect-ratio';
-export { Background } from './background';
-export { Border } from './border';
-export { Container } from './container';
-export { Divider } from './divider';
-export { Grid } from './grid';
-export { GridLayout } from './grid-layout';
-export { HorizontalLayout } from './horizontal-layout';
-export { Spacer } from './spacer';
+export { AspectRatio } from './aspect-ratio/index';
+export { Background } from './background/index';
+export { Border } from './border/index';
+export { Container } from './container/index';
+export { Divider } from './divider/index';
+export { GridLayout } from './grid-layout/index';
+export { Grid } from './grid/index';
+export { HorizontalLayout } from './horizontal-layout/index';
+export { Spacer } from './spacer/index';

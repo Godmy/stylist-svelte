@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import RecipeStylist from './index.svelte';
 

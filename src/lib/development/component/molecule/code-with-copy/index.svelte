@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { CodeWithCopyProps } from '$stylist/development/type/struct/code-with-copy-props';
   import { TOKEN_DEVELOPMENT_ICON } from '$stylist/development/const/enum/icon';
   import { createEventDispatcher } from 'svelte';

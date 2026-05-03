@@ -1,0 +1,64 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\class\\style-manager\\index.json",
+  "tokens": [
+    {
+      "className": "StyleManagerBase",
+      "methods": [
+        "getClass",
+        "getClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager\\base\\index.ts",
+      "relativePath": "base\\index.ts"
+    },
+    {
+      "className": "PresenterNodeShellStyleManager",
+      "methods": [
+        "getHostClass",
+        "getHostStyle"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager\\presenter-node-shell\\index.ts",
+      "relativePath": "presenter-node-shell\\index.ts"
+    },
+    {
+      "className": "PresenterSceneStyleManager",
+      "methods": [
+        "getSectionClass",
+        "getHeaderClass",
+        "getTitleClass",
+        "getSubtitleClass",
+        "getControlsClass",
+        "getControlClass",
+        "getViewportClass",
+        "getGridClass",
+        "getLinksClass",
+        "getInspectorClass",
+        "getBadgeClass",
+        "getInspectorLineClass",
+        "getDescriptionClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager\\presenter-scene\\index.ts",
+      "relativePath": "presenter-scene\\index.ts"
+    },
+    {
+      "className": "SceneStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getCanvasClass",
+        "getOverlayClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager\\scene\\index.ts",
+      "relativePath": "scene\\index.ts"
+    },
+    {
+      "className": "StyleManagerState",
+      "methods": [
+        "getClass",
+        "getClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\style-manager\\state\\index.ts",
+      "relativePath": "state\\index.ts"
+    }
+  ]
+}

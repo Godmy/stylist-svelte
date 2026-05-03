@@ -1,4 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Dialog, Drawer, Modal, SimpleModal } from './dialogs';
-export { Pagination } from './pagination';
-export { Sidebar } from './sidebar';
+export { Dialog } from './dialog/index';
+export { Drawer } from './drawer/index';
+export { Modal } from './modal/index';
+export { Pagination } from './pagination/index';
+export { Sidebar } from './sidebar/index';
+export { SimpleModal } from './simple-modal/index';

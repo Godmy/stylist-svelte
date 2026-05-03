@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { GraphToolbarProps } from '$stylist/canvas/type/struct/graph/graph-toolbar-props';
 	import { createGraphToolbarState } from '$stylist/canvas/function/state/graph-toolbar';
-	import { IconButton, Separator } from '$stylist';
+	import { IconButton } from '$stylist/control';
+	import { Separator } from '$stylist/typography';
 
 	let props: GraphToolbarProps = $props();
 	const state = createGraphToolbarState(props);

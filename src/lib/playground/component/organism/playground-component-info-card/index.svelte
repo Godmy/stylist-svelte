@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundComponentInfoCardState } from '$stylist/playground/function/state/playground-component-info-card';
   import type { PlaygroundComponentInfoCardProps } from '$stylist/playground/type/struct/playground-component-info-card-props';
 const X = 'x';

@@ -1,5 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { DownloadCard } from './cards';
-export { DataExporter } from './data-exporter';
-export { FileUpload } from './forms';
-export { AttachmentPreview } from './preview';
+export { AttachmentPreview } from './attachment-preview/index';
+export { DataExporter } from './data-exporter/index';
+export { DownloadCard } from './download-card/index';
+export { FileUpload } from './file-upload/index';

@@ -6,7 +6,7 @@ import type { TokenNodeType } from '$stylist/architecture/type/enum/node-type';
 import type { TokenSize } from '$stylist/layout/type/enum/size';
 import type { SemanticZoomPresentation } from '$stylist/architecture/type/struct/semantic-zoom';
 import { resolveSemanticZoomPresentation } from '$stylist/architecture/function/script/semantic-zoom/index';
-import { LiteGraphNodeStyleManager } from '$stylist';
+import { LiteGraphNodeStyleManager } from '$stylist/science';
 
 export function createLiteGraphNodeState(props: LitegraphNodeProps) {
 	const id = $derived(props.id);

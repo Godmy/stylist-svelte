@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media/component/atom/icon';
 	import { createWidgetContainerState } from '$stylist/layout/function/state/widget-container';
 	import type { WidgetContainerProps } from '$stylist/layout/type/alias/widget-container-props';
 
@@ -88,7 +88,6 @@
 		</div>
 	{/if}
 </div>
-
 
 
 

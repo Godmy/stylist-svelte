@@ -1,7 +1,7 @@
 <script lang="ts">
   import Story from '$stylist/playground/component/molecule/story/index.svelte';
   import Sidebar from './index.svelte';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const Home = 'home';
 const Settings = 'settings';
 const User = 'user';

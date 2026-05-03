@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AuthGuard, ChatInterface } from './ai';
-export { ChatHeader } from './chat';
-export { CollaborativeEditor } from './collaborate';
+export { AuthGuard } from './auth-guard/index';
+export { ChatHeader } from './chat-header/index';
+export { ChatInterface } from './chat-interface/index';
+export { CollaborativeEditor } from './collaborative-editor/index';

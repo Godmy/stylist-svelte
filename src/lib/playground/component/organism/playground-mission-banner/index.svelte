@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundMissionBannerState } from '$stylist/playground/function/state/playground-mission-banner';
   import type { PlaygroundMissionBannerProps } from '$stylist/playground/type/struct/playground-mission-banner-props';
 const Sparkles = 'sparkles';

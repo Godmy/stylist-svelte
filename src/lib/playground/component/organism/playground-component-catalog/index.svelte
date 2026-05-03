@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundComponentCatalogState } from '$stylist/playground/function/state/playground-component-catalog';
   import type { PlaygroundComponentCatalogViewMode } from '$stylist/playground/type/struct/playground-component-catalog-view-mode';
   import type { PlaygroundComponentCatalogSortBy } from '$stylist/playground/type/struct/playground-component-catalog-sort-by';

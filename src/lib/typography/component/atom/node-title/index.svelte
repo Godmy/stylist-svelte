@@ -1,5 +1,5 @@
 	<script lang="ts">
-	import { Icon as BaseIcon } from '$stylist';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
 	import type { ThemeNodeTitleRecipe } from '$stylist/typography/interface/recipe/node-title';
 	import { createNodeTitleState } from '$stylist/typography/function/state/node-title';
 
@@ -163,5 +163,4 @@
 		border-radius: var(--border-radius-base);
 	}
 </style>
-
 

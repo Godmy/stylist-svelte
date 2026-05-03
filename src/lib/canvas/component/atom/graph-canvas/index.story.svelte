@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import { Story } from '$stylist/playground/component/molecule/story';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import GraphCanvas from './index.svelte';
-	import { SlotGraphNode } from '$stylist';
+	import SlotGraphNode from '../graph-node/index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
 		{ name: 'gridMode', type: 'select', defaultValue: 'dot', options: ['dot', 'number', 'letter', 'check', 'x'] },

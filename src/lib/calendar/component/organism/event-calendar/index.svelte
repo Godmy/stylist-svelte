@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { createEventCalendarState } from '$stylist/calendar/function/state/event-calendar';
 	import type { RecipeEventCalendar as EventCalendarStateProps } from '$stylist/calendar/interface/recipe/event-calendar';
-	import { Icon as BaseIcon, Button } from '$stylist';
+	import { Button } from '$stylist/control/component/atom/button';
+	import { Icon } from '$stylist/media/component/atom/icon';
 
 	const ChevronLeft = 'chevron-left';
 	const ChevronRight = 'chevron-right';
@@ -14,13 +15,13 @@
 	<div class={`${state.headerClasses} ${state.headerClassProp}`}>
 		<div class="flex items-center">
 			<Button variant="ghost" size="sm" onclick={() => state.navigateCurrent(-1)}>
-				<BaseIcon name={ChevronLeft} class="h-5 w-5" />
+				<Icon name={ChevronLeft} class="h-5 w-5" />
 			</Button>
 			<Button variant="ghost" size="sm" onclick={state.navigateToToday} class="mx-2">
 				Today
 			</Button>
 			<Button variant="ghost" size="sm" onclick={() => state.navigateCurrent(1)}>
-				<BaseIcon name={ChevronRight} class="h-5 w-5" />
+				<Icon name={ChevronRight} class="h-5 w-5" />
 			</Button>
 			<h2 class="ml-4 text-[--text-size-xl] font-[--font-weight-bold] text-[--color-text-primary]">{state.displayTitle}</h2>
 		</div>

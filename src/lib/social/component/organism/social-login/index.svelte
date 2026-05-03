@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Provider, ProviderConfig, RestProps, Props } from '$stylist/social/type/struct/social-login';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/enum/icon';
   import { Button } from '$lib';
   import { createSocialLoginState } from '$stylist/social/function/state/social-login';

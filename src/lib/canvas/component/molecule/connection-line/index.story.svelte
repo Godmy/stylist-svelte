@@ -9,7 +9,7 @@
 		{ name: 'endX', type: 'number', defaultValue: 400, step: 10 },
 		{ name: 'endY', type: 'number', defaultValue: 300, step: 10 },
 		{ name: 'type', type: 'select', defaultValue: 'bezier', options: ['straight', 'bezier', 'step'] },
-		{ name: 'strokeWidth', type: 'number', defaultValue: 2, min: 1, max: 10, step: 1 },
+		{ name: 'width', type: 'number', defaultValue: 2, min: 1, max: 10, step: 1 },
 		{ name: 'color', type: 'color', defaultValue: '#64748b' },
 		{ name: 'activeColor', type: 'color', defaultValue: '#3b82f6' },
 		{ name: 'active', type: 'boolean', defaultValue: false },
@@ -29,7 +29,7 @@
 				endX={values.endX}
 				endY={values.endY}
 				type={values.type}
-				strokeWidth={values.strokeWidth}
+				width={values.width}
 				color={values.color}
 				activeColor={values.activeColor}
 				active={values.active}

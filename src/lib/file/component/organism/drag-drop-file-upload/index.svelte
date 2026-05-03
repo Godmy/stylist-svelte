@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createDragDropFileUploadState } from '$stylist/file/function/state/drag-drop-file-upload';
   import type { Props } from '$stylist/file/type/struct/drag-drop-file-upload/props';
 

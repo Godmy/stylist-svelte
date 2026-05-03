@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const Accessibility = 'accessibility';
 const Volume2 = 'volume-2';
 const Eye = 'eye';

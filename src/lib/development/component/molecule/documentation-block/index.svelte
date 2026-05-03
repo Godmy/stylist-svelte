@@ -2,8 +2,8 @@
   import type { DocumentationBlockProps } from '$stylist/development/type/struct/documentation-block-props';
   import { createDocumentationBlockState } from '$stylist/development/function/state/documentation-block';
   import CodeSection from '$stylist/development/component/molecule/code-section/index.svelte';
-  import { Badge } from '$stylist';
-  import { Divider } from '$stylist';
+  import { Badge } from '$stylist/typography';
+  import { Divider } from '$stylist/layout';
 
   let {
     title = '',

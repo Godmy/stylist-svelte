@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const Package = 'package';
 const Plus = 'plus';
 const Minus = 'minus';
@@ -9,7 +9,7 @@ const Upload = 'upload';
 const Download = 'download';
 const ImageIcon = 'image';
 
-  import { Button } from '$stylist';
+  import { Button } from '$stylist/control';
   import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
   import { BulkOrderFormModel } from '$stylist/commerce/function/state/bulk-order-form';
   import type { BulkOrderFormProps } from '$stylist/commerce/type/struct/bulk-order-form/bulk-order-form-props';

@@ -1,3 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { Transformation } from './layout';
-export { Animated, Transformable } from './motion';
+export { Animated } from './animated/index';
+export { LayoutTransformation } from './layout-transformation/index';
+export { Transformable } from './transformable/index';

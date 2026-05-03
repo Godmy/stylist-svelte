@@ -1,0 +1,35 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\object-manager",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\class\\object-manager\\index.json",
+  "tokens": [
+    {
+      "className": "Matrix4",
+      "methods": [
+        "constructor",
+        "identity",
+        "multiply",
+        "rotateX",
+        "rotateY",
+        "rotateZ",
+        "scale",
+        "translate",
+        "perspective",
+        "lookAt",
+        "toArray"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\object-manager\\matrix4\\index.ts",
+      "relativePath": "matrix4\\index.ts"
+    },
+    {
+      "className": "SceneObjectManager",
+      "methods": [
+        "start",
+        "stop",
+        "getDebugInfo"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\class\\object-manager\\scene\\index.ts",
+      "relativePath": "scene\\index.ts"
+    }
+  ]
+}

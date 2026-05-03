@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Avatar } from '$lib';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/enum/icon';
   import { socialActivityFeedFormatTime } from '$stylist/social/function/script/social-activity-feed-format-time';

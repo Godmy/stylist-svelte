@@ -1,0 +1,166 @@
+{
+  "RECORD_DENSITY": {
+    "dot": "compact",
+    "icon": "compact",
+    "pill": "compact",
+    "minimal": "compact",
+    "compact": "default",
+    "detailed": "spacious",
+    "screen": "spacious"
+  },
+  "RECORD_FRAME": {
+    "dot": {
+      "width": 16,
+      "height": 16
+    },
+    "icon": {
+      "width": 42,
+      "height": 42
+    },
+    "pill": {
+      "width": 144,
+      "height": 44
+    },
+    "minimal": {
+      "width": 192,
+      "height": 82
+    },
+    "compact": {
+      "width": 268,
+      "height": 152
+    },
+    "detailed": {
+      "width": 368,
+      "height": 238
+    },
+    "screen": {
+      "width": 520,
+      "height": 320
+    }
+  },
+  "RECORD_LAYER": {
+    "dot": "layer3",
+    "icon": "layer5",
+    "pill": "layer20",
+    "minimal": "layer20",
+    "compact": "layer30",
+    "detailed": "overlay",
+    "screen": "modal"
+  },
+  "RECORD_LEVEL": {
+    "dot": "dot",
+    "icon": "icon",
+    "pill": "minimal",
+    "minimal": "minimal",
+    "compact": "compact",
+    "detailed": "detailed",
+    "screen": "screen"
+  },
+  "MATERIAL_PALETTE": {
+    "solid": [
+      0.79,
+      0.83,
+      0.9
+    ],
+    "matte-panel": [
+      0.86,
+      0.88,
+      0.92
+    ],
+    "axis-emissive": [
+      0.88,
+      0.36,
+      0.36
+    ],
+    "surface": [
+      0.15,
+      0.18,
+      0.24
+    ],
+    "grid-line": [
+      0.24,
+      0.29,
+      0.37
+    ],
+    "accent": [
+      0.46,
+      0.68,
+      0.96
+    ],
+    "muted": [
+      0.56,
+      0.62,
+      0.72
+    ]
+  },
+  "SCENE_CONTENT": {
+    "node": {
+      "radius": {
+        "dot": "9999px",
+        "icon": "8px",
+        "pill": "9999px",
+        "minimal": "12px",
+        "compact": "16px",
+        "detailed": "20px",
+        "screen": "24px"
+      },
+      "shadow": {
+        "dot": "none",
+        "icon": "var(--elevation-icon)",
+        "pill": "var(--elevation-pill)",
+        "minimal": "var(--elevation-level1)",
+        "compact": "var(--elevation-level2)",
+        "detailed": "var(--elevation-level3)",
+        "screen": "var(--elevation-level4)"
+      },
+      "padding": {
+        "dot": "0",
+        "icon": "8px",
+        "pill": "8px 16px",
+        "minimal": "12px 16px",
+        "compact": "16px",
+        "detailed": "20px",
+        "screen": "24px"
+      }
+    },
+    "surface": {
+      "far": "var(--color-background-primary)",
+      "mid": "var(--color-background-secondary)",
+      "focus": "var(--color-background-tertiary)",
+      "grid": "var(--color-border-primary)",
+      "gridVisibleOpacity": "0.3",
+      "gridHiddenOpacity": "0.05",
+      "backdrop": "rgba(0, 0, 0, 0.6)",
+      "dimmingStrength": "0.5",
+      "clusterGlow": "rgba(0, 102, 204, 0.3)",
+      "clusterHighlight": "var(--color-primary-400)"
+    },
+    "transitions": {
+      "dotToIcon": "180ms var(--easing-standard)",
+      "iconToPill": "200ms var(--easing-standard)",
+      "pillToMinimal": "220ms var(--easing-emphasized)",
+      "minimalToCompact": "240ms var(--easing-emphasized)",
+      "compactToDetailed": "260ms var(--easing-emphasized)",
+      "detailedToScreen": "280ms var(--easing-emphasized)",
+      "focusToFullscreen": "320ms var(--easing-emphasized)"
+    }
+  },
+  "RECORD_SHAPE": {
+    "dot": "circle",
+    "icon": "square",
+    "pill": "pill",
+    "minimal": "rectangle",
+    "compact": "rectangle",
+    "detailed": "rectangle",
+    "screen": "rectangle"
+  },
+  "RECORD_SIZE": {
+    "dot": "xs",
+    "icon": "sm",
+    "pill": "md",
+    "minimal": "lg",
+    "compact": "xl",
+    "detailed": "2xl",
+    "screen": "full"
+  }
+}

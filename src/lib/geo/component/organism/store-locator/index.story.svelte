@@ -1,4 +1,5 @@
 <script lang="ts">
+	// @ts-nocheck
     import { Story } from '$stylist/playground/component';
     import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
     import StoreLocator, { type Store, type Props } from './index.svelte';

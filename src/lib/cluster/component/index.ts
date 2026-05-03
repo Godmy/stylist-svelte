@@ -1,2 +1,2 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ClusterToolbar } from './organism';
+export { ClusterToolbar } from './molecule';

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+  import type { SlotOrder } from '$stylist/commerce/interface/slot/order';
 
   import RecipeOrderHistory from './index.svelte';
 
@@ -20,7 +21,7 @@
   }>();
 
   // Sample order history data
-  const orderHistory = [
+  const orderHistory: SlotOrder[] = [
     {
       id: 'order1',
       orderNumber: 'ORD-2023-001',
@@ -133,11 +134,10 @@
             showSearch={values.showSearch}
             showRepeatOrder={values.showRepeatOrder}
             showDownloadInvoice={true}
-            showOrderRating={true}
-            onOrderClick={(order) => console.log(`Clicked order: ${order.orderNumber}`)}
-            onRepeatOrder={(order) => console.log(`Reordering: ${order.orderNumber}`)}
-            onDownloadInvoice={(order) => console.log(`Downloading invoice for: ${order.orderNumber}`)}
-            onOrderRated={(orderId, rating) => console.log(`Rated order ${orderId} with ${rating} stars`)}
+            showWriteReview={true}
+            onOrderRepeat={(orderId) => console.log(`Reordering: ${orderId}`)}
+            onDownloadInvoice={(orderId) => console.log(`Downloading invoice for: ${orderId}`)}
+            onWriteReview={(orderId) => console.log(`Writing review for order ${orderId}`)}
           />
         </div>
       </div>
@@ -157,10 +157,9 @@
                 showSearch={false}
                 showRepeatOrder={true}
                 showDownloadInvoice={false}
-                showOrderRating={true}
-                onOrderClick={(order) => console.log(`Clicked order: ${order.orderNumber}`)}
-                onRepeatOrder={(order) => console.log(`Reordering: ${order.orderNumber}`)}
-                onOrderRated={(orderId, rating) => console.log(`Rated order ${orderId} with ${rating} stars`)}
+                showWriteReview={true}
+                onOrderRepeat={(orderId) => console.log(`Reordering: ${orderId}`)}
+                onWriteReview={(orderId) => console.log(`Writing review for order ${orderId}`)}
               />
             </div>
           </article>
@@ -173,9 +172,8 @@
                 showSearch={true}
                 showRepeatOrder={false}
                 showDownloadInvoice={true}
-                showOrderRating={false}
-                onOrderClick={(order) => console.log(`Clicked order: ${order.orderNumber}`)}
-                onDownloadInvoice={(order) => console.log(`Downloading invoice for: ${order.orderNumber}`)}
+                showWriteReview={false}
+                onDownloadInvoice={(orderId) => console.log(`Downloading invoice for: ${orderId}`)}
               />
             </div>
           </article>

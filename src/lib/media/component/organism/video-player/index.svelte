@@ -3,7 +3,7 @@
 		createVideoPlayerState
 	} from '$stylist/media/function/state/video-player';
 	import type { VideoPlayerProps } from '$stylist/media/interface/recipe/video-player-video-player-props';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import { Button } from '$lib';
 
 	let props: VideoPlayerProps = $props();

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createRealTimePresenceState } from '$stylist/calendar/function/state/real-time-presence';
 	import type { RecipeRealTimePresence as RealTimePresenceStateProps } from '$stylist/calendar/interface/recipe/real-time-presence';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 
 	const Users = 'users';
 	const Activity = 'activity';

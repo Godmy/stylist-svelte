@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { Badge, Button, Icon } from '$stylist';
+  import { Button } from '$stylist/control';
+  import { Icon } from '$stylist/media';
+  import { Badge } from '$stylist/typography';
   import { createOperationsHistoryState } from '$stylist/management/function/state/operations-history';
   import type { BehaviorOperationsHistoryEvents } from '$stylist/management/interface/behavior/operations-history-events';
   import type { Operation } from '$stylist/management/interface/slot/operation';

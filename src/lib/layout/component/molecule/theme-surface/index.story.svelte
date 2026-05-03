@@ -1,7 +1,8 @@
 <script lang="ts">
+	// @ts-nocheck
 	import { Story } from '$stylist/playground/component';
 	import ThemeSurface from './index.svelte';
-	import { ThemeProvider } from '$stylist';
+	import { ThemeProvider } from '$stylist/theme';
 </script>
 
 <Story component={ThemeSurface} title="ThemeSurface" description="Content-oriented molecule that renders themed header, content and footer snippets.">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 const X = 'x';
 	import { createTagState } from '$stylist/control/function/state/tag';
 	import type { TagProps } from '$stylist/control/type/struct/tag-props';

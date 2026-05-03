@@ -1,2 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AddressForm, FormWithValidation, LoginForm, ScreenReader, SearchForm } from './forms';
+export { AddressForm } from './address-form/index';
+export { FormWithValidation } from './form-with-validation/index';
+export { LoginForm } from './login-form/index';
+export { ScreenReader } from './screen-reader/index';
+export { SearchForm } from './search-form/index';

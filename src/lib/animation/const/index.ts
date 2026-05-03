@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { TOKEN_ANIMATION_ICON } from './enum';
-export { TOKEN_ANIMATION, TOKEN_EASING } from './map';
+export { TOKEN_ANIMATION, TOKEN_DURATION, TOKEN_EASING } from './map';
 export { BASE_EASING, TOKEN_TRANSITION } from './record';

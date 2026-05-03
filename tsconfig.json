@@ -12,6 +12,5 @@
 		"moduleResolution": "bundler",
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src/**/*", "src/global.d.ts"],
-	"exclude": ["src/**/*.story.svelte"]
+	"include": ["src/**/*", "src/global.d.ts"]
 }

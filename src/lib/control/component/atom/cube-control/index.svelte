@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import type { CubeControlProps } from '$stylist/control/type/struct/cube-control-props';
   import { createCubeControlState } from '$stylist/control/function/state/cube-control';
 

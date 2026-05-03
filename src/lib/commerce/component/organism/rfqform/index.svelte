@@ -1,5 +1,5 @@
-<script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+﻿<script lang="ts">
+  import { Icon as BaseIcon } from '$stylist/media';
 const FileText = 'file-text';
 const User = 'user';
 const Mail = 'mail';
@@ -16,8 +16,8 @@ const CreditCard = 'credit-card';
 const Paperclip = 'paperclip';
 const X = 'x';
 
-  import { Button } from '$stylist';
-  import TextArea from '$stylist/input/component/atom/input/field/text-area/index.svelte';
+  import { Button } from '$stylist/control';
+  import TextArea from '$stylist/input/component/atom/text-area/index.svelte';
   import type { RFQFormProps } from '$stylist/commerce/type/struct/rfqform-props';
   import { createRFQFormState } from '$stylist/commerce/function/state/rfqform';
 
@@ -531,6 +531,7 @@ const X = 'x';
     </div>
   </form>
 </div>
+
 
 
 

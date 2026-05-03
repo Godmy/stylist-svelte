@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { TOKEN_SOCIAL_ICON } from '$stylist/social/const/enum/icon';
-  import { PostCard } from '$stylist';
+  import { PostCard } from '$stylist/commerce';
   import { createSocialFeedState } from '$stylist/social/function/state/social-feed';
   import type { Props, Post } from '$stylist/social/type/struct/social-feed';
 

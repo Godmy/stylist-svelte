@@ -6,7 +6,6 @@ export { COUNTER_VARIANT_CLASSES } from './counter-variant-classes';
 export { TOKEN_CURSOR } from './cursor';
 export { DOT_COLOR_CLASSES } from './dot-color-classes';
 export { DOT_SIZE_CLASSES } from './dot-size-classes';
-export { TOKEN_DURATION } from './duration';
 export { INDICATORS_BULLET_SIZE } from './indicators-bullet-size';
 export { INDICATORS_COUNTER_SIZE } from './indicators-counter-size';
 export { INDICATORS_COUNTER_VARIANT } from './indicators-counter-variant';

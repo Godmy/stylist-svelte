@@ -1,0 +1,12 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\record",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\type\\record\\index.json",
+  "tokens": [
+    {
+      "typeName": "StructIntersectAll",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\record\\architecture-merge\\index.ts",
+      "relativePath": "architecture-merge\\index.ts"
+    }
+  ]
+}

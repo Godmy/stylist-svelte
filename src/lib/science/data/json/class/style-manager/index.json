@@ -1,0 +1,354 @@
+{
+  "domainName": "science",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\data\\json\\class\\style-manager\\index.json",
+  "tokens": [
+    {
+      "className": "AiResultCardStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getContentWrapperClass",
+        "getIconContainerClass",
+        "getIconClass",
+        "getTextContentWrapperClass",
+        "getTitleClass",
+        "getDescriptionClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\ai-result-card\\index.ts",
+      "relativePath": "ai-result-card\\index.ts"
+    },
+    {
+      "className": "CodeEditorStyleManager",
+      "methods": [
+        "root",
+        "button"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\code-editor-style-manager\\index.ts",
+      "relativePath": "code-editor-style-manager\\index.ts"
+    },
+    {
+      "className": "GraphNodeCardStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getHeaderClass",
+        "getTitleClass",
+        "getTypeClass",
+        "getContentClass",
+        "getDescriptionClass",
+        "getFieldsListClass",
+        "getFieldItemClass",
+        "getFieldNameClass",
+        "getFieldTypeClass",
+        "getFieldRequiredClass",
+        "getActionsClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\graph-node-card\\index.ts",
+      "relativePath": "graph-node-card\\index.ts"
+    },
+    {
+      "className": "GraphvizDirectedEdgeStyleManager",
+      "methods": [
+        "root"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\graphviz-directed-edge-style-manager\\index.ts",
+      "relativePath": "graphviz-directed-edge-style-manager\\index.ts"
+    },
+    {
+      "className": "Idef0StyleManager",
+      "methods": [
+        "getDiagramContainerClasses",
+        "getDiagramSvgClasses",
+        "getFunctionBoxGroupClasses",
+        "getFunctionBoxRectClasses",
+        "getFunctionBoxTitleClasses",
+        "getFunctionBoxSubtitleClasses",
+        "getConnectorGroupClasses",
+        "getConnectorLineClasses",
+        "getConnectorLabelClasses",
+        "getPortLabelClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\idef0\\index.ts",
+      "relativePath": "idef0\\index.ts"
+    },
+    {
+      "className": "LiteGraphNodeStyleManager",
+      "methods": [
+        "getNodeClasses",
+        "getNodeStyles",
+        "getHeaderClasses",
+        "getBodyClasses",
+        "getPortsClasses",
+        "getPropertiesClasses",
+        "getContentClasses",
+        "getSemanticShellClasses",
+        "getSemanticIconClasses",
+        "getSemanticTitleClasses",
+        "getSemanticDescriptionClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\litegraph-node\\index.ts",
+      "relativePath": "litegraph-node\\index.ts"
+    },
+    {
+      "className": "ModelSelectorStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getDropdownButtonClass",
+        "getModelInfoContainerClass",
+        "getSelectedModelNameClass",
+        "getSelectedModelDescriptionClass",
+        "getPlaceholderClass",
+        "getChevronClass",
+        "getDropdownMenuClass",
+        "getModelItemClass",
+        "getModelDetailsContainerClass",
+        "getModelNameClass",
+        "getModelProviderVersionClass",
+        "getModelDescriptionClass",
+        "getCapabilitiesContainerClass",
+        "getCapabilityTagClass",
+        "getMoreCapabilitiesTagClass",
+        "getTagsContainerClass",
+        "getTagClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\model-selector\\index.ts",
+      "relativePath": "model-selector\\index.ts"
+    },
+    {
+      "className": "ProductSearchStyleManager",
+      "methods": [
+        "root"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\molecules-migration\\index.ts",
+      "relativePath": "molecules-migration\\index.ts"
+    },
+    {
+      "className": "NodeHeaderStyleManager",
+      "methods": [
+        "getHeaderClasses",
+        "getHeaderStyles",
+        "getActionButtonsClasses",
+        "getActionButtonClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\node-header\\index.ts",
+      "relativePath": "node-header\\index.ts"
+    },
+    {
+      "className": "NodePaletteStyleManager",
+      "methods": [
+        "root",
+        "header",
+        "headerTitle",
+        "title",
+        "search",
+        "actions",
+        "categories",
+        "category",
+        "content",
+        "empty",
+        "group",
+        "groupTitle",
+        "item",
+        "itemIcon",
+        "itemInfo",
+        "itemTitle",
+        "itemDescription",
+        "grid",
+        "gridItem",
+        "gridItemIcon",
+        "gridItemTitle"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\node-palette\\index.ts",
+      "relativePath": "node-palette\\index.ts"
+    },
+    {
+      "className": "NodePropertiesPanelStyleManager",
+      "methods": [
+        "getPanelClasses",
+        "getHeaderClasses",
+        "getContentClasses",
+        "getGroupClasses",
+        "getCloseButtonClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\node-properties-panel\\index.ts",
+      "relativePath": "node-properties-panel\\index.ts"
+    },
+    {
+      "className": "NodePropertyStyleManager",
+      "methods": [
+        "getPropertyClasses",
+        "getLabelClasses",
+        "getValueClasses",
+        "getDescriptionClasses",
+        "getControlClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\node-property\\index.ts",
+      "relativePath": "node-property\\index.ts"
+    },
+    {
+      "className": "NodeTitleStyleManager",
+      "methods": [
+        "getTitleClasses",
+        "getTitleStyles",
+        "getVariantColor"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\node-title\\index.ts",
+      "relativePath": "node-title\\index.ts"
+    },
+    {
+      "className": "OntologyEdgeComponentStyleManager",
+      "methods": [
+        "getEdgeStyle",
+        "getBaseClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\ontology-edge-component\\index.ts",
+      "relativePath": "ontology-edge-component\\index.ts"
+    },
+    {
+      "className": "OntologyNodeComponentStyleManager",
+      "methods": [
+        "getNodeStyle",
+        "getBaseClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\ontology-node-component\\index.ts",
+      "relativePath": "ontology-node-component\\index.ts"
+    },
+    {
+      "className": "PortGroupStyleManager",
+      "methods": [
+        "getGroupClasses",
+        "getTitleClasses",
+        "getListClasses",
+        "getItemClasses"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\port-group\\index.ts",
+      "relativePath": "port-group\\index.ts"
+    },
+    {
+      "className": "PredictionResultStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getHeaderClass",
+        "getStatusIconClass",
+        "getTitleClass",
+        "getModelTagClass",
+        "getContentClass",
+        "getDescriptionClass",
+        "getCenteredDisplayClass",
+        "getRetryButtonClass",
+        "getPredictionSummaryGridClass",
+        "getPredictionBoxClass",
+        "getPredictionLabelClass",
+        "getPredictionValueClass",
+        "getConfidenceSectionClass",
+        "getConfidenceLabelClass",
+        "getConfidencePercentageClass",
+        "getConfidenceBarContainerClass",
+        "getConfidenceBarFillClass",
+        "getBreakdownHeaderClass",
+        "getPredictionItemClass",
+        "getPredictionItemLabelClass",
+        "getPredictionItemValueClass",
+        "getChartBarContainerClass",
+        "getChartBarFillClass",
+        "getFooterClass",
+        "getTrendIndicatorClass",
+        "getTrendDescriptionClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\prediction-result\\index.ts",
+      "relativePath": "prediction-result\\index.ts"
+    },
+    {
+      "className": "PromptBuilderStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getHeaderClass",
+        "getTitleClass",
+        "getHeaderButtonsClass",
+        "getCopyButtonClass",
+        "getRunButtonClass",
+        "getLoadingSpinnerClass",
+        "getMainLayoutClass",
+        "getTemplatesSidebarClass",
+        "getTemplatesHeaderClass",
+        "getTemplatesTitleClass",
+        "getAddTemplateButtonClass",
+        "getTemplatesListClass",
+        "getTemplateItemClass",
+        "getTemplateNameClass",
+        "getTemplateDescriptionClass",
+        "getMainContentClass",
+        "getPromptEditorSectionClass",
+        "getPromptEditorLabelClass",
+        "getPromptEditorClass",
+        "getVariablesSectionClass",
+        "getVariablesHeaderClass",
+        "getVariablesTitleClass",
+        "getAddVariableButtonClass",
+        "getVariablesListClass",
+        "getVariableItemClass",
+        "getVariableInfoContainerClass",
+        "getVariableNameClass",
+        "getVariableTypeBadgeClass",
+        "getRequiredBadgeClass",
+        "getVariableActionsClass",
+        "getVariableActionButtonClass",
+        "getVariableDescriptionClass",
+        "getFooterClass",
+        "getCancelButtonClass",
+        "getSaveButtonClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\prompt-builder\\index.ts",
+      "relativePath": "prompt-builder\\index.ts"
+    },
+    {
+      "className": "PropsEditorStyleManager",
+      "methods": [
+        "root"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\props-editor-style-manager\\index.ts",
+      "relativePath": "props-editor-style-manager\\index.ts"
+    },
+    {
+      "className": "SentimentAnalysisStyleManager",
+      "methods": [
+        "getContainerClass",
+        "getHeaderClass",
+        "getTitleClass",
+        "getContentClass",
+        "getInputLabelClass",
+        "getInputAreaClass",
+        "getAnalyzeButtonClass",
+        "getLoadingSpinnerClass",
+        "getErrorMessageContainerClass",
+        "getErrorIconClass",
+        "getErrorMessageClass",
+        "getResultSectionClass",
+        "getSentimentIconContainerClass",
+        "getSentimentIconClass",
+        "getSentimentLabelClass",
+        "getSentimentScoreClass",
+        "getConfidenceLabelClass",
+        "getBreakdownHeaderClass",
+        "getBreakdownBarClass",
+        "getNegativeSegmentClass",
+        "getNeutralSegmentClass",
+        "getPositiveSegmentClass",
+        "getSentimentScaleContainerClass",
+        "getGradientScaleClass",
+        "getScoreIndicatorClass",
+        "getScaleLabelsClass",
+        "getFooterClass"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\sentiment-analysis\\index.ts",
+      "relativePath": "sentiment-analysis\\index.ts"
+    },
+    {
+      "className": "WishlistButtonStyleManager",
+      "methods": [
+        "root"
+      ],
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\science\\class\\style-manager\\wishlist-button-style-manager\\index.ts",
+      "relativePath": "wishlist-button-style-manager\\index.ts"
+    }
+  ]
+}

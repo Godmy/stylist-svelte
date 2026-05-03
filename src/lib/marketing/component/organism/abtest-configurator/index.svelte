@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
 const TestTube = 'test-tube';
 const GitBranch = 'git-branch';
 const Users = 'users';

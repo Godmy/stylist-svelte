@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { ErrorBoundary } from './errors';
-export { ToastStack } from './toasts';
+export { ErrorBoundary } from './error-boundary/index';
+export { ToastStack } from './toast-stack/index';

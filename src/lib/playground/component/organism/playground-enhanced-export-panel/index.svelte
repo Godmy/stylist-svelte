@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createPlaygroundEnhancedExportPanelState } from '$stylist/playground/function/state/playground-enhanced-export-panel';
   import type { PlaygroundEnhancedExportPanelProps } from '$stylist/playground/type/struct/playground-enhanced-export-panel-props';
 const FileCode = 'file-code';

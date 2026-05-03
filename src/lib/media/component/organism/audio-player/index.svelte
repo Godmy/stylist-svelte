@@ -3,7 +3,7 @@
 		createAudioPlayerState
 	} from '$stylist/media/function/state/audio-player';
 	import type { AudioPlayerProps } from '$stylist/media/interface/recipe/audio-player-audio-player-props';
-	import { Icon as BaseIcon } from '$stylist';
+	import { Icon as BaseIcon } from '$stylist/media';
 	import { Button } from '$lib';
 
 	let props: AudioPlayerProps = $props();

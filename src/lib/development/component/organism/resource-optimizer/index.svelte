@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ResourceOptimizerProps } from '$stylist/development/type/struct/resource-optimizer-props';
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { createResourceOptimizerState } from '$stylist/development/function/state/resource-optimizer';
 
   const HardDrive = 'hard-drive';

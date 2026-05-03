@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist';
-const X = 'x';
+	import BaseIcon from '$stylist/media/component/atom/icon/index.svelte';
+	const X = 'x';
 
 	import { createChipState } from '$stylist/control/function/state/chip';
 	import type { ChipProps } from '$stylist/control/type/struct/chip-props';
@@ -40,10 +40,6 @@ const X = 'x';
 		</button>
 	{/if}
 </div>
-
-
-
-
 
 
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Icon as BaseIcon } from '$stylist';
+  import { Icon as BaseIcon } from '$stylist/media';
   import { Button } from '$lib';
   import { createMapMarkerState } from '$stylist/geo/function/state/map-marker';
   import { geoHandleKeyDown } from '$stylist/geo/function/script/handle-key-down';

@@ -1,4 +1,12 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { AdvancedPasswordInput, ColorPicker, DatePicker, DateTimePicker, FieldHighlighter, FormDatePicker, ReactionPicker, SliderWithInput, TimePicker } from './input';
-export { IconPicker } from './pickers';
-export { SearchBar } from './search';
+export { AdvancedPasswordInput } from './advanced-password-input/index';
+export { ColorPicker } from './color-picker/index';
+export { DatePicker } from './date-picker/index';
+export { DateTimePicker } from './date-time-picker/index';
+export { FieldHighlighter } from './field-highlighter/index';
+export { FormDatePicker } from './form-date-picker/index';
+export { IconPicker } from './icon-picker/index';
+export { ReactionPicker } from './reaction-picker/index';
+export { SearchBar } from './search-bar/index';
+export { SliderWithInput } from './slider-with-input/index';
+export { TimePicker } from './time-picker/index';

@@ -7,6 +7,7 @@ export const TOKEN_JOINT_ICON = [
 	'director',
 	'enum',
 	'frag',
+	'joint',
 	'json',
 	'manager',
 	'map',

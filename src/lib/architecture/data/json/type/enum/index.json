@@ -1,0 +1,122 @@
+{
+  "domainName": "architecture",
+  "sourceDirectory": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum",
+  "outputFile": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\data\\json\\type\\enum\\index.json",
+  "tokens": [
+    {
+      "typeName": "FoundationAxisDirection",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\axes-axis-direction\\index.ts",
+      "relativePath": "axes-axis-direction\\index.ts"
+    },
+    {
+      "typeName": "FoundationAxisOrientation",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\axes-axis-orientation\\index.ts",
+      "relativePath": "axes-axis-orientation\\index.ts"
+    },
+    {
+      "typeName": "FoundationAxis",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\axes\\axis\\index.ts",
+      "relativePath": "axes\\axis\\index.ts"
+    },
+    {
+      "typeName": "TokenComponentType",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\component-type\\index.ts",
+      "relativePath": "component-type\\index.ts"
+    },
+    {
+      "typeName": "TokenConnector",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\connector\\index.ts",
+      "relativePath": "connector\\index.ts"
+    },
+    {
+      "typeName": "TokenEasing",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\easing\\index.ts",
+      "relativePath": "easing\\index.ts"
+    },
+    {
+      "typeName": "TokenFunctionalTaxonomy",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\functional-taxonomy\\index.ts",
+      "relativePath": "functional-taxonomy\\index.ts"
+    },
+    {
+      "typeName": "TokenArchitectureIcon",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\icon\\index.ts",
+      "relativePath": "icon\\index.ts"
+    },
+    {
+      "typeName": "TokenLetterSpacing",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\letter-spacing\\index.ts",
+      "relativePath": "letter-spacing\\index.ts"
+    },
+    {
+      "typeName": "TokenLineHeight",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\line-height\\index.ts",
+      "relativePath": "line-height\\index.ts"
+    },
+    {
+      "typeName": "TokenLineType",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\line-type\\index.ts",
+      "relativePath": "line-type\\index.ts"
+    },
+    {
+      "typeName": "TokenMarker",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\marker\\index.ts",
+      "relativePath": "marker\\index.ts"
+    },
+    {
+      "typeName": "TokenNodeType",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\node-type\\index.ts",
+      "relativePath": "node-type\\index.ts"
+    },
+    {
+      "typeName": "TokenOpacity",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\opacity\\index.ts",
+      "relativePath": "opacity\\index.ts"
+    },
+    {
+      "typeName": "TokenOwnership",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\ownership\\index.ts",
+      "relativePath": "ownership\\index.ts"
+    },
+    {
+      "typeName": "TokenPanMode",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\pan-mode\\index.ts",
+      "relativePath": "pan-mode\\index.ts"
+    },
+    {
+      "typeName": "TokenRelationship",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\relationship\\index.ts",
+      "relativePath": "relationship\\index.ts"
+    },
+    {
+      "typeName": "TokenArchitectureShaderFragment",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\shader-fragment\\index.ts",
+      "relativePath": "shader-fragment\\index.ts"
+    },
+    {
+      "typeName": "TokenArchitectureShaderVertex",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\shader-vertex\\index.ts",
+      "relativePath": "shader-vertex\\index.ts"
+    },
+    {
+      "typeName": "TokenSkeleton",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\skeleton\\index.ts",
+      "relativePath": "skeleton\\index.ts"
+    },
+    {
+      "typeName": "TierContent",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\tier\\index.ts",
+      "relativePath": "tier\\index.ts"
+    },
+    {
+      "typeName": "TokenTrajectory",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\trajectory\\index.ts",
+      "relativePath": "trajectory\\index.ts"
+    },
+    {
+      "typeName": "TokenZoom",
+      "absolutePath": "D:\\2026\\code\\template\\stylist-svelte\\src\\lib\\architecture\\type\\enum\\zoom\\index.ts",
+      "relativePath": "zoom\\index.ts"
+    }
+  ]
+}

@@ -1,3 +1,3 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { buildComponentPreviewCode, copyToClipboard, domainForEach, domainListFile, extractComponentType, extractConstEnum, listFileAll } from './script';
+export { buildComponentPreviewCode, copyToClipboard } from './script';
 export { createAtomicPrinciplesShowcaseState, createCodeBlockState, createCodeBlockWithLineNumbersState, createCodeDiffState, createCodeEditorLegacyState, createCodeEditorState, createCodeSectionState, createCodeWithCopyState, createComponentLibraryStatsState, createComponentPreviewState, createCopyableCodeBlockState, createDebugConsoleState, createDesignTokensState, createDevelopmentErrorBoundaryState, createDocumentationBlockState, createMockDataSelectorState, createPrivacySettingsState, createResourceOptimizerState, createStylistState } from './state';
