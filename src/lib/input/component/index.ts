@@ -1,4 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AccessibilityCheckbox, AdvancedInput, AutoSearch, AutocompleteDropdown, CharactersCount, FormErrorMessage, FormHelperText, InputAddon, InputDouble, InputEmail, InputField, InputGroup, InputLong, InputPassword, InputPinDigit, InputText, NumberInput, PhoneNumberInput, SearchSuggestion, TextArea } from './atom';
 export { AdvancedPasswordInput, ColorPicker, DatePicker, DateTimePicker, FieldHighlighter, FormDatePicker, IconPicker, ReactionPicker, SearchBar, SliderWithInput, TimePicker } from './molecule';
-export { AutoComplete, ContentEditor, DateRangePicker, DateTimeRangePicker, RangeInput, TagInput } from './organism';
+export { AutoComplete, ContentEditor, DateRangePicker, DateTimeRangePicker, RangeInput, TagInput, TextInputDialog } from './organism';

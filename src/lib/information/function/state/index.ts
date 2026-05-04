@@ -15,7 +15,6 @@ export { createIconPickerState } from './icon-picker';
 export { createImageWithCaptionState } from './image-with-caption';
 export { createInlineCodeState } from './inline-code';
 export { createKbdState } from './kbd';
-export { createLabelState } from './label';
 export { createLinkState } from './link';
 export { createListItemMarkerState } from './list-item-marker';
 export { createMetricCardState } from './metric-card';

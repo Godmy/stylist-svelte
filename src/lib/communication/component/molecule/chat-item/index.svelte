@@ -104,11 +104,11 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     showStatus={!state.isGroupChat}
   />
 
-  <div class="chat-info">
-    <div class="chat-name">
+  <div class={state.chatInfoClasses}>
+    <div class={state.chatNameClasses}>
       {state.isGroupChat ? props.chat.name : state.otherUser?.name}
     </div>
-    <div class="last-message">
+    <div class={state.lastMessageClasses}>
       {#if typeof props.chat.lastMessage !== 'string' && props.chat.lastMessage?.senderId !== props.currentUser.id}
         {state.lastMessagePreview}
       {:else}
@@ -117,7 +117,7 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     </div>
   </div>
 
-  <div class="chat-meta">
+  <div class={state.chatMetaClasses}>
     {#if props.chat.lastMessage}
       <MessageTimestamp
         timestamp={typeof props.chat.lastMessage === 'object' ? props.chat.lastMessage.timestamp : new Date()}
@@ -136,7 +136,7 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     {/if}
   </div>
 
-  <div class="chat-actions">
+  <div class={state.chatActionsClasses}>
     {#if props.onDelete}
       <button type="button" onclick={(e) => { e.stopPropagation(); props.onDelete?.(); }}>Delete</button>
     {/if}

@@ -1,5 +1,6 @@
 import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import { MessageStyleManager } from '$stylist/communication/class/style-manager/message';
 
 export const createMessageItemState = (props: {
 	message: Message;
@@ -29,21 +30,21 @@ export const createMessageItemState = (props: {
 
 	const messageMargin = $derived(isOwn ? 'ml-auto' : '');
 
-	const messageContainerClasses = 'message-container flex gap-2 w-full';
+	const messageContainerClasses = MessageStyleManager.getMessageContainerClasses(isOwn ? 'right' : 'left');
 
 	const messageBubbleClasses = $derived(
-		`message-bubble flex flex-col max-w-[75%] p-3 rounded-xl border box-shadow-custom28 relative ${messageBackground} ${messageBorder} ${messageMargin}`.trim()
+		`${MessageStyleManager.getMessageBubbleClasses(isOwn ? 'outgoing' : 'incoming', 'relative')} ${messageBackground} ${messageBorder} ${messageMargin}`.trim()
 	);
 
 	const messageContentClasses = 'message-content word-wrap break-word whitespace-pre-wrap';
 
-	const messageActionsClasses = 'message-actions flex gap-2 mt-1 opacity-70 hover:opacity-100';
+	const messageActionsClasses = MessageStyleManager.getActionsClasses();
 
-	const actionButtonClasses = 'action-button bg-none border-none cursor-pointer p-1 rounded-base hover:bg-[color-mix(in_srgb,var(--color-text-primary)_5%,transparent)]';
+	const actionButtonClasses = MessageStyleManager.getActionButtonClasses();
 
-	const reactionsPickerClasses = 'reactions-picker absolute bottom-full left-0 bg-[var(--color-background-primary)] border border-[var(--color-border-primary)] rounded-lg p-2 flex gap-1 shadow-custom38 z-[var(--z-index-docked)]';
+	const reactionsPickerClasses = 'reactions-picker absolute bottom-full left-0 flex gap-1 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-2 shadow-custom38 z-[var(--z-index-docked)]';
 
-	const reactionOptionClasses = 'reaction-option text-xl cursor-pointer p-1 rounded-base hover:bg-[var(--color-background-secondary)]';
+	const reactionOptionClasses = MessageStyleManager.getReactionButtonClasses();
 
 	function handleReactionClick(reaction: string) {
 		// dispatch('reaction', { reaction })

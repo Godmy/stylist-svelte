@@ -57,5 +57,6 @@
 	.entity-count {
 		color: var(--color-text-secondary);
 		font-size: 11px;
+		margin-right: 0.25rem;
 	}
 </style>

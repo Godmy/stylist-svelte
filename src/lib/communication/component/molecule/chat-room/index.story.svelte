@@ -1,25 +1,24 @@
 <script lang="ts">
-	// @ts-nocheck
-  import Story from '$stylist/playground/component/molecule/story/index.svelte';
+  import { Story } from '$stylist/playground/component/molecule/story';
+  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import ChatRoom from './index.svelte';
-  import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
-  import type { Message as ChatRoomMessage } from './index.svelte';
+  import type { SlotUser } from '$stylist/communication/interface/slot/user';
 
   // Sample users and messages
-  const sampleCurrentUser = {
+  const sampleCurrentUser: SlotUser = {
     id: 'current',
     name: 'You',
     avatar: ''
   };
 
-  const sampleParticipants = [
+  const sampleParticipants: SlotUser[] = [
     { id: 'user1', name: 'Alex Morgan', avatar: '' },
     { id: 'user2', name: 'Taylor Swift', avatar: '' },
     { id: 'user3', name: 'Jamie Johnson', avatar: '' },
     { id: 'user4', name: 'Jordan Smith', avatar: '' }
   ];
 
-  const sampleMessages: ChatRoomMessage[] = [
+  const sampleMessages = [
     {
       id: 'msg1',
       text: 'Hey team! How is everyone doing with the project?',
@@ -44,20 +43,9 @@
     }
   ];
 
-  const controls = [
-    {
-      name: 'loading',
-      type: 'boolean' as TokenControllerType,
-      defaultValue: false,
-      description: 'Whether the chat room is in loading state'
-    },
-    {
-      name: 'variant',
-      type: 'select' as TokenControllerType,
-      defaultValue: 'default',
-      options: ['default', 'compact', 'spacious'],
-      description: 'Visual variant of the chat room'
-    }
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'loading', type: 'boolean', defaultValue: false },
+    { name: 'variant', type: 'select', defaultValue: 'default', options: ['default', 'compact', 'spacious'] }
   ];
 
   // Function to handle message sending
@@ -70,7 +58,6 @@
   {controls}
   title="ChatRoom Component"
   description="A component to display a chat room with message history and composer"
- 
 >
   {#snippet children(controlValues: any)}
   <ChatRoom
@@ -83,7 +70,6 @@
     variant={controlValues.variant}
     onMessageSend={handleSendMessage}
   />
-
   {/snippet}
 </Story>
 

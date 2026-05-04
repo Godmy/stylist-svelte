@@ -1,11 +1,11 @@
 <script lang="ts">
-  // @ts-nocheck
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { SlotFileSystemItem } from '$stylist/file';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import { Story } from '$stylist/playground/component';
 
-  import FileExplorer from './index.svelte';
+	import FileExplorer from './index.svelte';
 
-  let items = [
+	const items: SlotFileSystemItem[] = [
     {
       id: 'folder1',
       name: 'Documents',
@@ -50,7 +50,7 @@
       size: 1536000,
       modified: new Date(Date.now() - 518400000)
     }
-  ];
+	];
 
   let currentPath = '/home/user';
   let viewMode: 'list' | 'grid' = 'grid';
@@ -58,15 +58,6 @@
   let showPath = true;
   let enableSelection = true;
   let multiselect = false;
-
-  type Props = {
-    currentPath: string;
-    viewMode: 'list' | 'grid';
-    searchable: boolean;
-    showPath: boolean;
-    enableSelection: boolean;
-    multiselect: boolean;
-  };
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'currentPath', type: 'text', defaultValue: '/home/user' },
@@ -101,19 +92,19 @@
             showPath={values.showPath}
             enableSelection={values.enableSelection}
             multiselect={values.multiselect}
-            onItemSelect={(item) => {
+            onItemSelect={(item: SlotFileSystemItem) => {
               console.log('Item selected:', item.name);
             }}
-            onItemDoubleClick={(item) => {
+            onItemDoubleClick={(item: SlotFileSystemItem) => {
               console.log('Item double-clicked:', item.name);
             }}
-            onItemAction={(item, action) => {
+            onItemAction={(item: SlotFileSystemItem, action: string) => {
               console.log('Item action:', { item: item.name, action });
             }}
-            onUpload={(files) => {
+            onUpload={(files: FileList) => {
               console.log('Files uploaded:', Array.from(files).map(f => f.name));
             }}
-            onDownload={(item) => {
+            onDownload={(item: SlotFileSystemItem) => {
               console.log('Item downloaded:', item.name);
             }}
           />

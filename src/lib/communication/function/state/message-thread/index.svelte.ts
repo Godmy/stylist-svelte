@@ -1,30 +1,22 @@
 import { joinClassNames } from '$stylist/layout/function/script/join-class-names';
 import type { SlotMessageThread as MessageThreadProps } from '$stylist/communication/interface/slot/message-thread';
+import { MessageStyleManager } from '$stylist/communication/class/style-manager/message';
 
 export const createMessageThreadState = (props: MessageThreadProps) => {
 	const hostClasses = $derived(
-		joinClassNames(
-			'flex flex-col h-full max-h-[600px] border rounded-lg overflow-hidden',
-			props.class
-		)
+		MessageStyleManager.getThreadHostClasses(props.class)
 	);
 	
 	const headerClasses = $derived(
-		joinClassNames(
-			'px-4 py-3 border-b bg-[var(--color-background-secondary)]'
-		)
+		MessageStyleManager.getThreadHeaderClasses()
 	);
 	
 	const containerClasses = $derived(
-		joinClassNames(
-			'flex-1 overflow-y-auto p-4 bg-[var(--color-background-primary)]'
-		)
+		MessageStyleManager.getThreadContainerClasses()
 	);
 	
 	const messageContainerClasses = $derived(
-		joinClassNames(
-			'flex flex-col space-y-4'
-		)
+		MessageStyleManager.getThreadMessageContainerClasses()
 	);
 	
 	const variantClass = $derived(
@@ -32,15 +24,11 @@ export const createMessageThreadState = (props: MessageThreadProps) => {
 	);
 	
 	const loadingClasses = $derived(
-		joinClassNames(
-			'flex items-center justify-center h-32'
-		)
+		MessageStyleManager.getThreadLoadingClasses()
 	);
 	
 	const spinnerClasses = $derived(
-		joinClassNames(
-			'animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-border-primary)]'
-		)
+		MessageStyleManager.getThreadSpinnerClasses()
 	);
 
 	return {

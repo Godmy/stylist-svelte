@@ -1,8 +1,9 @@
 import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import { ChatStyleManager } from '$stylist/communication/class/style-manager/chat';
 
 export const createChatListState = (props: { chats: Chat[]; currentUser: User; activeChatId?: string }) => {
-	const containerClasses = 'flex flex-col h-full overflow-y-auto bg-[var(--color-background-primary)] border-r border-[var(--color-border-primary)]';
+	const containerClasses = ChatStyleManager.getListContainerClasses();
 
 	function handleChatSelect(chat: Chat) {
 		// dispatch('chatSelect', { chat })

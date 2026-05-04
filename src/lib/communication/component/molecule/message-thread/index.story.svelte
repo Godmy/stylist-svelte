@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-nocheck
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import MessageThread from './index.svelte';
@@ -36,7 +35,6 @@
         messages={allMessages.slice(0, args.messageCount)}
         loading={args.loading}
         class="h-[320px]"
-        onMessageAction={(action: string, message: { id: string }) => (lastAction = `${action}:${message.id}`)}
       />
       <p class="text-sm text-[var(--color-text-secondary)]">Last action: {lastAction}</p>
     </div>

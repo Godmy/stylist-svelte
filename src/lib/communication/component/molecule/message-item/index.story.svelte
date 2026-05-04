@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-nocheck
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
@@ -50,9 +49,9 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
         showAvatar={args.showAvatar}
         enableReactions={args.enableReactions}
         sender={args.isOwn ? currentUser : otherUser}
-        on:reaction={(e) => (lastEvent = `reaction:${e.detail.reaction}`)}
-        on:reply={() => (lastEvent = 'reply')}
-        on:forward={() => (lastEvent = 'forward')}
+        onReaction={(reaction) => (lastEvent = `reaction:${reaction}`)}
+        onReply={() => (lastEvent = 'reply')}
+        onForward={() => (lastEvent = 'forward')}
       />
       <p class="text-sm text-[var(--color-text-secondary)]">Last event: {lastEvent}</p>
     </div>

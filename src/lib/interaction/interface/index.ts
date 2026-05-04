@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { BehaviorBarClickable, BehaviorCellClickable, BehaviorClickable, BehaviorDraggable, BehaviorFocusable, BehaviorHoverable, BehaviorPointClickable, BehaviorSelectable, BehaviorTooltipable } from './behavior';
-export type { ContractInteraction } from './contract';
 export type { ButtonRecipe, CheckboxRecipe, DraggableItemRecipe, IconButtonRecipe, InteractionFeedbackRecipe, SharedCanvasRecipe } from './recipe';
 export type { ClickableStyleManagerOptions, DraggableStyleManagerOptions, FocusableStyleManagerOptions, HoverableStyleManagerOptions, NumberFormatOptions, SearchSuggestion, SlotClickable, SlotDraggable, SlotFocusable, SlotHoverable } from './slot';

@@ -1,9 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import PromptBuilder from './index.svelte';
-  import type { SlotPromptTemplate as PromptTemplate } from '$stylist/science/interface/slot/prompt-template';
+	import type { ContractPromptTemplate } from '$stylist/science/interface/contract/prompt-template';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import { Story } from '$stylist/playground/component';
+
+	import PromptBuilder from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'showTemplates', type: 'boolean', defaultValue: true },
@@ -11,7 +11,7 @@
     { name: 'initialPrompt', type: 'text', defaultValue: 'You are a helpful assistant.' }
   ];
 
-  const sampleTemplates: PromptTemplate[] = [
+  const sampleTemplates: ContractPromptTemplate[] = [
     {
       id: 'assistant',
       name: 'General Assistant',
@@ -48,6 +48,12 @@
         initialPrompt={values.initialPrompt}
         showTemplates={values.showTemplates}
         showVariables={values.showVariables}
+        onRun={(prompt: string, variables: Record<string, unknown>) => {
+          console.log('Run prompt:', { prompt, variables });
+        }}
+        onSave={(prompt: string, variables) => {
+          console.log('Save prompt:', { prompt, variables });
+        }}
       />
     </section>
   {/snippet}

@@ -1,9 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import Avatar from './index.svelte';
-	import type { AvatarUserStatus } from './index.svelte';
+	import type { AvatarSize } from '$stylist/media/type/alias/avatar-size';
+	import type { AvatarUserStatus } from '$stylist/media/type/alias/avatar-user-status';
 
 	const controls: InterfaceControllerSettings[] = [
 		{
@@ -53,8 +53,8 @@
 			src={values.src as string}
 			alt={values.alt as string}
 			name={values.name as string}
-			status={values.status as AvatarUserStatus || undefined}
-			size={values.size as 'sm' | 'md' | 'lg' | 'xl'}
+			status={(values.status as AvatarUserStatus) || undefined}
+			size={values.size as AvatarSize}
 			showStatus={values.showStatus as boolean}
 		/>
 	{/snippet}

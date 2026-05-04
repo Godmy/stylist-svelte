@@ -3,6 +3,7 @@ export { AuthGuardStyleManager } from './auth-guard';
 export { ChatStyleManager } from './chat';
 export { ChatHeaderStyleManager } from './chat-header';
 export { ChatInterfaceStyleManager } from './chat-interface';
+export { CollaborativeEditorStyleManager } from './collaborative-editor';
 export { DocumentPreviewStyleManager } from './document-preview-style-manager';
 export { MessageStyleManager } from './message';
 export { MessageBubbleStyleManager } from './message-bubble';

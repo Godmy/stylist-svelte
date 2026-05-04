@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
-  import Story from '$stylist/playground/component/molecule/story/index.svelte';
+  import { Story } from '$stylist/playground/component/molecule/story';
+  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import ChatItem from './index.svelte';
   import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
-import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
-  import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 
   const currentUser: User = {
     id: '1',
@@ -36,13 +35,8 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     unreadCount: 0
   };
 
-  const controls = [
-    {
-      name: 'isActive',
-      type: 'boolean' as TokenControllerType,
-      defaultValue: false,
-      description: 'Whether the chat item is active'
-    }
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'isActive', type: 'boolean', defaultValue: false }
   ];
 
   function handleSelect() {
@@ -53,23 +47,21 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     console.log('Chat deleted');
   }
 
-  const chatItemProps = (isActive: boolean) =>
-    ({ chat, currentUser, isActive }) as any;
 </script>
 
 <Story
   {controls}
   title="ChatItem Component"
   description="A component to display a single chat item in a chat list"
- 
 >
   {#snippet children(controlValues: any)}
   <ChatItem
-    {...chatItemProps(controlValues.isActive)}
-    on:select={handleSelect}
-    on:delete={handleDelete}
+    {chat}
+    {currentUser}
+    isActive={controlValues.isActive}
+    onSelect={handleSelect}
+    onDelete={handleDelete}
   />
-
   {/snippet}
 </Story>
 

@@ -16,6 +16,7 @@ import { INPUT_GROUP_CONTAINER_CLASS } from '$stylist/input/const/value/input-gr
 import { INPUT_GROUP_INPUT_CLASS } from '$stylist/input/const/value/input-group-input-class';
 import { INPUT_LONG_RESIZE_HANDLE_CLASS } from '$stylist/input/const/value/input-long-resize-handle-class';
 import { INPUT_PASSWORD_TOGGLE_CLASS } from '$stylist/input/const/value/input-password-toggle-class';
+import { LABEL_SIZE_CLASSES } from '$stylist/typography/const/map/label-size-classes';
 
 export class InputStyleManager {
 	static getInputClasses(
@@ -60,6 +61,20 @@ export class InputStyleManager {
 
 	static getContainerClass(className = ''): string { return mergeClassNames(INPUT_FIELD_CONTAINER_CLASS, className); }
 	static getLabelClass(className = ''): string { return mergeClassNames(INPUT_FIELD_LABEL_CLASS, className); }
+	static getInputLabelClasses(
+		size: keyof typeof LABEL_SIZE_CLASSES = 'md',
+		disabled = false,
+		className = ''
+	): string {
+		return mergeClassNames(
+			'font-medium',
+			LABEL_SIZE_CLASSES[size],
+			disabled
+				? 'text-[--color-text-tertiary] cursor-not-allowed'
+				: 'text-[--color-text-primary]',
+			className
+		);
+	}
 	static getHelperTextClass(className = ''): string { return mergeClassNames(INPUT_FIELD_HELPER_TEXT_CLASS, className); }
 	static getErrorTextClass(className = ''): string { return mergeClassNames(INPUT_FIELD_ERROR_TEXT_CLASS, className); }
 	static getRequiredIndicatorClass(className = ''): string { return mergeClassNames('input-field-required text-[var(--color-danger-500)]', className); }

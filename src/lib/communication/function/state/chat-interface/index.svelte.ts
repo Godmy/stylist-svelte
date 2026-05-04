@@ -27,6 +27,9 @@ export const createChatInterfaceState = (props: ChatInterfaceProps) => {
 	const messageInputClass = $derived(ChatInterfaceStyleManager.getMessageInputClass(props.inputClass ?? ''));
 	const sendButtonClass = $derived(ChatInterfaceStyleManager.getSendButtonClass(!newMessage.trim()));
 	const sendIconClass = $derived(ChatInterfaceStyleManager.getSendIconClass());
+	const providerSelectorClass = $derived(ChatInterfaceStyleManager.getProviderSelectorClass());
+	const settingsButtonClass = $derived(ChatInterfaceStyleManager.getSettingsButtonClass());
+	const moreOptionsButtonClass = $derived(ChatInterfaceStyleManager.getMoreOptionsButtonClass());
 
 	const showSettings = $derived(props.showSettings ?? true);
 	const showProviderSelector = $derived(props.showProviderSelector ?? true);
@@ -103,6 +106,15 @@ export const createChatInterfaceState = (props: ChatInterfaceProps) => {
 		},
 		get sendIconClass() {
 			return sendIconClass;
+		},
+		get providerSelectorClass() {
+			return providerSelectorClass;
+		},
+		get settingsButtonClass() {
+			return settingsButtonClass;
+		},
+		get moreOptionsButtonClass() {
+			return moreOptionsButtonClass;
 		},
 		get showSettings() {
 			return showSettings;

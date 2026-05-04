@@ -1,5 +1,6 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { CollaborativeEditorProps } from '$stylist/communication/type/alias/collaborative-editor-props';
+import { CollaborativeEditorStyleManager } from '$stylist/communication/class/style-manager/collaborative-editor';
 
 const Bold = 'bold';
 const Italic = 'italic';
@@ -23,36 +24,36 @@ export const createCollaborativeEditorState = (props: CollaborativeEditorProps) 
 	const currentUser = $derived(props.currentUser);
 
 	const containerClasses = $derived(
-		`c-collaborative-editor flex flex-col border border-[var(--color-border-primary)] rounded-lg overflow-hidden ${props.class ?? ''}`.trim()
+		CollaborativeEditorStyleManager.getContainerClasses(props.class ?? '')
 	);
 
 	const toolbarClasses = $derived(
-		`flex items-center p-2 border-b border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] space-x-1 ${props.toolbarClass ?? ''}`.trim()
+		CollaborativeEditorStyleManager.getToolbarClasses(props.toolbarClass ?? '')
 	);
 
 	const editorClasses = $derived(
-		`flex-1 p-4 min-h-[300px] overflow-auto focus:outline-none ${props.editorClass ?? ''}`.trim()
+		CollaborativeEditorStyleManager.getEditorClasses(props.editorClass ?? '')
 	);
 
 	const userListClasses = $derived(
-		`w-48 border-l p-3 ${props.userListClass ?? ''}`.trim()
+		CollaborativeEditorStyleManager.getUserListClasses(props.userListClass ?? '')
 	);
 
-	const userListHeaderClasses = 'flex items-center text-sm font-medium text-[var(--color-text-primary)] mb-2';
+	const userListHeaderClasses = CollaborativeEditorStyleManager.getUserListHeaderClasses();
 
-	const userListEntryClasses = 'flex items-center';
+	const userListEntryClasses = CollaborativeEditorStyleManager.getUserListEntryClasses();
 
-	const userAvatarClasses = 'w-6 h-6 rounded-full mr-2';
+	const userAvatarClasses = CollaborativeEditorStyleManager.getUserAvatarClasses();
 
-	const userInitialsClasses = 'w-6 h-6 rounded-full flex items-center justify-center text-xs text-[var(--color-text-inverse)] mr-2';
+	const userInitialsClasses = CollaborativeEditorStyleManager.getUserInitialsClasses();
 
-	const userNameClasses = 'text-sm text-[var(--color-text-primary)]';
+	const userNameClasses = CollaborativeEditorStyleManager.getUserNameClasses();
 
-	const userIndicatorClasses = 'ml-1 text-xs text-[var(--color-text-secondary)]';
+	const userIndicatorClasses = CollaborativeEditorStyleManager.getUserIndicatorClasses();
 
-	const toolbarButtonClasses = 'p-2 rounded hover:bg-[var(--color-background-tertiary)]';
+	const toolbarButtonClasses = CollaborativeEditorStyleManager.getToolbarButtonClasses();
 
-	const toolbarSeparatorClasses = 'w-px h-6 bg-[var(--color-background-tertiary)] mx-1';
+	const toolbarSeparatorClasses = CollaborativeEditorStyleManager.getToolbarSeparatorClasses();
 
 	function handleInput() {
 		props.onContentChange?.(editorContent);

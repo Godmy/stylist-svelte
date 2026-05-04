@@ -4,19 +4,19 @@ export class AuthGuardStyleManager {
 	}
 
 	static getSectionClasses(fallbackClass: string): string {
-		return `${'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[--radius-lg] border border-[--color-border-primary] bg-[--color-background-primary] p-[--spacing-xl] text-center'} ${fallbackClass}`.trim();
+		return `${'flex flex-col items-center justify-center gap-[--spacing-sm] rounded-[1.5rem] border border-[--color-border-primary] bg-[--color-background-primary] px-6 py-7 text-center shadow-custom28'} ${fallbackClass}`.trim();
 	}
 
 	static getTitleClasses(contentClass: string): string {
-		return `${'text-[--text-size-lg] font-[--font-weight-semibold] text-[--color-text-primary]'} ${contentClass}`.trim();
+		return `${'text-lg font-semibold tracking-[0.01em] text-[--color-text-primary]'} ${contentClass}`.trim();
 	}
 
 	static getTextClasses(contentClass: string): string {
-		return `${'max-w-[40ch] text-[--text-size-sm] text-[--color-text-secondary]'} ${contentClass}`.trim();
+		return `${'max-w-[40ch] text-sm leading-6 text-[--color-text-secondary]'} ${contentClass}`.trim();
 	}
 
 	static getActionLinkClasses(): string {
-		return 'inline-flex items-center rounded-[--radius-md] bg-[--color-primary-600] px-[--spacing-md] py-[--spacing-sm] text-[--text-size-sm] font-[--font-weight-medium] text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]';
+		return 'inline-flex items-center rounded-full bg-[--color-primary-600] px-4 py-2 text-sm font-medium text-[--color-text-inverse] transition-colors hover:bg-[--color-primary-700]';
 	}
 }
 

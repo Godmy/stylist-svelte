@@ -1,5 +1,6 @@
 import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
 import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import { ChatStyleManager } from '$stylist/communication/class/style-manager/chat';
 
 export const createChatItemState = (props: { chat: Chat; currentUser: User; isActive?: boolean; class?: string }) => {
 	const isActiveVal = $derived(props.isActive ?? false);
@@ -17,18 +18,18 @@ export const createChatItemState = (props: { chat: Chat; currentUser: User; isAc
 	});
 
 	const containerClasses = $derived(
-		`flex items-center gap-3 p-3 cursor-pointer border-b border-[var(--color-border-primary)] transition-colors duration-200 hover:bg-[var(--color-background-secondary)] ${isActiveVal ? 'bg-[var(--color-primary-50)]' : ''} ${props.class ?? ''}`.trim()
+		ChatStyleManager.getItemContainerClasses(isActiveVal, props.class ?? '')
 	);
 
-	const chatInfoClasses = 'flex-1 min-w-0';
+	const chatInfoClasses = ChatStyleManager.getItemInfoClasses();
 
-	const chatNameClasses = 'font-semibold text-[var(--color-text-primary)] text-base mb-1 whitespace-nowrap overflow-hidden text-ellipsis';
+	const chatNameClasses = ChatStyleManager.getItemNameClasses();
 
-	const lastMessageClasses = 'text-sm text-[var(--color-text-secondary)] whitespace-nowrap overflow-hidden text-ellipsis';
+	const lastMessageClasses = ChatStyleManager.getItemPreviewClasses();
 
-	const chatMetaClasses = 'flex flex-col items-end gap-1';
+	const chatMetaClasses = ChatStyleManager.getItemMetaClasses();
 
-	const chatActionsClasses = 'absolute right-2 opacity-0 transition-opacity duration-200 hover:opacity-100';
+	const chatActionsClasses = ChatStyleManager.getItemActionsClasses();
 
 	function handleClick() {
 		// dispatch('select')

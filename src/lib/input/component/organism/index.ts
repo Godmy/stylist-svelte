@@ -5,3 +5,4 @@ export { DateRangePicker } from './date-range-picker/index';
 export { DateTimeRangePicker } from './date-time-range-picker/index';
 export { RangeInput } from './range-input/index';
 export { TagInput } from './tag-input/index';
+export { TextInputDialog } from './text-input-dialog/index';

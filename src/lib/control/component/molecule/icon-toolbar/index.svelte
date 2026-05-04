@@ -182,14 +182,14 @@
 	}
 
 	.vertical .toolbar-btn {
-		width: 24px;
-		height: 24px;
+		width: 28px;
+		height: 28px;
 	}
 
 	.vertical .icon,
 	.vertical .icon :global(svg) {
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 	}
 
 	.vertical .active-indicator {

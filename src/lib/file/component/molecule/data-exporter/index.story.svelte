@@ -1,8 +1,8 @@
 <script lang="ts">
-	// @ts-nocheck
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import DataExporter from './index.svelte';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import { Story } from '$stylist/playground/component';
+
+	import DataExporter from './index.svelte';
 
   let lastExport = $state('none');
 
@@ -41,7 +41,7 @@
           </tbody>
         </table>
       </div>
-      <DataExporter data={dataset} format={args.format} fileName={args.fileName} disabled={args.disabled} on:export={(e) => (lastExport = `${e.detail.format}:${e.detail.fileName}`)} />
+      <DataExporter data={dataset} format={args.format} fileName={args.fileName} disabled={args.disabled} />
       <p class="text-sm text-[var(--color-text-secondary)]">Last export: {lastExport}</p>
     </div>
   {/snippet}

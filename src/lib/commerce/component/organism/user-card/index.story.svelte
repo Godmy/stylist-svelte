@@ -1,124 +1,45 @@
 <script lang="ts">
-	// @ts-nocheck
+  import type { TokenUserCardSize } from '$stylist/commerce/type/enum/user-card-size';
+  import type { User } from '$stylist/commerce/type/struct/user';
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
   import UserCard from './index.svelte';
 
-  let {
-    id = '',
-    title = '',
-    description = '',
-    controls = [
-      { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
-      { name: 'showAvatar', type: 'boolean', defaultValue: true },
-      { name: 'showStatus', type: 'boolean', defaultValue: true }
-    ]
-  } = $props<{
-    id?: string;
-    title?: string;
-    description?: string;
-    controls?: InterfaceControllerSettings[]
-  }>();
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'size', type: 'select', options: ['sm', 'md', 'lg'], defaultValue: 'md' },
+    { name: 'showEmail', type: 'boolean', defaultValue: true },
+    { name: 'showRole', type: 'boolean', defaultValue: true }
+  ];
 
-  type RosterUser = {
-    id: string;
-    name: string;
-    title: string;
-    status: 'online' | 'offline' | 'away' | 'busy';
-    avatar: string;
-    email: string;
+  const primaryUser: User = {
+    id: 'pm-42',
+    name: 'Alicia Norris',
+    email: 'alicia@orion.software',
+    role: 'Product Manager',
+    avatar: 'https://i.pravatar.cc/96?img=12'
   };
 
-  const roster: RosterUser[] = [
-    {
-      id: 'sup-1',
-      name: 'Mika Howard',
-      title: 'Support Lead',
-      status: 'away',
-      avatar: 'https://i.pravatar.cc/96?img=26',
-      email: 'mika@orion.software'
-    },
-    {
-      id: 'fre-19',
-      name: 'Oscar Bentley',
-      title: 'Motion Designer',
-      status: 'offline',
-      avatar: 'https://i.pravatar.cc/96?img=48',
-      email: 'oscar@orion.software'
-    },
-    {
-      id: 'ops-77',
-      name: 'Kara Sung',
-      title: 'Operations',
-      status: 'busy',
-      avatar: 'https://i.pravatar.cc/96?img=13',
-      email: 'kara@orion.software'
-    }
+  const roster: User[] = [
+    { id: 'sup-1', name: 'Mika Howard', role: 'Support Lead', avatar: 'https://i.pravatar.cc/96?img=26', email: 'mika@orion.software' },
+    { id: 'fre-19', name: 'Oscar Bentley', role: 'Motion Designer', avatar: 'https://i.pravatar.cc/96?img=48', email: 'oscar@orion.software' }
   ];
 </script>
 
-<Story
-  {id}
-  {title}
-  {description}
-  component={UserCard}
-  category="Organisms"
-  controls={controls}
->
+<Story component={UserCard} title="User Card" description="Compact commerce user card." controls={controls}>
   {#snippet children(values: any)}
-    <section class="sb-organisms-user-card grid w-full gap-8 lg:grid-cols-[1fr_1fr]">
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-primary] p-6 shadow-sm">
-        <p class="text-sm font-semibold uppercase tracking-wide text-[--color-text-secondary]">
-          Primary User Card Example
-        </p>
-        <p class="mt-1 text-[--color-text-primary]">Interactive user card with customizable options.</p>
-
-        <div class="mt-6">
-          <UserCard
-            user={{
-              id: 'pm-42',
-              name: 'Alicia Norris',
-              email: 'alicia@orion.software',
-              title: 'Product Manager В· Activation',
-              avatar: 'https://i.pravatar.cc/96?img=12',
-              status: 'online'
-            }}
-            showAvatar={values.showAvatar}
-            showEmail={true}
-            showTitle={true}
-            showStatus={values.showStatus}
-            showActions={true}
-            size={values.size}
-          />
-        </div>
-      </div>
-
-      <div class="rounded-[2rem] border border-[--color-border-primary] bg-[--color-background-secondary] p-6 shadow-sm">
-        <h3 class="text-base font-semibold text-[--color-text-primary]">User Roster</h3>
-        <p class="text-sm text-[--color-text-secondary]">
-          Compact user cards to quickly review team members.
-        </p>
-
-        <div class="mt-5 space-y-4">
-          {#each roster as member}
-            <UserCard
-              user={member}
-              showEmail={false}
-              showStatus={true}
-              showTitle={true}
-              showActions={false}
-              size="sm"
-            />
-          {/each}
-        </div>
+    <section class="grid gap-4">
+      <UserCard
+        user={primaryUser}
+        showEmail={values.showEmail as boolean}
+        showRole={values.showRole as boolean}
+        size={values.size as TokenUserCardSize}
+      />
+      <div class="space-y-3">
+        {#each roster as member}
+          <UserCard user={member} showEmail={false} showRole={true} size="sm" />
+        {/each}
       </div>
     </section>
   {/snippet}
 </Story>
-
-
-
-
-
-

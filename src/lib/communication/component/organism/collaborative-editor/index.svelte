@@ -29,6 +29,10 @@
   const state = createCollaborativeEditorState(props);
 
   let editorRef: HTMLDivElement | undefined;
+
+  $effect(() => {
+    state.editorRef = editorRef;
+  });
 </script>
 
 <div class={state.containerClasses} {...props}>

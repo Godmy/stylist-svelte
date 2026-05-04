@@ -1,4 +1,5 @@
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
+import { MessageStyleManager } from '$stylist/communication/class/style-manager/message';
 
 type MessageStatus = 'sent' | 'delivered' | 'read';
 
@@ -45,15 +46,23 @@ export const createChatMessageState = (props: {
 		`ml-1 h-3 w-3 ${props.status === 'read' ? 'text-[var(--color-primary-500)]' : 'text-[var(--color-text-tertiary)]'}`
 	);
 
-	const containerClasses = $derived(`flex ${alignmentClass} mb-4 ${props.class ?? ''}`.trim());
+	const containerClasses = $derived(MessageStyleManager.getChatMessageContainerClasses(!!props.isOwn, props.class ?? ''));
 
-	const contentClasses = $derived(`max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${props.contentClass ?? ''}`.trim());
+	const contentClasses = $derived(MessageStyleManager.getChatMessageContentClasses(props.contentClass ?? ''));
 
-	const headerClasses = $derived(`flex items-center mb-1 ${props.headerClass ?? ''}`.trim());
+	const headerClasses = $derived(MessageStyleManager.getChatMessageHeaderClasses(props.headerClass ?? ''));
 
-	const footerClasses = $derived(
-		`flex items-center justify-end mt-1 text-xs text-[var(--color-text-secondary)] ${props.footerClass ?? ''}`.trim()
+	const footerClasses = $derived(MessageStyleManager.getChatMessageFooterClasses(props.footerClass ?? ''));
+
+	const bubbleClasses = $derived(
+		MessageStyleManager.getChatMessageBubbleShellClasses(!!props.isOwn, stateVariantClass(), '')
 	);
+
+	const textClasses = $derived(MessageStyleManager.getChatMessageTextClasses());
+
+	function stateVariantClass() {
+		return props.isOwn ? '' : variantClass;
+	}
 
 	return {
 		get alignmentClass() {
@@ -85,6 +94,12 @@ export const createChatMessageState = (props: {
 		},
 		get footerClasses() {
 			return footerClasses;
+		},
+		get bubbleClasses() {
+			return bubbleClasses;
+		},
+		get textClasses() {
+			return textClasses;
 		}
 	};
 };

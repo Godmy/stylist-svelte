@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
-  import Story from '$stylist/playground/component/molecule/story/index.svelte';
+  import { Story } from '$stylist/playground/component/molecule/story';
   import ChatWindow from './index.svelte';
   import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
-import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
-import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+  import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 
   const currentUser: User = {
     id: '1',
@@ -60,41 +59,44 @@ import type { SlotMessage as Message } from '$stylist/communication/interface/sl
     }
   ];
 
-  function handleMessageSend(e: CustomEvent<{ content: string; chatId: string }>) {
-    console.log('Message sent:', e.detail.content, 'to chat:', e.detail.chatId);
+  function handleMessageSend(content: string) {
+    console.log('Message sent:', content, 'to chat:', chat.id);
   }
 
-  function handleMessageReaction(e: CustomEvent<{ messageId: string; reaction: string }>) {
-    console.log('Reaction added:', e.detail.reaction, 'to message:', e.detail.messageId);
+  function handleMessageReaction(messageId: string, reaction: string) {
+    console.log('Reaction added:', reaction, 'to message:', messageId);
   }
 
-  function handleCall(e: CustomEvent<{ chat: Chat }>) {
-    console.log('Call initiated for chat:', e.detail.chat.id);
+  function handleCall() {
+    console.log('Call initiated for chat:', chat.id);
   }
 
-  function handleVideoCall(e: CustomEvent<{ chat: Chat }>) {
-    console.log('Video call initiated for chat:', e.detail.chat.id);
+  function handleVideoCall() {
+    console.log('Video call initiated for chat:', chat.id);
   }
 
-  function handleChatInfo(e: CustomEvent<{ chat: Chat }>) {
-    console.log('Chat info requested for chat:', e.detail.chat.id);
+  function handleChatInfo() {
+    console.log('Chat info requested for chat:', chat.id);
   }
 </script>
 
 <Story
+  component={ChatWindow}
   title="ChatWindow Component"
   description="A component to display a complete chat window with messages and input"
 >
-  <ChatWindow
-    {chat}
-    {currentUser}
-    {messages}
-    on:messageSend={handleMessageSend}
-    on:messageReaction={handleMessageReaction}
-    on:call={handleCall}
-    on:videoCall={handleVideoCall}
-    on:chatInfo={handleChatInfo}
-  />
+  {#snippet children()}
+    <ChatWindow
+      {chat}
+      {currentUser}
+      {messages}
+      onMessageSend={handleMessageSend}
+      onMessageReaction={handleMessageReaction}
+      onCall={handleCall}
+      onVideoCall={handleVideoCall}
+      onChatInfo={handleChatInfo}
+    />
+  {/snippet}
 </Story>
 
 

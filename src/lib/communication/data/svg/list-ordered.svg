@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <title>list-ordered</title>
+  <path d="M10 6h10"/>
+  <path d="M10 12h10"/>
+  <path d="M10 18h10"/>
+  <path d="M4 7h2V5H4"/>
+  <path d="M4 13h2.5a1.5 1.5 0 0 1 0 3H4l2.5 0"/>
+</svg>

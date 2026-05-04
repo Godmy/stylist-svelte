@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-nocheck
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
@@ -45,8 +44,6 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
         <MessageList
           messages={(args.includeAttachments ? messagesWithAttachments : messages).slice(0, args.messageCount)}
           {currentUser}
-          on:messageClick={(e) => (lastAction = `click:${e.detail.message.id}`)}
-          on:messageReaction={(e) => (lastAction = `reaction:${e.detail.reaction}`)}
           onMessageAction={(action, message) => (lastAction = `${action}:${message.id}`)}
         />
       </div>

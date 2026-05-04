@@ -1,6 +1,5 @@
 <script lang="ts">
-	// @ts-nocheck
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import { Story } from '$stylist/playground/component/molecule/story';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import ChatPreview from './index.svelte';
 	import type { ChatPreviewProps } from '$stylist/communication/type/struct/chat-preview';
@@ -11,9 +10,9 @@
 		maxMessages: 3,
 		showAvatars: true,
 		messages: [
-			{ text: 'SAMO analysis is complete.', sender: 'Claude', timestamp: '2 min ago', isOwn: false, status: 'read' },
-			{ text: 'Implemented the missing controls.', sender: 'Qwen', timestamp: '1 min ago', isOwn: true, status: 'read' },
-			{ text: 'Preview looks good now.', sender: 'Gemini', timestamp: 'just now', isOwn: false, status: 'delivered' }
+			{ text: 'SAMO analysis is complete.', author: 'Claude', timestamp: '2 min ago' },
+			{ text: 'Implemented the missing controls.', author: 'Qwen', timestamp: '1 min ago' },
+			{ text: 'Preview looks good now.', author: 'Gemini', timestamp: 'just now' }
 		]
 	};
 

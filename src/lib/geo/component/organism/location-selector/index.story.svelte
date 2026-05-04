@@ -1,116 +1,90 @@
 <script lang="ts">
-	// @ts-nocheck
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { LocationSelectorLocation } from '$stylist/geo/type/struct/location-selector';
+	import { Story } from '$stylist/playground/component';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
-  import LocationSelector from './index.svelte';
+	import LocationSelector from './index.svelte';
 
-  type SlotLocation = {
-    id: string;
-    name: string;
-    address?: string;
-    latitude: number;
-    longitude: number;
-    description?: string;
-    category?: string;
-    rating?: number;
-    distance?: number;
-    tags?: string[];
-  };
+	const locations: LocationSelectorLocation[] = [
+		{
+			id: '1',
+			name: 'Central Park',
+			address: 'New York, NY',
+			latitude: 40.7812,
+			longitude: -73.9665,
+			description: 'Large urban park in Manhattan',
+			category: 'Park',
+			rating: 4.8,
+			distance: 2.5,
+			tags: ['park', 'outdoors', 'famous']
+		},
+		{
+			id: '2',
+			name: 'Times Square',
+			address: 'New York, NY',
+			latitude: 40.758,
+			longitude: -73.9855,
+			description: 'Major commercial intersection and tourist destination',
+			category: 'Landmark',
+			rating: 4.2,
+			distance: 1.2,
+			tags: ['landmark', 'shopping', 'tourist']
+		},
+		{
+			id: '3',
+			name: 'Brooklyn Bridge',
+			address: 'New York, NY',
+			latitude: 40.7061,
+			longitude: -73.9969,
+			description: 'Historic suspension bridge connecting Manhattan and Brooklyn',
+			category: 'Landmark',
+			rating: 4.7,
+			distance: 3.1,
+			tags: ['bridge', 'landmark', 'historic']
+		},
+		{
+			id: '4',
+			name: 'Metropolitan Museum of Art',
+			address: 'New York, NY',
+			latitude: 40.7794,
+			longitude: -73.9632,
+			description: 'Art museum on the eastern edge of Central Park',
+			category: 'Museum',
+			rating: 4.9,
+			distance: 1.8,
+			tags: ['museum', 'art', 'culture']
+		},
+		{
+			id: '5',
+			name: 'Statue of Liberty',
+			address: 'New York, NY',
+			latitude: 40.6892,
+			longitude: -74.0445,
+			description: 'Colossal neoclassical sculpture on Liberty Island',
+			category: 'Landmark',
+			rating: 4.8,
+			distance: 8.7,
+			tags: ['statue', 'landmark', 'freedom']
+		}
+	];
 
-  let locations: SlotLocation[] = [
-    {
-      id: '1',
-      name: 'Central Park',
-      address: 'New York, NY',
-      latitude: 40.7812,
-      longitude: -73.9665,
-      description: 'Large urban park in Manhattan',
-      category: 'Park',
-      rating: 4.8,
-      distance: 2.5,
-      tags: ['park', 'outdoors', 'famous']
-    },
-    {
-      id: '2',
-      name: 'Times Square',
-      address: 'New York, NY',
-      latitude: 40.7580,
-      longitude: -73.9855,
-      description: 'Major commercial intersection and tourist destination',
-      category: 'Landmark',
-      rating: 4.2,
-      distance: 1.2,
-      tags: ['landmark', 'shopping', 'tourist']
-    },
-    {
-      id: '3',
-      name: 'Brooklyn Bridge',
-      address: 'New York, NY',
-      latitude: 40.7061,
-      longitude: -73.9969,
-      description: 'Historic suspension bridge connecting Manhattan and Brooklyn',
-      category: 'Landmark',
-      rating: 4.7,
-      distance: 3.1,
-      tags: ['bridge', 'landmark', 'historic']
-    },
-    {
-      id: '4',
-      name: 'Metropolitan Museum of Art',
-      address: 'New York, NY',
-      latitude: 40.7794,
-      longitude: -73.9632,
-      description: 'Art museum on the eastern edge of Central Park',
-      category: 'Museum',
-      rating: 4.9,
-      distance: 1.8,
-      tags: ['museum', 'art', 'culture']
-    },
-    {
-      id: '5',
-      name: 'Statue of Liberty',
-      address: 'New York, NY',
-      latitude: 40.6892,
-      longitude: -74.0445,
-      description: 'Colossal neoclassical sculpture on Liberty Island',
-      category: 'Landmark',
-      rating: 4.8,
-      distance: 8.7,
-      tags: ['statue', 'landmark', 'freedom']
-    }
-  ];
+	let currentView: 'list' | 'grid' | 'map' = 'list';
+	let showSearch = true;
+	let showCategoryFilter = true;
+	let showMapToggle = true;
+	let showDistance = true;
+	let maxLocations = 10;
 
-  let currentView: 'list' | 'grid' | 'map' = 'list';
-  let showSearch: boolean = true;
-  let showCategoryFilter: boolean = true;
-  let showMapToggle: boolean = true;
-  let showDistance: boolean = true;
-  let searchPlaceholder: string = 'Search locations...';
-  let defaultCategory: string = 'all';
-  let maxLocations: number = 10;
-
-  type Props = {
-    currentView: 'list' | 'grid' | 'map';
-    showSearch: boolean;
-    showCategoryFilter: boolean;
-    showMapToggle: boolean;
-    showDistance: boolean;
-    searchPlaceholder: string;
-    defaultCategory: string;
-    maxLocations: number;
-  };
-
-  const controls: InterfaceControllerSettings[] = [
-    { name: 'currentView', type: 'select', options: ['list', 'grid', 'map'], defaultValue: 'list' },
-    { name: 'showSearch', type: 'boolean', defaultValue: true },
-    { name: 'showCategoryFilter', type: 'boolean', defaultValue: true },
-    { name: 'showMapToggle', type: 'boolean', defaultValue: true },
-    { name: 'showDistance', type: 'boolean', defaultValue: true },
-    { name: 'searchPlaceholder', type: 'text', defaultValue: 'Search locations...' },
-    { name: 'defaultCategory', type: 'text', defaultValue: 'all' },
-    { name: 'maxLocations', type: 'number', defaultValue: 10 }
-  ];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'currentView', type: 'select', options: ['list', 'grid', 'map'], defaultValue: 'list' },
+		{ name: 'showSearch', type: 'boolean', defaultValue: true },
+		{ name: 'showCategoryFilter', type: 'boolean', defaultValue: true },
+		{ name: 'showMapToggle', type: 'boolean', defaultValue: true },
+		{ name: 'showDistance', type: 'boolean', defaultValue: true },
+		{ name: 'searchPlaceholder', type: 'text', defaultValue: 'Search locations...' },
+		{ name: 'defaultCategory', type: 'text', defaultValue: 'all' },
+		{ name: 'maxLocations', type: 'number', defaultValue: 10 }
+	];
 </script>
 
 <Story
@@ -138,13 +112,13 @@
             searchPlaceholder={values.searchPlaceholder}
             defaultCategory={values.defaultCategory}
             maxLocations={values.maxLocations}
-            onLocationSelect={(location) => {
-              console.log('SlotLocation selected:', location.name);
+            onLocationSelect={(location: LocationSelectorLocation) => {
+              console.log('Location selected:', location.name);
             }}
-            onSearch={(query) => {
+            onSearch={(query: string) => {
               console.log('Search query:', query);
             }}
-            onCategoryChange={(category) => {
+            onCategoryChange={(category: string) => {
               console.log('Category changed to:', category);
             }}
           />
@@ -180,7 +154,7 @@
           <div class="flex items-end">
             <label for="show-map-toggle" class="flex items-center gap-1">
               <input id="show-map-toggle" type="checkbox" bind:checked={showMapToggle} />
-              Show View SlotToggle
+              Show View Toggle
             </label>
           </div>
 

@@ -1,5 +1,28 @@
 import { IconStyleManager } from '$stylist/media/class/style-manager/icons';
 import type { IconProps } from '$stylist/media/interface/recipe/icon-icon-props';
+import alignCenterSvg from '$stylist/communication/data/svg/align-center.svg?raw';
+import alignLeftSvg from '$stylist/communication/data/svg/align-left.svg?raw';
+import alignRightSvg from '$stylist/communication/data/svg/align-right.svg?raw';
+import attachmentSvg from '$stylist/communication/data/svg/attachment.svg?raw';
+import boldSvg from '$stylist/communication/data/svg/bold.svg?raw';
+import botSvg from '$stylist/communication/data/svg/bot.svg?raw';
+import callSvg from '$stylist/communication/data/svg/call.svg?raw';
+import checkCheckSvg from '$stylist/communication/data/svg/check-check.svg?raw';
+import italicSvg from '$stylist/communication/data/svg/italic.svg?raw';
+import listOrderedSvg from '$stylist/communication/data/svg/list-ordered.svg?raw';
+import listSvg from '$stylist/communication/data/svg/list.svg?raw';
+import messageCircleSvg from '$stylist/communication/data/svg/message-circle.svg?raw';
+import micSvg from '$stylist/communication/data/svg/mic.svg?raw';
+import moreVerticalSvg from '$stylist/communication/data/svg/more-vertical.svg?raw';
+import paperclipSvg from '$stylist/communication/data/svg/paperclip.svg?raw';
+import replySvg from '$stylist/communication/data/svg/reply.svg?raw';
+import sendSvg from '$stylist/communication/data/svg/send.svg?raw';
+import settingsSvg from '$stylist/communication/data/svg/settings.svg?raw';
+import shareSvg from '$stylist/communication/data/svg/share.svg?raw';
+import smileSvg from '$stylist/communication/data/svg/smile.svg?raw';
+import underlineSvg from '$stylist/communication/data/svg/underline.svg?raw';
+import userSvg from '$stylist/communication/data/svg/user.svg?raw';
+import videoSvg from '$stylist/communication/data/svg/video.svg?raw';
 
 function normalizeIconName(value: string): string {
 	return value
@@ -33,7 +56,30 @@ const iconSources: Record<string, string> = {
 	'grid-3x3': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg>',
 	'info': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>',
 	'stylist-organism': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>',
-	'ontology-node-component': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>'
+	'ontology-node-component': '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
+	'align-center': alignCenterSvg,
+	'align-left': alignLeftSvg,
+	'align-right': alignRightSvg,
+	'attachment': attachmentSvg,
+	'bold': boldSvg,
+	'bot': botSvg,
+	'call': callSvg,
+	'check-check': checkCheckSvg,
+	'italic': italicSvg,
+	'list': listSvg,
+	'list-ordered': listOrderedSvg,
+	'message-circle': messageCircleSvg,
+	'mic': micSvg,
+	'more-vertical': moreVerticalSvg,
+	'paperclip': paperclipSvg,
+	'reply': replySvg,
+	'send': sendSvg,
+	'settings': settingsSvg,
+	'share': shareSvg,
+	'smile': smileSvg,
+	'underline': underlineSvg,
+	'user': userSvg,
+	'video': videoSvg
 };
 
 const iconRegistry: Record<string, string> = Object.fromEntries(

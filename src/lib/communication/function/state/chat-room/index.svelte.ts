@@ -1,35 +1,41 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { ChatRoomProps } from '$stylist/communication/type/alias/chat-room-props';
+import { ChatStyleManager } from '$stylist/communication/class/style-manager/chat';
 
 export function createChatRoomState(props: ChatRoomProps) {
 	let messageText = $state('');
 
 	const variantClass = $derived(
 		({
-			default: 'p-4',
-			compact: 'p-2',
-			spacious: 'p-6'
+			default: 'gap-4',
+			compact: 'gap-2',
+			spacious: 'gap-6'
 		} as Record<string, string>)[props.variant ?? 'default']
 	);
 
 	const containerClasses = $derived(
-		`chat-room flex flex-col h-full border rounded-lg shadow-sm ${props.class ?? ''}`.trim()
+		ChatStyleManager.getRoomContainerClasses(props.class ?? '')
 	);
 
 	const headerClasses = $derived(
-		`bg-[var(--color-background-primary)] border-b p-4 flex items-center ${props.headerClass ?? ''}`.trim()
+		ChatStyleManager.getRoomHeaderClasses(props.headerClass ?? '')
 	);
 
 	const messagesAreaClasses = $derived(
-		`flex-1 overflow-y-auto p-4 space-y-4 ${props.messagesClass ?? ''} ${variantClass}`.trim()
+		ChatStyleManager.getRoomMessagesAreaClasses(variantClass, props.messagesClass ?? '')
 	);
 
 	const footerClasses = $derived(
-		`bg-[var(--color-background-secondary)] border-t p-4 ${props.footerClass ?? ''}`.trim()
+		ChatStyleManager.getRoomFooterClasses(props.footerClass ?? '')
 	);
 
-	const participantAvatarClasses = (index: number) =>
-		`w-8 h-8 rounded-full overflow-hidden ${index > 0 ? '-ml-2' : 'ml-0'} border-2 border-[var(--color-background-primary)]`;
+	const participantAvatarClasses = (index: number) => ChatStyleManager.getRoomParticipantAvatarClasses(index);
+
+	const participantOverflowClasses = ChatStyleManager.getRoomOverflowBadgeClasses();
+
+	const loadingClasses = 'flex h-full items-center justify-center';
+
+	const spinnerClasses = 'h-8 w-8 animate-spin rounded-full border-b-2 border-[var(--color-primary-500)]';
 
 	function handleSend(text: string) {
 		props.onMessageSend?.(text);
@@ -54,6 +60,15 @@ export function createChatRoomState(props: ChatRoomProps) {
 		},
 		get footerClasses() {
 			return footerClasses;
+		},
+		get participantOverflowClasses() {
+			return participantOverflowClasses;
+		},
+		get loadingClasses() {
+			return loadingClasses;
+		},
+		get spinnerClasses() {
+			return spinnerClasses;
 		},
 		participantAvatarClasses,
 		handleSend

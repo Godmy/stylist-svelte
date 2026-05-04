@@ -27,7 +27,7 @@
         </div>
       {/each}
       {#if props.participants.length > 3}
-        <div class="w-8 h-8 rounded-full bg-[var(--color-background-tertiary)] flex items-center justify-center -ml-2 border-2 border-[var(--color-background-primary)]" style="z-index: var(--z-index-base);">
+        <div class={state.participantOverflowClasses} style="z-index: var(--z-index-base);">
           <span class="text-xs">+{props.participants.length - 3}</span>
         </div>
       {/if}
@@ -37,8 +37,8 @@
   <!-- Messages area -->
   <div class={state.messagesAreaClasses}>
     {#if props.loading}
-      <div class="flex justify-center items-center h-full">
-        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary-500)]"></div>
+      <div class={state.loadingClasses}>
+        <div class={state.spinnerClasses}></div>
       </div>
     {:else}
       {#each props.messages as message}
@@ -49,6 +49,7 @@
           timestamp={message.timestamp}
           status={message.status}
           isOwn={message.isOwn}
+          variant={message.isOwn ? 'primary' : 'default'}
         />
       {/each}
     {/if}

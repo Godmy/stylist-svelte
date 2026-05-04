@@ -20,7 +20,7 @@
 		align-items: center;
 		justify-content: space-between;
 		height: 44px;
-		padding: 0 0.6rem 0 0.35rem;
+		padding: 0 1.05rem 0 0.35rem;
 		border-bottom: 1px solid var(--color-border-primary);
 	}
 

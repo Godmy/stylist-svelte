@@ -1,5 +1,4 @@
 <script lang="ts">
-	// @ts-nocheck
 	import { Story } from '$stylist/playground/component';
 	import ThemeSurface from './index.svelte';
 	import { ThemeProvider } from '$stylist/theme';
@@ -7,7 +6,7 @@
 
 <Story component={ThemeSurface} title="ThemeSurface" description="Content-oriented molecule that renders themed header, content and footer snippets.">
 	{#snippet children()}
-		<ThemeProvider initialTheme="light">
+		<ThemeProvider initialMode="light" initialScheme="minimal">
 			<ThemeSurface>
 				{#snippet header(themeContext)}
 					<div class="space-y-1">
@@ -18,7 +17,8 @@
 
 				{#snippet content(themeContext)}
 					<div class="space-y-2">
-						<p class="text-sm">Theme name: {themeContext?.theme.name}</p>
+						<p class="text-sm">Theme mode: {themeContext?.theme.mode}</p>
+						<p class="text-sm">Theme scheme: {themeContext?.themeScheme}</p>
 						<p class="text-sm">Use this molecule for cards, callouts and dashboard sections that need contextual theme access.</p>
 					</div>
 				{/snippet}

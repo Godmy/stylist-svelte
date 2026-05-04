@@ -21,7 +21,7 @@
 	{/if}
 
 	{#if state.factoryInput.slots.children}
-		{@render state.factoryInput.slots.children()}}
+		{@render state.factoryInput.slots.children()}
 	{:else if state.loading}
 		{state.factoryInput.contract.loadingLabel ?? 'Loading...'}
 	{/if}

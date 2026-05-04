@@ -1,11 +1,10 @@
 <script lang="ts">
-	// @ts-nocheck
 	import { Story } from '$stylist/playground/component';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import LitegraphCanvas from './index.svelte';
 	import type { SlotLitegraphConnection as LitegraphConnection } from '$stylist/science/interface/slot/litegraph-connection';
-import type { ContractLitegraphNode as LitegraphNode } from '$stylist/science/interface/contract/litegraph-node';
-import type { ContractLitegraphPort as LitegraphPort } from '$stylist/science/interface/contract/litegraph-port';
+	import type { ContractLitegraphNode as LitegraphNode } from '$stylist/science/interface/contract/litegraph-node';
+	import type { ContractLitegraphPort as LitegraphPort } from '$stylist/science/interface/contract/litegraph-port';
 
 	const sampleNodes: LitegraphNode[] = [
 		{ id: 'node-1', title: 'Input Node', type: 'source', x: 50, y: 80, color: 'var(--color-success-500)', width: 180, height: 100, inputs: [], outputs: [{ id: 'out-1', name: 'Text', type: 'string', direction: 'output', dataType: 'string', label: 'Text' }, { id: 'out-2', name: 'Value', type: 'number', direction: 'output', dataType: 'number', label: 'Value' }] satisfies LitegraphPort[], properties: [] },
@@ -25,7 +24,7 @@ import type { ContractLitegraphPort as LitegraphPort } from '$stylist/science/in
 	{#snippet children()}
 		<div style="height: 600px; padding: var(--spacing-6);">
 			<div style="height: 100%; border: 1px solid var(--color-border-primary); border-radius: var(--border-radius-xl); overflow: hidden; background: var(--color-background-primary);">
-				<LitegraphCanvas nodes={sampleNodes} connections={sampleConnections} showToolbar={true} showMiniMap={true} showGrid={true} gridMode="dot" panMode="drag" />
+				<LitegraphCanvas nodes={sampleNodes} connections={sampleConnections} showToolbar={true} showMiniMap={true} showGrid={true} gridMode="dots" panMode="drag" />
 			</div>
 		</div>
 	{/snippet}

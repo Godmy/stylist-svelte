@@ -8,7 +8,7 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the main chat container
    */
   static getContainerClass(customClass: string = ''): string {
-    const baseClass = 'c-chat-interface flex flex-col h-[--dimension-height-chat-container] border border-[--color-border-primary] rounded-lg shadow-sm';
+    const baseClass = 'c-chat-interface flex flex-col h-[--dimension-height-chat-container] overflow-hidden rounded-[1.5rem] border border-[--color-border-primary] bg-[--color-background-primary] shadow-custom40';
     return customClass ? `${baseClass} ${customClass}`.trim() : baseClass;
   }
 
@@ -16,7 +16,7 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the chat header
    */
   static getHeaderClass(headerClass: string = ''): string {
-    const baseClass = 'flex items-center justify-between p-[--spacing-lg] border-b border-[--color-border-primary]';
+    const baseClass = 'flex items-center justify-between border-b border-[--color-border-primary] bg-[--color-background-primary] px-[--spacing-lg] py-[--spacing-md]';
     return headerClass ? `${baseClass} ${headerClass}`.trim() : baseClass;
   }
 
@@ -24,28 +24,28 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the provider selector
    */
   static getProviderSelectorClass(): string {
-    return 'text-sm border border-[--color-border-primary] rounded-md px-[--spacing-sm] py-[--spacing-xs] bg-[--color-background-primary] text-[--color-text-primary]';
+    return 'rounded-full border border-[--color-border-primary] bg-[--color-background-secondary] px-[--spacing-md] py-[--spacing-xs] text-sm text-[--color-text-primary]';
   }
 
   /**
    * Creates CSS class string for the settings button
    */
   static getSettingsButtonClass(): string {
-    return 'text-[--color-text-secondary] hover:text-[--color-text-primary]';
+    return 'inline-flex h-9 w-9 items-center justify-center rounded-full border border-transparent text-[--color-text-secondary] transition-colors hover:border-[--color-border-primary] hover:bg-[--color-background-secondary] hover:text-[--color-text-primary]';
   }
 
   /**
    * Creates CSS class string for the more options button
    */
   static getMoreOptionsButtonClass(): string {
-    return 'text-[--color-text-secondary] hover:text-[--color-text-primary]';
+    return 'inline-flex h-9 w-9 items-center justify-center rounded-full border border-transparent text-[--color-text-secondary] transition-colors hover:border-[--color-border-primary] hover:bg-[--color-background-secondary] hover:text-[--color-text-primary]';
   }
 
   /**
    * Creates CSS class string for the messages container
    */
   static getMessagesContainerClass(messageListClass: string = ''): string {
-    const baseClass = 'flex-1 overflow-y-auto p-[--spacing-md] space-y-[--spacing-md]';
+    const baseClass = 'flex-1 overflow-y-auto bg-[--color-background-secondary] p-[--spacing-md] space-y-[--spacing-md]';
     return messageListClass ? `${baseClass} ${messageListClass}`.trim() : baseClass;
   }
 
@@ -53,10 +53,10 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for an individual message
    */
   static getMessageClass(isUserMessage: boolean, messageClass: string = ''): string {
-    const baseClass = 'max-w-[80%] rounded-lg p-[--spacing-md]';
+    const baseClass = 'max-w-[80%] rounded-[1.25rem] px-[--spacing-md] py-[--spacing-md] shadow-custom28';
     const positionClass = isUserMessage
       ? 'bg-[--color-primary-500] text-[--color-text-inverse] rounded-br-none ml-auto'
-      : 'bg-[--color-background-secondary] text-[--color-text-primary] rounded-bl-none';
+      : 'bg-[--color-background-primary] text-[--color-text-primary] rounded-bl-none';
     return [baseClass, positionClass, messageClass].filter(Boolean).join(' ');
   }
 
@@ -103,7 +103,7 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the input area
    */
   static getInputAreaClass(footerClass: string = ''): string {
-    const baseClass = 'border-t border-[--color-border-primary] p-[--spacing-lg]';
+    const baseClass = 'border-t border-[--color-border-primary] bg-[--color-background-primary] p-[--spacing-lg]';
     return footerClass ? `${baseClass} ${footerClass}`.trim() : baseClass;
   }
 
@@ -111,7 +111,7 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the message input
    */
   static getMessageInputClass(inputClass: string = ''): string {
-    const baseClass = 'w-full border border-[--color-border-primary] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] resize-none';
+    const baseClass = 'w-full resize-none rounded-[1rem] border border-transparent bg-[--color-background-secondary] px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500]';
     return inputClass ? `${baseClass} ${inputClass}`.trim() : baseClass;
   }
 
@@ -119,7 +119,7 @@ export class ChatInterfaceStyleManager {
    * Creates CSS class string for the send button
    */
   static getSendButtonClass(isDisabled: boolean): string {
-    const baseClass = 'flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--color-primary-500]';
+    const baseClass = 'flex-shrink-0 h-11 w-11 flex items-center justify-center rounded-full bg-[--color-primary-500] text-[--color-text-inverse] hover:bg-[--color-primary-600] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[--color-primary-500]';
     const disabledClass = isDisabled
       ? 'opacity-[var(--opacity-50)] cursor-not-allowed'
       : '';

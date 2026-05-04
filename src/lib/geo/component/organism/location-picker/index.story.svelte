@@ -1,54 +1,33 @@
 <script lang="ts">
-	// @ts-nocheck
-  import { Story } from '$stylist/playground/component';
-  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import type { Coordinates, MapMarker } from '$stylist/geo/type/struct/location-picker';
+	import { Story } from '$stylist/playground/component';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
-  import LocationPicker from './index.svelte';
+	import LocationPicker from './index.svelte';
 
-  type Coordinates = {
-    lat: number;
-    lng: number;
-  };
+	let center: Coordinates = { lat: 37.7749, lng: -122.4194 };
+	let zoom = 12;
+	const markers: MapMarker[] = [
+		{ id: '1', coordinates: { lat: 37.7749, lng: -122.4194 }, title: 'San Francisco', description: 'The city by the bay' },
+		{ id: '2', coordinates: { lat: 37.8044, lng: -122.2712 }, title: 'Oakland', description: 'East Bay city' },
+		{ id: '3', coordinates: { lat: 37.3692, lng: -122.0382 }, title: 'San Jose', description: 'Capital of Silicon Valley' }
+	];
+	let selectedMarker = '1';
+	let showSearch = true;
+	let showCoordinates = true;
+	let showCurrentLocation = true;
+	let disableInteraction = false;
+	let maxZoom = 18;
+	let minZoom = 1;
 
-  type MapMarker = {
-    id: string;
-    coordinates: Coordinates;
-    title?: string;
-    description?: string;
-  };
-
-  let center: Coordinates = { lat: 37.7749, lng: -122.4194 }; // San Francisco
-  let zoom: number = 12;
-  let markers: MapMarker[] = [
-    { id: '1', coordinates: { lat: 37.7749, lng: -122.4194 }, title: 'San Francisco', description: 'The city by the bay' },
-    { id: '2', coordinates: { lat: 37.8044, lng: -122.2712 }, title: 'Oakland', description: 'East Bay city' },
-    { id: '3', coordinates: { lat: 37.3692, lng: -122.0382 }, title: 'San Jose', description: 'Capital of Silicon Valley' }
-  ];
-  let selectedMarker: string = '1';
-  let showSearch: boolean = true;
-  let showCoordinates: boolean = true;
-  let showCurrentLocation: boolean = true;
-  let disableInteraction: boolean = false;
-  let maxZoom: number = 18;
-  let minZoom: number = 1;
-
-  type Props = {
-    showSearch: boolean;
-    showCoordinates: boolean;
-    showCurrentLocation: boolean;
-    disableInteraction: boolean;
-    maxZoom: number;
-    minZoom: number;
-  };
-
-  const controls: InterfaceControllerSettings[] = [
-    { name: 'showSearch', type: 'boolean', defaultValue: true },
-    { name: 'showCoordinates', type: 'boolean', defaultValue: true },
-    { name: 'showCurrentLocation', type: 'boolean', defaultValue: true },
-    { name: 'disableInteraction', type: 'boolean', defaultValue: false },
-    { name: 'maxZoom', type: 'number', defaultValue: 18 },
-    { name: 'minZoom', type: 'number', defaultValue: 1 }
-  ];
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'showSearch', type: 'boolean', defaultValue: true },
+		{ name: 'showCoordinates', type: 'boolean', defaultValue: true },
+		{ name: 'showCurrentLocation', type: 'boolean', defaultValue: true },
+		{ name: 'disableInteraction', type: 'boolean', defaultValue: false },
+		{ name: 'maxZoom', type: 'number', defaultValue: 18 },
+		{ name: 'minZoom', type: 'number', defaultValue: 1 }
+	];
 </script>
 
 <Story
@@ -77,14 +56,14 @@
             disableInteraction={values.disableInteraction}
             maxZoom={values.maxZoom}
             minZoom={values.minZoom}
-            onLocationSelect={(coords) => {
-              console.log('SlotLocation selected:', coords);
+            onLocationSelect={(coords: Coordinates) => {
+              console.log('Location selected:', coords);
             }}
-            onMarkerClick={(marker) => {
+            onMarkerClick={(marker: MapMarker) => {
               selectedMarker = marker.id;
               console.log('Marker clicked:', marker);
             }}
-            onMapClick={(coords) => {
+            onMapClick={(coords: Coordinates) => {
               console.log('Map clicked:', coords);
             }}
           />
@@ -108,7 +87,7 @@
           <div class="flex items-end">
             <label for="show-current-location" class="flex items-center gap-1">
               <input id="show-current-location" type="checkbox" bind:checked={showCurrentLocation} />
-              Show Current SlotLocation
+              Show Current Location
             </label>
           </div>
 

@@ -27,7 +27,7 @@
     <div class="flex items-center space-x-2">
       {#if state.showProviderSelector && props.aiProviders && props.aiProviders.length > 1}
         <select
-          class={`text-sm border border-[--color-border-primary] rounded-md px-2 py-1 ${props.inputClass ?? ''}`}
+          class={state.providerSelectorClass}
           bind:value={state.selectedProvider}
         >
           {#each props.aiProviders as provider}
@@ -36,11 +36,11 @@
         </select>
       {/if}
       {#if state.showSettings}
-        <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
+        <button type="button" class={state.settingsButtonClass}>
           <BaseIcon name={state.Settings} class="h-5 w-5" />
         </button>
       {/if}
-      <button type="button" class="text-[--color-text-secondary] hover:text-[--color-text-primary]">
+      <button type="button" class={state.moreOptionsButtonClass}>
         <BaseIcon name={state.MoreVertical} class="h-5 w-5" />
       </button>
     </div>
@@ -88,7 +88,7 @@
     <div class="flex items-end space-x-2">
       <div class="flex-1 relative">
         <textarea
-          class={`w-full border border-[--color-border-primary] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-[--color-primary-500] ${props.inputClass ?? ''}`}
+          class={state.messageInputClass}
           placeholder={state.placeholder}
           bind:value={state.newMessage}
           onkeydown={state.handleKeyDown}

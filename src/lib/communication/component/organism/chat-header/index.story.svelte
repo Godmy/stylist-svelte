@@ -1,12 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-
-  import * as ChatHeaderModule from './index.svelte';
-  const ChatHeader = ChatHeaderModule.default ?? ChatHeaderModule;
-  import type { User } from '$stylist/communication/type/struct/chat-header/user';
-  import type { Chat } from '$stylist/communication/type/struct/chat-header/chat';
+  import ChatHeader from './index.svelte';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+  import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
 
   export let primaryScenario: { chat: Chat; currentUser: User };
   export let variantScenarios: { chat: Chat; currentUser: User }[] = [];
@@ -141,9 +138,9 @@
               chat={primaryScenario.chat}
               currentUser={primaryScenario.currentUser}
               showActions={values.showActions}
-              on:call={handleCall as (e: CustomEvent<any>) => void}
-              on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-              on:info={handleInfo as (e: CustomEvent<any>) => void}
+              onCall={() => console.log('Call initiated for chat:', primaryScenario.chat.id)}
+              onVideoCall={() => console.log('Video call initiated for chat:', primaryScenario.chat.id)}
+              onInfo={() => console.log('Info requested for chat:', primaryScenario.chat.id)}
             />
           </div>
         </div>
@@ -171,9 +168,9 @@
                   chat={scenario.chat}
                   currentUser={scenario.currentUser}
                   showActions={true}
-                  on:call={handleCall as (e: CustomEvent<any>) => void}
-                  on:videoCall={handleVideoCall as (e: CustomEvent<any>) => void}
-                  on:info={handleInfo as (e: CustomEvent<any>) => void}
+                  onCall={() => console.log('Call initiated for chat:', scenario.chat.id)}
+                  onVideoCall={() => console.log('Video call initiated for chat:', scenario.chat.id)}
+                  onInfo={() => console.log('Info requested for chat:', scenario.chat.id)}
                 />
               </div>
             </article>

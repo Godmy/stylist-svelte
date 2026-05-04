@@ -16,7 +16,6 @@ export type { ThemeHighlightRecipe } from './highlight';
 export type { ThemeInlineCodeRecipe } from './inline-code';
 export type { ThemeKbdRecipe } from './kbd';
 export type { KPIIndicatorRecipe } from './kpi-indicator';
-export type { LabelRecipe } from './label';
 export type { ThemeLinkRecipe } from './link';
 export type { ThemeListItemMarkerRecipe } from './list-item-marker';
 export type { NodeDotProps } from './node-dot';

@@ -7,31 +7,31 @@ import type { SlotMessageComposer as IMessageComposerProps } from '$stylist/comm
 
 export class MessageComposerStyleManager {
   static getContainerClasses(hostClass: string): string {
-    return `message-composer flex items-end border-t border-[--color-border-primary] bg-[--color-background-surface] p-4 ${hostClass}`;
+    return `message-composer rounded-[1.15rem] border border-[--color-border-primary] bg-[--color-background-primary] p-2 shadow-custom28 ${hostClass}`;
   }
 
   static getFormClasses(): string {
-    return 'flex-1 flex items-end';
+    return 'flex flex-1 items-end gap-2';
   }
 
   static getAttachmentButtonClasses(): string {
-    return 'mr-2';
+    return 'shrink-0';
   }
 
   static getInputContainerClasses(): string {
-    return 'flex-1 relative';
+    return 'relative flex-1';
   }
 
   static getInputClasses(inputClass: string): string {
-    return `w-full border border-[--color-border-primary] rounded-lg py-2 px-3 pr-10 focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] focus:border-transparent resize-none max-h-32 ${inputClass}`;
+    return `w-full resize-none rounded-[1rem] border border-transparent bg-[--color-background-secondary] px-4 py-3 pr-10 text-[--color-text-primary] focus:border-[--color-primary-500] focus:outline-none focus:ring-2 focus:ring-[--color-primary-500] max-h-32 ${inputClass}`;
   }
 
   static getSendButtonClasses(buttonClass: string): string {
-    return `ml-2 ${buttonClass}`;
+    return `shrink-0 rounded-full ${buttonClass}`;
   }
 
   static getVoiceButtonClasses(buttonClass: string): string {
-    return `ml-2 ${buttonClass}`;
+    return `shrink-0 rounded-full ${buttonClass}`;
   }
 }
 

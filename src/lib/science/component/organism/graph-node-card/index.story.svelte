@@ -1,45 +1,28 @@
 <script lang="ts">
-	// @ts-nocheck
-  import Story from '$stylist/playground/component/molecule/story/index.svelte';
-  import GraphNodeCard from './index.svelte';
-  import type { GraphNodeCardRecipe } from '$stylist/commerce';
-  import { TOKEN_CONTROLLER_TYPE } from '$stylist/interaction/const/map/controller-type';
+	import type { GraphNodeCardData } from '$stylist/science';
+	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 
-  // Sample node data with correct structure
-  const node1: GraphNodeCardRecipe & {
-    name: string;
-    type: string;
-    description?: string;
-    fields?: { name: string; type: string; isRequired?: boolean }[];
-  } = {
-    id: '1',
-    name: 'User Node',
-    type: 'object',
-    description: 'Represents a user in the system',
-    fields: [
-      { name: 'id', type: 'ID', isRequired: true },
-      { name: 'name', type: 'String', isRequired: true },
-      { name: 'email', type: 'String' }
-    ]
-  };
+	import GraphNodeCard from './index.svelte';
 
-  const controls = [
-    {
-      name: 'expanded',
-      type: TOKEN_CONTROLLER_TYPE.BOOLEAN,
-      defaultValue: false
-    },
-    {
-      name: 'selected',
-      type: TOKEN_CONTROLLER_TYPE.BOOLEAN,
-      defaultValue: false
-    },
-    {
-      name: 'highlight',
-      type: TOKEN_CONTROLLER_TYPE.BOOLEAN,
-      defaultValue: false
-    }
-  ];
+	const node1: GraphNodeCardData = {
+		id: '1',
+		name: 'User Node',
+		type: 'object',
+		description: 'Represents a user in the system',
+		fields: [
+			{ name: 'id', type: 'ID', isRequired: true },
+			{ name: 'name', type: 'String', isRequired: true },
+			{ name: 'email', type: 'String' }
+		]
+	};
+
+	const controls: InterfaceControllerSettings[] = [
+		{ name: 'expanded', type: 'boolean', defaultValue: false },
+		{ name: 'selected', type: 'boolean', defaultValue: false },
+		{ name: 'highlight', type: 'boolean', defaultValue: false },
+		{ name: 'showDetails', type: 'boolean', defaultValue: true }
+	];
 </script>
 
 <Story
@@ -53,6 +36,7 @@
     <GraphNodeCard
       node={node1}
       expanded={values.expanded}
+      showDetails={values.showDetails}
       selected={values.selected}
       highlight={values.highlight}
     />

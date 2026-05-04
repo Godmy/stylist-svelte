@@ -1,17 +1,11 @@
 <script lang="ts">
-	// @ts-nocheck
-	import Story from '$stylist/playground/component/molecule/story/index.svelte';
+	import { Story } from '$stylist/playground/component/molecule/story';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import MessageStatus from './index.svelte';
 
 	const controls: InterfaceControllerSettings[] = [
-		{ name: 'title', type: 'text', defaultValue: 'Success' },
-		{ name: 'message', type: 'text', defaultValue: 'Operation completed successfully!' },
-		{ name: 'variant', type: 'select', defaultValue: 'success', options: ['success', 'warning', 'error', 'info'] },
-		{ name: 'show', type: 'boolean', defaultValue: true },
-		{ name: 'closable', type: 'boolean', defaultValue: true },
-		{ name: 'duration', type: 'number', defaultValue: 5000, min: 0, max: 10000, step: 500 },
-		{ name: 'position', type: 'select', defaultValue: 'top-right', options: ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'] }
+		{ name: 'status', type: 'select', defaultValue: 'read', options: ['sent', 'delivered', 'read'] },
+		{ name: 'size', type: 'select', defaultValue: 'md', options: ['sm', 'md', 'lg'] }
 	];
 </script>
 
@@ -20,19 +14,17 @@
 	component={MessageStatus}
 	title="MessageStatus"
 	category="Atoms/Information/Messages"
-	description="Flexible message status component with multiple variants for displaying success, warning, error, and info messages"
-	tags={['message', 'status', 'notification', 'feedback', 'alert']}
+	description="Message delivery state indicator."
+	tags={['message', 'status', 'delivery']}
 >
 	{#snippet children(values: any)}
-		<MessageStatus
-			title={values.title as string}
-			message={values.message as string}
-			variant={values.variant as 'success' | 'warning' | 'error' | 'info'}
-			show={values.show as boolean}
-			closable={values.closable as boolean}
-			duration={Number(values.duration) || 0}
-			position={values.position as 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center'}
-		/>
+		<div class="flex items-center gap-3 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4">
+			<span class="text-sm text-[var(--color-text-secondary)]">Status:</span>
+			<MessageStatus
+				status={values.status as 'sent' | 'delivered' | 'read'}
+				size={values.size as 'sm' | 'md' | 'lg'}
+			/>
+		</div>
 	{/snippet}
 </Story>
 

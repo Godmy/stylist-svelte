@@ -1,6 +1,7 @@
 import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 import type { ChatWindowChat } from '$stylist/communication/interface/slot/chat-window-chat';
+import { ChatStyleManager } from '$stylist/communication/class/style-manager/chat';
 
 export const createChatWindowState = (props: {
 	chat: ChatWindowChat;
@@ -15,13 +16,13 @@ export const createChatWindowState = (props: {
 				: (props.chat.lastMessage as string)
 	});
 
-	const containerClasses = 'chat-window flex flex-col h-full w-full bg-[var(--color-background-secondary)] rounded-lg overflow-hidden shadow-custom40';
+	const containerClasses = ChatStyleManager.getWindowContainerClasses();
 
-	const headerClasses = 'flex items-center justify-between border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-3';
+	const headerClasses = ChatStyleManager.getWindowHeaderClasses();
 
-	const messagesClasses = 'chat-messages flex-1 overflow-y-auto';
+	const messagesClasses = ChatStyleManager.getWindowMessagesClasses();
 
-	const inputClasses = 'chat-input border-t border-[var(--color-border-primary)] bg-white';
+	const inputClasses = ChatStyleManager.getWindowInputClasses();
 
 	function handleMessageSend(content: string) {
 		// dispatch('messageSend', { content, chatId: props.chat.id })

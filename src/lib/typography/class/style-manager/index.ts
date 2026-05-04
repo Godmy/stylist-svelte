@@ -16,7 +16,6 @@ export { HighlightStyleManager } from './highlight';
 export { InlineCodeStyleManager } from './inline-code';
 export { KbdStyleManager } from './kbd';
 export { KPIIndicatorStyleManager } from './kpi-indicator';
-export { LabelStyleManager } from './label';
 export { StyleManagerLink } from './link';
 export { StyleManagerListItemMarker } from './list-item-marker';
 export { StyleManagerNodeTitle } from './node-title';

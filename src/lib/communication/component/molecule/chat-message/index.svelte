@@ -49,9 +49,9 @@
       </div>
     {/if}
 
-    <div class={`rounded-lg px-4 py-2 ${props.isOwn ? state.bgClass : state.variantClass} ${state.bubbleShapeClass}`}>
+    <div class={state.bubbleClasses}>
       {#if props.text}
-        <p class="text-sm">{props.text}</p>
+        <p class={state.textClasses}>{props.text}</p>
       {/if}
       {#if props.children}
         <div>

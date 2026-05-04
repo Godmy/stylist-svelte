@@ -94,7 +94,7 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
   }
 </style>
 
-<div class="message-container {state.messageAlignment}">
+<div class={state.messageContainerClasses}>
   {#if state.showAvatar && !state.isOwn && props.sender}
     <Avatar
       src={props.sender.avatar}
@@ -116,7 +116,7 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     {/if}
 
     <div class={state.messageContentClasses}>
-      {#if props.message.type === 'text'}
+      {#if !props.message.type || props.message.type === 'text'}
         {props.message.content}
       {:else if props.message.type === 'image'}
         <img

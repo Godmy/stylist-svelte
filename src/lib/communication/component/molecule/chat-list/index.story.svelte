@@ -1,10 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
-  import Story from '$stylist/playground/component/molecule/story/index.svelte';
+  import { Story } from '$stylist/playground/component/molecule/story';
+  import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
   import ChatList from './index.svelte';
   import type { SlotChat as Chat } from '$stylist/communication/interface/slot/chat';
-import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
-  import type { TokenControllerType } from '$stylist/interaction/type/record/controller-type';
+  import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
 
   const currentUser: User = {
     id: '1',
@@ -74,21 +73,16 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
     }
   ];
 
-  const controls = [
-    {
-      name: 'activeChatId',
-      type: 'text' as TokenControllerType,
-      defaultValue: '1',
-      description: 'ID of the active chat'
-    }
+  const controls: InterfaceControllerSettings[] = [
+    { name: 'activeChatId', type: 'text', defaultValue: '1' }
   ];
 
-  function handleChatSelect(e: CustomEvent<{ chat: Chat }>) {
-    console.log('Chat selected:', e.detail.chat.id);
+  function handleChatSelect(chat: Chat) {
+    console.log('Chat selected:', chat.id);
   }
 
-  function handleChatDelete(e: CustomEvent<{ chat: Chat }>) {
-    console.log('Chat deleted:', e.detail.chat.id);
+  function handleChatDelete(chat: Chat) {
+    console.log('Chat deleted:', chat.id);
   }
 </script>
 
@@ -96,17 +90,15 @@ import type { SlotUser as User } from '$stylist/communication/interface/slot/use
   {controls}
   title="ChatList Component"
   description="A component to display a list of chats"
- 
 >
   {#snippet children(controlValues: any)}
   <ChatList
     {chats}
     {currentUser}
     activeChatId={controlValues.activeChatId}
-    on:chatSelect={handleChatSelect}
-    on:chatDelete={handleChatDelete}
+    onChatSelect={handleChatSelect}
+    onChatDelete={handleChatDelete}
   />
-
   {/snippet}
 </Story>
 

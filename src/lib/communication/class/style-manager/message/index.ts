@@ -12,12 +12,12 @@ import { getMessageAlignmentClass } from '$stylist/communication/function/script
 export class MessageStyleManager {
 	static getMessageContainerClasses(align: MessageAlignment = 'left', className?: string): string {
 		const alignmentClass = getMessageAlignmentClass(align);
-		return `${'flex items-start gap-3'} ${alignmentClass} ${className || ''}`.trim();
+		return `${'message-row flex w-full items-end gap-3'} ${alignmentClass} ${className || ''}`.trim();
 	}
 
 	static getMessageBubbleClasses(variant: TokenMessageState = 'draft', className?: string): string {
 		const bgClass = MESSAGE_VARIANT_BG_CLASSES[variant] || MESSAGE_VARIANT_BG_CLASSES.draft;
-		return `${'rounded-lg p-4 max-w-[75%] shadow-sm border'} ${bgClass} ${className || ''}`.trim();
+		return `${'message-bubble rounded-[1.25rem] border px-4 py-3 max-w-[75%] shadow-custom28'} ${bgClass} ${className || ''}`.trim();
 	}
 
 	static getMessageTextClasses(variant: TokenMessageState = 'draft'): string {
@@ -35,11 +35,11 @@ export class MessageStyleManager {
 	}
 
 	static getMetaClasses(): string {
-		return 'flex items-center gap-2 mt-2 text-xs';
+		return 'message-meta mt-2 flex items-center gap-2 text-[11px]';
 	}
 
 	static getTimestampClasses(): string {
-		return 'text-[--color-text-secondary]';
+		return 'text-[var(--color-text-secondary)]';
 	}
 
 	static getStatusClasses(status: TokenMessageStatus = 'delivered'): string {
@@ -75,19 +75,19 @@ export class MessageStyleManager {
 	}
 
 	static getActionsClasses(): string {
-		return 'flex items-center gap-1 mt-2 opacity-[var(--opacity-0)] group-hover:opacity-[var(--opacity-100)] transition-opacity';
+		return 'message-actions mt-2 flex items-center gap-1 opacity-[var(--opacity-70)] transition-opacity hover:opacity-[var(--opacity-100)]';
 	}
 
 	static getActionButtonClasses(): string {
-		return 'p-1 rounded hover:bg-[--color-background-secondary] transition-colors';
+		return 'action-button rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-primary)]/70 p-1.5 transition-colors hover:bg-[var(--color-background-secondary)]';
 	}
 
 	static getReactionButtonClasses(): string {
-		return 'text-lg p-1 rounded hover:bg-[--color-background-secondary]';
+		return 'reaction-option rounded-full p-1 text-lg transition-colors hover:bg-[var(--color-background-secondary)]';
 	}
 
 	static getMessageListContainerClasses(className?: string): string {
-		return `${'flex flex-col gap-4 p-4 overflow-y-auto'} ${className || ''}`.trim();
+		return `${'message-list flex flex-col gap-3 overflow-y-auto px-4 py-5'} ${className || ''}`.trim();
 	}
 
 	static getMessageListItemClasses(): string {
@@ -116,6 +116,68 @@ export class MessageStyleManager {
 
 	static getMessageComposerButtonClasses(): string {
 		return 'p-2 rounded-md hover:bg-[--color-background-secondary] transition-colors';
+	}
+
+	static getThreadHostClasses(className?: string): string {
+		return `${'flex h-full max-h-[600px] flex-col overflow-hidden rounded-[1.25rem] border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] shadow-custom28'} ${className || ''}`.trim();
+	}
+
+	static getThreadHeaderClasses(): string {
+		return 'border-b border-[var(--color-border-primary)] bg-[var(--color-background-primary)] px-4 py-3';
+	}
+
+	static getThreadContainerClasses(): string {
+		return 'flex-1 overflow-y-auto bg-[var(--color-background-secondary)] px-4 py-4';
+	}
+
+	static getThreadMessageContainerClasses(): string {
+		return 'flex flex-col gap-3';
+	}
+
+	static getThreadLoadingClasses(): string {
+		return 'flex h-32 items-center justify-center';
+	}
+
+	static getThreadSpinnerClasses(): string {
+		return 'h-8 w-8 animate-spin rounded-full border-b-2 border-[var(--color-primary-500)]';
+	}
+
+	static getChatMessageContainerClasses(isOwn: boolean, className = ''): string {
+		return `flex ${isOwn ? 'justify-end' : 'justify-start'} ${className}`.trim();
+	}
+
+	static getChatMessageContentClasses(className = ''): string {
+		return `max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl ${className}`.trim();
+	}
+
+	static getChatMessageHeaderClasses(className = ''): string {
+		return `mb-1 flex items-center text-[11px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)] ${className}`.trim();
+	}
+
+	static getChatMessageBubbleShellClasses(isOwn: boolean, variantClass: string, className = ''): string {
+		const ownClasses = 'rounded-[1.25rem] rounded-br-md bg-[var(--color-primary-500)] px-4 py-3 text-[var(--color-text-inverse)] shadow-custom28';
+		const baseClasses = 'rounded-[1.25rem] rounded-bl-md px-4 py-3 shadow-custom28';
+		return `${baseClasses} ${isOwn ? ownClasses : variantClass} ${className}`.trim();
+	}
+
+	static getChatMessageTextClasses(): string {
+		return 'text-sm leading-6';
+	}
+
+	static getChatMessageFooterClasses(className = ''): string {
+		return `mt-1 flex items-center justify-end text-[11px] text-[var(--color-text-secondary)] ${className}`.trim();
+	}
+
+	static getMetaSeparatorClasses(): string {
+		return 'meta-separator text-[11px] text-[var(--color-text-secondary)]';
+	}
+
+	static getMetaStatusTextClasses(): string {
+		return 'inline-flex items-center gap-1 text-[11px] text-[var(--color-text-secondary)]';
+	}
+
+	static getMetaStatusIconClasses(isRead: boolean): string {
+		return `h-3 w-3 ${isRead ? 'text-[var(--color-primary-600)]' : 'text-[var(--color-text-tertiary)]'}`;
 	}
 }
 

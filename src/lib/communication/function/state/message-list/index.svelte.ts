@@ -1,12 +1,13 @@
 import type { SlotMessage as Message } from '$stylist/communication/interface/slot/message';
 import type { SlotUser as User } from '$stylist/communication/interface/slot/user';
+import { MessageStyleManager } from '$stylist/communication/class/style-manager/message';
 
 export const createMessageListState = (props: {
 	messages: Message[];
 	currentUser: User;
 	onMessageAction?: (action: string, message: Message) => void;
 }) => {
-	const containerClasses = 'message-list flex flex-col flex-1 overflow-y-auto p-4 gap-4 bg-[var(--color-background-secondary)]';
+	const containerClasses = MessageStyleManager.getMessageListContainerClasses('flex-1 bg-[var(--color-background-secondary)]');
 
 	const scrollbarTrackClasses = 'bg-[var(--color-background-secondary)]';
 

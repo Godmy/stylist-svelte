@@ -16,7 +16,6 @@ export { Highlight } from './highlight/index';
 export { InlineCode } from './inline-code/index';
 export { Kbd } from './kbd/index';
 export { Kpiindicator } from './kpiindicator/index';
-export { Label } from './label/index';
 export { Link } from './link/index';
 export { ListItemMarker } from './list-item-marker/index';
 export { NodeDot } from './node-dot/index';

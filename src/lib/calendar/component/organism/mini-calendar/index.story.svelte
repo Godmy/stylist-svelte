@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { Story } from '$stylist/playground/component';
+  import { Story } from '$stylist/playground/component/molecule/story';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 
   import MiniCalendar from './index.svelte';
-  import type { SlotMiniCalendar as IMiniCalendarProps } from '$stylist/calendar/interface/slot/mini-calendar';
-  import type { CalendarEventMini as RecipeCalendarEvent } from '$stylist/calendar/type/struct';
+  import type { CalendarEventMini } from '$stylist/calendar/type/struct/calendar-event-mini';
 
   export let id: string;
   export let title: string;
@@ -15,7 +14,7 @@
   ];
 
   // Sample events data
-  const sampleEvents: RecipeCalendarEvent[] = [
+  const sampleEvents: CalendarEventMini[] = [
     {
       id: '1',
       title: 'Meeting',
@@ -51,7 +50,7 @@
     console.log('Date selected:', date);
   }
 
-  function handleEventClick(event: RecipeCalendarEvent) {
+  function handleEventClick(event: CalendarEventMini) {
     console.log('Event clicked:', event.title);
   }
 

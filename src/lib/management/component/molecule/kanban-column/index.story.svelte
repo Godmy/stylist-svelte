@@ -1,8 +1,9 @@
 <script lang="ts">
-	// @ts-nocheck
+  import type { KanbanColumnType } from '$stylist/management/type/struct/kanban-column';
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import KanbanColumn, { type KanbanColumnType } from './index.svelte';
+
+  import KanbanColumn from './index.svelte';
 
   const controls: InterfaceControllerSettings[] = [
     { name: 'droppable', type: 'boolean', defaultValue: true },
@@ -18,6 +19,7 @@
         title: `Task ${i + 1}`,
         description: `Task description ${i + 1}`,
         assignee: 'Team member',
+        order: i,
         priority: i % 2 === 0 ? 'high' : 'medium',
         status: 'todo'
       }))
@@ -31,15 +33,11 @@
   component={KanbanColumn}
   category="Molecules/Information/Management/Kanban"
   description="Single Kanban column with configurable card amount."
-  {controls}
+  controls={controls}
 >
   {#snippet children(args: any)}
     <div class="p-4 rounded-xl bg-[var(--color-background-secondary)]">
-      <KanbanColumn column={getColumn(args.cardCount)} droppable={args.droppable} />
+      <KanbanColumn column={getColumn(args.cardCount as number)} droppable={args.droppable as boolean} />
     </div>
   {/snippet}
 </Story>
-
-
-
-
