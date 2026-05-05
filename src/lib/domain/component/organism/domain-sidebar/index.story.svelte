@@ -2,7 +2,13 @@
 	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import DomainSidebar from './index.svelte';
 
-	const entitiesByDomain = {
+	type StoryEntity = {
+		name: string;
+		path: string;
+		files: { path: string }[];
+	};
+
+	const entitiesByDomain: Record<'interaction' | 'theme', StoryEntity[]> = {
 		interaction: [
 			{ name: 'clickable', path: '/src/lib/interaction/component/atom/clickable', files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }] },
 			{ name: 'hoverable', path: '/src/lib/interaction/component/atom/hoverable', files: [{ path: 'index.svelte' }] }
@@ -11,12 +17,12 @@
 			{ name: 'theme-provider', path: '/src/lib/theme/component/atom/theme-provider', files: [{ path: 'index.svelte' }, { path: 'index.story.svelte' }] },
 			{ name: 'theme-consumer', path: '/src/lib/theme/component/atom/theme-consumer', files: [{ path: 'index.svelte' }] }
 		]
-	} as const;
+	};
 
 	let activeDomain = $state<'interaction' | 'theme'>('interaction');
 	let activeCluster = $state('component');
 	let activeJoint = $state('atom');
-	let activeEntityPath = $state(entitiesByDomain.interaction[0].path);
+	let activeEntityPath = $state<string>(entitiesByDomain.interaction[0].path);
 
 	const availableJoints = ['atom', 'molecule', 'organism'] as const;
 </script>

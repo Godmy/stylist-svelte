@@ -1,5 +1,5 @@
 import type { InformationHTMLAttributes } from '$stylist/information/type/struct';
-import type { SlotUser } from '$stylist/communication/interface/slot/user';
+import type { SlotUser } from '$stylist/chat/interface/slot/user';
 import type { AvatarSize } from '$stylist/media/type/struct/avatar-size';
 import type { AvatarUserStatus } from '$stylist/media/type/struct/avatar-user-status';
 

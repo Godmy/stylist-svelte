@@ -2,6 +2,10 @@
 export type { CanvasObject } from './canvas-object';
 export type { CanvasToolbarProps } from './canvas-toolbar';
 export type { CanvasUser } from './canvas-user';
+export type { CollaborativeEditEvent } from './collaborative-edit-event';
+export type { CollaborativeEditorContract } from './collaborative-editor-contract';
+export type { CollaborativeEditorProps } from './collaborative-editor-props';
+export type { CollaborativeUser } from './collaborative-user';
 export type { DrawingSurfaceCanvasClearedEvent, DrawingSurfaceContract, DrawingSurfaceExposeMethodsEvent, DrawingSurfaceProps, DrawingSurfaceTool } from './drawing-surface';
 export type { GraphToolbarItem, GraphToolbarProps } from './graph';
 export type { GraphCanvasProps } from './graph-canvas';

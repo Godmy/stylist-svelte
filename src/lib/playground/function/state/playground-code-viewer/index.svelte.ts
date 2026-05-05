@@ -1,4 +1,5 @@
 import type { PlaygroundCodeViewerProps } from '$stylist/playground/type/struct/playground-code-viewer-props';
+import { untrack } from 'svelte';
 export function createPlaygroundCodeViewerState(props: PlaygroundCodeViewerProps) {
   const code = $derived(props.code ?? '');
   const componentName = $derived(props.componentName ?? '');
@@ -12,7 +13,7 @@ export function createPlaygroundCodeViewerState(props: PlaygroundCodeViewerProps
 
   let highlightedCode = $state('');
   let isLoading = $state(true);
-  let currentTheme = $state(theme);
+  let currentTheme = $state(untrack(() => theme));
   let darkMode = $state(false);
   let highlightSequence = 0;
   let shikiLoader: Promise<typeof import('shiki')> | null = null;

@@ -116,7 +116,7 @@
 	{/if}
 
 	{#if contract.children}
-		{@render contract.children()}}
+		{@render contract.children()}
 	{/if}
 </div>
 

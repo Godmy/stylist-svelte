@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconToolbar from '$stylist/control/component/molecule/icon-toolbar/index.svelte';
-	import { DOMAIN_MENU_ICONS } from '$stylist/domain/data/icon';
+	import { DOMAIN_MENU_ICONS } from '$stylist/domain/const/map/domain-menu';
 
 	interface DomainToolbarProps {
 		active?: string;

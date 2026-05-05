@@ -1,5 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { createCanvasToolbarState } from './canvas-toolbar';
+export { createCollaborativeEditorState } from './collaborative-editor';
 export { createConnectionLineState } from './connection-line';
 export { createDrawingSurfaceState } from './drawing-surface';
 export { createGraphCanvasState } from './graph-canvas';

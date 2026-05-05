@@ -1,5 +1,5 @@
-import type { TokenNotifictionChannel } from '$stylist/communication/type/enum/notification-channel';
-import type { INotificationSettingsPreference } from '$stylist/communication/type/struct/notification-settings-preference';
+import type { TokenNotifictionChannel } from '$stylist/chat/type/enum/notification-channel';
+import type { INotificationSettingsPreference } from '$stylist/chat/type/struct/notification-settings-preference';
 
 export function updateNotificationPreference(
   preferences: INotificationSettingsPreference[],

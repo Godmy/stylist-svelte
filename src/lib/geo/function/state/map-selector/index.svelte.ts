@@ -1,5 +1,6 @@
 import type { MapSelectorProps, MapSelectorLocation } from '$stylist/geo/type/struct/map-selector';
 import type { MapSelectorStateProps } from '$stylist/geo/interface/recipe/map-selector';
+import { untrack } from 'svelte';
 
 export function createMapSelectorState(props: MapSelectorStateProps) {
 	// Props with defaults
@@ -23,8 +24,8 @@ export function createMapSelectorState(props: MapSelectorStateProps) {
 	const width = $derived(props.width ?? '100%');
 
 	// SlotState
-	let currentCenter = $state({ ...initialCenter });
-	let currentZoom = $state(initialZoom);
+	let currentCenter = $state({ ...untrack(() => initialCenter) });
+	let currentZoom = $state(untrack(() => initialZoom));
 	let searchQuery = $state('');
 	let isDragging = $state(false);
 	let dragStart = $state({ x: 0, y: 0 });

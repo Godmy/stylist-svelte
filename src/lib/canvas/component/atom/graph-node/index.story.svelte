@@ -66,6 +66,11 @@
 			name: 'directed',
 			type: 'boolean',
 			defaultValue: true
+		},
+		{
+			name: 'selected',
+			type: 'boolean',
+			defaultValue: true
 		}
 	];
 
@@ -194,7 +199,7 @@
 	{controls}
 	component={SlotGraphNode}
 	title="SlotGraphNode Component"
-	description="Interactive graph nodes with selection, drag-and-drop and keyboard movement."
+	description="Interactive graph nodes with selection, drag-and-drop and live edge feedback."
 >
 	{#snippet children(values: any)}
 		{@const nodeSize = (values.size as GraphNodeSize) ?? 'md'}
@@ -238,7 +243,7 @@
 						type={node.id === 'node-1' ? (values.mainType as NodeKind) : node.type}
 						size={nodeSize}
 						color={node.id === 'node-1' ? String(values.mainColor ?? node.color) : node.color}
-						selected={selectedNodeId === node.id}
+						selected={node.id === 'node-1' ? Boolean(values.selected) : selectedNodeId === node.id}
 						interactive={true}
 						onclick={() => (selectedNodeId = node.id)}
 						onpointerdown={(event) => startDrag(event, node.id)}
@@ -251,6 +256,43 @@
 				{#if values.snapToGrid}
 					<span class="ml-2 rounded bg-[var(--color-background-secondary)] px-2 py-0.5">snap: {GRID_SIZE}px</span>
 				{/if}
+			</div>
+		</div>
+	{/snippet}
+
+	{#snippet variants()}
+		<div class="grid gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
+			<div>
+				<h3 class="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">Size Ladder</h3>
+				<div class="grid grid-cols-6 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+					<div class="relative h-20"><SlotGraphNode id="size-xs" x={12} y={18} label="XS" size="xs" color="#0f766e" /></div>
+					<div class="relative h-20"><SlotGraphNode id="size-sm" x={10} y={16} label="SM" size="sm" color="#0f766e" /></div>
+					<div class="relative h-20"><SlotGraphNode id="size-md" x={6} y={12} label="MD" size="md" color="#0f766e" /></div>
+					<div class="relative h-20"><SlotGraphNode id="size-lg" x={2} y={8} label="LG" size="lg" color="#0f766e" /></div>
+					<div class="relative h-20"><SlotGraphNode id="size-xl" x={0} y={4} label="XL" size="xl" color="#0f766e" /></div>
+					<div class="relative h-20"><SlotGraphNode id="size-2xl" x={0} y={0} label="2XL" size="2xl" color="#0f766e" /></div>
+				</div>
+			</div>
+
+			<div>
+				<h3 class="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">Type Gallery</h3>
+				<div class="grid grid-cols-3 gap-4 rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] p-4">
+					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
+						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-source" x={0} y={0} label="IN" type="source" size="xl" color="#0f766e" /></div>
+						<strong class="text-sm">Source</strong>
+						<span class="text-xs text-[var(--color-text-secondary)]">solid border</span>
+					</div>
+					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
+						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-gateway" x={0} y={0} label="GW" type="gateway" size="xl" color="#b45309" selected={true} /></div>
+						<strong class="text-sm">Gateway</strong>
+						<span class="text-xs text-[var(--color-text-secondary)]">dashed border</span>
+					</div>
+					<div class="grid gap-2 rounded-lg bg-white p-4 text-center">
+						<div class="relative mx-auto h-16 w-16"><SlotGraphNode id="type-target" x={0} y={0} label="OUT" type="target" size="xl" color="#1d4ed8" /></div>
+						<strong class="text-sm">Target</strong>
+						<span class="text-xs text-[var(--color-text-secondary)]">output marker</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	{/snippet}

@@ -63,7 +63,7 @@
 			{#if typeof props.icon === 'string'}
 				<BaseIcon name={props.icon} size={14} />
 			{:else}
-				{@render props.icon()}}
+				{@render props.icon()}
 			{/if}
 		</span>
 	{/if}

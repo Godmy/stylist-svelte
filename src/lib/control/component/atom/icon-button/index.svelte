@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { Icon as BaseIcon } from '$stylist/media'; const Loader2 = 'loader-2';
+	import { createButtonFactoryInput } from '$stylist/interaction/factory/button';
+	import { Icon as BaseIcon } from '$stylist/media';
+	const Loader2 = 'loader-2';
 import type { HTMLButtonAttributes } from 'svelte/elements';
 import type { SlotIconButton as IconButtonProps } from '$stylist/control/interface/slot/icon-button';
 import { createIconButtonState } from '$stylist/control/function/state/icon-button';
@@ -18,9 +20,7 @@ import { createIconButtonState } from '$stylist/control/function/state/icon-butt
 	 * @returns An accessible, styled icon button element
 	 */
 	let props: IconButtonProps & HTMLButtonAttributes = $props();
-	const state = createIconButtonState(
-		props as any
-	);
+	const state = createIconButtonState(createButtonFactoryInput(props as any));
 
 	const restProps = $derived.by(() => {
 		const {
@@ -47,7 +47,7 @@ import { createIconButtonState } from '$stylist/control/function/state/icon-butt
 		{#if typeof props.icon === 'string'}
 			<BaseIcon name={props.icon} />
 		{:else}
-			{@render props.icon()}}
+			{@render props.icon()}
 		{/if}
 	{:else if props.children}
 		{#if props.children}{#if props.children}{@render props.children()}{/if}{/if}

@@ -29,51 +29,14 @@
 	const CANVAS_HEIGHT = 320;
 
 	const controls: InterfaceControllerSettings[] = [
-		{
-			name: 'edgeType',
-			type: 'select',
-			options: ['line', 'curve', 'polyline'],
-			defaultValue: 'line'
-		},
-		{
-			name: 'directed',
-			type: 'boolean',
-			defaultValue: true
-		},
-		{
-			name: 'active',
-			type: 'boolean',
-			defaultValue: false
-		},
-		{
-			name: 'nodeSize',
-			type: 'select',
-			options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'],
-			defaultValue: 'md'
-		},
-		{
-			name: 'edgeColor',
-			type: 'color',
-			defaultValue: '#2563eb'
-		},
-		{
-			name: 'edgeThickness',
-			type: 'range',
-			defaultValue: 3,
-			min: 1,
-			max: 8,
-			step: 1
-		},
-		{
-			name: 'showLabels',
-			type: 'boolean',
-			defaultValue: true
-		},
-		{
-			name: 'snapToGrid',
-			type: 'boolean',
-			defaultValue: true
-		}
+		{ name: 'edgeType', type: 'select', options: ['straight', 'curve', 'polyline'], defaultValue: 'straight' },
+		{ name: 'directed', type: 'boolean', defaultValue: true },
+		{ name: 'active', type: 'boolean', defaultValue: false },
+		{ name: 'nodeSize', type: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'], defaultValue: 'md' },
+		{ name: 'edgeColor', type: 'color', defaultValue: '#2563eb' },
+		{ name: 'edgeThickness', type: 'range', defaultValue: 3, min: 1, max: 8, step: 1 },
+		{ name: 'showLabels', type: 'boolean', defaultValue: true },
+		{ name: 'snapToGrid', type: 'boolean', defaultValue: true }
 	];
 
 	let nodes = $state<DemoNode[]>([
@@ -109,25 +72,16 @@
 	}
 
 	function resolveCanvasRect(target: EventTarget | null): DOMRect | null {
-		if (!(target instanceof HTMLElement)) {
-			return null;
-		}
-
+		if (!(target instanceof HTMLElement)) return null;
 		const canvas = target.closest('[data-graph-canvas="edge-story"]');
-		if (!(canvas instanceof HTMLElement)) {
-			return null;
-		}
-
+		if (!(canvas instanceof HTMLElement)) return null;
 		return canvas.getBoundingClientRect();
 	}
 
 	function centerOf(node: DemoNode, size: GraphNodeSize): Position {
 		const nodeSize = getNodeSize(size);
 		const radius = nodeSize / 2;
-		return {
-			x: node.position.x + radius,
-			y: node.position.y + radius
-		};
+		return { x: node.position.x + radius, y: node.position.y + radius };
 	}
 
 	function edgeStyle(from: DemoNode, to: DemoNode, values: any): Record<string, string> {
@@ -152,13 +106,9 @@
 
 	function startDrag(event: PointerEvent, nodeId: string): void {
 		const node = findNode(nodeId);
-		if (!node) {
-			return;
-		}
+		if (!node) return;
 		const canvasRect = resolveCanvasRect(event.currentTarget);
-		if (!canvasRect) {
-			return;
-		}
+		if (!canvasRect) return;
 
 		selectedNodeId = nodeId;
 		draggingNodeId = nodeId;
@@ -169,9 +119,7 @@
 	}
 
 	function dragNode(event: PointerEvent, snapToGrid: boolean, size: GraphNodeSize): void {
-		if (!draggingNodeId) {
-			return;
-		}
+		if (!draggingNodeId) return;
 
 		const canvas = event.currentTarget as HTMLElement;
 		const rect = canvas.getBoundingClientRect();
@@ -202,26 +150,19 @@
 	{controls}
 	component={SlotGraphEdge}
 	title="SlotGraphEdge Component"
-	description="Interactive graph edges between draggable nodes. Try dragging nodes and switching edge type/direction."
+	description="Interactive graph edges between draggable nodes. Use the controls to compare straight, curved and polyline routing."
 >
 	{#snippet children(values: any)}
-		<div class="rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-primary)] p-4 shadow-sm">
-			<div class="mb-3 flex flex-wrap items-center gap-2 text-xs text-[var(--color-text-secondary)]">
-				<span class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1">
-					type: {values.edgeType}
-				</span>
-				<span class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1">
-					directed: {values.directed ? 'yes' : 'no'}
-				</span>
-				<span class="rounded-full border border-[var(--color-border-primary)] bg-[var(--color-background-secondary)] px-2 py-1">
-					drag nodes to recalc geometry
-				</span>
+		<div class="edge-story-shell">
+			<div class="edge-story-chips">
+				<span>type: {values.edgeType}</span>
+				<span>directed: {values.directed ? 'yes' : 'no'}</span>
+				<span>drag nodes to recalc geometry</span>
 			</div>
 
 			<div
 				data-graph-canvas="edge-story"
-				class="relative overflow-hidden rounded border border-[var(--color-border-primary)] [background-size:20px_20px]"
-				style={`--gradient-inner: var(--color-border-primary); --gradient-outer: transparent; background-image: var(--gradient-radial-center); width:${CANVAS_WIDTH}px;height:${CANVAS_HEIGHT}px;`}
+				class="edge-stage"
 				onpointermove={(event) =>
 					dragNode(
 						event,
@@ -264,17 +205,160 @@
 				{/each}
 			</div>
 
-			<div class="mt-3 text-xs text-[var(--color-text-secondary)]">
-				selected: <span class="font-semibold text-[var(--color-text-primary)]">{selectedNodeId}</span>
+			<div class="edge-story-footer">
+				selected: <strong>{selectedNodeId}</strong>
 				{#if values.snapToGrid}
-					<span class="ml-2 rounded bg-[var(--color-background-secondary)] px-2 py-0.5">snap: {GRID_SIZE}px</span>
+					<span class="snap-chip">snap: {GRID_SIZE}px</span>
 				{/if}
+			</div>
+		</div>
+	{/snippet}
+
+	{#snippet variants()}
+		<div class="edge-story-shell">
+			<div class="edge-story-chips">
+				<span>variant gallery</span>
+				<span>same anchors, different route geometry</span>
+			</div>
+
+			<div class="grid gap-3">
+				{#each [
+					{ id: 'straight', label: 'Straight', type: 'straight', color: '#334155' },
+					{ id: 'curve', label: 'Curve', type: 'curve', color: '#2563eb' },
+					{ id: 'polyline', label: 'Polyline', type: 'polyline', color: '#0f766e' }
+				] as item}
+					<div class="variant-track">
+						<div class="variant-copy">
+							<strong>{item.label}</strong>
+							<span>{item.type}</span>
+						</div>
+						<div class="variant-stage">
+							<div class="variant-anchor variant-anchor-start">A</div>
+							<div class="variant-anchor variant-anchor-end">B</div>
+							<SlotGraphEdge
+								fromNodeId={`${item.id}-a`}
+								toNodeId={`${item.id}-b`}
+								type={item.type as 'straight' | 'curve' | 'polyline'}
+								directed={item.type !== 'polyline'}
+								active={true}
+								label={item.label}
+								style={{
+									'--edge-left': '32px',
+									'--edge-top': '40px',
+									'--edge-length': '260px',
+									'--edge-angle': '0deg',
+									'--edge-color': item.color,
+									'--edge-thickness': '3px',
+									'--edge-label-display': 'inline-flex'
+								}}
+							/>
+						</div>
+					</div>
+				{/each}
 			</div>
 		</div>
 	{/snippet}
 </Story>
 
+<style>
+	.edge-story-shell {
+		display: grid;
+		gap: 0.75rem;
+		padding: 1rem;
+		border-radius: 1rem;
+		background: linear-gradient(180deg, #f8fafc, #eef2f7);
+		border: 1px solid rgba(148, 163, 184, 0.24);
+	}
 
+	.edge-story-chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		font-size: 0.78rem;
+		color: #475569;
+	}
 
+	.edge-story-chips span,
+	.snap-chip {
+		padding: 0.35rem 0.6rem;
+		border-radius: 999px;
+		background: white;
+		border: 1px solid rgba(148, 163, 184, 0.3);
+	}
 
+	.edge-stage {
+		position: relative;
+		overflow: hidden;
+		width: 640px;
+		height: 320px;
+		border-radius: 0.9rem;
+		border: 1px solid rgba(148, 163, 184, 0.3);
+		background:
+			radial-gradient(circle at center, rgba(148, 163, 184, 0.18), transparent 60%),
+			linear-gradient(180deg, #ffffff, #f8fafc);
+		background-size: 20px 20px, auto;
+	}
 
+	.edge-story-footer {
+		font-size: 0.82rem;
+		color: #475569;
+	}
+
+	.variant-track {
+		display: grid;
+		grid-template-columns: 120px minmax(0, 1fr);
+		gap: 0.75rem;
+		align-items: center;
+		padding: 0.75rem;
+		border-radius: 0.9rem;
+		background: white;
+		border: 1px solid rgba(148, 163, 184, 0.24);
+	}
+
+	.variant-copy {
+		display: grid;
+		gap: 0.2rem;
+		font-size: 0.78rem;
+		color: #64748b;
+	}
+
+	.variant-copy strong {
+		font-size: 0.9rem;
+		color: #172033;
+	}
+
+	.variant-stage {
+		position: relative;
+		height: 80px;
+		border-radius: 0.8rem;
+		border: 1px solid rgba(148, 163, 184, 0.24);
+		background:
+			repeating-linear-gradient(
+				90deg,
+				transparent,
+				transparent 27px,
+				rgba(148, 163, 184, 0.1) 27px,
+				rgba(148, 163, 184, 0.1) 28px
+			),
+			linear-gradient(180deg, #f8fafc, #eef2f7);
+	}
+
+	.variant-anchor {
+		position: absolute;
+		top: 50%;
+		width: 24px;
+		height: 24px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 999px;
+		background: #172033;
+		color: white;
+		font-size: 0.75rem;
+		font-weight: 700;
+		transform: translateY(-50%);
+	}
+
+	.variant-anchor-start { left: 8px; }
+	.variant-anchor-end { right: 8px; }
+</style>

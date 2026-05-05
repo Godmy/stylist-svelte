@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import GraphToolbar from './index.svelte';
 
@@ -11,26 +11,65 @@
 	];
 
 	const defaultItems = [
-		{ id: 'zoom-in', type: 'button' as const, icon: 'plus', label: 'Zoom In', tooltip: 'Zoom In (Ctrl++)' },
-		{ id: 'zoom-out', type: 'button' as const, icon: 'minus', label: 'Zoom Out', tooltip: 'Zoom Out (Ctrl+-)' },
-		{ id: 'fit', type: 'button' as const, icon: 'maximize', label: 'Fit', tooltip: 'Fit to Screen' },
+		{ id: 'zoom-in', type: 'button' as const, icon: 'plus', label: 'Zoom In', tooltip: 'Zoom in' },
+		{ id: 'zoom-out', type: 'button' as const, icon: 'minus', label: 'Zoom Out', tooltip: 'Zoom out' },
+		{ id: 'fit', type: 'button' as const, icon: 'maximize', label: 'Fit', tooltip: 'Fit to screen' },
 		{ id: 'separator-1', type: 'separator' as const },
 		{ id: 'layout', type: 'select' as const, options: ['Dagre', 'Force', 'Grid'], value: 'Dagre' },
 		{ id: 'separator-2', type: 'separator' as const },
-		{ id: 'export', type: 'button' as const, icon: 'download', label: 'Export', tooltip: 'Export Graph' }
+		{ id: 'export', type: 'button' as const, icon: 'download', label: 'Export', tooltip: 'Export graph' }
 	];
 </script>
 
-<Story component={GraphToolbar} title="GraphToolbar" description="Toolbar for graph canvas with zoom, layout, and action buttons." {controls}>
+<Story
+	component={GraphToolbar}
+	title="GraphToolbar"
+	description="Toolbar for graph scenes with zoom, layout and export actions. The wrapper frame mirrors a graph workbench."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<GraphToolbar
-			id="graph-toolbar"
-			items={defaultItems}
-			size={values.size}
-			orientation={values.orientation}
-			compact={values.compact}
-			showTooltips={values.showTooltips}
-		/>
+		<div class="toolbar-shell">
+			<div class="toolbar-stage">
+				<div class="toolbar-workbench">
+					<div class="toolbar-header">Graph Workbench</div>
+					<GraphToolbar
+						id="graph-toolbar"
+						items={defaultItems}
+						size={values.size}
+						orientation={values.orientation}
+						compact={values.compact}
+						showTooltips={values.showTooltips}
+					/>
+				</div>
+			</div>
+		</div>
 	{/snippet}
 </Story>
 
+<style>
+	.toolbar-shell {
+		padding: 1rem;
+		border-radius: 1rem;
+		background: linear-gradient(180deg, #0f172a, #111827);
+	}
+
+	.toolbar-stage {
+		padding: 1rem;
+		border-radius: 1rem;
+		border: 1px solid rgba(148, 163, 184, 0.18);
+		background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.92));
+	}
+
+	.toolbar-workbench {
+		display: grid;
+		gap: 0.75rem;
+		justify-content: start;
+	}
+
+	.toolbar-header {
+		color: #cbd5e1;
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+</style>

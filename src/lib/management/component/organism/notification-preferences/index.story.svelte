@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
-  import type { NotificationPreferencesProps } from '$stylist/communication/type/struct/notification-preferences-props';
-  import { NotificationStyleManager } from '$stylist/communication';
+  import type { NotificationPreferencesProps } from '$stylist/chat/type/struct/notification-preferences-props';
+  import { NotificationStyleManager } from '$stylist/chat';
   import NotificationPreferences from './index.svelte';
 
   type Props = {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Story } from '$stylist/playground/component';
+	import Story from '$stylist/playground/component/molecule/story/index.svelte';
 	import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 	import DrawingSurface from './index.svelte';
 
@@ -14,19 +14,57 @@
 	];
 </script>
 
-<Story component={DrawingSurface} title="DrawingSurface" description="Canvas-based drawing area with tool and color controls." {controls}>
+<Story
+	component={DrawingSurface}
+	title="DrawingSurface"
+	description="Canvas-based sketch layer. The story exposes tool, stroke and surface settings without additional chrome."
+	{controls}
+>
 	{#snippet children(values: any)}
-		<DrawingSurface {...({
-			width: values.width,
-			height: values.height,
-			drawingEnabled: values.drawingEnabled,
-			tool: values.tool,
-			strokeWidth: values.strokeWidth,
-			strokeColor: values.strokeColor,
-			backgroundColor: values.backgroundColor
-		} as any)} />
+		<div class="surface-shell">
+			<div class="chip-row">
+				<span>tool: {values.tool}</span>
+				<span>enabled: {values.drawingEnabled ? 'yes' : 'no'}</span>
+				<span>stroke: {values.strokeWidth}px</span>
+			</div>
+
+			<DrawingSurface
+				{...({
+					width: values.width,
+					height: values.height,
+					drawingEnabled: values.drawingEnabled,
+					tool: values.tool,
+					strokeWidth: values.strokeWidth,
+					strokeColor: values.strokeColor,
+					backgroundColor: values.backgroundColor
+				} as any)}
+			/>
+		</div>
 	{/snippet}
 </Story>
 
+<style>
+	.surface-shell {
+		display: grid;
+		gap: 0.75rem;
+		padding: 1rem;
+		border-radius: 1rem;
+		background: linear-gradient(180deg, #f8fafc, #eef2f7);
+		border: 1px solid rgba(148, 163, 184, 0.24);
+	}
 
+	.chip-row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		font-size: 0.78rem;
+		color: #475569;
+	}
 
+	.chip-row span {
+		padding: 0.35rem 0.6rem;
+		border-radius: 999px;
+		background: white;
+		border: 1px solid rgba(148, 163, 184, 0.3);
+	}
+</style>

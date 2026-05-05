@@ -1,4 +1,5 @@
 import type { UserBehaviorMetricsProps, UserBehaviorMetric, TimeRange } from '$stylist/marketing/type/struct/user-behavior-metrics';
+import { untrack } from 'svelte';
 
 export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) {
   const title = $derived(props.title ?? 'User Behavior Metrics');
@@ -11,7 +12,7 @@ export function createUserBehaviorMetricsState(props: UserBehaviorMetricsProps) 
   const metricsClassName = $derived(props.metricsClass ?? '');
   const metricCardClassName = $derived(props.metricCardClass ?? '');
 
-  let selectedTimeRange = $state(timeRange);
+  let selectedTimeRange = $state(untrack(() => timeRange));
 
   $effect(() => {
     selectedTimeRange = timeRange;

@@ -1,0 +1,47 @@
+import type { SlotChatHeader as ChatHeaderContract } from '$stylist/chat/interface/slot/chat-header';
+import type { ChatInterfaceContract } from '$stylist/chat/type/struct/chat-interface-contract';
+import type { SlotChatItem as ChatItemContract } from '$stylist/chat/interface/slot/chat-item';
+import type { SlotChatList as ChatListContract } from '$stylist/chat/interface/slot/chat-list';
+import type { SlotChatMessage as ChatMessageContract } from '$stylist/chat/interface/slot/chat-message';
+import type { ChatPreviewContract } from '$stylist/chat/type/struct/chat-preview-contract';
+import type { SlotChatRoom as ChatRoomContract } from '$stylist/chat/interface/slot/chat-room';
+import type { SlotChatStatusIndicator as ChatStatusIndicatorContract } from '$stylist/chat/interface/slot/chat-status-indicator';
+import type { SlotChatWindow as ChatWindowContract } from '$stylist/chat/interface/slot/chat-window';
+import type { SlotMessageBubble as MessageBubbleContract } from '$stylist/chat/interface/slot/message-bubble';
+import type { SlotMessageComposer as MessageComposerContract } from '$stylist/chat/interface/slot/message-composer';
+import type { SlotMessageInput as MessageInputContract } from '$stylist/chat/interface/slot/message-input';
+import type { SlotMessageItem as MessageItemContract } from '$stylist/chat/interface/slot/message-item';
+import type { SlotMessageList as MessageListContract } from '$stylist/chat/interface/slot/message-list';
+import type { SlotMessageMeta as MessageMetaContract } from '$stylist/chat/interface/slot/message-meta';
+import type { SlotMessageThread as MessageThreadContract } from '$stylist/chat/interface/slot/message-thread';
+import type { SlotMessageTimestamp as MessageTimestampContract } from '$stylist/chat/interface/slot/message-timestamp';
+import type { NotificationCenterContract } from '$stylist/chat/type/struct/notification-center-contract';
+import type { NotificationListContract } from '$stylist/chat/type/struct/notification-list-contract';
+import type { NotificationPreferencesContract } from '$stylist/chat/type/struct/notification-preferences-contract';
+import type { ScheduledNotificationContract } from '$stylist/chat/type/struct/scheduled-notification-contract';
+import type { SlotUserStatus as UserStatusContract } from '$stylist/chat/interface/slot/user-status';
+
+export interface ContractCommunication {
+	ChatHeader: ChatHeaderContract;
+	ChatInterface: ChatInterfaceContract;
+	ChatItem: ChatItemContract;
+	ChatList: ChatListContract;
+	ChatMessage: ChatMessageContract;
+	ChatPreview: ChatPreviewContract;
+	ChatRoom: ChatRoomContract;
+	ChatStatusIndicator: ChatStatusIndicatorContract;
+	ChatWindow: ChatWindowContract;
+	MessageBubble: MessageBubbleContract;
+	MessageComposer: MessageComposerContract;
+	MessageInput: MessageInputContract;
+	MessageItem: MessageItemContract;
+	MessageList: MessageListContract;
+	MessageMeta: MessageMetaContract;
+	MessageThread: MessageThreadContract;
+	MessageTimestamp: MessageTimestampContract;
+	NotificationCenter: NotificationCenterContract;
+	NotificationList: NotificationListContract;
+	NotificationPreferences: NotificationPreferencesContract;
+	ScheduledNotification: ScheduledNotificationContract;
+	UserStatus: UserStatusContract;
+}

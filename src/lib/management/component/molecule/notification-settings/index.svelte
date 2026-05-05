@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Icon as BaseIcon } from '$stylist/media';
   import { createNotificationSettingsState } from '$stylist/management/function/state/notification-settings';
-  import type { INotificationSettingsProps } from '$stylist/communication/type/struct/notification-settings-props';
+  import type { INotificationSettingsProps } from '$stylist/chat/type/struct/notification-settings-props';
 
   let props: INotificationSettingsProps = $props();
   const state = createNotificationSettingsState(props);

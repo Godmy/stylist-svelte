@@ -4,6 +4,7 @@ import type { SlotGeoJsonFeature as GeoJsonFeature } from '$stylist/geo/interfac
 import type { SlotGeoJsonFeatureCollection as GeoJsonFeatureCollection } from '$stylist/geo/interface/slot/geo-json-feature-collection';
 import { GeoJSONViewerStyleManager } from '$stylist/geo/class/style-manager/geo-jsonviewer';
 import type { GeoJSONViewerStateProps } from '$stylist/geo/interface/recipe/geo-jsonviewer-state-props';
+import { untrack } from 'svelte';
 
 export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 	// Props with defaults
@@ -19,7 +20,7 @@ export function createGeoJSONViewerState(props: GeoJSONViewerStateProps) {
 
 	// SlotState
 	let currentLayers = $state<GeoJsonLayer[]>([]);
-	let currentView = $state<MapView>({ ...initialView });
+	let currentView = $state<MapView>({ ...untrack(() => initialView) });
 	let selectedFeature: GeoJsonFeature | null = $state(null);
 	let mapOffset = $state({ x: 0, y: 0 });
 	let isDragging = $state(false);
