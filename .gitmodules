@@ -1,3 +1,6 @@
 [submodule "adr"]
 	path = adr
 	url = https://github.com/Godmy/adr.git
+[submodule "src/lib/server/stylist-svelte-server"]
+	path = src/lib/server/stylist-svelte-server
+	url = https://github.com/Godmy/stylist-svelte-server.git

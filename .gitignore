@@ -12,6 +12,7 @@ dist/
 build/
 .svelte-kit/
 package/
+json/
 
 # Environment
 .env
