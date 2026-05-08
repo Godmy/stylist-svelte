@@ -14,7 +14,6 @@ export { CUBE_VERTICAL_ICONS } from './cube-vertical-icon';
 export { FOLLOW_BUTTON_VARIANT_CLASSES } from './follow-button-variant-classes';
 export { ICON_BUTTON_ICON_SIZE_CLASSES } from './icon-button-icon-size-classes';
 export { ICON_BUTTON_SIZE_CLASSES } from './icon-button-size-classes';
-export { NODE_PROPERTY_VECTOR_LABELS } from './node-property-vector-labels';
 export { PAGE_BUILDER_TOOLBAR_ITEMS } from './page-builder-toolbar-items';
 export { PAGE_BUTTON_SIZE_CLASSES } from './page-button-size-classes';
 export { RADIO_INDICATOR_SIZE_CLASSES } from './radio-indicator-size-classes';

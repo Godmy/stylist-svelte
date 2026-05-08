@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { NodePropertiesPanelRecipe as NodePropertiesPanelProps } from '$stylist/science/interface/recipe/node-properties-panel';
 	import { createNodePropertiesPanelState } from '$stylist/science/function/state/node-properties-panel';
-	import { IconButton, NodeProperty } from '$stylist/control';
+	import { IconButton } from '$stylist/control';
+	import { NodeProperty } from '$stylist/science';
 
 	let props: NodePropertiesPanelProps = $props();
 	const state = createNodePropertiesPanelState(props);

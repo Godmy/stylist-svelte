@@ -15,3 +15,4 @@ export { DevelopmentErrorBoundaryStyleManager } from './development-error-bounda
 export { DocumentationBlockStyleManager } from './documentation-block';
 export { MockDataSelectorStyleManager } from './mock-data-selector';
 export { PrivacySettingsStyleManager } from './privacy-settings';
+export { StyleManagerSyntaxHighlightedCode } from './syntax-highlighted-code';

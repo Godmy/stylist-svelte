@@ -7,10 +7,6 @@ export type { CollaborativeEditorContract } from './collaborative-editor-contrac
 export type { CollaborativeEditorProps } from './collaborative-editor-props';
 export type { CollaborativeUser } from './collaborative-user';
 export type { DrawingSurfaceCanvasClearedEvent, DrawingSurfaceContract, DrawingSurfaceExposeMethodsEvent, DrawingSurfaceProps, DrawingSurfaceTool } from './drawing-surface';
-export type { GraphToolbarItem, GraphToolbarProps } from './graph';
-export type { GraphCanvasProps } from './graph-canvas';
-export type { GraphPortDataTypeColor, GraphPortStateColor } from './graph-port';
-export type { MinimapBounds, MinimapContract, MinimapNodeRect, MinimapOffset, MinimapPoint, MinimapProps, MinimapViewport } from './minimap';
 export type { SharedCanvasContract, SharedCanvasDraftObject, SharedCanvasObjectBounds, SharedCanvasPoint, SharedCanvasTool, SharedCanvasToolDefinition } from './shared-canvas';
 export type { StageCamera, StageContract, StageProps } from './stage';
 export type { ThemeGraphColors } from './theme-graph-colors';

@@ -7,6 +7,7 @@ export type { DashboardLayoutProps } from './dashboard-layout';
 export type { FeatureToggleStateProps } from './feature-toggle';
 export type { KanbanBoardStateProps } from './kanban-board';
 export type { KanbanColumnStateProps } from './kanban-column';
+export type { KPIIndicatorRecipe } from './kpi-indicator';
 export type { LegendItemStateProps } from './legend-item';
 export type { NotificationStateProps } from './notification';
 export type { NotificationBadgeStateProps } from './notification-badge';

@@ -1,17 +1,16 @@
 import type { StructIntersectAll } from '$stylist/architecture/type/struct/intersect-all';
-/** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-import type { Snippet } from 'svelte';
+import type { SlotLabel as ILabelSlot } from '$stylist/typography/interface/slot/label';
+import type { SlotMedia as IMediaSlot } from '$stylist/media/interface/slot/media';
+import type { ThemeAttributes } from '$stylist/theme/type/struct/theme-attributes';
 
-export interface CanvasImageEditorRecipe extends StructIntersectAll<[]> {
-  width?: number;
-  height?: number;
-  src?: string;
-  cropEnabled?: boolean;
-  filter?: string;
-  brightness?: number;
-  contrast?: number;
-  saturation?: number;
-  hue?: number;
-  class?: string;
-  children?: Snippet;
+export interface CountryFlagRecipe
+	extends StructIntersectAll<[
+		IMediaSlot,
+		ILabelSlot,
+		ThemeAttributes<HTMLSpanElement>
+	]>
+{
+	countryCode?: string;
+	size?: number;
+	content?: string;
 }

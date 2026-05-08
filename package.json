@@ -37,7 +37,7 @@
 		"test:unit": "vitest run",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
-		"clean": "rm -rf dist .svelte-kit node_modules/.vite",
+		"clean": "node -e \"const fs=require('node:fs'); ['dist','.svelte-kit','node_modules/.vite'].forEach((path)=>fs.rmSync(path,{recursive:true,force:true}));\"",
 		"audit": "yarn audit",
 		"depcheck": "depcheck",
 		"data:svg": "tsx scripts/data/svg/index.ts",
@@ -67,8 +67,25 @@
 	},
 	"files": [
 		"dist",
+		"!scripts/**",
+		"!dist/commerce/**",
+		"!dist/development/**",
+		"!dist/domain/**",
+		"!dist/geo/**",
+		"!dist/**/*.json",
+		"!dist/**/*.story.*",
+		"!dist/**/index.story.svelte",
+		"!dist/**/index.story.svelte.d.ts",
+		"!dist/**/story-*.svelte",
+		"!dist/**/story-*.svelte.d.ts",
 		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
+		"!dist/**/*.spec.*",
+		"!dist/management/**",
+		"!dist/marketing/**",
+		"!dist/playground/**",
+		"!dist/science/**",
+		"!dist/server/**",
+		"!dist/social/**"
 	],
 	"peerDependencies": {
 		"svelte": "^5.0.0"

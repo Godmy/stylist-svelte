@@ -1,6 +1,5 @@
 import type { InteractionHTMLAttributes } from '$stylist/interaction/type/struct/interaction';
 import type { Snippet } from 'svelte';
-import type { SlotMessage } from '$stylist/chat/interface/slot/message';
 
 /**
  * @interface SlotErrorBoundary

@@ -1,6 +1,6 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import type { GraphToolbarItem } from '$stylist/canvas/type/struct/graph/graph-toolbar-item';
-import type { GraphToolbarProps } from '$stylist/canvas/type/struct/graph/graph-toolbar-props';
+import type { GraphToolbarItem } from '$stylist/science/type/struct/graph/graph-toolbar-item';
+import type { GraphToolbarProps } from '$stylist/science/type/struct/graph/graph-toolbar-props';
 
 export function createGraphToolbarState(props: GraphToolbarProps) {
 	const items = $derived(props.items ?? []);

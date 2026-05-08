@@ -13,3 +13,4 @@ export type { RecipeMockDataSelector } from './mock-data-selector';
 export type { RecipePrivacySettings } from './privacy-settings';
 export type { RecipeResourceOptimizer } from './resource-optimizer';
 export type { RecipeStylist } from './stylist';
+export type { ThemeSyntaxHighlightedCodeRecipe } from './syntax-highlighted-code';

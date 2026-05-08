@@ -16,8 +16,11 @@
 		onDomainToggle?: () => void;
 	}
 
-	let { class: className = '', isDomainVisible = true, onDomainToggle }: DomainPropertyProps =
-		$props();
+	let {
+		class: className = '',
+		isDomainVisible = true,
+		onDomainToggle
+	}: DomainPropertyProps = $props();
 
 	type DomainPropertyPanel = 'settings' | 'diagnostics' | 'chat' | 'presentation' | 'graph' | null;
 
@@ -32,6 +35,20 @@
 	);
 
 	let activePanel = $state<DomainPropertyPanel>(null);
+	const activePanelTitle = $derived(
+		activePanel === 'settings'
+			? 'Appearance'
+			: activePanel === 'diagnostics'
+				? 'Diagnostics'
+				: activePanel === 'chat'
+					? 'Chat'
+					: activePanel === 'presentation'
+						? 'Presentation'
+						: activePanel === 'graph'
+							? 'Graph'
+							: 'Workspace'
+	);
+	const visibilityTitle = $derived(isDomainVisible ? 'Hide taxonomy rail' : 'Show taxonomy rail');
 
 	function togglePanel(panel: Exclude<DomainPropertyPanel, null>) {
 		activePanel = activePanel === panel ? null : panel;
@@ -46,23 +63,25 @@
 		aria-label={activePanel === 'settings'
 			? 'Appearance settings'
 			: activePanel === 'diagnostics'
-					? 'Diagnostics'
-					: activePanel === 'chat'
-						? 'Chat'
-						: activePanel === 'presentation'
-							? 'Presentation'
-							: 'Graph workspace'}
+				? 'Diagnostics'
+				: activePanel === 'chat'
+					? 'Chat'
+					: activePanel === 'presentation'
+						? 'Presentation'
+						: 'Graph workspace'}
 	>
 		<header class="fullscreen-header">
-			<span class="fullscreen-title">{activePanel === 'settings'
-				? 'Appearance'
-				: activePanel === 'diagnostics'
-					? 'Diagnostics'
-					: activePanel === 'chat'
-						? 'Chat'
-						: activePanel === 'presentation'
-							? 'Presentation'
-							: 'Graph workspace'}</span>
+			<span class="fullscreen-title"
+				>{activePanel === 'settings'
+					? 'Appearance'
+					: activePanel === 'diagnostics'
+						? 'Diagnostics'
+						: activePanel === 'chat'
+							? 'Chat'
+							: activePanel === 'presentation'
+								? 'Presentation'
+								: 'Graph workspace'}</span
+			>
 			<button
 				type="button"
 				class="close-btn"
@@ -108,18 +127,74 @@
 
 <aside class="c-domain-property {className}">
 	<div class="property-strip">
-		<ThemeModeToggle />
+		<div class="strip-copy">
+			<span class="strip-label">Workspace</span>
+			<strong>{activePanelTitle}</strong>
+		</div>
 
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={!isDomainVisible}
-			onclick={onDomainToggle}
-			title={isDomainVisible ? 'Hide domain content' : 'Show domain content'}
-			aria-label={isDomainVisible ? 'Hide domain content' : 'Show domain content'}
-			aria-pressed={!isDomainVisible}
-		>
-			{#if isDomainVisible}
+		<div class="strip-group strip-group--primary">
+			<ThemeModeToggle />
+
+			<button
+				type="button"
+				class="gear-btn gear-btn--wide"
+				class:active={!isDomainVisible}
+				onclick={onDomainToggle}
+				title={visibilityTitle}
+				aria-label={visibilityTitle}
+				aria-pressed={!isDomainVisible}
+			>
+				<span class="gear-btn__icon">
+					{#if isDomainVisible}
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+							<circle cx="12" cy="12" r="3" />
+						</svg>
+					{:else}
+						<svg
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path
+								d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+							/>
+							<line x1="1" y1="1" x2="23" y2="23" />
+						</svg>
+					{/if}
+				</span>
+				<span class="gear-btn__text">{isDomainVisible ? 'Taxonomy' : 'Reveal'}</span>
+			</button>
+		</div>
+
+		<div class="strip-divider" aria-hidden="true"></div>
+
+		<div class="strip-group">
+			<button
+				type="button"
+				class="gear-btn"
+				class:active={activePanel === 'settings'}
+				onclick={() => togglePanel('settings')}
+				title="Appearance settings"
+				aria-label="Appearance settings"
+				aria-pressed={activePanel === 'settings'}
+			>
 				<svg
 					width="16"
 					height="16"
@@ -131,10 +206,34 @@
 					stroke-linejoin="round"
 					aria-hidden="true"
 				>
-					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 					<circle cx="12" cy="12" r="3" />
+					<path
+						d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+					/>
 				</svg>
-			{:else}
+			</button>
+
+			<button
+				type="button"
+				class="gear-btn"
+				class:active={activePanel === 'diagnostics'}
+				onclick={() => togglePanel('diagnostics')}
+				title="Diagnostics"
+				aria-label="Diagnostics"
+				aria-pressed={activePanel === 'diagnostics'}
+			>
+				<span class="icon-shell" aria-hidden="true">{@html diagnosticsIcon}</span>
+			</button>
+
+			<button
+				type="button"
+				class="gear-btn"
+				class:active={activePanel === 'chat'}
+				onclick={() => togglePanel('chat')}
+				title="Chat"
+				aria-label="Chat"
+				aria-pressed={activePanel === 'chat'}
+			>
 				<svg
 					width="16"
 					height="16"
@@ -146,132 +245,66 @@
 					stroke-linejoin="round"
 					aria-hidden="true"
 				>
-					<path
-						d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
-					/>
-					<line x1="1" y1="1" x2="23" y2="23" />
+					<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
 				</svg>
-			{/if}
-		</button>
+			</button>
 
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={activePanel === 'settings'}
-			onclick={() => togglePanel('settings')}
-			title="Appearance settings"
-			aria-label="Appearance settings"
-			aria-pressed={activePanel === 'settings'}
-		>
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
+			<button
+				type="button"
+				class="gear-btn"
+				class:active={activePanel === 'presentation'}
+				onclick={() => togglePanel('presentation')}
+				title="Presentation workspace"
+				aria-label="Presentation workspace"
+				aria-pressed={activePanel === 'presentation'}
 			>
-				<circle cx="12" cy="12" r="3" />
-				<path
-					d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
-				/>
-			</svg>
-		</button>
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<path d="M12 19l7-7 3 3-7 7-3-3z" />
+					<path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+					<path d="M2 2l7.586 7.586" />
+					<circle cx="11" cy="11" r="2" />
+				</svg>
+			</button>
 
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={activePanel === 'diagnostics'}
-			onclick={() => togglePanel('diagnostics')}
-			title="Diagnostics"
-			aria-label="Diagnostics"
-			aria-pressed={activePanel === 'diagnostics'}
-		>
-			<span class="icon-shell" aria-hidden="true">{@html diagnosticsIcon}</span>
-		</button>
-
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={activePanel === 'chat'}
-			onclick={() => togglePanel('chat')}
-			title="Chat"
-			aria-label="Chat"
-			aria-pressed={activePanel === 'chat'}
-		>
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
+			<button
+				type="button"
+				class="gear-btn"
+				class:active={activePanel === 'graph'}
+				onclick={() => togglePanel('graph')}
+				title="Graph workspace"
+				aria-label="Graph workspace"
+				aria-pressed={activePanel === 'graph'}
 			>
-				<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-			</svg>
-		</button>
-
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={activePanel === 'presentation'}
-			onclick={() => togglePanel('presentation')}
-			title="Presentation workspace"
-			aria-label="Presentation workspace"
-			aria-pressed={activePanel === 'presentation'}
-		>
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<path d="M12 19l7-7 3 3-7 7-3-3z" />
-				<path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-				<path d="M2 2l7.586 7.586" />
-				<circle cx="11" cy="11" r="2" />
-			</svg>
-		</button>
-
-		<button
-			type="button"
-			class="gear-btn"
-			class:active={activePanel === 'graph'}
-			onclick={() => togglePanel('graph')}
-			title="Graph workspace"
-			aria-label="Graph workspace"
-			aria-pressed={activePanel === 'graph'}
-		>
-			<svg
-				width="16"
-				height="16"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				aria-hidden="true"
-			>
-				<circle cx="5" cy="6" r="2" />
-				<circle cx="19" cy="6" r="2" />
-				<circle cx="12" cy="18" r="2" />
-				<path d="M7 6h10" />
-				<path d="M6.5 7.5l4 8" />
-				<path d="M17.5 7.5l-4 8" />
-			</svg>
-		</button>
+				<svg
+					width="16"
+					height="16"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<circle cx="5" cy="6" r="2" />
+					<circle cx="19" cy="6" r="2" />
+					<circle cx="12" cy="18" r="2" />
+					<path d="M7 6h10" />
+					<path d="M6.5 7.5l4 8" />
+					<path d="M17.5 7.5l-4 8" />
+				</svg>
+			</button>
+		</div>
 	</div>
 </aside>
 
@@ -285,23 +318,64 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.4rem;
-		border: 1px solid var(--color-border-primary);
-		border-radius: 12px;
-		background: color-mix(in srgb, var(--color-background-primary) 88%, transparent);
-		backdrop-filter: blur(10px);
-		box-shadow: 0 10px 30px color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+		gap: 0.65rem;
+		padding: 0.5rem 0.6rem;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
+		border-radius: 18px;
+		background: linear-gradient(
+			180deg,
+			color-mix(in srgb, var(--color-background-primary) 92%, white 8%),
+			color-mix(in srgb, var(--color-background-primary) 94%, transparent)
+		);
+		backdrop-filter: blur(14px);
+		box-shadow:
+			0 18px 40px color-mix(in srgb, var(--color-text-primary) 10%, transparent),
+			inset 0 1px 0 color-mix(in srgb, white 42%, transparent);
 		flex-shrink: 0;
 		width: auto;
 	}
 
+	.strip-copy {
+		display: grid;
+		gap: 0.12rem;
+		padding-inline: 0.2rem 0.35rem;
+	}
+
+	.strip-copy strong {
+		font-size: 0.86rem;
+		line-height: 1.1;
+	}
+
+	.strip-label {
+		color: var(--color-text-secondary);
+		font-size: 0.64rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.strip-group {
+		display: flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.strip-group--primary {
+		padding-right: 0.15rem;
+	}
+
+	.strip-divider {
+		width: 1px;
+		align-self: stretch;
+		background: color-mix(in srgb, var(--color-border-primary) 74%, transparent);
+	}
+
 	.property-strip :global(.c-theme-mode-toggle) {
 		border-radius: 8px;
-		min-width: 2.2rem;
-		min-height: 2.2rem;
-		width: 2.2rem;
-		height: 2.2rem;
+		min-width: 2.45rem;
+		min-height: 2.45rem;
+		width: 2.45rem;
+		height: 2.45rem;
 		padding: 0;
 	}
 
@@ -309,27 +383,49 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 2.2rem;
-		height: 2.2rem;
-		border: 1px solid var(--color-border-primary);
-		border-radius: 8px;
-		background: var(--color-background-secondary);
+		gap: 0.45rem;
+		width: 2.45rem;
+		height: 2.45rem;
+		border: 1px solid color-mix(in srgb, var(--color-border-primary) 82%, transparent);
+		border-radius: 10px;
+		background: color-mix(in srgb, var(--color-background-secondary) 82%, transparent);
 		color: var(--color-text-secondary);
 		cursor: pointer;
 		flex-shrink: 0;
-		transition: color 120ms ease, background-color 120ms ease, border-color 120ms ease;
+		transition:
+			color 120ms ease,
+			background-color 120ms ease,
+			border-color 120ms ease,
+			transform 120ms ease;
+	}
+
+	.gear-btn--wide {
+		width: auto;
+		padding: 0 0.75rem;
+	}
+
+	.gear-btn__icon {
+		display: inline-grid;
+		place-items: center;
+	}
+
+	.gear-btn__text {
+		font-size: 0.74rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
 	}
 
 	.gear-btn:hover {
 		color: var(--color-text-primary);
 		background: var(--color-background-primary);
 		border-color: var(--color-primary-500);
+		transform: translateY(-1px);
 	}
 
 	.gear-btn.active {
 		color: var(--color-primary-500);
 		border-color: var(--color-primary-500);
-		background: color-mix(in srgb, var(--color-primary-500) 8%, var(--color-background-primary));
+		background: color-mix(in srgb, var(--color-primary-500) 10%, var(--color-background-primary));
 	}
 
 	.icon-shell {
@@ -385,7 +481,9 @@
 		background: var(--color-background-primary);
 		color: var(--color-text-secondary);
 		cursor: pointer;
-		transition: color 120ms ease, border-color 120ms ease;
+		transition:
+			color 120ms ease,
+			border-color 120ms ease;
 	}
 
 	.close-btn:hover {
@@ -420,15 +518,27 @@
 		}
 
 		.property-strip {
-			flex-direction: row;
+			flex-wrap: wrap;
 			width: 100%;
-			justify-content: flex-end;
-			border-radius: 0;
+			justify-content: space-between;
+			border-radius: 0 0 16px 16px;
+			border-top: none;
 			border-left: none;
 			border-right: none;
-			border-bottom: none;
-			box-shadow: none;
-			backdrop-filter: none;
+			box-shadow: 0 10px 24px color-mix(in srgb, var(--color-text-primary) 8%, transparent);
+		}
+
+		.strip-copy {
+			width: 100%;
+			padding-inline: 0;
+		}
+
+		.strip-divider {
+			display: none;
+		}
+
+		.strip-group {
+			flex-wrap: wrap;
 		}
 	}
 </style>

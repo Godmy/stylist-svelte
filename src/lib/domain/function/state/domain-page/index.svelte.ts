@@ -67,7 +67,7 @@ export function createDomainPageState(input: DomainPageInput) {
 	const backlogPath = $derived(
 		activeFamily ? `${activeDomain}/data/md/backlog/${activeFamily}/index.md` : ''
 	);
-	const storyModulePath = $derived(storyFile ? `../../lib/${storyFile.path}` : null);
+	const storyModulePath = $derived(storyFile ? `../lib/${storyFile.path}` : null);
 	const previewKind = $derived.by(() => {
 		if (activeFilePath.endsWith('.svg')) return 'svg';
 		if (activeFilePath.endsWith('.json')) return 'json';

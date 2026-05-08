@@ -102,11 +102,11 @@
                         }}
                       >
                         {#if icon.type === 'architecture'}
-                          <BaseIcon name={House} class="template-icon-lucide" strokeWidth={2.2} />
+                          <BaseIcon name={House} class="template-icon-glyph" strokeWidth={2.2} />
                         {:else if icon.type === 'information'}
-                          <BaseIcon name={Info} class="template-icon-lucide" strokeWidth={2.6} />
+                          <BaseIcon name={Info} class="template-icon-glyph" strokeWidth={2.6} />
                         {:else}
-                          <BaseIcon name={Hand} class="template-icon-lucide" strokeWidth={2.1} />
+                          <BaseIcon name={Hand} class="template-icon-glyph" strokeWidth={2.1} />
                         {/if}
                       </button>
                     {/each}
@@ -142,11 +142,11 @@
                         }}
                       >
                         {#if icon.type === 'atom'}
-                          <BaseIcon name={Radiation} class="template-icon-lucide" strokeWidth={2.1} />
+                          <BaseIcon name={Radiation} class="template-icon-glyph" strokeWidth={2.1} />
                         {:else if icon.type === 'molecule'}
-                          <BaseIcon name={Atom} class="template-icon-lucide" strokeWidth={2.1} />
+                          <BaseIcon name={Atom} class="template-icon-glyph" strokeWidth={2.1} />
                         {:else}
-                          <BaseIcon name={Biohazard} class="template-icon-lucide" strokeWidth={2.1} />
+                          <BaseIcon name={Biohazard} class="template-icon-glyph" strokeWidth={2.1} />
                         {/if}
                       </button>
                     {/each}
@@ -366,7 +366,7 @@
     border-color: var(--color-primary-500);
   }
 
-  .template-icon-lucide {
+  .template-icon-glyph {
     width: 1rem;
     height: 1rem;
   }

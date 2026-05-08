@@ -16,7 +16,6 @@ export { CubeControl } from './cube-control/index';
 export { FollowButton } from './follow-button/index';
 export { IconButton } from './icon-button/index';
 export { MenuItem } from './menu-item/index';
-export { NodeProperty } from './node-property/index';
 export { PageButton } from './page-button/index';
 export { Radio } from './radio/index';
 export { SortableTableHeader } from './sortable-table-header/index';

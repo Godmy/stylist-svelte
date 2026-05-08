@@ -18,3 +18,4 @@ export { createMockDataSelectorState } from './mock-data-selector';
 export { createPrivacySettingsState } from './privacy-settings';
 export { createResourceOptimizerState } from './resource-optimizer';
 export { createStylistState } from './stylist';
+export { createSyntaxHighlightedCodeState } from './syntax-highlighted-code';

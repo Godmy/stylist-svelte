@@ -1,7 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export type { Address } from './address';
 export type { AlertCardStoryProps } from './alert-card-story-props';
-export type { BaseCardProps } from './base-card-props';
 export type { BulkOrderFormItem, BulkOrderFormProduct, BulkOrderFormProps, OrderItem, Product } from './bulk-order-form';
 export type { CardInfo } from './card-info';
 export type { SlotCartItem } from './cart-item';

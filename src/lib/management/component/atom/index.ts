@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { Kpiindicator } from './kpiindicator/index';
 export { NotificationBadge } from './notification-badge/index';
 export { Notification } from './notification/index';
 export { PermissionGate } from './permission-gate/index';

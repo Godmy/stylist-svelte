@@ -8,6 +8,7 @@ export type { AvatarRecipe } from './avatar';
 export type { AvatarProps } from './avatar-avatar-props';
 export type { AvatarGroupProps } from './avatar-group-avatar-group-props';
 export type { CanvasImageEditorRecipe } from './canvas-image-editor';
+export type { CountryFlagRecipe } from './country-flag';
 export type { IconChevronRecipe } from './icon-chevron';
 export type { IconCircleRecipe } from './icon-circle';
 export type { IconProps } from './icon-icon-props';

@@ -1,6 +1,6 @@
-<script lang="ts">
+	<script lang="ts">
 	import type { CountryFlagProps } from '$stylist/media/type/struct/country-flag';
-	import { createCountryFlagState } from '$stylist/geo/function/state/country-flag';
+	import { createCountryFlagState } from '$stylist/media/function/state/country-flag';
 
 	let props: CountryFlagProps = $props();
 	const state = createCountryFlagState(props);

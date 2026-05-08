@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export type { CountryFlagRecipe } from './country-flag';
 export type { GeoJSONViewerStateProps } from './geo-jsonviewer-state-props';
 export type { LocationPickerStateProps } from './location-picker';
 export type { LocationSelectorStateProps } from './location-selector';

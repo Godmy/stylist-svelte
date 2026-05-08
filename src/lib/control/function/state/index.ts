@@ -41,7 +41,6 @@ export { createIconButtonState } from './icon-button';
 export { createListWithAvatarsState } from './list-with-avatars';
 export { createMenuItemState } from './menu-item';
 export { createMultiSelectState } from './multi-select';
-export { createNodePropertyControlState } from './node-property';
 export { createPageBuilderState } from './page-builder';
 export { createPageButtonState } from './page-button';
 export { createQuantitySelectorState } from './quantity-selector';

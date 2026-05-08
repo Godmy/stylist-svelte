@@ -1,5 +1,4 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
-export { createCountryFlagState } from './country-flag';
 export { createGeoJSONViewerState } from './geo-jsonviewer';
 export { createLocationPickerState } from './location-picker';
 export { createLocationSelectorState } from './location-selector';

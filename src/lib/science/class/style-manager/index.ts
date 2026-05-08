@@ -1,10 +1,13 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AiResultCardStyleManager } from './ai-result-card';
 export { CodeEditorStyleManager } from './code-editor-style-manager';
+export { GraphCanvasStyleManager } from './graph-canvas';
 export { GraphNodeCardStyleManager } from './graph-node-card';
+export { GraphPortStyleManager } from './graph-port';
 export { GraphvizDirectedEdgeStyleManager } from './graphviz-directed-edge-style-manager';
 export { Idef0StyleManager } from './idef0';
 export { LiteGraphNodeStyleManager } from './litegraph-node';
+export { MinimapStyleManager } from './minimap';
 export { ModelSelectorStyleManager } from './model-selector';
 export { ProductSearchStyleManager } from './molecules-migration';
 export { NodeHeaderStyleManager } from './node-header';

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { NodeProperty } from '$stylist/control';
-	import { NodeHeader, PortGroup } from '$stylist/science';
+	import { NodeHeader, NodeProperty, PortGroup } from '$stylist/science';
 	import type { LiteGraphPort } from '$stylist/science/type/struct/litegraph-port';
 	import type { LitegraphNodeProps } from '$stylist/science/type/struct/litegraph-node-props';
 	import { createLiteGraphNodeState } from '$stylist/science/function/state/litegraph-node';

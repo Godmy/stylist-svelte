@@ -2,7 +2,6 @@
 export { createAlertCardState } from './alert-card';
 export { createAlertCardStoryState } from './alert-card-story';
 export { createArticleCardState } from './article-card';
-export { createBaseCardState } from './base-card';
 export { createBillingSummaryState } from './billing-summary';
 export { BulkOrderFormModel } from './bulk-order-form';
 export { createCardWithImageState } from './card-with-image';
@@ -16,6 +15,7 @@ export { createDiscountApplierState } from './discount-applier';
 export { createExpandableCardState } from './expandable-card';
 export { createInventoryTrackerState } from './inventory-tracker';
 export { createLinkCardState } from './link-card';
+export { createMetricCardState } from './metric-card';
 export { createOrderConfirmationState } from './order-confirmation';
 export { createOrderHistoryState } from './order-history';
 export { createOrderTrackingState } from './order-tracking';

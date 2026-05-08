@@ -1,10 +1,8 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { AlertCardStyleManager } from './alert-card';
 export { ArticleCardStyleManager } from './article-card';
-export { BaseCardStyleManager } from './base-card';
 export { BillingSummaryStyleManager } from './billing-summary';
 export { BulkOrderFormStyleManager } from './bulk-order-form';
-export { CardStyleManager } from './card';
 export { CardWithImageStyleManager } from './card-with-image';
 export { CartSummaryStyleManager } from './cart-summary';
 export { CategoryCardStyleManager } from './category-card';
@@ -16,6 +14,7 @@ export { DiscountApplierStyleManager } from './discount-applier';
 export { ExpandableCardStyleManager } from './expandable-card';
 export { InventoryTrackerStyleManager } from './inventory-tracker';
 export { LinkCardStyleManager } from './link-card';
+export { MetricCardStyleManager } from './metric-card';
 export { OrderConfirmationStyleManager } from './order-confirmation';
 export { OrderHistoryStyleManager } from './order-history';
 export { OrderTrackingStyleManager } from './order-tracking';

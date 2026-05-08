@@ -1,4 +1,5 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export type { BaseCardProps } from './base-card-props';
 export type { ChildrenProp } from './children-prop';
 export type { ClassProp } from './class-prop';
 export type { ContentProp } from './content-prop';

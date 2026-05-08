@@ -42,6 +42,10 @@ export class NodeTitleStyleManager {
 		};
 		return colorMap[variant] || colorMap.default;
 	}
+
+	static getInputClass(): string {
+		return 'node-title__input';
+	}
 }
 
 

@@ -1,4 +1,6 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
+export { CARD_SIZE_CLASSES } from './card-size-classes';
+export { PROGRESS_VARIANT_CLASSES } from './progress-variant-classes';
 export { STATS_CARD_TREND_CLASS } from './stats-card-trend-class';
 export { STATS_CARD_TREND_ICON } from './stats-card-trend-icon';
 export { TABLE_ALIGNMENT_CLASSES } from './table-alignment-classes';

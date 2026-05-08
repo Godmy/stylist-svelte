@@ -6,6 +6,7 @@ export { createAudioVisualizerState } from './audio-visualizer';
 export { createAvatarState } from './avatar';
 export { createAvatarGroupState } from './avatar-group';
 export { createCanvasImageEditorState } from './canvas-image-editor';
+export { createCountryFlagState } from './country-flag';
 export { createFaviconState } from './favicon';
 export { createIconState } from './icon';
 export { createImageState } from './image';

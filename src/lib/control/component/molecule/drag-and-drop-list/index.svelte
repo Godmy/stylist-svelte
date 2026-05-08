@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
   import { Icon as BaseIcon } from '$stylist/media';
-  import BaseCard from '$stylist/commerce/component/molecule/base-card/index.svelte';
+  import BaseCard from '$stylist/information/component/molecule/base-card/index.svelte';
   import type { DragAndDropListProps } from '$stylist/control/type/struct/drag-and-drop-list-props';
   import { createDragAndDropListState } from '$stylist/control/function/state/drag-and-drop-list';
 

@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
+import { CardStyleManager } from '$stylist/information/class/style-manager/card';
 import { ORDER_STATUS_CLASSES } from '$stylist/commerce/const/map/order-status-classes';
 import { PAYMENT_STATUS_CLASSES } from '$stylist/commerce/const/map/payment-status-classes';
 

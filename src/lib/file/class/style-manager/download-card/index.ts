@@ -9,7 +9,7 @@
  */
 
 import type { TokenAppearance } from '$stylist/interaction/type/record/appearance';
-import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
+import { CardStyleManager } from '$stylist/information/class/style-manager/card';
 
 export class DownloadCardStyleManager {
   /**

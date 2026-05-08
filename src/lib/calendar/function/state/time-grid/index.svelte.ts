@@ -2,7 +2,7 @@ import type { RecipeTimeGrid as TimeGridContract } from '$stylist/calendar/inter
 import type { SlotTimeGridEvent as SlotTimeGridEvent } from '$stylist/calendar/interface/slot/time-grid-event';
 import type { RecipeTimeGridExtendedTimeSlot as RecipeTimeGridExtendedTimeSlot } from '$stylist/calendar/interface/recipe/time-grid-extended-time-slot';
 import type { RecipeTimeGridDayTimeGrid as RecipeTimeGridDayTimeGrid } from '$stylist/calendar/interface/recipe/time-grid-day-time-grid';
-import { TimeGridStyleManager } from '$stylist/management/class/style-manager/time-grid';
+import { TimeGridStyleManager } from '$stylist/calendar/class/style-manager/time-grid';
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { isToday } from '$stylist/calendar/function/script/date-check';
 import { isWeekend } from '$stylist/calendar/function/script/is-weekend';

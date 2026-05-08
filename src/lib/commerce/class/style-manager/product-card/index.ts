@@ -1,5 +1,5 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
-import { CardStyleManager } from '$stylist/commerce/class/style-manager/card';
+import { CardStyleManager } from '$stylist/information/class/style-manager/card';
 import type { TierContent } from '$stylist/architecture/type/enum/tier';
 import { PRODUCT_CARD_CONTAINER_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-container-variant-classes';
 import { PRODUCT_CARD_IMAGE_CONTAINER_VARIANT_CLASSES } from '$stylist/commerce/const/record/product-card-image-container-variant-classes';

@@ -7,6 +7,7 @@ export { createFeatureToggleState } from './feature-toggle';
 export { createKanbanBoardState } from './kanban-board';
 export { createKanbanCardState } from './kanban-card';
 export { createKanbanColumnState } from './kanban-column';
+export { createKPIIndicatorState } from './kpi-indicator';
 export { createLegendItemState } from './legend-item';
 export { createNotificationState } from './notification';
 export { createNotificationBadgeState } from './notification-badge';
