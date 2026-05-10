@@ -1,6 +1,6 @@
 ﻿<script lang="ts">
-	import type { StatCardRecipe } from '$stylist/information/interface/recipe/stat-card';
-	import { createStatCardState } from '$stylist/information/function/state/stat-card';
+	import type { StatCardRecipe } from '$stylist/management/interface/recipe/stat-card';
+	import { createStatCardState } from '$stylist/management/function/state/stat-card';
 	import AnimatedNumber from '$stylist/typography/component/atom/animated-number/index.svelte';
 
 	let props: StatCardRecipe = $props();

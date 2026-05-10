@@ -1,6 +1,6 @@
-﻿import { StatCardStyleManager } from '$stylist/information/class/style-manager/stat-card';
-import { ObjectManagerStatCard } from '$stylist/information/class/object-manager/stat-card';
-import type { StatCardRecipe } from '$stylist/information/interface/recipe/stat-card';
+import { StatCardStyleManager } from '$stylist/management/class/style-manager/stat-card';
+import { ObjectManagerStatCard } from '$stylist/management/class/object-manager/stat-card';
+import type { StatCardRecipe } from '$stylist/management/interface/recipe/stat-card';
 
 export function createStatCardState(props: StatCardRecipe) {
 	const label = $derived((props as any).label ?? '');
@@ -60,9 +60,3 @@ export function createStatCardState(props: StatCardRecipe) {
 }
 
 export default createStatCardState;
-
-
-
-
-
-

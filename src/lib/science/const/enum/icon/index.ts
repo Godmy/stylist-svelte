@@ -3,6 +3,7 @@ export const TOKEN_SCIENCE_ICON = [
 	'cards',
 	'controls',
 	'diagrams',
+	'graph-toolbar',
 	'ontology',
 	'palette',
 	'panels',

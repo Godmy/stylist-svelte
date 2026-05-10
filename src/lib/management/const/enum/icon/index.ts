@@ -13,5 +13,6 @@ export const TOKEN_MANAGEMENT_ICON = [
 	'operations-history',
 	'performance-dashboard',
 	'security',
+	'stat-card',
 	'status-dashboard'
 ] as const;

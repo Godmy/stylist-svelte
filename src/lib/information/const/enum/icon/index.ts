@@ -122,7 +122,6 @@ export const TOKEN_INFORMATION_ICON = [
 	'shipping-info',
 	'skeletons',
 	'spinner',
-	'stat-card',
 	'stats-card',
 	'stepper',
 	'store-locator',

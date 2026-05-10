@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { StatCardRecipe } from '$stylist/information/interface/recipe/stat-card';
+  import type { StatCardRecipe } from '$stylist/management/interface/recipe/stat-card';
   import { Story } from '$stylist/playground/component';
   import type { InterfaceControllerSettings } from '$stylist/playground/type/struct/interface-controller-settings';
 

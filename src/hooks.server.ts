@@ -4,6 +4,13 @@ import { serializeUnknownError } from '$stylist/development/function/script/seri
 
 export const handleError: HandleServerError = ({ error, event, status, message }) => {
 	const serializedError = serializeUnknownError(error);
+	let clientAddress: string | null = null;
+
+	try {
+		clientAddress = event.getClientAddress();
+	} catch {
+		clientAddress = null;
+	}
 
 	appendErrorLog({
 		timestamp: new Date().toISOString(),
@@ -18,7 +25,7 @@ export const handleError: HandleServerError = ({ error, event, status, message }
 		details: {
 			params: event.params,
 			isDataRequest: event.isDataRequest,
-			clientAddress: event.getClientAddress()
+			clientAddress
 		}
 	});
 

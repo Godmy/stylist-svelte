@@ -22,7 +22,6 @@ export { createMetricBarsCardState } from './metric-bars-card';
 export { createSeparatorState } from './separator';
 export { createStatsCardState } from './stats-card';
 export { createStatusIndicatorState } from './status-indicator';
-export { createSyntaxHighlightedCodeState } from './syntax-highlighted-code';
 export { createTableState } from './table';
 export { createTableBodyState } from './table-body';
 export { createTableCellState } from './table-cell';

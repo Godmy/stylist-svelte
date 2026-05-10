@@ -1,6 +1,7 @@
 /** AREA: STYLIST CODER MODEL -> AUTO-GENERATED */
 export { ClusterToolbar } from './cluster-toolbar/index';
 export { DomainList } from './domain-list/index';
+export { DomainMenu } from './domain-menu/index';
 export { DomainToolbar } from './domain-toolbar/index';
 export { FunctionalTaxonomy } from './functional-taxonomy/index';
 export { JointTabButtons } from './joint-tab-buttons/index';

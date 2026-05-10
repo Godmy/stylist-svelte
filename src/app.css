@@ -38,6 +38,8 @@
 		background: var(--sand);
 		color: var(--ink);
 		font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+		overflow-y: scroll;
+		scrollbar-gutter: stable;
 	}
 }
 

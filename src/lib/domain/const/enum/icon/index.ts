@@ -1,5 +1,6 @@
 export const TOKEN_DOMAIN_ICON = [
 	'atom',
+	'backlog',
 	'behavior',
 	'builder',
 	'class',

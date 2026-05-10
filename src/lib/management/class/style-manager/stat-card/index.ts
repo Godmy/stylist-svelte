@@ -1,8 +1,8 @@
 import { mergeClassNames } from '$stylist/layout/function/script/merge-class-names';
 import { CardStyleManager } from '$stylist/information/class/style-manager/card';
 import type { TokenBackground } from '$stylist/layout/type/enum/background';
-import { STAT_CARD_VARIANT_CLASSES } from '$stylist/information/const/map/stat-card-variant-classes';
-import { STAT_CARD_TREND_TEXT_CLASSES } from '$stylist/information/const/map/stat-card-trend-text-classes';
+import { STAT_CARD_VARIANT_CLASSES } from '$stylist/management/const/map/stat-card-variant-classes';
+import { STAT_CARD_TREND_TEXT_CLASSES } from '$stylist/management/const/map/stat-card-trend-text-classes';
 
 export class StatCardStyleManager {
 	static getBaseClasses(

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { GraphToolbarProps } from '$stylist/science/type/struct/graph/graph-toolbar-props';
-	import { createGraphToolbarState } from '$stylist/canvas/function/state/graph-toolbar';
+	import { createGraphToolbarState } from '$stylist/science/function/state/graph-toolbar';
 	import { IconButton } from '$stylist/control';
 	import { Separator } from '$stylist/typography';
 
